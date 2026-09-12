@@ -1,6 +1,6 @@
 (()=>{
-  // One-time migration so existing testers see the newest whole-game cinematic once.
-  const INTRO_VERSION='kwizillo-intro-cinematic-v3';
+  // One-time migration so existing testers see the branded soundtrack cinematic once.
+  const INTRO_VERSION='kwizillo-intro-cinematic-v4';
   if(localStorage.getItem(INTRO_VERSION)!=='seen'){
     sessionStorage.removeItem('kwizillo-intro-v4');
     localStorage.setItem(INTRO_VERSION,'seen');
