@@ -25,9 +25,14 @@ async function boot(page){
 
 async function openWorld(page, buttonName){
   await page.getByRole('button',{name:buttonName}).click();
+  const world=page.locator('.native-world');
   const skip=page.getByRole('button',{name:'Overslaan'});
-  if(await skip.isVisible().catch(()=>false)) await skip.click();
-  await expect(page.locator('.native-world')).toBeVisible();
+  await Promise.race([
+    world.waitFor({state:'visible',timeout:1800}),
+    skip.waitFor({state:'visible',timeout:600}).then(()=>skip.click({timeout:600}).catch(()=>{})).catch(()=>{})
+  ]).catch(()=>{});
+  if(await skip.isVisible({timeout:150}).catch(()=>false)) await skip.click({timeout:300}).catch(()=>{});
+  await expect(world).toBeVisible({timeout:5000});
   await expect(page.locator('.world-topic')).toHaveCount(4);
   await expect(page.getByRole('button',{name:/Start gemengde quiz/})).toBeVisible();
 }
