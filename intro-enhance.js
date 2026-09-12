@@ -9,13 +9,11 @@
     if(gate.dataset.started==='1') return;
     gate.dataset.started='1';
     gate.classList.add('hide');
+    motion.classList.add('cinematic-playing');
     clearTimers();
     try{await K.audio.unlock()}catch(e){}
     try{
-      if(K.state.musicOn!==false){
-        await K.audio.setTrack('magical');
-        K.audio.setMusicVolume(Math.max(.24,Number(K.state.musicVolume||.24)));
-      }
+      if(K.state.musicOn!==false) await K.audio.start(K.state.musicTrack||'magical',.18);
     }catch(e){}
     if(K.state.soundOn!==false) K.audio.play('world');
     try{video.currentTime=0;await video.play()}catch(e){}
