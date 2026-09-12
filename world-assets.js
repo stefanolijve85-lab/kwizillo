@@ -10,9 +10,9 @@
     mysterie:'https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_134947_11131658-7742-4100-8519-56d5d57f54e7.png'
   });
 
-  // World screens must never play a separate transition movie. The only cinematic
-  // belongs to the app opening so entering a world is immediate and consistent.
   K.MOTION ||= {};
+  K.MOTION.home='https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_135112_1c844aa0-45bf-43d3-ab06-9ac14f9ca4e4.mp4';
+  // Never interrupt world selection with an unrelated transition movie.
   K.MOTION.ruimte=null;
   K.MOTION.mysterie=null;
 
