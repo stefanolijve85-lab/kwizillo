@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" role="img" aria-label="Kwizillo">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff86b"/>
+      <stop offset="0.48" stop-color="#ffd62f"/>
+      <stop offset="1" stop-color="#ff9911"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/>
+      <stop offset=".32" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-30%" width="150%" height="170%">
+      <feDropShadow dx="0" dy="16" stdDeviation="6" flood-color="#21115f" flood-opacity=".65"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#7fd8ff" flood-opacity=".95"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <text x="380" y="178" text-anchor="middle" font-family="Arial Rounded MT Bold, Nunito, Trebuchet MS, sans-serif" font-size="166" font-weight="1000" letter-spacing="-10" fill="#4b2aa8" stroke="#263bb7" stroke-width="30" stroke-linejoin="round">Kwizillo</text>
+    <text x="380" y="171" text-anchor="middle" font-family="Arial Rounded MT Bold, Nunito, Trebuchet MS, sans-serif" font-size="166" font-weight="1000" letter-spacing="-10" fill="url(#gold)" stroke="#ffffff" stroke-width="10" stroke-linejoin="round">Kwizillo</text>
+    <text x="380" y="171" text-anchor="middle" font-family="Arial Rounded MT Bold, Nunito, Trebuchet MS, sans-serif" font-size="166" font-weight="1000" letter-spacing="-10" fill="none" stroke="#ff7a0b" stroke-width="4" stroke-linejoin="round" opacity=".55">Kwizillo</text>
+    <path d="M391 10 406 40 439 45 415 68 421 101 391 85 361 101 367 68 343 45 376 40Z" fill="#ffd72f" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M391 23 399 41 419 44 404 58 408 78 391 69 374 78 378 58 363 44 383 41Z" fill="#ffb312"/>
+    <ellipse cx="257" cy="62" rx="74" ry="25" fill="url(#shine)" opacity=".42" transform="rotate(-12 257 62)"/>
+  </g>
+</svg>

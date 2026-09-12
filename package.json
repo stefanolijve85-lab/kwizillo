@@ -1,0 +1,13 @@
+{
+  "name": "kwizillo",
+  "version": "0.4.2",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/milestone1.test.js",
+    "test:ui": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}

@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#1573e8" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>Kwizillo — Visual Game V3.3</title>
+  <title>Kwizillo — Milestone 1.7 Moodboard Restore</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="milestone1.css" />
+  <link rel="stylesheet" href="world-native.css" />
+  <link rel="stylesheet" href="world-clean.css" />
+  <link rel="stylesheet" href="moodboard-polish.css" />
+  <link rel="stylesheet" href="intro-enhance.css" />
 </head>
 <body>
   <main id="app" aria-live="polite"></main>
@@ -14,10 +19,19 @@
     window.KWIZILLO_CONFIG = {
       elevenLabsProxyUrl: '/api/tts',
       voiceStatusUrl: '/api/voice-status',
-      allowBrowserVoiceFallback: false
+      allowBrowserVoiceFallback: false,
+      introVideoUrl: 'https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_141211_3ebd5cfa-3bb7-41cd-9532-68bf4d7bda63.mp4'
     };
   </script>
   <script src="questions.js"></script>
-  <script src="app.js"></script>
+  <script src="quiz-core-v2.js"></script>
+  <script src="m1-runtime.js"></script>
+  <script src="world-assets.js"></script>
+  <script src="m1-quiz.js"></script>
+  <script src="quiz-visual-v2.js"></script>
+  <script src="intro-v2.js"></script>
+  <script src="m1-ui.js"></script>
+  <script src="boot-intro.js"></script>
+  <script src="intro-enhance.js"></script>
 </body>
 </html>

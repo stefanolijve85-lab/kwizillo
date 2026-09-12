@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 941 1672" role="img" aria-label="Schone Mysteriewereld achtergrond">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#190b4b"/><stop offset=".45" stop-color="#4c2292"/><stop offset="1" stop-color="#12072f"/></linearGradient>
+ <radialGradient id="portal"><stop stop-color="#fff8a8"/><stop offset=".22" stop-color="#7ff8ff"/><stop offset=".52" stop-color="#995dff"/><stop offset="1" stop-color="#39116e" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#43307d"/><stop offset="1" stop-color="#160d35"/></linearGradient>
+ <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="941" height="1672" fill="url(#bg)"/>
+<circle cx="760" cy="195" r="90" fill="#f5efff" opacity=".8"/>
+<g fill="#fff" opacity=".75"><circle cx="120" cy="130" r="4"/><circle cx="195" cy="300" r="5"/><circle cx="360" cy="180" r="3"/><circle cx="535" cy="310" r="4"/><circle cx="835" cy="390" r="5"/><circle cx="85" cy="680" r="4"/><circle cx="860" cy="760" r="3"/></g>
+<path d="M0 970 C170 880 330 920 480 845 C645 765 790 825 941 745 V1672 H0Z" fill="url(#ground)"/>
+<g transform="translate(470 690)" filter="url(#glow)"><circle r="220" fill="url(#portal)" opacity=".75"/><circle r="138" fill="#120729" stroke="#9dfaff" stroke-width="12"/><circle r="108" fill="#2d1457" stroke="#d8b0ff" stroke-width="5" opacity=".92"/><path d="M-70 35 Q0 -30 70 35 Q0 105 -70 35Z" fill="#6fe9ff" opacity=".45"/><circle cy="35" r="18" fill="#fff9a8"/></g>
+<g transform="translate(215 860)"><path d="M0 -75 L48 -10 L0 70 L-48 -10Z" fill="#72e7ff" opacity=".85"/><path d="M-92 30 L-40 -40 L18 35 L-38 110Z" fill="#9b6cff" opacity=".78"/><path d="M66 40 L112 -22 L145 50 L92 115Z" fill="#f59cff" opacity=".7"/></g>
+<g transform="translate(730 900)"><path d="M-35 -95 H35 L28 -30 Q76 0 76 70 Q76 145 0 145 Q-76 145 -76 70 Q-76 0 -28 -30Z" fill="#f8d66c" stroke="#fff1ac" stroke-width="8"/><rect x="-52" y="135" width="104" height="20" rx="9" fill="#6a3f33"/><circle cy="52" r="28" fill="#ff9b42" opacity=".75"/></g>
+<g opacity=".8" fill="#0f0826"><path d="M0 1180 C170 1110 335 1145 480 1095 C635 1040 780 1060 941 1015 V1672 H0Z"/><path d="M90 1185 l55 -150 55 150 M760 1145 l70 -180 65 180"/></g>
+<g filter="url(#glow)" fill="#fff6a5"><circle cx="335" cy="405" r="7"/><circle cx="585" cy="430" r="6"/><circle cx="150" cy="520" r="5"/></g>
+</svg>
