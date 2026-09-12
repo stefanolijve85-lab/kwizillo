@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#1573e8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Kwizillo — Visual Game V3.3</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" aria-live="polite"></main>
+  <script>
+    window.KWIZILLO_CONFIG = {
+      elevenLabsProxyUrl: '/api/tts',
+      voiceStatusUrl: '/api/voice-status',
+      allowBrowserVoiceFallback: false
+    };
+  </script>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
