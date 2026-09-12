@@ -1,12 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
 const worlds = [
-  ['Ruimtewereld','Ruimtewereld'],
-  ['Dierenwereld','Dierenwereld'],
-  ['Aardewereld','Aardewereld'],
-  ['Geschiedeniswereld','Geschiedeniswereld'],
-  ['Wetenschapwereld','Wetenschapwereld'],
-  ['Mysteriewereld','Mysteriewereld']
+  ['Ruimtewereld','Ruimtewereld','assets/world_space_clean.svg'],
+  ['Dierenwereld','Dierenwereld','assets/world_animals_clean.svg'],
+  ['Aardewereld','Aardewereld','assets/world_earth_clean.svg'],
+  ['Geschiedeniswereld','Geschiedeniswereld','assets/world_history_clean.svg'],
+  ['Wetenschapwereld','Wetenschapwereld','assets/world_science_clean.svg'],
+  ['Mysteriewereld','Mysteriewereld','assets/world_mystery_clean.svg']
 ];
 
 async function boot(page){
@@ -38,15 +38,14 @@ async function openWorld(page, buttonName){
   await expect(page.getByRole('button',{name:/Start gemengde quiz/})).toBeVisible();
 }
 
-test('all six world buttons open a real world screen, never a storyboard', async ({page})=>{
+test('all six world buttons open one clean native world layer, never a baked mockup', async ({page})=>{
   await boot(page);
-  for(const [buttonName,title] of worlds){
+  for(const [buttonName,title,cleanAsset] of worlds){
     await openWorld(page,buttonName);
     await expect(page.locator('.world-title-wrap h1')).toHaveText(title);
-    if(buttonName==='Aardewereld'){
-      await expect(page.locator('.native-world-bg')).toHaveAttribute('src','assets/world_earth_safe.svg');
-      await expect(page.locator('.native-world-bg')).not.toHaveAttribute('src',/world_earth\.png/);
-    }
+    await expect(page.locator('.native-world-bg')).toHaveCount(1);
+    await expect(page.locator('.native-world-bg')).toHaveAttribute('src',cleanAsset);
+    await expect(page.locator('.native-world-bg')).not.toHaveAttribute('src',/world_(space|animals|earth|history|science|mystery)\.png/);
     await page.getByRole('button',{name:'Terug naar home'}).click();
     await expect(page.getByRole('button',{name:'Aardewereld'})).toBeVisible();
   }
