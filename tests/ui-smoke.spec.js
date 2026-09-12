@@ -111,7 +111,7 @@ test('parent controls and audio panel can all be operated', async ({page})=>{
   await expect(page.locator('[data-guide="Stil"]')).toBeVisible();
   await page.getByRole('button',{name:'Sluiten'}).click();
   await page.locator('#privacyOpen').click();
-  await expect(page.getByText('Privacy & veiligheid')).toBeVisible();
+  await expect(page.locator('.simple-modal').getByRole('heading',{name:'Privacy & veiligheid'})).toBeVisible();
   await page.getByRole('button',{name:'Begrepen'}).click();
 });
 
