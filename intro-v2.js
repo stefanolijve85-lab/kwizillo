@@ -6,9 +6,10 @@
     localStorage.setItem(INTRO_VERSION,'seen');
   }
 
-  // m1-ui still contains the prototype 4.7s fallback. Extend only that exact
-  // fallback during boot so the 12s cinematic can finish; normal timers remain untouched.
+  // The prototype helper still carries a 4.7s fallback. The cinematic now waits
+  // for the user's Start Kwizillo gesture (needed for reliable web audio), so
+  // give that fallback a long safety window. Video ended/error/skip still exits immediately.
   const nativeSetTimeout=window.setTimeout.bind(window);
-  window.setTimeout=(fn,delay,...args)=>nativeSetTimeout(fn,Number(delay)===4700?13500:delay,...args);
+  window.setTimeout=(fn,delay,...args)=>nativeSetTimeout(fn,Number(delay)===4700?90000:delay,...args);
   nativeSetTimeout(()=>{window.setTimeout=nativeSetTimeout},0);
 })();
