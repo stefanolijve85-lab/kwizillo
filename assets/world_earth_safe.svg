@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 941 1672" role="img" aria-label="Aardewereld">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#155dca"/>
+      <stop offset="0.48" stop-color="#46bce7"/>
+      <stop offset="1" stop-color="#c9f0ff"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#32bfe7"/>
+      <stop offset="1" stop-color="#1177b9"/>
+    </linearGradient>
+    <linearGradient id="island" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9ce46f"/>
+      <stop offset="0.55" stop-color="#4caf5a"/>
+      <stop offset="1" stop-color="#2d7f45"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0a3a73" flood-opacity=".25"/>
+    </filter>
+    <radialGradient id="sun"><stop stop-color="#fff9ba"/><stop offset="1" stop-color="#ffd35a"/></radialGradient>
+  </defs>
+  <rect width="941" height="1672" fill="url(#sky)"/>
+  <circle cx="760" cy="180" r="120" fill="url(#sun)" opacity=".92"/>
+  <g opacity=".8" fill="#fff">
+    <ellipse cx="165" cy="240" rx="145" ry="48"/>
+    <ellipse cx="305" cy="190" rx="105" ry="40"/>
+    <ellipse cx="710" cy="345" rx="130" ry="44"/>
+  </g>
+  <path d="M0 910 Q170 830 335 905 T675 900 T941 880 V1672 H0Z" fill="url(#sea)"/>
+  <g filter="url(#shadow)">
+    <path d="M120 790 Q185 555 360 510 Q520 470 640 570 Q735 650 700 790 Q665 925 500 980 Q300 1040 160 920Z" fill="url(#island)"/>
+    <path d="M170 815 Q265 650 355 585 L440 760 L535 600 L650 805Z" fill="#608d67"/>
+    <path d="M265 700 L355 585 L408 692Z" fill="#ecf7ff"/>
+    <path d="M455 697 L535 600 L590 720Z" fill="#f7fbff"/>
+    <path d="M200 845 Q305 770 410 845 T620 850" fill="none" stroke="#74d8ff" stroke-width="26" stroke-linecap="round"/>
+    <circle cx="280" cy="775" r="48" fill="#5bcf67"/>
+    <circle cx="335" cy="805" r="55" fill="#48bb59"/>
+    <circle cx="585" cy="780" r="52" fill="#5aca61"/>
+  </g>
+  <g transform="translate(525 1045)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="170" fill="#5dd3ff" stroke="#e7fbff" stroke-width="14"/>
+    <path d="M-86 -92 q68 -44 127 5 l-21 49 -62 10 -63 -32Z M21 24 q85 -34 122 30 l-50 73 -80 5 -38 -53Z" fill="#69c96a"/>
+    <ellipse cx="0" cy="0" rx="170" ry="52" fill="none" stroke="#dff9ff" stroke-width="6" opacity=".45"/>
+  </g>
+  <g fill="#fff" opacity=".8">
+    <circle cx="120" cy="1110" r="8"/>
+    <circle cx="820" cy="1170" r="10"/>
+    <circle cx="755" cy="730" r="7"/>
+  </g>
+</svg>
