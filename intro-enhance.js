@@ -4,30 +4,17 @@
   let introTimers=[];
   const clearTimers=()=>{introTimers.forEach(clearTimeout);introTimers=[]};
   const schedule=(fn,ms)=>introTimers.push(setTimeout(fn,ms));
+  const playCue=name=>{if(K.state.soundOn===false)return;try{K.audio.play(name)}catch(e){}};
 
-  function playCue(name){
-    if(K.state.soundOn===false) return;
-    try{K.audio.play(name)}catch(e){}
+  async function tryStartSound(){
+    try{
+      if(K.state.musicOn!==false) await K.audio.start(K.state.musicTrack||'magical',.12);
+    }catch(e){}
   }
 
-  async function startWithSound(motion,video,gate){
-    if(gate.dataset.started==='1') return;
-    gate.dataset.started='1';
-    gate.classList.add('hide');
-    motion.classList.add('cinematic-playing');
+  function scheduleSoundDesign(){
     clearTimers();
-
-    try{await K.audio.unlock()}catch(e){}
-    try{
-      if(K.state.musicOn!==false){
-        await K.audio.start(K.state.musicTrack||'magical',.18);
-      }
-    }catch(e){}
-
     playCue('world');
-    try{video.currentTime=0;await video.play()}catch(e){}
-
-    // Sound design follows the six-world rhythm of the 12s cinematic.
     schedule(()=>playCue('tap'),1550);
     schedule(()=>playCue('good'),3200);
     schedule(()=>playCue('tap'),4750);
@@ -46,35 +33,35 @@
     if(!home||!current.includes(home.split('/').pop()))return;
 
     motion.dataset.enhanced='1';
-    motion.classList.add('kwizillo-cinematic');
-    video.muted=true;
-    try{video.pause();video.currentTime=0}catch(e){}
+    motion.classList.add('kwizillo-cinematic','cinematic-playing');
     motion.querySelector('.motion-badge')?.remove();
+    motion.querySelector('.motion-skip')?.remove();
 
     const brand=document.createElement('div');
     brand.className='intro-brand';
-    brand.innerHTML='<img class="intro-brand-logo" src="assets/kwizillo-logo.svg" alt="Kwizillo">';
+    brand.innerHTML=`<img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo">`;
     motion.appendChild(brand);
 
-    const gate=document.createElement('div');
-    gate.className='intro-start-gate';
-    gate.innerHTML='<button class="intro-start-btn" type="button" aria-label="Start Kwizillo intro met geluid"><span>🔊</span><span>Start Kwizillo</span></button>';
-    motion.appendChild(gate);
+    // Start the cinematic immediately. Web browsers require muted autoplay;
+    // audio is armed in parallel and resumes on the first normal user gesture.
+    video.muted=true;
+    video.playsInline=true;
+    video.autoplay=true;
+    try{video.currentTime=0}catch(e){}
+    video.play().catch(()=>{});
+    tryStartSound();
+    scheduleSoundDesign();
 
-    const note=document.createElement('div');
-    note.className='intro-sound-note';
-    note.textContent='Muziek + spelgeluiden';
-    motion.appendChild(note);
+    const unlockSound=()=>{
+      K.audio.unlock?.().then(()=>tryStartSound()).catch(()=>{});
+    };
+    document.addEventListener('pointerdown',unlockSound,{once:true,capture:true});
 
-    gate.querySelector('.intro-start-btn').onclick=()=>startWithSound(motion,video,gate);
-
-    const stopIntroAudio=()=>{
+    video.addEventListener('ended',()=>{
       clearTimers();
       motion.classList.remove('cinematic-playing');
-    };
-    const skip=motion.querySelector('.motion-skip');
-    if(skip) skip.addEventListener('click',stopIntroAudio,{once:true});
-    video.addEventListener('ended',stopIntroAudio,{once:true});
+    },{once:true});
+    video.addEventListener('error',()=>clearTimers(),{once:true});
   }
 
   const run=()=>enhance(document.querySelector('.motion'));
