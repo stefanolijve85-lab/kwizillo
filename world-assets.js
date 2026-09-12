@@ -11,8 +11,9 @@
   });
 
   K.MOTION ||= {};
-  K.MOTION.home='https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_135112_1c844aa0-45bf-43d3-ab06-9ac14f9ca4e4.mp4';
-  // Never interrupt world selection with an unrelated transition movie.
+  // Definitive 12-second whole-game cinematic. It is shown only as the app intro.
+  K.MOTION.home='https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_141211_3ebd5cfa-3bb7-41cd-9532-68bf4d7bda63.mp4';
+  // World selection must be immediate: no unrelated transition movie between home and a world.
   K.MOTION.ruimte=null;
   K.MOTION.mysterie=null;
 
