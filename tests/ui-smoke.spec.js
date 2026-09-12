@@ -1,12 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
 const worlds = [
-  ['Ruimtewereld','Ruimtewereld','assets/world_space_clean.svg'],
-  ['Dierenwereld','Dierenwereld','assets/world_animals_clean.svg'],
-  ['Aardewereld','Aardewereld','assets/world_earth_clean.svg'],
-  ['Geschiedeniswereld','Geschiedeniswereld','assets/world_history_clean.svg'],
-  ['Wetenschapwereld','Wetenschapwereld','assets/world_science_clean.svg'],
-  ['Mysteriewereld','Mysteriewereld','assets/world_mystery_clean.svg']
+  ['Ruimtewereld','Ruimtewereld','hf_20260912_134948_1ad6f07a-e7d6-40f4-a7a6-4bed94129dee.png'],
+  ['Dierenwereld','Dierenwereld','hf_20260912_134947_3968b9aa-de85-49a9-a3ab-bdf45a4483cd.png'],
+  ['Aardewereld','Aardewereld','hf_20260912_134948_fd27a8a5-94a9-4c39-b88e-c76f70365444.png'],
+  ['Geschiedeniswereld','Geschiedeniswereld','hf_20260912_134948_47891594-73ca-43cc-aa0e-57ba597a099d.png'],
+  ['Wetenschapwereld','Wetenschapwereld','hf_20260912_134948_a609ced9-8d43-4578-aace-fb9529f429c7.png'],
+  ['Mysteriewereld','Mysteriewereld','hf_20260912_134947_11131658-7742-4100-8519-56d5d57f54e7.png']
 ];
 
 async function boot(page){
@@ -27,25 +27,21 @@ async function boot(page){
 async function openWorld(page, buttonName){
   await page.getByRole('button',{name:buttonName}).click();
   const world=page.locator('.native-world');
-  const skip=page.getByRole('button',{name:'Overslaan'});
-  await Promise.race([
-    world.waitFor({state:'visible',timeout:1800}),
-    skip.waitFor({state:'visible',timeout:600}).then(()=>skip.click({timeout:600}).catch(()=>{})).catch(()=>{})
-  ]).catch(()=>{});
-  if(await skip.isVisible({timeout:150}).catch(()=>false)) await skip.click({timeout:300}).catch(()=>{});
   await expect(world).toBeVisible({timeout:5000});
   await expect(page.locator('.world-topic')).toHaveCount(4);
   await expect(page.getByRole('button',{name:/Start gemengde quiz/})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Overslaan'})).toHaveCount(0);
 }
 
-test('all six world buttons open one clean native world layer, never a baked mockup', async ({page})=>{
+test('all six world buttons open one premium native world layer without transition movie', async ({page})=>{
   await boot(page);
-  for(const [buttonName,title,cleanAsset] of worlds){
+  for(const [buttonName,title,assetMarker] of worlds){
     await openWorld(page,buttonName);
     await expect(page.locator('.world-title-wrap h1')).toHaveText(title);
     await expect(page.locator('.native-world-bg')).toHaveCount(1);
-    await expect(page.locator('.native-world-bg')).toHaveAttribute('src',cleanAsset);
-    await expect(page.locator('.native-world-bg')).not.toHaveAttribute('src',/world_(space|animals|earth|history|science|mystery)\.png/);
+    const src=await page.locator('.native-world-bg').getAttribute('src');
+    expect(src).toContain(assetMarker);
+    expect(src).not.toMatch(/assets\/world_(space|animals|earth|history|science|mystery)(?:_clean)?\.(?:png|svg)/);
     await page.getByRole('button',{name:'Terug naar home'}).click();
     await expect(page.getByRole('button',{name:'Aardewereld'})).toBeVisible();
   }
