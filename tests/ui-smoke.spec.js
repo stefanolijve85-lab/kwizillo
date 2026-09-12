@@ -1,18 +1,17 @@
 const { test, expect } = require('@playwright/test');
 
 const worlds = [
-  ['Ruimtewereld','Ruimtewereld','hf_20260912_134948_1ad6f07a-e7d6-40f4-a7a6-4bed94129dee.png'],
-  ['Dierenwereld','Dierenwereld','hf_20260912_134947_3968b9aa-de85-49a9-a3ab-bdf45a4483cd.png'],
-  ['Aardewereld','Aardewereld','hf_20260912_134948_fd27a8a5-94a9-4c39-b88e-c76f70365444.png'],
-  ['Geschiedeniswereld','Geschiedeniswereld','hf_20260912_134948_47891594-73ca-43cc-aa0e-57ba597a099d.png'],
-  ['Wetenschapwereld','Wetenschapwereld','hf_20260912_134948_a609ced9-8d43-4578-aace-fb9529f429c7.png'],
-  ['Mysteriewereld','Mysteriewereld','hf_20260912_134947_11131658-7742-4100-8519-56d5d57f54e7.png']
+  ['Ruimtewereld','Ruimtewereld','hf_20260912_143746_b59617fc-4c86-4eb9-a0fe-0e54b2100494.png'],
+  ['Dierenwereld','Dierenwereld','hf_20260912_143746_ddbc8c7f-9749-4d5a-81b8-5704e5fd2591.png'],
+  ['Aardewereld','Aardewereld','hf_20260912_143746_f40a81b0-e433-42f2-81bc-d351c726e487.png'],
+  ['Geschiedeniswereld','Geschiedeniswereld','hf_20260912_143746_d9a31c5d-be9c-4fb4-b0d7-16ffa145658e.png'],
+  ['Wetenschapwereld','Wetenschapwereld','hf_20260912_143746_89578ba1-01cc-45ce-9dd8-e83513e33228.png'],
+  ['Mysteriewereld','Mysteriewereld','hf_20260912_143746_f83ec603-99e4-4d56-825d-ff422a9de04b.png']
 ];
 
 async function boot(page){
   await page.route('**/*.mp4', route => route.abort());
   await page.addInitScript(() => {
-    sessionStorage.setItem('kwizillo-intro-v4','1');
     localStorage.setItem('kwizillo-v4-state', JSON.stringify({
       coins:245,streak:7,level:5,xp:320,voice:'Stil',soundOn:false,musicOn:false,
       sfxVolume:.72,musicVolume:.24,musicTrack:'magical',timeLimitOn:true,timeLimit:45,
@@ -21,7 +20,7 @@ async function boot(page){
     }));
   });
   await page.goto('/');
-  await expect(page.getByRole('button',{name:'Aardewereld'})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Aardewereld'})).toBeVisible({timeout:7000});
 }
 
 async function openWorld(page, buttonName){
@@ -51,8 +50,9 @@ test('topic, hint, answer feedback and next-question flow are clickable', async 
   await boot(page);
   await openWorld(page,'Wetenschapwereld');
   await page.locator('.world-topic').first().click();
-  await expect(page.locator('.quiz-shell')).toBeVisible();
+  await expect(page.locator('.quiz-v2')).toBeVisible();
   await expect(page.locator('.answer')).toHaveCount(4);
+  await expect(page.locator('.quiz-art img')).toBeVisible();
   await page.getByRole('button',{name:/Hint/}).click();
   await expect(page.locator('.hint-float')).toBeVisible();
   await page.getByRole('button',{name:'Hint sluiten'}).click();
@@ -60,18 +60,16 @@ test('topic, hint, answer feedback and next-question flow are clickable', async 
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
   await page.locator('#feedbackNext').click();
-  await expect(page.locator('.quiz-shell')).toBeVisible();
-  await expect(page.locator('.progress-panel')).toContainText('Vraag 2');
+  await expect(page.locator('.quiz-v2')).toBeVisible();
+  await expect(page.locator('.quiz-progress')).toContainText('Vraag 2');
 });
 
 test('every main navigation destination is dynamic and interactive', async ({page})=>{
   await boot(page);
   await openWorld(page,'Aardewereld');
-
   await page.locator('.native-bottom-nav').getByRole('button',{name:/Prestaties/}).click();
   await expect(page.locator('.achievement-grid')).toBeVisible();
   await expect(page.locator('.achievement-card')).toHaveCount(6);
-
   await page.locator('.native-bottom-nav').getByRole('button',{name:/Collectie/}).click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
   await page.getByRole('button',{name:/Kaarten/}).click();
@@ -79,11 +77,9 @@ test('every main navigation destination is dynamic and interactive', async ({pag
   await page.getByRole('button',{name:/Mascottes/}).click();
   await expect(page.locator('.mascot-card')).toHaveCount(6);
   await page.locator('.mascot-card:not([disabled])').first().click();
-
   await page.locator('.native-bottom-nav').getByRole('button',{name:/Statistieken/}).click();
   await expect(page.locator('.stat-hero')).toBeVisible();
   await expect(page.locator('.world-stat-list article')).toHaveCount(6);
-
   await page.locator('.native-bottom-nav').getByRole('button',{name:/Meer/}).click();
   await expect(page.locator('.settings-list')).toBeVisible();
 });
@@ -110,18 +106,18 @@ test('parent controls and audio panel can all be operated', async ({page})=>{
   await page.getByRole('button',{name:'Begrepen'}).click();
 });
 
-test('a complete 10-question quiz reaches result and result actions work', async ({page})=>{
+test('a complete 10-question quiz reaches dynamic result and result actions work', async ({page})=>{
   await boot(page);
   await openWorld(page,'Dierenwereld');
   await page.getByRole('button',{name:/Start gemengde quiz/}).click();
   for(let i=0;i<10;i++){
-    await expect(page.locator('.quiz-shell')).toBeVisible();
+    await expect(page.locator('.quiz-v2')).toBeVisible();
     await expect(page.locator('.answer')).toHaveCount(4);
     await page.locator('.answer').first().click();
     await expect(page.locator('.feedback-float')).toBeVisible();
     await page.locator('#feedbackNext').click();
   }
-  await expect(page.locator('.result-native')).toBeVisible();
+  await expect(page.locator('.result-v2')).toBeVisible();
   await expect(page.getByRole('button',{name:'Nog een quiz'})).toBeVisible();
   await page.getByRole('button',{name:'Naar mijn collectie'}).click();
   await expect(page.locator('.collection-screen')).toBeVisible();
