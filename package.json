@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/quiz-core.test.js"
+    "test": "node tests/quiz-core.test.js && node tests/milestone1.test.js"
   }
 }
