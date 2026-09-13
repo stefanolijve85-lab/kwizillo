@@ -85,3 +85,41 @@ for (const key of topicKeys) {
 }
 
 console.log(`Kwizillo question banks: OK (nl ${BANKS.nl.length}, en ${BANKS.en.length}, 24 topics, ids in parity)`);
+
+// Every question must resolve to a subject or topic illustration. Falling back to
+// the world background was AUDIT.md finding 4.11: the card showed the same picture
+// as the blurred backdrop behind it.
+{
+  const worldAssets = fs.readFileSync(path.join(ROOT, 'world-assets.js'), 'utf8');
+  const K = { MASTER: {}, QUESTION_ART: {}, TOPIC_ART: {} };
+  vm.runInNewContext(worldAssets, { window: { KWIZILLO_M1: K } });
+
+  assert.strictEqual(Object.keys(K.TOPIC_ART).length, 24, 'every topic needs an illustration');
+  for (const [topic, src] of Object.entries(K.TOPIC_ART)) {
+    assert.ok(fs.existsSync(path.join(ROOT, src)), `${topic}: missing art file ${src}`);
+    assert.ok(!/^https?:/.test(src), `${topic}: art must be local, got ${src}`);
+  }
+  for (const [kind, src] of Object.entries(K.QUESTION_ART)) {
+    assert.ok(fs.existsSync(path.join(ROOT, src)), `${kind}: missing art file ${src}`);
+  }
+
+  const core = require('../quiz-core-v2.js');
+  const OWN_TOPIC = { body: 'lichaam', castle: 'ridders_kastelen', dissolve: 'slimme_proefjes', light: 'slimme_proefjes' };
+  // The astronaut muscle question legitimately reaches for the anatomy picture.
+  const ALLOWED_CROSS = new Set(['ruimte-astronauten-07']);
+
+  for (const [lang, bank] of Object.entries(BANKS)) {
+    const unresolved = bank.filter(q => !K.QUESTION_ART[core.questionArtKind(q)] && !K.TOPIC_ART[q.topic]);
+    assert.strictEqual(unresolved.length, 0,
+      `${lang}: ${unresolved.length} questions fall back to world art, e.g. ${unresolved[0]?.id}`);
+
+    // Subject matching must not pull a question into an unrelated illustration.
+    const stray = bank.filter(q => {
+      const kind = core.questionArtKind(q);
+      return kind && q.topic !== OWN_TOPIC[kind] && !ALLOWED_CROSS.has(q.id);
+    });
+    assert.strictEqual(stray.length, 0,
+      `${lang}: subject art mismatched ${stray.length} question(s), e.g. ${stray[0]?.id} "${stray[0]?.prompt}"`);
+  }
+  console.log('Kwizillo question art: OK (24 topic illustrations, 0 world fallbacks, 0 subject mismatches)');
+}

@@ -159,14 +159,18 @@
   .welcome-mascot{font-size:60px}
 }
 
-/* The illustration absorbs all leftover height. Previously it was pinned at 31%,
-   which left a large empty band above the answers on taller screens. */
-.quiz-card h1,.quiz-card .answers,.quiz-card .quiz-actions{flex:0 0 auto}
-.quiz-card .answers{margin-top:0}
-.quiz-card .quiz-art{flex:1 1 auto;min-height:120px}
+/* The illustration keeps its 16:9 framing (CLAUDE.md section 8) instead of being
+   cropped into a tall box; the answer grid absorbs the leftover height, so there
+   is no empty band and no squeezed picture. */
+.quiz-card h1,.quiz-card .quiz-actions{flex:0 0 auto}
+/* The illustration takes the leftover height so there is no empty band, but it is
+   capped so it stays landscape and never crops the 16:9 art into a tall box. */
+.quiz-card .quiz-art{flex:1 1 auto;width:100%;min-height:0;max-height:46%}
+/* Tiles grow with the screen but stay tap-sized rather than becoming empty slabs. */
+.quiz-card .answers{flex:1 1 auto;margin-top:0;min-height:0;grid-auto-rows:minmax(76px,104px);align-content:center}
 /* Keep long answer text clear of the A/B/C/D badge. */
-.quiz-card .answer{padding-left:46px;padding-right:14px}
-@media(max-width:420px){.quiz-card .answer{padding-left:40px;padding-right:10px}}
+.quiz-card .answer{padding-left:52px;padding-right:16px}
+@media(max-width:420px){.quiz-card .answer{padding-left:44px;padding-right:11px}}
 
 /* ---- Parental gate ---- */
 .gate-form{display:grid;gap:8px;margin-top:12px}

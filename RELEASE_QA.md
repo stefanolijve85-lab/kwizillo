@@ -58,6 +58,19 @@ zaken staan er expliciet in; er is niets weggelaten omdat het slecht uitkwam.
 - **Snel tikken en navigeren tijdens een quiz:** geen JS-fouten, geen dubbele feedback.
 - **Geen netwerk:** alle kunst is lokaal, dus werelden, quiz en illustraties werken offline. Alleen de stem valt weg.
 
+### Vraagillustraties
+- Elk van de 24 onderwerpen heeft een eigen 16:9 illustratie; **geen enkele vraag
+  valt nog terug op de wereldachtergrond** (was 60%).
+- Vier onderwerpen hergebruiken bestaande subject-kunst (sterren & planeten, ridders,
+  slimme proefjes, het lichaam); twintig zijn nieuw gegenereerd in de moodboard-stijl.
+- Daarbovenop kiest een subject-matcher op vraagtekst een nog preciezere afbeelding
+  voor oplos-, schaduw-, lichaams- en riddervragen.
+- Geen tekst, cijfers of UI in enige illustratie; geen personages, dus geen
+  inconsistente Milo. Een test bewaakt dekking én verkeerde matches.
+- Een eerdere versie van de matcher stuurde Engelse vragen over "long legs" en
+  "nautical chart" naar de anatomie-illustratie, omdat het Nederlandse `long` en
+  `hart` als deelstring matchten. Nu woordgrens-gebonden en getest.
+
 ### Apparaatformaten
 Getest op iPhone SE (375×667), iPhone 14 (390×844) en Pro Max (430×932):
 - geen horizontale overflow op Home, wereld of quiz
@@ -84,14 +97,6 @@ Getest op iPhone SE (375×667), iPhone 14 (390×844) en Pro Max (430×932):
 ## 4. Wat nog openstaat
 
 ### P1 — vóór TestFlight
-
-**Vraagillustraties dekken 60% van de vragen niet.**
-Er zijn zes onderwerpillustraties voor 240 vragen. Ruimte, wetenschap, lichaam en
-ridders zijn gedekt; **geschiedenis, mysterie, dieren en aarde hebben er geen**.
-Die vragen vallen terug op de wereldkunst met een per-vraag uitsnede, zodat de
-kaart niet identiek is aan de achtergrond — maar het is een verzachting, geen
-oplossing. Dit vraagt nieuwe illustraties en dus jouw akkoord (CLAUDE.md regel 4
-verbiedt nieuwe AI-kunst zonder expliciete goedkeuring).
 
 **Live spraak is niet geverifieerd.**
 Alle TTS-code is aangepast: stem per taal, `language_code` per verzoek, Vlaams
@@ -131,7 +136,7 @@ plaats van vrije tekst.
 | 4.8 "Antwoord A" + pauzes | ✅ opgelost, live niet geverifieerd |
 | 4.9 "Nog een quiz" herhaalt | ✅ opgelost |
 | 4.10 nepvoortgang | ✅ opgelost |
-| 4.11 vraagillustraties | ⚠️ verzacht, niet opgelost |
+| 4.11 vraagillustraties | ✅ opgelost — 24 onderwerpillustraties, 0 terugval |
 | 4.12 Home is screenshot | ✅ opgelost |
 | 4.13 geen safe areas | ✅ opgelost |
 | 4.14 kunst op externe CDN | ✅ opgelost |
@@ -150,8 +155,9 @@ plaats van vrije tekst.
 ## 6. Codebase nu
 
 ```
-2.761 regels applicatiecode over 13 bestanden, 62 getrackte bestanden
-34 MB assets, waarvan 25 MB de intro-video
+±2.800 regels applicatiecode over 13 bestanden
+44 MB assets, waarvan 25 MB de intro-video
+26 illustraties in gebruik: 24 onderwerpen + 2 subject-specifiek
 geen externe runtime-URL's behalve api.elevenlabs.io vanaf de server
 ```
 

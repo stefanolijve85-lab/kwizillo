@@ -7,8 +7,7 @@
 
 > **Status na Fase 3** (commits `e136a6d`, `bbe8a48`, `65cf5f8`, `1b5cdb0`, `1483b73`, `4b59f29`)
 >
-> **Opgelost:** 4.1 t/m 4.10, 4.12 t/m 4.22, plus de dode code uit §3.
-> **Verzacht, niet opgelost:** 4.11 — 60% van de vragen heeft nog geen eigen illustratie; dat vraagt nieuwe kunst en dus goedkeuring.
+> **Opgelost:** 4.1 t/m 4.22, plus de dode code uit §3.
 > **Bewust open:** 4.23 — de loopback-binding blijft tot er een productie-backend is (fase 6).
 > **Niet geverifieerd:** alle TTS-wijzigingen (4.6 deels, 4.7, 4.8) zijn zonder geldige ElevenLabs-sleutel geschreven.
 >

@@ -44,7 +44,25 @@
 
   function createSession({world,topicKey=null,topicLabel='',questions=[],quizNumber=1}){return{world,topicKey,topicLabel,questions,quizNumber,index:0,score:0,xp:0,answeredById:{}}}
   function recordAnswer(session,q,value){if(!session||!q)return{accepted:false,reason:'invalid'};if(session.answeredById?.[q.id])return{accepted:false,reason:'already-answered'};session.answeredById||={};session.answeredById[q.id]=true;const result=evaluateAnswer(q,value);if(result.correct){session.score++;session.xp+=q.xp||10}return{accepted:true,...result}}
+  // Picks a subject illustration from the wording of a question. Word-boundary
+  // matches only, and no term that means one thing in Dutch and something else
+  // inside an English word: "long" is Dutch for lung but matches "long legs",
+  // "hart" sits inside "chart", "rib" inside "scribes". Those sent sea charts and
+  // gazelles to the anatomy picture. Returns null when no subject clearly applies,
+  // which leaves the question to its topic illustration.
+  const SUBJECT_ART=[
+    ['dissolve',/\b(oplossen|opgelost|oplost|suiker|dissolve|dissolves|dissolving|sugar)\b/],
+    ['light',/\b(schaduw|schaduwen|spiegel|shadow|shadows|mirror)\b/],
+    ['body',/\b(spier|spieren|orgaan|organen|hersenen|skelet|bloedvaten|muscle|muscles|organ|organs|skeleton)\b/],
+    ['castle',/\b(ridder|ridders|kasteel|kastelen|middeleeuws|middeleeuwse|harnas|slotgracht|knight|knights|castle|castles|medieval|armour)\b/]
+  ];
+  function questionArtKind(q){
+    const p=String(q?.prompt||'').toLowerCase();
+    for(const [kind,re] of SUBJECT_ART) if(re.test(p)) return kind;
+    return null;
+  }
+
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,questionArtKind,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

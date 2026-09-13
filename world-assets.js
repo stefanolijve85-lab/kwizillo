@@ -13,7 +13,10 @@
     mysterie:'assets/worlds/mysterie.jpg'
   };
 
-  // 16:9 question illustrations, matched to a question by subject.
+  // Question illustrations come in two tiers, both 16:9.
+  //
+  // 1. Subject art, chosen from the wording of the question itself. This is the
+  //    closest match and wins when a question is clearly about one of these.
   K.QUESTION_ART={
     space:'assets/questions/space.jpg',
     body:'assets/questions/body.jpg',
@@ -21,6 +24,41 @@
     light:'assets/questions/light.jpg',
     lab:'assets/questions/lab.jpg',
     castle:'assets/questions/castle.jpg'
+  };
+
+  // 2. Topic art, one illustration per topic, covering all 24. Every question
+  //    therefore gets a relevant picture; the world background is never reused
+  //    as the question illustration.
+  K.TOPIC_ART={
+    zonnestelsel:'assets/topics/zonnestelsel.jpg',
+    sterren_planeten:'assets/questions/space.jpg',
+    astronauten:'assets/topics/astronauten.jpg',
+    raket_avontuur:'assets/topics/raket_avontuur.jpg',
+
+    egyptenaren:'assets/topics/egyptenaren.jpg',
+    ridders_kastelen:'assets/questions/castle.jpg',
+    romeinen:'assets/topics/romeinen.jpg',
+    ontdekkingsreizigers:'assets/topics/ontdekkingsreizigers.jpg',
+
+    slimme_proefjes:'assets/questions/lab.jpg',
+    lichaam:'assets/questions/body.jpg',
+    uitvindingen:'assets/topics/uitvindingen.jpg',
+    natuur_energie:'assets/topics/natuur_energie.jpg',
+
+    raadsels:'assets/topics/raadsels.jpg',
+    verborgen_schatten:'assets/topics/verborgen_schatten.jpg',
+    natuurmysteries:'assets/topics/natuurmysteries.jpg',
+    speurtocht:'assets/topics/speurtocht.jpg',
+
+    snelle_dieren:'assets/topics/snelle_dieren.jpg',
+    baby_dieren:'assets/topics/baby_dieren.jpg',
+    waterdieren:'assets/topics/waterdieren.jpg',
+    jungle:'assets/topics/jungle.jpg',
+
+    continenten_landen:'assets/topics/continenten_landen.jpg',
+    weer_klimaat:'assets/topics/weer_klimaat.jpg',
+    oceanen_natuur:'assets/topics/oceanen_natuur.jpg',
+    kaarten_navigatie:'assets/topics/kaarten_navigatie.jpg'
   };
 
   // Opening cinematic only. Entering a world is immediate, by design.

@@ -5,26 +5,9 @@
   const t=(k,p)=>K.t(k,p);
   const letters=['A','B','C','D'];
 
-  function artKind(q){
-    const p=String(q.prompt||'').toLowerCase();
-    if(/oplossen|suiker|meng|vloeistof|verdamp|dissolv|sugar|mix|liquid|evaporat/.test(p))return'dissolve';
-    if(/schaduw|licht|spiegel|shadow|light|mirror/.test(p))return'light';
-    if(/spier|lichaam|orgaan|hart|long|bloed|hersenen|skelet|muscle|organ|heart|lung|blood|brain|skeleton|skin|rib/.test(p))return'body';
-    if(q.world==='ruimte'||/planeet|zon|maan|ster|astronaut|raket|satelliet|planet|sun|moon|star|rocket|satellite/.test(p))return'space';
-    if(q.world==='wetenschap')return'lab';
-    if(q.topic==='ridders_kastelen'||/ridder|kasteel|middeleeuw|knight|castle|medieval/.test(p))return'castle';
-    return null;
-  }
-  function questionArt(q){return K.QUESTION_ART[artKind(q)]||K.MASTER[q.world]||K.MASTER.ruimte}
-  // With only six subject illustrations, most questions still fall back to their
-  // world art. Vary the crop per question so the card is not a straight copy of
-  // the blurred background behind it. Proper per-question art is still needed.
-  function artFraming(q){
-    if(K.QUESTION_ART[artKind(q)]) return '';
-    let h=0; for(const ch of String(q.id)) h=(h*31+ch.charCodeAt(0))|0;
-    const x=20+Math.abs(h)%61, y=18+Math.abs(h>>5)%50;
-    return `object-position:${x}% ${y}%;transform:scale(1.18)`;
-  }
+  // Subject art first, then the topic illustration. The world background is only
+  // a last resort and, with all 24 topics covered, is never reached in practice.
+  function questionArt(q){return K.QUESTION_ART[K.core.questionArtKind(q)]||K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
   function clearSpoken(){K.app.querySelectorAll('.answer.spoken-active').forEach(b=>b.classList.remove('spoken-active'));K.clearSpeechHighlight=null}
 
@@ -69,7 +52,7 @@
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div><span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span></div>
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
-          <div class="quiz-art"><img src="${questionArt(q)}" style="${artFraming(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
+          <div class="quiz-art"><img src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
           <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
           <div class="quiz-actions"><button class="action hint" id="hintBtn">${esc(t('quiz.hint'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
         </main>
