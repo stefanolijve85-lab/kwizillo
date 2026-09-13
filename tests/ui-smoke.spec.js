@@ -425,6 +425,36 @@ test('"next" on the feedback card waits for the voice; the close button unlocks 
   release();
 });
 
+test('the guide choice lights up the chosen card', async ({ page }) => {
+  await page.route('**/*.mp4', route => route.abort());
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
+  await page.getByRole('button', { name: /Nederlands/ }).click();
+  await page.locator('#obName').fill('Sam');
+  await page.locator('#obNext').click();
+  await page.getByRole('button', { name: /Luna/ }).click();
+  await expect(page.locator('[data-guide="Luna"]')).toHaveClass(/selected/);
+  await expect(page.locator('[data-guide="Luna"]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('[data-guide="Milo"]')).not.toHaveClass(/selected/);
+  await expect(page.locator('[data-guide="Luna"] .choice-check')).toBeVisible();
+});
+
+test('closing the feedback card shows the answered question without reading it out', async ({ page }) => {
+  const texts = [];
+  await page.route('**/api/tts', route => { texts.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
+  await boot(page, SAVED({ voice: 'Milo' }));
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await expect.poll(() => texts.length).toBeGreaterThanOrEqual(5);
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  const before = texts.length;
+  await page.locator('#feedbackClose').click();
+  await expect(page.locator('.quiz-v2')).toHaveClass(/is-review/);
+  await page.waitForTimeout(500);
+  expect(texts.length, 'no new speech request after closing the card').toBe(before);
+});
+
 test('without a voice the feedback "next" is live at once and the repeat button is hidden', async ({ page }) => {
   await boot(page);   // voice: Stil
   await page.locator('[data-world="ruimte"]').click();

@@ -120,7 +120,7 @@
     };
 
     const readQuestion=async()=>{
-      if(answered){K.speak(q.prompt);return}   // review: just hear it again
+      if(answered){K.speak(q.prompt);return}   // review: only on "Nog eens"
       K.pauseTimer(true);
       await K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
         onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
@@ -133,7 +133,7 @@
       startTimer();
     };
     f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');readQuestion()};
-    readQuestion();
+    if(!answered) readQuestion();   // an answered question is shown, not read, until asked
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
@@ -197,7 +197,7 @@
       <p class="feedback-explain">${explain}</p>
       ${correct?`<div class="reward-strip"><span>${K.icon('star')} +${q.xp||10} XP</span><span>${K.icon('coin')} +2</span></div>`:''}
       ${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}
-      <button class="feedback-next" id="feedbackNext" disabled><em class="feedback-wait">${esc(t('feedback.listening'))}</em><span class="feedback-next-label">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></span></button>
+      <button class="feedback-next" id="feedbackNext" disabled><i class="feedback-bar"></i><span class="feedback-next-label">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></span></button>
     </div>`;
     f.appendChild(x);
     if(correct&&!silent) K.celebrate?.('answer',x);
@@ -205,10 +205,13 @@
     // "Next" waits for the voice: the child hears the explanation before moving
     // on. The close button skips the voice and unlocks at once; without a
     // voice the button is live immediately.
+    // A bar runs through the button for exactly as long as the clip plays;
+    // when it reaches the right edge the button turns gold and unlocks.
     let armed=false;
-    const arm=()=>{if(armed)return;armed=true;nextBtn.disabled=false;x.classList.add('spoken')};
+    const bar=nextBtn.querySelector('.feedback-bar');
+    const arm=()=>{if(armed)return;armed=true;nextBtn.disabled=false;x.classList.add('spoken');bar.style.transition='none';bar.style.width='100%'};
     if(silent||K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
-    else K.speak(feedbackSpeech(q,correct)).then(arm,arm);
+    else K.speak(feedbackSpeech(q,correct),{onStart:(seg,i,d)=>{if(d>0){bar.style.transition=`width ${d}s linear`;requestAnimationFrame(()=>{bar.style.width='100%'})}}}).then(arm,arm);
     // The cross puts the question back on screen, answered, so the child can
     // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
     x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');x.remove();render(q)};

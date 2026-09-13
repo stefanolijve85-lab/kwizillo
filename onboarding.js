@@ -46,12 +46,17 @@
     const next=f.querySelector('#obNext');
     const sync=()=>{next.disabled=!input.value.trim()};
     input.addEventListener('input',sync); sync();
+    // iOS scrolls the page to keep the field above the keyboard and does not
+    // always scroll back; put the viewport where it was once typing is over.
+    const settle=()=>setTimeout(()=>{window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0},60);
+    input.addEventListener('blur',settle);
     f.querySelector('.onboarding-form').onsubmit=e=>{
       e.preventDefault();
       const name=input.value.trim();
       if(!name) return;
       K.sfx('tap');
       K.state.name=name; K.save();
+      input.blur(); settle();
       stepVoice();
     };
     f.querySelector('#obBack').onclick=()=>{K.sfx('tap');stepLanguage()};
@@ -66,8 +71,8 @@
       {id:'Stil',icon:'🔇',name:K.t('voice.silent'),desc:K.t('voice.silent.desc')}
     ];
     const body=`<div class="onboarding-choices guides">${guides.map(g=>
-      `<button class="onboarding-choice ${K.state.voice===g.id?'selected':''}" data-guide="${g.id}">
-        <span class="choice-icon">${g.icon}</span><b>${esc(g.name)}</b><small>${esc(g.desc)}</small>
+      `<button class="onboarding-choice ${K.state.voice===g.id?'selected':''}" data-guide="${g.id}" aria-pressed="${K.state.voice===g.id}">
+        <span class="choice-icon">${g.icon}</span><b>${esc(g.name)}</b><small>${esc(g.desc)}</small><span class="choice-check">${K.icon('check')}</span>
       </button>`).join('')}</div>
     <button class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
@@ -75,7 +80,7 @@
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.state.voice=b.dataset.guide; K.save();
-      f.querySelectorAll('[data-guide]').forEach(x=>x.classList.toggle('selected',x===b));
+      f.querySelectorAll('[data-guide]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b))});
       K.stopSpeech();
       if(K.state.voice!=='Stil') K.speak(K.t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'));
     });

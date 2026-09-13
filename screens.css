@@ -508,3 +508,23 @@
 .is-fail .result-stage .result-mascot{animation:none;opacity:1;transform:none}
 .level-card .level-toggle button{min-width:30px}
 .poster-only video{opacity:0}
+
+/* ---- Guide choice: the chosen card lights up. ---- */
+.onboarding-choice{position:relative;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.onboarding-choice .choice-check{position:absolute;right:12px;top:50%;transform:translateY(-50%) scale(0);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#5fd06b,#2ea34a);color:#fff;box-shadow:0 3px 8px rgba(0,60,20,.3);transition:transform .2s cubic-bezier(.2,.9,.3,1.4)}
+.onboarding-choice .choice-check .ki{width:16px;height:16px}
+.onboarding-choice.selected{transform:scale(1.03);border-color:#ffd23f!important;background:linear-gradient(180deg,#fffbe6,#fff1b8)!important;
+  box-shadow:0 0 0 4px rgba(255,210,63,.45),0 0 26px rgba(255,210,63,.65),0 10px 22px rgba(0,26,80,.25)!important}
+.onboarding-choice.selected .choice-check{transform:translateY(-50%) scale(1)}
+.onboarding-choice.selected .mascot-face{box-shadow:0 0 0 3px #ffd23f}
+.onboarding-choice:not(.selected){opacity:.92}
+
+/* ---- Feedback "next": transparent while the guide speaks, a bar sweeps
+   left to right with the clip, then the button fills gold. ---- */
+.feedback-v2 .feedback-next{position:relative;overflow:hidden;background:transparent!important;border:2px solid rgba(23,35,93,.25)!important;color:#17235d;box-shadow:none!important;opacity:1!important;filter:none!important;transition:background .35s ease,border-color .35s ease,box-shadow .35s ease}
+.feedback-v2 .feedback-next .feedback-bar{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,rgba(255,227,107,.55),rgba(255,189,33,.75));z-index:0}
+.feedback-v2 .feedback-next .feedback-next-label{position:relative;z-index:1;display:inline!important}
+.feedback-v2 .feedback-next:disabled{cursor:default}
+.feedback-v2 .feedback-next:disabled .feedback-next-label{opacity:.6}
+.feedback-v2 .spoken .feedback-next,.feedback-v2 .feedback-next:not(:disabled){background:linear-gradient(180deg,#ffe868,#ffbc21)!important;border-color:#ffe868!important;box-shadow:0 5px 0 #da8b12!important}
+.feedback-v2 .feedback-next:not(:disabled) .feedback-bar{opacity:0}
