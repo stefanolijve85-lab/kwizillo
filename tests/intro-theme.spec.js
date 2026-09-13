@@ -15,11 +15,11 @@ test('plays in step with the video, alone, and yields to the Home loop', async (
   });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.motion')).toBeVisible({ timeout: 8000 });
-  // Nothing plays before the first tap: no theme request, no loop.
+  // The film runs but nothing sounds before the first tap: no theme request, no loop.
   await page.waitForTimeout(500);
   expect(themeRequests.length).toBe(0);
   expect(await page.evaluate(() => window.KWIZILLO_M1.audio.currentId)).toBeNull();
-  await page.locator('#introStart').click();
+  await page.locator('.motion').click();
   await expect.poll(() => themeRequests.length, { timeout: 8000 }).toBeGreaterThanOrEqual(1);
 
   // Under the intro no loop track may be running: one music source at a time.

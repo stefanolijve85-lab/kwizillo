@@ -17,17 +17,18 @@
     const url=K.MOTION?.home||K.config?.introVideoUrl||'';
     if(!url) return onDone();
 
-    const frame=K.frame(`<div class="motion kwizillo-cinematic fade-in">
-      <video muted playsinline preload="auto" poster="${K.MOTION?.poster||''}" src="${url}"></video>
+    const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in">
+      <video muted playsinline autoplay preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"></div>
-      <div class="intro-start" id="introStart"><span>${K.t('intro.tapToStart')}</span></div>
+      <div class="intro-sound" id="introSound">🔊 ${K.t('intro.tapForSound')}</div>
     </div>`);
 
     const el=frame.querySelector('.motion');
     const video=el.querySelector('video');
-    let timers=[],done=false,theme=null,started=false;
+    let timers=[],done=false,theme=null,soundOn=false,videoFailed=false;
     K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
+    const log=(...a)=>{try{K.debugLog?.('intro',...a)}catch(e){}};
 
     // The theme (music + children calling the name) runs in step with the
     // video: it starts at the video's current position, so a late audio unlock
@@ -54,48 +55,37 @@
       onDone();
     };
 
-    // The cinematic waits for one tap: that tap is the gesture every browser
-    // needs before sound may play, so the theme is heard from the first frame.
-    // A second tap anywhere continues to Home; there is no separate skip button.
-    //
-    // video.play() is called synchronously inside the tap (iOS Low Power Mode
-    // refuses a play() that comes after an await), the audio unlock follows.
-    // If the video cannot play at all, the poster stays and the theme still
-    // runs for its 12 seconds, so the child never lands on Home in silence.
-    let videoFailed=false;
-    const log=(...a)=>{try{K.debugLog?.('intro',...a)}catch(e){}};
-    const posterFallback=()=>{
-      log('poster fallback');
-      el.classList.add('cinematic-playing','poster-only');
-      startTheme();
-      schedule(finish,12500);
-    };
-    const start=()=>{
-      if(started||done) return;
-      started=true;
-      el.querySelector('#introStart')?.remove();
-      schedule(finish,SAFETY_MS);
-      if(videoFailed){K.audio.unlock?.().catch(()=>{});posterFallback();return}
-      el.classList.add('cinematic-playing');
-      video.addEventListener('playing',startTheme,{once:true});
-      const p=video.play();
-      if(p&&p.catch) p.catch(e=>{log('play() rejected',e?.name,e?.message);if(!done)posterFallback()});
+    // The film starts by itself (muted autoplay is allowed everywhere). The
+    // first tap is the gesture that turns sound on: the theme joins at the
+    // film's current position. The second tap continues to Home.
+    // If autoplay is refused (Low Power Mode) the same first tap starts the film.
+    const soundOnNow=()=>{
+      if(soundOn||done) return;
+      soundOn=true;
+      el.querySelector('#introSound')?.remove();
+      if(video.paused&&!videoFailed){const p=video.play();if(p&&p.catch)p.catch(()=>{})}
       K.audio.unlock?.().then(startTheme).catch(()=>{});
     };
     // iOS only treats touchend/click as a user activation for media, not
-    // touchstart/pointerdown; a start on pointerdown left the AudioContext
-    // suspended and the theme silent. So: click to start, click to continue.
-    el.addEventListener('click',()=>{started?finish():start()});
-    el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.tapToStart'));
+    // touchstart/pointerdown, so the taps are handled on click.
+    el.addEventListener('click',()=>{soundOn?finish():soundOnNow()});
+    el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.tapForSound'));
     video.addEventListener('ended',finish,{once:true});
-    for(const ev of ['loadedmetadata','canplay','stalled','suspend','abort']) video.addEventListener(ev,()=>log(ev,'readyState',video.readyState),{once:true});
+    for(const ev of ['loadedmetadata','canplay','playing','stalled','suspend','abort']) video.addEventListener(ev,()=>log(ev,'readyState',video.readyState),{once:true});
     video.addEventListener('error',()=>{
       videoFailed=true;
       const err=video.error;
       console.warn('Kwizillo intro: video failed to load',err?.code,err?.message||'');
       log('error',err?.code,err?.message||'');
-      if(started&&!done&&!el.classList.contains('poster-only')){timers.forEach(clearTimeout);timers=[];posterFallback()}
+      // Nothing to show: the logo animation carries on over the dark
+      // background and the theme still gets its 12 seconds after the tap.
+      el.classList.add('poster-only');
+      timers.forEach(clearTimeout);timers=[];
+      schedule(finish,soundOn?12500:SAFETY_MS);
     },{once:true});
+    schedule(finish,SAFETY_MS);
+    const p=video.play();
+    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);el.querySelector('#introSound').textContent='▶ '+K.t('intro.tapToStart')});
   };
 
   // First run goes to onboarding, returning players go straight to Home.

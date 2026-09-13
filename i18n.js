@@ -156,7 +156,7 @@
     'quiz.repeat':'Nog eens',
     'quiz.repeatAria':'Lees de vraag nog een keer voor',
     'feedback.speech.try':'Bijna goed. Het juiste antwoord is {answer}.',
-    'feedback.speech.fact':'Wist je dat? {fact}',
+    'feedback.speech.fact':'{fact}',
 
     'result.kicker':'QUIZ VOLTOOID',
     'result.title':'{score} van {total} goed!',
@@ -283,7 +283,8 @@
     'track.calm':'Rustig',
 
     'intro.skip':'Intro overslaan',
-    'intro.tapToStart':'Tik om te starten'
+    'intro.tapToStart':'Tik om te starten',
+    'intro.tapForSound':'Tik voor geluid'
   };
 
   const EN={
@@ -438,7 +439,7 @@
     'quiz.repeat':'Again',
     'quiz.repeatAria':'Read the question again',
     'feedback.speech.try':'Almost. The right answer is {answer}.',
-    'feedback.speech.fact':'Did you know? {fact}',
+    'feedback.speech.fact':'{fact}',
 
     'result.kicker':'QUIZ COMPLETE',
     'result.title':'{score} out of {total} correct!',
@@ -565,7 +566,8 @@
     'track.calm':'Calm',
 
     'intro.skip':'Skip intro',
-    'intro.tapToStart':'Tap to start'
+    'intro.tapToStart':'Tap to start',
+    'intro.tapForSound':'Tap for sound'
   };
 
   const PT={
@@ -720,7 +722,7 @@
     'quiz.repeat':'De novo',
     'quiz.repeatAria':'Ler a pergunta de novo',
     'feedback.speech.try':'Quase. A resposta certa é {answer}.',
-    'feedback.speech.fact':'Você sabia? {fact}',
+    'feedback.speech.fact':'{fact}',
 
     'result.kicker':'QUIZ CONCLUÍDO',
     'result.title':'{score} de {total} certas!',
@@ -847,7 +849,8 @@
     'track.calm':'Calma',
 
     'intro.skip':'Pular introdução',
-    'intro.tapToStart':'Toque para começar'
+    'intro.tapToStart':'Toque para começar',
+    'intro.tapForSound':'Toque para ouvir'
   };
 
   const STRINGS={nl:NL,en:EN,pt:PT};

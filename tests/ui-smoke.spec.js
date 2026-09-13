@@ -35,13 +35,12 @@ async function boot(page, state = SAVED()) {
 
 // The intro waits for one tap (that tap unlocks sound). With the video aborted
 // the tap goes straight on to the next screen.
+// The film starts by itself; the first tap turns sound on, the second continues.
 async function tapThroughIntro(page) {
-  const start = page.locator('#introStart');
-  await expect(start).toBeVisible({ timeout: 8000 });
-  await start.click();
-  // Without the video the poster cinematic still runs its 12 s; a second tap skips it.
   const motion = page.locator('.motion');
-  if (await motion.count()) await motion.click().catch(() => {});
+  await expect(motion).toBeVisible({ timeout: 8000 });
+  await motion.click();
+  await motion.click().catch(() => {});
 }
 
 // Answers n questions. `correct` picks the right tile (needed to pass a level);
