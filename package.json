@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/milestone1.test.js",
+    "test": "node tests/milestone1.test.js && node tests/server-static.test.js",
     "test:ui": "playwright test"
   },
   "devDependencies": {

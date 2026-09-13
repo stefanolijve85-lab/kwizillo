@@ -16,11 +16,59 @@ let voiceCache = null;
 let chosen = { Milo: null, Luna: null };
 let selectionMeta = { Milo:null, Luna:null };
 
+const UPSTREAM_TIMEOUT_MS = Number(process.env.TTS_TIMEOUT_MS || 15000);
+const MAX_BODY_BYTES = 8 * 1024;
+const RATE_WINDOW_MS = 60000;
+const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 60);
+const hits = new Map();
+
+// Coarse per-client cap so an open proxy cannot burn ElevenLabs credits.
+// This is a development safeguard; production needs a real gateway plus
+// validation that the requested text actually comes from the question bank.
+function rateLimited(req){
+  const key = req.socket.remoteAddress || 'unknown';
+  const now = Date.now();
+  const seen = (hits.get(key) || []).filter(t => now - t < RATE_WINDOW_MS);
+  seen.push(now);
+  hits.set(key, seen);
+  if (hits.size > 1000) for (const [k, v] of hits) if (!v.some(t => now - t < RATE_WINDOW_MS)) hits.delete(k);
+  return seen.length > RATE_MAX;
+}
+
 const mime = {
   '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.css':'text/css; charset=utf-8',
   '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.mp4':'video/mp4', '.mp3':'audio/mpeg',
-  '.wav':'audio/wav', '.json':'application/json; charset=utf-8', '.ico':'image/x-icon'
+  '.wav':'audio/wav', '.ico':'image/x-icon'
 };
+
+// Serving is allowlist-based: anything not explicitly permitted is a 404.
+// Path traversal was already blocked, but dotfiles were not — `.git/config`,
+// `.voice-selection-*.json` and a future `.env` holding the ElevenLabs key were
+// all readable over the network.
+const ROOT_DENY = new Set(['server.js', 'playwright.config.js', 'package.json', 'package-lock.json']);
+const ASSET_DIR = 'assets';
+
+function resolveStatic(pathname){
+  let rel;
+  try { rel = decodeURIComponent(pathname === '/' ? '/index.html' : pathname); }
+  catch { return null; }
+  rel = rel.replace(/^\/+/, '');
+  if (!rel || rel.includes('\0') || rel.includes('\\')) return null;
+
+  const segments = rel.split('/');
+  // Rejects '', '.', '..' and every dot-prefixed file or directory.
+  if (segments.some(s => !s || s.startsWith('.'))) return null;
+  if (!mime[path.extname(rel).toLowerCase()]) return null;
+
+  if (segments.length === 1) {
+    if (ROOT_DENY.has(rel)) return null;            // never hand out our own source
+  } else if (segments[0] !== ASSET_DIR) {
+    return null;                                     // tests/, docs/, .tts-cache/, …
+  }
+
+  const target = path.join(ROOT, ...segments);
+  return target.startsWith(ROOT + path.sep) ? target : null;
+}
 
 function json(res, code, obj){
   res.writeHead(code, {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});
@@ -171,6 +219,7 @@ async function tts(text, guide){
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta};
   const r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,{
     method:'POST',
+    signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
     body:JSON.stringify({
       text, model_id:MODEL, language_code:'nl',
@@ -194,32 +243,40 @@ const server=http.createServer(async(req,res)=>{
       try{
         await loadVoices();
         return json(res,200,{mode:'elevenlabs-native-nl',milo:selectionMeta.Milo,luna:selectionMeta.Luna,model:MODEL});
-      }catch(e){return json(res,200,{mode:'error',message:e.message});}
+      }catch(e){console.error('Kwizillo voice-status:',e?.message||e);return json(res,200,{mode:'error'});}
     }
     if(url.pathname==='/api/tts'&&req.method==='POST'){
-      if(!API_KEY)return json(res,503,{error:'ELEVENLABS_API_KEY ontbreekt'});
-      let raw='';req.on('data',d=>{raw+=d;if(raw.length>100000)req.destroy()});
+      if(!API_KEY)return json(res,503,{error:'Spraak is niet geconfigureerd'});
+      if(rateLimited(req))return json(res,429,{error:'Te veel spraakverzoeken'});
+      let raw='',aborted=false;
+      req.on('data',d=>{raw+=d;if(raw.length>MAX_BODY_BYTES){aborted=true;req.destroy()}});
       return req.on('end',async()=>{
+        if(aborted)return;
         try{
-          const body=JSON.parse(raw||'{}');
+          let body;
+          try{ body=JSON.parse(raw||'{}') }catch{ return json(res,400,{error:'Ongeldig verzoek'}) }
           const text=String(body.text||'').trim().slice(0,2500);
           const voice=body.voice==='Luna'?'Luna':'Milo';
           if(!text)return json(res,400,{error:'Tekst ontbreekt'});
           const out=await tts(text,voice);
           res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':'nl'});
           res.end(out.buf);
-        }catch(e){json(res,500,{error:e.message});}
+        }catch(e){
+          // Upstream detail stays in the server log; the client gets a generic message.
+          console.error('Kwizillo TTS:',e?.message||e);
+          const timeout=e?.name==='TimeoutError'||e?.name==='AbortError';
+          json(res,timeout?504:502,{error:timeout?'Spraak duurde te lang':'Spraak is tijdelijk niet beschikbaar'});
+        }
       });
     }
-    let rel=decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname).replace(/^\/+/, '');
-    const target=path.resolve(ROOT,rel);
-    if(!target.startsWith(path.resolve(ROOT)))return json(res,403,{error:'Forbidden'});
+    const target=resolveStatic(url.pathname);
+    if(!target){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('Not found');}
     fs.stat(target,(err,st)=>{
       if(err||!st.isFile()){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('Not found');}
       res.writeHead(200,{'Content-Type':mime[path.extname(target).toLowerCase()]||'application/octet-stream','Cache-Control':'no-cache'});
       fs.createReadStream(target).pipe(res);
     });
-  }catch(e){json(res,500,{error:e.message});}
+  }catch(e){console.error('Kwizillo server:',e);json(res,500,{error:'Serverfout'});}
 });
 server.listen(PORT,HOST,async()=>{
   console.log(`\nKwizillo V3.6 draait op http://${HOST}:${PORT}`);
