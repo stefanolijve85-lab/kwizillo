@@ -269,3 +269,12 @@
 /* Result stars: earned ones glow gold, the rest stay visibly empty. */
 .result-stars i{font-style:normal;color:#cfd9e6;text-shadow:0 3px 0 #a9b6c6}
 .result-stars i.on{color:#ffc72d;text-shadow:0 3px 0 #e0930b}
+
+/* Home world tiles are wide and the paintings are tall: aim each tile at its
+   island instead of the sky above it (same focal points as the world hero). */
+.home-world[data-world="ruimte"] .home-world-art{object-position:center 30%}
+.home-world[data-world="dieren"] .home-world-art{object-position:center 38%}
+.home-world[data-world="aarde"] .home-world-art{object-position:center 60%}
+.home-world[data-world="geschiedenis"] .home-world-art{object-position:center 64%}
+.home-world[data-world="wetenschap"] .home-world-art{object-position:center 52%}
+.home-world[data-world="mysterie"] .home-world-art{object-position:center 24%}

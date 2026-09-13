@@ -447,7 +447,23 @@ const server=http.createServer(async(req,res)=>{
     if(!target){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('Not found');}
     fs.stat(target,(err,st)=>{
       if(err||!st.isFile()){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('Not found');}
-      res.writeHead(200,{'Content-Type':mime[path.extname(target).toLowerCase()]||'application/octet-stream','Cache-Control':'no-cache'});
+      const type=mime[path.extname(target).toLowerCase()]||'application/octet-stream';
+      // Byte ranges: Safari (and therefore every iPhone) refuses to play a
+      // <video> from a server that cannot answer a Range request, which made the
+      // intro fail instantly and drop the player straight onto Home.
+      const range=/^bytes=(\d*)-(\d*)$/.exec(req.headers.range||'');
+      if(range&&(range[1]||range[2])){
+        let start=range[1]?Number(range[1]):Math.max(0,st.size-Number(range[2]));
+        let end=range[1]&&range[2]?Math.min(Number(range[2]),st.size-1):st.size-1;
+        if(!Number.isFinite(start)||!Number.isFinite(end)||start>end||start>=st.size){
+          res.writeHead(416,{'Content-Range':`bytes */${st.size}`});return res.end();
+        }
+        res.writeHead(206,{'Content-Type':type,'Cache-Control':'no-cache','Accept-Ranges':'bytes','Content-Range':`bytes ${start}-${end}/${st.size}`,'Content-Length':end-start+1});
+        if(req.method==='HEAD') return res.end();
+        return fs.createReadStream(target,{start,end}).pipe(res);
+      }
+      res.writeHead(200,{'Content-Type':type,'Cache-Control':'no-cache','Accept-Ranges':'bytes','Content-Length':st.size});
+      if(req.method==='HEAD') return res.end();
       fs.createReadStream(target).pipe(res);
     });
   }catch(e){console.error('Kwizillo server:',e);json(res,500,{error:'Serverfout'});}

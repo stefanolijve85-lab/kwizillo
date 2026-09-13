@@ -71,7 +71,10 @@
 
     K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
       onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
-      onDone:()=>K.clearSpeechHighlight?.()
+      onDone:()=>K.clearSpeechHighlight?.(),
+      // Both feedback lines are fetched once the question itself has loaded, so
+      // the voice starts together with the feedback card.
+      prefetch:[feedbackSpeech(q,true),feedbackSpeech(q,false)]
     });
   }
 
@@ -100,6 +103,14 @@
     setTimeout(()=>feedback(q,r.correct),120);
   }
 
+  function feedbackSpeech(q,correct){
+    return K.core.buildFeedbackSpeech(q,correct,{
+      good:t('feedback.speech.good'),
+      tryAgain:t('feedback.speech.try',{answer:q.answer}),
+      fact:t('feedback.speech.fact')
+    });
+  }
+
   function feedback(q,correct){
     K.stopSpeech();
     const f=K.app.querySelector('.game-frame');if(!f)return;
@@ -110,11 +121,7 @@
     const last=K.quiz.index+1>=K.quiz.questions.length;
     x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}"><div class="feedback-glow"></div><div class="feedback-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></div><div class="feedback-kicker">${esc(t(correct?'feedback.goodKicker':'feedback.tryKicker'))}</div><h2>${esc(t(correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2><p class="feedback-explain">${explain}</p>${correct?`<div class="reward-strip"><span>⭐ +${q.xp||10} XP</span><span>🪙 +2</span></div>`:''}${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}<button class="feedback-next" id="feedbackNext">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></button></div>`;
     f.appendChild(x);
-    K.speak(K.core.buildFeedbackSpeech(q,correct,{
-      good:t('feedback.speech.good'),
-      tryAgain:t('feedback.speech.try',{answer:q.answer}),
-      fact:t('feedback.speech.fact')
-    }));
+    K.speak(feedbackSpeech(q,correct));
     x.querySelector('#feedbackNext').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
   }
 

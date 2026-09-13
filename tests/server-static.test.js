@@ -83,6 +83,20 @@ async function waitForServer(){
       assert.strictEqual(r.status, 200, `${p} must still be served (got ${r.status})`);
     }
 
+    // Byte ranges: iOS Safari will not play the intro video without them.
+    const full = await fetch(BASE + '/base.css');
+    const size = Number(full.headers.get('content-length'));
+    assert.ok(size > 100, 'static responses carry Content-Length');
+    assert.strictEqual(full.headers.get('accept-ranges'), 'bytes');
+    const part = await fetch(BASE + '/base.css', { headers: { Range: 'bytes=0-9' } });
+    assert.strictEqual(part.status, 206, 'Range request must answer 206');
+    assert.strictEqual(part.headers.get('content-range'), `bytes 0-9/${size}`);
+    assert.strictEqual((await part.text()).length, 10);
+    const tail = await fetch(BASE + '/base.css', { headers: { Range: 'bytes=-5' } });
+    assert.strictEqual(tail.headers.get('content-range'), `bytes ${size - 5}-${size - 1}/${size}`);
+    const beyond = await fetch(BASE + '/base.css', { headers: { Range: `bytes=${size + 10}-` } });
+    assert.strictEqual(beyond.status, 416);
+
     // The .env loader must feed the server without exposing the file.
     const status = await (await fetch(BASE + '/api/voice-status')).json();
     assert.ok(!JSON.stringify(status).includes('sk_probe_value'), 'voice-status leaked the key');

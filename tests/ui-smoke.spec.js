@@ -344,6 +344,29 @@ test('statistics never print "undefined" for a world without counters', async ({
   expect(text).not.toContain('NaN');
 });
 
+test('feedback speech is fetched while the question is on screen, not after the answer', async ({ page }) => {
+  const requests = [];
+  await page.route('**/api/tts', route => {
+    requests.push(JSON.parse(route.request().postData()).text);
+    route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) });
+  });
+  await boot(page, SAVED({ voice: 'Milo' }));
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await expect(page.locator('.answer')).toHaveCount(4);
+
+  // Question + four answers, then both feedback lines warm the cache.
+  await expect.poll(() => requests.length, { timeout: 8000 }).toBeGreaterThanOrEqual(7);
+  const before = requests.length;
+  expect(requests.some(t => t.startsWith('Goed gedaan')), 'good feedback prefetched').toBe(true);
+  expect(requests.some(t => t.startsWith('Bijna goed')), 'try-again feedback prefetched').toBe(true);
+
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await page.waitForTimeout(600);
+  expect(requests.length, 'feedback must be served from the warm cache').toBe(before);
+});
+
 test('"another question" swaps in a genuinely new question', async ({ page }) => {
   await boot(page);
   await page.locator('[data-world="ruimte"]').click();

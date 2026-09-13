@@ -21,9 +21,20 @@
   // fully playable without a voice (CLAUDE.md section 16, backend unavailable).
   let speechAvailable=true;
   K.speechAvailable=()=>speechAvailable;
+  // A small client-side clip cache. Its purpose is the feedback card: both
+  // outcomes of the current question are fetched while the child is still
+  // thinking, so the voice starts the moment the card appears instead of after
+  // a round trip to the speech service. Keyed by voice and language, so a
+  // change of either simply misses.
+  const voiceCache=new Map();
+  const VOICE_CACHE_MAX=24;
+  function voiceKey(text,lang){return `${lang}|${K.state.voice}|${text}`}
+  function remember(key,blob){voiceCache.delete(key);voiceCache.set(key,blob);while(voiceCache.size>VOICE_CACHE_MAX)voiceCache.delete(voiceCache.keys().next().value)}
   async function fetchVoiceBlob(text,signal){
     if(!speechAvailable) throw Object.assign(new Error('speech-unavailable'),{name:'AbortError'});
     const lang=K.speechLang?.()||K.state.language||'nl';
+    const key=voiceKey(text,lang);
+    if(voiceCache.has(key)) return voiceCache.get(key);
     // Digits become words here, at the voice boundary, so "B. 7." is voiced as
     // "B. zeven." and not as English "Bay seven". The screen keeps the digits.
     const spoken=K.core.spellNumbers(text,lang);
@@ -32,8 +43,16 @@
       if(r.status===503||r.status===501){speechAvailable=false;console.info('Kwizillo: speech is not configured, continuing without a voice.')}
       throw new Error(`TTS ${r.status}`);
     }
-    return r.blob();
+    const blob=await r.blob();
+    remember(key,blob);
+    return blob;
   }
+  // Warm the cache for texts that will be spoken next. Never throws, never
+  // plays anything, and is a no-op without a voice.
+  K.prefetchSpeech=texts=>{
+    if(!speechAvailable||K.state.voice==='Stil') return;
+    for(const text of (texts||[]).filter(Boolean)) fetchVoiceBlob(text).catch(()=>{});
+  };
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
   async function playVoiceBlob(blob,token){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(c.state==='suspended')await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;pre.gain.value=measureVoiceGain(buffer);compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=1;limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source)voiceSource=null;resolve(gate.isCurrent(token))};try{source.start()}catch(e){resolve(false)}})}
     return new Promise(resolve=>{const url=URL.createObjectURL(blob),a=new Audio(url);voiceUrl=url;a.volume=1;a.onended=()=>{URL.revokeObjectURL(url);if(voiceUrl===url)voiceUrl=null;resolve(gate.isCurrent(token))};a.onerror=()=>{URL.revokeObjectURL(url);resolve(false)};a.play().catch(()=>resolve(false))})
@@ -47,7 +66,7 @@
   // skipped, and the sequence carries on with the next answer. Before this, a
   // single upstream 429 on segment B meant the child heard the question and "A"
   // and nothing else.
-  K.speakSequence=async(segments,{onSegment,onDone}={})=>{segments=(segments||[]).filter(s=>s&&s.text);if(!segments.length||K.state.voice==='Stil')return;K.stopSpeech();const token=gate.begin();abort=new AbortController();const signal=abort.signal;K.audio.duck(true);const requests=segments.map(s=>fetchVoiceBlob(s.text,signal).then(blob=>({ok:true,blob})).catch(error=>({ok:false,error})));try{for(let i=0;i<segments.length;i++){const result=await requests[i];if(!gate.isCurrent(token))return;if(!result.ok){if(result.error?.name!=='AbortError')console.warn('Kwizillo TTS: segment skipped —',result.error?.message||result.error);continue}try{onSegment?.(segments[i],i)}catch(e){}const finished=await playVoiceBlob(result.blob,token);if(!finished||!gate.isCurrent(token))return;if(i<segments.length-1){await pause(GAP[segments[i].kind]??260,token);if(!gate.isCurrent(token))return}}try{onDone?.()}catch(e){}}catch(e){if(e?.name!=='AbortError'&&gate.isCurrent(token))console.warn('Kwizillo TTS:',e?.message||e)}finally{if(gate.isCurrent(token)){K.audio.duck(false);abort=null}}};
+  K.speakSequence=async(segments,{onSegment,onDone,prefetch}={})=>{segments=(segments||[]).filter(s=>s&&s.text);if(!segments.length||K.state.voice==='Stil')return;K.stopSpeech();const token=gate.begin();abort=new AbortController();const signal=abort.signal;K.audio.duck(true);const requests=segments.map(s=>fetchVoiceBlob(s.text,signal).then(blob=>({ok:true,blob})).catch(error=>({ok:false,error})));if(prefetch?.length)Promise.allSettled(requests).then(()=>{if(gate.isCurrent(token))K.prefetchSpeech(prefetch)});try{for(let i=0;i<segments.length;i++){const result=await requests[i];if(!gate.isCurrent(token))return;if(!result.ok){if(result.error?.name!=='AbortError')console.warn('Kwizillo TTS: segment skipped —',result.error?.message||result.error);continue}try{onSegment?.(segments[i],i)}catch(e){}const finished=await playVoiceBlob(result.blob,token);if(!finished||!gate.isCurrent(token))return;if(i<segments.length-1){await pause(GAP[segments[i].kind]??260,token);if(!gate.isCurrent(token))return}}try{onDone?.()}catch(e){}}catch(e){if(e?.name!=='AbortError'&&gate.isCurrent(token))console.warn('Kwizillo TTS:',e?.message||e)}finally{if(gate.isCurrent(token)){K.audio.duck(false);abort=null}}};
   K.speak=text=>K.speakSequence([{kind:'speech',text}]);
 
   K.frame=html=>{K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;return K.app.firstElementChild};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);
