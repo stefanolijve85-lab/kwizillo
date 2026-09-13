@@ -23,7 +23,11 @@ const SAVED = (over = {}) => ({
 
 async function boot(page, state = SAVED()) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.addInitScript(s => localStorage.setItem('kwizillo-state', JSON.stringify(s)), state);
+  // Seed only on the first navigation. addInitScript runs on every navigation, so
+  // an unconditional write would wipe what the app saved whenever a test reloads.
+  await page.addInitScript(s => {
+    if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));
+  }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }
@@ -292,3 +296,74 @@ test('rapid taps and navigation during a quiz never break the screen', async ({ 
   await expect(page.locator('.native-world')).toBeVisible();
   expect(failures).toEqual([]);
 });
+
+test('resetting progress sits behind a parental gate', async ({ page }) => {
+  await boot(page, SAVED({ coins: 40, xp: 120 }));
+  await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
+  await page.locator('#resetOpen').click();
+
+  const card = page.locator('.simple-modal-card');
+  await expect(card).toContainText('volwassene');
+  const question = await card.locator('p').textContent();
+  const [a, b] = question.match(/\d+/g).map(Number);
+
+  // A wrong answer must not get through.
+  await page.locator('#gateInput').fill(String(a * b + 1));
+  await page.locator('.gate-form button').click();
+  await expect(page.locator('.gate-error')).toBeVisible();
+  await expect(page.getByText('Voortgang resetten?')).toHaveCount(0);
+
+  await page.locator('#gateInput').fill(String(a * b));
+  await page.locator('.gate-form button').click();
+  await expect(page.getByRole('heading', { name: 'Voortgang resetten?' })).toBeVisible();
+});
+
+test('"another question" swaps in a genuinely new question', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+
+  const before = await page.locator('.quiz-card h1').textContent();
+  await page.locator('#skipBtn').click();
+  const after = await page.locator('.quiz-card h1').textContent();
+  expect(after).not.toBe(before);
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
+
+  // A single 10-question topic has nothing spare, so the button says so instead
+  // of silently dropping the question.
+  await page.locator('#qBack').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('#skipBtn')).toBeDisabled();
+});
+
+for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390, 844], ['Pro Max', 430, 932]]) {
+  test(`layout holds on ${label} without horizontal overflow`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await boot(page);
+
+    const overflow = async () => page.evaluate(() =>
+      document.documentElement.scrollWidth > document.documentElement.clientWidth);
+
+    await expect(page.locator('.home-world')).toHaveCount(6);
+    expect(await overflow(), 'home overflows horizontally').toBe(false);
+
+    await page.locator('[data-world="ruimte"]').click();
+    await expect(page.locator('.world-topic')).toHaveCount(4);
+    expect(await overflow(), 'world overflows horizontally').toBe(false);
+
+    await page.locator('.world-topic').first().click();
+    await expect(page.locator('.answer')).toHaveCount(4);
+    expect(await overflow(), 'quiz overflows horizontally').toBe(false);
+
+    // Every answer tile stays a comfortable touch target.
+    for (const b of await page.locator('.answer').all()) {
+      const box = await b.boundingBox();
+      expect(box.height, 'answer tile too small to tap').toBeGreaterThanOrEqual(44);
+    }
+    const actions = await page.locator('.quiz-actions .action').all();
+    for (const b of actions) {
+      const box = await b.boundingBox();
+      expect(box.height, 'action button too small to tap').toBeGreaterThanOrEqual(40);
+    }
+  });
+}

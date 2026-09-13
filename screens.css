@@ -167,3 +167,10 @@
 /* Keep long answer text clear of the A/B/C/D badge. */
 .quiz-card .answer{padding-left:46px;padding-right:14px}
 @media(max-width:420px){.quiz-card .answer{padding-left:40px;padding-right:10px}}
+
+/* ---- Parental gate ---- */
+.gate-form{display:grid;gap:8px;margin-top:12px}
+.gate-form input{min-height:50px;border:2px solid #cfe4f8;border-radius:16px;padding:0 14px;
+  font:1000 18px/1 inherit;color:#12265f;text-align:center;background:#fff}
+.gate-form input:focus{outline:none;border-color:#267cff;box-shadow:0 0 0 3px rgba(38,124,255,.2)}
+.gate-error{color:#c8453a;font-size:11px;font-weight:900}

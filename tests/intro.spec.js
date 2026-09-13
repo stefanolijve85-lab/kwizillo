@@ -39,8 +39,12 @@ async function boot(page){
       for (const r of records) for (const n of r.addedNodes) count(n);
     }).observe(document, { childList: true, subtree: true });
 
-    localStorage.setItem('kwizillo-v4-state', JSON.stringify({
-      voice:'Stil', soundOn:false, musicOn:false, group:5, lastWorld:'ruimte'
+    localStorage.setItem('kwizillo-state', JSON.stringify({
+      schemaVersion:2, language:'nl', name:'Mike', onboardingComplete:true, voice:'Stil',
+      group:5, xp:0, coins:0, streak:0, answered:0, correct:0, quizzesPlayed:0,
+      lastWorld:'ruimte', selectedMascot:'milo', soundOn:false, musicOn:false,
+      sfxVolume:.7, musicVolume:.2, musicTrack:'magical', timeLimitOn:true, timeLimit:45,
+      progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[]}
     }));
   });
   // Never settle the video request: no `ended`, no `error`. The only way out is the user.
@@ -76,7 +80,7 @@ test('the skip button is present and exits the cinematic', async ({ page }) => {
   const skip = page.getByRole('button', { name: 'Intro overslaan' });
   await expect(skip).toBeVisible();
   await skip.click();
-  await expect(page.getByRole('button', { name: 'Aardewereld' })).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('.home')).toBeVisible({ timeout: 5000 });
   await expect(page.locator('.motion')).toHaveCount(0);
 });
 
@@ -84,16 +88,16 @@ test('tapping anywhere on the cinematic continues to Home immediately', async ({
   await boot(page);
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
   // Must be a direct response to the tap, not the video eventually giving up.
-  await expect(page.getByRole('button', { name: 'Aardewereld' })).toBeVisible({ timeout: 2000 });
+  await expect(page.locator('.home')).toBeVisible({ timeout: 2000 });
   await expect(page.locator('.motion')).toHaveCount(0);
 });
 
 test('skipping the cinematic clears its pending sound-design timers', async ({ page }) => {
   await boot(page);
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
-  await expect(page.getByRole('button', { name: 'Aardewereld' })).toBeVisible();
+  await expect(page.locator('.home')).toBeVisible();
 
-  await page.getByRole('button', { name: 'Wetenschapwereld' }).click();
+  await page.locator('[data-world="wetenschap"]').click();
   await page.locator('.world-topic').first().click();
   await expect(page.locator('.quiz-v2')).toBeVisible();
 

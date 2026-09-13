@@ -16,6 +16,15 @@
     return null;
   }
   function questionArt(q){return K.QUESTION_ART[artKind(q)]||K.MASTER[q.world]||K.MASTER.ruimte}
+  // With only six subject illustrations, most questions still fall back to their
+  // world art. Vary the crop per question so the card is not a straight copy of
+  // the blurred background behind it. Proper per-question art is still needed.
+  function artFraming(q){
+    if(K.QUESTION_ART[artKind(q)]) return '';
+    let h=0; for(const ch of String(q.id)) h=(h*31+ch.charCodeAt(0))|0;
+    const x=20+Math.abs(h)%61, y=18+Math.abs(h>>5)%50;
+    return `object-position:${x}% ${y}%;transform:scale(1.18)`;
+  }
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
   function clearSpoken(){K.app.querySelectorAll('.answer.spoken-active').forEach(b=>b.classList.remove('spoken-active'));K.clearSpeechHighlight=null}
 
@@ -60,7 +69,7 @@
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div><span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span></div>
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
-          <div class="quiz-art"><img src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
+          <div class="quiz-art"><img src="${questionArt(q)}" style="${artFraming(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
           <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
           <div class="quiz-actions"><button class="action hint" id="hintBtn">${esc(t('quiz.hint'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
         </main>
@@ -71,7 +80,10 @@
     K.clearSpeechHighlight=()=>buttons.forEach(b=>b.classList.remove('spoken-active'));
     f.querySelector('#qBack').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showWorld(K.quiz.world)};
     f.querySelector('#hintBtn').onclick=()=>showHint(q);
-    f.querySelector('#skipBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
+    const skip=f.querySelector('#skipBtn');
+    const spare=spareQuestions(q).length;
+    if(!spare){ skip.disabled=true; skip.title=t('quiz.noSpare') }
+    else skip.onclick=()=>{K.stopSpeech();K.sfx('tap');swapQuestion()};
     buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
 
     K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
@@ -121,6 +133,29 @@
       fact:t('feedback.speech.fact')
     }));
     x.querySelector('#feedbackNext').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
+  }
+
+  // Questions already in this quiz are off limits, so a swap is a genuinely new
+  // question rather than a reshuffle of the same ten.
+  function spareQuestions(current){
+    const inQuiz=new Set(K.quiz.questions.map(x=>x.id));
+    return K.core.poolFor({
+      questions:K.questions,world:K.quiz.world,topicKey:K.quiz.topicKey,
+      grade:Number(K.state.group||5)
+    }).filter(x=>!inQuiz.has(x.id));
+  }
+
+  function swapQuestion(){
+    const current=K.quiz.questions[K.quiz.index];
+    const spare=spareQuestions(current);
+    if(!spare.length) return;
+    const replacement=K.core.prepareQuestion(spare[Math.floor(Math.random()*spare.length)]);
+    K.quiz.questions[K.quiz.index]=replacement;
+    const run=K.runFor(K.quiz.world,K.quiz.topicKey);
+    run.usedIds=[...new Set([...run.usedIds.filter(id=>id!==current.id),replacement.id])];
+    K.save();
+    clearSpoken();
+    K.showQuiz();
   }
 
   function next(){clearSpoken();K.quiz.index++;K.showQuiz()}

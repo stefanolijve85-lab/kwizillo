@@ -111,6 +111,7 @@
     'quiz.none':'Voor dit onderwerp zijn nog geen vragen beschikbaar.',
     'quiz.artAlt':'Illustratie bij de vraag',
     'quiz.quizLabel':'Quiz {n}',
+    'quiz.noSpare':'Alle vragen van dit onderwerp zitten al in deze quiz.',
 
     'hint.title':'Een kleine aanwijzing',
     'hint.kicker':'{topic}-tip',
@@ -218,6 +219,11 @@
     'settings.resetTitle':'Voortgang resetten?',
     'settings.resetBody':'XP, coins, kaarten, statistieken en gespeelde voortgang gaan terug naar de beginstand.',
     'settings.resetConfirm':'Ja, reset',
+    'gate.title':'Even een vraag voor een volwassene',
+    'gate.body':'Hoeveel is {a} × {b}?',
+    'gate.placeholder':'Antwoord',
+    'gate.wrong':'Dat klopt niet. Probeer het nog eens.',
+    'gate.continue':'Doorgaan',
 
     'sound.kicker':'INSTELLINGEN',
     'sound.title':'🔊 Geluid & muziek',
@@ -341,6 +347,7 @@
     'quiz.none':'There are no questions for this topic yet.',
     'quiz.artAlt':'Illustration for the question',
     'quiz.quizLabel':'Quiz {n}',
+    'quiz.noSpare':'Every question from this topic is already in this quiz.',
 
     'hint.title':'A little clue',
     'hint.kicker':'{topic} tip',
@@ -448,6 +455,11 @@
     'settings.resetTitle':'Reset progress?',
     'settings.resetBody':'XP, coins, cards, stats and played progress all go back to the start.',
     'settings.resetConfirm':'Yes, reset',
+    'gate.title':'A quick question for a grown-up',
+    'gate.body':'What is {a} × {b}?',
+    'gate.placeholder':'Answer',
+    'gate.wrong':'That is not right. Please try again.',
+    'gate.continue':'Continue',
 
     'sound.kicker':'SETTINGS',
     'sound.title':'🔊 Sound & music',

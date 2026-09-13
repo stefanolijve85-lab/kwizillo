@@ -264,6 +264,24 @@
     const close=()=>o.remove();
     o.querySelector('.simple-close').onclick=close;o.querySelector('.simple-ok').onclick=close;
   }
+  // Resetting wipes everything, so it sits behind a parental gate rather than a
+  // plain confirm a child can tap through (CLAUDE.md section 17, kids/privacy).
+  function showParentalGate(onPass){
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const a=3+Math.floor(Math.random()*6), b=4+Math.floor(Math.random()*6);
+    const o=document.createElement('div');o.className='simple-modal';
+    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">🔐</div><h2>${esc(t('gate.title'))}</h2><p>${esc(t('gate.body',{a,b}))}</p><form class="gate-form"><input id="gateInput" type="text" inputmode="numeric" autocomplete="off" placeholder="${esc(t('gate.placeholder'))}" aria-label="${esc(t('gate.placeholder'))}"><small class="gate-error" hidden>${esc(t('gate.wrong'))}</small><button type="submit" class="simple-ok">${esc(t('gate.continue'))}</button></form></div>`;
+    f.appendChild(o);
+    const input=o.querySelector('#gateInput'),err=o.querySelector('.gate-error');
+    o.querySelector('.simple-close').onclick=()=>o.remove();
+    o.querySelector('.gate-form').onsubmit=e=>{
+      e.preventDefault();
+      if(Number(input.value.trim())===a*b){o.remove();onPass()}
+      else{err.hidden=false;input.value='';input.focus()}
+    };
+    setTimeout(()=>input.focus(),100);
+  }
+
   function showResetConfirm(){
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const o=document.createElement('div');o.className='simple-modal';
@@ -294,7 +312,7 @@
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
     f.querySelector('#timeRange').oninput=e=>{K.state.timeLimit=Number(e.target.value);K.state.timeLimitOn=true;K.save();f.querySelector('#timeLabel').textContent=t('settings.timeLimitValue',{n:K.state.timeLimit})};
     f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};
-    f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showResetConfirm()};
+    f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showParentalGate(showResetConfirm)};
   };
 
   K.showSoundSettings=()=>{

@@ -1,74 +1,59 @@
-# Kwizillo V3.6 — geluid & naadloze muziekloops
+# Kwizillo
 
-# Kwizillo V3.2 — visual/audio fix
+A premium educational adventure game for primary-school children, in Dutch and
+English. Six themed worlds, 24 topics, 240 questions per language, XP, coins,
+collectible knowledge cards and mascots.
 
-Deze versie corrigeert drie zaken uit V3.1:
-
-- De onzichtbare klikvakken lichten niet meer op wanneer je met de muis over een wereld gaat.
-- Appgeluiden zijn losgekoppeld van de stemkeuze en worden na de eerste klik via Web Audio geactiveerd.
-- Milo en Luna kunnen via ElevenLabs als echte stemgids gebruikt worden. De ElevenLabs API-key staat alleen in de lokale Node-serveromgeving en nooit in de browsercode.
-
-## Starten op macOS
-
-Gebruik voor V3.2 niet meer `python3 -m http.server`. De ElevenLabs-route zit in `server.js`.
-
-In Terminal:
+## Running locally
 
 ```bash
-cd ~/Downloads/kwizillo_v3_2_audio_voice_fixed
-./start.command
+./start.command          # prompts for the ElevenLabs key, then opens the browser
 ```
 
-De terminal vraagt lokaal om de ElevenLabs API-key. De invoer wordt niet op het scherm getoond en komt niet in de appbestanden terecht. Daarna opent de browser automatisch op:
+or, without a voice guide:
 
-`http://127.0.0.1:8080`
+```bash
+npm start                # http://127.0.0.1:8080
+```
 
-Stoppen: `Ctrl+C`.
+The ElevenLabs key is read from `ELEVENLABS_API_KEY` and only ever lives in the
+server process. It is never written into the app files and never reaches the
+browser. Without a key the game is fully playable; Milo and Luna simply stay
+silent.
 
-## Stemkeuze
+Generated speech is cached in `.tts-cache/` so the same sentence does not spend
+credits twice. That directory is git-ignored.
 
-- Milo: de server kiest uit de beschikbare ElevenLabs-stemmen de best scorende mannelijke, warme/conversational stem.
-- Luna: hetzelfde voor een vrouwelijke stem.
-- Als je later exact twee specifieke stemmen wilt vastzetten, kan dat met `MILO_VOICE_ID` en `LUNA_VOICE_ID` als environment variables.
+## Tests
 
-Gegenereerde spraak wordt lokaal in `.tts-cache` opgeslagen, zodat dezelfde vraag niet telkens opnieuw ElevenLabs-credits gebruikt.
+```bash
+npm test                 # question banks, gameplay core, static-serving security
+npm run test:ui          # Playwright: onboarding, six worlds, quiz flow, i18n
+```
 
+`npm run test:ui` needs a browser once: `npx playwright install chromium`.
 
-## V3.3 — audio & stemkeuze
-- De blauwe selectie-rand beweegt nu echt mee tussen Milo, Luna en Stil.
-- De oude in de afbeelding ingebakken Milo-selectie wordt visueel gemaskeerd wanneer een andere keuze actief is.
-- FX zijn nu echte lokale WAV-bestanden: tap, goed, fout, reward en wereld-overgang.
-- Er is rustige, kindvriendelijke achtergrondmuziek die na de eerste klik start en daarna loept.
-- “Stil” schakelt alleen de spreekstem uit; muziek en effecten blijven actief.
-- Milo en Luna zoeken nu via ElevenLabs Voice Library naar native Nederlandse stemmen, met voorkeur voor jong + vriendelijk + professioneel.
-- De TTS-aanroep zet language_code expliciet op nl.
-- De server bewaart de gekozen stem lokaal, zodat niet bij iedere start opnieuw een stem hoeft te worden toegevoegd.
+## Layout
 
-Als ElevenLabs geen Voice Library-toegang krijgt door API-key-permissies, controleer dan in ElevenLabs of de key toegang heeft tot Voices/Voice Library en Text to Speech.
+| File | Role |
+|---|---|
+| `index.html` | single entry point, script order is the load order |
+| `state.js` | one store, schema 2, migration, streak and level derivation |
+| `i18n.js` | every user-facing string, Dutch and English |
+| `questions.js` / `questions-en.js` | the two question banks and their shared builder |
+| `quiz-core-v2.js` | pure logic: batching, scoring, speech segments, cancellation |
+| `m1-runtime.js` | audio manager, TTS client, renderer |
+| `world-assets.js` | artwork paths, all local |
+| `m1-ui.js` | Home, world, collection, achievements, stats, parent zone |
+| `quiz-visual-v2.js` | the quiz, hint, feedback and result screens |
+| `onboarding.js` | first-run language, name and voice |
+| `intro.js` | the opening cinematic |
+| `base.css` / `screens.css` | the two stylesheets |
+| `server.js` | static host plus the ElevenLabs proxy |
 
+All artwork ships in `assets/`; nothing is fetched from a CDN at runtime, so the
+game works offline.
 
-## V3.4 fixes
-- Luna volume/perceptie verbeterd ten opzichte van Milo
-- quizvragen gebruiken nu relevante vraagillustraties i.p.v. de wereldachtergrond
-- tandwiel en native bediening in Ouderzone toegevoegd
-- klikbare gear/hotspots ook op andere pagina's zoals prestaties, collectie en statistieken
+## Status
 
-
-## V3.5 — content expansion
-- 240 vragen totaal
-- 40 vragen per wereld
-- 10 unieke vragen per zichtbare onderwerptile
-- klikken op een tile opent alleen dat onderwerp
-- gele Start-quiz knop mixt alle vier onderwerpen van de wereld
-- vragen worden waar mogelijk gefilterd op gekozen schoolgroep
-
-
-## V3.6
-- aparte Geluid & muziek-sectie
-- FX en muziek los aan/uit
-- aparte volumeregelaars
-- vier muziekloops: Magisch, Avontuur, Ruimte, Rustig
-- 16.000 s WAV-bestanden met nul-seam
-- gapless Web Audio BufferSource looping
-- crossfade bij trackwissel
-- automatische music ducking tijdens Milo/Luna
+See `AUDIT.md` for the architecture review and the remaining open items.
