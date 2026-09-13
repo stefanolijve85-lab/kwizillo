@@ -37,7 +37,11 @@
     let available=pool.filter(q=>!used.has(q.id));
     let recycled=false;
     if(available.length<Math.min(limit,pool.length)){ available=pool; recycled=true }
-    const picked=shuffle(available,rng).slice(0,Math.min(limit,pool.length)).map(q=>prepareQuestion(q,rng));
+    let order=shuffle(available,rng);
+    // A recycled batch must not open with the question the player just saw last.
+    const lastSeen=usedIds[usedIds.length-1];
+    if(recycled&&order.length>1&&order[0].id===lastSeen) order=[...order.slice(1),order[0]];
+    const picked=order.slice(0,Math.min(limit,pool.length)).map(q=>prepareQuestion(q,rng));
     const nextUsed=recycled?picked.map(q=>q.id):[...usedIds,...picked.map(q=>q.id)];
     return{questions:picked,usedIds:nextUsed,recycled,poolSize:pool.length};
   }

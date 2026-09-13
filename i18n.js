@@ -140,6 +140,9 @@
     'result.coins':'coins',
     'result.again':'Nog een quiz',
     'result.againNumbered':'Start quiz {n}',
+    'result.nextTopic':'Volgende: {topic}',
+    'result.finishWorld':'Start gemengde quiz',
+    'result.retryTopic':'Dit onderwerp nog een keer',
     'result.toCollection':'Naar mijn collectie',
 
     'achievements.title':'Prestaties',
@@ -376,6 +379,9 @@
     'result.coins':'coins',
     'result.again':'Another quiz',
     'result.againNumbered':'Start quiz {n}',
+    'result.nextTopic':'Next: {topic}',
+    'result.finishWorld':'Start mixed quiz',
+    'result.retryTopic':'This topic once more',
     'result.toCollection':'Go to my collection',
 
     'achievements.title':'Awards',

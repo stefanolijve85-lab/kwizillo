@@ -155,4 +155,17 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   assert.ok(!/\d/.test(core.spellNumbers(seg.text, 'nl')), 'numeric answer segment must be spoken as a word');
 }
 
+
+/* ---- a recycled batch never opens with the question that just closed ---- */
+{
+  for (let seed = 1; seed <= 40; seed++) {
+    let x = seed; const rng = () => { x = (x * 1103515245 + 12345) & 0x7fffffff; return x / 0x7fffffff; };
+    const first = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, rng });
+    const lastId = first.questions[first.questions.length - 1].id;
+    const second = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: first.usedIds, rng });
+    assert.strictEqual(second.recycled, true);
+    assert.notStrictEqual(second.questions[0].id, lastId, `seed ${seed}: recycled batch opened with the question just played`);
+  }
+}
+
 console.log('Kwizillo core gameplay tests: OK');

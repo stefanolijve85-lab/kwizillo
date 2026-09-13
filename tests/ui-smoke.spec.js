@@ -367,3 +367,51 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390
     }
   });
 }
+
+test('finishing a topic quiz leads to the next topic, not a reshuffle of the same ten', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+
+  // Topic 1 of 4.
+  await page.locator('.world-topic').first().click();
+  const firstRun = new Set();
+  for (let i = 0; i < 10; i++) {
+    firstRun.add(await page.locator('.quiz-card h1').textContent());
+    await page.locator('.answer').first().click();
+    await page.locator('#feedbackNext').click();
+  }
+  await expect(page.locator('.result-v2')).toBeVisible();
+  await expect(page.locator('#againBtn')).toHaveText(/^Volgende: /);
+  await expect(page.locator('#retryBtn')).toBeVisible();
+
+  // The primary action opens the NEXT topic: none of its questions were in the first run.
+  await page.locator('#againBtn').click();
+  await expect(page.locator('.quiz-v2')).toBeVisible();
+  await expect(page.locator('.quiz-brand small')).toContainText('Quiz 1');
+  for (let i = 0; i < 10; i++) {
+    const prompt = await page.locator('.quiz-card h1').textContent();
+    expect(firstRun.has(prompt), `next topic repeated: ${prompt}`).toBe(false);
+    await page.locator('.answer').first().click();
+    await page.locator('#feedbackNext').click();
+  }
+  await expect(page.locator('.result-v2')).toBeVisible();
+});
+
+test('after the fourth topic the result offers the mixed quiz', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="dieren"]').click();
+  await page.locator('.world-topic').nth(3).click();
+  await answerAll(page, 10);
+  await expect(page.locator('#againBtn')).toHaveText('Start gemengde quiz');
+  await page.locator('#againBtn').click();
+  await expect(page.locator('.quiz-brand small')).toContainText('Gemengde quiz');
+});
+
+test('a mixed quiz result still numbers the next quiz', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="aarde"]').click();
+  await page.locator('#worldMix').click();
+  await answerAll(page, 10);
+  await expect(page.locator('#againBtn')).toHaveText('Start quiz 2');
+  await expect(page.locator('#retryBtn')).toHaveCount(0);
+});

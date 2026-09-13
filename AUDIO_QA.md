@@ -1,7 +1,7 @@
 # AUDIO_QA.md — Kwizillo spraak-QA
 
 **Datum:** 2026-09-13
-**Model:** `eleven_multilingual_v2`
+**Model:** `eleven_v3` (gekozen in een blinde A/B op 2026-09-13; zie §10)
 **Steekproef:** 20 vragen NL + 20 vragen EN, plus één volledige vraag-plus-A/B/C/D-reeks per taal
 
 Alles hieronder is gemeten met `npm run test:audio`, dat de clips genereert
@@ -193,3 +193,19 @@ npm run test:audio      # genereert, meet, transcribeert, rapporteert
 ```
 
 Vereist `ELEVENLABS_API_KEY` in `.env` met `voices_read`-recht.
+
+---
+
+## 10. Model: v2 → v3
+
+Na de telefoontest oordeelde de gebruiker dat uitspraak en intonatie op
+`multilingual_v2` nog niet goed waren. Blinde A/B met dezelfde zin, zes varianten:
+huidig (A/C), `eleven_v3` (B/D), en v2 stabieler afgesteld (E/F). Gekozen: **B en D**.
+
+`eleven_v3` is nu het standaardmodel. Instellingen exact zoals beluisterd:
+Milo `stability 0.5, similarity 0.8, speed 0.92`; Luna `stability 0.5, similarity 0.8,
+speed 0.95`. `style` bestaat niet op v3. Alle metingen uit §2–§3 zijn op v3 herhaald:
+40/40 clips, elke volzin in de juiste taal, letters en cijfers correct, nul problemen.
+
+Kanttekening: v3 heeft een ander tarief per teken dan v2. Het cachet (één keer per
+zin per taal per stem) beperkt dat in de praktijk.

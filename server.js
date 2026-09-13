@@ -35,7 +35,9 @@ const PORT = Number(process.env.PORT || 8080);
 // are what make that acceptable for a home network, never for the open internet.
 const HOST = process.env.HOST || '127.0.0.1';
 const API_KEY = process.env.ELEVENLABS_API_KEY || '';
-const MODEL = process.env.ELEVENLABS_MODEL || 'eleven_multilingual_v2';
+// eleven_v3 was chosen in a blind A/B on 2026-09-13 over multilingual_v2 for
+// intonation and pronunciation; the settings below are the ones that were heard.
+const MODEL = process.env.ELEVENLABS_MODEL || 'eleven_v3';
 const CACHE_DIR = path.join(ROOT, '.tts-cache');
 const SELECTION_FILE = path.join(ROOT, '.voice-selection-v35.json');
 fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -329,9 +331,12 @@ async function loadVoices(lang){
 // Measured on 2026-09-13 with the curated v20 voices: Milo spoke at ~18 chars/s,
 // Luna at ~15. CLAUDE.md section 9 asks for calm, child-friendly pacing, so Milo
 // is slowed towards Luna. Range is 0.7-1.2; extremes degrade quality.
-const VOICE_SETTINGS = {
+const VOICE_SETTINGS = /multilingual_v2/.test(MODEL) ? {
   Milo: { stability:0.42, similarity_boost:0.78, style:0.3,  use_speaker_boost:true, speed:Number(process.env.MILO_SPEED||0.88) },
   Luna: { stability:0.38, similarity_boost:0.8,  style:0.46, use_speaker_boost:true, speed:Number(process.env.LUNA_SPEED||1.0) }
+} : {
+  Milo: { stability:0.5, similarity_boost:0.8, use_speaker_boost:true, speed:Number(process.env.MILO_SPEED||0.92) },
+  Luna: { stability:0.5, similarity_boost:0.8, use_speaker_boost:true, speed:Number(process.env.LUNA_SPEED||0.95) }
 };
 
 // ElevenLabs allows a fixed number of concurrent requests per subscription (5 on
@@ -370,10 +375,9 @@ async function tts(text, guide, lang){
 
   const body=JSON.stringify({
     text, model_id:MODEL,
-    // language_code is not supported by multilingual_v2 (docs: "This parameter
-    // is not supported for multilingual_v2 models"); the native voice per
-    // language carries the accent. Sent only for models that honour it.
-    ...(/multilingual_v2/.test(MODEL) ? {} : { language_code: lang }),
+    // language_code is documented only for the flash/turbo models; the native
+    // voice per language carries the accent on multilingual_v2 and v3.
+    ...(/flash|turbo/.test(MODEL) ? { language_code: lang } : {}),
     voice_settings: settings
   });
 

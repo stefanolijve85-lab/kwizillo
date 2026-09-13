@@ -157,6 +157,17 @@
     const total=q?.questions.length||0,score=q?.score||0,xp=q?.xp||0;
     const pct=total?Math.round(score/total*100):0;
     const nextNumber=(K.runFor(K.currentWorld,q?.topicKey||null).quizNumber||0)+1;
+    // A topic holds ten questions, so "another quiz" on the same topic can only
+    // reshuffle the ones just played. The primary action therefore moves on: the
+    // next topic in this world, or the mixed quiz after the last one. Replaying
+    // the topic stays available, labelled as a repeat.
+    const keys=K.TOPIC_KEYS[K.currentWorld]||[];
+    const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
+    const isTopic=topicIdx>=0;
+    const nextIdx=isTopic&&topicIdx<keys.length-1?topicIdx+1:null;
+    const primaryLabel=!isTopic?t('result.againNumbered',{n:nextNumber})
+      :nextIdx!==null?t('result.nextTopic',{topic:t(`topic.${keys[nextIdx]}`)})
+      :t('result.finishWorld');
     const f=K.frame(`<section class="result-v2 fade-in">
       <img class="result-v2-bg" src="${K.MASTER[K.currentWorld]||K.MASTER.ruimte}" alt="">
       <div class="result-v2-dim"></div>
@@ -167,16 +178,17 @@
         <div class="result-stars">${pct>=90?'★★★':pct>=70?'★★☆':'★☆☆'}</div>
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <div class="result-native">
-          <button id="againBtn">${esc(t('result.againNumbered',{n:nextNumber}))}</button>
+          <button id="againBtn">${esc(primaryLabel)}</button>
+          ${isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
           <button id="collectionBtn" class="secondary">${esc(t('result.toCollection'))}</button>
         </div>
       </div>
     </section>`);
     f.querySelector('#againBtn').onclick=()=>{
       K.stopSpeech();K.sfx('tap');
-      const idx=q?.topicKey?(K.TOPIC_KEYS[K.currentWorld]||[]).indexOf(q.topicKey):null;
-      K.startQuiz(K.currentWorld,idx===-1?null:idx);
+      K.startQuiz(K.currentWorld,isTopic?nextIdx:null);   // nextIdx null after the last topic = mixed quiz
     };
+    f.querySelector('#retryBtn')?.addEventListener('click',()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(K.currentWorld,topicIdx)});
     f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
   };
 })();
