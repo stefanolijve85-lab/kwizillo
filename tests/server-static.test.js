@@ -13,11 +13,15 @@ const { spawn } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const PORT = Number(process.env.STATIC_TEST_PORT || 8123);
 const BASE = `http://127.0.0.1:${PORT}`;
-const ENV_PROBE = path.join(ROOT, '.env');
+// The probe is a SEPARATE dot-file. An earlier version wrote to .env itself and
+// deleted it afterwards, which destroyed a developer's real key. Never again:
+// this test must not touch .env under any circumstances.
+const ENV_PROBE = path.join(ROOT, '.env.qa-probe');
 
 const MUST_BLOCK = [
   '/.git/config',
   '/.env',
+  '/.env.qa-probe',
   '/.gitignore',
   '/.voice-selection-v35.json',
   '/server.js',
@@ -54,10 +58,14 @@ async function waitForServer(){
 }
 
 (async () => {
-  // A real secret file is the case that matters most, so create one for the test.
+  // A secret-bearing dot-file is the case that matters most. It gets its own name
+  // so a real .env is never written to or removed by this test.
+  assert.ok(!ENV_PROBE.endsWith(path.sep + '.env'), 'probe must never be the real .env');
   fs.writeFileSync(ENV_PROBE, 'ELEVENLABS_API_KEY=sk_probe_value_used_only_by_this_test\n');
   const server = spawn(process.execPath, ['server.js'], {
     cwd: ROOT, env: { ...process.env, PORT: String(PORT), ELEVENLABS_API_KEY: '' }, stdio: 'ignore'
+    // ELEVENLABS_API_KEY is set (empty) so a real .env on this machine is not
+    // loaded by the server under test: environment values win over .env.
   });
 
   try {
