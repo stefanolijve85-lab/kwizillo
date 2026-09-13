@@ -62,7 +62,7 @@
         const fr=frame.getBoundingClientRect(), cr=from.getBoundingClientRect();
         const o={x:cr.left-fr.left+cr.width/2,y:cr.top-fr.top+cr.height/2};
         burst(frame,{count:150,origin:o,spread:Math.PI*1.4,power:13,gravity:.28,life:2600,z:40});
-        setTimeout(()=>burst(frame,{count:60,origin:o,spread:Math.PI*1.2,power:10,gravity:.3,life:2000,z:40}),260);
+        setTimeout(()=>{if(frame.isConnected)burst(frame,{count:60,origin:o,spread:Math.PI*1.2,power:10,gravity:.3,life:2000,z:40})},260);
       }
     }catch(e){}
   };

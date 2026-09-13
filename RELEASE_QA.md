@@ -124,6 +124,32 @@ autoplay toegestaan zodat het thema bij een koude start speelt.
 
 ---
 
+### Ronde 3 (visueel & spel)
+- Intro: geen overslaan-knop meer (tik = door); logo opnieuw gerenderd (compleet).
+- Feedbackkaart v3: verdict-band, "het juiste antwoord"-blok, grotere uitleg,
+  kruisje; "Volgende" pas actief na de stem (of na kruisje); zonder stem direct.
+- Stem varieert (8 goed-/4 bijna-zinnen per taal, vaste keuze per vraag+quiz).
+- Quizknoppen: Hint · Nog eens (leest vraag opnieuw; verborgen bij Stil) · Andere vraag.
+- Confetti bij goed antwoord; op het resultaat schudt een cadeau, knalt open
+  in confetti en de gids springt eruit.
+- Geluid: negen gesynthetiseerde effecten (tools/sfx-synth.cjs); tools/sfx.js
+  staat klaar voor ElevenLabs-effecten zodra de API-key de permissie
+  *Sound Effects* heeft (nu 401 missing_permissions).
+- Laden: onderwerp-art 480→150 KB, wereld-/subject-art herkodeerd, eager
+  decoding, twee vragen vooruit, assets 24 u gecachet door de server.
+- Zes mascotte-portretten (Milo sterker; Comet, Pootje, Terra, Sparky, Lumi);
+  vergrendelde maatjes als silhouet met slot.
+- Kenniskaarten als verzamelkaarten met de vraag-illustratie, wereldkleur en
+  zeldzaamheid (moeilijkheid); tik = groot.
+- Menubalk als glas in app-blauw met gouden actieve tab; één SVG-iconenset
+  (icons.js) voor navigatie, knoppen, munten/vlam/ster; wereld-badges uit de
+  wereldschilderingen i.p.v. emoji.
+- Prestaties: medailles met voortgangsring, gouden staat bij behaald.
+- Profielpagina via de avatar linksboven: naam wijzigen, maatje, stem, taal.
+Playwright: 35 tests (kaart-zoom, profiel, feedback-gating, nog-eens-knop).
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

@@ -12,6 +12,7 @@
   function questionArt(q){return K.questionArtFor?.(q.id)||K.QUESTION_ART[K.core.questionArtKind(q)]||K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
   // Warm the browser cache for the next question so its picture appears with
   // the card instead of a beat later.
+  K.questionArt=questionArt;
   function preloadNextArt(){for(const n of (K.quiz?.questions||[]).slice(K.quiz.index+1,K.quiz.index+3)){const i=new Image();i.src=questionArt(n)}}
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
   function clearSpoken(){K.app.querySelectorAll('.answer.spoken-active').forEach(b=>b.classList.remove('spoken-active'));K.clearSpeechHighlight=null}
@@ -52,16 +53,16 @@
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
-          <button class="quiz-back" id="qBack" aria-label="${esc(t('common.back'))}">‹</button>
+          <button class="quiz-back" id="qBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>Kwizillo</span><small>${esc(K.quiz.topicLabel)} · ${esc(t('quiz.quizLabel',{n:K.quiz.quizNumber}))}</small></div>
-          <div class="quiz-meta"><b>🪙 ${Number(K.state.coins||0)}</b><b>🔥 ${Number(K.state.streak||0)}</b></div>
+          <div class="quiz-meta"><b>${K.icon('coin')} ${Number(K.state.coins||0)}</b><b>${K.icon('flame')} ${Number(K.state.streak||0)}</b></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div><span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span></div>
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
           <div class="quiz-art"><img src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
           <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
-          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}"><button class="action hint" id="hintBtn">${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${esc(t('quiz.repeat'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
+          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}"><button class="action hint" id="hintBtn">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
         </main>
       </div>
     </section>`);
@@ -93,7 +94,7 @@
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const x=document.createElement('div');x.className=`hint-float hint-v2 world-${q.world}`;
     const hint=q.hint||t('hint.fallback');
-    x.innerHTML=`<div class="hint-card"><button class="hint-close" aria-label="${esc(t('hint.close'))}">×</button><div class="hint-kicker">💡 ${esc(t('hint.kicker',{topic:K.quiz.topicLabel}))}</div><div class="hint-visual"><img src="${questionArt(q)}" alt="${esc(t('hint.alt'))}"></div><h2>${esc(t('hint.title'))}</h2><p>${esc(hint)}</p><button class="hint-ok">${esc(t('hint.ok'))}</button></div>`;
+    x.innerHTML=`<div class="hint-card"><button class="hint-close" aria-label="${esc(t('hint.close'))}">×</button><div class="hint-kicker">${K.icon('bulb')} ${esc(t('hint.kicker',{topic:K.quiz.topicLabel}))}</div><div class="hint-visual"><img src="${questionArt(q)}" alt="${esc(t('hint.alt'))}"></div><h2>${esc(t('hint.title'))}</h2><p>${esc(hint)}</p><button class="hint-ok">${esc(t('hint.ok'))}</button></div>`;
     f.appendChild(x);
     const close=()=>{K.stopSpeech();x.remove()};
     x.querySelector('.hint-close').onclick=close;
@@ -143,7 +144,7 @@
       </div>
       <div class="feedback-answer"><small>${esc(t('feedback.answerLabel'))}</small><b>${esc(q.answer)}</b></div>
       <p class="feedback-explain">${explain}</p>
-      ${correct?`<div class="reward-strip"><span>⭐ +${q.xp||10} XP</span><span>🪙 +2</span></div>`:''}
+      ${correct?`<div class="reward-strip"><span>${K.icon('star')} +${q.xp||10} XP</span><span>${K.icon('coin')} +2</span></div>`:''}
       ${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}
       <button class="feedback-next" id="feedbackNext" disabled><em class="feedback-wait">${esc(t('feedback.listening'))}</em><span class="feedback-next-label">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></span></button>
     </div>`;

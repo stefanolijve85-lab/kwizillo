@@ -324,3 +324,105 @@
 @keyframes mascotPop{0%{opacity:0;transform:scale(.3) translateY(20px)}60%{opacity:1;transform:scale(1.12) translateY(-6px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 .result-stage.open .result-mascot .mascot-face.large{box-shadow:0 0 0 4px #fff,0 0 28px rgba(255,214,60,.75),0 8px 18px rgba(0,22,70,.3)}
 @media(prefers-reduced-motion:reduce){.result-gift{animation:none}.result-stage .result-mascot{opacity:1;transform:none}.result-stage .result-gift{display:none}}
+
+/* ---- Knowledge cards: collectable trading cards with the question's own art.
+   Frame colour follows the world, the shine follows the rarity. ---- */
+.kcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:2px 2px 8px}
+.kcard{position:relative;display:block;padding:0;border:0;background:transparent;cursor:pointer;text-align:left;border-radius:18px;
+  aspect-ratio:63/88;transition:transform .18s ease}
+.kcard:active{transform:scale(.97)}
+.kcard-frame{position:relative;display:flex;flex-direction:column;height:100%;padding:6px;border-radius:18px;color:#fff;
+  background:var(--kc,linear-gradient(160deg,#3f7ff0,#1f47b0));box-shadow:0 10px 22px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.35);overflow:hidden}
+.kcard-frame::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.22) 45%,rgba(255,255,255,0) 60%)}
+.kcard.rare .kcard-frame{box-shadow:0 10px 22px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 2px rgba(120,200,255,.55)}
+.kcard.epic .kcard-frame::before{background:linear-gradient(115deg,rgba(255,255,255,0) 20%,rgba(255,235,150,.35) 40%,rgba(255,255,255,0) 55%,rgba(180,120,255,.3) 75%,rgba(255,255,255,0) 90%)}
+.kcard.epic .kcard-frame{box-shadow:0 10px 22px rgba(0,26,80,.3),inset 0 0 0 2px #ffe27a,0 0 0 2px rgba(255,214,80,.6)}
+.kcard.legendary .kcard-frame{box-shadow:0 12px 26px rgba(0,26,80,.34),inset 0 0 0 2px #fff,0 0 0 3px #ffd54a,0 0 18px rgba(255,200,60,.6)}
+.kcard.legendary .kcard-frame::before{background:conic-gradient(from 0deg,rgba(255,255,255,0),rgba(255,120,200,.35),rgba(120,220,255,.35),rgba(255,230,120,.35),rgba(255,255,255,0));mix-blend-mode:screen}
+.kcard-top{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:2px 4px 5px}
+.kcard-top b{font-size:clamp(11px,3vw,14px);line-height:1.05;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.kcard-top i{font-style:normal;font-size:10px;color:#ffd54a;letter-spacing:-1px;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.3)}
+.kcard-art{display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:2px solid rgba(255,255,255,.75);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);background:#0b2a66}
+.kcard-art img{width:100%;height:100%;object-fit:cover;display:block}
+.kcard-type{display:block;margin-top:5px;padding:3px 6px;border-radius:999px;background:rgba(0,0,0,.22);font-size:8.5px;font-weight:900;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kcard-text{display:block;flex:1;margin-top:5px;padding:5px 6px;border-radius:9px;background:rgba(255,255,255,.92);color:#1a2d5a;font-size:clamp(8.5px,2.35vw,10.5px);line-height:1.25;font-weight:800;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4}
+.kcard-foot{display:flex;justify-content:space-between;margin-top:5px;padding:0 4px 1px;font-size:8.5px;font-weight:900;opacity:.9}
+.kcard.world-ruimte{--kc:linear-gradient(160deg,#5b7cff,#2a2f9e)}
+.kcard.world-dieren{--kc:linear-gradient(160deg,#5fd06b,#1f7a3e)}
+.kcard.world-aarde{--kc:linear-gradient(160deg,#37c2e6,#1263a3)}
+.kcard.world-geschiedenis{--kc:linear-gradient(160deg,#e9b25a,#9a5b1c)}
+.kcard.world-wetenschap{--kc:linear-gradient(160deg,#7e6bff,#3a2ab8)}
+.kcard.world-mysterie{--kc:linear-gradient(160deg,#b86bff,#4d1e9c)}
+.kcard-zoom{position:absolute;inset:0;z-index:30;display:grid;place-items:center;padding:8%;background:rgba(3,20,60,.6);backdrop-filter:blur(6px)}
+.kcard-zoom .kcard{width:min(78%,300px);aspect-ratio:63/88;animation:kcardPop .32s cubic-bezier(.2,.9,.25,1.25) both}
+.kcard-zoom .kcard-top b{font-size:16px}.kcard-zoom .kcard-type{font-size:11px}.kcard-zoom .kcard-text{font-size:12.5px;-webkit-line-clamp:7}.kcard-zoom .kcard-foot{font-size:10px}
+@keyframes kcardPop{from{transform:scale(.7) rotate(-4deg);opacity:0}to{transform:none;opacity:1}}
+
+/* ---- Mascot cards: real portraits, locked ones as a silhouette. ---- */
+.mascot-portrait{position:relative;display:block;width:76px;height:76px;margin:0 auto;border-radius:50%;box-shadow:0 8px 18px rgba(0,22,70,.22),0 0 0 3px #fff}
+.mascot-portrait .mascot-face.large{width:76px;height:76px}
+.mascot-portrait.locked .mascot-face{filter:grayscale(1) brightness(.35) blur(1px)}
+.mascot-portrait.locked i{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.mascot-card.selected .mascot-portrait{box-shadow:0 8px 18px rgba(0,22,70,.22),0 0 0 3px #fff,0 0 0 6px #7360ef}
+
+/* ---- Icon set ---- */
+.ki{width:1.15em;height:1.15em;vertical-align:-.2em;display:inline-block;filter:drop-shadow(0 1px 0 rgba(0,0,0,.18))}
+.native-bottom-nav .ki{width:24px;height:24px}
+.world-round .ki,.panel-back .ki,.panel-settings .ki,.hud-gear .ki,.quiz-back .ki{width:24px;height:24px;vertical-align:middle}
+.hud-chip .ki,.quiz-meta .ki{width:16px;height:16px;vertical-align:-3px}
+.quiz-actions .ki{width:18px;height:18px;vertical-align:-4px}
+.hint-kicker .ki{width:16px;height:16px}
+.reward-strip .ki{width:15px;height:15px;vertical-align:-3px}
+.world-badge{width:34px;height:34px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff,0 4px 10px rgba(0,26,80,.25);vertical-align:middle;background:#123}
+.world-badge.tiny{width:18px;height:18px;box-shadow:0 0 0 1.5px rgba(255,255,255,.85);vertical-align:-4px}
+.progress-world-icon{display:grid;place-items:center}
+.progress-world-icon .world-badge{width:44px;height:44px}
+.world-stat-badge{display:grid;place-items:center}
+.hud-avatar{border:0;cursor:pointer}
+
+/* ---- Bottom navigation: glass in the app's own blue, not a white bar. ---- */
+.native-bottom-nav{background:linear-gradient(180deg,rgba(24,64,150,.86),rgba(10,32,96,.94))!important;border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 26px rgba(0,20,70,.35),inset 0 1px 0 rgba(255,255,255,.25)!important;padding:7px 6px 5px!important}
+.native-bottom-nav button{color:#c9dcff;border-radius:16px;gap:2px}
+.native-bottom-nav button .ki{filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.native-bottom-nav button.active{background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;box-shadow:0 4px 0 #d98b12,0 8px 16px rgba(0,20,70,.3)}
+.native-bottom-nav small{font-size:9px;letter-spacing:.01em}
+
+/* ---- Achievements: medals with a progress ring. ---- */
+.achievement-card{grid-template-columns:66px 1fr!important}
+.achievement-medal{position:relative;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(#ffc531 calc(var(--p,0)*1%),#dfe9f5 0);box-shadow:0 6px 14px rgba(20,70,128,.14)}
+.achievement-medal::after{content:"";position:absolute;inset:5px;border-radius:50%;background:linear-gradient(180deg,#f6fbff,#e6f1fc)}
+.achievement-medal .achievement-icon{position:relative;z-index:1;width:auto;height:auto;background:transparent;font-size:28px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.15))}
+.achievement-card.done .achievement-medal{background:conic-gradient(#ffc531,#ffe27a,#ffc531);box-shadow:0 6px 16px rgba(230,160,20,.35),0 0 0 3px #fff2b3}
+.achievement-card.done .achievement-medal::after{background:linear-gradient(180deg,#fff9d6,#ffe9a0)}
+.achievement-card:not(.done) .achievement-medal .achievement-icon{filter:grayscale(.55) opacity(.75)}
+.achievement-card.done{background:linear-gradient(180deg,#fffdf1,#fff4cf)!important;border-color:#ffd97a!important}
+.done-badge{background:linear-gradient(180deg,#ffd54a,#f0a500)!important;color:#5a3a00!important}
+.summary-hero .summary-icon{color:#8a5a00}
+.summary-hero .summary-icon .ki{width:36px;height:36px}
+
+/* ---- Profile ---- */
+.profile-hero{display:grid;justify-items:center;gap:10px;padding:16px 12px 14px;border-radius:24px;background:linear-gradient(180deg,#ffffff,#eaf5ff);border:1px solid #d6eaf9;box-shadow:0 8px 18px rgba(20,70,128,.08)}
+.profile-portrait{position:relative;width:104px;height:104px}
+.profile-portrait .mascot-face{width:104px;height:104px;box-shadow:0 0 0 4px #fff,0 10px 24px rgba(0,22,70,.3)}
+.profile-level{position:absolute;right:-4px;bottom:-2px;min-width:32px;height:32px;padding:0 8px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-weight:1000;font-size:14px;box-shadow:0 3px 0 #d98b12,0 0 0 3px #fff}
+.profile-name{display:flex;gap:6px;width:min(100%,300px)}
+.profile-name input{flex:1;min-height:46px;border:2px solid #cfe4f8;border-radius:16px;padding:0 14px;font:1000 18px/1 inherit;color:#12265f;text-align:center;background:#fff}
+.profile-name input:focus{outline:none;border-color:#267cff;box-shadow:0 0 0 3px rgba(38,124,255,.2)}
+.profile-name button{width:46px;border:0;border-radius:16px;background:linear-gradient(180deg,#5fd06b,#2ea34a);color:#fff;box-shadow:0 4px 0 #1f7a3e;cursor:pointer}
+.profile-name button .ki{width:22px;height:22px}
+.profile-xp{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;width:min(100%,300px);font-size:11px;font-weight:900;color:#3566a8}
+.profile-xp i{display:block;height:9px;border-radius:999px;background:#dcebf5;overflow:hidden}
+.profile-xp b{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#ffc531,#ff9b1a)}
+.profile-stats{grid-template-columns:repeat(4,1fr)!important;gap:7px!important}
+.profile-stats article{padding:9px 4px!important}
+.profile-stats article span .ki{width:22px;height:22px}
+.profile-stats article b{display:block;font-size:16px}
+.profile-stats article small{font-size:8.5px}
+.profile-row{grid-template-columns:1fr auto!important;margin-top:10px}
+.profile-link{border:0;border-radius:999px;padding:9px 12px;background:linear-gradient(180deg,#4ba0ff,#1a64cd);color:#fff;font-weight:1000;font-size:12px;box-shadow:0 3px 0 #0f4a9c;cursor:pointer}
+.profile-voice .quick-pills{display:flex;gap:4px;padding:3px;border-radius:999px;background:#e7f1fb}
+.profile-voice .quick-pill{min-width:40px;min-height:36px}
+.stat-cards article span .ki{width:26px;height:26px}

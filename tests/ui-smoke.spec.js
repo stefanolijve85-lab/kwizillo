@@ -78,8 +78,8 @@ test('a brand new player starts at zero, not on seeded progress', async ({ page 
   await page.locator('#obNext').click();
   await page.locator('#obStart').click();
 
-  await expect(page.locator('.hud-right')).toContainText('🪙 0');
-  await expect(page.locator('.hud-right')).toContainText('🔥 0');
+  const chips = await page.locator('.hud-chip').allTextContents();
+  expect(chips.map(c => c.trim())).toEqual(['0', '0']);
   await expect(page.locator('.hud-id small')).toHaveText('Level 1');
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
@@ -178,7 +178,13 @@ test('every navigation destination is dynamic and interactive', async ({ page })
   await expect(page.locator('.collection-tabs')).toBeVisible();
   await expect(page.locator('.progress-world')).toHaveCount(6);
   await page.getByRole('button', { name: /Kaarten/ }).click();
-  await expect(page.locator('.knowledge-card')).toHaveCount(2);
+  await expect(page.locator('.kcard')).toHaveCount(2);
+  // Every card carries its question's own illustration and opens large on tap.
+  for (const img of await page.locator('.kcard-art img').all()) expect(await img.getAttribute('src')).toMatch(/assets\/questions\/q\//);
+  await page.locator('.kcard').first().click();
+  await expect(page.locator('.kcard-zoom')).toBeVisible();
+  await page.locator('.kcard-zoom').click();
+  await expect(page.locator('.kcard-zoom')).toHaveCount(0);
   await page.getByRole('button', { name: /Mascottes/ }).click();
   await expect(page.locator('.mascot-card')).toHaveCount(6);
   await page.locator('.mascot-card:not([disabled])').first().click();
@@ -405,6 +411,18 @@ test('without a voice the feedback "next" is live at once and the repeat button 
   await expect(page.locator('#repeatBtn')).toBeHidden();
   await page.locator('.answer').first().click();
   await expect(page.locator('#feedbackNext')).toBeEnabled();
+});
+
+test('the avatar on Home opens the profile, where the name can be changed', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeProfile').click();
+  await expect(page.locator('.profile-screen h1')).toHaveText('Mijn profiel');
+  await page.locator('#profileInput').fill('Noor');
+  await page.locator('#profileName button').click();
+  await page.locator('.panel-back').click();
+  await expect(page.locator('.hud-id b')).toContainText('Noor');
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.hud-id b')).toContainText('Noor', { timeout: 8000 });
 });
 
 test('"another question" swaps in a genuinely new question', async ({ page }) => {

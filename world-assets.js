@@ -70,6 +70,10 @@
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:
   // Home HUD, voice pickers, onboarding, feedback and result cards.
-  K.MASCOT_ART={milo:'assets/brand/milo.jpg',luna:'assets/brand/luna.jpg'};
+  K.MASCOT_ART={
+    milo:'assets/mascots/milo.jpg',luna:'assets/brand/luna.jpg',
+    comet:'assets/mascots/comet.jpg',pootje:'assets/mascots/pootje.jpg',terra:'assets/mascots/terra.jpg',
+    sparky:'assets/mascots/sparky.jpg',lumi:'assets/mascots/lumi.jpg'
+  };
   K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
 })();
