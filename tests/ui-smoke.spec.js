@@ -425,6 +425,30 @@ test('without a voice the feedback "next" is live at once and the repeat button 
   await expect(page.locator('#feedbackNext')).toBeEnabled();
 });
 
+test('Brazilian Portuguese: onboarding offers it, the whole UI and the question bank follow', async ({ page }) => {
+  await page.route('**/*.mp4', route => route.abort());
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
+  await expect(page.locator('[data-lang]')).toHaveCount(3);
+  await page.getByRole('button', { name: /Português/ }).click();
+  await expect(page.getByRole('heading', { name: 'Qual é o seu nome?' })).toBeVisible();
+  await page.locator('#obName').fill('Ana');
+  await page.locator('#obNext').click();
+  await page.getByRole('button', { name: /Sem voz/ }).click();
+  await page.locator('#obNext').click();
+  await page.locator('#obStart').click();
+  await expect(page.locator('.hud-id b')).toContainText('Oi, Ana!');
+  await expect(page.locator('.native-bottom-nav')).toContainText('Início');
+  await page.locator('[data-world="dieren"]').click();
+  await expect(page.locator('.world-title-wrap h1')).toHaveText('Mundo dos Animais');
+  await page.locator('#worldMix').click();
+  const prompt = await page.locator('.quiz-card h1').textContent();
+  expect(prompt).toMatch(/[?…]$/);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.questions.length)).toBe(240);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.questions[0].prompt)).toMatch(/Sol/);
+  expect(await page.evaluate(() => document.documentElement.lang)).toBe('pt');
+});
+
 test('the avatar on Home opens the profile, where the name can be changed', async ({ page }) => {
   await boot(page);
   await page.locator('#homeProfile').click();

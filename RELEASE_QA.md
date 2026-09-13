@@ -150,6 +150,30 @@ Playwright: 35 tests (kaart-zoom, profiel, feedback-gating, nog-eens-knop).
 
 ---
 
+### Ronde 4
+- Intro start pas na een tik ("Tik om te starten"); daardoor speelt het thema
+  vanaf het eerste beeld, ook op iOS. Logo strak uitgesneden (alleen dekkende
+  pixels; de schaduw komt uit CSS).
+- Quiz: rij Terug · Hint · Nog eens; kruisje op de uitlegkaart toont dezelfde
+  vraag opnieuw (beantwoord) met Terug · Uitleg · Volgende. "Andere vraag" weg.
+- Vraagtimer: 30 s op level 1, 2 s minder per level, minimaal 10 s; pauzeert
+  onder de hint; time-out = fout met eigen kaart. Aan/uit in Ouderzone.
+- Niveau: Auto (groep + level) of handmatig 1–4; vragen in een quiz van makkelijk
+  naar moeilijk.
+- Vraag-illustratie nooit meer afgesneden (contain over vervaagde vulling).
+- Munten/vlam/XP-chips openen Statistieken; lokaal scorebord (beste quiz per
+  wereld); "Deel je score" via systeemdeelvenster/klembord achter de oudercheck.
+- Portugees (Brazilië): volledige UI (alle sleutels), 240 vragen
+  (`questions-pt.js`, zelfde ids), getallen/eenheden uitgesproken in het
+  Portugees, server kiest Braziliaanse stemmen (Milo: Wesley Bessa, Luna:
+  Raquel; Scribe herkent `por`, tekst exact).
+- **Nog niet**: wereldwijd scoreboard, vrienden zoeken/uitnodigen. Dat vraagt
+  accounts en een backend; voor de iOS-versie is de passende route Apple Game
+  Center (ranglijsten, vrienden, privacy door Apple geregeld) in fase 6.
+Playwright: 39 tests.
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

@@ -168,4 +168,25 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   }
 }
 
+// Brazilian Portuguese numbers and units at the voice boundary.
+assert.strictEqual(core.spellNumbers('8 planeten', 'pt'), 'oito planeten');
+assert.strictEqual(core.spellNumbers('88 dias', 'pt'), 'oitenta e oito dias');
+assert.strictEqual(core.spellNumbers('100', 'pt'), 'cem');
+assert.strictEqual(core.spellNumbers('165 anos', 'pt'), 'cento e sessenta e cinco anos');
+assert.strictEqual(core.spellNumbers('2006', 'pt'), 'dois mil e seis');
+assert.strictEqual(core.spellNumbers('71%', 'pt'), 'setenta e um por cento');
+assert.strictEqual(core.spellNumbers('300 km/h', 'pt'), 'trezentos quilômetros por hora');
+assert.strictEqual(core.spellNumbers('0 °C', 'pt'), 'zero graus Celsius');
+// Difficulty cap and timer seconds.
+assert.deepStrictEqual([1,2,3,4].map(g=>core.difficultyCap({level:'auto',grade:g*2,playerLevel:1})), [1,2,3,4]);
+assert.strictEqual(core.difficultyCap({level:'auto',grade:5,playerLevel:5}), 3);
+assert.strictEqual(core.difficultyCap({level:2,grade:8,playerLevel:40}), 2);
+assert.deepStrictEqual([1,5,11,30].map(core.questionSeconds), [30,22,10,10]);
+// Batches come out ordered easy -> hard and respect the cap when the pool allows.
+{
+  const b = core.selectQuizBatch({ questions, world: 'ruimte', limit: 10, maxDifficulty: 2, rng: () => 0.42 });
+  assert.ok(b.questions.every(q => (q.difficulty || 1) <= 2), 'cap respected on a 40-question pool');
+  const d = b.questions.map(q => q.difficulty || 1);
+  assert.deepStrictEqual(d, [...d].sort((a, b) => a - b), 'batch ordered by difficulty');
+}
 console.log('Kwizillo core gameplay tests: OK');

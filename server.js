@@ -50,7 +50,7 @@ const UPSTREAM_TIMEOUT_MS = Number(process.env.TTS_TIMEOUT_MS || 15000);
 const MAX_BODY_BYTES = 8 * 1024;
 const RATE_WINDOW_MS = 60000;
 const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 60);
-const LANGS = new Set(['nl','en']);
+const LANGS = new Set(['nl','en','pt']);
 const hits = new Map();
 
 // Coarse per-client cap so an open proxy cannot burn ElevenLabs credits.
@@ -195,6 +195,12 @@ const LANG_RULES = {
     matches:v => languageOf(v)==='en',
     reject:v => languageOf(v) && languageOf(v)!=='en',
     accentBonus:v => /american|en-us/.test(accentOf(v)) ? 80 : 0
+  },
+  pt: {
+    label:'Brazilian Portuguese',
+    matches:v => languageOf(v)==='pt' && !/portugal|european|pt-pt/.test(accentOf(v)),
+    reject:v => (languageOf(v) && languageOf(v)!=='pt') || /portugal|european|pt-pt/.test(accentOf(v)),
+    accentBonus:v => /brazil|brasil|pt-br/.test(accentOf(v)) ? 80 : 0
   }
 };
 const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
@@ -206,9 +212,10 @@ const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
 function nameLanguageBias(v, lang){
   const name=norm(v.name);
   if(!name.startsWith('kwizillo')) return 0;
-  const saysNl=/\bnl(-nl)?\b/.test(name), saysEn=/\ben(-us|-gb)?\b/.test(name);
-  if(lang==='nl') return saysNl?50:saysEn?-50:0;
-  if(lang==='en') return saysEn?50:saysNl?-50:0;
+  const saysNl=/\bnl(-nl)?\b/.test(name), saysEn=/\ben(-us|-gb)?\b/.test(name), saysPt=/\bpt(-br)?\b/.test(name);
+  if(lang==='nl') return saysNl?50:(saysEn||saysPt)?-50:0;
+  if(lang==='en') return saysEn?50:(saysNl||saysPt)?-50:0;
+  if(lang==='pt') return saysPt?50:(saysNl||saysEn)?-50:0;
   return 0;
 }
 function scoreVoiceFor(v, wanted, lang, shared){

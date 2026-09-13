@@ -105,7 +105,20 @@
     if(n<10000){const k=Math.floor(n/1000),r=n%1000;return EN_ONES[k]+' thousand'+(r?(r<100?' and ':' ')+enNumber(r):'')}
     return String(n);
   }
+  // Brazilian Portuguese numbers 0-9999 ("e" between all groups: cento e vinte e três).
+  const PT_ONES=['zero','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove'];
+  const PT_TENS=['','','vinte','trinta','quarenta','cinquenta','sessenta','setenta','oitenta','noventa'];
+  const PT_HUNDREDS=['','cento','duzentos','trezentos','quatrocentos','quinhentos','seiscentos','setecentos','oitocentos','novecentos'];
+  function ptNumber(n){
+    if(n<20) return PT_ONES[n];
+    if(n<100){const t=Math.floor(n/10),o=n%10;return PT_TENS[t]+(o?' e '+PT_ONES[o]:'')}
+    if(n===100) return 'cem';
+    if(n<1000){const h=Math.floor(n/100),r=n%100;return PT_HUNDREDS[h]+(r?' e '+ptNumber(r):'')}
+    if(n<10000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'mil':PT_ONES[k]+' mil')+(r?(r<100||r%100===0?' e ':' ')+ptNumber(r):'')}
+    return String(n);
+  }
   const UNITS={
+    pt:[[/\s*%/g,' por cento'],[/\bkm\/h\b/g,'quilômetros por hora'],[/\b1 km\b/g,'1 quilômetro'],[/\bkm\b/g,'quilômetros'],[/\s*°\s*C\b/g,' graus Celsius'],[/\b1 cm\b/g,'1 centímetro'],[/\bcm\b/g,'centímetros']],
     nl:[[/\s*%/g,' procent'],[/\bkm\/u\b/g,'kilometer per uur'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' graden Celsius'],[/\bcm\b/g,'centimeter']],
     // English units pluralise, so "1 cm" must become "one centimetre".
     en:[[/\s*%/g,' percent'],[/\b1 km\/h\b/g,'1 kilometre per hour'],[/\bkm\/h\b/g,'kilometres per hour'],[/\b1 km\b/g,'1 kilometre'],[/\bkm\b/g,'kilometres'],[/\s*°\s*C\b/g,' degrees Celsius'],[/\b1 cm\b/g,'1 centimetre'],[/\bcm\b/g,'centimetres']]
@@ -113,7 +126,7 @@
   function spellNumbers(text,lang='nl'){
     let out=String(text||'');
     for(const [re,rep] of (UNITS[lang]||UNITS.nl)) out=out.replace(re,rep);
-    const toWords=lang==='en'?enNumber:nlNumber;
+    const toWords=lang==='en'?enNumber:lang==='pt'?ptNumber:nlNumber;
     // Plain integers only; anything with a decimal separator is left as is.
     return out.replace(/(?<![\d.,])\d{1,4}(?![\d.,]\d)/g,m=>toWords(Number(m)));
   }

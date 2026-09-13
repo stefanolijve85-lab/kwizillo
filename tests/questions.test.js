@@ -10,11 +10,11 @@ const vm = require('vm');
 const ROOT = path.join(__dirname, '..');
 const ctx = { window: {} };
 vm.createContext(ctx);
-for (const f of ['questions.js', 'questions-en.js']) {
+for (const f of ['questions.js', 'questions-en.js', 'questions-pt.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
 }
 
-const BANKS = { nl: ctx.window.KWIZILLO_QUESTIONS_NL, en: ctx.window.KWIZILLO_QUESTIONS_EN };
+const BANKS = { nl: ctx.window.KWIZILLO_QUESTIONS_NL, en: ctx.window.KWIZILLO_QUESTIONS_EN, pt: ctx.window.KWIZILLO_QUESTIONS_PT };
 const WORLDS = ['ruimte', 'geschiedenis', 'wetenschap', 'mysterie', 'dieren', 'aarde'];
 
 for (const [lang, bank] of Object.entries(BANKS)) {
@@ -60,31 +60,32 @@ for (const [lang, bank] of Object.entries(BANKS)) {
   assert.ok(!bank.some(q => 'topicLabel' in q), `${lang}: questions must not carry topicLabel`);
 }
 
-// Cross-language parity.
+// Cross-language parity: every bank covers the same ids with the same metadata.
+const LANGS = Object.keys(BANKS);
 const nlIds = BANKS.nl.map(q => q.id).sort();
-const enIds = BANKS.en.map(q => q.id).sort();
-assert.deepStrictEqual(enIds, nlIds, 'Language banks must cover exactly the same question ids');
-
 const nlById = new Map(BANKS.nl.map(q => [q.id, q]));
-for (const q of BANKS.en) {
-  const nl = nlById.get(q.id);
-  assert.strictEqual(q.world, nl.world, `${q.id}: world differs between languages`);
-  assert.strictEqual(q.topic, nl.topic, `${q.id}: topic differs between languages`);
-  assert.strictEqual(q.groupMin, nl.groupMin, `${q.id}: groupMin differs between languages`);
-  assert.strictEqual(q.xp, nl.xp, `${q.id}: xp differs between languages`);
-  assert.notStrictEqual(q.prompt, nl.prompt, `${q.id}: English prompt is still the Dutch text`);
+for (const lang of LANGS.filter(l => l !== 'nl')) {
+  assert.deepStrictEqual(BANKS[lang].map(q => q.id).sort(), nlIds, `${lang}: banks must cover exactly the same question ids`);
+  for (const q of BANKS[lang]) {
+    const nl = nlById.get(q.id);
+    assert.strictEqual(q.world, nl.world, `${q.id}: world differs between languages`);
+    assert.strictEqual(q.topic, nl.topic, `${q.id}: topic differs between languages`);
+    assert.strictEqual(q.groupMin, nl.groupMin, `${q.id}: groupMin differs between languages`);
+    assert.strictEqual(q.xp, nl.xp, `${q.id}: xp differs between languages`);
+    assert.notStrictEqual(q.prompt, nl.prompt, `${q.id}: ${lang} prompt is still the Dutch text`);
+  }
 }
 
-// Every topic key used by the banks must have a label in both languages.
+// Every topic key used by the banks must have a label in every language.
 const i18n = fs.readFileSync(path.join(ROOT, 'i18n.js'), 'utf8');
 const topicKeys = [...new Set(BANKS.nl.map(q => q.topic))];
 assert.strictEqual(topicKeys.length, 24, 'expected 24 distinct topic keys');
 for (const key of topicKeys) {
   const hits = i18n.split(`'topic.${key}'`).length - 1;
-  assert.strictEqual(hits, 2, `topic.${key} must be translated in both languages (found ${hits})`);
+  assert.strictEqual(hits, LANGS.length, `topic.${key} must be translated in every language (found ${hits})`);
 }
 
-console.log(`Kwizillo question banks: OK (nl ${BANKS.nl.length}, en ${BANKS.en.length}, 24 topics, ids in parity)`);
+console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].length}`).join(', ')}, 24 topics, ids in parity)`);
 
 // Every question must resolve to a subject or topic illustration. Falling back to
 // the world background was AUDIT.md finding 4.11: the card showed the same picture

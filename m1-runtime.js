@@ -2,7 +2,7 @@
   const K=window.KWIZILLO_M1=window.KWIZILLO_M1||{};
   K.app=document.getElementById('app');K.core=window.KWIZILLO_CORE;K.config=window.KWIZILLO_CONFIG||{};
   // The active question bank follows the selected language.
-  K.banks={nl:window.KWIZILLO_QUESTIONS_NL||[],en:window.KWIZILLO_QUESTIONS_EN||[]};
+  K.banks={nl:window.KWIZILLO_QUESTIONS_NL||[],en:window.KWIZILLO_QUESTIONS_EN||[],pt:window.KWIZILLO_QUESTIONS_PT||[]};
   K.useBank=()=>{K.questions=K.banks[K.state.language]||K.banks.nl||[];return K.questions};
   K.useBank();
   K.TOPIC_KEYS={ruimte:['zonnestelsel','sterren_planeten','astronauten','raket_avontuur'],geschiedenis:['egyptenaren','ridders_kastelen','romeinen','ontdekkingsreizigers'],wetenschap:['slimme_proefjes','lichaam','uitvindingen','natuur_energie'],mysterie:['raadsels','verborgen_schatten','natuurmysteries','speurtocht'],dieren:['snelle_dieren','baby_dieren','waterdieren','jungle'],aarde:['continenten_landen','weer_klimaat','oceanen_natuur','kaarten_navigatie']};
