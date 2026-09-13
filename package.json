@@ -1,10 +1,10 @@
 {
   "name": "kwizillo",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/milestone1.test.js && node tests/server-static.test.js",
+    "test": "node tests/questions.test.js && node tests/core.test.js && node tests/server-static.test.js",
     "test:ui": "playwright test"
   },
   "devDependencies": {

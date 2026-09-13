@@ -31,6 +31,8 @@
 
     const el=frame.querySelector('.motion');
     const video=el.querySelector('video');
+    el.querySelector('.motion-skip').textContent=K.t('intro.skip');
+    el.querySelector('.motion-skip').setAttribute('aria-label',K.t('intro.skip'));
     let timers=[],done=false;
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
 
@@ -58,5 +60,6 @@
     document.addEventListener('pointerdown',()=>{K.audio.unlock?.().then(startMusic).catch(()=>{})},{once:true,capture:true});
   };
 
-  K.playIntro(()=>K.showHome());
+  // First run goes to onboarding, returning players go straight to Home.
+  K.playIntro(()=>K.needsOnboarding()?K.startOnboarding():K.showHome());
 })();

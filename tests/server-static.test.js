@@ -40,7 +40,9 @@ const MUST_SERVE = [
   '/m1-ui.js',
   '/base.css',
   '/screens.css',
-  '/assets/home.png',
+  '/assets/worlds/ruimte.jpg',
+  '/assets/questions/space.jpg',
+  '/assets/brand/logo.png',
   '/assets/audio/tap.wav'
 ];
 

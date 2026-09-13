@@ -1,125 +1,294 @@
 const { test, expect } = require('@playwright/test');
 
-const worlds = [
-  ['Ruimtewereld','Ruimtewereld','hf_20260912_143746_b59617fc-4c86-4eb9-a0fe-0e54b2100494.png'],
-  ['Dierenwereld','Dierenwereld','hf_20260912_143746_ddbc8c7f-9749-4d5a-81b8-5704e5fd2591.png'],
-  ['Aardewereld','Aardewereld','hf_20260912_143746_f40a81b0-e433-42f2-81bc-d351c726e487.png'],
-  ['Geschiedeniswereld','Geschiedeniswereld','hf_20260912_143746_d9a31c5d-be9c-4fb4-b0d7-16ffa145658e.png'],
-  ['Wetenschapwereld','Wetenschapwereld','hf_20260912_143746_89578ba1-01cc-45ce-9dd8-e83513e33228.png'],
-  ['Mysteriewereld','Mysteriewereld','hf_20260912_143746_f83ec603-99e4-4d56-825d-ff422a9de04b.png']
+// Functional coverage for the flow in CLAUDE.md section 4 and the QA list in section 16.
+
+const WORLDS = [
+  ['ruimte', 'Ruimtewereld', 'Space World'],
+  ['dieren', 'Dierenwereld', 'Animal World'],
+  ['aarde', 'Aardewereld', 'Earth World'],
+  ['geschiedenis', 'Geschiedeniswereld', 'History World'],
+  ['wetenschap', 'Wetenschapwereld', 'Science World'],
+  ['mysterie', 'Mysteriewereld', 'Mystery World']
 ];
 
-async function boot(page){
+const SAVED = (over = {}) => ({
+  schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
+  group: 5, xp: 0, coins: 0, streak: 0, lastPlayedDate: null,
+  answered: 0, correct: 0, quizzesPlayed: 0, lastWorld: 'ruimte', selectedMascot: 'milo',
+  soundOn: false, musicOn: false, sfxVolume: .7, musicVolume: .2, musicTrack: 'magical',
+  timeLimitOn: true, timeLimit: 45,
+  progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] },
+  ...over
+});
+
+async function boot(page, state = SAVED()) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.addInitScript(() => {
-    localStorage.setItem('kwizillo-v4-state', JSON.stringify({
-      coins:245,streak:7,level:5,xp:320,voice:'Stil',soundOn:false,musicOn:false,
-      sfxVolume:.72,musicVolume:.24,musicTrack:'magical',timeLimitOn:true,timeLimit:45,
-      group:5,answered:0,correct:0,quizzesPlayed:0,lastWorld:'ruimte',
-      progress:{worlds:{},topics:{},correctQuestionIds:[]},selectedMascot:'milo'
-    }));
-  });
-  await page.goto('/');
-  await expect(page.getByRole('button',{name:'Aardewereld'})).toBeVisible({timeout:7000});
+  await page.addInitScript(s => localStorage.setItem('kwizillo-state', JSON.stringify(s)), state);
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }
 
-async function openWorld(page, buttonName){
-  await page.getByRole('button',{name:buttonName}).click();
-  const world=page.locator('.native-world');
-  await expect(world).toBeVisible({timeout:5000});
-  await expect(page.locator('.world-topic')).toHaveCount(4);
-  await expect(page.getByRole('button',{name:/Start gemengde quiz/})).toBeVisible();
-  await expect(page.getByRole('button',{name:'Overslaan'})).toHaveCount(0);
-}
-
-test('all six world buttons open one premium native world layer without transition movie', async ({page})=>{
-  await boot(page);
-  for(const [buttonName,title,assetMarker] of worlds){
-    await openWorld(page,buttonName);
-    await expect(page.locator('.world-title-wrap h1')).toHaveText(title);
-    await expect(page.locator('.native-world-bg')).toHaveCount(1);
-    const src=await page.locator('.native-world-bg').getAttribute('src');
-    expect(src).toContain(assetMarker);
-    expect(src).not.toMatch(/assets\/world_(space|animals|earth|history|science|mystery)(?:_clean)?\.(?:png|svg)/);
-    await page.getByRole('button',{name:'Terug naar home'}).click();
-    await expect(page.getByRole('button',{name:'Aardewereld'})).toBeVisible();
-  }
-});
-
-test('topic, hint, answer feedback and next-question flow are clickable', async ({page})=>{
-  await boot(page);
-  await openWorld(page,'Wetenschapwereld');
-  await page.locator('.world-topic').first().click();
-  await expect(page.locator('.quiz-v2')).toBeVisible();
-  await expect(page.locator('.answer')).toHaveCount(4);
-  await expect(page.locator('.quiz-art img')).toBeVisible();
-  await page.getByRole('button',{name:/Hint/}).click();
-  await expect(page.locator('.hint-float')).toBeVisible();
-  await page.getByRole('button',{name:'Hint sluiten'}).click();
-  await expect(page.locator('.hint-float')).toHaveCount(0);
-  await page.locator('.answer').first().click();
-  await expect(page.locator('.feedback-float')).toBeVisible();
-  await page.locator('#feedbackNext').click();
-  await expect(page.locator('.quiz-v2')).toBeVisible();
-  await expect(page.locator('.quiz-progress')).toContainText('Vraag 2');
-});
-
-test('every main navigation destination is dynamic and interactive', async ({page})=>{
-  await boot(page);
-  await openWorld(page,'Aardewereld');
-  await page.locator('.native-bottom-nav').getByRole('button',{name:/Prestaties/}).click();
-  await expect(page.locator('.achievement-grid')).toBeVisible();
-  await expect(page.locator('.achievement-card')).toHaveCount(6);
-  await page.locator('.native-bottom-nav').getByRole('button',{name:/Collectie/}).click();
-  await expect(page.locator('.collection-tabs')).toBeVisible();
-  await page.getByRole('button',{name:/Kaarten/}).click();
-  await expect(page.locator('.empty-state,.knowledge-grid')).toBeVisible();
-  await page.getByRole('button',{name:/Mascottes/}).click();
-  await expect(page.locator('.mascot-card')).toHaveCount(6);
-  await page.locator('.mascot-card:not([disabled])').first().click();
-  await page.locator('.native-bottom-nav').getByRole('button',{name:/Statistieken/}).click();
-  await expect(page.locator('.stat-hero')).toBeVisible();
-  await expect(page.locator('.world-stat-list article')).toHaveCount(6);
-  await page.locator('.native-bottom-nav').getByRole('button',{name:/Meer/}).click();
-  await expect(page.locator('.settings-list')).toBeVisible();
-});
-
-test('parent controls and audio panel can all be operated', async ({page})=>{
-  await boot(page);
-  await page.getByRole('button',{name:'Meer / Ouderzone'}).click();
-  await expect(page.locator('.parent-screen')).toBeVisible();
-  await expect(page.getByText('Groep 5')).toBeVisible();
-  await page.locator('[data-group="plus"]').click();
-  await expect(page.getByText('Groep 6')).toBeVisible();
-  await page.locator('#timeToggle').click();
-  await expect(page.locator('#timeRange')).toBeDisabled();
-  await page.locator('#soundOpen').click();
-  await expect(page.locator('.sound-settings-overlay')).toBeVisible();
-  await expect(page.locator('[data-toggle="sfx"]')).toBeVisible();
-  await expect(page.locator('[data-toggle="music"]')).toBeVisible();
-  await expect(page.locator('[data-guide="Milo"]')).toBeVisible();
-  await expect(page.locator('[data-guide="Luna"]')).toBeVisible();
-  await expect(page.locator('[data-guide="Stil"]')).toBeVisible();
-  await page.getByRole('button',{name:'Sluiten'}).click();
-  await page.locator('#privacyOpen').click();
-  await expect(page.locator('.simple-modal').getByRole('heading',{name:'Privacy & veiligheid'})).toBeVisible();
-  await page.getByRole('button',{name:'Begrepen'}).click();
-});
-
-test('a complete 10-question quiz reaches dynamic result and result actions work', async ({page})=>{
-  await boot(page);
-  await openWorld(page,'Dierenwereld');
-  await page.getByRole('button',{name:/Start gemengde quiz/}).click();
-  for(let i=0;i<10;i++){
-    await expect(page.locator('.quiz-v2')).toBeVisible();
+async function answerAll(page, n = 10) {
+  for (let i = 0; i < n; i++) {
     await expect(page.locator('.answer')).toHaveCount(4);
     await page.locator('.answer').first().click();
     await expect(page.locator('.feedback-float')).toBeVisible();
     await page.locator('#feedbackNext').click();
   }
-  await expect(page.locator('.result-v2')).toBeVisible();
-  await expect(page.getByRole('button',{name:'Nog een quiz'})).toBeVisible();
-  await page.getByRole('button',{name:'Naar mijn collectie'}).click();
-  await expect(page.locator('.collection-screen')).toBeVisible();
+}
+
+test('onboarding runs once and collects language, name and voice', async ({ page }) => {
+  await page.route('**/*.mp4', route => route.abort());
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
+  await page.getByRole('button', { name: /English/ }).click();
+  await expect(page.getByRole('heading', { name: 'What is your name?' })).toBeVisible();
+
+  await expect(page.locator('#obNext')).toBeDisabled();
+  await page.locator('#obName').fill('Sam');
+  await expect(page.locator('#obNext')).toBeEnabled();
+  await page.locator('#obNext').click();
+
+  await page.getByRole('button', { name: /Luna/ }).click();
+  await page.locator('#obNext').click();
+  await expect(page.locator('.onboarding h1')).toHaveText('Welcome, Sam!');
+  await page.locator('#obStart').click();
+
+  await expect(page.locator('.home')).toBeVisible();
+  await expect(page.locator('.hud-id b')).toHaveText('Hi Sam!');
+
+  // A returning player never sees onboarding again.
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('.onboarding')).toHaveCount(0);
+});
+
+test('a brand new player starts at zero, not on seeded progress', async ({ page }) => {
+  await page.route('**/*.mp4', route => route.abort());
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.getByRole('button', { name: /Nederlands/ }).click();
+  await page.locator('#obName').fill('Nieuw');
+  await page.locator('#obNext').click();
+  await page.getByRole('button', { name: /Stil/ }).click();
+  await page.locator('#obNext').click();
+  await page.locator('#obStart').click();
+
+  await expect(page.locator('.hud-right')).toContainText('🪙 0');
+  await expect(page.locator('.hud-right')).toContainText('🔥 0');
+  await expect(page.locator('.hud-id small')).toHaveText('Level 1');
+
+  await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
+  await expect(page.locator('.achievement-card.done')).toHaveCount(0);
+});
+
+test('all six worlds open with local art and four topics', async ({ page }) => {
+  await boot(page);
+  for (const [key, nl] of WORLDS) {
+    await page.locator(`[data-world="${key}"]`).click();
+    await expect(page.locator('.native-world')).toBeVisible();
+    await expect(page.locator('.world-title-wrap h1')).toHaveText(nl);
+    await expect(page.locator('.world-topic')).toHaveCount(4);
+    await expect(page.locator('#worldMix')).toBeVisible();
+
+    const src = await page.locator('.native-world-bg').getAttribute('src');
+    expect(src).toBe(`assets/worlds/${key}.jpg`);
+    expect(src).not.toMatch(/^https?:/);
+
+    await page.getByRole('button', { name: 'Terug naar home' }).click();
+    await expect(page.locator('.home')).toBeVisible();
+  }
+});
+
+test('no screen loads art from an external host', async ({ page }) => {
+  const external = [];
+  page.on('request', r => { if (/^https?:\/\//.test(r.url()) && !r.url().includes('127.0.0.1')) external.push(r.url()); });
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('.quiz-v2')).toBeVisible();
+  expect(external).toEqual([]);
+});
+
+test('quiz 1 and quiz 2 of a world never repeat a question', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+
+  const seen = new Set();
+  await page.locator('#worldMix').click();
+  for (let quiz = 1; quiz <= 2; quiz++) {
+    await expect(page.locator('.quiz-brand small')).toContainText(`Quiz ${quiz}`);
+    for (let i = 0; i < 10; i++) {
+      const prompt = await page.locator('.quiz-card h1').textContent();
+      expect(seen.has(prompt), `Quiz ${quiz} repeated: ${prompt}`).toBe(false);
+      seen.add(prompt);
+      await page.locator('.answer').first().click();
+      await page.locator('#feedbackNext').click();
+    }
+    await expect(page.locator('.result-v2')).toBeVisible();
+    await expect(page.locator('#againBtn')).toHaveText(`Start quiz ${quiz + 1}`);
+    // "Start quiz N" goes straight into the next quiz, no detour via the world screen.
+    if (quiz === 1) await page.locator('#againBtn').click();
+  }
+  expect(seen.size).toBe(20);
+});
+
+test('hint, feedback and progress bar behave inside a quiz', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="wetenschap"]').click();
+  await page.locator('.world-topic').first().click();
+
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
+  await expect(page.locator('.quiz-art img')).toBeVisible();
+
+  await page.getByRole('button', { name: /Hint/ }).click();
+  await expect(page.locator('.hint-float')).toBeVisible();
+  await page.getByRole('button', { name: 'Hint sluiten' }).click();
+  await expect(page.locator('.hint-float')).toHaveCount(0);
+
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await expect(page.locator('.answer.correct')).toHaveCount(1);
+  await page.locator('#feedbackNext').click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+});
+
+test('a second answer tap on the same question is ignored', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="dieren"]').click();
+  await page.locator('.world-topic').first().click();
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  for (const b of await page.locator('.answer').all()) await expect(b).toBeDisabled();
+});
+
+test('every navigation destination is dynamic and interactive', async ({ page }) => {
+  await boot(page, SAVED({ answered: 12, correct: 9, quizzesPlayed: 2, xp: 90, coins: 18, streak: 3,
+    progress: { worlds: { ruimte: { answered: 12, correct: 9, quizzes: 2, xp: 90 } }, topics: {}, runs: {},
+      correctQuestionIds: ['ruimte-zonnestelsel-01', 'ruimte-zonnestelsel-02'] } }));
+
+  await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
+  await expect(page.locator('.achievement-card')).toHaveCount(6);
+
+  await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
+  await expect(page.locator('.progress-world')).toHaveCount(6);
+  await page.getByRole('button', { name: /Kaarten/ }).click();
+  await expect(page.locator('.knowledge-card')).toHaveCount(2);
+  await page.getByRole('button', { name: /Mascottes/ }).click();
+  await expect(page.locator('.mascot-card')).toHaveCount(6);
+  await page.locator('.mascot-card:not([disabled])').first().click();
+
+  await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
+  await expect(page.locator('.stat-ring b')).toHaveText('75%');
+  await expect(page.locator('.world-stat-list article')).toHaveCount(6);
+
+  await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
+  await expect(page.locator('.settings-list')).toBeVisible();
+});
+
+test('parent controls, language toggle and audio panel all operate', async ({ page }) => {
+  await boot(page);
+  await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
+  await expect(page.getByText('Groep 5')).toBeVisible();
+  await page.locator('[data-group="plus"]').click();
+  await expect(page.getByText('Groep 6')).toBeVisible();
+
+  await page.locator('#timeToggle').click();
+  await expect(page.locator('#timeRange')).toBeDisabled();
+
+  await page.locator('[data-setlang="en"]').click();
+  await expect(page.locator('.panel-head h1')).toHaveText('Parent zone');
+  await expect(page.getByText('Year 6')).toBeVisible();
+  await page.locator('[data-setlang="nl"]').click();
+
+  await page.locator('#soundOpen').click();
+  await expect(page.locator('.sound-settings-overlay')).toBeVisible();
+  for (const sel of ['[data-toggle="sfx"]', '[data-toggle="music"]', '[data-guide="Milo"]', '[data-guide="Luna"]', '[data-guide="Stil"]']) {
+    await expect(page.locator(sel)).toBeVisible();
+  }
+  await page.getByRole('button', { name: 'Sluiten' }).click();
+
+  await page.locator('#privacyOpen').click();
+  await expect(page.locator('.simple-modal')).toContainText('nooit naar een andere dienst');
+  await page.getByRole('button', { name: 'Begrepen' }).click();
+});
+
+test('switching language translates the whole app and swaps the question bank', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-lang="en"]').click();
+
+  await expect(page.locator('.home-section')).toHaveText('Pick your world');
+  await expect(page.locator('.native-bottom-nav')).toContainText('Awards');
+  await expect(page.locator('.native-bottom-nav')).toContainText('Collection');
+
+  await page.locator('[data-world="ruimte"]').click();
+  await expect(page.locator('.world-title-wrap h1')).toHaveText('Space World');
+  await expect(page.locator('.world-topic').first()).toContainText('Solar system');
+
+  await page.locator('.world-topic').first().click();
+  const prompt = await page.locator('.quiz-card h1').textContent();
+  expect(prompt).toMatch(/^(Which|What|How|Why)\b/);
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Question 1 of 10');
+});
+
+test('progress and settings survive a reload', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="aarde"]').click();
+  await page.locator('.world-topic').first().click();
+  await answerAll(page, 3);
+  await page.locator('#qBack').click();
+  await page.getByRole('button', { name: 'Terug naar home' }).click();
+
+  const before = await page.locator('.hud-right').innerText();
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  expect(await page.locator('.hud-right').innerText()).toBe(before);
+  await expect(page.locator('.hud-id b')).toHaveText('Hoi Mike!');
+});
+
+test('finishing a quiz counts one quiz, one streak day and real stats', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="dieren"]').click();
+  await page.locator('#worldMix').click();
+  await answerAll(page, 10);
+  await expect(page.locator('.result-v2')).toBeVisible();
+
+  await page.locator('#collectionBtn').click();
+  await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
+  await expect(page.locator('.stat-hero p')).toContainText('10 vragen beantwoord');
+  await expect(page.locator('.stat-hero p')).toContainText('1 quiz gespeeld');
+  await expect(page.locator('.stat-cards')).toContainText('Dagen op rij');
+});
+
+test('the app stays playable with no speech backend', async ({ page }) => {
+  const failures = [];
+  page.on('pageerror', e => failures.push(e.message));
+  await boot(page, SAVED({ voice: 'Milo' }));
+  await page.route('**/api/tts', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"x"}' }));
+
+  await page.locator('[data-world="mysterie"]').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('.quiz-v2')).toBeVisible();
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  expect(failures).toEqual([]);
+});
+
+test('rapid taps and navigation during a quiz never break the screen', async ({ page }) => {
+  const failures = [];
+  page.on('pageerror', e => failures.push(e.message));
+  await boot(page);
+  await page.locator('[data-world="geschiedenis"]').click();
+  await page.locator('.world-topic').first().click();
+
+  const first = page.locator('.answer').first();
+  await first.click();
+  await first.click({ force: true }).catch(() => {});
+  await expect(page.locator('.feedback-float')).toHaveCount(1);
+
+  await page.locator('#feedbackNext').click();
+  await page.locator('#qBack').click();
+  await expect(page.locator('.native-world')).toBeVisible();
+  expect(failures).toEqual([]);
 });

@@ -302,30 +302,26 @@
     }
   };
 
-  const worldLabels = {
-    ruimte:{zonnestelsel:'Zonnestelsel',sterren_planeten:'Sterren & planeten',astronauten:'Astronauten',raket_avontuur:'Raket avontuur'},
-    geschiedenis:{egyptenaren:'Egyptenaren',ridders_kastelen:'Ridders & kastelen',romeinen:'Romeinen',ontdekkingsreizigers:'Ontdekkingsreizigers'},
-    wetenschap:{slimme_proefjes:'Slimme proefjes',lichaam:'Het lichaam',uitvindingen:'Uitvindingen',natuur_energie:'Natuur & energie'},
-    mysterie:{raadsels:'Raadsels',verborgen_schatten:'Verborgen schatten',natuurmysteries:'Natuurmysteries',speurtocht:'Speurtocht'},
-    dieren:{snelle_dieren:'Snelle dieren',baby_dieren:'Baby dieren',waterdieren:'Dieren in het water',jungle:'Jungle avontuur'},
-    aarde:{continenten_landen:'Landen & continenten',weer_klimaat:'Weer & klimaat',oceanen_natuur:'Oceanen & natuur',kaarten_navigatie:'Kaarten & navigatie'}
-  };
-
-  const out=[];
-  Object.entries(defs).forEach(([world,topics])=>{
-    Object.entries(topics).forEach(([topic,items])=>{
-      items.forEach((row,i)=>{
-        const [prompt,answer,wrongs,hint,explanation,fact]=row;
-        const options=[answer,...wrongs];
-        out.push({
-          id:`${world}-${topic}-${String(i+1).padStart(2,'0')}`,
-          world,topic,topicLabel:worldLabels[world][topic],
-          groupMin:2+(i%3),groupMax:8,difficulty:1+(i%4),type:'multiple_choice',
-          prompt,options,answer,hint,explanation,fact,xp:i%4===3?14:10
+  // Shared by every language bank. IDs are derived from world, topic and position,
+  // so the same question carries the same id in Dutch and in English.
+  // Topic display names live in i18n.js, never on the question itself.
+  window.KWIZILLO_BUILD_BANK = source => {
+    const out=[];
+    Object.entries(source).forEach(([world,topics])=>{
+      Object.entries(topics).forEach(([topic,items])=>{
+        items.forEach((row,i)=>{
+          const [prompt,answer,wrongs,hint,explanation,fact]=row;
+          out.push({
+            id:`${world}-${topic}-${String(i+1).padStart(2,'0')}`,
+            world,topic,
+            groupMin:2+(i%3),groupMax:8,difficulty:1+(i%4),type:'multiple_choice',
+            prompt,options:[answer,...wrongs],answer,hint,explanation,fact,xp:i%4===3?14:10
+          });
         });
       });
     });
-  });
-  window.KWIZILLO_TOPICS=worldLabels;
-  window.KWIZILLO_QUESTIONS=out;
+    return out;
+  };
+
+  window.KWIZILLO_QUESTIONS_NL = window.KWIZILLO_BUILD_BANK(defs);
 })();

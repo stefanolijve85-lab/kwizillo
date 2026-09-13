@@ -13,13 +13,14 @@ const SELECTION_FILE = path.join(ROOT, '.voice-selection-v35.json');
 fs.mkdirSync(CACHE_DIR, { recursive: true });
 
 let voiceCache = null;
-let chosen = { Milo: null, Luna: null };
-let selectionMeta = { Milo:null, Luna:null };
+let chosen = {};        // { nl: {Milo, Luna}, en: {Milo, Luna} }
+let selectionMeta = {};  // same shape, with provenance for the voice-status route
 
 const UPSTREAM_TIMEOUT_MS = Number(process.env.TTS_TIMEOUT_MS || 15000);
 const MAX_BODY_BYTES = 8 * 1024;
 const RATE_WINDOW_MS = 60000;
 const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 60);
+const LANGS = new Set(['nl','en']);
 const hits = new Map();
 
 // Coarse per-client cap so an open proxy cannot burn ElevenLabs credits.
@@ -91,11 +92,19 @@ function isDutchVoice(v){
   const verified = Array.isArray(v.verified_languages) ? v.verified_languages : [];
   return norm(v.language)==='nl' || norm(labels.language)==='nl' || verified.some(x=>norm(x.language)==='nl' || norm(x.locale).startsWith('nl')) || /dutch|nederlands|netherlands|nl-nl/.test([v.name,v.description,v.accent,...Object.values(labels)].filter(Boolean).join(' ').toLowerCase());
 }
+// The product direction is Netherlands Dutch. A Flemish/Belgian accent has been
+// explicitly rejected, so it must lose the ranking rather than merely not win it.
+function isFlemish(v){
+  const labels = v.labels || {};
+  const hay = [v.accent, labels.accent, v.name, v.description, v.descriptive].filter(Boolean).join(' ').toLowerCase();
+  return /flemish|vlaams|belgian|belgisch|be-nl|nl-be/.test(hay);
+}
 function scoreCurrentVoice(v, wanted){
   const labels=v.labels||{};
   const hay=[v.name,v.description,...Object.values(labels)].filter(Boolean).join(' ').toLowerCase();
   let s=0;
   if(isDutchVoice(v)) s+=220;
+  if(isFlemish(v)) s-=400;
   if(norm(labels.gender)===wanted) s+=110;
   if(/young|youth|jong/.test(norm(labels.age)+' '+hay)) s+=80;
   if(/friendly|warm|cheer|conversational|story|narrat|clear|calm|pleasant|gentle|youthful|bright/.test(hay)) s+=35;
@@ -108,6 +117,7 @@ function scoreSharedVoice(v,wanted){
   const gender=norm(v.gender);
   if(gender===wanted) s+=120;
   if(isDutchVoice(v)) s+=260;
+  if(isFlemish(v)) s-=400;
   if(norm(v.age)==='young' || /young|youth|jong/.test(hay)) s+=100;
   if(/friendly|warm|cheer|joy|conversational|story|narrat|clear|calm|pleasant|gentle|youthful|bright|character/.test(hay)) s+=45;
   if(/characters_animation|animation|narration|educat/.test(hay)) s+=20;
@@ -151,70 +161,144 @@ function readSavedSelection(){
   try{return JSON.parse(fs.readFileSync(SELECTION_FILE,'utf8'))}catch{return {}}
 }
 function saveSelection(){
-  try{fs.writeFileSync(SELECTION_FILE,JSON.stringify({Milo:selectionMeta.Milo,Luna:selectionMeta.Luna},null,2))}catch(e){}
+  try{fs.writeFileSync(SELECTION_FILE,JSON.stringify(selectionMeta,null,2))}catch(e){}
 }
 async function addSharedVoice(shared, alias){
   const endpoint=`https://api.elevenlabs.io/v1/voices/add/${encodeURIComponent(shared.public_owner_id)}/${encodeURIComponent(shared.voice_id)}`;
   const data=await fetchJson(endpoint,{
-    method:'POST',headers:{'xi-api-key':API_KEY,'Content-Type':'application/json'},
+    method:'POST',
+    signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+    headers:{'xi-api-key':API_KEY,'Content-Type':'application/json'},
     body:JSON.stringify({new_name:alias,bookmarked:true})
   });
   return data.voice_id || shared.voice_id;
 }
-async function ensureGuideVoice(guide,wanted){
-  const explicit=process.env[guide==='Milo'?'MILO_VOICE_ID':'LUNA_VOICE_ID'];
+
+// A Dutch voice reading English sounds wrong and the other way round, so Milo and
+// Luna are picked per language rather than once for the whole app.
+const LANG_RULES = {
+  nl: {
+    label:'Netherlands Dutch',
+    matches:isDutchVoice,
+    reject:isFlemish,
+    accentBonus:v=>/\bnl-nl\b|netherlands|nederlands/.test(norm([v.accent,v.name,v.description].filter(Boolean).join(' '))) ? 60 : 0
+  },
+  en: {
+    label:'US English',
+    matches:v=>{
+      const labels=v.labels||{};
+      const verified=Array.isArray(v.verified_languages)?v.verified_languages:[];
+      return norm(v.language)==='en' || norm(labels.language)==='en' ||
+        verified.some(x=>norm(x.language)==='en'||norm(x.locale).startsWith('en')) ||
+        /english|en-us|american/.test(norm([v.name,v.description,v.accent,...Object.values(labels)].filter(Boolean).join(' ')));
+    },
+    reject:()=>false,
+    accentBonus:v=>/american|en-us|\bus\b/.test(norm([v.accent,v.name,v.description].filter(Boolean).join(' '))) ? 80 : 0
+  }
+};
+const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
+
+function scoreVoiceFor(v, wanted, lang, shared){
+  const rule=langRule(lang);
+  let s = shared ? scoreSharedVoice(v,wanted) : scoreCurrentVoice(v,wanted);
+  if(rule.matches(v)) s+=200;
+  if(rule.reject(v)) s-=600;
+  s+=rule.accentBonus(v);
+  return s;
+}
+
+async function listSharedVoices(wanted, lang){
+  const gender=wanted==='male'?'male':'female';
+  const candidates=[];
+  const queries=[
+    {language:lang,gender,age:'young',category:'professional'},
+    {language:lang,gender,age:'young',category:'high_quality'},
+    {language:lang,gender,category:'professional'},
+    {language:lang,gender,category:'high_quality'},
+    {language:lang,gender}
+  ];
+  for(const q of queries){
+    const u=new URL('https://api.elevenlabs.io/v1/shared-voices');
+    u.searchParams.set('page_size','100');
+    u.searchParams.set('sort','usage_character_count_1y');
+    u.searchParams.set('include_custom_rates','false');
+    u.searchParams.set('include_live_moderated','false');
+    Object.entries(q).forEach(([k,v])=>u.searchParams.set(k,v));
+    try{
+      const data=await fetchJson(u.toString(),{signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),headers:API_KEY?{'xi-api-key':API_KEY}:{}});
+      for(const v of (data.voices||[])) if(!candidates.some(x=>x.voice_id===v.voice_id)) candidates.push(v);
+      if(candidates.length>=8) break;
+    }catch(e){}
+  }
+  return candidates.sort((a,b)=>scoreVoiceFor(b,wanted,lang,true)-scoreVoiceFor(a,wanted,lang,true));
+}
+
+async function ensureGuideVoice(guide, wanted, lang){
+  const rule=langRule(lang);
+  const envKey=`${guide.toUpperCase()}_VOICE_ID_${lang.toUpperCase()}`;
+  const explicit=process.env[envKey] || (lang==='nl' ? process.env[guide==='Milo'?'MILO_VOICE_ID':'LUNA_VOICE_ID'] : '');
   const current=await loadCurrentVoices();
+
   if(explicit){
     const found=current.find(v=>v.voice_id===explicit)||{voice_id:explicit,name:`${guide} custom`,labels:{}};
-    return {voice:found,meta:{voice_id:found.voice_id,name:found.name,source:'environment',native_nl:isDutchVoice(found)}};
+    return {voice:found,meta:{voice_id:found.voice_id,name:found.name,source:'environment',lang,native:rule.matches(found)}};
   }
-  const saved=readSavedSelection()[guide];
+
+  const saved=readSavedSelection()?.[lang]?.[guide];
   if(saved?.voice_id){
     const found=current.find(v=>v.voice_id===saved.voice_id);
-    if(found && isDutchVoice(found)) return {voice:found,meta:{...saved,name:found.name||saved.name,source:'saved-native-dutch'}};
+    if(found && rule.matches(found) && !rule.reject(found)) return {voice:found,meta:{...saved,name:found.name||saved.name,source:'saved',lang}};
   }
-  const alias=`Kwizillo ${guide} NL jong v35`;
-  const existing=current.find(v=>norm(v.name)===norm(alias));
-  if(existing) return {voice:existing,meta:{voice_id:existing.voice_id,name:existing.name,source:'library-native-dutch',native_nl:isDutchVoice(existing),age:existing.labels?.age,gender:existing.labels?.gender}};
 
-  const shared=await listDutchShared(wanted);
+  const alias=`Kwizillo ${guide} ${lang.toUpperCase()} v4`;
+  const existing=current.find(v=>norm(v.name)===norm(alias));
+  if(existing && !rule.reject(existing)) return {voice:existing,meta:{voice_id:existing.voice_id,name:existing.name,source:'library',lang,native:rule.matches(existing),age:existing.labels?.age,gender:existing.labels?.gender}};
+
+  const shared=(await listSharedVoices(wanted,lang)).filter(v=>!rule.reject(v));
   for(const candidate of shared.slice(0,12)){
     const already=current.find(v=>v.voice_id===candidate.voice_id);
-    if(already){
-      return {voice:already,meta:{voice_id:already.voice_id,name:already.name||candidate.name,source:'already-saved-native-dutch',native_nl:true,age:candidate.age||already.labels?.age,gender:candidate.gender||already.labels?.gender,accent:candidate.accent||already.labels?.accent,preview_url:candidate.preview_url}};
-    }
+    if(already) return {voice:already,meta:{voice_id:already.voice_id,name:already.name||candidate.name,source:'already-saved',lang,native:true,age:candidate.age,gender:candidate.gender,accent:candidate.accent}};
     try{
       const voiceId=await addSharedVoice(candidate,alias);
       voiceCache=null;
       const voice={voice_id:voiceId,name:candidate.name||alias,labels:{gender:candidate.gender,age:candidate.age,language:candidate.language,accent:candidate.accent},description:candidate.description,verified_languages:candidate.verified_languages};
-      return {voice,meta:{voice_id:voiceId,name:candidate.name||alias,source:'shared-native-dutch',native_nl:true,age:candidate.age,gender:candidate.gender,accent:candidate.accent,preview_url:candidate.preview_url}};
+      return {voice,meta:{voice_id:voiceId,name:candidate.name||alias,source:'shared',lang,native:true,age:candidate.age,gender:candidate.gender,accent:candidate.accent}};
     }catch(e){
-      // If the voice is already present under another name, it may still appear in current voices on the next iteration.
+      // Already present under another name; it may surface in current voices next round.
     }
   }
-  const dutch=current.filter(isDutchVoice).sort((a,b)=>scoreCurrentVoice(b,wanted)-scoreCurrentVoice(a,wanted));
-  if(dutch.length){
-    const v=dutch[0];
-    return {voice:v,meta:{voice_id:v.voice_id,name:v.name,source:'existing-native-dutch',native_nl:true,age:v.labels?.age,gender:v.labels?.gender}};
+
+  const own=current.filter(v=>rule.matches(v)&&!rule.reject(v)).sort((a,b)=>scoreVoiceFor(b,wanted,lang,false)-scoreVoiceFor(a,wanted,lang,false));
+  if(own.length){
+    const v=own[0];
+    return {voice:v,meta:{voice_id:v.voice_id,name:v.name,source:'existing',lang,native:true,age:v.labels?.age,gender:v.labels?.gender}};
   }
-  const fallback=[...current].sort((a,b)=>scoreCurrentVoice(b,wanted)-scoreCurrentVoice(a,wanted))[0];
-  if(!fallback) throw new Error('Geen ElevenLabs stemmen gevonden');
-  return {voice:fallback,meta:{voice_id:fallback.voice_id,name:fallback.name,source:'fallback-non-native',native_nl:false,age:fallback.labels?.age,gender:fallback.labels?.gender}};
+  const fallback=[...current].filter(v=>!rule.reject(v)).sort((a,b)=>scoreVoiceFor(b,wanted,lang,false)-scoreVoiceFor(a,wanted,lang,false))[0];
+  if(!fallback) throw new Error('No ElevenLabs voices available');
+  return {voice:fallback,meta:{voice_id:fallback.voice_id,name:fallback.name,source:'fallback-non-native',lang,native:false,age:fallback.labels?.age,gender:fallback.labels?.gender}};
 }
-async function loadVoices(){
-  if(!API_KEY) throw new Error('ELEVENLABS_API_KEY ontbreekt');
-  if(chosen.Milo && chosen.Luna) return;
-  const [m,l]=await Promise.all([ensureGuideVoice('Milo','male'),ensureGuideVoice('Luna','female')]);
-  chosen.Milo=m.voice; chosen.Luna=l.voice; selectionMeta.Milo=m.meta; selectionMeta.Luna=l.meta; saveSelection();
-  console.log(`Milo stem: ${selectionMeta.Milo.name} (${selectionMeta.Milo.age||'leeftijd onbekend'}, ${selectionMeta.Milo.native_nl?'native NL':'niet native NL'})`);
-  console.log(`Luna stem: ${selectionMeta.Luna.name} (${selectionMeta.Luna.age||'leeftijd onbekend'}, ${selectionMeta.Luna.native_nl?'native NL':'niet native NL'})`);
+
+async function loadVoices(lang){
+  if(!API_KEY) throw new Error('ELEVENLABS_API_KEY missing');
+  if(chosen[lang]?.Milo && chosen[lang]?.Luna) return;
+  const [m,l]=await Promise.all([ensureGuideVoice('Milo','male',lang),ensureGuideVoice('Luna','female',lang)]);
+  chosen[lang]={Milo:m.voice,Luna:l.voice};
+  selectionMeta[lang]={Milo:m.meta,Luna:l.meta};
+  saveSelection();
+  const rule=langRule(lang);
+  for(const [guide,meta] of Object.entries(selectionMeta[lang])){
+    console.log(`${guide} (${lang}): ${meta.name} — ${meta.native?`native ${rule.label}`:`NOT native ${rule.label}`}${meta.accent?`, accent ${meta.accent}`:''}`);
+  }
 }
-async function tts(text, guide){
-  await loadVoices();
-  const v=guide==='Luna'?chosen.Luna:chosen.Milo;
-  const meta=guide==='Luna'?selectionMeta.Luna:selectionMeta.Milo;
+
+async function tts(text, guide, lang){
+  await loadVoices(lang);
+  const v=chosen[lang][guide==='Luna'?'Luna':'Milo'];
+  const meta=selectionMeta[lang][guide==='Luna'?'Luna':'Milo'];
   const voiceId=v.voice_id;
-  const key=crypto.createHash('sha256').update(`${MODEL}|nl|${voiceId}|${text}`).digest('hex');
+  // Language is part of the cache key: the same sentence in two languages is
+  // two different recordings.
+  const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${text}`).digest('hex');
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta};
   const r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,{
@@ -222,7 +306,7 @@ async function tts(text, guide){
     signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
     body:JSON.stringify({
-      text, model_id:MODEL, language_code:'nl',
+      text, model_id:MODEL, language_code:lang,
       voice_settings: guide==='Luna' ? {stability:0.38,similarity_boost:0.8,style:0.46,use_speaker_boost:true} : {stability:0.42,similarity_boost:0.78,style:0.3,use_speaker_boost:true}
     })
   });
@@ -241,8 +325,9 @@ const server=http.createServer(async(req,res)=>{
     if(url.pathname==='/api/voice-status'){
       if(!API_KEY)return json(res,200,{mode:'not-configured'});
       try{
-        await loadVoices();
-        return json(res,200,{mode:'elevenlabs-native-nl',milo:selectionMeta.Milo,luna:selectionMeta.Luna,model:MODEL});
+        const lang=LANGS.has(url.searchParams.get('lang'))?url.searchParams.get('lang'):'nl';
+        await loadVoices(lang);
+        return json(res,200,{mode:'elevenlabs',lang,milo:selectionMeta[lang].Milo,luna:selectionMeta[lang].Luna,model:MODEL});
       }catch(e){console.error('Kwizillo voice-status:',e?.message||e);return json(res,200,{mode:'error'});}
     }
     if(url.pathname==='/api/tts'&&req.method==='POST'){
@@ -257,9 +342,10 @@ const server=http.createServer(async(req,res)=>{
           try{ body=JSON.parse(raw||'{}') }catch{ return json(res,400,{error:'Ongeldig verzoek'}) }
           const text=String(body.text||'').trim().slice(0,2500);
           const voice=body.voice==='Luna'?'Luna':'Milo';
-          if(!text)return json(res,400,{error:'Tekst ontbreekt'});
-          const out=await tts(text,voice);
-          res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':'nl'});
+          const lang=LANGS.has(body.lang)?body.lang:'nl';
+          if(!text)return json(res,400,{error:'Missing text'});
+          const out=await tts(text,voice,lang);
+          res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang});
           res.end(out.buf);
         }catch(e){
           // Upstream detail stays in the server log; the client gets a generic message.
@@ -279,8 +365,8 @@ const server=http.createServer(async(req,res)=>{
   }catch(e){console.error('Kwizillo server:',e);json(res,500,{error:'Serverfout'});}
 });
 server.listen(PORT,HOST,async()=>{
-  console.log(`\nKwizillo V3.6 draait op http://${HOST}:${PORT}`);
-  console.log(API_KEY?'ElevenLabs: ingeschakeld — jonge native Nederlandse stemmen worden gekozen':'ElevenLabs: NIET ingesteld (gebruik ./start.command)');
-  if(API_KEY){try{await loadVoices();}catch(e){console.log('Stemselectie fout:',e.message);}}
-  console.log('Stoppen: Ctrl+C\n');
+  console.log(`\nKwizillo runs on http://${HOST}:${PORT}`);
+  console.log(API_KEY?'ElevenLabs: enabled — picking a native voice per language':'ElevenLabs: not configured (use ./start.command)');
+  if(API_KEY){for(const lang of LANGS){try{await loadVoices(lang)}catch(e){console.log(`Voice selection failed for ${lang}:`,e.message)}}}
+  console.log('Stop: Ctrl+C\n');
 });

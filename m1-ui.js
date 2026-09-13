@@ -1,139 +1,335 @@
 (()=>{
   const K=window.KWIZILLO_M1;
-  const H=(x,y,w,h,label,onClick)=>({x,y,w,h,label,onClick});
-  const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[m]));
-  const WORLD_META={
-    ruimte:{icon:'🚀',title:'Ruimtewereld',sub:'Reis langs planeten, sterren en raketten'},
-    dieren:{icon:'🐾',title:'Dierenwereld',sub:'Ontdek dieren op land, in de jungle en in zee'},
-    aarde:{icon:'🌍',title:'Aardewereld',sub:'Verken landen, oceanen, weer en kaarten'},
-    geschiedenis:{icon:'🏛️',title:'Geschiedeniswereld',sub:'Stap in de tijd van farao’s, ridders en ontdekkers'},
-    wetenschap:{icon:'🧪',title:'Wetenschapwereld',sub:'Probeer, ontdek en begrijp hoe dingen werken'},
-    mysterie:{icon:'🔎',title:'Mysteriewereld',sub:'Los raadsels op en volg slimme aanwijzingen'}
-  };
+  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const t=(k,p)=>K.t(k,p);
+
   const WORLD_ORDER=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
+  const WORLD_ICON={ruimte:'🚀',dieren:'🐾',aarde:'🌍',geschiedenis:'🏛️',wetenschap:'🧪',mysterie:'🔎'};
+  // CLAUDE.md section 7: each world gets its own soundtrack, crossfaded on entry.
+  const WORLD_MUSIC={ruimte:'space',dieren:'adventure',aarde:'calm',geschiedenis:'adventure',wetenschap:'magical',mysterie:'calm'};
   const MASCOTS=[
-    {id:'milo',name:'Milo',icon:'🤖',need:0,desc:'Je slimme robotmaatje'},
-    {id:'comet',name:'Comet',icon:'🌠',need:5,desc:'Ruimtemaatje'},
-    {id:'pootje',name:'Pootje',icon:'🐾',need:12,desc:'Dierenvriend'},
-    {id:'terra',name:'Terra',icon:'🌱',need:20,desc:'Aardebeschermer'},
-    {id:'sparky',name:'Sparky',icon:'⚗️',need:35,desc:'Proefjesfan'},
-    {id:'lumi',name:'Lumi',icon:'🔮',need:50,desc:'Mysteriezoeker'}
+    {id:'milo',icon:'🤖',need:0},
+    {id:'comet',icon:'🌠',need:5},
+    {id:'pootje',icon:'🐾',need:12},
+    {id:'terra',icon:'🌱',need:20},
+    {id:'sparky',icon:'⚗️',need:35},
+    {id:'lumi',icon:'🔮',need:50}
   ];
 
-  function ensureProgress(){
-    K.state.progress ||= {worlds:{},topics:{},correctQuestionIds:[]};
-    K.state.progress.worlds ||= {};
-    K.state.progress.topics ||= {};
-    K.state.progress.correctQuestionIds ||= [];
-    K.state.selectedMascot ||= 'milo';
-    K.save();
-    return K.state.progress;
-  }
-  const progress=()=>ensureProgress();
+  const worldTitle=w=>t(`world.${w}.title`);
+  const worldSub=w=>t(`world.${w}.sub`);
+  const topicLabel=key=>t(`topic.${key}`);
+
+  const progress=()=>K.progress();
   function worldStat(world){const p=progress();return p.worlds[world]||(p.worlds[world]={answered:0,correct:0,quizzes:0,xp:0})}
   function topicStat(topic){const p=progress();return p.topics[topic]||(p.topics[topic]={answered:0,correct:0})}
   const accuracy=s=>s?.answered?Math.round(s.correct/s.answered*100):0;
   const totalCorrect=()=>Number(K.state.correct||0);
   const unlockedMascots=()=>MASCOTS.filter(m=>totalCorrect()>=m.need);
-  function recordAnswerProgress(){
-    document.addEventListener('click',e=>{
-      const b=e.target.closest?.('.answer');if(!b||!K.quiz)return;
-      const q=K.quiz.questions?.[K.quiz.index];if(!q)return;
-      K.quiz._progressRecorded ||= {};
-      if(K.quiz._progressRecorded[q.id])return;
-      K.quiz._progressRecorded[q.id]=true;
-      const value=decodeURIComponent(b.dataset.a||'');const correct=value===q.answer;
-      const ws=worldStat(q.world),ts=topicStat(q.topic);ws.answered++;ts.answered++;
-      if(correct){ws.correct++;ts.correct++;ws.xp+=Number(q.xp||10);if(!progress().correctQuestionIds.includes(q.id))progress().correctQuestionIds.push(q.id)}
-      K.save();
-    });
-  }
-  recordAnswerProgress();
-  const originalShowResult=K.showResult;
-  K.showResult=()=>{
-    if(K.quiz&&!K.quiz._quizCounted){K.quiz._quizCounted=true;worldStat(K.quiz.world).quizzes++;K.save()}
-    return originalShowResult();
+
+  // A single place that records one answered question across every counter.
+  K.recordAnswerProgress=(q,correct)=>{
+    if(!q) return;
+    const ws=worldStat(q.world),ts=topicStat(q.topic);
+    ws.answered++; ts.answered++;
+    K.state.answered=Number(K.state.answered||0)+1;
+    if(correct){
+      ws.correct++; ts.correct++; ws.xp+=Number(q.xp||10);
+      K.state.correct=Number(K.state.correct||0)+1;
+      K.state.xp=Number(K.state.xp||0)+Number(q.xp||10);
+      K.state.coins=Number(K.state.coins||0)+2;
+      if(!progress().correctQuestionIds.includes(q.id)) progress().correctQuestionIds.push(q.id);
+    }
+    K.save();
   };
 
-  function hs(h,i){return`<button class="hotspot" aria-label="${h.label}" data-hs="${i}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%">${h.label}</button>`}
-  function master(asset,spots=[],cls='fade-in'){
-    const f=K.frame(`<img class="master-art ${cls}" src="${asset}" alt=""><div>${spots.map(hs).join('')}</div>`);
-    spots.forEach((h,i)=>f.querySelector(`[data-hs="${i}"]`).onclick=()=>{K.stopSpeech();K.sfx('tap');h.onClick()});return f
-  }
-  const gear=()=>[H(2,1,11,5.5,'Instellingen',K.showParent)];
-  const nav=()=>[
-    H(0,91.3,20,8.7,'Home',()=>K.showHome()),H(20,91.3,20,8.7,'Prestaties',K.showAchievements),H(40,91.3,20,8.7,'Mijn collectie',()=>K.showCollection('worlds')),H(60,91.3,20,8.7,'Statistieken',K.showStats),H(80,91.3,20,8.7,'Meer / Ouderzone',K.showParent)
-  ];
   function bottomNav(active=''){
-    const defs=[['home','⌂','Home'],['achievements','🏆','Prestaties'],['collection','🃏','Collectie'],['stats','▥','Statistieken'],['parent','⚙','Meer']];
-    return `<nav class="native-bottom-nav" aria-label="Hoofdnavigatie">${defs.map(([id,icon,label])=>`<button data-nav="${id}" class="${active===id?'active':''}">${icon}<small>${label}</small></button>`).join('')}</nav>`
+    const defs=[['home','⌂','nav.home'],['achievements','🏆','nav.achievements'],['collection','🃏','nav.collection'],['stats','▥','nav.stats'],['parent','⚙','nav.more']];
+    return `<nav class="native-bottom-nav" aria-label="${esc(t('nav.aria'))}">${defs.map(([id,icon,key])=>`<button data-nav="${id}" class="${active===id?'active':''}">${icon}<small>${esc(t(key))}</small></button>`).join('')}</nav>`;
   }
   function bindNav(f){
     const map={home:()=>K.showHome(),achievements:K.showAchievements,collection:()=>K.showCollection('worlds'),stats:K.showStats,parent:K.showParent};
-    f.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');map[b.dataset.nav]?.()})
+    f.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');map[b.dataset.nav]?.()});
   }
   function nativeScreen({cls='',title,subtitle='',body,active='',back=()=>K.showHome()}){
-    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="Terug">‹</button><div><div class="panel-kicker">KWIZILLO</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><button class="panel-settings" aria-label="Instellingen">⚙</button></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
-    f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};f.querySelector('.panel-settings').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showParent()};bindNav(f);return f
+    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">‹</button><div><div class="panel-kicker">${esc(t('common.brand'))}</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">⚙</button></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
+    f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
+    f.querySelector('.panel-settings').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showParent()};
+    bindNav(f);return f;
   }
-  function voiceFrames(f){[{name:'Milo',x:5.1,w:26.2},{name:'Luna',x:32.9,w:26.1},{name:'Stil',x:60.1,w:20.3}].forEach(d=>{const e=document.createElement('div');e.className=`voice-choice-frame ${K.state.voice===d.name?'selected':'unselected'} voice-${d.name.toLowerCase()}`;e.style.cssText=`left:${d.x}%;top:80.45%;width:${d.w}%;height:7.75%`;if(K.state.voice===d.name){const c=document.createElement('span');c.className='voice-choice-check';c.textContent='✓';e.appendChild(c)}f.appendChild(e)});if(K.state.voice!=='Milo'){const m=document.createElement('div');m.className='milo-baked-check-mask';f.appendChild(m)}}
+
+  /* ---------------- Home ---------------- */
+
+  K.showHome=()=>{
+    K.stopSpeech();K.lastView='home';
+    const name=String(K.state.name||'').trim();
+    const greeting=name?t('home.greeting',{name}):t('home.greetingAnon');
+    const lvl=K.level(),into=K.xpIntoLevel();
+    const last=K.state.lastWorld&&WORLD_ORDER.includes(K.state.lastWorld)?K.state.lastWorld:'ruimte';
+
+    const worldCards=WORLD_ORDER.map(w=>{
+      const s=worldStat(w),pct=accuracy(s);
+      const pool=K.core.poolFor({questions:K.questions,world:w,grade:Number(K.state.group||5)}).length;
+      const meta=s.answered?`${s.correct}/${s.answered} · ${pct}%`:t('world.topicMeta',{count:pool,group:K.state.group});
+      return `<button class="home-world" data-world="${w}">
+        <img class="home-world-art" src="${K.MASTER[w]}" alt="" loading="lazy">
+        <span class="home-world-veil"></span>
+        <span class="home-world-copy">
+          <b>${esc(worldTitle(w))}</b>
+          <small>${esc(meta)}</small>
+        </span>
+        ${s.answered?`<span class="home-world-bar"><i style="width:${pct}%"></i></span>`:''}
+      </button>`;
+    }).join('');
+
+    const voices=[['Milo','🤖'],['Luna','🎧'],['Stil','🔇']].map(([id,icon])=>
+      `<button class="quick-pill ${K.state.voice===id?'selected':''}" data-voice="${id}" aria-label="${esc(t(id==='Milo'?'voice.milo':id==='Luna'?'voice.luna':'voice.silent'))}">${icon}</button>`).join('');
+    const langs=K.LANGUAGES.map(l=>
+      `<button class="quick-pill ${K.state.language===l.id?'selected':''}" data-lang="${l.id}" aria-label="${esc(l.label)}">${l.flag}</button>`).join('');
+
+    const f=K.frame(`<section class="home fade-in">
+      <div class="home-sky"></div>
+      <div class="home-ui">
+        <header class="home-hud">
+          <div class="hud-player">
+            <span class="hud-avatar">${K.state.voice==='Luna'?'🎧':'🤖'}</span>
+            <span class="hud-id">
+              <b>${esc(greeting)}</b>
+              <small>${esc(t('home.level',{level:lvl}))}</small>
+              <span class="hud-xp"><i style="width:${into}%"></i></span>
+            </span>
+          </div>
+          <div class="hud-right">
+            <span class="hud-chip" title="${esc(t('home.coins'))}">🪙 ${Number(K.state.coins||0)}</span>
+            <span class="hud-chip" title="${esc(t('home.streak'))}">🔥 ${Number(K.state.streak||0)}</span>
+            <button class="hud-gear" id="homeGear" aria-label="${esc(t('common.settings'))}">⚙</button>
+          </div>
+        </header>
+
+        <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>
+        <div class="home-worlds">${worldCards}</div>
+
+        <button class="home-cta" id="homeCta">
+          <span class="home-cta-icon">▶</span>
+          <span><b>${esc(t('home.cta'))}</b><small>${esc(t('home.ctaSub',{world:worldTitle(last)}))}</small></span>
+          <i>›</i>
+        </button>
+
+        <div class="home-quick">
+          <div class="quick-group" role="group" aria-label="${esc(t('home.voiceLabel'))}">${voices}</div>
+          <div class="quick-group" role="group" aria-label="${esc(t('home.languageLabel'))}">${langs}</div>
+        </div>
+
+        ${bottomNav('home')}
+      </div>
+    </section>`);
+
+    f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
+    f.querySelector('#homeCta').onclick=()=>{K.sfx('tap');K.enterWorld(last)};
+    f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
+    f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');selectVoice(b.dataset.voice)});
+    f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{K.sfx('tap');switchLanguage(b.dataset.lang)});
+    bindNav(f);
+  };
+
+  function selectVoice(v){
+    K.state.voice=v;K.save();K.showHome();
+    if(v!=='Stil') K.speak(t(v==='Milo'?'voice.milo.hello':'voice.luna.hello'));
+  }
+  function switchLanguage(id){
+    if(!K.setLanguage(id)) return;
+    K.useBank();
+    K.showHome();
+  }
+
+  /* ---------------- World ---------------- */
+
+  K.enterWorld=world=>{
+    if(!WORLD_ORDER.includes(world)) return K.showHome();
+    K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('world');
+    K.audio.setTrack(WORLD_MUSIC[world]||'magical').catch(()=>{});
+    K.showWorld(world);
+  };
+
+  const runKey=(world,topicKey)=>topicKey?`${world}:${topicKey}`:world;
+  K.runFor=(world,topicKey)=>{
+    const runs=progress().runs;
+    return runs[runKey(world,topicKey)] ||= {quizNumber:0,usedIds:[]};
+  };
+
+  K.showWorld=world=>{
+    K.stopSpeech();K.lastView='world';K.currentWorld=world;
+    const keys=K.TOPIC_KEYS[world]||[];
+    const topics=keys.map((key,i)=>({key,label:topicLabel(key),i,count:K.core.poolFor({questions:K.questions,world,topicKey:key,grade:Number(K.state.group||5)}).length}));
+    const mixRun=K.runFor(world,null);
+
+    const f=K.frame(`<section class="native-world world-${world} fade-in">
+      <img class="native-world-bg" src="${K.MASTER[world]}" alt="${esc(worldTitle(world))}">
+      <div class="native-world-shade"></div>
+      <div class="native-world-ui">
+        <header class="native-world-head">
+          <button id="worldBack" class="world-round" aria-label="${esc(t('world.backHome'))}">‹</button>
+          <div class="world-title-wrap">
+            <div class="world-kicker">${WORLD_ICON[world]} ${esc(t('world.kicker'))}</div>
+            <h1>${esc(worldTitle(world))}</h1>
+            <p>${esc(worldSub(world))}</p>
+          </div>
+          <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">⚙</button>
+        </header>
+        <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic" data-topic="${tp.i}">
+          <span class="world-topic-num">${tp.i+1}</span>
+          <span><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
+          <i>›</i>
+        </button>`).join('')}</div>
+        <button class="world-mix" id="worldMix">
+          <span>▶</span>
+          <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${esc(t('world.mixSub'))}</small></span>
+          <i>›</i>
+        </button>
+        ${bottomNav('')}
+      </div>
+    </section>`);
+
+    f.querySelector('#worldBack').onclick=()=>{K.sfx('tap');K.showHome()};
+    f.querySelector('#worldGear').onclick=()=>{K.sfx('tap');K.showParent()};
+    f.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,Number(b.dataset.topic))});
+    f.querySelector('#worldMix').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,null)};
+    bindNav(f);
+  };
+
+  /* ---------------- Achievements ---------------- */
 
   K.showAchievements=()=>{
     K.stopSpeech();K.lastView='achievements';
-    const cards=progress().correctQuestionIds.length,playedWorlds=WORLD_ORDER.filter(w=>worldStat(w).answered>0).length;
+    const cards=progress().correctQuestionIds.length;
+    const playedWorlds=WORLD_ORDER.filter(w=>worldStat(w).answered>0).length;
     const defs=[
-      {icon:'🎯',name:'Eerste quiz',done:(K.state.quizzesPlayed||0)>=1,now:Math.min(1,K.state.quizzesPlayed||0),goal:1},
-      {icon:'⭐',name:'10 goede antwoorden',done:totalCorrect()>=10,now:Math.min(10,totalCorrect()),goal:10},
-      {icon:'🌟',name:'50 goede antwoorden',done:totalCorrect()>=50,now:Math.min(50,totalCorrect()),goal:50},
-      {icon:'🔥',name:'7 dagen op rij',done:(K.state.streak||0)>=7,now:Math.min(7,K.state.streak||0),goal:7},
-      {icon:'🃏',name:'5 kenniskaarten',done:cards>=5,now:Math.min(5,cards),goal:5},
-      {icon:'🗺️',name:'Alle werelden bezocht',done:playedWorlds>=6,now:playedWorlds,goal:6}
-    ];
-    const body=`<div class="summary-hero"><div class="summary-icon">🏆</div><div><b>${defs.filter(x=>x.done).length}/${defs.length} behaald</b><span>Blijf ontdekken om nieuwe prestaties vrij te spelen.</span></div></div><div class="achievement-grid">${defs.map(a=>`<article class="achievement-card ${a.done?'done':''}"><div class="achievement-icon">${a.icon}</div><div><b>${esc(a.name)}</b><small>${a.done?'Behaald!':`${a.now}/${a.goal}`}</small><div class="mini-track"><i style="width:${Math.min(100,a.now/a.goal*100)}%"></i></div></div>${a.done?'<span class="done-badge">✓</span>':''}</article>`).join('')}</div>`;
-    nativeScreen({cls:'achievements-screen',title:'Prestaties',subtitle:'Jouw avonturen en mijlpalen',body,active:'achievements'})
+      {icon:'🎯',key:'achievement.firstQuiz',now:Math.min(1,K.state.quizzesPlayed||0),goal:1},
+      {icon:'⭐',key:'achievement.correct10',now:Math.min(10,totalCorrect()),goal:10},
+      {icon:'🌟',key:'achievement.correct50',now:Math.min(50,totalCorrect()),goal:50},
+      {icon:'🔥',key:'achievement.streak7',now:Math.min(7,K.state.streak||0),goal:7},
+      {icon:'🃏',key:'achievement.cards5',now:Math.min(5,cards),goal:5},
+      {icon:'🗺️',key:'achievement.allWorlds',now:playedWorlds,goal:6}
+    ].map(a=>({...a,done:a.now>=a.goal}));
+
+    const body=`<div class="summary-hero"><div class="summary-icon">🏆</div><div><b>${esc(t('achievements.summary',{done:defs.filter(x=>x.done).length,total:defs.length}))}</b><span>${esc(t('achievements.summarySub'))}</span></div></div>
+      <div class="achievement-grid">${defs.map(a=>`<article class="achievement-card ${a.done?'done':''}"><div class="achievement-icon">${a.icon}</div><div><b>${esc(t(a.key))}</b><small>${a.done?esc(t('achievements.done')):`${a.now}/${a.goal}`}</small><div class="mini-track"><i style="width:${Math.min(100,a.now/a.goal*100)}%"></i></div></div>${a.done?'<span class="done-badge">✓</span>':''}</article>`).join('')}</div>`;
+    nativeScreen({cls:'achievements-screen',title:t('achievements.title'),subtitle:t('achievements.sub'),body,active:'achievements'});
   };
+
+  /* ---------------- Collection ---------------- */
 
   K.showCollection=(tab='worlds')=>{
     K.stopSpeech();K.lastView='collection';
-    const correctIds=progress().correctQuestionIds;const cards=correctIds.map(id=>K.questions.find(q=>q.id===id)).filter(Boolean);
+    const ids=progress().correctQuestionIds;
+    const cards=ids.map(id=>K.questions.find(q=>q.id===id)).filter(Boolean);
     let content='';
-    if(tab==='worlds') content=`<div class="world-progress-grid">${WORLD_ORDER.map(w=>{const m=WORLD_META[w],s=worldStat(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${m.icon}</span><span><b>${esc(m.title)}</b><small>${s.correct}/${s.answered} goed · ${accuracy(s)}%</small><span class="wide-track"><i style="width:${accuracy(s)}%"></i></span></span><em>›</em></button>`}).join('')}</div>`;
-    if(tab==='cards') content=cards.length?`<div class="knowledge-grid">${cards.map(q=>`<article class="knowledge-card world-${q.world}"><div class="knowledge-art">${WORLD_META[q.world]?.icon||'⭐'}</div><b>${esc(q.answer)}</b><small>${esc(q.topicLabel||K.topics[q.world]?.[q.topic]||q.world)}</small><span>★ Ontdekt</span></article>`).join('')}</div>`:`<div class="empty-state"><div>🃏</div><h2>Nog geen kaarten</h2><p>Beantwoord vragen goed om kenniskaarten te verzamelen.</p></div>`;
-    if(tab==='mascots'){const unlocked=unlockedMascots();content=`<div class="mascot-grid">${MASCOTS.map(m=>{const ok=totalCorrect()>=m.need,sel=K.state.selectedMascot===m.id;return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'}><div>${ok?m.icon:'🔒'}</div><b>${esc(m.name)}</b><small>${ok?esc(m.desc):`Nog ${Math.max(0,m.need-totalCorrect())} goede antwoorden`}</small>${sel?'<span>Actief ✓</span>':ok?'<span>Kies maatje</span>':''}</button>`}).join('')}</div><div class="collection-note">${unlocked.length}/${MASCOTS.length} maatjes vrijgespeeld</div>`}
-    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">🌍 Werelden</button><button data-tab="cards" class="${tab==='cards'?'active':''}">🃏 Kaarten <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">🐾 Mascottes</button></div>${content}`;
-    const f=nativeScreen({cls:'collection-screen',title:'Mijn collectie',subtitle:'Alles wat je hebt ontdekt',body,active:'collection'});
+    if(tab==='worlds') content=`<div class="world-progress-grid">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${WORLD_ICON[w]}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('collection.worldStat',{correct:s.correct,answered:s.answered,pct:accuracy(s)}))}</small><span class="wide-track"><i style="width:${accuracy(s)}%"></i></span></span><em>›</em></button>`}).join('')}</div>`;
+    if(tab==='cards') content=cards.length
+      ?`<div class="knowledge-grid">${cards.map(q=>`<article class="knowledge-card world-${q.world}"><div class="knowledge-art">${WORLD_ICON[q.world]||'⭐'}</div><b>${esc(q.answer)}</b><small>${esc(topicLabel(q.topic))}</small><span>${esc(t('collection.discovered'))}</span></article>`).join('')}</div>`
+      :`<div class="empty-state"><div>🃏</div><h2>${esc(t('collection.emptyTitle'))}</h2><p>${esc(t('collection.emptyBody'))}</p></div>`;
+    if(tab==='mascots'){
+      content=`<div class="mascot-grid">${MASCOTS.map(m=>{
+        const ok=totalCorrect()>=m.need,sel=K.state.selectedMascot===m.id;
+        return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'}><div>${ok?m.icon:'🔒'}</div><b>${esc(t(`mascot.${m.id}`))}</b><small>${ok?esc(t(`mascot.${m.id}.desc`)):esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>${sel?`<span>${esc(t('collection.mascotActive'))}</span>`:ok?`<span>${esc(t('collection.mascotChoose'))}</span>`:''}</button>`;
+      }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
+    }
+    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button></div>${content}`;
+    const f=nativeScreen({cls:'collection-screen',title:t('collection.title'),subtitle:t('collection.sub'),body,active:'collection'});
     f.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showCollection(b.dataset.tab)});
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
-    f.querySelectorAll('[data-mascot]:not([disabled])').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.selectedMascot=b.dataset.mascot;K.save();K.showCollection('mascots')})
+    f.querySelectorAll('[data-mascot]:not([disabled])').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.selectedMascot=b.dataset.mascot;K.save();K.showCollection('mascots')});
   };
+
+  /* ---------------- Stats ---------------- */
 
   K.showStats=()=>{
-    K.stopSpeech();K.lastView='stats';const answered=Number(K.state.answered||0),correct=Number(K.state.correct||0),pct=answered?Math.round(correct/answered*100):0;
-    const body=`<div class="stat-hero"><div class="stat-ring" style="--p:${pct}"><b>${pct}%</b><small>goed</small></div><div><h2>Jouw kennis groeit</h2><p>${answered} vragen beantwoord · ${K.state.quizzesPlayed||0} quizzen gespeeld</p></div></div><div class="stat-cards"><article><span>⭐</span><b>${K.state.xp||0}</b><small>XP totaal</small></article><article><span>🪙</span><b>${K.state.coins||0}</b><small>KwizCoins</small></article><article><span>🔥</span><b>${K.state.streak||0}</b><small>Dagen op rij</small></article><article><span>🃏</span><b>${progress().correctQuestionIds.length}</b><small>Kaarten</small></article></div><h2 class="section-title">Per wereld</h2><div class="world-stat-list">${WORLD_ORDER.map(w=>{const m=WORLD_META[w],s=worldStat(w);return`<article><span>${m.icon}</span><div><b>${esc(m.title)}</b><small>${s.correct} goed van ${s.answered} · ${s.quizzes} quiz${s.quizzes===1?'':'zen'}</small><div class="wide-track"><i style="width:${accuracy(s)}%"></i></div></div><strong>${accuracy(s)}%</strong></article>`}).join('')}</div>`;
-    nativeScreen({cls:'stats-screen',title:'Statistieken',subtitle:'Echte voortgang uit jouw gespeelde vragen',body,active:'stats'})
+    K.stopSpeech();K.lastView='stats';
+    const answered=Number(K.state.answered||0),correct=Number(K.state.correct||0);
+    const pct=answered?Math.round(correct/answered*100):0;
+    const body=`<div class="stat-hero"><div class="stat-ring" style="--p:${pct}"><b>${pct}%</b><small>${esc(t('stats.correctShort'))}</small></div><div><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
+      <div class="stat-cards"><article><span>⭐</span><b>${Number(K.state.xp||0)}</b><small>${esc(t('stats.xpTotal'))}</small></article><article><span>🪙</span><b>${Number(K.state.coins||0)}</b><small>${esc(t('stats.coins'))}</small></article><article><span>🔥</span><b>${Number(K.state.streak||0)}</b><small>${esc(t('stats.streak'))}</small></article><article><span>🃏</span><b>${progress().correctQuestionIds.length}</b><small>${esc(t('stats.cards'))}</small></article></div>
+      <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
+      <div class="world-stat-list">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<article><span>${WORLD_ICON[w]}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><div class="wide-track"><i style="width:${accuracy(s)}%"></i></div></div><strong>${accuracy(s)}%</strong></article>`}).join('')}</div>`;
+    nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats'});
   };
 
-  function showPrivacyInfo(){const f=K.app.querySelector('.game-frame');if(!f)return;const o=document.createElement('div');o.className='simple-modal';o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="Sluiten">×</button><div class="simple-icon">🛡️</div><h2>Privacy & veiligheid</h2><p>Kwizillo bewaart deze prototype-voortgang lokaal op dit apparaat. Er zijn geen advertenties en de ElevenLabs-sleutel blijft op de lokale server.</p><button class="simple-ok">Begrepen</button></div>`;f.appendChild(o);const close=()=>o.remove();o.querySelector('.simple-close').onclick=close;o.querySelector('.simple-ok').onclick=close}
-  function showResetConfirm(){const f=K.app.querySelector('.game-frame');if(!f)return;const o=document.createElement('div');o.className='simple-modal';o.innerHTML=`<div class="simple-modal-card danger"><button class="simple-close" aria-label="Sluiten">×</button><div class="simple-icon">♻️</div><h2>Voortgang resetten?</h2><p>XP, coins, kaarten, statistieken en gespeelde voortgang gaan terug naar de beginstand.</p><div class="confirm-actions"><button class="cancel">Annuleren</button><button class="confirm">Ja, reset</button></div></div>`;f.appendChild(o);o.querySelector('.simple-close').onclick=()=>o.remove();o.querySelector('.cancel').onclick=()=>o.remove();o.querySelector('.confirm').onclick=()=>{localStorage.removeItem('kwizillo-v4-state');location.reload()}}
+  /* ---------------- Parent zone ---------------- */
+
+  function showPrivacyInfo(){
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const o=document.createElement('div');o.className='simple-modal';
+    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">🛡️</div><h2>${esc(t('settings.privacy'))}</h2><p>${esc(t('settings.privacyBody'))}</p><button class="simple-ok">${esc(t('common.gotIt'))}</button></div>`;
+    f.appendChild(o);
+    const close=()=>o.remove();
+    o.querySelector('.simple-close').onclick=close;o.querySelector('.simple-ok').onclick=close;
+  }
+  function showResetConfirm(){
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const o=document.createElement('div');o.className='simple-modal';
+    o.innerHTML=`<div class="simple-modal-card danger"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">♻️</div><h2>${esc(t('settings.resetTitle'))}</h2><p>${esc(t('settings.resetBody'))}</p><div class="confirm-actions"><button class="cancel">${esc(t('common.cancel'))}</button><button class="confirm">${esc(t('settings.resetConfirm'))}</button></div></div>`;
+    f.appendChild(o);
+    o.querySelector('.simple-close').onclick=()=>o.remove();
+    o.querySelector('.cancel').onclick=()=>o.remove();
+    o.querySelector('.confirm').onclick=()=>{K.resetProgress();location.reload()};
+  }
+
   K.showParent=()=>{
     K.stopSpeech();K.lastView='parent';
-    const body=`<div class="settings-list"><section class="setting-card"><div class="setting-icon">🎓</div><div><b>Schoolgroep</b><small>Pas de moeilijkheid aan</small></div><div class="stepper"><button data-group="minus">−</button><strong>Groep ${K.state.group}</strong><button data-group="plus">+</button></div></section><section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>Geluid, muziek & stem</b><small>${K.state.voice==='Stil'?'Stem uit':`Stem: ${esc(K.state.voice)}`} · muziek ${K.state.musicOn===false?'uit':'aan'}</small></div><em>›</em></section><section class="setting-card"><div class="setting-icon">⏱️</div><div><b>Tijdslimiet</b><small id="timeLabel">${K.state.timeLimitOn===false?'Uit':`${K.state.timeLimit||45} minuten`}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle"><span></span></button></section><section class="range-setting"><input id="timeRange" type="range" min="15" max="90" step="15" value="${K.state.timeLimit||45}" ${K.state.timeLimitOn===false?'disabled':''}></section><section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>Privacy & veiligheid</b><small>Bekijk hoe deze build gegevens gebruikt</small></div><em>›</em></section><section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>Voortgang resetten</b><small>Begin opnieuw met een schone voortgang</small></div><em>›</em></section></div>`;
-    const f=nativeScreen({cls:'parent-screen',title:'Ouderzone',subtitle:'Instellingen voor een fijne speelervaring',body,active:'parent'});
+    const voiceLine=K.state.voice==='Stil'?t('settings.soundVoiceOff'):t('settings.soundVoiceOn',{voice:t(K.state.voice==='Milo'?'voice.milo':'voice.luna')});
+    const musicLine=t('settings.soundMusic',{state:t(K.state.musicOn===false?'settings.off':'settings.on')});
+    const body=`<div class="settings-list">
+      <section class="setting-card"><div class="setting-icon">🎓</div><div><b>${esc(t('settings.group'))}</b><small>${esc(t('settings.groupSub'))}</small></div><div class="stepper"><button data-group="minus">−</button><strong>${esc(t('settings.groupValue',{n:K.state.group}))}</strong><button data-group="plus">+</button></div></section>
+      <section class="setting-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
+      <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
+      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.state.timeLimit||45}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle"><span></span></button></section>
+      <section class="range-setting"><input id="timeRange" type="range" min="15" max="90" step="15" value="${K.state.timeLimit||45}" ${K.state.timeLimitOn===false?'disabled':''}></section>
+      <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
+      <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
+    </div>`;
+    const f=nativeScreen({cls:'parent-screen',title:t('settings.title'),subtitle:t('settings.sub'),body,active:'parent'});
     f.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{K.sfx('tap');const d=b.dataset.group==='plus'?1:-1;K.state.group=Math.max(1,Math.min(8,(K.state.group||5)+d));K.save();K.showParent()});
+    f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
-    f.querySelector('#timeRange').oninput=e=>{K.state.timeLimit=Number(e.target.value);K.state.timeLimitOn=true;K.save();f.querySelector('#timeLabel').textContent=`${K.state.timeLimit} minuten`};
-    f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showResetConfirm()}
+    f.querySelector('#timeRange').oninput=e=>{K.state.timeLimit=Number(e.target.value);K.state.timeLimitOn=true;K.save();f.querySelector('#timeLabel').textContent=t('settings.timeLimitValue',{n:K.state.timeLimit})};
+    f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};
+    f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showResetConfirm()};
   };
 
-  K.showSoundSettings=()=>{K.stopSpeech();const f=K.app.querySelector('.game-frame');if(!f)return;f.querySelector('.sound-settings-overlay')?.remove();const o=document.createElement('div');o.className='sound-settings-overlay';const tracks=Object.values(K.audio.tracks).map(t=>`<button class="music-choice ${K.state.musicTrack===t.id?'selected':''}" data-track="${t.id}"><span class="music-icon">${t.icon}</span><span><b>${t.label}</b></span>${K.state.musicTrack===t.id?'<i>✓</i>':''}</button>`).join('');o.innerHTML=`<div class="sound-settings-card"><div class="sound-head"><div><span class="sound-kicker">INSTELLINGEN</span><h2>🔊 Geluid & muziek</h2></div><button class="sound-close" aria-label="Sluiten">×</button></div><div class="sound-row"><div class="sound-label"><b>✨ Geluidseffecten</b></div><button class="sound-toggle ${K.state.soundOn!==false?'on':''}" data-toggle="sfx"><span></span></button></div><div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.sfxVolume??.72)*100)}" data-volume="sfx"><span>🔊</span><button class="sound-test">Test</button></div><div class="sound-divider"></div><div class="sound-row"><div class="sound-label"><b>🎵 Achtergrondmuziek</b></div><button class="sound-toggle ${K.state.musicOn!==false?'on':''}" data-toggle="music"><span></span></button></div><div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.musicVolume??.24)*100)}" data-volume="music"><span>🔊</span></div><h3>Kies je muziek</h3><div class="music-choice-grid">${tracks}</div><div class="sound-divider"></div><h3>Stemgids</h3><div class="sound-voice-grid"><button class="sound-voice ${K.state.voice==='Milo'?'selected':''}" data-guide="Milo">🤖 <b>Milo</b></button><button class="sound-voice ${K.state.voice==='Luna'?'selected':''}" data-guide="Luna">🎧 <b>Luna</b></button><button class="sound-voice ${K.state.voice==='Stil'?'selected':''}" data-guide="Stil">🔇 <b>Stil</b></button></div></div>`;f.appendChild(o);const redraw=()=>{o.remove();K.showSoundSettings()};o.querySelector('.sound-close').onclick=()=>{K.stopSpeech();o.remove()};o.querySelector('[data-toggle="sfx"]').onclick=()=>{K.audio.setSfx(K.state.soundOn===false);redraw()};o.querySelector('[data-toggle="music"]').onclick=async()=>{await K.audio.setMusic(K.state.musicOn===false);redraw()};o.querySelector('[data-volume="sfx"]').oninput=e=>K.audio.setSfxVolume(e.target.value/100);o.querySelector('[data-volume="music"]').oninput=e=>K.audio.setMusicVolume(e.target.value/100);o.querySelector('.sound-test').onclick=()=>K.audio.play('reward');o.querySelectorAll('[data-track]').forEach(b=>b.onclick=async()=>{await K.audio.setTrack(b.dataset.track);redraw()});o.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{K.state.voice=b.dataset.guide;K.save();K.stopSpeech();redraw();if(K.state.voice!=='Stil')K.speak(K.state.voice==='Milo'?'Hoi! Ik ben Milo.':'Hoi! Ik ben Luna.')})};
-
-  K.showHome=()=>{K.lastView='home';const f=master(K.MASTER.home,[...gear(),H(7,22,43,14,'Ruimtewereld',()=>K.enterWorld('ruimte')),H(57,20,39,15,'Dierenwereld',()=>K.enterWorld('dieren')),H(4,35,48,18,'Aardewereld',()=>K.enterWorld('aarde')),H(54,37,43,17,'Geschiedeniswereld',()=>K.enterWorld('geschiedenis')),H(4,51,49,17,'Wetenschapwereld',()=>K.enterWorld('wetenschap')),H(54,52,43,17,'Mysteriewereld',()=>K.enterWorld('mysterie')),H(22,69,55,7.5,'Start avontuur',()=>K.enterWorld(K.currentWorld)),H(5,80,27,8.2,'Stem Milo',()=>selectVoice('Milo')),H(33,80,27,8.2,'Stem Luna',()=>selectVoice('Luna')),H(61,80,25,8.2,'Zonder stem',()=>selectVoice('Stil')),...nav()]);voiceFrames(f)};
-  function selectVoice(v){K.state.voice=v;K.save();K.showHome();if(v!=='Stil')K.speak(v==='Milo'?'Hoi! Ik ben Milo. Klaar om te spelen?':'Hoi! Ik ben Luna. Zullen we samen ontdekken?')}
-  K.enterWorld=world=>{if(!WORLD_META[world])return K.showHome();K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('world');K.showWorld(world)};
-  K.showWorld=world=>{K.stopSpeech();K.lastView='world';K.currentWorld=world;const meta=WORLD_META[world]||WORLD_META.ruimte,keys=K.TOPIC_KEYS[world]||[],topics=keys.map((key,i)=>({key,label:K.topics[world]?.[key]||`Onderwerp ${i+1}`,i}));const f=K.frame(`<section class="native-world world-${world} fade-in"><img class="native-world-bg" src="${K.MASTER[world]}" alt="${esc(meta.title)}"><div class="native-world-shade"></div><div class="native-world-ui"><header class="native-world-head"><button id="worldBack" class="world-round" aria-label="Terug naar home">‹</button><div class="world-title-wrap"><div class="world-kicker">${meta.icon} KWIZILLO WERELD</div><h1>${esc(meta.title)}</h1><p>${esc(meta.sub)}</p></div><button id="worldGear" class="world-round" aria-label="Instellingen">⚙</button></header><div class="world-topic-grid">${topics.map(t=>`<button class="world-topic" data-topic="${t.i}"><span class="world-topic-num">${t.i+1}</span><span><b>${esc(t.label)}</b><small>10 vragen · groep ${K.state.group}</small></span><i>›</i></button>`).join('')}</div><button class="world-mix" id="worldMix"><span>▶</span><span><b>Start gemengde quiz</b><small>Vragen uit alle vier onderwerpen</small></span><i>›</i></button>${bottomNav('')}</div></section>`);f.querySelector('#worldBack').onclick=()=>{K.sfx('tap');K.showHome()};f.querySelector('#worldGear').onclick=()=>{K.sfx('tap');K.showParent()};f.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,Number(b.dataset.topic))});f.querySelector('#worldMix').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,null)};bindNav(f)};
+  K.showSoundSettings=()=>{
+    K.stopSpeech();
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    f.querySelector('.sound-settings-overlay')?.remove();
+    const o=document.createElement('div');o.className='sound-settings-overlay';
+    const tracks=Object.values(K.audio.tracks).map(tr=>`<button class="music-choice ${K.state.musicTrack===tr.id?'selected':''}" data-track="${tr.id}"><span class="music-icon">${tr.icon}</span><span><b>${esc(t(`track.${tr.id}`))}</b></span>${K.state.musicTrack===tr.id?'<i>✓</i>':''}</button>`).join('');
+    o.innerHTML=`<div class="sound-settings-card">
+      <div class="sound-head"><div><span class="sound-kicker">${esc(t('sound.kicker'))}</span><h2>${esc(t('sound.title'))}</h2></div><button class="sound-close" aria-label="${esc(t('common.close'))}">×</button></div>
+      <div class="sound-row"><div class="sound-label"><b>${esc(t('sound.fx'))}</b></div><button class="sound-toggle ${K.state.soundOn!==false?'on':''}" data-toggle="sfx"><span></span></button></div>
+      <div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.sfxVolume??.72)*100)}" data-volume="sfx"><span>🔊</span><button class="sound-test">${esc(t('sound.test'))}</button></div>
+      <div class="sound-divider"></div>
+      <div class="sound-row"><div class="sound-label"><b>${esc(t('sound.music'))}</b></div><button class="sound-toggle ${K.state.musicOn!==false?'on':''}" data-toggle="music"><span></span></button></div>
+      <div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.musicVolume??.24)*100)}" data-volume="music"><span>🔊</span></div>
+      <h3>${esc(t('sound.pickMusic'))}</h3><div class="music-choice-grid">${tracks}</div>
+      <div class="sound-divider"></div>
+      <h3>${esc(t('sound.voiceGuide'))}</h3>
+      <div class="sound-voice-grid">
+        <button class="sound-voice ${K.state.voice==='Milo'?'selected':''}" data-guide="Milo">🤖 <b>${esc(t('voice.milo'))}</b></button>
+        <button class="sound-voice ${K.state.voice==='Luna'?'selected':''}" data-guide="Luna">🎧 <b>${esc(t('voice.luna'))}</b></button>
+        <button class="sound-voice ${K.state.voice==='Stil'?'selected':''}" data-guide="Stil">🔇 <b>${esc(t('voice.silent'))}</b></button>
+      </div></div>`;
+    f.appendChild(o);
+    const redraw=()=>{o.remove();K.showSoundSettings()};
+    o.querySelector('.sound-close').onclick=()=>{K.stopSpeech();o.remove()};
+    o.querySelector('[data-toggle="sfx"]').onclick=()=>{K.audio.setSfx(K.state.soundOn===false);redraw()};
+    o.querySelector('[data-toggle="music"]').onclick=async()=>{await K.audio.setMusic(K.state.musicOn===false);redraw()};
+    o.querySelector('[data-volume="sfx"]').oninput=e=>K.audio.setSfxVolume(e.target.value/100);
+    o.querySelector('[data-volume="music"]').oninput=e=>K.audio.setMusicVolume(e.target.value/100);
+    o.querySelector('.sound-test').onclick=()=>K.audio.play('reward');
+    o.querySelectorAll('[data-track]').forEach(b=>b.onclick=async()=>{await K.audio.setTrack(b.dataset.track);redraw()});
+    o.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{K.state.voice=b.dataset.guide;K.save();K.stopSpeech();redraw();if(K.state.voice!=='Stil')K.speak(t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'))});
+  };
 
   window.addEventListener('keydown',e=>{if(e.key==='Escape'){K.stopSpeech();K.showHome()}});
-  // intro.js owns the launch sequence and calls K.showHome() when the cinematic is done.
-  ensureProgress();
+  K.progress();
 })();
