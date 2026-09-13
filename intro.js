@@ -82,7 +82,10 @@
       if(p&&p.catch) p.catch(e=>{log('play() rejected',e?.name,e?.message);if(!done)posterFallback()});
       K.audio.unlock?.().then(startTheme).catch(()=>{});
     };
-    el.addEventListener('pointerdown',()=>{started?finish():start()});
+    // iOS only treats touchend/click as a user activation for media, not
+    // touchstart/pointerdown; a start on pointerdown left the AudioContext
+    // suspended and the theme silent. So: click to start, click to continue.
+    el.addEventListener('click',()=>{started?finish():start()});
     el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.tapToStart'));
     video.addEventListener('ended',finish,{once:true});
     for(const ev of ['loadedmetadata','canplay','stalled','suspend','abort']) video.addEventListener(ev,()=>log(ev,'readyState',video.readyState),{once:true});
