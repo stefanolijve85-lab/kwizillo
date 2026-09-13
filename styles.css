@@ -26,7 +26,6 @@ button{font:inherit}
 .motion{position:absolute;inset:0;z-index:20;background:#061937;overflow:hidden}
 .motion video{width:100%;height:100%;object-fit:cover;display:block}
 .motion::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,24,72,.02),rgba(0,24,72,.2));pointer-events:none}
-.motion-badge{position:absolute;left:50%;bottom:4%;z-index:2;transform:translateX(-50%);padding:10px 18px;border-radius:999px;background:rgba(9,45,104,.66);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.32);color:white;font-weight:900;font-size:12px;letter-spacing:.02em}
 .motion-skip{position:absolute;right:4%;top:3%;z-index:3;border:0;border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.88);color:#153f81;font-weight:900;cursor:pointer}
 .fade-in{animation:fadeIn .35s ease both}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes zoomIn{from{opacity:0;transform:scale(1.025)}to{opacity:1;transform:scale(1)}}

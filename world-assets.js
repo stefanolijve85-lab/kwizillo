@@ -13,11 +13,8 @@
     mysterie:'https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_143746_f83ec603-99e4-4d56-825d-ff422a9de04b.png'
   });
 
-  K.MOTION ||= {};
-  // Opening cinematic only. World selection itself is immediate.
-  K.MOTION.home='https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_141211_3ebd5cfa-3bb7-41cd-9532-68bf4d7bda63.mp4';
-  K.MOTION.ruimte=null;
-  K.MOTION.mysterie=null;
+  // Opening cinematic only. Entering a world is immediate, by design.
+  K.MOTION={home:'https://d8j0ntlcm91z4.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/hf_20260912_141211_3ebd5cfa-3bb7-41cd-9532-68bf4d7bda63.mp4'};
 
   // Real transparent Kwizillo logo used by the intro overlay.
   K.BRAND_LOGO='https://d2ol7oe51mr4n9.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/e20ee5ff-7b29-4957-83f8-d5ec8964eb14.png';

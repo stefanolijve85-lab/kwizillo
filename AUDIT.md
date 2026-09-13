@@ -152,16 +152,29 @@ Selectors voor de markup van het dode `m1-quiz.js`, uitsluitend aanwezig in `sty
 
 ## 4. Gevonden bugs en risico's
 
-### 4.1 Verweesde 90-seconden-timer navigeert de speler weg — **P0, functioneel**
+### 4.1 Dubbel opgebouwde cinematic + latente 90-seconden-timer — **P0, functioneel**
+
+> **Correctie (Fase 2, gemeten).** De eerste versie van deze bevinding stelde dat de
+> 90-seconden-timer ook op het web afgaat. Dat is onjuist en hieronder gecorrigeerd.
 
 Keten:
 1. `m1-ui.js:138` roept bij first-run `K.showHome(true)` aan → `motion()` (`m1-ui.js:79`) rendert video #1 en zet `setTimeout(finish, 4700)`.
-2. `intro-v2.js:12-14` heeft `window.setTimeout` gepatcht zodat elke delay van exact `4700` wordt vervangen door **`90000`**.
+2. `intro-v2.js:12-14` patcht `window.setTimeout` zodat een delay van exact `4700` wordt vervangen door `90000`, en herstelt de patch in een `setTimeout(...,0)`.
 3. `boot-intro.js:6` roept daarna nogmaals `K.showHome(true)` aan → `K.frame()` wist de DOM en rendert video #2.
 
-Video #1 is nu losgekoppeld. Zijn `onended` vuurt nooit, dus zijn `done`-guard blijft `false` en zijn timer blijft staan. **90 seconden na app-start roept die timer `open()` aan**, wat via `K.frame()` het volledige scherm vervangt door Home — ongeacht of de speler dan midden in een quiz zit. Antwoorden van de lopende quiz gaan verloren.
+**Gemeten gedrag** (probe op `window.setTimeout`, koude laadbeurt):
 
-Twee video-elementen betekenen bovendien twee gelijktijdige downloads en een kort moment met dubbele mediaplayback.
+| Laadwijze | Patch actief? | Geplande timers |
+|---|---|---|
+| HTTP, koude cache | **nee** | `4700, 4700` (twee cinematics) |
+| HTTP, warme cache | **nee** | `4700` (één cinematic) |
+| `file://` (Capacitor/iOS) | **ja** | `90000, 90000` |
+
+Over HTTP wint de 0ms-restore altijd, omdat elk `<script src>` een eigen round trip is en de event loop daartussen draait. De patch is daar dus inert. Onder `file://` — precies hoe Capacitor de app op iOS serveert — laden de scripts zonder tussenliggende taak en **is de patch wel actief**: twee verweesde timers van 90 seconden.
+
+Wat op het web dus echt misgaat, is de **dubbele opbouw**: op een koude laadbeurt worden twee video-elementen aangemaakt en twee complete sets sound-design-timers gestart, wat overlappende intro-effecten geeft. Video #1 raakt losgekoppeld, vuurt nooit `ended`, en zijn timer rendert Home een tweede keer.
+
+De ernst voor de iOS-doelstelling is daarmee niet kleiner maar groter: de 90s-variant verschijnt pas in de Capacitor-build, dus juist niet tijdens webtesten.
 
 ### 4.2 De intro is niet overslaanbaar — **P0, functioneel**
 
@@ -471,7 +484,7 @@ Infrastructuurkeuze (Render / Railway / Cloudflare / Vercel) is een aparte besli
 | 4.3 | Nul i18n, geen EN-vragenbank | Halve productscope ontbreekt |
 | 4.4 | Onboarding ontbreekt volledig | CLAUDE.md §4 stappen 4–8 |
 | 4.5 | Server serveert `.git`, `.env`, broncode | Sleutellek zodra LAN-testen hervat wordt |
-| 4.1 | Verweesde 90s-timer gooit speler uit de quiz | Datavernietigend in normale flow |
+| 4.1 | Dubbele cinematic + 90s-timer die pas in de Capacitor-build actief wordt | Overlappende intro-audio nu; stray navigatie op iOS |
 | 4.2 | Intro niet overslaanbaar | Directe schending §5; potentieel vastlopend scherm |
 | 4.7 | Luna is Vlaams | Expliciet afgewezen door gebruiker |
 | 4.9 | "Nog een quiz" herhaalt dezelfde vragen | Kernloop-belofte niet waargemaakt |
