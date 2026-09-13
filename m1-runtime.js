@@ -11,6 +11,11 @@
 
   let abort=null,voiceCtx=null,voiceSource=null,voiceUrl=null;const gate=K.core.createCancellationGate();
   function ensureVoiceCtx(){if(!voiceCtx){const C=window.AudioContext||window.webkitAudioContext;if(C)voiceCtx=new C()}return voiceCtx}
+  // iOS only lets an AudioContext start inside a user gesture. The voice context
+  // used to be created after the speech fetch resolved, outside any gesture, so
+  // Safari kept it suspended and the phone stayed silent while the Mac played.
+  // Create and resume it on every tap instead; the calls are no-ops once running.
+  document.addEventListener('pointerdown',()=>{const c=ensureVoiceCtx();if(c&&c.state==='suspended')c.resume().catch(()=>{})},{capture:true});
   // When the speech backend is absent or unreachable, stop asking for the rest of
   // the session instead of firing a failing request per question. The game stays
   // fully playable without a voice (CLAUDE.md section 16, backend unavailable).

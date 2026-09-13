@@ -176,9 +176,11 @@
           </div>
           <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">⚙</button>
         </header>
-        <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic" data-topic="${tp.i}">
+        <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic has-art" data-topic="${tp.i}">
+          <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" loading="lazy">
+          <span class="world-topic-veil"></span>
           <span class="world-topic-num">${tp.i+1}</span>
-          <span><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
+          <span class="world-topic-copy"><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
           <i>›</i>
         </button>`).join('')}</div>
         <button class="world-mix" id="worldMix">
