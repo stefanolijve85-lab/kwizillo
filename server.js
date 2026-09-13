@@ -334,6 +334,27 @@ const VOICE_SETTINGS = {
   Luna: { stability:0.38, similarity_boost:0.8,  style:0.46, use_speaker_boost:true, speed:Number(process.env.LUNA_SPEED||1.0) }
 };
 
+// ElevenLabs allows a fixed number of concurrent requests per subscription (5 on
+// this account) and answers the rest with 429 concurrent_limit_exceeded. A quiz
+// question alone is five segments fired at once, so requests are funnelled through
+// a small semaphore and a 429 is retried after a short pause instead of being
+// handed to the client as a failed segment.
+const UPSTREAM_CONCURRENCY = Number(process.env.TTS_CONCURRENCY || 3);
+let upstreamActive = 0;
+const upstreamQueue = [];
+function acquireUpstream(){
+  return new Promise(resolve => {
+    const tryStart = () => { if (upstreamActive < UPSTREAM_CONCURRENCY) { upstreamActive++; resolve(); } else upstreamQueue.push(tryStart); };
+    tryStart();
+  });
+}
+function releaseUpstream(){
+  upstreamActive = Math.max(0, upstreamActive - 1);
+  const next = upstreamQueue.shift();
+  if (next) next();
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
 async function tts(text, guide, lang){
   await loadVoices(lang);
   const v=chosen[lang][guide==='Luna'?'Luna':'Milo'];
@@ -346,26 +367,40 @@ async function tts(text, guide, lang){
   const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`).digest('hex');
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta};
-  const r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,{
-    method:'POST',
-    signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
-    headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
-    body:JSON.stringify({
-      text, model_id:MODEL,
-      // language_code is not supported by multilingual_v2 (docs: "This parameter
-      // is not supported for multilingual_v2 models"); the native voice per
-      // language carries the accent. Sent only for models that honour it.
-      ...(/multilingual_v2/.test(MODEL) ? {} : { language_code: lang }),
-      voice_settings: settings
-    })
+
+  const body=JSON.stringify({
+    text, model_id:MODEL,
+    // language_code is not supported by multilingual_v2 (docs: "This parameter
+    // is not supported for multilingual_v2 models"); the native voice per
+    // language carries the accent. Sent only for models that honour it.
+    ...(/multilingual_v2/.test(MODEL) ? {} : { language_code: lang }),
+    voice_settings: settings
   });
-  if(!r.ok){
-    const detail=await r.text().catch(()=>String(r.status));
-    throw new Error(`ElevenLabs TTS ${r.status}: ${detail.slice(0,260)}`);
+
+  await acquireUpstream();
+  try{
+    let r, attempt=0;
+    for(;;){
+      r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,{
+        method:'POST',
+        signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+        headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
+        body
+      });
+      if(r.status!==429 || attempt>=3) break;
+      attempt++;
+      await sleep(350*attempt);
+    }
+    if(!r.ok){
+      const detail=await r.text().catch(()=>String(r.status));
+      throw new Error(`ElevenLabs TTS ${r.status}: ${detail.slice(0,260)}`);
+    }
+    const buf=Buffer.from(await r.arrayBuffer());
+    fs.writeFileSync(cached,buf);
+    return {buf,voice:v,meta};
+  }finally{
+    releaseUpstream();
   }
-  const buf=Buffer.from(await r.arrayBuffer());
-  fs.writeFileSync(cached,buf);
-  return {buf,voice:v,meta};
 }
 
 const server=http.createServer(async(req,res)=>{

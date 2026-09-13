@@ -168,9 +168,17 @@
 .quiz-card .quiz-art{flex:1 1 auto;width:100%;min-height:0;max-height:46%}
 /* Tiles grow with the screen but stay tap-sized rather than becoming empty slabs. */
 .quiz-card .answers{flex:1 1 auto;margin-top:0;min-height:0;grid-auto-rows:minmax(76px,104px);align-content:center}
-/* Keep long answer text clear of the A/B/C/D badge. */
-.quiz-card .answer{padding-left:52px;padding-right:16px}
-@media(max-width:420px){.quiz-card .answer{padding-left:44px;padding-right:11px}}
+/* The A/B/C/D badge sits in the top-left corner as a small chip and the text
+   uses the full tile width below it. The previous inline badge with left padding
+   ended up covering the first word on iPhone SE and 14 widths. */
+.quiz-card .answer{position:relative;display:flex!important;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px 10px 10px!important;text-align:center;gap:0}
+.quiz-card .answer-letter{position:absolute;left:8px;top:7px;width:22px;height:22px;margin:0;font-size:10px;flex:none}
+.quiz-card .answer-copy{display:block;width:100%;max-width:100%;text-align:center;line-height:1.12;
+  overflow-wrap:anywhere;word-break:normal;hyphens:auto;text-wrap:balance}
+.quiz-card .answer.long{font-size:clamp(11.5px,2.7vw,15px)!important}
+.quiz-card .answer.xlong{font-size:clamp(10.5px,2.45vw,13.5px)!important;line-height:1.1!important}
+@media(max-width:420px){.quiz-card .answer{padding:23px 8px 9px!important}.quiz-card .answer-letter{left:7px;top:6px;width:20px;height:20px;font-size:9.5px}}
 
 /* ---- Parental gate ---- */
 .gate-form{display:grid;gap:8px;margin-top:12px}
