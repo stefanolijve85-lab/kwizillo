@@ -29,7 +29,16 @@ async function boot(page, state = SAVED()) {
     if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));
   }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+}
+
+// The intro waits for one tap (that tap unlocks sound). With the video aborted
+// the tap goes straight on to the next screen.
+async function tapThroughIntro(page) {
+  const start = page.locator('#introStart');
+  await expect(start).toBeVisible({ timeout: 8000 });
+  await start.click();
 }
 
 async function answerAll(page, n = 10) {
@@ -44,6 +53,7 @@ async function answerAll(page, n = 10) {
 test('onboarding runs once and collects language, name and voice', async ({ page }) => {
   await page.route('**/*.mp4', route => route.abort());
   await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
 
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   await page.getByRole('button', { name: /English/ }).click();
@@ -64,6 +74,7 @@ test('onboarding runs once and collects language, name and voice', async ({ page
 
   // A returning player never sees onboarding again.
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('.onboarding')).toHaveCount(0);
 });
@@ -71,6 +82,7 @@ test('onboarding runs once and collects language, name and voice', async ({ page
 test('a brand new player starts at zero, not on seeded progress', async ({ page }) => {
   await page.route('**/*.mp4', route => route.abort());
   await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
   await page.getByRole('button', { name: /Nederlands/ }).click();
   await page.locator('#obName').fill('Nieuw');
   await page.locator('#obNext').click();
@@ -143,7 +155,7 @@ test('hint, feedback and progress bar behave inside a quiz', async ({ page }) =>
   await page.locator('.world-topic').first().click();
 
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
-  await expect(page.locator('.quiz-art img')).toBeVisible();
+  await expect(page.locator('.quiz-art .art-main')).toBeVisible();
 
   await page.getByRole('button', { name: /Hint/ }).click();
   await expect(page.locator('.hint-float')).toBeVisible();
@@ -205,7 +217,7 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
   await expect(page.getByText('Groep 6')).toBeVisible();
 
   await page.locator('#timeToggle').click();
-  await expect(page.locator('#timeRange')).toBeDisabled();
+  await expect(page.locator('#timeToggle')).not.toHaveClass(/on/);
 
   await page.locator('[data-setlang="en"]').click();
   await expect(page.locator('.panel-head h1')).toHaveText('Parent zone');
@@ -252,6 +264,7 @@ test('progress and settings survive a reload', async ({ page }) => {
 
   const before = await page.locator('.hud-right').innerText();
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   expect(await page.locator('.hud-right').innerText()).toBe(before);
   await expect(page.locator('.hud-id b')).toHaveText('Hoi Mike!');
@@ -395,11 +408,10 @@ test('"next" on the feedback card waits for the voice; the close button unlocks 
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
   await expect(page.locator('.feedback-answer b')).not.toBeEmpty();
-  // Cached lines resolve instantly and decode fails on the dummy bytes, so the
-  // button may already be armed; what must hold is that close always arms it.
+  // The close button returns to the answered question, whose own Next moves on.
   await page.locator('#feedbackClose').click();
-  await expect(page.locator('#feedbackNext')).toBeEnabled();
-  await page.locator('#feedbackNext').click();
+  await expect(page.locator('.feedback-float')).toHaveCount(0);
+  await page.locator('#nextBtn').click();
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
   release();
 });
@@ -422,25 +434,74 @@ test('the avatar on Home opens the profile, where the name can be changed', asyn
   await page.locator('.panel-back').click();
   await expect(page.locator('.hud-id b')).toContainText('Noor');
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
   await expect(page.locator('.hud-id b')).toContainText('Noor', { timeout: 8000 });
 });
 
-test('"another question" swaps in a genuinely new question', async ({ page }) => {
+test('the row under the answers is Back / Hint / Again; Back revisits an answered question', async ({ page }) => {
   await boot(page);
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
+  await expect(page.locator('#skipBtn')).toHaveCount(0);
+  await expect(page.locator('#prevBtn')).toBeDisabled();
+  await expect(page.locator('#hintBtn')).toBeVisible();
 
-  const before = await page.locator('.quiz-card h1').textContent();
-  await page.locator('#skipBtn').click();
-  const after = await page.locator('.quiz-card h1').textContent();
-  expect(after).not.toBe(before);
-  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
+  const first = await page.locator('.quiz-card h1').textContent();
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await page.locator('#feedbackNext').click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
 
-  // A single 10-question topic has nothing spare, so the button says so instead
-  // of silently dropping the question.
-  await page.locator('#qBack').click();
-  await page.locator('.world-topic').first().click();
-  await expect(page.locator('#skipBtn')).toBeDisabled();
+  // Back: the first question again, in review state with its verdict shown.
+  await page.locator('#prevBtn').click();
+  await expect(page.locator('.quiz-card h1')).toHaveText(first);
+  await expect(page.locator('.quiz-v2')).toHaveClass(/is-review/);
+  await expect(page.locator('.answer.correct')).toHaveCount(1);
+  await expect(page.locator('.answer:enabled')).toHaveCount(0);
+  await page.locator('#explainBtn').click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await page.locator('#feedbackClose').click();
+  await page.locator('#nextBtn').click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+  await expect(page.locator('.quiz-v2')).not.toHaveClass(/is-review/);
+});
+
+test('closing the feedback card shows the same question again, answered', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="dieren"]').click();
+  await page.locator('#worldMix').click();
+  const first = await page.locator('.quiz-card h1').textContent();
+  await page.locator('.answer').nth(1).click();
+  await page.locator('#feedbackClose').click();
+  await expect(page.locator('.feedback-float')).toHaveCount(0);
+  await expect(page.locator('.quiz-card h1')).toHaveText(first);
+  await expect(page.locator('.quiz-v2')).toHaveClass(/is-review/);
+  await expect(page.locator('#nextBtn')).toBeVisible();
+});
+
+test('the question timer runs out into a time-out verdict and gets shorter with level', async ({ page }) => {
+  // Level 11 -> 10 seconds per question (30 - 2*10, floored at 10).
+  await boot(page, SAVED({ xp: 1000 }));
+  await page.locator('[data-world="aarde"]').click();
+  await page.locator('#worldMix').click();
+  await expect(page.locator('#quizTimer b')).toHaveText('10');
+  await page.clock?.install?.().catch(() => {});
+  await expect(page.locator('.feedback-float')).toBeVisible({ timeout: 13000 });
+  await expect(page.locator('.feedback-kicker')).toHaveText('TIJD IS OM!');
+  await expect(page.locator('.answer.correct')).toHaveCount(1);
+});
+
+test('the timer can be switched off and the difficulty cap follows group, level or a manual choice', async ({ page }) => {
+  await boot(page, SAVED({ timeLimitOn: false }));
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await expect(page.locator('#quizTimer')).toHaveCount(0);
+  const cap = await page.evaluate(() => {
+    const K = window.KWIZILLO_M1;
+    return [K.core.difficultyCap({ level: 'auto', grade: 3, playerLevel: 1 }), K.core.difficultyCap({ level: 'auto', grade: 8, playerLevel: 1 }),
+      K.core.difficultyCap({ level: 'auto', grade: 5, playerLevel: 9 }), K.core.difficultyCap({ level: 1, grade: 8, playerLevel: 20 })];
+  });
+  expect(cap).toEqual([1, 4, 4, 1]);
 });
 
 for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390, 844], ['Pro Max', 430, 932]]) {

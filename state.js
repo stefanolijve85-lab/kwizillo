@@ -32,8 +32,10 @@
     sfxVolume:.72,
     musicVolume:.24,
     musicTrack:'magical',
-    timeLimitOn:true,
-    timeLimit:45,
+    timeLimitOn:true,       // per-question timer (seconds follow the level)
+    timeLimit:45,           // legacy, unused
+    difficulty:'auto',      // 'auto' | 1..4
+    bestScores:{},          // world -> best quiz score out of 10
     progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[]}
   };
 

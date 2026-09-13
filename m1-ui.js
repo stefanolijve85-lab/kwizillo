@@ -107,8 +107,8 @@
             </span>
           </div>
           <div class="hud-right">
-            <span class="hud-chip" title="${esc(t('home.coins'))}">${K.icon('coin')} ${Number(K.state.coins||0)}</span>
-            <span class="hud-chip" title="${esc(t('home.streak'))}">${K.icon('flame')} ${Number(K.state.streak||0)}</span>
+            <button class="hud-chip" data-stats title="${esc(t('home.coins'))}">${K.icon('coin')} ${Number(K.state.coins||0)}</button>
+            <button class="hud-chip" data-stats title="${esc(t('home.streak'))}">${K.icon('flame')} ${Number(K.state.streak||0)}</button>
             <button class="hud-gear" id="homeGear" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
           </div>
         </header>
@@ -135,6 +135,7 @@
     f.querySelector('#homeCta').onclick=()=>{K.sfx('tap');K.enterWorld(last)};
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
+    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');selectVoice(b.dataset.voice)});
     f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{K.sfx('tap');switchLanguage(b.dataset.lang)});
     bindNav(f);
@@ -228,6 +229,26 @@
     nativeScreen({cls:'achievements-screen',title:t('achievements.title'),subtitle:t('achievements.sub'),body,active:'achievements'});
   };
 
+  /* ---------------- Sharing ---------------- */
+
+  // Sharing goes through the system share sheet (or the clipboard) and is
+  // gated by the parental check, as it leaves the app. There is no server-side
+  // leaderboard in the web build; on iOS this maps to Game Center.
+  K.shareText=()=>{
+    const best=Object.entries(K.state.bestScores||{}).sort((a,b)=>b[1]-a[1])[0];
+    return t('share.text',{
+      name:K.state.name||'',level:K.level(),correct:totalCorrect(),cards:progress().correctQuestionIds.length,
+      best:best?`${best[1]}/10 (${worldTitle(best[0])})`:'–'
+    });
+  };
+  K.shareScore=()=>showParentalGate(async()=>{
+    const text=K.shareText();
+    try{
+      if(navigator.share){await navigator.share({title:'Kwizillo',text});return}
+      await navigator.clipboard.writeText(text);K.toast(t('share.copied'));
+    }catch(e){ if(e?.name!=='AbortError') K.toast(t('share.copied')) }
+  });
+
   /* ---------------- Profile ---------------- */
 
   K.showProfile=()=>{
@@ -246,7 +267,7 @@
         </form>
         <div class="profile-xp"><span>${esc(t('home.level',{level:lvl}))}</span><i><b style="width:${into}%"></b></i><span>${into}%</span></div>
       </div>
-      <div class="stat-cards profile-stats">
+      <div class="stat-cards profile-stats" data-stats role="button" tabindex="0">
         <article><span>${K.icon('coin')}</span><b>${Number(K.state.coins||0)}</b><small>${esc(t('stats.coins'))}</small></article>
         <article><span>${K.icon('flame')}</span><b>${Number(K.state.streak||0)}</b><small>${esc(t('stats.streak'))}</small></article>
         <article><span>${K.icon('star')}</span><b>${pct}%</b><small>${esc(t('stats.correctShort'))}</small></article>
@@ -258,6 +279,7 @@
     const f=nativeScreen({cls:'profile-screen',title:t('profile.title'),subtitle:t('profile.sub'),body,active:''});
     f.querySelector('#profileName').onsubmit=e=>{e.preventDefault();const v=f.querySelector('#profileInput').value.trim();if(!v)return;K.state.name=v;K.save();K.sfx('good');K.toast(t('profile.saved'))};
     f.querySelector('#profileBuddy').onclick=()=>{K.sfx('tap');K.showCollection('mascots')};
+    f.querySelector('[data-stats]').onclick=()=>{K.sfx('tap');K.showStats()};
     f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.voice=b.dataset.voice;K.save();K.showProfile()});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showProfile()}});
   };
@@ -320,9 +342,13 @@
     const pct=answered?Math.round(correct/answered*100):0;
     const body=`<div class="stat-hero"><div class="stat-ring" style="--p:${pct}"><b>${pct}%</b><small>${esc(t('stats.correctShort'))}</small></div><div><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
       <div class="stat-cards"><article><span>${K.icon('star')}</span><b>${Number(K.state.xp||0)}</b><small>${esc(t('stats.xpTotal'))}</small></article><article><span>${K.icon('coin')}</span><b>${Number(K.state.coins||0)}</b><small>${esc(t('stats.coins'))}</small></article><article><span>${K.icon('flame')}</span><b>${Number(K.state.streak||0)}</b><small>${esc(t('stats.streak'))}</small></article><article><span>${K.icon('cards')}</span><b>${progress().correctQuestionIds.length}</b><small>${esc(t('stats.cards'))}</small></article></div>
+      <h2 class="section-title">${esc(t('stats.board'))}</h2>
+      <div class="scoreboard">${WORLD_ORDER.map(w=>{const b=Number((K.state.bestScores||{})[w]||0);return`<article class="${b>=9?'gold':b>=7?'silver':b>0?'bronze':''}"><span>${K.worldBadge(w)}</span><b>${b}/10</b><small>${esc(worldTitle(w))}</small></article>`}).join('')}</div>
+      <button class="share-btn" id="statsShare">${K.icon('star')} ${esc(t('settings.share'))}</button>
       <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
       <div class="world-stat-list">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><div class="wide-track"><i style="width:${accuracy(s)}%"></i></div></div><strong>${accuracy(s)}%</strong></article>`}).join('')}</div>`;
-    nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats'});
+    const f=nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats'});
+    f.querySelector('#statsShare').onclick=()=>{K.sfx('tap');K.shareScore()};
   };
 
   /* ---------------- Parent zone ---------------- */
@@ -371,8 +397,9 @@
       <section class="setting-card"><div class="setting-icon">🎓</div><div><b>${esc(t('settings.group'))}</b><small>${esc(t('settings.groupSub'))}</small></div><div class="stepper"><button data-group="minus">−</button><strong>${esc(t('settings.groupValue',{n:K.state.group}))}</strong><button data-group="plus">+</button></div></section>
       <section class="setting-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
-      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.state.timeLimit||45}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle"><span></span></button></section>
-      <section class="range-setting"><input id="timeRange" type="range" min="15" max="90" step="15" value="${K.state.timeLimit||45}" ${K.state.timeLimitOn===false?'disabled':''}></section>
+      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.level())}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
+      <section class="setting-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))}</b><small>${esc(t('settings.levelSub'))}</small></div><div class="level-toggle">${['auto',1,2,3,4].map(v=>`<button data-level="${v}" class="${String(K.state.difficulty||'auto')===String(v)?'active':''}">${v==='auto'?esc(t('settings.levelAuto')):v}</button>`).join('')}</div></section>
+      <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
     </div>`;
@@ -381,7 +408,8 @@
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
-    f.querySelector('#timeRange').oninput=e=>{K.state.timeLimit=Number(e.target.value);K.state.timeLimitOn=true;K.save();f.querySelector('#timeLabel').textContent=t('settings.timeLimitValue',{n:K.state.timeLimit})};
+    f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.difficulty=b.dataset.level==='auto'?'auto':Number(b.dataset.level);K.save();K.showParent()});
+    f.querySelector('#shareOpen').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};
     f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showParentalGate(showResetConfirm)};
   };

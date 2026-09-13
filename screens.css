@@ -426,3 +426,47 @@
 .profile-voice .quick-pills{display:flex;gap:4px;padding:3px;border-radius:999px;background:#e7f1fb}
 .profile-voice .quick-pill{min-width:40px;min-height:36px}
 .stat-cards article span .ki{width:26px;height:26px}
+
+/* ---- Quiz: back/hint/again row, review state, countdown ring, tappable chips ---- */
+.quiz-actions .back{background:linear-gradient(180deg,#eef5ff,#d9e9fb);color:#2b5590;box-shadow:0 5px 0 #b5cfe8}
+.quiz-actions .back:disabled{opacity:.45;box-shadow:0 5px 0 #c9d6e3}
+.quiz-actions .back .ki{width:16px;height:16px}
+.is-review .answer:disabled{opacity:1}
+.is-review .answer:not(.correct):not(.wrong){filter:saturate(.6);opacity:.75}
+.quiz-timer{position:relative;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(#8dff8d calc(var(--p,100)*1%),rgba(255,255,255,.18) 0);box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.quiz-timer::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#0b3b8f}
+.quiz-timer b{position:relative;z-index:1;font-size:13px;color:#fff}
+.quiz-timer.urgent{background:conic-gradient(#ff7a5c calc(var(--p,100)*1%),rgba(255,255,255,.18) 0);animation:timerPulse .6s ease-in-out infinite}
+@keyframes timerPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.quiz-progress{grid-template-columns:auto 1fr auto!important}
+.meta-chip,.hud-chip{cursor:pointer;font:inherit}
+.quiz-meta .meta-chip{display:block;width:100%;border:1px solid rgba(255,255,255,.26);border-radius:999px;padding:5px 8px;color:#fff;font-size:clamp(9px,2.2vw,12px);font-weight:1000;text-align:center;background:linear-gradient(180deg,rgba(29,104,205,.98),rgba(10,65,154,.98));box-shadow:0 5px 10px rgba(0,28,82,.22)}
+.profile-stats{cursor:pointer}
+.level-toggle{display:flex;gap:4px}
+.level-toggle button{min-width:34px;min-height:36px;border:2px solid #cfe4f8;border-radius:12px;background:#fff;color:#2b5590;font-weight:1000;font-size:12px;cursor:pointer}
+.level-toggle button.active{border-color:#267cff;background:#e5f0ff;color:#0f4a9c}
+.scoreboard{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.scoreboard article{display:grid;justify-items:center;gap:3px;padding:10px 6px;border-radius:18px;background:#fff;border:1px solid #d6eaf9;box-shadow:0 6px 14px rgba(20,70,128,.08)}
+.scoreboard article b{font-size:16px;color:#10235f}.scoreboard article small{font-size:9px;color:#5880ac;font-weight:900;text-align:center}
+.scoreboard article.gold{background:linear-gradient(180deg,#fff9d6,#ffe9a0);border-color:#ffd54a}
+.scoreboard article.silver{background:linear-gradient(180deg,#f7f9fc,#e6ecf3);border-color:#c9d3df}
+.scoreboard article.bronze{background:linear-gradient(180deg,#fff1e6,#ffd9bd);border-color:#f0b184}
+.share-btn{margin-top:10px;width:100%;min-height:48px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-weight:1000;font-size:14px;box-shadow:0 5px 0 #d98b12;cursor:pointer}
+
+/* ---- Intro start layer: one tap unlocks sound and starts the cinematic ---- */
+.intro-start{position:absolute;inset:0;z-index:6;display:grid;place-content:center;gap:18px;justify-items:center;
+  background:radial-gradient(circle at 50% 40%,rgba(30,70,170,.55),rgba(4,20,60,.92) 75%);cursor:pointer}
+.intro-start-logo{width:min(72%,400px);height:auto;filter:drop-shadow(0 10px 0 rgba(63,34,149,.6)) drop-shadow(0 18px 24px rgba(0,25,94,.55));animation:startFloat 2.4s ease-in-out infinite}
+.intro-start span{padding:12px 22px;border-radius:999px;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-weight:1000;font-size:16px;box-shadow:0 5px 0 #d98b12,0 10px 20px rgba(0,20,70,.35);animation:startPulse 1.4s ease-in-out infinite}
+.motion:not(.cinematic-playing) .intro-brand{display:none}
+@keyframes startFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes startPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+/* ---- Question art is never cropped: the picture is shown whole (contain)
+   over a blurred copy of itself that fills whatever the card leaves over. ---- */
+.quiz-card .quiz-art{position:relative;flex:0 1 auto;width:100%;aspect-ratio:16/9;max-height:44%;min-height:0;overflow:hidden}
+.quiz-art .art-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(16px) brightness(.8) saturate(1.2);transform:scale(1.2)}
+.quiz-art .art-main{position:relative;width:100%;height:100%;object-fit:contain;object-position:center}
+.hint-visual{aspect-ratio:16/9;height:auto!important;max-height:180px}
+.hint-visual img{object-fit:contain!important;background:#0b2a66;transform:none!important}

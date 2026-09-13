@@ -75,17 +75,26 @@ test('the intro schedules no long-lived orphan timer', async ({ page }) => {
   expect(longest).toBeLessThanOrEqual(30000);
 });
 
-test('there is no skip button; the whole cinematic is the tap target', async ({ page }) => {
+test('the cinematic waits for a tap to start; there is no skip button', async ({ page }) => {
   await boot(page);
   await expect(page.locator('.motion-skip')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Intro overslaan' })).toHaveCount(1); // the cinematic itself
+  await expect(page.locator('#introStart')).toBeVisible();
+  await expect(page.locator('.motion')).not.toHaveClass(/cinematic-playing/);
+  await expect(page.locator('.intro-brand')).toBeHidden();
+  // First tap: start (unlocks sound, hides the start layer, video plays).
+  await page.locator('.motion').click();
+  await expect(page.locator('#introStart')).toHaveCount(0);
+  await expect(page.locator('.motion')).toHaveClass(/cinematic-playing/);
+  // Second tap: continue to Home.
   await page.locator('.motion').click();
   await expect(page.locator('.home')).toBeVisible({ timeout: 5000 });
   await expect(page.locator('.motion')).toHaveCount(0);
 });
 
-test('tapping anywhere on the cinematic continues to Home immediately', async ({ page }) => {
+test('tapping anywhere on the running cinematic continues to Home immediately', async ({ page }) => {
   await boot(page);
+  await page.locator('.motion').click({ position: { x: 40, y: 300 } });
+  await expect(page.locator('.motion')).toHaveClass(/cinematic-playing/);
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
   // Must be a direct response to the tap, not the video eventually giving up.
   await expect(page.locator('.home')).toBeVisible({ timeout: 2000 });
@@ -94,6 +103,8 @@ test('tapping anywhere on the cinematic continues to Home immediately', async ({
 
 test('skipping the cinematic clears its pending sound-design timers', async ({ page }) => {
   await boot(page);
+  await page.locator('.motion').click({ position: { x: 40, y: 300 } });
+  await expect(page.locator('.motion')).toHaveClass(/cinematic-playing/);
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
   await expect(page.locator('.home')).toBeVisible();
 

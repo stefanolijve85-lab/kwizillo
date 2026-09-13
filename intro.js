@@ -17,14 +17,16 @@
     const url=K.MOTION?.home||K.config?.introVideoUrl||'';
     if(!url) return onDone();
 
-    const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in">
+    const frame=K.frame(`<div class="motion kwizillo-cinematic fade-in">
       <video muted playsinline preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"></div>
+      <div class="intro-start" id="introStart"><img class="intro-start-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"><span>${K.t('intro.tapToStart')}</span></div>
     </div>`);
 
     const el=frame.querySelector('.motion');
     const video=el.querySelector('video');
-    let timers=[],done=false,theme=null;
+    let timers=[],done=false,theme=null,started=false;
+    K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
 
     // The theme (music + children calling the name) runs in step with the
@@ -47,21 +49,31 @@
       timers=[];
       try{video.pause()}catch(e){}
       theme?.stop(.6);
+      K.audio.holdMusic=false;
       startMusic();
       onDone();
     };
 
-    // Tapping anywhere on the cinematic continues immediately (CLAUDE.md §5);
-    // there is no separate skip button.
-    el.addEventListener('pointerdown',finish);
-    el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.skip'));
+    // The cinematic waits for one tap: that tap is the gesture every browser
+    // needs before sound may play, so the theme is heard from the first frame.
+    // A second tap anywhere continues to Home; there is no separate skip button.
+    let videoFailed=false;
+    const start=async()=>{
+      if(started||done) return;
+      started=true;
+      try{await K.audio.unlock?.()}catch(e){}
+      if(videoFailed||done){finish();return}  // nothing to show: straight on
+      el.classList.add('cinematic-playing');
+      el.querySelector('#introStart')?.remove();
+      video.addEventListener('playing',startTheme,{once:true});
+      video.play().catch(()=>{});
+      startTheme();
+      schedule(finish,SAFETY_MS);
+    };
+    el.addEventListener('pointerdown',()=>{started?finish():start()});
+    el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.tapToStart'));
     video.addEventListener('ended',finish,{once:true});
-    video.addEventListener('error',finish,{once:true});
-    schedule(finish,SAFETY_MS);
-
-    video.addEventListener('playing',startTheme,{once:true});
-    video.play().catch(()=>{});
-    startTheme();
+    video.addEventListener('error',()=>{videoFailed=true;if(started)finish()},{once:true});
   };
 
   // First run goes to onboarding, returning players go straight to Home.

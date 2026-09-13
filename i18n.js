@@ -107,11 +107,19 @@
     'quiz.mixed':'Gemengde quiz',
     'quiz.progress':'Vraag {current} van {total}',
     'quiz.hint':'Hint',
-    'quiz.skip':'Andere vraag ›',
     'quiz.none':'Voor dit onderwerp zijn nog geen vragen beschikbaar.',
     'quiz.artAlt':'Illustratie bij de vraag',
     'quiz.quizLabel':'Quiz {n}',
-    'quiz.noSpare':'Alle vragen van dit onderwerp zitten al in deze quiz.',
+    'quiz.back':'Terug',
+    'quiz.explain':'Uitleg',
+    'quiz.timerAria':'Seconden over',
+    'feedback.timeKicker':'TIJD IS OM!',
+    'feedback.timeTitle':'Volgende keer sneller!',
+    'settings.level':'Niveau',
+    'settings.levelSub':'Auto volgt je groep en level',
+    'settings.levelAuto':'Auto',
+    'settings.share':'Deel je score',
+    'settings.shareSub':'Stuur je resultaat naar familie of vrienden',
 
     'hint.title':'Een kleine aanwijzing',
     'hint.kicker':'{topic}-tip',
@@ -218,6 +226,10 @@
     'stats.streak':'Dagen op rij',
     'stats.cards':'Kaarten',
     'stats.perWorld':'Per wereld',
+    'stats.board':'Scorebord · beste quiz per wereld',
+    'share.text':'{name} speelt Kwizillo! Level {level}, {correct} goede antwoorden, {cards} kenniskaarten. Beste quiz: {best}. Speel je mee?',
+    'share.copied':'Tekst gekopieerd – plak hem in een bericht.',
+    'result.share':'Deel je score',
     'stats.worldLine':'{correct} goed van {answered} · {quizzes} {quizWord}',
     'stats.quizOne':'quiz',
     'stats.quizMany':'quizzen',
@@ -235,9 +247,9 @@
     'settings.soundMusic':'muziek {state}',
     'settings.on':'aan',
     'settings.off':'uit',
-    'settings.timeLimit':'Tijdslimiet',
+    'settings.timeLimit':'Vraagtimer',
     'settings.timeLimitOff':'Uit',
-    'settings.timeLimitValue':'{n} minuten',
+    'settings.timeLimitValue':'{n} seconden per vraag, sneller bij hoger level',
     'settings.privacy':'Privacy & veiligheid',
     'settings.privacySub':'Bekijk hoe deze build gegevens gebruikt',
     'settings.privacyBody':'Kwizillo bewaart je voortgang alleen op dit apparaat. Er zijn geen advertenties en geen tracking. Je naam wordt nooit naar een andere dienst gestuurd.',
@@ -264,7 +276,8 @@
     'track.space':'Ruimte',
     'track.calm':'Rustig',
 
-    'intro.skip':'Intro overslaan'
+    'intro.skip':'Intro overslaan',
+    'intro.tapToStart':'Tik om te starten'
   };
 
   const EN={
@@ -370,11 +383,19 @@
     'quiz.mixed':'Mixed quiz',
     'quiz.progress':'Question {current} of {total}',
     'quiz.hint':'Hint',
-    'quiz.skip':'Another question ›',
     'quiz.none':'There are no questions for this topic yet.',
     'quiz.artAlt':'Illustration for the question',
     'quiz.quizLabel':'Quiz {n}',
-    'quiz.noSpare':'Every question from this topic is already in this quiz.',
+    'quiz.back':'Back',
+    'quiz.explain':'Explain',
+    'quiz.timerAria':'Seconds left',
+    'feedback.timeKicker':'TIME IS UP!',
+    'feedback.timeTitle':'Quicker next time!',
+    'settings.level':'Level',
+    'settings.levelSub':'Auto follows your grade and level',
+    'settings.levelAuto':'Auto',
+    'settings.share':'Share your score',
+    'settings.shareSub':'Send your result to family or friends',
 
     'hint.title':'A little clue',
     'hint.kicker':'{topic} tip',
@@ -481,6 +502,10 @@
     'stats.streak':'Day streak',
     'stats.cards':'Cards',
     'stats.perWorld':'Per world',
+    'stats.board':'Scoreboard · best quiz per world',
+    'share.text':'{name} plays Kwizillo! Level {level}, {correct} correct answers, {cards} knowledge cards. Best quiz: {best}. Want to play too?',
+    'share.copied':'Text copied – paste it into a message.',
+    'result.share':'Share your score',
     'stats.worldLine':'{correct} of {answered} correct · {quizzes} {quizWord}',
     'stats.quizOne':'quiz',
     'stats.quizMany':'quizzes',
@@ -498,9 +523,9 @@
     'settings.soundMusic':'music {state}',
     'settings.on':'on',
     'settings.off':'off',
-    'settings.timeLimit':'Time limit',
+    'settings.timeLimit':'Question timer',
     'settings.timeLimitOff':'Off',
-    'settings.timeLimitValue':'{n} minutes',
+    'settings.timeLimitValue':'{n} seconds per question, faster at higher levels',
     'settings.privacy':'Privacy & safety',
     'settings.privacySub':'See how this build uses data',
     'settings.privacyBody':'Kwizillo keeps your progress on this device only. There are no ads and no tracking. Your name is never sent to another service.',
@@ -527,7 +552,8 @@
     'track.space':'Space',
     'track.calm':'Calm',
 
-    'intro.skip':'Skip intro'
+    'intro.skip':'Skip intro',
+    'intro.tapToStart':'Tap to start'
   };
 
   const STRINGS={nl:NL,en:EN};

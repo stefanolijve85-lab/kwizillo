@@ -26,7 +26,8 @@
     const run=K.runFor(world,key);
     const batch=K.core.selectQuizBatch({
       questions:K.questions,world,topicKey:key,
-      grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds
+      grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds,
+      maxDifficulty:K.core.difficultyCap({level:K.state.difficulty||'auto',grade:Number(K.state.group||5),playerLevel:K.level()})
     });
     if(!batch.questions.length){K.toast(t('quiz.none'));K.showWorld(world);return}
     run.usedIds=batch.usedIds;
@@ -44,25 +45,38 @@
     render(q);
   };
 
+  // Live mode: the child still has to answer (timer runs, Hint / Again).
+  // Review mode: the question was answered (or timed out); the tiles show the
+  // verdict and the row offers Back / Explanation / Next. Closing the feedback
+  // card or stepping back through the quiz lands here.
+  let timer=null;
+  function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
+  function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(K.level())}
+
   function render(q){
-    K.stopSpeech();
+    K.stopSpeech();stopTimer();
     const idx=K.quiz.index,total=K.quiz.questions.length;
+    const answered=K.quiz.answeredById?.[q.id]||null;
     const pct=Math.round(((idx+1)/Math.max(1,total))*100);
-    const f=K.frame(`<section class="quiz-v2 quiz-world-${q.world} fade-in">
+    const seconds=answered?0:questionSecondsFor();
+    const actions=answered
+      ?`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="explainBtn">${K.icon('bulb')} ${esc(t('quiz.explain'))}</button><button class="action next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`
+      :`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="hintBtn">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button>`;
+    const f=K.frame(`<section class="quiz-v2 quiz-world-${q.world} fade-in ${answered?'is-review':''}">
       <img class="quiz-v2-bg" src="${K.MASTER[q.world]}" alt="">
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="qBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>Kwizillo</span><small>${esc(K.quiz.topicLabel)} · ${esc(t('quiz.quizLabel',{n:K.quiz.quizNumber}))}</small></div>
-          <div class="quiz-meta"><b>${K.icon('coin')} ${Number(K.state.coins||0)}</b><b>${K.icon('flame')} ${Number(K.state.streak||0)}</b></div>
+          <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
         </header>
-        <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div><span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span></div>
+        <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="quizTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span>`}</div>
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
-          <div class="quiz-art"><img src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
-          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
-          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}"><button class="action hint" id="hintBtn">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
+          <div class="quiz-art"><img class="art-fill" src="${questionArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
+          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}" ${answered?'disabled':''}><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
+          <div class="quiz-actions ${K.state.voice==='Stil'&&!answered?'no-voice':''}">${actions}</div>
         </main>
       </div>
     </section>`);
@@ -70,12 +84,17 @@
     const buttons=[...f.querySelectorAll('.answer')];
     preloadNextArt();
     K.clearSpeechHighlight=()=>buttons.forEach(b=>b.classList.remove('spoken-active'));
-    f.querySelector('#qBack').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showWorld(K.quiz.world)};
+    f.querySelector('#qBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showWorld(K.quiz.world)};
+    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats()});
+    f.querySelector('#prevBtn').onclick=()=>{if(idx===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');K.quiz.index--;K.showQuiz()};
+
+    if(answered){
+      f.querySelector('#explainBtn').onclick=()=>{K.sfx('tap');feedback(q,answered.correct,{timedOut:answered.timedOut,silent:true})};
+      f.querySelector('#nextBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
+      return;
+    }
+
     f.querySelector('#hintBtn').onclick=()=>showHint(q);
-    const skip=f.querySelector('#skipBtn');
-    const spare=spareQuestions(q).length;
-    if(!spare){ skip.disabled=true; skip.title=t('quiz.noSpare') }
-    else skip.onclick=()=>{K.stopSpeech();K.sfx('swoosh');swapQuestion()};
     buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
 
     const readQuestion=()=>K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
@@ -87,7 +106,25 @@
     });
     f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');readQuestion()};
     readQuestion();
+
+    // The timer counts down while the child thinks; it pauses under the hint
+    // card and stops on an answer. At zero the question counts as wrong.
+    if(seconds){
+      const el=f.querySelector('#quizTimer');
+      let left=seconds*1000,last=performance.now();
+      timer={paused:false,id:setInterval(()=>{
+        const now=performance.now();
+        if(!timer.paused) left-=now-last; last=now;
+        if(!el.isConnected){stopTimer();return}
+        const sec=Math.max(0,Math.ceil(left/1000));
+        el.style.setProperty('--p',String(Math.max(0,left/(seconds*1000))*100));
+        el.querySelector('b').textContent=sec;
+        el.classList.toggle('urgent',left<=5000);
+        if(left<=0){stopTimer();evaluate(q,null,null)}
+      },100)};
+    }
   }
+  K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
   function showHint(q){
     K.stopSpeech();K.sfx('hint');
@@ -96,7 +133,8 @@
     const hint=q.hint||t('hint.fallback');
     x.innerHTML=`<div class="hint-card"><button class="hint-close" aria-label="${esc(t('hint.close'))}">×</button><div class="hint-kicker">${K.icon('bulb')} ${esc(t('hint.kicker',{topic:K.quiz.topicLabel}))}</div><div class="hint-visual"><img src="${questionArt(q)}" alt="${esc(t('hint.alt'))}"></div><h2>${esc(t('hint.title'))}</h2><p>${esc(hint)}</p><button class="hint-ok">${esc(t('hint.ok'))}</button></div>`;
     f.appendChild(x);
-    const close=()=>{K.stopSpeech();x.remove()};
+    K.pauseTimer(true);
+    const close=()=>{K.stopSpeech();x.remove();K.pauseTimer(false)};
     x.querySelector('.hint-close').onclick=close;
     x.querySelector('.hint-ok').onclick=()=>{K.sfx('tap');close()};
     x.addEventListener('pointerdown',e=>{if(e.target===x)close()});
@@ -106,12 +144,13 @@
   function evaluate(q,value,button){
     const r=K.core.recordAnswer(K.quiz,q,value);
     if(!r.accepted)return;
+    stopTimer();
     const buttons=[...K.app.querySelectorAll('.answer')];
     buttons.forEach(b=>b.disabled=true);
     K.recordAnswerProgress(q,r.correct);
-    if(r.correct){K.sfx('good');button.classList.add('correct')}
-    else{K.sfx('bad');button.classList.add('wrong');buttons.find(b=>decodeURIComponent(b.dataset.a)===q.answer)?.classList.add('correct')}
-    setTimeout(()=>feedback(q,r.correct),120);
+    if(r.correct){K.sfx('good');button?.classList.add('correct')}
+    else{K.sfx('bad');button?.classList.add('wrong');buttons.find(b=>decodeURIComponent(b.dataset.a)===q.answer)?.classList.add('correct')}
+    setTimeout(()=>feedback(q,r.correct,{timedOut:r.timedOut}),120);
   }
 
   // The praise varies from question to question. The pick is fixed per
@@ -129,9 +168,10 @@
     });
   }
 
-  function feedback(q,correct){
+  function feedback(q,correct,{timedOut=false,silent=false}={}){
     K.stopSpeech();
     const f=K.app.querySelector('.game-frame');if(!f)return;
+    f.querySelector('.feedback-float')?.remove();
     const x=document.createElement('div');x.className=`feedback-float feedback-v2 ${correct?'is-good':'is-try'} world-${q.world}`;
     const explain=esc(q.explanation||(correct?t('feedback.thatsRight'):q.hint||''));
     const last=K.quiz.index+1>=K.quiz.questions.length;
@@ -139,8 +179,8 @@
       <button class="feedback-close" id="feedbackClose" aria-label="${esc(t('feedback.close'))}">×</button>
       <div class="feedback-head">
         <div class="feedback-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></div>
-        <div class="feedback-kicker">${esc(t(correct?'feedback.goodKicker':'feedback.tryKicker'))}</div>
-        <h2>${esc(t(correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2>
+        <div class="feedback-kicker">${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</div>
+        <h2>${esc(t(timedOut?'feedback.timeTitle':correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2>
       </div>
       <div class="feedback-answer"><small>${esc(t('feedback.answerLabel'))}</small><b>${esc(q.answer)}</b></div>
       <p class="feedback-explain">${explain}</p>
@@ -149,43 +189,22 @@
       <button class="feedback-next" id="feedbackNext" disabled><em class="feedback-wait">${esc(t('feedback.listening'))}</em><span class="feedback-next-label">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></span></button>
     </div>`;
     f.appendChild(x);
-    if(correct) K.celebrate?.('answer',x);
+    if(correct&&!silent) K.celebrate?.('answer',x);
     const nextBtn=x.querySelector('#feedbackNext');
     // "Next" waits for the voice: the child hears the explanation before moving
     // on. The close button skips the voice and unlocks at once; without a
     // voice the button is live immediately.
     let armed=false;
     const arm=()=>{if(armed)return;armed=true;nextBtn.disabled=false;x.classList.add('spoken')};
-    if(K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
+    if(silent||K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
     else K.speak(feedbackSpeech(q,correct)).then(arm,arm);
-    x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');arm()};
+    // The cross puts the question back on screen, answered, so the child can
+    // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
+    x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');x.remove();render(q)};
     nextBtn.onclick=()=>{if(nextBtn.disabled)return;K.stopSpeech();K.sfx('tap');next()};
   }
 
-  // Questions already in this quiz are off limits, so a swap is a genuinely new
-  // question rather than a reshuffle of the same ten.
-  function spareQuestions(current){
-    const inQuiz=new Set(K.quiz.questions.map(x=>x.id));
-    return K.core.poolFor({
-      questions:K.questions,world:K.quiz.world,topicKey:K.quiz.topicKey,
-      grade:Number(K.state.group||5)
-    }).filter(x=>!inQuiz.has(x.id));
-  }
-
-  function swapQuestion(){
-    const current=K.quiz.questions[K.quiz.index];
-    const spare=spareQuestions(current);
-    if(!spare.length) return;
-    const replacement=K.core.prepareQuestion(spare[Math.floor(Math.random()*spare.length)]);
-    K.quiz.questions[K.quiz.index]=replacement;
-    const run=K.runFor(K.quiz.world,K.quiz.topicKey);
-    run.usedIds=[...new Set([...run.usedIds.filter(id=>id!==current.id),replacement.id])];
-    K.save();
-    clearSpoken();
-    K.showQuiz();
-  }
-
-  function next(){clearSpoken();K.quiz.index++;K.showQuiz()}
+  function next(){clearSpoken();stopTimer();K.quiz.index++;K.showQuiz()}
 
   K.showResult=()=>{
     K.stopSpeech();
@@ -195,6 +214,8 @@
       K.state.quizzesPlayed=Number(K.state.quizzesPlayed||0)+1;
       const ws=K.progress().worlds[q.world];
       if(ws) ws.quizzes=Number(ws.quizzes||0)+1;
+      K.state.bestScores||={};
+      if((q.score||0)>Number(K.state.bestScores[q.world]||0)) K.state.bestScores[q.world]=q.score||0;
       K.touchStreak();
       K.save();
     }
@@ -228,6 +249,7 @@
           <button id="againBtn">${esc(primaryLabel)}</button>
           ${isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
           <button id="collectionBtn" class="secondary">${esc(t('result.toCollection'))}</button>
+          <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
     </section>`);
@@ -249,6 +271,7 @@
       K.stopSpeech();K.sfx('tap');
       K.startQuiz(K.currentWorld,isTopic?nextIdx:null);   // nextIdx null after the last topic = mixed quiz
     };
+    f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#retryBtn')?.addEventListener('click',()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(K.currentWorld,topicIdx)});
     f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
   };
