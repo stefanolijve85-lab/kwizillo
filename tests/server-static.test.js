@@ -38,7 +38,8 @@ const MUST_SERVE = [
   '/index.html',
   '/intro.js',
   '/m1-ui.js',
-  '/styles.css',
+  '/base.css',
+  '/screens.css',
   '/assets/home.png',
   '/assets/audio/tap.wav'
 ];
