@@ -21,7 +21,13 @@
   const topicLabel=key=>t(`topic.${key}`);
 
   const progress=()=>K.progress();
-  function worldStat(world){const p=progress();return p.worlds[world]||(p.worlds[world]={answered:0,correct:0,quizzes:0,xp:0})}
+  function worldStat(world){
+    const p=progress();
+    const s=p.worlds[world]||(p.worlds[world]={});
+    // Older saves may lack a counter; never let "undefined" reach the screen.
+    for(const k of ['answered','correct','quizzes','xp']) s[k]=Number(s[k]||0);
+    return s;
+  }
   function topicStat(topic){const p=progress();return p.topics[topic]||(p.topics[topic]={answered:0,correct:0})}
   const accuracy=s=>s?.answered?Math.round(s.correct/s.answered*100):0;
   const totalCorrect=()=>Number(K.state.correct||0);
@@ -165,14 +171,15 @@
     const mixRun=K.runFor(world,null);
 
     const f=K.frame(`<section class="native-world world-${world} fade-in">
-      <img class="native-world-bg" src="${K.MASTER[world]}" alt="${esc(worldTitle(world))}">
+      <img class="native-world-bg" src="${K.MASTER[world]}" alt="">
+      <div class="native-world-hero"><img src="${K.MASTER[world]}" alt="${esc(worldTitle(world))}"></div>
       <div class="native-world-shade"></div>
       <div class="native-world-ui">
         <header class="native-world-head">
           <button id="worldBack" class="world-round" aria-label="${esc(t('world.backHome'))}">‹</button>
           <div class="world-title-wrap">
             <div class="world-kicker">${WORLD_ICON[world]} ${esc(t('world.kicker'))}</div>
-            <h1>${esc(worldTitle(world))}</h1>
+            <h1 class="${worldTitle(world).length>14?'long':''}">${esc(worldTitle(world))}</h1>
             <p>${esc(worldSub(world))}</p>
           </div>
           <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">⚙</button>

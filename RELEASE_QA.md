@@ -77,6 +77,30 @@ Getest op iPhone SE (375×667), iPhone 14 (390×844) en Pro Max (430×932):
 - elke antwoordtegel minstens 44pt hoog
 - safe-area-insets toegepast op elk full-bleed scherm
 
+### Evenredigheidsronde (alle schermen, drie formaten, notch en home-indicator gesimuleerd)
+Elk scherm is met een Playwright-harnas vastgelegd op de drie formaten, met
+`--sat`/`--sab` gezet op de echte notch/home-indicator-hoogtes (47/34 en 59/34 px).
+Gevonden en opgelost:
+- **Wereldscherm**: de titel "Geschiedeniswereld" duwde het tandwiel buiten beeld
+  (middenkolom was `1fr` in plaats van `minmax(0,1fr)`); lange titels krimpen nu.
+- **Wereldscherm**: de wereldschildering vulde het hele scherm en het eiland zat
+  daardoor onder de onderwerpkaarten – alleen lucht bleef zichtbaar. De schildering
+  staat nu in een hero-band onder de koptekst (per wereld een eigen focuspunt) en
+  vloeit over in een vervaagde kopie achter de kaarten.
+- **Safe areas**: drie oudere `padding`-declaraties (waarvan één `!important`)
+  overschreven de safe-area-regel op wereld-, quiz-, panel- en resultaatscherm.
+  De buitenpadding staat nu op precies één plek.
+- **Resultaatscherm**: een overgebleven regel uit de oude bouw zette de knoppen
+  `position:absolute` bovenop score, sterren en statistieken. Verwijderd; sterren
+  tonen nu expliciet verdiend/leeg.
+- **Statistieken**: "undefined quizzen" bij een wereld zonder teller; tellers
+  worden nu genormaliseerd.
+- **Onboarding**: de gidsbeschrijving viel in de icoonkolom en brak per woord.
+- **Onderwerpkaarten**: "Ontdekkingsreizigers" werd afgekapt op 375 px; titels
+  breken nu af. Antwoord-, hint- en feedbacktekst hebben een hogere minimumgrootte.
+Regressietests: tandwiel binnen het scherm, geen afgekapte onderwerptitels,
+resultaatstatistieken onbedekt, geen "undefined" in statistieken.
+
 ---
 
 ## 3. Beveiliging

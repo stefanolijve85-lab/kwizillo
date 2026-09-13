@@ -318,6 +318,32 @@ test('resetting progress sits behind a parental gate', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Voortgang resetten?' })).toBeVisible();
 });
 
+test('the result card shows score, stars and stats above the buttons', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await answerAll(page);
+  await expect(page.locator('.result-v2 h1')).toBeVisible();
+  await expect(page.locator('.result-stars i')).toHaveCount(3);
+  await expect(page.locator('.result-stats span')).toHaveCount(3);
+  // Nothing may sit on top of the stats row (a legacy rule once floated the buttons over it).
+  const covered = await page.locator('.result-stats').evaluate(el => {
+    const r = el.getBoundingClientRect();
+    const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+    return !(el === hit || el.contains(hit));
+  });
+  expect(covered, 'result stats hidden behind another element').toBe(false);
+});
+
+test('statistics never print "undefined" for a world without counters', async ({ page }) => {
+  await boot(page, SAVED({ progress: { worlds: { ruimte: { answered: 4, correct: 3 } }, topics: {}, runs: {}, correctQuestionIds: [] } }));
+  await page.locator('.native-bottom-nav [data-nav="stats"]').click();
+  await expect(page.locator('.world-stat-list')).toBeVisible();
+  const text = await page.locator('.world-stat-list').textContent();
+  expect(text).not.toContain('undefined');
+  expect(text).not.toContain('NaN');
+});
+
 test('"another question" swaps in a genuinely new question', async ({ page }) => {
   await boot(page);
   await page.locator('[data-world="ruimte"]').click();
@@ -347,9 +373,22 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390
     await expect(page.locator('.home-world')).toHaveCount(6);
     expect(await overflow(), 'home overflows horizontally').toBe(false);
 
-    await page.locator('[data-world="ruimte"]').click();
+    // The longest world title ("Geschiedeniswereld") used to push the settings
+    // button past the right edge of the screen.
+    await page.locator('[data-world="geschiedenis"]').click();
     await expect(page.locator('.world-topic')).toHaveCount(4);
     expect(await overflow(), 'world overflows horizontally').toBe(false);
+    const gear = await page.locator('#worldGear').boundingBox();
+    expect(gear.x + gear.width, 'settings button clipped on the right').toBeLessThanOrEqual(width);
+    expect(gear.width, 'settings button squashed').toBeGreaterThanOrEqual(40);
+    for (const b of await page.locator('.world-topic b').all()) {
+      const clipped = await b.evaluate(el => el.scrollWidth > el.clientWidth + 1);
+      expect(clipped, `topic title clipped: ${await b.textContent()}`).toBe(false);
+    }
+    await page.locator('#worldBack').click();
+
+    await page.locator('[data-world="ruimte"]').click();
+    await expect(page.locator('.world-topic')).toHaveCount(4);
 
     await page.locator('.world-topic').first().click();
     await expect(page.locator('.answer')).toHaveCount(4);

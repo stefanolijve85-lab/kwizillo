@@ -175,7 +175,7 @@
         <div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div>
         <div class="result-kicker">${esc(t('result.kicker'))}</div>
         <h1>${esc(t('result.title',{score,total}))}</h1>
-        <div class="result-stars">${pct>=90?'★★★':pct>=70?'★★☆':'★☆☆'}</div>
+        <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <div class="result-native">
           <button id="againBtn">${esc(primaryLabel)}</button>
