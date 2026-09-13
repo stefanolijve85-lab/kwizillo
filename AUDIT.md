@@ -5,6 +5,12 @@
 **Laatste commit bij audit:** `bd1e71b test: cover moodboard world art and restored quiz flow`
 **Scope:** alleen analyse. Er is in deze fase **geen applicatiecode gewijzigd, verwijderd of heringericht** en er zijn **geen dependencies geïnstalleerd**.
 
+> **Status na Fase 2** (commits `e136a6d`, `bbe8a48`, `65cf5f8`, `1b5cdb0`)
+>
+> Opgelost: 4.1 (deels — dubbele cinematic, monkeypatch, verweesde timer), 4.2, 4.5, 4.6 (timeout/rate limit/foutlek; tekstvalidatie nog open), 4.15, 4.16, 4.20, 4.22, plus de dode code uit §3.
+> Nog open: **4.3, 4.4, 4.7, 4.9, 4.12, 4.13, 4.14** (alle P0) en 4.8, 4.10, 4.11, 4.17, 4.18, 4.19, 4.21.
+> De bevindingen hieronder beschrijven de toestand bij het schrijven van de audit; §7 en §8 zijn nog steeds de leidraad voor wat volgt.
+
 **Uncommitted werk bij start (niet weggegooid):** `CLAUDE.md`, `CLAUDE_FIRST_PROMPT.txt`, `KWIZILLO_HANDOVER.md` (untracked). Deze blijven staan.
 
 **Wat wel is uitgevoerd:** statische code-inspectie van alle 108 getrackte bestanden, programmatische validatie van de vragenbank, `npm test` (unit), en een draaiende `node server.js` met HTTP-probes tegen `/`, `/api/tts`, `/api/voice-status` en padexposure. `npm run test:ui` (Playwright) kon **niet** draaien: `node_modules/` ontbreekt en installeren was in deze fase niet toegestaan.
