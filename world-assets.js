@@ -63,6 +63,9 @@
 
   // Opening cinematic only. Entering a world is immediate, by design.
   K.MOTION={home:'assets/brand/intro.mp4'};
+  // The intro theme: a 12 s sting built by tools/intro-audio.js + intro-mix.cjs,
+  // children call "Kwizillo!" as the logo lands (about 10 s in).
+  K.INTRO_THEME='assets/audio/intro_theme.wav';
   K.BRAND_LOGO='assets/brand/logo.png';
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:

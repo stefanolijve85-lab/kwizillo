@@ -8,15 +8,9 @@
   // natural end, a load error and the safety net can never navigate twice.
 
   const SAFETY_MS=30000; // Upper bound only. Never the normal way out.
-  const SOUND_CUES=[[0,'world'],[1550,'tap'],[3200,'good'],[4750,'tap'],[6350,'world'],[7950,'good'],[9450,'tap'],[10850,'reward']];
-
-  function playCue(name){
-    if(K.state.soundOn===false) return;
-    try{K.audio.play(name)}catch(e){}
-  }
 
   async function startMusic(){
-    try{ if(K.state.musicOn!==false) await K.audio.start(K.state.musicTrack||'magical',.12) }catch(e){}
+    try{ if(K.state.musicOn!==false) await K.audio.start(K.state.musicTrack||'magical',.6) }catch(e){}
   }
 
   K.playIntro=onDone=>{
@@ -33,8 +27,21 @@
     const video=el.querySelector('video');
     el.querySelector('.motion-skip').textContent=K.t('intro.skip');
     el.querySelector('.motion-skip').setAttribute('aria-label',K.t('intro.skip'));
-    let timers=[],done=false;
+    let timers=[],done=false,theme=null;
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
+
+    // The theme (music + children calling the name) runs in step with the
+    // video: it starts at the video's current position, so a late audio unlock
+    // still lands the shout on the logo. There is only ever one music source:
+    // the theme during the intro, the game loop from Home onwards (CLAUDE.md §5).
+    const startTheme=async()=>{
+      if(theme||done||!K.INTRO_THEME||K.state.musicOn===false) return;
+      try{
+        const h=await K.audio.sting?.(K.INTRO_THEME,{at:video.currentTime||0});
+        if(!h) return;
+        if(done) h.stop(.1); else theme=h;
+      }catch(e){}
+    };
 
     const finish=()=>{
       if(done) return;
@@ -42,6 +49,8 @@
       timers.forEach(clearTimeout);
       timers=[];
       try{video.pause()}catch(e){}
+      theme?.stop(.6);
+      startMusic();
       onDone();
     };
 
@@ -52,12 +61,9 @@
     video.addEventListener('error',finish,{once:true});
     schedule(finish,SAFETY_MS);
 
+    video.addEventListener('playing',startTheme,{once:true});
     video.play().catch(()=>{});
-    startMusic();
-    SOUND_CUES.forEach(([ms,cue])=>ms?schedule(()=>playCue(cue),ms):playCue(cue));
-
-    // Browsers need a real gesture before audio may start; arm it once.
-    document.addEventListener('pointerdown',()=>{K.audio.unlock?.().then(startMusic).catch(()=>{})},{once:true,capture:true});
+    startTheme();
   };
 
   // First run goes to onboarding, returning players go straight to Home.

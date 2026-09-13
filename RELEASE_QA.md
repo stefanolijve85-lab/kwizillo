@@ -115,6 +115,15 @@ manifest = map op schijf, bestandsgrootte binnen grenzen.
 
 ---
 
+### Intro-thema
+Muziek + kinderkoor "Kwizillo!" op het logo-moment (`assets/audio/intro_theme.wav`),
+enige muziekbron tijdens de intro, crossfade naar de Home-loop. Bouw en
+metingen in AUDIO_QA.md §11. In de browser start het pas na een eerste tik
+(autoplay-beleid; de tik slaat de intro over) — in de Capacitor-app wordt
+autoplay toegestaan zodat het thema bij een koude start speelt.
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

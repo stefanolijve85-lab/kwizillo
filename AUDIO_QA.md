@@ -209,3 +209,41 @@ speed 0.95`. `style` bestaat niet op v3. Alle metingen uit §2–§3 zijn op v3 
 
 Kanttekening: v3 heeft een ander tarief per teken dan v2. Het cachet (één keer per
 zin per taal per stem) beperkt dat in de praktijk.
+
+## 11. Intro-thema (muziek + kinderstemmen)
+
+`assets/audio/intro_theme.wav` (12,4 s, mono 16-bit, 1,1 MB) is de enige
+muziekbron tijdens de cinematic; bij het einde of een tik vloeit hij in 0,6 s
+over in de Home-loop (één bron tegelijk, CLAUDE.md §5).
+
+**Bouw** (reproduceerbaar, sleutel uit `.env`):
+1. `node tools/intro-audio.js build/intro-audio all` — ElevenLabs Music
+   (`music_v2`, instrumentaal, 12 s) en vier kinder-/cartoonstemmen uit de
+   bibliotheek (Teddy Twinkle, Lulu Lolipop, Mini, Leo) die "[excited] Kwizillo!"
+   roepen (v3).
+2. `node tools/intro-mix.cjs analyse build/intro-audio` — RMS-envelop per 0,25 s
+   om de muzikale "hit" te vinden (music-2: 9,5 s).
+3. `node tools/intro-mix.cjs render build/intro-audio out.wav --music music-2.mp3
+   --musicAt 0.5 --kids <vier a-clips> --kidsAt 9.75 --musicGain 1 --kidGain 1.1
+   --earlyBoost 2.6 --earlyUntil 4.4 --duck .5` — Web Audio (OfflineAudioContext
+   in headless Chromium, geen ffmpeg): muziek +0,5 s zodat de hit op 10,0 s valt
+   (het logo verschijnt op 9,1–10,1 s in de animatie), koor start op 9,75 s met
+   45 ms spreiding en stereo-spreiding, muziek dipt naar 50% onder het koor,
+   opbouw (te stil gegenereerd, −34 dBFS) 2,6× opgetild, compressor + limiter,
+   fade-out in de laatste 0,6 s.
+
+**Objectief gecontroleerd**
+- Scribe-transcriptie van elke kinderclip: "Quizillo/Kwizilla" op 0,10–0,18 s
+  (onset), ~1 s lang; de b-varianten met [laughs] afgekeurd (minder duidelijk).
+- Koor zonder muziek: transcriptie "Quizillo @ 10.02 s".
+- Niveau in het roepvenster (9,75–11 s): koor RMS 0,30 vs. gedimde muziek
+  0,12–0,15 → koor ≈ +7 dB.
+- Piek na limiter 0,85; envelop: opbouw 0,02–0,06, hit+koor 0,29–0,32, stilte na 11,5 s.
+- Playwright (`tests/intro-theme.spec.js`, autoplay toegestaan): thema speelt
+  tijdens de intro, geen loop-track actief, na tik Home-loop actief en thema uit,
+  geen JS-fouten.
+- AAC (m4a) werd níet gedecodeerd door Playwright-Chromium; daarom WAV.
+
+**Alleen met een oor**: of de kinderen "Kwi-ZIL-lo" zeggen zoals jij het wilt
+(Leo is een Spaanse stem: "Kwizilla"), en of de balans muziek/koor op een
+telefoonspeaker klopt. Variant-clips staan in `build/intro-audio/` (niet in git).
