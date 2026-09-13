@@ -39,6 +39,9 @@ async function tapThroughIntro(page) {
   const start = page.locator('#introStart');
   await expect(start).toBeVisible({ timeout: 8000 });
   await start.click();
+  // Without the video the poster cinematic still runs its 12 s; a second tap skips it.
+  const motion = page.locator('.motion');
+  if (await motion.count()) await motion.click().catch(() => {});
 }
 
 // Answers n questions. `correct` picks the right tile (needed to pass a level);
@@ -467,6 +470,21 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['Pro Max', 430, 
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
   });
 }
+
+test('the coin chip in a quiz opens statistics and "back" returns to the same question', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await page.locator('.answer').first().click();
+  await page.locator('#feedbackNext').click();
+  const prompt = await page.locator('.quiz-card h1').textContent();
+  await page.locator('.quiz-meta [data-stats]').first().click();
+  await expect(page.locator('.stats-screen')).toBeVisible();
+  await page.locator('.panel-back').click();
+  await expect(page.locator('.quiz-v2')).toBeVisible();
+  await expect(page.locator('.quiz-card h1')).toHaveText(prompt);
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+});
 
 test('the avatar on Home opens the profile, where the name can be changed', async ({ page }) => {
   await boot(page);

@@ -336,7 +336,8 @@
 
   /* ---------------- Stats ---------------- */
 
-  K.showStats=()=>{
+  // Opened from inside a quiz, statistics return to that very question.
+  K.showStats=({back}={})=>{
     K.stopSpeech();K.lastView='stats';
     const answered=Number(K.state.answered||0),correct=Number(K.state.correct||0);
     const pct=answered?Math.round(correct/answered*100):0;
@@ -347,7 +348,7 @@
       <button class="share-btn" id="statsShare">${K.icon('star')} ${esc(t('settings.share'))}</button>
       <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
       <div class="world-stat-list">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><div class="wide-track"><i style="width:${accuracy(s)}%"></i></div></div><strong>${accuracy(s)}%</strong></article>`}).join('')}</div>`;
-    const f=nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats'});
+    const f=nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats',back:back||(()=>K.showHome())});
     f.querySelector('#statsShare').onclick=()=>{K.sfx('tap');K.shareScore()};
   };
 

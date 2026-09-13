@@ -450,6 +450,10 @@ const server=http.createServer(async(req,res)=>{
         }
       });
     }
+    if(process.env.LOG_REQUESTS && /intro|\/api\//.test(url.pathname)){
+      const range=req.headers.range||'-';
+      res.once('finish',()=>console.log(`[req] ${req.method} ${url.pathname} range=${range} -> ${res.statusCode} ua=${(req.headers['user-agent']||'').slice(0,60)}`));
+    }
     const target=resolveStatic(url.pathname);
     if(!target){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('Not found');}
     fs.stat(target,(err,st)=>{

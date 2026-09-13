@@ -57,26 +57,41 @@
     // The cinematic waits for one tap: that tap is the gesture every browser
     // needs before sound may play, so the theme is heard from the first frame.
     // A second tap anywhere continues to Home; there is no separate skip button.
+    //
+    // video.play() is called synchronously inside the tap (iOS Low Power Mode
+    // refuses a play() that comes after an await), the audio unlock follows.
+    // If the video cannot play at all, the poster stays and the theme still
+    // runs for its 12 seconds, so the child never lands on Home in silence.
     let videoFailed=false;
-    const start=async()=>{
+    const log=(...a)=>{try{K.debugLog?.('intro',...a)}catch(e){}};
+    const posterFallback=()=>{
+      log('poster fallback');
+      el.classList.add('cinematic-playing','poster-only');
+      startTheme();
+      schedule(finish,12500);
+    };
+    const start=()=>{
       if(started||done) return;
       started=true;
-      try{await K.audio.unlock?.()}catch(e){}
-      if(videoFailed||done){finish();return}  // nothing to show: straight on
-      el.classList.add('cinematic-playing');
       el.querySelector('#introStart')?.remove();
-      video.addEventListener('playing',startTheme,{once:true});
-      video.play().catch(()=>{});
-      startTheme();
       schedule(finish,SAFETY_MS);
+      if(videoFailed){K.audio.unlock?.().catch(()=>{});posterFallback();return}
+      el.classList.add('cinematic-playing');
+      video.addEventListener('playing',startTheme,{once:true});
+      const p=video.play();
+      if(p&&p.catch) p.catch(e=>{log('play() rejected',e?.name,e?.message);if(!done)posterFallback()});
+      K.audio.unlock?.().then(startTheme).catch(()=>{});
     };
     el.addEventListener('pointerdown',()=>{started?finish():start()});
     el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.tapToStart'));
     video.addEventListener('ended',finish,{once:true});
+    for(const ev of ['loadedmetadata','canplay','stalled','suspend','abort']) video.addEventListener(ev,()=>log(ev,'readyState',video.readyState),{once:true});
     video.addEventListener('error',()=>{
       videoFailed=true;
-      console.warn('Kwizillo intro: video failed to load',video.error?.code,video.error?.message||'');
-      if(started)finish();
+      const err=video.error;
+      console.warn('Kwizillo intro: video failed to load',err?.code,err?.message||'');
+      log('error',err?.code,err?.message||'');
+      if(started&&!done&&!el.classList.contains('poster-only')){timers.forEach(clearTimeout);timers=[];posterFallback()}
     },{once:true});
   };
 
