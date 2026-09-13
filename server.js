@@ -448,6 +448,9 @@ const server=http.createServer(async(req,res)=>{
     fs.stat(target,(err,st)=>{
       if(err||!st.isFile()){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('Not found');}
       const type=mime[path.extname(target).toLowerCase()]||'application/octet-stream';
+      // Artwork and audio are immutable per build and heavy; let the phone keep
+      // them. Code and HTML stay revalidated so a refresh picks up changes.
+      const cache=/^\/assets\//.test(url.pathname)?'public, max-age=86400':'no-cache';
       // Byte ranges: Safari (and therefore every iPhone) refuses to play a
       // <video> from a server that cannot answer a Range request, which made the
       // intro fail instantly and drop the player straight onto Home.
@@ -458,11 +461,11 @@ const server=http.createServer(async(req,res)=>{
         if(!Number.isFinite(start)||!Number.isFinite(end)||start>end||start>=st.size){
           res.writeHead(416,{'Content-Range':`bytes */${st.size}`});return res.end();
         }
-        res.writeHead(206,{'Content-Type':type,'Cache-Control':'no-cache','Accept-Ranges':'bytes','Content-Range':`bytes ${start}-${end}/${st.size}`,'Content-Length':end-start+1});
+        res.writeHead(206,{'Content-Type':type,'Cache-Control':cache,'Accept-Ranges':'bytes','Content-Range':`bytes ${start}-${end}/${st.size}`,'Content-Length':end-start+1});
         if(req.method==='HEAD') return res.end();
         return fs.createReadStream(target,{start,end}).pipe(res);
       }
-      res.writeHead(200,{'Content-Type':type,'Cache-Control':'no-cache','Accept-Ranges':'bytes','Content-Length':st.size});
+      res.writeHead(200,{'Content-Type':type,'Cache-Control':cache,'Accept-Ranges':'bytes','Content-Length':st.size});
       if(req.method==='HEAD') return res.end();
       fs.createReadStream(target).pipe(res);
     });

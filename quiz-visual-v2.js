@@ -12,7 +12,7 @@
   function questionArt(q){return K.questionArtFor?.(q.id)||K.QUESTION_ART[K.core.questionArtKind(q)]||K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
   // Warm the browser cache for the next question so its picture appears with
   // the card instead of a beat later.
-  function preloadNextArt(){const n=K.quiz?.questions?.[K.quiz.index+1];if(n){const i=new Image();i.src=questionArt(n)}}
+  function preloadNextArt(){for(const n of (K.quiz?.questions||[]).slice(K.quiz.index+1,K.quiz.index+3)){const i=new Image();i.src=questionArt(n)}}
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
   function clearSpoken(){K.app.querySelectorAll('.answer.spoken-active').forEach(b=>b.classList.remove('spoken-active'));K.clearSpeechHighlight=null}
 
@@ -74,7 +74,7 @@
     const skip=f.querySelector('#skipBtn');
     const spare=spareQuestions(q).length;
     if(!spare){ skip.disabled=true; skip.title=t('quiz.noSpare') }
-    else skip.onclick=()=>{K.stopSpeech();K.sfx('tap');swapQuestion()};
+    else skip.onclick=()=>{K.stopSpeech();K.sfx('swoosh');swapQuestion()};
     buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
 
     const readQuestion=()=>K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
@@ -89,7 +89,7 @@
   }
 
   function showHint(q){
-    K.stopSpeech();K.sfx('tap');
+    K.stopSpeech();K.sfx('hint');
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const x=document.createElement('div');x.className=`hint-float hint-v2 world-${q.world}`;
     const hint=q.hint||t('hint.fallback');
@@ -237,7 +237,8 @@
     const open=()=>{
       if(opened)return;opened=true;
       stage.classList.add('open');
-      K.sfx('reward');
+      K.sfx('gift');
+      setTimeout(()=>K.sfx('reward'),350);
       K.celebrate?.('quiz',gift);
     };
     gift.onclick=open;

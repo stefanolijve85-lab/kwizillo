@@ -78,7 +78,7 @@
       const pool=K.core.poolFor({questions:K.questions,world:w,grade:Number(K.state.group||5)}).length;
       const meta=s.answered?`${s.correct}/${s.answered} · ${pct}%`:t('world.topicMeta',{count:pool,group:K.state.group});
       return `<button class="home-world" data-world="${w}">
-        <img class="home-world-art" src="${K.MASTER[w]}" alt="" loading="lazy">
+        <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async">
         <span class="home-world-veil"></span>
         <span class="home-world-copy">
           <b>${esc(worldTitle(w))}</b>
@@ -185,7 +185,7 @@
           <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">⚙</button>
         </header>
         <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic has-art" data-topic="${tp.i}">
-          <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" loading="lazy">
+          <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" decoding="async">
           <span class="world-topic-veil"></span>
           <span class="world-topic-num">${tp.i+1}</span>
           <span class="world-topic-copy"><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
