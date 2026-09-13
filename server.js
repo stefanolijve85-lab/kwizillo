@@ -323,6 +323,14 @@ async function loadVoices(lang){
   }
 }
 
+// Measured on 2026-09-13 with the curated v20 voices: Milo spoke at ~18 chars/s,
+// Luna at ~15. CLAUDE.md section 9 asks for calm, child-friendly pacing, so Milo
+// is slowed towards Luna. Range is 0.7-1.2; extremes degrade quality.
+const VOICE_SETTINGS = {
+  Milo: { stability:0.42, similarity_boost:0.78, style:0.3,  use_speaker_boost:true, speed:Number(process.env.MILO_SPEED||0.88) },
+  Luna: { stability:0.38, similarity_boost:0.8,  style:0.46, use_speaker_boost:true, speed:Number(process.env.LUNA_SPEED||1.0) }
+};
+
 async function tts(text, guide, lang){
   await loadVoices(lang);
   const v=chosen[lang][guide==='Luna'?'Luna':'Milo'];
@@ -330,7 +338,9 @@ async function tts(text, guide, lang){
   const voiceId=v.voice_id;
   // Language is part of the cache key: the same sentence in two languages is
   // two different recordings.
-  const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${text}`).digest('hex');
+  const settings=VOICE_SETTINGS[guide==='Luna'?'Luna':'Milo'];
+  // Voice settings are part of the key: a speed change must not replay old audio.
+  const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`).digest('hex');
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta};
   const r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,{
@@ -338,8 +348,12 @@ async function tts(text, guide, lang){
     signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
     body:JSON.stringify({
-      text, model_id:MODEL, language_code:lang,
-      voice_settings: guide==='Luna' ? {stability:0.38,similarity_boost:0.8,style:0.46,use_speaker_boost:true} : {stability:0.42,similarity_boost:0.78,style:0.3,use_speaker_boost:true}
+      text, model_id:MODEL,
+      // language_code is not supported by multilingual_v2 (docs: "This parameter
+      // is not supported for multilingual_v2 models"); the native voice per
+      // language carries the accent. Sent only for models that honour it.
+      ...(/multilingual_v2/.test(MODEL) ? {} : { language_code: lang }),
+      voice_settings: settings
     })
   });
   if(!r.ok){

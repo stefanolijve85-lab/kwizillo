@@ -6,7 +6,7 @@
     "start": "node server.js",
     "test": "node tests/questions.test.js && node tests/core.test.js && node tests/server-static.test.js",
     "test:ui": "playwright test",
-    "test:audio": "node tests/audio-qa.js"
+    "test:audio": "node tests/audio-qa.js && node tests/audio-transcribe.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"

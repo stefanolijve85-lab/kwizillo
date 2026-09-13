@@ -62,7 +62,42 @@
     return null;
   }
 
+  // Digits are spoken as words before they reach the voice. Measured on
+  // eleven_multilingual_v2: "B. 7." was voiced as English "Bay seven" inside a
+  // Dutch quiz, and "A. 8." in English became "Uh, 80"; "B. zeven." and
+  // "A. eight." came back correctly. Display text is never touched, only speech.
+  const NL_ONES=['nul','een','twee','drie','vier','vijf','zes','zeven','acht','negen','tien','elf','twaalf','dertien','veertien','vijftien','zestien','zeventien','achttien','negentien'];
+  const NL_TENS=['','','twintig','dertig','veertig','vijftig','zestig','zeventig','tachtig','negentig'];
+  const EN_ONES=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+  const EN_TENS=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+  function nlNumber(n){
+    if(n<20) return NL_ONES[n];
+    if(n<100){const t=Math.floor(n/10),o=n%10;return o?`${NL_ONES[o]}${/[eë]$/.test(NL_ONES[o])?'ën':'en'}${NL_TENS[t]}`:NL_TENS[t]}
+    if(n<1000){const h=Math.floor(n/100),r=n%100;return (h===1?'honderd':NL_ONES[h]+'honderd')+(r?nlNumber(r):'')}
+    if(n<10000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'duizend':NL_ONES[k]+'duizend')+(r?' '+nlNumber(r):'')}
+    return String(n);
+  }
+  function enNumber(n){
+    if(n<20) return EN_ONES[n];
+    if(n<100){const t=Math.floor(n/10),o=n%10;return EN_TENS[t]+(o?'-'+EN_ONES[o]:'')}
+    if(n<1000){const h=Math.floor(n/100),r=n%100;return EN_ONES[h]+' hundred'+(r?' and '+enNumber(r):'')}
+    if(n<10000){const k=Math.floor(n/1000),r=n%1000;return EN_ONES[k]+' thousand'+(r?(r<100?' and ':' ')+enNumber(r):'')}
+    return String(n);
+  }
+  const UNITS={
+    nl:[[/\s*%/g,' procent'],[/\bkm\/u\b/g,'kilometer per uur'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' graden Celsius'],[/\bcm\b/g,'centimeter']],
+    // English units pluralise, so "1 cm" must become "one centimetre".
+    en:[[/\s*%/g,' percent'],[/\b1 km\/h\b/g,'1 kilometre per hour'],[/\bkm\/h\b/g,'kilometres per hour'],[/\b1 km\b/g,'1 kilometre'],[/\bkm\b/g,'kilometres'],[/\s*°\s*C\b/g,' degrees Celsius'],[/\b1 cm\b/g,'1 centimetre'],[/\bcm\b/g,'centimetres']]
+  };
+  function spellNumbers(text,lang='nl'){
+    let out=String(text||'');
+    for(const [re,rep] of (UNITS[lang]||UNITS.nl)) out=out.replace(re,rep);
+    const toWords=lang==='en'?enNumber:nlNumber;
+    // Plain integers only; anything with a decimal separator is left as is.
+    return out.replace(/(?<![\d.,])\d{1,4}(?![\d.,]\d)/g,m=>toWords(Number(m)));
+  }
+
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,questionArtKind,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

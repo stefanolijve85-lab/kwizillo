@@ -126,4 +126,33 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   assert.ok(/touchStreak/.test(src), 'Streak must be derived from real play dates');
 }
 
+/* ---- digits are spoken as words, per language, display untouched ---- */
+{
+  assert.strictEqual(core.spellNumbers('B. 7.', 'nl'), 'B. zeven.');
+  assert.strictEqual(core.spellNumbers('A. 8.', 'en'), 'A. eight.');
+  assert.strictEqual(core.spellNumbers('Ongeveer 71% van de aarde.', 'nl'), 'Ongeveer eenenzeventig procent van de aarde.');
+  assert.strictEqual(core.spellNumbers('boven 300 km/u', 'nl'), 'boven driehonderd kilometer per uur');
+  assert.strictEqual(core.spellNumbers('Sinds 2006', 'nl'), 'Sinds tweeduizend zes');
+  assert.strictEqual(core.spellNumbers('rond 0 °C', 'nl'), 'rond nul graden Celsius');
+  assert.strictEqual(core.spellNumbers('about 165 Earth years', 'en'), 'about one hundred and sixty-five Earth years');
+  assert.strictEqual(core.spellNumbers('1 cm can mean 1 km', 'en'), 'one centimetre can mean one kilometre');
+  assert.strictEqual(core.spellNumbers('Since 2006', 'en'), 'Since two thousand and six');
+  assert.strictEqual(core.spellNumbers('Mercurius', 'nl'), 'Mercurius', 'text without digits must pass through unchanged');
+
+  // Every number that actually occurs in either bank must convert cleanly.
+  for (const [lang, bank] of Object.entries({ nl: questions, en: ctx.window.KWIZILLO_QUESTIONS_EN })) {
+    for (const q of bank) {
+      for (const text of [q.prompt, ...q.options, q.explanation, q.fact]) {
+        const spoken = core.spellNumbers(text, lang);
+        assert.ok(!/\d/.test(spoken), `${lang} ${q.id}: digits survived in "${spoken}"`);
+      }
+    }
+  }
+  // The speech builder still emits the display form; conversion is the voice layer's job.
+  const numeric = questions.find(q => q.options.some(o => /^\d+$/.test(o)));
+  const seg = core.buildQuestionSpeechSegments(numeric).find(s => /^\w\. \d+\.$/.test(s.text));
+  assert.ok(seg, 'expected a numeric answer segment in the bank');
+  assert.ok(!/\d/.test(core.spellNumbers(seg.text, 'nl')), 'numeric answer segment must be spoken as a word');
+}
+
 console.log('Kwizillo core gameplay tests: OK');

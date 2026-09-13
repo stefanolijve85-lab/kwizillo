@@ -42,7 +42,9 @@ async function waitForServer() {
   throw new Error('server did not start');
 }
 
+// Mirrors the client: digits are spoken as words at the voice boundary.
 async function speak(text, voice, lang) {
+  text = core.spellNumbers(text, lang);
   const started = Date.now();
   const r = await fetch(BASE + '/api/tts', {
     method: 'POST',
