@@ -61,8 +61,8 @@
   function stepVoice(){
     K.stopSpeech();
     const guides=[
-      {id:'Milo',icon:'🤖',name:K.t('voice.milo'),desc:K.t('voice.milo.desc')},
-      {id:'Luna',icon:'🎧',name:K.t('voice.luna'),desc:K.t('voice.luna.desc')},
+      {id:'Milo',icon:`<img class="mascot-face large" src="${K.MASCOT_ART.milo}" alt="">`,name:K.t('voice.milo'),desc:K.t('voice.milo.desc')},
+      {id:'Luna',icon:`<img class="mascot-face large" src="${K.MASCOT_ART.luna}" alt="">`,name:K.t('voice.luna'),desc:K.t('voice.luna.desc')},
       {id:'Stil',icon:'🔇',name:K.t('voice.silent'),desc:K.t('voice.silent.desc')}
     ];
     const body=`<div class="onboarding-choices guides">${guides.map(g=>
@@ -85,7 +85,7 @@
 
   function stepWelcome(){
     K.stopSpeech();
-    const body=`<div class="onboarding-welcome"><div class="welcome-mascot">${K.state.voice==='Luna'?'🎧':'🤖'}</div></div>
+    const body=`<div class="onboarding-welcome"><div class="welcome-mascot"><img class="mascot-face hero" src="${K.guideArt(K.state.voice)}" alt=""></div></div>
       <button class="onboarding-next primary" id="obStart">${esc(K.t('onboarding.welcome.cta'))}</button>`;
     const f=shell({
       step:3,total:3,

@@ -201,3 +201,19 @@
 .world-topic.has-art small{color:#d6e9ff}
 .world-topic.has-art i{color:#fff}
 @media(max-width:420px){.world-topic.has-art{min-height:100px;padding:9px 9px 9px}}
+
+/* ---- Mascot portraits replace the robot/headphone emoji wherever Milo or Luna
+   appears. Circular crops, sized by context. ---- */
+.mascot-face{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;border-radius:50%}
+.hud-avatar{padding:0;overflow:hidden}
+.hud-avatar .mascot-face{border-radius:14px}
+.quick-pill .mascot-face{width:30px;height:30px;margin:auto}
+.quick-pill{display:grid;place-items:center}
+.sound-voice .mascot-face{width:34px;height:34px}
+.feedback-guide{padding:2px}
+.mascot-face.large{width:44px;height:44px}
+.onboarding-choice .choice-icon .mascot-face.large{width:44px;height:44px;margin:auto}
+.mascot-card > div .mascot-face.large{width:52px;height:52px;margin:auto}
+.result-mascot .mascot-face.large{width:64px;height:64px;margin:0 auto;box-shadow:0 8px 18px rgba(0,22,70,.3)}
+.mascot-face.hero{width:112px;height:112px;margin:auto;box-shadow:0 12px 26px rgba(0,22,70,.45);border:4px solid rgba(255,255,255,.9)}
+.welcome-mascot{filter:none}

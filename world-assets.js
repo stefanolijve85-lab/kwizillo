@@ -64,4 +64,9 @@
   // Opening cinematic only. Entering a world is immediate, by design.
   K.MOTION={home:'assets/brand/intro.mp4'};
   K.BRAND_LOGO='assets/brand/logo.png';
+
+  // Mascot portraits, used wherever the app shows Milo or Luna as a face:
+  // Home HUD, voice pickers, onboarding, feedback and result cards.
+  K.MASCOT_ART={milo:'assets/brand/milo.jpg',luna:'assets/brand/luna.jpg'};
+  K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
 })();

@@ -108,7 +108,7 @@
       ? esc(q.explanation||t('feedback.thatsRight'))
       : `${t('feedback.correctIs',{answer:esc(q.answer)})} ${esc(q.explanation||q.hint||'')}`;
     const last=K.quiz.index+1>=K.quiz.questions.length;
-    x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}"><div class="feedback-glow"></div><div class="feedback-guide">${K.state.voice==='Luna'?'🎧':'🤖'}</div><div class="feedback-kicker">${esc(t(correct?'feedback.goodKicker':'feedback.tryKicker'))}</div><h2>${esc(t(correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2><p class="feedback-explain">${explain}</p>${correct?`<div class="reward-strip"><span>⭐ +${q.xp||10} XP</span><span>🪙 +2</span></div>`:''}${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}<button class="feedback-next" id="feedbackNext">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></button></div>`;
+    x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}"><div class="feedback-glow"></div><div class="feedback-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></div><div class="feedback-kicker">${esc(t(correct?'feedback.goodKicker':'feedback.tryKicker'))}</div><h2>${esc(t(correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2><p class="feedback-explain">${explain}</p>${correct?`<div class="reward-strip"><span>⭐ +${q.xp||10} XP</span><span>🪙 +2</span></div>`:''}${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}<button class="feedback-next" id="feedbackNext">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></button></div>`;
     f.appendChild(x);
     K.speak(K.core.buildFeedbackSpeech(q,correct,{
       good:t('feedback.speech.good'),
@@ -161,7 +161,7 @@
       <img class="result-v2-bg" src="${K.MASTER[K.currentWorld]||K.MASTER.ruimte}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
-        <div class="result-mascot">${K.state.voice==='Luna'?'🎧':'🤖'}</div>
+        <div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div>
         <div class="result-kicker">${esc(t('result.kicker'))}</div>
         <h1>${esc(t('result.title',{score,total}))}</h1>
         <div class="result-stars">${pct>=90?'★★★':pct>=70?'★★☆':'★☆☆'}</div>

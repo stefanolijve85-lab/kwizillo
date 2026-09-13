@@ -82,8 +82,9 @@
       </button>`;
     }).join('');
 
-    const voices=[['Milo','🤖'],['Luna','🎧'],['Stil','🔇']].map(([id,icon])=>
-      `<button class="quick-pill ${K.state.voice===id?'selected':''}" data-voice="${id}" aria-label="${esc(t(id==='Milo'?'voice.milo':id==='Luna'?'voice.luna':'voice.silent'))}">${icon}</button>`).join('');
+    const voiceIcon=id=>id==='Stil'?'🔇':`<img class="mascot-face" src="${K.guideArt(id)}" alt="">`;
+    const voices=['Milo','Luna','Stil'].map(id=>
+      `<button class="quick-pill ${K.state.voice===id?'selected':''}" data-voice="${id}" aria-label="${esc(t(id==='Milo'?'voice.milo':id==='Luna'?'voice.luna':'voice.silent'))}">${voiceIcon(id)}</button>`).join('');
     const langs=K.LANGUAGES.map(l=>
       `<button class="quick-pill ${K.state.language===l.id?'selected':''}" data-lang="${l.id}" aria-label="${esc(l.label)}">${l.flag}</button>`).join('');
 
@@ -92,7 +93,7 @@
       <div class="home-ui">
         <header class="home-hud">
           <div class="hud-player">
-            <span class="hud-avatar">${K.state.voice==='Luna'?'🎧':'🤖'}</span>
+            <span class="hud-avatar"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></span>
             <span class="hud-id">
               <b>${esc(greeting)}</b>
               <small>${esc(t('home.level',{level:lvl}))}</small>
@@ -233,7 +234,8 @@
     if(tab==='mascots'){
       content=`<div class="mascot-grid">${MASCOTS.map(m=>{
         const ok=totalCorrect()>=m.need,sel=K.state.selectedMascot===m.id;
-        return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'}><div>${ok?m.icon:'🔒'}</div><b>${esc(t(`mascot.${m.id}`))}</b><small>${ok?esc(t(`mascot.${m.id}.desc`)):esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>${sel?`<span>${esc(t('collection.mascotActive'))}</span>`:ok?`<span>${esc(t('collection.mascotChoose'))}</span>`:''}</button>`;
+        const face=ok&&K.MASCOT_ART[m.id]?`<img class="mascot-face large" src="${K.MASCOT_ART[m.id]}" alt="">`:(ok?m.icon:'🔒');
+        return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'}><div>${face}</div><b>${esc(t(`mascot.${m.id}`))}</b><small>${ok?esc(t(`mascot.${m.id}.desc`)):esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>${sel?`<span>${esc(t('collection.mascotActive'))}</span>`:ok?`<span>${esc(t('collection.mascotChoose'))}</span>`:''}</button>`;
       }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
     }
     const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button></div>${content}`;
@@ -334,8 +336,8 @@
       <div class="sound-divider"></div>
       <h3>${esc(t('sound.voiceGuide'))}</h3>
       <div class="sound-voice-grid">
-        <button class="sound-voice ${K.state.voice==='Milo'?'selected':''}" data-guide="Milo">🤖 <b>${esc(t('voice.milo'))}</b></button>
-        <button class="sound-voice ${K.state.voice==='Luna'?'selected':''}" data-guide="Luna">🎧 <b>${esc(t('voice.luna'))}</b></button>
+        <button class="sound-voice ${K.state.voice==='Milo'?'selected':''}" data-guide="Milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""> <b>${esc(t('voice.milo'))}</b></button>
+        <button class="sound-voice ${K.state.voice==='Luna'?'selected':''}" data-guide="Luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt=""> <b>${esc(t('voice.luna'))}</b></button>
         <button class="sound-voice ${K.state.voice==='Stil'?'selected':''}" data-guide="Stil">🔇 <b>${esc(t('voice.silent'))}</b></button>
       </div></div>`;
     f.appendChild(o);
