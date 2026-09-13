@@ -174,6 +174,26 @@ Playwright: 39 tests.
 
 ---
 
+### Ronde 5
+- Zes niveaus (Ouderzone): seconden per vraag 30/25/20/16/13/10, toegestane
+  fouten 6/5/4/3/2/0, moeilijkheidsvoorkeur 1/2/2/3/4/4. Niet gehaald =
+  onderwerp opnieuw (enige knop); gehaald = volgende onderwerp + cadeau.
+  Alle 24 onderwerpen gehaald op een niveau → volgende niveau vrijgespeeld.
+- Timer start pas nadat de vraag is voorgelezen (direct bij Stil), pauzeert
+  onder de hint en bij "Nog eens".
+- Rij onder de vragen altijd Terug · Hint · Nog eens; na het kruisje staat
+  "Volgende vraag" onder de antwoorden en opent een tegel de uitleg opnieuw.
+- Moeilijkheid: vragen onder de niveau-cap eerst, harder vult aan – de hele
+  pool blijft roteren, dus 4 unieke gemengde quizzen per wereld blijven gelden.
+- Start-knoppen (Home, gemengde quiz) in app-blauw met gouden play-icoon.
+- Wereldkop: badge en "KWIZILLO WERELD" op één regel; ondertitel gebalanceerd.
+- Intro: eerste beeld van de film staat, één tik start film + geluid.
+- Collectie-kaarten: geen horizontale overflow meer (knop kon niet krimpen);
+  regressietest op SE en Pro Max, aantoonbaar rood op de oude CSS.
+Playwright: 44 tests.
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

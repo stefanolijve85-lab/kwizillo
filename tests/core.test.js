@@ -177,11 +177,16 @@ assert.strictEqual(core.spellNumbers('2006', 'pt'), 'dois mil e seis');
 assert.strictEqual(core.spellNumbers('71%', 'pt'), 'setenta e um por cento');
 assert.strictEqual(core.spellNumbers('300 km/h', 'pt'), 'trezentos quilômetros por hora');
 assert.strictEqual(core.spellNumbers('0 °C', 'pt'), 'zero graus Celsius');
-// Difficulty cap and timer seconds.
-assert.deepStrictEqual([1,2,3,4].map(g=>core.difficultyCap({level:'auto',grade:g*2,playerLevel:1})), [1,2,3,4]);
-assert.strictEqual(core.difficultyCap({level:'auto',grade:5,playerLevel:5}), 3);
-assert.strictEqual(core.difficultyCap({level:2,grade:8,playerLevel:40}), 2);
-assert.deepStrictEqual([1,5,11,30].map(core.questionSeconds), [30,22,10,10]);
+// Six levels: seconds, allowed mistakes, difficulty cap, pass rule.
+assert.strictEqual(core.LEVELS.length, 6);
+assert.deepStrictEqual([1,2,3,4,5,6].map(core.questionSeconds), [30,25,20,16,13,10]);
+assert.deepStrictEqual([1,2,3,4,5,6].map(core.maxWrong), [6,5,4,3,2,0]);
+assert.deepStrictEqual([1,2,3,4,5,6].map(n=>core.difficultyCap({niveau:n})), [1,2,2,3,4,4]);
+assert.strictEqual(core.questionSeconds(99), 10, 'out-of-range levels clamp');
+assert.strictEqual(core.quizPassed({score:4,total:10,niveau:1}), true);
+assert.strictEqual(core.quizPassed({score:3,total:10,niveau:1}), false);
+assert.strictEqual(core.quizPassed({score:9,total:10,niveau:6}), false);
+assert.strictEqual(core.quizPassed({score:10,total:10,niveau:6}), true);
 // Batches come out ordered easy -> hard and respect the cap when the pool allows.
 {
   const b = core.selectQuizBatch({ questions, world: 'ruimte', limit: 10, maxDifficulty: 2, rng: () => 0.42 });

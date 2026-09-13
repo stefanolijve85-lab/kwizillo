@@ -20,7 +20,7 @@
     const frame=K.frame(`<div class="motion kwizillo-cinematic fade-in">
       <video muted playsinline preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"></div>
-      <div class="intro-start" id="introStart"><img class="intro-start-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"><span>${K.t('intro.tapToStart')}</span></div>
+      <div class="intro-start" id="introStart"><span>${K.t('intro.tapToStart')}</span></div>
     </div>`);
 
     const el=frame.querySelector('.motion');

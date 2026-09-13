@@ -27,7 +27,7 @@
     const batch=K.core.selectQuizBatch({
       questions:K.questions,world,topicKey:key,
       grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds,
-      maxDifficulty:K.core.difficultyCap({level:K.state.difficulty||'auto',grade:Number(K.state.group||5),playerLevel:K.level()})
+      maxDifficulty:K.core.difficultyCap({niveau:K.state.niveau||1})
     });
     if(!batch.questions.length){K.toast(t('quiz.none'));K.showWorld(world);return}
     run.usedIds=batch.usedIds;
@@ -51,7 +51,7 @@
   // card or stepping back through the quiz lands here.
   let timer=null;
   function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
-  function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(K.level())}
+  function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1)}
 
   function render(q){
     K.stopSpeech();stopTimer();
@@ -59,9 +59,9 @@
     const answered=K.quiz.answeredById?.[q.id]||null;
     const pct=Math.round(((idx+1)/Math.max(1,total))*100);
     const seconds=answered?0:questionSecondsFor();
-    const actions=answered
-      ?`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="explainBtn">${K.icon('bulb')} ${esc(t('quiz.explain'))}</button><button class="action next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`
-      :`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="hintBtn">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button>`;
+    // The row is always Back / Hint / Again. On an answered question the
+    // tiles reopen the explanation card (which carries "next").
+    const actions=`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="hintBtn">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button>`;
     const f=K.frame(`<section class="quiz-v2 quiz-world-${q.world} fade-in ${answered?'is-review':''}">
       <img class="quiz-v2-bg" src="${K.MASTER[q.world]}" alt="">
       <div class="quiz-v2-dim"></div>
@@ -75,8 +75,9 @@
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
           <div class="quiz-art"><img class="art-fill" src="${questionArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
-          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}" ${answered?'disabled':''}><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
-          <div class="quiz-actions ${K.state.voice==='Stil'&&!answered?'no-voice':''}">${actions}</div>
+          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
+          ${answered?`<button class="review-next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}
+          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}">${actions}</div>
         </main>
       </div>
     </section>`);
@@ -88,30 +89,23 @@
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats()});
     f.querySelector('#prevBtn').onclick=()=>{if(idx===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');K.quiz.index--;K.showQuiz()};
 
+    f.querySelector('#hintBtn').onclick=()=>showHint(q);
     if(answered){
-      f.querySelector('#explainBtn').onclick=()=>{K.sfx('tap');feedback(q,answered.correct,{timedOut:answered.timedOut,silent:true})};
+      const reopen=()=>{K.sfx('tap');feedback(q,answered.correct,{timedOut:answered.timedOut,silent:true})};
+      buttons.forEach(b=>b.onclick=reopen);
       f.querySelector('#nextBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
-      return;
+    }else{
+      buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
     }
 
-    f.querySelector('#hintBtn').onclick=()=>showHint(q);
-    buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
-
-    const readQuestion=()=>K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
-      onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
-      onDone:()=>K.clearSpeechHighlight?.(),
-      // Both feedback lines are fetched once the question itself has loaded, so
-      // the voice starts together with the feedback card.
-      prefetch:[feedbackSpeech(q,true),feedbackSpeech(q,false)]
-    });
-    f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');readQuestion()};
-    readQuestion();
-
-    // The timer counts down while the child thinks; it pauses under the hint
-    // card and stops on an answer. At zero the question counts as wrong.
-    if(seconds){
-      const el=f.querySelector('#quizTimer');
+    // The timer only starts once the question has been read out (at once
+    // without a voice), pauses while the hint card is open or the question is
+    // read again, and stops on an answer. At zero the question counts as wrong.
+    const startTimer=()=>{
+      if(!seconds||timer||answered||K.quiz.answeredById?.[q.id])return;
+      const el=f.querySelector('#quizTimer');if(!el)return;
       let left=seconds*1000,last=performance.now();
+      el.classList.add('running');
       timer={paused:false,id:setInterval(()=>{
         const now=performance.now();
         if(!timer.paused) left-=now-last; last=now;
@@ -122,7 +116,23 @@
         el.classList.toggle('urgent',left<=5000);
         if(left<=0){stopTimer();evaluate(q,null,null)}
       },100)};
-    }
+    };
+
+    const readQuestion=async()=>{
+      if(answered){K.speak(q.prompt);return}   // review: just hear it again
+      K.pauseTimer(true);
+      await K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
+        onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
+        onDone:()=>K.clearSpeechHighlight?.(),
+        // Both feedback lines are fetched once the question itself has loaded, so
+        // the voice starts together with the feedback card.
+        prefetch:[feedbackSpeech(q,true),feedbackSpeech(q,false)]
+      });
+      K.pauseTimer(false);
+      startTimer();
+    };
+    f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');readQuestion()};
+    readQuestion();
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
@@ -209,6 +219,13 @@
   K.showResult=()=>{
     K.stopSpeech();
     const q=K.quiz;
+    const total=q?.questions.length||0,score=q?.score||0,xp=q?.xp||0;
+    const niveau=Number(K.state.niveau||1);
+    const passed=K.core.quizPassed({score,total,niveau});
+    const keys=K.TOPIC_KEYS[K.currentWorld]||[];
+    const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
+    const isTopic=topicIdx>=0;
+    let unlocked=null;
     if(q&&!q._counted){
       q._counted=true;
       K.state.quizzesPlayed=Number(K.state.quizzesPlayed||0)+1;
@@ -216,59 +233,70 @@
       if(ws) ws.quizzes=Number(ws.quizzes||0)+1;
       K.state.bestScores||={};
       if((q.score||0)>Number(K.state.bestScores[q.world]||0)) K.state.bestScores[q.world]=q.score||0;
+      // A passed topic is ticked off for this level; once every topic of every
+      // world is passed, the next level opens.
+      if(passed&&isTopic){
+        const P=K.progress().passed||={};
+        (P[niveau]||={})[`${q.world}:${q.topicKey}`]=true;
+        const all=Object.values(K.TOPIC_KEYS).reduce((n,k)=>n+k.length,0);
+        if(Object.keys(P[niveau]).length>=all&&niveau<K.core.LEVELS.length){K.state.niveau=niveau+1;unlocked=niveau+1}
+      }
       K.touchStreak();
       K.save();
     }
-    const total=q?.questions.length||0,score=q?.score||0,xp=q?.xp||0;
     const pct=total?Math.round(score/total*100):0;
     const nextNumber=(K.runFor(K.currentWorld,q?.topicKey||null).quizNumber||0)+1;
-    // A topic holds ten questions, so "another quiz" on the same topic can only
-    // reshuffle the ones just played. The primary action therefore moves on: the
-    // next topic in this world, or the mixed quiz after the last one. Replaying
-    // the topic stays available, labelled as a repeat.
-    const keys=K.TOPIC_KEYS[K.currentWorld]||[];
-    const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
-    const isTopic=topicIdx>=0;
     const nextIdx=isTopic&&topicIdx<keys.length-1?topicIdx+1:null;
-    const primaryLabel=!isTopic?t('result.againNumbered',{n:nextNumber})
+    // Passed: move on (next topic, or the mixed quiz after the last one).
+    // Failed: the same topic again is the only way forward.
+    const primaryLabel=!passed?t('result.retryNow')
+      :!isTopic?t('result.againNumbered',{n:nextNumber})
       :nextIdx!==null?t('result.nextTopic',{topic:t(`topic.${keys[nextIdx]}`)})
       :t('result.finishWorld');
-    const f=K.frame(`<section class="result-v2 fade-in">
+    const allowed=K.core.maxWrong(niveau),wrong=total-score;
+    const f=K.frame(`<section class="result-v2 fade-in ${passed?'is-pass':'is-fail'}">
       <img class="result-v2-bg" src="${K.MASTER[K.currentWorld]||K.MASTER.ruimte}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
-        <div class="result-stage">
-          <button class="result-gift" id="resultGift" aria-label="🎁">🎁</button>
+        <div class="result-stage ${passed?'':'open'}">
+          ${passed?`<button class="result-gift" id="resultGift" aria-label="🎁">🎁</button>`:''}
           <div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div>
         </div>
-        <div class="result-kicker">${esc(t('result.kicker'))}</div>
+        <div class="result-kicker">${esc(t(passed?'result.passKicker':'result.failKicker'))}</div>
         <h1>${esc(t('result.title',{score,total}))}</h1>
-        <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
+        <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${passed&&n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
+        <p class="result-rule">${esc(t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
+        ${unlocked?`<p class="result-unlock">${esc(t('result.levelUnlocked',{niveau:unlocked}))}</p>`:''}
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <div class="result-native">
           <button id="againBtn">${esc(primaryLabel)}</button>
-          ${isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
+          ${passed&&isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
           <button id="collectionBtn" class="secondary">${esc(t('result.toCollection'))}</button>
           <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
     </section>`);
-    // The gift shakes, bursts into confetti and the guide pops out of it.
-    // Tapping the gift opens it early.
-    const stage=f.querySelector('.result-stage'), gift=f.querySelector('#resultGift');
-    let opened=false;
-    const open=()=>{
-      if(opened)return;opened=true;
-      stage.classList.add('open');
-      K.sfx('gift');
-      setTimeout(()=>K.sfx('reward'),350);
-      K.celebrate?.('quiz',gift);
-    };
-    gift.onclick=open;
-    setTimeout(open,1100);
+    if(passed){
+      // The gift shakes, bursts into confetti and the guide pops out of it.
+      // Tapping the gift opens it early.
+      const stage=f.querySelector('.result-stage'), gift=f.querySelector('#resultGift');
+      let opened=false;
+      const open=()=>{
+        if(opened)return;opened=true;
+        stage.classList.add('open');
+        K.sfx('gift');
+        setTimeout(()=>K.sfx('reward'),350);
+        K.celebrate?.('quiz',gift);
+      };
+      gift.onclick=open;
+      setTimeout(open,1100);
+    }else{
+      K.sfx('bad');
+    }
 
     f.querySelector('#againBtn').onclick=()=>{
       K.stopSpeech();K.sfx('tap');
+      if(!passed) return K.startQuiz(K.currentWorld,isTopic?topicIdx:null);
       K.startQuiz(K.currentWorld,isTopic?nextIdx:null);   // nextIdx null after the last topic = mixed quiz
     };
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};

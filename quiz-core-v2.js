@@ -30,27 +30,33 @@
   // pool is used up, then the cycle restarts. A mixed world quiz has 40 questions,
   // so quizzes 1-4 never repeat. A single topic only holds 10, so it necessarily
   // recycles after one quiz; `recycled` reports that honestly to the caller.
-  // The difficulty cap: a manual level (1-4) wins; otherwise it follows the
-  // school group and grows with the player's level, so quizzes get harder as
-  // the child progresses. Questions inside a quiz are ordered easy -> hard.
-  function difficultyCap({level='auto',grade=5,playerLevel=1}={}){
-    const manual=Number(level);
-    if(manual>=1&&manual<=4) return manual;
-    const base=grade<=3?1:grade<=5?2:grade<=7?3:4;
-    return Math.max(1,Math.min(4,base+Math.floor(Math.max(0,playerLevel-1)/4)));
-  }
+  // Six game levels ("niveaus"). Each level shortens the time per question and
+  // lowers the number of mistakes a ten-question quiz may contain before the
+  // topic has to be played again. The question difficulty cap (1-4) follows.
+  const LEVELS=[
+    {seconds:30,maxWrong:6,cap:1},
+    {seconds:25,maxWrong:5,cap:2},
+    {seconds:20,maxWrong:4,cap:2},
+    {seconds:16,maxWrong:3,cap:3},
+    {seconds:13,maxWrong:2,cap:4},
+    {seconds:10,maxWrong:0,cap:4}
+  ];
+  const levelRule=n=>LEVELS[Math.max(1,Math.min(LEVELS.length,Number(n)||1))-1];
+  function questionSeconds(niveau=1){return levelRule(niveau).seconds}
+  function maxWrong(niveau=1){return levelRule(niveau).maxWrong}
+  function difficultyCap({niveau=1}={}){return levelRule(niveau).cap}
+  function quizPassed({score=0,total=10,niveau=1}){return (total-score)<=maxWrong(niveau)}
   function selectQuizBatch({questions,world,topicKey=null,grade=5,limit=10,usedIds=[],rng=Math.random,maxDifficulty=4}){
-    let pool=poolFor({questions,world,topicKey,grade});
-    // Cap the difficulty when enough questions remain under the cap; a small
-    // topic keeps its full set rather than repeating five questions forever.
-    const capped=pool.filter(q=>(q.difficulty||1)<=maxDifficulty);
-    if(capped.length>=Math.max(limit,8)) pool=capped;
+    const pool=poolFor({questions,world,topicKey,grade});
     if(!pool.length) return{questions:[],usedIds:[],recycled:false,poolSize:0};
     const used=new Set(usedIds);
     let available=pool.filter(q=>!used.has(q.id));
     let recycled=false;
     if(available.length<Math.min(limit,pool.length)){ available=pool; recycled=true }
-    let order=shuffle(available,rng);
+    // Questions under the level's difficulty cap come first; harder ones only
+    // fill up a batch when the easy ones run out. The whole pool still cycles,
+    // so four mixed quizzes of a world stay unique.
+    let order=[...shuffle(available.filter(q=>(q.difficulty||1)<=maxDifficulty),rng),...shuffle(available.filter(q=>(q.difficulty||1)>maxDifficulty),rng)];
     // A recycled batch must not open with the question the player just saw last.
     const lastSeen=usedIds[usedIds.length-1];
     if(recycled&&order.length>1&&order[0].id===lastSeen) order=[...order.slice(1),order[0]];
@@ -63,8 +69,7 @@
   function createSession({world,topicKey=null,topicLabel='',questions=[],quizNumber=1}){return{world,topicKey,topicLabel,questions,quizNumber,index:0,score:0,xp:0,answeredById:{}}}
   // value === null records a time-out: counted as answered and wrong.
   function recordAnswer(session,q,value){if(!session||!q)return{accepted:false,reason:'invalid'};if(session.answeredById?.[q.id])return{accepted:false,reason:'already-answered'};session.answeredById||={};const result=evaluateAnswer(q,value);session.answeredById[q.id]={value,correct:result.correct,timedOut:value===null};if(result.correct){session.score++;session.xp+=q.xp||10}return{accepted:true,timedOut:value===null,...result}}
-  // Seconds per question: 30 at level 1, two fewer per level, never under 10.
-  function questionSeconds(playerLevel=1){return Math.max(10,30-2*(Math.max(1,playerLevel)-1))}
+
   // Picks a subject illustration from the wording of a question. Word-boundary
   // matches only, and no term that means one thing in Dutch and something else
   // inside an English word: "long" is Dutch for lung but matches "long legs",
@@ -133,5 +138,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,questionSeconds,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

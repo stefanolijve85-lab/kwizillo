@@ -117,7 +117,7 @@
         <div class="home-worlds">${worldCards}</div>
 
         <button class="home-cta" id="homeCta">
-          <span class="home-cta-icon">▶</span>
+          <span class="home-cta-icon">${K.icon('play')}</span>
           <span><b>${esc(t('home.cta'))}</b><small>${esc(t('home.ctaSub',{world:worldTitle(last)}))}</small></span>
           <i>›</i>
         </button>
@@ -194,7 +194,7 @@
           <i>›</i>
         </button>`).join('')}</div>
         <button class="world-mix" id="worldMix">
-          <span>▶</span>
+          <span>${K.icon('play')}</span>
           <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${esc(t('world.mixSub'))}</small></span>
           <i>›</i>
         </button>
@@ -397,8 +397,8 @@
       <section class="setting-card"><div class="setting-icon">🎓</div><div><b>${esc(t('settings.group'))}</b><small>${esc(t('settings.groupSub'))}</small></div><div class="stepper"><button data-group="minus">−</button><strong>${esc(t('settings.groupValue',{n:K.state.group}))}</strong><button data-group="plus">+</button></div></section>
       <section class="setting-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
-      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.level())}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
-      <section class="setting-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))}</b><small>${esc(t('settings.levelSub'))}</small></div><div class="level-toggle">${['auto',1,2,3,4].map(v=>`<button data-level="${v}" class="${String(K.state.difficulty||'auto')===String(v)?'active':''}">${v==='auto'?esc(t('settings.levelAuto')):v}</button>`).join('')}</div></section>
+      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.state.niveau||1)}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
+      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(t('settings.levelSub',{seconds:K.core.questionSeconds(K.state.niveau||1),allowed:K.core.maxWrong(K.state.niveau||1)}))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''}">${v}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
@@ -408,7 +408,7 @@
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
-    f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.difficulty=b.dataset.level==='auto'?'auto':Number(b.dataset.level);K.save();K.showParent()});
+    f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.niveau=Number(b.dataset.level);K.save();K.showParent()});
     f.querySelector('#shareOpen').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};
     f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showParentalGate(showResetConfirm)};

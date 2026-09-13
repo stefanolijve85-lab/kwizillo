@@ -41,10 +41,17 @@ async function tapThroughIntro(page) {
   await start.click();
 }
 
-async function answerAll(page, n = 10) {
+// Answers n questions. `correct` picks the right tile (needed to pass a level);
+// otherwise the first tile, which is right by chance only.
+async function answerAll(page, n = 10, { correct = false } = {}) {
   for (let i = 0; i < n; i++) {
     await expect(page.locator('.answer')).toHaveCount(4);
-    await page.locator('.answer').first().click();
+    if (correct) {
+      const answer = await page.evaluate(() => { const q = window.KWIZILLO_M1.quiz; return q.questions[q.index].answer; });
+      await page.locator(`.answer[data-a="${encodeURIComponent(answer)}"]`).click();
+    } else {
+      await page.locator('.answer').first().click();
+    }
     await expect(page.locator('.feedback-float')).toBeVisible();
     await page.locator('#feedbackNext').click();
   }
@@ -138,8 +145,7 @@ test('quiz 1 and quiz 2 of a world never repeat a question', async ({ page }) =>
       const prompt = await page.locator('.quiz-card h1').textContent();
       expect(seen.has(prompt), `Quiz ${quiz} repeated: ${prompt}`).toBe(false);
       seen.add(prompt);
-      await page.locator('.answer').first().click();
-      await page.locator('#feedbackNext').click();
+      await answerAll(page, 1, { correct: true });   // pass the level so the next quiz is offered
     }
     await expect(page.locator('.result-v2')).toBeVisible();
     await expect(page.locator('#againBtn')).toHaveText(`Start quiz ${quiz + 1}`);
@@ -449,6 +455,19 @@ test('Brazilian Portuguese: onboarding offers it, the whole UI and the question 
   expect(await page.evaluate(() => document.documentElement.lang)).toBe('pt');
 });
 
+for (const [label, width, height] of [['iPhone SE', 375, 667], ['Pro Max', 430, 932]]) {
+  test(`the card collection scrolls only vertically on ${label}`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await boot(page, SAVED({ progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: ['ruimte-zonnestelsel-01', 'ruimte-astronauten-03', 'geschiedenis-egyptenaren-07', 'mysterie-verborgen_schatten-08', 'wetenschap-natuur_energie-03'] } }));
+    await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
+    await page.getByRole('button', { name: /Kaarten/ }).click();
+    await expect(page.locator('.kcard')).toHaveCount(5);
+    const widest = await page.evaluate(() => Math.max(...[...document.querySelectorAll('*')].map(el => el.getBoundingClientRect().right)));
+    expect(widest, 'something sticks out to the right').toBeLessThanOrEqual(width + 1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
+  });
+}
+
 test('the avatar on Home opens the profile, where the name can be changed', async ({ page }) => {
   await boot(page);
   await page.locator('#homeProfile').click();
@@ -481,8 +500,7 @@ test('the row under the answers is Back / Hint / Again; Back revisits an answere
   await expect(page.locator('.quiz-card h1')).toHaveText(first);
   await expect(page.locator('.quiz-v2')).toHaveClass(/is-review/);
   await expect(page.locator('.answer.correct')).toHaveCount(1);
-  await expect(page.locator('.answer:enabled')).toHaveCount(0);
-  await page.locator('#explainBtn').click();
+  await page.locator('.answer').first().click();     // a tile reopens the explanation
   await expect(page.locator('.feedback-float')).toBeVisible();
   await page.locator('#feedbackClose').click();
   await page.locator('#nextBtn').click();
@@ -504,28 +522,75 @@ test('closing the feedback card shows the same question again, answered', async 
 });
 
 test('the question timer runs out into a time-out verdict and gets shorter with level', async ({ page }) => {
-  // Level 11 -> 10 seconds per question (30 - 2*10, floored at 10).
-  await boot(page, SAVED({ xp: 1000 }));
+  // Level 6 -> 10 seconds per question.
+  await boot(page, SAVED({ niveau: 6 }));
   await page.locator('[data-world="aarde"]').click();
   await page.locator('#worldMix').click();
   await expect(page.locator('#quizTimer b')).toHaveText('10');
   await page.clock?.install?.().catch(() => {});
-  await expect(page.locator('.feedback-float')).toBeVisible({ timeout: 13000 });
+  await expect(page.locator('.feedback-float')).toBeVisible({ timeout: 17000 });
   await expect(page.locator('.feedback-kicker')).toHaveText('TIJD IS OM!');
   await expect(page.locator('.answer.correct')).toHaveCount(1);
 });
 
-test('the timer can be switched off and the difficulty cap follows group, level or a manual choice', async ({ page }) => {
+test('the timer waits until the question has been read out', async ({ page }) => {
+  let release; const gate = new Promise(r => { release = r; });
+  await page.route('**/api/tts', async route => { await gate; route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
+  await boot(page, SAVED({ voice: 'Milo', niveau: 6 }));
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await expect(page.locator('#quizTimer')).toBeVisible();
+  await page.waitForTimeout(1500);
+  await expect(page.locator('#quizTimer')).not.toHaveClass(/running/);
+  await expect(page.locator('#quizTimer b')).toHaveText('10');
+  release();   // the voice "finishes" (dummy bytes fail to decode, which counts as done)
+  await expect(page.locator('#quizTimer')).toHaveClass(/running/, { timeout: 8000 });
+});
+
+test('the timer can be switched off; the six levels set seconds, allowed mistakes and difficulty', async ({ page }) => {
   await boot(page, SAVED({ timeLimitOn: false }));
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
   await expect(page.locator('#quizTimer')).toHaveCount(0);
-  const cap = await page.evaluate(() => {
+  const rules = await page.evaluate(() => {
     const K = window.KWIZILLO_M1;
-    return [K.core.difficultyCap({ level: 'auto', grade: 3, playerLevel: 1 }), K.core.difficultyCap({ level: 'auto', grade: 8, playerLevel: 1 }),
-      K.core.difficultyCap({ level: 'auto', grade: 5, playerLevel: 9 }), K.core.difficultyCap({ level: 1, grade: 8, playerLevel: 20 })];
+    return [1, 2, 3, 4, 5, 6].map(n => [K.core.questionSeconds(n), K.core.maxWrong(n), K.core.difficultyCap({ niveau: n })]);
   });
-  expect(cap).toEqual([1, 4, 4, 1]);
+  expect(rules).toEqual([[30, 6, 1], [25, 5, 2], [20, 4, 2], [16, 3, 3], [13, 2, 4], [10, 0, 4]]);
+  // The parent zone offers the six levels.
+  await page.locator('#qBack').click();
+  await page.locator('#worldGear').click();
+  await expect(page.locator('[data-level]')).toHaveCount(6);
+  await page.locator('[data-level="3"]').click();
+  await expect(page.locator('.level-card b')).toContainText('Niveau 3');
+  await expect(page.locator('.level-card small')).toContainText('20 s per vraag · max. 4 fouten');
+});
+
+test('too many mistakes fail the level: the result demands the same topic again', async ({ page }) => {
+  await boot(page, SAVED({ niveau: 6 }));   // level 6: no mistakes allowed
+  await page.locator('[data-world="dieren"]').click();
+  await page.locator('.world-topic').first().click();
+  const topic = await page.locator('.quiz-brand small').textContent();
+  await answerAll(page, 10);                  // first tile: wrong most of the time
+  await expect(page.locator('.result-v2')).toHaveClass(/is-fail/);
+  await expect(page.locator('.result-kicker')).toHaveText('NOG NIET GEHAALD');
+  await expect(page.locator('#resultGift')).toHaveCount(0);
+  await expect(page.locator('#againBtn')).toHaveText('Probeer opnieuw');
+  await expect(page.locator('#retryBtn')).toHaveCount(0);
+  await page.locator('#againBtn').click();
+  await expect(page.locator('.quiz-brand small')).toHaveText(topic.replace(/Quiz \d+/, 'Quiz 2'));
+});
+
+test('a review question keeps Back / Hint / Again; a tile reopens the explanation', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="aarde"]').click();
+  await page.locator('#worldMix').click();
+  await page.locator('.answer').first().click();
+  await page.locator('#feedbackClose').click();
+  await expect(page.locator('.quiz-actions .action')).toHaveText([/Terug/, /Hint/, /Nog eens/]);
+  await expect(page.locator('#nextBtn')).toBeVisible();
+  await page.locator('.answer').nth(2).click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
 });
 
 for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390, 844], ['Pro Max', 430, 932]]) {
@@ -585,10 +650,10 @@ test('finishing a topic quiz leads to the next topic, not a reshuffle of the sam
   const firstRun = new Set();
   for (let i = 0; i < 10; i++) {
     firstRun.add(await page.locator('.quiz-card h1').textContent());
-    await page.locator('.answer').first().click();
-    await page.locator('#feedbackNext').click();
+    await answerAll(page, 1, { correct: true });
   }
   await expect(page.locator('.result-v2')).toBeVisible();
+  await expect(page.locator('.result-v2')).toHaveClass(/is-pass/);
   await expect(page.locator('#againBtn')).toHaveText(/^Volgende: /);
   await expect(page.locator('#retryBtn')).toBeVisible();
 
@@ -609,7 +674,7 @@ test('after the fourth topic the result offers the mixed quiz', async ({ page })
   await boot(page);
   await page.locator('[data-world="dieren"]').click();
   await page.locator('.world-topic').nth(3).click();
-  await answerAll(page, 10);
+  await answerAll(page, 10, { correct: true });
   await expect(page.locator('#againBtn')).toHaveText('Start gemengde quiz');
   await page.locator('#againBtn').click();
   await expect(page.locator('.quiz-brand small')).toContainText('Gemengde quiz');
@@ -619,7 +684,7 @@ test('a mixed quiz result still numbers the next quiz', async ({ page }) => {
   await boot(page);
   await page.locator('[data-world="aarde"]').click();
   await page.locator('#worldMix').click();
-  await answerAll(page, 10);
+  await answerAll(page, 10, { correct: true });
   await expect(page.locator('#againBtn')).toHaveText('Start quiz 2');
   await expect(page.locator('#retryBtn')).toHaveCount(0);
 });

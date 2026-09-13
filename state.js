@@ -34,9 +34,9 @@
     musicTrack:'magical',
     timeLimitOn:true,       // per-question timer (seconds follow the level)
     timeLimit:45,           // legacy, unused
-    difficulty:'auto',      // 'auto' | 1..4
+    niveau:1,               // game level 1..6 (timer, allowed mistakes, difficulty)
     bestScores:{},          // world -> best quiz score out of 10
-    progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[]}
+    progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[],passed:{}}
   };
 
   const clone=v=>JSON.parse(JSON.stringify(v));
@@ -44,7 +44,12 @@
 
   function migrate(old){
     if(!old||typeof old!=='object') return clone(DEFAULTS);
-    if(Number(old.schemaVersion)>=SCHEMA) return old;
+    if(Number(old.schemaVersion)>=SCHEMA){
+      // Same schema: only fill in keys added since (niveau, bestScores, passed).
+      const merged=Object.assign(clone(DEFAULTS),old);
+      merged.progress=Object.assign(clone(DEFAULTS.progress),old.progress||{});
+      return merged;
+    }
 
     const next=Object.assign(clone(DEFAULTS),old);
     next.schemaVersion=SCHEMA;
@@ -63,6 +68,7 @@
     next.progress.topics ||= {};
     next.progress.runs ||= {};
     next.progress.correctQuestionIds ||= [];
+    next.progress.passed ||= {};
     return next;
   }
 

@@ -470,3 +470,40 @@
 .quiz-art .art-main{position:relative;width:100%;height:100%;object-fit:contain;object-position:center}
 .hint-visual{aspect-ratio:16/9;height:auto!important;max-height:180px}
 .hint-visual img{object-fit:contain!important;background:#0b2a66;transform:none!important}
+
+/* ---- Primary CTAs in the app's own blue-violet, gold only as the accent. ---- */
+.home-cta,.world-mix{border-color:rgba(255,255,255,.6)!important;color:#fff!important;
+  background:linear-gradient(180deg,#4f8dff 0%,#2f5fe0 55%,#2b48c4 100%)!important;
+  box-shadow:0 7px 0 #1a3a9c,0 14px 28px rgba(0,27,80,.32),inset 0 1px 0 rgba(255,255,255,.45)!important}
+.home-cta:active,.world-mix:active{transform:translateY(4px);box-shadow:0 3px 0 #1a3a9c!important}
+.home-cta small,.world-mix small{color:#d6e6ff!important}
+.home-cta i,.world-mix i{color:#ffe36b}
+.home-cta-icon,.world-mix>span:first-child{background:linear-gradient(180deg,#ffe36b,#ffbd21)!important;color:#1b2a6b!important;box-shadow:0 3px 0 #d98b12,inset 0 1px 0 rgba(255,255,255,.6)!important}
+.home-cta-icon .ki,.world-mix>span:first-child .ki{width:18px;height:18px;vertical-align:middle}
+
+/* ---- World header: badge and kicker on one line, subtitle without an orphan. ---- */
+.world-kicker{display:inline-flex!important;align-items:center;gap:6px;line-height:1;white-space:nowrap}
+.world-kicker .world-badge{vertical-align:middle}
+.world-title-wrap p{text-wrap:balance;max-width:min(92%,300px)!important}
+
+/* ---- Intro: the film's first frame is the start screen; one pill invites the tap. ---- */
+.intro-start{background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(2,18,60,.7) 100%)!important;place-content:end center!important;padding-bottom:calc(11% + var(--sab))}
+.intro-start span{font-size:17px;padding:14px 26px}
+
+/* ---- Collection cards: never wider than their column, no sideways scroll. ---- */
+.kcard{min-width:0;max-width:100%;overflow:hidden}
+.kcard-frame{min-width:0}
+.kcard-top{min-width:0}
+.kcard-top b{min-width:0;overflow-wrap:anywhere}
+.panel-scroll,.native-panel-screen{overflow-x:hidden}
+.kcard-grid{max-width:100%}
+
+/* ---- Review: "next" lives under the answers; the row stays Back/Hint/Again. ---- */
+.review-next{margin:8px 0 0;width:100%;min-height:44px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-weight:1000;font-size:14px;box-shadow:0 4px 0 #d98b12;cursor:pointer}
+.is-review .answer{cursor:pointer}
+.quiz-timer:not(.running){opacity:.55}
+.result-rule{margin:6px 0 0;font-size:12px;font-weight:900;color:#3566a8}
+.result-unlock{margin:6px 0 0;padding:6px 10px;border-radius:999px;background:#fff2b3;color:#7a4b00;font-size:12px;font-weight:1000}
+.is-fail .result-v2-card{box-shadow:0 28px 80px rgba(0,25,75,.5),0 0 0 6px rgba(255,170,90,.35)}
+.is-fail .result-stage .result-mascot{animation:none;opacity:1;transform:none}
+.level-card .level-toggle button{min-width:30px}
