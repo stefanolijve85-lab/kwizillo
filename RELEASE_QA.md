@@ -103,6 +103,18 @@ resultaatstatistieken onbedekt, geen "undefined" in statistieken.
 
 ---
 
+### Vraag-illustraties (240 stuks)
+Elke vraag heeft nu een eigen 16:9-illustratie in `assets/questions/q/<id>.jpg`
+(800×450, ±73 KB, samen 18 MB), gedeeld door NL en EN omdat de ids gelijk zijn.
+`question-art.js` is de manifest (gegenereerd met `node tools/question-art-manifest.js`);
+`questionArt()` kiest eerst de vraag-illustratie, daarna onderwerp-/thema-art als
+vangnet. De volgende vraag wordt vooraf geladen. Prompts beschrijven de scène
+zonder het antwoord te tonen of te benoemen; 26 beelden zijn opnieuw gegenereerd
+(te leeg, tekst in beeld, of niet herkenbaar). Test: elk id heeft een bestand,
+manifest = map op schijf, bestandsgrootte binnen grenzen.
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

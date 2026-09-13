@@ -7,7 +7,12 @@
 
   // Subject art first, then the topic illustration. The world background is only
   // a last resort and, with all 24 topics covered, is never reached in practice.
-  function questionArt(q){return K.QUESTION_ART[K.core.questionArtKind(q)]||K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
+  // Every question has its own illustration (question-art.js). The subject and
+  // topic pictures remain as fallbacks for a question added without one.
+  function questionArt(q){return K.questionArtFor?.(q.id)||K.QUESTION_ART[K.core.questionArtKind(q)]||K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
+  // Warm the browser cache for the next question so its picture appears with
+  // the card instead of a beat later.
+  function preloadNextArt(){const n=K.quiz?.questions?.[K.quiz.index+1];if(n){const i=new Image();i.src=questionArt(n)}}
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
   function clearSpoken(){K.app.querySelectorAll('.answer.spoken-active').forEach(b=>b.classList.remove('spoken-active'));K.clearSpeechHighlight=null}
 
@@ -60,6 +65,7 @@
     </section>`);
 
     const buttons=[...f.querySelectorAll('.answer')];
+    preloadNextArt();
     K.clearSpeechHighlight=()=>buttons.forEach(b=>b.classList.remove('spoken-active'));
     f.querySelector('#qBack').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showWorld(K.quiz.world)};
     f.querySelector('#hintBtn').onclick=()=>showHint(q);

@@ -121,5 +121,19 @@ console.log(`Kwizillo question banks: OK (nl ${BANKS.nl.length}, en ${BANKS.en.l
     assert.strictEqual(stray.length, 0,
       `${lang}: subject art mismatched ${stray.length} question(s), e.g. ${stray[0]?.id} "${stray[0]?.prompt}"`);
   }
-  console.log('Kwizillo question art: OK (24 topic illustrations, 0 world fallbacks, 0 subject mismatches)');
+  // Every question has its own illustration; the manifest must match the files
+  // on disk and cover both banks (ids are shared between NL and EN).
+  const manifest = fs.readFileSync(path.join(ROOT, 'question-art.js'), 'utf8');
+  vm.runInNewContext(manifest, { window: { KWIZILLO_M1: K } });
+  const onDisk = fs.readdirSync(path.join(ROOT, 'assets/questions/q')).filter(f => f.endsWith('.jpg')).map(f => f.slice(0, -4));
+  assert.deepStrictEqual([...K.QUESTION_ART_IDS].sort(), onDisk.sort(), 'question-art.js is stale: run node tools/question-art-manifest.js');
+  for (const [lang, bank] of Object.entries(BANKS)) {
+    const missing = bank.filter(q => !K.questionArtFor(q.id));
+    assert.strictEqual(missing.length, 0, `${lang}: ${missing.length} question(s) without their own illustration, e.g. ${missing[0]?.id}`);
+  }
+  for (const id of K.QUESTION_ART_IDS) {
+    const size = fs.statSync(path.join(ROOT, K.questionArtFor(id))).size;
+    assert.ok(size > 5000 && size < 400000, `${id}: illustration is ${size} bytes`);
+  }
+  console.log(`Kwizillo question art: OK (${K.QUESTION_ART_IDS.size} per-question illustrations, 24 topic illustrations, 0 subject mismatches)`);
 }
