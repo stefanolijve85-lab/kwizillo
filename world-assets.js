@@ -21,11 +21,4 @@
 
   // Real transparent Kwizillo logo used by the intro overlay.
   K.BRAND_LOGO='https://d2ol7oe51mr4n9.cloudfront.net/user_2yYu0y6DQa27eWwkUPG52d9yApj/e20ee5ff-7b29-4957-83f8-d5ec8964eb14.png';
-
-  K.LEGACY_WORLD_MOCKUPS=[
-    'assets/world_space.png','assets/world_animals.png','assets/world_earth.png',
-    'assets/world_history.png','assets/world_science.png','assets/world_mystery.png',
-    'assets/world_space_clean.svg','assets/world_animals_clean.svg','assets/world_earth_clean.svg',
-    'assets/world_history_clean.svg','assets/world_science_clean.svg','assets/world_mystery_clean.svg'
-  ];
 })();

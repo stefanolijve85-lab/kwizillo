@@ -21,3 +21,5 @@ ios/App/DerivedData/
 .DS_Store
 .vscode/
 .idea/
+test-results/
+playwright-report/
