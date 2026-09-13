@@ -29,7 +29,8 @@ for (const f of ['questions.js', 'questions-en.js']) {
 const BANKS = { nl: ctx.window.KWIZILLO_QUESTIONS_NL, en: ctx.window.KWIZILLO_QUESTIONS_EN };
 
 // Terms CLAUDE.md section 9 calls out for a pronunciation audit.
-const PRONUNCIATION_WATCH = /\b(GPS|ISS|DNA|LED|AI|CO₂|CO2|A|B|C|D)\b/;
+// Questions whose text carries abbreviations or numbers CLAUDE.md section 9 wants audited.
+const PRONUNCIATION_WATCH = /\b(GPS|ISS|DNA|LED|AI|CO₂|CO2|EVA|\d+)\b|°C/;
 
 const say = (...a) => console.log(...a);
 const kb = n => `${(n / 1024).toFixed(0)}KB`;
@@ -89,7 +90,7 @@ async function speak(text, voice, lang) {
         if (m.native === false) flags.push('NOT NATIVE');
         if (/flemish|belgian|vlaams/i.test(String(m.accent || ''))) flags.push('FLEMISH — rejected by the product brief');
         if (m.source === 'fallback-non-native') flags.push('fallback');
-        say(`  ${lang} ${guide.padEnd(5)} ${String(m.name).padEnd(34)} accent=${m.accent || '-'} source=${m.source} ${flags.length ? '<<< ' + flags.join(', ') : 'ok'}`);
+        say(`  ${lang} ${guide.padEnd(5)} ${String(m.name).padEnd(30)} id=${m.voice_id} accent=${m.accent || '-'} source=${m.source} ${flags.length ? '<<< ' + flags.join(', ') : 'ok'}`);
         flags.forEach(f => problems.push(`${lang} ${guide}: ${f}`));
       }
     }
@@ -99,8 +100,12 @@ async function speak(text, voice, lang) {
     const timings = { nl: [], en: [] };
     for (const lang of ['nl', 'en']) {
       const bank = BANKS[lang];
-      const step = Math.max(1, Math.floor(bank.length / N));
-      const picks = Array.from({ length: N }, (_, i) => bank[i * step]).filter(Boolean);
+      // Take every question that carries a watched term first, then spread the rest.
+      const watched = bank.filter(q => PRONUNCIATION_WATCH.test(q.prompt + ' ' + q.options.join(' ')));
+      const rest = bank.filter(q => !watched.includes(q));
+      const step = Math.max(1, Math.floor(rest.length / Math.max(1, N - Math.min(N, watched.length))));
+      const picks = [...watched.slice(0, Math.min(N, watched.length)),
+        ...Array.from({ length: Math.max(0, N - Math.min(N, watched.length)) }, (_, i) => rest[i * step])].filter(Boolean);
       const dir = path.join(OUT, lang);
       fs.mkdirSync(dir, { recursive: true });
 
@@ -122,7 +127,7 @@ async function speak(text, voice, lang) {
         }
         const file = path.join(dir, `${q.id}-${voice}.mp3`);
         fs.writeFileSync(file, out.buf);
-        timings[lang].push({ id: q.id, chars: segments[0].text.length, bytes: out.bytes, ms: out.ms, voice, watch: PRONUNCIATION_WATCH.test(segments[0].text) });
+        timings[lang].push({ id: q.id, chars: segments[0].text.length, bytes: out.bytes, ms: out.ms, voice, watch: PRONUNCIATION_WATCH.test(q.prompt + ' ' + q.options.join(' ')) });
       }
 
       // One full question-plus-answers run, so you can hear the pacing.
@@ -150,19 +155,24 @@ async function speak(text, voice, lang) {
 
     /* ---- 4. cache ---- */
     say('\n=== Cache ===');
-    const probe = BANKS.nl[0].prompt;
+    const probe = `Cachetest ${Date.now()}.`;
     const cold = await speak(probe, 'Milo', 'nl');
     const warm = await speak(probe, 'Milo', 'nl');
-    say(`  repeat request: ${cold.ms}ms then ${warm.ms}ms`);
-    if (warm.ms >= cold.ms) problems.push('Second identical request was not faster — the TTS cache may not be working');
+    say(`  new sentence: ${cold.ms}ms upstream, then ${warm.ms}ms from cache`);
+    if (cold.ok && warm.ok && warm.ms > Math.max(50, cold.ms / 4)) problems.push('Second identical request was not served from cache');
 
-    // The same sentence in two languages must not collide in the cache.
-    const nlClip = await speak('Test', 'Milo', 'nl');
-    const enClip = await speak('Test', 'Milo', 'en');
-    if (nlClip.ok && enClip.ok && nlClip.bytes === enClip.bytes) {
-      problems.push('Identical text in nl and en returned the same bytes — cache key may ignore language');
+    // The same sentence in two languages must not collide in the cache. Compare
+    // content, not length: ElevenLabs returns constant-bitrate mp3, so two clips of
+    // equal duration are equal in bytes even from different voices.
+    const crypto = require('crypto');
+    const sameText = `Kwizillo ${Date.now()}.`;
+    const nlClip = await speak(sameText, 'Milo', 'nl');
+    const enClip = await speak(sameText, 'Milo', 'en');
+    const h = b => crypto.createHash('sha1').update(b).digest('hex').slice(0, 10);
+    if (nlClip.ok && enClip.ok && h(nlClip.buf) === h(enClip.buf)) {
+      problems.push('Identical text in nl and en returned identical audio — cache key may ignore language');
     }
-    say(`  same text nl vs en: ${nlClip.bytes} vs ${enClip.bytes} bytes`);
+    say(`  same text nl vs en: ${nlClip.ok && enClip.ok ? (h(nlClip.buf) === h(enClip.buf) ? 'IDENTICAL' : 'different audio') : 'n/a'} (${nlClip.voiceName} vs ${enClip.voiceName})`);
 
     /* ---- 5. report ---- */
     say('\n=== What you still have to judge by ear ===');

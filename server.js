@@ -112,11 +112,6 @@ async function fetchJson(url, options={}){
   return data;
 }
 function norm(v){ return String(v||'').toLowerCase(); }
-function isDutchVoice(v){
-  const labels = v.labels || {};
-  const verified = Array.isArray(v.verified_languages) ? v.verified_languages : [];
-  return norm(v.language)==='nl' || norm(labels.language)==='nl' || verified.some(x=>norm(x.language)==='nl' || norm(x.locale).startsWith('nl')) || /dutch|nederlands|netherlands|nl-nl/.test([v.name,v.description,v.accent,...Object.values(labels)].filter(Boolean).join(' ').toLowerCase());
-}
 // The product direction is Netherlands Dutch. A Flemish/Belgian accent has been
 // explicitly rejected, so it must lose the ranking rather than merely not win it.
 function isFlemish(v){
@@ -124,12 +119,13 @@ function isFlemish(v){
   const hay = [v.accent, labels.accent, v.name, v.description, v.descriptive].filter(Boolean).join(' ').toLowerCase();
   return /flemish|vlaams|belgian|belgisch|be-nl|nl-be/.test(hay);
 }
+// Base scorers rate gender, age and tone only. Language fit is the rule's job
+// (scoreVoiceFor); a "verified for Dutch" bonus here once let an American voice
+// win the English slot because it happened to be verified for Dutch as well.
 function scoreCurrentVoice(v, wanted){
   const labels=v.labels||{};
   const hay=[v.name,v.description,...Object.values(labels)].filter(Boolean).join(' ').toLowerCase();
   let s=0;
-  if(isDutchVoice(v)) s+=220;
-  if(isFlemish(v)) s-=400;
   if(norm(labels.gender)===wanted) s+=110;
   if(/young|youth|jong/.test(norm(labels.age)+' '+hay)) s+=80;
   if(/friendly|warm|cheer|conversational|story|narrat|clear|calm|pleasant|gentle|youthful|bright/.test(hay)) s+=35;
@@ -141,8 +137,6 @@ function scoreSharedVoice(v,wanted){
   let s=0;
   const gender=norm(v.gender);
   if(gender===wanted) s+=120;
-  if(isDutchVoice(v)) s+=260;
-  if(isFlemish(v)) s-=400;
   if(norm(v.age)==='young' || /young|youth|jong/.test(hay)) s+=100;
   if(/friendly|warm|cheer|joy|conversational|story|narrat|clear|calm|pleasant|gentle|youthful|bright|character/.test(hay)) s+=45;
   if(/characters_animation|animation|narration|educat/.test(hay)) s+=20;
@@ -156,31 +150,6 @@ async function loadCurrentVoices(){
   const data=await fetchJson('https://api.elevenlabs.io/v1/voices',{headers:{'xi-api-key':API_KEY}});
   voiceCache=Array.isArray(data.voices)?data.voices:[];
   return voiceCache;
-}
-async function listDutchShared(wanted){
-  const gender=wanted==='male'?'male':'female';
-  const candidates=[];
-  const queries=[
-    {language:'nl',gender,age:'young',category:'professional'},
-    {language:'nl',gender,age:'young',category:'high_quality'},
-    {language:'nl',gender,category:'professional'},
-    {language:'nl',gender,category:'high_quality'},
-    {language:'nl',gender}
-  ];
-  for(const q of queries){
-    const u=new URL('https://api.elevenlabs.io/v1/shared-voices');
-    u.searchParams.set('page_size','100');
-    u.searchParams.set('sort','usage_character_count_1y');
-    u.searchParams.set('include_custom_rates','false');
-    u.searchParams.set('include_live_moderated','false');
-    Object.entries(q).forEach(([k,v])=>u.searchParams.set(k,v));
-    try{
-      const data=await fetchJson(u.toString(),{headers:API_KEY?{'xi-api-key':API_KEY}:{}});
-      for(const v of (data.voices||[])) if(!candidates.some(x=>x.voice_id===v.voice_id)) candidates.push(v);
-      if(candidates.length>=8) break;
-    }catch(e){}
-  }
-  return candidates.sort((a,b)=>scoreSharedVoice(b,wanted)-scoreSharedVoice(a,wanted));
 }
 function readSavedSelection(){
   try{return JSON.parse(fs.readFileSync(SELECTION_FILE,'utf8'))}catch{return {}}
@@ -201,34 +170,49 @@ async function addSharedVoice(shared, alias){
 
 // A Dutch voice reading English sounds wrong and the other way round, so Milo and
 // Luna are picked per language rather than once for the whole app.
+//
+// The authoritative signal is the voice's own `accent` label. "Verified for nl" is
+// not enough: ElevenLabs verifies popular American voices for Dutch too, and one
+// of those beat every native Dutch candidate on popularity alone during QA.
+function accentOf(v){ return norm(v.accent || v.labels?.accent || ''); }
+function languageOf(v){ return norm(v.language || v.labels?.language || ''); }
+const NON_DUTCH_ACCENTS = /american|british|australian|irish|scottish|canadian|indian|african|english|us\b|uk\b/;
+
 const LANG_RULES = {
   nl: {
     label:'Netherlands Dutch',
-    matches:isDutchVoice,
-    reject:isFlemish,
-    accentBonus:v=>/\bnl-nl\b|netherlands|nederlands/.test(norm([v.accent,v.name,v.description].filter(Boolean).join(' '))) ? 60 : 0
+    matches:v => languageOf(v)==='nl' && !isFlemish(v) && !NON_DUTCH_ACCENTS.test(accentOf(v)),
+    reject:v => isFlemish(v) || NON_DUTCH_ACCENTS.test(accentOf(v)),
+    accentBonus:v => /^(standard|nl-nl|netherlands|dutch)$/.test(accentOf(v)) ? 80 : 0
   },
   en: {
     label:'US English',
-    matches:v=>{
-      const labels=v.labels||{};
-      const verified=Array.isArray(v.verified_languages)?v.verified_languages:[];
-      return norm(v.language)==='en' || norm(labels.language)==='en' ||
-        verified.some(x=>norm(x.language)==='en'||norm(x.locale).startsWith('en')) ||
-        /english|en-us|american/.test(norm([v.name,v.description,v.accent,...Object.values(labels)].filter(Boolean).join(' ')));
-    },
-    reject:()=>false,
-    accentBonus:v=>/american|en-us|\bus\b/.test(norm([v.accent,v.name,v.description].filter(Boolean).join(' '))) ? 80 : 0
+    matches:v => languageOf(v)==='en',
+    reject:v => languageOf(v) && languageOf(v)!=='en',
+    accentBonus:v => /american|en-us/.test(accentOf(v)) ? 80 : 0
   }
 };
 const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
 
+// A curated Kwizillo voice is named after its language ("Kwizillo Luna NL-NL v20").
+// When labels tie, the name that agrees with the requested language wins and a
+// name that names the other language loses; that keeps a mislabelled leftover from
+// outranking the voice that was actually reviewed for this language.
+function nameLanguageBias(v, lang){
+  const name=norm(v.name);
+  if(!name.startsWith('kwizillo')) return 0;
+  const saysNl=/\bnl(-nl)?\b/.test(name), saysEn=/\ben(-us|-gb)?\b/.test(name);
+  if(lang==='nl') return saysNl?50:saysEn?-50:0;
+  if(lang==='en') return saysEn?50:saysNl?-50:0;
+  return 0;
+}
 function scoreVoiceFor(v, wanted, lang, shared){
   const rule=langRule(lang);
   let s = shared ? scoreSharedVoice(v,wanted) : scoreCurrentVoice(v,wanted);
   if(rule.matches(v)) s+=200;
-  if(rule.reject(v)) s-=600;
+  if(rule.reject(v)) s-=1000;
   s+=rule.accentBonus(v);
+  s+=nameLanguageBias(v,lang);
   return s;
 }
 
@@ -258,49 +242,72 @@ async function listSharedVoices(wanted, lang){
   return candidates.sort((a,b)=>scoreVoiceFor(b,wanted,lang,true)-scoreVoiceFor(a,wanted,lang,true));
 }
 
+const guideMeta = (v, extra={}) => ({
+  voice_id:v.voice_id, name:v.name,
+  age:v.age||v.labels?.age, gender:v.gender||v.labels?.gender,
+  accent:accentOf(v)||undefined, language:languageOf(v)||undefined,
+  ...extra
+});
+
 async function ensureGuideVoice(guide, wanted, lang){
   const rule=langRule(lang);
   const envKey=`${guide.toUpperCase()}_VOICE_ID_${lang.toUpperCase()}`;
   const explicit=process.env[envKey] || (lang==='nl' ? process.env[guide==='Milo'?'MILO_VOICE_ID':'LUNA_VOICE_ID'] : '');
   const current=await loadCurrentVoices();
 
+  // 1. Pinned in .env. Always wins; this is how a reviewed voice is locked in.
   if(explicit){
     const found=current.find(v=>v.voice_id===explicit)||{voice_id:explicit,name:`${guide} custom`,labels:{}};
-    return {voice:found,meta:{voice_id:found.voice_id,name:found.name,source:'environment',lang,native:rule.matches(found)}};
+    return {voice:found,meta:guideMeta(found,{source:'environment',lang,native:rule.matches(found)})};
   }
 
+  // 2. Saved from a previous run, still present and still acceptable.
   const saved=readSavedSelection()?.[lang]?.[guide];
   if(saved?.voice_id){
     const found=current.find(v=>v.voice_id===saved.voice_id);
-    if(found && rule.matches(found) && !rule.reject(found)) return {voice:found,meta:{...saved,name:found.name||saved.name,source:'saved',lang}};
+    if(found && rule.matches(found)) return {voice:found,meta:guideMeta(found,{source:'saved',lang,native:true})};
   }
 
-  const alias=`Kwizillo ${guide} ${lang.toUpperCase()} v4`;
-  const existing=current.find(v=>norm(v.name)===norm(alias));
-  if(existing && !rule.reject(existing)) return {voice:existing,meta:{voice_id:existing.voice_id,name:existing.name,source:'library',lang,native:rule.matches(existing),age:existing.labels?.age,gender:existing.labels?.gender}};
+  // 3. The account's own curated Kwizillo voices. Earlier milestones already
+  //    added "Kwizillo Luna NL-NL v20" and friends; those beat any shared search.
+  //    Match on labels, not on the name: one "NL-NL" voice is labelled British.
+  const curated=current
+    .filter(v=>norm(v.name).startsWith(`kwizillo ${guide.toLowerCase()}`) && rule.matches(v) && (norm(v.labels?.gender)===wanted || !v.labels?.gender))
+    .sort((a,b)=>scoreVoiceFor(b,wanted,lang,false)-scoreVoiceFor(a,wanted,lang,false));
+  if(curated.length){
+    const v=curated[0];
+    return {voice:v,meta:guideMeta(v,{source:'library-curated',lang,native:true})};
+  }
 
-  const shared=(await listSharedVoices(wanted,lang)).filter(v=>!rule.reject(v));
+  // 4. Any other acceptable voice already in the library.
+  const own=current
+    .filter(v=>rule.matches(v) && norm(v.labels?.gender)===wanted)
+    .sort((a,b)=>scoreVoiceFor(b,wanted,lang,false)-scoreVoiceFor(a,wanted,lang,false));
+  if(own.length){
+    const v=own[0];
+    return {voice:v,meta:guideMeta(v,{source:'library',lang,native:true})};
+  }
+
+  // 5. Shared voice library, strictly filtered, then added under a Kwizillo alias.
+  const alias=`Kwizillo ${guide} ${lang.toUpperCase()} auto`;
+  const shared=(await listSharedVoices(wanted,lang)).filter(v=>rule.matches(v)&&!rule.reject(v));
   for(const candidate of shared.slice(0,12)){
     const already=current.find(v=>v.voice_id===candidate.voice_id);
-    if(already) return {voice:already,meta:{voice_id:already.voice_id,name:already.name||candidate.name,source:'already-saved',lang,native:true,age:candidate.age,gender:candidate.gender,accent:candidate.accent}};
+    if(already) return {voice:already,meta:guideMeta(candidate,{name:already.name||candidate.name,source:'already-saved',lang,native:true})};
     try{
       const voiceId=await addSharedVoice(candidate,alias);
       voiceCache=null;
       const voice={voice_id:voiceId,name:candidate.name||alias,labels:{gender:candidate.gender,age:candidate.age,language:candidate.language,accent:candidate.accent},description:candidate.description,verified_languages:candidate.verified_languages};
-      return {voice,meta:{voice_id:voiceId,name:candidate.name||alias,source:'shared',lang,native:true,age:candidate.age,gender:candidate.gender,accent:candidate.accent}};
+      return {voice,meta:guideMeta(voice,{source:'shared',lang,native:true})};
     }catch(e){
       // Already present under another name; it may surface in current voices next round.
     }
   }
 
-  const own=current.filter(v=>rule.matches(v)&&!rule.reject(v)).sort((a,b)=>scoreVoiceFor(b,wanted,lang,false)-scoreVoiceFor(a,wanted,lang,false));
-  if(own.length){
-    const v=own[0];
-    return {voice:v,meta:{voice_id:v.voice_id,name:v.name,source:'existing',lang,native:true,age:v.labels?.age,gender:v.labels?.gender}};
-  }
+  // 6. Last resort. Reported as non-native so it is visible in voice-status.
   const fallback=[...current].filter(v=>!rule.reject(v)).sort((a,b)=>scoreVoiceFor(b,wanted,lang,false)-scoreVoiceFor(a,wanted,lang,false))[0];
   if(!fallback) throw new Error('No ElevenLabs voices available');
-  return {voice:fallback,meta:{voice_id:fallback.voice_id,name:fallback.name,source:'fallback-non-native',lang,native:false,age:fallback.labels?.age,gender:fallback.labels?.gender}};
+  return {voice:fallback,meta:guideMeta(fallback,{source:'fallback-non-native',lang,native:false})};
 }
 
 async function loadVoices(lang){
