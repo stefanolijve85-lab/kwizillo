@@ -1,0 +1,22 @@
+Read `CLAUDE.md` and `KWIZILLO_HANDOVER.md` completely before doing anything.
+
+You are taking over the existing Kwizillo repository.
+
+Do PHASE 1 only.
+
+1. Confirm you are in the repository root.
+2. Run `git status` and report any uncommitted user work. Do not discard it.
+3. Create or switch to branch `release/kwizillo-rc1`.
+4. Inspect the complete project structure, package/config files, active HTML/CSS/JS, backend/server code, question banks, assets and audio.
+5. Identify which files are truly active at runtime.
+6. Search for duplicate/legacy implementations, version-specific CSS overrides, old screenshots/mockups with baked-in UI, duplicate event listeners, duplicated audio/TTS/state/router logic, dead buttons, hardcoded secrets and obsolete assets.
+7. Check the 240 NL / 240 EN question-bank assumptions programmatically.
+8. Create `AUDIT.md` with concrete file paths and findings.
+9. Do not materially redesign or refactor the application yet.
+10. Commit only the audit/documentation changes with a clear commit message.
+11. STOP and tell me:
+   - biggest release blockers
+   - files/areas that should be cleaned in Phase 2
+   - anything risky that needs my approval before deletion/refactor
+
+Do not spend the run writing a generic plan. Inspect the actual repository and produce the audit.
