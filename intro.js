@@ -18,7 +18,7 @@
     if(!url) return onDone();
 
     const frame=K.frame(`<div class="motion kwizillo-cinematic fade-in">
-      <video muted playsinline preload="auto" src="${url}"></video>
+      <video muted playsinline preload="auto" poster="${K.MOTION?.poster||''}" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"></div>
       <div class="intro-start" id="introStart"><span>${K.t('intro.tapToStart')}</span></div>
     </div>`);
@@ -73,7 +73,11 @@
     el.addEventListener('pointerdown',()=>{started?finish():start()});
     el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.tapToStart'));
     video.addEventListener('ended',finish,{once:true});
-    video.addEventListener('error',()=>{videoFailed=true;if(started)finish()},{once:true});
+    video.addEventListener('error',()=>{
+      videoFailed=true;
+      console.warn('Kwizillo intro: video failed to load',video.error?.code,video.error?.message||'');
+      if(started)finish();
+    },{once:true});
   };
 
   // First run goes to onboarding, returning players go straight to Home.

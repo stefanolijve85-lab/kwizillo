@@ -62,7 +62,9 @@
   };
 
   // Opening cinematic only. Entering a world is immediate, by design.
-  K.MOTION={home:'assets/brand/intro.mp4'};
+  // intro.mp4 is H.264 720p with the moov atom in front (fast start), 4.4 MB;
+  // the poster is shown until the child taps.
+  K.MOTION={home:'assets/brand/intro.mp4',poster:'assets/brand/intro-poster.jpg'};
   // The intro theme: a 12 s sting built by tools/intro-audio.js + intro-mix.cjs,
   // children call "Kwizillo!" as the logo lands (about 10 s in).
   K.INTRO_THEME='assets/audio/intro_theme.wav';
