@@ -20,13 +20,10 @@
     const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in">
       <video muted playsinline preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"></div>
-      <button class="motion-skip" aria-label="Intro overslaan">Overslaan</button>
     </div>`);
 
     const el=frame.querySelector('.motion');
     const video=el.querySelector('video');
-    el.querySelector('.motion-skip').textContent=K.t('intro.skip');
-    el.querySelector('.motion-skip').setAttribute('aria-label',K.t('intro.skip'));
     let timers=[],done=false,theme=null;
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
 
@@ -54,9 +51,10 @@
       onDone();
     };
 
-    // Tapping anywhere on the cinematic continues immediately (CLAUDE.md §5).
+    // Tapping anywhere on the cinematic continues immediately (CLAUDE.md §5);
+    // there is no separate skip button.
     el.addEventListener('pointerdown',finish);
-    el.querySelector('.motion-skip').addEventListener('click',e=>{e.stopPropagation();finish()});
+    el.setAttribute('role','button');el.setAttribute('aria-label',K.t('intro.skip'));
     video.addEventListener('ended',finish,{once:true});
     video.addEventListener('error',finish,{once:true});
     schedule(finish,SAFETY_MS);

@@ -31,7 +31,6 @@ button{font:inherit}
 .motion{position:absolute;inset:0;z-index:20;background:#061937;overflow:hidden}
 .motion video{width:100%;height:100%;object-fit:cover;display:block}
 .motion::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,24,72,.02),rgba(0,24,72,.2));pointer-events:none}
-.motion-skip{position:absolute;right:calc(4% + var(--sar));top:calc(3% + var(--sat));z-index:3;border:0;border-radius:999px;padding:10px 15px;min-height:44px;background:rgba(255,255,255,.9);color:#153f81;font-weight:900;cursor:pointer}
 .fade-in{animation:fadeIn .35s ease both}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 

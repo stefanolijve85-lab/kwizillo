@@ -20,6 +20,7 @@
     K.stopSpeech();
     K.currentWorld=world;
     const key=topicIndex===null?null:(K.TOPIC_KEYS[world]||[])[topicIndex];
+    const salt=Math.floor(Math.random()*1e6);   // varies the spoken praise per quiz
     const label=key?t(`topic.${key}`):t('quiz.mixed');
     const run=K.runFor(world,key);
     const batch=K.core.selectQuizBatch({
@@ -31,6 +32,7 @@
     run.quizNumber=Number(run.quizNumber||0)+1;
     K.save();
     K.quiz=K.core.createSession({world,topicKey:key,topicLabel:label,questions:batch.questions,quizNumber:run.quizNumber});
+    K.quiz.salt=salt;
     K.showQuiz();
   };
 
@@ -59,7 +61,7 @@
           <h1>${esc(q.prompt)}</h1>
           <div class="quiz-art"><img src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
           <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
-          <div class="quiz-actions"><button class="action hint" id="hintBtn">${esc(t('quiz.hint'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
+          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}"><button class="action hint" id="hintBtn">${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${esc(t('quiz.repeat'))}</button><button class="action next" id="skipBtn">${esc(t('quiz.skip'))}</button></div>
         </main>
       </div>
     </section>`);
@@ -75,13 +77,15 @@
     else skip.onclick=()=>{K.stopSpeech();K.sfx('tap');swapQuestion()};
     buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
 
-    K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
+    const readQuestion=()=>K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
       onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
       onDone:()=>K.clearSpeechHighlight?.(),
       // Both feedback lines are fetched once the question itself has loaded, so
       // the voice starts together with the feedback card.
       prefetch:[feedbackSpeech(q,true),feedbackSpeech(q,false)]
     });
+    f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');readQuestion()};
+    readQuestion();
   }
 
   function showHint(q){
@@ -109,10 +113,17 @@
     setTimeout(()=>feedback(q,r.correct),120);
   }
 
+  // The praise varies from question to question. The pick is fixed per
+  // question and quiz (a hash, not Math.random) so the line prefetched while
+  // the child is thinking is the line that gets spoken.
+  function variant(q,kind,count){
+    let h=K.quiz?.salt||0;for(const ch of q.id)h=(h*31+ch.charCodeAt(0))>>>0;
+    return t(`feedback.speech.${kind}.${(h%count)+1}`,{answer:q.answer});
+  }
   function feedbackSpeech(q,correct){
     return K.core.buildFeedbackSpeech(q,correct,{
-      good:t('feedback.speech.good'),
-      tryAgain:t('feedback.speech.try',{answer:q.answer}),
+      good:variant(q,'good',8),
+      tryAgain:variant(q,'try',4),
       fact:t('feedback.speech.fact')
     });
   }
@@ -121,14 +132,33 @@
     K.stopSpeech();
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const x=document.createElement('div');x.className=`feedback-float feedback-v2 ${correct?'is-good':'is-try'} world-${q.world}`;
-    const explain=correct
-      ? esc(q.explanation||t('feedback.thatsRight'))
-      : `${t('feedback.correctIs',{answer:esc(q.answer)})} ${esc(q.explanation||q.hint||'')}`;
+    const explain=esc(q.explanation||(correct?t('feedback.thatsRight'):q.hint||''));
     const last=K.quiz.index+1>=K.quiz.questions.length;
-    x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}"><div class="feedback-glow"></div><div class="feedback-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></div><div class="feedback-kicker">${esc(t(correct?'feedback.goodKicker':'feedback.tryKicker'))}</div><h2>${esc(t(correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2><p class="feedback-explain">${explain}</p>${correct?`<div class="reward-strip"><span>⭐ +${q.xp||10} XP</span><span>🪙 +2</span></div>`:''}${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}<button class="feedback-next" id="feedbackNext">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></button></div>`;
+    x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}" role="dialog" aria-live="polite">
+      <button class="feedback-close" id="feedbackClose" aria-label="${esc(t('feedback.close'))}">×</button>
+      <div class="feedback-head">
+        <div class="feedback-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></div>
+        <div class="feedback-kicker">${esc(t(correct?'feedback.goodKicker':'feedback.tryKicker'))}</div>
+        <h2>${esc(t(correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2>
+      </div>
+      <div class="feedback-answer"><small>${esc(t('feedback.answerLabel'))}</small><b>${esc(q.answer)}</b></div>
+      <p class="feedback-explain">${explain}</p>
+      ${correct?`<div class="reward-strip"><span>⭐ +${q.xp||10} XP</span><span>🪙 +2</span></div>`:''}
+      ${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}
+      <button class="feedback-next" id="feedbackNext" disabled><em class="feedback-wait">${esc(t('feedback.listening'))}</em><span class="feedback-next-label">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></span></button>
+    </div>`;
     f.appendChild(x);
-    K.speak(feedbackSpeech(q,correct));
-    x.querySelector('#feedbackNext').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
+    if(correct) K.celebrate?.('answer',x);
+    const nextBtn=x.querySelector('#feedbackNext');
+    // "Next" waits for the voice: the child hears the explanation before moving
+    // on. The close button skips the voice and unlocks at once; without a
+    // voice the button is live immediately.
+    let armed=false;
+    const arm=()=>{if(armed)return;armed=true;nextBtn.disabled=false;x.classList.add('spoken')};
+    if(K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
+    else K.speak(feedbackSpeech(q,correct)).then(arm,arm);
+    x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');arm()};
+    nextBtn.onclick=()=>{if(nextBtn.disabled)return;K.stopSpeech();K.sfx('tap');next()};
   }
 
   // Questions already in this quiz are off limits, so a swap is a genuinely new
@@ -185,7 +215,10 @@
       <img class="result-v2-bg" src="${K.MASTER[K.currentWorld]||K.MASTER.ruimte}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
-        <div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div>
+        <div class="result-stage">
+          <button class="result-gift" id="resultGift" aria-label="🎁">🎁</button>
+          <div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div>
+        </div>
         <div class="result-kicker">${esc(t('result.kicker'))}</div>
         <h1>${esc(t('result.title',{score,total}))}</h1>
         <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
@@ -197,6 +230,19 @@
         </div>
       </div>
     </section>`);
+    // The gift shakes, bursts into confetti and the guide pops out of it.
+    // Tapping the gift opens it early.
+    const stage=f.querySelector('.result-stage'), gift=f.querySelector('#resultGift');
+    let opened=false;
+    const open=()=>{
+      if(opened)return;opened=true;
+      stage.classList.add('open');
+      K.sfx('reward');
+      K.celebrate?.('quiz',gift);
+    };
+    gift.onclick=open;
+    setTimeout(open,1100);
+
     f.querySelector('#againBtn').onclick=()=>{
       K.stopSpeech();K.sfx('tap');
       K.startQuiz(K.currentWorld,isTopic?nextIdx:null);   // nextIdx null after the last topic = mixed quiz

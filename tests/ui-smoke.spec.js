@@ -358,13 +358,53 @@ test('feedback speech is fetched while the question is on screen, not after the 
   // Question + four answers, then both feedback lines warm the cache.
   await expect.poll(() => requests.length, { timeout: 8000 }).toBeGreaterThanOrEqual(7);
   const before = requests.length;
-  expect(requests.some(t => t.startsWith('Goed gedaan')), 'good feedback prefetched').toBe(true);
-  expect(requests.some(t => t.startsWith('Bijna goed')), 'try-again feedback prefetched').toBe(true);
+  // The praise line varies per question; both outcomes are warmed.
+  const question = requests[0];
+  const extra = requests.filter(t => t !== question && !/^[A-D]\. /.test(t));
+  expect(extra.length, 'both feedback lines prefetched').toBeGreaterThanOrEqual(2);
+  expect(extra.some(t => /juiste antwoord/.test(t)), 'try-again feedback prefetched').toBe(true);
+  expect(extra.some(t => !/juiste antwoord/.test(t)), 'good feedback prefetched').toBe(true);
 
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
   await page.waitForTimeout(600);
   expect(requests.length, 'feedback must be served from the warm cache').toBe(before);
+});
+
+test('"next" on the feedback card waits for the voice; the close button unlocks it', async ({ page }) => {
+  let release;
+  const gate = new Promise(r => { release = r; });
+  let n = 0;
+  await page.route('**/api/tts', async route => {
+    n++;
+    // The feedback line (after question + 4 answers + 2 prefetches) is held back
+    // until the test releases it, so "listening" state is observable.
+    if (n > 7) await gate;
+    route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) });
+  });
+  await boot(page, SAVED({ voice: 'Milo' }));
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await expect(page.locator('#repeatBtn')).toBeVisible();
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await expect(page.locator('.feedback-answer b')).not.toBeEmpty();
+  // Cached lines resolve instantly and decode fails on the dummy bytes, so the
+  // button may already be armed; what must hold is that close always arms it.
+  await page.locator('#feedbackClose').click();
+  await expect(page.locator('#feedbackNext')).toBeEnabled();
+  await page.locator('#feedbackNext').click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+  release();
+});
+
+test('without a voice the feedback "next" is live at once and the repeat button is hidden', async ({ page }) => {
+  await boot(page);   // voice: Stil
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  await expect(page.locator('#repeatBtn')).toBeHidden();
+  await page.locator('.answer').first().click();
+  await expect(page.locator('#feedbackNext')).toBeEnabled();
 });
 
 test('"another question" swaps in a genuinely new question', async ({ page }) => {
@@ -422,10 +462,13 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390
       const box = await b.boundingBox();
       expect(box.height, 'answer tile too small to tap').toBeGreaterThanOrEqual(44);
     }
-    const actions = await page.locator('.quiz-actions .action').all();
+    const actions = await page.locator('.quiz-actions .action:visible').all();
+    expect(actions.length).toBeGreaterThanOrEqual(2);
     for (const b of actions) {
       const box = await b.boundingBox();
       expect(box.height, 'action button too small to tap').toBeGreaterThanOrEqual(40);
+      const clipped = await b.evaluate(el => el.scrollWidth > el.clientWidth + 1);
+      expect(clipped, `action label clipped: ${await b.textContent()}`).toBe(false);
     }
   });
 }

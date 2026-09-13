@@ -75,11 +75,11 @@ test('the intro schedules no long-lived orphan timer', async ({ page }) => {
   expect(longest).toBeLessThanOrEqual(30000);
 });
 
-test('the skip button is present and exits the cinematic', async ({ page }) => {
+test('there is no skip button; the whole cinematic is the tap target', async ({ page }) => {
   await boot(page);
-  const skip = page.getByRole('button', { name: 'Intro overslaan' });
-  await expect(skip).toBeVisible();
-  await skip.click();
+  await expect(page.locator('.motion-skip')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Intro overslaan' })).toHaveCount(1); // the cinematic itself
+  await page.locator('.motion').click();
   await expect(page.locator('.home')).toBeVisible({ timeout: 5000 });
   await expect(page.locator('.motion')).toHaveCount(0);
 });
