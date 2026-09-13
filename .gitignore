@@ -23,3 +23,4 @@ ios/App/DerivedData/
 .idea/
 test-results/
 playwright-report/
+audio-qa-output/

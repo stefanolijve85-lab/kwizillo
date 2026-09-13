@@ -75,6 +75,10 @@ async function waitForServer(){
       assert.strictEqual(r.status, 200, `${p} must still be served (got ${r.status})`);
     }
 
+    // The .env loader must feed the server without exposing the file.
+    const status = await (await fetch(BASE + '/api/voice-status')).json();
+    assert.ok(!JSON.stringify(status).includes('sk_probe_value'), 'voice-status leaked the key');
+
     // Errors must not carry upstream or configuration detail to the client.
     const bad = await fetch(BASE + '/api/tts', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: 'not json'

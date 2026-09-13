@@ -4,6 +4,31 @@ const path = require('path');
 const crypto = require('crypto');
 
 const ROOT = __dirname;
+
+// Reads KEY=value lines from a gitignored .env so the ElevenLabs key never has to
+// be typed on a command line, pasted into a chat, or committed. Values already in
+// the environment win, so `ELEVENLABS_API_KEY=... npm start` still overrides it.
+// The static server refuses to serve any dot-file, so .env is not reachable over
+// HTTP; see resolveStatic below.
+function loadEnvFile(){
+  const file = path.join(ROOT, '.env');
+  let raw;
+  try { raw = fs.readFileSync(file, 'utf8'); } catch { return; }
+  for (const line of raw.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq < 1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    let value = trimmed.slice(eq + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+    if (!(key in process.env)) process.env[key] = value;
+  }
+}
+loadEnvFile();
+
 const PORT = Number(process.env.PORT || 8080);
 const HOST = '127.0.0.1';
 const API_KEY = process.env.ELEVENLABS_API_KEY || '';
