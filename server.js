@@ -30,7 +30,10 @@ function loadEnvFile(){
 loadEnvFile();
 
 const PORT = Number(process.env.PORT || 8080);
-const HOST = '127.0.0.1';
+// Loopback by default. HOST=0.0.0.0 opens the server to the local network so a
+// phone on the same Wi-Fi can play; the static allowlist and the TTS rate limit
+// are what make that acceptable for a home network, never for the open internet.
+const HOST = process.env.HOST || '127.0.0.1';
 const API_KEY = process.env.ELEVENLABS_API_KEY || '';
 const MODEL = process.env.ELEVENLABS_MODEL || 'eleven_multilingual_v2';
 const CACHE_DIR = path.join(ROOT, '.tts-cache');
@@ -411,7 +414,12 @@ const server=http.createServer(async(req,res)=>{
   }catch(e){console.error('Kwizillo server:',e);json(res,500,{error:'Serverfout'});}
 });
 server.listen(PORT,HOST,async()=>{
-  console.log(`\nKwizillo runs on http://${HOST}:${PORT}`);
+  console.log(`\nKwizillo runs on http://${HOST==='0.0.0.0'?'127.0.0.1':HOST}:${PORT}`);
+  if(HOST==='0.0.0.0'){
+    const nets=Object.values(require('os').networkInterfaces()).flat().filter(n=>n&&n.family==='IPv4'&&!n.internal);
+    for(const n of nets) console.log(`On your phone (same Wi-Fi): http://${n.address}:${PORT}`);
+    console.log('Open to the local network. Stop with Ctrl+C when you are done testing.');
+  }
   console.log(API_KEY?'ElevenLabs: enabled — picking a native voice per language':'ElevenLabs: not configured (use ./start.command)');
   if(API_KEY){for(const lang of LANGS){try{await loadVoices(lang)}catch(e){console.log(`Voice selection failed for ${lang}:`,e.message)}}}
   console.log('Stop: Ctrl+C\n');
