@@ -36,3 +36,15 @@ backdrop, no shadow"), then birefnet-v2-bg-removal, then cropped to the alpha
 bounding box and scaled to a shared height. `pointRight` is `point-left`
 mirrored in CSS. New poses go through the same three steps and are registered in
 `K.MILO_POSES` (milo.js).
+
+## Milo talking clips (lip-synced video)
+
+`assets/milo/talk/<lang>/<key>.mp4` — see `tools/milo-talks.js` (lines / encode /
+manifest) and `milo-talks.js` (the generated manifest the app reads). Flow
+"Kwizillo Milo praat" (SyUhvtqjRCbWNR70n0Wq): tts node (eleven_v3, Milo's voice
+for the language) → bytedance-omnihuman-v1.5 with `assets/mascots/milo/talk-base.png`.
+About $0.60 per clip. Status on 2026-09-15: NL 11/11, EN 10/11 (missing: voice),
+PT 4/11 (missing: language, name, group, voice, worlds, games, hud) — the
+ElevenLabs credits ran out mid-batch; the app falls back to the still pose plus
+the live voice for any missing clip, so nothing breaks. To finish: top up
+credits, re-run those avatar nodes on the flow, then encode + manifest.

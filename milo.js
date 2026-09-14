@@ -28,23 +28,75 @@
   K.miloSay=(text,opts={})=>K.speak(text,{voice:'Milo',...opts});
   K.miloPrefetch=texts=>K.prefetchSpeech(texts,{voice:'Milo'});
 
+  // Real video for the fixed lines: a lip-synced clip of Milo per line and
+  // language (window.KWIZILLO_MILO_TALKS, built by tools/milo-talks.js). The
+  // clip carries its own voice track, so it replaces the live speech request;
+  // when a clip is missing, fails to load or may not autoplay, the still pose
+  // plus the voice line take over unnoticed.
+  const clipSrc=key=>{const lang=K.state.language||'nl';const set=window.KWIZILLO_MILO_TALKS?.[lang];return set&&set[key]||null};
+  const clipPool=new Map();
+  function clipVideo(src){
+    let v=clipPool.get(src);
+    if(v) return v;
+    v=document.createElement('video');
+    v.className='milo-video';v.poster='assets/mascots/milo/talk-base.png';v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.src=src;v.load();
+    clipPool.set(src,v);
+    if(clipPool.size>6){const first=clipPool.keys().next().value;if(first!==src)clipPool.delete(first)}
+    return v;
+  }
+  K.miloWarmClips=keys=>(keys||[]).forEach(k=>{const src=clipSrc(k);if(src)clipVideo(src)});
+  // Stopping speech stops Milo's clips too: one rule for every screen change.
+  const stopSpeech=K.stopSpeech;
+  K.stopSpeech=(...a)=>{clipPool.forEach(v=>{if(!v.paused)v.pause()});return stopSpeech?.(...a)};
+  K.miloHasClip=key=>!!clipSrc(key);
+
   // A host element: bubble + figure. `say` writes the bubble, speaks the line
   // and animates the figure while the voice is playing.
   K.miloHost=({pose='wave',size='md',bubble='top'}={})=>{
     const el=document.createElement('div');
     el.className=`milo-host milo-size-${size} bubble-${bubble}`;
     el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><img class="milo-figure" alt="" draggable="false"></div>`;
-    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble');
-    let talkTimer=null;
+    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body');
+    let talkTimer=null,video=null;
+    const showVideo=v=>{if(video&&video!==v){video.pause();video.remove()}video=v;if(!v.parentNode)body.appendChild(v);el.classList.add('video-mode')};
+    const hideVideo=()=>{if(video){video.pause();video.remove();video=null}el.classList.remove('video-mode')};
+    // Plays a lip-synced clip; resolves true when it played to the end, false
+    // when it could not start (then the caller falls back to pose + voice).
+    async function playClip(src){
+      const v=clipVideo(src);
+      v.muted=K.state.voice==='Stil';
+      v.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
+      showVideo(v);
+      try{v.currentTime=0}catch(e){}
+      K.audio.duck(true);
+      const ok=await new Promise(resolve=>{
+        let settled=false;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;resolve(r)};
+        v.onended=()=>done(true);v.onerror=()=>done(false);
+        const p=v.play();if(p&&p.catch)p.catch(()=>done(false));
+        // A clip never holds the screen hostage: whatever happens we move on after 20 s.
+        setTimeout(()=>done(true),20000);
+      });
+      K.audio.duck(false);
+      if(!ok)hideVideo();
+      return ok;
+    }
     const api={
       el,
       pose(p){const {src,flip}=poseSrc(p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;return api},
       bubble(html){if(!html){bub.hidden=true;bub.innerHTML='';return api}bub.innerHTML=html;bub.hidden=false;bub.classList.remove('pop');void bub.offsetWidth;bub.classList.add('pop');return api},
       // Speaks `text`; the figure nods while the voice plays. Without a voice the
       // figure still nods for a moment so the bubble reads as "Milo said this".
-      async say(text,{html,minMs=0}={}){
+      async say(text,{html,minMs=0,clip}={}){
         api.bubble(html??esc(text));
         const started=Date.now();
+        const src=clip&&clipSrc(clip);
+        if(src){
+          K.stopSpeech();
+          el.classList.add('talking');
+          const played=await playClip(src);
+          el.classList.remove('talking');
+          if(played){const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));return}
+        }
         clearTimeout(talkTimer);el.classList.add('talking');
         talkTimer=setTimeout(()=>el.classList.remove('talking'),1800);
         await K.miloSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking')},onDone:()=>el.classList.remove('talking')}).catch(()=>{});
@@ -52,7 +104,8 @@
         const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));
       },
       moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
-      remove(){clearTimeout(talkTimer);el.remove()}
+      stop(){if(video){video.pause()}K.stopSpeech();el.classList.remove('talking')},
+      remove(){clearTimeout(talkTimer);hideVideo();el.remove()}
     };
     api.pose(pose);
     return api;
@@ -76,6 +129,7 @@
       {sel:null,key:'tour.done',pose:'cheer'}
     ];
     K.miloPrefetch(stops.map(s=>t(s.key)));
+    K.miloWarmClips(stops.map(s=>s.key.replace('tour.','')));
     const layer=document.createElement('div');
     layer.className='milo-tour';
     layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><span>${esc(t('tour.tapHint'))}</span><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;
@@ -88,7 +142,8 @@
     const W=()=>hb().width,H=()=>hb().height;
     const figure={w:Math.min(150,Math.round(W()*.34)),h:0};
     host.el.style.setProperty('--milo-w',figure.w+'px');
-    figure.h=Math.round(figure.w*1.55);
+    // A talking clip is a 5:6 window; the still poses are taller.
+    figure.h=Math.round(figure.w*(K.miloHasClip('worlds')?1.34:1.55));
     // He arrives from the right edge, mid-screen.
     host.moveTo(W()+figure.w,H()*.4,{instant:true});
     let done=false,advance=null;
@@ -127,12 +182,12 @@
         if(stop.pose)host.pose(stop.pose);
         await new Promise(r=>setTimeout(r,720));
         if(done)break;
-        const said=host.say(t(stop.key),{minMs:2600});
+        const said=host.say(t(stop.key),{minMs:2600,clip:stop.key.replace('tour.','')});
         await Promise.race([said,waitTap(20000)]);
-        K.stopSpeech();
+        host.stop();
       }
     }finally{
-      K.stopSpeech();
+      host.stop();
       spot.hidden=true;host.bubble(null);
       host.moveTo(-figure.w*1.4,H()*.3);
       K.state.tourDone=true;K.save();

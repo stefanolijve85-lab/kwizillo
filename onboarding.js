@@ -14,7 +14,7 @@
   // Dutch primary school: groep 3 at six, one group a year.
   const groupForAge=age=>Math.max(1,Math.min(8,Number(age)-3));
 
-  function shell({step,title,sub,body,cls='',pose='talk',speech}){
+  function shell({step,title,sub,body,cls='',pose='talk',speech,clip}){
     const dots=Array.from({length:TOTAL},(_,i)=>`<i class="${i<step?'done':''} ${i===step-1?'current':''}"></i>`).join('');
     const f=K.frame(`<section class="onboarding ${cls} fade-in">
       <div class="onboarding-sky"></div>
@@ -28,22 +28,24 @@
     K.warmMilo();
     const host=K.miloHost({pose,size:'ob',bubble:'side'});
     f.querySelector('.onboarding-stage').appendChild(host.el);
-    host.say(speech,{html:`<h1>${title}</h1>${sub?`<p class="onboarding-sub">${sub}</p>`:''}`});
+    host.say(speech,{html:`<h1>${title}</h1>${sub?`<p class="onboarding-sub">${sub}</p>`:''}`,clip});
     return {f,host};
   }
 
   function stepLanguage(){
     K.stopSpeech();
+    K.miloWarmClips(['language']);
     const body=`<div class="onboarding-choices lang">${K.LANGUAGES.map(l=>
       `<button class="onboarding-choice ${K.state.language===l.id?'selected':''}" data-lang="${l.id}">
         <span class="choice-icon">${l.flag}</span><b>${esc(l.label)}</b>
       </button>`).join('')}</div>`;
-    const {f}=shell({step:1,title:esc(K.t('onboarding.language.title')),sub:esc(K.t('onboarding.language.sub')),body,pose:'wave',speech:K.t('onboarding.speech.language')});
+    const {f}=shell({step:1,title:esc(K.t('onboarding.language.title')),sub:esc(K.t('onboarding.language.sub')),body,pose:'wave',speech:K.t('onboarding.speech.language'),clip:'language'});
     f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.setLanguage(b.dataset.lang);
       K.useBank();
       K.miloPrefetch([K.t('onboarding.speech.name'),K.t('onboarding.speech.age'),K.t('onboarding.speech.group'),K.t('onboarding.speech.voice')]);
+      K.miloWarmClips(['name','age','group','voice','welcome']);
       stepName();
     });
   }
@@ -56,7 +58,7 @@
       <button type="submit" class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     </form>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:2,title:esc(K.t('onboarding.name.title')),sub:esc(K.t('onboarding.name.sub')),body,cls:'onboarding-name',pose:'think',speech:K.t('onboarding.speech.name')});
+    const {f}=shell({step:2,title:esc(K.t('onboarding.name.title')),sub:esc(K.t('onboarding.name.sub')),body,cls:'onboarding-name',pose:'think',speech:K.t('onboarding.speech.name'),clip:'name'});
     const input=f.querySelector('#obName');
     const next=f.querySelector('#obNext');
     const sync=()=>{next.disabled=!input.value.trim()};
@@ -84,7 +86,7 @@
       `<button class="onboarding-chip ${Number(K.state.age)===a?'selected':''}" data-age="${a}" aria-pressed="${Number(K.state.age)===a}">${esc(K.t('onboarding.age.years',{n:a}))}</button>`).join('')}</div>
     <button class="onboarding-next" id="obNext" ${K.state.age?'':'disabled'}>${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:3,title:esc(K.t('onboarding.age.title')),sub:esc(K.t('onboarding.age.sub')),body,pose:'think',speech:K.t('onboarding.speech.age')});
+    const {f}=shell({step:3,title:esc(K.t('onboarding.age.title')),sub:esc(K.t('onboarding.age.sub')),body,pose:'think',speech:K.t('onboarding.speech.age'),clip:'age'});
     const next=f.querySelector('#obNext');
     f.querySelectorAll('[data-age]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
@@ -105,7 +107,7 @@
       `<button class="onboarding-chip ${Number(K.state.group)===g?'selected':''}" data-group="${g}" aria-pressed="${Number(K.state.group)===g}">${esc(K.t('settings.groupValue',{n:g}))}</button>`).join('')}</div>
     <button class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:4,title:esc(K.t('onboarding.group.title')),sub:esc(K.t('onboarding.group.sub')),body,pose:'pointDown',speech:K.t('onboarding.speech.group')});
+    const {f}=shell({step:4,title:esc(K.t('onboarding.group.title')),sub:esc(K.t('onboarding.group.sub')),body,pose:'pointDown',speech:K.t('onboarding.speech.group'),clip:'group'});
     f.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.state.group=Number(b.dataset.group); K.state.groupChosen=true; K.save();
@@ -128,7 +130,7 @@
       </button>`).join('')}</div>
     <button class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:5,title:esc(K.t('onboarding.voice.title')),sub:esc(K.t('onboarding.voice.sub')),body,pose:'talk',speech:K.t('onboarding.speech.voice')});
+    const {f}=shell({step:5,title:esc(K.t('onboarding.voice.title')),sub:esc(K.t('onboarding.voice.sub')),body,pose:'talk',speech:K.t('onboarding.speech.voice'),clip:'voice'});
     // Both hellos and the welcome line are warmed for both guides, so the
     // first thing a child hears comes without a pause.
     K.prefetchSpeech([K.t('voice.milo.hello'),K.t('onboarding.speech.welcome')],{voice:'Milo'});
@@ -151,7 +153,7 @@
       step:TOTAL,
       title:esc(K.t('onboarding.welcome.title',{name:K.state.name||''})),
       sub:esc(K.t('onboarding.welcome.sub')),
-      body,cls:'onboarding-final',pose:'cheer',speech:K.t('onboarding.speech.welcome')
+      body,cls:'onboarding-final',pose:'cheer',speech:K.t('onboarding.speech.welcome'),clip:'welcome'
     });
     f.querySelector('#obStart').onclick=()=>{
       K.stopSpeech(); K.sfx('reward');

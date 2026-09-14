@@ -83,3 +83,24 @@ test('the parent zone can replay the tour', async ({ page }) => {
   await page.locator('.milo-tour-skip').click();
   await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
 });
+
+test('a lip-synced clip replaces the still and the live voice; without a clip the still + voice take over', async ({ page }) => {
+  const tts = [];
+  await page.route('**/*.mp4', r => r.request().url().includes('intro') ? r.abort() : r.continue());
+  await page.route('**/api/tts', r => { tts.push(r.request().postDataJSON().text); r.fulfill({ status: 503, body: '{}' }); });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
+  const host = page.locator('.onboarding .milo-host');
+  await expect(host).toHaveClass(/video-mode/, { timeout: 5000 });
+  await expect(host.locator('.milo-video')).toHaveAttribute('src', /milo\/talk\/nl\/language\.mp4/);
+  await expect.poll(() => page.evaluate(() => { const v = document.querySelector('.milo-video'); return v && !v.paused && v.currentTime > 0; }), { timeout: 5000 }).toBe(true);
+  await expect.poll(() => page.evaluate(() => document.querySelector('.milo-video').ended), { timeout: 10000 }).toBe(true);
+  expect(tts).toEqual([]);   // the clip carries the voice; no live request was made
+  // A line without a clip (a language that has none) falls back to the still pose and a voice request.
+  await page.evaluate(() => { window.KWIZILLO_MILO_TALKS.nl = {}; });
+  await page.getByRole('button', { name: /Nederlands/ }).click();
+  await expect(page.locator('.onboarding .milo-host')).not.toHaveClass(/video-mode/);
+  await expect(page.locator('.onboarding .milo-figure')).toBeVisible();
+  await expect.poll(() => tts.length).toBeGreaterThan(0);
+});
