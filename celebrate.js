@@ -56,7 +56,7 @@
         const frame=K.app.querySelector('.game-frame');
         if(!frame||!card) return;
         const fr=frame.getBoundingClientRect(), cr=card.getBoundingClientRect();
-        K.sfx?.('confetti');
+        // The correct-answer chime already plays; the confetti stays silent so the two never clash.
         burst(frame,{count:55,origin:{x:cr.left-fr.left+cr.width/2,y:cr.top-fr.top+18},spread:Math.PI*1.1,power:8,life:1400,z:40});
       }else if(kind==='quiz'){
         const frame=K.app.querySelector('.game-frame');
