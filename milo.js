@@ -157,8 +157,13 @@
     const put=(x,y,side,pose)=>{
       host.pose(pose);
       host.el.classList.toggle('bubble-top',side==='top');host.el.classList.toggle('bubble-bottom',side==='bottom');
-      const right=x+figure.w/2>W()/2;
-      host.el.classList.toggle('anchor-right',right);host.el.classList.toggle('anchor-left',!right);
+      // The bubble is centred on the figure but always kept inside the screen;
+      // the tail keeps pointing at the figure's middle.
+      const bw=Math.min(Math.round(W()*.8),320),centre=x+figure.w/2;
+      const bx=Math.max(8,Math.min(W()-bw-8,centre-bw/2));
+      host.el.style.setProperty('--bw',bw+'px');
+      host.el.style.setProperty('--bx',Math.round(bx-x)+'px');
+      host.el.style.setProperty('--tx',Math.round(Math.max(14,Math.min(bw-30,centre-bx-8)))+'px');
       host.moveTo(x,y);
     };
     const place=r=>{
