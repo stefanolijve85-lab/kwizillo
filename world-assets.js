@@ -68,6 +68,8 @@
   // children call "Kwizillo!" as the logo lands (about 10 s in).
   K.INTRO_THEME='assets/audio/intro_theme.wav';
   K.BRAND_LOGO='assets/brand/logo.png';
+  // Same logo with its shadow baked in (tools/logo-shadow.cjs), for the intro.
+  K.BRAND_LOGO_SHADOW='assets/brand/logo-shadow.png';
   // Menu tiles for the two extra games.
   K.GAME_ART={memo:'assets/games/memo.jpg',math:'assets/games/math.jpg'};
 

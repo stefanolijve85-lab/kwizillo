@@ -19,7 +19,7 @@
 
     const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in">
       <video muted playsinline autoplay preload="auto" src="${url}"></video>
-      <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO||''}" alt="Kwizillo"></div>
+      <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
       <div class="intro-sound" id="introSound">🔊 ${K.t('intro.tapForSound')}</div>
     </div>`);
 

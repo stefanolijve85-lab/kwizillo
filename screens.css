@@ -32,7 +32,7 @@
 @media(max-width:420px){.quiz-card{padding:4% 2.8% 2.8%;gap:1.5%}.quiz-art{flex-basis:29%;min-height:125px}.quiz-card .answer{min-height:72px;padding-left:38px}.answer-letter{left:8px}.quiz-actions .action{padding:11px 8px}}
 
 /* ---- cinematic intro branding (was intro-enhance.css) ---- */
-.motion.kwizillo-cinematic{background:#061937}.motion.kwizillo-cinematic video{filter:saturate(1.1) contrast(1.035);transform:scale(1.006)}.intro-brand{position:absolute;z-index:5;left:50%;top:5.2%;transform:translateX(-50%);display:grid;place-items:center;width:min(76%,420px);pointer-events:none;animation:introBrandJourney 12s cubic-bezier(.2,.75,.18,1) both;animation-play-state:paused}.motion.kwizillo-cinematic.cinematic-playing .intro-brand{animation-play-state:running}.intro-brand-logo{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 18px rgba(0,25,94,.55))}.motion.kwizillo-cinematic::after{background:linear-gradient(180deg,rgba(0,24,72,.02),rgba(0,24,72,.08) 64%,rgba(0,24,72,.18));pointer-events:none}@keyframes introBrandJourney{0%{opacity:0;transform:translate(-50%,-16px) scale(.72)}6%{opacity:1;transform:translate(-50%,0) scale(1.08)}13%{transform:translate(-50%,0) scale(1)}22%{opacity:1}30%{opacity:0;transform:translate(-50%,-8px) scale(.95)}76%{opacity:0;transform:translate(-50%,8px) scale(.9)}84%{opacity:1;transform:translate(-50%,0) scale(1.07)}92%{transform:translate(-50%,0) scale(.99)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+.motion.kwizillo-cinematic{background:#061937}.motion.kwizillo-cinematic video{filter:saturate(1.1) contrast(1.035);transform:scale(1.006)}.intro-brand{position:absolute;z-index:5;left:50%;top:5.2%;transform:translateX(-50%);display:grid;place-items:center;width:min(84%,465px);pointer-events:none;animation:introBrandJourney 12s cubic-bezier(.2,.75,.18,1) both;animation-play-state:paused}.motion.kwizillo-cinematic.cinematic-playing .intro-brand{animation-play-state:running}.intro-brand-logo{display:block;width:100%;height:auto}.motion.kwizillo-cinematic::after{background:linear-gradient(180deg,rgba(0,24,72,.02),rgba(0,24,72,.08) 64%,rgba(0,24,72,.18));pointer-events:none}@keyframes introBrandJourney{0%{opacity:0;transform:translate(-50%,-16px) scale(.72)}6%{opacity:1;transform:translate(-50%,0) scale(1.08)}13%{transform:translate(-50%,0) scale(1)}22%{opacity:1}30%{opacity:0;transform:translate(-50%,-8px) scale(.95)}76%{opacity:0;transform:translate(-50%,8px) scale(.9)}84%{opacity:1;transform:translate(-50%,0) scale(1.07)}92%{transform:translate(-50%,0) scale(.99)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
 /* ---- Home hub: real DOM over a painted sky, no screenshot layer ---- */
 .home{position:absolute;inset:0;overflow:hidden;background:#0b3f92;color:#fff}
 .home-sky{position:absolute;inset:0;background:
@@ -457,10 +457,10 @@
 /* ---- Intro start layer: one tap unlocks sound and starts the cinematic ---- */
 .intro-start{position:absolute;inset:0;z-index:6;display:grid;place-content:center;gap:18px;justify-items:center;
   background:radial-gradient(circle at 50% 40%,rgba(30,70,170,.55),rgba(4,20,60,.92) 75%);cursor:pointer}
-.intro-start-logo{width:min(72%,400px);height:auto;filter:drop-shadow(0 10px 0 rgba(63,34,149,.6)) drop-shadow(0 18px 24px rgba(0,25,94,.55));animation:startFloat 2.4s ease-in-out infinite}
+
 .intro-start span{padding:12px 22px;border-radius:999px;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-weight:1000;font-size:16px;box-shadow:0 5px 0 #d98b12,0 10px 20px rgba(0,20,70,.35);animation:startPulse 1.4s ease-in-out infinite}
 .motion:not(.cinematic-playing) .intro-brand{display:none}
-@keyframes startFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
 @keyframes startPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 
 /* ---- Question art is never cropped: the picture is shown whole (contain)
