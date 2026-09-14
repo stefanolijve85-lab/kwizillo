@@ -71,7 +71,8 @@
   // Same logo with its shadow baked in (tools/logo-shadow.cjs), for the intro.
   K.BRAND_LOGO_SHADOW='assets/brand/logo-shadow.png';
   // Menu tiles for the two extra games.
-  K.GAME_ART={memo:'assets/games/memo.jpg',math:'assets/games/math.jpg'};
+  // The Weetjes tile borrows the six-islands art (its own island is still to be rendered).
+  K.GAME_ART={memo:'assets/games/memo.jpg',math:'assets/games/math.jpg',memoAll:'assets/games/memo-all.jpg',facts:'assets/games/memo-all.jpg'};
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:
   // Home HUD, voice pickers, onboarding, feedback and result cards.

@@ -289,6 +289,7 @@
         <p class="result-rule">${esc(t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
         ${unlocked?`<p class="result-unlock">${esc(t('result.levelUnlocked',{niveau:unlocked}))}</p>`:''}
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
+        ${K.bonusFactHtml?.(K.currentWorld)||''}
         <div class="result-native">
           <button id="againBtn">${esc(primaryLabel)}</button>
           ${passed&&isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
@@ -323,5 +324,7 @@
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#retryBtn')?.addEventListener('click',()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(K.currentWorld,topicIdx)});
     f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
+    // The bonus fact opens the Weetjes screen on this world.
+    f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(K.currentWorld,{open:e.currentTarget.dataset.fact})});
   };
 })();

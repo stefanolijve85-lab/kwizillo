@@ -72,6 +72,7 @@
     const map={home:()=>K.showHome(),achievements:K.showAchievements,collection:()=>K.showCollection('worlds'),stats:K.showStats,parent:K.showParent};
     f.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');map[b.dataset.nav]?.()});
   }
+  K.bottomNav=bottomNav;K.bindNav=bindNav;
   function nativeScreen({cls='',title,subtitle='',body,active='',back=()=>K.showHome()}){
     const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('common.brand'))}</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
@@ -130,6 +131,7 @@
         <div class="home-games">
           <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
+          <button class="home-game art facts" id="homeFacts"><img class="home-game-art" src="${K.GAME_ART.facts}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('facts.title'))}</b></button>
         </div>
 
         ${bottomNav('home')}
@@ -141,6 +143,7 @@
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
+    f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showFacts(K.state.factsWorld||'all')};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);
     // The hello of each guide is warmed on Home, ahead of the profile's voice pick.
@@ -431,7 +434,7 @@
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.state.niveau||1)}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''}">${v}</button>`).join('')}</div></section>
       <section class="setting-card"><div class="setting-icon">🔄</div><div><b>${esc(t('settings.freshStart'))}</b><small>${esc(t(K.freshStart()?'settings.freshStartOn':'settings.freshStartOff'))}</small></div><button class="native-switch ${K.freshStart()?'on':''}" id="freshToggle" aria-label="${esc(t('settings.freshStart'))}"><i></i></button></section>
-      <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">🤖</div><div><b>${esc(t('tour.again'))}</b><small>${esc(t('tour.againSub'))}</small></div><em>›</em></section>
+      <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">${K.activeGuide()==='luna'?'🎧':'🤖'}</div><div><b>${esc(t('tour.again',{guide:K.guideName()}))}</b><small>${esc(t('tour.againSub',{guide:K.guideName()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>

@@ -46,7 +46,10 @@ npm run test:ui          # Playwright: onboarding, six worlds, quiz flow, i18n
 | `world-assets.js` | artwork paths, all local |
 | `m1-ui.js` | Home, world, collection, achievements, stats, parent zone |
 | `quiz-visual-v2.js` | the quiz, hint, feedback and result screens |
-| `onboarding.js` | first-run language, name and voice |
+| `games-memo.js` / `games-math.js` | the Memo and Rekenen games |
+| `facts.js` / `facts-ui.js` | the Weetjes bank (96 facts per language, aligned by id) and its screen |
+| `milo.js` / `guide-talks.js` | the guide host (Milo or Luna): poses, bubbles, lip-synced clips, the Home tour |
+| `onboarding.js` | first-run language, name, age, school group and guide, hosted by the guide |
 | `intro.js` | the opening cinematic |
 | `base.css` / `screens.css` | the two stylesheets |
 | `server.js` | static host plus the ElevenLabs proxy |

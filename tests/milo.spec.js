@@ -1,6 +1,7 @@
-// Milo as host: every onboarding step shows him with a bubble that carries the
-// question; the Home tour flies him past the worlds, the games, the HUD and the
-// nav, one spoken line each, and never returns on its own.
+// The guide as host: every onboarding step shows Milo with a bubble that carries
+// the question; picking Luna hands the stage to her; the Home tour flies the
+// chosen guide past the worlds, the games, the HUD and the nav, one spoken line
+// each, and never returns on its own.
 const { test, expect } = require('@playwright/test');
 
 const SAVED = (over = {}) => ({
@@ -75,6 +76,57 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await expect(page.locator('.native-world-bg')).toBeVisible();
 });
 
+test('tapping Luna on the guide step brings her on stage; she says hello, hosts the welcome and the tour in her own voice', async ({ page }) => {
+  const spoken = [];
+  await page.route('**/*.mp4', route => route.abort());
+  // A 500 (unlike 503) keeps speech "available", so every line is still asked for.
+  await page.route('**/api/tts', route => { spoken.push(route.request().postDataJSON()); route.fulfill({ status: 500, body: '{}' }); });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
+  await page.getByRole('button', { name: /Nederlands/ }).click();
+  await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
+  await page.locator('[data-age="8"]').click(); await page.locator('#obNext').click();
+  await page.locator('#obNext').click();
+  // Milo asks who the guide will be…
+  const host = page.locator('.onboarding .milo-host:not(.leave)');
+  await expect(host).toHaveAttribute('data-guide', 'milo');
+  await expect(host.locator('.milo-bubble h1')).toHaveText('Wie helpt je mee?');
+  // …and Luna takes over the moment her name is tapped.
+  await page.locator('[data-guide="Luna"]').click();
+  await expect(host).toHaveAttribute('data-guide', 'luna');
+  await expect(host).toHaveAttribute('data-pose', 'wave');
+  await expect(host.locator('.milo-figure')).toHaveAttribute('src', /luna\/wave\.png/);
+  await expect(host.locator('.milo-bubble')).toContainText('Ik ben Luna');
+  // Her hello is asked for in her own voice (it may have been warmed before the tap).
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /Ik ben Luna/.test(r.text))).toBe(true);
+  await expect(page.locator('.onboarding .milo-host.leave')).toHaveCount(0, { timeout: 3000 });
+  // Milo comes back when he is tapped again, Luna when she is.
+  await page.locator('[data-guide="Milo"]').click();
+  await expect(page.locator('.onboarding .milo-host:not(.leave)')).toHaveAttribute('data-guide', 'milo');
+  await page.locator('[data-guide="Luna"]').click();
+  await expect(page.locator('.onboarding .milo-host:not(.leave)')).toHaveAttribute('data-guide', 'luna');
+  // The welcome and the tour are hers.
+  await page.locator('#obNext').click();
+  await expect(page.locator('.onboarding .milo-host')).toHaveAttribute('data-guide', 'luna');
+  await expect(page.locator('.milo-bubble h1')).toHaveText('Welkom, Sam!');
+  const before = spoken.length;
+  await page.locator('#obStart').click();
+  const tour = page.locator('.home .milo-tour');
+  await expect(tour).toBeVisible({ timeout: 5000 });
+  await expect(tour.locator('.milo-host')).toHaveAttribute('data-guide', 'luna');
+  await expect(tour.locator('.milo-bubble')).toContainText('zes werelden', { timeout: 5000 });
+  // The tour lines are hers alone (lines warmed earlier for Milo may still drain from the queue).
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /zes werelden/.test(r.text))).toBe(true);
+  expect(spoken.filter(r => r.voice === 'Milo' && /werelden|Memo|munten|verzameling|plezier/.test(r.text))).toEqual([]);
+  for (const r of spoken.slice(before)) expect(JSON.stringify(r)).not.toContain('Sam');
+  await page.locator('.milo-tour-skip').click();
+  await expect(tour).toHaveCount(0, { timeout: 5000 });
+  // The parent zone offers her tour by name.
+  await page.locator('[data-nav="parent"]').click();
+  await expect(page.locator('#tourOpen')).toContainText('Rondleiding van Luna');
+});
+
 test('the parent zone can replay the tour', async ({ page }) => {
   await boot(page);
   await page.locator('[data-nav="parent"]').click();
@@ -98,7 +150,7 @@ test('a lip-synced clip replaces the still and the live voice; without a clip th
   await expect.poll(() => page.evaluate(() => document.querySelector('.milo-video').ended), { timeout: 10000 }).toBe(true);
   expect(tts).toEqual([]);   // the clip carries the voice; no live request was made
   // A line without a clip (a language that has none) falls back to the still pose and a voice request.
-  await page.evaluate(() => { window.KWIZILLO_MILO_TALKS.nl = {}; });
+  await page.evaluate(() => { window.KWIZILLO_GUIDE_TALKS.milo.nl = {}; });
   await page.getByRole('button', { name: /Nederlands/ }).click();
   await expect(page.locator('.onboarding .milo-host')).not.toHaveClass(/video-mode/);
   await expect(page.locator('.onboarding .milo-figure')).toBeVisible();

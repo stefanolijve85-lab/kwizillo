@@ -4,7 +4,8 @@
 
   // First run, hosted by Milo: he floats next to every question, asks it out
   // loud and reacts. Language → name → age → school group → guide → welcome,
-  // then the Home tour. The child's name and age are shown on screen and kept
+  // then the Home tour. When the child picks Luna at the guide step she takes
+  // over on the spot and hosts the welcome and the tour. The child's name and age are shown on screen and kept
   // on the device; the spoken lines are generic and never carry them.
 
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -14,7 +15,9 @@
   // Dutch primary school: groep 3 at six, one group a year.
   const groupForAge=age=>Math.max(1,Math.min(8,Number(age)-3));
 
-  function shell({step,title,sub,body,cls='',pose='talk',speech,clip}){
+  // Milo hosts until the guide step; from there the chosen guide takes over.
+  const bubbleHtml=(title,sub)=>`<h1>${title}</h1>${sub?`<p class="onboarding-sub">${sub}</p>`:''}`;
+  function shell({step,title,sub,body,cls='',pose='talk',speech,clip,guide=K.activeGuide()}){
     const dots=Array.from({length:TOTAL},(_,i)=>`<i class="${i<step?'done':''} ${i===step-1?'current':''}"></i>`).join('');
     const f=K.frame(`<section class="onboarding ${cls} fade-in">
       <div class="onboarding-sky"></div>
@@ -25,10 +28,10 @@
         ${body}
       </div>
     </section>`);
-    K.warmMilo();
-    const host=K.miloHost({pose,size:'ob',bubble:'side'});
+    K.warmGuide(guide);
+    const host=K.guideHost({guide,pose,size:'ob',bubble:'side'});
     f.querySelector('.onboarding-stage').appendChild(host.el);
-    host.say(speech,{html:`<h1>${title}</h1>${sub?`<p class="onboarding-sub">${sub}</p>`:''}`,clip});
+    host.say(speech,{html:bubbleHtml(title,sub),clip});
     return {f,host};
   }
 
@@ -39,13 +42,13 @@
       `<button class="onboarding-choice ${K.state.language===l.id?'selected':''}" data-lang="${l.id}">
         <span class="choice-icon">${l.flag}</span><b>${esc(l.label)}</b>
       </button>`).join('')}</div>`;
-    const {f}=shell({step:1,title:esc(K.t('onboarding.language.title')),sub:esc(K.t('onboarding.language.sub')),body,pose:'wave',speech:K.t('onboarding.speech.language'),clip:'language'});
+    const {f}=shell({step:1,title:esc(K.t('onboarding.language.title')),sub:esc(K.t('onboarding.language.sub')),body,pose:'wave',speech:K.t('onboarding.speech.language'),clip:'language',guide:'milo'});
     f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.setLanguage(b.dataset.lang);
       K.useBank();
-      K.miloPrefetch([K.t('onboarding.speech.name'),K.t('onboarding.speech.age'),K.t('onboarding.speech.group'),K.t('onboarding.speech.voice')]);
-      K.miloWarmClips(['name','age','group','voice','welcome']);
+      K.guidePrefetch([K.t('onboarding.speech.name'),K.t('onboarding.speech.age'),K.t('onboarding.speech.group'),K.t('onboarding.speech.voice')],'milo');
+      K.guideWarmClips(['name','age','group','voice','welcome'],'milo');
       stepName();
     });
   }
@@ -58,7 +61,7 @@
       <button type="submit" class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     </form>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:2,title:esc(K.t('onboarding.name.title')),sub:esc(K.t('onboarding.name.sub')),body,cls:'onboarding-name',pose:'think',speech:K.t('onboarding.speech.name'),clip:'name'});
+    const {f}=shell({step:2,title:esc(K.t('onboarding.name.title')),sub:esc(K.t('onboarding.name.sub')),body,cls:'onboarding-name',pose:'think',speech:K.t('onboarding.speech.name'),clip:'name',guide:'milo'});
     const input=f.querySelector('#obName');
     const next=f.querySelector('#obNext');
     const sync=()=>{next.disabled=!input.value.trim()};
@@ -86,7 +89,7 @@
       `<button class="onboarding-chip ${Number(K.state.age)===a?'selected':''}" data-age="${a}" aria-pressed="${Number(K.state.age)===a}">${esc(K.t('onboarding.age.years',{n:a}))}</button>`).join('')}</div>
     <button class="onboarding-next" id="obNext" ${K.state.age?'':'disabled'}>${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:3,title:esc(K.t('onboarding.age.title')),sub:esc(K.t('onboarding.age.sub')),body,pose:'think',speech:K.t('onboarding.speech.age'),clip:'age'});
+    const {f}=shell({step:3,title:esc(K.t('onboarding.age.title')),sub:esc(K.t('onboarding.age.sub')),body,pose:'think',speech:K.t('onboarding.speech.age'),clip:'age',guide:'milo'});
     const next=f.querySelector('#obNext');
     f.querySelectorAll('[data-age]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
@@ -107,7 +110,7 @@
       `<button class="onboarding-chip ${Number(K.state.group)===g?'selected':''}" data-group="${g}" aria-pressed="${Number(K.state.group)===g}">${esc(K.t('settings.groupValue',{n:g}))}</button>`).join('')}</div>
     <button class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:4,title:esc(K.t('onboarding.group.title')),sub:esc(K.t('onboarding.group.sub')),body,pose:'pointDown',speech:K.t('onboarding.speech.group'),clip:'group'});
+    const {f}=shell({step:4,title:esc(K.t('onboarding.group.title')),sub:esc(K.t('onboarding.group.sub')),body,pose:'pointDown',speech:K.t('onboarding.speech.group'),clip:'group',guide:'milo'});
     f.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.state.group=Number(b.dataset.group); K.state.groupChosen=true; K.save();
@@ -130,17 +133,34 @@
       </button>`).join('')}</div>
     <button class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
-    const {f}=shell({step:5,title:esc(K.t('onboarding.voice.title')),sub:esc(K.t('onboarding.voice.sub')),body,pose:'talk',speech:K.t('onboarding.speech.voice'),clip:'voice'});
+    const title=esc(K.t('onboarding.voice.title'));
+    let {f,host}=shell({step:5,title,sub:esc(K.t('onboarding.voice.sub')),body,pose:'talk',speech:K.t('onboarding.speech.voice'),clip:'voice'});
     // Both hellos and the welcome line are warmed for both guides, so the
     // first thing a child hears comes without a pause.
-    K.prefetchSpeech([K.t('voice.milo.hello'),K.t('onboarding.speech.welcome')],{voice:'Milo'});
-    K.prefetchSpeech([K.t('voice.luna.hello')],{voice:'Luna'});
+    K.guidePrefetch([K.t('voice.milo.hello'),K.t('onboarding.speech.welcome')],'milo');
+    K.guidePrefetch([K.t('voice.luna.hello'),K.t('onboarding.speech.welcome')],'luna');
+    K.guideWarmClips(['hello','welcome'],'luna');
+    // Tapping a name brings that guide on stage: the other one slips away and
+    // the new one arrives, says hello and hosts everything from here on.
+    const takeOver=guide=>{
+      const hello=K.t(`voice.${guide}.hello`);
+      if(host.guide===guide){host.pose('wave');host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});return}
+      const stage=f.querySelector('.onboarding-stage');
+      const old=host;
+      old.stop();old.el.classList.add('leave');setTimeout(()=>old.remove(),360);
+      K.warmGuide(guide);
+      host=K.guideHost({guide,pose:'wave',size:'ob',bubble:'side'});
+      host.el.classList.add('enter');
+      stage.appendChild(host.el);
+      host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});
+    };
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.state.voice=b.dataset.guide; K.save();
       f.querySelectorAll('[data-guide]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b))});
       K.stopSpeech();
-      if(K.state.voice!=='Stil') K.speak(K.t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'));
+      if(K.state.voice==='Stil'){host.pose('talk');host.bubble(bubbleHtml(title,esc(K.t('voice.silent.desc'))));return}
+      takeOver(K.activeGuide());
     });
     f.querySelector('#obNext').onclick=()=>{K.sfx('tap');stepWelcome()};
     f.querySelector('#obBack').onclick=()=>{K.sfx('tap');stepGroup()};
@@ -159,7 +179,7 @@
       K.stopSpeech(); K.sfx('reward');
       K.state.onboardingComplete=true; K.save();
       K.showHome();
-      // Milo now flies across Home and points out what is what.
+      // The guide now flies across Home and points out what is what.
       setTimeout(()=>K.startTour(),380);
     };
   }

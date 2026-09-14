@@ -35,15 +35,41 @@ identity reference, one prompt per pose ("full-body, floating, flat light-grey
 backdrop, no shadow"), then birefnet-v2-bg-removal, then cropped to the alpha
 bounding box and scaled to a shared height. `pointRight` is `point-left`
 mirrored in CSS. New poses go through the same three steps and are registered in
-`K.MILO_POSES` (milo.js).
+`K.GUIDE_POSES.milo` (milo.js).
 
-## Milo talking clips (lip-synced video)
+## Luna poses (she takes over the moment a child picks her)
 
-`assets/milo/talk/<lang>/<key>.mp4` — see `tools/milo-talks.js` (lines / encode /
-manifest) and `milo-talks.js` (the generated manifest the app reads). Flow
-"Kwizillo Milo praat" (SyUhvtqjRCbWNR70n0Wq): tts node (eleven_v3, Milo's voice
-for the language) → bytedance-omnihuman-v1.5 with `assets/mascots/milo/talk-base.png`.
-About $0.60 per clip. All 33 clips (NL/EN/PT x 11 lines) are in place since
-2026-09-15. A missing clip is never fatal: the app falls back to the still pose
-plus the live voice. To redo a line: rerun its tts + avatar pair on the flow,
-then `encode` and `manifest`.
+`assets/mascots/luna/{wave,talk,think,point-down,point-left}.png` — same recipe on
+the same flow, with `assets/brand/luna.jpg` as the identity reference (ref node
+B9R4IS9t0XgCpUB4d5Sm), made 2026-09-15. Her `cheer` render was refused by the
+model's safety filter, so `K.GUIDE_POSES.luna.cheer` points at `wave` until it is
+redone (prompt: "jumping for joy, both arms up, big laugh"). Luna's talking base
+still is `assets/mascots/luna/talk-base.png` (640×768 centre crop of a chest-up
+portrait) and is already uploaded on the talking flow as node 2Z52ZSr8Pk1Gkndb0tNo.
+
+## Talking clips (lip-synced video)
+
+`assets/<guide>/talk/<lang>/<key>.mp4` — see `tools/guide-talks.js` (lines / encode /
+manifest) and `guide-talks.js` (the generated manifest the app reads:
+`window.KWIZILLO_GUIDE_TALKS.{milo,luna}`). Flow "Kwizillo Milo praat"
+(SyUhvtqjRCbWNR70n0Wq): tts node (eleven_v3, the guide's voice for the language)
+→ bytedance-omnihuman-v1.5 with the guide's talk-base still. About $0.60 per clip.
+
+- Milo: all 33 clips (NL/EN/PT × 11 lines) in place since 2026-09-15. His `hello`
+  line (voice.milo.hello) has no clip yet.
+- Luna: no clips yet — 7 lines (hello, welcome, worlds, games, hud, nav, done) × 3
+  languages = 21 tts→avatar pairs (~€13) once the account has credits again. Print
+  them with `node tools/guide-talks.js lines luna`.
+
+A missing clip is never fatal: the app falls back to the still pose plus the live
+voice in the guide's own voice. To redo a line: rerun its tts + avatar pair on the
+flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
+
+## Game tiles (Home "Speel ook", Memo picker)
+
+`assets/games/{memo,math,memo-all}.jpg` — floating islands in the world style,
+made on the poses flow with the jungle and space world art as style references
+(gemini-3-pro-image, 16:9, downscaled to 1000 px). The Weetjes tile reuses
+`memo-all.jpg` (`K.GAME_ART.facts`) until its own island (an open storybook, a
+glowing lightbulb, an owl) is rendered — the prompt is on the flow as node
+lOwwipmIHBWlkF7kGwj4, ~655 credits with gpt-image-2.

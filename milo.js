@@ -2,59 +2,75 @@
   const K=window.KWIZILLO_M1;
   if(!K) return;
 
-  // Milo as a living host: full-body poses (cut-outs of the brand robot) that
-  // float, turn, point and talk. Onboarding puts him next to every question and
-  // the first visit to Home is a short guided tour where he flies from element
-  // to element. Everything here is presentational; the spoken lines come from
-  // i18n and never contain the child's name.
+  // The guides as living hosts: full-body poses (cut-outs of Milo the robot and
+  // Luna) that float, turn, point and talk. Onboarding puts the guide next to
+  // every question and the first visit to Home is a short guided tour where the
+  // guide flies from element to element. Milo opens the first run; the moment a
+  // child picks Luna she takes over, with her own voice, poses and clips.
+  // Everything here is presentational; the spoken lines come from i18n and
+  // never contain the child's name.
 
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-  K.MILO_POSES={
-    wave:'assets/mascots/milo/wave.png',
-    talk:'assets/mascots/milo/talk.png',
-    think:'assets/mascots/milo/think.png',
-    cheer:'assets/mascots/milo/cheer.png',
-    pointDown:'assets/mascots/milo/point-down.png',
-    pointLeft:'assets/mascots/milo/point-left.png',
-    pointRight:{src:'assets/mascots/milo/point-left.png',flip:true}
+  const poses=(dir,extra={})=>({
+    wave:`${dir}/wave.png`,talk:`${dir}/talk.png`,think:`${dir}/think.png`,cheer:`${dir}/cheer.png`,
+    pointDown:`${dir}/point-down.png`,pointLeft:`${dir}/point-left.png`,pointRight:{src:`${dir}/point-left.png`,flip:true},...extra
+  });
+  K.GUIDE_POSES={
+    milo:poses('assets/mascots/milo'),
+    // Luna's cheer render was refused by the image model; she waves until it is redone.
+    luna:poses('assets/mascots/luna',{cheer:'assets/mascots/luna/wave.png'})
   };
-  function poseSrc(p){const v=K.MILO_POSES[p]||K.MILO_POSES.talk;return typeof v==='string'?{src:v,flip:false}:v}
-  // Warm every pose once so a pose change never flashes an empty frame.
-  let warmed=false;
-  K.warmMilo=()=>{if(warmed)return;warmed=true;Object.values(K.MILO_POSES).forEach(v=>{const i=new Image();i.src=typeof v==='string'?v:v.src})};
+  K.MILO_POSES=K.GUIDE_POSES.milo;
+  K.GUIDES={milo:{voice:'Milo',name:'Milo',base:'assets/mascots/milo/talk-base.png'},luna:{voice:'Luna',name:'Luna',base:'assets/mascots/luna/talk-base.png'}};
+  const guideOf=g=>K.GUIDES[g]?g:'milo';
+  // The guide who hosts: Luna when the child chose her voice, otherwise Milo
+  // (a child who chose silence still sees Milo, just without sound).
+  K.activeGuide=()=>K.state.voice==='Luna'?'luna':'milo';
+  K.guideName=g=>K.GUIDES[guideOf(g??K.activeGuide())].name;
+  function poseSrc(guide,p){const set=K.GUIDE_POSES[guide];const v=set[p]||set.talk;return typeof v==='string'?{src:v,flip:false}:v}
+  // Warm every pose of a guide once so a pose change never flashes an empty frame.
+  const warmed=new Set();
+  K.warmGuide=(g='milo')=>{g=guideOf(g);if(warmed.has(g))return;warmed.add(g);Object.values(K.GUIDE_POSES[g]).forEach(v=>{const i=new Image();i.src=typeof v==='string'?v:v.src})};
+  K.warmMilo=()=>K.warmGuide('milo');
 
-  // Milo speaks with his own voice whatever guide the child picked later on; a
+  // A guide speaks with its own voice whatever voice is selected at the time; a
   // child who chose silence only sees the bubble. Resolves when the line is over.
-  K.miloSay=(text,opts={})=>K.speak(text,{voice:'Milo',...opts});
-  K.miloPrefetch=texts=>K.prefetchSpeech(texts,{voice:'Milo'});
+  K.guideSay=(text,opts={},guide='milo')=>K.speak(text,{voice:K.GUIDES[guideOf(guide)].voice,...opts});
+  K.guidePrefetch=(texts,guide='milo')=>K.prefetchSpeech(texts,{voice:K.GUIDES[guideOf(guide)].voice});
+  K.miloSay=(text,opts)=>K.guideSay(text,opts,'milo');
+  K.miloPrefetch=texts=>K.guidePrefetch(texts,'milo');
 
-  // Real video for the fixed lines: a lip-synced clip of Milo per line and
-  // language (window.KWIZILLO_MILO_TALKS, built by tools/milo-talks.js). The
-  // clip carries its own voice track, so it replaces the live speech request;
-  // when a clip is missing, fails to load or may not autoplay, the still pose
-  // plus the voice line take over unnoticed.
-  const clipSrc=key=>{const lang=K.state.language||'nl';const set=window.KWIZILLO_MILO_TALKS?.[lang];return set&&set[key]||null};
+  // Real video for the fixed lines: a lip-synced clip per guide, language and
+  // line (window.KWIZILLO_GUIDE_TALKS, built by tools/guide-talks.js). The clip
+  // carries its own voice track, so it replaces the live speech request; when a
+  // clip is missing, fails to load or may not autoplay, the still pose plus the
+  // voice line take over unnoticed.
+  const clipSrc=(key,guide='milo')=>{const lang=K.state.language||'nl';const set=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang];return set&&set[key]||null};
   const clipPool=new Map();
-  function clipVideo(src){
+  function clipVideo(src,guide){
     let v=clipPool.get(src);
     if(v) return v;
     v=document.createElement('video');
-    v.className='milo-video';v.poster='assets/mascots/milo/talk-base.png';v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.src=src;v.load();
+    v.className='milo-video';v.poster=K.GUIDES[guideOf(guide)].base;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.src=src;v.load();
     clipPool.set(src,v);
     if(clipPool.size>6){const first=clipPool.keys().next().value;if(first!==src)clipPool.delete(first)}
     return v;
   }
-  K.miloWarmClips=keys=>(keys||[]).forEach(k=>{const src=clipSrc(k);if(src)clipVideo(src)});
-  // Stopping speech stops Milo's clips too: one rule for every screen change.
+  K.guideWarmClips=(keys,guide='milo')=>(keys||[]).forEach(k=>{const src=clipSrc(k,guide);if(src)clipVideo(src,guide)});
+  K.miloWarmClips=keys=>K.guideWarmClips(keys,'milo');
+  // Stopping speech stops the clips too: one rule for every screen change.
   const stopSpeech=K.stopSpeech;
   K.stopSpeech=(...a)=>{clipPool.forEach(v=>{if(!v.paused)v.pause()});return stopSpeech?.(...a)};
-  K.miloHasClip=key=>!!clipSrc(key);
+  K.guideHasClip=(key,guide='milo')=>!!clipSrc(key,guide);
+  K.miloHasClip=key=>K.guideHasClip(key,'milo');
 
   // A host element: bubble + figure. `say` writes the bubble, speaks the line
   // and animates the figure while the voice is playing.
-  K.miloHost=({pose='wave',size='md',bubble='top'}={})=>{
+  K.guideHost=({guide='milo',pose='wave',size='md',bubble='top'}={})=>{
+    guide=guideOf(guide);
     const el=document.createElement('div');
-    el.className=`milo-host milo-size-${size} bubble-${bubble}`;
+    el.className=`milo-host guide-${guide} milo-size-${size} bubble-${bubble}`;
+    el.dataset.guide=guide;
     el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><img class="milo-figure" alt="" draggable="false"></div>`;
     const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body');
     let talkTimer=null,video=null;
@@ -63,7 +79,7 @@
     // Plays a lip-synced clip; resolves true when it played to the end, false
     // when it could not start (then the caller falls back to pose + voice).
     async function playClip(src){
-      const v=clipVideo(src);
+      const v=clipVideo(src,guide);
       v.muted=K.state.voice==='Stil';
       v.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
       showVideo(v);
@@ -81,15 +97,15 @@
       return ok;
     }
     const api={
-      el,
-      pose(p){const {src,flip}=poseSrc(p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;return api},
+      el,guide,
+      pose(p){const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;return api},
       bubble(html){if(!html){bub.hidden=true;bub.innerHTML='';return api}bub.innerHTML=html;bub.hidden=false;bub.classList.remove('pop');void bub.offsetWidth;bub.classList.add('pop');return api},
       // Speaks `text`; the figure nods while the voice plays. Without a voice the
-      // figure still nods for a moment so the bubble reads as "Milo said this".
+      // figure still nods for a moment so the bubble reads as "the guide said this".
       async say(text,{html,minMs=0,clip}={}){
         api.bubble(html??esc(text));
         const started=Date.now();
-        const src=clip&&clipSrc(clip);
+        const src=clip&&clipSrc(clip,guide);
         if(src){
           K.stopSpeech();
           el.classList.add('talking');
@@ -99,7 +115,7 @@
         }
         clearTimeout(talkTimer);el.classList.add('talking');
         talkTimer=setTimeout(()=>el.classList.remove('talking'),1800);
-        await K.miloSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking')},onDone:()=>el.classList.remove('talking')}).catch(()=>{});
+        await K.guideSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking')},onDone:()=>el.classList.remove('talking')},guide).catch(()=>{});
         el.classList.remove('talking');
         const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));
       },
@@ -110,16 +126,19 @@
     api.pose(pose);
     return api;
   };
+  K.miloHost=opts=>K.guideHost({...opts,guide:'milo'});
 
   /* ---------------- Home tour ---------------- */
 
-  // Milo flies across Home and explains each part in one sentence. The tour is
-  // asked for explicitly (end of onboarding, "tour again" in the parent zone) and
-  // never interrupts a returning player. A tap moves on, "skip" ends it.
-  K.startTour=async({onDone}={})=>{
+  // The chosen guide flies across Home and explains each part in one sentence.
+  // The tour is asked for explicitly (end of onboarding, "tour again" in the
+  // parent zone) and never interrupts a returning player. A tap moves on,
+  // "skip" ends it.
+  K.startTour=async({onDone,guide}={})=>{
     const home=K.app.querySelector('.home');
     if(!home||home.querySelector('.milo-tour')) return;
-    K.warmMilo();
+    guide=guideOf(guide||K.activeGuide());
+    K.warmGuide(guide);
     const t=K.t;
     const stops=[
       {sel:'.home-worlds',key:'tour.worlds'},
@@ -128,13 +147,13 @@
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}
     ];
-    K.miloPrefetch(stops.map(s=>t(s.key)));
-    K.miloWarmClips(stops.map(s=>s.key.replace('tour.','')));
+    K.guidePrefetch(stops.map(s=>t(s.key)),guide);
+    K.guideWarmClips(stops.map(s=>s.key.replace('tour.','')),guide);
     const layer=document.createElement('div');
     layer.className='milo-tour';
     layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><span>${esc(t('tour.tapHint'))}</span><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;
     const spot=layer.querySelector('.milo-tour-spot');
-    const host=K.miloHost({pose:'wave',size:'tour',bubble:'top'});
+    const host=K.guideHost({guide,pose:'wave',size:'tour',bubble:'top'});
     layer.appendChild(host.el);
     home.appendChild(layer);
     home.classList.add('touring');
@@ -143,8 +162,8 @@
     const figure={w:Math.min(150,Math.round(W()*.34)),h:0};
     host.el.style.setProperty('--milo-w',figure.w+'px');
     // A talking clip is a 5:6 window; the still poses are taller.
-    figure.h=Math.round(figure.w*(K.miloHasClip('worlds')?1.34:1.55));
-    // He arrives from the right edge, mid-screen.
+    figure.h=Math.round(figure.w*(K.guideHasClip('worlds',guide)?1.34:1.55));
+    // The guide arrives from the right edge, mid-screen.
     host.moveTo(W()+figure.w,H()*.4,{instant:true});
     let done=false,advance=null;
     const next=()=>{advance?.()};
@@ -167,8 +186,8 @@
       host.moveTo(x,y);
     };
     const place=r=>{
-      // Milo sits above the element pointing down when there is room, otherwise
-      // below it presenting upward, or beside it pointing at it.
+      // The guide sits above the element pointing down when there is room,
+      // otherwise below it presenting upward, or beside it pointing at it.
       const pad=12;
       if(!r){spot.hidden=true;put((W()-figure.w)/2,H()*.5-figure.h/2,'top','cheer');return}
       spot.hidden=false;spot.style.left=(r.x-6)+'px';spot.style.top=(r.y-6)+'px';spot.style.width=(r.w+12)+'px';spot.style.height=(r.h+12)+'px';
