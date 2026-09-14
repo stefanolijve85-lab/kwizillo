@@ -4,18 +4,19 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const t=(k,p)=>K.t(k,p);
 
-  // Memo: pairs from the world's own question illustrations. Levels 1-2 pair
-  // two identical pictures; from level 3 a picture is paired with its word,
-  // which turns the game into vocabulary practice. Rules per level (niveau):
-  // board size and seconds per pair. Everything is generated, nothing is
-  // written by hand, so it works in every language and for every world.
+  // Memo: pairs of identical pictures from the world's own question
+  // illustrations; the guide names each picture when it is turned. Rules per
+  // level (niveau): board size and seconds per pair. Everything is generated,
+  // so it works in every language and for every world.
+  // Every level pairs two identical pictures; higher levels only add cards
+  // and take time away.
   const RULES=[
     {cols:3,rows:4,words:false,secPerPair:22},
     {cols:4,rows:4,words:false,secPerPair:18},
-    {cols:4,rows:4,words:true, secPerPair:16},
-    {cols:4,rows:5,words:true, secPerPair:13},
-    {cols:4,rows:5,words:true, secPerPair:11},
-    {cols:4,rows:6,words:true, secPerPair:9}
+    {cols:4,rows:4,words:false,secPerPair:15},
+    {cols:4,rows:5,words:false,secPerPair:12},
+    {cols:4,rows:5,words:false,secPerPair:10},
+    {cols:4,rows:6,words:false,secPerPair:9}
   ];
   const rule=()=>RULES[Math.max(1,Math.min(6,Number(K.state.niveau||1)))-1];
   const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};

@@ -67,14 +67,16 @@ test('a mismatch flips back, a match stays; solving the board rewards XP, coins 
   await expect(page.locator('.memo-board')).toBeVisible();
 });
 
-test('from level 3 a picture pairs with its word; a level-6 board has 12 pairs and 9 s per pair', async ({ page }) => {
+test('every level pairs identical pictures; a level-6 board has 12 pairs and 9 s per pair', async ({ page }) => {
   await boot(page, SAVED({ niveau: 3 }));
   await page.locator('[data-world="aarde"]').click();
   await page.locator('#worldMemo').click();
   await expect(page.locator('.memo-card')).toHaveCount(16);
-  expect(await page.locator('.memo-front.word').count()).toBeGreaterThan(0);
-  const words = await page.locator('.memo-front.word b').allTextContents();
-  for (const w of words) expect(w, 'word cards are short nouns').not.toMatch(/^(met|door|om|voor)\b/i);
+  await expect(page.locator('.memo-front.word')).toHaveCount(0);
+  // Each pair shows the same picture twice, and every pair a different one.
+  const srcs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(window.KWIZILLO_M1.questionArt(c.q)); return Object.values(by); });
+  for (const [a, b] of srcs) expect(a).toBe(b);
+  expect(new Set(srcs.map(p => p[0])).size).toBe(srcs.length);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 6; K.save(); K.startMemo('geschiedenis'); });
   await expect(page.locator('.memo-card')).toHaveCount(24);
   await expect(page.locator('#memoTimer b')).toHaveText('108');
