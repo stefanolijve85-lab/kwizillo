@@ -1,37 +1,43 @@
-# Kwizillo op één server: site + app
+# Kwizillo op de bestaande server (213.126.59.35, nginx)
 
 Doel: `kwizillo.nl` / `kwizillo.com` tonen de website (`site/`), `app.kwizillo.nl` /
 `app.kwizillo.com` draaien het spel met de ElevenLabs-proxy (`server.js`).
-Caddy staat ervoor en regelt HTTPS; Node luistert alleen op localhost.
+De nginx die er al staat krijgt drie serverblokken erbij; Node luistert alleen op
+localhost:8080, naast de sites die er al draaien.
 
 ```
-internet ──▶ Caddy :443 ──┬─▶ /var/www/kwizillo/site      (kwizillo.nl, kwizillo.com)
-                          └─▶ 127.0.0.1:8080  node server.js  (app.kwizillo.nl, app.kwizillo.com)
+internet ──▶ nginx :443 ──┬─▶ /var/www/kwizillo/site      (kwizillo.nl, kwizillo.com)
+                          ├─▶ 127.0.0.1:8080  node server.js  (app.kwizillo.nl, app.kwizillo.com)
+                          └─▶ de twee bestaande sites (ongewijzigd)
 ```
 
-## 1. DNS (bij de registrar van beide domeinen)
+## 1. DNS bij Hostnet (Mijn Hostnet → Domeinen → DNS-beheer)
 
-Per domein, met het publieke IPv4 van de server (`<IP>`):
+Voor **kwizillo.nl** én **kwizillo.com**:
 
-| Type | Naam | Waarde | TTL |
-|------|------|--------|-----|
-| A    | `@`  | `<IP>` | 300 (later 3600) |
-| A    | `www`| `<IP>` | 300 |
-| A    | `app`| `<IP>` | 300 |
-| AAAA | `@`, `www`, `app` | `<IPv6>` — alleen als de server IPv6 heeft | 300 |
+| Type  | Naam | Waarde            | TTL |
+|-------|------|-------------------|-----|
+| A     | `@`  | `213.126.59.35`   | 300 |
+| A     | `app`| `213.126.59.35`   | 300 |
+| CNAME | `www`| `kwizillo.nl.` resp. `kwizillo.com.` | 300 |
 
-Verwijder parking-records en "URL forwarding" die de registrar standaard heeft
-gezet, anders winnen die. Controleer: `dig +short kwizillo.nl app.kwizillo.com`
-moet `<IP>` geven. Geen MX/TXT nodig voor de site; e-mail (hallo@kwizillo.nl)
-regel je apart bij je mailprovider.
+Nu staan beide domeinen op Hostnets parkeer-IP `91.184.0.200`: dat A-record voor
+`@` verander je in `213.126.59.35`. De `www`-CNAME die er al staat is goed;
+`app` is nieuw. Als Hostnet ook "webforwarding" of een "parkeerpagina" aan
+heeft staan, zet dat uit. Geen AAAA-records (de server heeft geen IPv6 in DNS).
 
-## 2. Server voorbereiden (Ubuntu/Debian)
+Controle (na 5–10 minuten): `dig +short kwizillo.nl app.kwizillo.com www.kwizillo.nl`
+moet `213.126.59.35` geven.
+
+## 2. Server voorbereiden
 
 ```bash
-sudo apt update && sudo apt install -y caddy nodejs git      # Node ≥ 20
+node -v                       # ≥ 20; draait al voor de Next.js-site
+which node                    # pad in deploy/kwizillo.service zetten als het niet /usr/bin/node is
+sudo apt install -y certbot python3-certbot-nginx git
 sudo useradd --system --home /var/www/kwizillo --shell /usr/sbin/nologin kwizillo
 sudo mkdir -p /var/www/kwizillo && sudo chown kwizillo:kwizillo /var/www/kwizillo
-sudo ufw allow 80,443/tcp                                     # 8080 blijft dicht
+sudo ufw status               # 80/443 open; 8080 hoeft niet open (alleen localhost)
 ```
 
 ## 3. Code op de server
@@ -59,30 +65,43 @@ curl -s localhost:8080/api/voice-status # {"mode":"elevenlabs",...}
 
 De unit zet de productie-instellingen (zie `.env.example`):
 
-- `TRUST_PROXY=1` — rate-limit per bezoeker via `X-Forwarded-For` van Caddy.
+- `TRUST_PROXY=1` — rate-limit per bezoeker via `X-Forwarded-For` van nginx.
 - `ALLOWED_ORIGINS=…` — `/api/tts` alleen vanuit de app-hostnames en de iOS-app
   (`capacitor://localhost`); andere Origins krijgen 403.
 - `TTS_DAILY_CHARS=300000` — harde bovengrens op ElevenLabs-tekens per dag
   (cache-hits tellen niet mee). Pas aan op je abonnement.
 
-## 5. Caddy
+Poort 8080 al bezet door iets anders? Zet `PORT=8081` in de unit en in
+`proxy_pass` in de nginx-config.
+
+## 5. nginx + HTTPS
 
 ```bash
-sudo cp deploy/Caddyfile /etc/caddy/Caddyfile
-sudo caddy validate --config /etc/caddy/Caddyfile
-sudo systemctl reload caddy
+sudo cp deploy/nginx-kwizillo.conf /etc/nginx/sites-available/kwizillo
+sudo ln -s /etc/nginx/sites-available/kwizillo /etc/nginx/sites-enabled/kwizillo
+sudo nginx -t && sudo systemctl reload nginx
+curl -H 'Host: kwizillo.nl' http://127.0.0.1/ | head -3     # de NL-site over http
+
+# Certificaten (DNS moet dan al kloppen). Certbot past de blokken aan en zet
+# de http→https-redirect erbij; de bestaande sites raakt het niet.
+sudo certbot --nginx -d kwizillo.nl -d www.kwizillo.nl -d app.kwizillo.nl \
+                     -d kwizillo.com -d www.kwizillo.com -d app.kwizillo.com
+sudo certbot renew --dry-run
 ```
 
-Caddy haalt bij de eerste aanvraag de certificaten op voor alle zes hostnames
-(DNS moet dan al kloppen). Controle:
+Controle:
 
 ```bash
 curl -I https://kwizillo.nl            # 200, HTML
-curl -I https://kwizillo.com           # 200, Engelse pagina (rewrite naar /en/)
+curl -I https://kwizillo.com           # 200, Engelse pagina (via /en/)
+curl -I https://kwizillo.com/privacy.html   # 200, Engelse privacy
 curl -I https://app.kwizillo.nl        # 200, het spel
 curl -s -X POST https://app.kwizillo.nl/api/tts -d '{}' -H 'Content-Type: application/json'
                                        # 403: geen Origin → geweigerd (goed)
 ```
+
+Open daarna `https://app.kwizillo.nl` op de iPhone: intro, stem en video moeten
+werken zoals over het LAN.
 
 ## 6. Updaten
 
@@ -90,7 +109,7 @@ curl -s -X POST https://app.kwizillo.nl/api/tts -d '{}' -H 'Content-Type: applic
 cd /var/www/kwizillo && sudo -u kwizillo git pull && sudo systemctl restart kwizillo
 ```
 
-De site heeft geen build-stap; een `git pull` is genoeg (Caddy leest de bestanden
+De site heeft geen build-stap; een `git pull` is genoeg (nginx leest de bestanden
 live). De TTS-cache (`.tts-cache/`) blijft staan, dus gesproken zinnen hoeven
 niet opnieuw gemaakt te worden.
 
