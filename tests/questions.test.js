@@ -1,5 +1,5 @@
 // Validates every language bank against the contract in CLAUDE.md section 3:
-// 6 worlds, 4 topics per world, 10 questions per topic, 240 per language,
+// 6 worlds, 4 topics per world, 20 questions per topic (10 base + 10 advanced), 480 per language,
 // and full parity of ids between languages so progress survives a language switch.
 
 const assert = require('assert');
@@ -10,7 +10,7 @@ const vm = require('vm');
 const ROOT = path.join(__dirname, '..');
 const ctx = { window: {} };
 vm.createContext(ctx);
-for (const f of ['questions.js', 'questions-en.js', 'questions-pt.js']) {
+for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions-extra-pt.js', 'questions.js', 'questions-en.js', 'questions-pt.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
 }
 
@@ -19,7 +19,7 @@ const WORLDS = ['ruimte', 'geschiedenis', 'wetenschap', 'mysterie', 'dieren', 'a
 
 for (const [lang, bank] of Object.entries(BANKS)) {
   assert.ok(Array.isArray(bank), `${lang}: bank missing`);
-  assert.strictEqual(bank.length, 240, `${lang}: expected 240 questions, got ${bank.length}`);
+  assert.strictEqual(bank.length, 480, `${lang}: expected 480 questions, got ${bank.length}`);
 
   const byWorld = {}, byTopic = {}, ids = new Set();
   for (const q of bank) {
@@ -42,18 +42,23 @@ for (const [lang, bank] of Object.entries(BANKS)) {
 
   assert.strictEqual(Object.keys(byWorld).length, 6, `${lang}: expected 6 worlds`);
   for (const [world, n] of Object.entries(byWorld)) {
-    assert.strictEqual(n, 40, `${lang}: ${world} must have 40 questions, got ${n}`);
+    assert.strictEqual(n, 80, `${lang}: ${world} must have 80 questions, got ${n}`);
   }
   const topics = Object.keys(byTopic);
   assert.strictEqual(topics.length, 24, `${lang}: expected 24 topics, got ${topics.length}`);
   for (const [topic, n] of Object.entries(byTopic)) {
-    assert.strictEqual(n, 10, `${lang}: ${topic} must have 10 questions, got ${n}`);
+    assert.strictEqual(n, 20, `${lang}: ${topic} must have 20 questions, got ${n}`);
   }
 
-  // A mixed world quiz must be able to serve four unique batches of ten.
+  // A mixed world quiz must be able to serve eight unique batches of ten.
   for (const world of WORLDS) {
-    assert.strictEqual(bank.filter(q => q.world === world).length, 40,
-      `${lang}: ${world} cannot supply four unique batches of ten`);
+    assert.strictEqual(bank.filter(q => q.world === world).length, 80,
+      `${lang}: ${world} cannot supply eight unique batches of ten`);
+  }
+  // The base set is difficulty 1-2, the advanced set (ids 11-20) 3-4.
+  for (const q of bank) {
+    const n = Number(q.id.slice(-2));
+    assert.ok(n <= 10 ? q.difficulty <= 2 : q.difficulty >= 3, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
   }
 
   // Questions carry no display copy for topics; that belongs to i18n.
@@ -106,8 +111,10 @@ console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].leng
 
   const core = require('../quiz-core-v2.js');
   const OWN_TOPIC = { body: 'lichaam', castle: 'ridders_kastelen', dissolve: 'slimme_proefjes', light: 'slimme_proefjes' };
-  // The astronaut muscle question legitimately reaches for the anatomy picture.
-  const ALLOWED_CROSS = new Set(['ruimte-astronauten-07']);
+  // The astronaut muscle questions legitimately reach for the anatomy picture;
+  // the mirror-writing question mentions light. All three have their own art,
+  // so the subject fallback is never shown for them anyway.
+  const ALLOWED_CROSS = new Set(['ruimte-astronauten-07', 'ruimte-astronauten-17', 'mysterie-speurtocht-20']);
 
   for (const [lang, bank] of Object.entries(BANKS)) {
     const unresolved = bank.filter(q => !K.QUESTION_ART[core.questionArtKind(q)] && !K.TOPIC_ART[q.topic]);

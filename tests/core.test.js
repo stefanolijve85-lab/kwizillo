@@ -9,7 +9,7 @@ const core = require('../quiz-core-v2.js');
 const ROOT = path.join(__dirname, '..');
 const ctx = { window: {} };
 vm.createContext(ctx);
-for (const f of ['questions.js', 'questions-en.js']) {
+for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions.js', 'questions-en.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
 }
 const questions = ctx.window.KWIZILLO_QUESTIONS_NL;
@@ -19,25 +19,25 @@ const topicBatch = core.selectQuizBatch({ questions, world: 'wetenschap', topicK
 assert.strictEqual(topicBatch.questions.length, 10);
 assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic === 'lichaam'), 'Topic routing leaked another pool');
 
-/* ---- a mixed world quiz serves four unique batches before recycling ---- */
+/* ---- a mixed world quiz serves eight unique batches before recycling ---- */
 {
   let usedIds = [];
   const seen = new Set();
-  for (let quiz = 1; quiz <= 4; quiz++) {
+  for (let quiz = 1; quiz <= 8; quiz++) {
     const batch = core.selectQuizBatch({ questions, world: 'ruimte', grade: 5, limit: 10, usedIds });
     assert.strictEqual(batch.questions.length, 10, `quiz ${quiz} must serve 10 questions`);
-    assert.strictEqual(batch.recycled, false, `quiz ${quiz} must not recycle; the world holds 40 questions`);
+    assert.strictEqual(batch.recycled, false, `quiz ${quiz} must not recycle; the world holds 80 questions`);
     for (const q of batch.questions) {
       assert.ok(!seen.has(q.id), `quiz ${quiz} repeated question ${q.id} before the pool was exhausted`);
       seen.add(q.id);
     }
     usedIds = batch.usedIds;
   }
-  assert.strictEqual(seen.size, 40, 'four quizzes must cover all 40 world questions exactly once');
+  assert.strictEqual(seen.size, 80, 'eight quizzes must cover all 80 world questions exactly once');
 
   // Only after that does the cycle restart.
   const fifth = core.selectQuizBatch({ questions, world: 'ruimte', grade: 5, limit: 10, usedIds });
-  assert.strictEqual(fifth.recycled, true, 'the fifth quiz must restart the cycle');
+  assert.strictEqual(fifth.recycled, true, 'the ninth quiz must restart the cycle');
   assert.strictEqual(fifth.questions.length, 10);
 }
 
@@ -190,9 +190,21 @@ assert.strictEqual(core.quizPassed({score:10,total:10,niveau:6}), true);
 // Batches come out ordered easy -> hard and respect the cap when the pool allows.
 {
   const b = core.selectQuizBatch({ questions, world: 'ruimte', limit: 10, maxDifficulty: 2, rng: () => 0.42 });
-  assert.ok(b.questions.every(q => (q.difficulty || 1) <= 2), 'cap respected on a 40-question pool');
+  assert.ok(b.questions.every(q => (q.difficulty || 1) <= 2), 'cap respected on an 80-question pool');
   const d = b.questions.map(q => q.difficulty || 1);
   assert.deepStrictEqual(d, [...d].sort((a, b) => a - b), 'batch ordered by difficulty');
+}
+// Each level draws from its own difficulty window first: level 1 only 1s,
+// level 6 only 4s, level 3 the middle; a topic with 5 questions per
+// difficulty fills the rest from the nearest difficulty.
+assert.deepStrictEqual([1,2,3,4,5,6].map(n=>core.difficultyBand({niveau:n})), [[1,1],[1,2],[2,3],[3,3],[3,4],[4,4]]);
+{
+  const bandOf = n => core.selectQuizBatch({ questions, world: 'ruimte', limit: 10, band: core.difficultyBand({ niveau: n }), rng: () => 0.42 }).questions.map(q => q.difficulty);
+  assert.ok(bandOf(1).every(d => d === 1), 'level 1 mixed quiz is all difficulty 1');
+  assert.ok(bandOf(6).every(d => d === 4), 'level 6 mixed quiz is all difficulty 4');
+  assert.ok(bandOf(3).every(d => d === 2 || d === 3), 'level 3 mixed quiz stays in 2-3');
+  const topic = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', limit: 10, band: [4, 4], rng: () => 0.42 }).questions.map(q => q.difficulty);
+  assert.deepStrictEqual(topic, [3,3,3,3,3,4,4,4,4,4], 'a level-6 topic quiz takes the five 4s and fills with 3s, easy first');
 }
 // Hints and reading follow the level: free hints and full read-out on 1-2,
 // a budget from 3, question-only reading from 4, no hints on 6.

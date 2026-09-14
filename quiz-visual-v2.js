@@ -27,7 +27,7 @@
     const batch=K.core.selectQuizBatch({
       questions:K.questions,world,topicKey:key,
       grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds,
-      maxDifficulty:K.core.difficultyCap({niveau:K.state.niveau||1})
+      band:K.core.difficultyBand({niveau:K.state.niveau||1})
     });
     if(!batch.questions.length){K.toast(t('quiz.none'));K.showWorld(world);return}
     run.usedIds=batch.usedIds;

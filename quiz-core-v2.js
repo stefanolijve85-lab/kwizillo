@@ -36,32 +36,41 @@
   // `hints` is the number of hints a ten-question quiz may use (Infinity =
   // free). From level 4 the voice reads only the question: the child reads the
   // four answers alone, which is the step from listening to reading.
+  // `band` is the difficulty window a level draws from first (questions carry
+  // difficulty 1-4: the base set is 1-2, the advanced set 3-4). A batch fills
+  // up from the nearest difficulties when the window runs dry.
   const LEVELS=[
-    {seconds:30,maxWrong:6,cap:1,hints:Infinity,readAnswers:true},
-    {seconds:25,maxWrong:5,cap:2,hints:Infinity,readAnswers:true},
-    {seconds:20,maxWrong:4,cap:2,hints:3,readAnswers:true},
-    {seconds:16,maxWrong:3,cap:3,hints:2,readAnswers:false},
-    {seconds:13,maxWrong:2,cap:4,hints:1,readAnswers:false},
-    {seconds:10,maxWrong:0,cap:4,hints:0,readAnswers:false}
+    {seconds:30,maxWrong:6,cap:1,band:[1,1],hints:Infinity,readAnswers:true},
+    {seconds:25,maxWrong:5,cap:2,band:[1,2],hints:Infinity,readAnswers:true},
+    {seconds:20,maxWrong:4,cap:2,band:[2,3],hints:3,readAnswers:true},
+    {seconds:16,maxWrong:3,cap:3,band:[3,3],hints:2,readAnswers:false},
+    {seconds:13,maxWrong:2,cap:4,band:[3,4],hints:1,readAnswers:false},
+    {seconds:10,maxWrong:0,cap:4,band:[4,4],hints:0,readAnswers:false}
   ];
   const levelRule=n=>LEVELS[Math.max(1,Math.min(LEVELS.length,Number(n)||1))-1];
   function questionSeconds(niveau=1){return levelRule(niveau).seconds}
   function maxWrong(niveau=1){return levelRule(niveau).maxWrong}
   function difficultyCap({niveau=1}={}){return levelRule(niveau).cap}
+  function difficultyBand({niveau=1}={}){return levelRule(niveau).band}
   function hintsAllowed(niveau=1){return levelRule(niveau).hints}
   function readsAnswers(niveau=1){return levelRule(niveau).readAnswers}
   function quizPassed({score=0,total=10,niveau=1}){return (total-score)<=maxWrong(niveau)}
-  function selectQuizBatch({questions,world,topicKey=null,grade=5,limit=10,usedIds=[],rng=Math.random,maxDifficulty=4}){
+  function selectQuizBatch({questions,world,topicKey=null,grade=5,limit=10,usedIds=[],rng=Math.random,maxDifficulty=4,band=null}){
     const pool=poolFor({questions,world,topicKey,grade});
     if(!pool.length) return{questions:[],usedIds:[],recycled:false,poolSize:0};
     const used=new Set(usedIds);
     let available=pool.filter(q=>!used.has(q.id));
     let recycled=false;
     if(available.length<Math.min(limit,pool.length)){ available=pool; recycled=true }
-    // Questions under the level's difficulty cap come first; harder ones only
-    // fill up a batch when the easy ones run out. The whole pool still cycles,
-    // so four mixed quizzes of a world stay unique.
-    let order=[...shuffle(available.filter(q=>(q.difficulty||1)<=maxDifficulty),rng),...shuffle(available.filter(q=>(q.difficulty||1)>maxDifficulty),rng)];
+    // Questions inside the level's difficulty window come first; the rest fill
+    // up a batch by distance to the window (a level-1 quiz reaches for 2s
+    // before 3s, a level-6 quiz for 3s before 2s). The whole pool still
+    // cycles, so successive mixed quizzes of a world stay unique.
+    const [lo,hi]=band||[1,maxDifficulty];
+    const dist=q=>{const d=q.difficulty||1;return d<lo?lo-d:d>hi?d-hi:0};
+    const inside=shuffle(available.filter(q=>dist(q)===0),rng);
+    const outside=shuffle(available.filter(q=>dist(q)>0),rng).sort((a,b)=>dist(a)-dist(b));
+    let order=[...inside,...outside];
     // A recycled batch must not open with the question the player just saw last.
     const lastSeen=usedIds[usedIds.length-1];
     if(recycled&&order.length>1&&order[0].id===lastSeen) order=[...order.slice(1),order[0]];
@@ -143,5 +152,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

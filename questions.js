@@ -305,17 +305,21 @@
   // Shared by every language bank. IDs are derived from world, topic and position,
   // so the same question carries the same id in Dutch and in English.
   // Topic display names live in i18n.js, never on the question itself.
-  window.KWIZILLO_BUILD_BANK = source => {
+  // `extra` (questions-extra*.js) holds the advanced set: ten more questions
+  // per topic, ids 11-20. The base set is difficulty 1-2, the advanced set
+  // 3-4, which is what the six levels draw from (quiz-core LEVELS.band).
+  window.KWIZILLO_BUILD_BANK = (source,extra={}) => {
     const out=[];
     Object.entries(source).forEach(([world,topics])=>{
       Object.entries(topics).forEach(([topic,items])=>{
-        items.forEach((row,i)=>{
+        [...items,...((extra[world]||{})[topic]||[])].forEach((row,i)=>{
           const [prompt,answer,wrongs,hint,explanation,fact]=row;
+          const advanced=i>=10;
           out.push({
             id:`${world}-${topic}-${String(i+1).padStart(2,'0')}`,
             world,topic,
-            groupMin:2+(i%3),groupMax:8,difficulty:1+(i%4),type:'multiple_choice',
-            prompt,options:[answer,...wrongs],answer,hint,explanation,fact,xp:i%4===3?14:10
+            groupMin:advanced?3+(i%3):2+(i%3),groupMax:8,difficulty:advanced?3+(i%2):1+(i%2),type:'multiple_choice',
+            prompt,options:[answer,...wrongs],answer,hint,explanation,fact,xp:advanced?(i%2?18:14):10
           });
         });
       });
@@ -323,5 +327,5 @@
     return out;
   };
 
-  window.KWIZILLO_QUESTIONS_NL = window.KWIZILLO_BUILD_BANK(defs);
+  window.KWIZILLO_QUESTIONS_NL = window.KWIZILLO_BUILD_BANK(defs, window.KWIZILLO_EXTRA_NL||{});
 })();
