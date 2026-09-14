@@ -25,6 +25,10 @@ async function solve(page) {
 test('Memo opens from Home and from a world, lays out a level-1 board of 8 picture pairs', async ({ page }) => {
   await boot(page);
   await page.locator('#homeMemo').click();
+  // A picker first: all worlds or one of the six.
+  await expect(page.locator('.memo-picker')).toBeVisible();
+  await expect(page.locator('[data-memo]')).toHaveCount(7);
+  await page.locator('[data-memo="mix"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   await expect(page.locator('.memo-card')).toHaveCount(16);
   await expect(page.locator('.memo-front.word')).toHaveCount(0);
@@ -33,9 +37,8 @@ test('Memo opens from Home and from a world, lays out a level-1 board of 8 pictu
   const worlds = await page.evaluate(() => new Set(window.KWIZILLO_M1.memo.cards.map(c => c.q.world)).size);
   expect(worlds).toBeGreaterThan(1);
   await page.locator('#memoBack').click();
-  await expect(page.locator('.home')).toBeVisible();
-  await page.locator('[data-world="dieren"]').click();
-  await page.locator('#worldMemo').click();
+  await expect(page.locator('.memo-picker')).toBeVisible();
+  await page.locator('[data-memo="dieren"]').click();
   await expect(page.locator('.memo-card')).toHaveCount(16);
   expect(await page.evaluate(() => new Set(window.KWIZILLO_M1.memo.cards.map(c => c.q.world)).size)).toBe(1);
   const errors = [];
@@ -45,8 +48,8 @@ test('Memo opens from Home and from a world, lays out a level-1 board of 8 pictu
 
 test('a mismatch flips back, a match stays; solving the board rewards XP, coins and a gift', async ({ page }) => {
   await boot(page);
-  await page.locator('[data-world="dieren"]').click();
-  await page.locator('#worldMemo').click();
+  await page.locator('#homeMemo').click();
+  await page.locator('[data-memo="dieren"]').click();
   const pairs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(c.id); return Object.values(by); });
   // Mismatch: one card of pair 0 and one of pair 1.
   await page.locator(`[data-card="${pairs[0][0]}"]`).click();
@@ -74,8 +77,8 @@ test('a mismatch flips back, a match stays; solving the board rewards XP, coins 
 
 test('every level pairs identical pictures; a level-6 board has 14 pairs and 9 s per pair', async ({ page }) => {
   await boot(page, SAVED({ niveau: 3 }));
-  await page.locator('[data-world="aarde"]').click();
-  await page.locator('#worldMemo').click();
+  await page.locator('#homeMemo').click();
+  await page.locator('[data-memo="aarde"]').click();
   await expect(page.locator('.memo-card')).toHaveCount(20);
   await expect(page.locator('.memo-front.word')).toHaveCount(0);
   // Each pair shows the same picture twice, and every pair a different one.
@@ -89,8 +92,8 @@ test('every level pairs identical pictures; a level-6 board has 14 pairs and 9 s
 
 test('running out of time ends the game without reward and offers a retry', async ({ page }) => {
   await boot(page);
-  await page.locator('[data-world="ruimte"]').click();
-  await page.locator('#worldMemo').click();
+  await page.locator('#homeMemo').click();
+  await page.locator('[data-memo="ruimte"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   await page.evaluate(() => window.KWIZILLO_M1.memoFinishForTest(false));   // the interval calls this at zero
   await expect(page.locator('.result-v2')).toBeVisible();

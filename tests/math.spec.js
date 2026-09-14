@@ -27,15 +27,13 @@ test('Maths opens from Home and a world; level 1 shows small sums with counting 
   for (const s of sum) { expect(['+', '-']).toContain(s.op); expect(s.a).toBeGreaterThan(0); expect(s.b).toBeGreaterThan(0); expect(s.answer).toBeGreaterThanOrEqual(0); expect(s.answer).toBeLessThanOrEqual(10); expect(new Set(s.options).size).toBe(4); expect(s.options).toContain(s.answer); }
   await page.locator('#mathBack').click();
   await expect(page.locator('.native-world')).toBeVisible();
-  await page.locator('#worldMath').click();
-  await expect(page.locator('.math-card')).toBeVisible();
+  await expect(page.locator('#worldMath')).toHaveCount(0);   // games live on Home, not on the world page
   expect(errors).toEqual([]);
 });
 
 test('a right answer rewards and moves on; a wrong one shows the answer; the round is passed or failed by the level rule', async ({ page }) => {
   await boot(page);
-  await page.locator('[data-world="dieren"]').click();
-  await page.locator('#worldMath').click();
+  await page.locator('#homeMath').click();
   const a = await currentAnswer(page);
   await page.locator(`.answer[data-a="${a}"]`).click();
   await expect(page.locator('.math-feedback.is-good')).toBeVisible();
@@ -67,12 +65,12 @@ test('Back revisits an answered sum with its verdict; the operator sits on the c
   await expect(page.locator('#mathPrev')).toBeDisabled();
   const [centre, screen] = await page.evaluate(() => { const r = document.querySelector('.math-sum em').getBoundingClientRect(); return [Math.round(r.left + r.width / 2), Math.round(innerWidth / 2)]; });
   expect(Math.abs(centre - screen)).toBeLessThanOrEqual(2);
-  const first = await page.locator('.math-sum').textContent();
+  const first = (await page.locator('.math-sum').textContent()).replace(/=.*$/, '');
   const a = await currentAnswer(page);
   await page.locator(`.answer[data-a="${a}"]`).click();
   await expect(page.locator('.quiz-progress strong')).toHaveText('Som 2 van 10', { timeout: 4000 });
   await page.locator('#mathPrev').click();
-  await expect(page.locator('.math-sum')).toHaveText(first);
+  expect((await page.locator('.math-sum').textContent()).replace(/=.*$/, '')).toBe(first);
   await expect(page.locator('.answer.correct')).toHaveCount(1);
   await expect(page.locator('.math-eq strong')).toHaveText(String(a));
   await expect(page.locator('#mathTimer')).toHaveCount(0);

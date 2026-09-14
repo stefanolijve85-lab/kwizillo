@@ -34,6 +34,23 @@
   let timer=null;
   function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
 
+  // Picker: which world's pictures (or all of them) the board is made of.
+  K.showMemoPicker=()=>{
+    K.stopSpeech();stopTimer();
+    const worlds=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
+    const f=K.frame(`<section class="native-panel-screen memo-picker fade-in">
+      <div class="native-panel-glow"></div>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('memo.title'))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('memo.pickSub',{n:K.state.niveau||1}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
+      <div class="panel-scroll">
+        <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b><small>${esc(t('memo.allWorldsSub'))}</small></button>
+        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:center 40%"><span class="home-game-veil"></span><b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
+      </div>
+    </section>`);
+    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
+    f.querySelector('.panel-settings').onclick=()=>{K.sfx('tap');K.showParent()};
+    f.querySelectorAll('[data-memo]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startMemo(b.dataset.memo)});
+  };
+
   K.startMemo=world=>{
     K.stopSpeech();stopTimer();
     world=world||'mix';
@@ -79,7 +96,7 @@
         <div class="memo-foot"><span id="memoMovesFoot">${esc(t('memo.moves',{n:0}))}</span><span>${esc(t('memo.hintLine'))}</span></div>
       </div>
     </section>`);
-    const home=()=>m.world==='mix'?K.showHome():K.showWorld(m.world);
+    const home=()=>K.showMemoPicker();
     f.querySelector('#memoBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');home()};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:home})});
     f.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>flip(b));
@@ -93,7 +110,8 @@
         const now=performance.now();left-=now-last;last=now;
         if(!el.isConnected){stopTimer();return}
         el.style.setProperty('--p',String(Math.max(0,left/(m.seconds*1000))*100));
-        el.querySelector('b').textContent=Math.max(0,Math.ceil(left/1000));
+        const sec=Math.max(0,Math.ceil(left/1000));if(sec!==timer.sec){timer.sec=sec;K.timerTick?.(sec)}
+        el.querySelector('b').textContent=sec;
         el.classList.toggle('urgent',left<=10000);
         if(left<=0){stopTimer();finish(false)}
       },100)};
@@ -163,7 +181,7 @@
         <div class="result-stats"><span><b>${m.moves}</b><small>${esc(t('memo.movesShort'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <div class="result-native">
           <button id="againBtn">${esc(t(won?'memo.again':'memo.retry'))}</button>
-          <button id="worldBtn" class="secondary">${esc(m.world==='mix'?t('nav.home'):t('memo.toWorld'))}</button>
+          <button id="worldBtn" class="secondary">${esc(t('memo.otherWorld'))}</button>
           <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
@@ -176,7 +194,7 @@
       K.speak(t('memo.speech.done'));
     }else{K.sfx('bad');K.speak(t('memo.speech.time'))}
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMemo(m.world)};
-    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');m.world==='mix'?K.showHome():K.showWorld(m.world)};
+    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
   }
 })();

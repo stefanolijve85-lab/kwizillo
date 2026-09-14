@@ -123,7 +123,7 @@
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
-    f.querySelector('#homeMemo').onclick=()=>{K.sfx('world');K.startMemo('mix')};
+    f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);
@@ -174,10 +174,6 @@
           <span class="world-topic-copy"><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
           <i>›</i>
         </button>`).join('')}</div>
-        <div class="world-games">
-          <button class="world-game art" id="worldMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
-          <button class="world-game art math" id="worldMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
-        </div>
         <button class="world-mix" id="worldMix">
           <span>${K.icon('play')}</span>
           <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${esc(t('world.mixSub'))}</small></span>
@@ -191,8 +187,6 @@
     f.querySelector('#worldGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,Number(b.dataset.topic))});
     f.querySelector('#worldMix').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,null)};
-    f.querySelector('#worldMemo').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startMemo(world)};
-    f.querySelector('#worldMath').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startMath(world)};
     bindNav(f);
   };
 

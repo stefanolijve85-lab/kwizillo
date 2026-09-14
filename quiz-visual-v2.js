@@ -112,6 +112,7 @@
         if(!timer.paused) left-=now-last; last=now;
         if(!el.isConnected){stopTimer();return}
         const sec=Math.max(0,Math.ceil(left/1000));
+        if(sec!==timer.sec){timer.sec=sec;K.timerTick?.(sec)}
         el.style.setProperty('--p',String(Math.max(0,left/(seconds*1000))*100));
         el.querySelector('b').textContent=sec;
         el.classList.toggle('urgent',left<=5000);

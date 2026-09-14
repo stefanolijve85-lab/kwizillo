@@ -83,8 +83,7 @@
         </header>
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
         <main class="quiz-card math-card">
-          ${s.op&&!s.text.includes('%')?`<div class="math-sum grid"><b>${s.a}</b><em>${esc(s.op)}</em><b>${s.b}</b></div>`:`<div class="math-sum"><b>${esc(s.text)}</b></div>`}
-          <div class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</div>
+          ${s.op&&!s.text.includes('%')?`<div class="math-sum grid"><b>${s.a}</b><em>${esc(s.op)}</em><b>${s.b} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`:`<div class="math-sum"><b>${esc(s.text)} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`}
           ${dots}
           <div class="answers math-answers">${s.options.map((o,i)=>`<button class="answer ${done?(o===s.answer?'correct':done.value===o?'wrong':''):''}" data-a="${o}" data-index="${i}" ${done?'disabled':''}><span class="answer-letter">${'ABCD'[i]}</span><span class="answer-copy">${o}</span></button>`).join('')}</div>
           <div class="math-feedback" id="mathFeedback" hidden></div>
@@ -112,7 +111,7 @@
       const el=f.querySelector('#mathTimer');if(!el)return;
       let left=seconds*1000,last=performance.now();el.classList.add('running');
       timer={paused:false,id:setInterval(()=>{const now=performance.now();if(!timer.paused)left-=now-last;last=now;if(!el.isConnected){stopTimer();return}
-        el.style.setProperty('--p',String(Math.max(0,left/(seconds*1000))*100));el.querySelector('b').textContent=Math.max(0,Math.ceil(left/1000));el.classList.toggle('urgent',left<=5000);
+        el.style.setProperty('--p',String(Math.max(0,left/(seconds*1000))*100));const sec=Math.max(0,Math.ceil(left/1000));if(sec!==timer.sec){timer.sec=sec;K.timerTick?.(sec)}el.querySelector('b').textContent=sec;el.classList.toggle('urgent',left<=5000);
         if(left<=0){stopTimer();answer(null,null)}},100)};
     };
     const read=async()=>{if(timer)timer.paused=true;await K.speak(s.speech);if(timer)timer.paused=false;startTimer()};
