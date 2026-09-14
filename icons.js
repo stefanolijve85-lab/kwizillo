@@ -32,6 +32,8 @@
   K.ICONS=ICONS;
 
   // A round world badge: the world's own painting, cropped to its island.
+  // Where each world painting's island sits: shared by every cropped tile.
   const FOCUS={ruimte:'center 30%',dieren:'center 38%',aarde:'center 60%',geschiedenis:'center 64%',wetenschap:'center 52%',mysterie:'center 24%'};
+  K.WORLD_FOCUS=FOCUS;
   K.worldBadge=(w,cls='')=>K.MASTER?.[w]?`<img class="world-badge ${cls}" src="${K.MASTER[w]}" alt="" style="object-position:${FOCUS[w]||'center'}">`:'';
 })();
