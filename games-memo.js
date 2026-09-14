@@ -71,9 +71,31 @@
     ]));
     K.memo={world,bgWorld,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols,rows:r.rows};
     render();
-    // Every word on the board is warmed now, so a flip speaks at once.
-    K.prefetchSpeech([...qs.map(q=>q.answer),t('memo.speech.done'),t('memo.speech.time')]);
+    // Pictures first, words second: the board's images get the connections
+    // before the speech warm-up starts, so no tile is still empty when the
+    // child flips it.
+    loadBoardArt(qs).then(()=>K.prefetchSpeech([...qs.map(q=>q.answer),t('memo.speech.done'),t('memo.speech.time')]));
   };
+
+  // Loads every picture on the board, four at a time, and resolves when all
+  // are in the cache (a failed load resolves too; the tile's own onerror
+  // retries it).
+  function loadBoardArt(qs){
+    const urls=[...new Set(qs.map(q=>K.questionArt(q)))];
+    let i=0;
+    const worker=()=>new Promise(done=>{const step=()=>{if(i>=urls.length)return done();const img=new Image();img.onload=img.onerror=step;img.src=urls[i++]};step()});
+    return Promise.all([0,1,2,3].map(worker));
+  }
+
+  // A tile whose picture fails (a dropped Wi-Fi request shows Safari's grey
+  // "?") reloads it once with a fresh URL, and after that shows the word so the
+  // pair can still be found.
+  function armArt(img,word){
+    img.onerror=()=>{
+      if(!img.dataset.retry){img.dataset.retry='1';setTimeout(()=>{img.src=img.src.split('?')[0]+'?r='+Date.now()},700);return}
+      const b=document.createElement('b');b.textContent=word;img.parentElement.classList.add('word');img.replaceWith(b);
+    };
+  }
 
   function render(){
     const m=K.memo;
@@ -100,8 +122,7 @@
     f.querySelector('#memoBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');home()};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:home})});
     f.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>flip(b));
-    // Preload the pictures so the first flip shows the art at once.
-    m.cards.forEach(c=>{if(c.kind==='art'){const i=new Image();i.src=K.questionArt(c.q)}});
+    m.cards.forEach(c=>{const img=f.querySelector(`[data-card="${c.id}"] .memo-front img`);if(img)armArt(img,c.q.answer)});
 
     if(m.seconds){
       const el=f.querySelector('#memoTimer');

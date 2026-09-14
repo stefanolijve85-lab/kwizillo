@@ -65,9 +65,22 @@
   }
   // Warm the cache for texts that will be spoken next. Never throws, never
   // plays anything, and is a no-op without a voice.
+  // Warm-ups go two at a time: the browser allows about six connections per
+  // host, and a Memo board that fired fourteen speech requests at once left no
+  // connection for its own pictures on the iPhone. A tap that needs a line
+  // now still jumps the queue, because K.speak fetches directly and shares an
+  // in-flight request when one exists.
+  const warm=[];let warming=0;const WARM_PARALLEL=2;
+  function pumpWarm(){
+    while(warming<WARM_PARALLEL&&warm.length){
+      const {text,voice}=warm.shift();warming++;
+      fetchVoiceBlob(text,undefined,voice).catch(()=>{}).finally(()=>{warming--;pumpWarm()});
+    }
+  }
   K.prefetchSpeech=(texts,{voice=K.state.voice}={})=>{
     if(!speechAvailable||voice==='Stil') return;
-    for(const text of (texts||[]).filter(Boolean)) fetchVoiceBlob(text,undefined,voice).catch(()=>{});
+    for(const text of (texts||[]).filter(Boolean)) if(!warm.some(w=>w.text===text&&w.voice===voice)) warm.push({text,voice});
+    pumpWarm();
   };
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
   async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(c.state==='suspended')await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;pre.gain.value=measureVoiceGain(buffer);compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source)voiceSource=null;resolve(gate.isCurrent(token))};try{source.start();onStart?.(buffer.duration)}catch(e){resolve(false)}})}

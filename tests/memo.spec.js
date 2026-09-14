@@ -103,3 +103,27 @@ test('running out of time ends the game without reward and offers a retry', asyn
   await expect(page.locator('#againBtn')).toHaveText('Probeer opnieuw');
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.xp)).toBe(0);
 });
+
+test('a tile whose picture fails to load retries it, and shows the word when it keeps failing', async ({ page }) => {
+  // Every question picture fails the first time; one of them fails for good.
+  const tried = new Map(); let doomed = null;
+  await page.route(/\/assets\/questions\/q\/[^/]+\.jpg(\?.*)?$/, route => {
+    const url = route.request().url().split('?')[0];
+    const n = (tried.get(url) || 0) + 1; tried.set(url, n);
+    if (n === 1) return route.abort();
+    if (!doomed) doomed = url;               // the first retry is a board tile: doom it
+    if (url === doomed) return route.abort();
+    return route.continue();
+  });
+  await boot(page);
+  await page.locator('#homeMemo').click();
+  await page.locator('[data-memo="mix"]').click();
+  await expect(page.locator('.memo-board')).toBeVisible();
+  // The retried pictures come back (each URL was asked for at least twice)…
+  await expect.poll(() => page.evaluate(() => [...document.querySelectorAll('.memo-front img')].filter(i => i.complete && i.naturalWidth > 0).length), { timeout: 8000 }).toBe(14);
+  // …and the tile that never loads shows its word instead of a broken image.
+  await expect(page.locator('.memo-front.word b')).toHaveCount(2, { timeout: 8000 });
+  expect([...tried.values()].every(n => n >= 2)).toBe(true);
+  const broken = await page.evaluate(() => [...document.querySelectorAll('.memo-front img')].filter(i => i.complete && i.naturalWidth === 0).length);
+  expect(broken).toBe(0);
+});
