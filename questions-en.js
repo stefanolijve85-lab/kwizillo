@@ -29,13 +29,13 @@
       ],
       astronauten: [
         ["What do you call someone who travels to space?","Astronaut",["Archaeologist","Diver","Captain"],"That person often wears a spacesuit.","An astronaut travels and works in space.","Astronauts often train for years."],
-        ["Why do astronauts wear a spacesuit outside a spacecraft?","For air and protection",["Only for warmth","For speed","As a uniform"],"You cannot simply breathe in space.","A spacesuit supplies oxygen and protection.","A spacesuit also protects against extreme temperatures."],
+        ["Why do astronauts wear a spacesuit outside a spacecraft?","For air and protection",["For warmth","For speed","As a uniform"],"You cannot simply breathe in space.","A spacesuit supplies oxygen and protection.","A spacesuit also protects against extreme temperatures."],
         ["What do astronauts often feel in a space station?","Weightlessness",["Heavy rain","Strong wind","Earthquakes"],"They seem to float.","In orbit astronauts experience microgravity.","Everything has to be strapped down so it does not float away."],
         ["Where do astronauts usually sleep on the space station?","In sleeping bags that are strapped down",["In normal beds","In hammocks outside","On the floor"],"Otherwise they would float away.","Astronauts often sleep in attached sleeping bags.","In microgravity there is no real up or down."],
         ["Why do astronauts train under water?","To imitate weightlessness",["To swim faster","To look for moon water","To relax"],"Under water you can practise floating movements.","Underwater training helps rehearse spacewalks.","Big pools sometimes hold models of space station parts."],
         ["What is a spacewalk?","Work outside a spacecraft",["Walking on Earth","Running inside a rocket","Strolling in a museum"],"The astronaut stays attached with safety systems.","A spacewalk is also called an EVA.","Astronauts wear a full spacesuit for it."],
         ["What happens to muscles in long periods of weightlessness?","They can get weaker",["They turn to steel","They vanish at once","They always grow faster"],"That is why astronauts exercise a lot.","Without training muscles and bones can weaken.","Astronauts train every day on the ISS."],
-        ["What do astronauts eat in space?","Specially packaged food",["Only pills","Only ice cream","Nothing"],"It has to be safe in microgravity.","Astronauts eat specially packaged food.","Crumbs are tricky because they can float around."],
+        ["What do astronauts eat in space?","Specially packaged food",["Pills","Ice cream","Nothing"],"It has to be safe in microgravity.","Astronauts eat specially packaged food.","Crumbs are tricky because they can float around."],
         ["What is the ISS?","An international space station",["A planet","A rocket engine","A moon base"],"It orbits the Earth.","The ISS is a large space station in orbit around Earth.","Astronauts from different countries work there together."],
         ["Why must an astronaut stay tethered while working?","So they do not float away",["For extra gravity","Against rain","For speed"],"In microgravity you keep on moving easily.","A tether stops someone drifting off uncontrolled.","Tools are usually secured too."]
       ],
@@ -45,7 +45,7 @@
         ["What happens at liftoff?","The rocket rises",["The rocket lands","The engine always stops","The moon comes closer"],"This is the moment of departure.","Liftoff is the moment the rocket leaves the ground.","The first seconds are technically very important."],
         ["Why do some rockets have several stages?","To drop empty parts",["For extra windows","For sleeping areas","For colours"],"That way the rocket carries less mass.","Rockets can drop stages once their fuel is gone.","That makes further acceleration more efficient."],
         ["What is a launch pad?","The place where a rocket departs",["A satellite","A moon rover","A cockpit seat"],"The rocket stands there before the start.","A launch pad supports the rocket before flight.","There are huge systems for fuel, cooling and safety."],
-        ["What is a satellite?","An object that orbits another object",["A star explosion","A rocket engine","Only a telescope"],"The moon is technically a natural satellite too.","Satellites travel in orbit around a planet or other body.","Artificial satellites help with navigation and communication."],
+        ["What is a satellite?","An object that orbits another object",["A star explosion","A rocket engine","A telescope"],"The moon is technically a natural satellite too.","Satellites travel in orbit around a planet or other body.","Artificial satellites help with navigation and communication."],
         ["Why is the nose of a rocket streamlined?","To reduce air resistance",["To be heavier","To catch more rain","For colour"],"A smooth shape moves through air more easily.","A streamlined shape reduces drag.","Once out of the atmosphere air resistance is almost gone."],
         ["What is a capsule?","A part where people or cargo can travel",["A galaxy","A moon","An engine fuel"],"It often sits on top of the rocket.","A space capsule carries people or cargo.","Some capsules come back down with parachutes."],
         ["What helps a capsule land safely?","Parachutes",["Stars","Solar flares","Asteroids"],"They slow the descent.","Parachutes slow down a returning capsule.","Some vehicles land using engines as well."],
@@ -73,7 +73,7 @@
         ["What happened at a knights tournament?","Knights took part in contests",["People built pyramids","People sailed to America","People made telescopes"],"Think of jousting.","Tournaments were contests for knights.","Jousting was a spectacular event."],
         ["What is a shield?","Protection against attacks",["A musical instrument","A map","A drinking cup"],"Knights often carried it on one arm.","A shield protects against weapons.","Shields often carried symbols or coats of arms."],
         ["Who usually did not live permanently in a medieval castle?","All the farmers from the area",["The lord of the castle","Soldiers","Servants"],"Many people lived in villages around the castle.","Most farmers lived outside the castle.","In times of danger people could sometimes shelter there."],
-        ["Why did castles have thick walls?","For defence",["For faster internet","Only for warmth","Only for decoration"],"They had to withstand attacks.","Thick stone walls made castles stronger.","Later, cannons made many walls far less effective."],
+        ["Why did castles have thick walls?","For defence",["For faster internet","For warmth","For decoration"],"They had to withstand attacks.","Thick stone walls made castles stronger.","Later, cannons made many walls far less effective."],
         ["What did a squire often do?","Help a knight and learn",["Bury a pharaoh","Fly a rocket","Build a temple"],"He was sometimes preparing for knighthood.","A squire helped a knight and learned skills.","Not every squire eventually became a knight."],
         ["What was a stronghold?","A fortified place to live",["A galaxy","A ship","A school subject"],"The word is often used for castles.","A stronghold was a fortified place.","Strongholds often stood in strategic spots."]
       ],
@@ -82,11 +82,11 @@
         ["What was an aqueduct?","A structure to carry water",["A knight helmet","A temple for boats","A coin"],"It brought water to cities.","Roman aqueducts carried water over long distances.","Some aqueducts are still visible today."],
         ["Which language did many Romans speak?","Latin",["Dutch","Japanese","Arabic"],"Many European words come from it.","Latin was an important language in the Roman Empire.","French, Spanish and Italian are Romance languages."],
         ["What was a legion?","A large group of Roman soldiers",["A market","A bathhouse","A ship"],"It was part of the army.","A legion was a large army unit.","Roman soldiers trained strictly."],
-        ["What was a forum in a Roman town?","A central square",["A prison","A farm","Only a harbour"],"People came there for trade and government.","The forum was an important town centre.","Temples and public buildings often stood there."],
+        ["What was a forum in a Roman town?","A central square",["A prison","A farm","A harbour"],"People came there for trade and government.","The forum was an important town centre.","Temples and public buildings often stood there."],
         ["What were Roman bathhouses for?","Washing and meeting",["Building rockets","Storing grain","Training horses"],"People also gathered there socially.","Bath complexes were important meeting places.","Some had hot and cold baths."],
         ["What did a Roman soldier often wear?","A helmet and shield",["A spacesuit","A cowboy hat","A wetsuit"],"He had to protect himself in battle.","Roman soldiers used helmets, shields and weapons.","Their equipment changed over the centuries."],
-        ["What does “Roman Empire” mean?","A large area governed from Rome",["Only the city of Rome","A pyramid","An order of knights"],"It stretched across large parts of Europe.","The Roman Empire was very extensive.","At its height it covered lands around the Mediterranean."],
-        ["What did Romans use for long distances over land?","An extensive road network",["Only rivers","Hot air balloons","Trains"],"Many roads were solidly built.","The Romans built a large road network.","Some modern roads follow old Roman routes."],
+        ["What does “Roman Empire” mean?","A large area governed from Rome",["The city of Rome","A pyramid","An order of knights"],"It stretched across large parts of Europe.","The Roman Empire was very extensive.","At its height it covered lands around the Mediterranean."],
+        ["What did Romans use for long distances over land?","An extensive road network",["Rivers","Hot air balloons","Trains"],"Many roads were solidly built.","The Romans built a large road network.","Some modern roads follow old Roman routes."],
         ["What was a senator in Rome?","An important official",["Always a gladiator","A pharaoh","A knight"],"He had a political role.","Senators had influence on government.","The Roman Senate lasted for centuries."]
       ],
       ontdekkingsreizigers: [
@@ -112,17 +112,17 @@
         ["What does a thermometer do in an experiment?","Measure temperature",["Measure time","Measure weight","Make light"],"You can measure hot or cold with it.","A thermometer measures temperature.","Here we often use degrees Celsius."],
         ["Why do you write down the results of an experiment?","So you can compare them",["To forget them","To clean the glass","For decoration"],"Scientists record their measurements.","Recording results helps with analysis and repetition.","Good science has to be checkable."],
         ["What happens to ice when you heat it?","It melts",["It turns to stone","It disappears at once","It gets heavier"],"Solid water becomes liquid.","Ice melts into water.","At normal pressure ice melts around 0 °C."],
-        ["What do you need to make a shadow?","A light source and an object",["Only sound","Only water","Only wind"],"The object blocks the light.","A shadow appears when light is blocked.","Its size changes with the distance to the light source."],
+        ["What do you need to make a shadow?","A light source and an object",["Sound","Water","Wind"],"The object blocks the light.","A shadow appears when light is blocked.","Its size changes with the distance to the light source."],
         ["What is dissolving, like sugar in water?","The substance spreads through the liquid",["The substance leaves the world","The substance becomes fire","The liquid freezes"],"You can no longer see the grains separately.","Dissolved particles spread through the liquid.","You can often get sugar back by evaporating the water."]
       ],
       lichaam: [
         ["Which organ pumps blood around your body?","Heart",["Lungs","Stomach","Brain"],"You can feel it beating.","The heart pumps blood around.","Your heart beats about a hundred thousand times a day."],
         ["What do you mainly breathe with?","Lungs",["Kidneys","Stomach","Bones"],"They sit inside your chest.","The lungs take in oxygen.","You normally have two lungs."],
         ["Which organ helps you think?","Brain",["Liver","Heart","Intestines"],"It sits inside your skull.","The brain processes information and controls many body functions.","Billions of nerve cells work together there."],
-        ["What does blood carry around your body?","Oxygen and nutrients",["Only air","Only bones","Only warmth"],"Blood travels through blood vessels.","Blood carries oxygen and nutrients among other things.","Red blood cells help carry oxygen."],
+        ["What does blood carry around your body?","Oxygen and nutrients",["Air","Bones","Warmth"],"Blood travels through blood vessels.","Blood carries oxygen and nutrients among other things.","Red blood cells help carry oxygen."],
         ["Where does digesting food already begin?","In the mouth",["In the foot","In the lungs","In the ear"],"You chew food into small pieces.","Digestion begins in the mouth.","Saliva contains substances that help break food down."],
         ["What do your ribs protect?","Heart and lungs",["Your feet","Your teeth","Your fingers"],"They form a cage around the chest.","Ribs protect important organs.","Most people have 12 pairs of ribs."],
-        ["Besides support, what are bones for?","Protection and movement",["Only colour","Only sleep","Only temperature"],"Muscles pull on bones.","Bones give support and protection and help with movement.","Blood cells are made in bone marrow."],
+        ["Besides support, what are bones for?","Protection and movement",["Colour","Sleep","Temperature"],"Muscles pull on bones.","Bones give support and protection and help with movement.","Blood cells are made in bone marrow."],
         ["What do muscles do?","They contract to create movement",["They only make blood","They digest food","They see light"],"Muscles often work together with bones.","Muscles can contract and so cause movement.","Your body has hundreds of muscles."],
         ["What is the skin?","The largest organ of your body",["A bone","A muscle","A blood vessel"],"It covers your whole body.","The skin protects the body.","The skin also helps regulate temperature."],
         ["Which sense do you use with your ears?","Hearing",["Taste","Smell","Sight"],"You pick up sound waves.","With your ears you sense sound.","Your inner ear also helps with balance."]
@@ -134,17 +134,17 @@
         ["What is a battery used for?","Storing and supplying electrical energy",["Measuring wind","Boiling water without energy","Making stars"],"You find one in many devices.","A battery supplies electrical energy.","Rechargeable batteries can be used again."],
         ["What does a magnet do?","It can attract certain metals",["It always makes light","It freezes water","It stops time"],"Iron responds to it well.","Magnets exert forces on magnetic materials.","A magnet has a north and a south pole."],
         ["What does a solar panel make?","Electricity from light",["Rain from clouds","Petrol from air","Sound from stones"],"The sun supplies the energy.","Solar cells turn light into electricity.","Solar panels need no moving parts."],
-        ["What does an engine do?","Turn energy into movement",["Only make colours","Freeze water","Read paper"],"Cars and machines use engines.","An engine converts energy into movement.","There are electric and combustion engines."],
+        ["What does an engine do?","Turn energy into movement",["Make colours","Freeze water","Read paper"],"Cars and machines use engines.","An engine converts energy into movement.","There are electric and combustion engines."],
         ["Why was the telephone an important invention?","People could speak over a distance",["People could fly","People could stop time","People could live without power"],"Sound was sent across a distance.","The telephone changed communication greatly.","Mobile phones now combine many functions."],
-        ["What does a computer mainly do?","Process information",["Only make music","Only give light","Purify water"],"It carries out instructions.","Computers process data according to programs.","Even a smartwatch contains a computer."],
+        ["What does a computer mainly do?","Process information",["Make music","Give light","Purify water"],"It carries out instructions.","Computers process data according to programs.","Even a smartwatch contains a computer."],
         ["Which invention uses radio waves to work out position?","GPS",["Magnet","Microscope","Stethoscope"],"Satellites help work out where you are.","GPS uses signals from satellites.","Your phone uses GPS for navigation."]
       ],
       natuur_energie: [
         ["Which energy source uses moving air?","Wind energy",["Solar energy","Natural gas","Nuclear energy"],"Wind turbines spin because of it.","Wind turbines turn wind into electricity.","Larger turbines can supply many households."],
         ["Which energy source uses sunlight?","Solar energy",["Coal","Oil","Natural gas"],"Panels capture the light.","Solar panels turn light into electricity.","The sun supplies far more energy than we use worldwide."],
-        ["What is renewable energy?","Energy from sources that keep being replenished",["Energy that is never used","Only petrol","Only coal"],"Think of sun and wind.","Renewable sources do not run out quickly.","Hydropower and geothermal energy can be renewable too."],
+        ["What is renewable energy?","Energy from sources that keep being replenished",["Energy that is never used","Petrol","Coal"],"Think of sun and wind.","Renewable sources do not run out quickly.","Hydropower and geothermal energy can be renewable too."],
         ["What does a wind turbine do?","Turn wind into electricity",["Make rain","Produce petrol","Move clouds"],"The blades turn in the wind.","A generator inside the turbine makes electricity.","Wind turbines stand on land and at sea."],
-        ["Which substance is released when fossil fuels burn?","Carbon dioxide",["Only oxygen","Gold","Only helium"],"It is a greenhouse gas.","Burning oil, gas and coal releases CO₂.","More CO₂ strengthens the greenhouse effect."],
+        ["Which substance is released when fossil fuels burn?","Carbon dioxide",["Oxygen","Gold","Helium"],"It is a greenhouse gas.","Burning oil, gas and coal releases CO₂.","More CO₂ strengthens the greenhouse effect."],
         ["Why do we insulate houses?","To keep heat in or out better",["To make windows heavier","To make water","To boost wi-fi"],"Good insulation saves energy.","Insulation reduces heat loss.","Roofs, walls and floors can all be insulated."],
         ["What is hydropower?","Energy from flowing or falling water",["Energy from sand","Energy from smoke","Energy from plastic"],"A dam and a river can drive turbines.","Hydropower uses the movement of water.","It is an important renewable source worldwide."],
         ["What is saving energy?","Using less energy for the same result",["Switching on more lamps","Windows open with the heating on","Leaving appliances running"],"Efficient appliances help.","Saving energy lowers consumption.","LED lamps use less power than old light bulbs."],
@@ -155,7 +155,7 @@
     mysterie: {
       raadsels: [
         ["I have keys but no locks. What am I?","Piano",["Door","Treasure chest","Bicycle"],"You use your fingers to play me.","A piano has keys you press.","A piano can have more than eighty keys."],
-        ["I get wetter while I dry. What am I?","Towel",["Umbrella","Sun","Only a sponge"],"You use me after washing.","A towel gets wet while it dries you.","Towels soak up water with their fibres."],
+        ["I get wetter while I dry. What am I?","Towel",["Umbrella","Sun","A sponge"],"You use me after washing.","A towel gets wet while it dries you.","Towels soak up water with their fibres."],
         ["What has a neck but no head?","Bottle",["Cat","Human","Owl"],"You can drink from it.","A bottle has a neck.","Bottles are made of glass or plastic."],
         ["What has teeth but cannot bite?","Comb",["Shark","Dog","Lion"],"You use it for your hair.","A comb has teeth but no mouth.","Combs have existed for thousands of years."],
         ["What goes up but never comes down?","Your age",["A lift","A ball","A bird"],"Every year it gets bigger.","Your age increases as you get older.","On your birthday another year is added."],
@@ -184,7 +184,7 @@
         ["Why are flamingos pink?","Because of pigments in their food",["Because they are born painted","From sunlight alone","From cold water"],"Their diet contains pigments.","Carotenoids in their food colour the feathers pink.","Young flamingos are much greyer."],
         ["Why do young sunflower buds often turn with the sun?","Through heliotropism",["Through wind force","Through magnetism","Through rain"],"They respond to light.","Young sunflowers can follow the sun.","Mature flowers usually face more towards the east."],
         ["Why do some animals have camouflage?","To stand out less",["To grow faster","To sing louder","To make more heat"],"Colour and pattern match the surroundings.","Camouflage helps with hunting or hiding.","Cuttlefish can change their appearance very quickly."],
-        ["What mainly causes the tides?","The gravity of the moon",["Wind turbines","Only volcanoes","Clouds"],"The moon pulls on the ocean water.","The moon is a major cause of the tides.","The sun affects the tides as well."],
+        ["What mainly causes the tides?","The gravity of the moon",["Wind turbines","Volcanoes","Clouds"],"The moon pulls on the ocean water.","The moon is a major cause of the tides.","The sun affects the tides as well."],
         ["Why are snowflakes often six-sided?","Because of the way water molecules form crystals",["Because of wind turbines","Because of birds","Because of sand"],"Ice forms a fixed crystal pattern.","The molecular structure of ice often leads to six-fold symmetry.","No two large snowflakes are exactly alike."],
         ["Why is the sky usually blue during the day?","Blue light is scattered more strongly",["Because the ocean paints the sky","Because of trees","Because of clouds alone"],"Sunlight contains several colours.","The atmosphere scatters short-wave blue light strongly.","At sunset we see more red and orange."],
         ["Why can geckos walk up walls?","Millions of tiny hairs on their toes",["Suction cups with glue","Magnets","Electricity"],"Their toes make a huge amount of contact with the surface.","Microscopic structures give a great deal of grip.","The forces are called van der Waals forces."]
@@ -231,10 +231,10 @@
         ["Which mammal lives in the sea and breathes air?","Dolphin",["Tuna","Shark","Jellyfish"],"It has to come up regularly.","Dolphins are mammals and breathe with lungs.","They use a blowhole on top of their head."],
         ["Which animal has eight arms?","Octopus",["Shark","Dolphin","Crab"],"It can hide very well.","An octopus has eight arms.","Octopuses are highly intelligent molluscs."],
         ["Which sea animal is the largest animal on Earth?","Blue whale",["Great white shark","Dolphin","Orca"],"It is an enormous whale.","The blue whale is the largest known animal.","It can grow more than 25 metres long."],
-        ["How do most fish breathe?","With gills",["With lungs only","Through their skin only","With feathers"],"They take oxygen from the water.","Gills take up oxygen from water.","Water flows past the gill filaments."],
+        ["How do most fish breathe?","With gills",["With lungs","Through their skin","With feathers"],"They take oxygen from the water.","Gills take up oxygen from water.","Water flows past the gill filaments."],
         ["What helps fish steer and swim?","Fins",["Wings","Legs","Hair"],"They have several different fins.","Fins help with movement and balance.","The tail fin often provides a lot of thrust."],
         ["Which animal can live both in the sea and on land?","Sea turtle",["Tuna","Jellyfish","Seahorse"],"It comes ashore to lay eggs.","Sea turtles live in the sea but lay eggs on land.","Females often return to the beach where they hatched."],
-        ["What is coral actually?","A colony of small animals",["A plant","Only a stone","A fish"],"It forms reefs.","Corals consist of very many small polyps.","Coral reefs are important habitats."],
+        ["What is coral actually?","A colony of small animals",["A plant","A stone","A fish"],"It forms reefs.","Corals consist of very many small polyps.","Coral reefs are important habitats."],
         ["Why do whales come to the surface?","To breathe",["To wash their gills","To sleep on the beach","To cook food"],"They are mammals.","Whales breathe air with lungs.","They breathe through blowholes."],
         ["Which animal has a hard shell and walks sideways?","Crab",["Dolphin","Jellyfish","Squid"],"You often see it on beaches.","Crabs have a hard external skeleton.","Many crabs move sideways easily."],
         ["Why is a streamlined body useful in water?","It reduces resistance",["It makes more noise","It makes the animal heavier","It warms the water"],"Animals move more smoothly through water.","Streamlining helps them swim more efficiently.","Dolphins and sharks are fine examples."]
@@ -267,7 +267,7 @@
       ],
       weer_klimaat: [
         ["What does a thermometer measure?","Temperature",["Wind direction","Amount of rain","Air pressure"],"Hot or cold.","A thermometer measures temperature.","We often use degrees Celsius."],
-        ["What is precipitation?","Water that falls from the sky",["Only wind","Only sunlight","Only fog"],"Rain and snow are examples.","Precipitation can be rain, snow or hail.","It forms from water in clouds."],
+        ["What is precipitation?","Water that falls from the sky",["Wind","Sunlight","Fog"],"Rain and snow are examples.","Precipitation can be rain, snow or hail.","It forms from water in clouds."],
         ["What is wind?","Moving air",["Moving water","Warm sand","A cloud"],"You can feel it but not see it.","Wind is air that moves.","Differences in air pressure cause much of the wind."],
         ["Why does fog often form?","Water vapour condenses close to the ground",["Because of stars","Because of sand","Because of magnets"],"Visibility gets worse.","Fog is made of tiny water droplets in the air.","Fog is really a cloud at ground level."],
         ["What is climate?","The average weather over a long time",["The weather today","A thunderstorm","A rain gauge"],"It is about years, not one day.","Climate describes typical weather over a long period.","Weather can change a lot from day to day."],
@@ -278,10 +278,10 @@
         ["What is frost?","A temperature below freezing",["Strong wind","Very heavy rain","Thick fog"],"Water can freeze then.","In frost the temperature drops to around or below 0 °C.","Hoar frost can form when water vapour freezes."]
       ],
       oceanen_natuur: [
-        ["What covers most of the Earth?","Water",["Desert","Forest","Only ice"],"Oceans take up an enormous amount of space.","About 71% of the Earth is covered by water.","Most of that water is salty sea water."],
+        ["What covers most of the Earth?","Water",["Desert","Forest","Ice"],"Oceans take up an enormous amount of space.","About 71% of the Earth is covered by water.","Most of that water is salty sea water."],
         ["Which ocean is the largest?","Pacific Ocean",["Atlantic Ocean","Indian Ocean","Arctic Ocean"],"It lies between Asia and America.","The Pacific is the largest ocean.","It covers about a third of the surface of the Earth."],
         ["What is melted rock that comes out of a volcano called?","Lava",["Magma underground","Clay","Sand"],"Outside the Earth we call it this.","At the surface melted rock is called lava.","Underground we call it magma."],
-        ["What is an island?","Land completely surrounded by water",["A high cloud","A river","Only a desert"],"You have to cross water to get there.","An island is surrounded by water on all sides.","Greenland is the largest island that is not a continent."],
+        ["What is an island?","Land completely surrounded by water",["A high cloud","A river","A desert"],"You have to cross water to get there.","An island is surrounded by water on all sides.","Greenland is the largest island that is not a continent."],
         ["What is a mountain range?","A series of mountains",["A wide river","A sea","A group of islands"],"The Alps are one.","A mountain range is made of connected mountains.","The Himalayas contain the highest mountains on Earth."],
         ["What is a river mouth?","The place where a river ends",["The source of a river","A mountain top","A desert"],"The river often flows into a sea or a lake.","A river mouth is the end of a river.","Some rivers form a delta at the mouth."],
         ["What is a desert?","An area with very little precipitation",["Always a hot beach","A tropical rainforest","An ocean"],"Not all deserts are hot.","Deserts get very little precipitation.","Antarctica is technically a desert too."],
@@ -290,7 +290,7 @@
         ["What is a delta?","An area where a river splits at its mouth",["A mountain top","An ocean current","A cloud"],"It can hold fertile soil.","A river delta forms from deposited sediment.","The Nile delta is a well-known example."]
       ],
       kaarten_navigatie: [
-        ["What does a compass rose show?","Directions",["Temperature","Only height","Only time zones"],"North, east, south and west.","A compass rose shows directions.","Maps often use N, E, S and W."],
+        ["What does a compass rose show?","Directions",["Temperature","Height","Time zones"],"North, east, south and west.","A compass rose shows directions.","Maps often use N, E, S and W."],
         ["What is a legend on a map for?","To explain the symbols",["To decorate the map","To measure distance","To make wind"],"Colours and signs get a meaning.","A legend explains the symbols on a map.","A blue line can represent a river, for example."],
         ["What is scale on a map?","The ratio between map distance and real distance",["A musical instrument","A temperature gauge","A colour code"],"1 cm can mean 1 km, for example.","Scale makes distances on maps understandable.","A large scale usually shows more detail."],
         ["What are coordinates?","Numbers or values that give a location",["A kind of cloud","A coin","A river"],"GPS uses them.","Coordinates describe a position.","Latitude and longitude are well-known coordinates."],
