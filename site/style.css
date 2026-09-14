@@ -109,5 +109,6 @@ footer a{color:#fff}
 .privacy .wrap{max-width:760px}
 .privacy h2{text-align:left}
 .grid.seven{grid-template-columns:repeat(7,1fr)}
+.grid.seven .mascot img{width:104px;height:104px}
 @media(max-width:1000px){.grid.seven{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:560px){.grid.seven{grid-template-columns:repeat(2,1fr)}.mascot img{width:96px;height:96px}}

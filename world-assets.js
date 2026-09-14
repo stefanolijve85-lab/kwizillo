@@ -83,6 +83,6 @@
   // Second wave of buddies (tools/mascot-prompts.md). Add an id here once its
   // 512x512 picture is in assets/mascots/, so the collection never shows an
   // empty tile: nova, kiko, pip, ravi, flora, draco.
-  for(const id of []) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
+  for(const id of ['nova','kiko','pip','ravi','flora','draco']) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
   K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
 })();
