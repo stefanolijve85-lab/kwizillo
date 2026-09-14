@@ -43,8 +43,7 @@ mirrored in CSS. New poses go through the same three steps and are registered in
 manifest) and `milo-talks.js` (the generated manifest the app reads). Flow
 "Kwizillo Milo praat" (SyUhvtqjRCbWNR70n0Wq): tts node (eleven_v3, Milo's voice
 for the language) → bytedance-omnihuman-v1.5 with `assets/mascots/milo/talk-base.png`.
-About $0.60 per clip. Status on 2026-09-15: NL 11/11, EN 10/11 (missing: voice),
-PT 4/11 (missing: language, name, group, voice, worlds, games, hud) — the
-ElevenLabs credits ran out mid-batch; the app falls back to the still pose plus
-the live voice for any missing clip, so nothing breaks. To finish: top up
-credits, re-run those avatar nodes on the flow, then encode + manifest.
+About $0.60 per clip. All 33 clips (NL/EN/PT x 11 lines) are in place since
+2026-09-15. A missing clip is never fatal: the app falls back to the still pose
+plus the live voice. To redo a line: rerun its tts + avatar pair on the flow,
+then `encode` and `manifest`.
