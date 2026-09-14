@@ -209,6 +209,23 @@ beloning, niveauregels, time-out; geen JS-fouten op SE/14/Pro Max.
 
 ---
 
+### Rekenen (nieuw spel)
+`games-math.js`. Tien gegenereerde sommen per ronde, vier antwoorden, timer en
+foutregels van het niveau: 1 +/− tot 10 (met teldots) · 2 tot 20, verdubbelen ·
+3 tafels 1–5, tientallen · 4 alle tafels en delen · 5 tot 1000, × met tweecijferig ·
+6 tweestaps (c + a × b), helft/kwart, 10/25/50 %. Afleiders liggen dicht bij
+het antwoord (nooit negatief, altijd vier verschillende). Stem leest de som
+("zeven keer acht", "vijfentwintig procent van tachtig") en de antwoorden;
+alle tien sommen vooraf gecachet; goed = chime + confetti + variërende lof,
+fout = "Bijna. Het is 12."; automatisch door na de zin (max 2,4 s) of tik.
+Hint = telstrategie in woorden. Resultaat gehaald/niet gehaald, XP 10 per
+som + sterren, munt per som, beste score per niveau in Statistieken,
+prestatie "3 rekenrondes". Getallen-uitspraak gecontroleerd (NL/EN/PT) en één
+clip getranscribeerd: "Zeven keer acht: A 56, B 48". Tests: `tests/math.spec.js`
+(3) — sommen per niveau, goed/fout-flow, geslaagd/niet gehaald.
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

@@ -192,7 +192,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
       correctQuestionIds: ['ruimte-zonnestelsel-01', 'ruimte-zonnestelsel-02'] } }));
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
-  await expect(page.locator('.achievement-card')).toHaveCount(7);
+  await expect(page.locator('.achievement-card')).toHaveCount(8);
 
   await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
