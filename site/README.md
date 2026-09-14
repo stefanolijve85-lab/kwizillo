@@ -1,7 +1,7 @@
 # Kwizillo website
 
 Static site for **kwizillo.nl** (Dutch, `index.html`) and **kwizillo.com** (English, `en/index.html`).
-No build step: upload this folder as-is.
+No build step. Own server (site + app together): see `../deploy/DEPLOY.md`. Static host: below.
 
 ## Hosting (any static host works)
 1. Netlify / Vercel / Cloudflare Pages: "new site from folder", drag the `site/` folder (or point the

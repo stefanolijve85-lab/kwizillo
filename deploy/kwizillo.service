@@ -1,0 +1,33 @@
+# systemd unit for the Kwizillo game server (Node). Install:
+#   sudo cp deploy/kwizillo.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now kwizillo
+[Unit]
+Description=Kwizillo game server (static files + ElevenLabs TTS proxy)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kwizillo
+Group=kwizillo
+WorkingDirectory=/var/www/kwizillo
+# server.js reads .env from its working directory (never the shell), so the
+# ElevenLabs key is only ever in /var/www/kwizillo/.env (mode 600, owner kwizillo).
+Environment=NODE_ENV=production
+Environment=PORT=8080
+Environment=HOST=127.0.0.1
+Environment=TRUST_PROXY=1
+Environment=ALLOWED_ORIGINS=https://app.kwizillo.nl,https://app.kwizillo.com,capacitor://localhost
+Environment=TTS_DAILY_CHARS=300000
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/kwizillo
+
+[Install]
+WantedBy=multi-user.target

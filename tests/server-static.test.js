@@ -113,4 +113,28 @@ async function waitForServer(){
     server.kill();
     fs.rmSync(ENV_PROBE, { force: true });
   }
+
+  // Production posture (deploy/): origin allowlist and a proxy-aware rate limit.
+  const PORT2 = PORT + 1, BASE2 = `http://127.0.0.1:${PORT2}`;
+  const prod = spawn(process.execPath, ['server.js'], {
+    cwd: ROOT, stdio: 'ignore',
+    env: { ...process.env, PORT: String(PORT2), ELEVENLABS_API_KEY: '', TRUST_PROXY: '1',
+           ALLOWED_ORIGINS: 'https://app.kwizillo.nl,capacitor://localhost', TTS_RATE_LIMIT: '2' }
+  });
+  try {
+    for (let i = 0; i < 50; i++) { try { await fetch(BASE2 + '/'); break; } catch { await new Promise(r => setTimeout(r, 100)); } }
+    const post = (headers) => fetch(BASE2 + '/api/tts', { method: 'POST', headers: { 'Content-Type': 'application/json', ...headers }, body: '{"text":"hoi"}' });
+    assert.strictEqual((await post({})).status, 403, 'no Origin must be refused');
+    assert.strictEqual((await post({ Origin: 'https://evil.example' })).status, 403, 'foreign Origin must be refused');
+    const ok = { Origin: 'capacitor://localhost', 'X-Forwarded-For': '203.0.113.7' };
+    assert.strictEqual((await post(ok)).status, 503, 'allowed Origin passes (no key configured -> 503)');
+    assert.strictEqual((await post(ok)).status, 503);
+    assert.strictEqual((await post(ok)).status, 429, 'third request from the same forwarded client is limited');
+    const other = { Origin: 'https://app.kwizillo.nl', 'X-Forwarded-For': '203.0.113.8' };
+    assert.strictEqual((await post(other)).status, 503, 'another forwarded client has its own bucket');
+    assert.strictEqual((await fetch(BASE2 + '/index.html')).status, 200, 'static files need no Origin');
+    console.log('Kwizillo production-posture tests (origin allowlist, proxy-aware rate limit): OK');
+  } finally {
+    prod.kill();
+  }
 })().catch(e => { fs.rmSync(ENV_PROBE, { force: true }); console.error(e); process.exit(1); });

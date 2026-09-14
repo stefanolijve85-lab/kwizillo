@@ -1,0 +1,39 @@
+# Kwizillo — one server, two hostnames per domain.
+#   kwizillo.nl / kwizillo.com        the static site in /var/www/kwizillo/site
+#   app.kwizillo.nl / app.kwizillo.com the game + TTS proxy (Node on 127.0.0.1:8080)
+# Caddy obtains and renews the HTTPS certificates by itself.
+
+(site-headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+	encode zstd gzip
+}
+
+kwizillo.nl, www.kwizillo.nl {
+	import site-headers
+	root * /var/www/kwizillo/site
+	file_server
+}
+
+kwizillo.com, www.kwizillo.com {
+	import site-headers
+	root * /var/www/kwizillo/site
+	# The English pages live in site/en/; assets and style.css are shared.
+	@page not path /assets/* /style.css /en/*
+	rewrite @page /en{path}
+	file_server
+}
+
+app.kwizillo.nl, app.kwizillo.com {
+	import site-headers
+	# Node serves the game files itself (Range requests for the intro video,
+	# cache headers) and answers /api/tts. X-Forwarded-For is added by Caddy;
+	# server.js uses it for the per-visitor rate limit when TRUST_PROXY=1.
+	reverse_proxy 127.0.0.1:8080 {
+		flush_interval -1
+	}
+}

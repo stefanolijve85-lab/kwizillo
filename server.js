@@ -53,11 +53,45 @@ const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 60);
 const LANGS = new Set(['nl','en','pt']);
 const hits = new Map();
 
+// Production runs behind Caddy (deploy/Caddyfile), where every socket is
+// 127.0.0.1. With TRUST_PROXY=1 the client address comes from the proxy's
+// X-Forwarded-For instead, so the per-client cap is per visitor again.
+// Never set TRUST_PROXY on a server that is reachable without the proxy:
+// anyone could then forge the header and dodge the limit.
+const TRUST_PROXY = process.env.TRUST_PROXY === '1';
+function clientAddress(req){
+  if (TRUST_PROXY) {
+    const fwd = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+    if (fwd) return fwd;
+  }
+  return req.socket.remoteAddress || 'unknown';
+}
+
+// ALLOWED_ORIGINS="https://app.kwizillo.nl,capacitor://localhost" restricts
+// speech to requests that carry one of those Origin headers. Empty (the
+// default for local development) allows any origin. This keeps casual reuse of
+// the proxy out; the rate limit and the daily budget below cover the rest.
+const ALLOWED_ORIGINS = new Set(String(process.env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean));
+function originAllowed(req){
+  if (!ALLOWED_ORIGINS.size) return true;
+  return ALLOWED_ORIGINS.has(String(req.headers.origin || ''));
+}
+
+// TTS_DAILY_CHARS caps how many characters the whole server sends to
+// ElevenLabs per calendar day (0 = no cap). A cache hit costs nothing. The cap
+// is the hard ceiling on the credit bill whatever else goes wrong.
+const DAILY_CHARS = Number(process.env.TTS_DAILY_CHARS || 0);
+let dailyDay = '', dailyUsed = 0;
+function dailyBudgetLeft(){
+  const day = new Date().toISOString().slice(0, 10);
+  if (day !== dailyDay) { dailyDay = day; dailyUsed = 0; }
+  return DAILY_CHARS ? DAILY_CHARS - dailyUsed : Infinity;
+}
+function dailySpend(chars){ dailyBudgetLeft(); dailyUsed += chars; }
+
 // Coarse per-client cap so an open proxy cannot burn ElevenLabs credits.
-// This is a development safeguard; production needs a real gateway plus
-// validation that the requested text actually comes from the question bank.
 function rateLimited(req){
-  const key = req.socket.remoteAddress || 'unknown';
+  const key = clientAddress(req);
   const now = Date.now();
   const seen = (hits.get(key) || []).filter(t => now - t < RATE_WINDOW_MS);
   seen.push(now);
@@ -379,6 +413,8 @@ async function tts(text, guide, lang){
   const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`).digest('hex');
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta};
+  if(dailyBudgetLeft()<text.length){ const e=new Error('daily TTS budget spent'); e.name='BudgetError'; throw e; }
+  dailySpend(text.length);
 
   const body=JSON.stringify({
     text, model_id:MODEL,
@@ -426,8 +462,10 @@ const server=http.createServer(async(req,res)=>{
       }catch(e){console.error('Kwizillo voice-status:',e?.message||e);return json(res,200,{mode:'error'});}
     }
     if(url.pathname==='/api/tts'&&req.method==='POST'){
-      if(!API_KEY)return json(res,503,{error:'Spraak is niet geconfigureerd'});
+      // Abuse checks first, so they hold whether or not a key is configured.
+      if(!originAllowed(req))return json(res,403,{error:'Spraak is alleen beschikbaar in de app'});
       if(rateLimited(req))return json(res,429,{error:'Te veel spraakverzoeken'});
+      if(!API_KEY)return json(res,503,{error:'Spraak is niet geconfigureerd'});
       let raw='',aborted=false;
       req.on('data',d=>{raw+=d;if(raw.length>MAX_BODY_BYTES){aborted=true;req.destroy()}});
       return req.on('end',async()=>{
@@ -446,6 +484,7 @@ const server=http.createServer(async(req,res)=>{
           // Upstream detail stays in the server log; the client gets a generic message.
           console.error('Kwizillo TTS:',e?.message||e);
           const timeout=e?.name==='TimeoutError'||e?.name==='AbortError';
+          if(e?.name==='BudgetError')return json(res,503,{error:'Spraak is tijdelijk niet beschikbaar'});
           json(res,timeout?504:502,{error:timeout?'Spraak duurde te lang':'Spraak is tijdelijk niet beschikbaar'});
         }
       });
