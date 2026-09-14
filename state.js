@@ -31,6 +31,7 @@
     musicOn:true,
     sfxVolume:.72,
     musicVolume:.24,
+    voiceVolume:1,          // guide voice, separate from effects and music
     musicTrack:'magical',
     timeLimitOn:true,       // per-question timer (seconds follow the level)
     timeLimit:45,           // legacy, unused

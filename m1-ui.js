@@ -424,7 +424,9 @@
         <button class="sound-voice ${K.state.voice==='Milo'?'selected':''}" data-guide="Milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""> <b>${esc(t('voice.milo'))}</b></button>
         <button class="sound-voice ${K.state.voice==='Luna'?'selected':''}" data-guide="Luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt=""> <b>${esc(t('voice.luna'))}</b></button>
         <button class="sound-voice ${K.state.voice==='Stil'?'selected':''}" data-guide="Stil">🔇 <b>${esc(t('voice.silent'))}</b></button>
-      </div></div>`;
+      </div>
+      <div class="volume-row voice-volume"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.voiceVolume??1)*100)}" data-volume="voice" ${K.state.voice==='Stil'?'disabled':''}><span>🔊</span><button class="sound-test" data-test="voice" ${K.state.voice==='Stil'?'disabled':''}>${esc(t('sound.test'))}</button></div>
+      </div>`;
     f.appendChild(o);
     const redraw=()=>{o.remove();K.showSoundSettings()};
     o.querySelector('.sound-close').onclick=()=>{K.stopSpeech();o.remove()};
@@ -432,7 +434,9 @@
     o.querySelector('[data-toggle="music"]').onclick=async()=>{await K.audio.setMusic(K.state.musicOn===false);redraw()};
     o.querySelector('[data-volume="sfx"]').oninput=e=>K.audio.setSfxVolume(e.target.value/100);
     o.querySelector('[data-volume="music"]').oninput=e=>K.audio.setMusicVolume(e.target.value/100);
-    o.querySelector('.sound-test').onclick=()=>K.audio.play('reward');
+    o.querySelector('.sound-test:not([data-test])').onclick=()=>K.audio.play('reward');
+    o.querySelector('[data-volume="voice"]').oninput=e=>K.audio.setVoiceVolume(e.target.value/100);
+    o.querySelector('[data-test="voice"]').onclick=()=>{K.stopSpeech();K.speak(t(K.state.voice==='Luna'?'voice.luna.hello':'voice.milo.hello'))};
     o.querySelectorAll('[data-track]').forEach(b=>b.onclick=async()=>{await K.audio.setTrack(b.dataset.track);redraw()});
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
     o.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{K.state.voice=b.dataset.guide;K.save();K.stopSpeech();redraw();if(K.state.voice!=='Stil')K.speak(t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'))});

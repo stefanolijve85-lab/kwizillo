@@ -237,6 +237,13 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
   for (const sel of ['[data-toggle="sfx"]', '[data-toggle="music"]', '[data-guide="Milo"]', '[data-guide="Luna"]', '[data-guide="Stil"]']) {
     await expect(page.locator(sel)).toBeVisible();
   }
+  // Three separate sliders: effects, music and the guide's voice.
+  await expect(page.locator('[data-volume="sfx"]')).toBeVisible();
+  await expect(page.locator('[data-volume="music"]')).toBeVisible();
+  await expect(page.locator('[data-volume="voice"]')).toBeVisible();
+  await page.locator('[data-guide="Milo"]').click();
+  await page.locator('[data-volume="voice"]').fill('40');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.voiceVolume)).toBeCloseTo(0.4, 5);
   await page.getByRole('button', { name: 'Sluiten' }).click();
 
   await page.locator('#privacyOpen').click();

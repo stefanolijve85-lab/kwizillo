@@ -676,3 +676,4 @@
 .memo-pick-grid .memo-pick{aspect-ratio:16/10}
 .math-sum.grid b:last-child{white-space:nowrap}
 .math-sum .math-eq{display:inline;margin:0}
+.voice-volume{margin-top:8px}.voice-volume input:disabled{opacity:.4}
