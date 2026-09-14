@@ -246,7 +246,13 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
 
 test('switching language translates the whole app and swaps the question bank', async ({ page }) => {
   await boot(page);
-  await page.locator('[data-lang="en"]').click();
+  // Language lives in the profile (and the parent zone), not on Home.
+  await expect(page.locator('.home [data-lang]')).toHaveCount(0);
+  await expect(page.locator('.home [data-voice]')).toHaveCount(0);
+  await expect(page.locator('#homeCta')).toHaveCount(0);
+  await page.locator('#homeProfile').click();
+  await page.locator('[data-setlang="en"]').click();
+  await page.locator('.panel-back').click();
 
   await expect(page.locator('.home-section').first()).toHaveText('Pick your world');
   await expect(page.locator('.native-bottom-nav')).toContainText('Awards');

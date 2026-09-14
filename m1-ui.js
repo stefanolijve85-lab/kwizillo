@@ -88,12 +88,6 @@
       </button>`;
     }).join('');
 
-    const voiceIcon=id=>id==='Stil'?'🔇':`<img class="mascot-face" src="${K.guideArt(id)}" alt="">`;
-    const voices=['Milo','Luna','Stil'].map(id=>
-      `<button class="quick-pill ${K.state.voice===id?'selected':''}" data-voice="${id}" aria-label="${esc(t(id==='Milo'?'voice.milo':id==='Luna'?'voice.luna':'voice.silent'))}">${voiceIcon(id)}</button>`).join('');
-    const langs=K.LANGUAGES.map(l=>
-      `<button class="quick-pill ${K.state.language===l.id?'selected':''}" data-lang="${l.id}" aria-label="${esc(l.label)}">${l.flag}</button>`).join('');
-
     const f=K.frame(`<section class="home fade-in">
       <div class="home-sky"></div>
       <div class="home-ui">
@@ -116,21 +110,10 @@
         <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>
         <div class="home-worlds">${worldCards}</div>
 
-        <button class="home-cta" id="homeCta">
-          <span class="home-cta-icon">${K.icon('play')}</span>
-          <span><b>${esc(t('home.cta'))}</b><small>${esc(t('home.ctaSub',{world:worldTitle(last)}))}</small></span>
-          <i>›</i>
-        </button>
-
         <h2 class="home-section">${esc(t('home.playMore'))}</h2>
         <div class="home-games">
           <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
-        </div>
-
-        <div class="home-quick">
-          <div class="quick-group" role="group" aria-label="${esc(t('home.voiceLabel'))}">${voices}</div>
-          <div class="quick-group" role="group" aria-label="${esc(t('home.languageLabel'))}">${langs}</div>
         </div>
 
         ${bottomNav('home')}
@@ -138,29 +121,16 @@
     </section>`);
 
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
-    f.querySelector('#homeCta').onclick=()=>{K.sfx('tap');K.enterWorld(last)};
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('world');K.startMemo('mix')};
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
-    f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');selectVoice(b.dataset.voice)});
-    f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{K.sfx('tap');switchLanguage(b.dataset.lang)});
     bindNav(f);
-    // The hello of each guide is warmed on Home, where the voice pills live.
+    // The hello of each guide is warmed on Home, ahead of the profile's voice pick.
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };
-
-  function selectVoice(v){
-    K.state.voice=v;K.save();K.showHome();
-    if(v!=='Stil') K.speak(t(v==='Milo'?'voice.milo.hello':'voice.luna.hello'));
-  }
-  function switchLanguage(id){
-    if(!K.setLanguage(id)) return;
-    K.useBank();
-    K.showHome();
-  }
 
   /* ---------------- World ---------------- */
 

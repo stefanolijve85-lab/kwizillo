@@ -11,12 +11,12 @@
   // Every level pairs two identical pictures; higher levels only add cards
   // and take time away.
   const RULES=[
-    {cols:3,rows:4,words:false,secPerPair:22},
-    {cols:4,rows:4,words:false,secPerPair:18},
-    {cols:4,rows:4,words:false,secPerPair:15},
-    {cols:4,rows:5,words:false,secPerPair:12},
-    {cols:4,rows:5,words:false,secPerPair:10},
-    {cols:4,rows:6,words:false,secPerPair:9}
+    {cols:4,rows:4,words:false,secPerPair:20},
+    {cols:4,rows:5,words:false,secPerPair:16},
+    {cols:4,rows:5,words:false,secPerPair:14},
+    {cols:4,rows:6,words:false,secPerPair:12},
+    {cols:4,rows:6,words:false,secPerPair:10},
+    {cols:4,rows:7,words:false,secPerPair:9}
   ];
   const rule=()=>RULES[Math.max(1,Math.min(6,Number(K.state.niveau||1)))-1];
   const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -52,7 +52,7 @@
       {id:`${i}a`,pair:i,kind:'art',q},
       {id:`${i}b`,pair:i,kind:r.words&&i<wordQs.length?'word':'art',q}
     ]));
-    K.memo={world,bgWorld,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols};
+    K.memo={world,bgWorld,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols,rows:r.rows};
     render();
     // Every word on the board is warmed now, so a flip speaks at once.
     K.prefetchSpeech([...qs.map(q=>q.answer),t('memo.speech.done'),t('memo.speech.time')]);
@@ -70,7 +70,7 @@
           <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
         </header>
         <div class="quiz-progress memo-progress"><strong id="memoPairs">${esc(t('memo.pairs',{found:0,total:m.pairs}))}</strong><div><i id="memoBar" style="width:0%"></i></div>${m.seconds?`<span class="quiz-timer running" id="memoTimer" style="--p:100"><b>${m.seconds}</b></span>`:`<span id="memoMoves">${esc(t('memo.moves',{n:0}))}</span>`}</div>
-        <main class="memo-board" style="--cols:${m.cols}" role="grid" aria-label="Memo">
+        <main class="memo-board" style="--cols:${m.cols};--rows:${m.rows}" role="grid" aria-label="Memo">
           ${m.cards.map(c=>`<button class="memo-card" data-card="${c.id}" aria-label="${esc(t('memo.card'))}">
             <span class="memo-face memo-back">${K.icon('star')}</span>
             <span class="memo-face memo-front ${c.kind}">${c.kind==='art'?`<img src="${K.questionArt(c.q)}" alt="" decoding="async">`:`<b>${esc(c.q.answer)}</b>`}</span>

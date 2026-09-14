@@ -644,3 +644,14 @@
 .world-game.art{aspect-ratio:16/7;border-radius:18px}
 .world-game.art b{font-size:13px;left:9px;bottom:6px}
 @media(max-height:700px){.world-game.art{aspect-ratio:16/6}.home-game.art{aspect-ratio:16/7}}
+
+/* Home: the six worlds and the two games carry the screen; headings centred. */
+.home-section{text-align:center}
+.home-worlds{flex:1 1 auto}
+.home-games{flex:0 0 auto}
+.home-game.art{aspect-ratio:16/7}
+@media(min-height:800px){.home-game.art{aspect-ratio:16/8}}
+/* Memo: the board fills the height it gets; cells share it evenly. */
+.memo-board{height:100%;grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));align-content:stretch;gap:8px}
+.memo-card{aspect-ratio:auto;min-height:0;height:100%}
+.memo-front img{object-position:center 45%}
