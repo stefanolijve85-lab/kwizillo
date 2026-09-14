@@ -6,7 +6,7 @@
   const WORLD_ORDER=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
   const WORLD_ICON={ruimte:'🚀',dieren:'🐾',aarde:'🌍',geschiedenis:'🏛️',wetenschap:'🧪',mysterie:'🔎'};
   // CLAUDE.md section 7: each world gets its own soundtrack, crossfaded on entry.
-  const WORLD_MUSIC={ruimte:'space',dieren:'adventure',aarde:'calm',geschiedenis:'adventure',wetenschap:'magical',mysterie:'calm'};
+  const WORLD_MUSIC={ruimte:'space',dieren:'jungle',aarde:'earth',geschiedenis:'history',wetenschap:'science',mysterie:'mystery'};
   const MASCOTS=[
     {id:'milo',icon:'🤖',need:0},
     {id:'comet',icon:'🌠',need:5},
@@ -83,6 +83,7 @@
 
   K.showHome=()=>{
     K.stopSpeech();K.lastView='home';
+    K.audio.setTrack('home').catch(()=>{});
     const name=String(K.state.name||'').trim();
     const greeting=name?t('home.greeting',{name}):t('home.greetingAnon');
     const lvl=K.level(),into=K.xpIntoLevel();
@@ -152,7 +153,7 @@
   K.enterWorld=world=>{
     if(!WORLD_ORDER.includes(world)) return K.showHome();
     K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('fanfare');
-    K.audio.setTrack(WORLD_MUSIC[world]||'magical').catch(()=>{});
+    K.audio.setTrack(WORLD_MUSIC[world]||'home').catch(()=>{});
     K.showWorld(world);
     // The guide calls out the world's name, cheering, once the fanfare peaks.
     setTimeout(()=>{if(K.currentWorld===world&&K.app.querySelector('.native-world-bg'))K.speak(t('world.speech.enter',{title:worldTitle(world)}))},420);

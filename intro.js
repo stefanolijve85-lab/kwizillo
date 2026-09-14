@@ -10,7 +10,7 @@
   const SAFETY_MS=30000; // Upper bound only. Never the normal way out.
 
   async function startMusic(){
-    try{ if(K.state.musicOn!==false) await K.audio.start(K.state.musicTrack||'magical',.6) }catch(e){}
+    try{ if(K.state.musicOn!==false) await K.audio.start(K.state.musicTrack||'home',.6) }catch(e){}
   }
 
   K.playIntro=onDone=>{

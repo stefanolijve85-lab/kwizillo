@@ -32,7 +32,7 @@
     sfxVolume:.72,
     musicVolume:.24,
     voiceVolume:1,          // guide voice, separate from effects and music
-    musicTrack:'magical',
+    musicTrack:'home',
     timeLimitOn:true,       // per-question timer (seconds follow the level)
     timeLimit:45,           // legacy, unused
     niveau:1,               // game level 1..6 (timer, allowed mistakes, difficulty)
@@ -43,12 +43,15 @@
   const clone=v=>JSON.parse(JSON.stringify(v));
   function read(key){ try{ return JSON.parse(localStorage.getItem(key)||'null') }catch{ return null } }
 
+  // The first four loops were replaced by one track per world; old choices map onto the nearest new one.
+  const LEGACY_TRACKS={magical:'home',adventure:'history',calm:'earth'};
   function migrate(old){
     if(!old||typeof old!=='object') return clone(DEFAULTS);
     if(Number(old.schemaVersion)>=SCHEMA){
       // Same schema: only fill in keys added since (niveau, bestScores, passed).
       const merged=Object.assign(clone(DEFAULTS),old);
       merged.progress=Object.assign(clone(DEFAULTS.progress),old.progress||{});
+      merged.musicTrack=LEGACY_TRACKS[merged.musicTrack]||merged.musicTrack;
       return merged;
     }
 
@@ -63,6 +66,7 @@
       next.coins=0; next.xp=0; next.streak=0;
     }
     delete next.level;   // always derived from xp now
+    next.musicTrack=LEGACY_TRACKS[next.musicTrack]||next.musicTrack;
 
     next.progress=Object.assign(clone(DEFAULTS.progress),old.progress||{});
     next.progress.worlds ||= {};

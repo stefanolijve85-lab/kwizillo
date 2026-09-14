@@ -53,6 +53,7 @@
   const secondsFor=()=>K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1);
 
   K.startMath=world=>{
+    K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();stopTimer();
     world=world||K.state.lastWorld||'ruimte';
     K.currentWorld=world;

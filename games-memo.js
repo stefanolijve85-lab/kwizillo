@@ -38,6 +38,7 @@
   // Solo or two players taking turns on one phone. The choice is remembered.
   const memoMode=()=>K.state.memoMode==='duel'?'duel':'solo';
   K.showMemoPicker=()=>{
+    K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();stopTimer();
     const mode=memoMode();
     const worlds=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
@@ -64,6 +65,7 @@
   const playerName=i=>i===0?(K.state.name||t('memo.player1')):t('memo.player2');
 
   K.startMemo=world=>{
+    K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();stopTimer();
     world=world||'mix';
     const bgWorld=world==='mix'?(K.state.lastWorld||'ruimte'):world;

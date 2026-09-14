@@ -30,7 +30,7 @@ test('plays in step with the video, alone, and yields to the Home loop', async (
   // A tap ends the intro; the loop then takes over.
   await page.locator('.motion').click();
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
-  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.currentId), { timeout: 5000 }).toBe('magical');
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.currentId), { timeout: 5000 }).toBe('home');
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.stingLive), { timeout: 3000 }).toBe(false);
   expect(errors).toEqual([]);
 });
