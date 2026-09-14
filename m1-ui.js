@@ -13,8 +13,16 @@
     {id:'pootje',icon:'🐾',need:12},
     {id:'terra',icon:'🌱',need:20},
     {id:'sparky',icon:'⚗️',need:35},
-    {id:'lumi',icon:'🔮',need:50}
-  ];
+    {id:'lumi',icon:'🔮',need:50},
+    // Six more buddies (see tools/mascot-prompts.md); a buddy without art in
+    // K.MASCOT_ART stays hidden until its picture is added.
+    {id:'nova',icon:'👩‍🚀',need:70},
+    {id:'kiko',icon:'🐼',need:90},
+    {id:'pip',icon:'🐧',need:115},
+    {id:'ravi',icon:'🥽',need:140},
+    {id:'flora',icon:'🦋',need:170},
+    {id:'draco',icon:'🐉',need:200}
+  ].filter(m=>K.MASCOT_ART?.[m.id]);
 
   // One line per level for the parent zone: time, mistakes, hints, reading.
   function levelSummary(n){
