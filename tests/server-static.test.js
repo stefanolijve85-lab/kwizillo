@@ -47,7 +47,7 @@ const MUST_SERVE = [
   '/assets/worlds/ruimte.jpg',
   '/assets/questions/space.jpg',
   '/assets/brand/logo.png',
-  '/assets/audio/tap.wav'
+  '/assets/audio/correct.wav'
 ];
 
 async function waitForServer(){
