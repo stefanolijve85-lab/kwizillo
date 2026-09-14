@@ -26,7 +26,7 @@ async function boot(page, state = SAVED()) {
   // Seed only on the first navigation. addInitScript runs on every navigation, so
   // an unconditional write would wipe what the app saved whenever a test reloads.
   await page.addInitScript(s => {
-    if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));
+    localStorage.setItem('kwizillo-fresh-start', '0'); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));
   }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
@@ -97,11 +97,20 @@ test('onboarding runs once and collects language, name and voice', async ({ page
   await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.tourDone)).toBe(true);
 
-  // A returning player never sees onboarding again.
+  // Fresh start is on by default: a refresh begins again at the intro and the
+  // onboarding, and the name is gone.
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
+  await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.name)).toBe('');
+
+  // With fresh start off (parent zone) a returning player never sees onboarding again.
+  await page.evaluate(() => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-state', JSON.stringify({ ...window.KWIZILLO_M1.state, name: 'Sam', onboardingComplete: true, language: 'en' })); });
   await page.reload({ waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('.onboarding')).toHaveCount(0);
+  await expect(page.locator('.hud-id b')).toHaveText('Hi Sam!');
 });
 
 test('a brand new player starts at zero, not on seeded progress', async ({ page }) => {
@@ -229,7 +238,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
   await page.locator('.mascot-card:not([disabled])').first().click();
 
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
-  await expect(page.locator('.stat-ring b')).toHaveText('75%');
+  await expect(page.locator('.stat-orb b')).toHaveText('75%');
   await expect(page.locator('.world-stat-list article')).toHaveCount(6);
 
   await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
@@ -319,9 +328,9 @@ test('finishing a quiz counts one quiz, one streak day and real stats', async ({
 
   await page.locator('#collectionBtn').click();
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
-  await expect(page.locator('.stat-hero p')).toContainText('10 vragen beantwoord');
-  await expect(page.locator('.stat-hero p')).toContainText('1 quiz gespeeld');
-  await expect(page.locator('.stat-cards')).toContainText('Dagen op rij');
+  await expect(page.locator('.stats-hero-copy p')).toContainText('10 vragen beantwoord');
+  await expect(page.locator('.stats-hero-copy p')).toContainText('1 quiz gespeeld');
+  await expect(page.locator('.stat-tiles')).toContainText('Dagen op rij');
 });
 
 test('the app stays playable with no speech backend', async ({ page }) => {

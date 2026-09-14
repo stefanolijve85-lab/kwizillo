@@ -8,7 +8,7 @@ const SAVED = (over = {}) => ({
 async function boot(page, state = SAVED(), tts = route => route.fulfill({ status: 503, body: '{}' })) {
   await page.route('**/*.mp4', route => route.abort());
   await page.route('**/api/tts', tts);
-  await page.addInitScript(s => { if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
+  await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
@@ -86,7 +86,7 @@ test('levels change the kind of sums: tables at level 4, halves and percentages 
   expect(sums.some(s => s.op === '×' || s.op === '÷')).toBe(true);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 6; K.save(); K.startMath('aarde'); });
   sums = await page.evaluate(() => window.KWIZILLO_M1.math.sums);
-  expect(sums.every(s => /helft|kwart|%|\+ \d+ × \d+/.test(s.text))).toBe(true);
+  expect(sums.every(s => /½|¼|%|\+ \d+ × \d+/.test(s.text))).toBe(true);
   await expect(page.locator('#mathTimer b')).toHaveText('10');
   await expect(page.locator('.math-visual')).toHaveCount(0);
   // One wrong answer at level 6 fails the round.

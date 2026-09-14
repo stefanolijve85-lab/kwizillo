@@ -84,7 +84,7 @@
         </header>
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
         <main class="quiz-card math-card">
-          ${s.op&&!s.text.includes('%')?`<div class="math-sum grid"><b>${s.a}</b><em>${esc(s.op)}</em><b>${s.b} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`:`<div class="math-sum"><b>${esc(s.text)} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`}
+          ${s.op&&!s.text.includes('%')?`<div class="math-sum grid"><b>${s.a}</b><em>${esc(s.op)}</em><b>${s.b} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`:`<div class="math-sum ${s.text.length>7?'long':''}"><b>${esc(s.text)} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`}
           ${dots}
           <div class="answers math-answers">${s.options.map((o,i)=>`<button class="answer ${done?(o===s.answer?'correct':done.value===o?'wrong':''):''}" data-a="${o}" data-index="${i}" ${done?'disabled':''}><span class="answer-letter">${'ABCD'[i]}</span><span class="answer-copy">${o}</span></button>`).join('')}</div>
           <div class="math-feedback" id="mathFeedback" hidden></div>

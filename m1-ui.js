@@ -351,21 +351,35 @@
     K.stopSpeech();K.lastView='stats';
     const answered=Number(K.state.answered||0),correct=Number(K.state.correct||0);
     const pct=answered?Math.round(correct/answered*100):0;
-    const body=`<div class="stat-hero"><div class="stat-ring" style="--p:${pct}"><b>${pct}%</b><small>${esc(t('stats.correctShort'))}</small></div><div><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
-      <div class="stat-cards"><article><span>${K.icon('star')}</span><b>${Number(K.state.xp||0)}</b><small>${esc(t('stats.xpTotal'))}</small></article><article><span>${K.icon('coin')}</span><b>${Number(K.state.coins||0)}</b><small>${esc(t('stats.coins'))}</small></article><article><span>${K.icon('flame')}</span><b>${Number(K.state.streak||0)}</b><small>${esc(t('stats.streak'))}</small></article><article><span>${K.icon('cards')}</span><b>${progress().correctQuestionIds.length}</b><small>${esc(t('stats.cards'))}</small></article></div>
+    const medal=b=>b>=9?'gold':b>=7?'silver':b>0?'bronze':'';
+    const medalIcon={gold:'🥇',silver:'🥈',bronze:'🥉'};
+    const sparks=Array.from({length:10},(_,i)=>`<i style="--i:${i}"></i>`).join('');
+    const tile=(cls,icon,value,label)=>`<article class="stat-tile ${cls}"><span class="stat-tile-icon">${icon}</span><b data-count="${value}">0</b><small>${esc(label)}</small></article>`;
+    const board=(items)=>`<div class="scoreboard v2">${items.join('')}</div>`;
+    const body=`<div class="stats-hero3d"><div class="stats-fx" aria-hidden="true">${sparks}</div>
+        <div class="stat-orb" style="--p:0" data-p="${pct}"><span class="stat-orb-ring"></span><span class="stat-orb-glass"></span><b data-count="${pct}" data-suffix="%">0%</b><small>${esc(t('stats.correctShort'))}</small></div>
+        <div class="stats-hero-copy"><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
+      <div class="stat-tiles">${tile('xp','⭐',Number(K.state.xp||0),t('stats.xpTotal'))}${tile('coins','🪙',Number(K.state.coins||0),t('stats.coins'))}${tile('streak','🔥',Number(K.state.streak||0),t('stats.streak'))}${tile('cards','🃏',progress().correctQuestionIds.length,t('stats.cards'))}</div>
+      <button class="share-3d" id="statsShare"><span class="share-3d-icon">📣</span><span class="share-3d-copy"><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></span><span class="share-3d-arrow">›</span></button>
       <h2 class="section-title">${esc(t('stats.board'))}</h2>
-      <div class="scoreboard">${WORLD_ORDER.map(w=>{const b=Number((K.state.bestScores||{})[w]||0);return`<article class="${b>=9?'gold':b>=7?'silver':b>0?'bronze':''}"><span>${K.worldBadge(w)}</span><b>${b}/10</b><small>${esc(worldTitle(w))}</small></article>`}).join('')}</div>
+      ${board(WORLD_ORDER.map(w=>{const b=Number((K.state.bestScores||{})[w]||0),m=medal(b);return`<article class="${m}">${m?`<i class="medal">${medalIcon[m]}</i>`:''}<span>${K.worldBadge(w)}</span><b>${b}/10</b><small>${esc(worldTitle(w))}</small></article>`}))}
       <h2 class="section-title">${esc(t('stats.memo'))}</h2>
-      <div class="scoreboard memo-board-stats">${WORLD_ORDER.map(w=>{const b=Number((progress().games?.memo?.best||{})[w]||0);return`<article class="${b?'bronze':''}"><span>${K.worldBadge(w)}</span><b>${b?esc(t('stats.memoBest',{n:b})):'–'}</b><small>${esc(worldTitle(w))}</small></article>`}).join('')}</div>
+      ${board(WORLD_ORDER.map(w=>{const b=Number((progress().games?.memo?.best||{})[w]||0);return`<article class="${b?'bronze':''}">${b?'<i class="medal">🧠</i>':''}<span>${K.worldBadge(w)}</span><b>${b?esc(t('stats.memoBest',{n:b})):'–'}</b><small>${esc(worldTitle(w))}</small></article>`}))}
       <p class="collection-note">${esc(t('stats.memoLine',{played:Number(progress().games?.memo?.played||0),won:Number(progress().games?.memo?.won||0)}))}</p>
       <h2 class="section-title">${esc(t('stats.math'))}</h2>
-      <div class="scoreboard math-board-stats">${[1,2,3,4,5,6].map(n=>{const b=Number((progress().games?.math?.best||{})[n]||0);return`<article class="${b>=9?'gold':b>=7?'silver':b>0?'bronze':''}"><span class="level-dot">${n}</span><b>${b?`${b}/10`:'–'}</b><small>${esc(t('memo.level',{n}))}</small></article>`}).join('')}</div>
+      ${board([1,2,3,4,5,6].map(n=>{const b=Number((progress().games?.math?.best||{})[n]||0),m=medal(b);return`<article class="${m}">${m?`<i class="medal">${medalIcon[m]}</i>`:''}<span class="level-dot">${n}</span><b>${b?`${b}/10`:'–'}</b><small>${esc(t('memo.level',{n}))}</small></article>`}))}
       <p class="collection-note">${esc(t('stats.mathLine',{played:Number(progress().games?.math?.played||0),won:Number(progress().games?.math?.won||0)}))}</p>
-      <button class="share-btn" id="statsShare">${K.icon('star')} ${esc(t('settings.share'))}</button>
       <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
-      <div class="world-stat-list">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><div class="wide-track"><i style="width:${accuracy(s)}%"></i></div></div><strong>${accuracy(s)}%</strong></article>`}).join('')}</div>`;
+      <div class="world-stat-list v2">${WORLD_ORDER.map(w=>{const s=worldStat(w),p=accuracy(s);return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><span class="wide-track"><i style="width:${p}%"></i></span></div><em>${p}%</em></article>`}).join('')}</div>`;
     const f=nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats',back:back||(()=>K.showHome())});
     f.querySelector('#statsShare').onclick=()=>{K.sfx('tap');K.shareScore()};
+    // Numbers count up and the ring fills once the screen is on: the figures are
+    // real, the motion just makes them feel earned.
+    requestAnimationFrame(()=>{
+      const orb=f.querySelector('.stat-orb');if(orb)orb.style.setProperty('--p',orb.dataset.p);
+      f.querySelectorAll('[data-count]').forEach(el=>{const target=Number(el.dataset.count||0),suffix=el.dataset.suffix||'',t0=performance.now(),dur=900;
+        const step=now=>{const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(target*e)+suffix;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)});
+    });
   };
 
   /* ---------------- Parent zone ---------------- */
@@ -416,6 +430,7 @@
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.state.niveau||1)}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''}">${v}</button>`).join('')}</div></section>
+      <section class="setting-card"><div class="setting-icon">🔄</div><div><b>${esc(t('settings.freshStart'))}</b><small>${esc(t(K.freshStart()?'settings.freshStartOn':'settings.freshStartOff'))}</small></div><button class="native-switch ${K.freshStart()?'on':''}" id="freshToggle" aria-label="${esc(t('settings.freshStart'))}"><i></i></button></section>
       <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">🤖</div><div><b>${esc(t('tour.again'))}</b><small>${esc(t('tour.againSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
@@ -425,6 +440,7 @@
     f.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{K.sfx('tap');const d=b.dataset.group==='plus'?1:-1;K.state.group=Math.max(1,Math.min(8,(K.state.group||5)+d));K.state.groupChosen=true;K.save();K.showParent()});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
+    f.querySelector('#freshToggle').onclick=()=>{K.sfx('tap');K.setFreshStart(!K.freshStart());K.showParent()};
     f.querySelector('#tourOpen').onclick=()=>{K.sfx('tap');K.showHome();setTimeout(()=>K.startTour(),320)};
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
     f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.niveau=Number(b.dataset.level);K.save();K.showParent()});

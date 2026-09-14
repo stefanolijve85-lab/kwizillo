@@ -81,6 +81,17 @@
     return next;
   }
 
+  // Fresh start: every launch begins at the intro and the onboarding, and
+  // nothing from the previous session (name, progress, settings) comes back.
+  // On by default for now — Stefan wants each refresh to be a clean first run
+  // while the app is shown around; the parent zone turns it off, after which
+  // progress persists across launches like any game. The flag itself lives
+  // outside the state so wiping the state cannot wipe the choice.
+  const FRESH_KEY='kwizillo-fresh-start';
+  K.freshStart=()=>{ try{ return localStorage.getItem(FRESH_KEY)!=='0' }catch(e){ return false } };
+  K.setFreshStart=on=>{ try{ localStorage.setItem(FRESH_KEY,on?'1':'0') }catch(e){} };
+  if(K.freshStart()){ try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY) }catch(e){} }
+
   const stored=read(KEY)||read(LEGACY_KEY);
   K.state=migrate(stored);
   K.save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(K.state)) }catch(e){} };
