@@ -122,6 +122,11 @@
           <i>›</i>
         </button>
 
+        <h2 class="home-section">${esc(t('home.playMore'))}</h2>
+        <div class="home-games">
+          <button class="home-game" id="homeMemo"><span class="home-game-icon">${K.icon('cards')}</span><span><b>${esc(t('memo.title'))}</b><small>${esc(t('memo.playSub',{world:worldTitle(last)}))}</small></span><i>›</i></button>
+        </div>
+
         <div class="home-quick">
           <div class="quick-group" role="group" aria-label="${esc(t('home.voiceLabel'))}">${voices}</div>
           <div class="quick-group" role="group" aria-label="${esc(t('home.languageLabel'))}">${langs}</div>
@@ -135,6 +140,7 @@
     f.querySelector('#homeCta').onclick=()=>{K.sfx('tap');K.enterWorld(last)};
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
+    f.querySelector('#homeMemo').onclick=()=>{K.sfx('world');K.startMemo(last)};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');selectVoice(b.dataset.voice)});
     f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{K.sfx('tap');switchLanguage(b.dataset.lang)});
@@ -196,6 +202,7 @@
           <span class="world-topic-copy"><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
           <i>›</i>
         </button>`).join('')}</div>
+        <button class="world-game" id="worldMemo"><span>${K.icon('cards')}</span><span><b>${esc(t('memo.play'))}</b><small>${esc(t('memo.sub'))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></span><i>›</i></button>
         <button class="world-mix" id="worldMix">
           <span>${K.icon('play')}</span>
           <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${esc(t('world.mixSub'))}</small></span>
@@ -209,6 +216,7 @@
     f.querySelector('#worldGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,Number(b.dataset.topic))});
     f.querySelector('#worldMix').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,null)};
+    f.querySelector('#worldMemo').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startMemo(world)};
     bindNav(f);
   };
 
@@ -224,7 +232,8 @@
       {icon:'🌟',key:'achievement.correct50',now:Math.min(50,totalCorrect()),goal:50},
       {icon:'🔥',key:'achievement.streak7',now:Math.min(7,K.state.streak||0),goal:7},
       {icon:'🃏',key:'achievement.cards5',now:Math.min(5,cards),goal:5},
-      {icon:'🗺️',key:'achievement.allWorlds',now:playedWorlds,goal:6}
+      {icon:'🗺️',key:'achievement.allWorlds',now:playedWorlds,goal:6},
+      {icon:'🧠',key:'achievement.memo3',now:Math.min(3,Number(progress().games?.memo?.won||0)),goal:3}
     ].map(a=>({...a,done:a.now>=a.goal}));
 
     const body=`<div class="summary-hero"><div class="summary-icon">${K.icon('trophy')}</div><div><b>${esc(t('achievements.summary',{done:defs.filter(x=>x.done).length,total:defs.length}))}</b><span>${esc(t('achievements.summarySub'))}</span></div></div>
@@ -348,6 +357,9 @@
       <div class="stat-cards"><article><span>${K.icon('star')}</span><b>${Number(K.state.xp||0)}</b><small>${esc(t('stats.xpTotal'))}</small></article><article><span>${K.icon('coin')}</span><b>${Number(K.state.coins||0)}</b><small>${esc(t('stats.coins'))}</small></article><article><span>${K.icon('flame')}</span><b>${Number(K.state.streak||0)}</b><small>${esc(t('stats.streak'))}</small></article><article><span>${K.icon('cards')}</span><b>${progress().correctQuestionIds.length}</b><small>${esc(t('stats.cards'))}</small></article></div>
       <h2 class="section-title">${esc(t('stats.board'))}</h2>
       <div class="scoreboard">${WORLD_ORDER.map(w=>{const b=Number((K.state.bestScores||{})[w]||0);return`<article class="${b>=9?'gold':b>=7?'silver':b>0?'bronze':''}"><span>${K.worldBadge(w)}</span><b>${b}/10</b><small>${esc(worldTitle(w))}</small></article>`}).join('')}</div>
+      <h2 class="section-title">${esc(t('stats.memo'))}</h2>
+      <div class="scoreboard memo-board-stats">${WORLD_ORDER.map(w=>{const b=Number((progress().games?.memo?.best||{})[w]||0);return`<article class="${b?'bronze':''}"><span>${K.worldBadge(w)}</span><b>${b?esc(t('stats.memoBest',{n:b})):'–'}</b><small>${esc(worldTitle(w))}</small></article>`}).join('')}</div>
+      <p class="collection-note">${esc(t('stats.memoLine',{played:Number(progress().games?.memo?.played||0),won:Number(progress().games?.memo?.won||0)}))}</p>
       <button class="share-btn" id="statsShare">${K.icon('star')} ${esc(t('settings.share'))}</button>
       <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
       <div class="world-stat-list">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><div class="wide-track"><i style="width:${accuracy(s)}%"></i></div></div><strong>${accuracy(s)}%</strong></article>`}).join('')}</div>`;

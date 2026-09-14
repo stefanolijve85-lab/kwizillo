@@ -192,7 +192,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
       correctQuestionIds: ['ruimte-zonnestelsel-01', 'ruimte-zonnestelsel-02'] } }));
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
-  await expect(page.locator('.achievement-card')).toHaveCount(6);
+  await expect(page.locator('.achievement-card')).toHaveCount(7);
 
   await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
@@ -248,7 +248,7 @@ test('switching language translates the whole app and swaps the question bank', 
   await boot(page);
   await page.locator('[data-lang="en"]').click();
 
-  await expect(page.locator('.home-section')).toHaveText('Pick your world');
+  await expect(page.locator('.home-section').first()).toHaveText('Pick your world');
   await expect(page.locator('.native-bottom-nav')).toContainText('Awards');
   await expect(page.locator('.native-bottom-nav')).toContainText('Collection');
 

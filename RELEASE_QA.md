@@ -194,6 +194,21 @@ Playwright: 44 tests.
 
 ---
 
+### Memo (nieuw spel)
+`games-memo.js`. Paren uit de vraag-illustraties van de wereld; niveau 1–2 twee
+dezelfde plaatjes, vanaf niveau 3 plaatje ↔ woord (korte zelfstandige
+naamwoorden; fragmenten als "Met kieuwen" uitgesloten; te weinig woorden →
+aanvulling met plaatjesparen). Bord 3×4 / 4×4 / 4×4 / 4×5 / 4×5 / 4×6, tijd per
+paar 22/18/16/13/11/9 s, timer-ring, pauzeloos. Bij omdraaien zegt de gids het
+woord (alle woorden vooraf gecachet), bij een paar chime + confetti, bij
+afronden cadeau/confetti + felicitatie; tijd om = geen beloning + opnieuw.
+XP = paren×5 + sterren×5, munten = paren; beste aantal beurten per wereld in
+Statistieken; prestatie "3 memo's gewonnen". Ingangen: Home ("Speel ook") en
+elke wereldpagina. Tests: `tests/memo.spec.js` (4) — bord, mismatch/match,
+beloning, niveauregels, time-out; geen JS-fouten op SE/14/Pro Max.
+
+---
+
 ## 3. Beveiliging
 
 | Controle | Status |

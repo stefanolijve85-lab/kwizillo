@@ -44,6 +44,9 @@
     return canvas;
   }
 
+  // A small pop at a point inside a host (memo pairs, small rewards).
+  K.celebrateAt=(host,{x,y,count=24})=>{try{burst(host,{count,origin:{x,y},spread:Math.PI*1.3,power:6,gravity:.3,life:1000,z:40})}catch(e){}};
+
   // 'answer': a short pop of confetti from the top of the feedback card.
   // 'quiz'  : the result screen; the gift on the card bursts open (see K.showResult).
   K.celebrate=(kind,host)=>{

@@ -36,7 +36,7 @@
     timeLimit:45,           // legacy, unused
     niveau:1,               // game level 1..6 (timer, allowed mistakes, difficulty)
     bestScores:{},          // world -> best quiz score out of 10
-    progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[],passed:{}}
+    progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[],passed:{},games:{}}
   };
 
   const clone=v=>JSON.parse(JSON.stringify(v));
@@ -69,6 +69,7 @@
     next.progress.runs ||= {};
     next.progress.correctQuestionIds ||= [];
     next.progress.passed ||= {};
+    next.progress.games ||= {};
     return next;
   }
 
