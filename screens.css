@@ -655,3 +655,12 @@
 .memo-board{height:100%;grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));align-content:stretch;gap:8px}
 .memo-card{aspect-ratio:auto;min-height:0;height:100%}
 .memo-front img{object-position:center 45%}
+
+/* Sum layout: the operator sits on the centre line, "= ?" underneath. */
+.math-sum.grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:12px 6px 0}
+.math-sum.grid b:first-child{text-align:right}
+.math-sum.grid b:last-child{text-align:left}
+.math-sum.grid em{font-style:normal;font-weight:1000;font-size:clamp(30px,9.5vw,48px);color:#3566a8;line-height:1}
+.math-eq{text-align:center;font-weight:1000;color:#3566a8;font-size:clamp(20px,6vw,30px);margin:2px 0 4px}
+.math-eq strong{color:#0f5a2a}
+.math .review-next{margin-top:10px}

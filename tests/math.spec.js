@@ -24,7 +24,7 @@ test('Maths opens from Home and a world; level 1 shows small sums with counting 
   await expect(page.locator('.math-visual')).toBeVisible();
   const sum = await page.evaluate(() => window.KWIZILLO_M1.math.sums.map(s => s));
   expect(sum.length).toBe(10);
-  for (const s of sum) { expect(['+', '-']).toContain(s.op); expect(s.answer).toBeGreaterThanOrEqual(0); expect(s.answer).toBeLessThanOrEqual(10); expect(new Set(s.options).size).toBe(4); expect(s.options).toContain(s.answer); }
+  for (const s of sum) { expect(['+', '-']).toContain(s.op); expect(s.a).toBeGreaterThan(0); expect(s.b).toBeGreaterThan(0); expect(s.answer).toBeGreaterThanOrEqual(0); expect(s.answer).toBeLessThanOrEqual(10); expect(new Set(s.options).size).toBe(4); expect(s.options).toContain(s.answer); }
   await page.locator('#mathBack').click();
   await expect(page.locator('.native-world')).toBeVisible();
   await page.locator('#worldMath').click();
@@ -59,6 +59,26 @@ test('a right answer rewards and moves on; a wrong one shows the answer; the rou
   await expect(page.locator('.result-v2 h1')).toHaveText('9 van 10 sommen goed!');
   const st = await page.evaluate(() => window.KWIZILLO_M1.progress().games.math);
   expect(st.played).toBe(1); expect(st.won).toBe(1); expect(st.best[1]).toBe(9);
+});
+
+test('Back revisits an answered sum with its verdict; the operator sits on the centre line', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeMath').click();
+  await expect(page.locator('#mathPrev')).toBeDisabled();
+  const [centre, screen] = await page.evaluate(() => { const r = document.querySelector('.math-sum em').getBoundingClientRect(); return [Math.round(r.left + r.width / 2), Math.round(innerWidth / 2)]; });
+  expect(Math.abs(centre - screen)).toBeLessThanOrEqual(2);
+  const first = await page.locator('.math-sum').textContent();
+  const a = await currentAnswer(page);
+  await page.locator(`.answer[data-a="${a}"]`).click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Som 2 van 10', { timeout: 4000 });
+  await page.locator('#mathPrev').click();
+  await expect(page.locator('.math-sum')).toHaveText(first);
+  await expect(page.locator('.answer.correct')).toHaveCount(1);
+  await expect(page.locator('.math-eq strong')).toHaveText(String(a));
+  await expect(page.locator('#mathTimer')).toHaveCount(0);
+  await page.locator('#mathNext').click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Som 2 van 10');
+  await expect(page.locator('#mathTimer')).toBeVisible();
 });
 
 test('levels change the kind of sums: tables at level 4, halves and percentages at level 6; level 6 allows no mistakes', async ({ page }) => {

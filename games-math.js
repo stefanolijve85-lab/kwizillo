@@ -16,8 +16,9 @@
   function makeSum(niveau){
     const L=Math.max(1,Math.min(6,niveau));
     const ops=[];
-    const add=(max)=>{const a=rnd(0,max),b=rnd(0,max-a);return{a,b,op:'+',answer:a+b}};
-    const sub=(max)=>{const a=rnd(1,max),b=rnd(0,a);return{a,b,op:'-',answer:a-b}};
+    // Never a zero operand: "10 + 0" teaches nothing.
+    const add=(max)=>{const a=rnd(1,max-1),b=rnd(1,max-a);return{a,b,op:'+',answer:a+b}};
+    const sub=(max)=>{const a=rnd(2,max),b=rnd(1,a-1);return{a,b,op:'-',answer:a-b}};
     const mul=(maxTable,maxOther=10)=>{const a=rnd(1,maxTable),b=rnd(1,maxOther);return Math.random()<.5?{a,b,op:'×',answer:a*b}:{a:b,b:a,op:'×',answer:a*b}};
     const div=(maxTable,maxOther=10)=>{const b=rnd(1,maxTable),q=rnd(1,maxOther);return{a:b*q,b,op:'÷',answer:q}};
     if(L===1) ops.push(()=>add(10),()=>sub(10));
@@ -66,7 +67,8 @@
     const m=K.math,s=m.sums[m.index],total=m.sums.length;
     if(!s)return finish();
     const pct=Math.round(((m.index+1)/total)*100);
-    const seconds=secondsFor();
+    const done=m.answers[m.index]||null;           // an answered sum shows its verdict again
+    const seconds=done?0:secondsFor();
     // Levels 1-2 get counting dots under the sum: a visual aid, not the answer.
     const dots=m.niveau<=2&&s.op&&s.op!=='÷'&&s.a<=10&&s.b<=10
       ?`<div class="math-visual" aria-hidden="true"><span>${'<i></i>'.repeat(s.a)}</span><em>${s.op}</em><span>${'<i></i>'.repeat(s.b)}</span></div>`:'';
@@ -81,11 +83,13 @@
         </header>
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
         <main class="quiz-card math-card">
-          <div class="math-sum"><b>${esc(s.text)}</b><span>= ?</span></div>
+          ${s.op&&!s.text.includes('%')?`<div class="math-sum grid"><b>${s.a}</b><em>${esc(s.op)}</em><b>${s.b}</b></div>`:`<div class="math-sum"><b>${esc(s.text)}</b></div>`}
+          <div class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</div>
           ${dots}
-          <div class="answers math-answers">${s.options.map((o,i)=>`<button class="answer" data-a="${o}" data-index="${i}"><span class="answer-letter">${'ABCD'[i]}</span><span class="answer-copy">${o}</span></button>`).join('')}</div>
+          <div class="answers math-answers">${s.options.map((o,i)=>`<button class="answer ${done?(o===s.answer?'correct':done.value===o?'wrong':''):''}" data-a="${o}" data-index="${i}" ${done?'disabled':''}><span class="answer-letter">${'ABCD'[i]}</span><span class="answer-copy">${o}</span></button>`).join('')}</div>
           <div class="math-feedback" id="mathFeedback" hidden></div>
-          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}"><button class="action back" disabled>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="mathHint">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="mathRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
+          ${done?`<button class="review-next" id="mathNext">${esc(t(m.index+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}
+          <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}"><button class="action back" id="mathPrev" ${m.index===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="mathHint">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="mathRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
         </main>
       </div>
     </section>`);
@@ -94,6 +98,12 @@
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>render()})});
     // The hint shows the counting dots (or the reversed operation) for a moment.
     f.querySelector('#mathHint').onclick=()=>{K.sfx('hint');const h=f.querySelector('#mathFeedback');h.hidden=false;h.className='math-feedback is-hint';h.textContent=hintFor(s);K.speak(h.textContent);setTimeout(()=>{if(h.classList.contains('is-hint'))h.hidden=true},2600)};
+    f.querySelector('#mathPrev').onclick=()=>{if(m.index===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');m.index--;render()};
+    if(done){
+      f.querySelector('#mathNext').onclick=()=>{K.stopSpeech();K.sfx('tap');m.index++;render()};
+      f.querySelector('#mathRepeat').onclick=()=>{K.sfx('tap');K.speak(s.speech)};
+      return;
+    }
     buttons.forEach(b=>b.onclick=()=>answer(Number(b.dataset.a),b));
 
     let answered=false;
@@ -115,7 +125,7 @@
       buttons.forEach(b=>b.disabled=true);
       if(correct){m.score++;K.sfx('good');btn?.classList.add('correct');K.celebrateAt?.(f,{x:f.clientWidth/2,y:f.clientHeight*.45,count:30})}
       else{K.sfx('bad');btn?.classList.add('wrong');buttons.find(b=>Number(b.dataset.a)===s.answer)?.classList.add('correct')}
-      m.answers.push({correct,timedOut:value===null});
+      m.answers[m.index]={correct,timedOut:value===null,value};
       K.state.xp=Number(K.state.xp||0)+(correct?10:0);K.state.coins=Number(K.state.coins||0)+(correct?1:0);K.save();
       const h=f.querySelector('#mathFeedback');h.hidden=false;h.className=`math-feedback ${correct?'is-good':'is-try'}`;
       h.innerHTML=`<b>${esc(t(value===null?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</b><span>${esc(t('math.answerIs',{sum:s.text,answer:s.answer}))}</span>`;
