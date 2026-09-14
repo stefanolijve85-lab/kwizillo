@@ -535,3 +535,11 @@
   background:rgba(4,20,60,.62);border:1px solid rgba(255,255,255,.35);color:#fff;font-weight:1000;font-size:14px;white-space:nowrap;backdrop-filter:blur(8px);
   box-shadow:0 8px 20px rgba(0,20,70,.35);animation:startPulse 1.4s ease-in-out infinite;pointer-events:none}
 .motion .intro-brand{display:grid!important}
+
+/* Intro sound pill: centred with margins (the pulse animation owns transform). */
+.intro-sound{left:0!important;right:0!important;transform:none!important;width:max-content;margin:0 auto;bottom:calc(8% + var(--sab))!important}
+@keyframes soundPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.intro-sound{animation:soundPulse 1.4s ease-in-out infinite!important}
+/* Quiz header: equal side columns so the wordmark sits on the screen's centre line. */
+.quiz-v2-head{grid-template-columns:24% 1fr 24%!important}
+.quiz-back{width:44px!important;justify-self:start}
