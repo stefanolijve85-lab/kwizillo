@@ -5,9 +5,9 @@ const SAVED = (over = {}) => ({
   group: 5, xp: 0, coins: 0, streak: 0, niveau: 1, soundOn: false, musicOn: false,
   progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] }, ...over
 });
-async function boot(page, state = SAVED()) {
+async function boot(page, state = SAVED(), tts = route => route.fulfill({ status: 503, body: '{}' })) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, body: '{}' }));
+  await page.route('**/api/tts', tts);
   await page.addInitScript(s => { if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
@@ -96,4 +96,22 @@ test('levels change the kind of sums: tables at level 4, halves and percentages 
   await page.evaluate(() => window.KWIZILLO_M1.mathFinishForTest());
   await expect(page.locator('.result-v2')).toHaveClass(/is-fail/);
   await expect(page.locator('#againBtn')).toHaveText('Probeer opnieuw');
+});
+
+test('after an answer the voice names the chosen number, then the feedback line', async ({ page }) => {
+  const spoken = [];
+  await boot(page, SAVED({ voice: 'Milo' }), route => { spoken.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
+  await page.locator('#homeMath').click();
+  await expect(page.locator('.math-sum')).toBeVisible();
+  const btn = page.locator('.answer[data-a]').first();
+  const chosen = await btn.getAttribute('data-a');
+  // Numbers are spoken as words ("zes."), so compare with the spelled form.
+  const word = await page.evaluate(n => window.KWIZILLO_M1.core.spellNumbers(`${n}.`, 'nl'), chosen);
+  const before = spoken.length;
+  await btn.click();
+  await expect(page.locator('#mathFeedback')).toBeVisible();
+  // The four options were warmed while the sum was read; the click itself
+  // adds no new request for the number, and the feedback line follows.
+  expect(spoken.slice(0, before)).toContain(word);
+  await expect.poll(() => spoken.slice(before).some(t => /^Bijna\. Het is|!$/.test(t))).toBe(true);
 });

@@ -114,7 +114,8 @@
         el.style.setProperty('--p',String(Math.max(0,left/(seconds*1000))*100));const sec=Math.max(0,Math.ceil(left/1000));if(sec!==timer.sec){timer.sec=sec;K.timerTick?.(sec)}el.querySelector('b').textContent=sec;el.classList.toggle('urgent',left<=5000);
         if(left<=0){stopTimer();answer(null,null)}},100)};
     };
-    const read=async()=>{if(timer)timer.paused=true;await K.speak(s.speech);if(timer)timer.paused=false;startTimer()};
+    // The four options are warmed so the chosen number is spoken at once.
+    const read=async()=>{if(timer)timer.paused=true;await K.speak(s.speech,{prefetch:buttons.map(b=>`${b.dataset.a}.`)});if(timer)timer.paused=false;startTimer()};
     f.querySelector('#mathRepeat').onclick=()=>{K.sfx('tap');read()};
     read();
 
@@ -130,11 +131,12 @@
       h.innerHTML=`<b>${esc(t(value===null?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</b><span>${esc(t('math.answerIs',{sum:s.text,answer:s.answer}))}</span>`;
       const line=correct?t(`feedback.speech.good.${1+Math.floor(Math.random()*8)}`):t('math.speech.wrong',{answer:s.answer});
       const go=()=>{m.index++;render()};
-      const spoken=K.speak(line);
-      // Move on when the line has been spoken (or straight away without a voice), never later than 2.4 s.
+      // The voice names the chosen number first, then the praise or the correction.
+      const spoken=K.speakSequence([value===null?null:{kind:'answer',text:`${value}.`},{kind:'speech',text:line}]);
+      // Move on when the lines have been spoken (or straight away without a voice), never later than 3.4 s.
       let moved=false;const next=()=>{if(moved)return;moved=true;go()};
       Promise.resolve(spoken).then(()=>setTimeout(next,350),()=>setTimeout(next,350));
-      setTimeout(next,2400);
+      setTimeout(next,3400);
       h.onclick=next;
     }
   }
