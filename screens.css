@@ -677,3 +677,21 @@
 .math-sum.grid b:last-child{white-space:nowrap}
 .math-sum .math-eq{display:inline;margin:0}
 .voice-volume{margin-top:8px}.voice-volume input:disabled{opacity:.4}
+
+/* Hint budget per level: a small counter on the tile, greyed when spent. */
+.quiz-actions .action .hint-count{font-style:normal;display:inline-grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:rgba(255,255,255,.75);color:#1e63c7;font-size:11px;font-weight:1000}
+.quiz-actions .action.spent{opacity:.45;filter:saturate(.4)}
+
+/* Mascots: the character fills the tile, only the name on top of it. */
+.mascot-grid{gap:12px}
+.mascot-card{position:relative;padding:0;min-height:0;aspect-ratio:1/1.15;overflow:hidden;border:0;border-radius:24px;background:#dbe8ff;justify-content:flex-end;align-items:stretch;gap:0;box-shadow:0 10px 22px rgba(20,70,128,.16)}
+.mascot-card .mascot-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;transition:transform .35s ease}
+.mascot-card:active .mascot-fill{transform:scale(1.04)}
+.mascot-card .mascot-name{position:relative;z-index:1;margin:0;padding:34px 10px 11px;text-align:center;font-size:15px;font-weight:1000;color:#fff;letter-spacing:.01em;text-shadow:0 2px 6px rgba(0,20,70,.55);background:linear-gradient(180deg,transparent,rgba(6,22,70,.72))}
+.mascot-card .mascot-name small{display:block;font-size:10px;font-weight:900;color:#dbe8ff;opacity:.95;margin-top:2px}
+.mascot-card .mascot-state{position:absolute;z-index:2;top:9px;right:9px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.9);color:#2f65a0;font-size:9px;font-weight:1000;box-shadow:0 3px 8px rgba(0,20,70,.2)}
+.mascot-card.selected{box-shadow:0 0 0 4px #7360ef,0 10px 22px rgba(20,70,128,.2)}
+.mascot-card.selected .mascot-state{background:#7360ef;color:#fff}
+.mascot-card.locked{opacity:1;filter:none}
+.mascot-card.locked .mascot-fill{filter:grayscale(1) brightness(.32) blur(1.5px)}
+.mascot-card.locked .mascot-lock{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-size:34px;font-style:normal;filter:drop-shadow(0 3px 6px rgba(0,0,0,.5))}

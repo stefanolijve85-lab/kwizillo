@@ -194,4 +194,13 @@ assert.strictEqual(core.quizPassed({score:10,total:10,niveau:6}), true);
   const d = b.questions.map(q => q.difficulty || 1);
   assert.deepStrictEqual(d, [...d].sort((a, b) => a - b), 'batch ordered by difficulty');
 }
+// Hints and reading follow the level: free hints and full read-out on 1-2,
+// a budget from 3, question-only reading from 4, no hints on 6.
+assert.deepStrictEqual([1,2,3,4,5,6].map(core.hintsAllowed), [Infinity,Infinity,3,2,1,0]);
+assert.deepStrictEqual([1,2,3,4,5,6].map(core.readsAnswers), [true,true,true,false,false,false]);
+{
+  const q = { prompt: 'Welke planeet is rood?', options: ['Mars','Venus','Aarde','Jupiter'] };
+  assert.strictEqual(core.buildQuestionSpeechSegments(q).length, 5, 'question + four answers');
+  assert.deepStrictEqual(core.buildQuestionSpeechSegments(q, { answers: false }).map(s => s.kind), ['question']);
+}
 console.log('Kwizillo core gameplay tests: OK');

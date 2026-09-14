@@ -4,7 +4,7 @@
   function selectQuestions({questions,world,topicKey=null,grade=5,limit=10,rng=Math.random}){let pool=(questions||[]).filter(q=>q.world===world&&(!topicKey||q.topic===topicKey));const gradePool=pool.filter(q=>(q.groupMin||1)<=grade&&(q.groupMax||8)>=grade);if(gradePool.length>=Math.min(6,limit))pool=gradePool;return shuffle(pool,rng).slice(0,Math.min(limit,pool.length)).map(q=>prepareQuestion(q,rng))}
   // The letter is spoken as a plain label, never as "Antwoord A" / "Answer A"
   // (CLAUDE.md section 9). The trailing period gives the voice a natural fall.
-  function buildQuestionSpeechSegments(q){const labels=['A','B','C','D','E','F'];return[{kind:'question',text:q.prompt},...(q.options||[]).map((o,i)=>({kind:'answer',index:i,label:labels[i]||String(i+1),text:`${labels[i]||i+1}. ${o}.`}))]}
+  function buildQuestionSpeechSegments(q,{answers=true}={}){const labels=['A','B','C','D','E','F'];if(!answers)return[{kind:'question',text:q.prompt}];return[{kind:'question',text:q.prompt},...(q.options||[]).map((o,i)=>({kind:'answer',index:i,label:labels[i]||String(i+1),text:`${labels[i]||i+1}. ${o}.`}))]}
   function buildQuestionSpeech(q){return buildQuestionSpeechSegments(q).map(s=>s.text).join(' ').trim()}
   // Copy comes from the caller so this stays language-agnostic.
   function buildFeedbackSpeech(q,correct,copy={}){
@@ -33,18 +33,23 @@
   // Six game levels ("niveaus"). Each level shortens the time per question and
   // lowers the number of mistakes a ten-question quiz may contain before the
   // topic has to be played again. The question difficulty cap (1-4) follows.
+  // `hints` is the number of hints a ten-question quiz may use (Infinity =
+  // free). From level 4 the voice reads only the question: the child reads the
+  // four answers alone, which is the step from listening to reading.
   const LEVELS=[
-    {seconds:30,maxWrong:6,cap:1},
-    {seconds:25,maxWrong:5,cap:2},
-    {seconds:20,maxWrong:4,cap:2},
-    {seconds:16,maxWrong:3,cap:3},
-    {seconds:13,maxWrong:2,cap:4},
-    {seconds:10,maxWrong:0,cap:4}
+    {seconds:30,maxWrong:6,cap:1,hints:Infinity,readAnswers:true},
+    {seconds:25,maxWrong:5,cap:2,hints:Infinity,readAnswers:true},
+    {seconds:20,maxWrong:4,cap:2,hints:3,readAnswers:true},
+    {seconds:16,maxWrong:3,cap:3,hints:2,readAnswers:false},
+    {seconds:13,maxWrong:2,cap:4,hints:1,readAnswers:false},
+    {seconds:10,maxWrong:0,cap:4,hints:0,readAnswers:false}
   ];
   const levelRule=n=>LEVELS[Math.max(1,Math.min(LEVELS.length,Number(n)||1))-1];
   function questionSeconds(niveau=1){return levelRule(niveau).seconds}
   function maxWrong(niveau=1){return levelRule(niveau).maxWrong}
   function difficultyCap({niveau=1}={}){return levelRule(niveau).cap}
+  function hintsAllowed(niveau=1){return levelRule(niveau).hints}
+  function readsAnswers(niveau=1){return levelRule(niveau).readAnswers}
   function quizPassed({score=0,total=10,niveau=1}){return (total-score)<=maxWrong(niveau)}
   function selectQuizBatch({questions,world,topicKey=null,grade=5,limit=10,usedIds=[],rng=Math.random,maxDifficulty=4}){
     const pool=poolFor({questions,world,topicKey,grade});
@@ -138,5 +143,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

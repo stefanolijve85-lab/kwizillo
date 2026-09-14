@@ -35,6 +35,7 @@
     K.save();
     K.quiz=K.core.createSession({world,topicKey:key,topicLabel:label,questions:batch.questions,quizNumber:run.quizNumber});
     K.quiz.salt=salt;
+    K.quiz.hintsUsed=0;
     K.showQuiz();
   };
 
@@ -61,7 +62,11 @@
     const seconds=answered?0:questionSecondsFor();
     // The row is always Back / Hint / Again. On an answered question the
     // tiles reopen the explanation card (which carries "next").
-    const actions=`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint" id="hintBtn">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button>`;
+    // Hints are budgeted per level (free on 1-2, none on 6); the tile shows
+    // what is left and greys out when the budget is spent.
+    const hintsLeft=hintsLeftNow();
+    const hintLabel=Number.isFinite(hintsLeft)?`${esc(t('quiz.hint'))} <i class="hint-count">${hintsLeft}</i>`:esc(t('quiz.hint'));
+    const actions=`<button class="action back" id="prevBtn" ${idx===0?'disabled':''}>${K.icon('back')} ${esc(t('quiz.back'))}</button><button class="action hint ${hintsLeft<=0?'spent':''}" id="hintBtn">${K.icon('bulb')} ${hintLabel}</button><button class="action repeat" id="repeatBtn" aria-label="${esc(t('quiz.repeatAria'))}">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button>`;
     const f=K.frame(`<section class="quiz-v2 quiz-world-${q.world} fade-in ${answered?'is-review':''}">
       <img class="quiz-v2-bg" src="${K.MASTER[q.world]}" alt="">
       <div class="quiz-v2-dim"></div>
@@ -127,9 +132,11 @@
       // both feedback lines, the hint, then the next question and its lines,
       // so every voice starts the moment its card appears.
       const nextQ=K.quiz.questions[K.quiz.index+1];
+      // From level 4 only the question is read; the child reads the answers.
+      const speech={answers:K.core.readsAnswers(K.state.niveau||1)};
       const warm=[feedbackSpeech(q,true),feedbackSpeech(q,false),q.hint||t('hint.fallback')];
-      if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ).map(s=>s.text),feedbackSpeech(nextQ,true),feedbackSpeech(nextQ,false));
-      await K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
+      if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),feedbackSpeech(nextQ,true),feedbackSpeech(nextQ,false));
+      await K.speakSequence(K.core.buildQuestionSpeechSegments(q,speech),{
         onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
         onDone:()=>K.clearSpeechHighlight?.(),
         prefetch:warm
@@ -142,7 +149,12 @@
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
+  function hintsLeftNow(){return K.core.hintsAllowed(K.state.niveau||1)-Number(K.quiz?.hintsUsed||0)}
   function showHint(q){
+    // Reopening the hint of the same question is free.
+    const again=!!K.quiz.hintedIds?.[q.id];
+    if(!again&&hintsLeftNow()<=0){K.sfx('bad');K.toast(t(K.core.hintsAllowed(K.state.niveau||1)?'quiz.hintsSpent':'quiz.noHints'));return}
+    if(!again){(K.quiz.hintedIds||={})[q.id]=true;K.quiz.hintsUsed=Number(K.quiz.hintsUsed||0)+1;const c=K.app.querySelector('#hintBtn .hint-count');if(c)c.textContent=hintsLeftNow();if(hintsLeftNow()<=0)K.app.querySelector('#hintBtn')?.classList.add('spent')}
     K.stopSpeech();K.sfx('hint');
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const x=document.createElement('div');x.className=`hint-float hint-v2 world-${q.world}`;

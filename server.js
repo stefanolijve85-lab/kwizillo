@@ -402,6 +402,9 @@ function releaseUpstream(){
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function tts(text, guide, lang){
+  // Audio tags such as "[excited]" are an eleven_v3 feature; any other model
+  // would read them out, so they are dropped there.
+  if(!/v3/.test(MODEL)) text=text.replace(/\[[a-z][a-z ]*\]\s*/gi,'').trim();
   await loadVoices(lang);
   const v=chosen[lang][guide==='Luna'?'Luna':'Milo'];
   const meta=selectionMeta[lang][guide==='Luna'?'Luna':'Milo'];

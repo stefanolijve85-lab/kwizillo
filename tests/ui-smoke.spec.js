@@ -405,10 +405,17 @@ test('feedback speech is fetched while the question is on screen, not after the 
   expect(extra.some(t => /juiste antwoord/.test(t)), 'try-again feedback prefetched').toBe(true);
   expect(extra.some(t => !/juiste antwoord/.test(t)), 'good feedback prefetched').toBe(true);
 
+  const seen = new Set(requests);
+  const explanation = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[0].explanation);
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
   await page.waitForTimeout(600);
-  expect(requests.length, 'feedback must be served from the warm cache').toBe(before);
+  // The warm-up queue may still be working through the next question's lines
+  // (two at a time), but nothing is fetched twice and this question's
+  // feedback line is not among the new requests: it came from the cache.
+  const after = requests.slice(before);
+  expect(after.filter(t => seen.has(t)), 'nothing is fetched twice').toEqual([]);
+  expect(after.filter(t => t.includes(explanation)), 'feedback must be served from the warm cache').toEqual([]);
 });
 
 test('"next" on the feedback card waits for the voice; the close button unlocks it', async ({ page }) => {
@@ -773,4 +780,70 @@ test('a mixed quiz result still numbers the next quiz', async ({ page }) => {
   await answerAll(page, 10, { correct: true });
   await expect(page.locator('#againBtn')).toHaveText('Start quiz 2');
   await expect(page.locator('#retryBtn')).toHaveCount(0);
+});
+
+test('level 5 gives one hint per quiz; level 6 none; level 1 shows no counter', async ({ page }) => {
+  await boot(page, SAVED({ niveau: 5 }));
+  await page.locator('[data-world="wetenschap"]').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('#hintBtn .hint-count')).toHaveText('1');
+  await page.locator('#hintBtn').click();
+  await expect(page.locator('.hint-float')).toBeVisible();
+  await page.locator('.hint-close').click();
+  await expect(page.locator('#hintBtn .hint-count')).toHaveText('0');
+  await expect(page.locator('#hintBtn')).toHaveClass(/spent/);
+  // Reopening the same question's hint stays free; a new question has none left.
+  await page.locator('#hintBtn').click();
+  await expect(page.locator('.hint-float')).toBeVisible();
+  await page.locator('.hint-close').click();
+  await page.locator('.answer').first().click();
+  await page.locator('.feedback-next').click();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+  await page.locator('#hintBtn').click();
+  await expect(page.locator('.hint-float')).toHaveCount(0);
+  await expect(page.locator('.toast')).toHaveText('Je hints zijn op voor deze quiz.');
+
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 6; K.save(); K.showHome(); });
+  await page.locator('[data-world="wetenschap"]').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('#hintBtn')).toHaveClass(/spent/);
+  await page.locator('#hintBtn').click();
+  await expect(page.locator('.toast')).toHaveText('Op niveau 6 zijn er geen hints.');
+
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 1; K.save(); K.showHome(); });
+  await page.locator('[data-world="wetenschap"]').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('#hintBtn .hint-count')).toHaveCount(0);
+});
+
+test('from level 4 the voice reads only the question; the parent zone explains each level', async ({ page }) => {
+  const spoken = [];
+  await boot(page, SAVED({ niveau: 4, voice: 'Milo' }));
+  await page.route('**/api/tts', route => { spoken.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
+  await page.locator('[data-world="dieren"]').click();
+  // Entering the world calls out its name (after the fanfare's first beat).
+  await expect.poll(() => spoken.includes('[excited] Dierenwereld!')).toBe(true);
+  await page.locator('.world-topic').first().click();
+  const q = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[0]);
+  await expect.poll(() => spoken.includes(q.prompt)).toBe(true);
+  expect(spoken.some(s => s.startsWith('A. ')), 'answers are not read on level 4').toBe(false);
+
+  await page.evaluate(() => window.KWIZILLO_M1.showParent());
+  await expect(page.locator('.level-card small')).toHaveText('16 s per vraag · max. 3 fouten · 2 hints · alleen de vraag wordt voorgelezen');
+  await page.locator('[data-level="1"]').click();
+  await expect(page.locator('.level-card small')).toHaveText('30 s per vraag · max. 6 fouten · hints vrij');
+});
+
+test('mascot tiles are filled by the character with only the name on it', async ({ page }) => {
+  await boot(page, SAVED({ correct: 12 }));
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
+  await expect(page.locator('.mascot-card')).toHaveCount(6);
+  await expect(page.locator('.mascot-card .mascot-fill')).toHaveCount(6);
+  await expect(page.locator('.mascot-card.unlocked')).toHaveCount(3);        // Milo, Comet, Pootje
+  await expect(page.locator('.mascot-card.unlocked .mascot-name').nth(1)).toHaveText('Comet');
+  await expect(page.locator('.mascot-card.locked .mascot-lock')).toHaveCount(3);
+  const fill = await page.locator('.mascot-card .mascot-fill').first().boundingBox();
+  const card = await page.locator('.mascot-card').first().boundingBox();
+  expect(Math.abs(fill.width - card.width)).toBeLessThan(2);
+  expect(Math.abs(fill.height - card.height)).toBeLessThan(2);
 });

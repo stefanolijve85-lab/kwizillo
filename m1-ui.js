@@ -16,6 +16,13 @@
     {id:'lumi',icon:'🔮',need:50}
   ];
 
+  // One line per level for the parent zone: time, mistakes, hints, reading.
+  function levelSummary(n){
+    const h=K.core.hintsAllowed(n);
+    const hints=!Number.isFinite(h)?t('settings.hintsFree'):h>0?t('settings.hintsN',{n:h}):t('settings.hintsNone');
+    const base=t('settings.levelSub',{seconds:K.core.questionSeconds(n),allowed:K.core.maxWrong(n),hints});
+    return K.core.readsAnswers(n)?base:`${base} · ${t('settings.readsQuestionOnly')}`;
+  }
   const worldTitle=w=>t(`world.${w}.title`);
   const worldSub=w=>t(`world.${w}.sub`);
   const topicLabel=key=>t(`topic.${key}`);
@@ -136,9 +143,11 @@
 
   K.enterWorld=world=>{
     if(!WORLD_ORDER.includes(world)) return K.showHome();
-    K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('world');
+    K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('fanfare');
     K.audio.setTrack(WORLD_MUSIC[world]||'magical').catch(()=>{});
     K.showWorld(world);
+    // The guide calls out the world's name, cheering, once the fanfare peaks.
+    setTimeout(()=>{if(K.currentWorld===world&&K.app.querySelector('.native-world-bg'))K.speak(t('world.speech.enter',{title:worldTitle(world)}))},420);
   };
 
   const runKey=(world,topicKey)=>topicKey?`${world}:${topicKey}`:world;
@@ -296,9 +305,13 @@
         const ok=totalCorrect()>=m.need,sel=K.state.selectedMascot===m.id;
         // Locked buddies show as a dark silhouette with a lock, so the child
         // can see who is waiting to be unlocked.
+        // The character fills the whole tile; only the name sits on it. A
+        // locked buddy is a dark silhouette with a lock and how many more
+        // correct answers it takes.
         const art=K.MASCOT_ART[m.id];
-        const face=art?`<span class="mascot-portrait ${ok?'':'locked'}"><img class="mascot-face large" src="${art}" alt="">${ok?'':'<i>🔒</i>'}</span>`:(ok?m.icon:'🔒');
-        return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'}><div>${face}</div><b>${esc(t(`mascot.${m.id}`))}</b><small>${ok?esc(t(`mascot.${m.id}.desc`)):esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>${sel?`<span>${esc(t('collection.mascotActive'))}</span>`:ok?`<span>${esc(t('collection.mascotChoose'))}</span>`:''}</button>`;
+        const sub=ok?'':`<small>${esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>`;
+        const state=sel?`<span class="mascot-state">${esc(t('collection.mascotActive'))}</span>`:'';
+        return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'} aria-label="${esc(t(`mascot.${m.id}`))}"><img class="mascot-fill" src="${art}" alt="" decoding="async">${ok?'':'<i class="mascot-lock">🔒</i>'}${state}<b class="mascot-name">${esc(t(`mascot.${m.id}`))}${sub}</b></button>`;
       }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
     }
     const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button></div>${content}`;
@@ -388,7 +401,7 @@
       <section class="setting-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.state.niveau||1)}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
-      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(t('settings.levelSub',{seconds:K.core.questionSeconds(K.state.niveau||1),allowed:K.core.maxWrong(K.state.niveau||1)}))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''}">${v}</button>`).join('')}</div></section>
+      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''}">${v}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
