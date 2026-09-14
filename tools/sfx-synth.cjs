@@ -27,15 +27,16 @@ const SFX={
   gift(ctx,d){const o=ctx.createOscillator();o.type='sine';const g=ctx.createGain();env(g,0,.01,.35,.25,.4);o.frequency.setValueAtTime(180,0);o.frequency.exponentialRampToValueAtTime(520,.18);o.frequency.exponentialRampToValueAtTime(300,.32);o.frequency.exponentialRampToValueAtTime(420,.46);o.frequency.exponentialRampToValueAtTime(360,.6);o.connect(g);g.connect(d);o.start(0);o.stop(.7);[783.99,987.77,1174.7,1568,2093].forEach((f,i)=>bell(ctx,d,f,.45+i*.07,.5,.25));sparkle(ctx,d,.6,8,2600,.5,.09)},
   hint(ctx,d){bell(ctx,d,987.77,0,.7,.4);bell(ctx,d,1318.5,.09,.6,.22);sparkle(ctx,d,.15,4,3000,.3,.07)},
   swoosh(ctx,d){noise(ctx,d,{t:0,dur:.28,a:.06,r:.15,peak:.45,f0:400,f1:2600,q:1})},
-  tick(ctx,d){tone(ctx,d,{type:'sine',f0:1500,f1:900,t:0,a:.002,h:.01,r:.05,peak:.5});noise(ctx,d,{t:0,dur:.03,r:.02,peak:.25,f0:3000,f1:1500,q:1.2})},
-  tock(ctx,d){tone(ctx,d,{type:'square',f0:700,f1:500,t:0,a:.002,h:.015,r:.07,peak:.35});tone(ctx,d,{type:'sine',f0:1400,f1:1000,t:0,a:.002,h:.01,r:.05,peak:.4});noise(ctx,d,{t:0,dur:.035,r:.025,peak:.3,f0:2500,f1:1200,q:1.2})}
+  // Clock ticks: a soft wooden "tk" (filtered click + low thump), never a whistle.
+  tick(ctx,d){noise(ctx,d,{t:0,dur:.028,r:.02,peak:.55,f0:900,f1:500,q:2.5});tone(ctx,d,{type:'sine',f0:240,f1:150,t:0,a:.002,h:.008,r:.06,peak:.35})},
+  tock(ctx,d){noise(ctx,d,{t:0,dur:.034,r:.024,peak:.7,f0:1200,f1:600,q:2.2});tone(ctx,d,{type:'triangle',f0:320,f1:180,t:0,a:.002,h:.01,r:.08,peak:.45})}
 };
 const LEN={tap:.25,correct:1.2,wrong:.8,reward:2.2,world:1.3,confetti:1,gift:1.4,hint:.9,swoosh:.45,tick:.12,tock:.14};
 window.render=async(name,peakTarget)=>{const ctx=ctxFor(LEN[name]);const comp=ctx.createDynamicsCompressor();comp.threshold.value=-10;comp.ratio.value=4;comp.connect(ctx.destination);SFX[name](ctx,comp);const buf=await ctx.startRendering();const d=buf.getChannelData(0);let max=0;for(let i=0;i<d.length;i++)max=Math.max(max,Math.abs(d[i]));const g=max?peakTarget/max:1;const n=d.length;const bytes=44+n*2;const ab=new ArrayBuffer(bytes);const v=new DataView(ab);const w=(o,t)=>{for(let i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))};w(0,'RIFF');v.setUint32(4,bytes-8,true);w(8,'WAVE');w(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,SR,true);v.setUint32(28,SR*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,'data');v.setUint32(40,n*2,true);let o=44;for(let i=0;i<n;i++){const x=Math.max(-1,Math.min(1,d[i]*g));v.setInt16(o,x<0?x*32768:x*32767,true);o+=2}let s='';const u=new Uint8Array(ab);for(let k=0;k<u.length;k+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(k,k+0x8000));return btoa(s)}
 window.names=()=>Object.keys(SFX);
 </script>`;
 
-const PEAK = { tap: .55, correct: .85, wrong: .7, reward: .9, world: .75, confetti: .8, gift: .85, hint: .6, swoosh: .5, tick: .5, tock: .7 };
+const PEAK = { tap: .55, correct: .85, wrong: .7, reward: .9, world: .75, confetti: .8, gift: .85, hint: .6, swoosh: .5, tick: .4, tock: .55 };
 
 (async () => {
   const b = await chromium.launch(); const p = await b.newPage(); await p.setContent(PAGE);
