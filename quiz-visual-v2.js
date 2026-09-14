@@ -122,12 +122,16 @@
     const readQuestion=async()=>{
       if(answered){K.speak(q.prompt);return}   // review: only on "Nog eens"
       K.pauseTimer(true);
+      // Everything this question can still say is queued right behind it:
+      // both feedback lines, the hint, then the next question and its lines,
+      // so every voice starts the moment its card appears.
+      const nextQ=K.quiz.questions[K.quiz.index+1];
+      const warm=[feedbackSpeech(q,true),feedbackSpeech(q,false),q.hint||t('hint.fallback')];
+      if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ).map(s=>s.text),feedbackSpeech(nextQ,true),feedbackSpeech(nextQ,false));
       await K.speakSequence(K.core.buildQuestionSpeechSegments(q),{
         onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
         onDone:()=>K.clearSpeechHighlight?.(),
-        // Both feedback lines are fetched once the question itself has loaded, so
-        // the voice starts together with the feedback card.
-        prefetch:[feedbackSpeech(q,true),feedbackSpeech(q,false)]
+        prefetch:warm
       });
       K.pauseTimer(false);
       startTimer();

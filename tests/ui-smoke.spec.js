@@ -454,6 +454,32 @@ test('closing the feedback card shows the answered question without reading it o
   expect(texts.length, 'no new speech request after closing the card').toBe(before);
 });
 
+test('every line the app can say next is warmed before it is needed', async ({ page }) => {
+  const seen = [];
+  await page.route('**/api/tts', route => { const b = JSON.parse(route.request().postData()); seen.push(b.voice + '|' + b.text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
+  await boot(page, SAVED({ voice: 'Milo' }));
+  // Home warms both guides' hello lines.
+  await expect.poll(() => seen.filter(t => t.startsWith('Luna|Hoi! Ik ben Luna') || t.startsWith('Milo|Hoi! Ik ben Milo')).length, { timeout: 8000 }).toBe(2);
+
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('#worldMix').click();
+  const [q1, q2, hint1] = await page.evaluate(() => { const K = window.KWIZILLO_M1; const s = K.quiz.questions; return [s[0].prompt, s[1].prompt, s[0].hint]; });
+  // Current question + its feedback + its hint + the next question and its feedback.
+  await expect.poll(() => seen.some(t => t === 'Milo|' + q2), { timeout: 8000 }).toBe(true);
+  expect(seen.some(t => t === 'Milo|' + hint1), 'hint warmed').toBe(true);
+  const before = seen.length;
+
+  // Opening the hint and moving to the next question needs no new request.
+  await page.locator('#hintBtn').click();
+  await page.locator('.hint-close').click();
+  await page.locator('.answer').first().click();
+  await page.locator('#feedbackNext').click();
+  await expect(page.locator('.quiz-card h1')).toHaveText(q2);
+  await page.waitForTimeout(500);
+  const q2Requests = seen.slice(before).filter(t => t === 'Milo|' + q2).length;
+  expect(q2Requests, 'the next question was already fetched').toBe(0);
+});
+
 test('without a voice the feedback "next" is live at once and the repeat button is hidden', async ({ page }) => {
   await boot(page);   // voice: Stil
   await page.locator('[data-world="ruimte"]').click();

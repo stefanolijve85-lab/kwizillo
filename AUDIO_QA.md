@@ -247,3 +247,20 @@ over in de Home-loop (één bron tegelijk, CLAUDE.md §5).
 **Alleen met een oor**: of de kinderen "Kwi-ZIL-lo" zeggen zoals jij het wilt
 (Leo is een Spaanse stem: "Kwizilla"), en of de balans muziek/koor op een
 telefoonspeaker klopt. Variant-clips staan in `build/intro-audio/` (niet in git).
+
+## 12. Stemmen beginnen direct (warm-up)
+
+Elke zin die de app als volgende kan uitspreken wordt vooraf opgehaald, in de
+volgorde waarin hij nodig is (de server verwerkt de wachtrij op volgorde):
+
+| Scherm | Vooraf geladen |
+|---|---|
+| Home / Geluidsinstellingen / Onboarding-gids | "Hoi! Ik ben Milo…" en "Hoi! Ik ben Luna…" (elk met de eigen stem), welkomstzin |
+| Vraag | vraag + A–D (wordt gespeeld), daarna beide feedbackzinnen, de hint, de **volgende** vraag + A–D en haar feedbackzinnen |
+| Uitlegkaart | uit cache; de balk in "Volgende" loopt op de echte clipduur |
+| Nog eens (beantwoord) | de vraagzin, uit cache |
+
+Een clip die al onderweg is wordt gedeeld (geen dubbele aanvraag); cache 48
+clips per taal/stem. Playwright-test: op Home twee hello-aanvragen, in de quiz
+zijn hint en volgende vraag al binnen vóór ze nodig zijn, en het openen van de
+hint of de volgende vraag veroorzaakt geen nieuwe aanvraag.

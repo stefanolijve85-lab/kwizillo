@@ -139,6 +139,9 @@
     f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');selectVoice(b.dataset.voice)});
     f.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{K.sfx('tap');switchLanguage(b.dataset.lang)});
     bindNav(f);
+    // The hello of each guide is warmed on Home, where the voice pills live.
+    K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
+    K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };
 
   function selectVoice(v){
@@ -445,6 +448,7 @@
     o.querySelector('[data-volume="music"]').oninput=e=>K.audio.setMusicVolume(e.target.value/100);
     o.querySelector('.sound-test').onclick=()=>K.audio.play('reward');
     o.querySelectorAll('[data-track]').forEach(b=>b.onclick=async()=>{await K.audio.setTrack(b.dataset.track);redraw()});
+    K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
     o.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{K.state.voice=b.dataset.guide;K.save();K.stopSpeech();redraw();if(K.state.voice!=='Stil')K.speak(t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'))});
   };
 

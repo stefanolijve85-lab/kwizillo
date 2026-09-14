@@ -33,18 +33,28 @@
   // a round trip to the speech service. Keyed by voice and language, so a
   // change of either simply misses.
   const voiceCache=new Map();
-  const VOICE_CACHE_MAX=24;
-  function voiceKey(text,lang){return `${lang}|${K.state.voice}|${text}`}
+  const VOICE_CACHE_MAX=48;
+  function voiceKey(text,lang,voice=K.state.voice){return `${lang}|${voice}|${text}`}
   function remember(key,blob){voiceCache.delete(key);voiceCache.set(key,blob);while(voiceCache.size>VOICE_CACHE_MAX)voiceCache.delete(voiceCache.keys().next().value)}
-  async function fetchVoiceBlob(text,signal){
+  // In-flight requests are shared: a prefetch and the real playback of the
+  // same line never hit the server twice.
+  const inFlight=new Map();
+  async function fetchVoiceBlob(text,signal,voice=K.state.voice){
     if(!speechAvailable) throw Object.assign(new Error('speech-unavailable'),{name:'AbortError'});
+    if(voice==='Stil') throw Object.assign(new Error('silent'),{name:'AbortError'});
     const lang=K.speechLang?.()||K.state.language||'nl';
-    const key=voiceKey(text,lang);
+    const key=voiceKey(text,lang,voice);
     if(voiceCache.has(key)) return voiceCache.get(key);
+    if(inFlight.has(key)) return inFlight.get(key);
+    const job=fetchVoiceBlobNow(text,signal,voice,lang,key).finally(()=>inFlight.delete(key));
+    inFlight.set(key,job);
+    return job;
+  }
+  async function fetchVoiceBlobNow(text,signal,voice,lang,key){
     // Digits become words here, at the voice boundary, so "B. 7." is voiced as
     // "B. zeven." and not as English "Bay seven". The screen keeps the digits.
     const spoken=K.core.spellNumbers(text,lang);
-    const r=await fetch(K.config.elevenLabsProxyUrl||'/api/tts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:spoken,voice:K.state.voice,lang}),signal});
+    const r=await fetch(K.config.elevenLabsProxyUrl||'/api/tts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:spoken,voice,lang}),signal});
     if(!r.ok){
       if(r.status===503||r.status===501){speechAvailable=false;console.info('Kwizillo: speech is not configured, continuing without a voice.')}
       throw new Error(`TTS ${r.status}`);
@@ -55,9 +65,9 @@
   }
   // Warm the cache for texts that will be spoken next. Never throws, never
   // plays anything, and is a no-op without a voice.
-  K.prefetchSpeech=texts=>{
-    if(!speechAvailable||K.state.voice==='Stil') return;
-    for(const text of (texts||[]).filter(Boolean)) fetchVoiceBlob(text).catch(()=>{});
+  K.prefetchSpeech=(texts,{voice=K.state.voice}={})=>{
+    if(!speechAvailable||voice==='Stil') return;
+    for(const text of (texts||[]).filter(Boolean)) fetchVoiceBlob(text,undefined,voice).catch(()=>{});
   };
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
   async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(c.state==='suspended')await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;pre.gain.value=measureVoiceGain(buffer);compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=1;limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source)voiceSource=null;resolve(gate.isCurrent(token))};try{source.start();onStart?.(buffer.duration)}catch(e){resolve(false)}})}

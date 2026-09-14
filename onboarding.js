@@ -77,6 +77,10 @@
     <button class="onboarding-next" id="obNext">${esc(K.t('onboarding.next'))}</button>
     <button class="onboarding-back" id="obBack" aria-label="${esc(K.t('common.back'))}">‹ ${esc(K.t('common.back'))}</button>`;
     const f=shell({step:3,total:3,title:esc(K.t('onboarding.voice.title')),sub:esc(K.t('onboarding.voice.sub')),body});
+    // Both hellos and the welcome line are warmed for both guides, so the
+    // first thing a child hears comes without a pause.
+    K.prefetchSpeech([K.t('voice.milo.hello'),K.t('onboarding.speech.welcome')],{voice:'Milo'});
+    K.prefetchSpeech([K.t('voice.luna.hello'),K.t('onboarding.speech.welcome')],{voice:'Luna'});
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
       K.state.voice=b.dataset.guide; K.save();
