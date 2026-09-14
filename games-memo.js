@@ -35,13 +35,20 @@
   function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
 
   // Picker: which world's pictures (or all of them) the board is made of.
+  // Solo or two players taking turns on one phone. The choice is remembered.
+  const memoMode=()=>K.state.memoMode==='duel'?'duel':'solo';
   K.showMemoPicker=()=>{
     K.stopSpeech();stopTimer();
+    const mode=memoMode();
     const worlds=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
     const f=K.frame(`<section class="native-panel-screen memo-picker fade-in">
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('memo.title'))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('memo.pickSub',{n:K.state.niveau||1}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
+        <div class="memo-mode" role="radiogroup" aria-label="${esc(t('memo.modeTitle'))}">
+          <button class="memo-mode-btn ${mode==='solo'?'active':''}" data-mode="solo" role="radio" aria-checked="${mode==='solo'}"><span class="memo-mode-icons">${K.icon('user')}</span><b>${esc(t('memo.solo'))}</b><small>${esc(t('memo.soloSub'))}</small></button>
+          <button class="memo-mode-btn ${mode==='duel'?'active':''}" data-mode="duel" role="radio" aria-checked="${mode==='duel'}"><span class="memo-mode-icons">${K.icon('user')}${K.icon('user')}</span><b>${esc(t('memo.duel'))}</b><small>${esc(t('memo.duelSub'))}</small></button>
+        </div>
         <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b><small>${esc(t('memo.allWorldsSub'))}</small></button>
         <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span><b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
       </div>
@@ -49,7 +56,12 @@
     f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
     f.querySelector('.panel-settings').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelectorAll('[data-memo]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startMemo(b.dataset.memo)});
+    f.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{
+      K.sfx('tap');K.state.memoMode=b.dataset.mode;K.save();
+      f.querySelectorAll('[data-mode]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-checked',String(on))});
+    });
   };
+  const playerName=i=>i===0?(K.state.name||t('memo.player1')):t('memo.player2');
 
   K.startMemo=world=>{
     K.stopSpeech();stopTimer();
@@ -69,7 +81,9 @@
       {id:`${i}a`,pair:i,kind:'art',q},
       {id:`${i}b`,pair:i,kind:r.words&&i<wordQs.length?'word':'art',q}
     ]));
-    K.memo={world,bgWorld,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols,rows:r.rows};
+    const duel=memoMode()==='duel';
+    // Two players: no clock, the score decides; turns swap after every two cards.
+    K.memo={world,bgWorld,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:duel||K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols,rows:r.rows,duel,turn:0,scores:[0,0]};
     render();
     // Pictures first, words second: the board's images get the connections
     // before the speech warm-up starts, so no tile is still empty when the
@@ -108,6 +122,7 @@
           <div class="quiz-brand"><span>Memo</span><small>${esc(m.world==='mix'?t('memo.allWorlds'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></div>
           <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
         </header>
+        ${m.duel?`<div class="memo-duel" id="memoDuel">${[0,1].map(i=>`<span class="memo-player ${i===m.turn?'active':''}" data-player="${i}"><b>${esc(playerName(i))}</b><em>${m.scores[i]}</em></span>`).join('')}</div>`:''}
         <div class="quiz-progress memo-progress"><strong id="memoPairs">${esc(t('memo.pairs',{found:0,total:m.pairs}))}</strong><div><i id="memoBar" style="width:0%"></i></div>${m.seconds?`<span class="quiz-timer running" id="memoTimer" style="--p:100"><b>${m.seconds}</b></span>`:`<span id="memoMoves">${esc(t('memo.moves',{n:0}))}</span>`}</div>
         <main class="memo-board" style="--cols:${m.cols};--rows:${m.rows}" role="grid" aria-label="Memo">
           ${m.cards.map(c=>`<button class="memo-card" data-card="${c.id}" aria-label="${esc(t('memo.card'))}">
@@ -115,7 +130,7 @@
             <span class="memo-face memo-front ${c.kind}">${c.kind==='art'?`<img src="${K.questionArt(c.q)}" alt="" decoding="async">`:`<b>${esc(c.q.answer)}</b>`}</span>
           </button>`).join('')}
         </main>
-        <div class="memo-foot"><span id="memoMovesFoot">${esc(t('memo.moves',{n:0}))}</span><span>${esc(t('memo.hintLine'))}</span></div>
+        <div class="memo-foot"><span id="memoMovesFoot">${esc(t('memo.moves',{n:0}))}</span><span id="memoHint">${esc(m.duel?t('memo.turn',{name:playerName(m.turn)}):t('memo.hintLine'))}</span></div>
       </div>
     </section>`);
     const home=()=>K.showMemoPicker();
@@ -156,6 +171,7 @@
     const [a,b]=m.open;
     if(a.pair===b.pair){
       a.matched=b.matched=true;m.found++;m.open=[];
+      if(m.duel){m.scores[m.turn]++;const em=f.querySelector(`[data-player="${m.turn}"] em`);if(em)em.textContent=m.scores[m.turn]}
       const els=[a,b].map(c=>f.querySelector(`[data-card="${c.id}"]`));
       els.forEach(el=>el.classList.add('is-matched'));
       setTimeout(()=>{K.sfx('good')},120);
@@ -163,20 +179,30 @@
       K.celebrateAt?.(f,{x:r1.left-fr.left+r1.width/2,y:r1.top-fr.top+r1.height/2,count:22});
       f.querySelector('#memoPairs').textContent=t('memo.pairs',{found:m.found,total:m.pairs});
       f.querySelector('#memoBar').style.width=`${Math.round(m.found/m.pairs*100)}%`;
-      if(m.found>=m.pairs){stopTimer();setTimeout(()=>finish(true),650)}
+      if(m.found>=m.pairs){stopTimer();setTimeout(()=>finish(true),650);return}
+      if(m.duel)setTimeout(()=>swapTurn(f),500);
     }else{
       m.locked=true;
       setTimeout(()=>{
         K.sfx('swoosh');
         [a,b].forEach(c=>f.querySelector(`[data-card="${c.id}"]`)?.classList.remove('is-open'));
         m.open=[];m.locked=false;
+        if(m.duel)swapTurn(f);
       },750);
     }
+  }
+  // Duel: the other player is up after every two cards, match or not.
+  function swapTurn(f){
+    const m=K.memo;if(!m||m.done)return;
+    m.turn=1-m.turn;
+    f.querySelectorAll('[data-player]').forEach(el=>el.classList.toggle('active',Number(el.dataset.player)===m.turn));
+    const hint=f.querySelector('#memoHint');if(hint)hint.textContent=t('memo.turn',{name:playerName(m.turn)});
   }
 
   K.memoFinishForTest=won=>finish(won);   // deterministic time-out in tests
   function finish(won){
     const m=K.memo;if(!m||m.done)return;m.done=true;stopTimer();K.stopSpeech();
+    if(m.duel)return finishDuel();
     const secs=Math.round((Date.now()-m.startedAt)/1000);
     const stars=!won?0:m.moves<=m.pairs+2?3:m.moves<=Math.ceil(m.pairs*1.7)?2:1;
     const xp=won?m.pairs*5+stars*5:0,coins=won?m.pairs:0;
@@ -214,6 +240,49 @@
       gift.onclick=open;setTimeout(open,1000);
       K.speak(t('memo.speech.done'));
     }else{K.sfx('bad');K.speak(t('memo.speech.time'))}
+    f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMemo(m.world)};
+    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showMemoPicker()};
+    f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
+  }
+
+  // Two players: the higher score wins, a tie is a tie. The profile gets a
+  // small XP reward for playing; the games counter counts a win for player 1
+  // (the profile's owner).
+  function finishDuel(){
+    const m=K.memo;
+    const [s1,s2]=m.scores;
+    const tie=s1===s2,winner=tie?null:(s1>s2?0:1);
+    const xp=m.pairs*3,coins=Math.ceil(m.pairs/2);
+    const G=K.progress().games||={};const memo=G.memo||={played:0,won:0,best:{}};
+    memo.played++;if(winner===0)memo.won++;
+    K.state.xp=Number(K.state.xp||0)+xp;K.state.coins=Number(K.state.coins||0)+coins;
+    K.touchStreak();K.save();
+    const title=tie?t('memo.duelTie'):t('memo.duelWin',{name:playerName(winner)});
+    const f=K.frame(`<section class="result-v2 fade-in is-pass">
+      <img class="result-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
+      <div class="result-v2-dim"></div>
+      <div class="result-v2-card">
+        <div class="result-stage">
+          <button class="result-gift" id="resultGift" aria-label="🎁">🎁</button>
+          <div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div>
+        </div>
+        <div class="result-kicker">${esc(t('memo.duelKicker'))}</div>
+        <h1>${esc(title)}</h1>
+        <div class="memo-duel result" >${[0,1].map(i=>`<span class="memo-player ${winner===i?'active':''}"><b>${esc(playerName(i))}</b><em>${m.scores[i]}</em></span>`).join('')}</div>
+        <p class="result-rule">${esc(t('memo.duelSummary',{pairs:m.pairs,moves:m.moves}))}</p>
+        <div class="result-stats"><span><b>${m.moves}</b><small>${esc(t('memo.movesShort'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
+        <div class="result-native">
+          <button id="againBtn">${esc(t('memo.rematch'))}</button>
+          <button id="worldBtn" class="secondary">${esc(t('memo.otherWorld'))}</button>
+          <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
+        </div>
+      </div>
+    </section>`);
+    const stage=f.querySelector('.result-stage'),gift=f.querySelector('#resultGift');
+    let opened=false;
+    const open=()=>{if(opened)return;opened=true;stage.classList.add('open');K.sfx('gift');setTimeout(()=>K.sfx('reward'),350);K.celebrate?.('quiz',gift)};
+    gift.onclick=open;setTimeout(open,1000);
+    K.speak(tie?t('memo.speech.tie'):t('memo.speech.win',{name:playerName(winner)}));
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMemo(m.world)};
     f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};

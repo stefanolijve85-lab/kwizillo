@@ -127,3 +127,41 @@ test('a tile whose picture fails to load retries it, and shows the word when it 
   const broken = await page.evaluate(() => [...document.querySelectorAll('.memo-front img')].filter(i => i.complete && i.naturalWidth === 0).length);
   expect(broken).toBe(0);
 });
+
+test('head-to-head: two players alternate every two cards, scores are kept, the higher score wins', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeMemo').click();
+  await expect(page.locator('[data-mode="solo"]')).toHaveClass(/active/);
+  await page.locator('[data-mode="duel"]').click();
+  await expect(page.locator('[data-mode="duel"]')).toHaveClass(/active/);
+  await page.locator('[data-memo="dieren"]').click();
+  await expect(page.locator('.memo-board')).toBeVisible();
+  // No clock in a duel; two score chips, player 1 (the child's name) is up.
+  await expect(page.locator('#memoTimer')).toHaveCount(0);
+  await expect(page.locator('.memo-player')).toHaveCount(2);
+  await expect(page.locator('.memo-player.active b')).toHaveText('Mike');
+  await expect(page.locator('#memoHint')).toHaveText('Mike is aan de beurt');
+
+  const pairs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(c.id); return Object.values(by); });
+  // Mike finds a pair → 1 point, then it is Speler 2's turn.
+  await page.locator(`[data-card="${pairs[0][0]}"]`).click(); await page.locator(`[data-card="${pairs[0][1]}"]`).click();
+  await expect(page.locator('[data-player="0"] em')).toHaveText('1');
+  await expect(page.locator('.memo-player.active b')).toHaveText('Speler 2', { timeout: 3000 });
+  // Speler 2 misses (two cards of different pairs) → back to Mike, no point.
+  await page.locator(`[data-card="${pairs[1][0]}"]`).click(); await page.locator(`[data-card="${pairs[2][0]}"]`).click();
+  await expect(page.locator('.memo-player.active b')).toHaveText('Mike', { timeout: 3000 });
+  await expect(page.locator('[data-player="1"] em')).toHaveText('0');
+  // Play out the rest: Mike gets every remaining pair on his turns, Speler 2 the others.
+  for (let i = 1; i < pairs.length; i++) {
+    await page.locator(`[data-card="${pairs[i][0]}"]`).click(); await page.locator(`[data-card="${pairs[i][1]}"]`).click();
+    await page.waitForTimeout(650);
+  }
+  await expect(page.locator('.result-v2')).toBeVisible({ timeout: 5000 });
+  const [s1, s2] = await page.evaluate(() => window.KWIZILLO_M1.memo.scores);
+  expect(s1 + s2).toBe(pairs.length);
+  await expect(page.locator('.result-v2 h1')).toHaveText(s1 === s2 ? 'Gelijkspel!' : `${s1 > s2 ? 'Mike' : 'Speler 2'} wint!`);
+  await expect(page.locator('#againBtn')).toHaveText('Revanche');
+  // The choice is remembered for next time.
+  await page.locator('#worldBtn').click();
+  await expect(page.locator('[data-mode="duel"]')).toHaveClass(/active/);
+});
