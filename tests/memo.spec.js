@@ -29,10 +29,15 @@ test('Memo opens from Home and from a world, lays out a level-1 board of 6 pictu
   await expect(page.locator('.memo-card')).toHaveCount(12);
   await expect(page.locator('.memo-front.word')).toHaveCount(0);
   await expect(page.locator('#memoTimer b')).toHaveText('132');   // 6 pairs x 22 s
+  // From Home the board mixes every world; back goes to Home.
+  const worlds = await page.evaluate(() => new Set(window.KWIZILLO_M1.memo.cards.map(c => c.q.world)).size);
+  expect(worlds).toBeGreaterThan(1);
   await page.locator('#memoBack').click();
-  await expect(page.locator('.native-world')).toBeVisible();
+  await expect(page.locator('.home')).toBeVisible();
+  await page.locator('[data-world="dieren"]').click();
   await page.locator('#worldMemo').click();
   await expect(page.locator('.memo-card')).toHaveCount(12);
+  expect(await page.evaluate(() => new Set(window.KWIZILLO_M1.memo.cards.map(c => c.q.world)).size)).toBe(1);
   const errors = [];
   page.on('pageerror', e => errors.push(String(e)));
   expect(errors).toEqual([]);

@@ -68,6 +68,8 @@
   // children call "Kwizillo!" as the logo lands (about 10 s in).
   K.INTRO_THEME='assets/audio/intro_theme.wav';
   K.BRAND_LOGO='assets/brand/logo.png';
+  // Menu tiles for the two extra games.
+  K.GAME_ART={memo:'assets/games/memo.jpg',math:'assets/games/math.jpg'};
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:
   // Home HUD, voice pickers, onboarding, feedback and result cards.

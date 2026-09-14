@@ -24,8 +24,9 @@
   // Short, concrete answers make good word cards ("Mercurius", "De Nijl");
   // fragments that start with a preposition or pronoun ("Met kieuwen") do not.
   const NOT_A_NOUN=/^(met|door|om|voor|in|op|naar|uit|bij|zonder|alle|ze|zij|het is|with|by|to|for|on|at|from|they|it|because|com|por|para|em|no|na|eles|ela|porque)\b/i;
+  // world 'mix' draws from every world (the Memo on Home).
   function pickQuestions(world,n){
-    const good=K.questions.filter(q=>q.world===world&&K.questionArtFor?.(q.id)&&String(q.answer).length<=16&&String(q.answer).split(' ').length<=2&&!/^\d+$/.test(q.answer)&&!NOT_A_NOUN.test(q.answer));
+    const good=K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&String(q.answer).length<=16&&String(q.answer).split(' ').length<=2&&!/^\d+$/.test(q.answer)&&!NOT_A_NOUN.test(q.answer));
     const seen=new Set();const uniq=good.filter(q=>{const k=q.answer.toLowerCase();if(seen.has(k))return false;seen.add(k);return true});
     return shuffle(uniq).slice(0,n);
   }
@@ -35,22 +36,23 @@
 
   K.startMemo=world=>{
     K.stopSpeech();stopTimer();
-    world=world||K.state.lastWorld||'ruimte';
-    K.currentWorld=world;
+    world=world||'mix';
+    const bgWorld=world==='mix'?(K.state.lastWorld||'ruimte'):world;
+    K.currentWorld=bgWorld;
     const r=rule();
     const pairs=(r.cols*r.rows)/2;
     // Word pairs first; when a world has too few short answers for a big
     // board, the rest of the board is filled with picture pairs.
     const wordQs=pickQuestions(world,pairs);
     const used=new Set(wordQs.map(q=>q.id));
-    const fill=shuffle(K.questions.filter(q=>q.world===world&&K.questionArtFor?.(q.id)&&!used.has(q.id))).slice(0,Math.max(0,pairs-wordQs.length));
+    const fill=shuffle(K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&!used.has(q.id))).slice(0,Math.max(0,pairs-wordQs.length));
     const qs=[...wordQs,...fill];
     if(qs.length<pairs){K.toast(t('memo.none'));return K.showWorld(world)}
     const cards=shuffle(qs.flatMap((q,i)=>[
       {id:`${i}a`,pair:i,kind:'art',q},
       {id:`${i}b`,pair:i,kind:r.words&&i<wordQs.length?'word':'art',q}
     ]));
-    K.memo={world,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols};
+    K.memo={world,bgWorld,pairs,cards,found:0,moves:0,open:[],locked:false,startedAt:Date.now(),seconds:K.state.timeLimitOn===false?0:pairs*r.secPerPair,done:false,cols:r.cols};
     render();
     // Every word on the board is warmed now, so a flip speaks at once.
     K.prefetchSpeech([...qs.map(q=>q.answer),t('memo.speech.done'),t('memo.speech.time')]);
@@ -58,13 +60,13 @@
 
   function render(){
     const m=K.memo;
-    const f=K.frame(`<section class="memo quiz-v2 quiz-world-${m.world} fade-in">
-      <img class="quiz-v2-bg" src="${K.MASTER[m.world]}" alt="">
+    const f=K.frame(`<section class="memo quiz-v2 quiz-world-${m.bgWorld} fade-in">
+      <img class="quiz-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui memo-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="memoBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
-          <div class="quiz-brand"><span>Memo</span><small>${esc(t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></div>
+          <div class="quiz-brand"><span>Memo</span><small>${esc(m.world==='mix'?t('memo.allWorlds'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></div>
           <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
         </header>
         <div class="quiz-progress memo-progress"><strong id="memoPairs">${esc(t('memo.pairs',{found:0,total:m.pairs}))}</strong><div><i id="memoBar" style="width:0%"></i></div>${m.seconds?`<span class="quiz-timer running" id="memoTimer" style="--p:100"><b>${m.seconds}</b></span>`:`<span id="memoMoves">${esc(t('memo.moves',{n:0}))}</span>`}</div>
@@ -77,8 +79,9 @@
         <div class="memo-foot"><span id="memoMovesFoot">${esc(t('memo.moves',{n:0}))}</span><span>${esc(t('memo.hintLine'))}</span></div>
       </div>
     </section>`);
-    f.querySelector('#memoBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showWorld(m.world)};
-    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>K.showWorld(m.world)})});
+    const home=()=>m.world==='mix'?K.showHome():K.showWorld(m.world);
+    f.querySelector('#memoBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');home()};
+    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:home})});
     f.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>flip(b));
     // Preload the pictures so the first flip shows the art at once.
     m.cards.forEach(c=>{if(c.kind==='art'){const i=new Image();i.src=K.questionArt(c.q)}});
@@ -146,7 +149,7 @@
     K.touchStreak();K.save();
 
     const f=K.frame(`<section class="result-v2 fade-in ${won?'is-pass':'is-fail'}">
-      <img class="result-v2-bg" src="${K.MASTER[m.world]}" alt="">
+      <img class="result-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage ${won?'':'open'}">
@@ -160,7 +163,7 @@
         <div class="result-stats"><span><b>${m.moves}</b><small>${esc(t('memo.movesShort'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <div class="result-native">
           <button id="againBtn">${esc(t(won?'memo.again':'memo.retry'))}</button>
-          <button id="worldBtn" class="secondary">${esc(t('memo.toWorld'))}</button>
+          <button id="worldBtn" class="secondary">${esc(m.world==='mix'?t('nav.home'):t('memo.toWorld'))}</button>
           <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
@@ -173,7 +176,7 @@
       K.speak(t('memo.speech.done'));
     }else{K.sfx('bad');K.speak(t('memo.speech.time'))}
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMemo(m.world)};
-    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showWorld(m.world)};
+    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');m.world==='mix'?K.showHome():K.showWorld(m.world)};
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
   }
 })();

@@ -124,8 +124,8 @@
 
         <h2 class="home-section">${esc(t('home.playMore'))}</h2>
         <div class="home-games">
-          <button class="home-game" id="homeMemo"><span class="home-game-icon">${K.icon('cards')}</span><span><b>${esc(t('memo.title'))}</b><small>${esc(t('memo.playSub',{world:worldTitle(last)}))}</small></span><i>›</i></button>
-          <button class="home-game math" id="homeMath"><span class="home-game-icon">${K.icon('stats')}</span><span><b>${esc(t('math.title'))}</b><small>${esc(t('math.playSub',{n:K.state.niveau||1}))}</small></span><i>›</i></button>
+          <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
+          <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
         </div>
 
         <div class="home-quick">
@@ -141,7 +141,7 @@
     f.querySelector('#homeCta').onclick=()=>{K.sfx('tap');K.enterWorld(last)};
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
-    f.querySelector('#homeMemo').onclick=()=>{K.sfx('world');K.startMemo(last)};
+    f.querySelector('#homeMemo').onclick=()=>{K.sfx('world');K.startMemo('mix')};
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');selectVoice(b.dataset.voice)});
@@ -205,8 +205,8 @@
           <i>›</i>
         </button>`).join('')}</div>
         <div class="world-games">
-          <button class="world-game" id="worldMemo"><span>${K.icon('cards')}</span><span><b>${esc(t('memo.title'))}</b><small>${esc(t('memo.sub'))}</small></span><i>›</i></button>
-          <button class="world-game math" id="worldMath"><span>${K.icon('stats')}</span><span><b>${esc(t('math.title'))}</b><small>${esc(t('math.sub'))}</small></span><i>›</i></button>
+          <button class="world-game art" id="worldMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
+          <button class="world-game art math" id="worldMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
         </div>
         <button class="world-mix" id="worldMix">
           <span>${K.icon('play')}</span>

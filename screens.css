@@ -633,3 +633,14 @@
 .memo-back{border-width:3px}
 .memo-back .ki{width:34%;height:34%}
 @media(max-height:700px){.memo-board{gap:7px}.memo-face{border-radius:11px}}
+
+/* Game tiles: artwork with the name on it, nothing underneath. */
+.home-game.art,.world-game.art{position:relative;display:block;padding:0;overflow:hidden;border-radius:20px;border:2px solid rgba(255,255,255,.75);background:#10306e;
+  box-shadow:0 7px 0 rgba(10,48,116,.5),0 13px 22px rgba(0,26,80,.28);aspect-ratio:16/8;min-height:0;text-align:left}
+.home-game.art:active,.world-game.art:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(10,48,116,.5)}
+.home-game-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.home-game-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,22,66,0) 40%,rgba(2,20,62,.82) 100%)}
+.home-game.art b,.world-game.art b{position:absolute;left:10px;bottom:8px;font-size:15px;color:#fff;text-shadow:0 2px 8px rgba(0,18,56,.7)}
+.world-game.art{aspect-ratio:16/7;border-radius:18px}
+.world-game.art b{font-size:13px;left:9px;bottom:6px}
+@media(max-height:700px){.world-game.art{aspect-ratio:16/6}.home-game.art{aspect-ratio:16/7}}
