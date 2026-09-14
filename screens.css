@@ -702,15 +702,25 @@
 .mascot-card.locked .mascot-fill{filter:grayscale(1) brightness(.32) blur(1.5px)}
 .mascot-card.locked .mascot-lock{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-size:34px;font-style:normal;filter:drop-shadow(0 3px 6px rgba(0,0,0,.5))}
 
-/* Memo: solo or head-to-head. */
+/* Memo: solo or head-to-head — two glossy game tiles with the guides on them. */
 .memo-mode{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.memo-mode-btn{display:flex;flex-direction:column;align-items:center;gap:2px;min-height:78px;padding:10px 8px;border-radius:20px;border:2px solid #d3e6fa;background:#fff;color:#2b4a7e;cursor:pointer;box-shadow:0 8px 18px rgba(20,70,128,.09)}
-.memo-mode-btn .ki{width:22px;height:22px;color:#4f8dff}
-.memo-mode-icons{display:flex;justify-content:center;height:24px}.memo-mode-btn .ki+.ki{margin-left:-7px}
-.memo-mode-btn b{font-size:13px;margin-top:3px}
-.memo-mode-btn small{font-size:9.5px;font-weight:800;color:#6b88a5;text-align:center;line-height:1.15}
-.memo-mode-btn.active{border-color:#7360ef;background:linear-gradient(180deg,#fff,#f0ecff);box-shadow:0 0 0 3px rgba(115,96,239,.16),0 8px 18px rgba(20,70,128,.11)}
-.memo-mode-btn.active .ki{color:#7360ef}
+.memo-mode-btn{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:118px;padding:12px 8px 10px;border-radius:22px;border:0;color:#fff;cursor:pointer;overflow:hidden;text-align:center;
+  background:linear-gradient(160deg,#5b8cff,#2748c2);box-shadow:0 6px 0 #1a3a9c,0 12px 22px rgba(0,26,80,.28);transition:transform .15s,box-shadow .15s}
+.memo-mode-btn.duel{background:linear-gradient(160deg,#a56bff,#5b2bc9);box-shadow:0 6px 0 #3e1c8f,0 12px 22px rgba(0,26,80,.28)}
+.memo-mode-btn::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% -20%,rgba(255,255,255,.45),transparent 55%);pointer-events:none}
+.memo-mode-btn:active{transform:translateY(3px);box-shadow:0 3px 0 #1a3a9c,0 6px 12px rgba(0,26,80,.25)}
+.memo-mode-btn b{position:relative;font-size:14px;font-weight:1000;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.memo-mode-btn small{position:relative;font-size:9.5px;font-weight:800;color:rgba(255,255,255,.85);line-height:1.15}
+.memo-mode-faces{position:relative;display:flex;align-items:center;justify-content:center;height:50px;margin-bottom:4px}
+.memo-mode-faces .mascot-face{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:center 22%;box-shadow:0 0 0 3px #fff,0 6px 12px rgba(0,20,70,.35);background:#fff}
+.memo-mode-faces.two .mascot-face{width:42px;height:42px}
+.memo-mode-faces.two .mascot-face+em+.mascot-face{margin-left:-4px}
+.memo-mode-faces em{position:relative;z-index:1;margin:0 -6px;padding:2px 5px;border-radius:999px;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-style:normal;font-size:9px;font-weight:1000;box-shadow:0 2px 5px rgba(0,20,70,.35)}
+.memo-mode-btn:not(.active){filter:saturate(.6) brightness(.82)}
+.memo-mode-btn.active{box-shadow:0 6px 0 #1a3a9c,0 12px 22px rgba(0,26,80,.28),0 0 0 3px #fff,0 0 0 6px #ffc531}
+.memo-mode-btn.duel.active{box-shadow:0 6px 0 #3e1c8f,0 12px 22px rgba(0,26,80,.28),0 0 0 3px #fff,0 0 0 6px #ffc531}
+.memo-mode-check{position:absolute;top:8px;right:8px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;box-shadow:0 2px 6px rgba(0,20,70,.35)}
+.memo-mode-check .ki{width:14px;height:14px}
 .memo-duel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 6px}
 .memo-player{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 11px;border-radius:14px;background:rgba(6,22,70,.45);color:#dbe8ff;border:1.5px solid rgba(255,255,255,.22);font-size:12px;font-weight:900;transition:transform .2s,background .2s}
 .memo-player b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}

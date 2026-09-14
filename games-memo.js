@@ -46,8 +46,8 @@
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('memo.title'))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('memo.pickSub',{n:K.state.niveau||1}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <div class="memo-mode" role="radiogroup" aria-label="${esc(t('memo.modeTitle'))}">
-          <button class="memo-mode-btn ${mode==='solo'?'active':''}" data-mode="solo" role="radio" aria-checked="${mode==='solo'}"><span class="memo-mode-icons">${K.icon('user')}</span><b>${esc(t('memo.solo'))}</b><small>${esc(t('memo.soloSub'))}</small></button>
-          <button class="memo-mode-btn ${mode==='duel'?'active':''}" data-mode="duel" role="radio" aria-checked="${mode==='duel'}"><span class="memo-mode-icons">${K.icon('user')}${K.icon('user')}</span><b>${esc(t('memo.duel'))}</b><small>${esc(t('memo.duelSub'))}</small></button>
+          <button class="memo-mode-btn solo ${mode==='solo'?'active':''}" data-mode="solo" role="radio" aria-checked="${mode==='solo'}"><span class="memo-mode-faces"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></span><b>${esc(t('memo.solo'))}</b><small>${esc(t('memo.soloSub'))}</small>${mode==='solo'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
+          <button class="memo-mode-btn duel ${mode==='duel'?'active':''}" data-mode="duel" role="radio" aria-checked="${mode==='duel'}"><span class="memo-mode-faces two"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""><em>VS</em><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt=""></span><b>${esc(t('memo.duel'))}</b><small>${esc(t('memo.duelSub'))}</small>${mode==='duel'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
         </div>
         <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b><small>${esc(t('memo.allWorldsSub'))}</small></button>
         <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span><b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
@@ -58,7 +58,7 @@
     f.querySelectorAll('[data-memo]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startMemo(b.dataset.memo)});
     f.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');K.state.memoMode=b.dataset.mode;K.save();
-      f.querySelectorAll('[data-mode]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-checked',String(on))});
+      f.querySelectorAll('[data-mode]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-checked',String(on));x.querySelector('.memo-mode-check')?.remove();if(on)x.insertAdjacentHTML('beforeend',`<i class="memo-mode-check">${K.icon('check')}</i>`)});
     });
   };
   const playerName=i=>i===0?(K.state.name||t('memo.player1')):t('memo.player2');
@@ -180,7 +180,7 @@
       f.querySelector('#memoPairs').textContent=t('memo.pairs',{found:m.found,total:m.pairs});
       f.querySelector('#memoBar').style.width=`${Math.round(m.found/m.pairs*100)}%`;
       if(m.found>=m.pairs){stopTimer();setTimeout(()=>finish(true),650);return}
-      if(m.duel)setTimeout(()=>swapTurn(f),500);
+      // Classic rule: a pair earns another turn, so no swap here.
     }else{
       m.locked=true;
       setTimeout(()=>{
@@ -191,7 +191,7 @@
       },750);
     }
   }
-  // Duel: the other player is up after every two cards, match or not.
+  // Duel: the other player is up after a miss; a pair keeps the turn.
   function swapTurn(f){
     const m=K.memo;if(!m||m.done)return;
     m.turn=1-m.turn;

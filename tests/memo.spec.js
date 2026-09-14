@@ -143,23 +143,24 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   await expect(page.locator('#memoHint')).toHaveText('Mike is aan de beurt');
 
   const pairs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(c.id); return Object.values(by); });
-  // Mike finds a pair → 1 point, then it is Speler 2's turn.
+  // Mike finds a pair → 1 point and, as in classic Memory, another turn.
   await page.locator(`[data-card="${pairs[0][0]}"]`).click(); await page.locator(`[data-card="${pairs[0][1]}"]`).click();
   await expect(page.locator('[data-player="0"] em')).toHaveText('1');
-  await expect(page.locator('.memo-player.active b')).toHaveText('Speler 2', { timeout: 3000 });
-  // Speler 2 misses (two cards of different pairs) → back to Mike, no point.
+  await page.waitForTimeout(700);
+  await expect(page.locator('.memo-player.active b')).toHaveText('Mike');
+  // Mike misses (two cards of different pairs) → Speler 2's turn, no point.
   await page.locator(`[data-card="${pairs[1][0]}"]`).click(); await page.locator(`[data-card="${pairs[2][0]}"]`).click();
-  await expect(page.locator('.memo-player.active b')).toHaveText('Mike', { timeout: 3000 });
-  await expect(page.locator('[data-player="1"] em')).toHaveText('0');
-  // Play out the rest: Mike gets every remaining pair on his turns, Speler 2 the others.
+  await expect(page.locator('.memo-player.active b')).toHaveText('Speler 2', { timeout: 3000 });
+  await expect(page.locator('#memoHint')).toHaveText('Speler 2 is aan de beurt');
+  // Speler 2 takes every remaining pair: the turn never leaves a player who scores.
   for (let i = 1; i < pairs.length; i++) {
     await page.locator(`[data-card="${pairs[i][0]}"]`).click(); await page.locator(`[data-card="${pairs[i][1]}"]`).click();
     await page.waitForTimeout(650);
   }
   await expect(page.locator('.result-v2')).toBeVisible({ timeout: 5000 });
   const [s1, s2] = await page.evaluate(() => window.KWIZILLO_M1.memo.scores);
-  expect(s1 + s2).toBe(pairs.length);
-  await expect(page.locator('.result-v2 h1')).toHaveText(s1 === s2 ? 'Gelijkspel!' : `${s1 > s2 ? 'Mike' : 'Speler 2'} wint!`);
+  expect([s1, s2]).toEqual([1, pairs.length - 1]);
+  await expect(page.locator('.result-v2 h1')).toHaveText('Speler 2 wint!');
   await expect(page.locator('#againBtn')).toHaveText('Revanche');
   // The choice is remembered for next time.
   await page.locator('#worldBtn').click();
