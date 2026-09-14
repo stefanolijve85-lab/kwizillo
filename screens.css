@@ -736,3 +736,56 @@
 .memo-duel.result .memo-player{background:rgba(6,22,70,.08);color:#1b2a6b;border-color:#d3e6fa}
 .memo-duel.result .memo-player em{background:#e6f0ff}
 .memo-duel.result .memo-player.active{color:#1b2a6b}
+
+/* ---- Milo as host: floating full-body poses with a speech bubble. Used by the
+   onboarding steps (figure beside the bubble) and the Home tour (figure flies
+   between elements, bubble above or below him). ---- */
+.milo-host{display:flex;flex-direction:column;align-items:center;gap:8px;--milo-w:130px;--flip:1}
+.milo-host.flip{--flip:-1}
+.milo-body{width:var(--milo-w);animation:milo-float 3.4s ease-in-out infinite;will-change:transform}
+.milo-figure{display:block;width:100%;height:auto;transform:scaleX(var(--flip));filter:drop-shadow(0 14px 16px rgba(0,22,70,.42));transform-origin:50% 90%}
+.milo-host.talking .milo-figure{animation:milo-talk .42s ease-in-out infinite alternate}
+@keyframes milo-float{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-9px) rotate(1.2deg)}}
+@keyframes milo-talk{from{transform:scaleX(var(--flip)) scale(1) rotate(0)}to{transform:scaleX(var(--flip)) scale(1.035) rotate(1.6deg)}}
+.milo-bubble{position:relative;max-width:min(78vw,340px);padding:12px 15px;border-radius:20px;color:#12265f;text-align:left;
+  background:linear-gradient(180deg,#fff,#eef7ff);box-shadow:0 8px 0 rgba(94,163,214,.55),0 14px 26px rgba(0,26,80,.28);font-weight:900;font-size:clamp(14px,3.6vw,17px);line-height:1.3}
+.milo-bubble.pop{animation:milo-pop .28s cubic-bezier(.2,1.4,.4,1)}
+@keyframes milo-pop{from{transform:scale(.86);opacity:0}to{transform:scale(1);opacity:1}}
+.milo-bubble::after{content:'';position:absolute;width:16px;height:16px;background:#fff;transform:rotate(45deg);border-radius:3px}
+.milo-host.bubble-top .milo-bubble::after{left:50%;bottom:-7px;margin-left:-8px}
+.milo-host.bubble-bottom{flex-direction:column-reverse}
+.milo-host.bubble-bottom .milo-bubble::after{left:50%;top:-7px;margin-left:-8px;background:#fff}
+.milo-host.bubble-side{flex-direction:row-reverse;align-items:center;justify-content:flex-end;gap:10px}
+.milo-host.bubble-side .milo-bubble::after{left:-7px;top:50%;margin-top:-8px}
+.milo-host.bubble-side .milo-bubble{text-align:left}
+.milo-bubble h1{margin:0 0 4px;font-size:clamp(19px,5.4vw,26px);line-height:1.05;letter-spacing:-.03em;text-shadow:none;color:#12265f}
+.milo-bubble .onboarding-sub{margin:0;color:#4d6f9d;font-size:clamp(12px,3vw,14px);max-width:none}
+
+/* Onboarding: Milo beside the question, choices below. */
+.onboarding-stage{width:100%;max-width:440px;display:flex;justify-content:center;margin:2px 0 6px}
+.onboarding-stage .milo-host.milo-size-ob{--milo-w:clamp(104px,31vw,150px);width:100%}
+.onboarding-stage .milo-host.milo-size-ob .milo-bubble{flex:1;min-width:0}
+.onboarding-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;max-width:420px}
+.onboarding-chip{min-width:72px;min-height:48px;padding:0 14px;border:2px solid rgba(255,255,255,.6);border-radius:999px;cursor:pointer;color:#12265f;font-weight:1000;font-size:15px;
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(233,246,255,.94));box-shadow:0 5px 0 rgba(94,163,214,.7),0 10px 18px rgba(0,26,80,.2)}
+.onboarding-chip:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(94,163,214,.7)}
+.onboarding-chip.selected{border-color:#ffd23f;background:linear-gradient(180deg,#ffe762,#ffb61b);box-shadow:0 5px 0 #d9860d,0 0 0 4px rgba(255,210,63,.3)}
+
+/* Home tour: a dimmed sheet with a spotlight cut-out; Milo floats over it. */
+.home.touring .home-ui{pointer-events:none}
+.milo-tour{position:absolute;inset:0;z-index:40;overflow:hidden;cursor:pointer}
+.milo-tour-spot{position:absolute;border-radius:24px;border:3px solid #ffd23f;box-shadow:0 0 0 9999px rgba(8,18,60,.6),0 0 0 6px rgba(255,210,63,.25),0 0 30px rgba(255,210,63,.55);
+  transition:left .6s cubic-bezier(.2,.9,.3,1),top .6s cubic-bezier(.2,.9,.3,1),width .6s cubic-bezier(.2,.9,.3,1),height .6s cubic-bezier(.2,.9,.3,1)}
+.milo-tour-spot[hidden]{display:block;opacity:0;box-shadow:0 0 0 9999px rgba(8,18,60,.6)}
+.milo-tour .milo-host{position:absolute;left:0;top:0;display:block;width:var(--milo-w);transition:transform .78s cubic-bezier(.3,.85,.25,1);pointer-events:none}
+.milo-tour .milo-bubble{position:absolute;width:max-content;max-width:min(76vw,320px)}
+.milo-tour .bubble-top .milo-bubble{bottom:calc(100% + 12px)}
+.milo-tour .bubble-bottom .milo-bubble{top:calc(100% + 12px)}
+.milo-tour .anchor-left .milo-bubble{left:0}
+.milo-tour .anchor-right .milo-bubble{right:0}
+.milo-tour .anchor-left .milo-bubble::after{left:calc(var(--milo-w)/2 - 8px);margin-left:0}
+.milo-tour .anchor-right .milo-bubble::after{left:auto;right:calc(var(--milo-w)/2 - 8px);margin-left:0}
+.milo-tour .milo-host.no-motion{transition:none}
+.milo-tour .milo-host.milo-size-tour{--milo-w:140px}
+.milo-tour-hint{position:absolute;left:0;right:0;bottom:calc(6px + var(--sab));display:flex;justify-content:center;align-items:center;gap:10px;font-size:11px;font-weight:900;color:rgba(255,255,255,.8);pointer-events:none}
+.milo-tour-skip{pointer-events:auto;min-height:32px;padding:0 14px;border:0;border-radius:999px;cursor:pointer;font-weight:1000;font-size:12px;color:#17245e;background:linear-gradient(180deg,#ffe762,#ffb61b);box-shadow:0 3px 0 #d9860d}

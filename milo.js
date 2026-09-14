@@ -1,0 +1,142 @@
+(()=>{
+  const K=window.KWIZILLO_M1;
+  if(!K) return;
+
+  // Milo as a living host: full-body poses (cut-outs of the brand robot) that
+  // float, turn, point and talk. Onboarding puts him next to every question and
+  // the first visit to Home is a short guided tour where he flies from element
+  // to element. Everything here is presentational; the spoken lines come from
+  // i18n and never contain the child's name.
+
+  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  K.MILO_POSES={
+    wave:'assets/mascots/milo/wave.png',
+    talk:'assets/mascots/milo/talk.png',
+    think:'assets/mascots/milo/think.png',
+    cheer:'assets/mascots/milo/cheer.png',
+    pointDown:'assets/mascots/milo/point-down.png',
+    pointLeft:'assets/mascots/milo/point-left.png',
+    pointRight:{src:'assets/mascots/milo/point-left.png',flip:true}
+  };
+  function poseSrc(p){const v=K.MILO_POSES[p]||K.MILO_POSES.talk;return typeof v==='string'?{src:v,flip:false}:v}
+  // Warm every pose once so a pose change never flashes an empty frame.
+  let warmed=false;
+  K.warmMilo=()=>{if(warmed)return;warmed=true;Object.values(K.MILO_POSES).forEach(v=>{const i=new Image();i.src=typeof v==='string'?v:v.src})};
+
+  // Milo speaks with his own voice whatever guide the child picked later on; a
+  // child who chose silence only sees the bubble. Resolves when the line is over.
+  K.miloSay=(text,opts={})=>K.speak(text,{voice:'Milo',...opts});
+  K.miloPrefetch=texts=>K.prefetchSpeech(texts,{voice:'Milo'});
+
+  // A host element: bubble + figure. `say` writes the bubble, speaks the line
+  // and animates the figure while the voice is playing.
+  K.miloHost=({pose='wave',size='md',bubble='top'}={})=>{
+    const el=document.createElement('div');
+    el.className=`milo-host milo-size-${size} bubble-${bubble}`;
+    el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><img class="milo-figure" alt="" draggable="false"></div>`;
+    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble');
+    let talkTimer=null;
+    const api={
+      el,
+      pose(p){const {src,flip}=poseSrc(p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;return api},
+      bubble(html){if(!html){bub.hidden=true;bub.innerHTML='';return api}bub.innerHTML=html;bub.hidden=false;bub.classList.remove('pop');void bub.offsetWidth;bub.classList.add('pop');return api},
+      // Speaks `text`; the figure nods while the voice plays. Without a voice the
+      // figure still nods for a moment so the bubble reads as "Milo said this".
+      async say(text,{html,minMs=0}={}){
+        api.bubble(html??esc(text));
+        const started=Date.now();
+        clearTimeout(talkTimer);el.classList.add('talking');
+        talkTimer=setTimeout(()=>el.classList.remove('talking'),1800);
+        await K.miloSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking')},onDone:()=>el.classList.remove('talking')}).catch(()=>{});
+        el.classList.remove('talking');
+        const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));
+      },
+      moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
+      remove(){clearTimeout(talkTimer);el.remove()}
+    };
+    api.pose(pose);
+    return api;
+  };
+
+  /* ---------------- Home tour ---------------- */
+
+  // Milo flies across Home and explains each part in one sentence. The tour is
+  // asked for explicitly (end of onboarding, "tour again" in the parent zone) and
+  // never interrupts a returning player. A tap moves on, "skip" ends it.
+  K.startTour=async({onDone}={})=>{
+    const home=K.app.querySelector('.home');
+    if(!home||home.querySelector('.milo-tour')) return;
+    K.warmMilo();
+    const t=K.t;
+    const stops=[
+      {sel:'.home-worlds',key:'tour.worlds'},
+      {sel:'.home-games',key:'tour.games'},
+      {sel:'.home-hud',key:'tour.hud'},
+      {sel:'.native-bottom-nav',key:'tour.nav'},
+      {sel:null,key:'tour.done',pose:'cheer'}
+    ];
+    K.miloPrefetch(stops.map(s=>t(s.key)));
+    const layer=document.createElement('div');
+    layer.className='milo-tour';
+    layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><span>${esc(t('tour.tapHint'))}</span><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;
+    const spot=layer.querySelector('.milo-tour-spot');
+    const host=K.miloHost({pose:'wave',size:'tour',bubble:'top'});
+    layer.appendChild(host.el);
+    home.appendChild(layer);
+    home.classList.add('touring');
+    const hb=()=>home.getBoundingClientRect();
+    const W=()=>hb().width,H=()=>hb().height;
+    const figure={w:Math.min(150,Math.round(W()*.34)),h:0};
+    host.el.style.setProperty('--milo-w',figure.w+'px');
+    figure.h=Math.round(figure.w*1.55);
+    // He arrives from the right edge, mid-screen.
+    host.moveTo(W()+figure.w,H()*.4,{instant:true});
+    let done=false,advance=null;
+    const next=()=>{advance?.()};
+    layer.addEventListener('click',e=>{if(e.target.closest('.milo-tour-skip'))return;next()});
+    layer.querySelector('.milo-tour-skip').onclick=()=>{done=true;next()};
+    const waitTap=ms=>new Promise(r=>{let to=setTimeout(()=>{advance=null;r()},ms);advance=()=>{clearTimeout(to);advance=null;r()}});
+    const rectOf=sel=>{const n=sel&&home.querySelector(sel);if(!n)return null;const r=n.getBoundingClientRect(),b=hb();return {x:r.left-b.left,y:r.top-b.top,w:r.width,h:r.height}};
+    // The host box is the figure; the bubble hangs above or below it and is
+    // anchored to whichever side keeps it on screen.
+    const put=(x,y,side,pose)=>{
+      host.pose(pose);
+      host.el.classList.toggle('bubble-top',side==='top');host.el.classList.toggle('bubble-bottom',side==='bottom');
+      const right=x+figure.w/2>W()/2;
+      host.el.classList.toggle('anchor-right',right);host.el.classList.toggle('anchor-left',!right);
+      host.moveTo(x,y);
+    };
+    const place=r=>{
+      // Milo sits above the element pointing down when there is room, otherwise
+      // below it presenting upward, or beside it pointing at it.
+      const pad=12;
+      if(!r){spot.hidden=true;put((W()-figure.w)/2,H()*.5-figure.h/2,'top','cheer');return}
+      spot.hidden=false;spot.style.left=(r.x-6)+'px';spot.style.top=(r.y-6)+'px';spot.style.width=(r.w+12)+'px';spot.style.height=(r.h+12)+'px';
+      const above=r.y-pad-figure.h,below=r.y+r.h+pad;
+      const x=Math.max(8,Math.min(W()-figure.w-8,r.x+r.w-figure.w-8));
+      if(above>96)put(x,above,'top','pointDown');
+      else if(below+figure.h<H()-8)put(x,below,'bottom','talk');
+      else put(Math.max(8,W()-figure.w-8),Math.max(8,Math.min(H()-figure.h-8,r.y+r.h/2-figure.h/2)),'top','pointLeft');
+    };
+    try{
+      K.sfx('swoosh');
+      await new Promise(r=>setTimeout(r,60));
+      for(const stop of stops){
+        if(done)break;
+        place(rectOf(stop.sel));
+        if(stop.pose)host.pose(stop.pose);
+        await new Promise(r=>setTimeout(r,720));
+        if(done)break;
+        const said=host.say(t(stop.key),{minMs:2600});
+        await Promise.race([said,waitTap(20000)]);
+        K.stopSpeech();
+      }
+    }finally{
+      K.stopSpeech();
+      spot.hidden=true;host.bubble(null);
+      host.moveTo(-figure.w*1.4,H()*.3);
+      K.state.tourDone=true;K.save();
+      setTimeout(()=>{layer.remove();home.classList.remove('touring');onDone?.()},760);
+    }
+  };
+})();

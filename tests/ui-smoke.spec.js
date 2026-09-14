@@ -73,6 +73,16 @@ test('onboarding runs once and collects language, name and voice', async ({ page
   await expect(page.locator('#obNext')).toBeEnabled();
   await page.locator('#obNext').click();
 
+  // Milo asks the age; the school year is suggested from it and can be changed.
+  await expect(page.getByRole('heading', { name: 'How old are you?' })).toBeVisible();
+  await expect(page.locator('#obNext')).toBeDisabled();
+  await page.locator('[data-age="8"]').click();
+  await page.locator('#obNext').click();
+  await expect(page.getByRole('heading', { name: 'Which year are you in?' })).toBeVisible();
+  await expect(page.locator('[data-group="5"]')).toHaveClass(/selected/);
+  await page.locator('[data-group="6"]').click();
+  await page.locator('#obNext').click();
+
   await page.getByRole('button', { name: /Luna/ }).click();
   await page.locator('#obNext').click();
   await expect(page.locator('.onboarding h1')).toHaveText('Welcome, Sam!');
@@ -80,6 +90,12 @@ test('onboarding runs once and collects language, name and voice', async ({ page
 
   await expect(page.locator('.home')).toBeVisible();
   await expect(page.locator('.hud-id b')).toHaveText('Hi Sam!');
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.state.age, window.KWIZILLO_M1.state.group])).toEqual([8, 6]);
+  // Milo's tour starts on the first Home and can be skipped.
+  await expect(page.locator('.milo-tour')).toBeVisible({ timeout: 5000 });
+  await page.locator('.milo-tour-skip').click();
+  await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.tourDone)).toBe(true);
 
   // A returning player never sees onboarding again.
   await page.reload({ waitUntil: 'domcontentloaded' });
@@ -95,9 +111,12 @@ test('a brand new player starts at zero, not on seeded progress', async ({ page 
   await page.getByRole('button', { name: /Nederlands/ }).click();
   await page.locator('#obName').fill('Nieuw');
   await page.locator('#obNext').click();
+  await page.locator('[data-age="7"]').click(); await page.locator('#obNext').click();
+  await page.locator('#obNext').click();
   await page.getByRole('button', { name: /Stil/ }).click();
   await page.locator('#obNext').click();
   await page.locator('#obStart').click();
+  await page.locator('.milo-tour-skip').click();
 
   const chips = await page.locator('.hud-chip').allTextContents();
   expect(chips.map(c => c.trim())).toEqual(['0', '0']);
@@ -451,6 +470,8 @@ test('the guide choice lights up the chosen card', async ({ page }) => {
   await page.getByRole('button', { name: /Nederlands/ }).click();
   await page.locator('#obName').fill('Sam');
   await page.locator('#obNext').click();
+  await page.locator('[data-age="7"]').click(); await page.locator('#obNext').click();
+  await page.locator('#obNext').click();
   await page.getByRole('button', { name: /Luna/ }).click();
   await expect(page.locator('[data-guide="Luna"]')).toHaveClass(/selected/);
   await expect(page.locator('[data-guide="Luna"]')).toHaveAttribute('aria-pressed', 'true');
@@ -517,6 +538,11 @@ test('Brazilian Portuguese: onboarding offers it, the whole UI and the question 
   await page.getByRole('button', { name: /Português/ }).click();
   await expect(page.getByRole('heading', { name: 'Qual é o seu nome?' })).toBeVisible();
   await page.locator('#obName').fill('Ana');
+  await page.locator('#obNext').click();
+  await expect(page.getByRole('heading', { name: 'Quantos anos você tem?' })).toBeVisible();
+  await page.locator('[data-age="9"]').click();
+  await page.locator('#obNext').click();
+  await expect(page.locator('[data-group="6"]')).toHaveText('6º ano');
   await page.locator('#obNext').click();
   await page.getByRole('button', { name: /Sem voz/ }).click();
   await page.locator('#obNext').click();

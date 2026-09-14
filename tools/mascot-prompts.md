@@ -25,3 +25,14 @@ Tools that can render these once credit/permission is there:
 - ElevenLabs connector → `creative_generate_image`, model `gpt-image-2`
   (needs the *Image & Video Generation* permission on the connection).
 - Higgsfield → `generate_image_batch` (needs credits).
+
+## Milo poses (onboarding host + Home tour)
+
+`assets/mascots/milo/{wave,talk,think,cheer,point-down,point-left}.png` — transparent
+cut-outs, 720 px tall. Made on the ElevenLabs flow "Kwizillo Milo poses"
+(Ro9sz8AjavE8wQSqwGlT): gemini-3-pro-image with `assets/brand/milo.jpg` as the
+identity reference, one prompt per pose ("full-body, floating, flat light-grey
+backdrop, no shadow"), then birefnet-v2-bg-removal, then cropped to the alpha
+bounding box and scaled to a shared height. `pointRight` is `point-left`
+mirrored in CSS. New poses go through the same three steps and are registered in
+`K.MILO_POSES` (milo.js).

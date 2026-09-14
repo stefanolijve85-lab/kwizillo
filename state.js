@@ -18,6 +18,9 @@
     onboardingComplete:false,
     voice:'Milo',
     group:5,
+    groupChosen:false,      // true once the child picked the group (age no longer suggests it)
+    age:null,
+    tourDone:false,
     xp:0,
     coins:0,
     streak:0,
