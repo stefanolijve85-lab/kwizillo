@@ -34,3 +34,20 @@ test('plays in step with the video, alone, and yields to the Home loop', async (
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.stingLive), { timeout: 3000 }).toBe(false);
   expect(errors).toEqual([]);
 });
+
+test('with game music switched off, "tap for sound" still plays the intro theme and the game stays silent', async ({ page }) => {
+  const themeRequests = [];
+  page.on('request', r => { if (r.url().includes('intro_theme')) themeRequests.push(r.url()); });
+  await page.addInitScript(() => {
+    localStorage.setItem('kwizillo-state', JSON.stringify({ schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil', musicOn: false, musicVolume: .3, soundOn: false, progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] } }));
+  });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.motion')).toBeVisible({ timeout: 8000 });
+  await page.locator('.motion').click();
+  await expect.poll(() => themeRequests.length, { timeout: 8000 }).toBeGreaterThanOrEqual(1);
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.stingLive), { timeout: 5000 }).toBe(true);
+  await page.locator('.motion').click();
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  await page.waitForTimeout(800);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.audio.currentId)).toBeNull();   // music stays off in the game
+});

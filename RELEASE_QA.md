@@ -228,7 +228,7 @@ plaats van vrije tekst.
 ### P2
 
 - ~~`assets/brand/intro.mp4` is 25 MB.~~ Opgelost: met macOS `avconvert`
-  (PresetAppleM4V720pHD) hergecodeerd naar 4,4 MB H.264 mét fast-start (moov
+  (Preset1280x720, multipass) hergecodeerd naar 10 MB H.264 mét fast-start (moov
   vooraan). Het origineel had de moov-atom achteraan, wat op de iPhone een
   zwart scherm en een directe 'error' gaf. Poster `intro-poster.jpg` toegevoegd.
 - Inhoudelijke feitencontrole van de 480 vragen is niet uitgevoerd. De structuur
@@ -273,7 +273,7 @@ plaats van vrije tekst.
 
 ```
 ±2.800 regels applicatiecode over 13 bestanden
-±40 MB assets (18 MB vraag-illustraties, 4,4 MB intro-video)
+±46 MB assets (18 MB vraag-illustraties, 10 MB intro-video)
 26 illustraties in gebruik: 24 onderwerpen + 2 subject-specifiek
 geen externe runtime-URL's behalve api.elevenlabs.io vanaf de server
 ```

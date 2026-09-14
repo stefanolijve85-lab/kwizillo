@@ -35,9 +35,11 @@
     // still lands the shout on the logo. There is only ever one music source:
     // the theme during the intro, the game loop from Home onwards (CLAUDE.md §5).
     const startTheme=async()=>{
-      if(theme||done||!K.INTRO_THEME||K.state.musicOn===false) return;
+      if(theme||done||!K.INTRO_THEME) return;
       try{
-        const h=await K.audio.sting?.(K.INTRO_THEME,{at:video.currentTime||0});
+        // "Tik voor geluid" is an explicit request: the theme plays even when
+        // game music is off; the game itself stays silent afterwards.
+        const h=await K.audio.sting?.(K.INTRO_THEME,{at:video.currentTime||0,force:true});
         if(!h) return;
         if(done) h.stop(.1); else theme=h;
       }catch(e){}
