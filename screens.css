@@ -331,23 +331,29 @@
 .kcard{position:relative;display:block;padding:0;border:0;background:transparent;cursor:pointer;text-align:left;border-radius:18px;
   aspect-ratio:63/88;transition:transform .18s ease}
 .kcard:active{transform:scale(.97)}
-.kcard-frame{position:relative;display:flex;flex-direction:column;height:100%;padding:6px;border-radius:18px;color:#fff;
-  background:var(--kc,linear-gradient(160deg,#3f7ff0,#1f47b0));box-shadow:0 10px 22px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.35);overflow:hidden}
-.kcard-frame::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+.kcard-frame{position:relative;display:flex;flex-direction:column;height:100%;padding:7px;border-radius:18px;color:#fff;
+  background:var(--kc,linear-gradient(160deg,#3f7ff0,#1f47b0));box-shadow:0 10px 22px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.55),inset 0 0 0 4px rgba(0,20,70,.35);overflow:hidden}
+/* Frame texture: the world's painting, tinted with the world colour so the
+   name, type and fact stay readable on every card. */
+.kcard-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12);filter:saturate(1.25) blur(.6px);opacity:.9}
+.kcard-tint{position:absolute;inset:0;background:var(--kc,linear-gradient(160deg,#3f7ff0,#1f47b0));opacity:.62;mix-blend-mode:multiply}
+.kcard-tint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,8,40,.35),rgba(0,8,40,0) 30%,rgba(0,8,40,.25) 60%,rgba(0,8,40,.6))}
+.kcard-frame>*:not(.kcard-bg):not(.kcard-tint){position:relative;z-index:1}
+.kcard-frame::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
   background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.22) 45%,rgba(255,255,255,0) 60%)}
 .kcard.rare .kcard-frame{box-shadow:0 10px 22px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 2px rgba(120,200,255,.55)}
 .kcard.epic .kcard-frame::before{background:linear-gradient(115deg,rgba(255,255,255,0) 20%,rgba(255,235,150,.35) 40%,rgba(255,255,255,0) 55%,rgba(180,120,255,.3) 75%,rgba(255,255,255,0) 90%)}
 .kcard.epic .kcard-frame{box-shadow:0 10px 22px rgba(0,26,80,.3),inset 0 0 0 2px #ffe27a,0 0 0 2px rgba(255,214,80,.6)}
 .kcard.legendary .kcard-frame{box-shadow:0 12px 26px rgba(0,26,80,.34),inset 0 0 0 2px #fff,0 0 0 3px #ffd54a,0 0 18px rgba(255,200,60,.6)}
 .kcard.legendary .kcard-frame::before{background:conic-gradient(from 0deg,rgba(255,255,255,0),rgba(255,120,200,.35),rgba(120,220,255,.35),rgba(255,230,120,.35),rgba(255,255,255,0));mix-blend-mode:screen}
-.kcard-top{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:2px 4px 5px}
+.kcard-top{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;padding:5px 8px;border-radius:11px;background:linear-gradient(90deg,rgba(255,255,255,.28),rgba(255,255,255,.1));border:1px solid rgba(255,255,255,.45);box-shadow:0 2px 6px rgba(0,10,40,.25)}
 .kcard-top b{font-size:clamp(11px,3vw,14px);line-height:1.05;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-shadow:0 1px 0 rgba(0,0,0,.25)}
 .kcard-top i{font-style:normal;font-size:10px;color:#ffd54a;letter-spacing:-1px;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.3)}
-.kcard-art{display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:2px solid rgba(255,255,255,.75);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);background:#0b2a66}
+.kcard-art{display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:2px solid rgba(255,255,255,.9);box-shadow:0 5px 12px rgba(0,10,40,.4),inset 0 0 0 1px rgba(0,0,0,.2);background:#0b2a66}
 .kcard-art img{width:100%;height:100%;object-fit:cover;display:block}
-.kcard-type{display:block;margin-top:5px;padding:3px 6px;border-radius:999px;background:rgba(0,0,0,.22);font-size:8.5px;font-weight:900;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.kcard-text{display:block;flex:1;margin-top:5px;padding:5px 6px;border-radius:9px;background:rgba(255,255,255,.92);color:#1a2d5a;font-size:clamp(8.5px,2.35vw,10.5px);line-height:1.25;font-weight:800;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4}
-.kcard-foot{display:flex;justify-content:space-between;margin-top:5px;padding:0 4px 1px;font-size:8.5px;font-weight:900;opacity:.9}
+.kcard-type{display:block;margin-top:6px;padding:4px 7px;border-radius:999px;background:rgba(3,14,50,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(3px);font-size:8.5px;font-weight:900;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kcard-text{display:block;flex:1;margin-top:6px;padding:6px 7px;border-radius:10px;background:rgba(3,14,50,.5);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(3px);color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.35);font-size:clamp(8.5px,2.35vw,10.5px);line-height:1.28;font-weight:800;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4}
+.kcard-foot{display:flex;justify-content:space-between;margin-top:6px;padding:0 4px 1px;font-size:8.5px;font-weight:900;text-shadow:0 1px 0 rgba(0,0,0,.4)}
 .kcard.world-ruimte{--kc:linear-gradient(160deg,#5b7cff,#2a2f9e)}
 .kcard.world-dieren{--kc:linear-gradient(160deg,#5fd06b,#1f7a3e)}
 .kcard.world-aarde{--kc:linear-gradient(160deg,#37c2e6,#1263a3)}

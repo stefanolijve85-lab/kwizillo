@@ -288,8 +288,13 @@
     // question, with that question's own illustration. Rarity follows the
     // question's difficulty (1-4).
     const RARITY=['common','common','rare','epic','legendary'];
+    // The card is filled edge to edge: the world's own painting is the
+    // frame texture, the question art sits in the window, and the fact is a
+    // dark glass panel — no flat or white areas anywhere.
     const card=q=>`<button class="kcard world-${q.world} ${RARITY[q.difficulty]||'common'}" data-card="${q.id}">
         <span class="kcard-frame">
+          <img class="kcard-bg" src="${K.MASTER[q.world]}" alt="" style="object-position:${K.WORLD_FOCUS?.[q.world]||'center'}" decoding="async">
+          <span class="kcard-tint"></span>
           <span class="kcard-top"><b>${esc(q.answer)}</b><i>${'★'.repeat(Math.max(1,Math.min(4,q.difficulty||1)))}</i></span>
           <span class="kcard-art"><img src="${K.questionArt?.(q)||K.MASTER[q.world]}" alt="" loading="lazy" decoding="async"></span>
           <span class="kcard-type">${K.worldBadge(q.world,'tiny')} ${esc(worldTitle(q.world))} · ${esc(topicLabel(q.topic))}</span>
