@@ -114,14 +114,14 @@
     if(n<20) return NL_ONES[n];
     if(n<100){const t=Math.floor(n/10),o=n%10;return o?`${NL_ONES[o]}${/[eë]$/.test(NL_ONES[o])?'ën':'en'}${NL_TENS[t]}`:NL_TENS[t]}
     if(n<1000){const h=Math.floor(n/100),r=n%100;return (h===1?'honderd':NL_ONES[h]+'honderd')+(r?nlNumber(r):'')}
-    if(n<10000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'duizend':NL_ONES[k]+'duizend')+(r?' '+nlNumber(r):'')}
+    if(n<1000000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'duizend':nlNumber(k)+'duizend')+(r?' '+nlNumber(r):'')}
     return String(n);
   }
   function enNumber(n){
     if(n<20) return EN_ONES[n];
     if(n<100){const t=Math.floor(n/10),o=n%10;return EN_TENS[t]+(o?'-'+EN_ONES[o]:'')}
     if(n<1000){const h=Math.floor(n/100),r=n%100;return EN_ONES[h]+' hundred'+(r?' and '+enNumber(r):'')}
-    if(n<10000){const k=Math.floor(n/1000),r=n%1000;return EN_ONES[k]+' thousand'+(r?(r<100?' and ':' ')+enNumber(r):'')}
+    if(n<1000000){const k=Math.floor(n/1000),r=n%1000;return enNumber(k)+' thousand'+(r?(r<100?' and ':' ')+enNumber(r):'')}
     return String(n);
   }
   // Brazilian Portuguese numbers 0-9999 ("e" between all groups: cento e vinte e três).
@@ -133,7 +133,7 @@
     if(n<100){const t=Math.floor(n/10),o=n%10;return PT_TENS[t]+(o?' e '+PT_ONES[o]:'')}
     if(n===100) return 'cem';
     if(n<1000){const h=Math.floor(n/100),r=n%100;return PT_HUNDREDS[h]+(r?' e '+ptNumber(r):'')}
-    if(n<10000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'mil':PT_ONES[k]+' mil')+(r?(r<100||r%100===0?' e ':' ')+ptNumber(r):'')}
+    if(n<1000000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'mil':ptNumber(k)+' mil')+(r?(r<100||r%100===0?' e ':' ')+ptNumber(r):'')}
     return String(n);
   }
   const UNITS={
@@ -142,12 +142,26 @@
     // English units pluralise, so "1 cm" must become "one centimetre".
     en:[[/\s*%/g,' percent'],[/\b1 km\/h\b/g,'1 kilometre per hour'],[/\bkm\/h\b/g,'kilometres per hour'],[/\b1 km\b/g,'1 kilometre'],[/\bkm\b/g,'kilometres'],[/\s*°\s*C\b/g,' degrees Celsius'],[/\b1 cm\b/g,'1 centimetre'],[/\bcm\b/g,'centimetres']]
   };
+  // Thousands and decimals are written the local way: "28.000" and "9,5" in
+  // Dutch and Portuguese, "28,000" and "9.5" in English. A map scale "1:25.000"
+  // is read as "één op vijfentwintigduizend" / "one to twenty-five thousand".
+  const NUMBER_STYLE={
+    nl:{group:'.',decimal:',',point:' komma ',ratio:' op '},
+    pt:{group:'.',decimal:',',point:' vírgula ',ratio:' para '},
+    en:{group:',',decimal:'.',point:' point ',ratio:' to '}
+  };
   function spellNumbers(text,lang='nl'){
     let out=String(text||'');
     for(const [re,rep] of (UNITS[lang]||UNITS.nl)) out=out.replace(re,rep);
     const toWords=lang==='en'?enNumber:lang==='pt'?ptNumber:nlNumber;
-    // Plain integers only; anything with a decimal separator is left as is.
-    return out.replace(/(?<![\d.,])\d{1,4}(?![\d.,]\d)/g,m=>toWords(Number(m)));
+    const style=NUMBER_STYLE[lang]||NUMBER_STYLE.nl;
+    const g=style.group==='.'?'\\.':',';
+    const d=style.decimal==='.'?'\\.':',';
+    out=out.replace(/(\d)\s*:\s*(?=\d)/g,`$1${style.ratio}`);
+    // Grouped thousands first ("28.000"), then decimals ("9,58" → "negen komma vijf acht").
+    out=out.replace(new RegExp(`(?<![\\d.,])\\d{1,3}(?:${g}\\d{3})+(?![\\d.,]\\d)`,'g'),m=>toWords(Number(m.replace(/[.,]/g,''))));
+    out=out.replace(new RegExp(`(?<![\\d.,])(\\d{1,4})${d}(\\d+)(?![\\d.,]\\d)`,'g'),(m,a,b)=>toWords(Number(a))+style.point+[...b].map(ch=>toWords(Number(ch))).join(' '));
+    return out.replace(/(?<![\d.,])\d{1,6}(?![\d.,]\d)/g,m=>toWords(Number(m)));
   }
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}

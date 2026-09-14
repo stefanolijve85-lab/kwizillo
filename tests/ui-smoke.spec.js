@@ -528,7 +528,7 @@ test('Brazilian Portuguese: onboarding offers it, the whole UI and the question 
   await page.locator('#worldMix').click();
   const prompt = await page.locator('.quiz-card h1').textContent();
   expect(prompt).toMatch(/[?…]$/);
-  expect(await page.evaluate(() => window.KWIZILLO_M1.questions.length)).toBe(240);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.questions.length)).toBe(480);
   expect(await page.evaluate(() => window.KWIZILLO_M1.questions[0].prompt)).toMatch(/Sol/);
   expect(await page.evaluate(() => document.documentElement.lang)).toBe('pt');
 });

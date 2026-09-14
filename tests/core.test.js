@@ -9,7 +9,7 @@ const core = require('../quiz-core-v2.js');
 const ROOT = path.join(__dirname, '..');
 const ctx = { window: {} };
 vm.createContext(ctx);
-for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions.js', 'questions-en.js']) {
+for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions-extra-pt.js', 'questions.js', 'questions-en.js', 'questions-pt.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
 }
 const questions = ctx.window.KWIZILLO_QUESTIONS_NL;
@@ -41,12 +41,16 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   assert.strictEqual(fifth.questions.length, 10);
 }
 
-/* ---- a single topic only holds 10, so it recycles and says so ---- */
+/* ---- a single topic holds 20: two fresh quizzes, then it recycles and says so ---- */
 {
   const first = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10 });
   assert.strictEqual(first.recycled, false);
   const second = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: first.usedIds });
-  assert.strictEqual(second.recycled, true, 'a 10-question topic must report that it recycled');
+  assert.strictEqual(second.recycled, false, 'the second topic quiz still has 10 unseen questions');
+  const firstIds = new Set(first.questions.map(q => q.id));
+  assert.ok(second.questions.every(q => !firstIds.has(q.id)), 'the second topic quiz must not repeat the first');
+  const third = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: second.usedIds });
+  assert.strictEqual(third.recycled, true, 'a 20-question topic must report that it recycled on the third quiz');
 }
 
 /* ---- answer order is shuffled without mutating the source ---- */
@@ -138,9 +142,19 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   assert.strictEqual(core.spellNumbers('1 cm can mean 1 km', 'en'), 'one centimetre can mean one kilometre');
   assert.strictEqual(core.spellNumbers('Since 2006', 'en'), 'Since two thousand and six');
   assert.strictEqual(core.spellNumbers('Mercurius', 'nl'), 'Mercurius', 'text without digits must pass through unchanged');
+  // Thousands, decimals and map scales in each language's own notation.
+  assert.strictEqual(core.spellNumbers('met 28.000 km per uur', 'nl'), 'met achtentwintigduizend kilometer per uur');
+  assert.strictEqual(core.spellNumbers('ongeveer 9,5 biljoen', 'nl'), 'ongeveer negen komma vijf biljoen');
+  assert.strictEqual(core.spellNumbers('in 9,58 seconden', 'nl'), 'in negen komma vijf acht seconden');
+  assert.strictEqual(core.spellNumbers('schaal 1:25.000', 'nl'), 'schaal een op vijfentwintigduizend');
+  assert.strictEqual(core.spellNumbers('at 28,000 km/h', 'en'), 'at twenty-eight thousand kilometres per hour');
+  assert.strictEqual(core.spellNumbers('about 9.5 trillion', 'en'), 'about nine point five trillion');
+  assert.strictEqual(core.spellNumbers('a scale of 1:100,000', 'en'), 'a scale of one to one hundred thousand');
+  assert.strictEqual(core.spellNumbers('a 28.000 km por hora', 'pt'), 'a vinte e oito mil quilômetros por hora');
+  assert.strictEqual(core.spellNumbers('cerca de 9,5 trilhões', 'pt'), 'cerca de nove vírgula cinco trilhões');
 
   // Every number that actually occurs in either bank must convert cleanly.
-  for (const [lang, bank] of Object.entries({ nl: questions, en: ctx.window.KWIZILLO_QUESTIONS_EN })) {
+  for (const [lang, bank] of Object.entries({ nl: questions, en: ctx.window.KWIZILLO_QUESTIONS_EN, pt: ctx.window.KWIZILLO_QUESTIONS_PT })) {
     for (const q of bank) {
       for (const text of [q.prompt, ...q.options, q.explanation, q.fact]) {
         const spoken = core.spellNumbers(text, lang);
@@ -161,10 +175,11 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   for (let seed = 1; seed <= 40; seed++) {
     let x = seed; const rng = () => { x = (x * 1103515245 + 12345) & 0x7fffffff; return x / 0x7fffffff; };
     const first = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, rng });
-    const lastId = first.questions[first.questions.length - 1].id;
     const second = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: first.usedIds, rng });
-    assert.strictEqual(second.recycled, true);
-    assert.notStrictEqual(second.questions[0].id, lastId, `seed ${seed}: recycled batch opened with the question just played`);
+    const lastId = second.questions[second.questions.length - 1].id;
+    const third = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: second.usedIds, rng });
+    assert.strictEqual(third.recycled, true);
+    assert.notStrictEqual(third.questions[0].id, lastId, `seed ${seed}: recycled batch opened with the question just played`);
   }
 }
 
