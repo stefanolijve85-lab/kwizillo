@@ -166,3 +166,13 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   await page.locator('#worldBtn').click();
   await expect(page.locator('[data-mode="duel"]')).toHaveClass(/active/);
 });
+
+test('on a small phone the "all worlds" tile keeps its full height; the world grid never overlaps it', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 667 });
+  await boot(page);
+  await page.locator('#homeMemo').click();
+  await expect(page.locator('.memo-pick.mix')).toBeVisible();
+  const [mixBottom, gridTop, mixHeight] = await page.evaluate(() => { const a = document.querySelector('.memo-pick.mix').getBoundingClientRect(), g = document.querySelector('.memo-pick-grid').getBoundingClientRect(); return [a.bottom, g.top, a.height]; });
+  expect(gridTop).toBeGreaterThanOrEqual(mixBottom);
+  expect(mixHeight).toBeGreaterThan(140);
+});

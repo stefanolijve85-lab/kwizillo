@@ -677,7 +677,7 @@
 .memo-pick:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(10,48,116,.5)}
 .memo-pick b{position:absolute;left:10px;bottom:8px;font-size:15px;color:#fff;text-shadow:0 2px 8px rgba(0,18,56,.7)}
 .memo-pick small{position:absolute;left:10px;bottom:28px;font-size:10px;color:#e6f0ff;font-weight:900;text-shadow:0 2px 6px rgba(0,18,56,.7)}
-.memo-pick.mix{aspect-ratio:16/6}
+.memo-pick.mix{aspect-ratio:auto;height:clamp(150px,44vw,200px)}.memo-pick.mix .home-game-art{object-position:center 48%}
 .memo-pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .memo-pick-grid .memo-pick{aspect-ratio:16/10}
 .math-sum.grid b:last-child{white-space:nowrap}
