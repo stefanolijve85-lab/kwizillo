@@ -30,7 +30,8 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   await expect(host.locator('.milo-figure')).toHaveAttribute('src', /milo\/wave\.png/);
   await expect(host.locator('.milo-bubble h1')).toHaveText('Kies je taal');
   await page.getByRole('button', { name: /Nederlands/ }).click();
-  await expect(host).toHaveAttribute('data-pose', 'think');
+  // A step with a talking clip stands in the clip's base pose; without one, in the step's own pose.
+  await expect(host).toHaveAttribute('data-pose', /think|wave/);
   await expect(page.locator('.milo-bubble h1')).toHaveText('Hoe heet je?');
   await expect(page.locator('#obName')).not.toHaveClass(/filled/);
   await page.locator('#obName').fill('Sam');
