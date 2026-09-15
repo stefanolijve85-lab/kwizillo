@@ -49,7 +49,8 @@ if (cmd === 'lines') {
   const [src, guide, lang, key] = args;
   if (!src || !KEYS[guide] || !LANGS.includes(lang) || !KEYS[guide].includes(key)) { console.error('usage: encode <green.mp4> <guide> <lang> <key>'); process.exit(1); }
   fs.mkdirSync(path.join(dirOf(guide), lang), { recursive: true });
-  execFileSync(process.execPath, [path.join(__dirname, 'keyclip.cjs'), src, path.join(dirOf(guide), lang, key)], { stdio: 'inherit', env: { ...process.env, NODE_PATH: path.join(ROOT, 'node_modules') } });
+  // Milo's mouth is drawn on his screen by keyclip (his renders have none); Luna's real mouth is animated by the model.
+  execFileSync(process.execPath, [path.join(__dirname, 'keyclip.cjs'), src, path.join(dirOf(guide), lang, key), ...(guide === 'milo' ? ['--screen-mouth'] : [])], { stdio: 'inherit', env: { ...process.env, NODE_PATH: path.join(ROOT, 'node_modules') } });
 } else if (cmd === 'manifest') {
   const talks = {};
   for (const guide of GUIDES) for (const lang of LANGS) {

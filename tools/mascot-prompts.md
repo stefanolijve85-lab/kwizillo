@@ -68,29 +68,45 @@ manifest) and `guide-talks.js` (the generated manifest the app reads:
   creative_run_flow_nodes call (5 concurrent-request limit) and always pass
   `generations_count: 1`.
 
-### Clip pipeline (v3, transparent video)
+### Milo without a mouth (v4, 2026-09-15 late evening)
 
-1. Base: the guide's transparent `talk` render on chroma green, 3:4, character at
-   84 % height (scratch `greenpad.cjs`); Milo's chin dash is painted out first
-   (scratch `dedash.cjs`) or the model animates it as a mouth. Prompt: alone in
-   frame, backdrop still, mouth = the glowing shape on the screen, antenna rigid.
-2. `node tools/guide-talks.js encode <green.mp4> <guide> <lang> <key>` →
-   `tools/keyclip.cjs`: ffmpeg `chromakey` (no despill — it turns the golden helmet
-   orange), crop to the character's alpha box (+4 %, like the cut-outs), then
-   `<key>.webm` (VP9 + alpha, Chrome/Android/Firefox, ~0.7 MB) and `<key>.mp4`
-   (HEVC + alpha via VideoToolbox, Safari/iOS, ~1.8 MB). ffmpeg: static build in
-   `tools/bin/ffmpeg` (git-ignored; evermeet.cx/ffmpeg).
+Stefan re-rendered Milo's five poses **without a mouth** (`incoming/milo-{voorzijde,
+zwaaien,wijzen,nadenken,juichen}.png`, real alpha). `tools/milo-cutouts.cjs` makes the
+cut-outs and measures where the mouth goes on each (screen centre, 74 % down the
+screen); "nadenken" is set by hand because the black glove touches the screen.
+The mouth is always drawn: on the figure by CSS (`.mouth-robot`, milo.js/screens.css —
+a half-ellipse smile that becomes a glowing "O" with the voice) and in the clips by
+keyclip (same shape from the audio envelope). So still, live speech and video match.
+
+### Clip pipeline (v4, transparent video, drawn mouth)
+
+1. Base: `node tools/greenpad.cjs <transparent.png> <green.png>` — the mouthless
+   `talk` render on chroma green, 3:4, character at 84 % height. On the flow the
+   asset node is `ZclUeRDgjAsZt1VLjs4N`. Prompt: no mouth, screen stays as it is,
+   head nods / gestures / blinks only, helmet + antenna rigid, backdrop still.
+   The model still paints a small white row of "teeth" on the screen's bottom rim
+   and a lip shadow under it; keyclip removes both.
+2. `node tools/guide-talks.js encode <green.mp4> milo nl <key>` → `tools/keyclip.cjs
+   --screen-mouth`: ffmpeg `chromakey` (no despill), alpha box crop, then per frame:
+   the whole face screen is made opaque again (the key bites into cyan glows), the
+   model's mouth zone is filled with the screen's own dark colour (darkest quarter
+   of the row, soft fade around it that eases off near the eye rings via a distance
+   map), teeth/lip on the rim are replaced by rim colour, and the robot mouth is
+   drawn (arc when quiet, "O" when loud). Output: `<key>.webm` (VP9 + alpha) and
+   `<key>.mp4` (ProRes 4444 → `avconvert` HEVC + alpha — ffmpeg's VideoToolbox alpha
+   is not honoured by Safari). `KEYCLIP_KEEP=1` keeps the frames, `KEYCLIP_DEBUG=1`
+   draws the erase ellipses. Sources are kept in `incoming/clips/` (git-ignored).
 3. The app plays the transparent video in the figure's place at the cut-out's
-   height (`.milo-clip`); Safari gets the HEVC, everyone else the WebM. No keying
-   in the browser any more. A clip that shows no frame within 2.5 s falls back to
-   the still + live voice.
+   height (`.milo-clip`, cache-busted with `K.ASSET_V`); Safari gets the HEVC,
+   everyone else the WebM. A clip that shows no frame within 2.5 s falls back to
+   the figure + drawn mouth + live voice.
+4. Cost (720p omnihuman): ≈ 73 credits per character of text, ≈ 3.800 credits for
+   a 4 s line, ≈ $0.18 per 1.000 credits. Two avatar nodes per run, always
+   `generations_count: 1`. Milo NL 13 lines ≈ 49k credits, Luna NL 8 ≈ 35k.
+   Fun-fact illustrations ≈ 400 credits each (gemini-3.1-flash-image / gpt-image-1.5).
 
-A missing clip is never fatal: the guide's portrait takes the same window and its
-mouth moves with the voice — the app measures the loudness of the spoken line
-(K.voiceLevel, m1-runtime.js) and animates the mouth on the portrait every frame
-(`mouth` box + `mouthStyle` per guide in K.GUIDES, milo.js: Luna's chin drops over a
-dark opening, Milo's screen-mouth glows open). Free, works for
-every line in every language; the omnihuman clips remain the premium option. To redo a line: rerun its tts + avatar pair on the
+A missing clip is never fatal: the figure stays and its drawn mouth moves with the
+voice (K.voiceLevel, m1-runtime.js). To redo a line: rerun its avatar node on the
 flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
 
 ## Game tiles (Home "Speel ook", Memo picker)
