@@ -149,6 +149,8 @@
     // The six world names are warmed on Home so the guide calls one out the
     // moment a world opens; the hello of each guide too, ahead of the profile's voice pick.
     K.prefetchSpeech(WORLD_ORDER.map(w=>t('world.speech.enter',{title:worldTitle(w)})));
+    // The first two Weetjes are picked and warmed here, so the screen talks the moment it opens.
+    K.warmFacts?.(K.state.factsWorld||'all');
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };

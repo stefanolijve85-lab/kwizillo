@@ -20,19 +20,39 @@
     return list;
   };
   K.factsSeenCount=world=>{const seen=seenMap();return K.facts(world).filter(f=>seen[f.id]).length};
-  // Picks the next fact: an unseen one when there is any, else any other than `avoid`.
+  // Picks the next fact: an unseen one when there is any, else any not in `avoid`.
   K.pickFact=(world,avoid)=>{
     const all=K.facts(world);
     if(!all.length) return null;
+    const skip=new Set([].concat(avoid||[]));
     const seen=seenMap();
-    let pool=all.filter(f=>!seen[f.id]&&f.id!==avoid);
-    if(!pool.length) pool=all.filter(f=>f.id!==avoid);
+    let pool=all.filter(f=>!seen[f.id]&&!skip.has(f.id));
+    if(!pool.length) pool=all.filter(f=>!skip.has(f.id));
     if(!pool.length) pool=all;
     return pool[Math.floor(Math.random()*pool.length)];
   };
   K.markFactSeen=fact=>{if(!fact)return;const seen=seenMap();if(!seen[fact.id]){seen[fact.id]=true;K.save()}};
+  const factSpeech=fact=>`${t('facts.kicker')} ${fact.t}`;
   // Spoken by whichever guide the child chose; silent for "Stil".
-  const readFact=fact=>{K.stopSpeech();return K.speak(`${t('facts.kicker')} ${fact.t}`).catch(()=>{})};
+  const readFact=fact=>{K.stopSpeech();return K.speak(factSpeech(fact)).catch(()=>{})};
+  // The next facts are chosen ahead of time and their voice lines warmed, so
+  // "Volgend weetje" (and the first fact when the screen opens) starts talking
+  // at once instead of after a round trip to the speech service. One queue per
+  // world; a queue is dropped when the language or the voice changes, because
+  // the warmed lines would no longer match.
+  const ahead={};let aheadKey='';
+  const queueFor=world=>{const key=`${K.state.language}|${K.state.voice}`;if(key!==aheadKey){for(const k in ahead)delete ahead[k];aheadKey=key}return ahead[world]||=[]};
+  K.warmFacts=(world='all',current=null,n=2)=>{
+    const q=queueFor(world);
+    while(q.length<n){
+      const f=K.pickFact(world,[current?.id,...q.map(x=>x.id)].filter(Boolean));
+      if(!f||q.some(x=>x.id===f.id))break;
+      q.push(f);
+    }
+    K.prefetchSpeech(q.map(factSpeech));
+    return q;
+  };
+  const nextFact=(world,current)=>{const q=queueFor(world);let f=q.shift();while(f&&current&&f.id===current.id)f=q.shift();return f||K.pickFact(world,current?.id)};
 
   const card=(fact,{fresh})=>`<article class="fact-card fact-${fact.world} fade-in" data-fact="${fact.id}">
       <img class="fact-art" src="${K.MASTER[fact.world]}" alt="" style="object-position:${K.WORLD_FOCUS?.[fact.world]||'center 40%'}" decoding="async">
@@ -70,7 +90,7 @@
     </section>`);
     const stage=f.querySelector('#factStage'),sub=f.querySelector('#factsSub');
     const show=()=>{
-      const next=(open&&!current&&K.facts(world).find(f=>f.id===open))||K.pickFact(world,current?.id);
+      const next=(open&&!current&&K.facts(world).find(f=>f.id===open))||nextFact(world,current);
       if(!next){stage.innerHTML=`<p class="fact-empty">…</p>`;return}
       const fresh=!seenMap()[next.id]||next.id===open;
       current=next;
@@ -79,6 +99,7 @@
       const seen=K.factsSeenCount(world);
       sub.textContent=seen>=total&&fresh?t('facts.allSeen'):t('facts.sub',{seen,total});
       readFact(next);
+      K.warmFacts(world,current);   // the two after this one start loading now
     };
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
     f.querySelector('.panel-settings').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showParent()};
@@ -92,7 +113,8 @@
   // A small "did you know" for the result screen: a fact from the quiz's world,
   // unseen first, marked as discovered when shown.
   K.bonusFact=world=>{
-    const fact=K.pickFact(WORLDS.includes(world)?world:'all');
+    world=WORLDS.includes(world)?world:'all';
+    const fact=nextFact(world,null);
     if(!fact) return null;
     K.markFactSeen(fact);
     fact.speech=`${t('facts.kicker')} ${fact.t}`;

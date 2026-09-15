@@ -55,6 +55,22 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   expect(await page.evaluate(() => Object.keys(window.KWIZILLO_M1.progress().factsSeen).length)).toBe(3);
 });
 
+test('the next facts are chosen ahead and their lines warmed, so a fact talks the moment it shows', async ({ page }) => {
+  const spoken = [];
+  await boot(page, SAVED(), spoken);
+  // Home already warmed the first two facts of the set…
+  await expect.poll(() => spoken.filter(r => /^Wist je dat…/.test(r.text)).length).toBeGreaterThanOrEqual(2);
+  const warmed = spoken.filter(r => /^Wist je dat…/.test(r.text)).map(r => r.text);
+  await page.locator('#homeFacts').click();
+  const first = await page.locator('.facts-screen .fact-text').textContent();
+  expect(warmed).toContain(`Wist je dat… ${first}`);   // …and the one shown is one of them: no new round trip
+  // Tapping next shows the other warmed one, and two more are queued behind it.
+  await page.locator('#factNext').click();
+  const second = await page.locator('.facts-screen .fact-text').textContent();
+  expect(warmed).toContain(`Wist je dat… ${second}`);
+  await expect.poll(() => spoken.filter(r => /^Wist je dat…/.test(r.text)).length).toBeGreaterThanOrEqual(4);
+});
+
 test('every fact of a world is served before any repeats, then they come round again', async ({ page }) => {
   await boot(page);
   const ids = await page.evaluate(() => {

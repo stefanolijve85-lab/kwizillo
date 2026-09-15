@@ -37,6 +37,8 @@
     K.quiz.salt=salt;
     K.quiz.hintsUsed=0;
     K.showQuiz();
+    // The result's "did you know" is picked and its voice warmed while the quiz runs.
+    setTimeout(()=>K.warmFacts?.(world,null,1),4000);
   };
 
   K.showQuiz=()=>{
