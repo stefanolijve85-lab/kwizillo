@@ -74,8 +74,13 @@
     el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><img class="milo-figure" alt="" draggable="false"></div>`;
     const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body');
     let talkTimer=null,video=null;
-    const showVideo=v=>{if(video&&video!==v){video.pause();video.remove()}video=v;if(!v.parentNode)body.appendChild(v);el.classList.add('video-mode')};
-    const hideVideo=()=>{if(video){video.pause();video.remove();video=null}el.classList.remove('video-mode')};
+    const showVideo=v=>{if(video&&video!==v){video.pause?.();video.remove()}video=v;if(!v.parentNode)body.appendChild(v);el.classList.add('video-mode')};
+    const hideVideo=()=>{if(video){video.pause?.();video.remove();video=null}el.classList.remove('video-mode')};
+    // A line without a clip is spoken from the guide's portrait in the same
+    // rounded window (Luna's clips are still to be rendered), so the guide
+    // never drops back to a cut-out figure mid-conversation.
+    let still=null;
+    const showStill=()=>{const base=K.GUIDES[guide].base;if(!base)return false;if(!still){still=document.createElement('img');still.className='milo-video milo-still';still.src=base;still.alt='';still.draggable=false}showVideo(still);return true};
     // Plays a lip-synced clip; resolves true when it played to the end, false
     // when it could not start (then the caller falls back to pose + voice).
     async function playClip(src){
@@ -113,6 +118,7 @@
           el.classList.remove('talking');
           if(played){const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));return}
         }
+        showStill();
         clearTimeout(talkTimer);el.classList.add('talking');
         talkTimer=setTimeout(()=>el.classList.remove('talking'),1800);
         await K.guideSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking')},onDone:()=>el.classList.remove('talking')},guide).catch(()=>{});
@@ -120,7 +126,7 @@
         const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));
       },
       moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
-      stop(){if(video){video.pause()}K.stopSpeech();el.classList.remove('talking')},
+      stop(){if(video){video.pause?.()}K.stopSpeech();el.classList.remove('talking')},
       remove(){clearTimeout(talkTimer);hideVideo();el.remove()}
     };
     api.pose(pose);
@@ -161,8 +167,8 @@
     const W=()=>hb().width,H=()=>hb().height;
     const figure={w:Math.min(150,Math.round(W()*.34)),h:0};
     host.el.style.setProperty('--milo-w',figure.w+'px');
-    // A talking clip is a 5:6 window; the still poses are taller.
-    figure.h=Math.round(figure.w*(K.guideHasClip('worlds',guide)?1.34:1.55));
+    // The guide talks from a 3:4 window (a clip, or the portrait when a clip is missing).
+    figure.h=Math.round(figure.w*1.34);
     // The guide arrives from the right edge, mid-screen.
     host.moveTo(W()+figure.w,H()*.4,{instant:true});
     let done=false,advance=null;

@@ -827,6 +827,9 @@
 .milo-video{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:24px;border:3px solid #fff;background:#1d2f88;
   box-shadow:0 10px 0 rgba(20,40,120,.45),0 16px 28px rgba(0,22,70,.4),0 0 0 3px rgba(255,255,255,.25)}
 .milo-host.video-mode.talking .milo-video{box-shadow:0 10px 0 rgba(20,40,120,.45),0 16px 28px rgba(0,22,70,.4),0 0 0 4px #ffd23f,0 0 24px rgba(255,210,63,.55)}
+/* Without a clip the portrait sits in the same window and nods while the line plays. */
+.milo-host.video-mode.talking .milo-still{animation:milo-still-talk .46s ease-in-out infinite alternate}
+@keyframes milo-still-talk{from{transform:scale(1) translateY(0)}to{transform:scale(1.03) translateY(-2px)}}
 .onboarding-stage .milo-host.video-mode{--milo-w:clamp(124px,36vw,168px)}
 
 /* ==== Weetjes (fun facts) ==== */
