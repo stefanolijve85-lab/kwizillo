@@ -17,6 +17,9 @@
   // shown while the guide moves. Pointing left mirrors the pointing pose,
   // pointing down leans it over (CSS on data-pose).
   const u=p=>K.assetUrl?K.assetUrl(p):p;
+  // A mouth box may carry its own `style`: Milo's talk render has an open
+  // mouth, so there a dark cover with a drawn smile closes it (`cover`);
+  // elsewhere his screen-mouth glows open (`glow`); Luna's opens (`jaw`).
   const poses=(dir,m)=>({
     wave:{src:u(`${dir}/wave.png`),mouth:m.wave},talk:{src:u(`${dir}/talk.png`),mouth:m.talk},
     think:{src:u(`${dir}/think.png`),mouth:m.think},cheer:{src:u(`${dir}/cheer.png`),mouth:m.cheer},
@@ -24,8 +27,8 @@
     walkA:{src:u(`${dir}/walk-a.png`)},walkB:{src:u(`${dir}/walk-b.png`)},jumpA:{src:u(`${dir}/jump-a.png`)},jumpB:{src:u(`${dir}/jump-b.png`)}
   });
   K.GUIDE_POSES={
-    milo:poses('assets/mascots/milo',{wave:{x:.61,y:.38,w:.09,h:.045},talk:{x:.57,y:.37,w:.1,h:.05},think:{x:.6,y:.37,w:.09,h:.045},cheer:{x:.57,y:.36,w:.12,h:.06},point:{x:.59,y:.37,w:.09,h:.045}}),
-    luna:poses('assets/mascots/luna',{wave:{x:.6,y:.245,w:.07,h:.032},talk:{x:.52,y:.21,w:.07,h:.03},think:{x:.56,y:.22,w:.06,h:.03},cheer:{x:.52,y:.22,w:.09,h:.04},point:{x:.49,y:.22,w:.07,h:.03}})
+    milo:poses('assets/mascots/milo',{wave:{x:.6,y:.36,w:.1,h:.05},talk:{x:.527,y:.404,w:.125,h:.08,style:'cover'},think:{x:.53,y:.36,w:.1,h:.05},cheer:{x:.56,y:.36,w:.12,h:.06},point:{x:.57,y:.37,w:.1,h:.05}}),
+    luna:poses('assets/mascots/luna',{wave:{x:.6,y:.215,w:.07,h:.03},talk:{x:.5,y:.215,w:.07,h:.03},think:{x:.62,y:.215,w:.06,h:.03},cheer:{x:.5,y:.215,w:.08,h:.035},point:{x:.48,y:.215,w:.07,h:.03}})
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
   // `mouth` is where the mouth sits on the portrait (fractions of its width and
@@ -90,7 +93,9 @@
       const {mw,mh,mg,key,keyLum,mdata}=st;mg.drawImage(st.video,0,0,mw,mh);const d=mg.getImageData(0,0,mw,mh).data;
       const TOL=26,seen=st.seen;seen.fill(0);const stack=[];
       const dist=i=>Math.abs(d[i*4]-key[0])+Math.abs(d[i*4+1]-key[1])+Math.abs(d[i*4+2]-key[2]);
-      const isShadow=i=>{const r=d[i*4],g=d[i*4+1],b=d[i*4+2];const mx=Math.max(r,g,b),mn=Math.min(r,g,b);const sat=mx?(mx-mn)/mx:0;const lum=r*.3+g*.59+b*.11;return sat<=.3&&lum<keyLum-3&&lum>keyLum-80&&b>r+8};
+      // A ground shadow is the backdrop colour, darker: same channel ratios as the key, lower luminance.
+      const kn=Math.max(1,Math.max(key[0],key[1],key[2]));const kr=[key[0]/kn,key[1]/kn,key[2]/kn];
+      const isShadow=i=>{const r=d[i*4],g=d[i*4+1],b=d[i*4+2];const mx=Math.max(1,r,g,b);const lum=r*.3+g*.59+b*.11;return lum<keyLum-3&&lum>keyLum*.35&&Math.abs(r/mx-kr[0])<.14&&Math.abs(g/mx-kr[1])<.14&&Math.abs(b/mx-kr[2])<.14};
       for(let x=0;x<mw;x++){stack.push(x,(mh-1)*mw+x)}for(let y=0;y<mh;y++){stack.push(y*mw,y*mw+mw-1)}
       while(stack.length){const i=stack.pop();if(seen[i]||dist(i)>TOL)continue;seen[i]=1;const x=i%mw,y=(i/mw)|0;if(x>0)stack.push(i-1);if(x<mw-1)stack.push(i+1);if(y>0)stack.push(i-mw);if(y<mh-1)stack.push(i+mw)}
       for(let i=0;i<mw*mh;i++)if(seen[i]){for(const k of [i-1,i+1,i-mw,i+mw])if(k>=0&&k<mw*mh&&!seen[k]&&isShadow(k))stack.push(k)}
@@ -199,6 +204,7 @@
       const r=img.getBoundingClientRect();const w=r.width||img.offsetWidth,h=r.height||img.offsetHeight;
       if(!w||!h){figMouth.hidden=true;return}
       figMouth.hidden=false;
+      figMouth.className=`milo-mouth mouth-${m.style||g.mouthStyle||'jaw'}`;
       figMouth.style.left=Math.round(m.x*w)+'px';figMouth.style.top=Math.round(m.y*h)+'px';
       figMouth.style.setProperty('--mw',Math.max(6,Math.round(m.w*w))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m.h*h))+'px');
     };
