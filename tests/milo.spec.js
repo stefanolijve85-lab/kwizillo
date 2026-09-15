@@ -142,7 +142,7 @@ test('the parent zone can replay the tour', async ({ page }) => {
   await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
 });
 
-test('a lip-synced clip replaces the still and the live voice; without a clip the still + voice take over', async ({ page }) => {
+test('a lip-synced clip replaces the still and the live voice; without a clip the portrait + voice take over', async ({ page }) => {
   const tts = [];
   await page.route('**/*.mp4', r => r.request().url().includes('intro') ? r.abort() : r.continue());
   await page.route('**/api/tts', r => { tts.push(r.request().postDataJSON().text); r.fulfill({ status: 503, body: '{}' }); });
@@ -158,7 +158,8 @@ test('a lip-synced clip replaces the still and the live voice; without a clip th
   // A line without a clip (a language that has none) falls back to the still pose and a voice request.
   await page.evaluate(() => { window.KWIZILLO_GUIDE_TALKS.milo.nl = {}; });
   await page.getByRole('button', { name: /Nederlands/ }).click();
-  await expect(page.locator('.onboarding .milo-host')).not.toHaveClass(/video-mode/);
-  await expect(page.locator('.onboarding .milo-figure')).toBeVisible();
+  // …spoken from the portrait in the same window, so nothing jumps.
+  await expect(page.locator('.onboarding .milo-host video')).toHaveCount(0);
+  await expect(page.locator('.onboarding .milo-still')).toHaveAttribute('src', /milo\/talk-base\.png/);
   await expect.poll(() => tts.length).toBeGreaterThan(0);
 });
