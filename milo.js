@@ -66,105 +66,28 @@
   // carries its own voice track, so it replaces the live speech request; when a
   // clip is missing, fails to load or may not autoplay, the still pose plus the
   // voice line take over unnoticed.
-  // A manifest entry is a path, or {src,pose} where `pose` is the cut-out the
-  // clip starts from (so the figure stands in that pose before and after).
-  const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{src:v,pose:null}:v};
-  const clipSrc=(key,guide='milo')=>clipInfo(key,guide)?.src||null;
-
-  // Full-body clips come with the flat backdrop of the render; it is keyed out
-  // live, frame by frame, onto a canvas the size of the figure. The key colour
-  // is read from the corners of the first frame, the character's box from its
-  // alpha (so the video lines up with the cut-out it replaces), the soft ground
-  // shadow goes with the backdrop, and edge pixels are despilled so no blue
-  // fringe is left. Frames are keyed on the GPU (WebGL); the first frame is
-  // analysed once on the CPU.
-  const KEY_VS='attribute vec2 p;attribute vec2 t;varying vec2 v;void main(){v=t;gl_Position=vec4(p,0.,1.);}';
-  // Interior/exterior comes from a coarse connectivity mask (CPU, quarter size:
-  // only backdrop connected to the frame border is backdrop, so the bounce
-  // light on a white body never turns transparent); the colour test only
-  // decides the soft edge in between, and edge pixels are despilled.
-  const KEY_FS='precision mediump float;varying vec2 v;uniform sampler2D u;uniform sampler2D m;uniform vec3 key;\n'+
-    'void main(){vec3 c=texture2D(u,v).rgb;float mk=texture2D(m,v).r;float d=abs(c.r-key.r)+abs(c.g-key.g)+abs(c.b-key.b);\n'+
-    'float a=mk>.85?1.:(mk<.06?0.:smoothstep(.05,.16,d)*smoothstep(.06,.5,mk));\n'+
-    'vec3 o=a>0.&&a<1.?clamp((c-key*(1.-a))/a,0.,1.):c;gl_FragColor=vec4(o*a,a);}';
-  const keyer={
-    // Coarse mask of one frame: 255 = character, 0 = backdrop / its ground shadow.
-    mask(st){
-      const {mw,mh,mg,key,keyLum,mdata}=st;mg.drawImage(st.video,0,0,mw,mh);const d=mg.getImageData(0,0,mw,mh).data;
-      const TOL=26,seen=st.seen;seen.fill(0);const stack=[];
-      const dist=i=>Math.abs(d[i*4]-key[0])+Math.abs(d[i*4+1]-key[1])+Math.abs(d[i*4+2]-key[2]);
-      // A ground shadow is the backdrop colour, darker: same channel ratios as the key, lower luminance.
-      const kn=Math.max(1,Math.max(key[0],key[1],key[2]));const kr=[key[0]/kn,key[1]/kn,key[2]/kn];
-      const isShadow=i=>{const r=d[i*4],g=d[i*4+1],b=d[i*4+2];const mx=Math.max(1,r,g,b);const lum=r*.3+g*.59+b*.11;return lum<keyLum-3&&lum>keyLum*.35&&Math.abs(r/mx-kr[0])<.14&&Math.abs(g/mx-kr[1])<.14&&Math.abs(b/mx-kr[2])<.14};
-      for(let x=0;x<mw;x++){stack.push(x,(mh-1)*mw+x)}for(let y=0;y<mh;y++){stack.push(y*mw,y*mw+mw-1)}
-      while(stack.length){const i=stack.pop();if(seen[i]||dist(i)>TOL)continue;seen[i]=1;const x=i%mw,y=(i/mw)|0;if(x>0)stack.push(i-1);if(x<mw-1)stack.push(i+1);if(y>0)stack.push(i-mw);if(y<mh-1)stack.push(i+mw)}
-      for(let i=0;i<mw*mh;i++)if(seen[i]){for(const k of [i-1,i+1,i-mw,i+mw])if(k>=0&&k<mw*mh&&!seen[k]&&isShadow(k))stack.push(k)}
-      while(stack.length){const i=stack.pop();if(seen[i]||!isShadow(i))continue;seen[i]=1;const x=i%mw,y=(i/mw)|0;if(x>0)stack.push(i-1);if(x<mw-1)stack.push(i+1);if(y>0)stack.push(i-mw);if(y<mh-1)stack.push(i+mw)}
-      for(let i=0;i<mw*mh;i++)mdata[i]=seen[i]?0:255;
-      return mdata;
-    },
-    setup(v,canvas){
-      const w=v.videoWidth,h=v.videoHeight;if(!w||!h)return null;
-      const probe=document.createElement('canvas');probe.width=w;probe.height=h;const pg=probe.getContext('2d',{willReadFrequently:true});
-      pg.drawImage(v,0,0);const d=pg.getImageData(0,0,w,h).data;
-      const px=(x,y)=>{const k=4*(y*w+x);return [d[k],d[k+1],d[k+2]]};
-      const corners=[px(3,3),px(w-4,3),px(3,h-4),px(w-4,h-4)];
-      const key=[0,1,2].map(i=>corners.reduce((a,c)=>a+c[i],0)/4);
-      const keyLum=key[0]*.3+key[1]*.59+key[2]*.11;
-      const mw=Math.round(w/4),mh=Math.round(h/4);
-      const mc=document.createElement('canvas');mc.width=mw;mc.height=mh;
-      const st={video:v,key,keyLum,mw,mh,mg:mc.getContext('2d',{willReadFrequently:true}),seen:new Uint8Array(mw*mh),mdata:new Uint8Array(mw*mh),box:null,gl:null};
-      // The character's box from the first frame's mask (+ margin for the gestures to come).
-      const m=keyer.mask(st);let x0=mw,y0=mh,x1=0,y1=0;
-      for(let i=0;i<mw*mh;i++)if(m[i]){const x=i%mw,y=(i/mw)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
-      if(x1<=x0||y1<=y0)return null;
-      const mx=Math.round((x1-x0)*.08)+1,my=Math.round((y1-y0)*.03)+1;
-      st.box={x:Math.max(0,x0-mx)*4,y:Math.max(0,y0-my)*4,w:(Math.min(mw-1,x1+mx)-Math.max(0,x0-mx)+1)*4,h:(Math.min(mh-1,y1+my)-Math.max(0,y0-my)+1)*4};
-      const gl=canvas.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false});
-      if(gl){
-        const sh=(t,c)=>{const o=gl.createShader(t);gl.shaderSource(o,c);gl.compileShader(o);return o};
-        const prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,KEY_VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,KEY_FS));gl.linkProgram(prog);
-        if(gl.getProgramParameter(prog,gl.LINK_STATUS)){
-          gl.useProgram(prog);
-          const bx=st.box.x/w,by=st.box.y/h,bw=st.box.w/w,bh=st.box.h/h;
-          const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-          gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,bx,by+bh, 1,-1,bx+bw,by+bh, -1,1,bx,by, 1,1,bx+bw,by]),gl.STATIC_DRAW);
-          const ap=gl.getAttribLocation(prog,'p'),at=gl.getAttribLocation(prog,'t');
-          gl.enableVertexAttribArray(ap);gl.vertexAttribPointer(ap,2,gl.FLOAT,false,16,0);gl.enableVertexAttribArray(at);gl.vertexAttribPointer(at,2,gl.FLOAT,false,16,8);
-          const mkTex=unit=>{const tex=gl.createTexture();gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,tex);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);return tex};
-          st.texV=mkTex(0);st.texM=mkTex(1);
-          gl.uniform1i(gl.getUniformLocation(prog,'u'),0);gl.uniform1i(gl.getUniformLocation(prog,'m'),1);
-          gl.uniform3f(gl.getUniformLocation(prog,'key'),key[0]/255,key[1]/255,key[2]/255);
-          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);
-          st.gl=gl;
-        }
-      }
-      if(!st.gl){st.src=probe;st.sg=pg}
-      return st;
-    },
-    draw(v,st,c){
-      const m=keyer.mask(st);
-      if(st.gl){const gl=st.gl;gl.viewport(0,0,c.width,c.height);
-        try{gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,st.texV);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,v);
-          gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,st.texM);gl.texImage2D(gl.TEXTURE_2D,0,gl.LUMINANCE,st.mw,st.mh,0,gl.LUMINANCE,gl.UNSIGNED_BYTE,m)}catch(e){return}
-        gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);return}
-      // CPU fallback (no WebGL): the coarse mask decides, scaled up.
-      const {box,sg,src,mw,mh}=st;sg.drawImage(v,0,0);const id=sg.getImageData(box.x,box.y,box.w,box.h),d=id.data;
-      for(let y=0;y<box.h;y++)for(let x=0;x<box.w;x++){const mi=Math.min(mh-1,(box.y+y)>>2)*mw+Math.min(mw-1,(box.x+x)>>2);d[(y*box.w+x)*4+3]=m[mi]}
-      sg.putImageData(id,box.x,box.y);const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);g.drawImage(src,box.x,box.y,box.w,box.h,0,0,c.width,c.height);
-    }
-  };
+  // A manifest entry: {webm, mp4, pose} — the same clip as VP9+alpha (Chrome,
+  // Android, Firefox) and HEVC+alpha (Safari, iOS), already keyed and cropped
+  // to the character by tools/keyclip.cjs; `pose` is the cut-out the clip
+  // starts from. The browser plays a genuinely transparent video: no keying,
+  // no canvas, nothing that can differ between browsers.
+  const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
+  const probe=document.createElement('video');
+  const safari=/AppleWebKit/.test(navigator.userAgent)&&!/Chrome|CriOS|Chromium|Android|Edg/.test(navigator.userAgent);
+  const canWebm=!!probe.canPlayType('video/webm; codecs="vp9"'),canHevc=!!probe.canPlayType('video/mp4; codecs="hvc1"');
+  // Safari decodes HEVC alpha natively; everyone else gets the VP9 WebM.
+  const clipSrc=(key,guide='milo')=>{const i=clipInfo(key,guide);if(!i)return null;if(safari&&canHevc&&i.mp4)return i.mp4;if(canWebm&&i.webm)return i.webm;return i.mp4||i.webm||null};
   const clipPool=new Map();
-  function clipVideo(src,guide){
+  function clipVideo(src){
     let v=clipPool.get(src);
     if(v) return v;
     v=document.createElement('video');
-    v.className='milo-video';v.poster=K.GUIDES[guideOf(guide)].base;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.crossOrigin='anonymous';v.src=src;v.load();
+    v.className='milo-clip';v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.src=src;v.load();
     clipPool.set(src,v);
     if(clipPool.size>6){const first=clipPool.keys().next().value;if(first!==src)clipPool.delete(first)}
     return v;
   }
-  K.guideWarmClips=(keys,guide='milo')=>(keys||[]).forEach(k=>{const src=clipSrc(k,guide);if(src)clipVideo(src,guide)});
+  K.guideWarmClips=(keys,guide='milo')=>(keys||[]).forEach(k=>{const src=clipSrc(k,guide);if(src)clipVideo(src)});
   K.miloWarmClips=keys=>K.guideWarmClips(keys,'milo');
   // Stopping speech stops the clips too: one rule for every screen change.
   const stopSpeech=K.stopSpeech;
@@ -244,51 +167,45 @@
       };
       if(!mouthRaf)mouthRaf=setInterval(tick,30);
     };
-    // Plays a lip-synced clip; resolves true when it played to the end, false
-    // when it could not start (then the caller falls back to pose + voice).
-    // In figure mode the frames are keyed onto a canvas that takes the figure's
-    // place, so the character stays cut out and the same size.
-    let keyCanvas=null,keyRaf=0;
+    // Plays a lip-synced clip in the figure's place; resolves true when it
+    // played to the end, false when it could not start (then the caller falls
+    // back to pose + voice). The transparent video is sized to the cut-out's
+    // height so the character keeps its scale; the still and the drawn mouth
+    // leave the DOM while it plays and the last frame stays until the next pose.
+    let clipEl=null;
     async function playClip(src){
-      const v=clipVideo(src,guide);
+      const v=clipVideo(src);
       v.muted=K.state.voice==='Stil';
       v.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
-      if(figure){
-        if(!keyCanvas){keyCanvas=document.createElement('canvas');keyCanvas.className='milo-figure milo-keyed';wrap.insertBefore(keyCanvas,img)}
-        keyCanvas.hidden=true;
-        // The source video sits in the DOM (invisible) so every browser decodes it; only the keyed canvas shows.
-        v.classList.add('milo-clip-src');if(v.parentNode!==wrap)wrap.appendChild(v);
-      }else{v.classList.remove('milo-clip-src');showVideo(v)}
-      try{v.currentTime=0}catch(e){}
+      if(clipEl&&clipEl!==v){clipEl.pause?.();clipEl.remove()}
+      clipEl=v;
+      const h=img.getBoundingClientRect().height;
+      if(h)v.style.height=Math.round(h)+'px';
+      if(v.parentNode!==wrap)wrap.insertBefore(v,img);
+      figMouth.remove();img.classList.add('behind-clip');el.classList.add('clip-playing');
+      // Rewind only once the metadata is in: a seek before that stalls Chromium's pipeline.
+      if(v.readyState>=1){try{v.currentTime=0}catch(e){}}
       K.audio.duck(true);
       const ok=await new Promise(resolve=>{
-        // On the way out the last keyed frame stays on the canvas (the figure keeps the
-        // pose it ended in) until the next pose change swaps the cut-out back in.
-        let settled=false,st=null;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;cancelAnimationFrame(keyRaf);keyRaf=0;el.classList.remove('clip-playing');if(keyCanvas&&!r){keyCanvas.hidden=true;img.classList.remove('behind-clip')}resolve(r)};
+        let settled=false;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;resolve(r)};
         v.onended=()=>done(true);v.onerror=()=>done(false);
-        const frame=()=>{
-          if(settled)return;
-          if(!st){
-            const r=img.getBoundingClientRect();
-            if(r.width&&r.height){keyCanvas.width=Math.round(r.width*devicePixelRatio);keyCanvas.height=Math.round(r.height*devicePixelRatio)}
-            st=keyer.setup(v,keyCanvas);
-            if(st){keyCanvas.hidden=false;figMouth.hidden=true;img.classList.add('behind-clip');el.classList.add('clip-playing')}
-          }
-          if(st)keyer.draw(v,st,keyCanvas);
-          keyRaf=requestAnimationFrame(frame);
-        };
-        if(figure){const start=()=>{if(!settled&&!keyRaf)keyRaf=requestAnimationFrame(frame)};v.addEventListener('playing',start,{once:true});v.addEventListener('timeupdate',start,{once:true})}
         const p=v.play();if(p&&p.catch)p.catch(()=>done(false));
+        // A decoder that never starts (no frames within 2.5 s) counts as a failed
+        // start: the still and the live voice take over instead of a frozen figure.
+        setTimeout(()=>{if(!settled&&!(v.currentTime>0))done(false)},2500);
         // A clip never holds the screen hostage: whatever happens we move on after 20 s.
         setTimeout(()=>done(true),20000);
       });
       K.audio.duck(false);
-      if(!ok&&!figure)hideVideo();
+      el.classList.remove('clip-playing');
+      if(!ok)endClip();
       return ok;
     }
+    // Back to the cut-out (after a failed clip, or on the next pose change).
+    const endClip=()=>{if(clipEl){clipEl.pause?.();clipEl.remove();clipEl=null}img.classList.remove('behind-clip');if(!figMouth.parentNode)wrap.appendChild(figMouth)};
     const api={
       el,guide,
-      pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;if(keyCanvas&&!el.classList.contains('clip-playing')){keyCanvas.hidden=true;img.classList.remove('behind-clip')}placeMouth();return api},
+      pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;if(!el.classList.contains('clip-playing'))endClip();placeMouth();return api},
       // Rendered width of the current pose at a given box height (the cut-outs differ in width).
       widthAt(h){const {src}=poseSrc(guide,curPose);const n=sizeOf(src);return Math.round(h*n.w/n.h)},
       placeMouth,
@@ -298,7 +215,7 @@
       async say(text,{html,minMs=0,clip}={}){
         api.bubble(html??esc(text));
         const started=Date.now();
-        const info=clip&&clipInfo(clip,guide);const src=info?.src;
+        const info=clip&&clipInfo(clip,guide);const src=clip&&clipSrc(clip,guide);
         if(src){
           K.stopSpeech();
           if(info.pose&&figure)api.pose(info.pose);
@@ -316,7 +233,7 @@
       },
       moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
       stop(){if(video){video.pause?.()}K.stopSpeech();el.classList.remove('talking')},
-      remove(){clearTimeout(talkTimer);clearInterval(mouthRaf);mouthRaf=0;cancelAnimationFrame(keyRaf);hideVideo();el.remove()}
+      remove(){clearTimeout(talkTimer);clearInterval(mouthRaf);mouthRaf=0;endClip();hideVideo();el.remove()}
     };
     api.pose(pose);
     return api;

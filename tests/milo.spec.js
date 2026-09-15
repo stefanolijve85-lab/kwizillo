@@ -162,27 +162,26 @@ test('the parent zone can replay the tour', async ({ page }) => {
   await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
 });
 
-test('a lip-synced clip replaces the still and the live voice; without a clip the portrait + voice take over', async ({ page }) => {
-  // Clips are optional per guide/line: the manifest may be empty while the faces are being re-rendered.
+test('a transparent talking clip takes the figure\'s place (no drawn mouth); a line without a clip keeps the figure and the drawn mouth', async ({ page }) => {
   const manifest = require('fs').readFileSync(require('path').join(__dirname, '..', 'guide-talks.js'), 'utf8');
-  test.skip(!/milo\/talk\/nl\/language\.mp4/.test(manifest), 'no Dutch Milo clips in the manifest');
+  test.skip(!/milo\/talk\/nl\/name\.webm/.test(manifest), 'no Dutch Milo clip for the name step in the manifest');
   const tts = [];
-  await page.route('**/*.mp4', r => r.request().url().includes('intro') ? r.abort() : r.continue());
-  await page.route('**/api/tts', r => { tts.push(r.request().postDataJSON().text); r.fulfill({ status: 503, body: '{}' }); });
+  await page.route('**/api/tts', r => { tts.push(r.request().postDataJSON().text); r.fulfill({ status: 500, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
-  const host = page.locator('.onboarding .milo-host');
-  await expect(host).toHaveClass(/video-mode/, { timeout: 5000 });
-  await expect(host.locator('.milo-video')).toHaveAttribute('src', /milo\/talk\/nl\/language\.mp4/);
-  await expect.poll(() => page.evaluate(() => { const v = document.querySelector('.milo-video'); return v && !v.paused && v.currentTime > 0; }), { timeout: 5000 }).toBe(true);
-  await expect.poll(() => page.evaluate(() => document.querySelector('.milo-video').ended), { timeout: 10000 }).toBe(true);
-  expect(tts).toEqual([]);   // the clip carries the voice; no live request was made
-  // A line without a clip (a language that has none) falls back to the still pose and a voice request.
-  await page.evaluate(() => { window.KWIZILLO_GUIDE_TALKS.milo.nl = {}; });
   await page.getByRole('button', { name: /Nederlands/ }).click();
-  // …spoken from the portrait in the same window, so nothing jumps.
-  await expect(page.locator('.onboarding .milo-host video')).toHaveCount(0);
-  await expect(page.locator('.onboarding .milo-still .milo-still-face')).toHaveAttribute('src', /milo\/talk-base\.png/);
-  await expect.poll(() => tts.length).toBeGreaterThan(0);
+  const host = page.locator('.onboarding .milo-host');
+  const clip = host.locator('video.milo-clip');
+  await expect(clip).toHaveAttribute('src', /milo\/talk\/nl\/name\.webm/);
+  await expect(host).toHaveClass(/clip-playing/);
+  await expect(host.locator('.milo-mouth')).toHaveCount(0);           // nothing can draw a second mouth
+  await expect(host.locator('.milo-figure')).toHaveClass(/behind-clip/);   // the still is out of the flow
+  await expect.poll(() => page.evaluate(() => document.querySelector('.onboarding video.milo-clip')?.ended), { timeout: 10000 }).toBe(true);
+  await expect(clip).toBeAttached();                                       // the last frame stays…
+  // …until the next step: no clip there, so the figure and the drawn mouth are back and the voice is asked live.
+  await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
+  await expect(page.locator('.onboarding .milo-host video.milo-clip')).toHaveCount(0);
+  await expect(page.locator('.onboarding .milo-host .milo-mouth')).toHaveCount(1);
+  await expect.poll(() => tts.some(t => /hoe oud/i.test(t))).toBe(true);
 });

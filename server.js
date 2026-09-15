@@ -109,7 +109,7 @@ function rateRefund(req){ const seen = hits.get(clientAddress(req)); if (seen &&
 
 const mime = {
   '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.css':'text/css; charset=utf-8',
-  '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.mp4':'video/mp4', '.mp3':'audio/mpeg',
+  '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.mp4':'video/mp4', '.webm':'video/webm', '.mp3':'audio/mpeg',
   '.wav':'audio/wav', '.ico':'image/x-icon'
 };
 

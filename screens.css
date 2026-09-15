@@ -779,10 +779,9 @@
 .milo-tour .milo-bubble::after{left:var(--tx,50%);margin-left:0}
 .milo-tour .milo-host.no-motion{transition:none}
 .milo-tour .milo-host.milo-size-tour{--milo-w:140px}
-/* A full-body clip plays keyed onto a canvas over the figure; the still hides underneath. */
-.milo-clip-src{position:absolute;left:0;top:0;width:2px;height:2px;opacity:0;pointer-events:none}
-.milo-keyed{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 14px 16px rgba(0,22,70,.42))}
-.milo-figure.behind-clip{visibility:hidden;opacity:0}
+/* A talking clip is a transparent video that takes the figure's place (same height, the still leaves the flow). */
+.milo-clip{display:block;height:auto;width:auto;max-width:none;background:transparent;filter:drop-shadow(0 14px 16px rgba(0,22,70,.42))}
+.milo-figure.behind-clip{display:none}
 .milo-host.clip-playing .milo-mouth{display:none}
 /* The mouth on the figure: placed per pose by milo.js, opened by --open. */
 .milo-fig-wrap{position:relative;display:block}

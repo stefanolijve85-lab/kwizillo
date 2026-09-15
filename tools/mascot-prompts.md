@@ -68,6 +68,23 @@ manifest) and `guide-talks.js` (the generated manifest the app reads:
   creative_run_flow_nodes call (5 concurrent-request limit) and always pass
   `generations_count: 1`.
 
+### Clip pipeline (v3, transparent video)
+
+1. Base: the guide's transparent `talk` render on chroma green, 3:4, character at
+   84 % height (scratch `greenpad.cjs`); Milo's chin dash is painted out first
+   (scratch `dedash.cjs`) or the model animates it as a mouth. Prompt: alone in
+   frame, backdrop still, mouth = the glowing shape on the screen, antenna rigid.
+2. `node tools/guide-talks.js encode <green.mp4> <guide> <lang> <key>` →
+   `tools/keyclip.cjs`: ffmpeg `chromakey` (no despill — it turns the golden helmet
+   orange), crop to the character's alpha box (+4 %, like the cut-outs), then
+   `<key>.webm` (VP9 + alpha, Chrome/Android/Firefox, ~0.7 MB) and `<key>.mp4`
+   (HEVC + alpha via VideoToolbox, Safari/iOS, ~1.8 MB). ffmpeg: static build in
+   `tools/bin/ffmpeg` (git-ignored; evermeet.cx/ffmpeg).
+3. The app plays the transparent video in the figure's place at the cut-out's
+   height (`.milo-clip`); Safari gets the HEVC, everyone else the WebM. No keying
+   in the browser any more. A clip that shows no frame within 2.5 s falls back to
+   the still + live voice.
+
 A missing clip is never fatal: the guide's portrait takes the same window and its
 mouth moves with the voice — the app measures the loudness of the spoken line
 (K.voiceLevel, m1-runtime.js) and animates the mouth on the portrait every frame
