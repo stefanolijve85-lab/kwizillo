@@ -165,6 +165,12 @@
 
   /* ---------------- Home tour ---------------- */
 
+  const TOUR_KEYS=['tour.worlds','tour.games','tour.hud','tour.nav','tour.done'];
+  // Warms the tour's five lines for a guide (voice and clips) well before the
+  // tour starts — a guide without clips would otherwise start every stop with a
+  // round trip to the speech service.
+  K.warmTour=(guide=K.activeGuide())=>{guide=guideOf(guide);K.guidePrefetch(TOUR_KEYS.map(k=>K.t(k)),guide);K.guideWarmClips(TOUR_KEYS.map(k=>k.replace('tour.','')),guide)};
+
   // The chosen guide flies across Home and explains each part in one sentence.
   // The tour is asked for explicitly (end of onboarding, "tour again" in the
   // parent zone) and never interrupts a returning player. A tap moves on,
@@ -182,8 +188,7 @@
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}
     ];
-    K.guidePrefetch(stops.map(s=>t(s.key)),guide);
-    K.guideWarmClips(stops.map(s=>s.key.replace('tour.','')),guide);
+    K.warmTour(guide);
     const layer=document.createElement('div');
     layer.className='milo-tour';
     layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;

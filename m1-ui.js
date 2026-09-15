@@ -449,6 +449,7 @@
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelector('#freshToggle').onclick=()=>{K.sfx('tap');K.setFreshStart(!K.freshStart());K.showParent()};
     f.querySelector('#tourOpen').onclick=()=>{K.sfx('tap');K.showHome();setTimeout(()=>K.startTour(),320)};
+    K.warmTour?.();   // "tour again" starts talking at once
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
     f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.niveau=Number(b.dataset.level);K.save();K.showParent()});
     f.querySelector('#shareOpen').onclick=()=>{K.sfx('tap');K.shareScore()};

@@ -140,6 +140,9 @@
     K.guidePrefetch([K.t('voice.milo.hello'),K.t('onboarding.speech.welcome')],'milo');
     K.guidePrefetch([K.t('voice.luna.hello'),K.t('onboarding.speech.welcome')],'luna');
     K.guideWarmClips(['hello','welcome'],'luna');
+    // Milo's tour is on video; Luna's is spoken live, so her five tour lines
+    // start loading here, two screens before she needs them.
+    K.warmTour('luna');
     // Tapping a name brings that guide on stage: the other one slips away and
     // the new one arrives, says hello and hosts everything from here on.
     const takeOver=guide=>{
@@ -175,6 +178,7 @@
       sub:esc(K.t('onboarding.welcome.sub')),
       body,cls:'onboarding-final',pose:'cheer',speech:K.t('onboarding.speech.welcome'),clip:'welcome'
     });
+    K.warmTour();
     f.querySelector('#obStart').onclick=()=>{
       K.stopSpeech(); K.sfx('reward');
       K.state.onboardingComplete=true; K.save();
