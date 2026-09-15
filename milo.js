@@ -11,9 +11,12 @@
   // never contain the child's name.
 
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-  const poses=(dir,extra={})=>({
+  // Cut-outs from the 2026-09-15 character sheets (tools/mascot-prompts.md):
+  // wave, talk, think, cheer and one pointing pose (to the right); pointing left
+  // mirrors it, pointing down leans it over (CSS on data-pose).
+  const poses=dir=>({
     wave:`${dir}/wave.png`,talk:`${dir}/talk.png`,think:`${dir}/think.png`,cheer:`${dir}/cheer.png`,
-    pointDown:`${dir}/point-down.png`,pointLeft:`${dir}/point-left.png`,pointRight:{src:`${dir}/point-left.png`,flip:true},...extra
+    pointRight:`${dir}/point-right.png`,pointLeft:{src:`${dir}/point-right.png`,flip:true},pointDown:`${dir}/point-right.png`
   });
   K.GUIDE_POSES={
     milo:poses('assets/mascots/milo'),
@@ -23,8 +26,9 @@
   // `mouth` is where the mouth sits on the portrait (fractions of its width and
   // height), for the audio-driven mouth used when a line has no clip.
   K.GUIDES={
-    milo:{voice:'Milo',name:'Milo',base:'assets/mascots/milo/talk-base.png',mouth:{x:.5,y:.41,w:.2,h:.07}},
-    luna:{voice:'Luna',name:'Luna',base:'assets/mascots/luna/talk-base.png',mouth:{x:.5,y:.62,w:.22,h:.07}}
+    // Milo's mouth is a light on his screen (it glows open, no chin); Luna's is a real one (chin drops).
+    milo:{voice:'Milo',name:'Milo',base:'assets/mascots/milo/talk-base.png',mouth:{x:.55,y:.585,w:.13,h:.06},mouthStyle:'glow'},
+    luna:{voice:'Luna',name:'Luna',base:'assets/mascots/luna/talk-base.png',mouth:{x:.52,y:.49,w:.15,h:.05},mouthStyle:'jaw'}
   };
   const guideOf=g=>K.GUIDES[g]?g:'milo';
   // The guide who hosts: Luna when the child chose her voice, otherwise Milo
@@ -101,7 +105,7 @@
     const showStill=()=>{
       const g=K.GUIDES[guide];if(!g.base)return false;
       if(!still){
-        still=document.createElement('div');still.className='milo-video milo-still';
+        still=document.createElement('div');still.className=`milo-video milo-still mouth-${g.mouthStyle||'jaw'}`;
         const m=g.mouth||{x:.5,y:.5,w:.2,h:.07};
         for(const [k,v] of Object.entries(m)) still.style.setProperty(`--m${k}`,String(v));
         still.innerHTML=`<img class="milo-still-face" src="${g.base}" alt="" draggable="false"><span class="milo-mouth-hole"></span><span class="milo-still-chin"><img src="${g.base}" alt="" draggable="false"></span>`;

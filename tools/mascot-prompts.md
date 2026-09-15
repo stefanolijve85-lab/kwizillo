@@ -26,27 +26,27 @@ Tools that can render these once credit/permission is there:
   (needs the *Image & Video Generation* permission on the connection).
 - Higgsfield → `generate_image_batch` (needs credits).
 
-## Milo poses (onboarding host + Home tour)
+## Guide poses (onboarding host + Home tour) — v2, 2026-09-15
 
-`assets/mascots/milo/{wave,talk,think,cheer,point-down,point-left}.png` — transparent
-cut-outs, 720 px tall. Made on the ElevenLabs flow "Kwizillo Milo poses"
-(Ro9sz8AjavE8wQSqwGlT): gemini-3-pro-image with `assets/brand/milo.jpg` as the
-identity reference, one prompt per pose ("full-body, floating, flat light-grey
-backdrop, no shadow"), then birefnet-v2-bg-removal, then cropped to the alpha
-bounding box and scaled to a shared height. `pointRight` is `point-left`
-mirrored in CSS. New poses go through the same three steps and are registered in
-`K.GUIDE_POSES.milo` (milo.js).
+Both guides were redesigned by Stefan (ChatGPT renders that match the intro's
+Milo): one hi-res full-body render each plus a 4×3 character sheet
+("Animatie · poses & expressies": voorzijde, driekwart, zij, achter, zwaaien,
+wijzen, nadenken, juichen, two walk frames, two jump frames). The sources live in
+`incoming/` (git-ignored). From them:
 
-## Luna poses (she takes over the moment a child picks her)
+- `assets/mascots/<guide>/{wave,talk,think,cheer,point-right}.png` — cut-outs,
+  720 px tall. Milo's `wave` and Luna's `talk` come from the hi-res renders; the
+  rest are sheet cells (≈270 px source, upscaled — ask for hi-res single renders
+  of wijzen/nadenken/juichen if they ever look soft). `pointLeft` mirrors
+  `point-right` in CSS; `pointDown` is the same cut-out leaned over 38°.
+- `assets/mascots/<guide>/talk-base.png` — 640×768 chest-up crop of the hi-res
+  render; the portrait in the talking window and the base for any new clips.
+- `assets/mascots/{milo,luna}.jpg` — 512×512 faces (guide pick, HUD, profile, result).
 
-`assets/mascots/luna/{wave,talk,think,cheer,point-down,point-left}.png` — same
-recipe on the same flow, with `assets/brand/luna.jpg` as the identity reference
-(ref node B9R4IS9t0XgCpUB4d5Sm), made 2026-09-15. `cheer` was rendered with
-gpt-image-2 (420 credits, the gemini attempt was refused by its safety filter) and
-keyed out locally: the flat grey backdrop is flood-filled from the borders
-(scratch script keybg.cjs), no bg-removal credits needed. Luna's talking base
-still is `assets/mascots/luna/talk-base.png` (640×768 centre crop of a chest-up
-portrait) and is already uploaded on the talking flow as node 2Z52ZSr8Pk1Gkndb0tNo.
+Backgrounds are keyed out locally (scratch `newguides.cjs`): flood-fill the flat
+light-blue backdrop from the borders, then a second pass eats the soft ground
+shadow (bluish, unsaturated, darker than the backdrop) so white bodies and grey
+metal stay. The old gemini/birefnet poses (v1) are in git history before this date.
 
 ## Talking clips (lip-synced video)
 
@@ -56,20 +56,20 @@ manifest) and `guide-talks.js` (the generated manifest the app reads:
 (SyUhvtqjRCbWNR70n0Wq): tts node (eleven_v3, the guide's voice for the language)
 → bytedance-omnihuman-v1.5 with the guide's talk-base still. About $0.60 per clip.
 
-- Milo: all 33 clips (NL/EN/PT × 11 lines) in place since 2026-09-15. His `hello`
-  line (voice.milo.hello) has no clip yet.
-- Luna: the 7 Dutch clips (hello, welcome, worlds, games, hud, nav, done) since
-  2026-09-15 (~€4; tts nodes vDmvwyuxk524NAfUCGEM… on the same flow, base still
-  node 2Z52ZSr8Pk1Gkndb0tNo). EN and PT fall back to the audio-driven mouth; 14
-  more pairs (~€9) would complete them. Print the lines with
-  `node tools/guide-talks.js lines luna`. Run at most two tts→avatar pairs per
+- The v1 clips (Milo 33, Luna NL 7) were rendered on the previous faces and were
+  retired with the v2 redesign (git history before 2026-09-15 evening); the manifest
+  is empty and every line uses the audio-driven mouth on the new portraits. To
+  render v2 clips: upload the new talk-base stills to the flow, one tts→avatar pair
+  per line — Milo NL 12 lines ≈ €7, Luna NL 8 ≈ €5, all three languages ≈ €36.
+  Print the lines with `node tools/guide-talks.js lines`. Run at most two pairs per
   creative_run_flow_nodes call (5 concurrent-request limit) and always pass
   `generations_count: 1`.
 
 A missing clip is never fatal: the guide's portrait takes the same window and its
 mouth moves with the voice — the app measures the loudness of the spoken line
-(K.voiceLevel, m1-runtime.js) and drops the chin / opens a dark mouth on the
-portrait every frame (`mouth` box per guide in K.GUIDES, milo.js). Free, works for
+(K.voiceLevel, m1-runtime.js) and animates the mouth on the portrait every frame
+(`mouth` box + `mouthStyle` per guide in K.GUIDES, milo.js: Luna's chin drops over a
+dark opening, Milo's screen-mouth glows open). Free, works for
 every line in every language; the omnihuman clips remain the premium option. To redo a line: rerun its tts + avatar pair on the
 flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
 

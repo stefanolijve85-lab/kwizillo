@@ -837,6 +837,11 @@
   -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 40%,#000 46%,transparent 74%);mask-image:radial-gradient(ellipse 50% 50% at 50% 40%,#000 46%,transparent 74%);
   transform:translateY(calc(var(--open) * var(--mh) * 90%))}
 .milo-still-chin img{position:absolute;display:block;width:calc(100% / (var(--mw) * 2.2));height:calc(100% / (var(--mh) * 3.4));left:calc(-1 * (var(--mx) - var(--mw) * 1.1) / (var(--mw) * 2.2) * 100%);top:calc(-1 * var(--my) / (var(--mh) * 3.4) * 100%);object-fit:cover}
+/* A robot's mouth is a light: it glows wider instead of dropping a chin. */
+.milo-still.mouth-glow .milo-still-chin{display:none}
+.milo-still.mouth-glow .milo-mouth-hole{height:calc(var(--mh) * 100% * (0.6 + var(--open) * 2.2));width:calc(var(--mw) * 100% * (0.9 + var(--open) * .3));transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(20,60,140,.55) 0 30%,#bff4ff 44%,#5fd0ff 56%,rgba(46,166,255,.7) 66%,rgba(46,166,255,0) 78%);opacity:calc(var(--open) * 1.4);filter:blur(.3px)}
+/* Pointing down: the pointing pose leans over so the finger aims at the element below. */
+.milo-host[data-pose="pointDown"] .milo-figure{transform:scaleX(var(--flip)) rotate(38deg);transform-origin:50% 60%}
 .milo-host.video-mode.talking .milo-still{animation:milo-still-nod 1.6s ease-in-out infinite}
 @keyframes milo-still-nod{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-1deg) translateY(-2px)}70%{transform:rotate(1.2deg) translateY(-1px)}}
 .onboarding-stage .milo-host.video-mode{--milo-w:clamp(124px,36vw,168px)}
