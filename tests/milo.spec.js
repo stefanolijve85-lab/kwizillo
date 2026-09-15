@@ -67,6 +67,15 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   expect(Math.abs(s1.y - worlds.y)).toBeLessThan(12);
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('Memo', { timeout: 5000 });
+  const games = await spot.boundingBox(), memo = await page.locator('#homeMemo').boundingBox(), math = await page.locator('#homeMath').boundingBox(), facts = await page.locator('#homeFacts').boundingBox();
+  expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // Memo + Rekenen together…
+  expect(games.x + games.width).toBeLessThan(facts.x + 8);                  // …but not the Weetjes tile
+  await tour.click({ position: { x: 10, y: 300 } });
+  await expect(bubble).toContainText('Weetjes', { timeout: 5000 });         // which get their own stop
+  const s3 = await spot.boundingBox();
+  expect(Math.abs(s3.x - facts.x)).toBeLessThan(12);
+  // No lonely last word: the last two words are tied together.
+  expect(await bubble.innerText()).toMatch(/te\u00a0ontdekken!$/);
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('munten', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });

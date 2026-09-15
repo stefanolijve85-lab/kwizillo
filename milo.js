@@ -68,6 +68,17 @@
   K.guideHasClip=(key,guide='milo')=>!!clipSrc(key,guide);
   K.miloHasClip=key=>K.guideHasClip(key,'milo');
 
+  // A line in a bubble never ends with one lonely word on the last line: the
+  // last two words of every block are tied with a no-break space.
+  const noWidows=root=>{
+    const blocks=root.querySelectorAll('h1,h2,p,li');
+    for(const el of (blocks.length?blocks:[root])){
+      let node=el.lastChild;while(node&&node.nodeType!==3&&node.lastChild)node=node.lastChild;
+      if(node&&node.nodeType===3){const t=node.nodeValue.replace(/\s+$/,'');const i=t.lastIndexOf(' ');if(i>0&&t.length-i<=14)node.nodeValue=t.slice(0,i)+'\u00a0'+t.slice(i+1)}
+    }
+  };
+  K.noWidows=noWidows;
+
   // A host element: bubble + figure. `say` writes the bubble, speaks the line
   // and animates the figure while the voice is playing.
   K.guideHost=({guide='milo',pose='wave',size='md',bubble='top'}={})=>{
@@ -132,7 +143,7 @@
     const api={
       el,guide,
       pose(p){const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;return api},
-      bubble(html){if(!html){bub.hidden=true;bub.innerHTML='';return api}bub.innerHTML=html;bub.hidden=false;bub.classList.remove('pop');void bub.offsetWidth;bub.classList.add('pop');return api},
+      bubble(html){if(!html){bub.hidden=true;bub.innerHTML='';return api}bub.innerHTML=html;noWidows(bub);bub.hidden=false;bub.classList.remove('pop');void bub.offsetWidth;bub.classList.add('pop');return api},
       // Speaks `text`; the figure nods while the voice plays. Without a voice the
       // figure still nods for a moment so the bubble reads as "the guide said this".
       async say(text,{html,minMs=0,clip}={}){
@@ -164,7 +175,7 @@
 
   /* ---------------- Home tour ---------------- */
 
-  const TOUR_KEYS=['tour.worlds','tour.games','tour.hud','tour.nav','tour.done'];
+  const TOUR_KEYS=['tour.worlds','tour.games','tour.facts','tour.hud','tour.nav','tour.done'];
   // Warms the tour's five lines for a guide (voice and clips) well before the
   // tour starts — a guide without clips would otherwise start every stop with a
   // round trip to the speech service.
@@ -180,9 +191,12 @@
     guide=guideOf(guide||K.activeGuide());
     K.warmGuide(guide);
     const t=K.t;
+    // Memo + Rekenen share one stop (its clip predates the Weetjes tile); the
+    // Weetjes get a stop of their own, spoken live.
     const stops=[
       {sel:'.home-worlds',key:'tour.worlds'},
-      {sel:'.home-games',key:'tour.games'},
+      {sel:'#homeMemo,#homeMath',key:'tour.games'},
+      {sel:'#homeFacts',key:'tour.facts'},
       {sel:'.home-hud',key:'tour.hud'},
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}
@@ -209,7 +223,8 @@
     layer.addEventListener('click',e=>{if(e.target.closest('.milo-tour-skip'))return;next()});
     layer.querySelector('.milo-tour-skip').onclick=()=>{done=true;next()};
     const waitTap=ms=>new Promise(r=>{let to=setTimeout(()=>{advance=null;r()},ms);advance=()=>{clearTimeout(to);advance=null;r()}});
-    const rectOf=sel=>{const n=sel&&home.querySelector(sel);if(!n)return null;const r=n.getBoundingClientRect(),b=hb();return {x:r.left-b.left,y:r.top-b.top,w:r.width,h:r.height}};
+    // A stop may spotlight several elements at once (their union).
+    const rectOf=sel=>{const ns=sel?[...home.querySelectorAll(sel)]:[];if(!ns.length)return null;const b=hb();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of ns){const r=n.getBoundingClientRect();x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom)}return {x:x0-b.left,y:y0-b.top,w:x1-x0,h:y1-y0}};
     // The host box is the figure; the bubble hangs above or below it and is
     // anchored to whichever side keeps it on screen.
     const put=(x,y,side,pose)=>{
