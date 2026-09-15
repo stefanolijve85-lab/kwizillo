@@ -17,8 +17,7 @@
   });
   K.GUIDE_POSES={
     milo:poses('assets/mascots/milo'),
-    // Luna's cheer render was refused by the image model; she waves until it is redone.
-    luna:poses('assets/mascots/luna',{cheer:'assets/mascots/luna/wave.png'})
+    luna:poses('assets/mascots/luna')
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
   // `mouth` is where the mouth sits on the portrait (fractions of its width and

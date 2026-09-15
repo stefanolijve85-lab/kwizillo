@@ -39,11 +39,12 @@ mirrored in CSS. New poses go through the same three steps and are registered in
 
 ## Luna poses (she takes over the moment a child picks her)
 
-`assets/mascots/luna/{wave,talk,think,point-down,point-left}.png` — same recipe on
-the same flow, with `assets/brand/luna.jpg` as the identity reference (ref node
-B9R4IS9t0XgCpUB4d5Sm), made 2026-09-15. Her `cheer` render was refused by the
-model's safety filter, so `K.GUIDE_POSES.luna.cheer` points at `wave` until it is
-redone (prompt: "jumping for joy, both arms up, big laugh"). Luna's talking base
+`assets/mascots/luna/{wave,talk,think,cheer,point-down,point-left}.png` — same
+recipe on the same flow, with `assets/brand/luna.jpg` as the identity reference
+(ref node B9R4IS9t0XgCpUB4d5Sm), made 2026-09-15. `cheer` was rendered with
+gpt-image-2 (420 credits, the gemini attempt was refused by its safety filter) and
+keyed out locally: the flat grey backdrop is flood-filled from the borders
+(scratch script keybg.cjs), no bg-removal credits needed. Luna's talking base
 still is `assets/mascots/luna/talk-base.png` (640×768 centre crop of a chest-up
 portrait) and is already uploaded on the talking flow as node 2Z52ZSr8Pk1Gkndb0tNo.
 
@@ -57,9 +58,13 @@ manifest) and `guide-talks.js` (the generated manifest the app reads:
 
 - Milo: all 33 clips (NL/EN/PT × 11 lines) in place since 2026-09-15. His `hello`
   line (voice.milo.hello) has no clip yet.
-- Luna: no clips yet — 7 lines (hello, welcome, worlds, games, hud, nav, done) × 3
-  languages = 21 tts→avatar pairs (~€13) once the account has credits again. Print
-  them with `node tools/guide-talks.js lines luna`.
+- Luna: the 7 Dutch clips (hello, welcome, worlds, games, hud, nav, done) since
+  2026-09-15 (~€4; tts nodes vDmvwyuxk524NAfUCGEM… on the same flow, base still
+  node 2Z52ZSr8Pk1Gkndb0tNo). EN and PT fall back to the audio-driven mouth; 14
+  more pairs (~€9) would complete them. Print the lines with
+  `node tools/guide-talks.js lines luna`. Run at most two tts→avatar pairs per
+  creative_run_flow_nodes call (5 concurrent-request limit) and always pass
+  `generations_count: 1`.
 
 A missing clip is never fatal: the guide's portrait takes the same window and its
 mouth moves with the voice — the app measures the loudness of the spoken line
@@ -72,7 +77,8 @@ flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
 
 `assets/games/{memo-island,math-island,worlds-all}.jpg` — floating islands in the world style,
 made on the poses flow with the jungle and space world art as style references
-(gemini-3-pro-image, 16:9, cropped to the island and downscaled to 1000 px; rename the file whenever it is replaced — assets are cached for a day). The Weetjes tile reuses
-`worlds-all.jpg` (`K.GAME_ART.facts`) until its own island (an open storybook, a
-glowing lightbulb, an owl) is rendered — the prompt is on the flow as node
-lOwwipmIHBWlkF7kGwj4, ~655 credits with gpt-image-2.
+(gemini-3-pro-image, 16:9, cropped to the island and downscaled to 1000 px; rename the file whenever it is replaced — assets are cached for a day). The Weetjes tile
+(`facts-island.jpg`: an open storybook, a glowing lightbulb, an owl) was made with
+gpt-image-2 on the same references (node lOwwipmIHBWlkF7kGwj4, 655 credits).
+Mind `generations_count: 1` on creative_run_flow_nodes — a node runs four
+variants by default.
