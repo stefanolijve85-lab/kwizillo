@@ -72,7 +72,7 @@ function envelope(wav) {
           // would pull the bottom edge down.
           { const w0 = best.x1 - best.x0; let lows = []; for (const xs of [[best.x0 + w0 * .12, best.x0 + w0 * .22], [best.x1 - w0 * .22, best.x1 - w0 * .12]]) for (let x = Math.round(xs[0]); x <= Math.round(xs[1]); x += 2) { let low = -1; for (let y = best.y0; y <= best.y1; y++) if (ok(y * W + x)) low = y; if (low >= 0) lows.push(low); }
             if (lows.length) { lows.sort((a, b) => a - b); best.y1 = Math.min(best.y1, lows[lows.length >> 1] + 1); } }
-          const sw = best.x1 - best.x0, sh = best.y1 - best.y0, cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
+          const sw = best.x1 - best.x0, sh = best.y1 - best.y0; let cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
           // Frame 1 of every clip is the mouthless base itself (omnihuman starts
           // from the still), so it is the reference for "what the screen and the
           // rim look like without a mouth". Everything the model paints — a glowing
@@ -95,7 +95,15 @@ function envelope(wav) {
           const ringGap = sw * .06;
           // 1. the screen below the eyes: wherever the frame is lit up compared to the
           //    reference (a glowing model mouth and its halo), go back to the reference
-          const ex = cx, ey = cy + sh * .07, rx = sw * .24, ry = sh * .19;
+          // The mouth sits relative to the two eye rings (bright cyan, always there,
+          // they move with the head): centred between them, 0.30 × their distance
+          // below their centre line — measured on the mouthless base, where the
+          // screen's bottom is 0.525 × that distance below the eyes.
+          let L = { x: 0, y: 0, n: 0 }, R = { x: 0, y: 0, n: 0 };
+          for (let y = best.y0; y < best.y0 + sh * .75; y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) { const o = x < best.x0 + sw * .5 ? L : R; o.x += x; o.y += y; o.n++; } }
+          let ed = sw * .45;
+          if (L.n > 40 && R.n > 40) { L.x /= L.n; L.y /= L.n; R.x /= R.n; R.y /= R.n; ed = R.x - L.x; cx = (L.x + R.x) / 2; cy = (L.y + R.y) / 2 + ed * .30; }
+          const ex = cx, ey = cy + ed * .03, rx = ed * .5, ry = ed * .2;
           for (let y = Math.round(best.y0 + sh * .45); y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) {
             const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
             const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
@@ -117,9 +125,9 @@ function envelope(wav) {
           g.putImageData(new ImageData(d, W, H), 0, 0);
           // the robot mouth: an arc when quiet that fills into an "O" when loud
           if (debug === 2) open = -1;
-          const glow = '#4fd0ff', r = sw * .085, o = Math.max(0, Math.min(1, open));
-          g.save(); g.shadowColor = 'rgba(70,190,255,.85)'; g.shadowBlur = sw * .05; g.lineCap = 'round';
-          g.strokeStyle = glow; g.lineWidth = sw * .035;
+          const glow = '#4fd0ff', r = ed * .18, o = Math.max(0, Math.min(1, open));
+          g.save(); g.shadowColor = 'rgba(70,190,255,.85)'; g.shadowBlur = ed * .11; g.lineCap = 'round';
+          g.strokeStyle = glow; g.lineWidth = ed * .075;
           if (open < 0) {} else if (o < .18) { g.beginPath(); g.arc(cx, cy - r * .35, r, Math.PI * .12, Math.PI * .88); g.stroke(); }
           else { const hh = r * (.35 + o * .75); g.beginPath(); g.ellipse(cx, cy, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(79,208,255,.92)'; g.fill(); g.stroke(); }
           g.restore();

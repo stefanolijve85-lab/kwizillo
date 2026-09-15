@@ -124,7 +124,8 @@
     const placeMouth=()=>{
       const p=poseSrc(guide,curPose);const m=p.mouth;
       if(!figure||!m){figMouth.hidden=true;return}
-      const r=img.getBoundingClientRect();const w=r.width||img.offsetWidth,h=r.height||img.offsetHeight;
+      // layout size, not the bounding rect: a leaning (pointDown) or mirrored figure keeps its own box
+      const w=img.offsetWidth||img.getBoundingClientRect().width,h=img.offsetHeight||img.getBoundingClientRect().height;
       if(!w||!h){figMouth.hidden=true;return}
       figMouth.hidden=false;
       figMouth.className=`milo-mouth mouth-${m.style||g.mouthStyle||'jaw'}`;
