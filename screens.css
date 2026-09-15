@@ -183,7 +183,7 @@
   padding:24px 10px 10px!important;text-align:center;gap:0}
 .quiz-card .answer-letter{position:absolute;left:8px;top:7px;width:22px;height:22px;margin:0;font-size:10px;flex:none}
 .quiz-card .answer-copy{display:block;width:100%;max-width:100%;text-align:center;line-height:1.12;
-  overflow-wrap:anywhere;word-break:normal;hyphens:auto;text-wrap:balance}
+  overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance}
 .quiz-card .answer.long{font-size:clamp(11.5px,2.7vw,15px)!important}
 .quiz-card .answer.xlong{font-size:clamp(10.5px,2.45vw,13.5px)!important;line-height:1.1!important}
 @media(max-width:420px){.quiz-card .answer{padding:23px 8px 9px!important}.quiz-card .answer-letter{left:7px;top:6px;width:20px;height:20px;font-size:9.5px}}
@@ -230,7 +230,7 @@
    pushed the settings button off the right edge of the screen. ---- */
 .native-world-head{grid-template-columns:48px minmax(0,1fr) 48px!important;gap:8px}
 .world-title-wrap{min-width:0}
-.world-title-wrap h1{overflow-wrap:anywhere}
+.world-title-wrap h1{overflow-wrap:normal;hyphens:none}
 .world-title-wrap h1.long{font-size:clamp(22px,6.1vw,40px)!important;letter-spacing:-.04em}
 @media(max-width:400px){.world-title-wrap h1.long{font-size:clamp(20px,5.7vw,30px)!important}}
 
@@ -247,7 +247,7 @@
 
 /* Topic titles wrap instead of clipping ("Ontdekkingsreizigers" on 375px). */
 .world-topic-copy{min-width:0}
-.world-topic b{overflow-wrap:anywhere;hyphens:auto}
+.world-topic b{overflow-wrap:normal;hyphens:none}
 @media(max-width:400px){.world-topic b{font-size:14px}}
 
 /* Guide cards: icon spans both rows, the description sits under the name (it
@@ -476,7 +476,7 @@
 .kcard{min-width:0;max-width:100%;overflow:hidden}
 .kcard-frame{min-width:0}
 .kcard-top{min-width:0}
-.kcard-top b{min-width:0;overflow-wrap:anywhere}
+.kcard-top b{min-width:0;overflow-wrap:normal;hyphens:none}
 .panel-scroll,.native-panel-screen{overflow-x:hidden}
 .kcard-grid{max-width:100%}
 
@@ -537,7 +537,7 @@
 .memo-front{transform:rotateY(180deg);background:#fff;border:3px solid #fff;box-shadow:0 6px 0 #a8d9f4,0 10px 18px rgba(22,84,149,.18)}
 .memo-front img{width:100%;height:100%;object-fit:cover;display:block}
 .memo-front.word{padding:6px;background:linear-gradient(180deg,#fff,#edf7ff)}
-.memo-front.word b{font-size:clamp(11px,3.2vw,17px);line-height:1.05;color:#10175b;text-align:center;overflow-wrap:anywhere;text-wrap:balance}
+.memo-front.word b{font-size:clamp(11px,3.2vw,17px);line-height:1.05;color:#10175b;text-align:center;overflow-wrap:normal;hyphens:none;text-wrap:balance}
 .memo-card.is-open .memo-back,.memo-card.is-matched .memo-back{transform:rotateY(180deg)}
 .memo-card.is-open .memo-front,.memo-card.is-matched .memo-front{transform:rotateY(360deg)}
 .memo-card.is-matched .memo-front{border-color:#55d36b;box-shadow:0 6px 0 #49b95a,0 0 22px rgba(69,217,94,.45);animation:memoPop .45s cubic-bezier(.2,.9,.3,1.4)}
@@ -651,7 +651,9 @@
 .memo-pick.mix{aspect-ratio:auto;height:auto;min-height:88px;max-height:200px}.memo-pick.mix .home-game-art{object-position:center 55%}
 .memo-pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;min-height:0}
 .memo-pick-grid .memo-pick{aspect-ratio:1/1.06;min-height:0}
-.memo-pick-grid .memo-pick b{left:5px;right:5px;bottom:7px;font-size:12.5px;line-height:1.05;white-space:normal;overflow-wrap:anywhere;hyphens:auto}
+/* A small phone: flatter tiles so all six stay fully in view. */
+@media(max-height:700px){.memo-picker .panel-scroll{grid-template-rows:auto minmax(88px,120px) auto}.memo-pick-grid .memo-pick{aspect-ratio:1/.78}.memo-picker .memo-mode-btn{min-height:76px}}
+.memo-pick-grid .memo-pick b{left:5px;right:5px;bottom:7px;font-size:12.5px;line-height:1.05;white-space:normal;overflow-wrap:normal;hyphens:none}
 .math-sum.grid b:last-child{white-space:nowrap}
 .math-sum .math-eq{display:inline;margin:0}
 .voice-volume{margin-top:8px}.voice-volume input:disabled{opacity:.4}

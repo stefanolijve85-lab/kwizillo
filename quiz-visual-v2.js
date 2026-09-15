@@ -211,7 +211,7 @@
     const explain=esc(q.explanation||(correct?t('feedback.thatsRight'):q.hint||''));
     const last=K.quiz.index+1>=K.quiz.questions.length;
     const guide=K.activeGuide?.()||'milo';
-    const cheer=K.GUIDE_POSES?.[guide]?.cheer;
+    const cheerPose=K.GUIDE_POSES?.[guide]?.cheer;const cheer=cheerPose&&(typeof cheerPose==='string'?cheerPose:cheerPose.src);
     x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}" role="dialog" aria-live="polite">
       <button class="feedback-close" id="feedbackClose" aria-label="${esc(t('feedback.close'))}">×</button>
       <div class="feedback-verdict">

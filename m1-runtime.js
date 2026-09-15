@@ -130,5 +130,19 @@
   // ?debug shows an on-screen log (for phones without a console). Always mirrors to console.info.
   const DEBUG=new URLSearchParams(location.search).has('debug');
   K.debugLog=(...a)=>{const line=a.map(x=>typeof x==='object'?JSON.stringify(x):String(x)).join(' ');console.info('[kwizillo]',line);if(!DEBUG)return;let el=document.getElementById('kwDebug');if(!el){el=document.createElement('pre');el.id='kwDebug';el.style.cssText='position:fixed;left:0;right:0;bottom:0;max-height:38%;overflow:auto;margin:0;padding:6px 8px;background:rgba(0,0,0,.78);color:#8f8;font:11px/1.35 monospace;z-index:99999;pointer-events:none;white-space:pre-wrap';document.body.appendChild(el)}el.textContent+=new Date().toISOString().slice(11,19)+' '+line+'\n';el.scrollTop=el.scrollHeight};
-  K.frame=html=>{K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;return K.app.firstElementChild};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
+  // Titles on tiles and cards never get a word cut in two: when the longest
+  // word does not fit, the font shrinks (down to a floor) instead. Runs after
+  // every frame; K.fitTitles(root) can be called again after a partial update.
+  const FIT='.home-world-copy b,.world-topic b,.home-game.art b,.world-game.art b,.memo-pick b,.fact-chip,.onboarding-choice b,.kcard-top b,.memo-front.word b,.quiz-card .answer-copy,.stat-tiles b,.setting-card b,.world-title-wrap h1,.mascot-card b';
+  K.fitTitles=(root=K.app)=>{
+    root.querySelectorAll(FIT).forEach(el=>{
+      if(el.dataset.fitBase)el.style.fontSize=el.dataset.fitBase;
+      const cs=getComputedStyle(el);let size=parseFloat(cs.fontSize);if(!size)return;
+      el.dataset.fitBase=el.style.fontSize||'';
+      const floor=Math.max(9,size*.6);
+      // scrollWidth grows past clientWidth only when a single word is wider than the box
+      let guard=0;while(el.scrollWidth>el.clientWidth+1&&size>floor&&guard++<14){size=Math.max(floor,size-.75);el.style.fontSize=size+'px'}
+    });
+  };
+  K.frame=html=>{K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
 })();
