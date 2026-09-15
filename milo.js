@@ -213,11 +213,15 @@
       if(figure){
         if(!keyCanvas){keyCanvas=document.createElement('canvas');keyCanvas.className='milo-figure milo-keyed';wrap.insertBefore(keyCanvas,img)}
         keyCanvas.hidden=true;
-      }else showVideo(v);
+        // The source video sits in the DOM (invisible) so every browser decodes it; only the keyed canvas shows.
+        v.classList.add('milo-clip-src');if(v.parentNode!==wrap)wrap.appendChild(v);
+      }else{v.classList.remove('milo-clip-src');showVideo(v)}
       try{v.currentTime=0}catch(e){}
       K.audio.duck(true);
       const ok=await new Promise(resolve=>{
-        let settled=false,st=null;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;cancelAnimationFrame(keyRaf);keyRaf=0;if(keyCanvas){keyCanvas.hidden=true;img.classList.remove('behind-clip');el.classList.remove('clip-playing')}resolve(r)};
+        // On the way out the last keyed frame stays on the canvas (the figure keeps the
+        // pose it ended in) until the next pose change swaps the cut-out back in.
+        let settled=false,st=null;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;cancelAnimationFrame(keyRaf);keyRaf=0;el.classList.remove('clip-playing');if(keyCanvas&&!r){keyCanvas.hidden=true;img.classList.remove('behind-clip')}resolve(r)};
         v.onended=()=>done(true);v.onerror=()=>done(false);
         const frame=()=>{
           if(settled)return;
@@ -225,8 +229,8 @@
           if(st)keyer.draw(v,st,keyCanvas);
           keyRaf=requestAnimationFrame(frame);
         };
+        if(figure){const start=()=>{if(!settled&&!keyRaf)keyRaf=requestAnimationFrame(frame)};v.addEventListener('playing',start,{once:true});v.addEventListener('timeupdate',start,{once:true})}
         const p=v.play();if(p&&p.catch)p.catch(()=>done(false));
-        if(figure)v.addEventListener('playing',()=>{if(!keyRaf)keyRaf=requestAnimationFrame(frame)},{once:true});
         // A clip never holds the screen hostage: whatever happens we move on after 20 s.
         setTimeout(()=>done(true),20000);
       });
@@ -236,7 +240,7 @@
     }
     const api={
       el,guide,
-      pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;placeMouth();return api},
+      pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;if(keyCanvas&&!el.classList.contains('clip-playing')){keyCanvas.hidden=true;img.classList.remove('behind-clip')}placeMouth();return api},
       // Rendered width of the current pose at a given box height (the cut-outs differ in width).
       widthAt(h){const {src}=poseSrc(guide,curPose);const n=sizeOf(src);return Math.round(h*n.w/n.h)},
       placeMouth,
