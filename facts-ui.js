@@ -32,7 +32,7 @@
   };
   K.markFactSeen=fact=>{if(!fact)return;const seen=seenMap();if(!seen[fact.id]){seen[fact.id]=true;K.save()}};
   // Spoken by whichever guide the child chose; silent for "Stil".
-  const readFact=fact=>{K.stopSpeech();return K.speak(fact.t).catch(()=>{})};
+  const readFact=fact=>{K.stopSpeech();return K.speak(`${t('facts.kicker')} ${fact.t}`).catch(()=>{})};
 
   const card=(fact,{fresh})=>`<article class="fact-card fact-${fact.world} fade-in" data-fact="${fact.id}">
       <img class="fact-art" src="${K.MASTER[fact.world]}" alt="" style="object-position:${K.WORLD_FOCUS?.[fact.world]||'center 40%'}" decoding="async">
@@ -91,10 +91,12 @@
 
   // A small "did you know" for the result screen: a fact from the quiz's world,
   // unseen first, marked as discovered when shown.
-  K.bonusFactHtml=world=>{
+  K.bonusFact=world=>{
     const fact=K.pickFact(WORLDS.includes(world)?world:'all');
-    if(!fact) return '';
+    if(!fact) return null;
     K.markFactSeen(fact);
-    return `<button class="result-fact" id="resultFact" data-fact="${fact.id}"><span class="result-fact-emoji" aria-hidden="true">${fact.e}</span><span class="result-fact-copy"><small>${esc(t('facts.kicker'))}</small><b>${esc(fact.t)}</b><em>${esc(t('facts.more'))} ›</em></span></button>`;
+    fact.speech=`${t('facts.kicker')} ${fact.t}`;
+    fact.html=`<button class="result-fact" id="resultFact" data-fact="${fact.id}"><span class="result-fact-emoji" aria-hidden="true">${fact.e}</span><span class="result-fact-copy"><small>${esc(t('facts.kicker'))}</small><b>${esc(fact.t)}</b><em>${esc(t('facts.more'))} ›</em></span></button>`;
+    return fact;
   };
 })();

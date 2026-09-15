@@ -70,9 +70,9 @@ flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
 
 ## Game tiles (Home "Speel ook", Memo picker)
 
-`assets/games/{memo,math,memo-all}.jpg` — floating islands in the world style,
+`assets/games/{memo-island,math-island,worlds-all}.jpg` — floating islands in the world style,
 made on the poses flow with the jungle and space world art as style references
-(gemini-3-pro-image, 16:9, downscaled to 1000 px). The Weetjes tile reuses
-`memo-all.jpg` (`K.GAME_ART.facts`) until its own island (an open storybook, a
+(gemini-3-pro-image, 16:9, cropped to the island and downscaled to 1000 px; rename the file whenever it is replaced — assets are cached for a day). The Weetjes tile reuses
+`worlds-all.jpg` (`K.GAME_ART.facts`) until its own island (an open storybook, a
 glowing lightbulb, an owl) is rendered — the prompt is on the flow as node
 lOwwipmIHBWlkF7kGwj4, ~655 credits with gpt-image-2.

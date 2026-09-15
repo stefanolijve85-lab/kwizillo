@@ -31,7 +31,7 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   const first = await card.getAttribute('data-fact');
   const text = await card.locator('.fact-text').textContent();
   // The guide reads the fact in her own voice, never the child's name.
-  await expect.poll(() => spoken.some(r => r.text === text && r.voice === 'Luna')).toBe(true);
+  await expect.poll(() => spoken.some(r => r.text === `Wist je dat… ${text}` && r.voice === 'Luna')).toBe(true);
   expect(spoken.map(r => JSON.stringify(r)).join('')).not.toContain('Mike');
   // Next fact: another one, counter up, both remembered.
   await screen.locator('#factNext').click();
@@ -69,8 +69,9 @@ test('every fact of a world is served before any repeats, then they come round a
   expect(ids.again).not.toBe(ids.out[15]);
 });
 
-test('the quiz result carries a bonus fact of that world; tapping it opens the same fact in full', async ({ page }) => {
-  await boot(page);
+test('the quiz result carries a bonus fact of that world, read by the guide; tapping it opens the same fact in full', async ({ page }) => {
+  const spoken = [];
+  await boot(page, SAVED(), spoken);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.startQuiz('dieren', null); K.quiz.score = 9; K.quiz.xp = 90; K.showResult(); });
   const bonus = page.locator('#resultFact');
   await expect(bonus).toBeVisible();
@@ -78,6 +79,7 @@ test('the quiz result carries a bonus fact of that world; tapping it opens the s
   const id = await bonus.getAttribute('data-fact');
   expect(id).toMatch(/^dieren-\d+$/);
   const text = await bonus.locator('b').textContent();
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && r.text === `Wist je dat… ${text}`), { timeout: 5000 }).toBe(true);
   await bonus.click();
   await expect(page.locator('.facts-screen')).toBeVisible();
   await expect(page.locator('.facts-screen .fact-card')).toHaveAttribute('data-fact', id);

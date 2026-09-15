@@ -288,6 +288,9 @@
       K.save();
     }
     const pct=total?Math.round(score/total*100):0;
+    // A "did you know" from this world, read by the guide once the gift has opened.
+    const bonus=K.bonusFact?.(K.currentWorld)||null;
+    if(bonus) K.prefetchSpeech([bonus.speech]);
     const nextNumber=(K.runFor(K.currentWorld,q?.topicKey||null).quizNumber||0)+1;
     const nextIdx=isTopic&&topicIdx<keys.length-1?topicIdx+1:null;
     // Passed: move on (next topic, or the mixed quiz after the last one).
@@ -311,7 +314,7 @@
         <p class="result-rule">${esc(t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
         ${unlocked?`<p class="result-unlock">${esc(t('result.levelUnlocked',{niveau:unlocked}))}</p>`:''}
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
-        ${K.bonusFactHtml?.(K.currentWorld)||''}
+        ${bonus?.html||''}
         <div class="result-native">
           <button id="againBtn">${esc(primaryLabel)}</button>
           ${passed&&isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
@@ -348,5 +351,6 @@
     f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
     // The bonus fact opens the Weetjes screen on this world.
     f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(K.currentWorld,{open:e.currentTarget.dataset.fact})});
+    if(bonus) setTimeout(()=>{if(f.isConnected)K.speak(bonus.speech)},passed?1900:900);
   };
 })();
