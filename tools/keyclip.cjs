@@ -99,10 +99,26 @@ function envelope(wav) {
           // they move with the head): centred between them, 0.30 × their distance
           // below their centre line — measured on the mouthless base, where the
           // screen's bottom is 0.525 × that distance below the eyes.
-          let L = { x: 0, y: 0, n: 0 }, R = { x: 0, y: 0, n: 0 };
-          for (let y = best.y0; y < best.y0 + sh * .75; y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) { const o = x < best.x0 + sw * .5 ? L : R; o.x += x; o.y += y; o.n++; } }
-          let ed = sw * .45;
-          if (L.n > 40 && R.n > 40) { L.x /= L.n; L.y /= L.n; R.x /= R.n; R.y /= R.n; ed = R.x - L.x; cx = (L.x + R.x) / 2; cy = (L.y + R.y) / 2 + ed * .30; }
+          // The eye rings are the two largest bright-cyan blobs on the screen
+          // (eyebrows are small arcs and never win; a blink is a flat ring, same
+          // centre). The mouth is fixed to the line between them: position, scale
+          // and tilt — so it stays screwed to the face while the head moves.
+          const cyan = new Uint8Array(W * H), blobs = [];
+          for (let y = best.y0; y < best.y0 + sh * .8; y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) cyan[y * W + x] = 1; }
+          for (let y = best.y0; y < best.y0 + sh * .8; y++) for (let x = best.x0; x <= best.x1; x++) { const i0 = y * W + x; if (cyan[i0] !== 1) continue; const q = [i0]; cyan[i0] = 2; let sx = 0, sy = 0, n2 = 0;
+            while (q.length) { const j = q.pop(); const jx = j % W, jy = (j / W) | 0; sx += jx; sy += jy; n2++; for (const t of [j - 1, j + 1, j - W, j + W]) { if (t < 0 || t >= W * H || cyan[t] !== 1) continue; if ((t === j - 1 && jx === 0) || (t === j + 1 && jx === W - 1)) continue; cyan[t] = 2; q.push(t); } }
+            blobs.push({ x: sx / n2, y: sy / n2, n: n2 }); }
+          blobs.sort((a, b) => b.n - a.n);
+          const prev = window.__eyes;
+          let ed = sw * .45, tilt = 0;
+          if (blobs.length >= 2 && blobs[1].n > 30 && Math.abs(blobs[0].x - blobs[1].x) > sw * .15) {
+            const [A, B] = blobs[0].x < blobs[1].x ? [blobs[0], blobs[1]] : [blobs[1], blobs[0]];
+            let e = { lx: A.x, ly: A.y, rx: B.x, ry: B.y };
+            if (prev) e = { lx: prev.lx * .35 + e.lx * .65, ly: prev.ly * .35 + e.ly * .65, rx: prev.rx * .35 + e.rx * .65, ry: prev.ry * .35 + e.ry * .65 };   // light damping against jitter
+            window.__eyes = e;
+          }
+          const eyes = window.__eyes;
+          if (eyes) { const dx = eyes.rx - eyes.lx, dy = eyes.ry - eyes.ly; ed = Math.hypot(dx, dy); tilt = Math.atan2(dy, dx); const mx = (eyes.lx + eyes.rx) / 2, my = (eyes.ly + eyes.ry) / 2; cx = mx - Math.sin(tilt) * ed * .30; cy = my + Math.cos(tilt) * ed * .30; }
           const ex = cx, ey = cy + ed * .03, rx = ed * .5, ry = ed * .2;
           for (let y = Math.round(best.y0 + sh * .45); y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) {
             const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
@@ -125,11 +141,12 @@ function envelope(wav) {
           g.putImageData(new ImageData(d, W, H), 0, 0);
           // the robot mouth: an arc when quiet that fills into an "O" when loud
           if (debug === 2) open = -1;
-          const glow = '#4fd0ff', r = ed * .18, o = Math.max(0, Math.min(1, open));
-          g.save(); g.shadowColor = 'rgba(70,190,255,.85)'; g.shadowBlur = ed * .11; g.lineCap = 'round';
-          g.strokeStyle = glow; g.lineWidth = ed * .075;
-          if (open < 0) {} else if (o < .18) { g.beginPath(); g.arc(cx, cy - r * .35, r, Math.PI * .12, Math.PI * .88); g.stroke(); }
-          else { const hh = r * (.35 + o * .75); g.beginPath(); g.ellipse(cx, cy, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(79,208,255,.92)'; g.fill(); g.stroke(); }
+          const glow = '#5fd8ff', r = ed * .2, o = Math.max(0, Math.min(1, open));
+          g.save(); g.translate(cx, cy); g.rotate(tilt);   // the mouth tilts with the head
+          g.shadowColor = 'rgba(80,200,255,.95)'; g.shadowBlur = ed * .16; g.lineCap = 'round';
+          g.strokeStyle = glow; g.lineWidth = ed * .095;
+          if (open < 0) {} else if (o < .18) { g.beginPath(); g.arc(0, -r * .35, r, Math.PI * .12, Math.PI * .88); g.stroke(); }
+          else { const hh = r * (.35 + o * .75); g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(95,216,255,.95)'; g.fill(); g.stroke(); }
           g.restore();
           if (debug) { g.save(); g.lineWidth = 1; g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
         }
