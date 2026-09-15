@@ -1,38 +1,107 @@
 #!/usr/bin/env node
 // Green-screen talking clip → transparent clips for the app:
-//   node tools/keyclip.cjs <green.mp4> <out-basename>
-// writes <out>.webm (VP9 + alpha, Chrome/Android) and <out>.mp4 (HEVC + alpha, Safari/iOS).
-// Keying is done here, once, with ffmpeg's chromakey + despill, cropped to the
-// character (union of the alpha box over sampled frames + 4 % margin, like the
-// cut-outs), so the browser plays a real transparent video and does no keying.
-// Needs ffmpeg (static build in tools/bin/ffmpeg, git-ignored — evermeet.cx/ffmpeg).
+//   node tools/keyclip.cjs <green.mp4> <out-basename> [--screen-mouth]
+// writes <out>.webm (VP9 + alpha, Chrome/Android/Firefox) and <out>.mp4 (HEVC +
+// alpha, Safari/iOS, made by Apple's own encoder so Safari honours the alpha).
+//
+// Keying happens here, once: ffmpeg chromakey (no despill — it discolours the
+// golden helmet), cropped to the character (union alpha box over sampled frames
+// + 4 %, like the cut-outs). With --screen-mouth (Milo) the video model is only
+// trusted for the body: its mouth on the face screen is painted over and a
+// simple robot mouth is drawn per frame from the voice loudness — a glowing arc
+// when quiet, an "O" when loud — so it is always one clean mouth.
+//
+// Needs ffmpeg (static build in tools/bin/ffmpeg, git-ignored — evermeet.cx) and
+// macOS avconvert (HEVC with alpha).
 const { execFileSync } = require('child_process'); const fs = require('fs'); const path = require('path'); const os = require('os');
 const FF = fs.existsSync(path.join(__dirname, 'bin', 'ffmpeg')) ? path.join(__dirname, 'bin', 'ffmpeg') : 'ffmpeg';
-// No despill: it pulls green out of Milo's golden helmet too; the key alone leaves no visible fringe.
 const KEY = 'chromakey=0x00B140:0.12:0.08';
-const [src, out] = process.argv.slice(2);
-if (!src || !out) { console.error('usage: keyclip <green.mp4> <out-basename>'); process.exit(1); }
+const FPS = 25, OUT_H = 704;
+const args = process.argv.slice(2); const screenMouth = args.includes('--screen-mouth');
+const [src, out] = args.filter(a => !a.startsWith('--'));
+if (!src || !out) { console.error('usage: keyclip <green.mp4> <out-basename> [--screen-mouth]'); process.exit(1); }
+const ff = a => execFileSync(FF, ['-y', '-hide_banner', '-loglevel', 'error', ...a], { stdio: 'inherit' });
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'keyclip-'));
-// 1. sample frames, keyed, to find the character's box
-execFileSync(FF, ['-y', '-hide_banner', '-loglevel', 'error', '-i', src, '-vf', `${KEY},fps=2`, path.join(tmp, 'f%03d.png')]);
-const frames = fs.readdirSync(tmp).filter(f => f.endsWith('.png')).map(f => path.join(tmp, f));
 const { chromium } = require('playwright');
+
+// Loudness per frame from the clip's own audio (16 kHz mono wav → RMS per 1/FPS s, scaled to the loud parts).
+function envelope(wav) {
+  const buf = fs.readFileSync(wav); const data = buf.subarray(44); const n = data.length >> 1; const step = Math.round(16000 / FPS); const env = [];
+  for (let s = 0; s < n; s += step) { let sum = 0, c = 0; for (let i = s; i < Math.min(n, s + step); i++) { const v = data.readInt16LE(i * 2) / 32768; sum += v * v; c++; } env.push(Math.sqrt(sum / Math.max(1, c))); }
+  const ref = [...env].sort((a, b) => a - b)[Math.floor(env.length * .95)] || 1;
+  return env.map(v => Math.min(1, v / ref));
+}
+
 (async () => {
+  // 1. keyed frames at the source resolution + the audio
+  const fr = path.join(tmp, 'f'); fs.mkdirSync(fr);
+  ff(['-i', src, '-vf', KEY, path.join(fr, 'f%04d.png')]);
+  ff(['-i', src, '-vn', '-ac', '1', '-ar', '16000', '-f', 'wav', path.join(tmp, 'audio.wav')]);
+  const frames = fs.readdirSync(fr).filter(f => f.endsWith('.png')).sort().map(f => path.join(fr, f));
+  const env = envelope(path.join(tmp, 'audio.wav'));
+
   const b = await chromium.launch(); const p = await b.newPage();
+  // 2. the character's box (union over every 12th frame)
   const box = await p.evaluate(async files => {
     let x0 = 1e9, y0 = 1e9, x1 = 0, y1 = 0, W = 0, H = 0;
     for (const b64 of files) { const i = new Image(); i.src = 'data:image/png;base64,' + b64; await i.decode(); W = i.width; H = i.height;
       const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.drawImage(i, 0, 0); const d = g.getImageData(0, 0, W, H).data;
       for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if (d[(y * W + x) * 4 + 3] > 24) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } }
     const pad = Math.round((y1 - y0) * .04); x0 = Math.max(0, x0 - pad); y0 = Math.max(0, y0 - pad); x1 = Math.min(W - 1, x1 + pad); y1 = Math.min(H - 1, y1 + pad);
-    const w = (x1 - x0 + 1) & ~1, h = (y1 - y0 + 1) & ~1; return { x: x0 & ~1, y: y0 & ~1, w, h, W, H };
-  }, frames.map(f => fs.readFileSync(f).toString('base64')));
+    return { x: x0 & ~1, y: y0 & ~1, w: (x1 - x0 + 1) & ~1, h: (y1 - y0 + 1) & ~1, W, H };
+  }, frames.filter((_, i) => i % 12 === 0).map(f => fs.readFileSync(f).toString('base64')));
+
+  // 3. per frame: crop (+ robot mouth), scale to OUT_H, back to PNG
+  const outDir = path.join(tmp, 'o'); fs.mkdirSync(outDir);
+  const scale = OUT_H / box.h, outW = Math.round(box.w * scale) & ~1;
+  for (let i = 0; i < frames.length; i++) {
+    const png = await p.evaluate(async ([b64, box, outW, outH, open, mouth]) => {
+      const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
+      const c = document.createElement('canvas'); c.width = box.w; c.height = box.h; const g = c.getContext('2d'); g.drawImage(img, box.x, box.y, box.w, box.h, 0, 0, box.w, box.h);
+      if (mouth) {
+        const W = box.w, H = box.h, d = g.getImageData(0, 0, W, H).data;
+        // the face screen: largest dark opaque blob in the upper 60 %
+        const lum = i => d[i * 4] * .3 + d[i * 4 + 1] * .59 + d[i * 4 + 2] * .11; const ok = i => d[i * 4 + 3] > 200 && lum(i) < 70;
+        const lab = new Int32Array(W * H); let best = null, n = 0; const limit = Math.round(H * .6) * W;
+        for (let i = 0; i < limit; i++) { if (lab[i] || !ok(i)) continue; n++; const q = [i]; lab[i] = n; let x0 = W, y0 = H, x1 = 0, y1 = 0, cnt = 0;
+          while (q.length) { const j = q.pop(); cnt++; const x = j % W, y = (j / W) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; for (const k of [j - 1, j + 1, j - W, j + W]) { if (k < 0 || k >= limit || lab[k] || !ok(k)) continue; if ((k === j - 1 && x === 0) || (k === j + 1 && x === W - 1)) continue; lab[k] = n; q.push(k); } }
+          if (!best || cnt > best.cnt) best = { x0, y0, x1, y1, cnt }; }
+        if (best) {
+          const sw = best.x1 - best.x0, sh = best.y1 - best.y0, cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
+          // screen colour from a quiet corner of the screen; glow colour of the eyes
+          const px = (x, y) => { const k = 4 * (Math.round(y) * W + Math.round(x)); return [d[k], d[k + 1], d[k + 2]]; };
+          // paint the model's mouth away: an ellipse filled row by row with the
+          // screen's own colour at that height (sampled left and right of the
+          // mouth), so the screen's gradient stays and no patch shows
+          g.save(); g.beginPath(); g.ellipse(cx, cy - sh * .02, sw * .24, sh * .2, 0, 0, Math.PI * 2); g.clip();
+          for (let y = Math.round(cy - sh * .24); y <= Math.round(cy + sh * .2); y++) {
+            const l = px(best.x0 + sw * .16, y), r = px(best.x1 - sw * .16, y);
+            g.fillStyle = `rgb(${(l[0] + r[0]) >> 1},${(l[1] + r[1]) >> 1},${(l[2] + r[2]) >> 1})`; g.fillRect(0, y, W, 1);
+          }
+          g.restore();
+          // the robot mouth: an arc when quiet that fills into an "O" when loud
+          const glow = '#4fd0ff', r = sw * .085, o = Math.max(0, Math.min(1, open));
+          g.save(); g.shadowColor = 'rgba(70,190,255,.85)'; g.shadowBlur = sw * .05; g.lineCap = 'round';
+          g.strokeStyle = glow; g.lineWidth = sw * .035;
+          if (o < .18) { g.beginPath(); g.arc(cx, cy - r * .35, r, Math.PI * .12, Math.PI * .88); g.stroke(); }
+          else { const hh = r * (.35 + o * .75); g.beginPath(); g.ellipse(cx, cy, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(79,208,255,.92)'; g.fill(); g.stroke(); }
+          g.restore();
+        }
+      }
+      const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, 0, 0, outW, outH);
+      return o.toDataURL('image/png').split(',')[1];
+    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, env[i] ?? 0, screenMouth]);
+    fs.writeFileSync(path.join(outDir, `f${String(i + 1).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
+  }
   await b.close();
-  const crop = `crop=${box.w}:${box.h}:${box.x}:${box.y}`;
-  // 2. VP9 + alpha (WebM) and HEVC + alpha (MP4, VideoToolbox)
-  execFileSync(FF, ['-y', '-hide_banner', '-loglevel', 'error', '-i', src, '-vf', `${crop},${KEY},format=yuva420p`, '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-auto-alt-ref', '0', '-b:v', '1200k', '-crf', '30', '-deadline', 'good', '-cpu-used', '2', '-c:a', 'libopus', '-b:a', '64k', `${out}.webm`]);
-  execFileSync(FF, ['-y', '-hide_banner', '-loglevel', 'error', '-i', src, '-vf', `${crop},${KEY},format=bgra`, '-c:v', 'hevc_videotoolbox', '-alpha_quality', '0.7', '-b:v', '1300k', '-tag:v', 'hvc1', '-pix_fmt', 'bgra', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', `${out}.mp4`]);
+
+  // 4. encode: WebM VP9+alpha from the frames; ProRes 4444 → Apple HEVC with alpha
+  const seq = path.join(outDir, 'f%04d.png'), audio = path.join(tmp, 'audio.wav');
+  ff(['-framerate', String(FPS), '-i', seq, '-i', src, '-map', '0:v', '-map', '1:a', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-auto-alt-ref', '0', '-b:v', '1200k', '-crf', '30', '-deadline', 'good', '-cpu-used', '2', '-c:a', 'libopus', '-b:a', '64k', '-shortest', `${out}.webm`]);
+  const prores = path.join(tmp, 'prores.mov');
+  ff(['-framerate', String(FPS), '-i', seq, '-i', src, '-map', '0:v', '-map', '1:a', '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', '-c:a', 'pcm_s16le', '-shortest', prores]);
+  execFileSync('avconvert', ['--preset', 'PresetHEVC1920x1080WithAlpha', '--source', prores, '--output', `${out}.mp4`, '--replace'], { stdio: 'ignore' });
   fs.rmSync(tmp, { recursive: true, force: true });
   const kb = f => Math.round(fs.statSync(f).size / 1024) + ' KB';
-  console.log(`${path.basename(out)}: ${box.w}x${box.h} (of ${box.W}x${box.H}) → webm ${kb(out + '.webm')}, mp4 ${kb(out + '.mp4')}`);
+  console.log(`${path.basename(out)}: ${outW}x${OUT_H} from ${box.w}x${box.h}${screenMouth ? ', robot mouth' : ''} → webm ${kb(out + '.webm')}, mp4 ${kb(out + '.mp4')}`);
 })();
