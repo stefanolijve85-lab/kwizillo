@@ -845,11 +845,11 @@
 
 /* ==== Weetjes (fun facts) ==== */
 .home-game.facts .home-game-art{object-position:center 30%}
-@media(max-width:400px){.home-game.art b{font-size:13px;left:8px;bottom:6px}}
+@media(max-width:400px){.home-game.art b{font-size:13px;left:8px;bottom:6px}.fact-chip{font-size:10.5px;padding:0 8px;min-height:28px}}
 .facts-screen .panel-scroll{display:flex;flex-direction:column;gap:10px;overflow:hidden;padding-bottom:6px}
-.fact-chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 4px;flex:0 0 auto}
-.fact-chips::-webkit-scrollbar{display:none}
-.fact-chip{flex:0 0 auto;min-height:36px;padding:0 12px;border:2px solid rgba(255,255,255,.9);border-radius:999px;cursor:pointer;color:#12265f;font-weight:1000;font-size:12px;white-space:nowrap;
+/* All seven chips stay in view (two small rows), nothing scrolls sideways. */
+.fact-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 6px;padding:2px 2px 2px;flex:0 0 auto}
+.fact-chip{flex:0 0 auto;min-height:30px;padding:0 10px;border:2px solid rgba(255,255,255,.9);border-radius:999px;cursor:pointer;color:#12265f;font-weight:1000;font-size:11px;white-space:nowrap;
   background:linear-gradient(180deg,#fff,#e9f5ff);box-shadow:0 4px 0 rgba(94,163,214,.55),0 8px 14px rgba(0,26,80,.14)}
 .fact-chip:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(94,163,214,.55)}
 .fact-chip.active{border-color:#ffd23f;background:linear-gradient(180deg,#ffe762,#ffb61b);box-shadow:0 4px 0 #d9860d,0 0 0 3px rgba(255,210,63,.3)}

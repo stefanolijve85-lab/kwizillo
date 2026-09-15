@@ -40,6 +40,12 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   expect(second).not.toBe(first);
   const seen = await page.evaluate(() => Object.keys(window.KWIZILLO_M1.progress().factsSeen));
   expect(seen.sort()).toEqual([first, second].sort());
+  // Every chip is in view without sideways scrolling.
+  const chips = await screen.locator('.fact-chip').all();
+  expect(chips.length).toBe(7);
+  const vw = page.viewportSize().width;
+  for (const c of chips) { const b = await c.boundingBox(); expect(b.x).toBeGreaterThanOrEqual(0); expect(b.x + b.width).toBeLessThanOrEqual(vw); }
+  expect(await screen.locator('.fact-chips').evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
   // A world chip narrows the set to that world's facts.
   await screen.locator('[data-fworld="dieren"]').click();
   await expect(page.locator('.facts-screen [data-fworld="dieren"]')).toHaveClass(/active/);
