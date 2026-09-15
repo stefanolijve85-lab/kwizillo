@@ -76,62 +76,76 @@
   // fringe is left. Frames are keyed on the GPU (WebGL); the first frame is
   // analysed once on the CPU.
   const KEY_VS='attribute vec2 p;attribute vec2 t;varying vec2 v;void main(){v=t;gl_Position=vec4(p,0.,1.);}';
-  const KEY_FS='precision mediump float;varying vec2 v;uniform sampler2D u;uniform vec3 key;uniform float keyLum;\n'+
-    'void main(){vec3 c=texture2D(u,v).rgb;float d=abs(c.r-key.r)+abs(c.g-key.g)+abs(c.b-key.b);float a=smoothstep(.10,.24,d);\n'+
-    'float mx=max(c.r,max(c.g,c.b));float mn=min(c.r,min(c.g,c.b));float sat=mx>0.?(mx-mn)/mx:0.;float lum=dot(c,vec3(.3,.59,.11));\n'+
-    'if(sat<=.3&&lum<keyLum-.012&&lum>keyLum-.31&&c.b>c.r+.03)a=0.;\n'+
+  // Interior/exterior comes from a coarse connectivity mask (CPU, quarter size:
+  // only backdrop connected to the frame border is backdrop, so the bounce
+  // light on a white body never turns transparent); the colour test only
+  // decides the soft edge in between, and edge pixels are despilled.
+  const KEY_FS='precision mediump float;varying vec2 v;uniform sampler2D u;uniform sampler2D m;uniform vec3 key;\n'+
+    'void main(){vec3 c=texture2D(u,v).rgb;float mk=texture2D(m,v).r;float d=abs(c.r-key.r)+abs(c.g-key.g)+abs(c.b-key.b);\n'+
+    'float a=mk>.85?1.:(mk<.06?0.:smoothstep(.05,.16,d)*smoothstep(.06,.5,mk));\n'+
     'vec3 o=a>0.&&a<1.?clamp((c-key*(1.-a))/a,0.,1.):c;gl_FragColor=vec4(o*a,a);}';
   const keyer={
+    // Coarse mask of one frame: 255 = character, 0 = backdrop / its ground shadow.
+    mask(st){
+      const {mw,mh,mg,key,keyLum,mdata}=st;mg.drawImage(st.video,0,0,mw,mh);const d=mg.getImageData(0,0,mw,mh).data;
+      const TOL=26,seen=st.seen;seen.fill(0);const stack=[];
+      const dist=i=>Math.abs(d[i*4]-key[0])+Math.abs(d[i*4+1]-key[1])+Math.abs(d[i*4+2]-key[2]);
+      const isShadow=i=>{const r=d[i*4],g=d[i*4+1],b=d[i*4+2];const mx=Math.max(r,g,b),mn=Math.min(r,g,b);const sat=mx?(mx-mn)/mx:0;const lum=r*.3+g*.59+b*.11;return sat<=.3&&lum<keyLum-3&&lum>keyLum-80&&b>r+8};
+      for(let x=0;x<mw;x++){stack.push(x,(mh-1)*mw+x)}for(let y=0;y<mh;y++){stack.push(y*mw,y*mw+mw-1)}
+      while(stack.length){const i=stack.pop();if(seen[i]||dist(i)>TOL)continue;seen[i]=1;const x=i%mw,y=(i/mw)|0;if(x>0)stack.push(i-1);if(x<mw-1)stack.push(i+1);if(y>0)stack.push(i-mw);if(y<mh-1)stack.push(i+mw)}
+      for(let i=0;i<mw*mh;i++)if(seen[i]){for(const k of [i-1,i+1,i-mw,i+mw])if(k>=0&&k<mw*mh&&!seen[k]&&isShadow(k))stack.push(k)}
+      while(stack.length){const i=stack.pop();if(seen[i]||!isShadow(i))continue;seen[i]=1;const x=i%mw,y=(i/mw)|0;if(x>0)stack.push(i-1);if(x<mw-1)stack.push(i+1);if(y>0)stack.push(i-mw);if(y<mh-1)stack.push(i+mw)}
+      for(let i=0;i<mw*mh;i++)mdata[i]=seen[i]?0:255;
+      return mdata;
+    },
     setup(v,canvas){
       const w=v.videoWidth,h=v.videoHeight;if(!w||!h)return null;
-      // First frame on the CPU: key colour and the character's box.
-      const src=document.createElement('canvas');src.width=w;src.height=h;const sg=src.getContext('2d',{willReadFrequently:true});
-      sg.drawImage(v,0,0);const d=sg.getImageData(0,0,w,h).data;
+      const probe=document.createElement('canvas');probe.width=w;probe.height=h;const pg=probe.getContext('2d',{willReadFrequently:true});
+      pg.drawImage(v,0,0);const d=pg.getImageData(0,0,w,h).data;
       const px=(x,y)=>{const k=4*(y*w+x);return [d[k],d[k+1],d[k+2]]};
       const corners=[px(3,3),px(w-4,3),px(3,h-4),px(w-4,h-4)];
       const key=[0,1,2].map(i=>corners.reduce((a,c)=>a+c[i],0)/4);
       const keyLum=key[0]*.3+key[1]*.59+key[2]*.11;
-      let x0=w,y0=h,x1=0,y1=0;
-      for(let i=0,k=0;i<w*h;i++,k+=4){
-        const r=d[k],g=d[k+1],b=d[k+2];const dist=Math.abs(r-key[0])+Math.abs(g-key[1])+Math.abs(b-key[2]);
-        if(dist<40)continue;
-        const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?(mx-mn)/mx:0,lum=r*.3+g*.59+b*.11;
-        if(sat<=.3&&lum<keyLum-3&&lum>keyLum-80&&b>r+8)continue;
-        const x=i%w,y=(i/w)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y;
-      }
+      const mw=Math.round(w/4),mh=Math.round(h/4);
+      const mc=document.createElement('canvas');mc.width=mw;mc.height=mh;
+      const st={video:v,key,keyLum,mw,mh,mg:mc.getContext('2d',{willReadFrequently:true}),seen:new Uint8Array(mw*mh),mdata:new Uint8Array(mw*mh),box:null,gl:null};
+      // The character's box from the first frame's mask (+ margin for the gestures to come).
+      const m=keyer.mask(st);let x0=mw,y0=mh,x1=0,y1=0;
+      for(let i=0;i<mw*mh;i++)if(m[i]){const x=i%mw,y=(i/mw)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
       if(x1<=x0||y1<=y0)return null;
-      const mx=Math.round((x1-x0)*.08),my=Math.round((y1-y0)*.03);
-      const box={x:Math.max(0,x0-mx),y:Math.max(0,y0-my),w:Math.min(w,x1+mx)-Math.max(0,x0-mx),h:Math.min(h,y1+my)-Math.max(0,y0-my)};
-      const st={key,keyLum,box,gl:null,src,sg};
-      // GPU path.
+      const mx=Math.round((x1-x0)*.08)+1,my=Math.round((y1-y0)*.03)+1;
+      st.box={x:Math.max(0,x0-mx)*4,y:Math.max(0,y0-my)*4,w:(Math.min(mw-1,x1+mx)-Math.max(0,x0-mx)+1)*4,h:(Math.min(mh-1,y1+my)-Math.max(0,y0-my)+1)*4};
       const gl=canvas.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false});
       if(gl){
         const sh=(t,c)=>{const o=gl.createShader(t);gl.shaderSource(o,c);gl.compileShader(o);return o};
         const prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,KEY_VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,KEY_FS));gl.linkProgram(prog);
         if(gl.getProgramParameter(prog,gl.LINK_STATUS)){
           gl.useProgram(prog);
-          const bx=box.x/w,by=box.y/h,bw=box.w/w,bh=box.h/h;
+          const bx=st.box.x/w,by=st.box.y/h,bw=st.box.w/w,bh=st.box.h/h;
           const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
           gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,bx,by+bh, 1,-1,bx+bw,by+bh, -1,1,bx,by, 1,1,bx+bw,by]),gl.STATIC_DRAW);
           const ap=gl.getAttribLocation(prog,'p'),at=gl.getAttribLocation(prog,'t');
           gl.enableVertexAttribArray(ap);gl.vertexAttribPointer(ap,2,gl.FLOAT,false,16,0);gl.enableVertexAttribArray(at);gl.vertexAttribPointer(at,2,gl.FLOAT,false,16,8);
-          const tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);
-          gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
-          gl.uniform3f(gl.getUniformLocation(prog,'key'),key[0]/255,key[1]/255,key[2]/255);gl.uniform1f(gl.getUniformLocation(prog,'keyLum'),keyLum/255);
-          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+          const mkTex=unit=>{const tex=gl.createTexture();gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,tex);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);return tex};
+          st.texV=mkTex(0);st.texM=mkTex(1);
+          gl.uniform1i(gl.getUniformLocation(prog,'u'),0);gl.uniform1i(gl.getUniformLocation(prog,'m'),1);
+          gl.uniform3f(gl.getUniformLocation(prog,'key'),key[0]/255,key[1]/255,key[2]/255);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);
           st.gl=gl;
         }
       }
+      if(!st.gl){st.src=probe;st.sg=pg}
       return st;
     },
     draw(v,st,c){
-      if(st.gl){const gl=st.gl;gl.viewport(0,0,c.width,c.height);try{gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,v)}catch(e){return}gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);return}
-      // CPU fallback (no WebGL): key the character's box at the video's resolution.
-      const {box,key,keyLum,sg,src}=st;sg.drawImage(v,0,0);const id=sg.getImageData(box.x,box.y,box.w,box.h),d=id.data;
-      for(let i=0,k=0;i<box.w*box.h;i++,k+=4){const r=d[k],g=d[k+1],b=d[k+2];const dist=Math.abs(r-key[0])+Math.abs(g-key[1])+Math.abs(b-key[2]);
-        let a=dist<=26?0:dist>=60?255:Math.round((dist-26)/34*255);
-        if(a){const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?(mx-mn)/mx:0,lum=r*.3+g*.59+b*.11;if(sat<=.3&&lum<keyLum-3&&lum>keyLum-80&&b>r+8)a=0}
-        d[k+3]=a}
+      const m=keyer.mask(st);
+      if(st.gl){const gl=st.gl;gl.viewport(0,0,c.width,c.height);
+        try{gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,st.texV);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,v);
+          gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,st.texM);gl.texImage2D(gl.TEXTURE_2D,0,gl.LUMINANCE,st.mw,st.mh,0,gl.LUMINANCE,gl.UNSIGNED_BYTE,m)}catch(e){return}
+        gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);return}
+      // CPU fallback (no WebGL): the coarse mask decides, scaled up.
+      const {box,sg,src,mw,mh}=st;sg.drawImage(v,0,0);const id=sg.getImageData(box.x,box.y,box.w,box.h),d=id.data;
+      for(let y=0;y<box.h;y++)for(let x=0;x<box.w;x++){const mi=Math.min(mh-1,(box.y+y)>>2)*mw+Math.min(mw-1,(box.x+x)>>2);d[(y*box.w+x)*4+3]=m[mi]}
       sg.putImageData(id,box.x,box.y);const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);g.drawImage(src,box.x,box.y,box.w,box.h,0,0,c.width,c.height);
     }
   };
