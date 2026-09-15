@@ -11,17 +11,21 @@
   // never contain the child's name.
 
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-  // Cut-outs from the 2026-09-15 character sheets (tools/mascot-prompts.md):
-  // wave, talk, think, cheer and one pointing pose (to the right); pointing left
-  // mirrors it, pointing down leans it over (CSS on data-pose).
+  // Cut-outs from the 2026-09-15 character sheets (tools/mascot-prompts.md).
+  // Each pose carries where the mouth sits on it (fractions of the image), so
+  // the mouth can talk on the figure itself; the walk and jump frames are only
+  // shown while the guide moves. Pointing left mirrors the pointing pose,
+  // pointing down leans it over (CSS on data-pose).
   const u=p=>K.assetUrl?K.assetUrl(p):p;
-  const poses=dir=>({
-    wave:u(`${dir}/wave.png`),talk:u(`${dir}/talk.png`),think:u(`${dir}/think.png`),cheer:u(`${dir}/cheer.png`),
-    pointRight:u(`${dir}/point-right.png`),pointLeft:{src:u(`${dir}/point-right.png`),flip:true},pointDown:u(`${dir}/point-right.png`)
+  const poses=(dir,m)=>({
+    wave:{src:u(`${dir}/wave.png`),mouth:m.wave},talk:{src:u(`${dir}/talk.png`),mouth:m.talk},
+    think:{src:u(`${dir}/think.png`),mouth:m.think},cheer:{src:u(`${dir}/cheer.png`),mouth:m.cheer},
+    pointRight:{src:u(`${dir}/point-right.png`),mouth:m.point},pointLeft:{src:u(`${dir}/point-right.png`),mouth:m.point,flip:true},pointDown:{src:u(`${dir}/point-right.png`),mouth:m.point},
+    walkA:{src:u(`${dir}/walk-a.png`)},walkB:{src:u(`${dir}/walk-b.png`)},jumpA:{src:u(`${dir}/jump-a.png`)},jumpB:{src:u(`${dir}/jump-b.png`)}
   });
   K.GUIDE_POSES={
-    milo:poses('assets/mascots/milo'),
-    luna:poses('assets/mascots/luna')
+    milo:poses('assets/mascots/milo',{wave:{x:.61,y:.38,w:.09,h:.045},talk:{x:.57,y:.37,w:.1,h:.05},think:{x:.6,y:.37,w:.09,h:.045},cheer:{x:.57,y:.36,w:.12,h:.06},point:{x:.59,y:.37,w:.09,h:.045}}),
+    luna:poses('assets/mascots/luna',{wave:{x:.6,y:.245,w:.07,h:.032},talk:{x:.52,y:.21,w:.07,h:.03},think:{x:.56,y:.22,w:.06,h:.03},cheer:{x:.52,y:.22,w:.09,h:.04},point:{x:.49,y:.22,w:.07,h:.03}})
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
   // `mouth` is where the mouth sits on the portrait (fractions of its width and
@@ -37,9 +41,14 @@
   K.activeGuide=()=>K.state.voice==='Luna'?'luna':'milo';
   K.guideName=g=>K.GUIDES[guideOf(g??K.activeGuide())].name;
   function poseSrc(guide,p){const set=K.GUIDE_POSES[guide];const v=set[p]||set.talk;return typeof v==='string'?{src:v,flip:false}:v}
-  // Warm every pose of a guide once so a pose change never flashes an empty frame.
-  const warmed=new Set();
-  K.warmGuide=(g='milo')=>{g=guideOf(g);if(warmed.has(g))return;warmed.add(g);Object.values(K.GUIDE_POSES[g]).forEach(v=>{const i=new Image();i.src=typeof v==='string'?v:v.src})};
+  // Warm every pose of a guide once so a pose change never flashes an empty
+  // frame; the natural sizes are kept for laying the figure out by height.
+  const warmed=new Set(),sizes=new Map();
+  const sizeOf=src=>sizes.get(src)||{w:480,h:720};
+  K.warmGuide=(g='milo')=>{g=guideOf(g);if(warmed.has(g))return Promise.resolve();warmed.add(g);
+    const loads=Object.values(K.GUIDE_POSES[g]).map(v=>new Promise(res=>{const src=typeof v==='string'?v:v.src;const i=new Image();i.onload=()=>{sizes.set(src,{w:i.naturalWidth,h:i.naturalHeight});res()};i.onerror=()=>res();i.src=src}));
+    return Promise.all(loads);
+  };
   K.warmMilo=()=>K.warmGuide('milo');
 
   // A guide speaks with its own voice whatever voice is selected at the time; a
@@ -86,13 +95,29 @@
 
   // A host element: bubble + figure. `say` writes the bubble, speaks the line
   // and animates the figure while the voice is playing.
-  K.guideHost=({guide='milo',pose='wave',size='md',bubble='top'}={})=>{
+  // `figure:true` keeps the full-body cut-out on screen while talking (the
+  // mouth animates on the character); otherwise a line without a clip switches
+  // to the portrait window.
+  K.guideHost=({guide='milo',pose='wave',size='md',bubble='top',figure=false}={})=>{
     guide=guideOf(guide);
+    const g=K.GUIDES[guide];
     const el=document.createElement('div');
-    el.className=`milo-host guide-${guide} milo-size-${size} bubble-${bubble}`;
+    el.className=`milo-host guide-${guide} milo-size-${size} bubble-${bubble} ${figure?'figure-mode':''}`;
     el.dataset.guide=guide;
-    el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><img class="milo-figure" alt="" draggable="false"></div>`;
-    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body');
+    el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><span class="milo-fig-wrap"><img class="milo-figure" alt="" draggable="false"><span class="milo-mouth mouth-${g.mouthStyle||'jaw'}" hidden></span></span></div>`;
+    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body'),wrap=el.querySelector('.milo-fig-wrap'),figMouth=el.querySelector('.milo-mouth');
+    let curPose=pose;
+    // Puts the mouth overlay on the current pose (fractions of the cut-out → px of the rendered image).
+    const placeMouth=()=>{
+      const p=poseSrc(guide,curPose);const m=p.mouth;
+      if(!figure||!m){figMouth.hidden=true;return}
+      const r=img.getBoundingClientRect();const w=r.width||img.offsetWidth,h=r.height||img.offsetHeight;
+      if(!w||!h){figMouth.hidden=true;return}
+      figMouth.hidden=false;
+      figMouth.style.left=Math.round(m.x*w)+'px';figMouth.style.top=Math.round(m.y*h)+'px';
+      figMouth.style.setProperty('--mw',Math.max(6,Math.round(m.w*w))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m.h*h))+'px');
+    };
+    img.addEventListener('load',placeMouth);
     let talkTimer=null,video=null;
     const showVideo=v=>{if(video&&video!==v){video.pause?.();video.remove()}video=v;if(!v.parentNode)body.appendChild(v);el.classList.add('video-mode')};
     const hideVideo=()=>{if(video){video.pause?.();video.remove();video=null}el.classList.remove('video-mode')};
@@ -115,15 +140,18 @@
     };
     const mouthLoop=()=>{
       let open=0;
+      const target=()=>figure?figMouth:still;
+      // A 30 ms timer rather than requestAnimationFrame: it keeps running when
+      // the page is briefly not painting, and the envelope has the same step.
       const tick=()=>{
-        if(!still||!still.isConnected||!el.classList.contains('talking')){still?.style.setProperty('--open','0');mouthRaf=0;return}
+        const m=target();
+        if(!m||!m.isConnected||!el.classList.contains('talking')){m?.style.setProperty('--open','0');clearInterval(mouthRaf);mouthRaf=0;return}
         const level=(K.voiceLevel?.()||0)*.85;
         // Quick to open, a little slower to close, so consonants still flash.
         open=level>open?open*.35+level*.65:open*.7+level*.3;
-        still.style.setProperty('--open',open.toFixed(3));
-        mouthRaf=requestAnimationFrame(tick);
+        m.style.setProperty('--open',open.toFixed(3));
       };
-      if(!mouthRaf)mouthRaf=requestAnimationFrame(tick);
+      if(!mouthRaf)mouthRaf=setInterval(tick,30);
     };
     // Plays a lip-synced clip; resolves true when it played to the end, false
     // when it could not start (then the caller falls back to pose + voice).
@@ -147,7 +175,10 @@
     }
     const api={
       el,guide,
-      pose(p){const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;return api},
+      pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;placeMouth();return api},
+      // Rendered width of the current pose at a given box height (the cut-outs differ in width).
+      widthAt(h){const {src}=poseSrc(guide,curPose);const n=sizeOf(src);return Math.round(h*n.w/n.h)},
+      placeMouth,
       bubble(html){if(!html){bub.hidden=true;bub.innerHTML='';return api}bub.innerHTML=html;noWidows(bub);bub.hidden=false;bub.classList.remove('pop');void bub.offsetWidth;bub.classList.add('pop');return api},
       // Speaks `text`; the figure nods while the voice plays. Without a voice the
       // figure still nods for a moment so the bubble reads as "the guide said this".
@@ -162,7 +193,7 @@
           el.classList.remove('talking');
           if(played){const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));return}
         }
-        showStill();
+        if(!figure)showStill();
         clearTimeout(talkTimer);el.classList.add('talking');
         talkTimer=setTimeout(()=>el.classList.remove('talking'),1800);
         await K.guideSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking');mouthLoop()},onDone:()=>el.classList.remove('talking')},guide).catch(()=>{});
@@ -171,7 +202,7 @@
       },
       moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
       stop(){if(video){video.pause?.()}K.stopSpeech();el.classList.remove('talking')},
-      remove(){clearTimeout(talkTimer);cancelAnimationFrame(mouthRaf);mouthRaf=0;hideVideo();el.remove()}
+      remove(){clearTimeout(talkTimer);clearInterval(mouthRaf);mouthRaf=0;hideVideo();el.remove()}
     };
     api.pose(pose);
     return api;
@@ -186,7 +217,8 @@
   // round trip to the speech service.
   K.warmTour=(guide=K.activeGuide())=>{guide=guideOf(guide);K.guidePrefetch(TOUR_KEYS.map(k=>K.t(k)),guide);K.guideWarmClips(TOUR_KEYS.map(k=>k.replace('tour.','')),guide)};
 
-  // The chosen guide flies across Home and explains each part in one sentence.
+  // The chosen guide walks onto Home, hops from element to element and explains
+  // each part in one sentence, mouth moving with the voice on the figure itself.
   // The tour is asked for explicitly (end of onboarding, "tour again" in the
   // parent zone) and never interrupts a returning player. A tap moves on,
   // "skip" ends it.
@@ -194,10 +226,8 @@
     const home=K.app.querySelector('.home');
     if(!home||home.querySelector('.milo-tour')) return;
     guide=guideOf(guide||K.activeGuide());
-    K.warmGuide(guide);
     const t=K.t;
-    // Memo + Rekenen share one stop (its clip predates the Weetjes tile); the
-    // Weetjes get a stop of their own, spoken live.
+    // Memo + Rekenen share one stop; the Weetjes get a stop of their own.
     const stops=[
       {sel:'.home-worlds',key:'tour.worlds'},
       {sel:'#homeMemo,#homeMath',key:'tour.games'},
@@ -211,70 +241,86 @@
     layer.className='milo-tour';
     layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;
     const spot=layer.querySelector('.milo-tour-spot');
-    const host=K.guideHost({guide,pose:'wave',size:'tour',bubble:'top'});
+    const host=K.guideHost({guide,pose:'walkA',size:'tour',bubble:'top',figure:true});
     layer.appendChild(host.el);
     home.appendChild(layer);
     home.classList.add('touring');
     const hb=()=>home.getBoundingClientRect();
     const W=()=>hb().width,H=()=>hb().height;
-    const figure={w:Math.min(150,Math.round(W()*.34)),h:0};
-    host.el.style.setProperty('--milo-w',figure.w+'px');
-    // The guide talks from a 3:4 window (a clip, or the portrait when a clip is missing).
-    figure.h=Math.round(figure.w*1.34);
-    // The guide arrives from the right edge, mid-screen.
-    host.moveTo(W()+figure.w,H()*.4,{instant:true});
-    let done=false,advance=null;
+    // The figure is laid out by height; its width follows the pose.
+    const figH=Math.min(220,Math.round(H()*.27));
+    host.el.style.setProperty('--milo-h',figH+'px');
+    const figW=()=>host.widthAt(figH);
+    let done=false,advance=null,frames=0;
     const next=()=>{advance?.()};
     layer.addEventListener('click',e=>{if(e.target.closest('.milo-tour-skip'))return;next()});
     layer.querySelector('.milo-tour-skip').onclick=()=>{done=true;next()};
+    const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     const waitTap=ms=>new Promise(r=>{let to=setTimeout(()=>{advance=null;r()},ms);advance=()=>{clearTimeout(to);advance=null;r()}});
     // A stop may spotlight several elements at once (their union).
     const rectOf=sel=>{const ns=sel?[...home.querySelectorAll(sel)]:[];if(!ns.length)return null;const b=hb();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of ns){const r=n.getBoundingClientRect();x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom)}return {x:x0-b.left,y:y0-b.top,w:x1-x0,h:y1-y0}};
-    // The host box is the figure; the bubble hangs above or below it and is
-    // anchored to whichever side keeps it on screen.
-    const put=(x,y,side,pose)=>{
-      host.pose(pose);
+    // Cycles walk or jump frames while the figure travels, then lands in `pose`.
+    const stride=(kind,ms)=>{clearInterval(frames);let k=0;const seq=kind==='walk'?['walkA','walkB']:['jumpA','jumpB','jumpB'];host.pose(seq[0]);frames=setInterval(()=>{k++;host.pose(seq[k%seq.length])},kind==='walk'?150:190);return sleep(ms).then(()=>{clearInterval(frames);frames=0})};
+    // The bubble hangs above or below the figure, centred on it but kept
+    // inside the screen; the tail keeps pointing at the figure's middle.
+    const bubbleAt=(x,side)=>{
+      const w=figW();host.el.style.width=w+'px';
       host.el.classList.toggle('bubble-top',side==='top');host.el.classList.toggle('bubble-bottom',side==='bottom');
-      // The bubble is centred on the figure but always kept inside the screen;
-      // the tail keeps pointing at the figure's middle.
-      const bw=Math.min(Math.round(W()*.8),320),centre=x+figure.w/2;
+      const bw=Math.min(Math.round(W()*.8),320),centre=x+w/2;
       const bx=Math.max(8,Math.min(W()-bw-8,centre-bw/2));
       host.el.style.setProperty('--bw',bw+'px');
       host.el.style.setProperty('--bx',Math.round(bx-x)+'px');
       host.el.style.setProperty('--tx',Math.round(Math.max(14,Math.min(bw-30,centre-bx-8)))+'px');
-      host.moveTo(x,y);
     };
-    const place=r=>{
-      // The guide sits above the element pointing down when there is room,
-      // otherwise below it presenting upward, or beside it pointing at it.
-      const pad=12;
-      if(!r){spot.hidden=true;put((W()-figure.w)/2,H()*.5-figure.h/2,'top','cheer');return}
-      spot.hidden=false;spot.style.left=(r.x-6)+'px';spot.style.top=(r.y-6)+'px';spot.style.width=(r.w+12)+'px';spot.style.height=(r.h+12)+'px';
-      const above=r.y-pad-figure.h,below=r.y+r.h+pad;
-      const x=Math.max(8,Math.min(W()-figure.w-8,r.x+r.w-figure.w-8));
-      if(above>96)put(x,above,'top','pointDown');
-      else if(below+figure.h<H()-8)put(x,below,'bottom','talk');
-      else put(Math.max(8,W()-figure.w-8),Math.max(8,Math.min(H()-figure.h-8,r.y+r.h/2-figure.h/2)),'top','pointLeft');
+    // Where the guide stands for a stop: above the element pointing down when
+    // there is room, else below it, else beside it pointing at it.
+    const spotFor=r=>{
+      const pad=10;
+      if(!r)return {x:(W()-figW())/2,y:H()*.5-figH/2,side:'top',pose:'cheer'};
+      const above=r.y-pad-figH,below=r.y+r.h+pad;
+      const x=Math.max(8,Math.min(W()-figW()-8,r.x+r.w-figW()-8));
+      if(above>96)return {x,y:above,side:'top',pose:'pointDown'};
+      if(below+figH<H()-8)return {x,y:below,side:'bottom',pose:'talk'};
+      return {x:Math.max(8,W()-figW()-8),y:Math.max(8,Math.min(H()-figH-8,r.y+r.h/2-figH/2)),side:'top',pose:'pointLeft'};
+    };
+    const showSpot=r=>{if(!r){spot.hidden=true;return}spot.hidden=false;spot.style.left=(r.x-6)+'px';spot.style.top=(r.y-6)+'px';spot.style.width=(r.w+12)+'px';spot.style.height=(r.h+12)+'px'};
+    // Travel: walk in from the right edge the first time, hop between stops after that.
+    const travel=async(to,first)=>{
+      host.bubble(null);
+      if(first){
+        host.moveTo(W()+figW(),to.y,{instant:true});
+        await sleep(30);
+        host.el.classList.add('walking');host.moveTo(to.x,to.y);
+        await stride('walk',760);host.el.classList.remove('walking');
+      }else{
+        host.el.classList.add('hopping');host.moveTo(to.x,to.y);
+        await stride('jump',720);host.el.classList.remove('hopping');
+      }
+      host.pose(to.pose);bubbleAt(to.x,to.side);
     };
     try{
+      await Promise.race([K.warmGuide(guide),sleep(1500)]);
       K.sfx('swoosh');
-      await new Promise(r=>setTimeout(r,60));
+      let first=true;
       for(const stop of stops){
         if(done)break;
-        place(rectOf(stop.sel));
-        if(stop.pose)host.pose(stop.pose);
-        await new Promise(r=>setTimeout(r,720));
+        const r=rectOf(stop.sel);showSpot(r);
+        const to=spotFor(r);if(stop.pose)to.pose=stop.pose;
+        await travel(to,first);first=false;
+        await sleep(160);
         if(done)break;
         const said=host.say(t(stop.key),{minMs:2600,clip:stop.key.replace('tour.','')});
         await Promise.race([said,waitTap(20000)]);
         host.stop();
       }
     }finally{
+      clearInterval(frames);
       host.stop();
       spot.hidden=true;host.bubble(null);
-      host.moveTo(-figure.w*1.4,H()*.3);
+      // Off he goes, walking out to the left.
+      host.el.classList.add('walking','flip');stride('walk',760);host.moveTo(-figW()*1.4,H()*.3);
       K.state.tourDone=true;K.save();
-      setTimeout(()=>{layer.remove();home.classList.remove('touring');onDone?.()},760);
+      setTimeout(()=>{clearInterval(frames);layer.remove();home.classList.remove('touring');onDone?.()},780);
     }
   };
 })();

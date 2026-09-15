@@ -29,7 +29,7 @@
       </div>
     </section>`);
     K.warmGuide(guide);
-    const host=K.guideHost({guide,pose,size:'ob',bubble:'side'});
+    const host=K.guideHost({guide,pose,size:'ob',bubble:'side',figure:true});
     f.querySelector('.onboarding-stage').appendChild(host.el);
     host.say(speech,{html:bubbleHtml(title,sub),clip});
     return {f,host};
@@ -152,7 +152,7 @@
       const old=host;
       old.stop();old.el.classList.add('leave');setTimeout(()=>old.remove(),360);
       K.warmGuide(guide);
-      host=K.guideHost({guide,pose:'wave',size:'ob',bubble:'side'});
+      host=K.guideHost({guide,pose:'wave',size:'ob',bubble:'side',figure:true});
       host.el.classList.add('enter');
       stage.appendChild(host.el);
       host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});

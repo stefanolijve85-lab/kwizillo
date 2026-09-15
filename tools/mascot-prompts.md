@@ -35,10 +35,13 @@ wijzen, nadenken, juichen, two walk frames, two jump frames). The sources live i
 `incoming/` (git-ignored). From them:
 
 - `assets/mascots/<guide>/{wave,talk,think,cheer,point-right}.png` — cut-outs,
-  720 px tall. Milo's `wave` and Luna's `talk` come from the hi-res renders; the
-  rest are sheet cells (≈270 px source, upscaled — ask for hi-res single renders
-  of wijzen/nadenken/juichen if they ever look soft). `pointLeft` mirrors
-  `point-right` in CSS; `pointDown` is the same cut-out leaned over 38°.
+  720 px tall, all from hi-res single renders except Milo's `talk` and Luna's
+  `wave` (sheet cells). `pointLeft` mirrors `point-right` in CSS; `pointDown` is
+  the same cut-out leaned over 38°. Every pose carries a `mouth` box in
+  K.GUIDE_POSES (fractions of the image) so the mouth can talk on the figure.
+- `assets/mascots/<guide>/{walk-a,walk-b,jump-a,jump-b}.png` — the sheet's walk
+  and jump frames, scaled relative to the front view so a crouch stays small.
+  The tour cycles them while the guide walks in / hops between stops.
 - `assets/mascots/<guide>/talk-base.png` — 640×768 chest-up crop of the hi-res
   render; the portrait in the talking window and the base for any new clips.
 - `assets/mascots/{milo,luna}.jpg` — 512×512 faces (guide pick, HUD, profile, result).

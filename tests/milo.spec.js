@@ -56,16 +56,24 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await page.evaluate(() => { window.KWIZILLO_M1.startTour(); });
   const tour = page.locator('.milo-tour');
   await expect(tour).toBeVisible();
+  // The guide is a full-body figure (no portrait window) that walks in, and its mouth sits on the figure.
+  await expect(tour.locator('.milo-host')).toHaveClass(/figure-mode/);
+  await expect(tour.locator('.milo-host')).toHaveClass(/walking/);
+  await expect(tour.locator('.milo-host video, .milo-host .milo-still')).toHaveCount(0);
   // The only chrome during the tour is the small Skip button at the bottom.
   await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);
   await expect(tour.locator('.milo-tour-skip')).toHaveText('Overslaan');
   const bubble = tour.locator('.milo-bubble');
   await expect(bubble).toContainText('zes werelden', { timeout: 5000 });
+  await expect(tour.locator('.milo-host')).not.toHaveClass(/walking/);
+  await expect(tour.locator('.milo-mouth')).toBeAttached();
+  expect(await tour.locator('.milo-mouth').getAttribute('hidden')).toBeNull();
   const spot = tour.locator('.milo-tour-spot');
   const worlds = await page.locator('.home-worlds').boundingBox();
   const s1 = await spot.boundingBox();
   expect(Math.abs(s1.y - worlds.y)).toBeLessThan(12);
   await tour.click({ position: { x: 10, y: 300 } });
+  await expect(tour.locator('.milo-host')).toHaveClass(/hopping/);   // hops to the next stop
   await expect(bubble).toContainText('Memo', { timeout: 5000 });
   const games = await spot.boundingBox(), memo = await page.locator('#homeMemo').boundingBox(), math = await page.locator('#homeMath').boundingBox(), facts = await page.locator('#homeFacts').boundingBox();
   expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // Memo + Rekenen together…
