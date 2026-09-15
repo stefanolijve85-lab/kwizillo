@@ -14,9 +14,10 @@
   // Cut-outs from the 2026-09-15 character sheets (tools/mascot-prompts.md):
   // wave, talk, think, cheer and one pointing pose (to the right); pointing left
   // mirrors it, pointing down leans it over (CSS on data-pose).
+  const u=p=>K.assetUrl?K.assetUrl(p):p;
   const poses=dir=>({
-    wave:`${dir}/wave.png`,talk:`${dir}/talk.png`,think:`${dir}/think.png`,cheer:`${dir}/cheer.png`,
-    pointRight:`${dir}/point-right.png`,pointLeft:{src:`${dir}/point-right.png`,flip:true},pointDown:`${dir}/point-right.png`
+    wave:u(`${dir}/wave.png`),talk:u(`${dir}/talk.png`),think:u(`${dir}/think.png`),cheer:u(`${dir}/cheer.png`),
+    pointRight:u(`${dir}/point-right.png`),pointLeft:{src:u(`${dir}/point-right.png`),flip:true},pointDown:u(`${dir}/point-right.png`)
   });
   K.GUIDE_POSES={
     milo:poses('assets/mascots/milo'),
@@ -27,8 +28,8 @@
   // height), for the audio-driven mouth used when a line has no clip.
   K.GUIDES={
     // Milo's mouth is a light on his screen (it glows open, no chin); Luna's is a real one (chin drops).
-    milo:{voice:'Milo',name:'Milo',base:'assets/mascots/milo/talk-base.png',mouth:{x:.55,y:.585,w:.13,h:.06},mouthStyle:'glow'},
-    luna:{voice:'Luna',name:'Luna',base:'assets/mascots/luna/talk-base.png',mouth:{x:.52,y:.49,w:.15,h:.05},mouthStyle:'jaw'}
+    milo:{voice:'Milo',name:'Milo',base:u('assets/mascots/milo/talk-base.png'),mouth:{x:.55,y:.585,w:.13,h:.06},mouthStyle:'glow'},
+    luna:{voice:'Luna',name:'Luna',base:u('assets/mascots/luna/talk-base.png'),mouth:{x:.52,y:.49,w:.15,h:.05},mouthStyle:'jaw'}
   };
   const guideOf=g=>K.GUIDES[g]?g:'milo';
   // The guide who hosts: Luna when the child chose her voice, otherwise Milo
