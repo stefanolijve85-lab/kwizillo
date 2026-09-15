@@ -76,7 +76,7 @@
   const safari=/AppleWebKit/.test(navigator.userAgent)&&!/Chrome|CriOS|Chromium|Android|Edg/.test(navigator.userAgent);
   const canWebm=!!probe.canPlayType('video/webm; codecs="vp9"'),canHevc=!!probe.canPlayType('video/mp4; codecs="hvc1"');
   // Safari decodes HEVC alpha natively; everyone else gets the VP9 WebM.
-  const clipSrc=(key,guide='milo')=>{const i=clipInfo(key,guide);if(!i)return null;if(safari&&canHevc&&i.mp4)return i.mp4;if(canWebm&&i.webm)return i.webm;return i.mp4||i.webm||null};
+  const clipSrc=(key,guide='milo')=>{const i=clipInfo(key,guide);if(!i)return null;const p=(safari&&canHevc&&i.mp4)?i.mp4:(canWebm&&i.webm)?i.webm:(i.mp4||i.webm);return p?K.assetUrl(p):null};
   const clipPool=new Map();
   function clipVideo(src){
     let v=clipPool.get(src);
