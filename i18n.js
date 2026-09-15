@@ -121,7 +121,6 @@
 
     'world.kicker':'KWIZILLO WERELD',
     'world.backHome':'Terug naar home',
-    'world.topicMeta':'{count} vragen · groep {group}',
     'world.mix':'Start gemengde quiz',
     'world.mixSub':'Vragen uit alle vier onderwerpen',
     'world.quizNumber':'Quiz {n}',
@@ -200,7 +199,6 @@
     'result.retryNow':'Probeer opnieuw',
     'memo.title':'Memo',
     'memo.allWorlds':'Alle werelden',
-    'memo.allWorldsSub':'Plaatjes uit alle zes werelden',
     'memo.pickTitle':'Kies je wereld',
     'memo.pickSub':'Zoek de paren · Niveau {n}',
     'memo.otherWorld':'Andere wereld',
@@ -527,7 +525,6 @@
 
     'world.kicker':'KWIZILLO WORLD',
     'world.backHome':'Back to home',
-    'world.topicMeta':'{count} questions · year {group}',
     'world.mix':'Start mixed quiz',
     'world.mixSub':'Questions from all four topics',
     'world.quizNumber':'Quiz {n}',
@@ -606,7 +603,6 @@
     'result.retryNow':'Try again',
     'memo.title':'Memo',
     'memo.allWorlds':'All worlds',
-    'memo.allWorldsSub':'Pictures from all six worlds',
     'memo.pickTitle':'Pick your world',
     'memo.pickSub':'Find the pairs · Level {n}',
     'memo.otherWorld':'Another world',
@@ -933,7 +929,6 @@
 
     'world.kicker':'MUNDO KWIZILLO',
     'world.backHome':'Voltar ao início',
-    'world.topicMeta':'{count} perguntas · {group}º ano',
     'world.mix':'Começar quiz misto',
     'world.mixSub':'Perguntas dos quatro temas',
     'world.quizNumber':'Quiz {n}',
@@ -1012,7 +1007,6 @@
     'result.retryNow':'Tentar de novo',
     'memo.title':'Memo',
     'memo.allWorlds':'Todos os mundos',
-    'memo.allWorldsSub':'Imagens de todos os seis mundos',
     'memo.pickTitle':'Escolha seu mundo',
     'memo.pickSub':'Encontre os pares · Nível {n}',
     'memo.otherWorld':'Outro mundo',

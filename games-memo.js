@@ -50,7 +50,7 @@
           <button class="memo-mode-btn solo ${mode==='solo'?'active':''}" data-mode="solo" role="radio" aria-checked="${mode==='solo'}"><span class="memo-mode-faces"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></span><b>${esc(t('memo.solo'))}</b><small>${esc(t('memo.soloSub'))}</small>${mode==='solo'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
           <button class="memo-mode-btn duel ${mode==='duel'?'active':''}" data-mode="duel" role="radio" aria-checked="${mode==='duel'}"><span class="memo-mode-faces two"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""><em>VS</em><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt=""></span><b>${esc(t('memo.duel'))}</b><small>${esc(t('memo.duelSub'))}</small>${mode==='duel'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
         </div>
-        <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b><small>${esc(t('memo.allWorldsSub'))}</small></button>
+        <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b></button>
         <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span><b>${esc(t(`world.${w}.title`)).replace(/(\S)(wereld)$/i,'$1\u00ad$2')}</b></button>`).join('')}</div>
       </div>
     </section>`);

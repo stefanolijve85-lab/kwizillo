@@ -92,14 +92,13 @@
 
     const worldCards=WORLD_ORDER.map(w=>{
       const s=worldStat(w),pct=accuracy(s);
-      const pool=K.core.poolFor({questions:K.questions,world:w,grade:Number(K.state.group||5)}).length;
-      const meta=s.answered?`${s.correct}/${s.answered} · ${pct}%`:t('world.topicMeta',{count:pool,group:K.state.group});
-      return `<button class="home-world" data-world="${w}">
+      // Just the name, big and centred: a child reads it in one glance. The
+      // bar underneath shows how the world is going once it has been played.
+      return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))}${s.answered?` · ${s.correct}/${s.answered}`:''}">
         <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async">
         <span class="home-world-veil"></span>
         <span class="home-world-copy">
           <b>${esc(worldTitle(w))}</b>
-          <small>${esc(meta)}</small>
         </span>
         ${s.answered?`<span class="home-world-bar"><i style="width:${pct}%"></i></span>`:''}
       </button>`;
@@ -196,7 +195,7 @@
           <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" decoding="async">
           <span class="world-topic-veil"></span>
           <span class="world-topic-num">${tp.i+1}</span>
-          <span class="world-topic-copy"><b>${esc(tp.label)}</b><small>${esc(t('world.topicMeta',{count:tp.count,group:K.state.group}))}</small></span>
+          <span class="world-topic-copy"><b>${esc(tp.label)}</b></span>
           <i>›</i>
         </button>`).join('')}</div>
         <button class="world-mix" id="worldMix">
