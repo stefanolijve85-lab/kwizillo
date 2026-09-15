@@ -32,9 +32,10 @@
     return pool[Math.floor(Math.random()*pool.length)];
   };
   K.markFactSeen=fact=>{if(!fact)return;const seen=seenMap();if(!seen[fact.id]){seen[fact.id]=true;K.save()}};
-  const factSpeech=fact=>`${t('facts.kicker')} ${fact.t}`;
+  // "Wist je dat…" is said once, when the screen opens; every next fact is just the fact.
+  const factSpeech=(fact,kicker=false)=>kicker?`${t('facts.kicker')} ${fact.t}`:fact.t;
   // Spoken by whichever guide the child chose; silent for "Stil".
-  const readFact=fact=>{K.stopSpeech();return K.speak(factSpeech(fact)).catch(()=>{})};
+  const readFact=(fact,kicker=false)=>{K.stopSpeech();return K.speak(factSpeech(fact,kicker)).catch(()=>{})};
   // The next facts are chosen ahead of time and their voice lines warmed, so
   // "Volgend weetje" (and the first fact when the screen opens) starts talking
   // at once instead of after a round trip to the speech service. One queue per
@@ -49,7 +50,7 @@
       if(!f||q.some(x=>x.id===f.id))break;
       q.push(f);
     }
-    K.prefetchSpeech(q.map(factSpeech));
+    K.prefetchSpeech(q.map(f=>factSpeech(f)));
     return q;
   };
   const nextFact=(world,current)=>{const q=queueFor(world);let f=q.shift();while(f&&current&&f.id===current.id)f=q.shift();return f||K.pickFact(world,current?.id)};
@@ -70,7 +71,7 @@
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();K.lastView='facts';
     K.state.factsWorld=world;K.save();
-    let current=null;
+    let current=null,firstShown=true;
     const total=K.facts(world).length;
     const f=K.frame(`<section class="native-panel-screen facts-screen fade-in">
       <div class="native-panel-glow"></div>
@@ -98,7 +99,7 @@
       K.markFactSeen(next);
       const seen=K.factsSeenCount(world);
       sub.textContent=seen>=total&&fresh?t('facts.allSeen'):t('facts.sub',{seen,total});
-      readFact(next);
+      readFact(next,firstShown);firstShown=false;
       K.warmFacts(world,current);   // the two after this one start loading now
     };
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};

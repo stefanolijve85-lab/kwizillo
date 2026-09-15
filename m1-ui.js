@@ -149,7 +149,8 @@
     // moment a world opens; the hello of each guide too, ahead of the profile's voice pick.
     K.prefetchSpeech(WORLD_ORDER.map(w=>t('world.speech.enter',{title:worldTitle(w)})));
     // The first two Weetjes are picked and warmed here, so the screen talks the moment it opens.
-    K.warmFacts?.(K.state.factsWorld||'all');
+    const ahead=K.warmFacts?.(K.state.factsWorld||'all')||[];
+    if(ahead[0]) K.prefetchSpeech([`${t('facts.kicker')} ${ahead[0].t}`]);   // the first one opens with "Wist je dat…"
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };
