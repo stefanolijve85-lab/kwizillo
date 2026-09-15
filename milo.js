@@ -17,9 +17,9 @@
   // shown while the guide moves. Pointing left mirrors the pointing pose,
   // pointing down leans it over (CSS on data-pose).
   const u=p=>K.assetUrl?K.assetUrl(p):p;
-  // A mouth box may carry its own `style`: Milo's talk render has an open
-  // mouth, so there a dark cover with a drawn smile closes it (`cover`);
-  // elsewhere his screen-mouth glows open (`glow`); Luna's opens (`jaw`).
+  // A mouth box may carry its own `style`. Milo's renders have no mouth at
+  // all: a `robot` mouth is drawn on his screen (a smile that fills into an
+  // "O" with the voice, the same as in his clips); Luna's opens (`jaw`).
   const poses=(dir,m)=>({
     wave:{src:u(`${dir}/wave.png`),mouth:m.wave},talk:{src:u(`${dir}/talk.png`),mouth:m.talk},
     think:{src:u(`${dir}/think.png`),mouth:m.think},cheer:{src:u(`${dir}/cheer.png`),mouth:m.cheer},
@@ -27,7 +27,7 @@
     walkA:{src:u(`${dir}/walk-a.png`)},walkB:{src:u(`${dir}/walk-b.png`)},jumpA:{src:u(`${dir}/jump-a.png`)},jumpB:{src:u(`${dir}/jump-b.png`)}
   });
   K.GUIDE_POSES={
-    milo:poses('assets/mascots/milo',{wave:{x:.6,y:.36,w:.1,h:.05},talk:{x:.527,y:.404,w:.125,h:.08,style:'cover'},think:{x:.53,y:.36,w:.1,h:.05},cheer:{x:.56,y:.36,w:.12,h:.06},point:{x:.57,y:.37,w:.1,h:.05}}),
+    milo:poses('assets/mascots/milo',{wave:{x:.555,y:.36,w:.094,h:.025},talk:{x:.558,y:.365,w:.095,h:.025},think:{x:.57,y:.355,w:.09,h:.025},cheer:{x:.513,y:.353,w:.084,h:.024},point:{x:.46,y:.365,w:.088,h:.025}}),
     luna:poses('assets/mascots/luna',{wave:{x:.6,y:.215,w:.07,h:.03},talk:{x:.5,y:.215,w:.07,h:.03},think:{x:.62,y:.215,w:.06,h:.03},cheer:{x:.5,y:.215,w:.08,h:.035},point:{x:.48,y:.215,w:.07,h:.03}})
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
@@ -35,7 +35,7 @@
   // height), for the audio-driven mouth used when a line has no clip.
   K.GUIDES={
     // Milo's mouth is a light on his screen (it glows open, no chin); Luna's is a real one (chin drops).
-    milo:{voice:'Milo',name:'Milo',base:u('assets/mascots/milo/talk-base.png'),mouth:{x:.55,y:.585,w:.13,h:.06},mouthStyle:'glow'},
+    milo:{voice:'Milo',name:'Milo',base:u('assets/mascots/milo/talk-base.png'),mouth:{x:.55,y:.585,w:.13,h:.06},mouthStyle:'robot'},
     luna:{voice:'Luna',name:'Luna',base:u('assets/mascots/luna/talk-base.png'),mouth:{x:.52,y:.49,w:.15,h:.05},mouthStyle:'jaw'}
   };
   const guideOf=g=>K.GUIDES[g]?g:'milo';

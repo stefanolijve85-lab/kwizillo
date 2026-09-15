@@ -77,10 +77,10 @@ function envelope(wav) {
           // left and right kept apart), and around it the halo is faded back
           // to the original over a wide soft band — no edge, no lighter patch.
           // Bright pixels (eye rings, the glass reflection) are left alone.
-          const ex = cx, ey = cy + sh * .04, rx = sw * .25, ry = sh * .17, feather = 2.4;
+          const ex = cx, ey = cy + sh * .04, rx = sw * .23, ry = sh * .17, feather = 2.2;
           const rows = new Map();
           const side = (y, xa, xb) => { const c = []; for (let x = Math.round(xa); x <= Math.round(xb); x++) { if (x < 0 || x >= W) continue; const k = 4 * (y * W + x); if (d[k + 3] < 200) continue; const p = [d[k], d[k + 1], d[k + 2]]; c.push([p[0] * .3 + p[1] * .59 + p[2] * .11, p]); } if (c.length < 4) return null; c.sort((a, b) => a[0] - b[0]); const h = c.slice(0, Math.max(1, c.length >> 2)); return [0, 1, 2].map(i => h.reduce((t, e) => t + e[1][i], 0) / h.length); };
-          const yA = Math.max(0, Math.round(ey - ry * feather)), yB = Math.min(best.y1 - 2, Math.round(ey + ry * feather));
+          const yA = Math.max(0, Math.round(ey - ry * feather)), yB = Math.min(best.y1, Math.round(ey + ry * feather));
           for (let y = yA; y <= yB; y++) rows.set(y, { l: side(y, best.x0 + sw * .08, ex - 1), r: side(y, ex + 1, best.x1 - sw * .08) });
           let pl = null, pr = null; for (let y = yA; y <= yB; y++) { const o = rows.get(y); o.l = o.l || pl || o.r || [8, 20, 50]; o.r = o.r || pr || o.l; pl = o.l; pr = o.r; }
           const sm = (y, k) => { let o = [0, 0, 0], n2 = 0; for (let j = Math.max(yA, y - 2); j <= Math.min(yB, y + 2); j++) { const v = rows.get(j)[k]; o[0] += v[0]; o[1] += v[1]; o[2] += v[2]; n2++; } return o.map(v => v / n2); };
@@ -89,9 +89,14 @@ function envelope(wav) {
           // the whole screen box is made opaque again (their colour is intact)
           for (let y = best.y0; y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) d[4 * (y * W + x) + 3] = 255;
           const src = new Uint8ClampedArray(d);
-          // bright pixels (eye rings, reflections) and a 3 px rim around them are never touched
-          const bright = new Uint8Array(W * H);
-          for (let y = yA; y <= yB; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11 > 95) for (let j = -3; j <= 3; j++) for (let i = -3; i <= 3; i++) { const yy = y + j, xx = x + i; if (yy >= 0 && yy < H && xx >= 0 && xx < W) bright[yy * W + xx] = 1; } }
+          // distance (px) to the nearest bright pixel (eye rings, reflections):
+          // the fade around the mouth eases off to nothing near the eyes, so
+          // their glow is never clipped (two-pass chamfer distance)
+          const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
+          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11 > 95) dist[y * W + x] = 0; }
+          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const i = y * W + x; let v = dist[i]; if (x) v = Math.min(v, dist[i - 1] + 1); if (y) { v = Math.min(v, dist[i - W] + 1); if (x) v = Math.min(v, dist[i - W - 1] + 1.4); if (x < W - 1) v = Math.min(v, dist[i - W + 1] + 1.4); } dist[i] = v; }
+          for (let y = H - 1; y >= 0; y--) for (let x = W - 1; x >= 0; x--) { const i = y * W + x; let v = dist[i]; if (x < W - 1) v = Math.min(v, dist[i + 1] + 1); if (y < H - 1) { v = Math.min(v, dist[i + W] + 1); if (x < W - 1) v = Math.min(v, dist[i + W + 1] + 1.4); if (x) v = Math.min(v, dist[i + W - 1] + 1.4); } dist[i] = v; }
+          const ringGap = sw * .06;
           for (let y = yA; y <= yB; y++) {
             const l = sm(y, 'l'), r = sm(y, 'r'), xA = Math.max(0, Math.round(ex - rx * feather)), xB = Math.min(W - 1, Math.round(ex + rx * feather));
             for (let x = xA; x <= xB; x++) {
@@ -103,10 +108,44 @@ function envelope(wav) {
               const lum = src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11;
               let w = e <= 1 ? 1 : 1 - (e - 1) / (feather - 1); w = w * w * (3 - 2 * w);
               if (keyed) w = e <= 1.3 ? 1 : Math.max(w, .6);
-              else if (e > 1) { if (bright[y * W + x]) continue; const m = 1 - Math.max(0, Math.min(1, (lum - 50) / 45)); if (!m) continue; w *= m * m * (3 - 2 * m); }
+              else if (e > 1) { const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue; const m = 1 - Math.max(0, Math.min(1, (lum - 50) / 45)); if (!m) continue; w *= m * m * (3 - 2 * m) * g2 * g2 * (3 - 2 * g2); }
               const f = (x - ex) / (2 * rx * feather) + .5, fill = [0, 1, 2].map(i => l[i] + (r[i] - l[i]) * f);
               for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (fill[i] - src[k + i]) * w;
               if (debug === 3 && e <= 1) { d[k] = 255; d[k + 1] = 0; d[k + 2] = 255; }
+              d[k + 3] = 255;
+            }
+          }
+          // a mouthless base still gets a row of white "teeth" from the model,
+          // pressed against the screen's bottom edge: white, unsaturated pixels
+          // in the mouth column of the screen's lowest 10 % become screen again,
+          // but only above the screen's real edge there (taken from the columns
+          // either side of the teeth, where the edge is untouched)
+          const edgeAt = xc => { let sum = 0, n2 = 0; for (let x = Math.round(xc) - 1; x <= Math.round(xc) + 1; x++) { let low = -1; for (let y = Math.round(best.y1 - sh * .2); y <= Math.min(H - 1, best.y1 + 2); y++) { const k = 4 * (y * W + x); if (src[k + 3] > 200 && src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11 < 70) low = y; } if (low >= 0) { sum += low; n2++; } } return n2 ? sum / n2 : best.y1; };
+          const eL = edgeAt(ex - sw * .25), eR = edgeAt(ex + sw * .25);
+          for (let y = Math.max(yA, Math.round(best.y1 - sh * .1)); y <= best.y1; y++) {
+            const l = sm(y, 'l'), r = sm(y, 'r');
+            for (let x = Math.round(ex - sw * .22); x <= Math.round(ex + sw * .22); x++) {
+              const k = 4 * (y * W + x), R = src[k], G = src[k + 1], B = src[k + 2];
+              if (R * .3 + G * .59 + B * .11 < 100 || Math.max(R, G, B) - Math.min(R, G, B) > 60) continue;
+              const edge = eL + (eR - eL) * ((x - (ex - sw * .25)) / (sw * .5)); const wv = Math.max(0, Math.min(1, (edge + 2.5 - y) / 2));
+              if (!wv) continue;
+              const f = (x - ex) / (2 * rx * feather) + .5;
+              for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (l[i] + (r[i] - l[i]) * f - src[k + i]) * wv;
+              d[k + 3] = 255;
+            }
+          }
+          // …and the model's "lip" shadow just under the edge, on the white rim:
+          // dark pixels in the mouth column right below the edge take the rim's
+          // own colour from the same row either side of the column
+          for (let y = Math.round(Math.min(eL, eR)) + 1; y <= Math.round(Math.max(eL, eR) + sh * .07) && y < H; y++) {
+            const xl = Math.round(ex - sw * .3), xr = Math.round(ex + sw * .3), kl = 4 * (y * W + xl), kr = 4 * (y * W + xr);
+            if (src[kl + 3] < 200 || src[kr + 3] < 200) continue;
+            for (let x = Math.round(ex - sw * .22); x <= Math.round(ex + sw * .22); x++) {
+              const k = 4 * (y * W + x);
+              const edge = eL + (eR - eL) * ((x - (ex - sw * .25)) / (sw * .5)); if (y <= edge + 1) continue;
+              const lum = src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11; if (lum > 150) continue;
+              const wv = Math.min(1, (150 - lum) / 60), f = (x - xl) / (xr - xl);
+              for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (src[kl + i] + (src[kr + i] - src[kl + i]) * f - src[k + i]) * wv;
               d[k + 3] = 255;
             }
           }
