@@ -174,5 +174,7 @@ test('on a small phone the "all worlds" tile keeps its full height; the world gr
   await expect(page.locator('.memo-pick.mix')).toBeVisible();
   const [mixBottom, gridTop, mixHeight] = await page.evaluate(() => { const a = document.querySelector('.memo-pick.mix').getBoundingClientRect(), g = document.querySelector('.memo-pick-grid').getBoundingClientRect(); return [a.bottom, g.top, a.height]; });
   expect(gridTop).toBeGreaterThanOrEqual(mixBottom);
-  expect(mixHeight).toBeGreaterThan(140);
+  expect(mixHeight).toBeGreaterThan(100);   // flatter on a small phone, so all six world tiles stay in view…
+  const lastTile = await page.locator('.memo-pick-grid .memo-pick').last().boundingBox();
+  expect(lastTile.y + lastTile.height).toBeLessThanOrEqual(667);   // …fully
 });
