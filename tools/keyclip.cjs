@@ -40,7 +40,7 @@ function envelope(wav) {
   const frames = fs.readdirSync(fr).filter(f => f.endsWith('.png')).sort().map(f => path.join(fr, f));
   const env = envelope(path.join(tmp, 'audio.wav'));
 
-  const b = await chromium.launch(); const p = await b.newPage();
+  const b = await chromium.launch(); const p = await b.newPage(); if (process.env.KEYCLIP_DEBUG) p.on('console', m => console.error('[page]', m.text()));
   // 2. the character's box (union over every 12th frame)
   const box = await p.evaluate(async files => {
     let x0 = 1e9, y0 = 1e9, x1 = 0, y1 = 0, W = 0, H = 0;
@@ -67,88 +67,53 @@ function envelope(wav) {
           while (q.length) { const j = q.pop(); cnt++; const x = j % W, y = (j / W) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; for (const k of [j - 1, j + 1, j - W, j + W]) { if (k < 0 || k >= limit || lab[k] || !ok(k)) continue; if ((k === j - 1 && x === 0) || (k === j + 1 && x === W - 1)) continue; lab[k] = n; q.push(k); } }
           if (!best || cnt > best.cnt) best = { x0, y0, x1, y1, cnt }; }
         if (best) {
+          // The screen's bottom is read off its side columns: a dark mouth the model
+          // paints on the rim under the screen joins the blob in the middle and
+          // would pull the bottom edge down.
+          { const w0 = best.x1 - best.x0; let lows = []; for (const xs of [[best.x0 + w0 * .12, best.x0 + w0 * .22], [best.x1 - w0 * .22, best.x1 - w0 * .12]]) for (let x = Math.round(xs[0]); x <= Math.round(xs[1]); x += 2) { let low = -1; for (let y = best.y0; y <= best.y1; y++) if (ok(y * W + x)) low = y; if (low >= 0) lows.push(low); }
+            if (lows.length) { lows.sort((a, b) => a - b); best.y1 = Math.min(best.y1, lows[lows.length >> 1] + 1); } }
           const sw = best.x1 - best.x0, sh = best.y1 - best.y0, cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
-          // screen colour from a quiet corner of the screen; glow colour of the eyes
-          const px = (x, y) => { const k = 4 * (Math.round(y) * W + Math.round(x)); return [d[k], d[k + 1], d[k + 2]]; };
-          // paint the model's mouth away. The screen itself is nearly flat dark
-          // (lum 12–17) while the model mouth's halo lights the whole lower
-          // screen (30–60), so an ellipse over the mouth is replaced by the
-          // screen's own dark colour on that row (darkest quarter of the row,
-          // left and right kept apart), and around it the halo is faded back
-          // to the original over a wide soft band — no edge, no lighter patch.
-          // Bright pixels (eye rings, the glass reflection) are left alone.
-          const ex = cx, ey = cy + sh * .04, rx = sw * .23, ry = sh * .17, feather = 2.2;
-          const rows = new Map();
-          const side = (y, xa, xb) => { const c = []; for (let x = Math.round(xa); x <= Math.round(xb); x++) { if (x < 0 || x >= W) continue; const k = 4 * (y * W + x); if (d[k + 3] < 200) continue; const p = [d[k], d[k + 1], d[k + 2]]; c.push([p[0] * .3 + p[1] * .59 + p[2] * .11, p]); } if (c.length < 4) return null; c.sort((a, b) => a[0] - b[0]); const h = c.slice(0, Math.max(1, c.length >> 2)); return [0, 1, 2].map(i => h.reduce((t, e) => t + e[1][i], 0) / h.length); };
-          const yA = Math.max(0, Math.round(ey - ry * feather)), yB = Math.min(best.y1, Math.round(ey + ry * feather));
-          for (let y = yA; y <= yB; y++) rows.set(y, { l: side(y, best.x0 + sw * .08, ex - 1), r: side(y, ex + 1, best.x1 - sw * .08) });
-          let pl = null, pr = null; for (let y = yA; y <= yB; y++) { const o = rows.get(y); o.l = o.l || pl || o.r || [8, 20, 50]; o.r = o.r || pr || o.l; pl = o.l; pr = o.r; }
-          const sm = (y, k) => { let o = [0, 0, 0], n2 = 0; for (let j = Math.max(yA, y - 2); j <= Math.min(yB, y + 2); j++) { const v = rows.get(j)[k]; o[0] += v[0]; o[1] += v[1]; o[2] += v[2]; n2++; } return o.map(v => v / n2); };
-          // the chroma key bites into every cyan glow on the screen (eye rings, the
-          // model mouth) leaving half-transparent pixels on what is solid glass:
-          // the whole screen box is made opaque again (their colour is intact)
-          for (let y = best.y0; y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) d[4 * (y * W + x) + 3] = 255;
+          // Frame 1 of every clip is the mouthless base itself (omnihuman starts
+          // from the still), so it is the reference for "what the screen and the
+          // rim look like without a mouth". Everything the model paints — a glowing
+          // mouth on the screen, teeth on the rim, a lip line, a whole open mouth
+          // under the screen — is replaced by the reference's own pixels, mapped
+          // through the screen box (the head only shifts and scales a little).
+          for (let y = best.y0; y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) d[4 * (y * W + x) + 3] = 255;   // the key bites into cyan glows on solid glass
           const src = new Uint8ClampedArray(d);
-          // distance (px) to the nearest bright pixel (eye rings, reflections):
-          // the fade around the mouth eases off to nothing near the eyes, so
-          // their glow is never clipped (two-pass chamfer distance)
+          if (!window.__ref) window.__ref = { d: src, box: { ...best }, sw, sh };
+          const ref = window.__ref, rsx = ref.sw / sw, rsy = ref.sh / sh;
+          const refAt = (x, y) => { const xx = Math.round(ref.box.x0 + (x - best.x0) * rsx); const yy = Math.round(y <= best.y1 ? ref.box.y0 + (y - best.y0) * rsy : ref.box.y1 + (y - best.y1) * rsy); if (xx < 0 || xx >= W || yy < 0 || yy >= H) return null; return 4 * (yy * W + xx); };
+          const lumOf = k => src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11, satOf = k => Math.max(src[k], src[k + 1], src[k + 2]) - Math.min(src[k], src[k + 1], src[k + 2]);
+          const rlum = k => ref.d[k] * .3 + ref.d[k + 1] * .59 + ref.d[k + 2] * .11, rsat = k => Math.max(ref.d[k], ref.d[k + 1], ref.d[k + 2]) - Math.min(ref.d[k], ref.d[k + 1], ref.d[k + 2]);
+          const toRef = (k, kr, w) => { for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.d[kr + i] - src[k + i]) * w; if (w > .5) d[k + 3] = 255; };
+          // distance (px) to the nearest bright pixel (eye rings), so the eyes' glow is never touched
           const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
-          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11 > 95) dist[y * W + x] = 0; }
+          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && lumOf(k) > 95 && y < best.y0 + sh * .7) dist[y * W + x] = 0; }
           for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const i = y * W + x; let v = dist[i]; if (x) v = Math.min(v, dist[i - 1] + 1); if (y) { v = Math.min(v, dist[i - W] + 1); if (x) v = Math.min(v, dist[i - W - 1] + 1.4); if (x < W - 1) v = Math.min(v, dist[i - W + 1] + 1.4); } dist[i] = v; }
           for (let y = H - 1; y >= 0; y--) for (let x = W - 1; x >= 0; x--) { const i = y * W + x; let v = dist[i]; if (x < W - 1) v = Math.min(v, dist[i + 1] + 1); if (y < H - 1) { v = Math.min(v, dist[i + W] + 1); if (x < W - 1) v = Math.min(v, dist[i + W + 1] + 1.4); if (x) v = Math.min(v, dist[i + W - 1] + 1.4); } dist[i] = v; }
           const ringGap = sw * .06;
-          for (let y = yA; y <= yB; y++) {
-            const l = sm(y, 'l'), r = sm(y, 'r'), xA = Math.max(0, Math.round(ex - rx * feather)), xB = Math.min(W - 1, Math.round(ex + rx * feather));
-            for (let x = xA; x <= xB; x++) {
-              const e = Math.sqrt(((x - ex) / rx) ** 2 + ((y - ey) / ry) ** 2); if (e >= feather) continue;
-              const k = 4 * (y * W + x);
-              // the chroma key bites into the model mouth's cyan glow (alpha < 255
-              // on an opaque screen): those pixels are garbage and get the fill
-              const keyed = src[k + 3] < 250;
-              const lum = src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11;
-              let w = e <= 1 ? 1 : 1 - (e - 1) / (feather - 1); w = w * w * (3 - 2 * w);
-              if (keyed) w = e <= 1.3 ? 1 : Math.max(w, .6);
-              else if (e > 1) { const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue; const m = 1 - Math.max(0, Math.min(1, (lum - 50) / 45)); if (!m) continue; w *= m * m * (3 - 2 * m) * g2 * g2 * (3 - 2 * g2); }
-              const f = (x - ex) / (2 * rx * feather) + .5, fill = [0, 1, 2].map(i => l[i] + (r[i] - l[i]) * f);
-              for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (fill[i] - src[k + i]) * w;
-              if (debug === 3 && e <= 1) { d[k] = 255; d[k + 1] = 0; d[k + 2] = 255; }
-              d[k + 3] = 255;
-            }
+          // 1. the screen below the eyes: wherever the frame is lit up compared to the
+          //    reference (a glowing model mouth and its halo), go back to the reference
+          const ex = cx, ey = cy + sh * .07, rx = sw * .24, ry = sh * .19;
+          for (let y = Math.round(best.y0 + sh * .45); y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) {
+            const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
+            const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
+            const inside = ((x - ex) / rx) ** 2 + ((y - ey) / ry) ** 2 <= 1;
+            const dl = lumOf(k) - rlum(kr);
+            let w = inside ? 1 : Math.max(0, Math.min(1, (dl - 2) / 10));   // outside the mouth ellipse only what is brighter than the reference (the halo)
+            w *= g2 * g2 * (3 - 2 * g2);
+            if (w > 0) toRef(k, kr, w);
           }
-          // a mouthless base still gets a row of white "teeth" from the model,
-          // pressed against the screen's bottom edge: white, unsaturated pixels
-          // in the mouth column of the screen's lowest 10 % become screen again,
-          // but only above the screen's real edge there (taken from the columns
-          // either side of the teeth, where the edge is untouched)
-          const edgeAt = xc => { let sum = 0, n2 = 0; for (let x = Math.round(xc) - 1; x <= Math.round(xc) + 1; x++) { let low = -1; for (let y = Math.round(best.y1 - sh * .2); y <= Math.min(H - 1, best.y1 + 2); y++) { const k = 4 * (y * W + x); if (src[k + 3] > 200 && src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11 < 70) low = y; } if (low >= 0) { sum += low; n2++; } } return n2 ? sum / n2 : best.y1; };
-          const eL = edgeAt(ex - sw * .25), eR = edgeAt(ex + sw * .25);
-          for (let y = Math.max(yA, Math.round(best.y1 - sh * .1)); y <= best.y1; y++) {
-            const l = sm(y, 'l'), r = sm(y, 'r');
-            for (let x = Math.round(ex - sw * .22); x <= Math.round(ex + sw * .22); x++) {
-              const k = 4 * (y * W + x), R = src[k], G = src[k + 1], B = src[k + 2];
-              if (R * .3 + G * .59 + B * .11 < 100 || Math.max(R, G, B) - Math.min(R, G, B) > 60) continue;
-              const edge = eL + (eR - eL) * ((x - (ex - sw * .25)) / (sw * .5)); const wv = Math.max(0, Math.min(1, (edge + 2.5 - y) / 2));
-              if (!wv) continue;
-              const f = (x - ex) / (2 * rx * feather) + .5;
-              for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (l[i] + (r[i] - l[i]) * f - src[k + i]) * wv;
-              d[k + 3] = 255;
-            }
+          // 2. the rim under the screen: whatever differs from the reference there
+          //    (teeth, a lip line, an orange open mouth) is the reference again
+          for (let y = best.y1 + 1; y <= Math.min(H - 1, Math.round(best.y1 + sh * .4)); y++) for (let x = Math.round(ex - sw * .45); x <= Math.round(ex + sw * .45); x++) {
+            const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
+            const off = src[k + 3] < 250 ? 1 : Math.max((Math.abs(lumOf(k) - rlum(kr)) - 22) / 30, (Math.abs(satOf(k) - rsat(kr)) - 22) / 25);
+            const hx = Math.min(1, (sw * .45 - Math.abs(x - ex)) / (sw * .08)), vy = Math.min(1, (best.y1 + sh * .4 - y) / (sh * .08));
+            const w = Math.max(0, Math.min(1, Math.min(off, hx, vy))); if (w > 0) toRef(k, kr, w);
           }
-          // …and the model's "lip" shadow just under the edge, on the white rim:
-          // dark pixels in the mouth column right below the edge take the rim's
-          // own colour from the same row either side of the column
-          for (let y = Math.round(Math.min(eL, eR)) + 1; y <= Math.round(Math.max(eL, eR) + sh * .07) && y < H; y++) {
-            const xl = Math.round(ex - sw * .3), xr = Math.round(ex + sw * .3), kl = 4 * (y * W + xl), kr = 4 * (y * W + xr);
-            if (src[kl + 3] < 200 || src[kr + 3] < 200) continue;
-            for (let x = Math.round(ex - sw * .22); x <= Math.round(ex + sw * .22); x++) {
-              const k = 4 * (y * W + x);
-              const edge = eL + (eR - eL) * ((x - (ex - sw * .25)) / (sw * .5)); if (y <= edge + 1) continue;
-              const lum = src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11; if (lum > 150) continue;
-              const wv = Math.min(1, (150 - lum) / 60), f = (x - xl) / (xr - xl);
-              for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (src[kl + i] + (src[kr + i] - src[kl + i]) * f - src[k + i]) * wv;
-              d[k + 3] = 255;
-            }
-          }
+          if (debug) console.log('screen', best.x0, best.y0, sw, sh, 'ref', ref.box.x0, ref.box.y0, ref.sw, ref.sh);
           g.putImageData(new ImageData(d, W, H), 0, 0);
           // the robot mouth: an arc when quiet that fills into an "O" when loud
           if (debug === 2) open = -1;
@@ -158,7 +123,7 @@ function envelope(wav) {
           if (open < 0) {} else if (o < .18) { g.beginPath(); g.arc(cx, cy - r * .35, r, Math.PI * .12, Math.PI * .88); g.stroke(); }
           else { const hh = r * (.35 + o * .75); g.beginPath(); g.ellipse(cx, cy, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(79,208,255,.92)'; g.fill(); g.stroke(); }
           g.restore();
-          if (debug) { g.save(); g.lineWidth = 1; g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'yellow'; g.beginPath(); g.ellipse(ex, ey, rx * feather, ry * feather, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
+          if (debug) { g.save(); g.lineWidth = 1; g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
         }
       }
       const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, 0, 0, outW, outH);

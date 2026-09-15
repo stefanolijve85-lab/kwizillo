@@ -44,7 +44,10 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   await expect(page.locator('[data-group="3"]')).toHaveClass(/selected/);   // six years old → groep 3
   await page.locator('#obNext').click();
   await page.locator('#obNext').click();
-  await expect(page.locator('.milo-host')).toHaveAttribute('data-pose', 'cheer');
+  // The welcome line has a clip (rendered from the talk pose), so the host takes
+  // that pose and the clip plays in the figure's place.
+  await expect(page.locator('.milo-host')).toHaveAttribute('data-pose', 'talk');
+  await expect(page.locator('.milo-host')).toHaveClass(/clip-playing/);
   await expect(page.locator('.milo-bubble h1')).toHaveText('Welkom, Sam!');
   // Every request so far asked for Milo's voice, and none carried the child's name.
   expect(spoken.length).toBeGreaterThan(0);
@@ -67,8 +70,9 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   const bubble = tour.locator('.milo-bubble');
   await expect(bubble).toContainText('zes werelden', { timeout: 5000 });
   await expect(tour.locator('.milo-host')).not.toHaveClass(/walking/);
-  await expect(tour.locator('.milo-mouth')).toBeAttached();
-  expect(await tour.locator('.milo-mouth').getAttribute('hidden')).toBeNull();
+  // The worlds line has a clip: the figure hands over to the transparent video.
+  await expect(tour.locator('.milo-host')).toHaveClass(/clip-playing/);
+  await expect(tour.locator('.milo-host video.milo-clip')).toHaveCount(1);
   const spot = tour.locator('.milo-tour-spot');
   const worlds = await page.locator('.home-worlds').boundingBox();
   const s1 = await spot.boundingBox();
@@ -91,7 +95,8 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await expect(bubble).toContainText('verzameling', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('Veel plezier', { timeout: 5000 });
-  await expect(page.locator('.milo-host')).toHaveAttribute('data-pose', 'cheer');
+  // the closing line has a clip too (rendered from the talk pose)
+  await expect(page.locator('.milo-host')).toHaveAttribute('data-pose', 'talk');
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(tour).toHaveCount(0, { timeout: 5000 });
   await expect(page.locator('.home')).not.toHaveClass(/touring/);

@@ -88,11 +88,13 @@ keyclip (same shape from the audio envelope). So still, live speech and video ma
    and a lip shadow under it; keyclip removes both.
 2. `node tools/guide-talks.js encode <green.mp4> milo nl <key>` → `tools/keyclip.cjs
    --screen-mouth`: ffmpeg `chromakey` (no despill), alpha box crop, then per frame:
-   the whole face screen is made opaque again (the key bites into cyan glows), the
-   model's mouth zone is filled with the screen's own dark colour (darkest quarter
-   of the row, soft fade around it that eases off near the eye rings via a distance
-   map), teeth/lip on the rim are replaced by rim colour, and the robot mouth is
-   drawn (arc when quiet, "O" when loud). Output: `<key>.webm` (VP9 + alpha) and
+   the whole face screen is made opaque again (the key bites into cyan glows), and
+   **frame 1 is the reference** (omnihuman starts from the still, so frame 1 is the
+   mouthless base): every pixel the model painted — a glowing mouth on the screen and
+   its halo, teeth / a lip line / a whole open mouth on the rim under the screen —
+   is replaced by the reference's pixel mapped through the screen box (eye rings
+   protected via a distance map). Then the robot mouth is drawn (arc when quiet,
+   "O" when loud). Output: `<key>.webm` (VP9 + alpha) and
    `<key>.mp4` (ProRes 4444 → `avconvert` HEVC + alpha — ffmpeg's VideoToolbox alpha
    is not honoured by Safari). `KEYCLIP_KEEP=1` keeps the frames, `KEYCLIP_DEBUG=1`
    draws the erase ellipses. Sources are kept in `incoming/clips/` (git-ignored).
