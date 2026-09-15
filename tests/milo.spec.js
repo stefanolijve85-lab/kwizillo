@@ -160,6 +160,6 @@ test('a lip-synced clip replaces the still and the live voice; without a clip th
   await page.getByRole('button', { name: /Nederlands/ }).click();
   // …spoken from the portrait in the same window, so nothing jumps.
   await expect(page.locator('.onboarding .milo-host video')).toHaveCount(0);
-  await expect(page.locator('.onboarding .milo-still')).toHaveAttribute('src', /milo\/talk-base\.png/);
+  await expect(page.locator('.onboarding .milo-still .milo-still-face')).toHaveAttribute('src', /milo\/talk-base\.png/);
   await expect.poll(() => tts.length).toBeGreaterThan(0);
 });

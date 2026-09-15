@@ -21,7 +21,12 @@
     luna:poses('assets/mascots/luna',{cheer:'assets/mascots/luna/wave.png'})
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
-  K.GUIDES={milo:{voice:'Milo',name:'Milo',base:'assets/mascots/milo/talk-base.png'},luna:{voice:'Luna',name:'Luna',base:'assets/mascots/luna/talk-base.png'}};
+  // `mouth` is where the mouth sits on the portrait (fractions of its width and
+  // height), for the audio-driven mouth used when a line has no clip.
+  K.GUIDES={
+    milo:{voice:'Milo',name:'Milo',base:'assets/mascots/milo/talk-base.png',mouth:{x:.5,y:.41,w:.2,h:.07}},
+    luna:{voice:'Luna',name:'Luna',base:'assets/mascots/luna/talk-base.png',mouth:{x:.5,y:.62,w:.22,h:.07}}
+  };
   const guideOf=g=>K.GUIDES[g]?g:'milo';
   // The guide who hosts: Luna when the child chose her voice, otherwise Milo
   // (a child who chose silence still sees Milo, just without sound).
@@ -79,8 +84,32 @@
     // A line without a clip is spoken from the guide's portrait in the same
     // rounded window (Luna's clips are still to be rendered), so the guide
     // never drops back to a cut-out figure mid-conversation.
-    let still=null;
-    const showStill=()=>{const base=K.GUIDES[guide].base;if(!base)return false;if(!still){still=document.createElement('img');still.className='milo-video milo-still';still.src=base;still.alt='';still.draggable=false}showVideo(still);return true};
+    // The portrait carries a mouth that opens with the loudness of the voice:
+    // a dark opening under the lips and the chin dropping over it, both driven
+    // by K.voiceLevel() on every frame while the line plays.
+    let still=null,mouthRaf=0;
+    const showStill=()=>{
+      const g=K.GUIDES[guide];if(!g.base)return false;
+      if(!still){
+        still=document.createElement('div');still.className='milo-video milo-still';
+        const m=g.mouth||{x:.5,y:.5,w:.2,h:.07};
+        for(const [k,v] of Object.entries(m)) still.style.setProperty(`--m${k}`,String(v));
+        still.innerHTML=`<img class="milo-still-face" src="${g.base}" alt="" draggable="false"><span class="milo-mouth-hole"></span><span class="milo-still-chin"><img src="${g.base}" alt="" draggable="false"></span>`;
+      }
+      showVideo(still);return true;
+    };
+    const mouthLoop=()=>{
+      let open=0;
+      const tick=()=>{
+        if(!still||!still.isConnected||!el.classList.contains('talking')){still?.style.setProperty('--open','0');mouthRaf=0;return}
+        const level=(K.voiceLevel?.()||0)*.85;
+        // Quick to open, a little slower to close, so consonants still flash.
+        open=level>open?open*.35+level*.65:open*.7+level*.3;
+        still.style.setProperty('--open',open.toFixed(3));
+        mouthRaf=requestAnimationFrame(tick);
+      };
+      if(!mouthRaf)mouthRaf=requestAnimationFrame(tick);
+    };
     // Plays a lip-synced clip; resolves true when it played to the end, false
     // when it could not start (then the caller falls back to pose + voice).
     async function playClip(src){
@@ -121,13 +150,13 @@
         showStill();
         clearTimeout(talkTimer);el.classList.add('talking');
         talkTimer=setTimeout(()=>el.classList.remove('talking'),1800);
-        await K.guideSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking')},onDone:()=>el.classList.remove('talking')},guide).catch(()=>{});
+        await K.guideSay(text,{onStart:()=>{clearTimeout(talkTimer);el.classList.add('talking');mouthLoop()},onDone:()=>el.classList.remove('talking')},guide).catch(()=>{});
         el.classList.remove('talking');
         const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));
       },
       moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
       stop(){if(video){video.pause?.()}K.stopSpeech();el.classList.remove('talking')},
-      remove(){clearTimeout(talkTimer);hideVideo();el.remove()}
+      remove(){clearTimeout(talkTimer);cancelAnimationFrame(mouthRaf);mouthRaf=0;hideVideo();el.remove()}
     };
     api.pose(pose);
     return api;

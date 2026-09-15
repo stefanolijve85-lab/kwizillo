@@ -95,10 +95,25 @@
     pumpWarm();
   };
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
-  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(c.state==='suspended')await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;pre.gain.value=measureVoiceGain(buffer);compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source)voiceSource=null;resolve(gate.isCurrent(token))};try{source.start();onStart?.(buffer.duration)}catch(e){resolve(false)}})}
+  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(c.state==='suspended')await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,ctx:c,startedAt:0};pre.gain.value=measureVoiceGain(buffer);compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=c.currentTime;onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
     return new Promise(resolve=>{const url=URL.createObjectURL(blob),a=new Audio(url);voiceUrl=url;a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));a.onended=()=>{URL.revokeObjectURL(url);if(voiceUrl===url)voiceUrl=null;resolve(gate.isCurrent(token))};a.onerror=()=>{URL.revokeObjectURL(url);resolve(false)};a.onplaying=()=>onStart?.(a.duration||0);a.play().catch(()=>resolve(false))})
   }
-  K.stopSpeech=()=>{gate.cancel();K.audio.duck(false);try{abort?.abort()}catch(e){}abort=null;try{if(voiceSource){voiceSource.onended=null;voiceSource.stop();voiceSource.disconnect();voiceSource=null}}catch(e){}if(voiceUrl){try{URL.revokeObjectURL(voiceUrl)}catch(e){}voiceUrl=null}try{speechSynthesis?.cancel()}catch(e){}try{K.clearSpeechHighlight?.()}catch(e){}};
+  // Mouth level of the line playing right now (0..1), for a guide portrait
+  // that talks along with the voice: the loudness envelope of the clip is
+  // measured once per clip (30 ms windows, scaled to its own loud parts) and
+  // read back against the playback clock. Nothing is sent anywhere.
+  let voiceNow=null;const envelopes=new WeakMap();const ENV_STEP=.03;
+  function envelopeOf(buffer){
+    let env=envelopes.get(buffer);if(env)return env;
+    const data=buffer.getChannelData(0),win=Math.max(1,Math.round(buffer.sampleRate*ENV_STEP)),n=Math.ceil(data.length/win);
+    env=new Float32Array(n);
+    for(let i=0;i<n;i++){let sum=0;const s0=i*win,s1=Math.min(data.length,s0+win);for(let j=s0;j<s1;j++)sum+=data[j]*data[j];env[i]=Math.sqrt(sum/Math.max(1,s1-s0))}
+    const sorted=Array.from(env).sort((x,y)=>x-y),ref=sorted[Math.floor(sorted.length*.95)]||1;
+    for(let i=0;i<n;i++)env[i]=Math.min(1,env[i]/(ref||1));
+    envelopes.set(buffer,env);return env;
+  }
+  K.voiceLevel=()=>{if(!voiceNow)return 0;const env=envelopeOf(voiceNow.buffer);const i=Math.floor((voiceNow.ctx.currentTime-voiceNow.startedAt)/ENV_STEP);return i>=0&&i<env.length?env[i]:0};
+  K.stopSpeech=()=>{voiceNow=null;gate.cancel();K.audio.duck(false);try{abort?.abort()}catch(e){}abort=null;try{if(voiceSource){voiceSource.onended=null;voiceSource.stop();voiceSource.disconnect();voiceSource=null}}catch(e){}if(voiceUrl){try{URL.revokeObjectURL(voiceUrl)}catch(e){}voiceUrl=null}try{speechSynthesis?.cancel()}catch(e){}try{K.clearSpeechHighlight?.()}catch(e){}};
   // Natural pacing per CLAUDE.md section 9: a beat after the question, a shorter
   // one between answers. The wait is cancellable, so a tap still stops speech instantly.
   const GAP={question:520,answer:300,speech:0};

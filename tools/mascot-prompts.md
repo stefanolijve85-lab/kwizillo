@@ -61,8 +61,11 @@ manifest) and `guide-talks.js` (the generated manifest the app reads:
   languages = 21 tts→avatar pairs (~€13) once the account has credits again. Print
   them with `node tools/guide-talks.js lines luna`.
 
-A missing clip is never fatal: the app falls back to the still pose plus the live
-voice in the guide's own voice. To redo a line: rerun its tts + avatar pair on the
+A missing clip is never fatal: the guide's portrait takes the same window and its
+mouth moves with the voice — the app measures the loudness of the spoken line
+(K.voiceLevel, m1-runtime.js) and drops the chin / opens a dark mouth on the
+portrait every frame (`mouth` box per guide in K.GUIDES, milo.js). Free, works for
+every line in every language; the omnihuman clips remain the premium option. To redo a line: rerun its tts + avatar pair on the
 flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
 
 ## Game tiles (Home "Speel ook", Memo picker)
