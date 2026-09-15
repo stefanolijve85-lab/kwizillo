@@ -788,7 +788,7 @@
 .milo-mouth{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,-50%);--open:0}
 .milo-mouth.mouth-jaw{width:var(--mw);height:calc(var(--mh) * (0.5 + var(--open) * 2.2));border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#5a1f24,#2a0d10 70%);opacity:calc(var(--open) * 1.8)}
 .milo-mouth.mouth-robot{--o:clamp(0,(var(--open) - .12) * 8,1);width:calc(var(--mw) * .92);height:calc(var(--mh) * (1.3 + var(--open) * 1.1));transform:translate(-50%,-50%);border-radius:50%;background:rgba(79,208,255,calc(var(--o) * .92));box-shadow:0 0 calc(var(--mw) * .18) rgba(70,190,255,calc(var(--o) * .9))}
-.milo-mouth.mouth-robot::after{content:'';position:absolute;left:0;right:0;top:12%;height:62%;border:0 solid #4fd0ff;border-bottom-width:calc(var(--mw) * .15);border-radius:0 0 50% 50% / 0 0 100% 100%;opacity:calc(1 - var(--o));filter:drop-shadow(0 0 3px rgba(70,190,255,.9))}
+.milo-mouth.mouth-robot::after{content:'';position:absolute;left:0;right:0;top:12%;height:62%;border:0 solid #4fd0ff;border-bottom-width:calc(var(--mw) * .19);border-radius:0 0 50% 50% / 0 0 100% 100%;opacity:calc(1 - var(--o));filter:drop-shadow(0 0 4px rgba(80,200,255,1))}
 .milo-mouth.mouth-glow{width:calc(var(--mw) * (0.9 + var(--open) * .3));height:calc(var(--mh) * (0.6 + var(--open) * 1.4));transform:translate(-50%,-30%);border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(20,60,140,.55) 0 30%,#bff4ff 44%,#5fd0ff 56%,rgba(46,166,255,.7) 66%,rgba(46,166,255,0) 78%);opacity:calc(var(--open) * 1.4)}
 /* Milo's talk render is drawn with an open mouth: a dark cover with a small glowing smile closes it; it fades out as --open rises. */
 .milo-host.flip .milo-fig-wrap{transform:scaleX(-1)}

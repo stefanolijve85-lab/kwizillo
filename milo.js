@@ -24,10 +24,11 @@
     wave:{src:u(`${dir}/wave.png`),mouth:m.wave},talk:{src:u(`${dir}/talk.png`),mouth:m.talk},
     think:{src:u(`${dir}/think.png`),mouth:m.think},cheer:{src:u(`${dir}/cheer.png`),mouth:m.cheer},
     pointRight:{src:u(`${dir}/point-right.png`),mouth:m.point},pointLeft:{src:u(`${dir}/point-right.png`),mouth:m.point,flip:true},pointDown:{src:u(`${dir}/point-right.png`),mouth:m.point},
-    walkA:{src:u(`${dir}/walk-a.png`)},walkB:{src:u(`${dir}/walk-b.png`)},jumpA:{src:u(`${dir}/jump-a.png`)},jumpB:{src:u(`${dir}/jump-b.png`)}
+    walkA:{src:u(`${dir}/walk-a.png`),mouth:m.walkA},walkB:{src:u(`${dir}/walk-b.png`),mouth:m.walkB},jumpA:{src:u(`${dir}/jump-a.png`),mouth:m.jumpA},jumpB:{src:u(`${dir}/jump-b.png`),mouth:m.jumpB}
   });
   K.GUIDE_POSES={
-    milo:poses('assets/mascots/milo',{wave:{x:.555,y:.36,w:.094,h:.025},talk:{x:.558,y:.365,w:.095,h:.025},think:{x:.57,y:.355,w:.09,h:.025},cheer:{x:.513,y:.353,w:.084,h:.024},point:{x:.46,y:.365,w:.088,h:.025}}),
+    milo:poses('assets/mascots/milo',{wave:{x:.555,y:.36,w:.094,h:.025},talk:{x:.558,y:.365,w:.095,h:.025},think:{x:.57,y:.355,w:.09,h:.025},cheer:{x:.513,y:.353,w:.084,h:.024},point:{x:.46,y:.365,w:.088,h:.025},
+      walkA:{x:.507,y:.374,w:.091,h:.027},walkB:{x:.547,y:.386,w:.097,h:.028},jumpA:{x:.56,y:.376,w:.085,h:.027},jumpB:{x:.535,y:.373,w:.085,h:.03}}),
     luna:poses('assets/mascots/luna',{wave:{x:.6,y:.215,w:.07,h:.03},talk:{x:.5,y:.215,w:.07,h:.03},think:{x:.62,y:.215,w:.06,h:.03},cheer:{x:.5,y:.215,w:.08,h:.035},point:{x:.48,y:.215,w:.07,h:.03}})
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
