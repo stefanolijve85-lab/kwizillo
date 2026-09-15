@@ -15,13 +15,13 @@ async function boot(page, state = SAVED(), tts = route => route.fulfill({ status
 }
 const currentAnswer = page => page.evaluate(() => { const m = window.KWIZILLO_M1.math; return m.sums[m.index].answer; });
 
-test('Maths opens from Home and a world; level 1 shows small sums with counting dots and four options', async ({ page }) => {
+test('Maths opens from Home and a world; level 1 shows small sums with four options and no counting dots', async ({ page }) => {
   const errors = []; page.on('pageerror', e => errors.push(String(e)));
   await boot(page);
   await page.locator('#homeMath').click();
   await expect(page.locator('.math-card')).toBeVisible();
   await expect(page.locator('.math-answers .answer')).toHaveCount(4);
-  await expect(page.locator('.math-visual')).toBeVisible();
+  await expect(page.locator('.math-visual')).toHaveCount(0);   // no dots under the sum, at any level
   const sum = await page.evaluate(() => window.KWIZILLO_M1.math.sums.map(s => s));
   expect(sum.length).toBe(10);
   for (const s of sum) { expect(['+', '-']).toContain(s.op); expect(s.a).toBeGreaterThan(0); expect(s.b).toBeGreaterThan(0); expect(s.answer).toBeGreaterThanOrEqual(0); expect(s.answer).toBeLessThanOrEqual(10); expect(new Set(s.options).size).toBe(4); expect(s.options).toContain(s.answer); }

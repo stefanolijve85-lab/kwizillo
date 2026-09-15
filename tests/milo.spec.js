@@ -32,7 +32,10 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   await page.getByRole('button', { name: /Nederlands/ }).click();
   await expect(host).toHaveAttribute('data-pose', 'think');
   await expect(page.locator('.milo-bubble h1')).toHaveText('Hoe heet je?');
-  await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
+  await expect(page.locator('#obName')).not.toHaveClass(/filled/);
+  await page.locator('#obName').fill('Sam');
+  await expect(page.locator('#obName')).toHaveClass(/filled/);   // a typed name is shown darker and bigger
+  await page.locator('#obNext').click();
   await page.locator('[data-age="6"]').click();
   await expect(page.locator('[data-age="6"]')).toHaveClass(/selected/);
   await page.locator('#obNext').click();
@@ -53,6 +56,9 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await page.evaluate(() => { window.KWIZILLO_M1.startTour(); });
   const tour = page.locator('.milo-tour');
   await expect(tour).toBeVisible();
+  // The only chrome during the tour is the small Skip button at the bottom.
+  await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);
+  await expect(tour.locator('.milo-tour-skip')).toHaveText('Overslaan');
   const bubble = tour.locator('.milo-bubble');
   await expect(bubble).toContainText('zes werelden', { timeout: 5000 });
   const spot = tour.locator('.milo-tour-spot');

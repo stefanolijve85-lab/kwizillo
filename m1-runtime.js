@@ -55,13 +55,20 @@
     inFlight.set(key,job);
     return job;
   }
-  async function fetchVoiceBlobNow(text,signal,voice,lang,key){
+  async function fetchVoiceBlobNow(text,signal,voice,lang,key,attempt=0){
     // Digits become words here, at the voice boundary, so "B. 7." is voiced as
     // "B. zeven." and not as English "Bay seven". The screen keeps the digits.
     const spoken=K.core.spellNumbers(text,lang);
     const r=await fetch(K.config.elevenLabsProxyUrl||'/api/tts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:spoken,voice,lang}),signal});
     if(!r.ok){
       if(r.status===503||r.status===501){speechAvailable=false;console.info('Kwizillo: speech is not configured, continuing without a voice.')}
+      // A momentary refusal (too many requests, upstream hiccup or timeout) is
+      // tried once more after a short pause, so a line is not silently skipped.
+      if((r.status===429||r.status===502||r.status===504)&&attempt<1&&!signal?.aborted){
+        await new Promise(res=>setTimeout(res,r.status===429?900:450));
+        if(signal?.aborted) throw Object.assign(new Error('aborted'),{name:'AbortError'});
+        return fetchVoiceBlobNow(text,signal,voice,lang,key,attempt+1);
+      }
       throw new Error(`TTS ${r.status}`);
     }
     const blob=await r.blob();

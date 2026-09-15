@@ -49,7 +49,11 @@ let selectionMeta = {};  // same shape, with provenance for the voice-status rou
 const UPSTREAM_TIMEOUT_MS = Number(process.env.TTS_TIMEOUT_MS || 15000);
 const MAX_BODY_BYTES = 8 * 1024;
 const RATE_WINDOW_MS = 60000;
-const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 60);
+// A quiz on a topic nobody played before warms ~15 lines per question (the
+// question, its answers, both feedback lines, the hint and the next question),
+// so a quick child legitimately reaches 100+ requests a minute; cache hits are
+// refunded below and never count.
+const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 240);
 const LANGS = new Set(['nl','en','pt']);
 const hits = new Map();
 
@@ -99,6 +103,9 @@ function rateLimited(req){
   if (hits.size > 1000) for (const [k, v] of hits) if (!v.some(t => now - t < RATE_WINDOW_MS)) hits.delete(k);
   return seen.length > RATE_MAX;
 }
+// A request served from the disk cache costs nothing upstream, so it is not
+// held against the client.
+function rateRefund(req){ const seen = hits.get(clientAddress(req)); if (seen && seen.length) seen.pop(); }
 
 const mime = {
   '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.css':'text/css; charset=utf-8',
@@ -415,7 +422,7 @@ async function tts(text, guide, lang){
   // Voice settings are part of the key: a speed change must not replay old audio.
   const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`).digest('hex');
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
-  if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta};
+  if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta,cached:true};
   if(dailyBudgetLeft()<text.length){ const e=new Error('daily TTS budget spent'); e.name='BudgetError'; throw e; }
   dailySpend(text.length);
 
@@ -481,6 +488,7 @@ const server=http.createServer(async(req,res)=>{
           const lang=LANGS.has(body.lang)?body.lang:'nl';
           if(!text)return json(res,400,{error:'Missing text'});
           const out=await tts(text,voice,lang);
+          if(out.cached) rateRefund(req);
           res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang});
           res.end(out.buf);
         }catch(e){

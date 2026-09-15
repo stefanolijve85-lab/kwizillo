@@ -146,7 +146,9 @@
     f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showFacts(K.state.factsWorld||'all')};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);
-    // The hello of each guide is warmed on Home, ahead of the profile's voice pick.
+    // The six world names are warmed on Home so the guide calls one out the
+    // moment a world opens; the hello of each guide too, ahead of the profile's voice pick.
+    K.prefetchSpeech(WORLD_ORDER.map(w=>t('world.speech.enter',{title:worldTitle(w)})));
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };

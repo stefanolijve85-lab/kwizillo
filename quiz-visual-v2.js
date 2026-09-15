@@ -196,35 +196,49 @@
     });
   }
 
+  // The answer card: verdict + the right answer on top, then the explanation
+  // and the fact, then Next. No mascot on the card — on a correct answer the
+  // guide pops in from the corner for a moment and throws confetti. Next is
+  // live once the voice is done; while the explanation is still being read,
+  // two quick taps move on anyway.
   function feedback(q,correct,{timedOut=false,silent=false}={}){
     K.stopSpeech();
     const f=K.app.querySelector('.game-frame');if(!f)return;
     f.querySelector('.feedback-float')?.remove();
-    const x=document.createElement('div');x.className=`feedback-float feedback-v2 ${correct?'is-good':'is-try'} world-${q.world}`;
+    const x=document.createElement('div');x.className=`feedback-float feedback-v2 ${correct?'is-good':'is-try'} ${timedOut?'is-time':''} world-${q.world}`;
     const explain=esc(q.explanation||(correct?t('feedback.thatsRight'):q.hint||''));
     const last=K.quiz.index+1>=K.quiz.questions.length;
+    const guide=K.activeGuide?.()||'milo';
+    const cheer=K.GUIDE_POSES?.[guide]?.cheer;
     x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}" role="dialog" aria-live="polite">
       <button class="feedback-close" id="feedbackClose" aria-label="${esc(t('feedback.close'))}">×</button>
-      <div class="feedback-head">
-        <div class="feedback-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></div>
-        <div class="feedback-kicker">${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</div>
-        <h2>${esc(t(timedOut?'feedback.timeTitle':correct?'feedback.goodTitle':'feedback.tryTitle'))}</h2>
+      <div class="feedback-verdict">
+        <span class="feedback-kicker">${timedOut?'⏱':correct?'✓':'✗'} ${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</span>
+        ${correct?`<span class="feedback-reward">${K.icon('star')} +${q.xp||10} XP · ${K.icon('coin')} +2</span>`:''}
       </div>
-      <div class="feedback-answer"><small>${esc(t('feedback.answerLabel'))}</small><b>${esc(q.answer)}</b></div>
+      <div class="feedback-answer">${correct?'':`<small>${esc(t('feedback.answerLabel'))}</small>`}<b>${esc(q.answer)}</b></div>
       <p class="feedback-explain">${explain}</p>
-      ${correct?`<div class="reward-strip"><span>${K.icon('star')} +${q.xp||10} XP</span><span>${K.icon('coin')} +2</span></div>`:''}
-      ${q.fact?`<div class="fact-card"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}
+      ${q.fact?`<div class="feedback-fact"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}
       <button class="feedback-next" id="feedbackNext" disabled><i class="feedback-bar"></i><span class="feedback-next-label">${esc(t(last?'feedback.seeResult':'feedback.next'))} <span>›</span></span></button>
     </div>`;
     f.appendChild(x);
-    if(correct&&!silent) K.celebrate?.('answer',x);
+    if(correct&&!silent){
+      // The guide pops up from behind the top edge of the card, cheers and ducks away again.
+      if(cheer){
+        const card=x.querySelector('.feedback-card'),fr=f.getBoundingClientRect(),cr=card.getBoundingClientRect();
+        const peek=document.createElement('img');peek.className='feedback-peek';peek.src=cheer;peek.alt='';peek.setAttribute('aria-hidden','true');
+        const w=Math.min(96,Math.round(cr.width*.3));
+        peek.style.width=w+'px';peek.style.left=Math.round(cr.right-fr.left-w-18)+'px';peek.style.top=Math.round(cr.top-fr.top-w*1.05)+'px';
+        x.appendChild(peek);
+        peek.addEventListener('animationend',()=>peek.remove());
+      }
+      setTimeout(()=>K.celebrate?.('answer',x),140);
+    }
     const nextBtn=x.querySelector('#feedbackNext');
-    // "Next" waits for the voice: the child hears the explanation before moving
-    // on. The close button skips the voice and unlocks at once; without a
-    // voice the button is live immediately.
     // A bar runs through the button for exactly as long as the clip plays;
-    // when it reaches the right edge the button turns gold and unlocks.
-    let armed=false;
+    // when it reaches the right edge the button turns gold and unlocks. The
+    // close button skips the voice; without a voice the button is live at once.
+    let armed=false,lastTap=0;
     const bar=nextBtn.querySelector('.feedback-bar');
     const arm=()=>{if(armed)return;armed=true;nextBtn.disabled=false;x.classList.add('spoken');bar.style.transition='none';bar.style.width='100%'};
     if(silent||K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
@@ -232,7 +246,15 @@
     // The cross puts the question back on screen, answered, so the child can
     // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
     x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');x.remove();render(q)};
-    nextBtn.onclick=()=>{if(nextBtn.disabled)return;K.stopSpeech();K.sfx('tap');next()};
+    const go=()=>{K.stopSpeech();K.sfx('tap');next()};
+    nextBtn.onclick=()=>{if(!nextBtn.disabled)return go()};
+    // While the button is still locked a double tap (two taps within a second) skips the rest of the explanation.
+    nextBtn.addEventListener('pointerdown',()=>{
+      if(!nextBtn.disabled)return;
+      const now=Date.now();
+      if(now-lastTap<1000){lastTap=0;go();return}
+      lastTap=now;nextBtn.classList.remove('nudge');void nextBtn.offsetWidth;nextBtn.classList.add('nudge');
+    });
   }
 
   function next(){clearSpoken();stopTimer();K.quiz.index++;K.showQuiz()}

@@ -446,7 +446,7 @@ test('feedback speech is fetched while the question is on screen, not after the 
   expect(after.filter(t => t.includes(explanation)), 'feedback must be served from the warm cache').toEqual([]);
 });
 
-test('"next" on the feedback card waits for the voice; the close button unlocks it', async ({ page }) => {
+test('"next" on the answer card waits for the voice, two quick taps skip it; the close button unlocks it', async ({ page }) => {
   let release;
   const gate = new Promise(r => { release = r; });
   let n = 0;
@@ -464,12 +464,30 @@ test('"next" on the feedback card waits for the voice; the close button unlocks 
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
   await expect(page.locator('.feedback-answer b')).not.toBeEmpty();
+  // The card is lean: verdict + answer on top, then the explanation, no mascot portrait, no praise title.
+  await expect(page.locator('.feedback-card h2')).toHaveCount(0);
+  await expect(page.locator('.feedback-card .mascot-face')).toHaveCount(0);
+  const order = await page.locator('.feedback-card > *').evaluateAll(els => els.map(e => e.className.split(' ')[0]));
+  expect(order.indexOf('feedback-verdict')).toBeLessThan(order.indexOf('feedback-answer'));
+  expect(order.indexOf('feedback-answer')).toBeLessThan(order.indexOf('feedback-explain'));
+  expect(order.indexOf('feedback-explain')).toBeLessThan(order.indexOf('feedback-next'));
+  // Next is locked while the explanation plays; a single tap only nudges it…
+  await expect(page.locator('#feedbackNext')).toBeDisabled();
+  await page.locator('#feedbackNext').dispatchEvent('pointerdown');
+  await expect(page.locator('.feedback-float')).toHaveCount(1);
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
+  // …two quick taps move on anyway.
+  await page.locator('#feedbackNext').dispatchEvent('pointerdown');
+  await expect(page.locator('.feedback-float')).toHaveCount(0);
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+  release();
   // The close button returns to the answered question, whose own Next moves on.
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
   await page.locator('#feedbackClose').click();
   await expect(page.locator('.feedback-float')).toHaveCount(0);
   await page.locator('#nextBtn').click();
-  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
-  release();
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 3 van 10');
 });
 
 test('the guide choice lights up the chosen card', async ({ page }) => {
@@ -657,7 +675,7 @@ test('the question timer runs out into a time-out verdict and gets shorter with 
   await expect(page.locator('#quizTimer b')).toHaveText('10');
   await page.clock?.install?.().catch(() => {});
   await expect(page.locator('.feedback-float')).toBeVisible({ timeout: 17000 });
-  await expect(page.locator('.feedback-kicker')).toHaveText('TIJD IS OM!');
+  await expect(page.locator('.feedback-kicker')).toContainText('TIJD IS OM!');
   await expect(page.locator('.answer.correct')).toHaveCount(1);
 });
 
@@ -853,8 +871,9 @@ test('level 5 gives one hint per quiz; level 6 none; level 1 shows no counter', 
 
 test('from level 4 the voice reads only the question; the parent zone explains each level', async ({ page }) => {
   const spoken = [];
-  await boot(page, SAVED({ niveau: 4, voice: 'Milo' }));
+  // Routed before boot: Home already warms the world names, and a 503 there would switch speech off for the session.
   await page.route('**/api/tts', route => { spoken.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
+  await boot(page, SAVED({ niveau: 4, voice: 'Milo' }));
   await page.locator('[data-world="dieren"]').click();
   // Entering the world calls out its name (after the fanfare's first beat).
   await expect.poll(() => spoken.includes('[excited] Dierenwereld!')).toBe(true);

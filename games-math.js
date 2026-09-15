@@ -70,9 +70,6 @@
     const pct=Math.round(((m.index+1)/total)*100);
     const done=m.answers[m.index]||null;           // an answered sum shows its verdict again
     const seconds=done?0:secondsFor();
-    // Levels 1-2 get counting dots under the sum: a visual aid, not the answer.
-    const dots=m.niveau<=2&&s.op&&s.op!=='÷'&&s.a<=10&&s.b<=10
-      ?`<div class="math-visual" aria-hidden="true"><span>${'<i></i>'.repeat(s.a)}</span><em>${s.op}</em><span>${'<i></i>'.repeat(s.b)}</span></div>`:'';
     const f=K.frame(`<section class="math quiz-v2 quiz-world-${m.world} fade-in">
       <img class="quiz-v2-bg" src="${K.MASTER[m.world]}" alt="">
       <div class="quiz-v2-dim"></div>
@@ -85,7 +82,6 @@
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
         <main class="quiz-card math-card">
           ${s.op&&!s.text.includes('%')?`<div class="math-sum grid"><b>${s.a}</b><em>${esc(s.op)}</em><b>${s.b} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`:`<div class="math-sum ${s.text.length>7?'long':''}"><b>${esc(s.text)} <span class="math-eq">= ${done?`<strong>${s.answer}</strong>`:'?'}</span></b></div>`}
-          ${dots}
           <div class="answers math-answers">${s.options.map((o,i)=>`<button class="answer ${done?(o===s.answer?'correct':done.value===o?'wrong':''):''}" data-a="${o}" data-index="${i}" ${done?'disabled':''}><span class="answer-letter">${'ABCD'[i]}</span><span class="answer-copy">${o}</span></button>`).join('')}</div>
           <div class="math-feedback" id="mathFeedback" hidden></div>
           ${done?`<button class="review-next" id="mathNext">${esc(t(m.index+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}

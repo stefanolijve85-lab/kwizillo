@@ -151,7 +151,7 @@
     K.guideWarmClips(stops.map(s=>s.key.replace('tour.','')),guide);
     const layer=document.createElement('div');
     layer.className='milo-tour';
-    layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><span>${esc(t('tour.tapHint'))}</span><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;
+    layer.innerHTML=`<div class="milo-tour-dim"></div><div class="milo-tour-spot" hidden></div><div class="milo-tour-hint"><button class="milo-tour-skip" type="button">${esc(t('tour.skip'))}</button></div>`;
     const spot=layer.querySelector('.milo-tour-spot');
     const host=K.guideHost({guide,pose:'wave',size:'tour',bubble:'top'});
     layer.appendChild(host.el);

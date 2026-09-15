@@ -64,7 +64,7 @@
     const {f}=shell({step:2,title:esc(K.t('onboarding.name.title')),sub:esc(K.t('onboarding.name.sub')),body,cls:'onboarding-name',pose:'think',speech:K.t('onboarding.speech.name'),clip:'name',guide:'milo'});
     const input=f.querySelector('#obName');
     const next=f.querySelector('#obNext');
-    const sync=()=>{next.disabled=!input.value.trim()};
+    const sync=()=>{const has=!!input.value.trim();next.disabled=!has;input.classList.toggle('filled',has)};
     input.addEventListener('input',sync); sync();
     // iOS scrolls the page to keep the field above the keyboard and does not
     // always scroll back; put the viewport where it was once typing is over.
