@@ -70,46 +70,69 @@
 
   // Full-body clips come with the flat backdrop of the render; it is keyed out
   // live, frame by frame, onto a canvas the size of the figure. The key colour
-  // is read from the corner of the first frame, the character's box from its
-  // alpha (so the video lines up with the cut-out it replaces), and the soft
-  // ground shadow goes with the backdrop.
+  // is read from the corners of the first frame, the character's box from its
+  // alpha (so the video lines up with the cut-out it replaces), the soft ground
+  // shadow goes with the backdrop, and edge pixels are despilled so no blue
+  // fringe is left. Frames are keyed on the GPU (WebGL); the first frame is
+  // analysed once on the CPU.
+  const KEY_VS='attribute vec2 p;attribute vec2 t;varying vec2 v;void main(){v=t;gl_Position=vec4(p,0.,1.);}';
+  const KEY_FS='precision mediump float;varying vec2 v;uniform sampler2D u;uniform vec3 key;uniform float keyLum;\n'+
+    'void main(){vec3 c=texture2D(u,v).rgb;float d=abs(c.r-key.r)+abs(c.g-key.g)+abs(c.b-key.b);float a=smoothstep(.10,.24,d);\n'+
+    'float mx=max(c.r,max(c.g,c.b));float mn=min(c.r,min(c.g,c.b));float sat=mx>0.?(mx-mn)/mx:0.;float lum=dot(c,vec3(.3,.59,.11));\n'+
+    'if(sat<=.3&&lum<keyLum-.012&&lum>keyLum-.31&&c.b>c.r+.03)a=0.;\n'+
+    'vec3 o=a>0.&&a<1.?clamp((c-key*(1.-a))/a,0.,1.):c;gl_FragColor=vec4(o*a,a);}';
   const keyer={
-    setup(v){
+    setup(v,canvas){
       const w=v.videoWidth,h=v.videoHeight;if(!w||!h)return null;
+      // First frame on the CPU: key colour and the character's box.
       const src=document.createElement('canvas');src.width=w;src.height=h;const sg=src.getContext('2d',{willReadFrequently:true});
       sg.drawImage(v,0,0);const d=sg.getImageData(0,0,w,h).data;
       const px=(x,y)=>{const k=4*(y*w+x);return [d[k],d[k+1],d[k+2]]};
       const corners=[px(3,3),px(w-4,3),px(3,h-4),px(w-4,h-4)];
-      const key=[0,1,2].map(i=>Math.round(corners.reduce((a,c)=>a+c[i],0)/4));
-      const st={src,sg,key,keyLum:key[0]*.3+key[1]*.59+key[2]*.11,box:null};
-      // The character's box on the first frame (+6% margin for the gestures to come).
-      const a=keyer.alpha(d,w,h,st);let x0=w,y0=h,x1=0,y1=0;
-      for(let i=0;i<w*h;i++)if(a[i]>40){const x=i%w,y=(i/w)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
-      const mx=Math.round((x1-x0)*.06),my=Math.round((y1-y0)*.03);
-      st.box={x:Math.max(0,x0-mx),y:Math.max(0,y0-my),w:Math.min(w,x1+mx)-Math.max(0,x0-mx),h:Math.min(h,y1+my)-Math.max(0,y0-my)};
+      const key=[0,1,2].map(i=>corners.reduce((a,c)=>a+c[i],0)/4);
+      const keyLum=key[0]*.3+key[1]*.59+key[2]*.11;
+      let x0=w,y0=h,x1=0,y1=0;
+      for(let i=0,k=0;i<w*h;i++,k+=4){
+        const r=d[k],g=d[k+1],b=d[k+2];const dist=Math.abs(r-key[0])+Math.abs(g-key[1])+Math.abs(b-key[2]);
+        if(dist<40)continue;
+        const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?(mx-mn)/mx:0,lum=r*.3+g*.59+b*.11;
+        if(sat<=.3&&lum<keyLum-3&&lum>keyLum-80&&b>r+8)continue;
+        const x=i%w,y=(i/w)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y;
+      }
+      if(x1<=x0||y1<=y0)return null;
+      const mx=Math.round((x1-x0)*.08),my=Math.round((y1-y0)*.03);
+      const box={x:Math.max(0,x0-mx),y:Math.max(0,y0-my),w:Math.min(w,x1+mx)-Math.max(0,x0-mx),h:Math.min(h,y1+my)-Math.max(0,y0-my)};
+      const st={key,keyLum,box,gl:null,src,sg};
+      // GPU path.
+      const gl=canvas.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false});
+      if(gl){
+        const sh=(t,c)=>{const o=gl.createShader(t);gl.shaderSource(o,c);gl.compileShader(o);return o};
+        const prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,KEY_VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,KEY_FS));gl.linkProgram(prog);
+        if(gl.getProgramParameter(prog,gl.LINK_STATUS)){
+          gl.useProgram(prog);
+          const bx=box.x/w,by=box.y/h,bw=box.w/w,bh=box.h/h;
+          const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+          gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,bx,by+bh, 1,-1,bx+bw,by+bh, -1,1,bx,by, 1,1,bx+bw,by]),gl.STATIC_DRAW);
+          const ap=gl.getAttribLocation(prog,'p'),at=gl.getAttribLocation(prog,'t');
+          gl.enableVertexAttribArray(ap);gl.vertexAttribPointer(ap,2,gl.FLOAT,false,16,0);gl.enableVertexAttribArray(at);gl.vertexAttribPointer(at,2,gl.FLOAT,false,16,8);
+          const tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);
+          gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+          gl.uniform3f(gl.getUniformLocation(prog,'key'),key[0]/255,key[1]/255,key[2]/255);gl.uniform1f(gl.getUniformLocation(prog,'keyLum'),keyLum/255);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+          st.gl=gl;
+        }
+      }
       return st;
     },
-    alpha(d,w,h,st){
-      const [kr,kg,kb]=st.key,kl=st.keyLum,out=new Uint8ClampedArray(w*h);
-      for(let i=0,k=0;i<w*h;i++,k+=4){
-        const r=d[k],g=d[k+1],b=d[k+2];
-        const dist=Math.abs(r-kr)+Math.abs(g-kg)+Math.abs(b-kb);
-        let a=dist<=22?0:dist>=70?255:Math.round((dist-22)/48*255);
-        if(a){const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?(mx-mn)/mx:0,lum=r*.3+g*.59+b*.11;
-          // the ground shadow: bluish, unsaturated, a little darker than the backdrop
-          if(sat<=.3&&lum<kl-3&&lum>kl-80&&b>r+8)a=0}
-        out[i]=a;
-      }
-      return out;
-    },
     draw(v,st,c){
-      const w=v.videoWidth,h=v.videoHeight;if(!w||!h||!st.box)return;
-      st.sg.drawImage(v,0,0);const id=st.sg.getImageData(st.box.x,st.box.y,st.box.w,st.box.h),d=id.data;
-      const a=keyer.alpha(d,st.box.w,st.box.h,st);
-      for(let i=0,k=3;i<a.length;i++,k+=4)d[k]=a[i];
-      st.sg.putImageData(id,st.box.x,st.box.y);
-      const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);
-      g.drawImage(st.src,st.box.x,st.box.y,st.box.w,st.box.h,0,0,c.width,c.height);
+      if(st.gl){const gl=st.gl;gl.viewport(0,0,c.width,c.height);try{gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,v)}catch(e){return}gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);return}
+      // CPU fallback (no WebGL): key the character's box at the video's resolution.
+      const {box,key,keyLum,sg,src}=st;sg.drawImage(v,0,0);const id=sg.getImageData(box.x,box.y,box.w,box.h),d=id.data;
+      for(let i=0,k=0;i<box.w*box.h;i++,k+=4){const r=d[k],g=d[k+1],b=d[k+2];const dist=Math.abs(r-key[0])+Math.abs(g-key[1])+Math.abs(b-key[2]);
+        let a=dist<=26?0:dist>=60?255:Math.round((dist-26)/34*255);
+        if(a){const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?(mx-mn)/mx:0,lum=r*.3+g*.59+b*.11;if(sat<=.3&&lum<keyLum-3&&lum>keyLum-80&&b>r+8)a=0}
+        d[k+3]=a}
+      sg.putImageData(id,box.x,box.y);const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);g.drawImage(src,box.x,box.y,box.w,box.h,0,0,c.width,c.height);
     }
   };
   const clipPool=new Map();
@@ -117,7 +140,7 @@
     let v=clipPool.get(src);
     if(v) return v;
     v=document.createElement('video');
-    v.className='milo-video';v.poster=K.GUIDES[guideOf(guide)].base;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.src=src;v.load();
+    v.className='milo-video';v.poster=K.GUIDES[guideOf(guide)].base;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.disablePictureInPicture=true;v.crossOrigin='anonymous';v.src=src;v.load();
     clipPool.set(src,v);
     if(clipPool.size>6){const first=clipPool.keys().next().value;if(first!==src)clipPool.delete(first)}
     return v;
@@ -225,7 +248,12 @@
         v.onended=()=>done(true);v.onerror=()=>done(false);
         const frame=()=>{
           if(settled)return;
-          if(!st){st=keyer.setup(v);if(st){const r=img.getBoundingClientRect();keyCanvas.width=Math.round(r.width*devicePixelRatio)||st.box.w;keyCanvas.height=Math.round(r.height*devicePixelRatio)||st.box.h;keyCanvas.hidden=false;img.classList.add('behind-clip');el.classList.add('clip-playing')}}
+          if(!st){
+            const r=img.getBoundingClientRect();
+            if(r.width&&r.height){keyCanvas.width=Math.round(r.width*devicePixelRatio);keyCanvas.height=Math.round(r.height*devicePixelRatio)}
+            st=keyer.setup(v,keyCanvas);
+            if(st){keyCanvas.hidden=false;figMouth.hidden=true;img.classList.add('behind-clip');el.classList.add('clip-playing')}
+          }
           if(st)keyer.draw(v,st,keyCanvas);
           keyRaf=requestAnimationFrame(frame);
         };

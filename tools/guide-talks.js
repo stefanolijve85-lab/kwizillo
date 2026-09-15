@@ -49,8 +49,9 @@ if (cmd === 'lines') {
   if (!src || !KEYS[guide] || !LANGS.includes(lang) || !KEYS[guide].includes(key)) { console.error('usage: encode <src.mp4> <guide> <lang> <key>'); process.exit(1); }
   fs.mkdirSync(path.join(dirOf(guide), lang), { recursive: true });
   const out = path.join(dirOf(guide), lang, `${key}.mp4`);
-  // 356x480 H.264 + AAC (~100 KB/s): sharp enough for the ~200 px figure, small enough to bundle.
-  execFileSync('avconvert', ['--preset', 'PresetMediumQuality', '--source', src, '--output', out, '--replace'], { stdio: 'inherit' });
+  // Full resolution (832x1120 H.264 + AAC, ~1.3-2 MB per clip): the figure is
+  // keyed and shown at up to ~600 device px tall, and a downscale went soft.
+  execFileSync('avconvert', ['--preset', 'Preset1280x720', '--source', src, '--output', out, '--replace'], { stdio: 'inherit' });
   console.log(`${guide}/${lang}/${key}.mp4 ${(fs.statSync(out).size / 1024).toFixed(0)} KB`);
 } else if (cmd === 'manifest') {
   const talks = {};

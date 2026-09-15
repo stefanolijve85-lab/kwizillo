@@ -777,7 +777,7 @@
 /* A full-body clip plays keyed onto a canvas over the figure; the still hides underneath. */
 .milo-clip-src{position:absolute;left:0;top:0;width:2px;height:2px;opacity:0;pointer-events:none}
 .milo-keyed{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 14px 16px rgba(0,22,70,.42))}
-.milo-figure.behind-clip{visibility:hidden}
+.milo-figure.behind-clip{visibility:hidden;opacity:0}
 .milo-host.clip-playing .milo-mouth{display:none}
 /* The mouth on the figure: placed per pose by milo.js, opened by --open. */
 .milo-fig-wrap{position:relative;display:block}
