@@ -63,7 +63,55 @@
   // carries its own voice track, so it replaces the live speech request; when a
   // clip is missing, fails to load or may not autoplay, the still pose plus the
   // voice line take over unnoticed.
-  const clipSrc=(key,guide='milo')=>{const lang=K.state.language||'nl';const set=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang];return set&&set[key]||null};
+  // A manifest entry is a path, or {src,pose} where `pose` is the cut-out the
+  // clip starts from (so the figure stands in that pose before and after).
+  const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{src:v,pose:null}:v};
+  const clipSrc=(key,guide='milo')=>clipInfo(key,guide)?.src||null;
+
+  // Full-body clips come with the flat backdrop of the render; it is keyed out
+  // live, frame by frame, onto a canvas the size of the figure. The key colour
+  // is read from the corner of the first frame, the character's box from its
+  // alpha (so the video lines up with the cut-out it replaces), and the soft
+  // ground shadow goes with the backdrop.
+  const keyer={
+    setup(v){
+      const w=v.videoWidth,h=v.videoHeight;if(!w||!h)return null;
+      const src=document.createElement('canvas');src.width=w;src.height=h;const sg=src.getContext('2d',{willReadFrequently:true});
+      sg.drawImage(v,0,0);const d=sg.getImageData(0,0,w,h).data;
+      const px=(x,y)=>{const k=4*(y*w+x);return [d[k],d[k+1],d[k+2]]};
+      const corners=[px(3,3),px(w-4,3),px(3,h-4),px(w-4,h-4)];
+      const key=[0,1,2].map(i=>Math.round(corners.reduce((a,c)=>a+c[i],0)/4));
+      const st={src,sg,key,keyLum:key[0]*.3+key[1]*.59+key[2]*.11,box:null};
+      // The character's box on the first frame (+6% margin for the gestures to come).
+      const a=keyer.alpha(d,w,h,st);let x0=w,y0=h,x1=0,y1=0;
+      for(let i=0;i<w*h;i++)if(a[i]>40){const x=i%w,y=(i/w)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
+      const mx=Math.round((x1-x0)*.06),my=Math.round((y1-y0)*.03);
+      st.box={x:Math.max(0,x0-mx),y:Math.max(0,y0-my),w:Math.min(w,x1+mx)-Math.max(0,x0-mx),h:Math.min(h,y1+my)-Math.max(0,y0-my)};
+      return st;
+    },
+    alpha(d,w,h,st){
+      const [kr,kg,kb]=st.key,kl=st.keyLum,out=new Uint8ClampedArray(w*h);
+      for(let i=0,k=0;i<w*h;i++,k+=4){
+        const r=d[k],g=d[k+1],b=d[k+2];
+        const dist=Math.abs(r-kr)+Math.abs(g-kg)+Math.abs(b-kb);
+        let a=dist<=22?0:dist>=70?255:Math.round((dist-22)/48*255);
+        if(a){const mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx?(mx-mn)/mx:0,lum=r*.3+g*.59+b*.11;
+          // the ground shadow: bluish, unsaturated, a little darker than the backdrop
+          if(sat<=.3&&lum<kl-3&&lum>kl-80&&b>r+8)a=0}
+        out[i]=a;
+      }
+      return out;
+    },
+    draw(v,st,c){
+      const w=v.videoWidth,h=v.videoHeight;if(!w||!h||!st.box)return;
+      st.sg.drawImage(v,0,0);const id=st.sg.getImageData(st.box.x,st.box.y,st.box.w,st.box.h),d=id.data;
+      const a=keyer.alpha(d,st.box.w,st.box.h,st);
+      for(let i=0,k=3;i<a.length;i++,k+=4)d[k]=a[i];
+      st.sg.putImageData(id,st.box.x,st.box.y);
+      const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);
+      g.drawImage(st.src,st.box.x,st.box.y,st.box.w,st.box.h,0,0,c.width,c.height);
+    }
+  };
   const clipPool=new Map();
   function clipVideo(src,guide){
     let v=clipPool.get(src);
@@ -155,22 +203,35 @@
     };
     // Plays a lip-synced clip; resolves true when it played to the end, false
     // when it could not start (then the caller falls back to pose + voice).
+    // In figure mode the frames are keyed onto a canvas that takes the figure's
+    // place, so the character stays cut out and the same size.
+    let keyCanvas=null,keyRaf=0;
     async function playClip(src){
       const v=clipVideo(src,guide);
       v.muted=K.state.voice==='Stil';
       v.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
-      showVideo(v);
+      if(figure){
+        if(!keyCanvas){keyCanvas=document.createElement('canvas');keyCanvas.className='milo-figure milo-keyed';wrap.insertBefore(keyCanvas,img)}
+        keyCanvas.hidden=true;
+      }else showVideo(v);
       try{v.currentTime=0}catch(e){}
       K.audio.duck(true);
       const ok=await new Promise(resolve=>{
-        let settled=false;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;resolve(r)};
+        let settled=false,st=null;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;cancelAnimationFrame(keyRaf);keyRaf=0;if(keyCanvas){keyCanvas.hidden=true;img.classList.remove('behind-clip');el.classList.remove('clip-playing')}resolve(r)};
         v.onended=()=>done(true);v.onerror=()=>done(false);
+        const frame=()=>{
+          if(settled)return;
+          if(!st){st=keyer.setup(v);if(st){const r=img.getBoundingClientRect();keyCanvas.width=Math.round(r.width*devicePixelRatio)||st.box.w;keyCanvas.height=Math.round(r.height*devicePixelRatio)||st.box.h;keyCanvas.hidden=false;img.classList.add('behind-clip');el.classList.add('clip-playing')}}
+          if(st)keyer.draw(v,st,keyCanvas);
+          keyRaf=requestAnimationFrame(frame);
+        };
         const p=v.play();if(p&&p.catch)p.catch(()=>done(false));
+        if(figure)v.addEventListener('playing',()=>{if(!keyRaf)keyRaf=requestAnimationFrame(frame)},{once:true});
         // A clip never holds the screen hostage: whatever happens we move on after 20 s.
         setTimeout(()=>done(true),20000);
       });
       K.audio.duck(false);
-      if(!ok)hideVideo();
+      if(!ok&&!figure)hideVideo();
       return ok;
     }
     const api={
@@ -185,9 +246,10 @@
       async say(text,{html,minMs=0,clip}={}){
         api.bubble(html??esc(text));
         const started=Date.now();
-        const src=clip&&clipSrc(clip,guide);
+        const info=clip&&clipInfo(clip,guide);const src=info?.src;
         if(src){
           K.stopSpeech();
+          if(info.pose&&figure)api.pose(info.pose);
           el.classList.add('talking');
           const played=await playClip(src);
           el.classList.remove('talking');
@@ -202,7 +264,7 @@
       },
       moveTo(x,y,{instant=false}={}){el.classList.toggle('no-motion',instant);el.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;if(instant)void el.offsetWidth;el.classList.remove('no-motion');return api},
       stop(){if(video){video.pause?.()}K.stopSpeech();el.classList.remove('talking')},
-      remove(){clearTimeout(talkTimer);clearInterval(mouthRaf);mouthRaf=0;hideVideo();el.remove()}
+      remove(){clearTimeout(talkTimer);clearInterval(mouthRaf);mouthRaf=0;cancelAnimationFrame(keyRaf);hideVideo();el.remove()}
     };
     api.pose(pose);
     return api;

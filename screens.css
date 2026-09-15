@@ -774,6 +774,10 @@
 .milo-tour .milo-bubble::after{left:var(--tx,50%);margin-left:0}
 .milo-tour .milo-host.no-motion{transition:none}
 .milo-tour .milo-host.milo-size-tour{--milo-w:140px}
+/* A full-body clip plays keyed onto a canvas over the figure; the still hides underneath. */
+.milo-keyed{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 14px 16px rgba(0,22,70,.42))}
+.milo-figure.behind-clip{visibility:hidden}
+.milo-host.clip-playing .milo-mouth{display:none}
 /* The mouth on the figure: placed per pose by milo.js, opened by --open. */
 .milo-fig-wrap{position:relative;display:block}
 .milo-mouth{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,-50%);--open:0}
