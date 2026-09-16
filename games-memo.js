@@ -49,6 +49,7 @@
         <div class="memo-mode" role="radiogroup" aria-label="${esc(t('memo.modeTitle'))}">
           <button class="memo-mode-btn solo ${mode==='solo'?'active':''}" data-mode="solo" role="radio" aria-checked="${mode==='solo'}"><span class="memo-mode-faces"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></span><b>${esc(t('memo.solo'))}</b><small>${esc(t('memo.soloSub'))}</small>${mode==='solo'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
           <button class="memo-mode-btn duel ${mode==='duel'?'active':''}" data-mode="duel" role="radio" aria-checked="${mode==='duel'}"><span class="memo-mode-faces two"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""><em>VS</em><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt=""></span><b>${esc(t('memo.duel'))}</b><small>${esc(t('memo.duelSub'))}</small>${mode==='duel'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
+        <label class="memo-p2" ${mode==='duel'?'':'hidden'}><span>${esc(t('memo.p2Label'))}</span><input id="memoP2" type="text" maxlength="14" autocomplete="off" placeholder="${esc(t('memo.player2'))}" value="${esc(K.state.memoPlayer2||'')}" aria-label="${esc(t('memo.p2Label'))}"></label>
         </div>
         <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b></button>
         <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span><b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
@@ -59,10 +60,14 @@
     f.querySelectorAll('[data-memo]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startMemo(b.dataset.memo)});
     f.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');K.state.memoMode=b.dataset.mode;K.save();
+      const p2=f.querySelector('.memo-p2');if(p2)p2.hidden=b.dataset.mode!=='duel';
       f.querySelectorAll('[data-mode]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-checked',String(on));x.querySelector('.memo-mode-check')?.remove();if(on)x.insertAdjacentHTML('beforeend',`<i class="memo-mode-check">${K.icon('check')}</i>`)});
     });
+    // Player 2 can have a name of their own (remembered), so the turn hint and
+    // the winner's line say who it is.
+    const p2=f.querySelector('#memoP2');if(p2)p2.addEventListener('input',()=>{K.state.memoPlayer2=p2.value.trim().slice(0,14);K.save()});
   };
-  const playerName=i=>i===0?(K.state.name||t('memo.player1')):t('memo.player2');
+  const playerName=i=>i===0?(K.state.name||t('memo.player1')):(K.state.memoPlayer2||t('memo.player2'));
 
   K.startMemo=world=>{
     K.audio.setTrack('play').catch(()=>{});

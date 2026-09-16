@@ -646,6 +646,13 @@
 .memo-picker .memo-mode{margin-bottom:0}
 .memo-picker .memo-mode-btn{min-height:88px;padding:8px 8px 10px}
 .memo-picker .memo-mode-faces{height:40px;margin-bottom:2px}
+/* Duel: player 2's name, one compact row under the mode buttons */
+.memo-p2{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;padding:6px 8px 6px 14px;border-radius:16px;background:linear-gradient(180deg,#fff,#edf7ff);border:2px solid #fff;box-shadow:0 5px 0 rgba(110,187,231,.6),0 10px 18px rgba(0,34,93,.12)}
+.memo-p2[hidden]{display:none}
+.memo-p2 span{font-size:14px;font-weight:1000;color:#1b3a7a;white-space:nowrap}
+.memo-p2 input{min-height:38px;border:2px solid #cfe3f7;border-radius:12px;padding:0 12px;font:900 16px/1 inherit;color:#12265f;background:#fff;width:100%}
+.memo-p2 input::placeholder{color:#8ea6c9}
+.memo-p2 input:focus{outline:none;border-color:#ffd23f;box-shadow:0 0 0 3px rgba(255,210,63,.34)}
 .memo-picker .memo-mode-faces .mascot-face{width:38px;height:38px}
 .memo-picker .memo-mode-faces.two .mascot-face{width:34px;height:34px}
 .memo-pick{position:relative;display:block;padding:0;overflow:hidden;border-radius:20px;border:2px solid rgba(255,255,255,.75);background:#10306e;box-shadow:0 7px 0 rgba(10,48,116,.5),0 13px 22px rgba(0,26,80,.28);aspect-ratio:16/8;min-height:0;text-align:left;cursor:pointer;width:100%}

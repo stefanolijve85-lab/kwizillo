@@ -129,11 +129,17 @@ test('a tile whose picture fails to load retries it, and shows the word when it 
 });
 
 test('head-to-head: two players alternate every two cards, scores are kept, the higher score wins', async ({ page }) => {
-  await boot(page);
+  await boot(page, SAVED({ voice: 'Milo' }));   // a voice, so the winner can be announced
   await page.locator('#homeMemo').click();
   await expect(page.locator('[data-mode="solo"]')).toHaveClass(/active/);
+  // Player 2's name field only shows for a duel; the name is remembered.
+  await expect(page.locator('.memo-p2')).toBeHidden();
   await page.locator('[data-mode="duel"]').click();
   await expect(page.locator('[data-mode="duel"]')).toHaveClass(/active/);
+  await expect(page.locator('.memo-p2')).toBeVisible();
+  await page.locator('#memoP2').fill('Lisa');
+  const spoken = [];
+  await page.route('**/api/tts', route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.locator('[data-memo="dieren"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   // No clock in a duel; two score chips, player 1 (the child's name) is up.
@@ -150,8 +156,8 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   await expect(page.locator('.memo-player.active b')).toHaveText('Mike');
   // Mike misses (two cards of different pairs) → Speler 2's turn, no point.
   await page.locator(`[data-card="${pairs[1][0]}"]`).click(); await page.locator(`[data-card="${pairs[2][0]}"]`).click();
-  await expect(page.locator('.memo-player.active b')).toHaveText('Speler 2', { timeout: 3000 });
-  await expect(page.locator('#memoHint')).toHaveText('Speler 2 is aan de beurt');
+  await expect(page.locator('.memo-player.active b')).toHaveText('Lisa', { timeout: 3000 });
+  await expect(page.locator('#memoHint')).toHaveText('Lisa is aan de beurt');
   // Speler 2 takes every remaining pair: the turn never leaves a player who scores.
   for (let i = 1; i < pairs.length; i++) {
     await page.locator(`[data-card="${pairs[i][0]}"]`).click(); await page.locator(`[data-card="${pairs[i][1]}"]`).click();
@@ -160,11 +166,13 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   await expect(page.locator('.result-v2')).toBeVisible({ timeout: 5000 });
   const [s1, s2] = await page.evaluate(() => window.KWIZILLO_M1.memo.scores);
   expect([s1, s2]).toEqual([1, pairs.length - 1]);
-  await expect(page.locator('.result-v2 h1')).toHaveText('Speler 2 wint!');
+  await expect(page.locator('.result-v2 h1')).toHaveText('Lisa wint!');
+  await expect.poll(() => spoken.some(t => t.startsWith('Lisa wint!')), { timeout: 5000 }).toBe(true);   // the winner is announced by name
   await expect(page.locator('#againBtn')).toHaveText('Revanche');
-  // The choice is remembered for next time.
+  // The choice and the name are remembered for next time.
   await page.locator('#worldBtn').click();
   await expect(page.locator('[data-mode="duel"]')).toHaveClass(/active/);
+  await expect(page.locator('#memoP2')).toHaveValue('Lisa');
 });
 
 test('on a small phone the "all worlds" tile keeps its full height; the world grid never overlaps it', async ({ page }) => {
