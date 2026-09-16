@@ -11,7 +11,7 @@ test('plays in step with the video, alone, and yields to the Home loop', async (
   const themeRequests = [];
   page.on('request', r => { if (r.url().includes('intro_theme')) themeRequests.push(r.url()); });
   await page.addInitScript(() => {
-    localStorage.setItem('kwizillo-fresh-start', '0');
+    localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); 
     localStorage.setItem('kwizillo-state', JSON.stringify({ schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil', musicOn: true, musicVolume: .3, soundOn: false, progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] } }));
   });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
@@ -40,7 +40,7 @@ test('with game music switched off, "tap for sound" still plays the intro theme 
   const themeRequests = [];
   page.on('request', r => { if (r.url().includes('intro_theme')) themeRequests.push(r.url()); });
   await page.addInitScript(() => {
-    localStorage.setItem('kwizillo-fresh-start', '0');
+    localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); 
     localStorage.setItem('kwizillo-state', JSON.stringify({ schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil', musicOn: false, musicVolume: .3, soundOn: false, progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] } }));
   });
   await page.goto('/', { waitUntil: 'domcontentloaded' });

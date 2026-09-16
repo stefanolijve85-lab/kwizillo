@@ -26,7 +26,7 @@ async function boot(page, state = SAVED()) {
   // Seed only on the first navigation. addInitScript runs on every navigation, so
   // an unconditional write would wipe what the app saved whenever a test reloads.
   await page.addInitScript(s => {
-    localStorage.setItem('kwizillo-fresh-start', '0'); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));
+    localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));
   }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
@@ -105,7 +105,7 @@ test('onboarding runs once and collects language, name and voice', async ({ page
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.name)).toBe('');
 
   // With fresh start off (parent zone) a returning player never sees onboarding again.
-  await page.evaluate(() => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-state', JSON.stringify({ ...window.KWIZILLO_M1.state, name: 'Sam', onboardingComplete: true, language: 'en' })); });
+  await page.evaluate(() => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  localStorage.setItem('kwizillo-state', JSON.stringify({ ...window.KWIZILLO_M1.state, name: 'Sam', onboardingComplete: true, language: 'en' })); });
   await page.reload({ waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });

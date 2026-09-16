@@ -39,7 +39,7 @@ async function boot(page){
       for (const r of records) for (const n of r.addedNodes) count(n);
     }).observe(document, { childList: true, subtree: true });
 
-    localStorage.setItem('kwizillo-fresh-start', '0');
+    localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); 
     localStorage.setItem('kwizillo-state', JSON.stringify({
       schemaVersion:2, language:'nl', name:'Mike', onboardingComplete:true, voice:'Stil',
       group:5, xp:0, coins:0, streak:0, answered:0, correct:0, quizzesPlayed:0,
