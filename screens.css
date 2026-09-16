@@ -642,7 +642,10 @@
 
 /* Memo world picker */
 /* The picker fits on one screen: mode row, the "all worlds" tile and a 3x2 world grid share the height, no scrolling. */
-.memo-picker .panel-scroll{display:grid;grid-template-rows:auto minmax(88px,200px) auto;gap:8px;align-content:start;overflow:hidden;padding-bottom:4px}
+/* The picker always fits the height it gets (a phone with browser bars too): compact
+   head, the mode row, a bounded "all worlds" tile, and the world grid takes the rest. */
+.memo-picker .panel-head{min-height:96px}
+.memo-picker .panel-scroll{display:grid;grid-template-rows:auto minmax(64px,132px) minmax(0,1fr);gap:8px;align-content:stretch;overflow:hidden;padding-bottom:4px}
 .memo-picker .memo-mode{margin-bottom:0}
 .memo-picker .memo-mode-btn{min-height:88px;padding:8px 8px 10px}
 .memo-picker .memo-mode-faces{height:40px;margin-bottom:2px}
@@ -658,11 +661,11 @@
 .memo-pick{position:relative;display:block;padding:0;overflow:hidden;border-radius:20px;border:2px solid rgba(255,255,255,.75);background:#10306e;box-shadow:0 7px 0 rgba(10,48,116,.5),0 13px 22px rgba(0,26,80,.28);aspect-ratio:16/8;min-height:0;text-align:left;cursor:pointer;width:100%}
 .memo-pick:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(10,48,116,.5)}
 .memo-pick b{position:absolute;left:8px;right:8px;bottom:10px;text-align:center;font-size:18px;color:#fff;text-shadow:0 2px 8px rgba(0,18,56,.8)}
-.memo-pick.mix{aspect-ratio:auto;height:auto;min-height:88px;max-height:200px}.memo-pick.mix .home-game-art{object-position:center 55%}
-.memo-pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;min-height:0}
-.memo-pick-grid .memo-pick{aspect-ratio:1/1.06;min-height:0}
+.memo-pick.mix{aspect-ratio:auto;height:100%;min-height:64px;max-height:132px}.memo-pick.mix .home-game-art{object-position:center 55%}
+.memo-pick-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:8px;min-height:0;height:100%;align-self:start;max-height:300px}
+.memo-pick-grid .memo-pick{aspect-ratio:auto;height:100%;min-height:0}
 /* A small phone: flatter tiles so all six stay fully in view. */
-@media(max-height:700px){.memo-picker .panel-scroll{grid-template-rows:auto minmax(88px,120px) auto}.memo-pick-grid .memo-pick{aspect-ratio:1/.78}.memo-picker .memo-mode-btn{min-height:76px}}
+@media(max-height:700px){.memo-picker .memo-mode-btn{min-height:72px}.memo-picker .memo-mode-faces{height:34px}.memo-picker .memo-mode-faces .mascot-face{width:32px;height:32px}.memo-picker .memo-mode-faces.two .mascot-face{width:30px;height:30px}}
 .memo-pick-grid .memo-pick b{left:5px;right:5px;bottom:7px;font-size:12.5px;line-height:1.05;white-space:normal;overflow-wrap:normal;hyphens:none}
 .math-sum.grid b:last-child{white-space:nowrap}
 .math-sum .math-eq{display:inline;margin:0}

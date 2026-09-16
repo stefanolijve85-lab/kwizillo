@@ -5,9 +5,9 @@ const SAVED = (over = {}) => ({
   group: 5, xp: 0, coins: 0, streak: 0, niveau: 1, soundOn: false, musicOn: false,
   progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] }, ...over
 });
-async function boot(page, state = SAVED()) {
+async function boot(page, state = SAVED(), tts) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, body: '{}' }));
+  await page.route('**/api/tts', tts || (route => route.fulfill({ status: 503, body: '{}' })));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
@@ -129,7 +129,9 @@ test('a tile whose picture fails to load retries it, and shows the word when it 
 });
 
 test('head-to-head: two players alternate every two cards, scores are kept, the higher score wins', async ({ page }) => {
-  await boot(page, SAVED({ voice: 'Milo' }));   // a voice, so the winner can be announced
+  // A voice, so the winner can be announced; every spoken line is captured (a 503 would switch speech off for the session).
+  const spoken = [];
+  await boot(page, SAVED({ voice: 'Milo' }), route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.locator('#homeMemo').click();
   await expect(page.locator('[data-mode="solo"]')).toHaveClass(/active/);
   // Player 2's name field only shows for a duel; the name is remembered.
@@ -138,8 +140,6 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   await expect(page.locator('[data-mode="duel"]')).toHaveClass(/active/);
   await expect(page.locator('.memo-p2')).toBeVisible();
   await page.locator('#memoP2').fill('Lisa');
-  const spoken = [];
-  await page.route('**/api/tts', route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.locator('[data-memo="dieren"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   // No clock in a duel; two score chips, player 1 (the child's name) is up.
