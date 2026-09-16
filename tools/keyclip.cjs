@@ -81,74 +81,101 @@ function envelope(wav) {
           // through the screen box (the head only shifts and scales a little).
           for (let y = best.y0; y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) d[4 * (y * W + x) + 3] = 255;   // the key bites into cyan glows on solid glass
           const src = new Uint8ClampedArray(d);
-          if (!window.__ref) window.__ref = { d: src, box: { ...best }, sw, sh };
+          if (!window.__ref) { let dk = [0, 0, 0], dn = 0; for (let y = Math.round(best.y0 + sh * .55); y < best.y0 + sh * .9; y++) for (let x = Math.round(best.x0 + sw * .4); x < best.x0 + sw * .6; x++) { const k = 4 * (y * W + x); if (src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11 < 60) { dk[0] += src[k]; dk[1] += src[k + 1]; dk[2] += src[k + 2]; dn++; } } window.__ref = { d: src, box: { ...best }, sw, sh, dark: dn ? dk.map(v => v / dn) : [8, 20, 50] }; }
           const ref = window.__ref, rsx = ref.sw / sw, rsy = ref.sh / sh;
-          const refAt = (x, y) => { const xx = Math.round(ref.box.x0 + (x - best.x0) * rsx); const yy = Math.round(y <= best.y1 ? ref.box.y0 + (y - best.y0) * rsy : ref.box.y1 + (y - best.y1) * rsy); if (xx < 0 || xx >= W || yy < 0 || yy >= H) return null; return 4 * (yy * W + xx); };
+          let refAt = (x, y) => { const xx = Math.round(ref.box.x0 + (x - best.x0) * rsx); const yy = Math.round(y <= best.y1 ? ref.box.y0 + (y - best.y0) * rsy : ref.box.y1 + (y - best.y1) * rsy); if (xx < 0 || xx >= W || yy < 0 || yy >= H) return null; return 4 * (yy * W + xx); };
           const lumOf = k => src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11, satOf = k => Math.max(src[k], src[k + 1], src[k + 2]) - Math.min(src[k], src[k + 1], src[k + 2]);
           const rlum = k => ref.d[k] * .3 + ref.d[k + 1] * .59 + ref.d[k + 2] * .11, rsat = k => Math.max(ref.d[k], ref.d[k + 1], ref.d[k + 2]) - Math.min(ref.d[k], ref.d[k + 1], ref.d[k + 2]);
           const toRef = (k, kr, w) => { for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.d[kr + i] - src[k + i]) * w; if (w > .5) d[k + 3] = 255; };
-          // distance (px) to the nearest bright pixel (eye rings), so the eyes' glow is never touched
+          // The eye rings: on frame 1 (open eyes) the two largest bright-cyan
+          // blobs; afterwards each eye is tracked to the blob nearest its previous
+          // position, so a blink (a flat arc) or the model's glowing mouth never
+          // takes over. The mouth is fixed to the line between the eyes: position,
+          // scale and tilt — screwed to the face while the head moves.
+          const cyan = new Uint8Array(W * H), blobs = [];
+          for (let y = best.y0; y < best.y0 + sh * .85; y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) cyan[y * W + x] = 1; }
+          for (let y = best.y0; y < best.y0 + sh * .85; y++) for (let x = best.x0; x <= best.x1; x++) { const i0 = y * W + x; if (cyan[i0] !== 1) continue; const q = [i0]; cyan[i0] = 2; let sx = 0, sy = 0, n2 = 0, by0 = H, by1 = 0;
+            while (q.length) { const j = q.pop(); const jx = j % W, jy = (j / W) | 0; sx += jx; sy += jy; n2++; if (jy < by0) by0 = jy; if (jy > by1) by1 = jy; for (const t of [j - 1, j + 1, j - W, j + W]) { if (t < 0 || t >= W * H || cyan[t] !== 1) continue; if ((t === j - 1 && jx === 0) || (t === j + 1 && jx === W - 1)) continue; cyan[t] = 2; q.push(t); } }
+            blobs.push({ x: sx / n2, y: sy / n2, n: n2, h: by1 - by0 + 1 }); }
+          blobs.sort((a, b) => b.n - a.n);
+          let eyes = window.__eyes;
+          if (!eyes) { if (blobs.length >= 2 && Math.abs(blobs[0].x - blobs[1].x) > sw * .15) { const [A, B] = blobs[0].x < blobs[1].x ? [blobs[0], blobs[1]] : [blobs[1], blobs[0]]; eyes = window.__eyes = { lx: A.x, ly: A.y, rx: B.x, ry: B.y }; window.__ring = { h: (A.h + B.h) / 2, n: (A.n + B.n) / 2 }; } }
+          else {
+            // the pair of blobs that moves like a rigid pair of eyes: near their previous
+            // spots, with the same distance and tilt (a blink is an arc in the same place;
+            // the model's glowing mouth is a blob that would change the geometry)
+            const ed0 = Math.hypot(eyes.rx - eyes.lx, eyes.ry - eyes.ly), t0 = Math.atan2(eyes.ry - eyes.ly, eyes.rx - eyes.lx);
+            // at 24 fps an eye never jumps more than a sixth of the eye distance between frames, and never down to the mouth
+            // and only a whole ring may move an eye: a blink or a happy squint is a half arc
+            // whose centroid sits low and to one side — then the eyes simply stay put
+            const ring = window.__ring || { h: 0, n: 0 };
+            const cand = (px0, py0) => blobs.filter(bl => bl.h >= ring.h * .82 && bl.n >= ring.n * .7 && Math.hypot(bl.x - px0, bl.y - py0) < ed0 * .18 && bl.y < py0 + ed0 * .12);
+            let bestPair = null, bestCost = ed0 * .5;
+            for (const A of cand(eyes.lx, eyes.ly)) for (const B of cand(eyes.rx, eyes.ry)) { if (A === B) continue; const e1 = Math.hypot(B.x - A.x, B.y - A.y), t1 = Math.atan2(B.y - A.y, B.x - A.x);
+              const cost = Math.hypot(A.x - eyes.lx, A.y - eyes.ly) * .5 + Math.hypot(B.x - eyes.rx, B.y - eyes.ry) * .5 + Math.abs(e1 - ed0) * 2 + Math.abs(t1 - t0) * ed0 * 2; if (cost < bestCost) { bestCost = cost; bestPair = [A, B]; } }
+            if (bestPair) { const [nl, nr] = bestPair; eyes = window.__eyes = { lx: eyes.lx * .3 + nl.x * .7, ly: eyes.ly * .3 + nl.y * .7, rx: eyes.rx * .3 + nr.x * .7, ry: eyes.ry * .3 + nr.y * .7 }; window.__lost = 0; }
+            else {
+              // the head moved on during a blink: once two whole rings with the right
+              // spacing are back anywhere near, snap to them
+              window.__lost = (window.__lost || 0) + 1;
+              const rings = blobs.filter(bl => bl.h >= ring.h * .82 && bl.n >= ring.n * .7).slice(0, 2);
+              if (rings.length === 2) { const [A, B] = rings[0].x < rings[1].x ? [rings[0], rings[1]] : [rings[1], rings[0]]; const e1 = Math.hypot(B.x - A.x, B.y - A.y), t1 = Math.atan2(B.y - A.y, B.x - A.x);
+                if (Math.abs(e1 - ed0) < ed0 * .25 && Math.abs(t1 - t0) < .35 && Math.hypot(A.x - eyes.lx, A.y - eyes.ly) < ed0 * .6) { eyes = window.__eyes = { lx: A.x, ly: A.y, rx: B.x, ry: B.y }; window.__lost = 0; } }
+            }
+          }
+          let ed = sw * .45, tilt = 0, eyeLine = y => best.y0 + sh * .45;
+          if (eyes && !ref.eyes) ref.eyes = { ...eyes };
+          if (eyes && ref.eyes) {
+            // map through the eyes instead of the screen box: shift, scale and tilt of the head
+            const re = ref.eyes, rmx = (re.lx + re.rx) / 2, rmy = (re.ly + re.ry) / 2, rtilt = Math.atan2(re.ry - re.ly, re.rx - re.lx), red = Math.hypot(re.rx - re.lx, re.ry - re.ly);
+            const mx0 = (eyes.lx + eyes.rx) / 2, my0 = (eyes.ly + eyes.ry) / 2, t0 = Math.atan2(eyes.ry - eyes.ly, eyes.rx - eyes.lx), sc = red / Math.hypot(eyes.rx - eyes.lx, eyes.ry - eyes.ly), dt = (rtilt - t0) * .5;
+            const cs = Math.cos(dt), sn = Math.sin(dt);
+            refAt = (x, y) => { const px0 = x - mx0, py0 = y - my0; const xx = Math.round(rmx + (px0 * cs - py0 * sn) * sc), yy = Math.round(rmy + (px0 * sn + py0 * cs) * sc); if (xx < 0 || xx >= W || yy < 0 || yy >= H) return null; return 4 * (yy * W + xx); };
+          }
+          if (eyes) { const dx = eyes.rx - eyes.lx, dy = eyes.ry - eyes.ly; ed = Math.hypot(dx, dy); tilt = Math.atan2(dy, dx); const mx = (eyes.lx + eyes.rx) / 2, my = (eyes.ly + eyes.ry) / 2; cx = mx; cy = my + ed * .35; eyeLine = x => my + (x - mx) * Math.tan(tilt) * .5; }   // a 3D head turn also drops one eye: only half the tilt is roll
+          // distance (px) to the nearest bright pixel ABOVE the eye line + a bit (the rings and brows), so their glow is never touched
           const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
-          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && lumOf(k) > 95 && y < best.y0 + sh * .7) dist[y * W + x] = 0; }
+          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && lumOf(k) > 95 && (eyes ? Math.min(Math.hypot(x - eyes.lx, y - eyes.ly), Math.hypot(x - eyes.rx, y - eyes.ry)) < ed * .36 : y < eyeLine(x) + ed * .22)) dist[y * W + x] = 0; }
           for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const i = y * W + x; let v = dist[i]; if (x) v = Math.min(v, dist[i - 1] + 1); if (y) { v = Math.min(v, dist[i - W] + 1); if (x) v = Math.min(v, dist[i - W - 1] + 1.4); if (x < W - 1) v = Math.min(v, dist[i - W + 1] + 1.4); } dist[i] = v; }
           for (let y = H - 1; y >= 0; y--) for (let x = W - 1; x >= 0; x--) { const i = y * W + x; let v = dist[i]; if (x < W - 1) v = Math.min(v, dist[i + 1] + 1); if (y < H - 1) { v = Math.min(v, dist[i + W] + 1); if (x < W - 1) v = Math.min(v, dist[i + W + 1] + 1.4); if (x) v = Math.min(v, dist[i + W - 1] + 1.4); } dist[i] = v; }
-          const ringGap = sw * .06;
-          // 1. the screen below the eyes: wherever the frame is lit up compared to the
-          //    reference (a glowing model mouth and its halo), go back to the reference
-          // The mouth sits relative to the two eye rings (bright cyan, always there,
-          // they move with the head): centred between them, 0.30 × their distance
-          // below their centre line — measured on the mouthless base, where the
-          // screen's bottom is 0.525 × that distance below the eyes.
-          // The eye rings are the two largest bright-cyan blobs on the screen
-          // (eyebrows are small arcs and never win; a blink is a flat ring, same
-          // centre). The mouth is fixed to the line between them: position, scale
-          // and tilt — so it stays screwed to the face while the head moves.
-          const cyan = new Uint8Array(W * H), blobs = [];
-          for (let y = best.y0; y < best.y0 + sh * .8; y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) cyan[y * W + x] = 1; }
-          for (let y = best.y0; y < best.y0 + sh * .8; y++) for (let x = best.x0; x <= best.x1; x++) { const i0 = y * W + x; if (cyan[i0] !== 1) continue; const q = [i0]; cyan[i0] = 2; let sx = 0, sy = 0, n2 = 0;
-            while (q.length) { const j = q.pop(); const jx = j % W, jy = (j / W) | 0; sx += jx; sy += jy; n2++; for (const t of [j - 1, j + 1, j - W, j + W]) { if (t < 0 || t >= W * H || cyan[t] !== 1) continue; if ((t === j - 1 && jx === 0) || (t === j + 1 && jx === W - 1)) continue; cyan[t] = 2; q.push(t); } }
-            blobs.push({ x: sx / n2, y: sy / n2, n: n2 }); }
-          blobs.sort((a, b) => b.n - a.n);
-          const prev = window.__eyes;
-          let ed = sw * .45, tilt = 0;
-          if (blobs.length >= 2 && blobs[1].n > 30 && Math.abs(blobs[0].x - blobs[1].x) > sw * .15) {
-            const [A, B] = blobs[0].x < blobs[1].x ? [blobs[0], blobs[1]] : [blobs[1], blobs[0]];
-            let e = { lx: A.x, ly: A.y, rx: B.x, ry: B.y };
-            if (prev) e = { lx: prev.lx * .35 + e.lx * .65, ly: prev.ly * .35 + e.ly * .65, rx: prev.rx * .35 + e.rx * .65, ry: prev.ry * .35 + e.ry * .65 };   // light damping against jitter
-            window.__eyes = e;
-          }
-          const eyes = window.__eyes;
-          if (eyes) { const dx = eyes.rx - eyes.lx, dy = eyes.ry - eyes.ly; ed = Math.hypot(dx, dy); tilt = Math.atan2(dy, dx); const mx = (eyes.lx + eyes.rx) / 2, my = (eyes.ly + eyes.ry) / 2; cx = mx - Math.sin(tilt) * ed * .30; cy = my + Math.cos(tilt) * ed * .30; }
+          const ringGap = ed * .12;
+          // 1. the screen under the eyes becomes the reference outright (it is flat
+          //    dark glass there); between the eyes only what is lit up more than the
+          //    reference goes back. Fades out towards the screen's own edges.
           const ex = cx, ey = cy + ed * .03, rx = ed * .5, ry = ed * .2;
-          for (let y = Math.round(best.y0 + sh * .45); y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) {
-            const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
+          for (let y = Math.round(best.y0 + sh * .3); y <= Math.min(H - 1, Math.round(best.y1 + sh * .12)); y++) for (let x = best.x0; x <= best.x1; x++) {
+            const k = 4 * (y * W + x), kr = refAt(x, y);
             const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
-            const inside = ((x - ex) / rx) ** 2 + ((y - ey) / ry) ** 2 <= 1;
-            const dl = lumOf(k) - rlum(kr);
-            let w = inside ? 1 : Math.max(0, Math.min(1, (dl - 2) / 10));   // outside the mouth ellipse only what is brighter than the reference (the halo)
-            w *= g2 * g2 * (3 - 2 * g2);
-            if (w > 0) toRef(k, kr, w);
+            const below = (y - eyeLine(x)) / ed;   // in eye distances under the eye line
+            const gate = g2 * g2 * (3 - 2 * g2);
+            if (below > .2) {
+              // dark glass in the reference → dark glass; where the mapping runs off the
+              // reference screen (head looking up/down) a lit pixel becomes the reference's dark
+              if (lumOf(k) >= 200) continue;                                          // never over the current rim
+              if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate);
+              else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
+            } else if (kr !== null) { const w = Math.max(0, Math.min(1, (lumOf(k) - rlum(kr) - 2) / 10)) * gate; if (w > 0) toRef(k, kr, w); }   // between the eyes: only what is lit up
           }
           // 2. the rim under the screen: whatever differs from the reference there
           //    (teeth, a lip line, an orange open mouth) is the reference again
           for (let y = best.y1 + 1; y <= Math.min(H - 1, Math.round(best.y1 + sh * .4)); y++) for (let x = Math.round(ex - sw * .45); x <= Math.round(ex + sw * .45); x++) {
             const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
-            const off = src[k + 3] < 250 ? 1 : Math.max((Math.abs(lumOf(k) - rlum(kr)) - 22) / 30, (Math.abs(satOf(k) - rsat(kr)) - 22) / 25);
+            const off = src[k + 3] < 250 ? 1 : Math.max((Math.abs(lumOf(k) - rlum(kr)) - 10) / 20, (Math.abs(satOf(k) - rsat(kr)) - 14) / 20);
             const hx = Math.min(1, (sw * .45 - Math.abs(x - ex)) / (sw * .08)), vy = Math.min(1, (best.y1 + sh * .4 - y) / (sh * .08));
             const w = Math.max(0, Math.min(1, Math.min(off, hx, vy))); if (w > 0) toRef(k, kr, w);
           }
-          if (debug) console.log('screen', best.x0, best.y0, sw, sh, 'ref', ref.box.x0, ref.box.y0, ref.sw, ref.sh);
+          if (debug) console.log('eyes', JSON.stringify(eyes), 'ring', JSON.stringify(window.__ring), 'blobs', blobs.slice(0, 4).map(b => [Math.round(b.x), Math.round(b.y), b.n, b.h].join('/')).join(' '));
           g.putImageData(new ImageData(d, W, H), 0, 0);
           // the robot mouth: an arc when quiet that fills into an "O" when loud
           if (debug === 2) open = -1;
-          const glow = '#5fd8ff', r = ed * .2, o = Math.max(0, Math.min(1, open));
-          g.save(); g.translate(cx, cy); g.rotate(tilt);   // the mouth tilts with the head
+          const glow = "#5fd8ff", r = ed * .185, o = Math.max(0, Math.min(1, open));
+          g.save(); g.translate(cx, cy); g.rotate(tilt * .5);   // the mouth tilts with the head (half: a head turn is not a roll)
           g.shadowColor = 'rgba(80,200,255,.95)'; g.shadowBlur = ed * .16; g.lineCap = 'round';
           g.strokeStyle = glow; g.lineWidth = ed * .095;
           if (open < 0) {} else if (o < .18) { g.beginPath(); g.arc(0, -r * .35, r, Math.PI * .12, Math.PI * .88); g.stroke(); }
-          else { const hh = r * (.35 + o * .75); g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(95,216,255,.95)'; g.fill(); g.stroke(); }
+          else { const hh = r * (.8 + o * .2); g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); g.fillStyle = 'rgba(95,216,255,.95)'; g.fill(); g.stroke(); }
           g.restore();
-          if (debug) { g.save(); g.lineWidth = 1; g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
+          if (debug) { g.save(); g.lineWidth = 1; if (eyes) { g.strokeStyle = 'yellow'; g.beginPath(); g.arc(eyes.lx, eyes.ly, 4, 0, 7); g.stroke(); g.beginPath(); g.arc(eyes.rx, eyes.ry, 4, 0, 7); g.stroke(); g.beginPath(); g.moveTo(eyes.lx, eyes.ly); g.lineTo(eyes.rx, eyes.ry); g.stroke(); } g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
         }
       }
       const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, 0, 0, outW, outH);
