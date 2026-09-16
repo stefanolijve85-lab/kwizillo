@@ -61,7 +61,7 @@ Every change to the web app needs `build-www` + `cap sync` before the next Xcode
 | StoreKit 2 plugin (products, purchase, verify, finish, current entitlements, updates, restore via `AppStore.sync`, manage sheet, trial eligibility) | CODE COMPLETE |
 | JS bridge + entitlement validity tied to the native store | CODE COMPLETE |
 | Portrait-only, light status bar, no-encryption declaration, icon + launch screen (first versions) | CODE COMPLETE |
-| Simulator build | see `MONETIZATION_IMPLEMENTATION_REPORT.md` §10 for the result of the last build |
+| Simulator build | BUILD SUCCEEDED (Xcode 26.4.1, iPhone 16 Pro Max simulator); app runs, plugin registered and reachable |
 | Signing, StoreKit config in the scheme, device run | REQUIRES PHYSICAL IPHONE / OWNER ACTION |
 | Sandbox purchase, TestFlight | REQUIRES APP STORE CONNECT / TESTFLIGHT |
 

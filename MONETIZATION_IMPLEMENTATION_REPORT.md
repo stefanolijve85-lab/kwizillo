@@ -1,6 +1,6 @@
-# Kwizillo — Monetization implementation report (RC1, web phase)
+# Kwizillo — Monetization implementation report (RC1)
 
-Date: 2026-09-16 · Branch: `release/kwizillo-rc1` · Commits: `6830620`, `8d25469`, `e176e67` (+ docs)
+Date: 2026-09-16 · Branch: `release/kwizillo-rc1` · Commits: `6830620`, `8d25469`, `e176e67`, `e4c6726` (web phase), `757ce93` (iOS + StoreKit phase)
 
 Labels used below: **IMPLEMENTED**, **TESTED**, **NOT TESTED**, **REQUIRES APP STORE CONNECT**,
 **REQUIRES PHYSICAL IPHONE**, **REQUIRES TESTFLIGHT**, **NOT IMPLEMENTED — IOS TARGET REQUIRED**.
@@ -15,10 +15,12 @@ locked thing shows a friendly card, then a parent passes the gate, sees the payw
 with store prices, buys through the store, and the child's chosen content opens by
 itself. Progress is never touched by buying or by expiry.
 
-There is **no iOS target in the repository yet**, so StoreKit itself is not
-implemented; the web layer contains the full purchase flow against a development
-simulator and the exact contract the native StoreKit 2 bridge must fulfil
-(`window.KwizilloStoreKit`). That native phase is next, split off on purpose.
+The iOS shell (Capacitor 8, Swift Package Manager, bundle id `nl.kwizillo.app`) and
+the native StoreKit 2 plugin are in the repository too. The app **compiles** and
+**runs in the iOS simulator**; the plugin is registered and reachable from the web
+layer (verified in the running app: native=true, plugin=true, bridge=true,
+provider=true, dev simulator off). Real products, purchases and receipts still need
+App Store Connect and a device (or the StoreKit configuration in Xcode).
 
 ## 2. Existing architecture found
 
@@ -88,8 +90,19 @@ cannot open Premium content (tested).
 "Kwizillo Premium", bundle id `nl.kwizillo.app` (chosen 2026-09-16; no bundle id
 existed). All in `premium.js` `CONFIG`.
 
-## 10. StoreKit implementation — NOT IMPLEMENTED — IOS TARGET REQUIRED
-`storeKitProvider` defines the bridge: `products(ids)` → `[{key,id,displayPrice,
+## 10. StoreKit implementation — IMPLEMENTED, COMPILES, TESTED IN SIMULATOR (bridge), NOT TESTED WITH STOREKIT CONFIG / SANDBOX
+`ios/App/App/KwizilloStoreKitPlugin.swift` (StoreKit 2, iOS 15+): `Product.products`,
+`product.purchase()` with verification and `finish()`, `Transaction.currentEntitlements`,
+`Transaction.updates` listener → `entitlementChanged` event, `AppStore.sync()` for restore,
+`AppStore.showManageSubscriptions`, `isEligibleForIntroOffer` for the trial. Registered by
+`KwizilloViewController` (SceneDelegate root). `ios/App/Kwizillo.storekit` holds both
+products and the 7-day trial for Xcode's local StoreKit testing. `tools/build-www.cjs`
+builds the shipped `www/` with the HTTPS speech proxy. Build result: `xcodebuild … -sdk
+iphonesimulator build` → **BUILD SUCCEEDED**; installed and launched on an iPhone 16 Pro
+Max simulator (intro, onboarding, safe areas fine). Products came back empty there, as
+expected without a StoreKit configuration or App Store Connect.
+
+`storeKitProvider` in `premium.js` defines the bridge: `products(ids)` → `[{key,id,displayPrice,
 price,currency,period,months,trialDays,trialEligible}]`, `purchase(id)` →
 `{result:'purchased'|'pending'|'cancelled', entitlement?}`, `restore()`,
 `currentEntitlement()`, `manageSubscriptions()` → `{result:'opened'}`. The web layer
@@ -135,9 +148,11 @@ found; store unavailable; Premium keeps progress, expiry relocks; free math cap,
 locks, facts counter; EN and PT paywalls.
 
 ## 21. Not tested
-Real StoreKit (REQUIRES APP STORE CONNECT + PHYSICAL IPHONE + TESTFLIGHT): products,
-purchase sheet, Ask to Buy, receipt verification, trial eligibility, expiry timing,
-Manage Subscriptions deep link. Landscape (the app is portrait-only).
+- With the StoreKit configuration in Xcode (REQUIRES XCODE RUN: select `Kwizillo.storekit`
+  in the scheme, then Run): products with prices, purchase sheet, Ask to Buy, refund/expiry.
+- Sandbox / TestFlight (REQUIRES APP STORE CONNECT + PHYSICAL IPHONE): real receipts,
+  trial eligibility per Apple ID, renewal timing, Manage Subscriptions sheet.
+- Signing (REQUIRES the owner's team in Xcode). Landscape (portrait-only app).
 
 ## 22. What App Store Connect needs
 See `APP_STORE_MONETIZATION_SETUP.md` (24 steps, OWNER ACTION / CODE COMPLETE).
@@ -147,8 +162,10 @@ The Capacitor iOS project with the StoreKit 2 bridge (next phase), a sandbox tes
 then the purchase/restore/expiry tests from the setup document.
 
 ## 24. Open points
-- iOS target + native StoreKit 2 plugin (next phase; the web contract is fixed).
-- "Beheer abonnement" on the web shows a hint; on iOS it must open Apple's sheet.
+- A shared Xcode scheme with the StoreKit configuration pre-selected (Xcode 26 rejected the
+  hand-written scheme file; selecting the configuration in the scheme editor takes one step).
+- "Beheer abonnement" on the web shows a hint; on iOS it opens Apple's sheet (plugin `manageSubscriptions`).
+- App icon and launch screen are generated first versions.
 - Terms of Use / Privacy need public URLs for App Store Connect (in-app texts exist).
 
 ## 25. Recommendations for RC2
