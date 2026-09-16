@@ -67,8 +67,9 @@ function envelope(wav) {
         const lab = new Int32Array(W * H); let best = null, n = 0; const limit = Math.round(H * .6) * W;
         for (let i = 0; i < limit; i++) { if (lab[i] || !ok(i)) continue; n++; const q = [i]; lab[i] = n; let x0 = W, y0 = H, x1 = 0, y1 = 0, cnt = 0;
           while (q.length) { const j = q.pop(); cnt++; const x = j % W, y = (j / W) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; for (const k of [j - 1, j + 1, j - W, j + W]) { if (k < 0 || k >= limit || lab[k] || !ok(k)) continue; if ((k === j - 1 && x === 0) || (k === j + 1 && x === W - 1)) continue; lab[k] = n; q.push(k); } }
-          if (!best || cnt > best.cnt) best = { x0, y0, x1, y1, cnt }; }
+          if (!best || cnt > best.cnt) best = { x0, y0, x1, y1, cnt, lab: n }; }
         if (best) {
+          const bestLab = best.lab;
           const sw = best.x1 - best.x0, sh = best.y1 - best.y0; let cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
           // Frame 1 of every clip is the mouthless base itself (omnihuman starts
           // from the still), so it is the reference for "what the screen and the
@@ -97,6 +98,11 @@ function envelope(wav) {
               eyeL: { fx: (A.x - best.x0) / sw, fy: (A.y - best.y0) / sh }, eyeR: { fx: (B.x - best.x0) / sw, fy: (B.y - best.y0) / sh },
               edF: ed0 / sw, mouth: { fx: ((A.x + B.x) / 2 - best.x0) / sw, fy: (my0 + ed0 * .31 - best.y0) / sh } };
           }
+          // the glass's own extent per row in this frame (its rounded corners
+          // included): nothing outside it is ever repainted
+          const glassL = new Int32Array(H).fill(-1), glassR = new Int32Array(H).fill(-1);
+          for (let y = best.y0; y <= best.y1; y++) for (let x = best.x0; x <= best.x1; x++) { if (lab[y * W + x] === bestLab) { if (glassL[y] < 0) glassL[y] = x; glassR[y] = x; } }
+          const inGlass = (x, y) => glassL[y] >= 0 && x >= glassL[y] + 1 && x <= glassR[y] - 1;
           const ref = window.__ref, rsx = ref.sw / sw, rsy = ref.sh / sh;
           const refAt = (x, y) => { const xx = Math.round(ref.box.x0 + (x - best.x0) * rsx); const yy = Math.round(y <= best.y1 ? ref.box.y0 + (y - best.y0) * rsy : ref.box.y1 + (y - best.y1) * rsy); if (xx < 0 || xx >= W || yy < 0 || yy >= H) return null; return 4 * (yy * W + xx); };
           const lumOf = k => src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11, satOf = k => Math.max(src[k], src[k + 1], src[k + 2]) - Math.min(src[k], src[k + 1], src[k + 2]);
@@ -121,6 +127,7 @@ function envelope(wav) {
             const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
             const gate = g2 * g2 * (3 - 2 * g2), below = (y - eyeY) / ed;
             if (below > .2) {
+              if (y <= best.y1 && !inGlass(x, y)) continue;                             // the glass's rounded corners / the rim beside it: untouched
               if (y > best.y1 && lumOf(k) >= 200) continue;                           // below the glass: never over the rim
               if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate);                    // inside the glass: everything, teeth included
               else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
