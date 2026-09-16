@@ -52,7 +52,7 @@
         <label class="memo-p2" ${mode==='duel'?'':'hidden'}><span>${esc(t('memo.p2Label'))}</span><input id="memoP2" type="text" maxlength="14" autocomplete="off" placeholder="${esc(t('memo.player2'))}" value="${esc(K.state.memoPlayer2||'')}" aria-label="${esc(t('memo.p2Label'))}"></label>
         </div>
         <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b></button>
-        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span><b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
       </div>
     </section>`);
     f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
@@ -70,9 +70,10 @@
   const playerName=i=>i===0?(K.state.name||t('memo.player1')):(K.state.memoPlayer2||t('memo.player2'));
 
   K.startMemo=world=>{
+    world=world||'mix';
+    if(!K.premium.can('memo',world)){K.premiumLocked({kind:'memo',world,retry:()=>K.startMemo(world)});return}
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();stopTimer();
-    world=world||'mix';
     const bgWorld=world==='mix'?(K.state.lastWorld||'ruimte'):world;
     K.currentWorld=bgWorld;
     const r=rule();

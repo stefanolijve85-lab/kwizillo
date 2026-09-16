@@ -13,12 +13,15 @@
   const WORLD_EMOJI={ruimte:'🚀',dieren:'🦁',aarde:'🌍',geschiedenis:'🏰',wetenschap:'🔬',mysterie:'🔮'};
   const bank=()=>window.KWIZILLO_FACTS?.[K.state.language]||window.KWIZILLO_FACTS?.nl||{};
   const seenMap=()=>{const P=K.progress();P.factsSeen||={};return P.factsSeen};
-  K.facts=world=>{
+  // Every fact of a world (or all), and the ones this player may read: Free gets
+  // the whole starter world and the first few of every other world.
+  K.factsAll=world=>{
     const b=bank();
     const list=[];
     for(const w of (world&&world!=='all'?[world]:WORLDS)) (b[w]||[]).forEach((f,i)=>list.push({id:`${w}-${i}`,world:w,e:f.e,t:f.t}));
     return list;
   };
+  K.facts=world=>K.factsAll(world).filter(f=>K.premium.can('fact',f.world,Number(String(f.id).split('-').pop())));
   K.factsSeenCount=world=>{const seen=seenMap();return K.facts(world).filter(f=>seen[f.id]).length};
   // Picks the next fact: an unseen one when there is any, else any not in `avoid`.
   K.pickFact=(world,avoid)=>{
@@ -82,6 +85,7 @@
           ${WORLDS.map(w=>`<button class="fact-chip ${world===w?'active':''}" data-fworld="${w}" role="tab" aria-selected="${world===w}">${WORLD_EMOJI[w]} ${esc(t(`world.${w}.short`))}</button>`).join('')}
         </div>
         <div class="fact-stage" id="factStage"></div>
+        ${K.premium.isPremium()||K.factsAll(world).length===K.facts(world).length?'':`<button class="fact-premium" id="factPremium">${K.icon('lock')} ${esc(t('premium.factsMore',{n:K.factsAll(world).length-K.facts(world).length}))}</button>`}
         <div class="fact-actions">
           <button class="fact-next" id="factNext">${esc(t('facts.next'))} ›</button>
           <button class="fact-listen" id="factListen" aria-label="${esc(t('facts.listen'))}">${K.icon('repeat')}</button>
@@ -106,6 +110,7 @@
     f.querySelector('.panel-settings').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showParent()};
     f.querySelector('#factNext').onclick=()=>{K.sfx('tap');show()};
     f.querySelector('#factListen').onclick=()=>{K.sfx('tap');if(current)readFact(current)};
+    const fp=f.querySelector('#factPremium');if(fp)fp.onclick=()=>{K.sfx('tap');K.premiumLocked({kind:'facts',world,retry:()=>K.showFacts(world)})};
     f.querySelectorAll('[data-fworld]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showFacts(b.dataset.fworld)});
     K.bindNav(f);
     show();

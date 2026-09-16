@@ -24,6 +24,8 @@
     const salt=Math.floor(Math.random()*1e6);   // varies the spoken praise per quiz
     const label=key?t(`topic.${key}`):t('quiz.mixed');
     const run=K.runFor(world,key);
+    // Premium gate — here, not in the tiles: the UI is never the only lock.
+    if(!K.premium.can('quiz',world,key,Number(run.quizNumber||0)+1)){K.premiumLocked({kind:'quiz',world,topicIndex,retry:()=>K.startQuiz(world,topicIndex)});return}
     const batch=K.core.selectQuizBatch({
       questions:K.questions,world,topicKey:key,
       grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds,
