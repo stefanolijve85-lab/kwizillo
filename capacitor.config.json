@@ -1,0 +1,15 @@
+{
+  "appId": "nl.kwizillo.app",
+  "appName": "Kwizillo",
+  "webDir": "www",
+  "ios": {
+    "contentInset": "never",
+    "backgroundColor": "#0d58bd",
+    "preferredContentMode": "mobile",
+    "allowsLinkPreview": false,
+    "scrollEnabled": false
+  },
+  "server": {
+    "iosScheme": "capacitor"
+  }
+}

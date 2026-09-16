@@ -41,7 +41,7 @@
   const listeners=new Set();
   const notify=()=>{listeners.forEach(fn=>{try{fn(K.premium.status())}catch(e){}})};
 
-  const valid=e=>!!e&&e.status==='active'&&(!e.expiresAt||Date.parse(e.expiresAt)>Date.now())&&(e.store==='ios'||(e.store==='dev'&&isDevHost()));
+  const valid=e=>!!e&&e.status==='active'&&(!e.expiresAt||Date.parse(e.expiresAt)>Date.now())&&((e.store==='ios'&&!!window.KwizilloStoreKit)||(e.store==='dev'&&isDevHost()));
   const setEntitlement=e=>{ent=e||null;write(ent);notify()};
 
   /* ---------------- Development host ---------------- */
@@ -62,9 +62,23 @@
   const service={state:'idle',error:null,products:null,provider:null};
   const setState=(s,extra={})=>{Object.assign(service,{state:s},extra);notify()};
 
-  // StoreKit 2 on iOS — NOT IMPLEMENTED: there is no iOS target in this repository
-  // yet. This provider is the contract the native bridge must fulfil; until then
-  // it reports the store as unavailable and the app keeps working in Free.
+  // StoreKit 2 on iOS (ios/App/App/KwizilloStoreKitPlugin.swift) behind this contract.
+  // In the iOS app Capacitor injects window.Capacitor; the native plugin
+  // (ios/App/App/KwizilloStoreKitPlugin.swift) is exposed as
+  // Capacitor.Plugins.KwizilloStoreKit. This shim is the `window.KwizilloStoreKit`
+  // contract on top of it. A web page has neither, and then the provider is absent.
+  const nativePlugin=()=>(window.Capacitor?.isNativePlatform?.()&&window.Capacitor.Plugins?.KwizilloStoreKit)||null;
+  if(!window.KwizilloStoreKit&&nativePlugin()){
+    const n=nativePlugin();
+    window.KwizilloStoreKit={
+      products:async ids=>(await n.products({ids})).products||[],
+      purchase:async id=>n.purchase({id}),
+      restore:async()=>n.restore(),
+      currentEntitlement:async()=>(await n.currentEntitlement()).entitlement||null,
+      manageSubscriptions:async()=>n.manageSubscriptions()
+    };
+    n.addListener?.('entitlementChanged',()=>K.premium?.refresh());
+  }
   const storeKitProvider={
     id:'ios',
     available:()=>!!window.KwizilloStoreKit,
