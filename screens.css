@@ -790,7 +790,7 @@
 .milo-tour .milo-host.no-motion{transition:none}
 .milo-tour .milo-host.milo-size-tour{--milo-w:140px}
 /* A talking clip is a transparent video that takes the figure's place (same height, the still leaves the flow). */
-.milo-clip{display:block;height:auto;width:auto;max-width:none;background:transparent;filter:drop-shadow(0 14px 16px rgba(0,22,70,.42))}
+.milo-clip{display:block;height:auto;width:auto;max-width:none;background:transparent}   /* no filter on a transparent video: WebKit rasterises that wrongly on iOS */
 .milo-figure.behind-clip{display:none}
 .milo-host.clip-playing .milo-mouth{display:none}
 /* The mouth on the figure: placed per pose by milo.js, opened by --open. */

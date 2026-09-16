@@ -53,9 +53,11 @@ function envelope(wav) {
 
   // 3. per frame: crop (+ robot mouth), scale to OUT_H, back to PNG
   const outDir = path.join(tmp, 'o'); fs.mkdirSync(outDir);
-  const scale = OUT_H / box.h, outW = Math.round(box.w * scale) & ~1;
+  // the canvas is padded to a multiple of 16 (transparent), so no encoder pads it
+  // itself and the HEVC alpha layer lines up with the colour on iOS
+  const scale = OUT_H / box.h, drawW = Math.round(box.w * scale), outW = Math.ceil(drawW / 16) * 16, padX = (outW - drawW) >> 1;
   for (let i = 0; i < frames.length; i++) {
-    const png = await p.evaluate(async ([b64, box, outW, outH, open, mouth, debug]) => {
+    const png = await p.evaluate(async ([b64, box, outW, outH, open, mouth, debug, drawW, padX]) => {
       const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
       const c = document.createElement('canvas'); c.width = box.w; c.height = box.h; const g = c.getContext('2d'); g.drawImage(img, box.x, box.y, box.w, box.h, 0, 0, box.w, box.h);
       if (mouth) {
@@ -158,9 +160,9 @@ function envelope(wav) {
           if (debug) { g.save(); g.lineWidth = 1; if (eyes) { g.strokeStyle = 'yellow'; g.beginPath(); g.arc(eyes.lx, eyes.ly, 4, 0, 7); g.stroke(); g.beginPath(); g.arc(eyes.rx, eyes.ry, 4, 0, 7); g.stroke(); g.beginPath(); g.moveTo(eyes.lx, eyes.ly); g.lineTo(eyes.rx, eyes.ry); g.stroke(); } g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
         }
       }
-      const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, 0, 0, outW, outH);
+      const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, padX, 0, drawW, outH);
       return o.toDataURL('image/png').split(',')[1];
-    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, env[i] ?? 0, screenMouth, +(process.env.KEYCLIP_DEBUG||0)]);
+    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, env[i] ?? 0, screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
     fs.writeFileSync(path.join(outDir, `f${String(i + 1).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
   }
   await b.close();
