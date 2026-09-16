@@ -177,6 +177,8 @@
     const keys=K.TOPIC_KEYS[world]||[];
     const topics=keys.map((key,i)=>({key,label:topicLabel(key),i,count:K.core.poolFor({questions:K.questions,world,topicKey:key,grade:Number(K.state.group||5)}).length}));
     const mixRun=K.runFor(world,null);
+    const topicFree=tp=>K.premium.can('quiz',world,tp.key,Number(K.runFor(world,tp.key).quizNumber||0)+1);
+    const mixFree=K.premium.can('quiz',world,null,mixRun.quizNumber+1);
 
     const f=K.frame(`<section class="native-world world-${world} fade-in">
       <img class="native-world-bg" src="${K.MASTER[world]}" alt="">
@@ -192,15 +194,15 @@
           </div>
           <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
         </header>
-        <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic has-art" data-topic="${tp.i}">
+        <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic has-art ${topicFree(tp)?'':'locked'}" data-topic="${tp.i}">
           <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" decoding="async">
           <span class="world-topic-veil"></span>
-          <span class="world-topic-num">${tp.i+1}</span>
+          <span class="world-topic-num">${tp.i+1}</span>${topicFree(tp)?'':K.premiumBadge()}
           <span class="world-topic-copy"><b>${esc(tp.label)}</b></span>
           <i>›</i>
         </button>`).join('')}</div>
-        <button class="world-mix" id="worldMix">
-          <span>${K.icon('play')}</span>
+        <button class="world-mix ${mixFree?'':'locked'}" id="worldMix">
+          <span>${mixFree?K.icon('play'):K.icon('lock')}</span>
           <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${esc(t('world.mixSub'))}</small></span>
           <i>›</i>
         </button>
@@ -391,6 +393,14 @@
 
   /* ---------------- Parent zone ---------------- */
 
+  K.showPrivacyInfo=()=>showPrivacyInfo();
+  // Terms of Use: a plain modal (the Premium screen links here; Apple wants both links reachable).
+  K.showTermsInfo=()=>{
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const o=document.createElement('div');o.className='simple-modal';
+    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">📄</div><h2>${esc(t('settings.terms'))}</h2><p>${esc(t('settings.termsBody'))}</p><button class="simple-ok">${esc(t('common.gotIt'))}</button></div>`;
+    f.appendChild(o);const close=()=>o.remove();o.querySelector('.simple-close').onclick=close;o.querySelector('.simple-ok').onclick=close;
+  };
   function showPrivacyInfo(){
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const o=document.createElement('div');o.className='simple-modal';
@@ -401,6 +411,7 @@
   }
   // Resetting wipes everything, so it sits behind a parental gate rather than a
   // plain confirm a child can tap through (CLAUDE.md section 17, kids/privacy).
+  K.parentalGate=onPass=>showParentalGate(onPass);
   function showParentalGate(onPass){
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const a=3+Math.floor(Math.random()*6), b=4+Math.floor(Math.random()*6);
@@ -432,11 +443,12 @@
     const voiceLine=K.state.voice==='Stil'?t('settings.soundVoiceOff'):t('settings.soundVoiceOn',{voice:t(K.state.voice==='Milo'?'voice.milo':'voice.luna')});
     const musicLine=t('settings.soundMusic',{state:t(K.state.musicOn===false?'settings.off':'settings.on')});
     const body=`<div class="settings-list">
+      ${K.premiumCard()}
       <section class="setting-card"><div class="setting-icon">🎓</div><div><b>${esc(t('settings.group'))}</b><small>${esc(t('settings.groupSub'))}</small></div><div class="stepper"><button data-group="minus">−</button><strong>${esc(t('settings.groupValue',{n:K.state.group}))}</strong><button data-group="plus">+</button></div></section>
       <section class="setting-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.state.niveau||1)}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
-      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''}">${v}</button>`).join('')}</div></section>
+      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
       <section class="setting-card"><div class="setting-icon">🔄</div><div><b>${esc(t('settings.freshStart'))}</b><small>${esc(t(K.freshStart()?'settings.freshStartOn':'settings.freshStartOff'))}</small></div><button class="native-switch ${K.freshStart()?'on':''}" id="freshToggle" aria-label="${esc(t('settings.freshStart'))}"><i></i></button></section>
       <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">${K.activeGuide()==='luna'?'🎧':'🤖'}</div><div><b>${esc(t('tour.again',{guide:K.guideName()}))}</b><small>${esc(t('tour.againSub',{guide:K.guideName()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
@@ -454,6 +466,7 @@
     f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.niveau=Number(b.dataset.level);K.save();K.showParent()});
     f.querySelector('#shareOpen').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};
+    K.bindPremiumCard(f);
     f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showParentalGate(showResetConfirm)};
   };
 

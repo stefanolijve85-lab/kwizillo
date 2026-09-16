@@ -962,3 +962,47 @@
 .feedback-peek{position:absolute;z-index:0;height:auto;pointer-events:none;transform-origin:50% 100%;filter:drop-shadow(0 6px 8px rgba(0,20,70,.35));animation:feedback-peek 2.3s cubic-bezier(.3,1.25,.4,1) both;clip-path:inset(0 0 0 0)}
 @keyframes feedback-peek{0%{transform:translateY(105%) rotate(-8deg);opacity:0}16%{transform:translateY(0) rotate(4deg);opacity:1}30%{transform:translateY(-6px) rotate(-4deg)}44%{transform:translateY(0) rotate(3deg)}58%{transform:translateY(-4px) rotate(-2deg)}80%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105%) rotate(6deg);opacity:0}}
 @media(max-height:700px){.feedback-card{padding:13px 13px 13px}.feedback-explain{font-size:14px}.feedback-answer b{font-size:20px}}
+
+/* ---------------- Premium ---------------- */
+/* A small lock chip on tiles that need Premium; the tile itself stays readable and tappable (it opens the teaser). */
+.premium-badge{position:absolute;top:8px;right:8px;z-index:3;display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:999px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-size:10px;font-weight:1000;letter-spacing:.03em;box-shadow:0 3px 8px rgba(0,26,80,.25)}
+.premium-badge svg{width:12px;height:12px}
+.world-topic.locked .world-topic-art,.memo-pick.locked .home-game-art{filter:saturate(.6) brightness(.8)}
+.world-mix.locked{filter:saturate(.75)}
+.level-toggle button.premium-level{position:relative;opacity:.7}
+.level-toggle button.premium-level::after{content:'★';position:absolute;top:-6px;right:-4px;font-size:10px;color:#f0a500}
+.premium-teaser .simple-modal-card{padding-top:14px}
+.premium-teaser-face{width:74px;height:74px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,26,80,.25);margin:4px auto 2px;display:block}
+.premium-teaser .simple-modal-card p{font-size:12.5px}
+/* The paywall, in the game's panel language */
+.premium-screen .panel-head h1{font-size:clamp(22px,6vw,30px);line-height:1.02}
+.premium-screen .panel-head p{font-size:12px}
+.premium-hero{display:flex;justify-content:center;gap:10px;margin:2px 0 8px}
+.premium-hero img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,26,80,.22)}
+.premium-benefits{list-style:none;margin:0 0 10px;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid #d6eaf9}
+.premium-benefits li{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:900;color:#1b3a7a}
+.premium-benefits li svg{width:14px;height:14px;color:#2ec46c;flex:0 0 auto}
+.premium-plans{display:grid;gap:10px;margin-bottom:8px}
+.premium-plan{position:relative;display:grid;gap:2px;text-align:left;padding:14px 16px 12px;border-radius:22px;border:2px solid #cfe3f7;background:linear-gradient(180deg,#fff,#eef8ff);color:#10235f;cursor:pointer;box-shadow:0 6px 0 #b7d6ef,0 12px 22px rgba(0,34,93,.12);min-height:88px}
+.premium-plan.recommended{border-color:#ffd23f;background:linear-gradient(180deg,#fff9e0,#ffefb5);box-shadow:0 6px 0 #dc8c12,0 14px 26px rgba(0,34,93,.16)}
+.premium-plan:active{transform:translateY(3px)}
+.premium-plan:disabled{opacity:.6}
+.premium-plan b{font-size:15px}.premium-plan small{font-size:11px;font-weight:900;color:#4f74a8}
+.premium-plan strong{font-size:22px;margin-top:4px}.premium-plan strong em{font-style:normal;font-size:12px;color:#4f74a8;font-weight:900}
+.premium-best{position:absolute;top:-10px;right:14px;padding:4px 10px;border-radius:999px;background:linear-gradient(180deg,#7c64ff,#4e43d8);color:#fff;font-size:10px;font-weight:1000;letter-spacing:.05em;box-shadow:0 4px 10px rgba(67,52,163,.3)}
+.premium-permonth,.premium-trial{font-size:11px;font-weight:900;color:#2b6b2f}
+.premium-trial{color:#8a4b00}
+.premium-cta{margin-top:8px;justify-self:start;padding:10px 16px;border-radius:999px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-size:13px;font-weight:1000;box-shadow:0 4px 0 #dc8c12}
+.premium-plan.monthly .premium-cta{background:linear-gradient(180deg,#edf5ff,#dbeeff);box-shadow:0 4px 0 #b7d6ef;color:#2e5f9c}
+.premium-loading,.premium-status{padding:18px 12px;text-align:center;font-weight:900;color:#3566a8;border-radius:18px;background:rgba(255,255,255,.7)}
+.premium-status p{margin:0 0 10px;color:#10235f;font-size:13px}
+.premium-legal{margin:4px 2px 10px;font-size:10px;line-height:1.35;color:#52779e;font-weight:700}
+.premium-links{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;padding-bottom:10px}
+.premium-links button{border:0;background:transparent;color:#2763a6;font-weight:900;font-size:12px;text-decoration:underline;cursor:pointer;min-height:36px}
+.premium-welcome{display:grid;place-items:center}
+.premium-welcome-card{position:relative;z-index:2;width:92%;padding:26px 18px 22px;border-radius:30px;background:linear-gradient(180deg,#fff,#eef9ff);border:3px solid #fff;box-shadow:0 25px 70px rgba(0,22,70,.4);text-align:center;color:#10205d}
+.premium-welcome-card h1{margin:8px 0 4px;font-size:clamp(24px,6.5vw,32px)}
+.premium-welcome-card p{margin:0 0 14px;font-size:13px;font-weight:800;color:#52779e}
+.premium-card.active{border-color:#ffd23f;background:linear-gradient(180deg,#fff9e0,#fff)}
+.fact-premium{margin:6px auto 0;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:9px 14px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-weight:1000;font-size:12px;cursor:pointer;box-shadow:0 4px 0 #dc8c12}
+.fact-premium svg{width:14px;height:14px}
