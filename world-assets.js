@@ -78,7 +78,7 @@
   // Home HUD, voice pickers, onboarding, feedback and result cards.
   // Assets are cached for a day by the browser; a redrawn file under the same
   // name would show stale. Bump this when a guide image is replaced.
-  K.ASSET_V='v14';
+  K.ASSET_V='v15';
   K.assetUrl=p=>`${p}?${K.ASSET_V}`;
   K.MASCOT_ART={
     milo:K.assetUrl('assets/mascots/milo.jpg'),luna:K.assetUrl('assets/mascots/luna.jpg'),

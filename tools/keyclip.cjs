@@ -113,6 +113,22 @@ function envelope(wav) {
           const eyes = { lx: best.x0 + ref.eyeL.fx * sw, ly: best.y0 + ref.eyeL.fy * sh, rx: best.x0 + ref.eyeR.fx * sw, ry: best.y0 + ref.eyeR.fy * sh };
           const ed = ref.edF * sw, tilt = 0;
           cx = best.x0 + ref.mouth.fx * sw; cy = best.y0 + ref.mouth.fy * sh;
+          // Are the rings whole in this frame (eyes open)? Then the mouth sits under
+          // the midpoint between them — that follows a head turn better than the
+          // glass box does — and that offset is kept through a blink.
+          let open = false;
+          { const cy2 = new Uint8Array(W * H), bl = []; const yA = Math.round(eyeY0()), yB = Math.round(eyeY0() + ed * .45);
+            function eyeY0() { return (eyes.ly + eyes.ry) / 2 - ed * .45; }
+            for (let y = Math.max(best.y0, yA); y <= Math.min(best.y1, yB); y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) cy2[y * W + x] = 1; }
+            for (let y = Math.max(best.y0, yA); y <= Math.min(best.y1, yB); y++) for (let x = best.x0; x <= best.x1; x++) { const i0 = y * W + x; if (cy2[i0] !== 1) continue; const q = [i0]; cy2[i0] = 2; let sx = 0, sy = 0, n2 = 0, y0b = H, y1b = 0;
+              while (q.length) { const j = q.pop(); const jy = (j / W) | 0; sx += j % W; sy += jy; n2++; if (jy < y0b) y0b = jy; if (jy > y1b) y1b = jy; for (const t of [j - 1, j + 1, j - W, j + W]) { if (t < 0 || t >= W * H || cy2[t] !== 1) continue; if ((t === j - 1 && j % W === 0) || (t === j + 1 && j % W === W - 1)) continue; cy2[t] = 2; q.push(t); } }
+              bl.push({ x: sx / n2, y: sy / n2, n: n2, h: y1b - y0b + 1 }); }
+            bl.sort((a, b) => b.n - a.n);
+            if (!ref.ring && bl.length >= 2) ref.ring = { h: (bl[0].h + bl[1].h) / 2, n: (bl[0].n + bl[1].n) / 2 };
+            if (ref.ring && bl.length >= 2 && bl[0].h >= ref.ring.h * .8 && bl[1].h >= ref.ring.h * .8 && bl[1].n >= ref.ring.n * .6 && Math.abs(bl[0].x - bl[1].x) > ed * .6) {
+              open = true; const mid = (bl[0].x + bl[1].x) / 2; window.__dx = mid - (best.x0 + ref.mouth.fx * sw); eyes.lx = Math.min(bl[0].x, bl[1].x); eyes.rx = Math.max(bl[0].x, bl[1].x); eyes.ly = eyes.ry = (bl[0].y + bl[1].y) / 2;
+            }
+            cx += window.__dx || 0; }
           const eyeY = (eyes.ly + eyes.ry) / 2;
           // the eyes' own glow (bright, near where the rings are) is never touched
           const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
@@ -129,7 +145,11 @@ function envelope(wav) {
             const below = (y - eyeY) / ed;
             // under the rings (they end ~0.25 eye distances below their centres) the
             // glass is restored outright; beside the rings their own glow is kept
-            const g2 = below > .3 ? 1 : Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
+            const g2 = Math.min(1, dist[y * W + x] / ringGap);   // a smooth gap around the rings, never a hard line
+            // right beside a ring the reference may not line up pixel-perfectly, so
+            // there a lit-up halo is simply pulled down to the glass's dark colour
+            if (g2 < 1 && below > -.1) { const k0 = 4 * (y * W + x), l0 = lumOf(k0); if (l0 < 75) { const w = Math.max(0, Math.min(1, (l0 - 22) / 25)) * (1 - g2); if (w > 0) { for (let i = 0; i < 3; i++) d[k0 + i] = src[k0 + i] + (ref.dark[i] - src[k0 + i]) * w; } } }
+            if (!g2) continue;
             const gate = g2 * g2 * (3 - 2 * g2);
             if (below > .12) {
               if (y <= best.y1 && !inGlass(x, y)) continue;                             // the glass's rounded corners / the rim beside it: untouched
