@@ -126,14 +126,17 @@ function envelope(wav) {
           const ex = cx, ey = cy, rx = ed * .5, ry = ed * .2;
           for (let y = Math.round(best.y0 + sh * .3); y <= Math.min(H - 1, Math.round(best.y1 + sh * .12)); y++) for (let x = best.x0; x <= best.x1; x++) {
             const k = 4 * (y * W + x), kr = refAt(x, y);
-            const g2 = Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
-            const gate = g2 * g2 * (3 - 2 * g2), below = (y - eyeY) / ed;
-            if (below > .2) {
+            const below = (y - eyeY) / ed;
+            // under the rings (they end ~0.25 eye distances below their centres) the
+            // glass is restored outright; beside the rings their own glow is kept
+            const g2 = below > .3 ? 1 : Math.min(1, dist[y * W + x] / ringGap); if (!g2) continue;
+            const gate = g2 * g2 * (3 - 2 * g2);
+            if (below > .12) {
               if (y <= best.y1 && !inGlass(x, y)) continue;                             // the glass's rounded corners / the rim beside it: untouched
               if (y > best.y1 && lumOf(k) >= 200) continue;                           // below the glass: never over the rim
               if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate);                    // inside the glass: everything, teeth included
               else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
-            } else if (kr !== null) { const w = Math.max(0, Math.min(1, (lumOf(k) - rlum(kr) - 2) / 10)) * gate; if (w > 0) toRef(k, kr, w); }
+            } else if (kr !== null) { const w = Math.max(0, Math.min(1, (lumOf(k) - rlum(kr) - 1) / 6)) * gate; if (w > 0) toRef(k, kr, w); }
           }
           // 2. the rim under the screen: whatever differs from the reference there
           //    (teeth, a lip line, an orange open mouth) is the reference again
