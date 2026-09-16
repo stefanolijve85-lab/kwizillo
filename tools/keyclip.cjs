@@ -29,7 +29,11 @@ function envelope(wav) {
   const buf = fs.readFileSync(wav); const data = buf.subarray(44); const n = data.length >> 1; const step = Math.round(16000 / FPS); const env = [];
   for (let s = 0; s < n; s += step) { let sum = 0, c = 0; for (let i = s; i < Math.min(n, s + step); i++) { const v = data.readInt16LE(i * 2) / 32768; sum += v * v; c++; } env.push(Math.sqrt(sum / Math.max(1, c))); }
   const ref = [...env].sort((a, b) => a - b)[Math.floor(env.length * .95)] || 1;
-  return env.map(v => Math.min(1, v / ref));
+  // normalised, a light smoothing (no flicker), a noise gate, and closed for the
+  // last half second: the app holds the final frame, so it must not be an open mouth
+  const norm = env.map(v => Math.min(1, v / ref)), out = norm.map((v, i) => Math.max(0, (norm[i - 1] ?? v) * .3 + v * .5 + (norm[i + 1] ?? v) * .2 - .08) / .92);
+  for (let i = Math.max(0, out.length - Math.round(FPS * .5)); i < out.length; i++) out[i] = 0;
+  return out;
 }
 
 (async () => {
@@ -99,6 +103,8 @@ function envelope(wav) {
             window.__ref = { d: src, box: { ...best }, sw, sh, dark: dn ? dk.map(v => v / dn) : [8, 20, 50],
               eyeL: { fx: (A.x - best.x0) / sw, fy: (A.y - best.y0) / sh }, eyeR: { fx: (B.x - best.x0) / sw, fy: (B.y - best.y0) / sh },
               edF: ed0 / sw, mouth: { fx: ((A.x + B.x) / 2 - best.x0) / sw, fy: (my0 + ed0 * .31 - best.y0) / sh } };
+            // where the mouth sits relative to the glass's centre line on its own row in the base (usually ~0)
+            { const row = Math.round(best.y0 + window.__ref.mouth.fy * sh); let l = -1, rr = -1; for (let x = best.x0; x <= best.x1; x++) if (lab[row * W + x] === bestLab) { if (l < 0) l = x; rr = x; } window.__ref.mouthShift = l >= 0 ? (A.x + B.x) / 2 - (l + rr) / 2 : 0; }
           }
           // the glass's own extent per row in this frame (its rounded corners
           // included): nothing outside it is ever repainted
@@ -116,7 +122,7 @@ function envelope(wav) {
           // Are the rings whole in this frame (eyes open)? Then the mouth sits under
           // the midpoint between them — that follows a head turn better than the
           // glass box does — and that offset is kept through a blink.
-          let open = false;
+          let eyesOpen = false;
           { const cy2 = new Uint8Array(W * H), bl = []; const yA = Math.round(eyeY0()), yB = Math.round(eyeY0() + ed * .45);
             function eyeY0() { return (eyes.ly + eyes.ry) / 2 - ed * .45; }
             for (let y = Math.max(best.y0, yA); y <= Math.min(best.y1, yB); y++) for (let x = best.x0; x <= best.x1; x++) { const k = 4 * (y * W + x); if (lumOf(k) > 110 && src[k + 2] > src[k] + 40) cy2[y * W + x] = 1; }
@@ -126,9 +132,10 @@ function envelope(wav) {
             bl.sort((a, b) => b.n - a.n);
             if (!ref.ring && bl.length >= 2) ref.ring = { h: (bl[0].h + bl[1].h) / 2, n: (bl[0].n + bl[1].n) / 2 };
             if (ref.ring && bl.length >= 2 && bl[0].h >= ref.ring.h * .8 && bl[1].h >= ref.ring.h * .8 && bl[1].n >= ref.ring.n * .6 && Math.abs(bl[0].x - bl[1].x) > ed * .6) {
-              open = true; const mid = (bl[0].x + bl[1].x) / 2; window.__dx = mid - (best.x0 + ref.mouth.fx * sw); eyes.lx = Math.min(bl[0].x, bl[1].x); eyes.rx = Math.max(bl[0].x, bl[1].x); eyes.ly = eyes.ry = (bl[0].y + bl[1].y) / 2;
+              eyesOpen = true; const mid = (bl[0].x + bl[1].x) / 2; window.__dx = mid - (best.x0 + ref.mouth.fx * sw); eyes.lx = Math.min(bl[0].x, bl[1].x); eyes.rx = Math.max(bl[0].x, bl[1].x); eyes.ly = eyes.ry = (bl[0].y + bl[1].y) / 2;
             }
-            cx += window.__dx || 0; }
+            }
+          { const row = Math.round(cy); if (glassL[row] >= 0) cx = (glassL[row] + glassR[row]) / 2 + ref.mouthShift; }
           const eyeY = (eyes.ly + eyes.ry) / 2;
           // the eyes' own glow (bright, near where the rings are) is never touched
           const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
@@ -175,7 +182,8 @@ function envelope(wav) {
           const glow = '#62dcff', r = ed * .19, o = Math.max(0, Math.min(1, open));
           g.save(); g.translate(cx, cy);
           g.lineCap = 'round'; g.strokeStyle = glow; g.lineWidth = ed * .075;
-          const stroke = path => { g.shadowColor = 'rgba(70,190,255,.9)'; g.shadowBlur = ed * .22; path(); g.stroke(); g.shadowBlur = ed * .06; path(); g.stroke(); };
+          // the same glow in every clip: a wide soft halo, a tighter one, then the crisp line
+          const stroke = path => { g.shadowColor = 'rgba(70,190,255,.95)'; g.shadowBlur = ed * .4; path(); g.stroke(); g.shadowBlur = ed * .16; path(); g.stroke(); g.shadowBlur = ed * .05; path(); g.stroke(); };
           if (open < 0) {}
           else if (o < .18) stroke(() => { g.beginPath(); g.arc(0, -r * .4, r, Math.PI * .12, Math.PI * .88); });
           else { const hh = r * (.8 + o * .2); g.shadowBlur = 0; g.fillStyle = 'rgba(98,220,255,.28)'; g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); g.fill(); stroke(() => { g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); }); }
