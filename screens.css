@@ -1009,7 +1009,7 @@
 .test-card{border-style:dashed;border-color:#b9cbd9;background:linear-gradient(180deg,#fff,#f4f7fb)}
 
 /* ==== Wat ben ik? ==== */
-.home-games{grid-template-columns:1fr 1fr 1fr 1fr}
+.home-games{grid-template-columns:1fr 1fr 1fr}
 @media(max-width:430px){.home-games{grid-template-columns:1fr 1fr}.home-game.art{aspect-ratio:16/7}}
 .whoami-card{gap:8px}
 .whoami-guide{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:start}
@@ -1039,15 +1039,7 @@
 .home-game.art b{white-space:nowrap}
 
 /* ==== Jungle Runner ==== */
-/* The runner tile is a wide banner under the four game tiles: title over the jungle art, a one-line hook beneath it. */
-.home-game.jungle{grid-column:1/-1;aspect-ratio:16/3.4}
-@media(max-width:430px){.home-game.jungle{aspect-ratio:16/4.6}}
-@media(max-height:700px){.home-game.jungle{aspect-ratio:16/3}}
-.home-game.jungle .home-game-art{object-position:center 62%}
-.home-game.jungle .home-game-veil{background:linear-gradient(90deg,rgba(2,20,62,.78) 0%,rgba(2,20,62,.35) 55%,rgba(2,22,66,0) 100%)}
-.home-game.jungle b{left:14px;right:auto;bottom:auto;top:50%;transform:translateY(-100%);text-align:left;font-size:18px;letter-spacing:.2px}
-.home-game.jungle small{position:absolute;left:14px;top:50%;margin-top:2px;color:#e6f5ff;font-size:11px;font-weight:850;text-shadow:0 2px 6px rgba(0,18,56,.8)}
-@media(max-width:400px){.home-game.jungle b{font-size:15px}.home-game.jungle small{font-size:10px}}
+.home-game.jungle .home-game-art{object-position:center 30%}
 /* The runner fills the whole game frame; it draws its own header, buttons and safe areas inside its shadow root. */
 .jungle-screen{position:absolute;inset:0;background:#163f35}
 .jungle-mount{position:absolute;inset:0}
@@ -1055,3 +1047,17 @@
 .jungle-loading{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;color:#fff;font-weight:900;text-shadow:0 2px 6px rgba(0,18,56,.6)}
 .jungle-loading .spinner{width:34px;height:34px;border-radius:50%;border:4px solid rgba(255,255,255,.35);border-top-color:#fff;animation:jungle-spin .8s linear infinite}
 @keyframes jungle-spin{to{transform:rotate(360deg)}}
+
+/* ==== Fotozoom ==== */
+.fotozoom-card{gap:8px}
+.fotozoom-stage{position:relative;flex:1 1 auto;min-height:150px;max-height:56%;border-radius:22px;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 18px rgba(20,80,145,.17);background:#0b2f5c}
+.fotozoom-stage img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.fotozoom-lens{position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;font-size:18px;box-shadow:0 3px 8px rgba(0,26,80,.25)}
+.fotozoom-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px}
+.fotozoom-row h1{text-align:left;font-size:clamp(17px,4.6vw,26px)}
+.fotozoom-points{background:linear-gradient(180deg,#ffe969,#ffbd23);color:#17235e;border-radius:999px;padding:5px 11px;font-size:clamp(11px,2.8vw,13px);font-weight:1000;white-space:nowrap;box-shadow:0 3px 0 #dc8c12}
+.quiz-card .fotozoom-answers{flex:0 0 auto;grid-auto-rows:minmax(64px,100px);gap:8px}
+.fotozoom-card .quiz-actions{margin-top:auto}
+.quiz-card.fotozoom-card .answer{min-height:58px;padding:16px 8px 8px!important}
+.fotozoom-verdict .simple-modal-card{padding-top:0;overflow:hidden}
+.fotozoom-reveal{display:block;width:calc(100% + 40px);margin:-2px -20px 8px;aspect-ratio:16/8;object-fit:cover}
