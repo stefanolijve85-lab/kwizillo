@@ -1,0 +1,129 @@
+(()=>{
+  const K=window.KWIZILLO_M1;
+  if(!K) return;
+  const t=(k,v)=>K.t(k,v);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+  // "Wat ben ik?": the guide gives clues about something from a world, one at a
+  // time; the child picks it from four pictures. Guessing after the first clue
+  // scores 100, after the second 75, after the third 50 — thinking first pays.
+  // Everything comes from the question bank: the clues are the question's hint,
+  // fact and explanation with the answer word hidden, the pictures are the
+  // questions' own art. So every world plays in every language.
+  const ROUNDS=5, POINTS=[100,75,50];
+  const WORLDS=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
+
+  // A question qualifies when its answer is a thing (one or two words, no digits)
+  // and it has its own picture — the picture is the answer tile.
+  // …and the answer names a thing: it must appear as a whole word in the
+  // explanation ("Mars wordt de rode planeet genoemd"), which colours, numbers
+  // and yes/no answers do not.
+  const candidates=world=>K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&/^\D{2,}$/.test(q.answer)&&q.answer.split(' ').length<=2&&q.hint&&q.explanation&&wordRe(q.answer).test(q.explanation)&&!/^(ja|nee|yes|no|sim|não|waar|niet waar|true|false)$/i.test(q.answer));
+  // The answer is hidden in each clue as a whole word ("Mars" in "Mars wordt…",
+  // never the "blauw" inside "blauwachtig"); a clue with nothing left but the
+  // answer is dropped. Articles are not part of the word to hide.
+  const core=answer=>answer.replace(/^(de|het|een|the|a|an|o|a|os|as|um|uma)\s+/i,'');
+  const escapeRe=s=>s.replace(/[.*+?^${}()|[\]\\]/g,m=>'\\'+m);
+  const wordRe=answer=>new RegExp('(^|[^\\p{L}])'+escapeRe(core(answer))+'(?=$|[^\\p{L}])','giu');
+  const mask=(text,answer)=>{const out=text.replace(wordRe(answer),(m,pre)=>pre+'…');return out.replace(/…/g,'').trim().length>=6?out:null};
+  const cluesFor=q=>[q.hint,q.fact,q.explanation].map(c=>c&&mask(c,q.answer)).filter(Boolean).slice(0,3);
+
+  K.startWhoAmI=world=>{
+    world=world||'mix';
+    if(!K.premium.can('memo',world)){K.premiumLocked({kind:'whoami',world,retry:()=>K.startWhoAmI(world)});return}
+    K.audio.setTrack('play').catch(()=>{});
+    K.stopSpeech();
+    const pool=shuffle(candidates(world).filter(q=>cluesFor(q).length>=2));
+    if(pool.length<4){K.toast(t('memo.none'));K.showHome();return}
+    const rounds=pool.slice(0,ROUNDS).map(q=>{
+      const others=shuffle(pool.filter(o=>o.id!==q.id&&o.answer!==q.answer&&(o.world===q.world))).slice(0,3);
+      while(others.length<3){const o=pool.find(x=>x.id!==q.id&&!others.includes(x));if(!o)break;others.push(o)}
+      return {q,clues:cluesFor(q),options:shuffle([q,...others])};
+    });
+    K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
+    showRound();
+  };
+
+  function showRound(){
+    const g=K.whoami;const r=g.rounds[g.index];const q=r.q;
+    K.stopSpeech();
+    let shown=1,locked=false;
+    const bgWorld=q.world;
+    const f=K.frame(`<section class="quiz-v2 whoami whoami-${bgWorld} fade-in">
+      <img class="quiz-v2-bg" src="${K.MASTER[bgWorld]}" alt="">
+      <div class="quiz-v2-dim"></div>
+      <div class="quiz-v2-ui">
+        <header class="quiz-v2-head">
+          <button class="quiz-back" id="whoBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
+          <div class="quiz-brand"><span>${esc(t('whoami.title'))}</span><small>${esc(t(`world.${bgWorld}.title`))}</small></div>
+          <div class="quiz-meta"><b>${esc(t('whoami.round',{n:g.index+1,total:g.rounds.length}))}</b><b>⭐ ${g.score}</b></div>
+        </header>
+        <main class="quiz-card whoami-card">
+          <div class="whoami-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><div class="whoami-bubble" id="whoClues"></div></div>
+          <div class="whoami-points" id="whoPoints">${esc(t('whoami.points',{n:POINTS[0]}))}</div>
+          <div class="whoami-grid">${r.options.map((o,i)=>`<button class="whoami-tile" data-i="${i}" aria-label="${esc(o.answer)}"><img src="${K.questionArtFor(o.id)}" alt="" decoding="async"><b>${esc(o.answer)}</b></button>`).join('')}</div>
+          <div class="quiz-actions whoami-actions"><button class="action hint" id="whoMore">${K.icon('bulb')} ${esc(t('whoami.more'))}</button><button class="action repeat" id="whoRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
+        </main>
+      </div>
+    </section>`);
+    const clues=f.querySelector('#whoClues'),points=f.querySelector('#whoPoints'),more=f.querySelector('#whoMore');
+    const renderClues=()=>{clues.innerHTML=r.clues.slice(0,shown).map((c,i)=>`<p class="${i===shown-1?'fresh':''}">${esc(c)}</p>`).join('')+`<p class="whoami-ask">${esc(t('whoami.ask'))}</p>`;points.textContent=t('whoami.points',{n:POINTS[Math.min(shown,POINTS.length)-1]});more.disabled=shown>=r.clues.length;more.classList.toggle('spent',shown>=r.clues.length)};
+    const speak=all=>{const lines=all?r.clues.slice(0,shown):[r.clues[shown-1]];K.speak([...lines,t('whoami.ask')].join(' '))};
+    renderClues();speak(false);
+    f.querySelector('#whoBack').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
+    f.querySelector('#whoRepeat').onclick=()=>{K.sfx('tap');speak(true)};
+    more.onclick=()=>{if(shown>=r.clues.length)return;K.sfx('hint');shown++;renderClues();speak(false)};
+    f.querySelectorAll('.whoami-tile').forEach(b=>b.onclick=()=>{
+      if(locked)return;locked=true;K.stopSpeech();
+      const pick=r.options[Number(b.dataset.i)],ok=pick.id===q.id;
+      const earned=ok?POINTS[Math.min(shown,POINTS.length)-1]:0;
+      f.querySelectorAll('.whoami-tile').forEach(x=>{x.disabled=true;if(r.options[Number(x.dataset.i)].id===q.id)x.classList.add('correct')});
+      if(ok){K.sfx('good');g.score+=earned;g.correct++;K.recordAnswerProgress?.(q,true)}else{K.sfx('bad');b.classList.add('wrong');K.recordAnswerProgress?.(q,false)}
+      // The verdict, then the explanation with the answer in it — a miss teaches too.
+      const card=document.createElement('div');card.className='simple-modal whoami-verdict';
+      card.innerHTML=`<div class="simple-modal-card"><div class="simple-icon">${ok?'🎉':'💡'}</div><h2>${esc(ok?t('whoami.yes',{answer:q.answer,points:earned}):t('whoami.almost',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="whoNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'whoami.next'))}</button></div>`;
+      f.appendChild(card);
+      K.speak((ok?t('whoami.speech.yes',{answer:q.answer}):t('whoami.speech.almost',{answer:q.answer}))+' '+q.explanation);
+      card.querySelector('#whoNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
+    });
+  }
+
+  function finish(){
+    const g=K.whoami;if(!g||g.done)return;g.done=true;K.stopSpeech();
+    const max=g.rounds.length*POINTS[0];
+    const stars=g.score>=max*.8?3:g.score>=max*.5?2:g.correct>0?1:0;
+    // Each right guess already paid XP and coins like a quiz answer
+    // (K.recordAnswerProgress); the stars add a small bonus on top.
+    const xp=stars*6;
+    const G=K.progress().games||={};const w=G.whoami||={played:0,best:0};
+    w.played++;if(g.score>w.best)w.best=g.score;
+    K.state.xp=Number(K.state.xp||0)+xp;
+    K.touchStreak();K.save();
+    const bg=g.world==='mix'?'mysterie':g.world;
+    const f=K.frame(`<section class="result-v2 fade-in is-pass">
+      <img class="result-v2-bg" src="${K.MASTER[bg]}" alt="">
+      <div class="result-v2-dim"></div>
+      <div class="result-v2-card">
+        <div class="result-stage"><button class="result-gift" id="resultGift" aria-label="🎁">🎁</button><div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div></div>
+        <div class="result-kicker">${esc(t('whoami.doneKicker'))}</div>
+        <h1>${esc(t('whoami.doneTitle',{n:g.correct,total:g.rounds.length}))}</h1>
+        <div class="result-stars">${[1,2,3].map(n=>`<i class="${n<=stars?'on':''}">★</i>`).join('')}</div>
+        <p class="result-rule">${esc(t('whoami.summary',{score:g.score,max}))}</p>
+        <div class="result-stats"><span><b>${g.score}</b><small>⭐</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
+        <div class="result-native">
+          <button id="againBtn">${esc(t('memo.again'))}</button>
+          <button id="homeBtn" class="secondary">${esc(t('world.backHome'))}</button>
+          <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
+        </div>
+      </div>
+    </section>`);
+    const stage=f.querySelector('.result-stage'),gift=f.querySelector('#resultGift');
+    let opened=false;const open=()=>{if(opened)return;opened=true;stage.classList.add('open');K.sfx('gift');setTimeout(()=>K.sfx('reward'),350);K.celebrate?.('quiz',gift)};
+    gift.onclick=open;setTimeout(open,1000);
+    K.speak(t(stars>=2?'whoami.speech.great':'whoami.speech.done'));
+    f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startWhoAmI(g.world)};
+    f.querySelector('#homeBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
+    f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
+  }
+})();

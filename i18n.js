@@ -62,6 +62,12 @@
     'common.gotIt':'Begrepen',
     'common.brand':'KWIZILLO',
     'common.of':'van',
+    // Wat ben ik?
+    'whoami.title':'Wat ben ik?','whoami.round':'Ronde {n} van {total}','whoami.points':'Nu {n} punten','whoami.ask':'Wat ben ik?','whoami.more':'Nog een tip','whoami.next':'Volgende',
+    'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Bijna! Het was {answer}.',
+    'whoami.speech.yes':'Ja, het is {answer}!','whoami.speech.almost':'Bijna! Het was {answer}.',
+    'whoami.doneKicker':'WAT BEN IK?','whoami.doneTitle':'{n} van {total} geraden!','whoami.summary':'{score} van {max} punten. Hoe eerder je raadt, hoe meer punten.',
+    'whoami.speech.great':'Wauw, jij raadt snel! Knap gedaan.','whoami.speech.done':'Goed gespeeld! Volgende keer raad je er nog meer.',
     // Premium (parent pays for access; the child earns rewards by playing)
     'common.ok':'Oké','common.retry':'Opnieuw proberen',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'VOOR OUDERS',
@@ -87,6 +93,7 @@
     'premium.teaser.math':'De hogere rekenniveaus horen bij Kwizillo Premium. Vraag een ouder om ze te openen.',
     'premium.teaser.facts':'Meer weetjes horen bij Kwizillo Premium. Vraag een ouder om ze allemaal te openen.',
     'premium.factsMore':'Nog {n} weetjes met Premium',
+    'premium.teaser.whoami':'Wat ben ik? in deze wereld hoort bij Kwizillo Premium. Vraag een ouder om alle werelden te openen.',
     'premium.testTitle':'Testmodus: alles open','premium.testSub':'Alleen op dit testadres · speelt alle content zonder Premium',
     'settings.terms':'Gebruiksvoorwaarden','settings.termsBody':'Kwizillo is een leerspel voor kinderen. Premium is een abonnement dat via Apple wordt afgerekend en automatisch verlengt tot het wordt opgezegd; opzeggen kan altijd via je Apple-abonnementen. Er zijn geen advertenties en geen aankopen in het spel zelf.',
 
@@ -493,6 +500,12 @@
     'common.gotIt':'Got it',
     'common.brand':'KWIZILLO',
     'common.of':'of',
+    // What am I?
+    'whoami.title':'What am I?','whoami.round':'Round {n} of {total}','whoami.points':'Now {n} points','whoami.ask':'What am I?','whoami.more':'One more clue','whoami.next':'Next',
+    'whoami.yes':'Yes, {answer}! +{points}','whoami.almost':'Almost! It was {answer}.',
+    'whoami.speech.yes':'Yes, it is {answer}!','whoami.speech.almost':'Almost! It was {answer}.',
+    'whoami.doneKicker':'WHAT AM I?','whoami.doneTitle':'{n} of {total} guessed!','whoami.summary':'{score} of {max} points. The sooner you guess, the more points.',
+    'whoami.speech.great':'Wow, you guess fast! Well done.','whoami.speech.done':'Well played! Next time you will guess even more.',
     // Premium
     'common.ok':'OK','common.retry':'Try again',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'FOR PARENTS',
@@ -518,6 +531,7 @@
     'premium.teaser.math':'The higher math levels are part of Kwizillo Premium. Ask a parent to open them.',
     'premium.teaser.facts':'More facts are part of Kwizillo Premium. Ask a parent to open them all.',
     'premium.factsMore':'{n} more facts with Premium',
+    'premium.teaser.whoami':'What am I? in this world is part of Kwizillo Premium. Ask a parent to open all the worlds.',
     'premium.testTitle':'Test mode: everything open','premium.testSub':'Only on this test address · plays all content without Premium',
     'settings.terms':'Terms of Use','settings.termsBody':'Kwizillo is a learning game for children. Premium is a subscription billed through Apple that renews automatically until cancelled; you can cancel at any time in your Apple subscriptions. There are no ads and no purchases inside the game itself.',
 
@@ -924,6 +938,12 @@
     'common.gotIt':'Entendi',
     'common.brand':'KWIZILLO',
     'common.of':'de',
+    // O que sou eu?
+    'whoami.title':'O que sou eu?','whoami.round':'Rodada {n} de {total}','whoami.points':'Agora {n} pontos','whoami.ask':'O que sou eu?','whoami.more':'Mais uma dica','whoami.next':'Próxima',
+    'whoami.yes':'Isso, {answer}! +{points}','whoami.almost':'Quase! Era {answer}.',
+    'whoami.speech.yes':'Isso, é {answer}!','whoami.speech.almost':'Quase! Era {answer}.',
+    'whoami.doneKicker':'O QUE SOU EU?','whoami.doneTitle':'{n} de {total} acertos!','whoami.summary':'{score} de {max} pontos. Quanto antes você adivinha, mais pontos ganha.',
+    'whoami.speech.great':'Uau, você adivinha rápido! Muito bem.','whoami.speech.done':'Bem jogado! Na próxima você acerta ainda mais.',
     // Premium
     'common.ok':'OK','common.retry':'Tentar de novo',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'PARA OS PAIS',
@@ -949,6 +969,7 @@
     'premium.teaser.math':'Os níveis mais altos de matemática fazem parte do Kwizillo Premium. Peça a um adulto para liberá-los.',
     'premium.teaser.facts':'Mais curiosidades fazem parte do Kwizillo Premium. Peça a um adulto para liberar todas.',
     'premium.factsMore':'Mais {n} curiosidades com o Premium',
+    'premium.teaser.whoami':'O que sou eu? neste mundo faz parte do Kwizillo Premium. Peça a um adulto para liberar todos os mundos.',
     'premium.testTitle':'Modo de teste: tudo aberto','premium.testSub':'Só neste endereço de teste · joga todo o conteúdo sem Premium',
     'settings.terms':'Termos de Uso','settings.termsBody':'Kwizillo é um jogo educativo para crianças. O Premium é uma assinatura cobrada pela Apple que renova automaticamente até ser cancelada; você pode cancelar quando quiser nas suas assinaturas Apple. Não há anúncios nem compras dentro do jogo.',
 

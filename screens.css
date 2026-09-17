@@ -1007,3 +1007,27 @@
 .fact-premium{margin:6px auto 0;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:9px 14px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-weight:1000;font-size:12px;cursor:pointer;box-shadow:0 4px 0 #dc8c12}
 .fact-premium svg{width:14px;height:14px}
 .test-card{border-style:dashed;border-color:#b9cbd9;background:linear-gradient(180deg,#fff,#f4f7fb)}
+
+/* ==== Wat ben ik? ==== */
+.home-games{grid-template-columns:1fr 1fr 1fr 1fr}
+@media(max-width:430px){.home-games{grid-template-columns:1fr 1fr}.home-game.art{aspect-ratio:16/7}}
+.home-game.whoami .whoami-mark{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:44px;font-weight:1000;color:#ffe36b;text-shadow:0 3px 0 #512fa8,0 6px 14px rgba(0,20,70,.5)}
+.whoami-card{gap:8px}
+.whoami-guide{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:start}
+.whoami-guide .mascot-face{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 5px 12px rgba(0,26,80,.25)}
+.whoami-bubble{position:relative;background:#fff;border:2px solid #d6eaf9;border-radius:18px;padding:10px 12px;min-height:64px;box-shadow:0 6px 14px rgba(20,70,128,.1)}
+.whoami-bubble::before{content:'';position:absolute;left:-9px;top:18px;border:8px solid transparent;border-right-color:#fff;border-left:0}
+.whoami-bubble p{margin:0 0 4px;font-size:clamp(13px,3.4vw,16px);line-height:1.25;font-weight:900;color:#10235f}
+.whoami-bubble p.fresh{color:#1765d4}
+.whoami-bubble p.whoami-ask{margin-top:6px;color:#7c64ff;font-weight:1000}
+.whoami-points{align-self:center;padding:4px 12px;border-radius:999px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-size:12px;font-weight:1000;box-shadow:0 3px 0 #dc8c12}
+.whoami-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;min-height:0}
+.whoami-tile{position:relative;overflow:hidden;border-radius:18px;border:2px solid #c8e5fa;background:#0d3a7a;padding:0;cursor:pointer;min-height:96px;box-shadow:0 5px 0 #a8d9f4,0 10px 16px rgba(22,84,149,.14);transition:transform .15s}
+.whoami-tile:active{transform:translateY(3px)}
+.whoami-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.whoami-tile b{position:absolute;left:6px;right:6px;bottom:7px;text-align:center;color:#fff;font-size:clamp(12px,3.2vw,15px);text-shadow:0 2px 8px rgba(0,18,56,.9);background:linear-gradient(180deg,rgba(2,22,66,0),rgba(2,20,62,.75));padding:14px 2px 0;border-radius:0 0 14px 14px}
+.whoami-tile.correct{border-color:#55d36b;box-shadow:0 5px 0 #49b95a,0 0 20px rgba(69,217,94,.35)}
+.whoami-tile.wrong{border-color:#ff9b59;filter:saturate(.6)}
+.whoami-tile:disabled:not(.correct):not(.wrong){opacity:.55}
+.whoami-actions{grid-template-columns:1.6fr 1fr}
+.whoami-verdict .simple-modal-card h2{font-size:clamp(18px,5vw,24px)}
