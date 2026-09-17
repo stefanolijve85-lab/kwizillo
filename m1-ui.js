@@ -130,7 +130,7 @@
         <div class="home-games">
           <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
-          <button class="home-game art whoami" id="homeWhoAmI"><img class="home-game-art" src="${K.GAME_ART.whoami}" alt="" decoding="async"><span class="home-game-veil"></span><span class="whoami-mark">?</span><b>${esc(t('whoami.title'))}</b></button>
+          <button class="home-game art whoami" id="homeWhoAmI"><img class="home-game-art" src="${K.GAME_ART.whoami}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('whoami.title'))}</b></button>
           <button class="home-game art facts" id="homeFacts"><img class="home-game-art" src="${K.GAME_ART.facts}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('facts.title'))}</b></button>
         </div>
 

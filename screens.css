@@ -1011,7 +1011,6 @@
 /* ==== Wat ben ik? ==== */
 .home-games{grid-template-columns:1fr 1fr 1fr 1fr}
 @media(max-width:430px){.home-games{grid-template-columns:1fr 1fr}.home-game.art{aspect-ratio:16/7}}
-.home-game.whoami .whoami-mark{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:44px;font-weight:1000;color:#ffe36b;text-shadow:0 3px 0 #512fa8,0 6px 14px rgba(0,20,70,.5)}
 .whoami-card{gap:8px}
 .whoami-guide{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:start}
 .whoami-guide .mascot-face{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 5px 12px rgba(0,26,80,.25)}
@@ -1032,3 +1031,5 @@
 .whoami-actions{grid-template-columns:1.6fr 1fr}
 .whoami-verdict .simple-modal-card h2{font-size:clamp(18px,5vw,24px)}
 .whoami-tile.spoken-active{transform:translateY(-4px) scale(1.03);border-color:#75a8ff;box-shadow:0 8px 0 #9fcdf3,0 16px 26px rgba(40,103,189,.25),0 0 0 4px rgba(91,137,255,.18)}
+/* Game tile titles stay on one line; fitTitles shrinks a too-long one instead of wrapping it. */
+.home-game.art b{white-space:nowrap}
