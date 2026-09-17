@@ -446,7 +446,7 @@ test('feedback speech is fetched while the question is on screen, not after the 
   expect(after.filter(t => t.includes(explanation)), 'feedback must be served from the warm cache').toEqual([]);
 });
 
-test('"next" on the answer card waits for the voice, two quick taps skip it; the close button unlocks it', async ({ page }) => {
+test('"next" on the answer card moves on with one tap while the voice plays; "Nog eens" re-reads an answered question and lets the child answer again', async ({ page }) => {
   let release;
   const gate = new Promise(r => { release = r; });
   let n = 0;
@@ -471,13 +471,10 @@ test('"next" on the answer card waits for the voice, two quick taps skip it; the
   expect(order.indexOf('feedback-verdict')).toBeLessThan(order.indexOf('feedback-answer'));
   expect(order.indexOf('feedback-answer')).toBeLessThan(order.indexOf('feedback-explain'));
   expect(order.indexOf('feedback-explain')).toBeLessThan(order.indexOf('feedback-next'));
-  // Next is locked while the explanation plays; a single tap only nudges it…
-  await expect(page.locator('#feedbackNext')).toBeDisabled();
-  await page.locator('#feedbackNext').dispatchEvent('pointerdown');
-  await expect(page.locator('.feedback-float')).toHaveCount(1);
+  // The bar shows how far the explanation is, but one tap moves on at any time.
+  await expect(page.locator('#feedbackNext')).toBeEnabled();
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
-  // …two quick taps move on anyway.
-  await page.locator('#feedbackNext').dispatchEvent('pointerdown');
+  await page.locator('#feedbackNext').click();
   await expect(page.locator('.feedback-float')).toHaveCount(0);
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
   release();
@@ -486,7 +483,18 @@ test('"next" on the answer card waits for the voice, two quick taps skip it; the
   await expect(page.locator('.feedback-float')).toBeVisible();
   await page.locator('#feedbackClose').click();
   await expect(page.locator('.feedback-float')).toHaveCount(0);
-  await page.locator('#nextBtn').click();
+  // "Nog eens" on an answered question reads it again with clean tiles, and the
+  // child can answer once more; the score keeps the first answer.
+  const scoreBefore = await page.evaluate(() => window.KWIZILLO_M1.quiz.score);
+  await page.locator('#repeatBtn').click();
+  await expect(page.locator('.answer.correct, .answer.wrong')).toHaveCount(0);
+  await expect(page.locator('.answer').first()).toBeEnabled();
+  const right = await page.evaluate(() => { const K = window.KWIZILLO_M1; return K.quiz.questions[K.quiz.index].answer; });
+  await page.locator(`.answer[data-a="${encodeURIComponent(right)}"]`).click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await expect(page.locator('.feedback-verdict')).toContainText(/Goed|Juist|Klopt|Yes|Top/i);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.quiz.score)).toBe(scoreBefore);
+  await page.locator('#feedbackNext').click();
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 3 van 10');
 });
 

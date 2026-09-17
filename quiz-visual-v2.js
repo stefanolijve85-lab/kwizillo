@@ -62,6 +62,7 @@
     K.stopSpeech();stopTimer();
     const idx=K.quiz.index,total=K.quiz.questions.length;
     const answered=K.quiz.answeredById?.[q.id]||null;
+    const retry=!!(answered&&K.quiz.retrying?.[q.id]);   // "Nog eens": clean tiles, answer again
     const pct=Math.round(((idx+1)/Math.max(1,total))*100);
     const seconds=answered?0:questionSecondsFor();
     // The row is always Back / Hint / Again. On an answered question the
@@ -84,7 +85,7 @@
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
           <div class="quiz-art"><img class="art-fill" src="${questionArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
-          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
+          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered&&!retry?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
           ${answered?`<button class="review-next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}
           <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}">${actions}</div>
         </main>
@@ -100,10 +101,15 @@
     f.querySelector('#prevBtn').onclick=()=>{if(idx===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');K.quiz.index--;K.showQuiz()};
 
     f.querySelector('#hintBtn').onclick=()=>showHint(q);
-    if(answered){
+    if(answered&&!retry){
       const reopen=()=>{K.sfx('tap');feedback(q,answered.correct,{timedOut:answered.timedOut,silent:true})};
       buttons.forEach(b=>b.onclick=reopen);
       f.querySelector('#nextBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');next()};
+    }else if(retry){
+      // A retry after "Nog eens": the tiles are live again; the answer that
+      // counted stays on record, this one only shows right or wrong.
+      buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');const ok=decodeURIComponent(b.dataset.a)===q.answer;buttons.forEach(x=>x.disabled=true);K.sfx(ok?'good':'bad');b.classList.add(ok?'correct':'wrong');if(!ok)buttons.find(x=>decodeURIComponent(x.dataset.a)===q.answer)?.classList.add('correct');delete K.quiz.retrying[q.id];setTimeout(()=>feedback(q,ok,{timedOut:false}),120)});
+      f.querySelector('#nextBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');delete K.quiz.retrying[q.id];next()};
     }else{
       buttons.forEach(b=>b.onclick=()=>{K.stopSpeech();evaluate(q,decodeURIComponent(b.dataset.a),b)});
     }
@@ -148,8 +154,8 @@
       K.pauseTimer(false);
       startTimer();
     };
-    f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');readQuestion()};
-    if(!answered) readQuestion();   // an answered question is shown, not read, until asked
+    f.querySelector('#repeatBtn').onclick=()=>{K.sfx('tap');if(answered&&!retry){(K.quiz.retrying||={})[q.id]=true;K.showQuiz();return}readQuestion()};
+    if(!answered||retry) readQuestion();   // an answered question is shown, not read, until asked
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
@@ -251,14 +257,10 @@
     // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
     x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');x.remove();render(q)};
     const go=()=>{K.stopSpeech();K.sfx('tap');next()};
-    nextBtn.onclick=()=>{if(!nextBtn.disabled)return go()};
-    // While the button is still locked a double tap (two taps within a second) skips the rest of the explanation.
-    nextBtn.addEventListener('pointerdown',()=>{
-      if(!nextBtn.disabled)return;
-      const now=Date.now();
-      if(now-lastTap<1000){lastTap=0;go();return}
-      lastTap=now;nextBtn.classList.remove('nudge');void nextBtn.offsetWidth;nextBtn.classList.add('nudge');
-    });
+    // One tap moves on, also while the explanation is still being read: the bar
+    // only shows how far the voice is, it is not a lock.
+    nextBtn.onclick=go;
+    nextBtn.disabled=false;
   }
 
   function next(){clearSpoken();stopTimer();K.quiz.index++;K.showQuiz()}
