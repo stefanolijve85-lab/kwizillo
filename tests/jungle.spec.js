@@ -1,6 +1,6 @@
-// Jungle Runner: the arcade runner mounts inside the game frame in the app
-// language, a finished run pays coins once per run id, and leaving it returns
-// to Home with the runner torn down.
+// Kwizillo Runner (3D): the runner mounts inside the game frame in the app
+// language with a level and a hero to pick, a finished run pays coins once per
+// run id, and leaving it returns to Home with the runner torn down.
 const { test, expect } = require('@playwright/test');
 
 const SAVED = (over = {}) => ({
@@ -16,8 +16,8 @@ async function boot(page, state = SAVED()) {
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }
-const runner = page => page.locator('kwizillo-jungle');
-const inRunner = (page, sel) => page.locator(`kwizillo-jungle ${sel}`);
+const runner = page => page.locator('kwizillo-runner');
+const inRunner = (page, sel) => page.locator(`kwizillo-runner ${sel}`);
 
 test('the Home tile opens the runner in Dutch; a run ends at the finish, coins are booked once, "take my loot" goes back to Home', async ({ page }) => {
   await boot(page);
@@ -29,6 +29,14 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Op avontuur →', { timeout: 10000 });
   await expect(inRunner(page, '.eyebrow')).toHaveText('KWIZILLO • ARCADE');
   await expect(inRunner(page, '[data-act=exit]')).toHaveText('Terug naar Kwizillo');
+  // three levels and two heroes; the choice is remembered
+  await expect(inRunner(page, '.levels button')).toHaveCount(3);
+  await inRunner(page, '[data-act=level-stad]').click();
+  await inRunner(page, '[data-act=hero-girl]').click();
+  await expect(inRunner(page, '[data-act=level-stad]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(inRunner(page, '[data-act=hero-girl]')).toHaveAttribute('aria-pressed', 'true');
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.state.runnerLevel, window.KWIZILLO_M1.state.runnerHero])).toEqual(['stad', 'girl']);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.renderer.hero.userData.wing.visible)).toBe(false);
   // Kwizillo's own music manager is in charge; the runner's loop is off.
   expect(await page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.audio.musicEnabled)).toBe(false);
   await expect(inRunner(page, '[data-act=music]')).toHaveText('Muziek: uit ♫');
@@ -45,6 +53,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   await expect(inRunner(page, '[data-act=exit]')).toHaveText('Neem mijn buit mee');
   const booked = await page.evaluate(() => ({ coins: window.KWIZILLO_M1.state.coins, jungle: window.KWIZILLO_M1.progress().games.jungle, reward: window.KWIZILLO_M1.jungle.game.element.reward }));
   expect(booked.reward.completed).toBe(true);
+  expect(booked.reward.theme).toBe('stad');
   expect(booked.coins).toBe(booked.reward.coins);
   expect(booked.coins).toBeGreaterThanOrEqual(23);
   expect(booked.jungle.played).toBe(1);
@@ -68,8 +77,9 @@ test('the runner speaks the app language (English), and leaving from the start p
   await boot(page, SAVED({ language: 'en' }));
   await page.locator('#homeJungle').click();
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Go adventure →', { timeout: 10000 });
-  await expect(inRunner(page, '.themes button span').first()).toHaveText('Waterfalls');
-  await expect(inRunner(page, '.legend span').first()).toHaveText('🧲 Magnet');
+  await expect(inRunner(page, '.levels button span').first()).toHaveText('Jungle');
+  await expect(inRunner(page, '[data-act=hero-boy] span')).toHaveText('Boy');
+  await expect(inRunner(page, '.pick-label').first()).toHaveText('PICK YOUR LEVEL');
   await inRunner(page, '[data-act=exit]').click();
   await expect(page.locator('.home')).toBeVisible();
   await expect(runner(page)).toHaveCount(0);
@@ -80,7 +90,7 @@ test('every jungle string exists in nl, en and pt (no silent Dutch fallback)', a
   await boot(page);
   const result = await page.evaluate(() => {
     const K = window.KWIZILLO_M1; const out = [];
-    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump']);
+    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle']);
     const keys = Object.keys(K.jungleText()).filter(k => k !== 'savedNoHost' && k !== 'loadError').map(k => 'jungle.' + k).concat(['jungle.title', 'jungle.tileSub', 'jungle.loadError', 'jungle.loadErrorBody']);
     const nl = {}; K.state.language = 'nl'; for (const k of keys) { nl[k] = K.t(k); if (nl[k] === k) out.push('nl:' + k); }
     for (const lang of ['en', 'pt']) { K.state.language = lang; for (const k of keys) { if (SAME.has(k.slice(7))) continue; if (K.t(k) === nl[k]) out.push(lang + ':' + k); } }
@@ -89,4 +99,19 @@ test('every jungle string exists in nl, en and pt (no silent Dutch fallback)', a
   });
   expect(result.count).toBeGreaterThan(80);
   expect(result.out).toEqual([]);
+});
+
+test('the sky level hands out the glider mid-run and takes it back for the landing', async ({ page }) => {
+  await boot(page, SAVED({ runnerLevel: 'lucht' }));
+  await page.locator('#homeJungle').click();
+  await expect(inRunner(page, '[data-act=level-lucht]')).toHaveAttribute('aria-pressed', 'true', { timeout: 10000 });
+  await inRunner(page, '[data-act=start]').click();
+  await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
+  const wingAt = async frac => page.evaluate(f => { const el = window.KWIZILLO_M1.jungle.game.element; el.run.distance = el.run.duration * (el.run.easy ? .26 : .31) * f; return new Promise(r => setTimeout(() => r(el.renderer.hero.userData.wing.visible), 250)); }, frac);
+  expect(await wingAt(.1)).toBe(false);
+  expect(await wingAt(.3)).toBe(true);
+  expect(await wingAt(.55)).toBe(false);
+  expect(await wingAt(.75)).toBe(true);
+  expect(await wingAt(.95)).toBe(false);
 });
