@@ -1031,3 +1031,4 @@
 .whoami-tile:disabled:not(.correct):not(.wrong){opacity:.55}
 .whoami-actions{grid-template-columns:1.6fr 1fr}
 .whoami-verdict .simple-modal-card h2{font-size:clamp(18px,5vw,24px)}
+.whoami-tile.spoken-active{transform:translateY(-4px) scale(1.03);border-color:#75a8ff;box-shadow:0 8px 0 #9fcdf3,0 16px 26px rgba(40,103,189,.25),0 0 0 4px rgba(91,137,255,.18)}

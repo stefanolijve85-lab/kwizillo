@@ -42,6 +42,10 @@
       return {q,clues:cluesFor(q),options:shuffle([q,...others])};
     });
     K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
+    // Every line of the whole game is requested now, so each round starts talking at once.
+    const lines=[];for(const r of rounds){lines.push(...r.clues,...r.options.map(o=>`${o.answer}.`),t('whoami.speech.yes',{answer:r.q.answer})+' '+r.q.explanation,t('whoami.speech.almost',{answer:r.q.answer})+' '+r.q.explanation)}
+    lines.push(t('whoami.ask'),t('whoami.speech.great'),t('whoami.speech.done'));
+    K.prefetchSpeech?.(lines);
     showRound();
   };
 
@@ -69,7 +73,13 @@
     </section>`);
     const clues=f.querySelector('#whoClues'),points=f.querySelector('#whoPoints'),more=f.querySelector('#whoMore');
     const renderClues=()=>{clues.innerHTML=r.clues.slice(0,shown).map((c,i)=>`<p class="${i===shown-1?'fresh':''}">${esc(c)}</p>`).join('')+`<p class="whoami-ask">${esc(t('whoami.ask'))}</p>`;points.textContent=t('whoami.points',{n:POINTS[Math.min(shown,POINTS.length)-1]});more.disabled=shown>=r.clues.length;more.classList.toggle('spent',shown>=r.clues.length)};
-    const speak=all=>{const lines=all?r.clues.slice(0,shown):[r.clues[shown-1]];K.speak([...lines,t('whoami.ask')].join(' '))};
+    const tiles=()=>[...f.querySelectorAll('.whoami-tile')];
+    const speak=all=>{
+      if(locked)return;
+      const lines=all?r.clues.slice(0,shown):[r.clues[shown-1]];
+      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.ask')},...r.options.map((o,i)=>({kind:'answer',index:i,text:`${o.answer}.`}))];
+      K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='answer')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>tiles().forEach(x=>x.classList.remove('spoken-active'))});
+    };
     renderClues();speak(false);
     f.querySelector('#whoBack').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
     f.querySelector('#whoRepeat').onclick=()=>{K.sfx('tap');speak(true)};

@@ -59,6 +59,23 @@ test('five rounds of clues and pictures; earlier guesses earn more; a wrong pick
   expect(s.xp).toBeGreaterThan(0); expect(s.coins).toBeGreaterThan(0); expect(s.best).toBe(375);
 });
 
+test('the clue, the question and the four tile names are read out (tiles light up in turn), and every line of the game is requested up front', async ({ page }) => {
+  const spoken = [];
+  await page.route('**/*.mp4', route => route.abort());
+  await page.route('**/api/tts', route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
+  await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, SAVED({ voice: 'Milo' }));
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  await page.locator('#homeWhoAmI').click();
+  await expect(page.locator('.whoami')).toBeVisible();
+  const g = await page.evaluate(() => { const g = window.KWIZILLO_M1.whoami; return { clue: g.rounds[0].clues[0], tiles: g.rounds[0].options.map(o => o.answer), lastClue: g.rounds[4].clues[0] }; });
+  await expect.poll(() => spoken.includes(g.clue)).toBe(true);
+  await expect.poll(() => spoken.includes('Wat ben ik?')).toBe(true);
+  for (const name of g.tiles) await expect.poll(() => spoken.includes(name + '.')).toBe(true);
+  await expect.poll(() => spoken.includes(g.lastClue)).toBe(true);   // round 5's clue is already on its way
+});
+
 test('every world has enough material in every language', async ({ page }) => {
   await boot(page);
   const counts = await page.evaluate(() => {
