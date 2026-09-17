@@ -114,6 +114,8 @@
   }
   // Read against the wall clock from the moment the source started: it stays
   // in step with playback and never depends on the context clock ticking.
+  // How far the line playing right now is (0..1), for progress bars that follow the voice.
+  K.voiceProgress=()=>{if(!voiceNow||!voiceNow.startedAt||!voiceNow.buffer)return null;return Math.max(0,Math.min(1,(performance.now()-voiceNow.startedAt)/1000/voiceNow.buffer.duration))};
   K.voiceLevel=()=>{if(!voiceNow||!voiceNow.startedAt)return 0;const env=envelopeOf(voiceNow.buffer);const i=Math.floor((performance.now()-voiceNow.startedAt)/1000/ENV_STEP);return i>=0&&i<env.length?env[i]:0};
   K.stopSpeech=()=>{voiceNow=null;gate.cancel();K.audio.duck(false);try{abort?.abort()}catch(e){}abort=null;try{if(voiceSource){voiceSource.onended=null;voiceSource.stop();voiceSource.disconnect();voiceSource=null}}catch(e){}if(voiceUrl){try{URL.revokeObjectURL(voiceUrl)}catch(e){}voiceUrl=null}try{speechSynthesis?.cancel()}catch(e){}try{K.clearSpeechHighlight?.()}catch(e){}};
   // Natural pacing per CLAUDE.md section 9: a beat after the question, a shorter

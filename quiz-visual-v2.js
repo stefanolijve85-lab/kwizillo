@@ -248,11 +248,16 @@
     // A bar runs through the button for exactly as long as the clip plays;
     // when it reaches the right edge the button turns gold and unlocks. The
     // close button skips the voice; without a voice the button is live at once.
-    let armed=false,lastTap=0;
+    // The bar follows the voice's own clock frame by frame (a CSS transition
+    // could snap when a prefetched line starts instantly), and fills up only
+    // when the explanation has really been heard to the end.
+    let armed=false,raf=0;
     const bar=nextBtn.querySelector('.feedback-bar');
-    const arm=()=>{if(armed)return;armed=true;nextBtn.disabled=false;x.classList.add('spoken');bar.style.transition='none';bar.style.width='100%'};
+    const arm=()=>{if(armed)return;armed=true;cancelAnimationFrame(raf);x.classList.add('spoken');bar.style.width='100%'};
+    const follow=()=>{if(armed||!x.isConnected)return;const p=K.voiceProgress?.();if(p!==null&&p!==undefined)bar.style.width=(p*100).toFixed(1)+'%';raf=requestAnimationFrame(follow)};
     if(silent||K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
-    else K.speak(feedbackSpeech(q,correct),{onStart:(seg,i,d)=>{if(d>0){bar.style.transition=`width ${d}s linear`;requestAnimationFrame(()=>{bar.style.width='100%'})}}}).then(arm,arm);
+    else{raf=requestAnimationFrame(follow);K.speak(feedbackSpeech(q,correct)).then(arm,arm)}
+    nextBtn.disabled=false;
     // The cross puts the question back on screen, answered, so the child can
     // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
     x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');x.remove();render(q)};
@@ -260,7 +265,6 @@
     // One tap moves on, also while the explanation is still being read: the bar
     // only shows how far the voice is, it is not a lock.
     nextBtn.onclick=go;
-    nextBtn.disabled=false;
   }
 
   function next(){clearSpoken();stopTimer();K.quiz.index++;K.showQuiz()}
