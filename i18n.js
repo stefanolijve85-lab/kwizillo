@@ -63,7 +63,7 @@
     'common.brand':'KWIZILLO',
     'common.of':'van',
     // Wat ben ik?
-    'whoami.title':'Wat ben ik?','whoami.round':'Ronde {n} van {total}','whoami.points':'Nu {n} punten','whoami.ask':'Wat ben ik?','whoami.more':'Nog een tip','whoami.next':'Volgende',
+    'whoami.title':'Wat ben ik?','whoami.round':'Ronde {n} van {total}','whoami.points':'Nu {n} punten','whoami.ask':'Wat ben ik?','whoami.more':'Een tip','whoami.next':'Volgende','whoami.timeUp':'De tijd is om! Het was {answer}.',
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Bijna! Het was {answer}.',
     'whoami.speech.yes':'Ja, het is {answer}!','whoami.speech.almost':'Bijna! Het was {answer}.',
     'whoami.doneKicker':'WAT BEN IK?','whoami.doneTitle':'{n} van {total} geraden!','whoami.summary':'{score} van {max} punten. Hoe eerder je raadt, hoe meer punten.',
@@ -501,7 +501,7 @@
     'common.brand':'KWIZILLO',
     'common.of':'of',
     // What am I?
-    'whoami.title':'What am I?','whoami.round':'Round {n} of {total}','whoami.points':'Now {n} points','whoami.ask':'What am I?','whoami.more':'One more clue','whoami.next':'Next',
+    'whoami.title':'What am I?','whoami.round':'Round {n} of {total}','whoami.points':'Now {n} points','whoami.ask':'What am I?','whoami.more':'A clue','whoami.next':'Next','whoami.timeUp':'Time is up! It was {answer}.',
     'whoami.yes':'Yes, {answer}! +{points}','whoami.almost':'Almost! It was {answer}.',
     'whoami.speech.yes':'Yes, it is {answer}!','whoami.speech.almost':'Almost! It was {answer}.',
     'whoami.doneKicker':'WHAT AM I?','whoami.doneTitle':'{n} of {total} guessed!','whoami.summary':'{score} of {max} points. The sooner you guess, the more points.',
@@ -939,7 +939,7 @@
     'common.brand':'KWIZILLO',
     'common.of':'de',
     // O que sou eu?
-    'whoami.title':'O que sou eu?','whoami.round':'Rodada {n} de {total}','whoami.points':'Agora {n} pontos','whoami.ask':'O que sou eu?','whoami.more':'Mais uma dica','whoami.next':'Próxima',
+    'whoami.title':'O que sou eu?','whoami.round':'Rodada {n} de {total}','whoami.points':'Agora {n} pontos','whoami.ask':'O que sou eu?','whoami.more':'Uma dica','whoami.next':'Próxima','whoami.timeUp':'Acabou o tempo! Era {answer}.',
     'whoami.yes':'Isso, {answer}! +{points}','whoami.almost':'Quase! Era {answer}.',
     'whoami.speech.yes':'Isso, é {answer}!','whoami.speech.almost':'Quase! Era {answer}.',
     'whoami.doneKicker':'O QUE SOU EU?','whoami.doneTitle':'{n} de {total} acertos!','whoami.summary':'{score} de {max} pontos. Quanto antes você adivinha, mais pontos ganha.',

@@ -12,6 +12,12 @@
   // fact and explanation with the answer word hidden, the pictures are the
   // questions' own art. So every world plays in every language.
   const ROUNDS=5, POINTS=[100,75,50];
+  // The per-question timer follows the parent's level like the quiz does (off
+  // when the parent switched time limits off). It starts once the tiles have
+  // been read out, pauses while a clue is read, and a run-out counts as a miss.
+  let timer=null;
+  const stopTimer=()=>{if(timer){clearInterval(timer.id);timer=null}};
+  const secondsFor=()=>K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1);
   const WORLDS=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
 
   // A question qualifies when its answer is a thing (one or two words, no digits)
@@ -51,7 +57,7 @@
 
   function showRound(){
     const g=K.whoami;const r=g.rounds[g.index];const q=r.q;
-    K.stopSpeech();
+    K.stopSpeech();stopTimer();
     let shown=1,locked=false;
     const bgWorld=q.world;
     const f=K.frame(`<section class="quiz-v2 whoami whoami-${bgWorld} fade-in">
@@ -62,6 +68,7 @@
           <button class="quiz-back" id="whoBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>${esc(t('whoami.title'))}</span><small>${esc(t(`world.${bgWorld}.title`))}</small></div>
           <div class="quiz-meta"><b>${esc(t('whoami.round',{n:g.index+1,total:g.rounds.length}))}</b><b>⭐ ${g.score}</b></div>
+          ${secondsFor()?`<span class="quiz-timer whoami-timer" id="whoTimer" style="--p:100"><b>${secondsFor()}</b></span>`:''}
         </header>
         <main class="quiz-card whoami-card">
           <div class="whoami-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><div class="whoami-bubble" id="whoClues"></div></div>
@@ -77,30 +84,46 @@
     const speak=all=>{
       if(locked)return;
       const lines=all?r.clues.slice(0,shown):[r.clues[shown-1]];
-      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.ask')},...r.options.map((o,i)=>({kind:'answer',index:i,text:`${o.answer}.`}))];
-      K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='answer')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>tiles().forEach(x=>x.classList.remove('spoken-active'))});
+      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:`${o.answer}.`}))];
+      if(timer)timer.paused=true;
+      K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='option')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>{tiles().forEach(x=>x.classList.remove('spoken-active'))}}).then(()=>{if(timer)timer.paused=false;startTimer()},()=>{if(timer)timer.paused=false;startTimer()});
+    };
+    const seconds=secondsFor();
+    const startTimer=()=>{
+      if(!seconds||timer||locked)return;
+      const el=f.querySelector('#whoTimer');if(!el)return;
+      let left=seconds*1000,last=performance.now();
+      el.classList.add('running');
+      timer={paused:false,id:setInterval(()=>{
+        const now=performance.now();if(!timer.paused)left-=now-last;last=now;
+        if(!el.isConnected){stopTimer();return}
+        const sec=Math.max(0,Math.ceil(left/1000));if(sec!==timer.sec){timer.sec=sec;K.timerTick?.(sec)}
+        el.style.setProperty('--p',String(Math.max(0,left/(seconds*1000))*100));el.querySelector('b').textContent=sec;el.classList.toggle('urgent',left<=5000);
+        if(left<=0){stopTimer();pick(null)}
+      },100)};
     };
     renderClues();speak(false);
-    f.querySelector('#whoBack').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
+    f.querySelector('#whoBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showHome()};
     f.querySelector('#whoRepeat').onclick=()=>{K.sfx('tap');speak(true)};
     more.onclick=()=>{if(shown>=r.clues.length)return;K.sfx('hint');shown++;renderClues();speak(false)};
-    f.querySelectorAll('.whoami-tile').forEach(b=>b.onclick=()=>{
-      if(locked)return;locked=true;K.stopSpeech();
-      const pick=r.options[Number(b.dataset.i)],ok=pick.id===q.id;
+    const pick=b=>{
+      if(locked)return;locked=true;K.stopSpeech();stopTimer();
+      const choice=b?r.options[Number(b.dataset.i)]:null,ok=!!choice&&choice.id===q.id;
       const earned=ok?POINTS[Math.min(shown,POINTS.length)-1]:0;
       f.querySelectorAll('.whoami-tile').forEach(x=>{x.disabled=true;if(r.options[Number(x.dataset.i)].id===q.id)x.classList.add('correct')});
-      if(ok){K.sfx('good');g.score+=earned;g.correct++;K.recordAnswerProgress?.(q,true)}else{K.sfx('bad');b.classList.add('wrong');K.recordAnswerProgress?.(q,false)}
+      if(ok){K.sfx('good');g.score+=earned;g.correct++;K.recordAnswerProgress?.(q,true)}else{K.sfx('bad');b?.classList.add('wrong');K.recordAnswerProgress?.(q,false)}
       // The verdict, then the explanation with the answer in it — a miss teaches too.
       const card=document.createElement('div');card.className='simple-modal whoami-verdict';
-      card.innerHTML=`<div class="simple-modal-card"><div class="simple-icon">${ok?'🎉':'💡'}</div><h2>${esc(ok?t('whoami.yes',{answer:q.answer,points:earned}):t('whoami.almost',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="whoNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'whoami.next'))}</button></div>`;
+      card.innerHTML=`<div class="simple-modal-card"><div class="simple-icon">${ok?'🎉':b?'💡':'⏰'}</div><h2>${esc(ok?t('whoami.yes',{answer:q.answer,points:earned}):t(b?'whoami.almost':'whoami.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="whoNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'whoami.next'))}</button></div>`;
       f.appendChild(card);
       K.speak((ok?t('whoami.speech.yes',{answer:q.answer}):t('whoami.speech.almost',{answer:q.answer}))+' '+q.explanation);
       card.querySelector('#whoNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
-    });
+    };
+    f.querySelectorAll('.whoami-tile').forEach(b=>b.onclick=()=>pick(b));
   }
 
   function finish(){
-    const g=K.whoami;if(!g||g.done)return;g.done=true;K.stopSpeech();
+    const g=K.whoami;if(!g||g.done)return;g.done=true;K.stopSpeech();stopTimer();
     const max=g.rounds.length*POINTS[0];
     const stars=g.score>=max*.8?3:g.score>=max*.5?2:g.correct>0?1:0;
     // Each right guess already paid XP and coins like a quiz answer

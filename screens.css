@@ -1028,7 +1028,11 @@
 .whoami-tile.correct{border-color:#55d36b;box-shadow:0 5px 0 #49b95a,0 0 20px rgba(69,217,94,.35)}
 .whoami-tile.wrong{border-color:#ff9b59;filter:saturate(.6)}
 .whoami-tile:disabled:not(.correct):not(.wrong){opacity:.55}
-.whoami-actions{grid-template-columns:1.6fr 1fr}
+.whoami-actions{grid-template-columns:1fr 1fr!important;gap:10px!important}
+.whoami-actions .action{width:100%;min-height:48px}
+.whoami .quiz-v2-head{position:relative}
+.whoami-timer{position:absolute;right:0;top:100%;margin-top:6px;z-index:3}
+.whoami-card{margin-top:8px}
 .whoami-verdict .simple-modal-card h2{font-size:clamp(18px,5vw,24px)}
 .whoami-tile.spoken-active{transform:translateY(-4px) scale(1.03);border-color:#75a8ff;box-shadow:0 8px 0 #9fcdf3,0 16px 26px rgba(40,103,189,.25),0 0 0 4px rgba(91,137,255,.18)}
 /* Game tile titles stay on one line; fitTitles shrinks a too-long one instead of wrapping it. */

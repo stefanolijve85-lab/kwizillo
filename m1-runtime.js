@@ -120,7 +120,7 @@
   K.stopSpeech=()=>{voiceNow=null;gate.cancel();K.audio.duck(false);try{abort?.abort()}catch(e){}abort=null;try{if(voiceSource){voiceSource.onended=null;voiceSource.stop();voiceSource.disconnect();voiceSource=null}}catch(e){}if(voiceUrl){try{URL.revokeObjectURL(voiceUrl)}catch(e){}voiceUrl=null}try{speechSynthesis?.cancel()}catch(e){}try{K.clearSpeechHighlight?.()}catch(e){}};
   // Natural pacing per CLAUDE.md section 9: a beat after the question, a shorter
   // one between answers. The wait is cancellable, so a tap still stops speech instantly.
-  const GAP={question:520,answer:300,speech:0};
+  const GAP={question:520,answer:300,option:120,speech:0};
   function pause(ms,token){return ms>0?new Promise(resolve=>{const id=setTimeout(resolve,ms);const check=setInterval(()=>{if(!gate.isCurrent(token)){clearTimeout(id);clearInterval(check);resolve()}},60);setTimeout(()=>clearInterval(check),ms+80)}):Promise.resolve()}
   // One failed segment must not silence the rest of the question: it is logged,
   // skipped, and the sequence carries on with the next answer. Before this, a
