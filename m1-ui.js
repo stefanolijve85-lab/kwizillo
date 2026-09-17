@@ -132,6 +132,7 @@
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
           <button class="home-game art whoami" id="homeWhoAmI"><img class="home-game-art" src="${K.GAME_ART.whoami}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('whoami.title'))}</b></button>
           <button class="home-game art facts" id="homeFacts"><img class="home-game-art" src="${K.GAME_ART.facts}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('facts.title'))}</b></button>
+          <button class="home-game art jungle" id="homeJungle"><img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('jungle.title'))}</b><small>${esc(t('jungle.tileSub'))}</small></button>
         </div>
 
         ${bottomNav('home')}
@@ -143,6 +144,7 @@
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.startWhoAmI(K.state.lastWorld||'mix')};
+    f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
     f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showFacts(K.state.factsWorld||'all')};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
@@ -152,7 +154,7 @@
     K.prefetchSpeech(WORLD_ORDER.map(w=>t('world.speech.enter',{title:worldTitle(w)})));
     // The first two Weetjes are picked and warmed here, so the screen talks the moment it opens.
     const ahead=K.warmFacts?.(K.state.factsWorld||'all')||[];
-    if(ahead[0]) K.prefetchSpeech([`${t('facts.kicker')} ${ahead[0].t}`]);   // the first one opens with "Wist je dat…"
+    if(ahead[0]) K.prefetchSpeech([`${t('facts.kicker')} ${ahead[0].t}`]);   // the first one opens with the facts kicker
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };

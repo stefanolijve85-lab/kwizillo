@@ -1037,3 +1037,21 @@
 .whoami-tile.spoken-active{transform:translateY(-4px) scale(1.03);border-color:#75a8ff;box-shadow:0 8px 0 #9fcdf3,0 16px 26px rgba(40,103,189,.25),0 0 0 4px rgba(91,137,255,.18)}
 /* Game tile titles stay on one line; fitTitles shrinks a too-long one instead of wrapping it. */
 .home-game.art b{white-space:nowrap}
+
+/* ==== Jungle Runner ==== */
+/* The runner tile is a wide banner under the four game tiles: title over the jungle art, a one-line hook beneath it. */
+.home-game.jungle{grid-column:1/-1;aspect-ratio:16/3.4}
+@media(max-width:430px){.home-game.jungle{aspect-ratio:16/4.6}}
+@media(max-height:700px){.home-game.jungle{aspect-ratio:16/3}}
+.home-game.jungle .home-game-art{object-position:center 62%}
+.home-game.jungle .home-game-veil{background:linear-gradient(90deg,rgba(2,20,62,.78) 0%,rgba(2,20,62,.35) 55%,rgba(2,22,66,0) 100%)}
+.home-game.jungle b{left:14px;right:auto;bottom:auto;top:50%;transform:translateY(-100%);text-align:left;font-size:18px;letter-spacing:.2px}
+.home-game.jungle small{position:absolute;left:14px;top:50%;margin-top:2px;color:#e6f5ff;font-size:11px;font-weight:850;text-shadow:0 2px 6px rgba(0,18,56,.8)}
+@media(max-width:400px){.home-game.jungle b{font-size:15px}.home-game.jungle small{font-size:10px}}
+/* The runner fills the whole game frame; it draws its own header, buttons and safe areas inside its shadow root. */
+.jungle-screen{position:absolute;inset:0;background:#163f35}
+.jungle-mount{position:absolute;inset:0}
+.jungle-mount kwizillo-jungle{display:block;width:100%;height:100%}
+.jungle-loading{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;color:#fff;font-weight:900;text-shadow:0 2px 6px rgba(0,18,56,.6)}
+.jungle-loading .spinner{width:34px;height:34px;border-radius:50%;border:4px solid rgba(255,255,255,.35);border-top-color:#fff;animation:jungle-spin .8s linear infinite}
+@keyframes jungle-spin{to{transform:rotate(360deg)}}
