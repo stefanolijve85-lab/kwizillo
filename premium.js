@@ -163,6 +163,10 @@
 
   /* ---------------- Gating rules ---------------- */
 
+  // Development hosts only: play everything without Premium (the paywall stays
+  // reachable from the parent zone). Never exists in the iOS app or on https.
+  const TEST_KEY='kwizillo-test-unlock';
+  const testUnlock=()=>isDevHost()&&localStorage.getItem(TEST_KEY)==='1';
   const isPremium=()=>valid(ent);
   const rules={
     world:world=>world===FREE.starterWorld,
@@ -173,7 +177,7 @@
     fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld
   };
   // can('quiz', world, topicKey, quizNumber) — true when free or Premium.
-  const can=(kind,...args)=>isPremium()||!!rules[kind]?.(...args);
+  const can=(kind,...args)=>isPremium()||testUnlock()||!!rules[kind]?.(...args);
 
   /* ---------------- Pending destination ---------------- */
 
@@ -190,7 +194,8 @@
     onChange:fn=>{listeners.add(fn);return()=>listeners.delete(fn)},
     loadProducts,purchase,restore,manage,refresh,
     setPending,runPending,hasPending:()=>!!pending,
-    isDevHost
+    isDevHost,testUnlock,
+    setTestUnlock:on=>{if(!isDevHost())return;try{on?localStorage.setItem(TEST_KEY,'1'):localStorage.removeItem(TEST_KEY)}catch{}notify()}
   };
   // The simulator's controls exist only on a development host.
   if(isDevHost()){

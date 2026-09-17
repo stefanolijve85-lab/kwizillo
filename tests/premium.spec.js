@@ -169,3 +169,23 @@ for (const [lang, expected] of [['en', 'Unlock the whole world of Kwizillo'], ['
     expect(text).toContain(lang === 'en' ? '$49.99' : 'R$ 249,90');
   });
 }
+
+test('development hosts get a "test mode" switch in the parent zone that opens everything without Premium', async ({ page }) => {
+  await boot(page);
+  await page.evaluate(() => window.KWIZILLO_M1.showParent());
+  await expect(page.locator('#testUnlockToggle')).toBeVisible();
+  await page.locator('#testUnlockToggle').click();
+  await expect(page.locator('#testUnlockToggle')).toHaveClass(/on/);
+  await expect(page.locator('#premiumOpen')).toContainText('Gratis versie');   // Premium itself stays off
+  await page.evaluate(() => window.KWIZILLO_M1.enterWorld('dieren'));
+  await expect(page.locator('.world-topic.locked')).toHaveCount(0);
+  await page.locator('[data-topic="2"]').click();
+  await expect(page.locator('.quiz-v2')).toBeVisible();
+  // it is remembered, and off again on request
+  await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  expect(await page.evaluate(() => window.KWIZILLO_M1.premium.testUnlock())).toBe(true);
+  await page.evaluate(() => window.KWIZILLO_M1.premium.setTestUnlock(false));
+  await page.evaluate(() => window.KWIZILLO_M1.enterWorld('dieren'));
+  await expect(page.locator('.world-topic.locked')).toHaveCount(4);
+});

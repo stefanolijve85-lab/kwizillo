@@ -59,7 +59,7 @@
     K.currentWorld=world;
     // Free plays the sums of levels 1–3; the parent's level setting is kept and
     // opens fully with Premium.
-    const niveau=K.premium.isPremium()?Number(K.state.niveau||1):Math.min(Number(K.state.niveau||1),K.premium.FREE.mathMaxLevel);
+    const niveau=K.premium.can('math',Number(K.state.niveau||1))?Number(K.state.niveau||1):K.premium.FREE.mathMaxLevel;
     const sums=Array.from({length:10},()=>makeSum(niveau));
     K.math={world,niveau,sums,index:0,score:0,done:false,answers:[]};
     render();
