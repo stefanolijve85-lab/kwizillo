@@ -110,7 +110,7 @@ function rateRefund(req){ const seen = hits.get(clientAddress(req)); if (seen &&
 const mime = {
   '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.css':'text/css; charset=utf-8',
   '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.mp4':'video/mp4', '.webm':'video/webm', '.mp3':'audio/mpeg',
-  '.wav':'audio/wav', '.ico':'image/x-icon'
+  '.wav':'audio/wav', '.ico':'image/x-icon', '.json':'application/json; charset=utf-8'
 };
 
 // Serving is allowlist-based: anything not explicitly permitted is a 404.
@@ -131,6 +131,8 @@ function resolveStatic(pathname){
   // Rejects '', '.', '..' and every dot-prefixed file or directory.
   if (segments.some(s => !s || s.startsWith('.'))) return null;
   if (!mime[path.extname(rel).toLowerCase()]) return null;
+  // JSON is only ever an asset manifest; the root's own config files stay private.
+  if (path.extname(rel).toLowerCase() === '.json' && segments[0] !== ASSET_DIR) return null;
 
   if (segments.length === 1) {
     if (ROOT_DENY.has(rel)) return null;            // never hand out our own source

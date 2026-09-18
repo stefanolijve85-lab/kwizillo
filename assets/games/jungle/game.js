@@ -1,25 +1,26 @@
-// Kwizillo Jungle Runner (v5 arcade) — a self-contained custom element with its own
-// shadow root, canvas renderer, engine and sound. The host mounts it with
-// `mountJungle(container, options)` and gets the reward back through `onComplete`.
-// Every visible word comes from `options.text` (the host's language table); the
-// Dutch strings below are only the fallback for the standalone build.
+// Kwizillo Runner — one runner, three levels (jungle, city, sky) and a boy or a
+// girl to run with. A self-contained custom element: shadow root, canvas
+// renderer, engine and sound. The host mounts it with `mountJungle(container,
+// options)` and gets the reward back through `onComplete`. Every visible word
+// comes from `options.text` (the host's language table); the Dutch strings
+// below are only the fallback for the standalone build.
 import {createRun,move,jump,step,result} from './engine.js';
-import {Renderer,loadAssets} from './renderer.js';
+import {Renderer,loadAssets,assetNames,resolveName,LEVELS,HEROES,isGliding} from './renderer.js';
 import {GameAudio} from './audio.js';
 
 const escapeText=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const css=new URL('./style.css',import.meta.url);
 const img=name=>new URL('./img/'+name+'.png',import.meta.url).href;
-const THEMES=['watervallen','tempel','avond'];
+const LEVEL_IDS=Object.keys(LEVELS);
 
 export const TEXT={
-  brand:'JUNGLE RUNNER',eyebrow:'KWIZILLO • ARCADE',title:'Jungle Runner',titleA:'Jungle',titleB:'Runner',
+  brand:'KWIZILLO RUNNER',eyebrow:'KWIZILLO • ARCADE',title:'Runner',titleA:'Kwizillo',titleB:'Runner',levelLabel:'KIES JE LEVEL',heroLabel:'WIE RENT ER MEE?',heroBoy:'Jongen',heroGirl:'Meisje',glideOn:'Vlieg!',glideOff:'Rennen!',
   canvasLabel:'Spelveld. Pijltjes links en rechts om te sturen. Spatie om te springen.',
   pause:'Pauzeren',sound:'Geluid aan of uit',controls:'Spelbesturing',left:'Naar links',right:'Naar rechts',jump:'Salto ↑',
   loading:'Je avontuur wordt klaargezet…',loadErrorTitle:'Even opnieuw',loadError:'De junglebeelden konden niet laden. Controleer je verbinding en probeer het opnieuw.',
   intro:'Volg het gouden spoor.<br>Spring, ontdek en verzamel!',
   legendMagnet:'🧲 Magneet',legendShield:'🛡 Schild',legendGold:'★ Goud +5',legendDouble:'×2 Bonusster',
-  themeWatervallen:'Watervallen',themeTempel:'Verloren tempel',themeAvond:'Avondjungle',
+  levelJungle:'Jungle',levelStad:'Stad',levelLucht:'Lucht',
   easy:'Rustige rit · automatisch over boomstammen',music:'Muziek',on:'aan',off:'uit',start:'Op avontuur →',
   help:'{n} seconden • Veeg of gebruik de knoppen<br>10 munten op rij = +5 bonus<br>Pak power-ups en ontdek een kaart',
   countFollow:'Volg de munten!',countReady:'Klaar voor avontuur?',
@@ -42,9 +43,9 @@ export class KwizilloJungle extends HTMLElement{
  connectedCallback(){
   if(this.alive)return;this.alive=true;
   if(!this.shadowRoot)this.attachShadow({mode:'open'});
-  this.options={duration:40,theme:'watervallen',...this.options};
+  this.options={duration:40,level:'jungle',hero:'boy',...this.options};
   this.options.duration=Math.max(30,Math.min(45,Number(this.options.duration)||40));
-  this.theme=THEMES.includes(this.options.theme)?this.options.theme:'watervallen';
+  this.level=LEVELS[this.options.level]?this.options.level:'jungle';this.heroKind=HEROES.includes(this.options.hero)?this.options.hero:'boy';this.cache={};
   this.phase='loading';
   this.audio=new GameAudio();
   this.audio.enabled=!this.options.muted;
@@ -66,9 +67,9 @@ export class KwizilloJungle extends HTMLElement{
   listen(document,'visibilitychange',()=>{if(document.hidden)this.pause();});
   listen(window,'blur',()=>this.pause());
   this.resize=new ResizeObserver(()=>this.renderer?.resize());this.resize.observe(this.canvas);
-  loadAssets(new URL('./img/',import.meta.url)).then(images=>{
+  this.loadFor().then(images=>{
    if(!this.alive)return;
-   this.renderer=new Renderer(this.canvas,images);
+   this.renderer=new Renderer(this.canvas,images,{level:this.level,hero:this.heroKind});
    this.renderer.reduced=this.options.reducedMotion??matchMedia('(prefers-reduced-motion: reduce)').matches;
    this.renderer.labelFor=e=>({coin:`+${e.value??1}`,gold:this.t('labelGold',{n:e.value??5}),combo:this.t('labelCombo'),card:this.t('labelCard'),clear:this.t('labelClear'),magnet:this.t('labelMagnet'),shield:this.t('labelShield'),block:this.t('labelBlock'),double:this.t('labelDouble')})[e.type];
    this.root.querySelector('.game').classList.toggle('reduced',this.renderer.reduced);
@@ -78,13 +79,16 @@ export class KwizilloJungle extends HTMLElement{
    this.frame=requestAnimationFrame(t=>this.tick(t));
   }).catch(()=>this.panel(`<h1>${T('loadErrorTitle')}</h1><p>${T('loadError')}</p>`));
  }
- panel(html){this.overlay.hidden=false;this.overlay.innerHTML=`<div class="panel">${html}</div>`;}
+ // Every painting this level + hero needs (missing ones fall back, see renderer.js); loaded once per combination.
+ loadFor(){return loadAssets(new URL('./img/',import.meta.url),assetNames(this.level,this.heroKind),this.cache);}
+ picture(name){return img(resolveName(name,this.cache));}
+ panel(html){this.overlay.hidden=false;this.overlay.classList.toggle('ready',this.phase==='ready');this.overlay.innerHTML=`<div class="panel">${html}</div>`;}
  musicOn(){return this.options.onMusic?this.options.musicState?.()!==false:this.audio.musicEnabled;}
  musicLabel(){return `${escapeText(this.t('music'))}: ${escapeText(this.t(this.musicOn()?'on':'off'))} ♫`;}
  home(){
   this.phase='ready';
   const T=k=>escapeText(this.t(k));
-  this.panel(`<div class="eyebrow">${T('eyebrow')}</div><div class="badge">✦</div><h1>${T('titleA')}<br><em>${T('titleB')}</em></h1><p>${this.t('intro')}</p><div class="legend"><span>${T('legendMagnet')}</span><span>${T('legendShield')}</span><span>${T('legendGold')}</span><span>${T('legendDouble')}</span></div><div class="themes">${THEMES.map(id=>`<button data-act="theme-${id}" aria-pressed="${this.theme===id}" style="background-image:url('${img('jungle-'+id)}')"><span>${T('theme'+id[0].toUpperCase()+id.slice(1))}</span></button>`).join('')}</div><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> ${T('easy')}</label><button class="music-toggle secondary" data-act="music">${this.musicLabel()}</button><button class="primary" data-act="start">${T('start')}</button><p class="help">${this.t('help',{n:this.options.duration})}</p>${this.options.onExit?`<button class="secondary" data-act="exit">${T('back')}</button>`:''}`);
+  this.panel(`<div class="eyebrow">${T('eyebrow')}</div><div class="badge">✦</div><h1>${T('titleA')}<br><em>${T('titleB')}</em></h1><p>${this.t('intro')}</p><div class="legend"><span>${T('legendMagnet')}</span><span>${T('legendShield')}</span><span>${T('legendGold')}</span><span>${T('legendDouble')}</span></div><div class="pick-label">${T('levelLabel')}</div><div class="themes levels">${LEVEL_IDS.map(id=>`<button data-act="level-${id}" aria-pressed="${this.level===id}" style="background-image:url('${this.picture(LEVELS[id].scenes[0])}')"><span>${T('level'+id[0].toUpperCase()+id.slice(1))}</span></button>`).join('')}</div><div class="pick-label">${T('heroLabel')}</div><div class="heroes">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}"><img src="${this.picture(`hero-${id}-run-01`)}" alt=""><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span></button>`).join('')}</div><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> ${T('easy')}</label><button class="music-toggle secondary" data-act="music">${this.musicLabel()}</button><button class="primary" data-act="start">${T('start')}</button><p class="help">${this.t('help',{n:this.options.duration})}</p>${this.options.onExit?`<button class="secondary" data-act="exit">${T('back')}</button>`:''}`);
  }
  async action(a){
   if(a==='music'){
@@ -93,11 +97,18 @@ export class KwizilloJungle extends HTMLElement{
    const button=this.root.querySelector('[data-act=music]');if(button)button.innerHTML=this.musicLabel();return;
   }
   if(a==='sound'){this.audio.enabled=!this.audio.enabled;this.root.querySelector('[data-act=sound]').setAttribute('aria-pressed',this.audio.enabled);if(this.audio.enabled){this.audio.unlock();this.audio.play('tap');}else this.audio.stop();return;}
-  if(a.startsWith('theme-')&&this.phase==='ready'){this.theme=a.slice(6);this.home();return;}
+  if((a.startsWith('level-')||a.startsWith('hero-'))&&this.phase==='ready'){
+   if(a.startsWith('level-'))this.level=a.slice(6);else this.heroKind=a.slice(5);
+   this.options[a.startsWith('level-')?'onLevel':'onHero']?.(a.startsWith('level-')?this.level:this.heroKind);
+   this.home();
+   const token=this.loadToken=Symbol();
+   this.loadFor().then(images=>{if(!this.alive||token!==this.loadToken)return;this.renderer.images=images;this.renderer.nightImages=null;this.renderer.hero=this.heroKind;this.renderer.setLevel(this.level);if(this.phase==='ready')this.home();}).catch(()=>{});
+   return;}
   if(a==='start'){
    this.options.easy=this.root.querySelector('input')?.checked??this.options.easy;
    this.run=createRun(this.options);
-   this.card=Object.freeze({id:'jungle-leaf',title:this.t('cardTitle'),imageUrl:img('collectible-jungle-card'),...this.options.cardReward});
+   const L=LEVELS[this.level];const scenes=L.scenes;this.renderer.setLevel(this.level,scenes[Math.floor(Math.random()*scenes.length)]);this.renderer.hero=this.heroKind;this.wasGliding=false;
+   this.card=Object.freeze({id:L.cardId,title:this.t('cardTitle'),imageUrl:this.picture(L.card),...this.options.cardReward});
    this.lastFootstep=-1;this.lastWarning=-1;this.popupUntil=0;this.finishCount=-1;
    this.renderer.particles=[];this.renderer.labels=[];
    this.root.querySelector('.arcade-pop').classList.remove('show');
@@ -132,7 +143,7 @@ export class KwizilloJungle extends HTMLElement{
     this.renderer.event(e);this.audio.play(e.type,e.streak);this.arcadeEvent(e);
     if(e.type==='hit')this.toast(this.t('hit'));
     if(e.type==='card')this.toast(this.t('cardFound'));
-    if(e.type==='finish'){this.phase='finished';this.finishStarted=performance.now();this.root.querySelector('.arcade-pop').classList.remove('show');const base=result(this.run,this.runId,this.theme);this.reward=Object.freeze({...base,cardId:base.cardId?this.card.id:null});this.save();}
+    if(e.type==='finish'){this.phase='finished';this.finishStarted=performance.now();this.root.querySelector('.arcade-pop').classList.remove('show');const base=result(this.run,this.runId,this.level);this.reward=Object.freeze({...base,cardId:base.cardId?this.card.id:null});this.save();}
    }
   }
   if(this.phase==='playing'){
@@ -146,7 +157,8 @@ export class KwizilloJungle extends HTMLElement{
   this.root.querySelector('.arcade-pop').hidden=this.phase!=='playing';
   if(this.phase==='finished'){const count=this.root.querySelector('[data-count]');if(count){const p=this.renderer.reduced?1:Math.min(1,(t-this.finishStarted)/1400),n=Math.floor(this.run.coins*(1-Math.pow(1-p,3)));count.textContent='+'+n;if(n!==this.finishCount){this.finishCount=n;if(p<1&&Math.floor(t/80)!==this.lastCountTone){this.lastCountTone=Math.floor(t/80);this.audio.play('count');}}}}
   this.audio.updateMusic(this.phase==='playing');
-  this.renderer.draw(this.run,this.theme,dt,this.phase==='playing');
+  if(this.phase==='playing'&&LEVELS[this.level].glide){const g=isGliding(this.level,this.run);if(g!==this.wasGliding){this.wasGliding=g;if(this.run.time>1)this.toast(this.t(g?'glideOn':'glideOff'));}}
+  this.renderer.draw(this.run,dt,this.phase==='playing');
   this.root.querySelector('.score b').textContent=this.run.coins;
   this.root.querySelector('.score small').textContent=`0:${String(Math.ceil(this.run.duration-this.run.time)).padStart(2,'0')}`;
   this.root.querySelector('.progress i').style.width=`${100*this.run.time/this.run.duration}%`;

@@ -4,18 +4,20 @@
   const t=(k,v)=>K.t(k,v);
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 
-  // Jungle Runner: the arcade runner lives as an ES module under
-  // assets/games/jungle/ (its own shadow root, canvas, engine and sound) and is
-  // loaded only when the child opens it. This file is the host side: the
-  // screen, the language table, Kwizillo's music instead of the runner's own
-  // loop, and the reward — coins for a finished run, booked once per run id.
-  const THEMES=['watervallen','tempel','avond'];
+  // Kwizillo Runner (three levels: jungle, city, sky; a boy or a girl) lives as
+  // an ES module under assets/games/jungle/ (its own shadow root, canvas, engine
+  // and sound) and is loaded only when the child opens it. This file is the
+  // host side: the screen, the language table, Kwizillo's music instead of the
+  // runner's own loop, and the reward — coins for a finished run, booked once
+  // per run id.
+  const LEVELS=['jungle','stad','lucht'];
+  const MUSIC={jungle:'jungle',stad:'science',lucht:'home'};
   const MAX_COINS=400;
 
   // Every string the runner shows, in the app language (game.js keys → i18n keys).
   const textTable=()=>{
     const map={};
-    for(const key of ['brand','eyebrow','title','titleA','titleB','back','canvasLabel','pause','sound','controls','left','right','jump','loading','loadErrorTitle','intro','legendMagnet','legendShield','legendGold','legendDouble','themeWatervallen','themeTempel','themeAvond','easy','music','on','off','start','help','countFollow','countReady','pauseEyebrow','pauseTitle','pauseBody','resume','exit','hit','cardFound','powerDouble','powerMagnet','powerShield','powerStreak','popDouble','popDoubleSub','popGold','popGoldSub','popCombo','popComboSub','popMagnet','popMagnetSub','popShield','popShieldSub','popBlock','popBlockSub','popCard','popCardSub','popClear','popClearSub','labelGold','labelCombo','labelCard','labelClear','labelMagnet','labelShield','labelBlock','labelDouble','saving','saved','saveError','finishEyebrow','finish','finishSub','coinsEarned','bestStreak','bonusCoins','cardAlt','cardEyebrow','cardSub','cardTitle','retry','take','again'])map[key]=t('jungle.'+key);
+    for(const key of ['brand','eyebrow','title','titleA','titleB','back','levelLabel','heroLabel','heroBoy','heroGirl','glideOn','glideOff','levelJungle','levelStad','levelLucht','canvasLabel','pause','sound','controls','left','right','jump','loading','loadErrorTitle','intro','legendMagnet','legendShield','legendGold','legendDouble','easy','music','on','off','start','help','countFollow','countReady','pauseEyebrow','pauseTitle','pauseBody','resume','exit','hit','cardFound','powerDouble','powerMagnet','powerShield','powerStreak','popDouble','popDoubleSub','popGold','popGoldSub','popCombo','popComboSub','popMagnet','popMagnetSub','popShield','popShieldSub','popBlock','popBlockSub','popCard','popCardSub','popClear','popClearSub','labelGold','labelCombo','labelCard','labelClear','labelMagnet','labelShield','labelBlock','labelDouble','saving','saved','saveError','finishEyebrow','finish','finishSub','coinsEarned','bestStreak','bonusCoins','cardAlt','cardEyebrow','cardSub','cardTitle','retry','take','again'])map[key]=t('jungle.'+key);
     map.loadError=t('jungle.loadErrorBody');map.savedNoHost=map.saved;
     return map;
   };
@@ -47,7 +49,8 @@
     leave();
     K.stopSpeech();
     const f=K.frame(`<section class="jungle-screen fade-in"><div class="jungle-mount" id="jungleMount"><div class="jungle-loading"><span class="spinner"></span><b>${esc(t('jungle.loading'))}</b></div></div></section>`);
-    K.audio.setTrack('jungle').catch(()=>{});
+    const level=LEVELS.includes(K.state.runnerLevel)?K.state.runnerLevel:'jungle';
+    K.audio.setTrack(MUSIC[level]).catch(()=>{});
     let mod;
     try{mod=await import(new URL(K.assetUrl('assets/games/jungle/game.js'),document.baseURI).href)}
     catch(e){console.warn('Kwizillo jungle:',e?.message||e);if(f.isConnected){K.toast(t('jungle.loadError'));setTimeout(()=>K.showHome(),900)}return}
@@ -56,7 +59,10 @@
     const j=jungleProgress();
     const game=mod.mountJungle(mount,{
       duration:40,
-      theme:THEMES[j.played%THEMES.length],
+      level,
+      hero:K.state.runnerHero==='girl'?'girl':'boy',
+      onLevel:l=>{K.state.runnerLevel=l;K.save();K.audio.setTrack(MUSIC[l]||'jungle').catch(()=>{})},
+      onHero:h=>{K.state.runnerHero=h;K.save()},
       easy:(K.state.niveau||1)<=2,
       muted:K.state.soundOn===false,
       music:false,
