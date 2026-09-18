@@ -29,14 +29,16 @@
 .start .themes.levels button[aria-pressed=true]{border:3px solid #ffcf43;box-shadow:0 0 0 3px #ffc93644,0 0 18px #ffc93666,inset 0 -34px 30px -10px #05283d}
 /* hero cards: the whole card is the character's colour world, the sprite bursts out of the top */
 .start .heroes{flex:1.8 1 0;min-height:110px;max-height:300px;gap:12px;margin:0}
-.start .heroes button{position:relative;flex:1;height:auto;display:block;padding:0;border-radius:20px;border:2px solid #ffffff33;overflow:visible;background:radial-gradient(ellipse at 50% 35%,#4fd3ff55,#0b3a55 70%);box-shadow:inset 0 -40px 40px -20px #021a2a}
-.start .heroes .hero-girl{background:radial-gradient(ellipse at 50% 35%,#ff8fd455,#4a1a5c 70%)}
+/* the cards show the chosen level behind the hero, as if the child is already running there */
+.start .heroes button{position:relative;flex:1;height:auto;display:block;padding:0;border-radius:20px;border:2px solid #ffffff44;overflow:hidden;background-size:cover;background-position:center 30%;box-shadow:0 8px 18px #0006}
+.start .heroes button::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0b3a5533 0%,#0b3a5500 35%,#041a2ab8 100%)}
+.start .heroes .hero-girl::before{background:linear-gradient(180deg,#4a1a5c33 0%,#4a1a5c00 35%,#2a0a3ab8 100%)}
 .start .heroes i{position:absolute;inset:-6% 0 22% 0;display:flex;align-items:flex-end;justify-content:center;background:none;border-radius:0}
 .start .heroes img{height:100%;max-height:none;width:auto;filter:drop-shadow(0 6px 8px #0009)}
 .start .heroes span{position:absolute;left:8px;right:8px;bottom:8px;margin:0;padding:6px 0;border-radius:999px;background:#ffffff1c;font-size:13px;font-weight:1000;letter-spacing:.3px}
-.start .heroes button[aria-pressed=true]{border:3px solid #ffcf43;box-shadow:0 0 0 3px #ffc93644,0 0 22px #ffc93677,inset 0 -40px 40px -20px #021a2a}
+.start .heroes button[aria-pressed=true]{border:3px solid #ffcf43;box-shadow:0 0 0 3px #ffc93644,0 0 22px #ffc93677}
 .start .heroes button[aria-pressed=true] span{background:linear-gradient(#ffdf6d,#ffb925);color:#513800}
-.start .heroes b{position:absolute;top:-8px;right:-6px;width:26px;height:26px;border-radius:50%;background:linear-gradient(#ffdf6d,#ffb925);color:#513800;font-size:14px;display:grid;place-items:center;box-shadow:0 3px 0 #b77114,0 4px 10px #0006}
+.start .heroes b{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:linear-gradient(#ffdf6d,#ffb925);color:#513800;font-size:14px;display:grid;place-items:center;box-shadow:0 3px 0 #b77114,0 4px 10px #0006}
 .start .options{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-top:8px;flex:0 0 auto}
 .start .easy{font-size:11px;color:#c7e6db;background:#ffffff10;border:1px solid #ffffff22;border-radius:999px;padding:8px 12px;margin:0}
 .start .music-toggle{margin:0;padding:8px 12px;border-radius:999px;font-size:12px;background:#ffffff10;border:1px solid #ffffff22;color:#d3e6e5;font-weight:900;white-space:nowrap}
