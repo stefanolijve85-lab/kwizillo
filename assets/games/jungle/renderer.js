@@ -14,7 +14,7 @@ import {CAMERA,travel,project,itemDepth,sceneryDepth} from './world.js';
 
 export const HEROES=['boy','girl'];
 export const LEVELS={
- jungle:{scenes:['jungle-watervallen','jungle-tempel','jungle-avond'],night:scene=>scene==='jungle-avond',shoulder:'grass',sky:['#83d4db','#082936'],rays:false,sun:true,dust:'#d9c39b',air:{kind:'swing',windows:[[.30,.41],[.70,.81]]},
+ jungle:{scenes:['jungle-watervallen','jungle-tempel','jungle-avond'],night:scene=>scene==='jungle-avond',shoulder:'grass',sky:['#83d4db','#082936'],rays:false,sun:true,dust:'#d9c39b',air:{kind:'swing',windows:[[.30,.41],[.70,.81]]},extras:['jungle-ravine','jungle-ravine-edge','scenery-liana'],
   obstacles:{log:'obstacle-log',rock:'obstacle-rock'},card:'collectible-jungle-card',cardId:'jungle-leaf',pebbles:true,flowers:true,dapples:true,
   props:[{name:'scenery-fern',spacing:3.2,x:[1.78,1.98],w:[1.5,2.1]},{name:'scenery-tree',spacing:6.4,offset:.7,x:[3.15,3.65],w:[4.5,5.5]}]},
  stad:{scenes:['city-day'],night:()=>false,shoulder:'pavement',sky:['#9fd0f5'],rays:false,dust:'#c9c9cf',
@@ -33,7 +33,7 @@ export const isGliding=(level,s)=>!!airborne(level,s);
 // Every painting a level + hero needs, and what stands in for one that is not
 // there yet (the jungle set and the boy always exist).
 const FALLBACK={'city-day':'jungle-tempel','sky-day':'jungle-watervallen','obstacle-barrier':'obstacle-log','obstacle-cone':'obstacle-rock','obstacle-bird':'obstacle-log','obstacle-storm':'obstacle-rock','scenery-lamp':'scenery-tree','scenery-building':'scenery-tree','scenery-tree-city':'scenery-tree','scenery-cloud':'scenery-fern','scenery-balloon':'scenery-tree','scenery-island':'scenery-bridge','collectible-city-card':'collectible-jungle-card','collectible-sky-card':'collectible-jungle-card'};
-export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.map(p=>p.name)]);for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing'])names.add(`hero-${hero}-${f}`);for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
+export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.map(p=>p.name),...(L.extras||[])]);for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing'])names.add(`hero-${hero}-${f}`);for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
 // The painting that stands in for a missing one: a girl frame → the boy's, a level prop → its jungle cousin, a glide pose → the jump pose.
 export function resolveName(name,cache){if(cache[name]||(manifest&&manifest.has(name)))return name;if(FALLBACK[name]&&cache[FALLBACK[name]])return FALLBACK[name];const m=name.match(/^hero-girl-(.+)$/);if(m&&cache['hero-boy-'+m[1]])return 'hero-boy-'+m[1];if(/^hero-.+-(glide|swing)$/.test(name)){const j=name.replace(/glide|swing/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-portrait$/.test(name)){const j=name.replace('portrait','run-02');return cache[j]?j:'hero-boy-run-02';}return name;}
 const one=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('Afbeelding kon niet laden: '+src));im.src=src;});
@@ -44,7 +44,8 @@ async function present(base){if(manifest)return manifest;try{const r=await fetch
 export async function loadAssets(base,names,cache={}){
  const have=await present(base);
  await Promise.all(names.map(async name=>{if(cache[name]!==undefined)return;if(have&&!have.has(name)){cache[name]=null;return;}try{cache[name]=await one(new URL(name+'.png',base).href);}catch{cache[name]=null;}}));
- const images={};for(const name of names){const im=cache[resolveName(name,cache)];if(!im)throw new Error('Afbeelding kon niet laden: '+name);images[name]=im;}
+ const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana)$/;
+ const images={};for(const name of names){const im=cache[resolveName(name,cache)];if(!im&&!optional.test(name))throw new Error('Afbeelding kon niet laden: '+name);if(im)images[name]=im;}
  return images;
 }
 
@@ -90,22 +91,21 @@ export class Renderer{
  // never a cross-fade.
  const rate=s.duration*(s.easy?.26:.31),windows=L.air?.windows||[];
  const gapAt=depth=>{if(!windows.length)return false;const p=(s.distance+(depth-CAMERA.player)/(CAMERA.far-CAMERA.player))/rate;return windows.some(([a,b])=>p>=a&&p<b);};
- const chasm=L.air?.kind==='swing'?(night?['#0b241c','#06160f','#020806']:['#2f6b3a','#1b3f22','#0a1a0e']):['#8fc6f3','#b8dbf8','#d8ecfd'];
+ const chasm=L.air?.kind==='swing'?(night?['#12261c','#0b1a12','#060d09']:['#4a6a3a','#2c4a2c','#15291a']):['#8fc6f3','#b8dbf8','#d8ecfd'];
+ const ravine=L.air?.kind==='swing'?this.images['jungle-ravine']:null,edge=L.air?.kind==='swing'?this.images['jungle-ravine-edge']:null;
  const earthTop=night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a',earthMid=night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a',earthBot=night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c';
  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
  const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
  let prevGap=false;
  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
   const gap=gapAt(depth);
-  if(gap){g.fillStyle=deep;g.fillRect(0,y,600,3);if(!prevGap){g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}prevGap=true;continue;}
-  if(prevGap){g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}prevGap=false;
+  if(gap){if(ravine){const ty=((worldZ*.28)%1+1)%1*ravine.height;const w=Math.min(600,300+scale*1.7),x0=300-w/2;g.fillStyle=deep;g.fillRect(0,y,600,3);g.drawImage(ravine,0,ty,ravine.width,1,x0,y,w,3);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}
+   if(!prevGap){if(edge){const h=Math.max(10,Math.min(160,scale*.6));g.drawImage(edge,300-Math.min(300,150+scale*.85),y-h*.55,Math.min(600,300+scale*1.7),h);}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
+  if(prevGap){if(edge&&L.air?.kind==='swing'){const h=Math.max(10,Math.min(160,scale*.6));g.save();g.translate(300,y);g.scale(1,-1);g.drawImage(edge,-Math.min(300,150+scale*.85),-h*.45,Math.min(600,300+scale*1.7),h);g.restore();}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
   g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
- if(blend>0&&L.air?.kind==='swing'){ // mist rising from the ravine
-  g.save();for(let i=0;i<10;i++){const depth=sceneryDepth(i,4.2,distance*.5,i*1.7);if(depth>50||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.3)*3.2,depth);p.x+=this.off(depth);g.fillStyle=night?'#8fd0c0':'#dff5e6';g.globalAlpha=.35*Math.min(1,(52-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.6,p.scale*.9,p.scale*.2,0,0,7);g.fill();}g.restore();
- }
- else if(blend>0){ // cloud puffs drifting far beneath the glide
+ if(blend>0&&L.air?.kind==='glide'){ // cloud puffs drifting far beneath the glide
   g.save();for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.7)*4.5,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.7,p.scale*.22,0,0,7);g.ellipse(p.x+p.scale*.35,p.y+p.scale*.82,p.scale*.4,p.scale*.2,0,0,7);g.fill();}g.restore();
  }
  // Ground dressing in world space: pebbles along the path edge, flowers in the verge, dapples on the track.
@@ -146,7 +146,9 @@ export class Renderer{
   const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137-liftPx+(gliding?Math.sin(s.time*1.6)*10:0)+land;
   const mix=blend; // 0 = on the ground, 1 = fully airborne; poses cross-fade in between
   if(air==='swing'||(mix>0&&L.air?.kind==='swing')){ // the liana: the painted pose holds its own vine; the stand-in (jump pose) gets a drawn one from high above
-   const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hand={x:hx,y:bottom-235};if(!manifest?.has(`hero-${hero}-swing`)){g.save();g.strokeStyle=this.isNight?'#3c5a2a':'#5c7a2f';g.lineWidth=9;g.lineCap='round';g.beginPath();g.moveTo(top.x,top.y);g.quadraticCurveTo(top.x+(hand.x-top.x)*.4,top.y+(hand.y-top.y)*.55,hand.x,hand.y);g.stroke();g.strokeStyle=this.isNight?'#5a7d3a':'#8fb23f';g.lineWidth=4;g.stroke();g.restore();}
+   const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hand={x:hx,y:bottom-235};const liana=this.images['scenery-liana'];
+   if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+30,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*mix;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
+   else if(!manifest?.has(`hero-${hero}-swing`)){g.save();g.strokeStyle=this.isNight?'#3c5a2a':'#5c7a2f';g.lineWidth=9;g.lineCap='round';g.beginPath();g.moveTo(top.x,top.y);g.quadraticCurveTo(top.x+(hand.x-top.x)*.4,top.y+(hand.y-top.y)*.55,hand.x,hand.y);g.stroke();g.strokeStyle=this.isNight?'#5a7d3a':'#8fb23f';g.lineWidth=4;g.stroke();g.restore();}
    if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));
    this.image(`hero-${hero}-swing`,hx,bottom,211,sway,alpha*mix);}
   else if(gliding||(mix>0&&L.air?.kind==='glide')){if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6+this.curve*.6,alpha*mix);}
