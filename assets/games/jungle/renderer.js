@@ -109,7 +109,7 @@ export class Renderer{
  const ravine=L.air?.kind==='swing'?this.images['jungle-ravine']:null,edge=L.air?.kind==='swing'?this.images['jungle-ravine-edge']:null;
  const pav=L.shoulder==='pavement',earthTop=pav?(night?'#5a5868':'#b4afa4'):night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':'#6a9a4a',earthMid=pav?(night?'#4b4958':'#a19c91'):night?'#123327':L.shoulder==='cloud'?'#c3daf3':'#4f8a3a',earthBot=pav?(night?'#33323f':'#7f7a70'):night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':'#3a6f2c';
  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
- if(L.shoulder==='grass'){g.save();g.globalAlpha=.55;g.globalCompositeOperation='overlay';g.drawImage(this.lawn(night),0,310,600,590);g.globalCompositeOperation='source-over';g.globalAlpha=.32;g.drawImage(this.lawn(night),0,310,600,590);g.restore();}
+ if(L.shoulder==='grass'){g.save();g.globalAlpha=.4;g.globalCompositeOperation='overlay';g.drawImage(this.lawn(night),0,310,600,590);g.globalCompositeOperation='source-over';g.globalAlpha=.16;g.drawImage(this.lawn(night),0,310,600,590);g.restore();}
  const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
 
  // The path lets go: in the jungle the track becomes a river far below (the
@@ -154,7 +154,10 @@ export class Renderer{
   let width=spec.w[0]+v*(spec.w[1]-spec.w[0]);if(spec.pick){const im=this.images[name];width*=Math.min(1.25,Math.max(.45,im.width/im.height/.72));}
   props.push({depth,x:px,name,width,lift,flip:!!spec.mirror&&(i+side)%2===0});
  }
- for(const o of props.sort((a,b)=>b.depth-a.depth)){const p=project(o.x,o.depth);p.x+=this.off(o.depth);this.image(o.name,p.x,p.y-o.lift*p.scale,o.width*p.scale,0,Math.min(1,(70-o.depth)/12,(o.depth-.3)/.5),o.flip);}
+ for(const o of props.sort((a,b)=>b.depth-a.depth)){const p=project(o.x,o.depth);p.x+=this.off(o.depth);const a=Math.min(1,(70-o.depth)/12,(o.depth-.3)/.5);
+  // a soft contact shadow ties each plant, tree or building to the ground
+  if(!o.lift){const w=o.width*p.scale;g.save();g.globalAlpha=a*.28;g.fillStyle=night?'#03110c':'#1b3a12';g.beginPath();g.ellipse(p.x,p.y-w*.035,w*.3,w*.055,0,0,7);g.fill();g.restore();}
+  this.image(o.name,p.x,p.y-o.lift*p.scale,o.width*p.scale,0,a,o.flip);}
  // light: sun shafts by day, moon glow by night; distance haze hides the recycle boundary
  if(night){const moon=g.createRadialGradient(470,70,4,470,70,190);moon.addColorStop(0,'#d8f3ff55');moon.addColorStop(.35,'#7fc6ff1c');moon.addColorStop(1,'#00000000');g.fillStyle=moon;g.fillRect(200,0,400,320);}
  else if(L.rays||L.sun){g.save();g.globalCompositeOperation='lighter';if(L.rays)for(let i=0;i<4;i++){const x0=120+i*95+Math.sin(s.time*.35+i)*10,ray=g.createLinearGradient(0,0,0,560);ray.addColorStop(0,'#fff6c0'+(i%2?'2a':'20'));ray.addColorStop(1,'#fff6c000');g.fillStyle=ray;g.beginPath();g.moveTo(x0,-10);g.lineTo(x0+26,-10);g.lineTo(x0+150,560);g.lineTo(x0+40,560);g.closePath();g.fill();}
