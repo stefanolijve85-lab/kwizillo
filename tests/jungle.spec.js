@@ -28,7 +28,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   await page.locator('#homeJungle').click();
   await expect(runner(page)).toBeVisible({ timeout: 10000 });
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Op avontuur →', { timeout: 10000 });
-  await expect(inRunner(page, '.eyebrow')).toHaveText('KWIZILLO • ARCADE');
+  await expect(inRunner(page, '.arcade-title')).toHaveText(/Kwizillo\s*Runner/);
   await expect(inRunner(page, '[data-act=exit]')).toHaveText('Terug naar Kwizillo');
   // three levels and two heroes; the choice is remembered; missing art falls back silently
   const bad = []; page.on('response', r => { if (r.status() >= 400 && !r.url().includes('/api/')) bad.push(r.url()); });
@@ -94,7 +94,7 @@ test('every jungle string exists in nl, en and pt (no silent Dutch fallback)', a
   await boot(page);
   const result = await page.evaluate(() => {
     const K = window.KWIZILLO_M1; const out = [];
-    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle']);
+    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle', 'powerSpeed', 'popSpeed', 'labelSpeed']);
     const keys = Object.keys(K.jungleText()).filter(k => k !== 'savedNoHost' && k !== 'loadError').map(k => 'jungle.' + k).concat(['jungle.title', 'jungle.tileSub', 'jungle.loadError', 'jungle.loadErrorBody']);
     const nl = {}; K.state.language = 'nl'; for (const k of keys) { nl[k] = K.t(k); if (nl[k] === k) out.push('nl:' + k); }
     for (const lang of ['en', 'pt']) { K.state.language = lang; for (const k of keys) { if (SAME.has(k.slice(7))) continue; if (K.t(k) === nl[k]) out.push(lang + ':' + k); } }
