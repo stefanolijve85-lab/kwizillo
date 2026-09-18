@@ -107,7 +107,7 @@ export class Renderer{
  let prevGap=false;this.gapRows=null;this.gapEdges=null;
  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
   const gap=gapAt(depth);
-  if(gap){if(ravine){g.fillStyle=deep;g.fillRect(0,y,600,2);if(!this.gapRows)this.gapRows=[];this.gapRows.push([y,600,0]);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);if(L.air?.kind==='swing'){const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}}
+  if(gap){if(ravine){g.fillStyle=deep;g.fillRect(0,y,600,2);if(!this.gapRows)this.gapRows=[];this.gapRows.push([y,Math.min(600,4.4*scale),off]); /* the kloof: as wide as the path far away, the whole screen up close */}else{g.fillStyle=deep;g.fillRect(0,y,600,3);if(L.air?.kind==='swing'){const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}}
    if(!prevGap){if(edge){}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
   if(prevGap){if(edge){(this.gapEdges??=[]).push([y,scale,off]);}else if(L.air?.kind==='swing'){g.fillStyle=night?'#0a1f16':'#3a2a18';g.fillRect(300-1.6*scale,y-2,3.2*scale,4);}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
@@ -129,10 +129,12 @@ export class Renderer{
  for(const spec of L.props)for(let i=0;i<24;i++)for(const side of[-1,1]){
   const depth=sceneryDepth(i,spec.spacing,distance,(spec.offset||0)+(side===1?spec.spacing*.47:0));
   if(depth>68||depth<.42)continue;
-  if(L.air?.kind==='swing'&&ravine&&gapAt(depth))continue; // nothing stands on the ravine
+
   const v=Math.sin(i*8.17+side+spec.spacing)*.5+.5;
   const lift=spec.float?(spec.lift?spec.lift[0]+v*(spec.lift[1]-spec.lift[0]):0)+Math.sin(s.time*.8+i)*.15:0;
-  props.push({depth,x:side*(spec.x[0]+v*(spec.x[1]-spec.x[0])),name:spec.name,width:spec.w[0]+v*(spec.w[1]-spec.w[0]),lift});
+  const px=side*(spec.x[0]+v*(spec.x[1]-spec.x[0]));
+  if(L.air?.kind==='swing'&&ravine&&gapAt(depth)&&Math.abs(px)*(CAMERA.focal/depth)<Math.min(600,4.4*(CAMERA.focal/depth))/2)continue; // nothing stands inside the ravine
+  props.push({depth,x:px,name:spec.name,width:spec.w[0]+v*(spec.w[1]-spec.w[0]),lift});
  }
  for(const o of props.sort((a,b)=>b.depth-a.depth)){const p=project(o.x,o.depth);p.x+=this.off(o.depth);this.image(o.name,p.x,p.y-o.lift*p.scale,o.width*p.scale,0,Math.min(1,(70-o.depth)/12,(o.depth-.3)/.5));}
  // light: sun shafts by day, moon glow by night; distance haze hides the recycle boundary
