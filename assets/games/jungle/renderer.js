@@ -22,7 +22,7 @@ export const LEVELS={
   props:[{name:'scenery-lamp',spacing:4.8,x:[1.85,1.85],w:[1.4,1.4]},{name:'scenery-building',spacing:5.6,offset:1.1,x:[4.2,5.4],w:[6.5,9]},{name:'scenery-tree-city',spacing:9.6,offset:2.9,x:[2.6,2.9],w:[2.6,3.2]}]},
  lucht:{scenes:['sky-day'],night:()=>false,shoulder:'cloud',sky:['#69b4f2'],rays:true,dust:null,glide:true,
   obstacles:{log:'obstacle-bird',rock:'obstacle-storm'},card:'collectible-sky-card',cardId:'sky-feather',pebbles:false,flowers:false,dapples:false,
-  props:[{name:'scenery-cloud',spacing:3.6,x:[2.2,3.4],w:[2.4,4],float:true},{name:'scenery-balloon',spacing:11,offset:3,x:[3.5,5],w:[2.6,3.6],float:true,lift:[1.6,3.2]},{name:'scenery-island',spacing:14,offset:7,x:[4,6],w:[5,7],float:true,lift:[-.4,.4]}]},
+  props:[{name:'scenery-cloud',spacing:3.6,x:[2.2,3.4],w:[2.4,4],float:true},{name:'scenery-balloon',spacing:15,offset:3,x:[3.6,5.2],w:[2.1,2.9],float:true,lift:[1.8,3.4]},{name:'scenery-island',spacing:14,offset:7,x:[4,6],w:[5,7],float:true,lift:[-.4,.4]}]},
 };
 // Where the sky level lets go of the cloud path (fractions of the run, by distance).
 export const GLIDE_WINDOWS=[[.22,.46],[.66,.88]];
