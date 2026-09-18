@@ -29,7 +29,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   await expect(runner(page)).toBeVisible({ timeout: 10000 });
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Op avontuur →', { timeout: 10000 });
   await expect(inRunner(page, '.arcade-title')).toHaveText(/Kwizillo\s*Runner/);
-  await expect(inRunner(page, '[data-act=exit]')).toHaveText('Terug naar Kwizillo');
+  await expect(inRunner(page, '[data-act=exit]')).toHaveText('Terug');
   // three levels and two heroes; the choice is remembered; missing art falls back silently
   const bad = []; page.on('response', r => { if (r.status() >= 400 && !r.url().includes('/api/')) bad.push(r.url()); });
   await expect(inRunner(page, '.levels button')).toHaveCount(3);
