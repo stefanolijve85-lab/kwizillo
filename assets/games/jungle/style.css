@@ -86,3 +86,7 @@ nav .jump{font-size:20px;letter-spacing:1px}
 .start .pick-label{justify-content:center;text-align:center}
 .start .pick-label::before{content:"";flex:1;max-width:60px;height:1px;background:linear-gradient(270deg,#ffe27a55,#ffe27a00)}
 .start .pick-label::after{flex:1;max-width:60px}
+
+/* the gold digit needs room above its cap height, or the top gets clipped */
+.overlay.countdown .panel{overflow:visible;padding:40px 0}
+.overlay.countdown .count{line-height:1.15;padding:10px 0}
