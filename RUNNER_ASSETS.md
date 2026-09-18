@@ -59,3 +59,12 @@ boom, varen, brug, kaart). Alleen `hero-boy-glide.png` mist nog, maar de jungle 
   de held hangt dan aan de deltavlieger, munten en vogels zweven in de lucht,
   daarna land je weer op de wolken.
 - De baan buigt nu ook in bochten (alle levels).
+
+## 5. Nog te maken (na de dev-pack van 18 sept)
+
+| Bestand | Maat | Inhoud |
+|---|---|---|
+| `hero-boy-portrait.png`, `hero-girl-portrait.png` | ±600×700, transparant | portret **van voren** (glimlach, zwaaien) voor de keuzekaarten op het startscherm |
+| `hero-boy-swing.png`, `hero-girl-swing.png` | 384×560, transparant | hangend aan een liaan met beide handen boven het hoofd, van achteren, benen los (jungle-slingerstukken; tot dan wordt de sprongpose gebruikt) |
+
+Nieuw in het spel: **Turbo** (⚡-bol: 5 seconden supersnel, alle munten dubbel) in elk level, en in de jungle twee **slingerstukken** aan een liaan boven een ravijn (30–41 % en 70–81 % van de rit).

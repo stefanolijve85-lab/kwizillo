@@ -5,7 +5,7 @@
 // comes from `options.text` (the host's language table); the Dutch strings
 // below are only the fallback for the standalone build.
 import {createRun,move,jump,step,result} from './engine.js';
-import {Renderer,loadAssets,assetNames,resolveName,LEVELS,HEROES,isGliding} from './renderer.js';
+import {Renderer,loadAssets,assetNames,resolveName,LEVELS,HEROES,airborne} from './renderer.js';
 import {GameAudio} from './audio.js';
 
 const escapeText=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -14,7 +14,7 @@ const img=name=>new URL('./img/'+name+'.png',import.meta.url).href;
 const LEVEL_IDS=Object.keys(LEVELS);
 
 export const TEXT={
-  brand:'KWIZILLO RUNNER',eyebrow:'KWIZILLO • ARCADE',title:'Runner',titleA:'Kwizillo',titleB:'Runner',levelLabel:'KIES JE LEVEL',heroLabel:'WIE RENT ER MEE?',heroBoy:'Jongen',heroGirl:'Meisje',glideOn:'Vlieg!',glideOff:'Rennen!',
+  brand:'KWIZILLO RUNNER',eyebrow:'KWIZILLO • ARCADE',title:'Runner',titleA:'Kwizillo',titleB:'Runner',levelLabel:'KIES JE LEVEL',heroLabel:'WIE RENT ER MEE?',heroBoy:'Jongen',heroGirl:'Meisje',glideOn:'Vlieg!',glideOff:'Rennen!',swingOn:'Slingeren!',swingOff:'Rennen!',
   canvasLabel:'Spelveld. Pijltjes links en rechts om te sturen. Spatie om te springen.',
   pause:'Pauzeren',sound:'Geluid aan of uit',controls:'Spelbesturing',left:'Naar links',right:'Naar rechts',jump:'Salto ↑',
   loading:'Je avontuur wordt klaargezet…',loadErrorTitle:'Even opnieuw',loadError:'De junglebeelden konden niet laden. Controleer je verbinding en probeer het opnieuw.',
@@ -26,12 +26,12 @@ export const TEXT={
   countFollow:'Volg de munten!',countReady:'Klaar voor avontuur?',
   pauseEyebrow:'EVEN OP ADEM KOMEN',pauseTitle:'Jouw jungle<br>wacht op je.',pauseBody:'De tijd staat stil.',resume:'Verder spelen →',exit:'Rit verlaten zonder beloning',
   hit:'Oeps! Gewoon weer verder — je munten blijven.',cardFound:'Een junglekaart ontdekt!',
-  powerDouble:'×2 {n}s',powerMagnet:'🧲 {n}s',powerShield:'🛡 Beschermd',powerStreak:'★ {n} op rij',
-  popDouble:'BONUSSTER!',popDoubleSub:'6 seconden dubbele munten',popGold:'GOUD GEVONDEN!',popGoldSub:'+{n} munten',
+  powerDouble:'×2 {n}s',powerMagnet:'🧲 {n}s',powerSpeed:'⚡ {n}s',powerShield:'🛡 Beschermd',powerStreak:'★ {n} op rij',
+  popDouble:'BONUSSTER!',popDoubleSub:'6 seconden dubbele munten',popSpeed:'TURBO!',popSpeedSub:'5 seconden supersnel · dubbele munten',popGold:'GOUD GEVONDEN!',popGoldSub:'+{n} munten',
   popCombo:'{n} OP RIJ!',popComboSub:'+5 combo-bonus',popMagnet:'MUNTMAGNEET!',popMagnetSub:'7 seconden munten aantrekken',
   popShield:'BESCHERMSCHILD!',popShieldSub:'Vangt één botsing op',popBlock:'SCHILD REDT JE!',popBlockSub:'Lekker doorrennen',
   popCard:'KAART GEVONDEN!',popCardSub:'Onthulling bij de finish',popClear:'MOOIE SPRONG!',popClearSub:'Over de boomstam',
-  labelGold:'+{n} GOUD!',labelCombo:'COMBO +5',labelCard:'Kaart ontdekt!',labelClear:'Mooie sprong!',labelMagnet:'MAGNEET!',labelShield:'SCHILD!',labelBlock:'Gered!',labelDouble:'DUBBELE MUNTEN!',
+  labelGold:'+{n} GOUD!',labelCombo:'COMBO +5',labelSpeed:'TURBO!',labelCard:'Kaart ontdekt!',labelClear:'Mooie sprong!',labelMagnet:'MAGNEET!',labelShield:'SCHILD!',labelBlock:'Gered!',labelDouble:'DUBBELE MUNTEN!',
   saving:'Je beloning wordt doorgegeven…',saved:'Je beloning is opgeslagen.',savedNoHost:'Je rit is klaar. Koppel onComplete om beloningen op te slaan.',saveError:'Opslaan lukte nog niet. Probeer het opnieuw.',
   finishEyebrow:'AVONTUUR VOLTOOID',finish:'FINISH!',finishSub:'Jouw buit uit de jungle',coinsEarned:'munten verdiend',bestStreak:'Beste reeks',bonusCoins:'Bonusmunten',
   cardAlt:'Verzamelde kaart',cardEyebrow:'KAART ONTDEKT',cardSub:'Voor je Kwizillo-verzameling',cardTitle:'Jungleblad',
@@ -71,7 +71,7 @@ export class KwizilloJungle extends HTMLElement{
    if(!this.alive)return;
    this.renderer=new Renderer(this.canvas,images,{level:this.level,hero:this.heroKind});
    this.renderer.reduced=this.options.reducedMotion??matchMedia('(prefers-reduced-motion: reduce)').matches;
-   this.renderer.labelFor=e=>({coin:`+${e.value??1}`,gold:this.t('labelGold',{n:e.value??5}),combo:this.t('labelCombo'),card:this.t('labelCard'),clear:this.t('labelClear'),magnet:this.t('labelMagnet'),shield:this.t('labelShield'),block:this.t('labelBlock'),double:this.t('labelDouble')})[e.type];
+   this.renderer.labelFor=e=>({coin:`+${e.value??1}`,gold:this.t('labelGold',{n:e.value??5}),combo:this.t('labelCombo'),speed:this.t('labelSpeed'),card:this.t('labelCard'),clear:this.t('labelClear'),magnet:this.t('labelMagnet'),shield:this.t('labelShield'),block:this.t('labelBlock'),double:this.t('labelDouble')})[e.type];
    this.root.querySelector('.game').classList.toggle('reduced',this.renderer.reduced);
    this.run=createRun(this.options);
    this.home();
@@ -165,12 +165,12 @@ export class KwizilloJungle extends HTMLElement{
    if(this.popupUntil&&this.run.time>=this.popupUntil)this.root.querySelector('.arcade-pop').classList.remove('show');
   }
   const powers=this.root.querySelector('.powers');powers.hidden=this.phase!=='playing';
-  const powerText=[this.run.double>0&&this.t('powerDouble',{n:Math.ceil(this.run.double)}),this.run.magnet>0&&this.t('powerMagnet',{n:Math.ceil(this.run.magnet)}),this.run.shield&&this.t('powerShield'),this.run.streak&&this.t('powerStreak',{n:this.run.streak})].filter(Boolean).join(' · ');
+  const powerText=[this.run.boost>0&&this.t('powerSpeed',{n:Math.ceil(this.run.boost)}),this.run.double>0&&this.t('powerDouble',{n:Math.ceil(this.run.double)}),this.run.magnet>0&&this.t('powerMagnet',{n:Math.ceil(this.run.magnet)}),this.run.shield&&this.t('powerShield'),this.run.streak&&this.t('powerStreak',{n:this.run.streak})].filter(Boolean).join(' · ');
   if(powers.textContent!==powerText)powers.textContent=powerText;
   this.root.querySelector('.arcade-pop').hidden=this.phase!=='playing';
   if(this.phase==='finished'){const count=this.root.querySelector('[data-count]');if(count){const p=this.renderer.reduced?1:Math.min(1,(t-this.finishStarted)/1400),n=Math.floor(this.run.coins*(1-Math.pow(1-p,3)));count.textContent='+'+n;if(n!==this.finishCount){this.finishCount=n;if(p<1&&Math.floor(t/80)!==this.lastCountTone){this.lastCountTone=Math.floor(t/80);this.audio.play('count');}}}}
   this.audio.updateMusic(this.phase==='playing');
-  if(this.phase==='playing'&&LEVELS[this.level].glide){const g=isGliding(this.level,this.run);if(g!==this.wasGliding){this.wasGliding=g;if(this.run.time>1)this.toast(this.t(g?'glideOn':'glideOff'));}}
+  if(this.phase==='playing'&&LEVELS[this.level].air){const kind=airborne(this.level,this.run),g=!!kind;if(g!==this.wasGliding){this.wasGliding=g;const k=LEVELS[this.level].air.kind;if(this.run.time>1)this.toast(this.t(g?(k==='swing'?'swingOn':'glideOn'):(k==='swing'?'swingOff':'glideOff')));}}
   this.renderer.draw(this.run,dt,this.phase==='playing');
   this.root.querySelector('.score b').textContent=this.run.coins;
   this.root.querySelector('.score small').textContent=`0:${String(Math.ceil(this.run.duration-this.run.time)).padStart(2,'0')}`;
@@ -189,7 +189,7 @@ export class KwizilloJungle extends HTMLElement{
  }
  arcadeEvent(e){
   if(['coin','gold','combo'].includes(e.type)&&!this.renderer.reduced)this.root.querySelector('.score').animate([{transform:'scale(1.16)'},{transform:'scale(1)'}],{duration:180});
-  const key={double:'Double',gold:'Gold',combo:'Combo',magnet:'Magnet',shield:'Shield',block:'Block',card:'Card',clear:'Clear'}[e.type];
+  const key={double:'Double',gold:'Gold',combo:'Combo',magnet:'Magnet',shield:'Shield',block:'Block',card:'Card',clear:'Clear',speed:'Speed'}[e.type];
   if(!key)return;
   const vars={n:e.type==='gold'?(e.value??5):e.streak};
   const pop=this.root.querySelector('.arcade-pop');

@@ -15,6 +15,7 @@ export class GameAudio {
  else if(kind==='clear'){this.tone(784,.12,'triangle',.09);this.tone(1046,.17,'sine',.1,1,.08);}
  else if(kind==='hit'){this.tone(140,.2,'sine',.22,.25);this.noise(.12,.11);}
  else if(kind==='double'){[523,784,1046,1568,2093].forEach((f,i)=>this.tone(f,.23,'triangle',.12,1,i*.075));this.noise(.18,.05);}
+ else if(kind==='speed'){this.tone(220,.55,'sawtooth',.09,6);this.tone(440,.4,'square',.05,4,.08);this.noise(.35,.06);}
  else if(kind==='land'){this.tone(100,.07,'sine',.12,.5);this.noise(.045,.045);}
  else if(kind==='finish'){[523,659,784,1046,784,1046,1318].forEach((f,i)=>this.tone(f,.3,'triangle',.09,1,i*.13));}
  else if(kind==='card'){[659,988,1318,1976].forEach((f,i)=>this.tone(f,.35,'sine',.1,1,i*.12));}

@@ -1,7 +1,7 @@
 // Pickup badges drawn on the canvas: a glossy sphere with a soft glow, a
 // floating bob and a glyph — no generated image quota or external dependencies.
 export function badge(g,kind,x,y,size,time=0){g.save();g.translate(x,y-size*.52-Math.sin(time*3+x*.01)*size*.06);const r=size*.5;
-const colors=kind==='magnet'?['#ffb3f2','#e15bd4','#6b2fb8']:kind==='shield'?['#c8fbff','#3dd2ff','#0b6fc2']:['#fff6b3','#ffcf3a','#d98a0f'];
+const colors=kind==='magnet'?['#ffb3f2','#e15bd4','#6b2fb8']:kind==='shield'?['#c8fbff','#3dd2ff','#0b6fc2']:kind==='speed'?['#fff0b0','#ff9a2e','#c4361c']:['#fff6b3','#ffcf3a','#d98a0f'];
 // soft outer glow (gradient, no hard edge)
 const glow=g.createRadialGradient(0,0,r*.6,0,0,r*1.7);glow.addColorStop(0,colors[1]+'66');glow.addColorStop(.6,colors[1]+'22');glow.addColorStop(1,colors[1]+'00');g.fillStyle=glow;g.beginPath();g.arc(0,0,r*1.7,0,Math.PI*2);g.fill();
 // glossy sphere
@@ -11,6 +11,7 @@ g.fillStyle='#ffffffaa';g.beginPath();g.ellipse(-r*.32,-r*.45,r*.26,r*.16,-.6,0,
 g.strokeStyle='#fff';g.fillStyle='#fff';g.lineWidth=size*.12;g.lineCap='round';g.lineJoin='round';g.shadowColor='#00000055';g.shadowBlur=size*.06;g.shadowOffsetY=size*.03;
 if(kind==='magnet'){g.beginPath();g.moveTo(-r*.4,-r*.35);g.lineTo(-r*.4,r*.1);g.arc(0,r*.1,r*.4,Math.PI,0,true);g.lineTo(r*.4,-r*.35);g.stroke();g.shadowBlur=0;g.strokeStyle='#ff6b6b';g.lineWidth=size*.12;for(const sign of[-1,1]){g.beginPath();g.moveTo(sign*r*.4,-r*.36);g.lineTo(sign*r*.4,-r*.16);g.stroke();}}
 else if(kind==='shield'){g.beginPath();g.moveTo(0,-r*.58);g.lineTo(r*.48,-r*.33);g.lineTo(r*.39,r*.26);g.quadraticCurveTo(r*.2,r*.52,0,r*.65);g.quadraticCurveTo(-r*.2,r*.52,-r*.39,r*.26);g.lineTo(-r*.48,-r*.33);g.closePath();g.fill();g.shadowBlur=0;g.strokeStyle='#1575c9';g.lineWidth=size*.055;g.beginPath();g.moveTo(-r*.2,0);g.lineTo(-r*.03,r*.17);g.lineTo(r*.25,-r*.19);g.stroke();}
+else if(kind==='speed'){g.fillStyle='#fff';g.beginPath();g.moveTo(r*.12,-r*.62);g.lineTo(-r*.34,r*.06);g.lineTo(-r*.02,r*.06);g.lineTo(-r*.14,r*.62);g.lineTo(r*.36,-r*.1);g.lineTo(r*.04,-r*.1);g.closePath();g.fill();}
 else{g.shadowBlur=0;g.fillStyle='#7a4a08';g.font=`1000 ${size*.4}px system-ui`;g.textAlign='center';g.textBaseline='middle';g.fillText(kind==='double'?'×2':'+5',0,r*.02);}
 g.restore();}
 
