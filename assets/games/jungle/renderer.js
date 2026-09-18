@@ -99,9 +99,9 @@ export class Renderer{
  let prevGap=false;
  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
   const gap=gapAt(depth);
-  if(gap){if(ravine){const ty=((worldZ*.28)%1+1)%1*ravine.height;const w=Math.min(600,300+scale*1.7),x0=300-w/2;g.fillStyle=deep;g.fillRect(0,y,600,3);g.drawImage(ravine,0,ty,ravine.width,1,x0,y,w,3);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}
-   if(!prevGap){if(edge){const h=Math.max(10,Math.min(160,scale*.6));g.drawImage(edge,300-Math.min(300,150+scale*.85),y-h*.55,Math.min(600,300+scale*1.7),h);}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
-  if(prevGap){if(edge&&L.air?.kind==='swing'){const h=Math.max(10,Math.min(160,scale*.6));g.save();g.translate(300,y);g.scale(1,-1);g.drawImage(edge,-Math.min(300,150+scale*.85),-h*.45,Math.min(600,300+scale*1.7),h);g.restore();}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
+  if(gap){if(ravine){/* ping-pong through the painting (no seam); the source strip grows with the depth a row covers, so far rows average instead of alias */const span=5,ph=((worldZ/span)%2+2)%2,ty=(ph<1?ph:2-ph)*(ravine.height-1),dd=depth-CAMERA.focal*CAMERA.height/(y+2-CAMERA.horizon),sh=Math.max(1,Math.min(40,dd*ravine.height/span,ravine.height-ty));const w=Math.min(600,300+scale*1.7),x0=300-w/2;g.fillStyle=deep;g.fillRect(0,y,600,3);g.drawImage(ravine,0,ty,ravine.width,sh,x0,y,w,3);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}
+   if(!prevGap){if(edge){const w=Math.min(600,300+scale*1.7),h=w*edge.height/edge.width;g.drawImage(edge,300-w/2,y-h*.62,w,h);}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
+  if(prevGap){if(L.air?.kind==='swing'){g.fillStyle=night?'#0a1f16':'#3a2a18';g.fillRect(300-1.6*scale,y-2,3.2*scale,4);}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
   g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
@@ -147,7 +147,7 @@ export class Renderer{
   const mix=blend; // 0 = on the ground, 1 = fully airborne; poses cross-fade in between
   if(air==='swing'||(mix>0&&L.air?.kind==='swing')){ // the liana: the painted pose holds its own vine; the stand-in (jump pose) gets a drawn one from high above
    const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hand={x:hx,y:bottom-235};const liana=this.images['scenery-liana'];
-   if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+30,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*mix;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
+   if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+60,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*mix;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
    else if(!manifest?.has(`hero-${hero}-swing`)){g.save();g.strokeStyle=this.isNight?'#3c5a2a':'#5c7a2f';g.lineWidth=9;g.lineCap='round';g.beginPath();g.moveTo(top.x,top.y);g.quadraticCurveTo(top.x+(hand.x-top.x)*.4,top.y+(hand.y-top.y)*.55,hand.x,hand.y);g.stroke();g.strokeStyle=this.isNight?'#5a7d3a':'#8fb23f';g.lineWidth=4;g.stroke();g.restore();}
    if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));
    this.image(`hero-${hero}-swing`,hx,bottom,211,sway,alpha*mix);}
