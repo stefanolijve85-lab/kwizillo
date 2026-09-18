@@ -88,7 +88,20 @@ export class KwizilloJungle extends HTMLElement{
  home(){
   this.phase='ready';
   const T=k=>escapeText(this.t(k));
-  this.panel(`<div class="eyebrow">${T('eyebrow')}</div><div class="badge">✦</div><h1>${T('titleA')}<br><em>${T('titleB')}</em></h1><p>${this.t('intro')}</p><div class="legend"><span>${T('legendMagnet')}</span><span>${T('legendShield')}</span><span>${T('legendGold')}</span><span>${T('legendDouble')}</span></div><div class="pick-label">${T('levelLabel')}</div><div class="themes levels">${LEVEL_IDS.map(id=>`<button data-act="level-${id}" aria-pressed="${this.level===id}" style="background-image:url('${this.picture(LEVELS[id].scenes[0])}')"><span>${T('level'+id[0].toUpperCase()+id.slice(1))}</span></button>`).join('')}</div><div class="pick-label">${T('heroLabel')}</div><div class="heroes">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}"><img src="${this.picture(`hero-${id}-run-01`)}" alt=""><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span></button>`).join('')}</div><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> ${T('easy')}</label><button class="music-toggle secondary" data-act="music">${this.musicLabel()}</button><button class="primary" data-act="start">${T('start')}</button><p class="help">${this.t('help',{n:this.options.duration})}</p>${this.options.onExit?`<button class="secondary" data-act="exit">${T('back')}</button>`:''}`);
+  const chips=this.t('help',{n:this.options.duration}).split(/<br\s*\/?>/i).map(c=>c.trim()).filter(Boolean);
+  this.panel(`<div class="start">
+   <div class="eyebrow">${T('eyebrow')}</div>
+   <h1 class="arcade-title"><span>${T('titleA')}</span><em>${T('titleB')}</em></h1>
+   <p class="tagline">${this.t('intro').replace(/<br\s*\/?>/gi,' ')}</p>
+   <div class="pick-label">${T('levelLabel')}</div>
+   <div class="themes levels">${LEVEL_IDS.map(id=>`<button data-act="level-${id}" aria-pressed="${this.level===id}" style="background-image:url('${this.picture(LEVELS[id].scenes[0])}')"><span>${T('level'+id[0].toUpperCase()+id.slice(1))}</span></button>`).join('')}</div>
+   <div class="pick-label">${T('heroLabel')}</div>
+   <div class="heroes">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}"><i><img src="${this.picture(`hero-${id}-run-01`)}" alt=""></i><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span></button>`).join('')}</div>
+   <div class="options"><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> <span>${T('easy')}</span></label><button class="music-toggle" data-act="music">${this.musicLabel()}</button></div>
+   <button class="primary go" data-act="start">${T('start')}</button>
+   <div class="chips">${chips.map(c=>`<span>${escapeText(c)}</span>`).join('')}</div>
+   ${this.options.onExit?`<button class="back" data-act="exit">${T('back')}</button>`:''}
+  </div>`);
  }
  async action(a){
   if(a==='music'){
