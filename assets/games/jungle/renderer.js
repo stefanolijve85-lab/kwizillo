@@ -75,6 +75,8 @@ export class Renderer{
  faded(im){if(this.fadedEdge)return this.fadedEdge;const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='destination-out';const grad=g.createLinearGradient(0,im.height*.68,0,im.height);grad.addColorStop(0,'#0000');grad.addColorStop(1,'#000');g.fillStyle=grad;g.fillRect(0,0,im.width,im.height);return this.fadedEdge=c;}
  // Still grass for the shoulders (drawn once): a tile sampled in perspective, dense and bright near, soft and dark far, never moving.
  lawn(night){const key='lawn'+(night?'-n':'');if(this.tiles[key])return this.tiles[key];const t=tile('grass',night),c=document.createElement('canvas');c.width=600;c.height=590;const g=c.getContext('2d');/* a true perspective projection of one flat lawn: each row shows the slice of the tile at its own depth, so blades stay coherent from row to row */const K=46;for(let y=0;y<590;y+=2){const d0=CAMERA.focal*CAMERA.height/(y+312-CAMERA.horizon),d1=CAMERA.focal*CAMERA.height/(y+314-CAMERA.horizon),sw=Math.max(160,Math.min(512,512*d0/10)),ty=((d1*K)%512+512)%512,sh=Math.max(1,Math.min(60,(d0-d1)*K,512-ty));g.globalAlpha=Math.min(1,y/140)*.92;g.drawImage(t,(512-sw)/2,ty,sw,sh,0,y,600,2);}g.globalAlpha=1;const fade=g.createLinearGradient(0,0,0,590);fade.addColorStop(0,night?'#0d2a20':'#5f9a48');fade.addColorStop(.25,night?'#0d2a2000':'#5f9a4800');g.fillStyle=fade;g.fillRect(0,0,600,590);return this.tiles[key]=c;}
+ // River water for the jungle crossing (drawn once): deep green-blue with soft ripples and a few highlights; sampled like the path so it streams.
+ water(night){const key='water'+(night?'-n':'');if(this.tiles[key])return this.tiles[key];const S=512,c=document.createElement('canvas');c.width=c.height=S;const g=c.getContext('2d');let seed=13;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};g.fillStyle=night?'#0b2433':'#1d5a63';g.fillRect(0,0,S,S);for(let i=0;i<260;i++){g.fillStyle=(night?['#0e2d3f','#123a4d','#081b27']:['#226a72','#2a7a80','#17505a','#31878c'])[i%4];g.globalAlpha=.5;g.beginPath();g.ellipse(rnd()*S,rnd()*S,20+rnd()*70,3+rnd()*7,0,0,7);g.fill();}g.globalAlpha=1;g.lineCap='round';for(let i=0;i<120;i++){g.strokeStyle=night?'#8fd8ff':'#cfffff';g.globalAlpha=.25+rnd()*.35;g.lineWidth=1.5+rnd()*1.5;const x=rnd()*S,y=rnd()*S,l=10+rnd()*40;g.beginPath();g.moveTo(x,y);g.quadraticCurveTo(x+l/2,y-3,x+l,y);g.stroke();}g.globalAlpha=1;return this.tiles[key]=c;}
  shoulder(){const L=LEVELS[this.level],key=L.shoulder+(this.isNight?'-night':'');return this.tiles[key]??=tile(L.shoulder,this.isNight);}
  // Trees, plants and obstacles get a moonlit copy for the evening scene (made once).
  night(name){if(!/^(scenery|obstacle)-/.test(name))return this.images[name];this.nightImages??={};if(this.nightImages[name])return this.nightImages[name];const im=this.images[name],c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.fillStyle='#0a2740';g.globalAlpha=.5;g.fillRect(0,0,c.width,c.height);return this.nightImages[name]=c;}
@@ -105,18 +107,31 @@ export class Renderer{
  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
  if(L.shoulder==='grass'){g.save();g.globalAlpha=.55;g.globalCompositeOperation='overlay';g.drawImage(this.lawn(night),0,310,600,590);g.globalCompositeOperation='source-over';g.globalAlpha=.32;g.drawImage(this.lawn(night),0,310,600,590);g.restore();}
  const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
- let prevGap=false;this.gapRows=null;this.gapEdges=null;
+
+ // The path lets go: in the jungle the track becomes a river far below (the
+ // child swings across on a liana), in the sky it becomes open air. The river
+ // and the air are drawn exactly like the path — a band between the same left
+ // and right edges, streaming at the same speed — so nothing else in the world
+ // changes and the transition is just the bank where the path ends.
+ const water=L.air?.kind==='swing'?this.water(night):null;
+ let prevGap=false;
  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
-  const gap=gapAt(depth);
-  if(gap){if(ravine){g.fillStyle=deep;g.fillRect(0,y,600,2);if(!this.gapRows)this.gapRows=[];this.gapRows.push([y,Math.min(600,4.4*scale),off]); /* the kloof: as wide as the path far away, the whole screen up close */}else{g.fillStyle=deep;g.fillRect(0,y,600,3);if(L.air?.kind==='swing'){const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}}
-   if(!prevGap){if(edge){}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
-  if(prevGap){if(edge){(this.gapEdges??=[]).push([y,scale,off]);}else if(L.air?.kind==='swing'){g.fillStyle=night?'#0a1f16':'#3a2a18';g.fillRect(300-1.6*scale,y-2,3.2*scale,4);}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
-  const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
+  const gap=gapAt(depth),left=300-1.50*scale+off,right=300+1.50*scale+off;
+  if(gap){
+   if(water){const K=26,ty=((worldZ*K)%512+512)%512,d1=CAMERA.focal*CAMERA.height/(y+2-CAMERA.horizon),sh=Math.max(1,Math.min(40,(depth-d1)*K,512-ty)),sw=Math.max(200,Math.min(512,512*depth/9));
+    g.drawImage(water,(512-sw)/2,ty,sw,sh,left-4,y,right-left+8,3);
+    // the banks: a dark rim of earth on both sides of the water
+    g.fillStyle=night?'#0b1d14':'#3d2c17';g.fillRect(left-4-scale*.07,y,scale*.07+2,3);g.fillRect(right+2,y,scale*.07+2,3);}
+   else{const t=(y-312)/590;g.fillStyle=t<.5?'#8fc6f3':'#b8dbf8';g.fillRect(left-4,y,right-left+8,3);}
+   if(!water){prevGap=true;continue;} // open sky: no bank lines
+   if(!prevGap){g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#2a2014':'#dcefff';g.fillRect(left-6,y-3,right-left+12,4);}
+   prevGap=true;continue;}
+  if(prevGap){g.fillStyle=L.air?.kind==='swing'?'#2a2014':'#dcefff';g.fillRect(left-6,y-1,right-left+12,3);}prevGap=false;
+  const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19);
   g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
- if(this.gapRows&&this.gapRows.length){/* the canyon is one image, clipped to the gap's trapezoid: the walls widen as they come nearer and nothing is resampled row by row */const rows=this.gapRows;const buf=this.canyon(ravine,distance);g.save();g.beginPath();let first=true;for(const [ry,rw,ro] of rows){const x=300-rw/2+ro;if(first){g.moveTo(x,ry);first=false;}else g.lineTo(x,ry);}for(let i=rows.length-1;i>=0;i--){const [ry,rw,ro]=rows[i];g.lineTo(300+rw/2+ro,ry+2);}g.closePath();g.clip();const ky=this.canvas.height/900;g.save();g.setTransform(1,0,0,1,0,0);g.drawImage(buf,0,0,buf.width,buf.height,0,Math.round(312*ky),this.canvas.width,buf.height);g.restore();g.restore();this.gapRows=null;if(edge&&this.gapEdges){for(const [ey,es,eo] of this.gapEdges){/* the painting shows the path breaking off: its foreground path sits on the first path row, the cliff hangs into the canyon above */const w=Math.min(600,300+es*1.7),h=w*edge.height/edge.width;g.drawImage(this.faded(edge),300-w/2+eo,ey-h*.72,w,h);}}this.gapEdges=null;}
  if(blend>0&&L.air?.kind==='glide'){ // cloud puffs drifting far beneath the glide
-  g.save();for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.7)*4.5,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.7,p.scale*.22,0,0,7);g.ellipse(p.x+p.scale*.35,p.y+p.scale*.82,p.scale*.4,p.scale*.2,0,0,7);g.fill();}g.restore();
+  g.save();for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.7)*1.2,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.5,p.scale*.16,0,0,7);g.ellipse(p.x+p.scale*.25,p.y+p.scale*.84,p.scale*.3,p.scale*.14,0,0,7);g.fill();}g.restore();
  }
  // Ground dressing in world space: pebbles along the path edge, flowers in the verge, dapples on the track.
  {g.save();g.beginPath();g.rect(0,310,600,590);g.clip();
@@ -135,7 +150,6 @@ export class Renderer{
   const lift=spec.float?(spec.lift?spec.lift[0]+v*(spec.lift[1]-spec.lift[0]):0)+Math.sin(s.time*.8+i)*.15:0;
   let name=spec.name;if(spec.pick){const have=spec.pick.filter(n=>this.images[n]);if(!have.length)continue;name=have[(i*7+(side>0?3:0)+Math.floor(v*5))%have.length];}
   const px=side*(spec.x[0]+v*(spec.x[1]-spec.x[0]));
-  if(L.air?.kind==='swing'&&ravine&&gapAt(depth)&&Math.abs(px)*(CAMERA.focal/depth)<Math.min(600,4.4*(CAMERA.focal/depth))/2)continue; // nothing stands inside the ravine
   let width=spec.w[0]+v*(spec.w[1]-spec.w[0]);if(spec.pick){const im=this.images[name];width*=Math.min(1.25,Math.max(.45,im.width/im.height/.72));}
   props.push({depth,x:px,name,width,lift});
  }
