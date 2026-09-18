@@ -59,3 +59,6 @@ button{font:inherit}
 .hint-ok:active{transform:translateY(3px);box-shadow:0 3px 0 #d68813}@keyframes feedbackPop{from{opacity:0;transform:translateY(16px) scale(.92) rotate(-.5deg)}to{opacity:1;transform:none}}
 
 @media(max-width:420px){.answer{min-height:74px!important;font-size:13.5px!important}.answer.long{font-size:12px!important}.answer.xlong{font-size:11px!important}.answer-letter{width:27px;height:27px;min-width:27px;margin-right:6px}.answers{grid-template-rows:minmax(74px,1fr) minmax(74px,1fr);gap:9px!important}.hint-visual{height:150px}.feedback-card{padding:19px 16px 17px}.fact-card{margin-bottom:13px}}
+
+/* Arcade display face for the mini-games (Luckiest Guy, Apache 2.0, bundled). Declared here: @font-face inside a shadow root is not honoured by every browser. */
+@font-face{font-family:'Kwizillo Arcade';src:url('assets/fonts/LuckiestGuy.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}

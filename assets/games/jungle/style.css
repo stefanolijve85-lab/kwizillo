@@ -47,3 +47,18 @@
 .start .back{margin-top:auto;padding-top:6px;background:none;border:0;color:#9fd0c5;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:3px;flex:0 0 auto}
 @media(max-height:720px){.tagline{display:none}.start .chips{display:none}.start .go{padding:12px;font-size:18px}.start .heroes{min-height:96px}}
 @media(max-height:600px){.start .eyebrow{display:none}.arcade-title em{font-size:30px}.start .options{margin-top:4px}}
+
+/* ---- arcade face ---- */
+.arcade-title,.arcade-title span,.arcade-title em,.start .themes.levels button span,.start .heroes span,.start .go,.count,.finish-panel h1,.arcade-pop strong,.progress span,.eyebrow,.start .pick-label,nav .jump{font-family:'Kwizillo Arcade','Trebuchet MS',ui-rounded,system-ui,sans-serif;font-weight:400;font-style:normal;letter-spacing:.6px}
+.arcade-title{gap:10px;font-style:normal}
+.arcade-title span{font-size:clamp(18px,5vw,24px);letter-spacing:1.5px}
+.arcade-title em{font-size:clamp(44px,12vw,60px);letter-spacing:1px}
+.start .themes.levels button span{font-size:16px;letter-spacing:1px}
+.start .heroes span{font-size:17px;letter-spacing:1px}
+.start .go{font-size:26px;letter-spacing:1.2px;padding:13px}
+.start .pick-label{font-size:13px;letter-spacing:1.4px}
+.count{font-size:120px}
+.finish-panel h1{letter-spacing:2px}
+.arcade-pop strong{letter-spacing:1px}
+.progress span{letter-spacing:1.6px;font-size:12px}
+nav .jump{font-size:20px;letter-spacing:1px}

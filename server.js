@@ -110,7 +110,7 @@ function rateRefund(req){ const seen = hits.get(clientAddress(req)); if (seen &&
 const mime = {
   '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.css':'text/css; charset=utf-8',
   '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.mp4':'video/mp4', '.webm':'video/webm', '.mp3':'audio/mpeg',
-  '.wav':'audio/wav', '.ico':'image/x-icon', '.json':'application/json; charset=utf-8'
+  '.wav':'audio/wav', '.ico':'image/x-icon', '.json':'application/json; charset=utf-8', '.ttf':'font/ttf', '.woff2':'font/woff2'
 };
 
 // Serving is allowlist-based: anything not explicitly permitted is a 404.
@@ -513,7 +513,8 @@ const server=http.createServer(async(req,res)=>{
       const type=mime[path.extname(target).toLowerCase()]||'application/octet-stream';
       // Artwork and audio are immutable per build and heavy; let the phone keep
       // them. Code and HTML stay revalidated so a refresh picks up changes.
-      const cache=/^\/assets\//.test(url.pathname)?'public, max-age=86400':'no-cache';
+      // paintings, audio and fonts may be cached for a day; code, styles and manifests under assets/ (the mini-games) must always revalidate, or a phone keeps yesterday's game
+      const cache=/^\/assets\//.test(url.pathname)&&!/\.(js|mjs|css|json)$/i.test(url.pathname)?'public, max-age=86400':'no-cache';
       // Byte ranges: Safari (and therefore every iPhone) refuses to play a
       // <video> from a server that cannot answer a Range request, which made the
       // intro fail instantly and drop the player straight onto Home.
