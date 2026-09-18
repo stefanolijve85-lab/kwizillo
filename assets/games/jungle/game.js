@@ -97,8 +97,7 @@ export class KwizilloJungle extends HTMLElement{
    <div class="heroes level-${this.level}">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}" style="background-image:url('${this.picture(LEVELS[this.level].scenes[0])}')"><i><img src="${this.picture(this.cache[`hero-${id}-portrait`]?`hero-${id}-portrait`:`hero-${id}-run-02`)}" alt=""></i><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span>${this.heroKind===id?'<b>✓</b>':''}</button>`).join('')}</div>
    <button class="primary go" data-act="start">${T('start')}</button>
    <p class="hint">${escapeText(chips[0]||'')}</p>
-   ${this.options.onExit?`<button class="back" data-act="exit">${T('back')}</button>`:''}
-   <div class="options"><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> <span>${T('easy')}</span></label><button class="music-toggle" data-act="music">${this.musicLabel()}</button></div>
+   <div class="options"><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> <span>${T('easyShort')}</span></label><button class="music-toggle" data-act="music">${this.musicLabel()}</button>${this.options.onExit?`<button class="back" data-act="exit">${T('backShort')}</button>`:''}</div>
   </div>`);
  }
  async action(a){

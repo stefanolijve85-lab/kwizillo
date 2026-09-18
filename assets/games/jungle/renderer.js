@@ -22,7 +22,7 @@ export const LEVELS={
   props:[{name:'scenery-lamp',spacing:4.8,x:[1.85,1.85],w:[1.4,1.4]},{pick:['scenery-house-01','scenery-shop-01','scenery-house-02','scenery-tower-01','scenery-house-03','scenery-shop-02','scenery-house-04','scenery-tower-02','scenery-shop-03','scenery-building'],spacing:4.9,offset:1.1,x:[4.0,4.6],w:[5.2,6.4],ground:true},{pick:['scenery-tree-city','scenery-bench','scenery-postbox','scenery-hydrant','scenery-busstop','scenery-balloon-seller','scenery-fountain'],spacing:7.3,offset:2.9,x:[2.55,2.9],w:[1.6,2.4]}],extras:['scenery-house-01','scenery-house-02','scenery-house-03','scenery-house-04','scenery-shop-01','scenery-shop-02','scenery-shop-03','scenery-tower-01','scenery-tower-02','scenery-bench','scenery-postbox','scenery-hydrant','scenery-busstop','scenery-balloon-seller','scenery-fountain','city-evening','obstacle-car-side','obstacle-car-side-2'],crossings:true},
  lucht:{scenes:['sky-day'],night:()=>false,shoulder:'cloud',sky:['#69b4f2'],rays:false,sun:true,dust:null,glide:true,air:{kind:'glide',windows:[[.22,.46],[.66,.88]]},
   obstacles:{log:'obstacle-bird',rock:'obstacle-storm'},card:'collectible-sky-card',cardId:'sky-feather',pebbles:false,flowers:false,dapples:false,
-  props:[{name:'scenery-cloud',spacing:3.6,x:[2.2,3.4],w:[2.4,4],float:true},{name:'scenery-balloon',spacing:15,offset:3,x:[3.6,5.2],w:[2.1,2.9],float:true,lift:[1.8,3.4]},{name:'scenery-island',spacing:14,offset:7,x:[4,6],w:[5,7],float:true,lift:[-.4,.4]}]},
+  props:[{name:'scenery-cloud',spacing:3.6,x:[2.2,3.4],w:[2.4,4],float:true,mirror:true},{name:'scenery-cloud',spacing:5.1,offset:1.7,x:[4.5,7],w:[3,5.5],float:true,mirror:true,lift:[-.8,1.2]},{name:'scenery-balloon',spacing:31,offset:3,x:[3.6,5.2],w:[2.1,2.9],float:true,lift:[1.8,3.4]},{name:'scenery-island',spacing:19,offset:7,x:[4,6.5],w:[4.5,7.5],float:true,lift:[-.4,.6],mirror:true}]},
 };
 // Stretches where the path lets go (fractions of the run, by distance): the sky
 // level hands the child a glider, the jungle a liana to swing on.
@@ -82,7 +82,9 @@ export class Renderer{
  shoulder(){const L=LEVELS[this.level],key=L.shoulder+(this.isNight?'-night':'');return this.tiles[key]??=tile(L.shoulder,this.isNight);}
  // Trees, plants and obstacles get a moonlit copy for the evening scene (made once).
  night(name){if(!/^(scenery|obstacle)-/.test(name))return this.images[name];this.nightImages??={};if(this.nightImages[name])return this.nightImages[name];const im=this.images[name],c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.fillStyle='#0a2740';g.globalAlpha=.5;g.fillRect(0,0,c.width,c.height);return this.nightImages[name]=c;}
- image(name,x,y,w,angle=0,alpha=1){const im=this.isNight?this.night(name):this.images[name];if(!im)return;const g=this.g,h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.translate(x,y);g.rotate(angle);g.drawImage(im,-w/2,-h,w,h);g.restore();}
+ image(name,x,y,w,angle=0,alpha=1,flip=false){const im=this.isNight?this.night(name):this.images[name];if(!im)return;const g=this.g,h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.translate(x,y);g.rotate(angle);if(flip)g.scale(-1,1);g.drawImage(im,-w/2,-h,w,h);g.restore();}
+ // The first opaque row of a painting (cached): where the fists are on the hanging and reaching poses.
+ topOf(name){this.tops??={};if(this.tops[name]!==undefined)return this.tops[name];const im=this.images[name];const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,im.width,im.height).data;let top=0;outer:for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x+=2)if(d[(y*im.width+x)*4+3]>40){top=y;break outer;}return this.tops[name]=top/im.height;}
  flip(x,bottom,width,remaining,alpha){const g=this.g,im=this.images[`hero-${this.hero}-flip`],frame=flipFrame(remaining),cw=im.width/4,ch=im.height/2;const h=width*ch/cw*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.drawImage(im,(frame%4)*cw,Math.floor(frame/4)*ch,cw,ch,x-width/2,bottom-h,width,h);g.restore();}
  event(e){const p=this.point(e.lane??1,1);if(['coin','gold','combo','card','clear','magnet','shield','block','double','speed'].includes(e.type)){const label=this.labelFor?.(e)??({coin:`+${e.value??1}`,gold:`+${e.value??5} GOUD!`,combo:`COMBO +5`,card:'Kaart ontdekt!',clear:'Mooie sprong!',magnet:'MAGNEET!',shield:'SCHILD!',block:'Gered!',double:'DUBBELE MUNTEN!',speed:'TURBO!'})[e.type];this.labels.push({x:p.x,y:p.y-160,text:label,life:1});if(!this.reduced)for(let i=0;i<9;i++){const a=i*2.4;this.particles.push({x:p.x,y:p.y-55,vx:Math.cos(a)*80,vy:Math.sin(a)*85-50,life:.65,color:e.type==='card'?'#a2f7ff':'#ffe58e'});}}}
 
@@ -124,11 +126,10 @@ export class Renderer{
     g.drawImage(water,(512-sw)/2,ty,sw,sh,left-4,y,right-left+8,3);
     // the banks: a dark rim of earth on both sides of the water
     g.fillStyle=night?'#0b1d14':'#3d2c17';g.fillRect(left-4-scale*.07,y,scale*.07+2,3);g.fillRect(right+2,y,scale*.07+2,3);}
-   else{const t=(y-312)/590;g.fillStyle=t<.5?'#8fc6f3':'#b8dbf8';g.fillRect(left-4,y,right-left+8,3);}
-   if(!water){prevGap=true;continue;} // open sky: no bank lines
+   else{const t=(y-312)/590;g.fillStyle=`rgb(${Math.round(143+48*t)},${Math.round(198+26*t)},${Math.round(243+8*t)})`;g.fillRect(0,y,600,3);prevGap=true;continue;} // open sky across the whole width, one smooth gradient
    if(!prevGap){g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#2a2014':'#dcefff';g.fillRect(left-6,y-3,right-left+12,4);}
    prevGap=true;continue;}
-  if(prevGap){g.fillStyle=L.air?.kind==='swing'?'#2a2014':'#dcefff';g.fillRect(left-6,y-1,right-left+12,3);}prevGap=false;
+  prevGap=false;
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19);
   g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
@@ -151,9 +152,9 @@ export class Renderer{
   let name=spec.name;if(spec.pick){const have=spec.pick.filter(n=>this.images[n]);if(!have.length)continue;name=have[(i*7+(side>0?3:0)+Math.floor(v*5))%have.length];}
   const px=side*(spec.x[0]+v*(spec.x[1]-spec.x[0]));
   let width=spec.w[0]+v*(spec.w[1]-spec.w[0]);if(spec.pick){const im=this.images[name];width*=Math.min(1.25,Math.max(.45,im.width/im.height/.72));}
-  props.push({depth,x:px,name,width,lift});
+  props.push({depth,x:px,name,width,lift,flip:!!spec.mirror&&(i+side)%2===0});
  }
- for(const o of props.sort((a,b)=>b.depth-a.depth)){const p=project(o.x,o.depth);p.x+=this.off(o.depth);this.image(o.name,p.x,p.y-o.lift*p.scale,o.width*p.scale,0,Math.min(1,(70-o.depth)/12,(o.depth-.3)/.5));}
+ for(const o of props.sort((a,b)=>b.depth-a.depth)){const p=project(o.x,o.depth);p.x+=this.off(o.depth);this.image(o.name,p.x,p.y-o.lift*p.scale,o.width*p.scale,0,Math.min(1,(70-o.depth)/12,(o.depth-.3)/.5),o.flip);}
  // light: sun shafts by day, moon glow by night; distance haze hides the recycle boundary
  if(night){const moon=g.createRadialGradient(470,70,4,470,70,190);moon.addColorStop(0,'#d8f3ff55');moon.addColorStop(.35,'#7fc6ff1c');moon.addColorStop(1,'#00000000');g.fillStyle=moon;g.fillRect(200,0,400,320);}
  else if(L.rays||L.sun){g.save();g.globalCompositeOperation='lighter';if(L.rays)for(let i=0;i<4;i++){const x0=120+i*95+Math.sin(s.time*.35+i)*10,ray=g.createLinearGradient(0,0,0,560);ray.addColorStop(0,'#fff6c0'+(i%2?'2a':'20'));ray.addColorStop(1,'#fff6c000');g.fillStyle=ray;g.beginPath();g.moveTo(x0,-10);g.lineTo(x0+26,-10);g.lineTo(x0+150,560);g.lineTo(x0+40,560);g.closePath();g.fill();}
@@ -163,11 +164,11 @@ export class Renderer{
  return {gliding,blend,air};
  }
 
- draw(s,dt,active){const g=this.g,L=LEVELS[this.level];g.setTransform(this.canvas.width/600,0,0,this.canvas.height/900,0,0);
+ draw(s,dt,active){const g=this.g,L=LEVELS[this.level],bg=this.images[this.scene];g.setTransform(this.canvas.width/600,0,0,this.canvas.height/900,0,0);
  const {gliding,blend,air}=this.drawWorld(s,dt);
  const shade=g.createLinearGradient(0,0,0,900);shade.addColorStop(0,'#07284266');shade.addColorStop(.2,'#00000000');shade.addColorStop(.8,'#00000000');shade.addColorStop(1,'#082c4833');g.fillStyle=shade;g.fillRect(0,0,600,900);
  if(!this.reduced){for(let i=0;i<14;i++){const t=s.time*.17+i*2.7,x=(Math.sin(t*.8)*.5+.5)*580,y=180+(i*79+s.time*11)%580;g.fillStyle=this.isNight?'#fff3a0':'#ffffc1';g.globalAlpha=.2+.2*Math.sin(t);g.beginPath();g.arc(x,y,this.isNight?2.5:1.6,0,Math.PI*2);g.fill();}g.globalAlpha=1;}
- const hero=this.hero,liftPx=blend*150; // while gliding the hero and the flying obstacles hang above the (missing) path
+ const hero=this.hero,liftPx=blend*150; // flying obstacles and coins hang above the (missing) path
  const player=()=>{const p=this.point(s.x,1),jump=height(s),land=s.jump>0?0:Math.sin(s.time*19)*(this.reduced||gliding?0:2);
   const {to:sTo,since:sSince}=gapTiming(this.level,s);const shadowK=air?0:sTo<.5?sTo/.5:sSince<.45?sSince/.45:1;
   if(shadowK>0){g.fillStyle='#2c27143b';g.globalAlpha=shadowK;g.beginPath();g.ellipse(p.x,p.y+4,39-jump*10,10-jump*3,0,0,7);g.fill();g.globalAlpha=1;}
@@ -176,40 +177,40 @@ export class Renderer{
   const LEAD=.5,TAIL=.45; // seconds: the jump towards the liana / glider, and the landing
   const phase=air?'in':to<LEAD?'lead':since<TAIL?'tail':null;
   const sway=air==='swing'?Math.sin(s.time*2.1)*.22:0;
-  const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137-liftPx+(gliding?Math.sin(s.time*1.6)*10:0)+land;
+  // the hanging / reaching poses (384×560) are drawn narrower than the run frames so the child stays the same size — arms up only add height
+  const SW=168,LIFT=kind==='glide'?150:110;const heroLift=phase==='lead'?(1-to/LEAD)**2*LIFT:phase==='in'?LIFT+(kind==='glide'?Math.sin(s.time*1.6)*10:0):phase==='tail'?(1-since/TAIL)**2*LIFT:0;
+  const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137+land-heroLift;
+  const fists=name=>{const im=this.images[name];const h=SW*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);return bottom-h+this.topOf(name)*h+10;};
   const has=n=>manifest?.has(n)||!!this.images[n];
   if(kind==='swing'&&phase){
-   // the liana: hangs from the top of the screen down to the fists; while the child jumps for it, it swings in from above
-   const sw=this.images[`hero-${hero}-swing`],spriteH=211*sw.height/sw.width*(this.canvas.width/600)/(this.canvas.height/900);
-   const hx=p.x+(air?Math.sin(s.time*2.1)*26:0),top={x:p.x-(air?Math.sin(s.time*2.1)*60:0),y:-40},hh=spriteH*(1-(hero==="girl"?.316:.209))-34;
-   const grabY=bottom-Math.cos(sway)*hh; // where the fists are while hanging
    const liana=this.images['scenery-liana'];
-   if(phase==='lead'){const k=1-to/LEAD; // 0 → 1 while jumping up
-    const lift=k*k*110;const gy=grabY-(1-k)*260; // the liana's end comes down to meet the hands
-    if(liana){const len=gy-top.y+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*Math.min(1,k*2);g.translate(top.x,top.y);g.drawImage(liana,-w/2,0,w,len);g.restore();}
-    this.image(has(`hero-${hero}-grab`)?`hero-${hero}-grab`:`hero-${hero}-jump`,p.x,bottom-lift,211,clampTilt(s),alpha);}
-   else if(phase==='in'){const hand={x:hx+Math.sin(sway)*hh,y:grabY};
-    if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
-    const sn=Math.sin(s.time*2.1);const pose=sn>.35&&has(`hero-${hero}-swing-back`)?'swing-back':sn<-.35?'swing':has(`hero-${hero}-swing-2`)?'swing-2':'swing';
-    this.image(`hero-${hero}-${pose}`,hx,bottom,211,sway,alpha);}
-   else{const k=since/TAIL; // 0 → 1 while landing
-    const lift=(1-k)*(1-k)*90;
-    this.image(k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+   const drawLiana=(x0,y0,x1,y1,a)=>{if(!liana)return;const ang=Math.atan2(x1-x0,y1-y0),len=Math.hypot(x1-x0,y1-y0)+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=a;g.translate(x0,y0);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();};
+   const sn=air?Math.sin(s.time*2.1):0,hx=p.x+sn*26,top={x:p.x-sn*60,y:-40};
+   if(phase==='lead'){const k=1-to/LEAD;const pose=has(`hero-${hero}-grab`)?`hero-${hero}-grab`:`hero-${hero}-jump`;const hy=fists(pose);
+    drawLiana(p.x,top.y,p.x,hy-(1-k)*(1-k)*300,alpha*Math.min(1,k*2)); // the liana's end comes down to the rising hands and meets them exactly
+    this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);}
+   else if(phase==='in'){const pose=sn>.35&&has(`hero-${hero}-swing-back`)?`hero-${hero}-swing-back`:sn<-.35?`hero-${hero}-swing`:has(`hero-${hero}-swing-2`)?`hero-${hero}-swing-2`:`hero-${hero}-swing`;
+    const hy=fists(pose),ph=Math.abs(hy-bottom);const hand={x:hx+Math.sin(sway)*ph,y:bottom-Math.cos(sway)*ph};
+    drawLiana(top.x,top.y,hand.x,hand.y,alpha);
+    this.image(pose,hx,bottom,SW,sway,alpha);}
+   else{const k=since/TAIL;const pose=k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:null;
+    if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha);}
   }
   else if(kind==='glide'&&phase){
    const glider=this.images['scenery-glider'];
-   if(phase==='lead'){const k=1-to/LEAD;const lift=k*k*90;
-    if(glider){const w=250,h=w*glider.height/glider.width,gy=bottom-lift-236*.72-(1-k)*(1-k)*360;g.save();g.globalAlpha=alpha*Math.min(1,k*2.5);g.drawImage(glider,p.x-w/2,gy-h,w,h);g.restore();}
-    this.image(has(`hero-${hero}-reach`)?`hero-${hero}-reach`:`hero-${hero}-jump`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+   const drawGlider=(cx,handY,a)=>{if(!glider)return;const w=250,h=w*glider.height/glider.width;g.save();g.globalAlpha=a;g.drawImage(glider,cx-w/2,handY-h*.86,w,h);g.restore();}; // the control bar sits at 86 % of the painting's height
+   if(phase==='lead'){const k=1-to/LEAD;const pose=has(`hero-${hero}-reach`)?`hero-${hero}-reach`:`hero-${hero}-jump`;const hy=fists(pose);
+    drawGlider(p.x,hy-(1-k)*(1-k)*360,alpha*Math.min(1,k*2.5));
+    this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);}
    else if(phase==='in'){this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6,alpha);}
-   else{const k=since/TAIL;const lift=(1-k)*(1-k)*70;
-    if(glider){const w=250,h=w*glider.height/glider.width,gy=bottom-lift-236*.72-k*k*420;g.save();g.globalAlpha=alpha*(1-k);g.drawImage(glider,p.x-w/2,gy-h,w,h);g.restore();}
-    this.image(k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+   else{const k=since/TAIL;const pose=k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:null;
+    drawGlider(p.x,fists(pose||`hero-${hero}-reach`)-k*k*420,alpha*(1-k));
+    if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha);}
   }
   else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha);
   else this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
-  if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-liftPx,74,116,s.time,this.reduced);
-  if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-liftPx,86,130,s.time,this.reduced);};
+  if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-heroLift,74,116,s.time,this.reduced);
+  if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-heroLift,86,130,s.time,this.reduced);};
  let drawn=false;
  for(const o of [...s.items].sort((a,b)=>a.z-b.z)){if(o.z<0||itemDepth(o.z)<.8)continue;if(o.z>1&&!drawn){player();drawn=true;}if(o.resolved&&!['rock','log','car'].includes(o.kind))continue;
   const p=this.point(o.lane,o.z);const flies=gliding||(L.glide&&o.kind==='log');const raise=flies?(gliding?liftPx:70)*4/itemDepth(o.z):0; // nearer things are lifted more on screen
@@ -217,8 +218,16 @@ export class Renderer{
   p.y-=raise;
   if(o.kind==='car'){const im=this.images[o.dir>0?'obstacle-car-side':'obstacle-car-side-2']||this.images[L.obstacles.rock];const w=p.scale*1.55,h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);
    // the crossing: a darker band of road across the whole width at the car's depth
-   const bx0=300-2.6*p.scale+this.off(itemDepth(o.z)),bw=5.2*p.scale;g.fillStyle=this.isNight?'#1c1f28':'#3b3f49';g.fillRect(bx0,p.y-p.scale*.16,bw,p.scale*.32);g.fillStyle='#e9e4c8';g.fillRect(bx0,p.y-p.scale*.16,bw,2);g.fillRect(bx0,p.y+p.scale*.16-2,bw,2);
-   g.fillStyle='#1f200b40';g.beginPath();g.ellipse(p.x,p.y,w*.45,w*.06,0,0,7);g.fill();g.save();g.translate(p.x,p.y);if(o.dir<0)g.scale(-1,1);g.drawImage(im,-w/2,-h+Math.sin(s.time*30)*1.5,w,h);g.restore();continue;}
+   const bx0=300-2.6*p.scale+this.off(itemDepth(o.z)),bw=5.2*p.scale,bh=p.scale*.34;
+   // the side street: the same asphalt as the path, turned a quarter so its centre line runs across
+   g.save();g.beginPath();g.rect(bx0,p.y-bh/2,bw,bh);g.clip();g.translate(bx0+bw/2,p.y);g.rotate(Math.PI/2);g.drawImage(bg,bg.width*.30,bg.height*.80,bg.width*.40,bg.height*.19,-bh/2,-bw/2,bh,bw);g.restore();
+   g.fillStyle='#00000033';g.fillRect(bx0,p.y-bh/2,bw,2);g.fillRect(bx0,p.y+bh/2-2,bw,2);
+   g.fillStyle='#1f200b40';g.beginPath();g.ellipse(p.x,p.y,w*.45,w*.06,0,0,7);g.fill();
+   g.save();g.translate(p.x,p.y);if(o.dir<0)g.scale(-1,1);g.drawImage(im,-w/2,-h,w,h);
+   // spinning wheels: a dark spoke cross turning with the distance driven, drawn over the painted hubs
+   const wheels=im===this.images['obstacle-car-side-2']?[[.235,.815,.075]]:[[.22,.815,.078]];const rot=o.lane*11;
+   for(const [fx,fy,fr] of [...(wheels.length?[[wheels[0][0],wheels[0][1],wheels[0][2]],[1-wheels[0][0]-.02,wheels[0][1],wheels[0][2]]]:[])]){const cx=-w/2+fx*w,cy=-h+fy*h,r=fr*w;g.save();g.translate(cx,cy);g.rotate(rot);g.strokeStyle='#1a1c22aa';g.lineWidth=Math.max(1.5,r*.22);for(let k=0;k<3;k++){g.beginPath();g.moveTo(-r*.82,0);g.lineTo(r*.82,0);g.stroke();g.rotate(Math.PI/3);}g.restore();}
+   g.restore();continue;}
   if(['magnet','shield','gold','double','speed'].includes(o.kind)){badge(g,o.kind,p.x,p.y-p.scale*.2,p.scale*.45,s.time);continue;}
   const width=p.scale*(o.kind==='coin'?.30:o.kind==='card'?.42:.73);const name=o.kind==='coin'?'collectible-coin':o.kind==='card'?L.card:L.obstacles[o.kind];const lift=o.kind==='coin'?p.scale*.24:0;
   if(o.kind==='coin'||o.kind==='card'){g.save();g.shadowColor=o.kind==='coin'?'#ffe590':'#b988ff';g.shadowBlur=this.reduced?0:12;this.image(name,p.x,p.y-lift,width,this.reduced?0:Math.sin(s.time*2+o.z)*.05);g.restore();if(o.kind==='coin'&&!this.reduced&&((s.time*1.6+o.z*7)%1)<.18){const r=width*.55,cx=p.x+width*.28,cy=p.y-lift-width*.95;g.fillStyle='#ffffffd9';g.beginPath();g.moveTo(cx,cy-r);g.quadraticCurveTo(cx,cy,cx+r,cy);g.quadraticCurveTo(cx,cy,cx,cy+r);g.quadraticCurveTo(cx,cy,cx-r,cy);g.quadraticCurveTo(cx,cy,cx,cy-r);g.fill();}}
