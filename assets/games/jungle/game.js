@@ -90,9 +90,7 @@ export class KwizilloJungle extends HTMLElement{
   const T=k=>escapeText(this.t(k));
   const chips=this.t('help',{n:this.options.duration}).split(/<br\s*\/?>/i).map(c=>c.trim()).filter(Boolean);
   this.panel(`<div class="start">
-   <div class="eyebrow">${T('eyebrow')}</div>
-   <h1 class="arcade-title"><span>${T('titleA')}</span><em>${T('titleB')}</em></h1>
-   <p class="tagline">${this.t('intro').replace(/<br\s*\/?>/gi,' ')}</p>
+   <h1 class="arcade-title"><em>${T('titleA')}</em><em>${T('titleB')}</em></h1>
    <div class="pick-label">${T('levelLabel')}</div>
    <div class="themes levels">${LEVEL_IDS.map(id=>`<button data-act="level-${id}" aria-pressed="${this.level===id}" style="background-image:url('${this.picture(LEVELS[id].scenes[0])}')"><span>${T('level'+id[0].toUpperCase()+id.slice(1))}</span></button>`).join('')}</div>
    <div class="pick-label">${T('heroLabel')}</div>

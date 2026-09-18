@@ -69,3 +69,8 @@ nav .jump{font-size:20px;letter-spacing:1px}
 .start .heroes.level-stad button{background-size:auto 165%;background-position:center 100%}
 .start .heroes.level-lucht button{background-size:auto 150%;background-position:center 96%}
 .start .heroes.level-jungle button{background-size:cover;background-position:center 58%}
+
+/* one title only: both words in the same gold arcade face */
+.start .arcade-title{margin:2px 0 6px;gap:12px;flex-wrap:wrap}
+.start .arcade-title em{font-size:clamp(34px,9.6vw,48px);letter-spacing:1px}
+@media(max-height:600px){.start .arcade-title em{font-size:30px}}
