@@ -88,3 +88,7 @@ nav .jump{font-size:20px;letter-spacing:1px}
 /* the gold digit needs room above its cap height, or the top gets clipped */
 .overlay.countdown .panel{overflow:visible;padding:40px 0}
 .overlay.countdown .count{line-height:1.15;padding:10px 0}
+
+.start .hint{margin:8px 0 0;font-size:11px;color:#9fc9bd;font-weight:700;text-align:center}
+.finish-row{display:flex;gap:8px}.finish-row .secondary{flex:1;margin-top:10px}
+@media(max-height:720px){.start .hint{display:none}}

@@ -33,9 +33,9 @@ export const TEXT={
   popCard:'KAART GEVONDEN!',popCardSub:'Onthulling bij de finish',popClear:'MOOIE SPRONG!',popClearSub:'Over de boomstam',
   labelGold:'+{n} GOUD!',labelCombo:'COMBO +5',labelSpeed:'TURBO!',labelCard:'Kaart ontdekt!',labelClear:'Mooie sprong!',labelMagnet:'MAGNEET!',labelShield:'SCHILD!',labelBlock:'Gered!',labelDouble:'DUBBELE MUNTEN!',
   saving:'Je beloning wordt doorgegeven…',saved:'Je beloning is opgeslagen.',savedNoHost:'Je rit is klaar. Koppel onComplete om beloningen op te slaan.',saveError:'Opslaan lukte nog niet. Probeer het opnieuw.',
-  finishEyebrow:'AVONTUUR VOLTOOID',finish:'FINISH!',finishSub:'Jouw buit uit de jungle',coinsEarned:'munten verdiend',bestStreak:'Beste reeks',bonusCoins:'Bonusmunten',
+  finishEyebrow:'AVONTUUR VOLTOOID',finish:'FINISH!',finishSub:'Jouw buit van deze rit',coinsEarned:'munten verdiend',bestStreak:'Beste reeks',bonusCoins:'Bonusmunten',
   cardAlt:'Verzamelde kaart',cardEyebrow:'KAART ONTDEKT',cardSub:'Voor je Kwizillo-verzameling',cardTitle:'Jungleblad',
-  back:'Terug naar Kwizillo',retry:'Opnieuw opslaan',take:'Neem mijn buit mee',again:'Nog een avontuur'
+  back:'Terug naar Kwizillo',retry:'Opnieuw opslaan',take:'Neem mijn buit mee',again:'Ander avontuur',replay:'Deze nog een keer'
 };
 
 export class KwizilloJungle extends HTMLElement{
@@ -97,7 +97,7 @@ export class KwizilloJungle extends HTMLElement{
    <div class="heroes level-${this.level}">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}" style="background-image:url('${this.picture(LEVELS[this.level].scenes[0])}')"><i><img src="${this.picture(this.cache[`hero-${id}-portrait`]?`hero-${id}-portrait`:`hero-${id}-run-02`)}" alt=""></i><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span>${this.heroKind===id?'<b>✓</b>':''}</button>`).join('')}</div>
    <div class="options"><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> <span>${T('easy')}</span></label><button class="music-toggle" data-act="music">${this.musicLabel()}</button></div>
    <button class="primary go" data-act="start">${T('start')}</button>
-   <div class="chips">${chips.map(c=>`<span>${escapeText(c)}</span>`).join('')}</div>
+   <p class="hint">${escapeText(chips[0]||'')}</p>
    ${this.options.onExit?`<button class="back" data-act="exit">${T('back')}</button>`:''}
   </div>`);
  }
@@ -133,6 +133,7 @@ export class KwizilloJungle extends HTMLElement{
   if(a==='resume'){this.audio.unlock();this.phase=this.beforePause||'playing';this.overlay.hidden=true;if(this.phase==='countdown')this.panel(`<div class="count">${Math.ceil(this.count)}</div><p>${escapeText(this.t('countReady'))}</p>`);this.canvas.focus();return;}
   if(a==='exit'){this.phase='ready';this.options.onExit?.();if(this.alive)this.home();return;}
   if(a==='home'){this.home();return;}
+  if(a==='replay'){this.phase='ready';this.action('start');return;}
   if(a==='retry'){this.save();return;}
   if(this.phase!=='playing')return;
   if(a==='left')move(this.run,-1);
@@ -197,7 +198,7 @@ export class KwizilloJungle extends HTMLElement{
  }
  finishPanel(message,error=false){
   const T=k=>escapeText(this.t(k));
-  this.panel(`<div class="finish-panel"><div class="confetti" aria-hidden="true">${Array.from({length:18},(_,i)=>`<i style="--i:${i};--x:${(i*37)%100}%;--c:${['#ffd345','#70e8ff','#fb94d8','#b0ee85'][i%4]}"></i>`).join('')}</div><div class="eyebrow">${T('finishEyebrow')}</div><div class="finish-stars" aria-hidden="true">★ ★ ★</div><h1>${T('finish')}</h1><p class="finish-sub">${T('finishSub')}</p><div class="coin-win"><img src="${img('collectible-coin')}" alt=""><div class="reward"><b data-count>+${this.renderer.reduced?this.run.coins:0}</b><small>${T('coinsEarned')}</small></div></div><div class="run-stats"><span>★ ${T('bestStreak')} <b>${this.run.bestStreak}</b></span><span>✦ ${T('bonusCoins')} <b>+${this.run.bonusCoins+this.run.doubleCoins}</b></span></div>${this.run.collectedCard?`<div class="card-reveal"><img data-card-image alt="${T('cardAlt')}"><div><small>${T('cardEyebrow')}</small><strong>${escapeText(this.card.title)}</strong><span>${T('cardSub')}</span></div></div>`:''}<p class="save-status" role="status">${escapeText(message)}</p>${error?`<button class="primary" data-act="retry">${T('retry')}</button>`:this.saved?`<button class="primary" data-act="exit">${T('take')}</button><button class="secondary" data-act="home">${T('again')}</button>`:''}</div>`);
+  this.panel(`<div class="finish-panel"><div class="confetti" aria-hidden="true">${Array.from({length:18},(_,i)=>`<i style="--i:${i};--x:${(i*37)%100}%;--c:${['#ffd345','#70e8ff','#fb94d8','#b0ee85'][i%4]}"></i>`).join('')}</div><div class="eyebrow">${T('finishEyebrow')}</div><div class="finish-stars" aria-hidden="true">★ ★ ★</div><h1>${T('finish')}</h1><p class="finish-sub">${T('finishSub')}</p><div class="coin-win"><img src="${img('collectible-coin')}" alt=""><div class="reward"><b data-count>+${this.renderer.reduced?this.run.coins:0}</b><small>${T('coinsEarned')}</small></div></div><div class="run-stats"><span>★ ${T('bestStreak')} <b>${this.run.bestStreak}</b></span><span>✦ ${T('bonusCoins')} <b>+${this.run.bonusCoins+this.run.doubleCoins}</b></span></div>${this.run.collectedCard?`<div class="card-reveal"><img data-card-image alt="${T('cardAlt')}"><div><small>${T('cardEyebrow')}</small><strong>${escapeText(this.card.title)}</strong><span>${T('cardSub')}</span></div></div>`:''}<p class="save-status" role="status">${escapeText(message)}</p>${error?`<button class="primary" data-act="retry">${T('retry')}</button>`:this.saved?`<button class="primary" data-act="exit">${T('take')}</button><div class="finish-row"><button class="secondary" data-act="replay">${T('replay')}</button><button class="secondary" data-act="home">${T('again')}</button></div>`:''}</div>`);
   const cardImage=this.root.querySelector('[data-card-image]');
   if(cardImage){
    const fallback=img('collectible-jungle-card');

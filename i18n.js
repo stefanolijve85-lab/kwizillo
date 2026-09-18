@@ -89,8 +89,8 @@
     'jungle.popShield':'BESCHERMSCHILD!','jungle.popShieldSub':'Vangt één botsing op','jungle.popBlock':'SCHILD REDT JE!','jungle.popBlockSub':'Lekker doorrennen','jungle.popCard':'KAART GEVONDEN!','jungle.popCardSub':'Onthulling bij de finish','jungle.popClear':'MOOIE SPRONG!','jungle.popClearSub':'Over de boomstam',
     'jungle.labelGold':'+{n} GOUD!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Kaart ontdekt!','jungle.labelClear':'Mooie sprong!','jungle.labelMagnet':'MAGNEET!','jungle.labelShield':'SCHILD!','jungle.labelBlock':'Gered!','jungle.labelDouble':'DUBBELE MUNTEN!',
     'jungle.saving':'Je beloning wordt opgeslagen…','jungle.saved':'Je munten zijn erbij gedaan.','jungle.saveError':'Opslaan lukte nog niet. Probeer het opnieuw.',
-    'jungle.finishEyebrow':'AVONTUUR VOLTOOID','jungle.finish':'FINISH!','jungle.finishSub':'Jouw buit uit de jungle','jungle.coinsEarned':'munten verdiend','jungle.bestStreak':'Beste reeks','jungle.bonusCoins':'Bonusmunten',
-    'jungle.cardAlt':'Verzamelde kaart','jungle.cardEyebrow':'KAART ONTDEKT','jungle.cardSub':'Voor je Kwizillo-verzameling','jungle.cardTitle':'Jungleblad','jungle.retry':'Opnieuw opslaan','jungle.take':'Neem mijn buit mee','jungle.again':'Nog een avontuur',
+    'jungle.finishEyebrow':'AVONTUUR VOLTOOID','jungle.finish':'FINISH!','jungle.finishSub':'Jouw buit van deze rit','jungle.coinsEarned':'munten verdiend','jungle.bestStreak':'Beste reeks','jungle.bonusCoins':'Bonusmunten',
+    'jungle.cardAlt':'Verzamelde kaart','jungle.cardEyebrow':'KAART ONTDEKT','jungle.cardSub':'Voor je Kwizillo-verzameling','jungle.cardTitle':'Jungleblad','jungle.retry':'Opnieuw opslaan','jungle.take':'Neem mijn buit mee','jungle.again':'Ander avontuur','jungle.replay':'Deze nog een keer',
     // Premium (parent pays for access; the child earns rewards by playing)
     'common.ok':'Oké','common.retry':'Opnieuw proberen',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'VOOR OUDERS',
@@ -550,8 +550,8 @@
     'jungle.popShield':'SHIELD!','jungle.popShieldSub':'Takes one bump for you','jungle.popBlock':'SHIELD SAVED YOU!','jungle.popBlockSub':'Keep on running','jungle.popCard':'CARD FOUND!','jungle.popCardSub':'Revealed at the finish','jungle.popClear':'NICE JUMP!','jungle.popClearSub':'Over the log',
     'jungle.labelGold':'+{n} GOLD!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Card found!','jungle.labelClear':'Nice jump!','jungle.labelMagnet':'MAGNET!','jungle.labelShield':'SHIELD!','jungle.labelBlock':'Saved!','jungle.labelDouble':'DOUBLE COINS!',
     'jungle.saving':'Saving your reward…','jungle.saved':'Your coins have been added.','jungle.saveError':'Saving did not work yet. Please try again.',
-    'jungle.finishEyebrow':'ADVENTURE COMPLETE','jungle.finish':'FINISH!','jungle.finishSub':'Your jungle loot','jungle.coinsEarned':'coins earned','jungle.bestStreak':'Best streak','jungle.bonusCoins':'Bonus coins',
-    'jungle.cardAlt':'Collected card','jungle.cardEyebrow':'CARD FOUND','jungle.cardSub':'For your Kwizillo collection','jungle.cardTitle':'Jungle leaf','jungle.retry':'Save again','jungle.take':'Take my loot','jungle.again':'Another adventure',
+    'jungle.finishEyebrow':'ADVENTURE COMPLETE','jungle.finish':'FINISH!','jungle.finishSub':'Your loot from this run','jungle.coinsEarned':'coins earned','jungle.bestStreak':'Best streak','jungle.bonusCoins':'Bonus coins',
+    'jungle.cardAlt':'Collected card','jungle.cardEyebrow':'CARD FOUND','jungle.cardSub':'For your Kwizillo collection','jungle.cardTitle':'Jungle leaf','jungle.retry':'Save again','jungle.take':'Take my loot','jungle.again':'Other adventure','jungle.replay':'This one again',
     // Premium
     'common.ok':'OK','common.retry':'Try again',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'FOR PARENTS',
@@ -1011,8 +1011,8 @@
     'jungle.popShield':'ESCUDO!','jungle.popShieldSub':'Segura uma batida','jungle.popBlock':'O ESCUDO SALVOU VOCÊ!','jungle.popBlockSub':'Continue correndo','jungle.popCard':'CARTA ENCONTRADA!','jungle.popCardSub':'Revelada na chegada','jungle.popClear':'BELO SALTO!','jungle.popClearSub':'Por cima do tronco',
     'jungle.labelGold':'+{n} OURO!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Carta encontrada!','jungle.labelClear':'Belo salto!','jungle.labelMagnet':'ÍMÃ!','jungle.labelShield':'ESCUDO!','jungle.labelBlock':'Salvo!','jungle.labelDouble':'MOEDAS EM DOBRO!',
     'jungle.saving':'Salvando sua recompensa…','jungle.saved':'Suas moedas foram adicionadas.','jungle.saveError':'Ainda não deu para salvar. Tente de novo.',
-    'jungle.finishEyebrow':'AVENTURA CONCLUÍDA','jungle.finish':'CHEGADA!','jungle.finishSub':'Seu tesouro da selva','jungle.coinsEarned':'moedas ganhas','jungle.bestStreak':'Melhor sequência','jungle.bonusCoins':'Moedas bônus',
-    'jungle.cardAlt':'Carta coletada','jungle.cardEyebrow':'CARTA DESCOBERTA','jungle.cardSub':'Para sua coleção Kwizillo','jungle.cardTitle':'Folha da selva','jungle.retry':'Salvar de novo','jungle.take':'Levar meu tesouro','jungle.again':'Outra aventura',
+    'jungle.finishEyebrow':'AVENTURA CONCLUÍDA','jungle.finish':'CHEGADA!','jungle.finishSub':'Seu tesouro desta corrida','jungle.coinsEarned':'moedas ganhas','jungle.bestStreak':'Melhor sequência','jungle.bonusCoins':'Moedas bônus',
+    'jungle.cardAlt':'Carta coletada','jungle.cardEyebrow':'CARTA DESCOBERTA','jungle.cardSub':'Para sua coleção Kwizillo','jungle.cardTitle':'Folha da selva','jungle.retry':'Salvar de novo','jungle.take':'Levar meu tesouro','jungle.again':'Outra aventura','jungle.replay':'Esta de novo',
     // Premium
     'common.ok':'OK','common.retry':'Tentar de novo',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'PARA OS PAIS',
