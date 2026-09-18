@@ -138,3 +138,19 @@ test('the turbo speeds the music up and the end of the turbo settles it back', a
   expect(calls[0]).toBeCloseTo(1.28, 2);
   expect(calls[calls.length - 1]).toBe(1);
 });
+
+test('a second jump press in the air makes a double somersault that pays a small bonus on landing', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeJungle').click();
+  await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
+  await inRunner(page, '[data-act=start]').click();
+  await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
+  const r = await page.evaluate(() => new Promise(resolve => {
+    const el = window.KWIZILLO_M1.jungle.game.element; const coins0 = el.run.coins;
+    el.action('jump'); setTimeout(() => { el.action('jump'); const twice = el.run.doubleFlip; setTimeout(() => resolve({ twice, gained: el.run.coins - coins0, landed: el.run.jump === 0 }), 1400); }, 350);
+  }));
+  expect(r.twice).toBe(true);
+  expect(r.landed).toBe(true);
+  expect(r.gained).toBeGreaterThanOrEqual(3);
+});

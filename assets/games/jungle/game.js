@@ -30,7 +30,7 @@ export const TEXT={
   popDouble:'BONUSSTER!',popDoubleSub:'6 seconden dubbele munten',popSpeed:'TURBO!',popSpeedSub:'7 seconden supersnel · dubbele munten',popGold:'GOUD GEVONDEN!',popGoldSub:'+{n} munten',
   popCombo:'{n} OP RIJ!',popComboSub:'+5 combo-bonus',popMagnet:'MUNTMAGNEET!',popMagnetSub:'7 seconden munten aantrekken',
   popShield:'BESCHERMSCHILD!',popShieldSub:'Vangt één botsing op',popBlock:'SCHILD REDT JE!',popBlockSub:'Lekker doorrennen',
-  popCard:'KAART GEVONDEN!',popCardSub:'Onthulling bij de finish',popClear:'MOOIE SPRONG!',popClearSub:'Over de boomstam',
+  popCard:'KAART GEVONDEN!',popCardSub:'Onthulling bij de finish',popClear:'MOOIE SPRONG!',popClearSub:'Over de boomstam',popDoubleflip:'DUBBELE SALTO!',popDoubleflipSub:'+3 munten',
   labelGold:'+{n} GOUD!',labelCombo:'COMBO +5',labelSpeed:'TURBO!',labelCard:'Kaart ontdekt!',labelClear:'Mooie sprong!',labelMagnet:'MAGNEET!',labelShield:'SCHILD!',labelBlock:'Gered!',labelDouble:'DUBBELE MUNTEN!',
   saving:'Je beloning wordt doorgegeven…',saved:'Je beloning is opgeslagen.',savedNoHost:'Je rit is klaar. Koppel onComplete om beloningen op te slaan.',saveError:'Opslaan lukte nog niet. Probeer het opnieuw.',
   finishEyebrow:'AVONTUUR VOLTOOID',finish:'FINISH!',finishSub:'Jouw buit van deze rit',coinsEarned:'munten verdiend',bestStreak:'Beste reeks',bonusCoins:'Bonusmunten',
@@ -137,7 +137,7 @@ export class KwizilloJungle extends HTMLElement{
   if(this.phase!=='playing')return;
   if(a==='left')move(this.run,-1);
   if(a==='right')move(this.run,1);
-  if(a==='jump'&&jump(this.run))this.audio.play('jump');
+  if(a==='jump'){const j=jump(this.run);if(j==='double')this.audio.play('doubleflip');else if(j)this.audio.play('jump');}
  }
  pause(){
   if(!['playing','countdown'].includes(this.phase))return;
@@ -189,7 +189,7 @@ export class KwizilloJungle extends HTMLElement{
  }
  arcadeEvent(e){
   if(['coin','gold','combo'].includes(e.type)&&!this.renderer.reduced)this.root.querySelector('.score').animate([{transform:'scale(1.16)'},{transform:'scale(1)'}],{duration:180});
-  const key={double:'Double',gold:'Gold',combo:'Combo',magnet:'Magnet',shield:'Shield',block:'Block',card:'Card',clear:'Clear',speed:'Speed'}[e.type];
+  const key={double:'Double',gold:'Gold',combo:'Combo',magnet:'Magnet',shield:'Shield',block:'Block',card:'Card',clear:'Clear',speed:'Speed',doubleflip:'Doubleflip'}[e.type];
   if(!key)return;
   const vars={n:e.type==='gold'?(e.value??5):e.streak};
   const pop=this.root.querySelector('.arcade-pop');
