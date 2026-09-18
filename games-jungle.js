@@ -43,7 +43,7 @@
   };
 
   let active=null;
-  const leave=()=>{try{active?.destroy()}catch(e){}active=null};
+  const leave=()=>{try{active?.destroy()}catch(e){}active=null;K.audio.setTempo?.(1)};
 
   K.startJungle=async()=>{
     leave();
@@ -71,8 +71,9 @@
       reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
       text:textTable(),
       onStart:()=>K.audio.unlock().catch(()=>{}),
+      onTempo:rate=>K.audio.setTempo?.(rate),
       onComplete:reward=>{const booked=K.jungleReward(reward);if(booked&&booked.coins)K.sfx('reward')},
-      onExit:()=>{leave();K.showHome()}
+      onExit:()=>{K.audio.setTempo?.(1);leave();K.showHome()}
     });
     active={destroy:()=>game.destroy()};
     K.jungle={game,progress:j};

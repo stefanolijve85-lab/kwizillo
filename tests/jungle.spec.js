@@ -122,3 +122,19 @@ test('the sky level lets go of the cloud path twice: the hero glides, then lands
   expect(await glidingAt(.75)).toBe(true);
   expect(await glidingAt(.95)).toBe(false);
 });
+
+test('the turbo speeds the music up and the end of the turbo settles it back', async ({ page }) => {
+  await boot(page, SAVED({ musicOn: true }));
+  await page.locator('#homeJungle').click();
+  await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
+  await inRunner(page, '[data-act=start]').click();
+  await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
+  const calls = await page.evaluate(() => new Promise(resolve => {
+    const K = window.KWIZILLO_M1, seen = []; const orig = K.audio.setTempo; K.audio.setTempo = r => { seen.push(r); return orig(r); };
+    const el = K.jungle.game.element; el.run.items.push({ kind: 'speed', lane: el.run.lane, z: .995, resolved: false });
+    setTimeout(() => { el.run.boost = 0.01; setTimeout(() => resolve(seen), 300); }, 400);
+  }));
+  expect(calls[0]).toBeCloseTo(1.28, 2);
+  expect(calls[calls.length - 1]).toBe(1);
+});

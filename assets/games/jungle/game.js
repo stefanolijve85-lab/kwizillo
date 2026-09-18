@@ -130,7 +130,7 @@ export class KwizilloJungle extends HTMLElement{
   }
   if(a==='pause'){this.pause();return;}
   if(a==='resume'){this.audio.unlock();this.phase=this.beforePause||'playing';this.overlay.hidden=true;if(this.phase==='countdown')this.panel(`<div class="count">${Math.ceil(this.count)}</div><p>${escapeText(this.t('countReady'))}</p>`);this.canvas.focus();return;}
-  if(a==='exit'){this.phase='ready';this.options.onExit?.();if(this.alive)this.home();return;}
+  if(a==='exit'){this.phase='ready';this.options.onTempo?.(1);this.options.onExit?.();if(this.alive)this.home();return;}
   if(a==='home'){this.home();return;}
   if(a==='replay'){this.phase='ready';this.action('start');return;}
   if(a==='retry'){this.save();return;}
@@ -154,6 +154,7 @@ export class KwizilloJungle extends HTMLElement{
     this.renderer.event(e);this.audio.play(e.type,e.streak);this.arcadeEvent(e);
     if(e.type==='hit')this.toast(this.t('hit'));
     if(e.type==='card')this.toast(this.t('cardFound'));
+    if(e.type==='speed')this.options.onTempo?.(1.28);
     if(e.type==='finish'){this.phase='finished';this.finishStarted=performance.now();this.root.querySelector('.arcade-pop').classList.remove('show');const base=result(this.run,this.runId,this.level);this.reward=Object.freeze({...base,cardId:base.cardId?this.card.id:null});this.save();}
    }
   }
@@ -167,6 +168,7 @@ export class KwizilloJungle extends HTMLElement{
   if(powers.textContent!==powerText)powers.textContent=powerText;
   this.root.querySelector('.arcade-pop').hidden=this.phase!=='playing';
   if(this.phase==='finished'){const count=this.root.querySelector('[data-count]');if(count){const p=this.renderer.reduced?1:Math.min(1,(t-this.finishStarted)/1400),n=Math.floor(this.run.coins*(1-Math.pow(1-p,3)));count.textContent='+'+n;if(n!==this.finishCount){this.finishCount=n;if(p<1&&Math.floor(t/80)!==this.lastCountTone){this.lastCountTone=Math.floor(t/80);this.audio.play('count');}}}}
+  const boosting=this.phase==='playing'&&this.run.boost>0;if(boosting!==this.wasBoosting){this.wasBoosting=boosting;if(!boosting)this.options.onTempo?.(1);}
   this.audio.updateMusic(this.phase==='playing');
   if(this.phase==='playing'&&LEVELS[this.level].air){const kind=airborne(this.level,this.run),g=!!kind;if(g!==this.wasGliding){this.wasGliding=g;const k=LEVELS[this.level].air.kind;if(this.run.time>1)this.toast(this.t(g?(k==='swing'?'swingOn':'glideOn'):(k==='swing'?'swingOff':'glideOff')));}}
   this.renderer.draw(this.run,dt,this.phase==='playing');

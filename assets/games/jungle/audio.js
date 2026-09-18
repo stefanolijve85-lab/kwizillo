@@ -11,7 +11,7 @@ export class GameAudio {
  else if(kind==='gold'||kind==='combo')[1046,1318,1568,2093].forEach((f,i)=>this.tone(f,.18,'sine',.12,1,i*.07));
  else if(kind==='magnet'){this.tone(220,.45,'triangle',.12,4);this.tone(880,.25,'sine',.1,1,.25);}
  else if(kind==='shield'||kind==='block'){this.tone(392,.3,'sine',.13,1.5);this.tone(784,.3,'sine',.09,1,.07);}
- else if(kind==='jump'){this.tone(190,.24,'triangle',.13,4);this.noise(.20,.06);this.tone(850,.13,'sine',.07,.6,.15);}
+ else if(kind==='jump'){/* push-off: a scuff of the shoes, a low thump from the ground, then the rising whoosh of the flip */this.noise(.07,.11);this.tone(95,.12,'sine',.16,.55);this.tone(260,.26,'triangle',.09,3.2,.06);this.noise(.16,.035,.1);}
  else if(kind==='clear'){this.tone(784,.12,'triangle',.09);this.tone(1046,.17,'sine',.1,1,.08);}
  else if(kind==='hit'){this.tone(140,.2,'sine',.22,.25);this.noise(.12,.11);}
  else if(kind==='double'){[523,784,1046,1568,2093].forEach((f,i)=>this.tone(f,.23,'triangle',.12,1,i*.075));this.noise(.18,.05);}
