@@ -92,3 +92,9 @@ nav .jump{font-size:20px;letter-spacing:1px}
 .start .hint{margin:8px 0 0;font-size:11px;color:#9fc9bd;font-weight:700;text-align:center}
 .finish-row{display:flex;gap:8px}.finish-row .secondary{flex:1;margin-top:10px}
 @media(max-height:720px){.start .hint{display:none}}
+
+.start .back{margin-top:auto}
+.start .options{margin-top:6px;padding-bottom:max(0px,env(safe-area-inset-bottom))}
+/* hero cards per level: zoomed so the feet stand on the near road / cloud path, surroundings to scale */
+.start .heroes.level-stad button{background-size:auto 200%;background-position:center 60%}
+.start .heroes.level-lucht button{background-size:auto 170%;background-position:center 66%}

@@ -19,8 +19,8 @@ export const LEVELS={
   props:[{name:'scenery-fern',spacing:3.2,x:[1.78,1.98],w:[1.5,2.1]},{name:'scenery-tree',spacing:6.4,offset:.7,x:[3.15,3.65],w:[4.5,5.5]}]},
  stad:{scenes:['city-day','city-evening'],night:scene=>scene==='city-evening',shoulder:'pavement',sky:['#9fd0f5','#2b2a55'],rays:false,dust:'#c9c9cf',
   obstacles:{log:'obstacle-barrier',rock:'obstacle-cone'},card:'collectible-city-card',cardId:'city-star',pebbles:false,flowers:false,dapples:false,
-  props:[{name:'scenery-lamp',spacing:4.8,x:[1.85,1.85],w:[1.4,1.4]},{pick:['scenery-house-01','scenery-shop-01','scenery-house-02','scenery-tower-01','scenery-house-03','scenery-shop-02','scenery-house-04','scenery-tower-02','scenery-shop-03','scenery-building'],spacing:4.9,offset:1.1,x:[4.0,4.6],w:[5.2,6.4],ground:true},{pick:['scenery-tree-city','scenery-bench','scenery-postbox','scenery-hydrant','scenery-busstop','scenery-balloon-seller','scenery-fountain'],spacing:7.3,offset:2.9,x:[2.55,2.9],w:[1.6,2.4]}],extras:['scenery-house-01','scenery-house-02','scenery-house-03','scenery-house-04','scenery-shop-01','scenery-shop-02','scenery-shop-03','scenery-tower-01','scenery-tower-02','scenery-bench','scenery-postbox','scenery-hydrant','scenery-busstop','scenery-balloon-seller','scenery-fountain','city-evening']},
- lucht:{scenes:['sky-day'],night:()=>false,shoulder:'cloud',sky:['#69b4f2'],rays:true,sun:true,dust:null,glide:true,air:{kind:'glide',windows:[[.22,.46],[.66,.88]]},
+  props:[{name:'scenery-lamp',spacing:4.8,x:[1.85,1.85],w:[1.4,1.4]},{pick:['scenery-house-01','scenery-shop-01','scenery-house-02','scenery-tower-01','scenery-house-03','scenery-shop-02','scenery-house-04','scenery-tower-02','scenery-shop-03','scenery-building'],spacing:4.9,offset:1.1,x:[4.0,4.6],w:[5.2,6.4],ground:true},{pick:['scenery-tree-city','scenery-bench','scenery-postbox','scenery-hydrant','scenery-busstop','scenery-balloon-seller','scenery-fountain'],spacing:7.3,offset:2.9,x:[2.55,2.9],w:[1.6,2.4]}],extras:['scenery-house-01','scenery-house-02','scenery-house-03','scenery-house-04','scenery-shop-01','scenery-shop-02','scenery-shop-03','scenery-tower-01','scenery-tower-02','scenery-bench','scenery-postbox','scenery-hydrant','scenery-busstop','scenery-balloon-seller','scenery-fountain','city-evening','obstacle-car-side','obstacle-car-side-2'],crossings:true},
+ lucht:{scenes:['sky-day'],night:()=>false,shoulder:'cloud',sky:['#69b4f2'],rays:false,sun:true,dust:null,glide:true,air:{kind:'glide',windows:[[.22,.46],[.66,.88]]},
   obstacles:{log:'obstacle-bird',rock:'obstacle-storm'},card:'collectible-sky-card',cardId:'sky-feather',pebbles:false,flowers:false,dapples:false,
   props:[{name:'scenery-cloud',spacing:3.6,x:[2.2,3.4],w:[2.4,4],float:true},{name:'scenery-balloon',spacing:15,offset:3,x:[3.6,5.2],w:[2.1,2.9],float:true,lift:[1.8,3.4]},{name:'scenery-island',spacing:14,offset:7,x:[4,6],w:[5,7],float:true,lift:[-.4,.4]}]},
 };
@@ -29,13 +29,15 @@ export const LEVELS={
 export const progress=s=>s.distance/(s.duration*(s.easy?.26:.31));
 export const airborne=(level,s)=>{const air=LEVELS[level]?.air;if(!air)return null;const p=progress(s);return air.windows.some(([a,b])=>p>=a&&p<b)?air.kind:null;};
 export const isGliding=(level,s)=>!!airborne(level,s);
+// seconds until the path lets go (positive), and seconds since it came back (positive), for the grab / release poses
+export const gapTiming=(level,s)=>{const air=LEVELS[level]?.air;if(!air)return {to:Infinity,since:Infinity};const p=progress(s);let to=Infinity,since=Infinity;for(const [a,b] of air.windows){if(p<a)to=Math.min(to,(a-p)*s.duration);if(p>=b)since=Math.min(since,(p-b)*s.duration);}return {to,since};};
 
 // Every painting a level + hero needs, and what stands in for one that is not
 // there yet (the jungle set and the boy always exist).
 const FALLBACK={'city-day':'jungle-tempel','sky-day':'jungle-watervallen','obstacle-barrier':'obstacle-log','obstacle-cone':'obstacle-rock','obstacle-bird':'obstacle-log','obstacle-storm':'obstacle-rock','scenery-lamp':'scenery-tree','scenery-building':'scenery-tree','scenery-tree-city':'scenery-tree','scenery-cloud':'scenery-fern','scenery-balloon':'scenery-tree','scenery-island':'scenery-bridge','collectible-city-card':'collectible-jungle-card','collectible-sky-card':'collectible-jungle-card'};
-export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.flatMap(p=>p.pick||[p.name]),...(L.extras||[])]);for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing'])names.add(`hero-${hero}-${f}`);for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
+export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.flatMap(p=>p.pick||[p.name]),...(L.extras||[])]);for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-${hero}-${f}`);names.add('scenery-glider');for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
 // The painting that stands in for a missing one: a girl frame → the boy's, a level prop → its jungle cousin, a glide pose → the jump pose.
-export function resolveName(name,cache){if(cache[name]||(manifest&&manifest.has(name)))return name;if(FALLBACK[name]&&cache[FALLBACK[name]])return FALLBACK[name];const m=name.match(/^hero-girl-(.+)$/);if(m&&cache['hero-boy-'+m[1]])return 'hero-boy-'+m[1];if(/^hero-.+-(glide|swing)$/.test(name)){const j=name.replace(/glide|swing/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-portrait$/.test(name)){const j=name.replace('portrait','run-02');return cache[j]?j:'hero-boy-run-02';}return name;}
+export function resolveName(name,cache){if(cache[name]||(manifest&&manifest.has(name)))return name;if(FALLBACK[name]&&cache[FALLBACK[name]])return FALLBACK[name];const m=name.match(/^hero-girl-(.+)$/);if(m&&cache['hero-boy-'+m[1]])return 'hero-boy-'+m[1];if(/^hero-.+-(glide|swing)$/.test(name)){const j=name.replace(/glide|swing/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-(swing-back|swing-2)$/.test(name)){const j=name.replace(/swing-(back|2)/,'swing');return cache[j]?j:resolveName(j,cache);}if(/^hero-.+-(grab|reach)$/.test(name)){const j=name.replace(/grab|reach/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-release$/.test(name)){const j=name.replace('release','run-02');return cache[j]?j:'hero-boy-run-02';}if(/^hero-.+-portrait$/.test(name)){const j=name.replace('portrait','run-02');return cache[j]?j:'hero-boy-run-02';}return name;}
 const one=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('Afbeelding kon niet laden: '+src));im.src=src;});
 // img/manifest.json lists the paintings that exist, so a level whose art is not
 // finished asks for nothing that is missing (no 404s) and takes its stand-ins at once.
@@ -45,7 +47,7 @@ async function present(base){if(manifest)return manifest;try{const r=await fetch
 export async function loadAssets(base,names,cache={}){
  const have=await present(base);
  await Promise.all(names.map(async name=>{if(cache[name]!==undefined)return;if(have&&!have.has(name)){cache[name]=null;return;}try{cache[name]=await one(versioned(new URL(name+'.png',base).href));}catch{cache[name]=null;}}));
- const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana|scenery-(house|shop|tower)-\d+|scenery-(bench|postbox|hydrant|busstop|balloon-seller|fountain)|city-evening)$/;
+ const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana|scenery-glider|scenery-(house|shop|tower)-\d+|scenery-(bench|postbox|hydrant|busstop|balloon-seller|fountain)|city-evening|obstacle-car-side(-2)?|hero-(boy|girl)-(swing-back|swing-2|grab|release|reach))$/;
  const images={};for(const name of names){const im=cache[resolveName(name,cache)];if(!im&&!optional.test(name))throw new Error('Afbeelding kon niet laden: '+name);if(im)images[name]=im;}
  return images;
 }
@@ -103,7 +105,7 @@ export class Renderer{
  const gapAt=depth=>{if(!windows.length)return false;const p=(s.distance+(depth-CAMERA.player)/(CAMERA.far-CAMERA.player))/rate;return windows.some(([a,b])=>p>=a&&p<b);};
  const chasm=L.air?.kind==='swing'?(night?['#12261c','#0b1a12','#060d09']:['#4a6a3a','#2c4a2c','#15291a']):['#8fc6f3','#b8dbf8','#d8ecfd'];
  const ravine=L.air?.kind==='swing'?this.images['jungle-ravine']:null,edge=L.air?.kind==='swing'?this.images['jungle-ravine-edge']:null;
- const earthTop=night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a',earthMid=night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a',earthBot=night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c';
+ const pav=L.shoulder==='pavement',earthTop=pav?(night?'#5a5868':'#b4afa4'):night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':'#6a9a4a',earthMid=pav?(night?'#4b4958':'#a19c91'):night?'#123327':L.shoulder==='cloud'?'#c3daf3':'#4f8a3a',earthBot=pav?(night?'#33323f':'#7f7a70'):night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':'#3a6f2c';
  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
  if(L.shoulder==='grass'){g.save();g.globalAlpha=.55;g.globalCompositeOperation='overlay';g.drawImage(this.lawn(night),0,310,600,590);g.globalCompositeOperation='source-over';g.globalAlpha=.32;g.drawImage(this.lawn(night),0,310,600,590);g.restore();}
  const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
@@ -130,9 +132,7 @@ export class Renderer{
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19);
   g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
- if(blend>0&&L.air?.kind==='glide'){ // cloud puffs drifting far beneath the glide
-  g.save();for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.7)*1.2,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.5,p.scale*.16,0,0,7);g.ellipse(p.x+p.scale*.25,p.y+p.scale*.84,p.scale*.3,p.scale*.14,0,0,7);g.fill();}g.restore();
- }
+
  // Ground dressing in world space: pebbles along the path edge, flowers in the verge, dapples on the track.
  {g.save();g.beginPath();g.rect(0,310,600,590);g.clip();
   if(L.pebbles)for(let i=0;i<40;i++){const depth=sceneryDepth(i,1.45,distance,i%2?.7:0);if(depth>40||depth<.6||gapAt(depth))continue;const side=i%2?1:-1,p=project(side*(1.42+(i%3)*.05),depth);p.x+=this.off(depth);g.fillStyle=night?'#6b7f86':'#e6cfa2';g.globalAlpha=Math.min(1,(42-depth)/10);g.beginPath();g.ellipse(p.x,p.y-p.scale*.03,p.scale*.055,p.scale*.03,0,0,7);g.fill();}
@@ -169,27 +169,56 @@ export class Renderer{
  if(!this.reduced){for(let i=0;i<14;i++){const t=s.time*.17+i*2.7,x=(Math.sin(t*.8)*.5+.5)*580,y=180+(i*79+s.time*11)%580;g.fillStyle=this.isNight?'#fff3a0':'#ffffc1';g.globalAlpha=.2+.2*Math.sin(t);g.beginPath();g.arc(x,y,this.isNight?2.5:1.6,0,Math.PI*2);g.fill();}g.globalAlpha=1;}
  const hero=this.hero,liftPx=blend*150; // while gliding the hero and the flying obstacles hang above the (missing) path
  const player=()=>{const p=this.point(s.x,1),jump=height(s),land=s.jump>0?0:Math.sin(s.time*19)*(this.reduced||gliding?0:2);
-  if(blend<1){g.fillStyle='#2c27143b';g.globalAlpha=1-blend;g.beginPath();g.ellipse(p.x,p.y+4,39-jump*10,10-jump*3,0,0,7);g.fill();g.globalAlpha=1;}
+  const {to:sTo,since:sSince}=gapTiming(this.level,s);const shadowK=air?0:sTo<.5?sTo/.5:sSince<.45?sSince/.45:1;
+  if(shadowK>0){g.fillStyle='#2c27143b';g.globalAlpha=shadowK;g.beginPath();g.ellipse(p.x,p.y+4,39-jump*10,10-jump*3,0,0,7);g.fill();g.globalAlpha=1;}
   const step=Math.floor(s.distance*27);if(active&&!this.reduced&&L.dust&&!gliding&&s.jump<=0&&step!==this.lastStep){this.lastStep=step;for(let i=0;i<3;i++)this.particles.push({x:p.x+(Math.random()-.5)*36,y:p.y+2,vx:(Math.random()-.5)*40,vy:20+Math.random()*40,life:.5,r:5+Math.random()*5,color:L.dust});}
+  const {to,since}=gapTiming(this.level,s),kind=L.air?.kind;
+  const LEAD=.5,TAIL=.45; // seconds: the jump towards the liana / glider, and the landing
+  const phase=air?'in':to<LEAD?'lead':since<TAIL?'tail':null;
   const sway=air==='swing'?Math.sin(s.time*2.1)*.22:0;
   const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137-liftPx+(gliding?Math.sin(s.time*1.6)*10:0)+land;
-  const mix=blend; // 0 = on the ground, 1 = fully airborne; poses cross-fade in between
-  if(air==='swing'||(mix>0&&L.air?.kind==='swing')){ // the liana: the painted pose holds its own vine; the stand-in (jump pose) gets a drawn one from high above
-   const sw=this.images[`hero-${hero}-swing`],spriteH=211*sw.height/sw.width*(this.canvas.width/600)/(this.canvas.height/900);const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hh=spriteH*(1-(hero==="girl"?.316:.209))-34,hand={x:hx+Math.sin(sway)*hh,y:bottom-Math.cos(sway)*hh};/* the fists sit this far below the sprite's top edge */const liana=this.images['scenery-liana'];
-   if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*mix;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
-   else if(!manifest?.has(`hero-${hero}-swing`)){g.save();g.strokeStyle=this.isNight?'#3c5a2a':'#5c7a2f';g.lineWidth=9;g.lineCap='round';g.beginPath();g.moveTo(top.x,top.y);g.quadraticCurveTo(top.x+(hand.x-top.x)*.4,top.y+(hand.y-top.y)*.55,hand.x,hand.y);g.stroke();g.strokeStyle=this.isNight?'#5a7d3a':'#8fb23f';g.lineWidth=4;g.stroke();g.restore();}
-   if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));
-   this.image(`hero-${hero}-swing`,hx,bottom,211,sway,alpha*mix);}
-  else if(gliding||(mix>0&&L.air?.kind==='glide')){if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6+this.curve*.6,alpha*mix);}
+  const has=n=>manifest?.has(n)||!!this.images[n];
+  if(kind==='swing'&&phase){
+   // the liana: hangs from the top of the screen down to the fists; while the child jumps for it, it swings in from above
+   const sw=this.images[`hero-${hero}-swing`],spriteH=211*sw.height/sw.width*(this.canvas.width/600)/(this.canvas.height/900);
+   const hx=p.x+(air?Math.sin(s.time*2.1)*26:0),top={x:p.x-(air?Math.sin(s.time*2.1)*60:0),y:-40},hh=spriteH*(1-(hero==="girl"?.316:.209))-34;
+   const grabY=bottom-Math.cos(sway)*hh; // where the fists are while hanging
+   const liana=this.images['scenery-liana'];
+   if(phase==='lead'){const k=1-to/LEAD; // 0 → 1 while jumping up
+    const lift=k*k*110;const gy=grabY-(1-k)*260; // the liana's end comes down to meet the hands
+    if(liana){const len=gy-top.y+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*Math.min(1,k*2);g.translate(top.x,top.y);g.drawImage(liana,-w/2,0,w,len);g.restore();}
+    this.image(has(`hero-${hero}-grab`)?`hero-${hero}-grab`:`hero-${hero}-jump`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+   else if(phase==='in'){const hand={x:hx+Math.sin(sway)*hh,y:grabY};
+    if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
+    const sn=Math.sin(s.time*2.1);const pose=sn>.35&&has(`hero-${hero}-swing-back`)?'swing-back':sn<-.35?'swing':has(`hero-${hero}-swing-2`)?'swing-2':'swing';
+    this.image(`hero-${hero}-${pose}`,hx,bottom,211,sway,alpha);}
+   else{const k=since/TAIL; // 0 → 1 while landing
+    const lift=(1-k)*(1-k)*90;
+    this.image(k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+  }
+  else if(kind==='glide'&&phase){
+   const glider=this.images['scenery-glider'];
+   if(phase==='lead'){const k=1-to/LEAD;const lift=k*k*90;
+    if(glider){const w=250,h=w*glider.height/glider.width,gy=bottom-lift-236*.72-(1-k)*(1-k)*360;g.save();g.globalAlpha=alpha*Math.min(1,k*2.5);g.drawImage(glider,p.x-w/2,gy-h,w,h);g.restore();}
+    this.image(has(`hero-${hero}-reach`)?`hero-${hero}-reach`:`hero-${hero}-jump`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+   else if(phase==='in'){this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6,alpha);}
+   else{const k=since/TAIL;const lift=(1-k)*(1-k)*70;
+    if(glider){const w=250,h=w*glider.height/glider.width,gy=bottom-lift-236*.72-k*k*420;g.save();g.globalAlpha=alpha*(1-k);g.drawImage(glider,p.x-w/2,gy-h,w,h);g.restore();}
+    this.image(k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom-lift,211,clampTilt(s),alpha);}
+  }
   else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha);
   else this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
   if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-liftPx,74,116,s.time,this.reduced);
   if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-liftPx,86,130,s.time,this.reduced);};
  let drawn=false;
- for(const o of [...s.items].sort((a,b)=>a.z-b.z)){if(o.z<0||itemDepth(o.z)<.8)continue;if(o.z>1&&!drawn){player();drawn=true;}if(o.resolved&&!['rock','log'].includes(o.kind))continue;
+ for(const o of [...s.items].sort((a,b)=>a.z-b.z)){if(o.z<0||itemDepth(o.z)<.8)continue;if(o.z>1&&!drawn){player();drawn=true;}if(o.resolved&&!['rock','log','car'].includes(o.kind))continue;
   const p=this.point(o.lane,o.z);const flies=gliding||(L.glide&&o.kind==='log');const raise=flies?(gliding?liftPx:70)*4/itemDepth(o.z):0; // nearer things are lifted more on screen
   if(s.magnet>0&&['coin','gold'].includes(o.kind)&&o.z>.58){const pull=Math.min(1,(o.z-.58)/.21),target=this.point(s.x,1);p.x+=(target.x-p.x)*pull;p.y+=(target.y-45-p.y)*pull;}
   p.y-=raise;
+  if(o.kind==='car'){const im=this.images[o.dir>0?'obstacle-car-side':'obstacle-car-side-2']||this.images[L.obstacles.rock];const w=p.scale*1.55,h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);
+   // the crossing: a darker band of road across the whole width at the car's depth
+   const bx0=300-2.6*p.scale+this.off(itemDepth(o.z)),bw=5.2*p.scale;g.fillStyle=this.isNight?'#1c1f28':'#3b3f49';g.fillRect(bx0,p.y-p.scale*.16,bw,p.scale*.32);g.fillStyle='#e9e4c8';g.fillRect(bx0,p.y-p.scale*.16,bw,2);g.fillRect(bx0,p.y+p.scale*.16-2,bw,2);
+   g.fillStyle='#1f200b40';g.beginPath();g.ellipse(p.x,p.y,w*.45,w*.06,0,0,7);g.fill();g.save();g.translate(p.x,p.y);if(o.dir<0)g.scale(-1,1);g.drawImage(im,-w/2,-h+Math.sin(s.time*30)*1.5,w,h);g.restore();continue;}
   if(['magnet','shield','gold','double','speed'].includes(o.kind)){badge(g,o.kind,p.x,p.y-p.scale*.2,p.scale*.45,s.time);continue;}
   const width=p.scale*(o.kind==='coin'?.30:o.kind==='card'?.42:.73);const name=o.kind==='coin'?'collectible-coin':o.kind==='card'?L.card:L.obstacles[o.kind];const lift=o.kind==='coin'?p.scale*.24:0;
   if(o.kind==='coin'||o.kind==='card'){g.save();g.shadowColor=o.kind==='coin'?'#ffe590':'#b988ff';g.shadowBlur=this.reduced?0:12;this.image(name,p.x,p.y-lift,width,this.reduced?0:Math.sin(s.time*2+o.z)*.05);g.restore();if(o.kind==='coin'&&!this.reduced&&((s.time*1.6+o.z*7)%1)<.18){const r=width*.55,cx=p.x+width*.28,cy=p.y-lift-width*.95;g.fillStyle='#ffffffd9';g.beginPath();g.moveTo(cx,cy-r);g.quadraticCurveTo(cx,cy,cx+r,cy);g.quadraticCurveTo(cx,cy,cx,cy+r);g.quadraticCurveTo(cx,cy,cx-r,cy);g.quadraticCurveTo(cx,cy,cx,cy-r);g.fill();}}
