@@ -84,13 +84,11 @@ export class Renderer{
  g.drawImage(bg,0,0,bg.width,bg.height*.45,-12-Math.sin(distance*.008)*9-this.curve*900,-8,624,338);
  if(blend<1){
   g.save();g.globalAlpha=1-blend;
-  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,night?'#153b32':L.shoulder==='cloud'?'#c9def5':L.shoulder==='pavement'?'#8f8a80':'#648151');earth.addColorStop(1,night?'#102920':L.shoulder==='cloud'?'#a9c8ee':L.shoulder==='pavement'?'#5c5955':'#243f23');g.fillStyle=earth;g.fillRect(0,310,600,590);
+  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a');earth.addColorStop(.5,night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a');earth.addColorStop(1,night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c');g.fillStyle=earth;g.fillRect(0,310,600,590);
   // Floor inverse projection: each row samples the painting's bottom band at the world depth it shows.
-  const sh=this.shoulder();
+  // The shoulders stay a calm gradient (a streaming texture beside the path made people queasy); only the path itself streams.
   for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
    const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
-   const K=70,ty=((worldZ*K)%512+512)%512,srcH=Math.max(1,Math.min(48,512-ty,(depth-CAMERA.focal*CAMERA.height/(y+2-CAMERA.horizon))*K)),sw=Math.max(200,Math.min(512,512*depth/9)),sx=((worldZ*.9)%(512-sw+1)+(512-sw+1))%(512-sw+1);
-   g.globalAlpha=(1-blend)*Math.min(1,(y-312)/90);g.drawImage(sh,sx,ty,sw,srcH,-2,y,left+2,3);g.drawImage(sh,sx,ty,sw,srcH,right,y,602-right,3);
    g.globalAlpha=1-blend;g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
   }
   g.restore();
