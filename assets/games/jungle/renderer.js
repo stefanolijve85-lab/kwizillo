@@ -73,6 +73,8 @@ export class Renderer{
  canyon(im,distance){const ky=this.canvas.height/900,W=Math.round(this.canvas.width/2),H=Math.round(588*ky);if(!this.canyonBuf||this.canyonBuf.width!==W||this.canyonBuf.height!==H){this.canyonBuf=document.createElement('canvas');this.canyonBuf.width=W;this.canyonBuf.height=H;}const c=this.canyonBuf,g=c.getContext('2d');if(this.canyonAt===distance)return c;this.canyonAt=distance;const segH=W*im.height/im.width*1.45,sc=distance*.045*(590/.85*ky)/segH,k0=Math.floor(sc);g.clearRect(0,0,W,H);for(let k=k0;k<=k0+Math.ceil(H/segH)+1;k++){const top=(k-sc)*segH;if(top>H||top+segH<0)continue;g.save();if(((k%2)+2)%2){g.translate(0,top+segH);g.scale(1,-1);g.drawImage(im,0,0,W,segH);}else g.drawImage(im,0,top,W,segH);g.restore();}return c;}
  // The cliff-edge painting with its foreground path fading out at the bottom, so it melts into the track (made once).
  faded(im){if(this.fadedEdge)return this.fadedEdge;const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='destination-out';const grad=g.createLinearGradient(0,im.height*.68,0,im.height);grad.addColorStop(0,'#0000');grad.addColorStop(1,'#000');g.fillStyle=grad;g.fillRect(0,0,im.width,im.height);return this.fadedEdge=c;}
+ // Still grass for the shoulders (drawn once): a tile sampled in perspective, dense and bright near, soft and dark far, never moving.
+ lawn(night){const key='lawn'+(night?'-n':'');if(this.tiles[key])return this.tiles[key];const t=tile('grass',night),c=document.createElement('canvas');c.width=600;c.height=590;const g=c.getContext('2d');/* a true perspective projection of one flat lawn: each row shows the slice of the tile at its own depth, so blades stay coherent from row to row */const K=46;for(let y=0;y<590;y+=2){const d0=CAMERA.focal*CAMERA.height/(y+312-CAMERA.horizon),d1=CAMERA.focal*CAMERA.height/(y+314-CAMERA.horizon),sw=Math.max(160,Math.min(512,512*d0/10)),ty=((d1*K)%512+512)%512,sh=Math.max(1,Math.min(60,(d0-d1)*K,512-ty));g.globalAlpha=Math.min(1,y/140)*.92;g.drawImage(t,(512-sw)/2,ty,sw,sh,0,y,600,2);}g.globalAlpha=1;const fade=g.createLinearGradient(0,0,0,590);fade.addColorStop(0,night?'#0d2a20':'#5f9a48');fade.addColorStop(.25,night?'#0d2a2000':'#5f9a4800');g.fillStyle=fade;g.fillRect(0,0,600,590);return this.tiles[key]=c;}
  shoulder(){const L=LEVELS[this.level],key=L.shoulder+(this.isNight?'-night':'');return this.tiles[key]??=tile(L.shoulder,this.isNight);}
  // Trees, plants and obstacles get a moonlit copy for the evening scene (made once).
  night(name){if(!/^(scenery|obstacle)-/.test(name))return this.images[name];this.nightImages??={};if(this.nightImages[name])return this.nightImages[name];const im=this.images[name],c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.fillStyle='#0a2740';g.globalAlpha=.5;g.fillRect(0,0,c.width,c.height);return this.nightImages[name]=c;}
@@ -84,8 +86,8 @@ export class Renderer{
  // a new bend every few seconds, eased; the run starts straight
  if(s.time>this.nextBend){this.nextBend=s.time+4+Math.random()*4;this.curveTarget=s.time<2?0:(Math.random()-.5)*.045;}
  this.curve+=(this.curveTarget-this.curve)*(1-Math.exp(-dt*.8));
- this.glideBlend+=((gliding?1:0)-this.glideBlend)*(1-Math.exp(-dt*3));
- const blend=this.glideBlend;
+ this.glideBlend+=((gliding?1:0)-this.glideBlend)*(1-Math.exp(-dt*1.7));
+ const raw=this.glideBlend,blend=raw*raw*(3-2*raw); // smoothstep: eases in and out of the swing / glide
  g.fillStyle=night?L.sky[1]:L.sky[0];g.fillRect(0,0,600,900);
  // the skyline: the top of the painting, drifting with the bend
  g.drawImage(bg,0,0,bg.width,bg.height*.45,-12-Math.sin(distance*.008)*9-this.curve*350,-8,624,338);
@@ -100,11 +102,12 @@ export class Renderer{
  const ravine=L.air?.kind==='swing'?this.images['jungle-ravine']:null,edge=L.air?.kind==='swing'?this.images['jungle-ravine-edge']:null;
  const earthTop=night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a',earthMid=night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a',earthBot=night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c';
  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
+ if(L.shoulder==='grass')g.drawImage(this.lawn(night),0,310,600,590);
  const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
  let prevGap=false;this.gapRows=null;this.gapEdges=null;
  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
   const gap=gapAt(depth);
-  if(gap){if(ravine){g.fillStyle=deep;g.fillRect(0,y,600,2);if(!this.gapRows)this.gapRows=[];this.gapRows.push([y,Math.min(600,220+scale*2.1),off]);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}
+  if(gap){if(ravine){g.fillStyle=deep;g.fillRect(0,y,600,2);if(!this.gapRows)this.gapRows=[];this.gapRows.push([y,600,0]);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);if(L.air?.kind==='swing'){const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}}
    if(!prevGap){if(edge){}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
   if(prevGap){if(edge){(this.gapEdges??=[]).push([y,scale,off]);}else if(L.air?.kind==='swing'){g.fillStyle=night?'#0a1f16':'#3a2a18';g.fillRect(300-1.6*scale,y-2,3.2*scale,4);}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
@@ -126,6 +129,7 @@ export class Renderer{
  for(const spec of L.props)for(let i=0;i<24;i++)for(const side of[-1,1]){
   const depth=sceneryDepth(i,spec.spacing,distance,(spec.offset||0)+(side===1?spec.spacing*.47:0));
   if(depth>68||depth<.42)continue;
+  if(L.air?.kind==='swing'&&ravine&&gapAt(depth))continue; // nothing stands on the ravine
   const v=Math.sin(i*8.17+side+spec.spacing)*.5+.5;
   const lift=spec.float?(spec.lift?spec.lift[0]+v*(spec.lift[1]-spec.lift[0]):0)+Math.sin(s.time*.8+i)*.15:0;
   props.push({depth,x:side*(spec.x[0]+v*(spec.x[1]-spec.x[0])),name:spec.name,width:spec.w[0]+v*(spec.w[1]-spec.w[0]),lift});
