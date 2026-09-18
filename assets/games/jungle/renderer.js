@@ -39,11 +39,12 @@ export function resolveName(name,cache){if(cache[name]||(manifest&&manifest.has(
 const one=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('Afbeelding kon niet laden: '+src));im.src=src;});
 // img/manifest.json lists the paintings that exist, so a level whose art is not
 // finished asks for nothing that is missing (no 404s) and takes its stand-ins at once.
-let manifest=null;
-async function present(base){if(manifest)return manifest;try{const r=await fetch(new URL('manifest.json',base).href);manifest=new Set(await r.json());}catch{manifest=null;}return manifest;}
+let manifest=null;export let stamp='';
+export const versioned=url=>stamp?url+(url.includes('?')?'&':'?')+'v='+stamp:url;
+async function present(base){if(manifest)return manifest;try{const r=await fetch(new URL('manifest.json',base).href,{cache:'no-cache'});const j=await r.json();const list=Array.isArray(j)?j:j.files;stamp=Array.isArray(j)?'':String(j.v||'');manifest=new Set(list);}catch{manifest=null;}return manifest;}
 export async function loadAssets(base,names,cache={}){
  const have=await present(base);
- await Promise.all(names.map(async name=>{if(cache[name]!==undefined)return;if(have&&!have.has(name)){cache[name]=null;return;}try{cache[name]=await one(new URL(name+'.png',base).href);}catch{cache[name]=null;}}));
+ await Promise.all(names.map(async name=>{if(cache[name]!==undefined)return;if(have&&!have.has(name)){cache[name]=null;return;}try{cache[name]=await one(versioned(new URL(name+'.png',base).href));}catch{cache[name]=null;}}));
  const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana)$/;
  const images={};for(const name of names){const im=cache[resolveName(name,cache)];if(!im&&!optional.test(name))throw new Error('Afbeelding kon niet laden: '+name);if(im)images[name]=im;}
  return images;
@@ -69,7 +70,9 @@ export class Renderer{
  off(depth){return this.curve*depth*depth;}
  point(l,z){const depth=itemDepth(z),p=project((l-1)*1.04,depth);p.x+=this.off(depth);return p;}
  // The canyon painting scrolled (ping-pong, so no seam) into a device-sized buffer once per frame; the floor rows copy from it 1:1.
- canyon(im,distance){const ky=this.canvas.height/900,W=this.canvas.width,H=Math.round(588*ky);if(!this.canyonBuf||this.canyonBuf.width!==W||this.canyonBuf.height!==H){this.canyonBuf=document.createElement('canvas');this.canyonBuf.width=W;this.canyonBuf.height=H;}const c=this.canyonBuf,g=c.getContext('2d');if(this.canyonAt===distance)return c;this.canyonAt=distance;const sc=distance*.045,segH=590/.85*ky;for(let k=-1;k<=2;k++){const top=(312+(k-sc)*590/.85-312)*ky;if(top>H||top+segH<0)continue;g.save();if(k%2){g.translate(0,top+segH);g.scale(1,-1);g.drawImage(im,0,0,W,segH);}else g.drawImage(im,0,top,W,segH);g.restore();}return c;}
+ canyon(im,distance){const ky=this.canvas.height/900,W=Math.round(this.canvas.width/2),H=Math.round(588*ky);if(!this.canyonBuf||this.canyonBuf.width!==W||this.canyonBuf.height!==H){this.canyonBuf=document.createElement('canvas');this.canyonBuf.width=W;this.canyonBuf.height=H;}const c=this.canyonBuf,g=c.getContext('2d');if(this.canyonAt===distance)return c;this.canyonAt=distance;const sc=distance*.045,segH=590/.85*ky;for(let k=-1;k<=2;k++){const top=(312+(k-sc)*590/.85-312)*ky;if(top>H||top+segH<0)continue;g.save();if(k%2){g.translate(0,top+segH);g.scale(1,-1);g.drawImage(im,0,0,W,segH);}else g.drawImage(im,0,top,W,segH);g.restore();}return c;}
+ // The cliff-edge painting with its foreground path fading out at the bottom, so it melts into the track (made once).
+ faded(im){if(this.fadedEdge)return this.fadedEdge;const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='destination-out';const grad=g.createLinearGradient(0,im.height*.68,0,im.height);grad.addColorStop(0,'#0000');grad.addColorStop(1,'#000');g.fillStyle=grad;g.fillRect(0,0,im.width,im.height);return this.fadedEdge=c;}
  shoulder(){const L=LEVELS[this.level],key=L.shoulder+(this.isNight?'-night':'');return this.tiles[key]??=tile(L.shoulder,this.isNight);}
  // Trees, plants and obstacles get a moonlit copy for the evening scene (made once).
  night(name){if(!/^(scenery|obstacle)-/.test(name))return this.images[name];this.nightImages??={};if(this.nightImages[name])return this.nightImages[name];const im=this.images[name],c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.fillStyle='#0a2740';g.globalAlpha=.5;g.fillRect(0,0,c.width,c.height);return this.nightImages[name]=c;}
@@ -98,15 +101,16 @@ export class Renderer{
  const earthTop=night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a',earthMid=night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a',earthBot=night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c';
  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
  const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
- let prevGap=false;
+ let prevGap=false;this.gapRows=null;this.gapEdges=null;
  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
   const gap=gapAt(depth);
-  if(gap){if(ravine){/* the canyon as a view straight down that drifts past (ping-pong: no seam); rows map evenly onto the painting so nothing stretches, the walls converge towards the horizon */const w=Math.min(600,220+scale*2.1),x0=300-w/2+off;g.fillStyle=deep;g.fillRect(0,y,600,2);/* rows are copied 1:1 (device pixels) from the pre-scrolled canyon buffer, so nothing is resampled vertically and no seam lines appear */const buf=this.canyon(ravine,distance),kx=this.canvas.width/600,ky=this.canvas.height/900,d0=Math.round(y*ky),d1=Math.round((y+2)*ky),b0=d0-Math.round(312*ky);if(d1>d0&&b0>=0&&b0<buf.height){g.save();g.setTransform(1,0,0,1,0,0);g.drawImage(buf,0,b0,buf.width,Math.min(d1-d0,buf.height-b0),x0*kx,d0,w*kx,Math.min(d1-d0,buf.height-b0));g.restore();}}else{g.fillStyle=deep;g.fillRect(0,y,600,3);const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}
-   if(!prevGap){if(edge){const w=Math.min(600,300+scale*1.7),h=w*edge.height/edge.width;g.drawImage(edge,300-w/2,y-h*.62,w,h);}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
-  if(prevGap){if(L.air?.kind==='swing'){g.fillStyle=night?'#0a1f16':'#3a2a18';g.fillRect(300-1.6*scale,y-2,3.2*scale,4);}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
+  if(gap){if(ravine){g.fillStyle=deep;g.fillRect(0,y,600,2);if(!this.gapRows)this.gapRows=[];this.gapRows.push([y,Math.min(600,220+scale*2.1),off]);}else{g.fillStyle=deep;g.fillRect(0,y,600,3);const wall=night?'#1c2f22':'#5f7a45';g.fillStyle=wall;g.fillRect(300-1.9*scale,y,.4*scale,3);g.fillRect(300+1.5*scale,y,.4*scale,3);}
+   if(!prevGap){if(edge){}else{g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}}prevGap=true;continue;}
+  if(prevGap){if(edge){(this.gapEdges??=[]).push([y,scale,off]);}else if(L.air?.kind==='swing'){g.fillStyle=night?'#0a1f16':'#3a2a18';g.fillRect(300-1.6*scale,y-2,3.2*scale,4);}else{g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}}prevGap=false;
   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
   g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
+ if(this.gapRows&&this.gapRows.length){/* the canyon is one image, clipped to the gap's trapezoid: the walls widen as they come nearer and nothing is resampled row by row */const rows=this.gapRows;const buf=this.canyon(ravine,distance);g.save();g.beginPath();let first=true;for(const [ry,rw,ro] of rows){const x=300-rw/2+ro;if(first){g.moveTo(x,ry);first=false;}else g.lineTo(x,ry);}for(let i=rows.length-1;i>=0;i--){const [ry,rw,ro]=rows[i];g.lineTo(300+rw/2+ro,ry+2);}g.closePath();g.clip();const ky=this.canvas.height/900;g.save();g.setTransform(1,0,0,1,0,0);g.drawImage(buf,0,0,buf.width,buf.height,0,Math.round(312*ky),this.canvas.width,buf.height);g.restore();g.restore();this.gapRows=null;if(edge&&this.gapEdges){for(const [ey,es,eo] of this.gapEdges){/* the painting shows the path breaking off: its foreground path sits on the first path row, the cliff hangs into the canyon above */const w=Math.min(600,300+es*1.7),h=w*edge.height/edge.width;g.drawImage(this.faded(edge),300-w/2+eo,ey-h*.72,w,h);}}this.gapEdges=null;}
  if(blend>0&&L.air?.kind==='glide'){ // cloud puffs drifting far beneath the glide
   g.save();for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.7)*4.5,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.7,p.scale*.22,0,0,7);g.ellipse(p.x+p.scale*.35,p.y+p.scale*.82,p.scale*.4,p.scale*.2,0,0,7);g.fill();}g.restore();
  }
