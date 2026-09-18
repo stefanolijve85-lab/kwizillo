@@ -64,3 +64,8 @@
 .arcade-pop strong{letter-spacing:1px}
 .progress span{letter-spacing:1.6px;font-size:12px}
 nav .jump{font-size:20px;letter-spacing:1px}
+
+/* each painting has its ground at a different height: zoom and place it so the feet (at 73 % of the card) stand on the near road / cloud path */
+.start .heroes.level-stad button{background-size:auto 165%;background-position:center 100%}
+.start .heroes.level-lucht button{background-size:auto 150%;background-position:center 96%}
+.start .heroes.level-jungle button{background-size:cover;background-position:center 58%}
