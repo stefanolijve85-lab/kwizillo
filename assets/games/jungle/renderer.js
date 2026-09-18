@@ -83,33 +83,37 @@ export class Renderer{
  g.fillStyle=night?L.sky[1]:L.sky[0];g.fillRect(0,0,600,900);
  // the skyline: the top of the painting, drifting with the bend
  g.drawImage(bg,0,0,bg.width,bg.height*.45,-12-Math.sin(distance*.008)*9-this.curve*900,-8,624,338);
- if(blend<1){
-  g.save();g.globalAlpha=1-blend;
-  const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a');earth.addColorStop(.5,night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a');earth.addColorStop(1,night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c');g.fillStyle=earth;g.fillRect(0,310,600,590);
-  // Floor inverse projection: each row samples the painting's bottom band at the world depth it shows.
-  // The shoulders stay a calm gradient (a streaming texture beside the path made people queasy); only the path itself streams.
-  for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
-   const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
-   g.globalAlpha=1-blend;g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
-  }
-  g.restore();
+
+ // The floor, row by row. A row shows the world point the hero reaches a little
+ // later, so a stretch where the path lets go (the ravine, the open sky) is
+ // visible as a gap that comes towards you and streams past — the same world,
+ // never a cross-fade.
+ const rate=s.duration*(s.easy?.26:.31),windows=L.air?.windows||[];
+ const gapAt=depth=>{if(!windows.length)return false;const p=(s.distance+(depth-CAMERA.player)/(CAMERA.far-CAMERA.player))/rate;return windows.some(([a,b])=>p>=a&&p<b);};
+ const chasm=L.air?.kind==='swing'?(night?['#0b241c','#06160f','#020806']:['#2f6b3a','#1b3f22','#0a1a0e']):['#8fc6f3','#b8dbf8','#d8ecfd'];
+ const earthTop=night?'#173d33':L.shoulder==='cloud'?'#d9e9f9':L.shoulder==='pavement'?'#b4afa4':'#6a9a4a',earthMid=night?'#123327':L.shoulder==='cloud'?'#c3daf3':L.shoulder==='pavement'?'#a19c91':'#4f8a3a',earthBot=night?'#0d2a20':L.shoulder==='cloud'?'#aecbee':L.shoulder==='pavement'?'#7f7a70':'#3a6f2c';
+ const earth=g.createLinearGradient(0,310,0,900);earth.addColorStop(0,earthTop);earth.addColorStop(.5,earthMid);earth.addColorStop(1,earthBot);g.fillStyle=earth;g.fillRect(0,310,600,590);
+ const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,chasm[0]);deep.addColorStop(.35,chasm[1]);deep.addColorStop(1,chasm[2]);
+ let prevGap=false;
+ for(let y=312;y<902;y+=2){const depth=CAMERA.focal*CAMERA.height/(y-CAMERA.horizon),scale=CAMERA.focal/depth,worldZ=depth+distance,off=this.off(depth);
+  const gap=gapAt(depth);
+  if(gap){g.fillStyle=deep;g.fillRect(0,y,600,3);if(!prevGap){g.fillStyle=night?'#0a1f16':L.air?.kind==='swing'?'#24462a':'#9fc9ee';g.fillRect(0,y-4,600,5);}prevGap=true;continue;}
+  if(prevGap){g.fillStyle=L.air?.kind==='swing'?'#2b4a2a':'#c9def5';g.fillRect(0,y,600,3);}prevGap=false;
+  const phase=((worldZ/10)%2+2)%2,t=phase<1?phase:2-phase,sy=bg.height*(.80+t*.19),left=300-1.50*scale+off,right=300+1.50*scale+off;
+  g.drawImage(bg,bg.width*.30,sy,bg.width*.40,1,left,y,right-left,3);
  }
- if(blend>0&&L.air?.kind==='swing'){ // swinging: a ravine below, mist rising from it
-  g.save();g.globalAlpha=blend;const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,night?'#0b241c':'#2f6b3a');deep.addColorStop(.35,night?'#06160f':'#1b3f22');deep.addColorStop(1,night?'#020806':'#0a1a0e');g.fillStyle=deep;g.fillRect(0,310,600,590);
-  for(let i=0;i<10;i++){const depth=sceneryDepth(i,4.2,distance*.5,i*1.7);if(depth>50||depth<1)continue;const p=project(Math.sin(i*2.3)*3.2,depth);p.x+=this.off(depth);g.fillStyle=night?'#8fd0c0':'#dff5e6';g.globalAlpha=blend*.35*Math.min(1,(52-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.6,p.scale*.9,p.scale*.2,0,0,7);g.fill();}
-  g.restore();
+ if(blend>0&&L.air?.kind==='swing'){ // mist rising from the ravine
+  g.save();for(let i=0;i<10;i++){const depth=sceneryDepth(i,4.2,distance*.5,i*1.7);if(depth>50||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.3)*3.2,depth);p.x+=this.off(depth);g.fillStyle=night?'#8fd0c0':'#dff5e6';g.globalAlpha=.35*Math.min(1,(52-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.6,p.scale*.9,p.scale*.2,0,0,7);g.fill();}g.restore();
  }
- else if(blend>0){ // gliding: open sky below, with cloud puffs drifting far beneath
-  g.save();g.globalAlpha=blend;const deep=g.createLinearGradient(0,310,0,900);deep.addColorStop(0,'#8fc6f3');deep.addColorStop(1,'#d8ecfd');g.fillStyle=deep;g.fillRect(0,310,600,590);
-  for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1)continue;const p=project(Math.sin(i*2.7)*4.5,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=blend*.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.7,p.scale*.22,0,0,7);g.ellipse(p.x+p.scale*.35,p.y+p.scale*.82,p.scale*.4,p.scale*.2,0,0,7);g.fill();}
-  g.restore();
+ else if(blend>0){ // cloud puffs drifting far beneath the glide
+  g.save();for(let i=0;i<14;i++){const depth=sceneryDepth(i,5.5,distance*.6,i*1.3);if(depth>60||depth<1||!gapAt(depth))continue;const p=project(Math.sin(i*2.7)*4.5,depth);p.x+=this.off(depth);g.fillStyle='#ffffff';g.globalAlpha=.8*Math.min(1,(62-depth)/12);g.beginPath();g.ellipse(p.x,p.y+p.scale*.9,p.scale*.7,p.scale*.22,0,0,7);g.ellipse(p.x+p.scale*.35,p.y+p.scale*.82,p.scale*.4,p.scale*.2,0,0,7);g.fill();}g.restore();
  }
  // Ground dressing in world space: pebbles along the path edge, flowers in the verge, dapples on the track.
- if(blend<1){g.save();g.beginPath();g.rect(0,310,600,590);g.clip();
-  if(L.pebbles)for(let i=0;i<40;i++){const depth=sceneryDepth(i,1.45,distance,i%2?.7:0);if(depth>40||depth<.6)continue;const side=i%2?1:-1,p=project(side*(1.42+(i%3)*.05),depth);p.x+=this.off(depth);g.fillStyle=night?'#6b7f86':'#e6cfa2';g.globalAlpha=Math.min(1,(42-depth)/10);g.beginPath();g.ellipse(p.x,p.y-p.scale*.03,p.scale*.055,p.scale*.03,0,0,7);g.fill();}
-  if(L.flowers)for(let i=0;i<36;i++){const depth=sceneryDepth(i,2.05,distance,i%2?1.1:.3);if(depth>34||depth<.6)continue;const side=i%2?1:-1,wob=Math.sin(i*5.3)*.5+.5,p=project(side*(1.95+wob*1.6),depth);p.x+=this.off(depth);g.fillStyle=night?['#7fe0ff','#ffe98a','#ff9ad5'][i%3]:['#ff6d8a','#ffd84d','#ff9d3d','#f4f4ff'][i%4];g.globalAlpha=Math.min(1,(36-depth)/8)*(night?.7:.9);g.beginPath();g.arc(p.x,p.y-p.scale*.06,Math.max(1.2,p.scale*.045),0,7);g.fill();}
+ {g.save();g.beginPath();g.rect(0,310,600,590);g.clip();
+  if(L.pebbles)for(let i=0;i<40;i++){const depth=sceneryDepth(i,1.45,distance,i%2?.7:0);if(depth>40||depth<.6||gapAt(depth))continue;const side=i%2?1:-1,p=project(side*(1.42+(i%3)*.05),depth);p.x+=this.off(depth);g.fillStyle=night?'#6b7f86':'#e6cfa2';g.globalAlpha=Math.min(1,(42-depth)/10);g.beginPath();g.ellipse(p.x,p.y-p.scale*.03,p.scale*.055,p.scale*.03,0,0,7);g.fill();}
+  if(L.flowers)for(let i=0;i<36;i++){const depth=sceneryDepth(i,2.05,distance,i%2?1.1:.3);if(depth>34||depth<.6||gapAt(depth))continue;const side=i%2?1:-1,wob=Math.sin(i*5.3)*.5+.5,p=project(side*(1.95+wob*1.6),depth);p.x+=this.off(depth);g.fillStyle=night?['#7fe0ff','#ffe98a','#ff9ad5'][i%3]:['#ff6d8a','#ffd84d','#ff9d3d','#f4f4ff'][i%4];g.globalAlpha=Math.min(1,(36-depth)/8)*(night?.7:.9);g.beginPath();g.arc(p.x,p.y-p.scale*.06,Math.max(1.2,p.scale*.045),0,7);g.fill();}
   g.globalAlpha=1;
-  if(L.dapples)for(let i=0;i<9;i++){const depth=sceneryDepth(i,4.4,distance,i*.9);if(depth>30||depth<.8)continue;const p=project(Math.sin(i*2.1)*1.05,depth);p.x+=this.off(depth);g.fillStyle=night?'#a9e2ff':'#fff5b8';g.globalAlpha=(night?.07:.16)*Math.min(1,(32-depth)/8);g.beginPath();g.ellipse(p.x,p.y-p.scale*.02,p.scale*.62,p.scale*.16,0,0,7);g.fill();}
+  if(L.dapples)for(let i=0;i<9;i++){const depth=sceneryDepth(i,4.4,distance,i*.9);if(depth>30||depth<.8||gapAt(depth))continue;const p=project(Math.sin(i*2.1)*1.05,depth);p.x+=this.off(depth);g.fillStyle=night?'#a9e2ff':'#fff5b8';g.globalAlpha=(night?.07:.16)*Math.min(1,(32-depth)/8);g.beginPath();g.ellipse(p.x,p.y-p.scale*.02,p.scale*.62,p.scale*.16,0,0,7);g.fill();}
   g.globalAlpha=1;g.restore();}
  // Trackside scenery at fixed world positions, passing the camera.
  const props=[];
@@ -140,14 +144,16 @@ export class Renderer{
   const step=Math.floor(s.distance*27);if(active&&!this.reduced&&L.dust&&!gliding&&s.jump<=0&&step!==this.lastStep){this.lastStep=step;for(let i=0;i<3;i++)this.particles.push({x:p.x+(Math.random()-.5)*36,y:p.y+2,vx:(Math.random()-.5)*40,vy:20+Math.random()*40,life:.5,r:5+Math.random()*5,color:L.dust});}
   const sway=air==='swing'?Math.sin(s.time*2.1)*.22:0;
   const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137-liftPx+(gliding?Math.sin(s.time*1.6)*10:0)+land;
-  if(air==='swing'){ // the liana: the painted pose holds its own vine; the stand-in (jump pose) gets a drawn one from high above
+  const mix=blend; // 0 = on the ground, 1 = fully airborne; poses cross-fade in between
+  if(air==='swing'||(mix>0&&L.air?.kind==='swing')){ // the liana: the painted pose holds its own vine; the stand-in (jump pose) gets a drawn one from high above
    const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hand={x:hx,y:bottom-235};if(!manifest?.has(`hero-${hero}-swing`)){g.save();g.strokeStyle=this.isNight?'#3c5a2a':'#5c7a2f';g.lineWidth=9;g.lineCap='round';g.beginPath();g.moveTo(top.x,top.y);g.quadraticCurveTo(top.x+(hand.x-top.x)*.4,top.y+(hand.y-top.y)*.55,hand.x,hand.y);g.stroke();g.strokeStyle=this.isNight?'#5a7d3a':'#8fb23f';g.lineWidth=4;g.stroke();g.restore();}
-   this.image(`hero-${hero}-swing`,hx,bottom,211,sway,alpha);}
-  else if(gliding){this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6+this.curve*.6,alpha);}
+   if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));
+   this.image(`hero-${hero}-swing`,hx,bottom,211,sway,alpha*mix);}
+  else if(gliding||(mix>0&&L.air?.kind==='glide')){if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6+this.curve*.6,alpha*mix);}
   else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha);
   else this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
   if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-liftPx,74,116,s.time,this.reduced);
-  if(s.magnet>0)magnetAura(g,p.x,p.y-4-liftPx,s.time,this.reduced);};
+  if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-liftPx,86,130,s.time,this.reduced);};
  let drawn=false;
  for(const o of [...s.items].sort((a,b)=>a.z-b.z)){if(o.z<0||itemDepth(o.z)<.8)continue;if(o.z>1&&!drawn){player();drawn=true;}if(o.resolved&&!['rock','log'].includes(o.kind))continue;
   const p=this.point(o.lane,o.z);const flies=gliding||(L.glide&&o.kind==='log');const raise=flies?(gliding?liftPx:70)*4/itemDepth(o.z):0; // nearer things are lifted more on screen

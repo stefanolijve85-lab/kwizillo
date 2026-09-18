@@ -22,10 +22,9 @@ g.fillStyle=bubble;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
 g.globalCompositeOperation='lighter';const hi=g.createRadialGradient(-rx*.35,-ry*.45,2,-rx*.35,-ry*.45,rx*.55);hi.addColorStop(0,'#ffffff80');hi.addColorStop(1,'#ffffff00');g.fillStyle=hi;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
 g.restore();}
 
-// The magnet at work: soft pink pulses that ripple in towards the hero's feet.
-export function magnetAura(g,x,y,time,reduced){g.save();g.translate(x,y);g.globalCompositeOperation='lighter';
-const n=reduced?1:3;for(let k=0;k<n;k++){const phase=reduced?.35:((time*1.3+k/n)%1);const r=40+(1-phase)*120,a=Math.min(1,Math.max(0,phase)*(1-phase*.3)*1.6);
-const ring=g.createRadialGradient(0,0,r*.8,0,0,r);ring.addColorStop(0,'#ff8cf000');ring.addColorStop(.55,`rgba(255,110,235,${a.toFixed(3)})`);ring.addColorStop(1,'#ff8cf000');
-g.fillStyle=ring;g.beginPath();g.ellipse(0,0,r*1.5,r*.5,0,0,Math.PI*2);g.fill();}
-const core=g.createRadialGradient(0,0,4,0,0,70);core.addColorStop(0,'#ff9df0aa');core.addColorStop(1,'#ffb3f200');g.fillStyle=core;g.beginPath();g.ellipse(0,0,110,36,0,0,Math.PI*2);g.fill();
+// The magnet at work: a soft pink halo around the hero, breathing, no outlines — the sister of the shield bubble.
+export function magnetAura(g,x,y,rx,ry,time,reduced){g.save();g.translate(x,y);const k=reduced?1:1+Math.sin(time*3.1)*.04;g.scale(k,k);
+const halo=g.createRadialGradient(0,0,ry*.3,0,0,ry);halo.addColorStop(0,'#ff8ff000');halo.addColorStop(.55,'#ff8ff01c');halo.addColorStop(.82,'#ffa6f27a');halo.addColorStop(.94,'#ffd6fbb0');halo.addColorStop(1,'#ffd6fb00');
+g.fillStyle=halo;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
+g.globalCompositeOperation='lighter';const hi=g.createRadialGradient(rx*.3,-ry*.4,2,rx*.3,-ry*.4,rx*.5);hi.addColorStop(0,'#ffffff66');hi.addColorStop(1,'#ffffff00');g.fillStyle=hi;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
 g.restore();}

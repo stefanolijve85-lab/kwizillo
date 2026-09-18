@@ -82,7 +82,7 @@ export class KwizilloJungle extends HTMLElement{
  // Every painting this level + hero needs (missing ones fall back, see renderer.js); loaded once per combination.
  loadFor(){return loadAssets(new URL('./img/',import.meta.url),assetNames(this.level,this.heroKind),this.cache);}
  picture(name){return img(resolveName(name,this.cache));}
- panel(html){this.overlay.hidden=false;this.overlay.classList.toggle('ready',this.phase==='ready');this.overlay.innerHTML=`<div class="panel">${html}</div>`;}
+ panel(html){this.overlay.hidden=false;this.overlay.classList.toggle('ready',this.phase==='ready');this.overlay.classList.toggle('countdown',this.phase==='countdown');this.overlay.innerHTML=`<div class="panel">${html}</div>`;}
  musicOn(){return this.options.onMusic?this.options.musicState?.()!==false:this.audio.musicEnabled;}
  musicLabel(){return `${escapeText(this.t('music'))}: ${escapeText(this.t(this.musicOn()?'on':'off'))} ♫`;}
  home(){
