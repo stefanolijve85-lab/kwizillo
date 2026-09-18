@@ -9,7 +9,7 @@
 // all of its art exists.
 import {flipFrame} from './flip.js';
 import {height} from './engine.js';
-import {badge} from './arcade-icons.js';
+import {badge,shieldAura,magnetAura} from './arcade-icons.js';
 import {CAMERA,travel,project,itemDepth,sceneryDepth} from './world.js';
 
 export const HEROES=['boy','girl'];
@@ -136,8 +136,8 @@ export class Renderer{
   if(gliding){this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6+this.curve*.6,alpha);}
   else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha);
   else this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
-  if(s.shield){g.save();g.strokeStyle='#99f7ff';g.lineWidth=3;g.fillStyle='#3fd9ff22';g.shadowColor='#63dfff';g.shadowBlur=this.reduced?0:15;g.beginPath();g.ellipse(p.x,p.y-85-jump*137-liftPx,68,110,0,0,Math.PI*2);g.fill();g.stroke();g.restore();}
-  if(s.magnet>0){g.strokeStyle='#ec9cff';g.lineWidth=2;for(let i=0;i<2;i++){g.globalAlpha=.65-i*.2;g.beginPath();g.ellipse(p.x,p.y-5-liftPx,70+i*28,17+i*8,0,0,Math.PI*2);g.stroke();}g.globalAlpha=1;}};
+  if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-liftPx,74,116,s.time,this.reduced);
+  if(s.magnet>0)magnetAura(g,p.x,p.y-4-liftPx,s.time,this.reduced);};
  let drawn=false;
  for(const o of [...s.items].sort((a,b)=>a.z-b.z)){if(o.z<0||itemDepth(o.z)<.8)continue;if(o.z>1&&!drawn){player();drawn=true;}if(o.resolved&&!['rock','log'].includes(o.kind))continue;
   const p=this.point(o.lane,o.z);const flies=L.glide&&(gliding||o.kind==='log');const raise=flies?(gliding?liftPx:70)*4/itemDepth(o.z):0; // nearer things are lifted more on screen
