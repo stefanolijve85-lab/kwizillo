@@ -94,7 +94,7 @@ export class KwizilloJungle extends HTMLElement{
    <div class="pick-label">${T('levelLabel')}</div>
    <div class="themes levels">${LEVEL_IDS.map(id=>`<button data-act="level-${id}" aria-pressed="${this.level===id}" style="background-image:url('${versioned(new URL('./img/picker-'+id+'.jpg',import.meta.url).href)}')"><span>${T('level'+id[0].toUpperCase()+id.slice(1))}</span></button>`).join('')}</div>
    <div class="pick-label">${T('heroLabel')}</div>
-   <div class="heroes level-${this.level}">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}" style="background-image:url('${versioned(new URL('./img/picker-'+this.level+'.jpg',import.meta.url).href)}')"><i><img src="${this.picture(this.cache[`hero-${id}-portrait`]?`hero-${id}-portrait`:`hero-${id}-run-02`)}" alt=""></i><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span>${this.heroKind===id?'<b>✓</b>':''}</button>`).join('')}</div>
+   <div class="heroes level-${this.level}">${HEROES.map(id=>`<button data-act="hero-${id}" class="hero-${id}" aria-pressed="${this.heroKind===id}" style="background-image:url('${this.picture(LEVELS[this.level].scenes[0])}')"><i><img src="${this.picture(this.cache[`hero-${id}-portrait`]?`hero-${id}-portrait`:`hero-${id}-run-02`)}" alt=""></i><span>${T(id==='boy'?'heroBoy':'heroGirl')}</span>${this.heroKind===id?'<b>✓</b>':''}</button>`).join('')}</div>
    <div class="options"><label class="easy"><input type="checkbox" ${this.options.easy?'checked':''}> <span>${T('easy')}</span></label><button class="music-toggle" data-act="music">${this.musicLabel()}</button></div>
    <button class="primary go" data-act="start">${T('start')}</button>
    <div class="chips">${chips.map(c=>`<span>${escapeText(c)}</span>`).join('')}</div>

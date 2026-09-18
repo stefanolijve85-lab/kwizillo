@@ -70,7 +70,7 @@ export class Renderer{
  off(depth){return this.curve*depth*depth;}
  point(l,z){const depth=itemDepth(z),p=project((l-1)*1.04,depth);p.x+=this.off(depth);return p;}
  // The canyon painting scrolled (ping-pong, so no seam) into a device-sized buffer once per frame; the floor rows copy from it 1:1.
- canyon(im,distance){const ky=this.canvas.height/900,W=Math.round(this.canvas.width/2),H=Math.round(588*ky);if(!this.canyonBuf||this.canyonBuf.width!==W||this.canyonBuf.height!==H){this.canyonBuf=document.createElement('canvas');this.canyonBuf.width=W;this.canyonBuf.height=H;}const c=this.canyonBuf,g=c.getContext('2d');if(this.canyonAt===distance)return c;this.canyonAt=distance;const sc=distance*.045,segH=590/.85*ky;for(let k=-1;k<=2;k++){const top=(312+(k-sc)*590/.85-312)*ky;if(top>H||top+segH<0)continue;g.save();if(k%2){g.translate(0,top+segH);g.scale(1,-1);g.drawImage(im,0,0,W,segH);}else g.drawImage(im,0,top,W,segH);g.restore();}return c;}
+ canyon(im,distance){const ky=this.canvas.height/900,W=Math.round(this.canvas.width/2),H=Math.round(588*ky);if(!this.canyonBuf||this.canyonBuf.width!==W||this.canyonBuf.height!==H){this.canyonBuf=document.createElement('canvas');this.canyonBuf.width=W;this.canyonBuf.height=H;}const c=this.canyonBuf,g=c.getContext('2d');if(this.canyonAt===distance)return c;this.canyonAt=distance;const segH=W*im.height/im.width*1.45,sc=distance*.045*(590/.85*ky)/segH,k0=Math.floor(sc);g.clearRect(0,0,W,H);for(let k=k0;k<=k0+Math.ceil(H/segH)+1;k++){const top=(k-sc)*segH;if(top>H||top+segH<0)continue;g.save();if(((k%2)+2)%2){g.translate(0,top+segH);g.scale(1,-1);g.drawImage(im,0,0,W,segH);}else g.drawImage(im,0,top,W,segH);g.restore();}return c;}
  // The cliff-edge painting with its foreground path fading out at the bottom, so it melts into the track (made once).
  faded(im){if(this.fadedEdge)return this.fadedEdge;const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='destination-out';const grad=g.createLinearGradient(0,im.height*.68,0,im.height);grad.addColorStop(0,'#0000');grad.addColorStop(1,'#000');g.fillStyle=grad;g.fillRect(0,0,im.width,im.height);return this.fadedEdge=c;}
  shoulder(){const L=LEVELS[this.level],key=L.shoulder+(this.isNight?'-night':'');return this.tiles[key]??=tile(L.shoulder,this.isNight);}
@@ -82,13 +82,13 @@ export class Renderer{
 
  drawWorld(s,dt){const g=this.g,L=LEVELS[this.level],bg=this.images[this.scene],distance=travel(s),night=this.isNight,air=airborne(this.level,s),gliding=!!air;
  // a new bend every few seconds, eased; the run starts straight
- if(s.time>this.nextBend){this.nextBend=s.time+4+Math.random()*4;this.curveTarget=s.time<2?0:(Math.random()-.5)*.07;}
+ if(s.time>this.nextBend){this.nextBend=s.time+4+Math.random()*4;this.curveTarget=s.time<2?0:(Math.random()-.5)*.045;}
  this.curve+=(this.curveTarget-this.curve)*(1-Math.exp(-dt*.8));
  this.glideBlend+=((gliding?1:0)-this.glideBlend)*(1-Math.exp(-dt*3));
  const blend=this.glideBlend;
  g.fillStyle=night?L.sky[1]:L.sky[0];g.fillRect(0,0,600,900);
  // the skyline: the top of the painting, drifting with the bend
- g.drawImage(bg,0,0,bg.width,bg.height*.45,-12-Math.sin(distance*.008)*9-this.curve*900,-8,624,338);
+ g.drawImage(bg,0,0,bg.width,bg.height*.45,-12-Math.sin(distance*.008)*9-this.curve*350,-8,624,338);
 
  // The floor, row by row. A row shows the world point the hero reaches a little
  // later, so a stretch where the path lets go (the ravine, the open sky) is
@@ -152,7 +152,7 @@ export class Renderer{
   const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137-liftPx+(gliding?Math.sin(s.time*1.6)*10:0)+land;
   const mix=blend; // 0 = on the ground, 1 = fully airborne; poses cross-fade in between
   if(air==='swing'||(mix>0&&L.air?.kind==='swing')){ // the liana: the painted pose holds its own vine; the stand-in (jump pose) gets a drawn one from high above
-   const sw=this.images[`hero-${hero}-swing`],spriteH=211*sw.height/sw.width*(this.canvas.width/600)/(this.canvas.height/900);const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hand={x:hx,y:bottom-spriteH*(1-(hero==="girl"?.316:.209))+34};/* the fists sit this far below the sprite's top edge */const liana=this.images['scenery-liana'];
+   const sw=this.images[`hero-${hero}-swing`],spriteH=211*sw.height/sw.width*(this.canvas.width/600)/(this.canvas.height/900);const hx=p.x+Math.sin(s.time*2.1)*26,top={x:p.x-Math.sin(s.time*2.1)*60,y:-40},hh=spriteH*(1-(hero==="girl"?.316:.209))-34,hand={x:hx+Math.sin(sway)*hh,y:bottom-Math.cos(sway)*hh};/* the fists sit this far below the sprite's top edge */const liana=this.images['scenery-liana'];
    if(liana){const ang=Math.atan2(hand.x-top.x,hand.y-top.y),len=Math.hypot(hand.x-top.x,hand.y-top.y)+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=alpha*mix;g.translate(top.x,top.y);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();}
    else if(!manifest?.has(`hero-${hero}-swing`)){g.save();g.strokeStyle=this.isNight?'#3c5a2a':'#5c7a2f';g.lineWidth=9;g.lineCap='round';g.beginPath();g.moveTo(top.x,top.y);g.quadraticCurveTo(top.x+(hand.x-top.x)*.4,top.y+(hand.y-top.y)*.55,hand.x,hand.y);g.stroke();g.strokeStyle=this.isNight?'#5a7d3a':'#8fb23f';g.lineWidth=4;g.stroke();g.restore();}
    if(mix<1)this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha*(1-mix));

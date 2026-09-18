@@ -65,7 +65,8 @@
 nav .jump{font-size:20px;letter-spacing:1px}
 
 /* each painting has its ground at a different height: zoom and place it so the feet (at 73 % of the card) stand on the near road / cloud path */
-.start .heroes button{background-size:cover;background-position:center 100%}
+/* the full painting, zoomed so the feet (at 80 % of the card) stand on the near road / path / cloud path; the name plate hides the texture band */
+.start .heroes button{background-size:auto 150%;background-position:center 68%}
 
 /* one title only: both words in the same gold arcade face */
 .start .arcade-title{margin:2px 0 6px;gap:12px;flex-wrap:wrap}
