@@ -81,3 +81,8 @@ nav .jump{font-size:20px;letter-spacing:1px}
 .overlay.countdown .count{font-size:min(60vw,190px);line-height:1;margin:0;color:#ffd84d;background:linear-gradient(180deg,#fff9a8,#ffc328 55%,#ff8f1a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 0 #7a3b00) drop-shadow(0 14px 24px #0008);text-shadow:none;animation:countPop .95s cubic-bezier(.2,1.4,.3,1) both}
 .overlay.countdown p{margin:12px 0 0;font-family:'Kwizillo Arcade','Trebuchet MS',system-ui,sans-serif;font-size:clamp(20px,6vw,28px);letter-spacing:1px;color:#fff;text-shadow:0 3px 0 #0a3a4a,0 6px 16px #0008}
 @keyframes countPop{0%{transform:scale(.3);opacity:0}45%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}
+
+/* section labels centred, with a short line on each side */
+.start .pick-label{justify-content:center;text-align:center}
+.start .pick-label::before{content:"";flex:1;max-width:60px;height:1px;background:linear-gradient(270deg,#ffe27a55,#ffe27a00)}
+.start .pick-label::after{flex:1;max-width:60px}
