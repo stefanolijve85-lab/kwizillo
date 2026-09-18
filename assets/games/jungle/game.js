@@ -27,7 +27,7 @@ export const TEXT={
   pauseEyebrow:'EVEN OP ADEM KOMEN',pauseTitle:'Jouw jungle<br>wacht op je.',pauseBody:'De tijd staat stil.',resume:'Verder spelen →',exit:'Rit verlaten zonder beloning',
   hit:'Oeps! Gewoon weer verder — je munten blijven.',cardFound:'Een junglekaart ontdekt!',
   powerDouble:'×2 {n}s',powerMagnet:'🧲 {n}s',powerSpeed:'⚡ {n}s',powerShield:'🛡 Beschermd',powerStreak:'★ {n} op rij',
-  popDouble:'BONUSSTER!',popDoubleSub:'6 seconden dubbele munten',popSpeed:'TURBO!',popSpeedSub:'5 seconden supersnel · dubbele munten',popGold:'GOUD GEVONDEN!',popGoldSub:'+{n} munten',
+  popDouble:'BONUSSTER!',popDoubleSub:'6 seconden dubbele munten',popSpeed:'TURBO!',popSpeedSub:'7 seconden supersnel · dubbele munten',popGold:'GOUD GEVONDEN!',popGoldSub:'+{n} munten',
   popCombo:'{n} OP RIJ!',popComboSub:'+5 combo-bonus',popMagnet:'MUNTMAGNEET!',popMagnetSub:'7 seconden munten aantrekken',
   popShield:'BESCHERMSCHILD!',popShieldSub:'Vangt één botsing op',popBlock:'SCHILD REDT JE!',popBlockSub:'Lekker doorrennen',
   popCard:'KAART GEVONDEN!',popCardSub:'Onthulling bij de finish',popClear:'MOOIE SPRONG!',popClearSub:'Over de boomstam',

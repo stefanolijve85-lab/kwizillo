@@ -18,7 +18,7 @@ if(Math.abs(s.x-item.lane)<(item.kind==='car'?1.05:.39)||attracted){
 if(collectible){const baseValue=item.kind==='gold'?5:1,doubled=baseValue*(s.double>0?2:1),value=doubled*(s.boost>0?2:1);s.doubleCoins+=doubled-baseValue;s.boostCoins+=value-doubled;s.coins+=value;s.streak++;s.bestStreak=Math.max(s.bestStreak,s.streak);events.push({type:item.kind,lane:attracted?s.x:item.lane,streak:s.streak,value});if(s.streak%10===0){s.coins+=5;s.bonusCoins+=5;events.push({type:'combo',lane:s.x,value:5,streak:s.streak});}}
 else if(item.kind==='magnet'){s.magnet=7;s.pickups++;events.push({type:'magnet',lane:item.lane});}
 else if(item.kind==='double'){s.double=6;s.pickups++;events.push({type:'double',lane:item.lane});}
-else if(item.kind==='speed'){s.boost=5;s.pickups++;events.push({type:'speed',lane:item.lane});}
+else if(item.kind==='speed'){s.boost=7;s.pickups++;events.push({type:'speed',lane:item.lane});}
 else if(item.kind==='shield'){s.shield=1;s.pickups++;events.push({type:'shield',lane:item.lane});}
 else if(item.kind==='card'){s.collectedCard=true;events.push({type:'card',lane:item.lane});}
 else if((item.kind==='log'||item.kind==='car')&&height(s)>.27){s.jumpsCleared++;events.push({type:'clear',lane:item.lane});}

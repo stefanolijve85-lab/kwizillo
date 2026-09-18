@@ -67,4 +67,4 @@ boom, varen, brug, kaart). Alleen `hero-boy-glide.png` mist nog, maar de jungle 
 | `hero-boy-portrait.png`, `hero-girl-portrait.png` | ±600×700, transparant | portret **van voren** (glimlach, zwaaien) voor de keuzekaarten op het startscherm |
 | `hero-boy-swing.png`, `hero-girl-swing.png` | 384×560, transparant | hangend aan een liaan met beide handen boven het hoofd, van achteren, benen los (jungle-slingerstukken; tot dan wordt de sprongpose gebruikt) |
 
-Nieuw in het spel: **Turbo** (⚡-bol: 5 seconden supersnel, alle munten dubbel) in elk level, en in de jungle twee **slingerstukken** aan een liaan boven een ravijn (30–41 % en 70–81 % van de rit).
+Nieuw in het spel: **Turbo** (⚡-bol: 7 seconden supersnel, alle munten dubbel) in elk level, en in de jungle twee **slingerstukken** aan een liaan boven een ravijn (30–41 % en 70–81 % van de rit).
