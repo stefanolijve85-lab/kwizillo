@@ -13,6 +13,8 @@ import {badge,shieldAura,magnetAura} from './arcade-icons.js';
 import {CAMERA,travel,project,itemDepth,sceneryDepth} from './world.js';
 
 export const HEROES=['boy','girl'];
+// real-world widths (lanes ≈ 1 m) for street furniture, so a postbox is not as tall as a house
+const PROP_WIDTH={'scenery-postbox':.55,'scenery-hydrant':.42,'scenery-bench':1.6,'scenery-busstop':2.6,'scenery-balloon-seller':1.7,'scenery-fountain':3.2,'scenery-tree-city':2.4,'scenery-lamp':1.4};
 export const LEVELS={
  jungle:{scenes:['jungle-watervallen','jungle-tempel','jungle-avond'],night:scene=>scene==='jungle-avond',shoulder:'grass',sky:['#83d4db','#082936'],rays:false,sun:true,dust:'#d9c39b',air:{kind:'swing',windows:[[.30,.41],[.70,.81]]},extras:['jungle-ravine','jungle-ravine-edge','scenery-liana'],
   obstacles:{log:'obstacle-log',rock:'obstacle-rock'},card:'collectible-jungle-card',cardId:'jungle-leaf',pebbles:true,flowers:true,dapples:true,
@@ -151,7 +153,7 @@ export class Renderer{
   const lift=spec.float?(spec.lift?spec.lift[0]+v*(spec.lift[1]-spec.lift[0]):0)+Math.sin(s.time*.8+i)*.15:0;
   let name=spec.name;if(spec.pick){const have=spec.pick.filter(n=>this.images[n]);if(!have.length)continue;name=have[(i*7+(side>0?3:0)+Math.floor(v*5))%have.length];}
   const px=side*(spec.x[0]+v*(spec.x[1]-spec.x[0]));
-  let width=spec.w[0]+v*(spec.w[1]-spec.w[0]);if(spec.pick){const im=this.images[name];width*=Math.min(1.25,Math.max(.45,im.width/im.height/.72));}
+  let width=spec.w[0]+v*(spec.w[1]-spec.w[0]);if(spec.pick){const im=this.images[name];width=PROP_WIDTH[name]??width*Math.min(1.25,Math.max(.45,im.width/im.height/.72));}
   props.push({depth,x:px,name,width,lift,flip:!!spec.mirror&&(i+side)%2===0});
  }
  for(const o of props.sort((a,b)=>b.depth-a.depth)){const p=project(o.x,o.depth);p.x+=this.off(o.depth);const a=Math.min(1,(70-o.depth)/12,(o.depth-.3)/.5);
