@@ -31,8 +31,7 @@
 .start .heroes{flex:1.8 1 0;min-height:110px;max-height:300px;gap:12px;margin:0}
 /* the cards show the chosen level behind the hero, as if the child is already running there */
 .start .heroes button{position:relative;flex:1;height:auto;display:block;padding:0;border-radius:20px;border:2px solid #ffffff44;overflow:hidden;background-size:cover;background-position:center 58%;box-shadow:0 8px 18px #0006}
-.start .heroes button::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0b3a5533 0%,#0b3a5500 35%,#041a2ab8 100%)}
-.start .heroes .hero-girl::before{background:linear-gradient(180deg,#4a1a5c33 0%,#4a1a5c00 35%,#2a0a3ab8 100%)}
+.start .heroes button::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000000 70%,#0000004d 100%)}
 .start .heroes i{position:absolute;inset:8% 8% 27% 8%;display:flex;align-items:flex-end;justify-content:center;background:none;border-radius:0}
 .start .heroes img{width:100%;height:100%;max-height:none;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 6px 8px #0009)}
 .start .heroes span{position:absolute;left:8px;right:8px;bottom:8px;margin:0;padding:6px 0;border-radius:999px;background:#ffffff1c;font-size:13px;font-weight:1000;letter-spacing:.3px}
@@ -66,9 +65,7 @@
 nav .jump{font-size:20px;letter-spacing:1px}
 
 /* each painting has its ground at a different height: zoom and place it so the feet (at 73 % of the card) stand on the near road / cloud path */
-.start .heroes.level-stad button{background-size:auto 165%;background-position:center 100%}
-.start .heroes.level-lucht button{background-size:auto 150%;background-position:center 96%}
-.start .heroes.level-jungle button{background-size:cover;background-position:center 58%}
+.start .heroes button{background-size:cover;background-position:center 100%}
 
 /* one title only: both words in the same gold arcade face */
 .start .arcade-title{margin:2px 0 6px;gap:12px;flex-wrap:wrap}
