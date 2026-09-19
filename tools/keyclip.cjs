@@ -32,7 +32,6 @@ function envelope(wav) {
   // normalised, a light smoothing (no flicker), a noise gate, and closed for the
   // last half second: the app holds the final frame, so it must not be an open mouth
   const norm = env.map(v => Math.min(1, v / ref)), out = norm.map((v, i) => Math.max(0, (norm[i - 1] ?? v) * .3 + v * .5 + (norm[i + 1] ?? v) * .2 - .08) / .92);
-  for (let i = Math.max(0, out.length - Math.round(FPS * .5)); i < out.length; i++) out[i] = 0;
   return out;
 }
 
@@ -196,13 +195,24 @@ function envelope(wav) {
     }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, env[i] ?? 0, screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
     fs.writeFileSync(path.join(outDir, `f${String(i + 1).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
   }
+  // 5. settle tail: the model's last pose dissolves back into frame 1 (the still) over SETTLE s with the mouth closed —
+  // the clip ends where it began, and the voice, which runs to the last frame, is never cut off
+  const SETTLE = .7, tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
+  for (let k = 1; k <= tailN; k++) {
+    const t = k / tailN, e = t * t * (3 - 2 * t);
+    const png = await p.evaluate(async ([a, b, e]) => { const A = new Image(); A.src = 'data:image/png;base64,' + a; const B = new Image(); B.src = 'data:image/png;base64,' + b; await A.decode(); await B.decode();
+      const c = document.createElement('canvas'); c.width = A.width; c.height = A.height; const g = c.getContext('2d'); g.globalAlpha = 1 - e; g.drawImage(A, 0, 0); g.globalAlpha = e; g.drawImage(B, 0, 0); return c.toDataURL('image/png').split(',')[1]; }, [fs.readFileSync(lastPng).toString('base64'), fs.readFileSync(firstPng).toString('base64'), e]);
+    fs.writeFileSync(path.join(outDir, `f${String(frames.length + k).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
+  }
+  // the audio gets the same tail of silence, so the container is not cut at the shorter stream
+  const padded = path.join(tmp, 'padded.wav'); ff(['-i', path.join(tmp, 'audio.wav'), '-af', `apad=pad_dur=${SETTLE}`, padded]);
   await b.close();
 
   // 4. encode: WebM VP9+alpha from the frames; ProRes 4444 → Apple HEVC with alpha
   const seq = path.join(outDir, 'f%04d.png'), audio = path.join(tmp, 'audio.wav');
-  ff(['-framerate', String(FPS), '-i', seq, '-i', src, '-map', '0:v', '-map', '1:a', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-auto-alt-ref', '0', '-b:v', '1200k', '-crf', '30', '-deadline', 'good', '-cpu-used', '2', '-c:a', 'libopus', '-b:a', '64k', '-shortest', `${out}.webm`]);
+  ff(['-framerate', String(FPS), '-i', seq, '-i', padded, '-map', '0:v', '-map', '1:a', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-auto-alt-ref', '0', '-b:v', '1200k', '-crf', '30', '-deadline', 'good', '-cpu-used', '2', '-c:a', 'libopus', '-b:a', '64k', '-shortest', `${out}.webm`]);
   const prores = path.join(tmp, 'prores.mov');
-  ff(['-framerate', String(FPS), '-i', seq, '-i', src, '-map', '0:v', '-map', '1:a', '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', '-c:a', 'pcm_s16le', '-shortest', prores]);
+  ff(['-framerate', String(FPS), '-i', seq, '-i', padded, '-map', '0:v', '-map', '1:a', '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', '-c:a', 'pcm_s16le', '-shortest', prores]);
   execFileSync('avconvert', ['--preset', 'PresetHEVC1920x1080WithAlpha', '--source', prores, '--output', `${out}.mp4`, '--replace'], { stdio: 'ignore' });
   if (process.env.KEYCLIP_KEEP) console.log('kept', tmp); else fs.rmSync(tmp, { recursive: true, force: true });
   const kb = f => Math.round(fs.statSync(f).size / 1024) + ' KB';

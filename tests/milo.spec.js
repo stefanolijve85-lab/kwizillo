@@ -81,20 +81,12 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await expect(tour.locator('.milo-host')).toHaveClass(/hopping/);   // hops to the next stop
   await expect(bubble).toContainText('Memo', { timeout: 5000 });
   const games = await spot.boundingBox(), memo = await page.locator('#homeMemo').boundingBox(), math = await page.locator('#homeMath').boundingBox(), facts = await page.locator('#homeFacts').boundingBox();
-  expect(games.x).toBeLessThan(memo.x + 8); expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // Memo + Rekenen together…
-  expect(games.y + games.height).toBeLessThan(facts.y + 8);                 // …but not the Weetjes tile on the next row
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('Fotozoom', { timeout: 5000 });        // Wat ben ik? + Fotozoom
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('Weetjes', { timeout: 5000 });         // which get their own stop
-  const s3 = await spot.boundingBox();
-  expect(Math.abs(s3.x - facts.x)).toBeLessThan(12);
-  // No lonely last word: the last two words are tied together.
-  expect(await bubble.innerText()).toMatch(/te\u00a0ontdekken!$/);
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('Runner', { timeout: 5000 });
+  expect(games.x).toBeLessThan(memo.x + 8); expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // all six game tiles at once…
+  expect(games.y + games.height).toBeGreaterThan(facts.y + facts.height - 8); // …including the Weetjes tile on the next row
   // every bubble of the tour stays inside the frame
   { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
+  // No lonely last word: the last two words are tied together.
+  expect(await bubble.innerText()).toMatch(/de\u00a0Runner!$/);
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('munten', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });

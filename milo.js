@@ -244,7 +244,7 @@
 
   /* ---------------- Home tour ---------------- */
 
-  const TOUR_KEYS=['tour.worlds','tour.games','tour.guess','tour.facts','tour.runner','tour.hud','tour.nav','tour.done'];
+  const TOUR_KEYS=['tour.worlds','tour.games','tour.hud','tour.nav','tour.done'];
   // Warms the tour's five lines for a guide (voice and clips) well before the
   // tour starts — a guide without clips would otherwise start every stop with a
   // round trip to the speech service.
@@ -263,10 +263,7 @@
     // Memo + Rekenen share one stop; the Weetjes get a stop of their own.
     const stops=[
       {sel:'.home-worlds',key:'tour.worlds'},
-      {sel:'#homeMemo,#homeMath',key:'tour.games'},
-      {sel:'#homeWhoAmI,#homeFotozoom',key:'tour.guess'},
-      {sel:'#homeFacts',key:'tour.facts'},
-      {sel:'#homeJungle',key:'tour.runner'},
+      {sel:'.home-games',key:'tour.games'},
       {sel:'.home-hud',key:'tour.hud'},
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}

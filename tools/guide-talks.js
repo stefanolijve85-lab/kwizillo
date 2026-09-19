@@ -17,8 +17,8 @@
 const fs = require('fs'); const path = require('path'); const vm = require('vm'); const { execFileSync } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const KEYS = {
-  milo: ['language', 'name', 'age', 'group', 'voice', 'hello', 'welcome', 'worlds', 'games', 'guess', 'facts', 'runner', 'hud', 'nav', 'done'],
-  luna: ['hello', 'welcome', 'worlds', 'games', 'guess', 'facts', 'runner', 'hud', 'nav', 'done']
+  milo: ['language', 'name', 'age', 'group', 'voice', 'hello', 'welcome', 'worlds', 'games', 'hud', 'nav', 'done'],
+  luna: ['hello', 'welcome', 'worlds', 'games', 'hud', 'nav', 'done']
 };
 const GUIDES = Object.keys(KEYS);
 // The full-body render each guide's clips start from (the cut-out shown before a clip plays).
@@ -33,7 +33,7 @@ function i18n() {
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'i18n.js'), 'utf8'), ctx);
   return ctx.window.KWIZILLO_M1;
 }
-const keyFor = (guide, k) => k === 'hello' ? `voice.${guide}.hello` : ['worlds', 'games', 'guess', 'facts', 'runner', 'hud', 'nav', 'done'].includes(k) ? `tour.${k}` : `onboarding.speech.${k}`;
+const keyFor = (guide, k) => k === 'hello' ? `voice.${guide}.hello` : ['worlds', 'games', 'hud', 'nav', 'done'].includes(k) ? `tour.${k}` : `onboarding.speech.${k}`;
 
 if (cmd === 'lines') {
   const K = i18n();
