@@ -54,12 +54,17 @@
       q.push(f);
     }
     K.prefetchSpeech(q.map(f=>factSpeech(f)));
+    for(const f of q){const i=new Image();i.src=K.factArt(f)}   // the pictures too
     return q;
   };
+  // Every fact has its own portrait illustration (assets/facts/<id>.jpg, made
+  // from tools/fact-art-prompts.json); the world's hero art stands in should
+  // one ever be missing.
+  K.factArt=fact=>`assets/facts/${fact.id}.jpg`;
   const nextFact=(world,current)=>{const q=queueFor(world);let f=q.shift();while(f&&current&&f.id===current.id)f=q.shift();return f||K.pickFact(world,current?.id)};
 
   const card=(fact,{fresh})=>`<article class="fact-card fact-${fact.world} fade-in" data-fact="${fact.id}">
-      <img class="fact-art" src="${K.MASTER[fact.world]}" alt="" style="object-position:${K.WORLD_FOCUS?.[fact.world]||'center 40%'}" decoding="async">
+      <img class="fact-art" src="${K.factArt(fact)}" alt="" decoding="async" onerror="this.onerror=null;this.src='${K.MASTER[fact.world]}'">
       <span class="fact-veil"></span>
       <div class="fact-body">
         <div class="fact-top"><span class="fact-world">${WORLD_EMOJI[fact.world]} ${esc(t(`world.${fact.world}.title`))}</span>${fresh?`<span class="fact-new">${esc(t('facts.new'))}</span>`:''}</div>

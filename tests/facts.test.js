@@ -24,4 +24,16 @@ for (const lang of LANGS) {
     assert.strictEqual(new Set(list.map(f => f.t)).size, list.length, `${lang}/${w} no duplicates`);
   }
 }
+// Every fact has its own illustration (assets/facts/<world>-<index>.jpg) and a
+// prompt on record for it (tools/fact-art-prompts.json), so a new fact cannot
+// slip in without a picture.
+const prompts = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'tools', 'fact-art-prompts.json'), 'utf8'));
+let pictures = 0;
+for (const w of WORLDS) for (let i = 0; i < F.nl[w].length; i++) {
+  const id = `${w}-${i}`;
+  assert.ok(fs.existsSync(path.join(__dirname, '..', 'assets', 'facts', `${id}.jpg`)), `picture for ${id}`);
+  assert.ok(typeof prompts[id] === 'string' && prompts[id].length > 10, `prompt for ${id}`);
+  pictures++;
+}
+console.log(`facts: ${pictures} illustrations, one per fact ✔`);
 console.log(`facts: ${total} facts across ${LANGS.length} languages (${total / LANGS.length} per language) ✔`);
