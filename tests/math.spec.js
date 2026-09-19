@@ -115,3 +115,16 @@ test('after an answer the voice names the chosen number, then the feedback line'
   expect(spoken.slice(0, before)).toContain(word);
   await expect.poll(() => spoken.slice(before).some(t => /^Bijna\. Het is|!$/.test(t))).toBe(true);
 });
+
+test('a round never repeats a sum, and the next rounds do not bring the previous sums straight back', async ({ page }) => {
+  await boot(page);
+  const texts = async () => page.evaluate(() => { window.KWIZILLO_M1.startMath('ruimte'); return window.KWIZILLO_M1.math.sums.map(s => s.text); });
+  let prev = [];
+  for (let round = 0; round < 6; round++) {
+    const cur = await texts();
+    expect(cur.length).toBe(10);
+    expect(new Set(cur).size).toBe(10);
+    for (const s of cur) expect(prev).not.toContain(s);
+    prev = cur;
+  }
+});

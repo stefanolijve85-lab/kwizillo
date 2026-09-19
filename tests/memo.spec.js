@@ -82,7 +82,7 @@ test('every level pairs identical pictures; a level-6 board has 14 pairs and 9 s
   await expect(page.locator('.memo-card')).toHaveCount(20);
   await expect(page.locator('.memo-front.word')).toHaveCount(0);
   // Each pair shows the same picture twice, and every pair a different one.
-  const srcs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(window.KWIZILLO_M1.questionArt(c.q)); return Object.values(by); });
+  const srcs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(window.KWIZILLO_M1.answerArtFor(c.q)); return Object.values(by); });
   for (const [a, b] of srcs) expect(a).toBe(b);
   expect(new Set(srcs.map(p => p[0])).size).toBe(srcs.length);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 6; K.save(); K.startMemo('geschiedenis'); });

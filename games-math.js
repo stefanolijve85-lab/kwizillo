@@ -48,6 +48,28 @@
     return s;
   }
 
+  // A round never shows the same sum twice, and the sums of the last few
+  // two rounds are kept out as well, so "3 + 4" does not come straight back in the
+  // next round. When a level's sums nearly run out (level 1 has about eighty),
+  // the ban is loosened rather than looping forever.
+  const recent=[];
+  const RECENT_MAX=20;
+  function makeRound(niveau){
+    const out=[],seen=new Set();
+    let tries=0;
+    while(out.length<10){
+      const s=makeSum(niveau);
+      const key=s.text;
+      const banned=seen.has(key)||(tries<200&&recent.includes(key));
+      tries++;
+      if(banned&&tries<400)continue;
+      seen.add(key);out.push(s);
+    }
+    for(const s of out){const i=recent.indexOf(s.text);if(i>=0)recent.splice(i,1);recent.push(s.text)}
+    while(recent.length>RECENT_MAX)recent.shift();
+    return out;
+  }
+
   let timer=null;
   function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
   const secondsFor=()=>K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1);
@@ -60,7 +82,7 @@
     // Free plays the sums of levels 1–3; the parent's level setting is kept and
     // opens fully with Premium.
     const niveau=K.premium.can('math',Number(K.state.niveau||1))?Number(K.state.niveau||1):K.premium.FREE.mathMaxLevel;
-    const sums=Array.from({length:10},()=>makeSum(niveau));
+    const sums=makeRound(niveau);
     K.math={world,niveau,sums,index:0,score:0,done:false,answers:[]};
     render();
     K.prefetchSpeech([...sums.map(s=>s.speech),t('math.speech.done'),t('math.speech.fail')]);

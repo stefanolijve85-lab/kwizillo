@@ -26,8 +26,10 @@
   const NOT_A_NOUN=/^(met|door|om|voor|in|op|naar|uit|bij|zonder|alle|ze|zij|het is|with|by|to|for|on|at|from|they|it|because|com|por|para|em|no|na|eles|ela|porque)\b/i;
   // world 'mix' draws from every world (the Memo on Home).
   function pickQuestions(world,n){
-    const good=K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&String(q.answer).length<=16&&String(q.answer).split(' ').length<=2&&!/^\d+$/.test(q.answer)&&!NOT_A_NOUN.test(q.answer));
-    const seen=new Set();const uniq=good.filter(q=>{const k=q.answer.toLowerCase();if(seen.has(k))return false;seen.add(k);return true});
+    const good=K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&String(q.answer).length<=16&&String(q.answer).split(' ').length<=2&&!/^\d+$/.test(q.answer)&&!NOT_A_NOUN.test(q.answer));
+    // One card per answer and per picture: two answers that share a picture
+    // ("Gorilla" / "De gorilla") would make four identical cards.
+    const seen=new Set();const uniq=good.filter(q=>{const k=q.answer.toLowerCase(),a=K.answerArtFor(q);if(seen.has(k)||seen.has(a))return false;seen.add(k);seen.add(a);return true});
     return shuffle(uniq).slice(0,n);
   }
 
@@ -81,8 +83,8 @@
     // Word pairs first; when a world has too few short answers for a big
     // board, the rest of the board is filled with picture pairs.
     const wordQs=pickQuestions(world,pairs);
-    const used=new Set(wordQs.map(q=>q.id));
-    const fill=shuffle(K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&!used.has(q.id))).slice(0,Math.max(0,pairs-wordQs.length));
+    const used=new Set(wordQs.map(q=>q.id)),usedArt=new Set(wordQs.map(q=>K.answerArtFor(q)));
+    const fill=shuffle(K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&!used.has(q.id)&&!usedArt.has(K.answerArtFor(q)))).slice(0,Math.max(0,pairs-wordQs.length));
     const qs=[...wordQs,...fill];
     if(qs.length<pairs){K.toast(t('memo.none'));return K.showWorld(world)}
     const cards=shuffle(qs.flatMap((q,i)=>[
@@ -103,7 +105,7 @@
   // are in the cache (a failed load resolves too; the tile's own onerror
   // retries it).
   function loadBoardArt(qs){
-    const urls=[...new Set(qs.map(q=>K.questionArt(q)))];
+    const urls=[...new Set(qs.map(q=>K.answerArtFor(q)))];
     let i=0;
     const worker=()=>new Promise(done=>{const step=()=>{if(i>=urls.length)return done();const img=new Image();img.onload=img.onerror=step;img.src=urls[i++]};step()});
     return Promise.all([0,1,2,3].map(worker));
@@ -135,7 +137,7 @@
         <main class="memo-board" style="--cols:${m.cols};--rows:${m.rows}" role="grid" aria-label="Memo">
           ${m.cards.map(c=>`<button class="memo-card" data-card="${c.id}" aria-label="${esc(t('memo.card'))}">
             <span class="memo-face memo-back">${K.icon('star')}</span>
-            <span class="memo-face memo-front ${c.kind}">${c.kind==='art'?`<img src="${K.questionArt(c.q)}" alt="" decoding="async">`:`<b>${esc(c.q.answer)}</b>`}</span>
+            <span class="memo-face memo-front ${c.kind}">${c.kind==='art'?`<img src="${K.answerArtFor(c.q)}" alt="" decoding="async">`:`<b>${esc(c.q.answer)}</b>`}</span>
           </button>`).join('')}
         </main>
         <div class="memo-foot"><span id="memoMovesFoot">${esc(t('memo.moves',{n:0}))}</span><span id="memoHint">${esc(m.duel?t('memo.turn',{name:playerName(m.turn)}):t('memo.hintLine'))}</span></div>

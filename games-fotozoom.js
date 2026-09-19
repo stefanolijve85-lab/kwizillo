@@ -20,7 +20,7 @@
   const core=answer=>answer.replace(/^(de|het|een|the|a|an|o|a|os|as|um|uma)\s+/i,'');
   const escapeRe=s=>s.replace(/[.*+?^${}()|[\]\\]/g,m=>'\\'+m);
   const wordRe=answer=>new RegExp('(^|[^\\p{L}])'+escapeRe(core(answer))+'(?=$|[^\\p{L}])','giu');
-  const candidates=world=>K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&/^\D{2,}$/.test(q.answer)&&q.answer.split(' ').length<=2&&q.explanation&&wordRe(q.answer).test(q.explanation)&&!/^(ja|nee|yes|no|sim|não|waar|niet waar|true|false)$/i.test(q.answer));
+  const candidates=world=>K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&/^\D{2,}$/.test(q.answer)&&q.answer.split(' ').length<=2&&q.explanation&&wordRe(q.answer).test(q.explanation)&&!/^(ja|nee|yes|no|sim|não|waar|niet waar|true|false)$/i.test(q.answer));
   const answerSize=text=>{const n=String(text||'').length;return n>52?'xlong':n>34?'long':''};
   const letters=['A','B','C','D'];
 
@@ -62,7 +62,7 @@
           ${secondsFor()?`<span class="quiz-timer whoami-timer" id="fzTimer" style="--p:100"><b>${secondsFor()}</b></span>`:''}
         </header>
         <main class="quiz-card fotozoom-card">
-          <div class="fotozoom-stage" id="fzStage"><img src="${K.questionArtFor(q.id)}" alt="" decoding="async" style="transform-origin:${r.fx}% ${r.fy}%;transform:scale(${ZOOMS[0]})"><span class="fotozoom-lens" aria-hidden="true">🔍</span></div>
+          <div class="fotozoom-stage" id="fzStage"><img src="${K.answerArtFor(q)}" alt="" decoding="async" style="transform-origin:${r.fx}% ${r.fy}%;transform:scale(${ZOOMS[0]})"><span class="fotozoom-lens" aria-hidden="true">🔍</span></div>
           <div class="fotozoom-row"><h1>${esc(t('fotozoom.ask'))}</h1><span class="fotozoom-points" id="fzPoints">${esc(t('fotozoom.points',{n:POINTS[0]}))}</span></div>
           <div class="answers fotozoom-answers">${r.options.map((o,i)=>`<button class="answer ${answerSize(o.answer)}" data-i="${i}" aria-label="${esc(o.answer)}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o.answer)}</span></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions"><button class="action hint" id="fzOut">🔍 ${esc(t('fotozoom.out'))}</button><button class="action repeat" id="fzRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
@@ -112,7 +112,7 @@
       setTimeout(()=>{
         if(!f.isConnected)return;
         const card=document.createElement('div');card.className='simple-modal whoami-verdict fotozoom-verdict';
-        card.innerHTML=`<div class="simple-modal-card"><img class="fotozoom-reveal" src="${K.questionArtFor(q.id)}" alt=""><div class="simple-icon">${ok?'🎉':b?'💡':'⏰'}</div><h2>${esc(ok?t('fotozoom.yes',{answer:q.answer,points:earned}):t(b?'fotozoom.almost':'fotozoom.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="fzNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'fotozoom.next'))}</button></div>`;
+        card.innerHTML=`<div class="simple-modal-card"><img class="fotozoom-reveal" src="${K.answerArtFor(q)}" alt=""><div class="simple-icon">${ok?'🎉':b?'💡':'⏰'}</div><h2>${esc(ok?t('fotozoom.yes',{answer:q.answer,points:earned}):t(b?'fotozoom.almost':'fotozoom.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="fzNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'fotozoom.next'))}</button></div>`;
         f.appendChild(card);
         K.speak((ok?t('fotozoom.speech.yes',{answer:q.answer}):t('fotozoom.speech.almost',{answer:q.answer}))+' '+q.explanation);
         card.querySelector('#fzNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};

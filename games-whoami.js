@@ -25,7 +25,7 @@
   // …and the answer names a thing: it must appear as a whole word in the
   // explanation ("Mars wordt de rode planeet genoemd"), which colours, numbers
   // and yes/no answers do not.
-  const candidates=world=>K.questions.filter(q=>(world==='mix'||q.world===world)&&K.questionArtFor?.(q.id)&&/^\D{2,}$/.test(q.answer)&&q.answer.split(' ').length<=2&&q.hint&&q.explanation&&wordRe(q.answer).test(q.explanation)&&!/^(ja|nee|yes|no|sim|não|waar|niet waar|true|false)$/i.test(q.answer));
+  const candidates=world=>K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&/^\D{2,}$/.test(q.answer)&&q.answer.split(' ').length<=2&&q.hint&&q.explanation&&wordRe(q.answer).test(q.explanation)&&!/^(ja|nee|yes|no|sim|não|waar|niet waar|true|false)$/i.test(q.answer));
   // The answer is hidden in each clue as a whole word ("Mars" in "Mars wordt…",
   // never the "blauw" inside "blauwachtig"); a clue with nothing left but the
   // answer is dropped. Articles are not part of the word to hide.
@@ -43,8 +43,12 @@
     const pool=shuffle(candidates(world).filter(q=>cluesFor(q).length>=2));
     if(pool.length<4){K.toast(t('memo.none'));K.showHome();return}
     const rounds=pool.slice(0,ROUNDS).map(q=>{
-      const others=shuffle(pool.filter(o=>o.id!==q.id&&o.answer!==q.answer&&(o.world===q.world))).slice(0,3);
-      while(others.length<3){const o=pool.find(x=>x.id!==q.id&&!others.includes(x));if(!o)break;others.push(o)}
+      // Four different pictures on the tiles: no two options may share one.
+      const arts=new Set([K.answerArtFor(q)]);
+      const fresh=o=>o.id!==q.id&&o.answer!==q.answer&&!arts.has(K.answerArtFor(o));
+      const others=[];
+      for(const o of shuffle(pool.filter(o=>fresh(o)&&o.world===q.world))){if(others.length>=3)break;others.push(o);arts.add(K.answerArtFor(o))}
+      for(const o of pool){if(others.length>=3)break;if(fresh(o)&&!others.includes(o)){others.push(o);arts.add(K.answerArtFor(o))}}
       return {q,clues:cluesFor(q),options:shuffle([q,...others])};
     });
     K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
@@ -73,7 +77,7 @@
         <main class="quiz-card whoami-card">
           <div class="whoami-guide"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><div class="whoami-bubble" id="whoClues"></div></div>
           <div class="whoami-points" id="whoPoints">${esc(t('whoami.points',{n:POINTS[0]}))}</div>
-          <div class="whoami-grid">${r.options.map((o,i)=>`<button class="whoami-tile" data-i="${i}" aria-label="${esc(o.answer)}"><img src="${K.questionArtFor(o.id)}" alt="" decoding="async"><b>${esc(o.answer)}</b></button>`).join('')}</div>
+          <div class="whoami-grid">${r.options.map((o,i)=>`<button class="whoami-tile" data-i="${i}" aria-label="${esc(o.answer)}"><img src="${K.answerArtFor(o)}" alt="" decoding="async"><b>${esc(o.answer)}</b></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions"><button class="action hint" id="whoMore">${K.icon('bulb')} ${esc(t('whoami.more'))}</button><button class="action repeat" id="whoRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
         </main>
       </div>
