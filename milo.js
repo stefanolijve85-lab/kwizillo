@@ -244,7 +244,7 @@
 
   /* ---------------- Home tour ---------------- */
 
-  const TOUR_KEYS=['tour.worlds','tour.games','tour.facts','tour.hud','tour.nav','tour.done'];
+  const TOUR_KEYS=['tour.worlds','tour.games','tour.guess','tour.facts','tour.runner','tour.hud','tour.nav','tour.done'];
   // Warms the tour's five lines for a guide (voice and clips) well before the
   // tour starts — a guide without clips would otherwise start every stop with a
   // round trip to the speech service.
@@ -264,7 +264,9 @@
     const stops=[
       {sel:'.home-worlds',key:'tour.worlds'},
       {sel:'#homeMemo,#homeMath',key:'tour.games'},
+      {sel:'#homeWhoAmI,#homeFotozoom',key:'tour.guess'},
       {sel:'#homeFacts',key:'tour.facts'},
+      {sel:'#homeJungle',key:'tour.runner'},
       {sel:'.home-hud',key:'tour.hud'},
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}
@@ -312,7 +314,7 @@
       if(!r)return {x:(W()-figW())/2,y:H()*.5-figH/2,side:'top',pose:'cheer'};
       const above=r.y-pad-figH,below=r.y+r.h+pad;
       const x=Math.max(8,Math.min(W()-figW()-8,r.x+r.w-figW()-8));
-      if(above>96)return {x,y:above,side:'top',pose:'pointDown'};
+      if(above>150)return {x,y:above,side:'top',pose:'pointDown'};
       if(below+figH<H()-8)return {x,y:below,side:'bottom',pose:'talk'};
       return {x:Math.max(8,W()-figW()-8),y:Math.max(8,Math.min(H()-figH-8,r.y+r.h/2-figH/2)),side:'top',pose:'pointLeft'};
     };
@@ -343,6 +345,8 @@
         await sleep(160);
         if(done)break;
         const said=host.say(t(stop.key),{minMs:2600,clip:stop.key.replace('tour.','')});
+        // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
+        {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb();const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-(f.bottom-6));if(over>0){to.y+=to.side==='top'?over:-over;host.moveTo(to.x,to.y,{instant:true});}}
         await Promise.race([said,waitTap(20000)]);
         host.stop();
       }

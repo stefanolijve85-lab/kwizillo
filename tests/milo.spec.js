@@ -84,11 +84,17 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   expect(games.x).toBeLessThan(memo.x + 8); expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // Memo + Rekenen together…
   expect(games.y + games.height).toBeLessThan(facts.y + 8);                 // …but not the Weetjes tile on the next row
   await tour.click({ position: { x: 10, y: 300 } });
+  await expect(bubble).toContainText('Fotozoom', { timeout: 5000 });        // Wat ben ik? + Fotozoom
+  await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('Weetjes', { timeout: 5000 });         // which get their own stop
   const s3 = await spot.boundingBox();
   expect(Math.abs(s3.x - facts.x)).toBeLessThan(12);
   // No lonely last word: the last two words are tied together.
   expect(await bubble.innerText()).toMatch(/te\u00a0ontdekken!$/);
+  await tour.click({ position: { x: 10, y: 300 } });
+  await expect(bubble).toContainText('Runner', { timeout: 5000 });
+  // every bubble of the tour stays inside the frame
+  { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('munten', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });
