@@ -13,7 +13,14 @@
   // Warm the browser cache for the next question so its picture appears with
   // the card instead of a beat later.
   K.questionArt=questionArt;
-  function preloadNextArt(){for(const n of (K.quiz?.questions||[]).slice(K.quiz.index+1,K.quiz.index+3)){const i=new Image();i.src=questionArt(n)}}
+  // What the child sees while the question is open is the TOPIC's picture,
+  // never the question's own: that one was drawn from question and answer
+  // together, so it shows the answer (Mars for "the red planet", a barometer
+  // for "how do you measure air pressure") and made the quiz too easy. The
+  // question's own illustration is the reward on the feedback card.
+  function quizArt(q){return K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
+  K.quizArt=quizArt;
+  function preloadNextArt(){for(const n of (K.quiz?.questions||[]).slice(K.quiz.index,K.quiz.index+3)){for(const src of [quizArt(n),questionArt(n)]){const i=new Image();i.src=src}}}
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
   function clearSpoken(){K.app.querySelectorAll('.answer.spoken-active').forEach(b=>b.classList.remove('spoken-active'));K.clearSpeechHighlight=null}
 
@@ -84,7 +91,7 @@
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="quizTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span>`}</div>
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
-          <div class="quiz-art"><img class="art-fill" src="${questionArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${questionArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
+          <div class="quiz-art"><img class="art-fill" src="${quizArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${quizArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
           <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered&&!retry?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
           ${answered?`<button class="review-next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}
           <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}">${actions}</div>
@@ -169,7 +176,7 @@
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const x=document.createElement('div');x.className=`hint-float hint-v2 world-${q.world}`;
     const hint=q.hint||t('hint.fallback');
-    x.innerHTML=`<div class="hint-card"><button class="hint-close" aria-label="${esc(t('hint.close'))}">×</button><div class="hint-kicker">${K.icon('bulb')} ${esc(t('hint.kicker',{topic:K.quiz.topicLabel}))}</div><div class="hint-visual"><img src="${questionArt(q)}" alt="${esc(t('hint.alt'))}"></div><h2>${esc(t('hint.title'))}</h2><p>${esc(hint)}</p><button class="hint-ok">${esc(t('hint.ok'))}</button></div>`;
+    x.innerHTML=`<div class="hint-card"><button class="hint-close" aria-label="${esc(t('hint.close'))}">×</button><div class="hint-kicker">${K.icon('bulb')} ${esc(t('hint.kicker',{topic:K.quiz.topicLabel}))}</div><div class="hint-visual"><img src="${quizArt(q)}" alt="${esc(t('hint.alt'))}"></div><h2>${esc(t('hint.title'))}</h2><p>${esc(hint)}</p><button class="hint-ok">${esc(t('hint.ok'))}</button></div>`;
     f.appendChild(x);
     K.pauseTimer(true);
     const close=()=>{K.stopSpeech();x.remove();K.pauseTimer(false)};
@@ -226,6 +233,7 @@
         <span class="feedback-kicker">${timedOut?'⏱':correct?'✓':'✗'} ${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</span>
         ${correct?`<span class="feedback-reward">${K.icon('star')} +${q.xp||10} XP · ${K.icon('coin')} +2</span>`:''}
       </div>
+      ${K.questionArtFor?.(q.id)?`<div class="feedback-art"><img src="${questionArt(q)}" alt="" decoding="async"></div>`:''}
       <div class="feedback-answer">${correct?'':`<small>${esc(t('feedback.answerLabel'))}</small>`}<b>${esc(q.answer)}</b></div>
       <p class="feedback-explain">${explain}</p>
       ${q.fact?`<div class="feedback-fact"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}

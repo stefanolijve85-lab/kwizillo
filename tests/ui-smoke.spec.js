@@ -909,3 +909,40 @@ test('mascot tiles are filled by the character with only the name on it', async 
   expect(Math.abs(fill.width - card.width)).toBeLessThan(2);
   expect(Math.abs(fill.height - card.height)).toBeLessThan(2);
 });
+
+test('the question never shows its own picture (that gives the answer away); the feedback card does', async ({ page }) => {
+  await boot(page);
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('.world-topic').first().click();
+  const shown = await page.locator('.quiz-art .art-main').getAttribute('src');
+  const own = await page.evaluate(() => { const q = window.KWIZILLO_M1.quiz; return window.KWIZILLO_M1.questionArtFor(q.questions[q.index].id); });
+  expect(own).toContain('assets/questions/q/');
+  expect(shown).not.toBe(own);
+  expect(shown).toContain('assets/topics/');
+  await page.getByRole('button', { name: /Hint/ }).click();
+  expect(await page.locator('.hint-visual img').getAttribute('src')).toBe(shown);
+  await page.getByRole('button', { name: 'Hint sluiten' }).click();
+  await page.locator('.answer').first().click();
+  await expect(page.locator('.feedback-art img')).toHaveAttribute('src', own);
+});
+
+test('a passed quiz is worth 25 world points: four passed topics make 100, shown in statistics and the collection', async ({ page }) => {
+  await boot(page, SAVED({ progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], passed: { 1: { 'ruimte:zonnestelsel': true, 'ruimte:sterren_planeten': true }, 2: { 'ruimte:astronauten': true, 'dieren:jungle': true } } } }));
+  await page.locator('.native-bottom-nav [data-nav="stats"]').click();
+  const rows = page.locator('.world-stat-list article');
+  await expect(rows.first()).toContainText('3 van 4 quizzen gehaald · 75 punten');
+  await expect(rows.first().locator('em')).toHaveText('75');
+  await expect(rows.nth(1)).toContainText('1 van 4 quizzen gehaald · 25 punten');
+  await page.locator('.native-bottom-nav [data-nav="collection"]').click();
+  await expect(page.locator('.progress-overall')).toContainText('Totaal 100 van 600 punten');
+  await expect(page.locator('.progress-world').first().locator('em')).toHaveText('75');
+  // Passing the fourth space topic completes the world.
+  await page.locator('.native-bottom-nav [data-nav="home"]').click();
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('.world-topic').nth(3).click();
+  await answerAll(page, 10, { correct: true });
+  await expect(page.locator('.result-v2')).toBeVisible();
+  await page.locator('#collectionBtn').click();
+  await expect(page.locator('.progress-overall')).toContainText('Totaal 125 van 600 punten');
+  await expect(page.locator('.progress-world').first()).toContainText('4 van 4 quizzen gehaald · 100 punten');
+});

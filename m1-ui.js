@@ -45,6 +45,18 @@
   }
   function topicStat(topic){const p=progress();return p.topics[topic]||(p.topics[topic]={answered:0,correct:0})}
   const accuracy=s=>s?.answered?Math.round(s.correct/s.answered*100):0;
+  // World points: a world has four quizzes (its four topics); every one the
+  // child has passed, at any level, is worth 25 points, so a fully played
+  // world stands at 100 and all six worlds at 600. Statistics and the
+  // collection show this, not the accuracy.
+  const POINTS_PER_QUIZ=25;
+  K.worldPoints=world=>{
+    const P=progress().passed||{};
+    const keys=K.TOPIC_KEYS?.[world]||[];
+    const done=keys.filter(k=>Object.values(P).some(level=>level&&level[`${world}:${k}`]));
+    return {passed:done.length,total:keys.length||4,points:done.length*POINTS_PER_QUIZ,max:(keys.length||4)*POINTS_PER_QUIZ};
+  };
+  K.totalPoints=()=>WORLD_ORDER.reduce((a,w)=>{const p=K.worldPoints(w);a.points+=p.points;a.max+=p.max;return a},{points:0,max:0});
   const totalCorrect=()=>Number(K.state.correct||0);
   const unlockedMascots=()=>MASCOTS.filter(m=>totalCorrect()>=m.need);
 
@@ -307,7 +319,11 @@
     const ids=progress().correctQuestionIds;
     const cards=ids.map(id=>K.questions.find(q=>q.id===id)).filter(Boolean);
     let content='';
-    if(tab==='worlds') content=`<div class="world-progress-grid">${WORLD_ORDER.map(w=>{const s=worldStat(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${K.worldBadge(w)}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('collection.worldStat',{correct:s.correct,answered:s.answered,pct:accuracy(s)}))}</small><span class="wide-track"><i style="width:${accuracy(s)}%"></i></span></span><em>›</em></button>`}).join('')}</div>`;
+    if(tab==='worlds'){
+      const all=K.totalPoints(),allPct=all.max?Math.round(all.points/all.max*100):0;
+      content=`<div class="progress-overall"><b>${esc(t('progress.overall',{points:all.points,max:all.max}))}</b><span class="wide-track"><i style="width:${allPct}%"></i></span><small>${esc(t('progress.overallSub'))}</small></div>
+        <div class="world-progress-grid">${WORLD_ORDER.map(w=>{const p=K.worldPoints(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${K.worldBadge(w)}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))}</small><span class="wide-track"><i style="width:${p.max?Math.round(p.points/p.max*100):0}%"></i></span></span><em>${p.points}</em></button>`}).join('')}</div>`;
+    }
     // Knowledge cards: a collectable trading card per correctly answered
     // question, with that question's own illustration. Rarity follows the
     // question's difficulty (1-4).
@@ -385,7 +401,7 @@
       ${board([1,2,3,4,5,6].map(n=>{const b=Number((progress().games?.math?.best||{})[n]||0),m=medal(b);return`<article class="${m}">${m?`<i class="medal">${medalIcon[m]}</i>`:''}<span class="level-dot">${n}</span><b>${b?`${b}/10`:'–'}</b><small>${esc(t('memo.level',{n}))}</small></article>`}))}
       <p class="collection-note">${esc(t('stats.mathLine',{played:Number(progress().games?.math?.played||0),won:Number(progress().games?.math?.won||0)}))}</p>
       <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
-      <div class="world-stat-list v2">${WORLD_ORDER.map(w=>{const s=worldStat(w),p=accuracy(s);return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><span class="wide-track"><i style="width:${p}%"></i></span></div><em>${p}%</em></article>`}).join('')}</div>`;
+      <div class="world-stat-list v2">${WORLD_ORDER.map(w=>{const s=worldStat(w),p=K.worldPoints(w),pct=p.max?Math.round(p.points/p.max*100):0;return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))} · ${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><span class="wide-track"><i style="width:${pct}%"></i></span></div><em>${p.points}</em></article>`}).join('')}</div>`;
     const f=nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats',back:back||(()=>K.showHome())});
     f.querySelector('#statsShare').onclick=()=>{K.sfx('tap');K.shareScore()};
     // Numbers count up and the ring fills once the screen is on: the figures are
