@@ -910,20 +910,26 @@ test('mascot tiles are filled by the character with only the name on it', async 
   expect(Math.abs(fill.height - card.height)).toBeLessThan(2);
 });
 
-test('the question never shows its own picture (that gives the answer away); the feedback card does', async ({ page }) => {
+test('a question whose picture would show the answer gets a related picture instead; the feedback card shows its own', async ({ page }) => {
   await boot(page);
-  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('[data-world="dieren"]').click();
   await page.locator('.world-topic').first().click();
+  // "Welke haai staat bekend als een snelle zwemmer?" → Makohaai: its own picture is a shark.
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; const q = K.quiz; q.index = q.questions.findIndex(x => x.id === 'dieren-snelle_dieren-07'); if (q.index < 0) { q.questions[0] = K.questions.find(x => x.id === 'dieren-snelle_dieren-07'); q.index = 0; } K.showQuiz(); });
   const shown = await page.locator('.quiz-art .art-main').getAttribute('src');
-  const own = await page.evaluate(() => { const q = window.KWIZILLO_M1.quiz; return window.KWIZILLO_M1.questionArtFor(q.questions[q.index].id); });
-  expect(own).toContain('assets/questions/q/');
+  const own = await page.evaluate(() => window.KWIZILLO_M1.questionArtFor('dieren-snelle_dieren-07'));
   expect(shown).not.toBe(own);
-  expect(shown).toContain('assets/topics/');
+  // …a neighbour of the same topic with an explanatory answer (the streamlined fish), not the cheetah topic art
+  expect(shown).toContain('dieren-snelle_dieren-04');
   await page.getByRole('button', { name: /Hint/ }).click();
   expect(await page.locator('.hint-visual img').getAttribute('src')).toBe(shown);
   await page.getByRole('button', { name: 'Hint sluiten' }).click();
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-art img')).toHaveAttribute('src', own);
+  // An explanatory answer keeps its own picture: "Waarom zwemmen haaien altijd door?"
+  await page.locator('#feedbackClose').click();
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; const q = K.quiz; q.questions[q.index] = K.questions.find(x => x.id === 'dieren-waterdieren-18'); delete q.answeredById[q.questions[q.index].id]; K.showQuiz(); });
+  await expect(page.locator('.quiz-art .art-main')).toHaveAttribute('src', /dieren-waterdieren-18\.jpg/);
 });
 
 test('a passed quiz is worth 25 world points: four passed topics make 100, shown in statistics and the collection', async ({ page }) => {

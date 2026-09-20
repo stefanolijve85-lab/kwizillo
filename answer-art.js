@@ -188,6 +188,58 @@
     'aarde-kaarten_navigatie-20':1                        // De evenaar
   };
   K.ANSWER_ART=A;
+  // Whether a question's own illustration would give the answer away while the
+  // question is on screen. It does when the picture depicts the answer (the map
+  // above) or when the answer is a concrete thing — a short noun ("Mars", "De
+  // Nijl", "Makohaai"): the illustration was drawn from question and answer
+  // together, so it shows that thing. A person's name is the exception: a
+  // drawing of an explorer does not tell the child which explorer. Such a
+  // question is illustrated with its topic's picture until it is answered; its
+  // own picture is the reward on the feedback card. Explanatory answers ("Anders
+  // krijgen ze geen zuurstof") keep their picture: it shows the situation.
+  // "Met een barometer" / "Met kieuwen" name a thing as much as "Barometer" does.
+  const NOT_A_NOUN=/^(door|om|voor|in|op|naar|uit|bij|zonder|alle|ze|zij|het is|by|to|for|on|at|from|they|it|because|por|para|em|no|na|eles|ela|porque)\b/i;
+  const concrete=a=>{a=String(a||'');const n=a.split(' ').length;if(/^\d+$/.test(a)||NOT_A_NOUN.test(a))return false;return (a.length<=16&&n<=2)||(n<=3&&/^(de|het|een|the|a|an|o|a|um|uma|os|as)\s/i.test(a))||(n<=3&&/^(met|with|com)\s(een|de|het|a|an|the|um|uma)?\s?/i.test(a))};
+  const PERSON=new Set(['ruimte-astronauten-11','ruimte-astronauten-12','ruimte-astronauten-16','geschiedenis-romeinen-16','geschiedenis-ontdekkingsreizigers-11','geschiedenis-ontdekkingsreizigers-12','geschiedenis-ontdekkingsreizigers-13','geschiedenis-ontdekkingsreizigers-14','geschiedenis-ontdekkingsreizigers-15','geschiedenis-ontdekkingsreizigers-16','geschiedenis-ontdekkingsreizigers-17','wetenschap-uitvindingen-11','wetenschap-uitvindingen-12','wetenschap-uitvindingen-13','wetenschap-uitvindingen-14','wetenschap-uitvindingen-16','wetenschap-uitvindingen-17','wetenschap-uitvindingen-19','mysterie-verborgen_schatten-15']);
+  let revealed=null;
+  K.artRevealsAnswer=q=>{
+    if(!revealed){
+      revealed=new Set(Object.keys(A));
+      for(const bank of Object.values(K.banks||{}))for(const x of bank||[])if(concrete(x.answer))revealed.add(x.id);
+      for(const id of PERSON)revealed.delete(id);
+    }
+    return revealed.has(typeof q==='string'?q:q?.id);
+  };
+  // The picture shown WITH such a question. First choice: a bespoke
+  // "question-only" illustration in assets/questions/s/<id>.jpg (drawn without
+  // the answer; tools/safe-art-prompts.json lists what to draw — none rendered
+  // yet). Until then: the illustration of a neighbour in the same topic whose
+  // own answer is explanatory (so its picture reveals nothing) and whose
+  // question shares the rarest word with this one — "haai" finds the streamlined
+  // fish for the mako question, "planeet" the orrery — never a picture of one of
+  // this question's options. Failing that, the topic's picture.
+  const STOP=new Set('welke welk wat waar wie hoe hoeveel waarom waarvoor waardoor noem noemen heet heten staat bekend wordt worden word zijn kan kunnen moet moeten heeft hebben doet doen gebruik gebruiken gebruikt over voor door naar deze dit dat een het de van met als ook nog vaak meestal soms altijd nooit vooral eigenlijk precies ongeveer eerste grootste kleinste snelste langste hoogste beste meeste dier dieren mens mensen naam soort soorten belangrijk bekende beroemde veel groot grote niet maar toch zelfs lang sterkste maakt maken helpt helpen komt komen gaat gaan geeft geven zien ziet kijkt kijken vindt vinden leeft leven kunt weet weten bouwt bouwen which what where who how many why does do the a an is are can of for with from into about name called known most first biggest largest fastest longest qual quais como quantos porque onde quem'.split(' '));
+  const words=t=>String(t||'').toLowerCase().replace(/[^\p{L}\s]/gu,' ').split(/\s+/).filter(x=>x.length>=4&&!STOP.has(x));
+  // "planeet" ~ "planeten", "haai" ~ "haaien": same first five letters and about the same length
+  const same=(a,b)=>a.slice(0,5)===b.slice(0,5)&&Math.abs(a.length-b.length)<=3;
+  const safe=new Map();
+  K.safeQuestionArt=q=>{
+    if(!q)return null;
+    if(K.SAFE_ART_IDS?.has(q.id))return 'assets/questions/s/'+q.id+'.jpg';
+    if(safe.has(q.id))return safe.get(q.id);
+    let url=null;
+    const bank=K.banks?.[K.state?.language]||K.banks?.nl||[];
+    const topic=bank.filter(o=>o.id!==q.id&&o.topic===q.topic&&!K.artRevealsAnswer(o)&&K.questionArtFor(o.id));
+    const opts=new Set((q.options||[]).map(o=>String(o).toLowerCase()));
+    const mine=words(q.prompt),cnt={};for(const k of mine)cnt[k]=(cnt[k]||0)+1;
+    const df=k=>topic.filter(o=>words(o.prompt).some(w=>same(w,k))).length;
+    // the question's own subject first (a word it repeats), then the rarest word
+    for(const k of [...new Set(mine)].sort((a,b)=>(cnt[b]-cnt[a])||(df(a)-df(b)))){
+      const o=topic.find(o=>!opts.has(String(o.answer).toLowerCase())&&words(o.prompt).some(w=>same(w,k)));
+      if(o){url=K.questionArtFor(o.id);break}
+    }
+    safe.set(q.id,url);return url;
+  };
   // URL of the picture that shows a question's answer, or null when there is
   // none. Takes a question or its id.
   K.answerArtFor=q=>{

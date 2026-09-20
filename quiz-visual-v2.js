@@ -13,12 +13,11 @@
   // Warm the browser cache for the next question so its picture appears with
   // the card instead of a beat later.
   K.questionArt=questionArt;
-  // What the child sees while the question is open is the TOPIC's picture,
-  // never the question's own: that one was drawn from question and answer
-  // together, so it shows the answer (Mars for "the red planet", a barometer
-  // for "how do you measure air pressure") and made the quiz too easy. The
-  // question's own illustration is the reward on the feedback card.
-  function quizArt(q){return K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte}
+  // What the child sees while the question is open: the question's own picture,
+  // unless that would show the answer (answer-art.js decides: Mars for "the
+  // red planet", a mako for "which shark is fast") — then the topic's picture,
+  // and the question's own one is the reward on the feedback card.
+  function quizArt(q){return K.artRevealsAnswer?.(q)?(K.safeQuestionArt?.(q)||K.TOPIC_ART[q.topic]||K.MASTER[q.world]||K.MASTER.ruimte):questionArt(q)}
   K.quizArt=quizArt;
   function preloadNextArt(){for(const n of (K.quiz?.questions||[]).slice(K.quiz.index,K.quiz.index+3)){for(const src of [quizArt(n),questionArt(n)]){const i=new Image();i.src=src}}}
   function answerSize(text){const n=String(text||'').length;return n>52?'xlong':n>34?'long':''}
@@ -233,7 +232,7 @@
         <span class="feedback-kicker">${timedOut?'⏱':correct?'✓':'✗'} ${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</span>
         ${correct?`<span class="feedback-reward">${K.icon('star')} +${q.xp||10} XP · ${K.icon('coin')} +2</span>`:''}
       </div>
-      ${K.questionArtFor?.(q.id)?`<div class="feedback-art"><img src="${questionArt(q)}" alt="" decoding="async"></div>`:''}
+      ${K.artRevealsAnswer?.(q)&&K.questionArtFor?.(q.id)?`<div class="feedback-art"><img src="${questionArt(q)}" alt="" decoding="async"></div>`:''}
       <div class="feedback-answer">${correct?'':`<small>${esc(t('feedback.answerLabel'))}</small>`}<b>${esc(q.answer)}</b></div>
       <p class="feedback-explain">${explain}</p>
       ${q.fact?`<div class="feedback-fact"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}
