@@ -86,11 +86,11 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   // every bubble of the tour stays inside the frame
   { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
   // No lonely last word: the last two words are tied together.
-  expect(await bubble.innerText()).toMatch(/de\u00a0Runner!$/);
+  expect(await bubble.innerText()).toMatch(/en\u00a0vlieg!$/);
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('munten', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('verzameling', { timeout: 5000 });
+  await expect(bubble).toContainText('collectie', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('Veel plezier', { timeout: 5000 });
   // the closing line has a clip too (rendered from the talk pose)
@@ -122,8 +122,9 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   // …and Luna takes over the moment her name is tapped.
   await page.locator('[data-guide="Luna"]').click();
   await expect(host).toHaveAttribute('data-guide', 'luna');
-  await expect(host).toHaveAttribute('data-pose', 'wave');
-  await expect(host.locator('.milo-figure')).toHaveAttribute('src', /luna\/wave\.png/);
+  // Her hello has a clip now (rendered from the talk pose), like Milo's lines.
+  await expect(host).toHaveAttribute('data-pose', 'talk');
+  await expect(host.locator('.milo-figure')).toHaveAttribute('src', /luna\/talk\.png/);
   await expect(host.locator('.milo-bubble')).toContainText('Ik ben Luna');
   // Her hello is asked for in her own voice (it may have been warmed before the tap).
   await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /Ik ben Luna/.test(r.text))).toBe(true);
@@ -147,7 +148,7 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   await expect(tour.locator('.milo-bubble')).toContainText('zes werelden', { timeout: 5000 });
   // The tour lines are hers alone (lines warmed earlier for Milo may still drain from the queue).
   await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /zes werelden/.test(r.text))).toBe(true);
-  expect(spoken.filter(r => r.voice === 'Milo' && /werelden|Memo|munten|verzameling|plezier/.test(r.text))).toEqual([]);
+  expect(spoken.filter(r => r.voice === 'Milo' && /werelden|Memo|munten|collectie|plezier/.test(r.text))).toEqual([]);
   for (const r of spoken.slice(before)) expect(JSON.stringify(r)).not.toContain('Sam');
   await page.locator('.milo-tour-skip').click();
   await expect(tour).toHaveCount(0, { timeout: 5000 });

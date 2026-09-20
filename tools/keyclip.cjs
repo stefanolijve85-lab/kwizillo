@@ -24,14 +24,21 @@ const ff = a => execFileSync(FF, ['-y', '-hide_banner', '-loglevel', 'error', ..
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'keyclip-'));
 const { chromium } = require('playwright');
 
-// Loudness per frame from the clip's own audio (16 kHz mono wav → RMS per 1/FPS s, scaled to the loud parts).
+// Mouth opening per frame from the clip's own audio, at syllable rate: the
+// 16 kHz mono wav is measured in 10 ms slices (RMS), followed with a fast
+// attack and a ~70 ms release so the dips between syllables survive, averaged
+// per 1/FPS frame, and scaled against the loudest sound of the surrounding
+// 0.6 s — a soft phrase opens the mouth as far as a loud one, and every
+// syllable pulses instead of one long "O" over a whole sentence.
 function envelope(wav) {
-  const buf = fs.readFileSync(wav); const data = buf.subarray(44); const n = data.length >> 1; const step = Math.round(16000 / FPS); const env = [];
-  for (let s = 0; s < n; s += step) { let sum = 0, c = 0; for (let i = s; i < Math.min(n, s + step); i++) { const v = data.readInt16LE(i * 2) / 32768; sum += v * v; c++; } env.push(Math.sqrt(sum / Math.max(1, c))); }
-  const ref = [...env].sort((a, b) => a - b)[Math.floor(env.length * .95)] || 1;
-  // normalised, a light smoothing (no flicker), a noise gate, and closed for the
-  // last half second: the app holds the final frame, so it must not be an open mouth
-  const norm = env.map(v => Math.min(1, v / ref)), out = norm.map((v, i) => Math.max(0, (norm[i - 1] ?? v) * .3 + v * .5 + (norm[i + 1] ?? v) * .2 - .08) / .92);
+  const buf = fs.readFileSync(wav); const data = buf.subarray(44); const n = data.length >> 1; const step = 160; const rms = [];
+  for (let s = 0; s < n; s += step) { let sum = 0, c = 0; for (let i = s; i < Math.min(n, s + step); i++) { const v = data.readInt16LE(i * 2) / 32768; sum += v * v; c++; } rms.push(Math.sqrt(sum / Math.max(1, c))); }
+  const ref = [...rms].sort((a, b) => a - b)[Math.floor(rms.length * .95)] || 1;
+  const gate = ref * .07;   // room noise never twitches the mouth
+  let f = 0; const fol = rms.map(v => { v = v > gate ? v : 0; f = v > f ? v : f * .87 + v * .13; return f; });
+  const per = 100 / FPS, frames = Math.ceil(fol.length / per), env = [];
+  for (let k = 0; k < frames; k++) { const a = Math.floor(k * per), b = Math.min(fol.length, Math.ceil((k + 1) * per)); let s = 0; for (let i = a; i < b; i++) s += fol[i]; env.push(s / Math.max(1, b - a)); }
+  const win = Math.round(FPS * .3), out = env.map((v, i) => { let m = 0; for (let j = Math.max(0, i - win); j <= Math.min(env.length - 1, i + win); j++) m = Math.max(m, env[j]); m = Math.max(m, ref * .35); return Math.pow(Math.min(1, v / m), .85); });
   return out;
 }
 
@@ -183,9 +190,16 @@ function envelope(wav) {
           g.lineCap = 'round'; g.strokeStyle = glow; g.lineWidth = ed * .075;
           // the same glow in every clip: a wide soft halo, a tighter one, then the crisp line
           const stroke = path => { g.shadowColor = 'rgba(70,190,255,.95)'; g.shadowBlur = ed * .4; path(); g.stroke(); g.shadowBlur = ed * .16; path(); g.stroke(); g.shadowBlur = ed * .05; path(); g.stroke(); };
+          // The mouth opens with the voice, continuously: the smile arc when quiet,
+          // a flat "o" for a soft sound, a tall "O" for a loud one — the two
+          // shapes cross-fade around the threshold so the mouth never pops.
+          const mix = Math.max(0, Math.min(1, (o - .05) / .12));
           if (open < 0) {}
-          else if (o < .18) stroke(() => { g.beginPath(); g.arc(0, -r * .4, r, Math.PI * .12, Math.PI * .88); });
-          else { const hh = r * (.8 + o * .2); g.shadowBlur = 0; g.fillStyle = 'rgba(98,220,255,.28)'; g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); g.fill(); stroke(() => { g.beginPath(); g.ellipse(0, 0, r, hh, 0, 0, Math.PI * 2); }); }
+          else {
+            if (mix < 1) { g.globalAlpha = 1 - mix; stroke(() => { g.beginPath(); g.arc(0, -r * .4, r, Math.PI * .12, Math.PI * .88); }); }
+            if (mix > 0) { g.globalAlpha = mix; const hh = r * (.16 + o * .94), rw = r * (.78 + o * .22); g.shadowBlur = 0; g.fillStyle = `rgba(98,220,255,${(.12 + o * .2).toFixed(3)})`; g.beginPath(); g.ellipse(0, 0, rw, hh, 0, 0, Math.PI * 2); g.fill(); stroke(() => { g.beginPath(); g.ellipse(0, 0, rw, hh, 0, 0, Math.PI * 2); }); }
+            g.globalAlpha = 1;
+          }
           g.restore();
           if (debug) { g.save(); g.lineWidth = 1; if (eyes) { g.strokeStyle = 'yellow'; g.beginPath(); g.arc(eyes.lx, eyes.ly, 4, 0, 7); g.stroke(); g.beginPath(); g.arc(eyes.rx, eyes.ry, 4, 0, 7); g.stroke(); g.beginPath(); g.moveTo(eyes.lx, eyes.ly); g.lineTo(eyes.rx, eyes.ry); g.stroke(); } g.strokeStyle = 'red'; g.beginPath(); g.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2); g.stroke(); g.strokeStyle = 'lime'; g.strokeRect(best.x0, best.y0, sw, sh); g.restore(); }
         }

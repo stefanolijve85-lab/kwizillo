@@ -110,7 +110,12 @@
     for(let i=0;i<n;i++){let sum=0;const s0=i*win,s1=Math.min(data.length,s0+win);for(let j=s0;j<s1;j++)sum+=data[j]*data[j];env[i]=Math.sqrt(sum/Math.max(1,s1-s0))}
     const sorted=Array.from(env).sort((x,y)=>x-y),ref=sorted[Math.floor(sorted.length*.95)]||1;
     for(let i=0;i<n;i++)env[i]=Math.min(1,env[i]/(ref||1));
-    envelopes.set(buffer,env);return env;
+    // Scaled against the loudest sound of the surrounding 0.6 s (floored, so
+    // silence stays shut): a soft phrase opens the mouth as far as a loud one,
+    // and every syllable pulses — the same rule the clips' drawn mouth uses.
+    const span=Math.round(.3/ENV_STEP),out=new Float32Array(n);
+    for(let i=0;i<n;i++){let m=.35;for(let j=Math.max(0,i-span);j<=Math.min(n-1,i+span);j++)if(env[j]>m)m=env[j];out[i]=env[i]<.06?0:Math.pow(Math.min(1,env[i]/m),.85)}
+    envelopes.set(buffer,out);return out;
   }
   // Read against the wall clock from the moment the source started: it stays
   // in step with playback and never depends on the context clock ticking.

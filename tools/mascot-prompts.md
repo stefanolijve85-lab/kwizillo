@@ -111,6 +111,27 @@ A missing clip is never fatal: the figure stays and its drawn mouth moves with t
 voice (K.voiceLevel, m1-runtime.js). To redo a line: rerun its avatar node on the
 flow, then `encode <src> <guide> <lang> <key>` and `manifest`.
 
+### Clip mouth v5 (2026-09-20) and Luna's clips
+
+keyclip's drawn mouth now follows the voice at syllable rate: 10 ms RMS with a
+fast attack / ~70 ms release, averaged per frame and scaled against the loudest
+sound of the surrounding 0.6 s (floored), then a continuous shape — smile arc
+when quiet, a flat "o" for a soft sound, a tall "O" for a loud one, cross-faded
+so it never pops. The live mouth on the figure/portrait (m1-runtime envelopeOf)
+uses the same local scaling. All Milo NL clips were re-keyed from
+`incoming/clips/*-src.mp4` (no re-render needed); `games` was retired (its clip
+said the old two-game line) and `nav` re-rendered for the new line.
+
+Luna: green base = `tools/greenpad.cjs assets/mascots/luna/talk.png` → asset
+`P5B453dqphqYVjzhrX3k`, node `U0ITBek9c6FgL9tFIG9Z` on the flow; her mouth is
+animated by omnihuman (no `--screen-mouth`). Rendered: NL `hello`, `welcome`
+(≈ 2.6k + 3.6k credits). Prepared but NOT run (credits ran out on 2026-09-20 —
+omnihuman "Insufficient credits"): Milo NL `games` (tts came out 18.6 s; shorten
+the line first, node LKTeueHElpesCqMP7Q0i), Milo NL `hud` with the "KwizCoins /
+dagen op rij" wording (node JcMpmYZ1x6sAOv4niQKp; i18n keeps the old wording
+until the clip exists), Luna NL worlds/games/hud/nav/done, Milo NL onboarding
+language/age/group/voice/hello, and EN/PT.
+
 ## Game tiles (Home "Speel ook", Memo picker)
 
 `assets/games/{memo-island,math-island,worlds-all}.jpg` — floating islands in the world style,
