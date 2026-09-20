@@ -175,6 +175,9 @@
     // height so the character keeps its scale; the still and the drawn mouth
     // leave the DOM while it plays and the last frame stays until the next pose.
     let clipEl=null;
+    // Swiped away while a clip plays: iOS pauses the video; play it on again
+    // when the app comes back so the line finishes instead of freezing.
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&clipEl&&clipEl.isConnected&&clipEl.paused&&!clipEl.ended){const p=clipEl.play();if(p&&p.catch)p.catch(()=>{})}});
     async function playClip(src){
       const v=clipVideo(src);
       v.muted=K.state.voice==='Stil';
