@@ -219,7 +219,12 @@ function envelope(wav) {
     fs.writeFileSync(path.join(outDir, `f${String(frames.length + k).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
   }
   // the audio gets the same tail of silence, so the container is not cut at the shorter stream
-  const padded = path.join(tmp, 'padded.wav'); ff(['-i', path.join(tmp, 'audio.wav'), '-af', `apad=pad_dur=${SETTLE}`, padded]);
+  // The voice is levelled like the app's live speech (m1-runtime: RMS to about
+  // -16 dBFS, 4:1 compression, a limiter): the video model hands back the plain
+  // tts track, noticeably thinner and quieter than a live line, so a clip after
+  // a live line sounded far away. loudnorm to -14 LUFS / -1.5 dBTP, then the
+  // settle tail of silence.
+  const padded = path.join(tmp, 'padded.wav'); ff(['-i', path.join(tmp, 'audio.wav'), '-af', `loudnorm=I=-14:TP=-1.5:LRA=6,apad=pad_dur=${SETTLE}`, padded]);
   await b.close();
 
   // 4. encode: WebM VP9+alpha from the frames; ProRes 4444 → Apple HEVC with alpha
