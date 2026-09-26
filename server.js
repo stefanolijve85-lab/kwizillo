@@ -54,7 +54,7 @@ const RATE_WINDOW_MS = 60000;
 // so a quick child legitimately reaches 100+ requests a minute; cache hits are
 // refunded below and never count.
 const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 240);
-const LANGS = new Set(['nl','en','pt']);
+const LANGS = new Set(['nl','en','pt','de','es','fr','it','ru','da']);
 const hits = new Map();
 
 // Production runs behind Caddy (deploy/Caddyfile), where every socket is
@@ -170,6 +170,9 @@ function isFlemish(v){
 // Base scorers rate gender, age and tone only. Language fit is the rule's job
 // (scoreVoiceFor); a "verified for Dutch" bonus here once let an American voice
 // win the English slot because it happened to be verified for Dutch as well.
+// A children's app: a voice sold as sultry, breathy or raspy is wrong for a guide
+// who reads quiz questions to a six-year-old, however well it is labelled.
+const GROWN_UP = /sultry|sensual|seduct|sexy|breathy|husky|raspy|asmr|smok|whisper/;
 function scoreCurrentVoice(v, wanted){
   const labels=v.labels||{};
   const hay=[v.name,v.description,...Object.values(labels)].filter(Boolean).join(' ').toLowerCase();
@@ -178,6 +181,7 @@ function scoreCurrentVoice(v, wanted){
   if(/young|youth|jong/.test(norm(labels.age)+' '+hay)) s+=80;
   if(/friendly|warm|cheer|conversational|story|narrat|clear|calm|pleasant|gentle|youthful|bright/.test(hay)) s+=35;
   if(/old|elder|deep|gravel|intense|dramatic|villain|mature/.test(hay)) s-=45;
+  if(GROWN_UP.test(hay)) s-=70;
   return s;
 }
 function scoreSharedVoice(v,wanted){
@@ -189,6 +193,7 @@ function scoreSharedVoice(v,wanted){
   if(/friendly|warm|cheer|joy|conversational|story|narrat|clear|calm|pleasant|gentle|youthful|bright|character/.test(hay)) s+=45;
   if(/characters_animation|animation|narration|educat/.test(hay)) s+=20;
   if(/old|elder|deep|gravel|intense|dramatic|villain|mature|senior/.test(hay)) s-=65;
+  if(GROWN_UP.test(hay)) s-=90;
   s += Math.min(30, Math.log10(1+Number(v.usage_character_count_1y||0))*6);
   return s;
 }
@@ -226,25 +231,34 @@ function accentOf(v){ return norm(v.accent || v.labels?.accent || ''); }
 function languageOf(v){ return norm(v.language || v.labels?.language || ''); }
 const NON_DUTCH_ACCENTS = /american|british|australian|irish|scottish|canadian|indian|african|english|us\b|uk\b/;
 
+// One rule per language. `prefer` is the accent the product wants (a bonus, so a
+// voice with no accent label can still win), `avoid` is an accent that must lose
+// rather than merely not win, and `veto` looks past the labels at the name and
+// the description for the same thing. `strict` also rejects voices labelled for
+// another language; Dutch leaves it off so step 6 still has a last resort.
+function langRuleFor(label, code, {prefer, avoid, veto, strict=true}={}){
+  const bad = v => !!(veto && veto(v)) || !!(avoid && avoid.test(accentOf(v)));
+  return {
+    label, code,
+    matches: v => languageOf(v)===code && !bad(v),
+    reject:  v => bad(v) || (strict && !!languageOf(v) && languageOf(v)!==code),
+    accentBonus: v => prefer && prefer.test(accentOf(v)) ? 80 : 0
+  };
+}
 const LANG_RULES = {
-  nl: {
-    label:'Netherlands Dutch',
-    matches:v => languageOf(v)==='nl' && !isFlemish(v) && !NON_DUTCH_ACCENTS.test(accentOf(v)),
-    reject:v => isFlemish(v) || NON_DUTCH_ACCENTS.test(accentOf(v)),
-    accentBonus:v => /^(standard|nl-nl|netherlands|dutch)$/.test(accentOf(v)) ? 80 : 0
-  },
-  en: {
-    label:'US English',
-    matches:v => languageOf(v)==='en',
-    reject:v => languageOf(v) && languageOf(v)!=='en',
-    accentBonus:v => /american|en-us/.test(accentOf(v)) ? 80 : 0
-  },
-  pt: {
-    label:'Brazilian Portuguese',
-    matches:v => languageOf(v)==='pt' && !/portugal|european|pt-pt/.test(accentOf(v)),
-    reject:v => (languageOf(v) && languageOf(v)!=='pt') || /portugal|european|pt-pt/.test(accentOf(v)),
-    accentBonus:v => /brazil|brasil|pt-br/.test(accentOf(v)) ? 80 : 0
-  }
+  nl: langRuleFor('Netherlands Dutch','nl',{prefer:/^(standard|nl-nl|netherlands|dutch)$/,avoid:NON_DUTCH_ACCENTS,veto:isFlemish,strict:false}),
+  en: langRuleFor('US English','en',{prefer:/american|en-us/}),
+  pt: langRuleFor('Brazilian Portuguese','pt',{prefer:/brazil|brasil|pt-br/,avoid:/portugal|european|pt-pt/}),
+  // Added for the six new languages. Each one wants the standard variety of the
+  // country the product ships to, so a regional variety that would sound wrong to
+  // a child (Swiss German, Quebec French) is pushed down rather than rejected:
+  // rejecting it outright can leave a language without any voice at all.
+  de: langRuleFor('German','de',{prefer:/^(standard|german|de-de|germany)$/}),
+  es: langRuleFor('European Spanish','es',{prefer:/castilian|peninsular|spain|es-es|^(standard|spanish)$/}),
+  fr: langRuleFor('French','fr',{prefer:/^(standard|french|fr-fr|france)$/}),
+  it: langRuleFor('Italian','it',{prefer:/^(standard|italian|it-it|italy)$/}),
+  ru: langRuleFor('Russian','ru',{prefer:/^(standard|russian|ru-ru|russia)$/}),
+  da: langRuleFor('Danish','da',{prefer:/^(standard|danish|da-dk|denmark)$/})
 };
 const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
 
@@ -255,11 +269,10 @@ const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
 function nameLanguageBias(v, lang){
   const name=norm(v.name);
   if(!name.startsWith('kwizillo')) return 0;
-  const saysNl=/\bnl(-nl)?\b/.test(name), saysEn=/\ben(-us|-gb)?\b/.test(name), saysPt=/\bpt(-br)?\b/.test(name);
-  if(lang==='nl') return saysNl?50:(saysEn||saysPt)?-50:0;
-  if(lang==='en') return saysEn?50:(saysNl||saysPt)?-50:0;
-  if(lang==='pt') return saysPt?50:(saysNl||saysEn)?-50:0;
-  return 0;
+  // "Kwizillo Luna NL-NL v20" names its language; "Kwizillo Milo DE auto" too.
+  const named=Object.keys(LANG_RULES).filter(c=>new RegExp(`\\b${c}(-[a-z]{2})?\\b`).test(name));
+  if(!named.length) return 0;
+  return named.includes(lang) ? 50 : -50;
 }
 function scoreVoiceFor(v, wanted, lang, shared){
   const rule=langRule(lang);
@@ -543,6 +556,15 @@ server.listen(PORT,HOST,async()=>{
     console.log('Open to the local network. Stop with Ctrl+C when you are done testing.');
   }
   console.log(API_KEY?'ElevenLabs: enabled — picking a native voice per language':'ElevenLabs: not configured (use ./start.command)');
-  if(API_KEY){for(const lang of LANGS){try{await loadVoices(lang)}catch(e){console.log(`Voice selection failed for ${lang}:`,e.message)}}}
+  // Nine languages times two guides is eighteen lookups; warming them all in
+  // series delayed the first quiz. Languages whose choice is already saved are
+  // warmed (that is a file read), the rest are resolved on their first request.
+  if(API_KEY){
+    const saved=readSavedSelection()||{};
+    const warm=[...LANGS].filter(l=>saved[l]?.Milo&&saved[l]?.Luna);
+    for(const lang of (warm.length?warm:['nl'])){try{await loadVoices(lang)}catch(e){console.log(`Voice selection failed for ${lang}:`,e.message)}}
+    const rest=[...LANGS].filter(l=>!warm.includes(l));
+    if(rest.length) console.log(`Voices for ${rest.join(', ')} are picked on the first line spoken in that language.`);
+  }
   console.log('Stop: Ctrl+C\n');
 });

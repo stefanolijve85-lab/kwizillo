@@ -6,13 +6,9 @@ const path = require('path');
 const vm = require('vm');
 const core = require('../quiz-core-v2.js');
 
-const ROOT = path.join(__dirname, '..');
-const ctx = { window: {} };
-vm.createContext(ctx);
-for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions-extra-pt.js', 'questions.js', 'questions-en.js', 'questions-pt.js']) {
-  vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
-}
-const questions = ctx.window.KWIZILLO_QUESTIONS_NL;
+const { ROOT, loadBanks, LANGS } = require('./langs.js');
+const { ctx, banks } = loadBanks();
+const questions = banks.nl;
 
 /* ---- topic routing stays isolated ---- */
 const topicBatch = core.selectQuizBatch({ questions, world: 'wetenschap', topicKey: 'lichaam', grade: 5, limit: 10, rng: () => 0.37 });
@@ -154,7 +150,7 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   assert.strictEqual(core.spellNumbers('cerca de 9,5 trilhões', 'pt'), 'cerca de nove vírgula cinco trilhões');
 
   // Every number that actually occurs in either bank must convert cleanly.
-  for (const [lang, bank] of Object.entries({ nl: questions, en: ctx.window.KWIZILLO_QUESTIONS_EN, pt: ctx.window.KWIZILLO_QUESTIONS_PT })) {
+  for (const [lang, bank] of Object.entries(banks)) {
     for (const q of bank) {
       for (const text of [q.prompt, ...q.options, q.explanation, q.fact]) {
         const spoken = core.spellNumbers(text, lang);
@@ -192,6 +188,37 @@ assert.strictEqual(core.spellNumbers('2006', 'pt'), 'dois mil e seis');
 assert.strictEqual(core.spellNumbers('71%', 'pt'), 'setenta e um por cento');
 assert.strictEqual(core.spellNumbers('300 km/h', 'pt'), 'trezentos quilômetros por hora');
 assert.strictEqual(core.spellNumbers('0 °C', 'pt'), 'zero graus Celsius');
+
+// The six languages added in this milestone, each with the form that language
+// really speaks: German and Italian glue the words together, French counts on
+// from sixty and eighty, Danish puts the unit first, Spanish drops the -o of uno
+// before a noun and Russian makes the unit agree with the number.
+assert.strictEqual(core.spellNumbers('21 Grad', 'de'), 'einundzwanzig Grad');
+assert.strictEqual(core.spellNumbers('28.000 km/h', 'de'), 'achtundzwanzigtausend Kilometer pro Stunde');
+assert.strictEqual(core.spellNumbers('165 Jahre', 'de'), 'einhundertfünfundsechzig Jahre');
+assert.strictEqual(core.spellNumbers('9,5 Billionen', 'de'), 'neun Komma fünf Billionen');
+assert.strictEqual(core.spellNumbers('21 grados', 'es'), 'veintiún grados');
+assert.strictEqual(core.spellNumbers('31 años', 'es'), 'treinta y un años');
+assert.strictEqual(core.spellNumbers('100', 'es'), 'cien');
+assert.strictEqual(core.spellNumbers('71%', 'es'), 'setenta y un por ciento');
+assert.strictEqual(core.spellNumbers('71 ans', 'fr'), 'soixante et onze ans');
+assert.strictEqual(core.spellNumbers('91', 'fr'), 'quatre-vingt-onze');
+assert.strictEqual(core.spellNumbers('80', 'fr'), 'quatre-vingts');
+assert.strictEqual(core.spellNumbers('28 000 km/h', 'fr'), 'vingt-huit mille kilomètres par heure');
+assert.strictEqual(core.spellNumbers('23 gradi', 'it'), 'ventitré gradi');
+assert.strictEqual(core.spellNumbers('28', 'it'), 'ventotto');
+assert.strictEqual(core.spellNumbers('103', 'it'), 'centotré');
+assert.strictEqual(core.spellNumbers('2006', 'it'), 'duemilasei');
+assert.strictEqual(core.spellNumbers('1%', 'ru'), 'один процент');
+assert.strictEqual(core.spellNumbers('2%', 'ru'), 'два процента');
+assert.strictEqual(core.spellNumbers('71%', 'ru'), 'семьдесят один процент');
+assert.strictEqual(core.spellNumbers('22 km/h', 'ru'), 'двадцать два километра в час');
+assert.strictEqual(core.spellNumbers('28 000 km/h', 'ru'), 'двадцать восемь тысяч километров в час');
+assert.strictEqual(core.spellNumbers('11 000', 'ru'), 'одиннадцать тысяч');
+assert.strictEqual(core.spellNumbers('21 grader', 'da'), 'enogtyve grader');
+assert.strictEqual(core.spellNumbers('165 år', 'da'), 'et hundrede og femogtres år');
+assert.strictEqual(core.spellNumbers('2006', 'da'), 'to tusind og seks');
+assert.strictEqual(core.spellNumbers('28.000 km/h', 'da'), 'otteogtyve tusind kilometer i timen');
 // Six levels: seconds, allowed mistakes, difficulty cap, pass rule.
 assert.strictEqual(core.LEVELS.length, 6);
 assert.deepStrictEqual([1,2,3,4,5,6].map(core.questionSeconds), [30,25,20,16,13,10]);

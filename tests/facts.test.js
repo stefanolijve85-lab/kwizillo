@@ -7,7 +7,7 @@ const ctx = { window: {} }; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'facts.js'), 'utf8'), ctx);
 const F = ctx.window.KWIZILLO_FACTS;
 const WORLDS = ['ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie'];
-const LANGS = ['nl', 'en', 'pt'];
+const { LANGS } = require('./langs.js');
 let total = 0;
 for (const lang of LANGS) {
   assert.ok(F[lang], `${lang} bank`);

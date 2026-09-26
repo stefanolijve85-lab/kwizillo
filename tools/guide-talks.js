@@ -23,7 +23,6 @@ const KEYS = {
 const GUIDES = Object.keys(KEYS);
 // The full-body render each guide's clips start from (the cut-out shown before a clip plays).
 const BASE_POSE = { milo: 'talk', luna: 'talk' };
-const LANGS = ['nl', 'en', 'pt'];
 const dirOf = guide => path.join(ROOT, 'assets', guide, 'talk');
 const [cmd, ...args] = process.argv.slice(2);
 
@@ -33,6 +32,8 @@ function i18n() {
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'i18n.js'), 'utf8'), ctx);
   return ctx.window.KWIZILLO_M1;
 }
+// Every language the app offers, from the one place that defines them.
+const LANGS = i18n().LANGUAGES.map(l => l.id);
 const keyFor = (guide, k) => k === 'hello' ? `voice.${guide}.hello` : ['worlds', 'games', 'hud', 'nav', 'done'].includes(k) ? `tour.${k}` : `onboarding.speech.${k}`;
 
 if (cmd === 'lines') {

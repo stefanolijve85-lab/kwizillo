@@ -92,7 +92,13 @@
   // Development simulator: localized prices and every outcome, on demand.
   const dev={outcome:'success',trialEligible:true,storeAvailable:true,delay:600};
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
-  const devPrices={nl:{monthly:'€ 6,99',yearly:'€ 49,99',cur:'EUR'},en:{monthly:'$6.99',yearly:'$49.99',cur:'USD'},pt:{monthly:'R$ 34,90',yearly:'R$ 249,90',cur:'BRL'}};
+  const devPrices={
+    nl:{monthly:'€ 6,99',yearly:'€ 49,99',cur:'EUR'},en:{monthly:'$6.99',yearly:'$49.99',cur:'USD'},
+    pt:{monthly:'R$ 34,90',yearly:'R$ 249,90',cur:'BRL'},
+    de:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},es:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},
+    fr:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},it:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},
+    ru:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},da:{monthly:'54,99 kr.',yearly:'399,00 kr.',cur:'DKK'}
+  };
   const devProvider={
     id:'dev',
     available:()=>isDevHost()&&dev.storeAvailable,

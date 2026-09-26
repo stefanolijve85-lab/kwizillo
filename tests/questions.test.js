@@ -7,14 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
-const ROOT = path.join(__dirname, '..');
-const ctx = { window: {} };
-vm.createContext(ctx);
-for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions-extra-pt.js', 'questions.js', 'questions-en.js', 'questions-pt.js']) {
-  vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
-}
-
-const BANKS = { nl: ctx.window.KWIZILLO_QUESTIONS_NL, en: ctx.window.KWIZILLO_QUESTIONS_EN, pt: ctx.window.KWIZILLO_QUESTIONS_PT };
+const { ROOT, loadBanks } = require('./langs.js');
+const { ctx, banks: BANKS } = loadBanks();
 const WORLDS = ['ruimte', 'geschiedenis', 'wetenschap', 'mysterie', 'dieren', 'aarde'];
 
 for (const [lang, bank] of Object.entries(BANKS)) {
