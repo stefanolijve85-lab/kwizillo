@@ -49,8 +49,10 @@ test('five rounds: zoomed-in picture, four names, fewer zoom-outs earn more, a m
   await page.locator('#fzNext').click();
   // Round 3: wrong → the answer is named, the picture is fully shown, the explanation is there.
   const a3 = await answer(page);
-  const wrong = page.locator('.fotozoom-answers .answer').filter({ hasNot: page.locator(`[aria-label="${a3}"]`) }).first();
-  await wrong.click();
+  // `hasNot` looks at descendants, and the label sits on the card itself, so the
+  // correct card was not excluded and the "miss" sometimes hit the right answer.
+  const wrongIndex = await page.evaluate(a => [...document.querySelectorAll('.fotozoom-answers .answer')].findIndex(b => b.getAttribute('aria-label') !== a), a3);
+  await page.locator('.fotozoom-answers .answer').nth(wrongIndex).click();
   await expect(page.locator('.fotozoom-verdict h2')).toContainText(a3, { timeout: 4000 });
   await expect(page.locator('.fotozoom-verdict p')).not.toHaveText('');
   await page.waitForTimeout(800);
