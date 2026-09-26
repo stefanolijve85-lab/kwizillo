@@ -67,3 +67,58 @@ test('old track ids resolve to the new loops and the sound sheet lists all eight
   await expect(page.locator('.music-choice.selected')).toHaveText(/Eilanden/);
   await expect(page.locator('.music-choice')).toContainText(['Eilanden', 'Ruimte', 'Jungle', 'Aarde', 'Geschiedenis', 'Wetenschap', 'Mysterie', 'Spelletjes']);
 });
+
+// An interruption (swiping the app away, a call, the lock screen) leaves iOS
+// contexts "interrupted", and after a longer background the context is thrown
+// away altogether. Both cases must end with music playing again, not with a
+// silent app that only a reload fixes.
+test('music and voice come back after the app is interrupted', async ({ page }) => {
+  test.setTimeout(120000);
+  await boot(page);
+  await expect.poll(() => current(page), { timeout: 8000 }).toBe('home');
+  // A voice context exists once the child has tapped; the intro sting may still
+  // be fading, so the healthy start is polled rather than asserted at once.
+  await page.evaluate(() => window.KWIZILLO_M1.audio.wake());
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.health), { timeout: 8000 })
+    .toMatchObject({ music: 'running', playing: true });
+
+  const hide = () => page.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', { value: 'hidden', configurable: true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  const show = () => page.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+
+  // 1. Parked like iOS parks it: suspended contexts must be resumed.
+  await hide();
+  await page.evaluate(async () => { await window.KWIZILLO_M1.audio.ctx.suspend(); await window.KWIZILLO_M1.audio.voiceCtx?.suspend(); });
+  await show();
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.health), { timeout: 25000 })
+    .toMatchObject({ music: 'running', playing: true });
+
+  // 2. The iOS zombie: the context still says "running" but its clock stands
+  //    still, so nothing is heard. It must be replaced, together with the source
+  //    and the buffers that belong to it, and the same track must start again.
+  await hide();
+  await page.evaluate(() => {
+    for (const c of [window.KWIZILLO_M1.audio.ctx, window.KWIZILLO_M1.audio.voiceCtx]) {
+      if (c) Object.defineProperty(c, 'currentTime', { get: () => 4.2, configurable: true });
+    }
+  });
+  await show();
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.health), { timeout: 25000 })
+    .toMatchObject({ music: 'running', playing: true });
+  expect(await page.evaluate(() => window.KWIZILLO_M1.audio.ctx.currentTime)).toBeGreaterThan(0.001);
+  expect(await current(page)).toBe('home');
+
+  // 3. Thrown away altogether: a new context, and the voice context is alive too.
+  await hide();
+  await page.evaluate(async () => { await window.KWIZILLO_M1.audio.ctx.close(); await window.KWIZILLO_M1.audio.voiceCtx?.close(); });
+  await show();
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.health), { timeout: 25000 })
+    .toMatchObject({ music: 'running', playing: true });
+  expect(await current(page)).toBe('home');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.audio.voiceCtx.state)).not.toBe('closed');
+});
