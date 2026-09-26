@@ -110,6 +110,12 @@
 .onboarding-sub{margin:0 0 6px;max-width:30ch;font-size:clamp(12px,3vw,15px);font-weight:800;line-height:1.35;color:#e4f3ff}
 .onboarding-choices{display:grid;gap:10px;width:100%;max-width:420px}
 .onboarding-choices.guides{grid-template-columns:1fr}
+/* The language step lists nine choices: two compact columns fit a phone screen
+   without scrolling, the guide step keeps its full-width rows. */
+.onboarding-choices.lang{grid-template-columns:1fr 1fr;gap:8px}
+.onboarding-choices.lang .onboarding-choice{grid-template-columns:32px 1fr;min-height:54px;padding:8px 10px;gap:8px;border-radius:18px}
+.onboarding-choices.lang .choice-icon{font-size:23px}
+.onboarding-choices.lang b{font-size:13px;line-height:1.1}
 .onboarding-choice{display:grid;grid-template-columns:52px 1fr;align-items:center;gap:12px;min-height:66px;cursor:pointer;text-align:left;
   border:2px solid rgba(255,255,255,.6);border-radius:22px;padding:11px 14px;color:#12265f;
   background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(233,246,255,.94));box-shadow:0 7px 0 rgba(94,163,214,.7),0 13px 22px rgba(0,26,80,.22)}
@@ -153,6 +159,11 @@
 
 /* ---- Language toggle in the parent zone ---- */
 .lang-toggle{display:flex;gap:6px}
+/* Nine languages do not fit on one line beside the label, so the language card
+   gives its buttons their own row and lets them wrap. */
+.setting-card.lang-card{grid-template-columns:48px 1fr;row-gap:9px}
+.setting-card.profile-row.lang-card{grid-template-columns:1fr}
+.setting-card.lang-card .lang-toggle{grid-column:1/-1;flex-wrap:wrap}
 .lang-toggle button{min-height:38px;padding:0 11px;border:2px solid #d1e5f7;border-radius:13px;background:#fff;color:#2f6098;
   font-size:12px;font-weight:1000;cursor:pointer}
 .lang-toggle button.active{border-color:#267cff;background:#eaf4ff;color:#1257b8;box-shadow:0 0 0 2px rgba(38,124,255,.14)}

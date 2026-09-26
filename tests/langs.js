@@ -8,10 +8,14 @@ const vm = require('vm');
 
 const ROOT = path.join(__dirname, '..');
 
+const stringsFiles = () => fs.readdirSync(ROOT).filter(f => /^strings-[a-z]{2}\.js$/.test(f)).sort();
+
 function i18n() {
   const ctx = { window: {}, document: { documentElement: {} } };
   vm.createContext(ctx);
   ctx.window.KWIZILLO_M1 = { state: { language: 'nl' }, save() {} };
+  // The languages added after the first three bring their own table.
+  for (const f of stringsFiles()) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'i18n.js'), 'utf8'), ctx);
   return ctx.window.KWIZILLO_M1;
 }
@@ -32,4 +36,4 @@ function loadBanks() {
   return { ctx, banks };
 }
 
-module.exports = { LANGS, i18n, loadBanks, bankFiles, ROOT };
+module.exports = { LANGS, i18n, loadBanks, bankFiles, stringsFiles, ROOT };

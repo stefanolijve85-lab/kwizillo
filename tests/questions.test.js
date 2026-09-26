@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
-const { ROOT, loadBanks } = require('./langs.js');
+const { ROOT, loadBanks, LANGS, i18n } = require('./langs.js');
 const { ctx, banks: BANKS } = loadBanks();
 const WORLDS = ['ruimte', 'geschiedenis', 'wetenschap', 'mysterie', 'dieren', 'aarde'];
 
@@ -60,7 +60,6 @@ for (const [lang, bank] of Object.entries(BANKS)) {
 }
 
 // Cross-language parity: every bank covers the same ids with the same metadata.
-const LANGS = Object.keys(BANKS);
 const nlIds = BANKS.nl.map(q => q.id).sort();
 const nlById = new Map(BANKS.nl.map(q => [q.id, q]));
 for (const lang of LANGS.filter(l => l !== 'nl')) {
@@ -76,12 +75,11 @@ for (const lang of LANGS.filter(l => l !== 'nl')) {
 }
 
 // Every topic key used by the banks must have a label in every language.
-const i18n = fs.readFileSync(path.join(ROOT, 'i18n.js'), 'utf8');
+const S = i18n().strings;
 const topicKeys = [...new Set(BANKS.nl.map(q => q.topic))];
 assert.strictEqual(topicKeys.length, 24, 'expected 24 distinct topic keys');
 for (const key of topicKeys) {
-  const hits = i18n.split(`'topic.${key}'`).length - 1;
-  assert.strictEqual(hits, LANGS.length, `topic.${key} must be translated in every language (found ${hits})`);
+  for (const lang of LANGS) assert.ok(S[lang][`topic.${key}`], `topic.${key} has no ${lang} label`);
 }
 
 console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].length}`).join(', ')}, 24 topics, ids in parity)`);

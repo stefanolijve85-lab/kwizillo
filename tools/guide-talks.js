@@ -29,6 +29,7 @@ const [cmd, ...args] = process.argv.slice(2);
 function i18n() {
   const ctx = { window: {}, document: { documentElement: {} } }; vm.createContext(ctx);
   ctx.window.KWIZILLO_M1 = { state: { language: 'nl' } };
+  for (const f of fs.readdirSync(ROOT).filter(f => /^strings-[a-z]{2}\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'i18n.js'), 'utf8'), ctx);
   return ctx.window.KWIZILLO_M1;
 }

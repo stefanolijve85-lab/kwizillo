@@ -423,7 +423,7 @@
     'settings.groupSub':'Pas de moeilijkheid aan',
     'settings.groupValue':'Groep {n}',
     'settings.language':'Taal',
-    'settings.languageSub':'Nederlands, Engels of Portugees',
+    'settings.languageSub':'Kies de taal van het spel',
     'settings.sound':'Geluid, muziek & stem',
     'settings.soundVoiceOff':'Stem uit',
     'settings.soundVoiceOn':'Stem: {voice}',
@@ -887,7 +887,7 @@
     'settings.groupSub':'Adjust the difficulty',
     'settings.groupValue':'Year {n}',
     'settings.language':'Language',
-    'settings.languageSub':'Dutch, English or Portuguese',
+    'settings.languageSub':'Pick the language of the game',
     'settings.sound':'Sound, music & voice',
     'settings.soundVoiceOff':'Voice off',
     'settings.soundVoiceOn':'Voice: {voice}',
@@ -1351,7 +1351,7 @@
     'settings.groupSub':'Ajuste a dificuldade',
     'settings.groupValue':'{n}º ano',
     'settings.language':'Idioma',
-    'settings.languageSub':'Holandês, inglês ou português',
+    'settings.languageSub':'Escolha o idioma do jogo',
     'settings.sound':'Som, música e voz',
     'settings.soundVoiceOff':'Voz desligada',
     'settings.soundVoiceOn':'Voz: {voice}',
@@ -1396,8 +1396,30 @@
     'intro.tapForSound':'Toque para ouvir'
   };
 
-  const STRINGS={nl:NL,en:EN,pt:PT};
-  K.LANGUAGES=[{id:'nl',label:'Nederlands',flag:'🇳🇱'},{id:'en',label:'English',flag:'🇬🇧'},{id:'pt',label:'Português (Brasil)',flag:'🇧🇷'}];
+  // Dutch, English and Portuguese were the first three and live in this file; the
+  // languages added later bring their own table (strings-<id>.js, loaded before
+  // this file) and register it here.
+  const STRINGS=Object.assign({nl:NL,en:EN,pt:PT},window.KWIZILLO_STRINGS||{});
+
+  // Every language Kwizillo can offer, in the order the picker shows them. A
+  // language appears only once its strings are actually loaded, so a language and
+  // its content always arrive together.
+  const CATALOGUE=[
+    {id:'nl',label:'Nederlands',flag:'🇳🇱'},
+    {id:'en',label:'English',flag:'🇬🇧'},
+    {id:'de',label:'Deutsch',flag:'🇩🇪'},
+    {id:'fr',label:'Français',flag:'🇫🇷'},
+    {id:'es',label:'Español',flag:'🇪🇸'},
+    {id:'it',label:'Italiano',flag:'🇮🇹'},
+    {id:'pt',label:'Português (Brasil)',flag:'🇧🇷'},
+    {id:'da',label:'Dansk',flag:'🇩🇰'},
+    {id:'ru',label:'Русский',flag:'🇷🇺'}
+  ];
+  K.LANGUAGES=CATALOGUE.filter(l=>STRINGS[l.id]);
+
+  // The tables themselves, for the tests and the clip tool (never for display code:
+  // everything user-facing goes through K.t).
+  K.strings=STRINGS;
 
   const lang=()=>STRINGS[K.state.language]?K.state.language:'nl';
 
