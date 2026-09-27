@@ -509,7 +509,11 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
 
 const server=http.createServer(async(req,res)=>{
   try{
-    const url=new URL(req.url,`http://${HOST}:${PORT}`);
+    // 0.0.0.0 is not a host a URL can be built on, and a path like "//" is not
+    // a path at all — both used to come out as a 500 instead of a plain 404.
+    let url;
+    try{ url=new URL(req.url,`http://127.0.0.1:${PORT}`) }
+    catch(e){ res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'}); return res.end('Not found') }
     if(url.pathname==='/api/voice-status'){
       if(!API_KEY)return json(res,200,{mode:'not-configured'});
       try{
