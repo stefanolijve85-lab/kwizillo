@@ -1,0 +1,2607 @@
+{
+  "world": "ruimte",
+  "topic": "astronauten",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid. Gebouwd met tools/content-build.cjs, bewaakt door tools/content-lint.cjs.",
+  "questions": [
+    {
+      "id": "ruimte-astronauten-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — human spaceflight launches",
+      "artBrief": "Een raket die opstijgt met vlammen en rook, astronauten klein in beeld bij de lanceertoren.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe ga je naar de ruimte?",
+          "answer": "Met een raket",
+          "wrong": [
+            "Met een vliegtuig",
+            "Met een boot",
+            "Met een lift"
+          ],
+          "hint": "Hij heeft heel veel stuwkracht nodig.",
+          "explanation": "Alleen een raket komt hoog en snel genoeg om in de ruimte te komen.",
+          "fact": "Een raket haalt bijna 28.000 kilometer per uur."
+        },
+        "en": {
+          "prompt": "How do you get to space?",
+          "answer": "In a rocket",
+          "wrong": [
+            "In an aeroplane",
+            "In a boat",
+            "In a lift"
+          ],
+          "hint": "It needs a huge amount of thrust.",
+          "explanation": "Only a rocket goes high and fast enough to reach space.",
+          "fact": "A rocket reaches almost 28,000 kilometres an hour."
+        },
+        "de": {
+          "prompt": "Wie kommt man ins Weltall?",
+          "answer": "Mit einer Rakete",
+          "wrong": [
+            "Mit einem Flugzeug",
+            "Mit einem Boot",
+            "Mit einem Aufzug"
+          ],
+          "hint": "Sie braucht enorm viel Schub.",
+          "explanation": "Nur eine Rakete wird hoch und schnell genug für das Weltall.",
+          "fact": "Eine Rakete schafft fast 28.000 Kilometer pro Stunde."
+        },
+        "fr": {
+          "prompt": "Comment va-t-on dans l'espace ?",
+          "answer": "En fusée",
+          "wrong": [
+            "En avion",
+            "En bateau",
+            "En ascenseur"
+          ],
+          "hint": "Il faut une poussée énorme.",
+          "explanation": "Seule une fusée monte assez haut et assez vite pour atteindre l'espace.",
+          "fact": "Une fusée atteint presque 28 000 kilomètres par heure."
+        },
+        "es": {
+          "prompt": "¿Cómo se va al espacio?",
+          "answer": "En cohete",
+          "wrong": [
+            "En avión",
+            "En barco",
+            "En ascensor"
+          ],
+          "hint": "Hace falta muchísimo empuje.",
+          "explanation": "Solo un cohete sube tan alto y tan rápido como para llegar al espacio.",
+          "fact": "Un cohete alcanza casi 28.000 kilómetros por hora."
+        },
+        "it": {
+          "prompt": "Come si va nello spazio?",
+          "answer": "Con un razzo",
+          "wrong": [
+            "Con un aereo",
+            "Con una barca",
+            "Con un ascensore"
+          ],
+          "hint": "Serve una spinta enorme.",
+          "explanation": "Solo un razzo sale abbastanza in alto e veloce da raggiungere lo spazio.",
+          "fact": "Un razzo arriva a quasi 28.000 chilometri all'ora."
+        },
+        "pt": {
+          "prompt": "Como se vai para o espaço?",
+          "answer": "Num foguetão",
+          "wrong": [
+            "Num avião",
+            "Num barco",
+            "Num elevador"
+          ],
+          "hint": "É preciso um empurrão enorme.",
+          "explanation": "Só um foguetão sobe alto e depressa o suficiente para chegar ao espaço.",
+          "fact": "Um foguetão chega a quase 28.000 quilómetros por hora."
+        },
+        "da": {
+          "prompt": "Hvordan kommer man ud i rummet?",
+          "answer": "Med en raket",
+          "wrong": [
+            "Med et fly",
+            "Med en båd",
+            "Med en elevator"
+          ],
+          "hint": "Der skal vildt meget kraft til.",
+          "explanation": "Kun en raket kommer højt og hurtigt nok til at nå rummet.",
+          "fact": "En raket når næsten 28.000 kilometer i timen."
+        },
+        "ru": {
+          "prompt": "Как попадают в космос?",
+          "answer": "На ракете",
+          "wrong": [
+            "На самолёте",
+            "На корабле",
+            "На лифте"
+          ],
+          "hint": "Нужна огромная тяга.",
+          "explanation": "Только ракета поднимается так высоко и быстро, чтобы попасть в космос.",
+          "fact": "Ракета разгоняется почти до 28 000 километров в час."
+        },
+        "ar": {
+          "prompt": "كيف نذهب إلى الفضاء؟",
+          "answer": "بصاروخ",
+          "wrong": [
+            "بطائرة",
+            "بقارب",
+            "بمصعد"
+          ],
+          "hint": "يحتاج إلى دفع هائل.",
+          "explanation": "الصاروخ وحده يرتفع بسرعة تكفي للوصول إلى الفضاء.",
+          "fact": "يبلغ الصاروخ نحو 28000 كيلومتر في الساعة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — food and drink in microgravity",
+      "artBrief": "Een astronaut die uit een zacht drinkzakje met rietje drinkt, zwevend in het station.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waar drinken astronauten uit?",
+          "answer": "Uit een zakje met rietje",
+          "wrong": [
+            "Uit een open beker",
+            "Uit een fles zonder dop",
+            "Uit hun handen"
+          ],
+          "hint": "Open drinken zou wegzweven.",
+          "explanation": "Drinken gaat uit een zacht zakje met een rietje, anders zweeft het weg.",
+          "fact": "Een gemorste druppel wordt een zwevende bol."
+        },
+        "en": {
+          "prompt": "What do astronauts drink from?",
+          "answer": "A pouch with a straw",
+          "wrong": [
+            "An open cup",
+            "A bottle with no lid",
+            "Their hands"
+          ],
+          "hint": "Open drinking would float away.",
+          "explanation": "Drinks come in a soft pouch with a straw, or they would float off.",
+          "fact": "A spilled drop turns into a floating ball."
+        },
+        "de": {
+          "prompt": "Woraus trinken Astronauten?",
+          "answer": "Aus einem Beutel",
+          "wrong": [
+            "Aus einem offenen Becher",
+            "Aus einer offenen Flasche",
+            "Aus den Händen"
+          ],
+          "hint": "Offenes Trinken würde wegschweben.",
+          "explanation": "Getrunken wird aus einem weichen Beutel mit Strohhalm.",
+          "fact": "Ein verschütteter Tropfen wird zu einer schwebenden Kugel."
+        },
+        "fr": {
+          "prompt": "Dans quoi boivent les astronautes ?",
+          "answer": "Une poche avec paille",
+          "wrong": [
+            "Un verre ouvert",
+            "Une bouteille sans bouchon",
+            "Leurs mains"
+          ],
+          "hint": "Boire à découvert s'envolerait.",
+          "explanation": "On boit dans une poche souple avec une paille, sinon tout s'envole.",
+          "fact": "Une goutte renversée devient une bille flottante."
+        },
+        "es": {
+          "prompt": "¿De dónde beben los astronautas?",
+          "answer": "De una bolsa con pajita",
+          "wrong": [
+            "De un vaso abierto",
+            "De una botella sin tapón",
+            "De sus manos"
+          ],
+          "hint": "Beber al aire libre saldría flotando.",
+          "explanation": "Se bebe de una bolsa blanda con pajita, si no todo sale flotando.",
+          "fact": "Una gota derramada se vuelve una bola flotante."
+        },
+        "it": {
+          "prompt": "Da che cosa bevono gli astronauti?",
+          "answer": "Da una busta con cannuccia",
+          "wrong": [
+            "Da un bicchiere aperto",
+            "Da una bottiglia aperta",
+            "Dalle mani"
+          ],
+          "hint": "Bere allo scoperto volerebbe via.",
+          "explanation": "Si beve da una busta morbida con la cannuccia, altrimenti vola via.",
+          "fact": "Una goccia versata diventa una pallina che galleggia."
+        },
+        "pt": {
+          "prompt": "De onde bebem os astronautas?",
+          "answer": "De um saco com palhinha",
+          "wrong": [
+            "De um copo aberto",
+            "De uma garrafa aberta",
+            "Das mãos"
+          ],
+          "hint": "Beber ao ar livre voaria.",
+          "explanation": "Bebe-se de um saco mole com palhinha, senão tudo sai a flutuar.",
+          "fact": "Uma gota entornada vira uma bola a flutuar."
+        },
+        "da": {
+          "prompt": "Hvad drikker astronauter af?",
+          "answer": "En pose med sugerør",
+          "wrong": [
+            "Et åbent krus",
+            "En flaske uden låg",
+            "Deres hænder"
+          ],
+          "hint": "Åben drikke ville svæve væk.",
+          "explanation": "Man drikker af en blød pose med sugerør, ellers svæver det væk.",
+          "fact": "En spildt dråbe bliver til en svævende kugle."
+        },
+        "ru": {
+          "prompt": "Из чего пьют космонавты?",
+          "answer": "Из пакета с трубочкой",
+          "wrong": [
+            "Из открытой кружки",
+            "Из бутылки без крышки",
+            "Прямо из рук"
+          ],
+          "hint": "Открытое питьё уплыло бы.",
+          "explanation": "Пьют из мягкого пакета с трубочкой, иначе всё разлетится.",
+          "fact": "Пролитая капля превращается в летающий шарик."
+        },
+        "ar": {
+          "prompt": "من أي شيء يشرب رواد الفضاء؟",
+          "answer": "من كيس بماصة",
+          "wrong": [
+            "من كوب مفتوح",
+            "من زجاجة مفتوحة",
+            "من أيديهم"
+          ],
+          "hint": "الشرب المكشوف سيطير في الهواء.",
+          "explanation": "يشربون من كيس لين بماصة وإلا طار الشراب.",
+          "fact": "القطرة المسكوبة تصير كرة سابحة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — the view from the ISS Cupola",
+      "artBrief": "Uitzicht door een groot rond raam van een ruimtestation op de blauwe aarde eronder.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat zie je vanuit het ruimtestation onder je?",
+          "answer": "De aarde",
+          "wrong": [
+            "De zon",
+            "Mars",
+            "Helemaal niets"
+          ],
+          "hint": "Je vliegt er vlak boven.",
+          "explanation": "Het station vliegt om de aarde, dus die zie je altijd onder je.",
+          "fact": "Door het ronde raam zie je hele landen voorbijkomen."
+        },
+        "en": {
+          "prompt": "What do you see below you from the space station?",
+          "answer": "The earth",
+          "wrong": [
+            "The sun",
+            "Mars",
+            "Nothing at all"
+          ],
+          "hint": "You fly just above it.",
+          "explanation": "The station circles the earth, so the earth is always below you.",
+          "fact": "Through the round window whole countries drift past."
+        },
+        "de": {
+          "prompt": "Was siehst du von der Raumstation aus unter dir?",
+          "answer": "Die Erde",
+          "wrong": [
+            "Die Sonne",
+            "Den Mars",
+            "Gar nichts"
+          ],
+          "hint": "Du fliegst direkt darüber.",
+          "explanation": "Die Station kreist um die Erde, also ist die Erde immer unter dir.",
+          "fact": "Durch das runde Fenster ziehen ganze Länder vorbei."
+        },
+        "fr": {
+          "prompt": "Que vois-tu sous toi depuis la station spatiale ?",
+          "answer": "La Terre",
+          "wrong": [
+            "Le Soleil",
+            "Mars",
+            "Rien du tout"
+          ],
+          "hint": "Tu voles juste au-dessus.",
+          "explanation": "La station tourne autour de la Terre, donc la Terre est toujours dessous.",
+          "fact": "Par le hublot rond, des pays entiers défilent."
+        },
+        "es": {
+          "prompt": "¿Qué ves debajo de ti desde la estación espacial?",
+          "answer": "La Tierra",
+          "wrong": [
+            "El Sol",
+            "Marte",
+            "Nada de nada"
+          ],
+          "hint": "Vuelas justo por encima.",
+          "explanation": "La estación gira alrededor de la Tierra, así que siempre está debajo.",
+          "fact": "Por la ventana redonda pasan países enteros."
+        },
+        "it": {
+          "prompt": "Che cosa vedi sotto di te dalla stazione spaziale?",
+          "answer": "La Terra",
+          "wrong": [
+            "Il Sole",
+            "Marte",
+            "Proprio niente"
+          ],
+          "hint": "Ci voli appena sopra.",
+          "explanation": "La stazione gira attorno alla Terra, quindi la Terra è sempre sotto.",
+          "fact": "Dal finestrino rotondo passano interi Paesi."
+        },
+        "pt": {
+          "prompt": "O que vês por baixo de ti da estação espacial?",
+          "answer": "A Terra",
+          "wrong": [
+            "O Sol",
+            "Marte",
+            "Mesmo nada"
+          ],
+          "hint": "Voas logo por cima dela.",
+          "explanation": "A estação anda à volta da Terra, por isso a Terra está sempre em baixo.",
+          "fact": "Pela janela redonda passam países inteiros."
+        },
+        "da": {
+          "prompt": "Hvad ser du under dig fra rumstationen?",
+          "answer": "Jorden",
+          "wrong": [
+            "Solen",
+            "Mars",
+            "Slet ingenting"
+          ],
+          "hint": "Du flyver lige over den.",
+          "explanation": "Stationen kredser om Jorden, så Jorden er altid nedenunder.",
+          "fact": "Gennem det runde vindue glider hele lande forbi."
+        },
+        "ru": {
+          "prompt": "Что видно под собой со станции?",
+          "answer": "Земля",
+          "wrong": [
+            "Солнце",
+            "Марс",
+            "Совсем ничего"
+          ],
+          "hint": "Вы летите прямо над ней.",
+          "explanation": "Станция кружит вокруг Земли, поэтому Земля всегда внизу.",
+          "fact": "В круглое окно проплывают целые страны."
+        },
+        "ar": {
+          "prompt": "ماذا ترى تحتك من محطة الفضاء؟",
+          "answer": "الأرض",
+          "wrong": [
+            "الشمس",
+            "المريخ",
+            "لا شيء إطلاقًا"
+          ],
+          "hint": "أنت تطير فوقها مباشرة.",
+          "explanation": "المحطة تدور حول الأرض، فالأرض دائمًا تحتك.",
+          "fact": "من النافذة المستديرة تمر بلدان كاملة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — airlock operations",
+      "artBrief": "Een astronaut in een pak die door een ronde luchtsluisdeur naar buiten gaat.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe komt een astronaut naar buiten?",
+          "answer": "Door een luchtsluis",
+          "wrong": [
+            "Door het raam",
+            "Door de voordeur",
+            "Door een luik in de vloer"
+          ],
+          "hint": "Eerst gaat de ene deur dicht, dan de andere open.",
+          "explanation": "Een luchtsluis is een kamertje waar de lucht uit kan voordat je naar buiten gaat.",
+          "fact": "Zonder sluis zou alle lucht in één keer wegvliegen."
+        },
+        "en": {
+          "prompt": "How does an astronaut get outside?",
+          "answer": "Through an airlock",
+          "wrong": [
+            "Through the window",
+            "Through the front door",
+            "Through a hatch in the floor"
+          ],
+          "hint": "One door shuts before the other opens.",
+          "explanation": "An airlock is a small room the air can be let out of before you go out.",
+          "fact": "Without it all the air would rush out at once."
+        },
+        "de": {
+          "prompt": "Wie kommt ein Astronaut nach draußen?",
+          "answer": "Durch eine Luftschleuse",
+          "wrong": [
+            "Durch das Fenster",
+            "Durch die Haustür",
+            "Durch eine Bodenluke"
+          ],
+          "hint": "Erst schließt die eine Tür, dann öffnet die andere.",
+          "explanation": "In einer Luftschleuse wird die Luft abgelassen, bevor man hinausgeht.",
+          "fact": "Ohne Schleuse würde die ganze Luft auf einmal entweichen."
+        },
+        "fr": {
+          "prompt": "Comment un astronaute sort-il ?",
+          "answer": "Par un sas",
+          "wrong": [
+            "Par la fenêtre",
+            "Par la porte d'entrée",
+            "Par une trappe au sol"
+          ],
+          "hint": "Une porte se ferme avant que l'autre s'ouvre.",
+          "explanation": "Un sas est une petite pièce d'où l'air est retiré avant de sortir.",
+          "fact": "Sans sas, tout l'air partirait d'un coup."
+        },
+        "es": {
+          "prompt": "¿Por dónde sale un astronauta al exterior?",
+          "answer": "Por una esclusa de aire",
+          "wrong": [
+            "Por la ventana",
+            "Por la puerta principal",
+            "Por una trampilla"
+          ],
+          "hint": "Una puerta se cierra antes de abrir la otra.",
+          "explanation": "La esclusa es una sala de la que se saca el aire antes de salir.",
+          "fact": "Sin ella todo el aire se escaparía de golpe."
+        },
+        "it": {
+          "prompt": "Da dove esce un astronauta?",
+          "answer": "Da una camera stagna",
+          "wrong": [
+            "Dalla finestra",
+            "Dalla porta di casa",
+            "Da una botola nel pavimento"
+          ],
+          "hint": "Una porta si chiude prima che l'altra si apra.",
+          "explanation": "Dalla camera stagna si toglie l'aria prima di uscire.",
+          "fact": "Senza di essa tutta l'aria uscirebbe di colpo."
+        },
+        "pt": {
+          "prompt": "Por onde sai um astronauta para o exterior?",
+          "answer": "Por uma câmara de ar",
+          "wrong": [
+            "Pela janela",
+            "Pela porta da frente",
+            "Por um alçapão no chão"
+          ],
+          "hint": "Uma porta fecha antes de a outra abrir.",
+          "explanation": "Da câmara de ar tira-se o ar antes de sair.",
+          "fact": "Sem ela todo o ar sairia de uma vez."
+        },
+        "da": {
+          "prompt": "Hvordan kommer en astronaut udenfor?",
+          "answer": "Gennem en luftsluse",
+          "wrong": [
+            "Gennem vinduet",
+            "Gennem hoveddøren",
+            "Gennem en lem i gulvet"
+          ],
+          "hint": "Den ene dør lukker, før den anden åbner.",
+          "explanation": "I en luftsluse lukkes luften ud, før man går udenfor.",
+          "fact": "Uden sluse ville al luften fare ud på én gang."
+        },
+        "ru": {
+          "prompt": "Как космонавт выходит наружу?",
+          "answer": "Через шлюз",
+          "wrong": [
+            "Через окно",
+            "Через входную дверь",
+            "Через люк в полу"
+          ],
+          "hint": "Одна дверь закрывается, потом открывается другая.",
+          "explanation": "Из шлюза выпускают воздух перед выходом наружу.",
+          "fact": "Без шлюза весь воздух улетел бы разом."
+        },
+        "ar": {
+          "prompt": "من أين يخرج رائد الفضاء؟",
+          "answer": "من حجرة معادلة الضغط",
+          "wrong": [
+            "من النافذة",
+            "من الباب الأمامي",
+            "من فتحة في الأرضية"
+          ],
+          "hint": "يُغلق باب قبل أن يُفتح الآخر.",
+          "explanation": "تُفرغ الحجرة من الهواء قبل الخروج إلى الفضاء.",
+          "fact": "بدونها سيخرج كل الهواء دفعة واحدة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — EVA helmet",
+      "artBrief": "Een ruimtehelm van dichtbij met de aarde weerspiegeld in het vizier.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat draagt een astronaut op zijn hoofd?",
+          "answer": "Een helm",
+          "wrong": [
+            "Een pet",
+            "Een muts",
+            "Een hoed"
+          ],
+          "hint": "Hij zit vast aan het pak.",
+          "explanation": "De helm houdt lucht binnen en fel zonlicht buiten.",
+          "fact": "In de helm zit ook een microfoon om te praten."
+        },
+        "en": {
+          "prompt": "What does an astronaut wear on their head?",
+          "answer": "A helmet",
+          "wrong": [
+            "A cap",
+            "A woolly hat",
+            "A sun hat"
+          ],
+          "hint": "It locks onto the suit.",
+          "explanation": "The helmet keeps air in and fierce sunlight out.",
+          "fact": "There is a microphone inside it for talking."
+        },
+        "de": {
+          "prompt": "Was trägt ein Astronaut auf dem Kopf?",
+          "answer": "Einen Helm",
+          "wrong": [
+            "Eine Kappe",
+            "Eine Mütze",
+            "Einen Hut"
+          ],
+          "hint": "Er wird am Anzug befestigt.",
+          "explanation": "Der Helm hält Luft drinnen und grelles Sonnenlicht draußen.",
+          "fact": "Im Helm steckt auch ein Mikrofon zum Sprechen."
+        },
+        "fr": {
+          "prompt": "Que porte un astronaute sur la tête ?",
+          "answer": "Un casque",
+          "wrong": [
+            "Une casquette",
+            "Un bonnet",
+            "Un chapeau"
+          ],
+          "hint": "Il se fixe à la combinaison.",
+          "explanation": "Le casque garde l'air dedans et le soleil violent dehors.",
+          "fact": "Il contient aussi un micro pour parler."
+        },
+        "es": {
+          "prompt": "¿Qué lleva un astronauta en la cabeza?",
+          "answer": "Un casco",
+          "wrong": [
+            "Una gorra",
+            "Un gorro de lana",
+            "Un sombrero"
+          ],
+          "hint": "Va sujeto al traje.",
+          "explanation": "El casco mantiene el aire dentro y el sol fuerte fuera.",
+          "fact": "Dentro también hay un micrófono para hablar."
+        },
+        "it": {
+          "prompt": "Che cosa porta in testa un astronauta?",
+          "answer": "Un casco",
+          "wrong": [
+            "Un berretto",
+            "Una cuffia di lana",
+            "Un cappello"
+          ],
+          "hint": "Si aggancia alla tuta.",
+          "explanation": "Il casco tiene dentro l'aria e fuori il sole fortissimo.",
+          "fact": "Dentro c'è anche un microfono per parlare."
+        },
+        "pt": {
+          "prompt": "O que leva um astronauta na cabeça?",
+          "answer": "Um capacete",
+          "wrong": [
+            "Um boné",
+            "Um gorro",
+            "Um chapéu"
+          ],
+          "hint": "Prende-se ao fato.",
+          "explanation": "O capacete mantém o ar dentro e o sol forte fora.",
+          "fact": "Lá dentro há também um microfone para falar."
+        },
+        "da": {
+          "prompt": "Hvad har en astronaut på hovedet?",
+          "answer": "En hjelm",
+          "wrong": [
+            "En kasket",
+            "En hue",
+            "En hat"
+          ],
+          "hint": "Den sættes fast på dragten.",
+          "explanation": "Hjelmen holder luften inde og det skarpe sollys ude.",
+          "fact": "Inden i sidder også en mikrofon til at tale med."
+        },
+        "ru": {
+          "prompt": "Что космонавт надевает на голову?",
+          "answer": "Шлем",
+          "wrong": [
+            "Кепку",
+            "Шапку",
+            "Шляпу"
+          ],
+          "hint": "Он крепится к скафандру.",
+          "explanation": "Шлем держит воздух внутри, а яркое солнце снаружи.",
+          "fact": "Внутри есть и микрофон, чтобы говорить."
+        },
+        "ar": {
+          "prompt": "ماذا يلبس رائد الفضاء على رأسه؟",
+          "answer": "خوذة",
+          "wrong": [
+            "قبعة",
+            "طاقية صوف",
+            "قبعة شمسية"
+          ],
+          "hint": "تُثبَّت في البدلة.",
+          "explanation": "الخوذة تحفظ الهواء بالداخل وتمنع ضوء الشمس الحاد.",
+          "fact": "وفيها أيضًا ميكروفون للحديث."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — hygiene in microgravity",
+      "artBrief": "Een astronaut die zijn haar wast met een washandje, zonder stromend water, zwevend.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe wassen astronauten hun haar?",
+          "answer": "Met shampoo zonder water",
+          "wrong": [
+            "Onder de douche",
+            "In een badkuip",
+            "Ze wassen het nooit"
+          ],
+          "hint": "Water zou overal heen zweven.",
+          "explanation": "Ze gebruiken speciale shampoo die je niet hoeft uit te spoelen.",
+          "fact": "Het station heeft geen douche waar water naar beneden valt."
+        },
+        "en": {
+          "prompt": "How do astronauts wash their hair?",
+          "answer": "With no-rinse shampoo",
+          "wrong": [
+            "In the shower",
+            "In a bathtub",
+            "They never wash it"
+          ],
+          "hint": "Water would float off everywhere.",
+          "explanation": "They use special shampoo that does not need rinsing out.",
+          "fact": "The station has no shower where water falls down."
+        },
+        "de": {
+          "prompt": "Wie waschen Astronauten ihre Haare?",
+          "answer": "Mit Shampoo ohne Wasser",
+          "wrong": [
+            "Unter der Dusche",
+            "In der Badewanne",
+            "Sie waschen sie nie"
+          ],
+          "hint": "Wasser würde überallhin schweben.",
+          "explanation": "Sie nehmen Spezialshampoo, das man nicht ausspülen muss.",
+          "fact": "Die Station hat keine Dusche, in der Wasser nach unten fällt."
+        },
+        "fr": {
+          "prompt": "Comment les astronautes se lavent-ils les cheveux ?",
+          "answer": "Avec un shampoing sec",
+          "wrong": [
+            "Sous la douche",
+            "Dans une baignoire",
+            "Ils ne les lavent jamais"
+          ],
+          "hint": "L'eau flotterait partout.",
+          "explanation": "Ils utilisent un shampoing spécial qu'on ne rince pas.",
+          "fact": "La station n'a pas de douche où l'eau tombe."
+        },
+        "es": {
+          "prompt": "¿Cómo se lavan el pelo los astronautas?",
+          "answer": "Con champú sin agua",
+          "wrong": [
+            "En la ducha",
+            "En una bañera",
+            "No se lo lavan nunca"
+          ],
+          "hint": "El agua flotaría por todas partes.",
+          "explanation": "Usan un champú especial que no hay que aclarar.",
+          "fact": "La estación no tiene ducha donde el agua caiga."
+        },
+        "it": {
+          "prompt": "Come si lavano i capelli gli astronauti?",
+          "answer": "Con shampoo senz'acqua",
+          "wrong": [
+            "Sotto la doccia",
+            "In una vasca",
+            "Non se li lavano mai"
+          ],
+          "hint": "L'acqua volerebbe ovunque.",
+          "explanation": "Usano uno shampoo speciale che non si risciacqua.",
+          "fact": "La stazione non ha una doccia dove l'acqua cade."
+        },
+        "pt": {
+          "prompt": "Como lavam o cabelo os astronautas?",
+          "answer": "Com champô sem água",
+          "wrong": [
+            "No duche",
+            "Numa banheira",
+            "Nunca o lavam"
+          ],
+          "hint": "A água flutuaria por todo o lado.",
+          "explanation": "Usam um champô especial que não precisa de ser enxaguado.",
+          "fact": "A estação não tem duche onde a água caia."
+        },
+        "da": {
+          "prompt": "Hvordan vasker astronauter hår?",
+          "answer": "Med shampoo uden vand",
+          "wrong": [
+            "I bad",
+            "I et badekar",
+            "De vasker det aldrig"
+          ],
+          "hint": "Vand ville svæve overalt.",
+          "explanation": "De bruger en særlig shampoo, der ikke skal skylles ud.",
+          "fact": "Stationen har ikke et bad, hvor vandet falder ned."
+        },
+        "ru": {
+          "prompt": "Как космонавты моют голову?",
+          "answer": "Шампунем без воды",
+          "wrong": [
+            "В душе",
+            "В ванне",
+            "Никогда не моют"
+          ],
+          "hint": "Вода разлетелась бы повсюду.",
+          "explanation": "Они берут особый шампунь, который не надо смывать.",
+          "fact": "На станции нет душа, где вода падает вниз."
+        },
+        "ar": {
+          "prompt": "كيف يغسل رواد الفضاء شعرهم؟",
+          "answer": "بشامبو بلا ماء",
+          "wrong": [
+            "تحت الدش",
+            "في حوض استحمام",
+            "لا يغسلونه أبدًا"
+          ],
+          "hint": "الماء سيطير في كل مكان.",
+          "explanation": "يستعملون شامبو خاصًا لا يحتاج إلى شطف.",
+          "fact": "لا يوجد في المحطة دش يسقط منه الماء."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — oxygen generation on the ISS",
+      "artBrief": "Een machine aan boord die luchtbellen uit water maakt, met slangen en lampjes.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waar komt de lucht in het ruimtestation vandaan?",
+          "answer": "Uit water met stroom",
+          "wrong": [
+            "Zomaar uit de ruimte",
+            "Uit planten aan boord",
+            "Uit flessen van de aarde"
+          ],
+          "hint": "Stroom splitst een bekende vloeistof.",
+          "explanation": "Een machine splitst water met elektriciteit in zuurstof en waterstof.",
+          "fact": "De zonnepanelen leveren de stroom daarvoor."
+        },
+        "en": {
+          "prompt": "Where does the air in the space station come from?",
+          "answer": "From water and power",
+          "wrong": [
+            "Straight from space",
+            "From plants on board",
+            "From bottles sent up"
+          ],
+          "hint": "Electricity splits a familiar liquid.",
+          "explanation": "A machine splits water with electricity into oxygen and hydrogen.",
+          "fact": "The solar panels supply the power for it."
+        },
+        "de": {
+          "prompt": "Woher kommt die Luft in der Raumstation?",
+          "answer": "Aus Wasser mit Strom",
+          "wrong": [
+            "Einfach aus dem Weltall",
+            "Von Pflanzen an Bord",
+            "Aus Flaschen von der Erde"
+          ],
+          "hint": "Strom spaltet eine bekannte Flüssigkeit.",
+          "explanation": "Eine Maschine spaltet Wasser mit Strom in Sauerstoff und Wasserstoff.",
+          "fact": "Den Strom liefern die Solarzellen."
+        },
+        "fr": {
+          "prompt": "D'où vient l'air dans la station spatiale ?",
+          "answer": "De l'eau et du courant",
+          "wrong": [
+            "Directement de l'espace",
+            "De plantes à bord",
+            "De bouteilles envoyées"
+          ],
+          "hint": "L'électricité sépare un liquide connu.",
+          "explanation": "Une machine sépare l'eau par électricité en oxygène et hydrogène.",
+          "fact": "Les panneaux solaires fournissent le courant."
+        },
+        "es": {
+          "prompt": "¿De dónde sale el aire de la estación espacial?",
+          "answer": "Del agua con corriente",
+          "wrong": [
+            "Directamente del espacio",
+            "De plantas a bordo",
+            "De botellas enviadas"
+          ],
+          "hint": "La electricidad separa un líquido conocido.",
+          "explanation": "Una máquina separa el agua con electricidad en oxígeno e hidrógeno.",
+          "fact": "Los paneles solares dan esa electricidad."
+        },
+        "it": {
+          "prompt": "Da dove viene l'aria nella stazione spaziale?",
+          "answer": "Dall'acqua con corrente",
+          "wrong": [
+            "Direttamente dallo spazio",
+            "Dalle piante a bordo",
+            "Da bombole dalla Terra"
+          ],
+          "hint": "L'elettricità divide un liquido noto.",
+          "explanation": "Una macchina divide l'acqua con l'elettricità in ossigeno e idrogeno.",
+          "fact": "I pannelli solari forniscono quella corrente."
+        },
+        "pt": {
+          "prompt": "De onde vem o ar da estação espacial?",
+          "answer": "Da água com corrente",
+          "wrong": [
+            "Diretamente do espaço",
+            "De plantas a bordo",
+            "De garrafas enviadas"
+          ],
+          "hint": "A eletricidade separa um líquido conhecido.",
+          "explanation": "Uma máquina separa a água com eletricidade em oxigénio e hidrogénio.",
+          "fact": "Os painéis solares dão essa eletricidade."
+        },
+        "da": {
+          "prompt": "Hvor kommer luften i rumstationen fra?",
+          "answer": "Fra vand og strøm",
+          "wrong": [
+            "Direkte fra rummet",
+            "Fra planter om bord",
+            "Fra flasker fra Jorden"
+          ],
+          "hint": "Strøm deler en velkendt væske.",
+          "explanation": "En maskine deler vand med strøm i ilt og brint.",
+          "fact": "Solpanelerne leverer den strøm."
+        },
+        "ru": {
+          "prompt": "Откуда берётся воздух на станции?",
+          "answer": "Из воды и электричества",
+          "wrong": [
+            "Прямо из космоса",
+            "От растений на борту",
+            "Из баллонов с Земли"
+          ],
+          "hint": "Ток разделяет знакомую жидкость.",
+          "explanation": "Машина разделяет воду током на кислород и водород.",
+          "fact": "Электричество дают солнечные батареи."
+        },
+        "ar": {
+          "prompt": "من أين يأتي الهواء في محطة الفضاء؟",
+          "answer": "من الماء بالكهرباء",
+          "wrong": [
+            "من الفضاء مباشرة",
+            "من نباتات على متنها",
+            "من أسطوانات من الأرض"
+          ],
+          "hint": "الكهرباء تفصل سائلًا معروفًا.",
+          "explanation": "آلة تفصل الماء بالكهرباء إلى أكسجين وهيدروجين.",
+          "fact": "الألواح الشمسية توفر تلك الكهرباء."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — the ISS orbits the earth every 90 minutes",
+      "artBrief": "Zestien kleine zonsopkomsten op een rij achter een ruimtestation dat om de aarde vliegt.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vaak zien astronauten in het station de zon opkomen?",
+          "answer": "Zestien keer per dag",
+          "wrong": [
+            "Eén keer per dag",
+            "Twee keer per dag",
+            "Helemaal nooit"
+          ],
+          "hint": "Ze vliegen in anderhalf uur rond de aarde.",
+          "explanation": "Het station draait zo snel rond dat de zon zestien keer per dag opkomt.",
+          "fact": "Een rondje duurt ongeveer negentig minuten."
+        },
+        "en": {
+          "prompt": "How often do astronauts on the station see the sun rise?",
+          "answer": "Sixteen times a day",
+          "wrong": [
+            "Once a day",
+            "Twice a day",
+            "Never at all"
+          ],
+          "hint": "They circle the earth in ninety minutes.",
+          "explanation": "The station goes round so fast that the sun rises sixteen times a day.",
+          "fact": "One lap takes about ninety minutes."
+        },
+        "de": {
+          "prompt": "Wie oft sehen Astronauten dort die Sonne aufgehen?",
+          "answer": "Sechzehnmal am Tag",
+          "wrong": [
+            "Einmal am Tag",
+            "Zweimal am Tag",
+            "Nie"
+          ],
+          "hint": "Sie umrunden die Erde in anderthalb Stunden.",
+          "explanation": "Die Station kreist so schnell, dass die Sonne sechzehnmal täglich aufgeht.",
+          "fact": "Eine Runde dauert etwa neunzig Minuten."
+        },
+        "fr": {
+          "prompt": "Combien de fois par jour y voit-on le Soleil se lever ?",
+          "answer": "Seize fois",
+          "wrong": [
+            "Une fois",
+            "Deux fois",
+            "Jamais"
+          ],
+          "hint": "Ils font le tour de la Terre en une heure et demie.",
+          "explanation": "La station tourne si vite que le Soleil s'y lève seize fois par jour.",
+          "fact": "Un tour dure environ quatre-vingt-dix minutes."
+        },
+        "es": {
+          "prompt": "¿Cuántas veces al día ven allí salir el Sol?",
+          "answer": "Dieciséis veces",
+          "wrong": [
+            "Una vez",
+            "Dos veces",
+            "Nunca"
+          ],
+          "hint": "Dan la vuelta a la Tierra en hora y media.",
+          "explanation": "La estación gira tan rápido que el Sol sale dieciséis veces al día.",
+          "fact": "Una vuelta dura unos noventa minutos."
+        },
+        "it": {
+          "prompt": "Quante volte al giorno vedono lì sorgere il Sole?",
+          "answer": "Sedici volte",
+          "wrong": [
+            "Una volta",
+            "Due volte",
+            "Mai"
+          ],
+          "hint": "Girano attorno alla Terra in un'ora e mezza.",
+          "explanation": "La stazione gira così in fretta che il Sole sorge sedici volte al giorno.",
+          "fact": "Un giro dura circa novanta minuti."
+        },
+        "pt": {
+          "prompt": "Quantas vezes por dia veem ali o Sol nascer?",
+          "answer": "Dezasseis vezes",
+          "wrong": [
+            "Uma vez",
+            "Duas vezes",
+            "Nunca"
+          ],
+          "hint": "Dão a volta à Terra em hora e meia.",
+          "explanation": "A estação anda tão depressa que o Sol nasce dezasseis vezes por dia.",
+          "fact": "Uma volta demora cerca de noventa minutos."
+        },
+        "da": {
+          "prompt": "Hvor tit ser astronauterne dér solen stå op?",
+          "answer": "Seksten gange om dagen",
+          "wrong": [
+            "En gang om dagen",
+            "To gange om dagen",
+            "Aldrig"
+          ],
+          "hint": "De runder Jorden på halvanden time.",
+          "explanation": "Stationen kredser så hurtigt, at solen står op seksten gange dagligt.",
+          "fact": "En omgang tager cirka halvfems minutter."
+        },
+        "ru": {
+          "prompt": "Сколько раз в сутки там видят восход Солнца?",
+          "answer": "Шестнадцать раз",
+          "wrong": [
+            "Один раз",
+            "Два раза",
+            "Ни разу"
+          ],
+          "hint": "Они облетают Землю за полтора часа.",
+          "explanation": "Станция летит так быстро, что Солнце восходит шестнадцать раз в сутки.",
+          "fact": "Один виток длится около девяноста минут."
+        },
+        "ar": {
+          "prompt": "كم مرة في اليوم يرون هناك شروق الشمس؟",
+          "answer": "ست عشرة مرة",
+          "wrong": [
+            "مرة واحدة",
+            "مرتين",
+            "ولا مرة"
+          ],
+          "hint": "يدورون حول الأرض في ساعة ونصف.",
+          "explanation": "المحطة تدور بسرعة حتى تشرق الشمس ست عشرة مرة يوميًا.",
+          "fact": "الدورة الواحدة نحو تسعين دقيقة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — crying in space",
+      "artBrief": "Een astronaut met een glinsterend bolletje vocht dat aan zijn oog blijft plakken.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met tranen in gewichtloosheid?",
+          "answer": "Ze plakken aan je oog",
+          "wrong": [
+            "Ze vallen omlaag",
+            "Ze verdampen meteen",
+            "Ze bevriezen"
+          ],
+          "hint": "Er is niets dat ze naar beneden trekt.",
+          "explanation": "Tranen blijven als een bolletje water aan je oog zitten.",
+          "fact": "Astronauten vegen ze weg met een doekje."
+        },
+        "en": {
+          "prompt": "What happens to tears in weightlessness?",
+          "answer": "They stick to your eye",
+          "wrong": [
+            "They fall down",
+            "They dry up at once",
+            "They freeze"
+          ],
+          "hint": "Nothing pulls them downwards.",
+          "explanation": "Tears stay on your eye as a little ball of water.",
+          "fact": "Astronauts wipe them away with a cloth."
+        },
+        "de": {
+          "prompt": "Was passiert mit Tränen in der Schwerelosigkeit?",
+          "answer": "Sie kleben am Auge",
+          "wrong": [
+            "Sie fallen herunter",
+            "Sie verdunsten sofort",
+            "Sie gefrieren"
+          ],
+          "hint": "Nichts zieht sie nach unten.",
+          "explanation": "Tränen bleiben als kleine Wasserkugel am Auge hängen.",
+          "fact": "Astronauten wischen sie mit einem Tuch weg."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il aux larmes en apesanteur ?",
+          "answer": "Elles collent à l'œil",
+          "wrong": [
+            "Elles tombent",
+            "Elles s'évaporent",
+            "Elles gèlent"
+          ],
+          "hint": "Rien ne les tire vers le bas.",
+          "explanation": "Les larmes restent sur l'œil comme une petite bille d'eau.",
+          "fact": "Les astronautes les essuient avec un chiffon."
+        },
+        "es": {
+          "prompt": "¿Qué les pasa a las lágrimas sin gravedad?",
+          "answer": "Se pegan al ojo",
+          "wrong": [
+            "Caen al suelo",
+            "Se evaporan enseguida",
+            "Se congelan"
+          ],
+          "hint": "Nada tira de ellas hacia abajo.",
+          "explanation": "Las lágrimas se quedan en el ojo como una bolita de agua.",
+          "fact": "Los astronautas las quitan con un paño."
+        },
+        "it": {
+          "prompt": "Che fine fanno le lacrime senza gravità?",
+          "answer": "Restano attaccate all'occhio",
+          "wrong": [
+            "Cadono giù",
+            "Evaporano subito",
+            "Si congelano"
+          ],
+          "hint": "Niente le tira verso il basso.",
+          "explanation": "Le lacrime restano sull'occhio come una pallina d'acqua.",
+          "fact": "Gli astronauti le tolgono con un panno."
+        },
+        "pt": {
+          "prompt": "O que acontece às lágrimas sem gravidade?",
+          "answer": "Ficam agarradas ao olho",
+          "wrong": [
+            "Caem para baixo",
+            "Evaporam logo",
+            "Congelam"
+          ],
+          "hint": "Nada as puxa para baixo.",
+          "explanation": "As lágrimas ficam no olho como uma bolinha de água.",
+          "fact": "Os astronautas limpam-nas com um pano."
+        },
+        "da": {
+          "prompt": "Hvad sker der med tårer i vægtløshed?",
+          "answer": "De klistrer til øjet",
+          "wrong": [
+            "De falder ned",
+            "De fordamper straks",
+            "De fryser til is"
+          ],
+          "hint": "Intet trækker dem nedad.",
+          "explanation": "Tårer bliver siddende på øjet som en lille vandkugle.",
+          "fact": "Astronauterne tørrer dem væk med en klud."
+        },
+        "ru": {
+          "prompt": "Что происходит со слезами в невесомости?",
+          "answer": "Они липнут к глазу",
+          "wrong": [
+            "Они падают вниз",
+            "Они сразу испаряются",
+            "Они замерзают"
+          ],
+          "hint": "Их ничто не тянет вниз.",
+          "explanation": "Слёзы остаются на глазу шариком воды.",
+          "fact": "Космонавты убирают их салфеткой."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث للدموع في انعدام الوزن؟",
+          "answer": "تلتصق بالعين",
+          "wrong": [
+            "تسقط إلى أسفل",
+            "تتبخر فورًا",
+            "تتجمد"
+          ],
+          "hint": "لا شيء يسحبها إلى أسفل.",
+          "explanation": "تبقى الدموع على العين ككرة صغيرة من الماء.",
+          "fact": "يمسحها الرواد بقطعة قماش."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — why spacesuits are white",
+      "artBrief": "Een wit ruimtepak in fel zonlicht tegen een zwarte ruimte.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is een ruimtepak wit?",
+          "answer": "Om warmte te weren",
+          "wrong": [
+            "Omdat het mooi staat",
+            "Om op sneeuw te lijken",
+            "Om vuil te zien"
+          ],
+          "hint": "Wit kaatst zonlicht terug.",
+          "explanation": "Wit weerkaatst het felle zonlicht, zodat het pak niet te heet wordt.",
+          "fact": "In de schaduw kan het juist ijskoud worden."
+        },
+        "en": {
+          "prompt": "Why is a spacesuit white?",
+          "answer": "To keep the heat off",
+          "wrong": [
+            "Because it looks smart",
+            "To match the snow",
+            "To show up dirt"
+          ],
+          "hint": "White bounces sunlight back.",
+          "explanation": "White reflects the fierce sunlight so the suit does not get too hot.",
+          "fact": "In the shade it can turn freezing cold instead."
+        },
+        "de": {
+          "prompt": "Warum ist ein Raumanzug weiß?",
+          "answer": "Um Hitze abzuhalten",
+          "wrong": [
+            "Weil es schick aussieht",
+            "Um wie Schnee auszusehen",
+            "Um Schmutz zu sehen"
+          ],
+          "hint": "Weiß wirft Sonnenlicht zurück.",
+          "explanation": "Weiß reflektiert das grelle Sonnenlicht, damit der Anzug nicht zu heiß wird.",
+          "fact": "Im Schatten kann es dagegen eiskalt werden."
+        },
+        "fr": {
+          "prompt": "Pourquoi une combinaison spatiale est-elle blanche ?",
+          "answer": "Pour repousser la chaleur",
+          "wrong": [
+            "Parce que c'est joli",
+            "Pour ressembler à la neige",
+            "Pour voir la saleté"
+          ],
+          "hint": "Le blanc renvoie la lumière.",
+          "explanation": "Le blanc renvoie le soleil violent pour que la combinaison ne chauffe pas.",
+          "fact": "À l'ombre, il peut au contraire faire glacial."
+        },
+        "es": {
+          "prompt": "¿Por qué es blanco un traje espacial?",
+          "answer": "Para rechazar el calor",
+          "wrong": [
+            "Porque queda bonito",
+            "Para parecerse a la nieve",
+            "Para ver la suciedad"
+          ],
+          "hint": "El blanco devuelve la luz del Sol.",
+          "explanation": "El blanco refleja el sol fuerte para que el traje no se caliente.",
+          "fact": "A la sombra, en cambio, hace un frío helador."
+        },
+        "it": {
+          "prompt": "Perché una tuta spaziale è bianca?",
+          "answer": "Per respingere il calore",
+          "wrong": [
+            "Perché è elegante",
+            "Per sembrare neve",
+            "Per vedere lo sporco"
+          ],
+          "hint": "Il bianco rimanda indietro la luce.",
+          "explanation": "Il bianco riflette il sole fortissimo così la tuta non si scalda.",
+          "fact": "All'ombra invece può diventare gelida."
+        },
+        "pt": {
+          "prompt": "Porque é branco um fato espacial?",
+          "answer": "Para afastar o calor",
+          "wrong": [
+            "Porque fica bonito",
+            "Para parecer neve",
+            "Para ver a sujidade"
+          ],
+          "hint": "O branco devolve a luz do Sol.",
+          "explanation": "O branco reflete o sol forte para o fato não aquecer demais.",
+          "fact": "À sombra pode ficar gelado."
+        },
+        "da": {
+          "prompt": "Hvorfor er en rumdragt hvid?",
+          "answer": "For at holde varmen ude",
+          "wrong": [
+            "Fordi det ser flot ud",
+            "For at ligne sne",
+            "For at se snavs"
+          ],
+          "hint": "Hvidt kaster sollyset tilbage.",
+          "explanation": "Hvidt kaster det skarpe sollys tilbage, så dragten ikke bliver for varm.",
+          "fact": "I skyggen kan det til gengæld blive iskoldt."
+        },
+        "ru": {
+          "prompt": "Почему скафандр белый?",
+          "answer": "Чтобы отражать жару",
+          "wrong": [
+            "Потому что красиво",
+            "Чтобы походить на снег",
+            "Чтобы видеть грязь"
+          ],
+          "hint": "Белый отражает солнечный свет.",
+          "explanation": "Белый отражает яркое солнце, и скафандр не перегревается.",
+          "fact": "А в тени, наоборот, становится очень холодно."
+        },
+        "ar": {
+          "prompt": "لماذا بدلة الفضاء بيضاء؟",
+          "answer": "لتصد الحرارة",
+          "wrong": [
+            "لأنها جميلة",
+            "لتشبه الثلج",
+            "لتظهر الأوساخ"
+          ],
+          "hint": "الأبيض يعكس ضوء الشمس.",
+          "explanation": "الأبيض يعكس الشمس الحارقة فلا تسخن البدلة كثيرًا.",
+          "fact": "وفي الظل قد تصبح شديدة البرودة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — waste disposal with Cygnus and Progress",
+      "artBrief": "Een klein vrachtruimteschip dat loskoppelt van het station, met de aarde eronder.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met het afval in het ruimtestation?",
+          "answer": "Het gaat in een vrachtschip",
+          "wrong": [
+            "Het gaat gewoon overboord",
+            "Het wordt aan boord verbrand",
+            "Het blijft in een kast staan"
+          ],
+          "hint": "Het gaat mee terug de dampkring in.",
+          "explanation": "Afval gaat in een vrachtschip dat later in de dampkring opbrandt.",
+          "fact": "Zo blijft er geen rommel in een baan om de aarde hangen."
+        },
+        "en": {
+          "prompt": "What happens to the rubbish on the space station?",
+          "answer": "It goes in a cargo ship",
+          "wrong": [
+            "It is thrown overboard",
+            "It is burned on board",
+            "It is stored in a cupboard"
+          ],
+          "hint": "It rides back into the atmosphere.",
+          "explanation": "Rubbish goes into a cargo ship that later burns up in the atmosphere.",
+          "fact": "That way no junk is left circling the earth."
+        },
+        "de": {
+          "prompt": "Was passiert mit dem Müll in der Raumstation?",
+          "answer": "Er kommt ins Frachtschiff",
+          "wrong": [
+            "Er fliegt über Bord",
+            "Er wird an Bord verbrannt",
+            "Er bleibt im Schrank"
+          ],
+          "hint": "Er fährt zurück in die Lufthülle.",
+          "explanation": "Müll kommt in ein Frachtschiff, das später in der Lufthülle verglüht.",
+          "fact": "So bleibt kein Schrott in der Umlaufbahn zurück."
+        },
+        "fr": {
+          "prompt": "Que devient la poubelle de la station spatiale ?",
+          "answer": "Elle part en cargo",
+          "wrong": [
+            "Elle passe par-dessus bord",
+            "Elle est brûlée à bord",
+            "Elle reste dans un placard"
+          ],
+          "hint": "Elle redescend dans l'atmosphère.",
+          "explanation": "Les déchets partent dans un cargo qui brûle ensuite dans l'atmosphère.",
+          "fact": "Ainsi rien ne traîne en orbite."
+        },
+        "es": {
+          "prompt": "¿Qué pasa con la basura de la estación espacial?",
+          "answer": "Se va en una nave carguera",
+          "wrong": [
+            "Se tira por la borda",
+            "Se quema a bordo",
+            "Se guarda en un armario"
+          ],
+          "hint": "Vuelve a entrar en la atmósfera.",
+          "explanation": "La basura va en una nave de carga que luego arde en la atmósfera.",
+          "fact": "Así no queda chatarra dando vueltas."
+        },
+        "it": {
+          "prompt": "Che fine fa la spazzatura della stazione spaziale?",
+          "answer": "Va su una nave cargo",
+          "wrong": [
+            "Viene buttata fuori",
+            "Viene bruciata a bordo",
+            "Resta in un armadio"
+          ],
+          "hint": "Torna giù nell'atmosfera.",
+          "explanation": "I rifiuti vanno in una nave cargo che poi brucia nell'atmosfera.",
+          "fact": "Così non resta spazzatura in orbita."
+        },
+        "pt": {
+          "prompt": "O que acontece ao lixo da estação espacial?",
+          "answer": "Vai numa nave de carga",
+          "wrong": [
+            "Vai borda fora",
+            "É queimado a bordo",
+            "Fica num armário"
+          ],
+          "hint": "Volta a entrar na atmosfera.",
+          "explanation": "O lixo vai numa nave de carga que depois arde na atmosfera.",
+          "fact": "Assim não fica sucata a andar à volta da Terra."
+        },
+        "da": {
+          "prompt": "Hvad sker der med affaldet i rumstationen?",
+          "answer": "Det kommer i et fragtskib",
+          "wrong": [
+            "Det ryger over bord",
+            "Det brændes om bord",
+            "Det bliver i et skab"
+          ],
+          "hint": "Det følger med ned i luftlaget.",
+          "explanation": "Affald kommer i et fragtskib, der senere brænder op i luftlaget.",
+          "fact": "Sådan bliver der ikke skrot tilbage i kredsløb."
+        },
+        "ru": {
+          "prompt": "Что делают с мусором на станции?",
+          "answer": "Его грузят в корабль",
+          "wrong": [
+            "Его выбрасывают наружу",
+            "Его сжигают на борту",
+            "Его держат в шкафу"
+          ],
+          "hint": "Он возвращается в атмосферу.",
+          "explanation": "Мусор кладут в грузовой корабль, который потом сгорает в атмосфере.",
+          "fact": "Так на орбите не остаётся хлама."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لنفايات محطة الفضاء؟",
+          "answer": "تذهب في سفينة شحن",
+          "wrong": [
+            "تُرمى في الفضاء",
+            "تُحرق على متنها",
+            "تبقى في خزانة"
+          ],
+          "hint": "تعود معها إلى الغلاف الجوي.",
+          "explanation": "توضع النفايات في سفينة شحن تحترق لاحقًا في الغلاف الجوي.",
+          "fact": "هكذا لا تبقى خردة تدور حول الأرض."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Valeri Polyakov — 437 days aboard Mir, 1994-1995",
+      "artBrief": "Een kalender van vier seizoenen die om een ruimtestation heen draait.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang duurde de langste ruimtereis van één mens?",
+          "answer": "Ruim een jaar",
+          "wrong": [
+            "Een week",
+            "Een maand",
+            "Tien jaar"
+          ],
+          "hint": "Meer dan vierhonderd dagen.",
+          "explanation": "Valeri Poljakov bleef 437 dagen achter elkaar in de ruimte.",
+          "fact": "Dat record staat al sinds 1995."
+        },
+        "en": {
+          "prompt": "How long was the longest space trip by one person?",
+          "answer": "Over a year",
+          "wrong": [
+            "A week",
+            "A month",
+            "Ten years"
+          ],
+          "hint": "More than four hundred days.",
+          "explanation": "Valeri Polyakov stayed in space for 437 days in a row.",
+          "fact": "That record has stood since 1995."
+        },
+        "de": {
+          "prompt": "Wie lange dauerte die längste Weltraumreise eines Menschen?",
+          "answer": "Über ein Jahr",
+          "wrong": [
+            "Eine Woche",
+            "Einen Monat",
+            "Zehn Jahre"
+          ],
+          "hint": "Mehr als vierhundert Tage.",
+          "explanation": "Waleri Poljakow blieb 437 Tage am Stück im Weltall.",
+          "fact": "Dieser Rekord hält seit 1995."
+        },
+        "fr": {
+          "prompt": "Combien a duré le plus long voyage spatial d'une personne ?",
+          "answer": "Plus d'un an",
+          "wrong": [
+            "Une semaine",
+            "Un mois",
+            "Dix ans"
+          ],
+          "hint": "Plus de quatre cents jours.",
+          "explanation": "Valeri Poliakov est resté 437 jours d'affilée dans l'espace.",
+          "fact": "Ce record tient depuis 1995."
+        },
+        "es": {
+          "prompt": "¿Cuánto duró el viaje espacial más largo de una persona?",
+          "answer": "Más de un año",
+          "wrong": [
+            "Una semana",
+            "Un mes",
+            "Diez años"
+          ],
+          "hint": "Más de cuatrocientos días.",
+          "explanation": "Valeri Poliakov pasó 437 días seguidos en el espacio.",
+          "fact": "Ese récord sigue en pie desde 1995."
+        },
+        "it": {
+          "prompt": "Quanto è durato il viaggio spaziale più lungo di una persona?",
+          "answer": "Più di un anno",
+          "wrong": [
+            "Una settimana",
+            "Un mese",
+            "Dieci anni"
+          ],
+          "hint": "Più di quattrocento giorni.",
+          "explanation": "Valeri Poljakov è rimasto 437 giorni di fila nello spazio.",
+          "fact": "Quel record resiste dal 1995."
+        },
+        "pt": {
+          "prompt": "Quanto durou a viagem espacial mais longa de uma pessoa?",
+          "answer": "Mais de um ano",
+          "wrong": [
+            "Uma semana",
+            "Um mês",
+            "Dez anos"
+          ],
+          "hint": "Mais de quatrocentos dias.",
+          "explanation": "Valeri Poliakov esteve 437 dias seguidos no espaço.",
+          "fact": "Esse recorde dura desde 1995."
+        },
+        "da": {
+          "prompt": "Hvor længe varede den længste rumrejse for ét menneske?",
+          "answer": "Over et år",
+          "wrong": [
+            "En uge",
+            "En måned",
+            "Ti år"
+          ],
+          "hint": "Mere end fire hundrede dage.",
+          "explanation": "Valerij Poljakov blev 437 dage i træk i rummet.",
+          "fact": "Den rekord har stået siden 1995."
+        },
+        "ru": {
+          "prompt": "Сколько длился самый долгий полёт одного человека?",
+          "answer": "Больше года",
+          "wrong": [
+            "Неделю",
+            "Месяц",
+            "Десять лет"
+          ],
+          "hint": "Больше четырёхсот дней.",
+          "explanation": "Валерий Поляков провёл в космосе 437 дней подряд.",
+          "fact": "Этот рекорд держится с 1995 года."
+        },
+        "ar": {
+          "prompt": "كم دامت أطول رحلة فضائية لشخص واحد؟",
+          "answer": "أكثر من سنة",
+          "wrong": [
+            "أسبوعًا",
+            "شهرًا",
+            "عشر سنوات"
+          ],
+          "hint": "أكثر من أربعمئة يوم.",
+          "explanation": "بقي فاليري بولياكوف 437 يومًا متواصلة في الفضاء.",
+          "fact": "هذا الرقم صامد منذ 1995."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — the ISS is a partnership of fifteen nations",
+      "artBrief": "Een ruimtestation opgebouwd uit modules in verschillende kleuren, samen één geheel.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel landen werken samen aan het ruimtestation?",
+          "answer": "Vijftien",
+          "wrong": [
+            "Twee",
+            "Vijftig",
+            "Honderd"
+          ],
+          "hint": "Meer dan tien, minder dan twintig.",
+          "explanation": "Het ISS is een samenwerking van vijftien landen.",
+          "fact": "Nederland doet mee via de Europese ruimtevaartorganisatie."
+        },
+        "en": {
+          "prompt": "How many countries work together on the space station?",
+          "answer": "Fifteen",
+          "wrong": [
+            "Two",
+            "Fifty",
+            "A hundred"
+          ],
+          "hint": "More than ten, fewer than twenty.",
+          "explanation": "The ISS is a partnership of fifteen countries.",
+          "fact": "The Netherlands takes part through the European space agency."
+        },
+        "de": {
+          "prompt": "Wie viele Länder arbeiten an der Raumstation zusammen?",
+          "answer": "Fünfzehn",
+          "wrong": [
+            "Zwei",
+            "Fünfzig",
+            "Hundert"
+          ],
+          "hint": "Mehr als zehn, weniger als zwanzig.",
+          "explanation": "Die ISS ist eine Zusammenarbeit von fünfzehn Ländern.",
+          "fact": "Deutschland ist über die europäische Raumfahrtbehörde dabei."
+        },
+        "fr": {
+          "prompt": "Combien de pays travaillent ensemble sur la station ?",
+          "answer": "Quinze",
+          "wrong": [
+            "Deux",
+            "Cinquante",
+            "Cent"
+          ],
+          "hint": "Plus de dix, moins de vingt.",
+          "explanation": "L'ISS est une collaboration de quinze pays.",
+          "fact": "La France participe via l'agence spatiale européenne."
+        },
+        "es": {
+          "prompt": "¿Cuántos países colaboran en la estación espacial?",
+          "answer": "Quince",
+          "wrong": [
+            "Dos",
+            "Cincuenta",
+            "Cien"
+          ],
+          "hint": "Más de diez y menos de veinte.",
+          "explanation": "La ISS es una colaboración de quince países.",
+          "fact": "España participa a través de la agencia espacial europea."
+        },
+        "it": {
+          "prompt": "Quanti Paesi collaborano alla stazione spaziale?",
+          "answer": "Quindici",
+          "wrong": [
+            "Due",
+            "Cinquanta",
+            "Cento"
+          ],
+          "hint": "Più di dieci, meno di venti.",
+          "explanation": "La ISS è una collaborazione di quindici Paesi.",
+          "fact": "L'Italia partecipa tramite l'agenzia spaziale europea."
+        },
+        "pt": {
+          "prompt": "Quantos países trabalham juntos na estação espacial?",
+          "answer": "Quinze",
+          "wrong": [
+            "Dois",
+            "Cinquenta",
+            "Cem"
+          ],
+          "hint": "Mais de dez e menos de vinte.",
+          "explanation": "A ISS é uma parceria de quinze países.",
+          "fact": "Portugal participa através da agência espacial europeia."
+        },
+        "da": {
+          "prompt": "Hvor mange lande samarbejder om rumstationen?",
+          "answer": "Femten",
+          "wrong": [
+            "To",
+            "Halvtreds",
+            "Hundrede"
+          ],
+          "hint": "Mere end ti, færre end tyve.",
+          "explanation": "ISS er et samarbejde mellem femten lande.",
+          "fact": "Danmark er med gennem den europæiske rumorganisation."
+        },
+        "ru": {
+          "prompt": "Сколько стран работают вместе над станцией?",
+          "answer": "Пятнадцать",
+          "wrong": [
+            "Две",
+            "Пятьдесят",
+            "Сто"
+          ],
+          "hint": "Больше десяти и меньше двадцати.",
+          "explanation": "МКС — это сотрудничество пятнадцати стран.",
+          "fact": "Европейские страны участвуют через своё космическое агентство."
+        },
+        "ar": {
+          "prompt": "كم دولة تعمل معًا في محطة الفضاء؟",
+          "answer": "خمس عشرة",
+          "wrong": [
+            "اثنتان",
+            "خمسون",
+            "مئة"
+          ],
+          "hint": "أكثر من عشر وأقل من عشرين.",
+          "explanation": "محطة الفضاء الدولية تعاون بين خمس عشرة دولة.",
+          "fact": "تشارك الدول الأوروبية عبر وكالتها الفضائية."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Apollo 11, 20 July 1969",
+      "artBrief": "Een voetafdruk in het grijze maanstof met een astronaut op de achtergrond.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wie zette als eerste voet op de maan?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Joeri Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Hij stapte in 1969 als eerste de ladder af.",
+          "explanation": "Neil Armstrong zette op 20 juli 1969 de eerste stap op de maan.",
+          "fact": "Zijn voetafdruk staat er nog, want er waait geen wind."
+        },
+        "en": {
+          "prompt": "Who was first to set foot on the moon?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Yuri Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "He climbed down the ladder first in 1969.",
+          "explanation": "Neil Armstrong took the first step on the moon on 20 July 1969.",
+          "fact": "His footprint is still there, because no wind blows."
+        },
+        "de": {
+          "prompt": "Wer setzte als Erster einen Fuß auf den Mond?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Juri Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Er stieg 1969 als Erster die Leiter hinab.",
+          "explanation": "Neil Armstrong machte am 20. Juli 1969 den ersten Schritt auf dem Mond.",
+          "fact": "Sein Fußabdruck ist noch da, denn dort weht kein Wind."
+        },
+        "fr": {
+          "prompt": "Qui a posé le premier pied sur la Lune ?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Youri Gagarine",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Il a descendu l'échelle le premier en 1969.",
+          "explanation": "Neil Armstrong a fait le premier pas sur la Lune le 20 juillet 1969.",
+          "fact": "Son empreinte y est toujours, car il n'y a pas de vent."
+        },
+        "es": {
+          "prompt": "¿Quién pisó la Luna primero?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Yuri Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Bajó la escalerilla el primero en 1969.",
+          "explanation": "Neil Armstrong dio el primer paso en la Luna el 20 de julio de 1969.",
+          "fact": "Su huella sigue ahí, porque no sopla viento."
+        },
+        "it": {
+          "prompt": "Chi mise per primo piede sulla Luna?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Jurij Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Scese per primo la scaletta nel 1969.",
+          "explanation": "Neil Armstrong fece il primo passo sulla Luna il 20 luglio 1969.",
+          "fact": "La sua impronta è ancora lì, perché non c'è vento."
+        },
+        "pt": {
+          "prompt": "Quem pôs primeiro o pé na Lua?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Yuri Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Desceu a escada primeiro em 1969.",
+          "explanation": "Neil Armstrong deu o primeiro passo na Lua a 20 de julho de 1969.",
+          "fact": "A pegada ainda lá está, porque não há vento."
+        },
+        "da": {
+          "prompt": "Hvem satte først fod på Månen?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Jurij Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Han gik ned ad stigen først i 1969.",
+          "explanation": "Neil Armstrong tog det første skridt på Månen 20. juli 1969.",
+          "fact": "Hans fodaftryk er der stadig, for der blæser ingen vind."
+        },
+        "ru": {
+          "prompt": "Кто первым ступил на Луну?",
+          "answer": "Нил Армстронг",
+          "wrong": [
+            "Юрий Гагарин",
+            "Базз Олдрин",
+            "Майкл Коллинз"
+          ],
+          "hint": "В 1969 году он первым спустился по лестнице.",
+          "explanation": "Нил Армстронг сделал первый шаг по Луне 20 июля 1969 года.",
+          "fact": "Его след там до сих пор, ведь ветра нет."
+        },
+        "ar": {
+          "prompt": "من وطئت قدمه القمر أولًا؟",
+          "answer": "نيل أرمسترونغ",
+          "wrong": [
+            "يوري غاغارين",
+            "باز ألدرين",
+            "مايكل كولينز"
+          ],
+          "hint": "نزل السلم أولًا عام 1969.",
+          "explanation": "خطا نيل أرمسترونغ أول خطوة على القمر في 20 يوليو 1969.",
+          "fact": "أثر قدمه ما زال هناك لأن لا رياح تهب."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "ESA — readaptation to gravity after spaceflight",
+      "artBrief": "Een net geland astronaut die door twee helpers uit de capsule wordt getild.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waarom wordt een astronaut na de landing gedragen?",
+          "answer": "Zijn benen zijn nog slap",
+          "wrong": [
+            "Het hoort bij het feest",
+            "Hij mag de grond niet raken",
+            "Zijn pak is te zwaar"
+          ],
+          "hint": "Hij heeft maanden niet gestaan.",
+          "explanation": "Na maanden zweven moeten de benen weer aan zwaartekracht wennen.",
+          "fact": "Na een paar weken training gaat het weer vanzelf."
+        },
+        "en": {
+          "prompt": "Why is an astronaut carried after landing?",
+          "answer": "Their legs are still weak",
+          "wrong": [
+            "It is part of the party",
+            "They may not touch down",
+            "The suit is too heavy"
+          ],
+          "hint": "They have not stood up for months.",
+          "explanation": "After months of floating the legs have to get used to gravity again.",
+          "fact": "A few weeks of training puts that right."
+        },
+        "de": {
+          "prompt": "Warum wird ein Astronaut nach der Landung getragen?",
+          "answer": "Die Beine sind noch schwach",
+          "wrong": [
+            "Das gehört zur Feier",
+            "Er darf nicht auftreten",
+            "Der Anzug ist zu schwer"
+          ],
+          "hint": "Er hat monatelang nicht gestanden.",
+          "explanation": "Nach Monaten in Schwerelosigkeit müssen sich die Beine erst gewöhnen.",
+          "fact": "Nach ein paar Wochen Training geht es wieder."
+        },
+        "fr": {
+          "prompt": "Pourquoi porte-t-on un astronaute après l'atterrissage ?",
+          "answer": "Ses jambes sont faibles",
+          "wrong": [
+            "Cela fait partie de la fête",
+            "Il ne doit pas se poser",
+            "Sa combinaison pèse trop"
+          ],
+          "hint": "Il n'a pas tenu debout depuis des mois.",
+          "explanation": "Après des mois en apesanteur, les jambes doivent se réhabituer.",
+          "fact": "Quelques semaines d'entraînement suffisent."
+        },
+        "es": {
+          "prompt": "¿Por qué llevan en brazos al astronauta al aterrizar?",
+          "answer": "Sus piernas están flojas",
+          "wrong": [
+            "Forma parte de la fiesta",
+            "No puede tocar el suelo",
+            "El traje pesa demasiado"
+          ],
+          "hint": "Lleva meses sin ponerse de pie.",
+          "explanation": "Tras meses flotando, las piernas deben acostumbrarse otra vez.",
+          "fact": "Con unas semanas de entrenamiento se arregla."
+        },
+        "it": {
+          "prompt": "Perché un astronauta viene portato in braccio dopo l'atterraggio?",
+          "answer": "Le gambe sono deboli",
+          "wrong": [
+            "Fa parte della festa",
+            "Non può toccare terra",
+            "La tuta pesa troppo"
+          ],
+          "hint": "Non sta in piedi da mesi.",
+          "explanation": "Dopo mesi fluttuando le gambe devono riabituarsi alla gravità.",
+          "fact": "Con qualche settimana di allenamento torna tutto normale."
+        },
+        "pt": {
+          "prompt": "Porque levam o astronauta ao colo depois de aterrar?",
+          "answer": "As pernas estão fracas",
+          "wrong": [
+            "Faz parte da festa",
+            "Não pode pisar o chão",
+            "O fato pesa demais"
+          ],
+          "hint": "Há meses que não está de pé.",
+          "explanation": "Depois de meses a flutuar, as pernas têm de se habituar outra vez.",
+          "fact": "Com umas semanas de treino fica bem."
+        },
+        "da": {
+          "prompt": "Hvorfor bæres en astronaut efter landingen?",
+          "answer": "Benene er stadig svage",
+          "wrong": [
+            "Det hører til festen",
+            "Han må ikke røre jorden",
+            "Dragten er for tung"
+          ],
+          "hint": "Han har ikke stået op i månedsvis.",
+          "explanation": "Efter måneder i vægtløshed skal benene vænne sig til tyngdekraften.",
+          "fact": "Efter et par ugers træning går det af sig selv."
+        },
+        "ru": {
+          "prompt": "Почему космонавта несут после посадки?",
+          "answer": "Ноги ещё слабые",
+          "wrong": [
+            "Так принято на празднике",
+            "Ему нельзя касаться земли",
+            "Скафандр слишком тяжёлый"
+          ],
+          "hint": "Он месяцами не стоял на ногах.",
+          "explanation": "После месяцев невесомости ноги заново привыкают к тяжести.",
+          "fact": "Через пару недель тренировок всё проходит."
+        },
+        "ar": {
+          "prompt": "لماذا يُحمل رائد الفضاء بعد الهبوط؟",
+          "answer": "ساقاه ما زالتا ضعيفتين",
+          "wrong": [
+            "هذا جزء من الاحتفال",
+            "ممنوع أن يلمس الأرض",
+            "بدلته ثقيلة جدًا"
+          ],
+          "hint": "لم يقف على قدميه منذ شهور.",
+          "explanation": "بعد شهور من الطفو تحتاج الساقان إلى التعود على الجاذبية.",
+          "fact": "بعد أسابيع من التمرين يعود كل شيء طبيعيًا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Alexei Leonov, Voskhod 2, 18 March 1965",
+      "artBrief": "De allereerste ruimtewandeling: een astronaut aan een lijn naast een klein ruimteschip.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wie maakte de allereerste ruimtewandeling?",
+          "answer": "Aleksej Leonov",
+          "wrong": [
+            "Joeri Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Het gebeurde in 1965, aan een lijn.",
+          "explanation": "Aleksej Leonov zweefde in 1965 als eerste buiten zijn ruimteschip.",
+          "fact": "Zijn pak zwol zo op dat hij er bijna niet meer in kon."
+        },
+        "en": {
+          "prompt": "Who made the very first spacewalk?",
+          "answer": "Alexei Leonov",
+          "wrong": [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "It happened in 1965, on a tether.",
+          "explanation": "In 1965 Alexei Leonov was the first to float outside his spacecraft.",
+          "fact": "His suit puffed up so much he barely got back in."
+        },
+        "de": {
+          "prompt": "Wer machte den allerersten Weltraumspaziergang?",
+          "answer": "Alexei Leonow",
+          "wrong": [
+            "Juri Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Es geschah 1965, an einer Leine.",
+          "explanation": "1965 schwebte Alexei Leonow als Erster außerhalb seines Raumschiffs.",
+          "fact": "Sein Anzug blähte sich so auf, dass er kaum zurückkam."
+        },
+        "fr": {
+          "prompt": "Qui a fait la toute première sortie dans l'espace ?",
+          "answer": "Alexeï Leonov",
+          "wrong": [
+            "Youri Gagarine",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "C'était en 1965, au bout d'une corde.",
+          "explanation": "En 1965, Alexeï Leonov a flotté le premier hors de son vaisseau.",
+          "fact": "Sa combinaison a tellement gonflé qu'il a failli rester dehors."
+        },
+        "es": {
+          "prompt": "¿Quién hizo el primer paseo espacial de la historia?",
+          "answer": "Alexéi Leónov",
+          "wrong": [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Ocurrió en 1965, atado a una cuerda.",
+          "explanation": "En 1965 Alexéi Leónov flotó el primero fuera de su nave.",
+          "fact": "Su traje se hinchó tanto que casi no pudo volver."
+        },
+        "it": {
+          "prompt": "Chi fece la primissima passeggiata spaziale?",
+          "answer": "Aleksej Leonov",
+          "wrong": [
+            "Jurij Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Successe nel 1965, legato a una fune.",
+          "explanation": "Nel 1965 Aleksej Leonov fluttuò per primo fuori dalla navicella.",
+          "fact": "La tuta si gonfiò tanto che quasi non rientrava."
+        },
+        "pt": {
+          "prompt": "Quem fez o primeiro passeio no espaço?",
+          "answer": "Alexei Leonov",
+          "wrong": [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Foi em 1965, preso a um cabo.",
+          "explanation": "Em 1965 Alexei Leonov flutuou primeiro fora da sua nave.",
+          "fact": "O fato inchou tanto que quase não conseguiu voltar."
+        },
+        "da": {
+          "prompt": "Hvem lavede den allerførste rumvandring?",
+          "answer": "Aleksej Leonov",
+          "wrong": [
+            "Jurij Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Det skete i 1965, i en line.",
+          "explanation": "I 1965 svævede Aleksej Leonov som den første uden for sit rumskib.",
+          "fact": "Hans dragt pustede sig så meget op, at han næsten ikke kom ind igen."
+        },
+        "ru": {
+          "prompt": "Кто совершил самый первый выход в открытый космос?",
+          "answer": "Алексей Леонов",
+          "wrong": [
+            "Юрий Гагарин",
+            "Нил Армстронг",
+            "Андре Кёйперс"
+          ],
+          "hint": "Это случилось в 1965 году, на тросе.",
+          "explanation": "В 1965 году Алексей Леонов первым вышел из корабля в космос.",
+          "fact": "Его скафандр так раздулся, что он еле вернулся внутрь."
+        },
+        "ar": {
+          "prompt": "من قام بأول سير في الفضاء؟",
+          "answer": "أليكسي ليونوف",
+          "wrong": [
+            "يوري غاغارين",
+            "نيل أرمسترونغ",
+            "أندريه كايبرس"
+          ],
+          "hint": "حدث ذلك عام 1965 وهو مربوط بحبل.",
+          "explanation": "عام 1965 خرج أليكسي ليونوف أول مرة خارج مركبته.",
+          "fact": "انتفخت بدلته حتى كاد لا يعود إلى الداخل."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — the EMU spacesuit weighs about 127 kg on earth",
+      "artBrief": "Een compleet ruimtepak op een standaard in een werkplaats, met gereedschap eromheen.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel weegt een ruimtepak op aarde?",
+          "answer": "Ongeveer 120 kilo",
+          "wrong": [
+            "Ongeveer 10 kilo",
+            "Ongeveer 50 kilo",
+            "Ongeveer 300 kilo"
+          ],
+          "hint": "Zwaarder dan een volwassene.",
+          "explanation": "Een compleet ruimtepak weegt op aarde ongeveer 120 kilo.",
+          "fact": "In de ruimte voel je daar niets van."
+        },
+        "en": {
+          "prompt": "How much does a spacesuit weigh on earth?",
+          "answer": "About 120 kilos",
+          "wrong": [
+            "About 10 kilos",
+            "About 50 kilos",
+            "About 300 kilos"
+          ],
+          "hint": "Heavier than a grown-up.",
+          "explanation": "A complete spacesuit weighs about 120 kilos on earth.",
+          "fact": "In space you feel none of that weight."
+        },
+        "de": {
+          "prompt": "Wie viel wiegt ein Raumanzug auf der Erde?",
+          "answer": "Etwa 120 Kilo",
+          "wrong": [
+            "Etwa 10 Kilo",
+            "Etwa 50 Kilo",
+            "Etwa 300 Kilo"
+          ],
+          "hint": "Schwerer als ein Erwachsener.",
+          "explanation": "Ein kompletter Raumanzug wiegt auf der Erde etwa 120 Kilo.",
+          "fact": "Im Weltall spürt man davon nichts."
+        },
+        "fr": {
+          "prompt": "Combien pèse une combinaison spatiale sur Terre ?",
+          "answer": "Environ 120 kilos",
+          "wrong": [
+            "Environ 10 kilos",
+            "Environ 50 kilos",
+            "Environ 300 kilos"
+          ],
+          "hint": "Plus lourd qu'un adulte.",
+          "explanation": "Une combinaison complète pèse environ 120 kilos sur Terre.",
+          "fact": "Dans l'espace, on n'en sent rien."
+        },
+        "es": {
+          "prompt": "¿Cuánto pesa un traje espacial en la Tierra?",
+          "answer": "Unos 120 kilos",
+          "wrong": [
+            "Unos 10 kilos",
+            "Unos 50 kilos",
+            "Unos 300 kilos"
+          ],
+          "hint": "Más que una persona adulta.",
+          "explanation": "Un traje espacial completo pesa unos 120 kilos en la Tierra.",
+          "fact": "En el espacio no se nota nada de ese peso."
+        },
+        "it": {
+          "prompt": "Quanto pesa una tuta spaziale sulla Terra?",
+          "answer": "Circa 120 chili",
+          "wrong": [
+            "Circa 10 chili",
+            "Circa 50 chili",
+            "Circa 300 chili"
+          ],
+          "hint": "Più di una persona adulta.",
+          "explanation": "Una tuta spaziale completa pesa sulla Terra circa 120 chili.",
+          "fact": "Nello spazio non se ne sente il peso."
+        },
+        "pt": {
+          "prompt": "Quanto pesa um fato espacial na Terra?",
+          "answer": "Cerca de 120 quilos",
+          "wrong": [
+            "Cerca de 10 quilos",
+            "Cerca de 50 quilos",
+            "Cerca de 300 quilos"
+          ],
+          "hint": "Mais do que uma pessoa adulta.",
+          "explanation": "Um fato espacial completo pesa na Terra cerca de 120 quilos.",
+          "fact": "No espaço não se sente esse peso."
+        },
+        "da": {
+          "prompt": "Hvor meget vejer en rumdragt på Jorden?",
+          "answer": "Cirka 120 kilo",
+          "wrong": [
+            "Cirka 10 kilo",
+            "Cirka 50 kilo",
+            "Cirka 300 kilo"
+          ],
+          "hint": "Tungere end en voksen.",
+          "explanation": "En komplet rumdragt vejer cirka 120 kilo på Jorden.",
+          "fact": "I rummet mærker man intet til den vægt."
+        },
+        "ru": {
+          "prompt": "Сколько весит скафандр на Земле?",
+          "answer": "Около 120 килограммов",
+          "wrong": [
+            "Около 10 килограммов",
+            "Около 50 килограммов",
+            "Около 300 килограммов"
+          ],
+          "hint": "Тяжелее взрослого человека.",
+          "explanation": "Полный скафандр весит на Земле около 120 килограммов.",
+          "fact": "В космосе этого веса совсем не чувствуешь."
+        },
+        "ar": {
+          "prompt": "كم تزن بدلة الفضاء على الأرض؟",
+          "answer": "نحو 120 كيلوغرامًا",
+          "wrong": [
+            "نحو 10 كيلوغرامات",
+            "نحو 50 كيلوغرامًا",
+            "نحو 300 كيلوغرام"
+          ],
+          "hint": "أثقل من شخص بالغ.",
+          "explanation": "تزن البدلة الكاملة على الأرض نحو 120 كيلوغرامًا.",
+          "fact": "أما في الفضاء فلا تشعر بثقلها."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — pre-breathe protocol before EVA",
+      "artBrief": "Een astronaut met een zuurstofmasker die rustig zit te wachten voor een ruimtewandeling.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waarom ademt een astronaut eerst pure zuurstof?",
+          "answer": "Om stikstof kwijt te raken",
+          "wrong": [
+            "Om beter te ruiken",
+            "Om wakker te blijven",
+            "Om het pak te vullen"
+          ],
+          "hint": "Anders krijgt hij belletjes in zijn bloed.",
+          "explanation": "Door eerst zuurstof te ademen verdwijnt de stikstof uit zijn bloed.",
+          "fact": "Duikers doen iets soortgelijks als ze omhoog komen."
+        },
+        "en": {
+          "prompt": "Why does an astronaut breathe pure oxygen first?",
+          "answer": "To get rid of nitrogen",
+          "wrong": [
+            "To smell better",
+            "To stay awake",
+            "To fill up the suit"
+          ],
+          "hint": "Otherwise bubbles form in the blood.",
+          "explanation": "Breathing oxygen first clears the nitrogen out of the blood.",
+          "fact": "Divers do something similar on their way up."
+        },
+        "de": {
+          "prompt": "Warum atmet ein Astronaut vorher reinen Sauerstoff?",
+          "answer": "Um Stickstoff loszuwerden",
+          "wrong": [
+            "Um besser zu riechen",
+            "Um wach zu bleiben",
+            "Um den Anzug zu füllen"
+          ],
+          "hint": "Sonst bilden sich Bläschen im Blut.",
+          "explanation": "Durch reinen Sauerstoff verschwindet der Stickstoff aus dem Blut.",
+          "fact": "Taucher machen beim Auftauchen etwas Ähnliches."
+        },
+        "fr": {
+          "prompt": "Pourquoi un astronaute respire-t-il d'abord de l'oxygène pur ?",
+          "answer": "Pour chasser l'azote",
+          "wrong": [
+            "Pour mieux sentir",
+            "Pour rester éveillé",
+            "Pour gonfler la combinaison"
+          ],
+          "hint": "Sinon des bulles se forment dans le sang.",
+          "explanation": "Respirer de l'oxygène pur chasse l'azote du sang.",
+          "fact": "Les plongeurs font quelque chose de semblable en remontant."
+        },
+        "es": {
+          "prompt": "¿Por qué respira antes oxígeno puro un astronauta?",
+          "answer": "Para sacar el nitrógeno",
+          "wrong": [
+            "Para oler mejor",
+            "Para no dormirse",
+            "Para inflar el traje"
+          ],
+          "hint": "Si no, se forman burbujas en la sangre.",
+          "explanation": "Respirar oxígeno puro saca el nitrógeno de la sangre.",
+          "fact": "Los buceadores hacen algo parecido al subir."
+        },
+        "it": {
+          "prompt": "Perché un astronauta respira prima ossigeno puro?",
+          "answer": "Per togliere l'azoto",
+          "wrong": [
+            "Per sentire meglio gli odori",
+            "Per restare sveglio",
+            "Per gonfiare la tuta"
+          ],
+          "hint": "Altrimenti si formano bollicine nel sangue.",
+          "explanation": "Respirare ossigeno puro toglie l'azoto dal sangue.",
+          "fact": "I sub fanno una cosa simile mentre risalgono."
+        },
+        "pt": {
+          "prompt": "Porque respira um astronauta oxigénio puro antes?",
+          "answer": "Para tirar o azoto",
+          "wrong": [
+            "Para cheirar melhor",
+            "Para ficar acordado",
+            "Para encher o fato"
+          ],
+          "hint": "Senão formam-se bolhas no sangue.",
+          "explanation": "Respirar oxigénio puro tira o azoto do sangue.",
+          "fact": "Os mergulhadores fazem algo parecido ao subir."
+        },
+        "da": {
+          "prompt": "Hvorfor indånder en astronaut først ren ilt?",
+          "answer": "For at fjerne kvælstof",
+          "wrong": [
+            "For at lugte bedre",
+            "For at holde sig vågen",
+            "For at fylde dragten"
+          ],
+          "hint": "Ellers dannes der bobler i blodet.",
+          "explanation": "Ren ilt fjerner kvælstoffet fra blodet.",
+          "fact": "Dykkere gør noget lignende på vej op."
+        },
+        "ru": {
+          "prompt": "Зачем космонавт сначала дышит чистым кислородом?",
+          "answer": "Чтобы вывести азот",
+          "wrong": [
+            "Чтобы лучше чувствовать вкус",
+            "Чтобы не уснуть",
+            "Чтобы надуть скафандр"
+          ],
+          "hint": "Иначе в крови появятся пузырьки.",
+          "explanation": "Чистый кислород убирает азот из крови.",
+          "fact": "Водолазы делают похожее, когда поднимаются."
+        },
+        "ar": {
+          "prompt": "لماذا يتنفس رائد الفضاء أكسجينًا نقيًا أولًا؟",
+          "answer": "للتخلص من النيتروجين",
+          "wrong": [
+            "ليشم بشكل أفضل",
+            "ليبقى مستيقظًا",
+            "ليملأ البدلة"
+          ],
+          "hint": "وإلا تكونت فقاعات في دمه.",
+          "explanation": "تنفس الأكسجين النقي يطرد النيتروجين من الدم.",
+          "fact": "يفعل الغواصون شيئًا مشابهًا عند الصعود."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — the ISS orbits at about 400 km altitude",
+      "artBrief": "Een doorsnede van de aarde met daarboven een ruimtestation op grote hoogte.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe hoog vliegt het ruimtestation boven de aarde?",
+          "answer": "Ongeveer 400 kilometer",
+          "wrong": [
+            "Ongeveer 40 kilometer",
+            "Ongeveer 4000 kilometer",
+            "Ongeveer 40.000 kilometer"
+          ],
+          "hint": "Ongeveer de afstand Amsterdam-Parijs, maar dan omhoog.",
+          "explanation": "Het ISS vliegt op ongeveer 400 kilometer hoogte.",
+          "fact": "Daar is nog een heel klein beetje lucht, die het station afremt."
+        },
+        "en": {
+          "prompt": "How high above the earth does the space station fly?",
+          "answer": "About 400 kilometres",
+          "wrong": [
+            "About 40 kilometres",
+            "About 4000 kilometres",
+            "About 40,000 kilometres"
+          ],
+          "hint": "Roughly London to Paris, but straight up.",
+          "explanation": "The ISS flies at a height of about 400 kilometres.",
+          "fact": "There is still a whisper of air up there, slowing it down."
+        },
+        "de": {
+          "prompt": "Wie hoch über der Erde fliegt die Raumstation?",
+          "answer": "Etwa 400 Kilometer",
+          "wrong": [
+            "Etwa 40 Kilometer",
+            "Etwa 4000 Kilometer",
+            "Etwa 40.000 Kilometer"
+          ],
+          "hint": "Ungefähr Berlin-Hamburg, aber nach oben.",
+          "explanation": "Die ISS fliegt in etwa 400 Kilometern Höhe.",
+          "fact": "Dort oben ist noch ein Hauch Luft, der die Station bremst."
+        },
+        "fr": {
+          "prompt": "À quelle hauteur vole la station spatiale ?",
+          "answer": "Environ 400 kilomètres",
+          "wrong": [
+            "Environ 40 kilomètres",
+            "Environ 4000 kilomètres",
+            "Environ 40 000 kilomètres"
+          ],
+          "hint": "À peu près Paris-Bruxelles, mais vers le haut.",
+          "explanation": "L'ISS vole à environ 400 kilomètres d'altitude.",
+          "fact": "Il reste là-haut un souffle d'air qui la freine."
+        },
+        "es": {
+          "prompt": "¿A qué altura vuela la estación espacial?",
+          "answer": "Unos 400 kilómetros",
+          "wrong": [
+            "Unos 40 kilómetros",
+            "Unos 4000 kilómetros",
+            "Unos 40.000 kilómetros"
+          ],
+          "hint": "Más o menos Madrid-Valencia, pero hacia arriba.",
+          "explanation": "La ISS vuela a unos 400 kilómetros de altura.",
+          "fact": "Allí queda un soplo de aire que la va frenando."
+        },
+        "it": {
+          "prompt": "A che altezza vola la stazione spaziale?",
+          "answer": "Circa 400 chilometri",
+          "wrong": [
+            "Circa 40 chilometri",
+            "Circa 4000 chilometri",
+            "Circa 40.000 chilometri"
+          ],
+          "hint": "Più o meno Roma-Firenze, ma verso l'alto.",
+          "explanation": "La ISS vola a circa 400 chilometri di altezza.",
+          "fact": "Lassù resta un filo d'aria che la rallenta."
+        },
+        "pt": {
+          "prompt": "A que altura voa a estação espacial?",
+          "answer": "Cerca de 400 quilómetros",
+          "wrong": [
+            "Cerca de 40 quilómetros",
+            "Cerca de 4000 quilómetros",
+            "Cerca de 40.000 quilómetros"
+          ],
+          "hint": "Mais ou menos Lisboa-Porto, mas para cima.",
+          "explanation": "A ISS voa a cerca de 400 quilómetros de altura.",
+          "fact": "Lá em cima ainda há um fio de ar que a trava."
+        },
+        "da": {
+          "prompt": "Hvor højt over Jorden flyver rumstationen?",
+          "answer": "Cirka 400 kilometer",
+          "wrong": [
+            "Cirka 40 kilometer",
+            "Cirka 4000 kilometer",
+            "Cirka 40.000 kilometer"
+          ],
+          "hint": "Cirka København-Aarhus, bare opad.",
+          "explanation": "ISS flyver i cirka 400 kilometers højde.",
+          "fact": "Deroppe er der stadig en anelse luft, som bremser den."
+        },
+        "ru": {
+          "prompt": "На какой высоте летает станция?",
+          "answer": "Около 400 километров",
+          "wrong": [
+            "Около 40 километров",
+            "Около 4000 километров",
+            "Около 40 000 километров"
+          ],
+          "hint": "Примерно как Москва — Тула, только вверх.",
+          "explanation": "МКС летает на высоте около 400 километров.",
+          "fact": "Там ещё есть немного воздуха, и он её тормозит."
+        },
+        "ar": {
+          "prompt": "على أي ارتفاع تطير محطة الفضاء؟",
+          "answer": "نحو 400 كيلومتر",
+          "wrong": [
+            "نحو 40 كيلومترًا",
+            "نحو 4000 كيلومتر",
+            "نحو 40000 كيلومتر"
+          ],
+          "hint": "مسافة مدينة إلى أخرى، لكن إلى أعلى.",
+          "explanation": "تطير المحطة الدولية على ارتفاع نحو 400 كيلومتر.",
+          "fact": "هناك يبقى قليل من الهواء يبطئها."
+        }
+      }
+    },
+    {
+      "id": "ruimte-astronauten-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "CMSA — Tiangong space station",
+      "artBrief": "Een ruimtestation met drie modules in een T-vorm, zonnepanelen uitgeklapt boven de aarde.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet het Chinese ruimtestation?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "De naam betekent hemels paleis.",
+          "explanation": "Tiangong is het ruimtestation van China.",
+          "fact": "Het bestaat uit drie delen in een T-vorm."
+        },
+        "en": {
+          "prompt": "What is the Chinese space station called?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "The name means heavenly palace.",
+          "explanation": "Tiangong is China's own space station.",
+          "fact": "It is made of three parts in a T shape."
+        },
+        "de": {
+          "prompt": "Wie heißt die chinesische Raumstation?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "Der Name bedeutet Himmelspalast.",
+          "explanation": "Tiangong ist die eigene Raumstation Chinas.",
+          "fact": "Sie besteht aus drei Teilen in T-Form."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle la station spatiale chinoise ?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "Le nom signifie palais céleste.",
+          "explanation": "Tiangong est la station spatiale de la Chine.",
+          "fact": "Elle est faite de trois parties en forme de T."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama la estación espacial china?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "El nombre significa palacio celestial.",
+          "explanation": "Tiangong es la estación espacial de China.",
+          "fact": "Está formada por tres partes en forma de T."
+        },
+        "it": {
+          "prompt": "Come si chiama la stazione spaziale cinese?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "Il nome significa palazzo celeste.",
+          "explanation": "Tiangong è la stazione spaziale della Cina.",
+          "fact": "È fatta di tre parti a forma di T."
+        },
+        "pt": {
+          "prompt": "Como se chama a estação espacial chinesa?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "O nome significa palácio celeste.",
+          "explanation": "Tiangong é a estação espacial da China.",
+          "fact": "É feita de três partes em forma de T."
+        },
+        "da": {
+          "prompt": "Hvad hedder Kinas rumstation?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "Navnet betyder himmelpalads.",
+          "explanation": "Tiangong er Kinas egen rumstation.",
+          "fact": "Den består af tre dele i en T-form."
+        },
+        "ru": {
+          "prompt": "Как называется китайская космическая станция?",
+          "answer": "Тяньгун",
+          "wrong": [
+            "Мир",
+            "Скайлэб",
+            "Артемида"
+          ],
+          "hint": "Название значит небесный дворец.",
+          "explanation": "Тяньгун — собственная космическая станция Китая.",
+          "fact": "Она состоит из трёх частей в форме буквы Т."
+        },
+        "ar": {
+          "prompt": "ما اسم محطة الفضاء الصينية؟",
+          "answer": "تيانغونغ",
+          "wrong": [
+            "مير",
+            "سكاي لاب",
+            "أرتميس"
+          ],
+          "hint": "الاسم يعني قصر السماء.",
+          "explanation": "تيانغونغ هي محطة الفضاء الخاصة بالصين.",
+          "fact": "تتكون من ثلاثة أجزاء على شكل حرف T."
+        }
+      }
+    }
+  ]
+}
