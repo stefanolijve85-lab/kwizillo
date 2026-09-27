@@ -6,7 +6,7 @@
     {
       "id": "ruimte-zonnestelsel-21",
       "difficulty": 1,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Our Solar System overview",
       "artBrief": "De zon groot in beeld, warm en vriendelijk, met kleine planeetjes die eromheen cirkelen. Geen tekst, geen namen.",
       "text": {
@@ -21,13 +21,122 @@
           "hint": "Je ziet hem elke dag als het licht wordt.",
           "explanation": "De zon is de ster waar alle planeten omheen draaien.",
           "fact": "De zon is zo groot dat er meer dan een miljoen aardes in passen."
+        },
+        "en": {
+          "prompt": "Which star sits at the centre of our solar system?",
+          "answer": "The sun",
+          "wrong": [
+            "The North Star",
+            "Sirius",
+            "The moon"
+          ],
+          "hint": "You see it every day when it gets light.",
+          "explanation": "The sun is the star that all the planets circle.",
+          "fact": "The sun is so big that more than a million earths would fit inside."
+        },
+        "de": {
+          "prompt": "Welcher Stern steht in der Mitte unseres Sonnensystems?",
+          "answer": "Die Sonne",
+          "wrong": [
+            "Der Polarstern",
+            "Sirius",
+            "Der Mond"
+          ],
+          "hint": "Du siehst ihn jeden Tag, wenn es hell wird.",
+          "explanation": "Die Sonne ist der Stern, um den alle Planeten kreisen.",
+          "fact": "Die Sonne ist so groß, dass mehr als eine Million Erden hineinpassen."
+        },
+        "fr": {
+          "prompt": "Quelle étoile se trouve au centre du système solaire ?",
+          "answer": "Le Soleil",
+          "wrong": [
+            "L'étoile polaire",
+            "Sirius",
+            "La Lune"
+          ],
+          "hint": "Tu la vois chaque jour quand il fait jour.",
+          "explanation": "Le Soleil est l'étoile autour de laquelle tournent les planètes.",
+          "fact": "Le Soleil est si grand qu'un million de Terres y tiendraient."
+        },
+        "es": {
+          "prompt": "¿Qué estrella está en el centro del sistema solar?",
+          "answer": "El Sol",
+          "wrong": [
+            "La estrella polar",
+            "Sirio",
+            "La Luna"
+          ],
+          "hint": "La ves cada día cuando amanece.",
+          "explanation": "El Sol es la estrella alrededor de la cual giran los planetas.",
+          "fact": "El Sol es tan grande que cabrían más de un millón de Tierras."
+        },
+        "it": {
+          "prompt": "Quale stella sta al centro del sistema solare?",
+          "answer": "Il Sole",
+          "wrong": [
+            "La stella polare",
+            "Sirio",
+            "La Luna"
+          ],
+          "hint": "La vedi ogni giorno quando fa chiaro.",
+          "explanation": "Il Sole è la stella attorno a cui girano tutti i pianeti.",
+          "fact": "Il Sole è così grande che ci starebbero un milione di Terre."
+        },
+        "pt": {
+          "prompt": "Que estrela está no centro do sistema solar?",
+          "answer": "O Sol",
+          "wrong": [
+            "A estrela polar",
+            "Sírio",
+            "A Lua"
+          ],
+          "hint": "Vês-la todos os dias quando fica claro.",
+          "explanation": "O Sol é a estrela à volta da qual giram os planetas.",
+          "fact": "O Sol é tão grande que caberiam mais de um milhão de Terras."
+        },
+        "da": {
+          "prompt": "Hvilken stjerne står midt i vores solsystem?",
+          "answer": "Solen",
+          "wrong": [
+            "Nordstjernen",
+            "Sirius",
+            "Månen"
+          ],
+          "hint": "Du ser den hver dag, når det bliver lyst.",
+          "explanation": "Solen er den stjerne, som alle planeterne kredser om.",
+          "fact": "Solen er så stor, at der er plads til mere end en million jordkloder."
+        },
+        "ru": {
+          "prompt": "Какая звезда находится в центре Солнечной системы?",
+          "answer": "Солнце",
+          "wrong": [
+            "Полярная звезда",
+            "Сириус",
+            "Луна"
+          ],
+          "hint": "Ты видишь её каждый день, когда светает.",
+          "explanation": "Солнце — это звезда, вокруг которой вращаются все планеты.",
+          "fact": "Солнце такое большое, что в него поместился бы миллион Земель."
+        },
+        "ar": {
+          "prompt": "أي نجم يقع في مركز مجموعتنا الشمسية؟",
+          "answer": "الشمس",
+          "wrong": [
+            "نجم الشمال",
+            "الشعرى اليمانية",
+            "القمر"
+          ],
+          "hint": "تراها كل يوم عندما يطلع النهار.",
+          "explanation": "الشمس هي النجم الذي تدور حوله كل الكواكب.",
+          "fact": "الشمس كبيرة لدرجة أن أكثر من مليون أرض تتسع فيها."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-22",
       "difficulty": 1,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Our Solar System overview",
       "artBrief": "Acht planeten in een rustige baan om de zon, van opzij gezien, speels en overzichtelijk.",
       "text": {
@@ -42,13 +151,122 @@
           "hint": "Onze aarde hoort er ook bij.",
           "explanation": "Alle acht planeten draaien in een baan om de zon.",
           "fact": "Ook kometen en asteroïden draaien om de zon, maar in veel langere rondjes."
+        },
+        "en": {
+          "prompt": "What travels around the sun?",
+          "answer": "The planets",
+          "wrong": [
+            "Only the moon",
+            "All the stars",
+            "Nothing"
+          ],
+          "hint": "Our earth is one of them.",
+          "explanation": "All eight planets travel in an orbit around the sun.",
+          "fact": "Comets and asteroids circle the sun too, in much longer loops."
+        },
+        "de": {
+          "prompt": "Was kreist alles um die Sonne?",
+          "answer": "Die Planeten",
+          "wrong": [
+            "Nur der Mond",
+            "Alle Sterne",
+            "Nichts"
+          ],
+          "hint": "Unsere Erde gehört auch dazu.",
+          "explanation": "Alle acht Planeten kreisen auf einer Bahn um die Sonne.",
+          "fact": "Auch Kometen und Asteroiden umkreisen die Sonne, nur viel weiter außen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui tourne autour du Soleil ?",
+          "answer": "Les planètes",
+          "wrong": [
+            "Seulement la Lune",
+            "Toutes les étoiles",
+            "Rien"
+          ],
+          "hint": "Notre Terre en fait partie.",
+          "explanation": "Les huit planètes tournent sur une orbite autour du Soleil.",
+          "fact": "Les comètes et les astéroïdes aussi, en boucles bien plus longues."
+        },
+        "es": {
+          "prompt": "¿Qué gira alrededor del Sol?",
+          "answer": "Los planetas",
+          "wrong": [
+            "Solo la Luna",
+            "Todas las estrellas",
+            "Nada"
+          ],
+          "hint": "Nuestra Tierra es uno de ellos.",
+          "explanation": "Los ocho planetas giran en una órbita alrededor del Sol.",
+          "fact": "Los cometas y asteroides también giran, en vueltas mucho más largas."
+        },
+        "it": {
+          "prompt": "Che cosa gira attorno al Sole?",
+          "answer": "I pianeti",
+          "wrong": [
+            "Solo la Luna",
+            "Tutte le stelle",
+            "Niente"
+          ],
+          "hint": "Anche la nostra Terra.",
+          "explanation": "Tutti e otto i pianeti girano su un'orbita attorno al Sole.",
+          "fact": "Anche comete e asteroidi girano, ma su giri molto più lunghi."
+        },
+        "pt": {
+          "prompt": "O que gira à volta do Sol?",
+          "answer": "Os planetas",
+          "wrong": [
+            "Só a Lua",
+            "Todas as estrelas",
+            "Nada"
+          ],
+          "hint": "A nossa Terra é um deles.",
+          "explanation": "Os oito planetas giram numa órbita à volta do Sol.",
+          "fact": "Cometas e asteroides também giram, em voltas muito mais longas."
+        },
+        "da": {
+          "prompt": "Hvad kredser om Solen?",
+          "answer": "Planeterne",
+          "wrong": [
+            "Kun Månen",
+            "Alle stjernerne",
+            "Ingenting"
+          ],
+          "hint": "Vores jord er en af dem.",
+          "explanation": "Alle otte planeter kredser i en bane om Solen.",
+          "fact": "Kometer og asteroider kredser også, bare i meget længere ture."
+        },
+        "ru": {
+          "prompt": "Что вращается вокруг Солнца?",
+          "answer": "Планеты",
+          "wrong": [
+            "Только Луна",
+            "Все звёзды",
+            "Ничего"
+          ],
+          "hint": "Наша Земля тоже среди них.",
+          "explanation": "Все восемь планет движутся по орбите вокруг Солнца.",
+          "fact": "Кометы и астероиды тоже вращаются, но кругами намного длиннее."
+        },
+        "ar": {
+          "prompt": "ما الذي يدور حول الشمس؟",
+          "answer": "الكواكب",
+          "wrong": [
+            "القمر فقط",
+            "كل النجوم",
+            "لا شيء"
+          ],
+          "hint": "أرضنا واحدة منها.",
+          "explanation": "الكواكب الثمانية كلها تدور في مدار حول الشمس.",
+          "fact": "المذنبات والكويكبات تدور أيضًا لكن في دورات أطول بكثير."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-23",
       "difficulty": 1,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Planets",
       "artBrief": "De aarde op de voorgrond, iets verderop een roodachtige planeet, allebei in hun baan. De naam nergens in beeld.",
       "text": {
@@ -63,13 +281,122 @@
           "hint": "Het is de planeet met de roestrode kleur.",
           "explanation": "Na de aarde volgt Mars, die verder van de zon af staat.",
           "fact": "Mars is ongeveer half zo groot als de aarde."
+        },
+        "en": {
+          "prompt": "Which planet comes after earth, further from the sun?",
+          "answer": "Mars",
+          "wrong": [
+            "Venus",
+            "Mercury",
+            "The moon"
+          ],
+          "hint": "It is the planet with the rusty red colour.",
+          "explanation": "After earth comes Mars, which is further from the sun.",
+          "fact": "Mars is about half the size of earth."
+        },
+        "de": {
+          "prompt": "Welcher Planet kommt nach der Erde, weiter von der Sonne?",
+          "answer": "Mars",
+          "wrong": [
+            "Venus",
+            "Merkur",
+            "Der Mond"
+          ],
+          "hint": "Es ist der Planet mit der rostroten Farbe.",
+          "explanation": "Nach der Erde folgt der Mars, weiter von der Sonne entfernt.",
+          "fact": "Der Mars ist etwa halb so groß wie die Erde."
+        },
+        "fr": {
+          "prompt": "Quelle planète vient après la Terre, plus loin du Soleil ?",
+          "answer": "Mars",
+          "wrong": [
+            "Vénus",
+            "Mercure",
+            "La Lune"
+          ],
+          "hint": "C'est la planète de couleur rouille.",
+          "explanation": "Après la Terre vient Mars, plus éloignée du Soleil.",
+          "fact": "Mars fait à peu près la moitié de la taille de la Terre."
+        },
+        "es": {
+          "prompt": "¿Qué planeta viene tras la Tierra, más lejos del Sol?",
+          "answer": "Marte",
+          "wrong": [
+            "Venus",
+            "Mercurio",
+            "La Luna"
+          ],
+          "hint": "Es el planeta de color rojo óxido.",
+          "explanation": "Después de la Tierra viene Marte, más lejos del Sol.",
+          "fact": "Marte mide casi la mitad que la Tierra."
+        },
+        "it": {
+          "prompt": "Quale pianeta viene dopo la Terra, più lontano dal Sole?",
+          "answer": "Marte",
+          "wrong": [
+            "Venere",
+            "Mercurio",
+            "La Luna"
+          ],
+          "hint": "È il pianeta color ruggine.",
+          "explanation": "Dopo la Terra viene Marte, più lontano dal Sole.",
+          "fact": "Marte è grande circa la metà della Terra."
+        },
+        "pt": {
+          "prompt": "Que planeta vem depois da Terra, mais longe do Sol?",
+          "answer": "Marte",
+          "wrong": [
+            "Vénus",
+            "Mercúrio",
+            "A Lua"
+          ],
+          "hint": "É o planeta com a cor de ferrugem.",
+          "explanation": "Depois da Terra vem Marte, mais longe do Sol.",
+          "fact": "Marte tem cerca de metade do tamanho da Terra."
+        },
+        "da": {
+          "prompt": "Hvilken planet kommer efter Jorden, længere ude?",
+          "answer": "Mars",
+          "wrong": [
+            "Venus",
+            "Merkur",
+            "Månen"
+          ],
+          "hint": "Det er planeten med den rustrøde farve.",
+          "explanation": "Efter Jorden kommer Mars, længere væk fra Solen.",
+          "fact": "Mars er omkring halvt så stor som Jorden."
+        },
+        "ru": {
+          "prompt": "Какая планета идёт после Земли, дальше от Солнца?",
+          "answer": "Марс",
+          "wrong": [
+            "Венера",
+            "Меркурий",
+            "Луна"
+          ],
+          "hint": "Это планета ржаво-красного цвета.",
+          "explanation": "После Земли идёт Марс, он дальше от Солнца.",
+          "fact": "Марс примерно вдвое меньше Земли."
+        },
+        "ar": {
+          "prompt": "أي كوكب يأتي بعد الأرض، أبعد عن الشمس؟",
+          "answer": "المريخ",
+          "wrong": [
+            "الزهرة",
+            "عطارد",
+            "القمر"
+          ],
+          "hint": "إنه الكوكب ذو اللون الأحمر الصدئ.",
+          "explanation": "بعد الأرض يأتي المريخ، وهو أبعد عن الشمس.",
+          "fact": "المريخ في حجم نصف الأرض تقريبًا."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-24",
       "difficulty": 1,
-      "status": "draft",
+      "status": "translated",
       "source": "ESA Kids — Day and night",
       "artBrief": "De aarde half in zonlicht, half in schaduw, met een pijl die de draaiing aangeeft. Vrolijk en simpel.",
       "text": {
@@ -84,13 +411,122 @@
           "hint": "De zon blijft gewoon schijnen.",
           "explanation": "De aarde draait rond, en dan kijkt jouw plek even van de zon af.",
           "fact": "De aarde draait in vierentwintig uur één keer helemaal rond."
+        },
+        "en": {
+          "prompt": "Why does it get dark at night?",
+          "answer": "Because the earth turns",
+          "wrong": [
+            "Because the sun goes out",
+            "Because the moon eats it",
+            "Because a cloud moves in"
+          ],
+          "hint": "The sun keeps on shining.",
+          "explanation": "The earth turns, so your spot faces away from the sun for a while.",
+          "fact": "The earth turns all the way round in twenty-four hours."
+        },
+        "de": {
+          "prompt": "Warum wird es nachts dunkel?",
+          "answer": "Weil die Erde sich dreht",
+          "wrong": [
+            "Weil die Sonne ausgeht",
+            "Weil der Mond sie frisst",
+            "Weil eine Wolke kommt"
+          ],
+          "hint": "Die Sonne scheint einfach weiter.",
+          "explanation": "Die Erde dreht sich, und dein Platz schaut eine Weile von der Sonne weg.",
+          "fact": "In vierundzwanzig Stunden dreht sich die Erde einmal ganz herum."
+        },
+        "fr": {
+          "prompt": "Pourquoi fait-il noir la nuit ?",
+          "answer": "Parce que la Terre tourne",
+          "wrong": [
+            "Parce que le Soleil s'éteint",
+            "Parce que la Lune le mange",
+            "Parce qu'un nuage passe"
+          ],
+          "hint": "Le Soleil continue de briller.",
+          "explanation": "La Terre tourne, et ton coin se détourne un moment du Soleil.",
+          "fact": "La Terre fait un tour complet en vingt-quatre heures."
+        },
+        "es": {
+          "prompt": "¿Por qué se hace de noche?",
+          "answer": "Porque la Tierra gira",
+          "wrong": [
+            "Porque el Sol se apaga",
+            "Porque la Luna se lo come",
+            "Porque pasa una nube"
+          ],
+          "hint": "El Sol sigue brillando igual.",
+          "explanation": "La Tierra gira y tu sitio deja de mirar al Sol un rato.",
+          "fact": "La Tierra da una vuelta entera en veinticuatro horas."
+        },
+        "it": {
+          "prompt": "Perché di notte fa buio?",
+          "answer": "Perché la Terra gira",
+          "wrong": [
+            "Perché il Sole si spegne",
+            "Perché la Luna lo mangia",
+            "Perché passa una nuvola"
+          ],
+          "hint": "Il Sole continua a splendere.",
+          "explanation": "La Terra gira e il tuo posto guarda per un po' dall'altra parte.",
+          "fact": "La Terra fa un giro completo in ventiquattro ore."
+        },
+        "pt": {
+          "prompt": "Porque fica escuro à noite?",
+          "answer": "Porque a Terra roda",
+          "wrong": [
+            "Porque o Sol se apaga",
+            "Porque a Lua o come",
+            "Porque passa uma nuvem"
+          ],
+          "hint": "O Sol continua a brilhar.",
+          "explanation": "A Terra roda e o teu lugar deixa de olhar para o Sol por um tempo.",
+          "fact": "A Terra dá uma volta completa em vinte e quatro horas."
+        },
+        "da": {
+          "prompt": "Hvorfor bliver det mørkt om natten?",
+          "answer": "Fordi Jorden drejer rundt",
+          "wrong": [
+            "Fordi Solen går ud",
+            "Fordi Månen spiser den",
+            "Fordi en sky skygger"
+          ],
+          "hint": "Solen bliver bare ved med at skinne.",
+          "explanation": "Jorden drejer, og dit sted vender væk fra Solen et stykke tid.",
+          "fact": "Jorden drejer en hel gang rundt på fireogtyve timer."
+        },
+        "ru": {
+          "prompt": "Почему ночью темно?",
+          "answer": "Потому что Земля вращается",
+          "wrong": [
+            "Потому что Солнце гаснет",
+            "Потому что Луна его ест",
+            "Потому что мешает туча"
+          ],
+          "hint": "Солнце светит как обычно.",
+          "explanation": "Земля поворачивается, и твоё место на время отворачивается от Солнца.",
+          "fact": "Полный оборот Земля делает за двадцать четыре часа."
+        },
+        "ar": {
+          "prompt": "لماذا يحل الظلام ليلًا؟",
+          "answer": "لأن الأرض تدور",
+          "wrong": [
+            "لأن الشمس تنطفئ",
+            "لأن القمر يبتلعها",
+            "لأن غيمة تحجبها"
+          ],
+          "hint": "الشمس تواصل السطوع كالعادة.",
+          "explanation": "الأرض تدور، فيبتعد مكانك عن الشمس بعض الوقت.",
+          "fact": "تكمل الأرض دورة كاملة في أربع وعشرين ساعة."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-25",
       "difficulty": 1,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Planet sizes",
       "artBrief": "Een kleine grijze planeet met kraters, dicht bij een grote felle zon, met de andere planeten klein in de verte.",
       "text": {
@@ -105,13 +541,122 @@
           "hint": "Hij staat ook het dichtst bij de zon.",
           "explanation": "Mercurius is de kleinste planeet van ons zonnestelsel.",
           "fact": "Daar is het 's nachts ijskoud en overdag gloeiend heet."
+        },
+        "en": {
+          "prompt": "Which of the eight planets is the smallest?",
+          "answer": "Mercury",
+          "wrong": [
+            "Mars",
+            "Venus",
+            "Earth"
+          ],
+          "hint": "It is also the closest one to the sun.",
+          "explanation": "Mercury is the smallest planet in our solar system.",
+          "fact": "There it is freezing at night and scorching by day."
+        },
+        "de": {
+          "prompt": "Welcher der acht Planeten ist der kleinste?",
+          "answer": "Merkur",
+          "wrong": [
+            "Mars",
+            "Venus",
+            "Die Erde"
+          ],
+          "hint": "Er steht auch der Sonne am nächsten.",
+          "explanation": "Merkur ist der kleinste Planet unseres Sonnensystems.",
+          "fact": "Dort ist es nachts eiskalt und tagsüber glühend heiß."
+        },
+        "fr": {
+          "prompt": "Laquelle des huit planètes est la plus petite ?",
+          "answer": "Mercure",
+          "wrong": [
+            "Mars",
+            "Vénus",
+            "La Terre"
+          ],
+          "hint": "C'est aussi la plus proche du Soleil.",
+          "explanation": "Mercure est la plus petite planète du système solaire.",
+          "fact": "Là-bas il gèle la nuit et il fait brûlant le jour."
+        },
+        "es": {
+          "prompt": "¿Cuál de los ocho planetas es el más pequeño?",
+          "answer": "Mercurio",
+          "wrong": [
+            "Marte",
+            "Venus",
+            "La Tierra"
+          ],
+          "hint": "También es el más cercano al Sol.",
+          "explanation": "Mercurio es el planeta más pequeño del sistema solar.",
+          "fact": "Allí hace un frío helado de noche y un calor abrasador de día."
+        },
+        "it": {
+          "prompt": "Quale degli otto pianeti è il più piccolo?",
+          "answer": "Mercurio",
+          "wrong": [
+            "Marte",
+            "Venere",
+            "La Terra"
+          ],
+          "hint": "È anche il più vicino al Sole.",
+          "explanation": "Mercurio è il pianeta più piccolo del sistema solare.",
+          "fact": "Lì di notte si gela e di giorno si brucia."
+        },
+        "pt": {
+          "prompt": "Qual dos oito planetas é o mais pequeno?",
+          "answer": "Mercúrio",
+          "wrong": [
+            "Marte",
+            "Vénus",
+            "A Terra"
+          ],
+          "hint": "É também o mais perto do Sol.",
+          "explanation": "Mercúrio é o planeta mais pequeno do sistema solar.",
+          "fact": "Ali faz um frio gelado de noite e um calor abrasador de dia."
+        },
+        "da": {
+          "prompt": "Hvilken af de otte planeter er mindst?",
+          "answer": "Merkur",
+          "wrong": [
+            "Mars",
+            "Venus",
+            "Jorden"
+          ],
+          "hint": "Den er også tættest på Solen.",
+          "explanation": "Merkur er den mindste planet i vores solsystem.",
+          "fact": "Der er iskoldt om natten og glohedt om dagen."
+        },
+        "ru": {
+          "prompt": "Какая из восьми планет самая маленькая?",
+          "answer": "Меркурий",
+          "wrong": [
+            "Марс",
+            "Венера",
+            "Земля"
+          ],
+          "hint": "Она же и ближе всех к Солнцу.",
+          "explanation": "Меркурий — самая маленькая планета Солнечной системы.",
+          "fact": "Там ночью ледяной холод, а днём страшная жара."
+        },
+        "ar": {
+          "prompt": "أي الكواكب الثمانية هو الأصغر؟",
+          "answer": "عطارد",
+          "wrong": [
+            "المريخ",
+            "الزهرة",
+            "الأرض"
+          ],
+          "hint": "وهو أيضًا الأقرب إلى الشمس.",
+          "explanation": "عطارد أصغر كواكب مجموعتنا الشمسية.",
+          "fact": "هناك برد قارس ليلًا وحر شديد نهارًا."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-26",
       "difficulty": 2,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Earth orbit",
       "artBrief": "Een kalenderrondje rond de zon met de vier seizoenen erin verwerkt, de aarde op zijn baan.",
       "text": {
@@ -126,13 +671,122 @@
           "hint": "Precies zo lang als er tussen twee verjaardagen zit.",
           "explanation": "De aarde doet ongeveer 365 dagen over één rondje om de zon.",
           "fact": "Elke vier jaar plakken we er een dag bij: dat is een schrikkeljaar."
+        },
+        "en": {
+          "prompt": "How long does the earth take to circle the sun once?",
+          "answer": "About a year",
+          "wrong": [
+            "A month",
+            "A week",
+            "A day"
+          ],
+          "hint": "Exactly as long as the gap between two birthdays.",
+          "explanation": "The earth takes about 365 days to go round the sun once.",
+          "fact": "Every four years we add a day: that is a leap year."
+        },
+        "de": {
+          "prompt": "Wie lange braucht die Erde für eine Runde um die Sonne?",
+          "answer": "Ungefähr ein Jahr",
+          "wrong": [
+            "Einen Monat",
+            "Eine Woche",
+            "Einen Tag"
+          ],
+          "hint": "Genau so lange wie zwischen zwei Geburtstagen.",
+          "explanation": "Die Erde braucht etwa 365 Tage für eine Runde um die Sonne.",
+          "fact": "Alle vier Jahre hängen wir einen Tag an: das ist ein Schaltjahr."
+        },
+        "fr": {
+          "prompt": "Combien de temps la Terre met-elle à faire le tour du Soleil ?",
+          "answer": "Environ un an",
+          "wrong": [
+            "Un mois",
+            "Une semaine",
+            "Un jour"
+          ],
+          "hint": "Exactement le temps entre deux anniversaires.",
+          "explanation": "La Terre met environ 365 jours pour faire le tour du Soleil.",
+          "fact": "Tous les quatre ans on ajoute un jour : c'est une année bissextile."
+        },
+        "es": {
+          "prompt": "¿Cuánto tarda la Tierra en dar una vuelta al Sol?",
+          "answer": "Cerca de un año",
+          "wrong": [
+            "Un mes",
+            "Una semana",
+            "Un día"
+          ],
+          "hint": "Justo lo que hay entre dos cumpleaños.",
+          "explanation": "La Tierra tarda unos 365 días en dar una vuelta al Sol.",
+          "fact": "Cada cuatro años añadimos un día: es un año bisiesto."
+        },
+        "it": {
+          "prompt": "Quanto impiega la Terra a girare attorno al Sole?",
+          "answer": "Circa un anno",
+          "wrong": [
+            "Un mese",
+            "Una settimana",
+            "Un giorno"
+          ],
+          "hint": "Proprio il tempo fra due compleanni.",
+          "explanation": "La Terra impiega circa 365 giorni per un giro attorno al Sole.",
+          "fact": "Ogni quattro anni aggiungiamo un giorno: è l'anno bisestile."
+        },
+        "pt": {
+          "prompt": "Quanto tempo leva a Terra a dar uma volta ao Sol?",
+          "answer": "Cerca de um ano",
+          "wrong": [
+            "Um mês",
+            "Uma semana",
+            "Um dia"
+          ],
+          "hint": "Tanto como entre dois aniversários.",
+          "explanation": "A Terra leva cerca de 365 dias a dar uma volta ao Sol.",
+          "fact": "De quatro em quatro anos juntamos um dia: é um ano bissexto."
+        },
+        "da": {
+          "prompt": "Hvor lang tid bruger Jorden på en tur om Solen?",
+          "answer": "Cirka et år",
+          "wrong": [
+            "En måned",
+            "En uge",
+            "En dag"
+          ],
+          "hint": "Lige så længe som mellem to fødselsdage.",
+          "explanation": "Jorden bruger omkring 365 dage på en tur om Solen.",
+          "fact": "Hvert fjerde år lægger vi en dag til: det er et skudår."
+        },
+        "ru": {
+          "prompt": "Сколько Земля летит один круг вокруг Солнца?",
+          "answer": "Примерно год",
+          "wrong": [
+            "Месяц",
+            "Неделю",
+            "День"
+          ],
+          "hint": "Ровно столько, сколько между двумя днями рождения.",
+          "explanation": "Земля проходит круг вокруг Солнца примерно за 365 дней.",
+          "fact": "Раз в четыре года мы добавляем день: это високосный год."
+        },
+        "ar": {
+          "prompt": "كم تستغرق الأرض في دورة حول الشمس؟",
+          "answer": "سنة تقريبًا",
+          "wrong": [
+            "شهرًا",
+            "أسبوعًا",
+            "يومًا"
+          ],
+          "hint": "بقدر ما بين عيدي ميلاد.",
+          "explanation": "تستغرق الأرض نحو 365 يومًا لتدور حول الشمس مرة.",
+          "fact": "كل أربع سنوات نضيف يومًا: تلك هي السنة الكبيسة."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-27",
       "difficulty": 2,
-      "status": "draft",
+      "status": "translated",
       "source": "IAU resolution B5 (2006) — definition of a planet",
       "artBrief": "Een klein ijzig werelddeel ver weg tussen andere ijsbrokken, met de zon als stipje in de verte.",
       "text": {
@@ -147,13 +801,122 @@
           "hint": "Hij is te klein om een gewone planeet te heten.",
           "explanation": "Sinds 2006 heet Pluto een dwergplaneet.",
           "fact": "Er zijn er meer: Ceres, Eris en Makemake zijn ook dwergplaneten."
+        },
+        "en": {
+          "prompt": "What is Pluto called since 2006?",
+          "answer": "A dwarf planet",
+          "wrong": [
+            "A moon",
+            "A comet",
+            "A star"
+          ],
+          "hint": "It is too small to count as a normal planet.",
+          "explanation": "Since 2006 Pluto has been called a dwarf planet.",
+          "fact": "There are more: Ceres, Eris and Makemake are dwarf planets too."
+        },
+        "de": {
+          "prompt": "Was ist Pluto seit 2006?",
+          "answer": "Ein Zwergplanet",
+          "wrong": [
+            "Ein Mond",
+            "Ein Komet",
+            "Ein Stern"
+          ],
+          "hint": "Er ist zu klein für einen richtigen Planeten.",
+          "explanation": "Seit 2006 heißt Pluto Zwergplanet.",
+          "fact": "Es gibt mehr davon: Ceres, Eris und Makemake sind auch Zwergplaneten."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que Pluton depuis 2006 ?",
+          "answer": "Une planète naine",
+          "wrong": [
+            "Une lune",
+            "Une comète",
+            "Une étoile"
+          ],
+          "hint": "Elle est trop petite pour une vraie planète.",
+          "explanation": "Depuis 2006, Pluton est appelée planète naine.",
+          "fact": "Il y en a d'autres : Cérès, Éris et Makémaké aussi."
+        },
+        "es": {
+          "prompt": "¿Qué es Plutón desde 2006?",
+          "answer": "Un planeta enano",
+          "wrong": [
+            "Una luna",
+            "Un cometa",
+            "Una estrella"
+          ],
+          "hint": "Es demasiado pequeño para ser un planeta normal.",
+          "explanation": "Desde 2006 a Plutón se le llama planeta enano.",
+          "fact": "Hay más: Ceres, Eris y Makemake también lo son."
+        },
+        "it": {
+          "prompt": "Che cos'è Plutone dal 2006?",
+          "answer": "Un pianeta nano",
+          "wrong": [
+            "Una luna",
+            "Una cometa",
+            "Una stella"
+          ],
+          "hint": "È troppo piccolo per essere un pianeta vero.",
+          "explanation": "Dal 2006 Plutone è chiamato pianeta nano.",
+          "fact": "Ce ne sono altri: anche Cerere, Eris e Makemake."
+        },
+        "pt": {
+          "prompt": "O que é Plutão desde 2006?",
+          "answer": "Um planeta anão",
+          "wrong": [
+            "Uma lua",
+            "Um cometa",
+            "Uma estrela"
+          ],
+          "hint": "É pequeno de mais para um planeta normal.",
+          "explanation": "Desde 2006 Plutão chama-se planeta anão.",
+          "fact": "Há mais: Ceres, Éris e Makemake também são."
+        },
+        "da": {
+          "prompt": "Hvad er Pluto siden 2006?",
+          "answer": "En dværgplanet",
+          "wrong": [
+            "En måne",
+            "En komet",
+            "En stjerne"
+          ],
+          "hint": "Den er for lille til en rigtig planet.",
+          "explanation": "Siden 2006 hedder Pluto en dværgplanet.",
+          "fact": "Der er flere: Ceres, Eris og Makemake er det også."
+        },
+        "ru": {
+          "prompt": "Кто такой Плутон с 2006 года?",
+          "answer": "Карликовая планета",
+          "wrong": [
+            "Луна",
+            "Комета",
+            "Звезда"
+          ],
+          "hint": "Он слишком мал для настоящей планеты.",
+          "explanation": "С 2006 года Плутон называют карликовой планетой.",
+          "fact": "Таких больше: Церера, Эрида и Макемаке тоже карликовые."
+        },
+        "ar": {
+          "prompt": "ماذا صار بلوتو منذ 2006؟",
+          "answer": "كوكب قزم",
+          "wrong": [
+            "قمر",
+            "مذنب",
+            "نجم"
+          ],
+          "hint": "إنه أصغر من أن يكون كوكبًا عاديًا.",
+          "explanation": "منذ 2006 صار بلوتو يسمى كوكبًا قزمًا.",
+          "fact": "وهناك غيره: سيريس وإيريس وماكيماكي أيضًا."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-28",
       "difficulty": 2,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Gas giants",
       "artBrief": "Twee enorme gasplaneten met wolkenbanden naast elkaar, geen vaste grond te zien.",
       "text": {
@@ -168,13 +931,122 @@
           "hint": "Het zijn de twee grootste.",
           "explanation": "Jupiter en Saturnus zijn gasreuzen: je kunt er niet op staan.",
           "fact": "Diep binnenin worden die gassen zo samengeperst dat ze op vloeistof lijken."
+        },
+        "en": {
+          "prompt": "Which two planets are made mostly of gas?",
+          "answer": "Jupiter and Saturn",
+          "wrong": [
+            "Earth and Mars",
+            "Mercury and Venus",
+            "Mars and Venus"
+          ],
+          "hint": "They are the two biggest.",
+          "explanation": "Jupiter and Saturn are gas giants: you could not stand on them.",
+          "fact": "Deep inside, those gases are squeezed until they act like a liquid."
+        },
+        "de": {
+          "prompt": "Welche zwei Planeten bestehen vor allem aus Gas?",
+          "answer": "Jupiter und Saturn",
+          "wrong": [
+            "Erde und Mars",
+            "Merkur und Venus",
+            "Mars und Venus"
+          ],
+          "hint": "Es sind die beiden größten.",
+          "explanation": "Jupiter und Saturn sind Gasriesen: man könnte nicht auf ihnen stehen.",
+          "fact": "Tief drinnen wird das Gas so gepresst, dass es flüssig wirkt."
+        },
+        "fr": {
+          "prompt": "Quelles deux planètes sont surtout faites de gaz ?",
+          "answer": "Jupiter et Saturne",
+          "wrong": [
+            "La Terre et Mars",
+            "Mercure et Vénus",
+            "Mars et Vénus"
+          ],
+          "hint": "Ce sont les deux plus grandes.",
+          "explanation": "Jupiter et Saturne sont des géantes gazeuses : on ne s'y pose pas.",
+          "fact": "Tout au fond, ces gaz sont comprimés au point de couler."
+        },
+        "es": {
+          "prompt": "¿Qué dos planetas son sobre todo de gas?",
+          "answer": "Júpiter y Saturno",
+          "wrong": [
+            "La Tierra y Marte",
+            "Mercurio y Venus",
+            "Marte y Venus"
+          ],
+          "hint": "Son los dos más grandes.",
+          "explanation": "Júpiter y Saturno son gigantes gaseosos: no podrías posarte.",
+          "fact": "Muy adentro ese gas se aprieta tanto que parece líquido."
+        },
+        "it": {
+          "prompt": "Quali due pianeti sono fatti soprattutto di gas?",
+          "answer": "Giove e Saturno",
+          "wrong": [
+            "Terra e Marte",
+            "Mercurio e Venere",
+            "Marte e Venere"
+          ],
+          "hint": "Sono i due più grandi.",
+          "explanation": "Giove e Saturno sono giganti gassosi: non ci si può stare in piedi.",
+          "fact": "Nel profondo quei gas sono schiacciati fino a sembrare liquidi."
+        },
+        "pt": {
+          "prompt": "Que dois planetas são feitos sobretudo de gás?",
+          "answer": "Júpiter e Saturno",
+          "wrong": [
+            "Terra e Marte",
+            "Mercúrio e Vénus",
+            "Marte e Vénus"
+          ],
+          "hint": "São os dois maiores.",
+          "explanation": "Júpiter e Saturno são gigantes gasosos: não darias um passo neles.",
+          "fact": "Lá no fundo o gás é apertado até parecer líquido."
+        },
+        "da": {
+          "prompt": "Hvilke to planeter består mest af gas?",
+          "answer": "Jupiter og Saturn",
+          "wrong": [
+            "Jorden og Mars",
+            "Merkur og Venus",
+            "Mars og Venus"
+          ],
+          "hint": "Det er de to største.",
+          "explanation": "Jupiter og Saturn er gaskæmper: man kan ikke stå på dem.",
+          "fact": "Dybt inde bliver gassen presset, så den opfører sig som væske."
+        },
+        "ru": {
+          "prompt": "Какие две планеты состоят в основном из газа?",
+          "answer": "Юпитер и Сатурн",
+          "wrong": [
+            "Земля и Марс",
+            "Меркурий и Венера",
+            "Марс и Венера"
+          ],
+          "hint": "Это две самые большие.",
+          "explanation": "Юпитер и Сатурн — газовые гиганты: на них нельзя встать.",
+          "fact": "В глубине этот газ сжат так сильно, что ведёт себя как жидкость."
+        },
+        "ar": {
+          "prompt": "أي كوكبين يتكونان أساسًا من الغاز؟",
+          "answer": "المشتري وزحل",
+          "wrong": [
+            "الأرض والمريخ",
+            "عطارد والزهرة",
+            "المريخ والزهرة"
+          ],
+          "hint": "هما الأكبر بين الكواكب.",
+          "explanation": "المشتري وزحل عملاقان غازيان: لا يمكن الوقوف عليهما.",
+          "fact": "في الأعماق ينضغط الغاز حتى يتصرف مثل السائل."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-29",
       "difficulty": 2,
-      "status": "draft",
+      "status": "translated",
       "source": "ESA — Solar eclipses",
       "artBrief": "Een donkere schijf die voor de zon schuift, met een stralenkrans eromheen. Kinderen kijken toe met een speciale bril.",
       "text": {
@@ -189,13 +1061,122 @@
           "hint": "Er komt iets tussen jou en de zon.",
           "explanation": "De maan komt precies tussen de zon en de aarde, en dan wordt het even schemerig.",
           "fact": "Kijk nooit zonder speciale bril naar de zon, ook niet tijdens een verduistering."
+        },
+        "en": {
+          "prompt": "Why does it sometimes go dark during the day?",
+          "answer": "The moon covers the sun",
+          "wrong": [
+            "The sun switches off",
+            "The earth stops turning",
+            "The sun drops behind hills"
+          ],
+          "hint": "Something comes between you and the sun.",
+          "explanation": "The moon moves right between the sun and the earth, and it turns dusky.",
+          "fact": "Never look at the sun without special glasses, not even in an eclipse."
+        },
+        "de": {
+          "prompt": "Warum wird es manchmal am Tag kurz dunkel?",
+          "answer": "Der Mond zieht vor die Sonne",
+          "wrong": [
+            "Die Sonne geht kurz aus",
+            "Die Erde hört auf zu drehen",
+            "Die Sonne fällt hinter Berge"
+          ],
+          "hint": "Etwas kommt zwischen dich und die Sonne.",
+          "explanation": "Der Mond schiebt sich genau zwischen Sonne und Erde, und es wird dämmrig.",
+          "fact": "Schau nie ohne Spezialbrille in die Sonne, auch nicht bei einer Finsternis."
+        },
+        "fr": {
+          "prompt": "Pourquoi fait-il parfois sombre en plein jour ?",
+          "answer": "La Lune cache le Soleil",
+          "wrong": [
+            "Le Soleil s'éteint",
+            "La Terre arrête de tourner",
+            "Le Soleil tombe derrière"
+          ],
+          "hint": "Quelque chose se met entre toi et le Soleil.",
+          "explanation": "La Lune se glisse pile entre le Soleil et la Terre, et le jour baisse.",
+          "fact": "Ne regarde jamais le Soleil sans lunettes spéciales, même en éclipse."
+        },
+        "es": {
+          "prompt": "¿Por qué a veces oscurece en pleno día?",
+          "answer": "La Luna tapa el Sol",
+          "wrong": [
+            "El Sol se apaga un rato",
+            "La Tierra deja de girar",
+            "El Sol cae tras los montes"
+          ],
+          "hint": "Algo se pone entre tú y el Sol.",
+          "explanation": "La Luna se cuela justo entre el Sol y la Tierra y el día se apaga.",
+          "fact": "Nunca mires al Sol sin gafas especiales, tampoco en un eclipse."
+        },
+        "it": {
+          "prompt": "Perché a volte si fa buio in pieno giorno?",
+          "answer": "La Luna copre il Sole",
+          "wrong": [
+            "Il Sole si spegne un po'",
+            "La Terra smette di girare",
+            "Il Sole cade dietro i monti"
+          ],
+          "hint": "Qualcosa si mette fra te e il Sole.",
+          "explanation": "La Luna passa proprio fra il Sole e la Terra e la luce cala.",
+          "fact": "Non guardare mai il Sole senza occhiali speciali, neanche in eclissi."
+        },
+        "pt": {
+          "prompt": "Porque escurece às vezes a meio do dia?",
+          "answer": "A Lua tapa o Sol",
+          "wrong": [
+            "O Sol apaga-se um pouco",
+            "A Terra pára de rodar",
+            "O Sol cai atrás dos montes"
+          ],
+          "hint": "Algo se mete entre ti e o Sol.",
+          "explanation": "A Lua passa mesmo entre o Sol e a Terra e a luz baixa.",
+          "fact": "Nunca olhes para o Sol sem óculos especiais, nem num eclipse."
+        },
+        "da": {
+          "prompt": "Hvorfor bliver det nogle gange mørkt midt på dagen?",
+          "answer": "Månen dækker for Solen",
+          "wrong": [
+            "Solen går kort ud",
+            "Jorden stopper med at dreje",
+            "Solen falder bag bjerge"
+          ],
+          "hint": "Noget kommer ind mellem dig og Solen.",
+          "explanation": "Månen skubber sig ind mellem Solen og Jorden, og lyset dæmpes.",
+          "fact": "Kig aldrig på Solen uden særlige briller, heller ikke i en formørkelse."
+        },
+        "ru": {
+          "prompt": "Почему иногда среди дня становится темно?",
+          "answer": "Луна закрывает Солнце",
+          "wrong": [
+            "Солнце ненадолго гаснет",
+            "Земля перестаёт вращаться",
+            "Солнце падает за горы"
+          ],
+          "hint": "Между тобой и Солнцем что-то встаёт.",
+          "explanation": "Луна проходит точно между Солнцем и Землёй, и свет меркнет.",
+          "fact": "Никогда не смотри на Солнце без особых очков, даже при затмении."
+        },
+        "ar": {
+          "prompt": "لماذا تظلم السماء أحيانًا في وضح النهار؟",
+          "answer": "القمر يحجب الشمس",
+          "wrong": [
+            "الشمس تنطفئ قليلًا",
+            "الأرض تتوقف عن الدوران",
+            "الشمس تسقط خلف الجبال"
+          ],
+          "hint": "شيء ما يقف بينك وبين الشمس.",
+          "explanation": "يمر القمر تمامًا بين الشمس والأرض فيخفت الضوء.",
+          "fact": "لا تنظر إلى الشمس أبدًا بلا نظارة خاصة، ولا أثناء الكسوف."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-30",
       "difficulty": 2,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA — Apollo surface operations",
       "artBrief": "Een astronaut die hoog boven het maanstof zweeft in een sprong, met de aarde klein aan de hemel.",
       "text": {
@@ -204,19 +1185,128 @@
           "answer": "Op de maan",
           "wrong": [
             "Op de aarde",
-            "Overal even hoog",
-            "Nergens"
+            "Op de bodem van de zee",
+            "In een vliegtuig"
           ],
           "hint": "Daar trekt de zwaartekracht veel zachter.",
           "explanation": "De maan trekt veel minder hard aan je, dus je springt er zes keer zo hoog.",
           "fact": "De astronauten van Apollo huppelden over de maan omdat gewoon lopen niet lukte."
+        },
+        "en": {
+          "prompt": "Where can you jump the highest?",
+          "answer": "On the moon",
+          "wrong": [
+            "On earth",
+            "On the seabed",
+            "In an aeroplane"
+          ],
+          "hint": "Gravity pulls much more gently there.",
+          "explanation": "The moon pulls on you far less, so you jump six times as high.",
+          "fact": "The Apollo astronauts hopped along because walking did not work."
+        },
+        "de": {
+          "prompt": "Wo kannst du am höchsten springen?",
+          "answer": "Auf dem Mond",
+          "wrong": [
+            "Auf der Erde",
+            "Auf dem Meeresboden",
+            "In einem Flugzeug"
+          ],
+          "hint": "Dort zieht die Schwerkraft viel sanfter.",
+          "explanation": "Der Mond zieht viel schwächer an dir, also springst du sechsmal so hoch.",
+          "fact": "Die Apollo-Astronauten hüpften, weil Gehen nicht klappte."
+        },
+        "fr": {
+          "prompt": "Où peux-tu sauter le plus haut ?",
+          "answer": "Sur la Lune",
+          "wrong": [
+            "Sur la Terre",
+            "Au fond de la mer",
+            "Dans un avion"
+          ],
+          "hint": "La gravité y tire beaucoup plus doucement.",
+          "explanation": "La Lune t'attire bien moins, alors tu sautes six fois plus haut.",
+          "fact": "Les astronautes d'Apollo sautillaient car marcher ne marchait pas."
+        },
+        "es": {
+          "prompt": "¿Dónde puedes saltar más alto?",
+          "answer": "En la Luna",
+          "wrong": [
+            "En la Tierra",
+            "En el fondo del mar",
+            "En un avión"
+          ],
+          "hint": "Allí la gravedad tira mucho más suave.",
+          "explanation": "La Luna tira de ti mucho menos, así que saltas seis veces más alto.",
+          "fact": "Los astronautas del Apolo iban a saltitos porque andar no salía."
+        },
+        "it": {
+          "prompt": "Dove puoi saltare più in alto?",
+          "answer": "Sulla Luna",
+          "wrong": [
+            "Sulla Terra",
+            "In fondo al mare",
+            "In aereo"
+          ],
+          "hint": "Lì la gravità tira molto più piano.",
+          "explanation": "La Luna ti attira molto meno, così salti sei volte più in alto.",
+          "fact": "Gli astronauti dell'Apollo saltellavano perché camminare non andava."
+        },
+        "pt": {
+          "prompt": "Onde consegues saltar mais alto?",
+          "answer": "Na Lua",
+          "wrong": [
+            "Na Terra",
+            "No fundo do mar",
+            "Num avião"
+          ],
+          "hint": "Ali a gravidade puxa muito mais devagar.",
+          "explanation": "A Lua puxa-te muito menos, por isso saltas seis vezes mais alto.",
+          "fact": "Os astronautas da Apollo andavam aos saltinhos porque andar não dava."
+        },
+        "da": {
+          "prompt": "Hvor kan du springe højest?",
+          "answer": "På Månen",
+          "wrong": [
+            "På Jorden",
+            "På havbunden",
+            "I et fly"
+          ],
+          "hint": "Der trækker tyngdekraften meget blidere.",
+          "explanation": "Månen trækker meget mindre i dig, så du springer seks gange så højt.",
+          "fact": "Apollo-astronauterne hoppede afsted, fordi det ikke gik at gå."
+        },
+        "ru": {
+          "prompt": "Где можно прыгнуть выше всего?",
+          "answer": "На Луне",
+          "wrong": [
+            "На Земле",
+            "На дне моря",
+            "В самолёте"
+          ],
+          "hint": "Там притяжение тянет гораздо мягче.",
+          "explanation": "Луна притягивает намного слабее, и прыжок выходит вшестеро выше.",
+          "fact": "Астронавты «Аполлона» передвигались вприпрыжку: идти не получалось."
+        },
+        "ar": {
+          "prompt": "أين تستطيع القفز أعلى؟",
+          "answer": "على القمر",
+          "wrong": [
+            "على الأرض",
+            "في قاع البحر",
+            "في الطائرة"
+          ],
+          "hint": "الجاذبية هناك تشد برفق أكبر.",
+          "explanation": "القمر يجذبك أقل بكثير، فتقفز ستة أضعاف.",
+          "fact": "رواد أبولو تنقلوا بالوثب لأن المشي لم ينفع."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-31",
       "difficulty": 3,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Solar system formation, 4.6 billion years",
       "artBrief": "Een wolk van stof en steen die langzaam een zon en planeten wordt, als een tijdlijn in één beeld.",
       "text": {
@@ -231,13 +1321,122 @@
           "hint": "Veel ouder dan de dinosaurussen, en die leefden al heel lang geleden.",
           "explanation": "Uit een wolk van gas en stof ontstonden 4,6 miljard jaar geleden de zon en de planeten.",
           "fact": "De oudste stukjes steen die we ervan hebben, vielen als meteorieten op aarde."
+        },
+        "en": {
+          "prompt": "How old is our solar system?",
+          "answer": "About 4.6 billion years",
+          "wrong": [
+            "About 1 million years",
+            "About 100 million years",
+            "About 500 billion years"
+          ],
+          "hint": "Much older than the dinosaurs, and they lived a very long time ago.",
+          "explanation": "The sun and the planets formed from a cloud of gas and dust.",
+          "fact": "The oldest pieces of it we have fell to earth as meteorites."
+        },
+        "de": {
+          "prompt": "Wie alt ist unser Sonnensystem?",
+          "answer": "Etwa 4,6 Milliarden Jahre",
+          "wrong": [
+            "Etwa 1 Million Jahre",
+            "Etwa 100 Millionen Jahre",
+            "Etwa 500 Milliarden Jahre"
+          ],
+          "hint": "Viel älter als die Dinosaurier, und die lebten schon lange vor uns.",
+          "explanation": "Sonne und Planeten entstanden aus einer Wolke aus Gas und Staub.",
+          "fact": "Die ältesten Stücke davon fielen als Meteoriten auf die Erde."
+        },
+        "fr": {
+          "prompt": "Quel âge a notre système solaire ?",
+          "answer": "4,6 milliards d'années",
+          "wrong": [
+            "1 million d'années",
+            "100 millions d'années",
+            "500 milliards d'années"
+          ],
+          "hint": "Bien plus vieux que les dinosaures, qui sont déjà très anciens.",
+          "explanation": "Le Soleil et les planètes sont nés d'un nuage de gaz et de poussière.",
+          "fact": "Les plus vieux morceaux qu'on en a sont tombés ici en météorites."
+        },
+        "es": {
+          "prompt": "¿Qué edad tiene nuestro sistema solar?",
+          "answer": "4.600 millones de años",
+          "wrong": [
+            "Un millón de años",
+            "Cien millones de años",
+            "Un billón de años"
+          ],
+          "hint": "Mucho más viejo que los dinosaurios, que ya son antiquísimos.",
+          "explanation": "El Sol y los planetas nacieron de una nube de gas y polvo.",
+          "fact": "Los trozos más antiguos que tenemos cayeron aquí como meteoritos."
+        },
+        "it": {
+          "prompt": "Quanti anni ha il nostro sistema solare?",
+          "answer": "Circa 4,6 miliardi di anni",
+          "wrong": [
+            "Circa 1 milione di anni",
+            "Circa 100 milioni di anni",
+            "Circa 500 miliardi di anni"
+          ],
+          "hint": "Molto più vecchio dei dinosauri, che sono già antichissimi.",
+          "explanation": "Il Sole e i pianeti sono nati da una nube di gas e polvere.",
+          "fact": "I pezzi più antichi che ne abbiamo sono caduti qui come meteoriti."
+        },
+        "pt": {
+          "prompt": "Que idade tem o nosso sistema solar?",
+          "answer": "4,6 mil milhões de anos",
+          "wrong": [
+            "1 milhão de anos",
+            "100 milhões de anos",
+            "500 mil milhões de anos"
+          ],
+          "hint": "Muito mais velho do que os dinossauros, que já são antiquíssimos.",
+          "explanation": "O Sol e os planetas nasceram de uma nuvem de gás e poeira.",
+          "fact": "Os pedaços mais antigos que temos caíram aqui como meteoritos."
+        },
+        "da": {
+          "prompt": "Hvor gammelt er vores solsystem?",
+          "answer": "Cirka 4,6 milliarder år",
+          "wrong": [
+            "Cirka 1 million år",
+            "Cirka 100 millioner år",
+            "Cirka 500 milliarder år"
+          ],
+          "hint": "Meget ældre end dinosaurerne, og de er allerede ældgamle.",
+          "explanation": "Solen og planeterne blev til af en sky af gas og støv.",
+          "fact": "De ældste stumper, vi har af det, faldt ned som meteoritter."
+        },
+        "ru": {
+          "prompt": "Сколько лет Солнечной системе?",
+          "answer": "Около 4,6 миллиарда лет",
+          "wrong": [
+            "Около 1 миллиона лет",
+            "Около 100 миллионов лет",
+            "Около 500 миллиардов лет"
+          ],
+          "hint": "Намного старше динозавров, а они и так древние.",
+          "explanation": "Солнце и планеты родились из облака газа и пыли.",
+          "fact": "Самые древние её кусочки упали к нам метеоритами."
+        },
+        "ar": {
+          "prompt": "كم عمر مجموعتنا الشمسية؟",
+          "answer": "نحو 4.6 مليار سنة",
+          "wrong": [
+            "نحو مليون سنة",
+            "نحو 100 مليون سنة",
+            "نحو 500 مليار سنة"
+          ],
+          "hint": "أقدم بكثير من الديناصورات، وهي قديمة جدًا.",
+          "explanation": "وُلدت الشمس والكواكب من سحابة من الغاز والغبار.",
+          "fact": "أقدم قطعها وصلت إلينا على شكل نيازك."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-32",
       "difficulty": 3,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA — Galileo mission, Io volcanism",
       "artBrief": "Een gele, gevlekte maan met uitbarstende vulkanen, met Jupiter groot op de achtergrond.",
       "text": {
@@ -249,16 +1448,125 @@
             "Ganymedes",
             "Callisto"
           ],
-          "hint": "Zijn naam is het kortst van alle vier de grote manen.",
+          "hint": "Hij ligt het dichtst bij Jupiter, en die knijpt hem fijn.",
           "explanation": "Io is de maan met de meeste vulkanen van ons hele zonnestelsel.",
           "fact": "Jupiter kneedt Io zo hard dat de maan vanbinnen smelt."
+        },
+        "en": {
+          "prompt": "Which moon of Jupiter is covered in volcanoes?",
+          "answer": "Io",
+          "wrong": [
+            "Europa",
+            "Ganymede",
+            "Callisto"
+          ],
+          "hint": "It is the closest of the four to Jupiter, which squeezes it.",
+          "explanation": "Io has more volcanoes than anywhere else in our solar system.",
+          "fact": "Jupiter kneads Io so hard that the moon melts inside."
+        },
+        "de": {
+          "prompt": "Welcher Mond des Jupiter ist voller Vulkane?",
+          "answer": "Io",
+          "wrong": [
+            "Europa",
+            "Ganymed",
+            "Kallisto"
+          ],
+          "hint": "Er liegt dem Jupiter am nächsten, und der knetet ihn durch.",
+          "explanation": "Io hat die meisten Vulkane in unserem ganzen Sonnensystem.",
+          "fact": "Jupiter knetet Io so stark, dass der Mond innen schmilzt."
+        },
+        "fr": {
+          "prompt": "Quelle lune de Jupiter est couverte de volcans ?",
+          "answer": "Io",
+          "wrong": [
+            "Europe",
+            "Ganymède",
+            "Callisto"
+          ],
+          "hint": "C'est la plus proche de Jupiter, qui la malaxe.",
+          "explanation": "Io a plus de volcans que partout ailleurs dans le système solaire.",
+          "fact": "Jupiter la pétrit si fort que la lune fond à l'intérieur."
+        },
+        "es": {
+          "prompt": "¿Qué luna de Júpiter está llena de volcanes?",
+          "answer": "Ío",
+          "wrong": [
+            "Europa",
+            "Ganímedes",
+            "Calisto"
+          ],
+          "hint": "Es la más cercana a Júpiter, que la amasa.",
+          "explanation": "Ío tiene más volcanes que ningún otro lugar del sistema solar.",
+          "fact": "Júpiter la amasa tanto que la luna se derrite por dentro."
+        },
+        "it": {
+          "prompt": "Quale luna di Giove è piena di vulcani?",
+          "answer": "Io",
+          "wrong": [
+            "Europa",
+            "Ganimede",
+            "Callisto"
+          ],
+          "hint": "È la più vicina a Giove, che la impasta.",
+          "explanation": "Io ha più vulcani di qualsiasi altro posto del sistema solare.",
+          "fact": "Giove la impasta così forte che la luna si scioglie dentro."
+        },
+        "pt": {
+          "prompt": "Que lua de Júpiter está cheia de vulcões?",
+          "answer": "Io",
+          "wrong": [
+            "Europa",
+            "Ganimedes",
+            "Calisto"
+          ],
+          "hint": "É a mais perto de Júpiter, que a amassa.",
+          "explanation": "Io tem mais vulcões do que qualquer outro sítio do sistema solar.",
+          "fact": "Júpiter amassa-a tanto que a lua derrete por dentro."
+        },
+        "da": {
+          "prompt": "Hvilken af Jupiters måner er fuld af vulkaner?",
+          "answer": "Io",
+          "wrong": [
+            "Europa",
+            "Ganymedes",
+            "Callisto"
+          ],
+          "hint": "Den er tættest på Jupiter, som ælter den.",
+          "explanation": "Io har flere vulkaner end noget andet sted i solsystemet.",
+          "fact": "Jupiter ælter Io så hårdt, at månen smelter indeni."
+        },
+        "ru": {
+          "prompt": "У какой луны Юпитера полно вулканов?",
+          "answer": "Ио",
+          "wrong": [
+            "Европа",
+            "Ганимед",
+            "Каллисто"
+          ],
+          "hint": "Она ближе всех к Юпитеру, а он её мнёт.",
+          "explanation": "На Ио вулканов больше, чем где-либо ещё в Солнечной системе.",
+          "fact": "Юпитер мнёт Ио так сильно, что спутник плавится внутри."
+        },
+        "ar": {
+          "prompt": "أي أقمار المشتري مليء بالبراكين؟",
+          "answer": "آيو",
+          "wrong": [
+            "أوروبا",
+            "غانيميد",
+            "كاليستو"
+          ],
+          "hint": "هو الأقرب إلى المشتري الذي يعجنه.",
+          "explanation": "آيو فيه براكين أكثر من أي مكان آخر في المجموعة الشمسية.",
+          "fact": "يعجنه المشتري بقوة حتى ينصهر من الداخل."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-33",
       "difficulty": 3,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA — Cassini, ring composition",
       "artBrief": "Van dichtbij tussen de ringen: duizenden stukken ijs en steen, groot en klein, die met de planeet meedraaien.",
       "text": {
@@ -273,13 +1581,122 @@
           "hint": "Denk aan miljarden sneeuwballen op een rij.",
           "explanation": "De ringen zijn miljarden brokken ijs en steen, van zandkorrel tot huis.",
           "fact": "De ringen zijn duizenden kilometers breed, maar vaak maar tien meter dik."
+        },
+        "en": {
+          "prompt": "What are the rings of Saturn made of?",
+          "answer": "Ice and rock",
+          "wrong": [
+            "Gas and steam",
+            "Dust and cloud",
+            "Liquid water"
+          ],
+          "hint": "Think of billions of snowballs in a row.",
+          "explanation": "The rings are billions of chunks of ice and rock, from grains to houses.",
+          "fact": "The rings are thousands of kilometres wide but often ten metres thick."
+        },
+        "de": {
+          "prompt": "Woraus bestehen die Ringe des Saturn?",
+          "answer": "Eis und Gestein",
+          "wrong": [
+            "Gas und Dampf",
+            "Staub und Wolken",
+            "Flüssiges Wasser"
+          ],
+          "hint": "Denk an Milliarden Schneebälle in einer Reihe.",
+          "explanation": "Die Ringe sind Milliarden Brocken aus Eis und Gestein, von Korn bis Haus.",
+          "fact": "Die Ringe sind tausende Kilometer breit, aber oft nur zehn Meter dick."
+        },
+        "fr": {
+          "prompt": "De quoi sont faits les anneaux de Saturne ?",
+          "answer": "De glace et de roche",
+          "wrong": [
+            "De gaz et de vapeur",
+            "De poussière et de nuages",
+            "D'eau liquide"
+          ],
+          "hint": "Pense à des milliards de boules de neige alignées.",
+          "explanation": "Les anneaux sont des milliards de morceaux de glace et de roche.",
+          "fact": "Ils font des milliers de kilomètres de large et dix mètres d'épaisseur."
+        },
+        "es": {
+          "prompt": "¿De qué están hechos los anillos de Saturno?",
+          "answer": "De hielo y roca",
+          "wrong": [
+            "De gas y vapor",
+            "De polvo y nubes",
+            "De agua líquida"
+          ],
+          "hint": "Piensa en miles de millones de bolas de nieve.",
+          "explanation": "Los anillos son miles de millones de trozos de hielo y roca.",
+          "fact": "Miden miles de kilómetros de ancho y a menudo diez metros de grosor."
+        },
+        "it": {
+          "prompt": "Di che cosa sono fatti gli anelli di Saturno?",
+          "answer": "Di ghiaccio e roccia",
+          "wrong": [
+            "Di gas e vapore",
+            "Di polvere e nuvole",
+            "Di acqua liquida"
+          ],
+          "hint": "Pensa a miliardi di palle di neve in fila.",
+          "explanation": "Gli anelli sono miliardi di pezzi di ghiaccio e roccia.",
+          "fact": "Sono larghi migliaia di chilometri ma spessi spesso dieci metri."
+        },
+        "pt": {
+          "prompt": "De que são feitos os anéis de Saturno?",
+          "answer": "De gelo e rocha",
+          "wrong": [
+            "De gás e vapor",
+            "De poeira e nuvens",
+            "De água líquida"
+          ],
+          "hint": "Pensa em milhares de milhões de bolas de neve.",
+          "explanation": "Os anéis são milhares de milhões de pedaços de gelo e rocha.",
+          "fact": "Têm milhares de quilómetros de largura e dez metros de espessura."
+        },
+        "da": {
+          "prompt": "Hvad består Saturns ringe af?",
+          "answer": "Is og sten",
+          "wrong": [
+            "Gas og damp",
+            "Støv og skyer",
+            "Flydende vand"
+          ],
+          "hint": "Tænk på milliarder af snebolde på række.",
+          "explanation": "Ringene er milliarder af stykker is og sten, fra korn til huse.",
+          "fact": "Ringene er tusinder af kilometer brede, men tit kun ti meter tykke."
+        },
+        "ru": {
+          "prompt": "Из чего состоят кольца Сатурна?",
+          "answer": "Из льда и камня",
+          "wrong": [
+            "Из газа и пара",
+            "Из пыли и облаков",
+            "Из жидкой воды"
+          ],
+          "hint": "Представь миллиарды снежков в ряд.",
+          "explanation": "Кольца — это миллиарды кусков льда и камня, от песчинки до дома.",
+          "fact": "Кольца тянутся на тысячи километров, а толщиной часто метров десять."
+        },
+        "ar": {
+          "prompt": "مم تتكون حلقات زحل؟",
+          "answer": "من الجليد والصخر",
+          "wrong": [
+            "من الغاز والبخار",
+            "من الغبار والسحب",
+            "من الماء السائل"
+          ],
+          "hint": "تخيل مليارات كرات الثلج في صف.",
+          "explanation": "الحلقات مليارات القطع من الجليد والصخر، من حبة رمل إلى بيت.",
+          "fact": "عرضها آلاف الكيلومترات وسمكها غالبًا عشرة أمتار."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-34",
       "difficulty": 3,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Neptune winds up to 2000 km/h",
       "artBrief": "Een diepblauwe planeet met lange, scherpe wolkenstrepen die de wind laten zien.",
       "text": {
@@ -291,16 +1708,125 @@
             "Mars",
             "Mercurius"
           ],
-          "hint": "Het is de verste planeet van de zon.",
+          "hint": "Hoe verder van de zon, hoe kouder en wilder het weer.",
           "explanation": "Op Neptunus waait het harder dan waar ook: tot bijna 2000 kilometer per uur.",
           "fact": "De snelste storm op aarde haalt daar nog niet een kwart van."
+        },
+        "en": {
+          "prompt": "Which planet has the strongest winds?",
+          "answer": "Neptune",
+          "wrong": [
+            "Earth",
+            "Mars",
+            "Mercury"
+          ],
+          "hint": "The further from the sun, the colder and wilder the weather.",
+          "explanation": "Neptune has the fastest winds anywhere: almost 2000 kilometres an hour.",
+          "fact": "The fastest storm on earth does not reach a quarter of that."
+        },
+        "de": {
+          "prompt": "Welcher Planet hat den stärksten Wind?",
+          "answer": "Neptun",
+          "wrong": [
+            "Die Erde",
+            "Mars",
+            "Merkur"
+          ],
+          "hint": "Je weiter von der Sonne, desto kälter und wilder das Wetter.",
+          "explanation": "Auf Neptun weht es schneller als sonst wo: fast 2000 Kilometer pro Stunde.",
+          "fact": "Der schnellste Sturm auf der Erde schafft nicht einmal ein Viertel davon."
+        },
+        "fr": {
+          "prompt": "Quelle planète a les vents les plus forts ?",
+          "answer": "Neptune",
+          "wrong": [
+            "La Terre",
+            "Mars",
+            "Mercure"
+          ],
+          "hint": "Plus on s'éloigne du Soleil, plus le temps est froid et fou.",
+          "explanation": "Sur Neptune le vent souffle à près de 2000 kilomètres par heure.",
+          "fact": "La tempête la plus rapide sur Terre n'en atteint pas le quart."
+        },
+        "es": {
+          "prompt": "¿Qué planeta tiene el viento más fuerte?",
+          "answer": "Neptuno",
+          "wrong": [
+            "La Tierra",
+            "Marte",
+            "Mercurio"
+          ],
+          "hint": "Cuanto más lejos del Sol, más frío y loco es el tiempo.",
+          "explanation": "En Neptuno el viento sopla a casi 2000 kilómetros por hora.",
+          "fact": "La tormenta más rápida de la Tierra no llega ni a la cuarta parte."
+        },
+        "it": {
+          "prompt": "Quale pianeta ha il vento più forte?",
+          "answer": "Nettuno",
+          "wrong": [
+            "La Terra",
+            "Marte",
+            "Mercurio"
+          ],
+          "hint": "Più ci si allontana dal Sole, più il tempo è freddo e pazzo.",
+          "explanation": "Su Nettuno il vento soffia a quasi 2000 chilometri all'ora.",
+          "fact": "La tempesta più veloce sulla Terra non arriva a un quarto."
+        },
+        "pt": {
+          "prompt": "Que planeta tem o vento mais forte?",
+          "answer": "Neptuno",
+          "wrong": [
+            "A Terra",
+            "Marte",
+            "Mercúrio"
+          ],
+          "hint": "Quanto mais longe do Sol, mais frio e doido é o tempo.",
+          "explanation": "Em Neptuno o vento sopra a quase 2000 quilómetros por hora.",
+          "fact": "A tempestade mais rápida da Terra não chega a um quarto disso."
+        },
+        "da": {
+          "prompt": "Hvilken planet har den stærkeste vind?",
+          "answer": "Neptun",
+          "wrong": [
+            "Jorden",
+            "Mars",
+            "Merkur"
+          ],
+          "hint": "Jo længere fra Solen, jo koldere og vildere vejr.",
+          "explanation": "På Neptun blæser det næsten 2000 kilometer i timen.",
+          "fact": "Den hurtigste storm på Jorden når ikke engang en fjerdedel."
+        },
+        "ru": {
+          "prompt": "У какой планеты самый сильный ветер?",
+          "answer": "Нептун",
+          "wrong": [
+            "Земля",
+            "Марс",
+            "Меркурий"
+          ],
+          "hint": "Чем дальше от Солнца, тем холоднее и безумнее погода.",
+          "explanation": "На Нептуне ветер дует почти 2000 километров в час.",
+          "fact": "Самый быстрый шторм на Земле не набирает и четверти этого."
+        },
+        "ar": {
+          "prompt": "أي كوكب فيه أقوى رياح؟",
+          "answer": "نبتون",
+          "wrong": [
+            "الأرض",
+            "المريخ",
+            "عطارد"
+          ],
+          "hint": "كلما بعدنا عن الشمس صار الطقس أبرد وأعنف.",
+          "explanation": "على نبتون تهب الرياح بنحو 2000 كيلومتر في الساعة.",
+          "fact": "أسرع عاصفة على الأرض لا تبلغ ربع ذلك."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-35",
       "difficulty": 3,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA — Olympus Mons, Mars",
       "artBrief": "Een reusachtige, flauw oplopende vulkaan op een rode vlakte, met een wolkenlaag halverwege de helling.",
       "text": {
@@ -315,13 +1841,122 @@
           "hint": "Hij staat niet op aarde, maar op de rode planeet.",
           "explanation": "Olympus Mons op Mars is bijna drie keer zo hoog als de Mount Everest.",
           "fact": "Hij is zo breed als Frankrijk: als je erop stond, zou je de helling niet eens zien."
+        },
+        "en": {
+          "prompt": "What is the largest volcano in our solar system called?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "Mount Everest",
+            "Mount Vesuvius",
+            "Mauna Kea"
+          ],
+          "hint": "It is not on earth, but on the red planet.",
+          "explanation": "Olympus Mons on Mars is almost three times as tall as Mount Everest.",
+          "fact": "It is as wide as France: on top you would not even see the slope."
+        },
+        "de": {
+          "prompt": "Wie heißt der größte Vulkan unseres Sonnensystems?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "Der Mount Everest",
+            "Der Vesuv",
+            "Der Mauna Kea"
+          ],
+          "hint": "Er steht nicht auf der Erde, sondern auf dem roten Planeten.",
+          "explanation": "Olympus Mons auf dem Mars ist fast dreimal so hoch wie der Everest.",
+          "fact": "Er ist so breit wie Frankreich: oben sähst du den Hang nicht einmal."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle le plus grand volcan du système solaire ?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "L'Everest",
+            "Le Vésuve",
+            "Le Mauna Kea"
+          ],
+          "hint": "Il n'est pas sur Terre, mais sur la planète rouge.",
+          "explanation": "Olympus Mons, sur Mars, est presque trois fois plus haut que l'Everest.",
+          "fact": "Il est large comme la France : dessus, tu ne verrais pas la pente."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama el mayor volcán del sistema solar?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "El Everest",
+            "El Vesubio",
+            "El Mauna Kea"
+          ],
+          "hint": "No está en la Tierra, sino en el planeta rojo.",
+          "explanation": "El Olympus Mons de Marte es casi tres veces más alto que el Everest.",
+          "fact": "Es tan ancho como Francia: encima ni verías la cuesta."
+        },
+        "it": {
+          "prompt": "Come si chiama il vulcano più grande del sistema solare?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "L'Everest",
+            "Il Vesuvio",
+            "Il Mauna Kea"
+          ],
+          "hint": "Non è sulla Terra, ma sul pianeta rosso.",
+          "explanation": "L'Olympus Mons su Marte è alto quasi tre volte l'Everest.",
+          "fact": "È largo quanto la Francia: sopra non vedresti nemmeno la salita."
+        },
+        "pt": {
+          "prompt": "Como se chama o maior vulcão do sistema solar?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "O Evereste",
+            "O Vesúvio",
+            "O Mauna Kea"
+          ],
+          "hint": "Não fica na Terra, mas no planeta vermelho.",
+          "explanation": "O Olympus Mons em Marte é quase três vezes mais alto que o Evereste.",
+          "fact": "É largo como a França: lá em cima nem verias a subida."
+        },
+        "da": {
+          "prompt": "Hvad hedder den største vulkan i solsystemet?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "Mount Everest",
+            "Vesuv",
+            "Mauna Kea"
+          ],
+          "hint": "Den står ikke på Jorden, men på den røde planet.",
+          "explanation": "Olympus Mons på Mars er næsten tre gange så høj som Mount Everest.",
+          "fact": "Den er så bred som Frankrig: oppe på den ville du ikke se skråningen."
+        },
+        "ru": {
+          "prompt": "Как называется самый большой вулкан Солнечной системы?",
+          "answer": "Олимп",
+          "wrong": [
+            "Эверест",
+            "Везувий",
+            "Мауна-Кеа"
+          ],
+          "hint": "Он не на Земле, а на красной планете.",
+          "explanation": "Гора Олимп на Марсе почти втрое выше Эвереста.",
+          "fact": "Он шириной с Францию: стоя на нём, склона и не заметишь."
+        },
+        "ar": {
+          "prompt": "ما اسم أكبر بركان في المجموعة الشمسية؟",
+          "answer": "أوليمبوس مونس",
+          "wrong": [
+            "إفرست",
+            "فيزوف",
+            "ماونا كيا"
+          ],
+          "hint": "ليس على الأرض بل على الكوكب الأحمر.",
+          "explanation": "أوليمبوس مونس على المريخ أعلى من إفرست بثلاثة أضعاف تقريبًا.",
+          "fact": "عرضه بحجم فرنسا: لو وقفت عليه لما رأيت المنحدر."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-36",
       "difficulty": 4,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Venus rotation (243 days) versus orbit (225 days)",
       "artBrief": "Een planeet in dikke gele wolken met een klokje en een kalender ernaast die elkaar tegenspreken.",
       "text": {
@@ -336,13 +1971,122 @@
           "hint": "Deze planeet draait heel traag om zijn as, maar snel om de zon.",
           "explanation": "Venus draait in 243 dagen één keer rond, en in 225 dagen om de zon.",
           "fact": "Venus draait ook nog eens de verkeerde kant op: daar komt de zon in het westen op."
+        },
+        "en": {
+          "prompt": "On which planet does one day last longer than one year?",
+          "answer": "Venus",
+          "wrong": [
+            "Mercury",
+            "Mars",
+            "Uranus"
+          ],
+          "hint": "This planet spins very slowly but orbits quickly.",
+          "explanation": "Venus turns once in 243 days and circles the sun in 225.",
+          "fact": "Venus also spins the wrong way: there the sun rises in the west."
+        },
+        "de": {
+          "prompt": "Auf welchem Planeten dauert ein Tag länger als ein Jahr?",
+          "answer": "Venus",
+          "wrong": [
+            "Merkur",
+            "Mars",
+            "Uranus"
+          ],
+          "hint": "Dieser Planet dreht sich sehr langsam um sich selbst.",
+          "explanation": "Venus dreht sich in 243 Tagen einmal und umkreist die Sonne in 225.",
+          "fact": "Venus dreht sich auch verkehrt herum: dort geht die Sonne im Westen auf."
+        },
+        "fr": {
+          "prompt": "Sur quelle planète un jour dure-t-il plus qu'une année ?",
+          "answer": "Vénus",
+          "wrong": [
+            "Mercure",
+            "Mars",
+            "Uranus"
+          ],
+          "hint": "Cette planète tourne très lentement sur elle-même.",
+          "explanation": "Vénus tourne une fois en 243 jours et fait le tour du Soleil en 225.",
+          "fact": "Vénus tourne aussi à l'envers : le Soleil s'y lève à l'ouest."
+        },
+        "es": {
+          "prompt": "¿En qué planeta un día dura más que un año?",
+          "answer": "Venus",
+          "wrong": [
+            "Mercurio",
+            "Marte",
+            "Urano"
+          ],
+          "hint": "Este planeta gira muy despacio sobre sí mismo.",
+          "explanation": "Venus gira una vez en 243 días y rodea el Sol en 225.",
+          "fact": "Venus además gira al revés: allí el Sol sale por el oeste."
+        },
+        "it": {
+          "prompt": "Su quale pianeta un giorno dura più di un anno?",
+          "answer": "Venere",
+          "wrong": [
+            "Mercurio",
+            "Marte",
+            "Urano"
+          ],
+          "hint": "Questo pianeta gira lentissimo su sé stesso.",
+          "explanation": "Venere gira una volta in 243 giorni e fa il giro del Sole in 225.",
+          "fact": "Venere gira anche al contrario: lì il Sole sorge a ovest."
+        },
+        "pt": {
+          "prompt": "Em que planeta um dia dura mais do que um ano?",
+          "answer": "Vénus",
+          "wrong": [
+            "Mercúrio",
+            "Marte",
+            "Urano"
+          ],
+          "hint": "Este planeta roda devagarinho sobre si mesmo.",
+          "explanation": "Vénus roda uma vez em 243 dias e dá a volta ao Sol em 225.",
+          "fact": "Vénus também roda ao contrário: ali o Sol nasce a oeste."
+        },
+        "da": {
+          "prompt": "På hvilken planet varer en dag længere end et år?",
+          "answer": "Venus",
+          "wrong": [
+            "Merkur",
+            "Mars",
+            "Uranus"
+          ],
+          "hint": "Denne planet drejer meget langsomt om sig selv.",
+          "explanation": "Venus drejer en gang rundt på 243 dage og om Solen på 225.",
+          "fact": "Venus drejer også den forkerte vej: der står Solen op i vest."
+        },
+        "ru": {
+          "prompt": "На какой планете сутки длиннее года?",
+          "answer": "Венера",
+          "wrong": [
+            "Меркурий",
+            "Марс",
+            "Уран"
+          ],
+          "hint": "Эта планета очень медленно крутится вокруг себя.",
+          "explanation": "Венера оборачивается за 243 дня, а вокруг Солнца — за 225.",
+          "fact": "Венера ещё и вращается наоборот: там Солнце встаёт на западе."
+        },
+        "ar": {
+          "prompt": "على أي كوكب يطول اليوم أكثر من السنة؟",
+          "answer": "الزهرة",
+          "wrong": [
+            "عطارد",
+            "المريخ",
+            "أورانوس"
+          ],
+          "hint": "هذا الكوكب يدور حول نفسه ببطء شديد.",
+          "explanation": "تدور الزهرة حول نفسها في 243 يومًا وحول الشمس في 225.",
+          "fact": "كما أنها تدور بالعكس: هناك تشرق الشمس من الغرب."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-37",
       "difficulty": 4,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA — Voyager 1 entered interstellar space, 2012",
       "artBrief": "Een klein ruimtevaartuig met schotelantenne ver voorbij de planeten, de zon als heldere ster achter zich.",
       "text": {
@@ -357,13 +2101,122 @@
           "hint": "Hij vertrok in 1977 en vliegt nog steeds door.",
           "explanation": "Voyager 1 kwam in 2012 als eerste in de ruimte tussen de sterren.",
           "fact": "Hij draagt een gouden plaat mee met muziek en groeten van de aarde."
+        },
+        "en": {
+          "prompt": "Which space probe was the first to leave our solar system?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "It left in 1977 and is still flying.",
+          "explanation": "In 2012 Voyager 1 was the first to reach the space between the stars.",
+          "fact": "It carries a golden record with music and greetings from earth."
+        },
+        "de": {
+          "prompt": "Welche Raumsonde verließ als erste unser Sonnensystem?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "Sie startete 1977 und fliegt immer noch.",
+          "explanation": "2012 erreichte Voyager 1 als erste den Raum zwischen den Sternen.",
+          "fact": "Sie trägt eine goldene Platte mit Musik und Grüßen von der Erde."
+        },
+        "fr": {
+          "prompt": "Quelle sonde a quitté la première le système solaire ?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "Elle est partie en 1977 et vole toujours.",
+          "explanation": "En 2012, Voyager 1 a atteint la première l'espace entre les étoiles.",
+          "fact": "Elle emporte un disque d'or avec de la musique et des salutations."
+        },
+        "es": {
+          "prompt": "¿Qué sonda salió la primera del sistema solar?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apolo 11"
+          ],
+          "hint": "Partió en 1977 y sigue volando.",
+          "explanation": "En 2012 la Voyager 1 llegó la primera al espacio entre las estrellas.",
+          "fact": "Lleva un disco de oro con música y saludos de la Tierra."
+        },
+        "it": {
+          "prompt": "Quale sonda è uscita per prima dal sistema solare?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "È partita nel 1977 e vola ancora.",
+          "explanation": "Nel 2012 Voyager 1 è arrivata per prima nello spazio fra le stelle.",
+          "fact": "Porta un disco d'oro con musica e saluti dalla Terra."
+        },
+        "pt": {
+          "prompt": "Que sonda saiu primeiro do sistema solar?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "Partiu em 1977 e ainda voa.",
+          "explanation": "Em 2012 a Voyager 1 chegou primeiro ao espaço entre as estrelas.",
+          "fact": "Leva um disco de ouro com música e saudações da Terra."
+        },
+        "da": {
+          "prompt": "Hvilken rumsonde forlod solsystemet først?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "Den tog af sted i 1977 og flyver stadig.",
+          "explanation": "I 2012 nåede Voyager 1 som den første rummet mellem stjernerne.",
+          "fact": "Den har en guldplade med musik og hilsener fra Jorden."
+        },
+        "ru": {
+          "prompt": "Какой зонд первым покинул Солнечную систему?",
+          "answer": "«Вояджер-1»",
+          "wrong": [
+            "«Хаббл»",
+            "«Кассини»",
+            "«Аполлон-11»"
+          ],
+          "hint": "Он стартовал в 1977 году и летит до сих пор.",
+          "explanation": "В 2012 году «Вояджер-1» первым вышел в пространство между звёзд.",
+          "fact": "Он везёт золотую пластинку с музыкой и приветами с Земли."
+        },
+        "ar": {
+          "prompt": "أي مسبار غادر المجموعة الشمسية أولًا؟",
+          "answer": "فوياجر 1",
+          "wrong": [
+            "هابل",
+            "كاسيني",
+            "أبولو 11"
+          ],
+          "hint": "انطلق عام 1977 وما زال يطير.",
+          "explanation": "في 2012 وصل فوياجر 1 أولًا إلى الفضاء بين النجوم.",
+          "fact": "يحمل أسطوانة ذهبية فيها موسيقى وتحيات من الأرض."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-38",
       "difficulty": 4,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — the Sun holds 99.8% of the solar system's mass",
       "artBrief": "Een weegschaal waarop de zon aan de ene kant alle planeten samen aan de andere kant moeiteloos optilt.",
       "text": {
@@ -378,13 +2231,122 @@
           "hint": "Bijna alles, en de planeten zijn samen de rest.",
           "explanation": "De zon is zo zwaar dat alle planeten samen nog geen procent overhouden.",
           "fact": "Juist daardoor blijven alle planeten netjes om de zon heen draaien."
+        },
+        "en": {
+          "prompt": "How much of all the weight in our solar system is in the sun?",
+          "answer": "More than 99 percent",
+          "wrong": [
+            "About half",
+            "About a tenth",
+            "Less than 1 percent"
+          ],
+          "hint": "Almost all of it, and the planets are the rest.",
+          "explanation": "The sun is so heavy that all the planets together stay under one percent.",
+          "fact": "That is exactly why all the planets keep circling the sun."
+        },
+        "de": {
+          "prompt": "Wie viel vom Gewicht des Sonnensystems steckt in der Sonne?",
+          "answer": "Mehr als 99 Prozent",
+          "wrong": [
+            "Etwa die Hälfte",
+            "Etwa ein Zehntel",
+            "Weniger als 1 Prozent"
+          ],
+          "hint": "Fast alles, und die Planeten sind der Rest.",
+          "explanation": "Die Sonne ist so schwer, dass alle Planeten zusammen kaum zählen.",
+          "fact": "Genau deshalb kreisen alle Planeten brav um die Sonne."
+        },
+        "fr": {
+          "prompt": "Quelle part du poids du système solaire est dans le Soleil ?",
+          "answer": "Plus de 99 pour cent",
+          "wrong": [
+            "Environ la moitié",
+            "Environ un dixième",
+            "Moins de 1 pour cent"
+          ],
+          "hint": "Presque tout, et les planètes sont le reste.",
+          "explanation": "Le Soleil est si lourd que toutes les planètes réunies pèsent à peine.",
+          "fact": "C'est bien pour cela que les planètes tournent sagement autour."
+        },
+        "es": {
+          "prompt": "¿Cuánto del peso del sistema solar está en el Sol?",
+          "answer": "Más del 99 por ciento",
+          "wrong": [
+            "Cerca de la mitad",
+            "Cerca de una décima",
+            "Menos del 1 por ciento"
+          ],
+          "hint": "Casi todo, y los planetas son el resto.",
+          "explanation": "El Sol pesa tanto que todos los planetas juntos no llegan al uno por ciento.",
+          "fact": "Justo por eso los planetas siguen girando a su alrededor."
+        },
+        "it": {
+          "prompt": "Quanta parte del peso del sistema solare sta nel Sole?",
+          "answer": "Più del 99 per cento",
+          "wrong": [
+            "Circa la metà",
+            "Circa un decimo",
+            "Meno dell'1 per cento"
+          ],
+          "hint": "Quasi tutto, e i pianeti sono il resto.",
+          "explanation": "Il Sole è così pesante che tutti i pianeti insieme non fanno un per cento.",
+          "fact": "Proprio per questo i pianeti continuano a girargli intorno."
+        },
+        "pt": {
+          "prompt": "Quanto do peso do sistema solar está no Sol?",
+          "answer": "Mais de 99 por cento",
+          "wrong": [
+            "Cerca de metade",
+            "Cerca de um décimo",
+            "Menos de 1 por cento"
+          ],
+          "hint": "Quase tudo, e os planetas são o resto.",
+          "explanation": "O Sol pesa tanto que todos os planetas juntos não chegam a um por cento.",
+          "fact": "É mesmo por isso que os planetas continuam a girar à volta dele."
+        },
+        "da": {
+          "prompt": "Hvor meget af solsystemets vægt sidder i Solen?",
+          "answer": "Mere end 99 procent",
+          "wrong": [
+            "Cirka halvdelen",
+            "Cirka en tiendedel",
+            "Mindre end 1 procent"
+          ],
+          "hint": "Næsten det hele, og planeterne er resten.",
+          "explanation": "Solen er så tung, at alle planeterne tilsammen ikke når én procent.",
+          "fact": "Netop derfor bliver planeterne ved med at kredse om den."
+        },
+        "ru": {
+          "prompt": "Какая часть веса Солнечной системы в самом Солнце?",
+          "answer": "Больше 99 процентов",
+          "wrong": [
+            "Около половины",
+            "Около десятой части",
+            "Меньше 1 процента"
+          ],
+          "hint": "Почти всё, а планеты — остаток.",
+          "explanation": "Солнце так тяжело, что все планеты вместе не дают и процента.",
+          "fact": "Именно поэтому планеты послушно вращаются вокруг него."
+        },
+        "ar": {
+          "prompt": "كم من وزن المجموعة الشمسية يوجد في الشمس؟",
+          "answer": "أكثر من 99 بالمئة",
+          "wrong": [
+            "نحو النصف",
+            "نحو العشر",
+            "أقل من 1 بالمئة"
+          ],
+          "hint": "كل شيء تقريبًا، والكواكب هي الباقي.",
+          "explanation": "الشمس ثقيلة جدًا حتى إن الكواكب مجتمعة لا تبلغ واحدًا بالمئة.",
+          "fact": "ولهذا تظل الكواكب تدور حولها بانتظام."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-39",
       "difficulty": 4,
-      "status": "draft",
+      "status": "translated",
       "source": "Le Verrier's calculation and Galle's observation, 1846",
       "artBrief": "Een schrijftafel met berekeningen en een telescoop bij een raam; buiten een blauwe stip aan de hemel.",
       "text": {
@@ -399,13 +2361,122 @@
           "hint": "Sterrenkundigen merkten dat er aan Uranus getrokken werd.",
           "explanation": "In 1846 rekende men uit waar hij moest staan, en daar stond hij ook echt.",
           "fact": "De telescoop vond hem diezelfde nacht nog, op bijna precies de berekende plek."
+        },
+        "en": {
+          "prompt": "Which planet was worked out on paper before anyone saw it?",
+          "answer": "Neptune",
+          "wrong": [
+            "Uranus",
+            "Saturn",
+            "Pluto"
+          ],
+          "hint": "Astronomers noticed something tugging at Uranus.",
+          "explanation": "In 1846 they calculated where it had to be, and there it was.",
+          "fact": "The telescope found it that very night, almost exactly as predicted."
+        },
+        "de": {
+          "prompt": "Welcher Planet wurde erst berechnet und dann gesehen?",
+          "answer": "Neptun",
+          "wrong": [
+            "Uranus",
+            "Saturn",
+            "Pluto"
+          ],
+          "hint": "Astronomen merkten, dass etwas am Uranus zog.",
+          "explanation": "1846 rechnete man aus, wo er stehen musste, und dort stand er auch.",
+          "fact": "Das Teleskop fand ihn noch in derselben Nacht, fast genau dort."
+        },
+        "fr": {
+          "prompt": "Quelle planète a d'abord été calculée, puis observée ?",
+          "answer": "Neptune",
+          "wrong": [
+            "Uranus",
+            "Saturne",
+            "Pluton"
+          ],
+          "hint": "Les astronomes voyaient quelque chose tirer sur Uranus.",
+          "explanation": "En 1846, on a calculé où elle devait être, et elle y était.",
+          "fact": "Le télescope l'a trouvée la nuit même, presque à l'endroit prévu."
+        },
+        "es": {
+          "prompt": "¿Qué planeta se calculó antes de verlo?",
+          "answer": "Neptuno",
+          "wrong": [
+            "Urano",
+            "Saturno",
+            "Plutón"
+          ],
+          "hint": "Los astrónomos notaban algo tirando de Urano.",
+          "explanation": "En 1846 calcularon dónde debía estar, y allí estaba.",
+          "fact": "El telescopio lo encontró esa misma noche, casi en el punto previsto."
+        },
+        "it": {
+          "prompt": "Quale pianeta è stato prima calcolato e poi visto?",
+          "answer": "Nettuno",
+          "wrong": [
+            "Urano",
+            "Saturno",
+            "Plutone"
+          ],
+          "hint": "Gli astronomi vedevano qualcosa tirare Urano.",
+          "explanation": "Nel 1846 calcolarono dove doveva stare, ed era lì.",
+          "fact": "Il telescopio lo trovò quella notte stessa, quasi nel punto previsto."
+        },
+        "pt": {
+          "prompt": "Que planeta foi calculado antes de ser visto?",
+          "answer": "Neptuno",
+          "wrong": [
+            "Urano",
+            "Saturno",
+            "Plutão"
+          ],
+          "hint": "Os astrónomos viam algo a puxar Urano.",
+          "explanation": "Em 1846 calcularam onde devia estar, e estava lá mesmo.",
+          "fact": "O telescópio encontrou-o nessa mesma noite, quase no ponto previsto."
+        },
+        "da": {
+          "prompt": "Hvilken planet blev først regnet ud og så set?",
+          "answer": "Neptun",
+          "wrong": [
+            "Uranus",
+            "Saturn",
+            "Pluto"
+          ],
+          "hint": "Astronomerne mærkede, at noget trak i Uranus.",
+          "explanation": "I 1846 regnede man ud, hvor den måtte stå, og der stod den.",
+          "fact": "Teleskopet fandt den samme nat, næsten præcis hvor den skulle være."
+        },
+        "ru": {
+          "prompt": "Какую планету сначала вычислили, а потом увидели?",
+          "answer": "Нептун",
+          "wrong": [
+            "Уран",
+            "Сатурн",
+            "Плутон"
+          ],
+          "hint": "Астрономы заметили, что что-то тянет Уран.",
+          "explanation": "В 1846 году рассчитали, где он должен быть, и он там оказался.",
+          "fact": "Телескоп нашёл его той же ночью, почти точно в нужном месте."
+        },
+        "ar": {
+          "prompt": "أي كوكب حُسب مكانه قبل أن يُرى؟",
+          "answer": "نبتون",
+          "wrong": [
+            "أورانوس",
+            "زحل",
+            "بلوتو"
+          ],
+          "hint": "لاحظ الفلكيون شيئًا يشد أورانوس.",
+          "explanation": "في 1846 حسبوا أين يجب أن يكون، فوجدوه هناك.",
+          "fact": "عثر عليه التلسكوب في الليلة نفسها وفي المكان المتوقع تقريبًا."
         }
-      }
+      },
+      "art": "own"
     },
     {
       "id": "ruimte-zonnestelsel-40",
       "difficulty": 4,
-      "status": "draft",
+      "status": "translated",
       "source": "NASA Science — Oort Cloud",
       "artBrief": "Een enorme bolvormige schil van ijsbrokken helemaal om het zonnestelsel heen, de zon nog maar een stipje.",
       "text": {
@@ -420,8 +2491,117 @@
           "hint": "Hij is genoemd naar een Nederlandse sterrenkundige.",
           "explanation": "De Oortwolk is een bol van ijsbrokken, heel ver voorbij alle planeten.",
           "fact": "Daar komen de kometen vandaan die maar eens in de duizenden jaren langskomen."
+        },
+        "en": {
+          "prompt": "What is the shell of icy lumps around our solar system called?",
+          "answer": "The Oort cloud",
+          "wrong": [
+            "The Kuiper belt",
+            "The asteroid belt",
+            "The Milky Way"
+          ],
+          "hint": "It is named after a Dutch astronomer.",
+          "explanation": "The Oort cloud is a ball of icy lumps, far beyond all the planets.",
+          "fact": "That is where the comets come from that appear once in a thousand years."
+        },
+        "de": {
+          "prompt": "Wie heißt die Schale aus Eisbrocken um unser Sonnensystem?",
+          "answer": "Die Oortsche Wolke",
+          "wrong": [
+            "Der Kuipergürtel",
+            "Der Asteroidengürtel",
+            "Die Milchstraße"
+          ],
+          "hint": "Sie ist nach einem niederländischen Astronomen benannt.",
+          "explanation": "Die Oortsche Wolke ist eine Kugel aus Eisbrocken, weit hinter allem.",
+          "fact": "Von dort kommen Kometen, die nur alle paar tausend Jahre vorbeischauen."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle la coquille de glaces autour du système ?",
+          "answer": "Le nuage d'Oort",
+          "wrong": [
+            "La ceinture de Kuiper",
+            "La ceinture d'astéroïdes",
+            "La Voie lactée"
+          ],
+          "hint": "Il porte le nom d'un astronome néerlandais.",
+          "explanation": "Le nuage d'Oort est une sphère de blocs de glace, loin des planètes.",
+          "fact": "C'est de là que viennent les comètes qui passent tous les mille ans."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama la capa de hielos que rodea el sistema?",
+          "answer": "La nube de Oort",
+          "wrong": [
+            "El cinturón de Kuiper",
+            "El cinturón de asteroides",
+            "La Vía Láctea"
+          ],
+          "hint": "Lleva el nombre de un astrónomo neerlandés.",
+          "explanation": "La nube de Oort es una esfera de trozos de hielo, más allá de todo.",
+          "fact": "De allí vienen los cometas que pasan una vez cada mil años."
+        },
+        "it": {
+          "prompt": "Come si chiama il guscio di ghiacci attorno al sistema?",
+          "answer": "La nube di Oort",
+          "wrong": [
+            "La fascia di Kuiper",
+            "La fascia di asteroidi",
+            "La Via Lattea"
+          ],
+          "hint": "Porta il nome di un astronomo olandese.",
+          "explanation": "La nube di Oort è una sfera di pezzi di ghiaccio, oltre ogni pianeta.",
+          "fact": "Da lì arrivano le comete che passano una volta ogni mille anni."
+        },
+        "pt": {
+          "prompt": "Como se chama a casca de gelos à volta do sistema?",
+          "answer": "A nuvem de Oort",
+          "wrong": [
+            "A cintura de Kuiper",
+            "A cintura de asteroides",
+            "A Via Láctea"
+          ],
+          "hint": "Tem o nome de um astrónomo neerlandês.",
+          "explanation": "A nuvem de Oort é uma esfera de pedaços de gelo, para lá de tudo.",
+          "fact": "É de lá que vêm os cometas que passam uma vez em mil anos."
+        },
+        "da": {
+          "prompt": "Hvad hedder skallen af isklumper om vores solsystem?",
+          "answer": "Oort-skyen",
+          "wrong": [
+            "Kuiperbæltet",
+            "Asteroidebæltet",
+            "Mælkevejen"
+          ],
+          "hint": "Den er opkaldt efter en nederlandsk astronom.",
+          "explanation": "Oort-skyen er en kugle af isklumper, langt uden for alle planeter.",
+          "fact": "Derfra kommer de kometer, som kun kommer forbi hvert tusinde år."
+        },
+        "ru": {
+          "prompt": "Как называется оболочка из ледяных глыб вокруг системы?",
+          "answer": "Облако Оорта",
+          "wrong": [
+            "Пояс Койпера",
+            "Пояс астероидов",
+            "Млечный Путь"
+          ],
+          "hint": "Оно названо в честь нидерландского астронома.",
+          "explanation": "Облако Оорта — шар из ледяных глыб далеко за всеми планетами.",
+          "fact": "Оттуда прилетают кометы, которые видно раз в тысячу лет."
+        },
+        "ar": {
+          "prompt": "ما اسم الغلاف الجليدي المحيط بمجموعتنا الشمسية؟",
+          "answer": "سحابة أورط",
+          "wrong": [
+            "حزام كايبر",
+            "حزام الكويكبات",
+            "درب التبانة"
+          ],
+          "hint": "سميت باسم فلكي هولندي.",
+          "explanation": "سحابة أورط كرة من كتل الجليد بعيدًا خلف كل الكواكب.",
+          "fact": "منها تأتي المذنبات التي تمر مرة كل آلاف السنين."
         }
-      }
+      },
+      "art": "own"
     }
   ]
 }

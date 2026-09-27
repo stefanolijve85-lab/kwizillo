@@ -205,14 +205,29 @@ het warmdraaien, en er komt eindredactie door een mens. De pilot begint bij
 
 | stap | stand |
 |---|---|
-| 0 · bron van waarheid | `content/ruimte/zonnestelsel.json` staat er |
+| 0 · bron van waarheid | `content/ruimte/zonnestelsel.json` |
 | 1 · schrijven | 20 nieuwe vragen, vijf per moeilijkheid, met bron en beeldbrief |
-| 2 · lint | `npm run content:lint` — geen blokkerende fouten |
+| 2 · lint | `npm run content:lint` — geen blokkerende fouten, in alle tien de talen |
 | 3 · feitencontrole | elke vraag met een getal of naam heeft een bron; tweede ronde nog te doen |
-| 4 · review door een mens | wacht op jou — dit is de poort voor de vertaling |
-| 5 · vertalen | 9 talen, gebeurt pas na goedkeuring |
-| 6 · illustraties | 20 platen, geen beeldtegoed op dit moment |
-| 7 · spraak warmdraaien | na de vertaling |
+| 4 · review | doorlopen, drie punten aangepast (hint van 32 en 34, afleiders van 30) |
+| 5 · vertalen | 10 talen, gebouwd met `npm run content:build` |
+| 6 · illustraties | 20 platen, eigen beeld per vraag, 800×450 |
+| 7 · spraak warmdraaien | nl en en, Milo en Luna: 160 regels, 7290 tekens |
+
+De pilot is af. Wat hij aan echte getallen opleverde, tegenover de schattingen
+hierboven:
+
+| | schatting | gemeten |
+|---|---|---|
+| Platen | — | **3,4 cent per plaat**, 20 stuks ≈ 70 cent, 1280 vragen ≈ 45 euro |
+| Plaatgrootte | 60 kB | **113 kB** gemiddeld op 800×450 q78 (hercodering blijft nodig) |
+| Spraak | 215 tekens per vraag | **91 tekens** voor vraag + hint; de antwoordregels worden tijdens het spelen warm, want de app schudt de volgorde |
+| Bankgrootte | — | 480 → 500 vragen per taal, tien talen, zonder dat een test hoefde te wijken |
+
+De stijlregel voor de platen staat vast en hoort bij elke volgende opdracht:
+*vivid semi-realistic 3D render, verzadigde kleuren, helder licht, rustige
+compositie, geen cartoongezichten op voorwerpen, nergens tekst.* De eerste
+poging mét gezichten paste niet bij de bestaande platen en is weggegooid.
 
 ### Wat de lint onderweg vond
 

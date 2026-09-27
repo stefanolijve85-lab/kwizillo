@@ -15,38 +15,54 @@ const topicBatch = core.selectQuizBatch({ questions, world: 'wetenschap', topicK
 assert.strictEqual(topicBatch.questions.length, 10);
 assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic === 'lichaam'), 'Topic routing leaked another pool');
 
-/* ---- a mixed world quiz serves eight unique batches before recycling ---- */
+/* ---- a mixed world quiz serves every unique batch before recycling ---- */
 {
+  // The world holds at least eighty questions and may hold more as content/
+  // fills topics up, so the number of fresh quizzes is read from the bank
+  // rather than written down here.
+  const inWorld = questions.filter(q => q.world === 'ruimte' && q.groupMin <= 5).length;
+  const batches = Math.floor(inWorld / 10);
+  assert.ok(batches >= 8, `ruimte must supply at least eight batches of ten, it has ${inWorld} questions`);
   let usedIds = [];
   const seen = new Set();
-  for (let quiz = 1; quiz <= 8; quiz++) {
+  for (let quiz = 1; quiz <= batches; quiz++) {
     const batch = core.selectQuizBatch({ questions, world: 'ruimte', grade: 5, limit: 10, usedIds });
     assert.strictEqual(batch.questions.length, 10, `quiz ${quiz} must serve 10 questions`);
-    assert.strictEqual(batch.recycled, false, `quiz ${quiz} must not recycle; the world holds 80 questions`);
+    assert.strictEqual(batch.recycled, false, `quiz ${quiz} must not recycle; the world holds ${inWorld} questions`);
     for (const q of batch.questions) {
       assert.ok(!seen.has(q.id), `quiz ${quiz} repeated question ${q.id} before the pool was exhausted`);
       seen.add(q.id);
     }
     usedIds = batch.usedIds;
   }
-  assert.strictEqual(seen.size, 80, 'eight quizzes must cover all 80 world questions exactly once');
+  assert.strictEqual(seen.size, batches * 10, `${batches} quizzes must cover every world question exactly once`);
 
   // Only after that does the cycle restart.
-  const fifth = core.selectQuizBatch({ questions, world: 'ruimte', grade: 5, limit: 10, usedIds });
-  assert.strictEqual(fifth.recycled, true, 'the ninth quiz must restart the cycle');
-  assert.strictEqual(fifth.questions.length, 10);
+  const after = core.selectQuizBatch({ questions, world: 'ruimte', grade: 5, limit: 10, usedIds });
+  assert.strictEqual(after.recycled, true, 'the quiz after the last fresh one must restart the cycle');
+  assert.strictEqual(after.questions.length, 10);
 }
 
-/* ---- a single topic holds 20: two fresh quizzes, then it recycles and says so ---- */
+/* ---- a topic serves its fresh quizzes, then recycles and says so ---- */
 {
-  const first = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10 });
-  assert.strictEqual(first.recycled, false);
-  const second = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: first.usedIds });
-  assert.strictEqual(second.recycled, false, 'the second topic quiz still has 10 unseen questions');
-  const firstIds = new Set(first.questions.map(q => q.id));
-  assert.ok(second.questions.every(q => !firstIds.has(q.id)), 'the second topic quiz must not repeat the first');
-  const third = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: second.usedIds });
-  assert.strictEqual(third.recycled, true, 'a 20-question topic must report that it recycled on the third quiz');
+  // ruimte/ridders: a topic of twenty gives two fresh quizzes, one of forty
+  // gives four. The count comes from the bank so filling a topic up does not
+  // break the test — what is tested is that nothing repeats until it must.
+  const topicKey = 'zonnestelsel';
+  const inTopic = questions.filter(q => q.topic === topicKey && q.groupMin <= 5).length;
+  const rounds = Math.floor(inTopic / 10);
+  let usedIds, seen = new Set();
+  for (let quiz = 1; quiz <= rounds; quiz++) {
+    const batch = core.selectQuizBatch({ questions, world: 'ruimte', topicKey, grade: 5, limit: 10, usedIds });
+    assert.strictEqual(batch.recycled, false, `topic quiz ${quiz} still has unseen questions`);
+    for (const q of batch.questions) {
+      assert.ok(!seen.has(q.id), `topic quiz ${quiz} repeated ${q.id} before the topic was exhausted`);
+      seen.add(q.id);
+    }
+    usedIds = batch.usedIds;
+  }
+  const over = core.selectQuizBatch({ questions, world: 'ruimte', topicKey, grade: 5, limit: 10, usedIds });
+  assert.strictEqual(over.recycled, true, `a ${inTopic}-question topic must report that it recycled on quiz ${rounds + 1}`);
 }
 
 /* ---- answer order is shuffled without mutating the source ---- */
@@ -170,12 +186,17 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
 {
   for (let seed = 1; seed <= 40; seed++) {
     let x = seed; const rng = () => { x = (x * 1103515245 + 12345) & 0x7fffffff; return x / 0x7fffffff; };
-    const first = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, rng });
-    const second = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: first.usedIds, rng });
-    const lastId = second.questions[second.questions.length - 1].id;
-    const third = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds: second.usedIds, rng });
-    assert.strictEqual(third.recycled, true);
-    assert.notStrictEqual(third.questions[0].id, lastId, `seed ${seed}: recycled batch opened with the question just played`);
+    // Play the topic empty, however many quizzes that takes, and look at the
+    // first batch that has to start over.
+    let batch, usedIds, lastId;
+    for (let quiz = 1; quiz <= 12; quiz++) {
+      lastId = batch ? batch.questions[batch.questions.length - 1].id : null;
+      batch = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', grade: 5, limit: 10, usedIds, rng });
+      usedIds = batch.usedIds;
+      if (batch.recycled) break;
+    }
+    assert.strictEqual(batch.recycled, true, `seed ${seed}: the topic never reported recycling`);
+    assert.notStrictEqual(batch.questions[0].id, lastId, `seed ${seed}: recycled batch opened with the question just played`);
   }
 }
 
@@ -245,8 +266,13 @@ assert.deepStrictEqual([1,2,3,4,5,6].map(n=>core.difficultyBand({niveau:n})), [[
   assert.ok(bandOf(1).every(d => d === 1), 'level 1 mixed quiz is all difficulty 1');
   assert.ok(bandOf(6).every(d => d === 4), 'level 6 mixed quiz is all difficulty 4');
   assert.ok(bandOf(3).every(d => d === 2 || d === 3), 'level 3 mixed quiz stays in 2-3');
-  const topic = core.selectQuizBatch({ questions, world: 'ruimte', topicKey: 'zonnestelsel', limit: 10, band: [4, 4], rng: () => 0.42 }).questions.map(q => q.difficulty);
-  assert.deepStrictEqual(topic, [3,3,3,3,3,4,4,4,4,4], 'a level-6 topic quiz takes the five 4s and fills with 3s, easy first');
+  // A topic that has been filled up to ten questions per difficulty serves a
+  // level-6 quiz entirely out of difficulty 4; one that has not yet been filled
+  // borrows from the nearest difficulty, easy first. Both are in the bank right
+  // now, and both behaviours have to hold.
+  const bandTopic = key => core.selectQuizBatch({ questions, world: 'ruimte', topicKey: key, limit: 10, band: [4, 4], rng: () => 0.42 }).questions.map(q => q.difficulty);
+  assert.deepStrictEqual(bandTopic('zonnestelsel'), [4,4,4,4,4,4,4,4,4,4], 'a filled topic serves level 6 from difficulty 4 alone');
+  assert.deepStrictEqual(bandTopic('astronauten'), [3,3,3,3,3,4,4,4,4,4], 'a topic with five 4s fills the rest with 3s, easy first');
 }
 // Hints and reading follow the level: free hints and full read-out on 1-2,
 // a budget from 3, question-only reading from 4, no hints on 6.

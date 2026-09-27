@@ -46,7 +46,9 @@ for (const lang of LANGS) {
       };
     });
     expect(seen.docLang).toBe(lang);
-    expect(seen.bank).toBe(480);
+    // The bank grows as content/ fills topics up; what matters here is that the
+    // language switch served a whole bank of its own, not a fixed number.
+    expect(seen.bank).toBeGreaterThanOrEqual(480);
     expect(seen.speech).toBe(lang);
     expect(seen.onScreen).toBe(seen.prompt);
     if (lang !== 'nl') expect(seen.prompt, 'question is not the Dutch text').not.toBe(seen.nlPrompt);

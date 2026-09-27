@@ -34,16 +34,23 @@ const errors = [], warnings = [];
 const err = (id, what) => errors.push(`${id}: ${what}`);
 const warn = (id, what) => warnings.push(`${id}: ${what}`);
 
+// Letters and digits in any script: Cyrillic and Arabic must survive this, or
+// every Russian question normalises to nothing and looks like every other one.
 const norm = s => String(s || '').toLowerCase()
   .normalize('NFD').replace(/[̀-ͯ]/g, '')
-  .replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  .replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim();
 const trigrams = s => { const t = ` ${norm(s)} `, out = new Set(); for (let i = 0; i < t.length - 2; i++) out.add(t.slice(i, i + 3)); return out };
 const overlap = (a, b) => { let n = 0; for (const g of a) if (b.has(g)) n++; return n / Math.max(1, Math.min(a.size, b.size)) };
+// Whole words only: the Italian answer "Io" is not hiding inside "Giove".
+const holds = (text, word) => !!word && new RegExp(`(^| )${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}( |$)`).test(text);
 
 // ── what is already live ────────────────────────────────────────────────────
 const { banks } = loadBanks();
 const bank = banks.nl || [];
-const known = bank.map(q => ({ id: q.id, world: q.world, topic: q.topic, difficulty: q.difficulty, prompt: q.prompt, answer: q.answer, tri: trigrams(q.prompt) }));
+// Questions that content/ has already been built into the bank are the same
+// question, not a copy of it: they are counted from content/ and skipped here.
+const built = new Set();
+let known = [];
 
 // ── what is in content/ ─────────────────────────────────────────────────────
 const files = fs.existsSync(DIR)
@@ -61,6 +68,7 @@ for (const file of files) {
   if (!world || !topic) { errors.push(`${rel}: needs "world" and "topic"`); continue }
   for (const q of doc.questions || []) {
     const id = q.id || `${rel}?`;
+    built.add(q.id);
     if (!/^[a-z_]+-[a-z_]+-\d\d$/.test(q.id || '')) err(id, 'id must read <world>-<topic>-NN');
     else if (!q.id.startsWith(`${world}-${topic}-`)) err(id, `id does not match ${world}/${topic}`);
     if (!(q.difficulty >= 1 && q.difficulty <= 4)) err(id, 'difficulty must be 1, 2, 3 or 4');
@@ -69,13 +77,15 @@ for (const file of files) {
   }
 }
 
+known = bank.filter(q => !built.has(q.id))
+  .map(q => ({ id: q.id, world: q.world, topic: q.topic, difficulty: q.difficulty, prompt: q.prompt, answer: q.answer, tri: trigrams(q.prompt) }));
+
 // ── per question ────────────────────────────────────────────────────────────
 const seenId = new Map();
 for (const q of fresh) {
   const { id, nl } = q;
   if (seenId.has(id)) err(id, `id used twice (${seenId.get(id)} and ${q.rel})`);
   seenId.set(id, q.rel);
-  if (known.some(k => k.id === id)) err(id, 'this id is already in the live bank');
 
   // shape
   for (const field of ['prompt', 'answer', 'hint', 'explanation', 'fact']) {
@@ -91,8 +101,8 @@ for (const q of fresh) {
   const words = a.split(' ').filter(w => w.length >= 5);
   for (const where of ['prompt', 'hint']) {
     const text = norm(nl[where]);
-    if (a && text.includes(a)) err(id, `the answer is inside the ${where}`);
-    else if (words.some(w => text.includes(w))) warn(id, `a word of the answer ("${words.find(w => text.includes(w))}") is inside the ${where}`);
+    if (holds(text, a)) err(id, `the answer is inside the ${where}`);
+    else if (words.some(w => holds(text, w))) warn(id, `a word of the answer ("${words.find(w => holds(text, w))}") is inside the ${where}`);
   }
   if (norm(nl.fact) && norm(nl.explanation) && overlap(trigrams(nl.fact), trigrams(nl.explanation)) > 0.7) warn(id, 'the fact says nearly the same thing as the explanation');
 
@@ -123,6 +133,26 @@ for (const q of fresh) {
   // translations
   const missing = LANGS.filter(l => !q.text[l]);
   if (missing.length) warn(id, `not translated yet: ${missing.join(' ')}`);
+
+  // Every language gets the same measuring stick: it has to fit the same
+  // screen and be read aloud by the same voice, and a translation can leak an
+  // answer that the Dutch kept hidden.
+  for (const lang of LANGS.filter(l => l !== 'nl' && q.text[l])) {
+    const t = q.text[lang];
+    for (const field of ['prompt', 'answer', 'hint', 'explanation', 'fact']) {
+      if (!String(t[field] || '').trim()) err(id, `${lang}: missing ${field}`);
+      else if (t[field].length > CAP[field]) err(id, `${lang}: ${field} is ${t[field].length} characters, cap is ${CAP[field]}`);
+    }
+    const opts = [t.answer, ...(t.wrong || [])].map(s => String(s || ''));
+    if (opts.length !== 4) err(id, `${lang}: needs three wrong answers, has ${opts.length - 1}`);
+    if (new Set(opts.map(norm)).size !== opts.length) err(id, `${lang}: two options say the same thing`);
+    for (const w of t.wrong || []) if (String(w).length > CAP.answer) err(id, `${lang}: the wrong answer "${w}" is longer than ${CAP.answer} characters`);
+    const a = norm(t.answer);
+    for (const where of ['prompt', 'hint']) if (holds(norm(t[where]), a)) err(id, `${lang}: the answer is inside the ${where}`);
+    // And it must not repeat a question that language already has.
+    const twin = (banks[lang] || []).find(b => !built.has(b.id) && b.topic === q.topic && norm(b.prompt) === norm(t.prompt));
+    if (twin) err(id, `${lang}: asks the same as ${twin.id}: "${t.prompt}"`);
+  }
 }
 
 // ── the same question twice, anywhere ───────────────────────────────────────
