@@ -12,7 +12,6 @@
   // per run id.
   const LEVELS=['jungle','stad','lucht'];
   const MUSIC={jungle:'jungle',stad:'science',lucht:'home'};
-  const MAX_COINS=400;
 
   // Every string the runner shows, in the app language (game.js keys → i18n keys).
   const textTable=()=>{
@@ -30,16 +29,19 @@
   // retried save or a replayed callback can never pay twice. Returns what was booked.
   K.jungleReward=reward=>{
     if(!reward||reward.game!=='jungle-runner'||reward.completed!==true||typeof reward.runId!=='string'||!reward.runId)return null;
-    const coins=Math.max(0,Math.min(MAX_COINS,Math.floor(Number(reward.coins)||0)));
+    const coins=Math.max(0,Math.floor(Number(reward.coins)||0));
     const j=jungleProgress();
     if(j.runs.includes(reward.runId))return {coins:0,xp:0,duplicate:true};
     j.runs.push(reward.runId);if(j.runs.length>40)j.runs.splice(0,j.runs.length-40);
-    const xp=10+Math.min(20,Math.floor(coins/5))+(reward.cardId?5:0);
-    j.played++;j.coins+=coins;if(coins>j.best)j.best=coins;
+    // One run can pay at most RULES.runCoins, and every run together at most a
+    // day's worth: the runner is the way to coins, not a tap that never ends.
+    const earned=K.awardCoins(coins,{runCap:K.scoreRules.runCoins});
+    const xp=10+Math.min(20,Math.floor(earned.granted/5))+(reward.cardId?5:0);
+    const paid=K.awardPoints(xp);
+    j.played++;j.coins+=earned.granted;if(earned.granted>j.best)j.best=earned.granted;
     if(reward.cardId&&!j.cards.includes(reward.cardId))j.cards.push(String(reward.cardId));
-    K.state.coins=Number(K.state.coins||0)+coins;K.state.xp=Number(K.state.xp||0)+xp;
     K.touchStreak();K.save();
-    return {coins,xp,duplicate:false};
+    return {coins:earned.granted,xp:paid.granted,capped:earned.capped,duplicate:false};
   };
 
   let active=null;
@@ -47,6 +49,7 @@
 
   K.startJungle=async()=>{
     leave();
+    K.startScoreRun();
     K.stopSpeech();
     const f=K.frame(`<section class="jungle-screen fade-in"><div class="jungle-mount" id="jungleMount"><div class="jungle-loading"><span class="spinner"></span><b>${esc(t('jungle.loading'))}</b></div></div></section>`);
     const level=LEVELS.includes(K.state.runnerLevel)?K.state.runnerLevel:'jungle';

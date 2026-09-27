@@ -80,6 +80,15 @@ function originAllowed(req){
   if (!ALLOWED_ORIGINS.size) return true;
   return ALLOWED_ORIGINS.has(String(req.headers.origin || ''));
 }
+// The page and the proxy are the same host in development and different hosts
+// in production (and capacitor://localhost inside the app), so an allowed
+// origin is echoed back. Without this the browser refuses the answer before
+// the app ever sees it.
+function corsHeaders(req){
+  const origin = String(req.headers.origin || '');
+  if (!origin || !originAllowed(req)) return {};
+  return { 'Access-Control-Allow-Origin': origin, 'Vary': 'Origin' };
+}
 
 // TTS_DAILY_CHARS caps how many characters the whole server sends to
 // ElevenLabs per calendar day (0 = no cap). A cache hit costs nothing. The cap
@@ -423,7 +432,7 @@ function releaseUpstream(){
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function tts(text, guide, lang){
+async function tts(text, guide, lang, {stream=false}={}){
   // Audio tags such as "[excited]" are an eleven_v3 feature; any other model
   // would read them out, so they are dropped there.
   if(!/v3/.test(MODEL)) text=text.replace(/\[[a-z][a-z ]*\]\s*/gi,'').trim();
@@ -449,11 +458,17 @@ async function tts(text, guide, lang){
     voice_settings: settings
   });
 
+  // Streaming asks for the same audio, but ElevenLabs starts sending it while
+  // it is still being made: the first sound reaches the child in a fraction of
+  // the time the whole clip takes. The bytes are collected on the way past and
+  // written to the cache, so the second time the line is instant either way.
+  const endpoint=`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}${stream?'/stream':''}`;
+  let handedOff=false;   // a streaming body keeps the upstream slot until it ends
   await acquireUpstream();
   try{
     let r, attempt=0;
     for(;;){
-      r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,{
+      r=await fetch(endpoint,{
         method:'POST',
         signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
         headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
@@ -467,11 +482,17 @@ async function tts(text, guide, lang){
       const detail=await r.text().catch(()=>String(r.status));
       throw new Error(`ElevenLabs TTS ${r.status}: ${detail.slice(0,260)}`);
     }
+    if(stream&&r.body){
+      // The caller pipes this, calls save() once the last chunk is through and
+      // done() whatever happens, which frees the upstream slot.
+      handedOff=true;
+      return {body:r.body,voice:v,meta,save:buf=>{try{fs.writeFileSync(cached,buf)}catch(e){}},done:releaseUpstream};
+    }
     const buf=Buffer.from(await r.arrayBuffer());
     fs.writeFileSync(cached,buf);
     return {buf,voice:v,meta};
   }finally{
-    releaseUpstream();
+    if(!handedOff) releaseUpstream();
   }
 }
 
@@ -483,8 +504,45 @@ const server=http.createServer(async(req,res)=>{
       try{
         const lang=LANGS.has(url.searchParams.get('lang'))?url.searchParams.get('lang'):'nl';
         await loadVoices(lang);
-        return json(res,200,{mode:'elevenlabs',lang,milo:selectionMeta[lang].Milo,luna:selectionMeta[lang].Luna,model:MODEL});
+        res.writeHead(200,{'Content-Type':'application/json; charset=utf-8',...corsHeaders(req)});
+        return res.end(JSON.stringify({mode:'elevenlabs',lang,milo:selectionMeta[lang].Milo,luna:selectionMeta[lang].Luna,model:MODEL}));
       }catch(e){console.error('Kwizillo voice-status:',e?.message||e);return json(res,200,{mode:'error'});}
+    }
+    if(url.pathname.startsWith('/api/')&&req.method==='OPTIONS'){
+      res.writeHead(204,{...corsHeaders(req),'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type','Access-Control-Max-Age':'86400'});
+      return res.end();
+    }
+    // GET /api/tts?text=…&voice=…&lang=… — the line as a plain audio URL, sent
+    // while it is still being made. An <audio> element can start playing on the
+    // first chunk, which is what makes the guide answer at once instead of
+    // after a round trip. POST still returns the whole clip in one piece, for
+    // the lines the app fetches ahead of time.
+    if(url.pathname==='/api/tts'&&req.method==='GET'){
+      if(!originAllowed(req))return json(res,403,{error:'Spraak is alleen beschikbaar in de app'});
+      if(rateLimited(req))return json(res,429,{error:'Te veel spraakverzoeken'});
+      if(!API_KEY)return json(res,503,{error:'Spraak is niet geconfigureerd'});
+      const text=String(url.searchParams.get('text')||'').trim().slice(0,2500);
+      const voice=url.searchParams.get('voice')==='Luna'?'Luna':'Milo';
+      const lang=LANGS.has(url.searchParams.get('lang'))?url.searchParams.get('lang'):'nl';
+      if(!text)return json(res,400,{error:'Missing text'});
+      try{
+        const out=await tts(text,voice,lang,{stream:true});
+        const head={'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang,...corsHeaders(req)};
+        if(out.cached){ rateRefund(req); res.writeHead(200,{...head,'Content-Length':out.buf.length}); return res.end(out.buf) }
+        res.writeHead(200,head);
+        const chunks=[];
+        try{
+          for await (const chunk of out.body){ chunks.push(Buffer.from(chunk)); if(!res.write(Buffer.from(chunk))) await new Promise(r=>res.once('drain',r)) }
+          out.save(Buffer.concat(chunks));
+        }finally{ out.done?.(); res.end() }
+        return;
+      }catch(e){
+        console.error('Kwizillo TTS stream:',e?.message||e);
+        if(res.headersSent)return res.end();
+        const timeout=e?.name==='TimeoutError'||e?.name==='AbortError';
+        if(e?.name==='BudgetError')return json(res,503,{error:'Spraak is tijdelijk niet beschikbaar'});
+        return json(res,timeout?504:502,{error:timeout?'Spraak duurde te lang':'Spraak is tijdelijk niet beschikbaar'});
+      }
     }
     if(url.pathname==='/api/tts'&&req.method==='POST'){
       // Abuse checks first, so they hold whether or not a key is configured.
@@ -504,7 +562,7 @@ const server=http.createServer(async(req,res)=>{
           if(!text)return json(res,400,{error:'Missing text'});
           const out=await tts(text,voice,lang);
           if(out.cached) rateRefund(req);
-          res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang});
+          res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang,...corsHeaders(req)});
           res.end(out.buf);
         }catch(e){
           // Upstream detail stays in the server log; the client gets a generic message.

@@ -76,6 +76,7 @@
 
   K.startMath=world=>{
     K.audio.setTrack('play').catch(()=>{});
+    K.startScoreRun();
     K.stopSpeech();stopTimer();
     world=world||K.state.lastWorld||'ruimte';
     K.currentWorld=world;
@@ -147,7 +148,7 @@
       if(correct){m.score++;K.sfx('good');btn?.classList.add('correct');K.celebrateAt?.(f,{x:f.clientWidth/2,y:f.clientHeight*.45,count:30})}
       else{K.sfx('bad');btn?.classList.add('wrong');buttons.find(b=>Number(b.dataset.a)===s.answer)?.classList.add('correct')}
       m.answers[m.index]={correct,timedOut:value===null,value};
-      K.state.xp=Number(K.state.xp||0)+(correct?10:0);K.state.coins=Number(K.state.coins||0)+(correct?1:0);K.save();
+      if(correct)K.awardPoints(10);K.save();
       const h=f.querySelector('#mathFeedback');h.hidden=false;h.className=`math-feedback ${correct?'is-good':'is-try'}`;
       h.innerHTML=`<b>${esc(t(value===null?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</b><span>${esc(t('math.answerIs',{sum:s.text,answer:s.answer}))}</span>`;
       const line=correct?t(`feedback.speech.good.${1+Math.floor(Math.random()*8)}`):t('math.speech.wrong',{answer:s.answer});
@@ -180,7 +181,7 @@
     const bonus=passed?stars*5:0;
     const G=K.progress().games||={};const math=G.math||={played:0,won:0,best:{}};
     math.played++;if(passed){math.won++;const best=math.best[niveau]||0;if(score>best)math.best[niveau]=score}
-    K.state.xp=Number(K.state.xp||0)+bonus;K.touchStreak();K.save();
+    K.awardPoints(bonus);K.awardCoins(passed?stars*3:0);K.touchStreak();K.save();
     const allowed=K.core.maxWrong(niveau),wrong=total-score;
     const f=K.frame(`<section class="result-v2 fade-in ${passed?'is-pass':'is-fail'}">
       <img class="result-v2-bg" src="${K.MASTER[m.world]}" alt="">

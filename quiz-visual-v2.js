@@ -42,6 +42,7 @@
     run.quizNumber=Number(run.quizNumber||0)+1;
     K.save();
     K.quiz=K.core.createSession({world,topicKey:key,topicLabel:label,questions:batch.questions,quizNumber:run.quizNumber});
+    K.startScoreRun();   // this quiz counts as one exercise in the record book
     K.quiz.salt=salt;
     K.quiz.hintsUsed=0;
     K.showQuiz();
@@ -191,7 +192,9 @@
     stopTimer();
     const buttons=[...K.app.querySelectorAll('.answer')];
     buttons.forEach(b=>b.disabled=true);
-    K.recordAnswerProgress(q,r.correct);
+    const award=K.recordAnswerProgress(q,r.correct);
+    K.quiz.points=Number(K.quiz.points||0)+award.points;
+    K.quiz.lastAward=award;
     if(r.correct){K.sfx('good');button?.classList.add('correct')}
     else{K.sfx('bad');button?.classList.add('wrong');buttons.find(b=>decodeURIComponent(b.dataset.a)===q.answer)?.classList.add('correct')}
     setTimeout(()=>feedback(q,r.correct,{timedOut:r.timedOut}),120);
@@ -217,6 +220,15 @@
   // guide pops in from the corner for a moment and throws confetti. Next is
   // live once the voice is done; while the explanation is still being read,
   // two quick taps move on anyway.
+  // What the last answer paid: the points it was worth, "practice" when the
+  // question had been answered right before, and the day's ceiling when the
+  // wallet has stopped for today.
+  function rewardBadge(){
+    const a=K.quiz?.lastAward||{points:0};
+    if(a.capped&&!a.points)return `<span class="feedback-reward is-cap">${K.icon('star')} ${esc(t('score.dayFull'))}</span>`;
+    return `<span class="feedback-reward${a.repeat?' is-repeat':''}">${K.icon('star')} +${a.points} ${esc(t('score.points'))}${a.repeat?` · ${esc(t('score.practice'))}`:''}</span>`;
+  }
+
   function feedback(q,correct,{timedOut=false,silent=false}={}){
     K.stopSpeech();
     const f=K.app.querySelector('.game-frame');if(!f)return;
@@ -230,7 +242,7 @@
       <button class="feedback-close" id="feedbackClose" aria-label="${esc(t('feedback.close'))}">×</button>
       <div class="feedback-verdict">
         <span class="feedback-kicker">${timedOut?'⏱':correct?'✓':'✗'} ${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</span>
-        ${correct?`<span class="feedback-reward">${K.icon('star')} +${q.xp||10} XP · ${K.icon('coin')} +2</span>`:''}
+        ${correct?rewardBadge():''}
       </div>
       ${K.artRevealsAnswer?.(q)&&K.questionArtFor?.(q.id)?`<div class="feedback-art"><img src="${questionArt(q)}" alt="" decoding="async"></div>`:''}
       <div class="feedback-answer">${correct?'':`<small>${esc(t('feedback.answerLabel'))}</small>`}<b>${esc(q.answer)}</b></div>
@@ -279,7 +291,7 @@
   K.showResult=()=>{
     K.stopSpeech();
     const q=K.quiz;
-    const total=q?.questions.length||0,score=q?.score||0,xp=q?.xp||0;
+    const total=q?.questions.length||0,score=q?.score||0,xp=Number(q?.points||0);
     const niveau=Number(K.state.niveau||1);
     const passed=K.core.quizPassed({score,total,niveau});
     const keys=K.TOPIC_KEYS[K.currentWorld]||[];

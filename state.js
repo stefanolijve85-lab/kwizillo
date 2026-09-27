@@ -6,7 +6,10 @@
   // 320 XP, level 5 and a 7-day streak, which unlocked achievements nobody earned.
   const KEY='kwizillo-state';
   const LEGACY_KEY='kwizillo-v4-state';
-  const SCHEMA=2;
+  // Schema 3 added the score book (points per exercise, day, week, month, year
+  // with their records) and the shop's owned items.
+  const SCHEMA=3;
+  const S=window.KWIZILLO_SCORES;
 
   // The exact values schema 1 handed to a player who had never answered anything.
   const LEGACY_SEED={coins:245,streak:7,level:5,xp:320};
@@ -40,6 +43,8 @@
     timeLimit:45,           // legacy, unused
     niveau:1,               // game level 1..6 (timer, allowed mistakes, difficulty)
     bestScores:{},          // world -> best quiz score out of 10
+    scores:S.emptyScores(), // points per window plus the records; see scores.js
+    shop:{owned:[]},        // special cards and mascots bought with coins
     progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[],passed:{},games:{},factsSeen:{}}
   };
 
@@ -54,6 +59,8 @@
       // Same schema: only fill in keys added since (niveau, bestScores, passed).
       const merged=Object.assign(clone(DEFAULTS),old);
       merged.progress=Object.assign(clone(DEFAULTS.progress),old.progress||{});
+      merged.scores=S.normalise(old.scores);
+      merged.shop={owned:Array.isArray(old.shop?.owned)?old.shop.owned.map(String):[]};
       merged.musicTrack=LEGACY_TRACKS[merged.musicTrack]||merged.musicTrack;
       return merged;
     }
@@ -69,6 +76,12 @@
       next.coins=0; next.xp=0; next.streak=0;
     }
     delete next.level;   // always derived from xp now
+    // The score book starts today, but the points a player already earned are
+    // their all-time total: the record book should not open at zero for someone
+    // who has been playing for weeks.
+    next.scores=S.normalise(old.scores);
+    if(!next.scores.allTime)next.scores.allTime=Math.max(0,Math.floor(Number(old.xp)||0));
+    next.shop={owned:Array.isArray(old.shop?.owned)?old.shop.owned.map(String):[]};
     next.musicTrack=LEGACY_TRACKS[next.musicTrack]||next.musicTrack;
 
     next.progress=Object.assign(clone(DEFAULTS.progress),old.progress||{});
@@ -114,6 +127,52 @@
       return gone;
     }catch(e){ return [] }
   };
+
+  /* ---------------- Points, coins and the record book ---------------- */
+
+  // Every point and every coin in the game passes through here, so the daily
+  // ceilings and the records can never be bypassed by a screen that books a
+  // reward on its own. See scores.js for the rules themselves.
+  K.scores=()=>{ K.state.scores=S.roll(K.state.scores); return K.state.scores };
+  K.scoreSummary=()=>{ const sum=S.summary(K.state.scores); K.state.scores=sum.scores; return sum };
+  K.scoreRules=S.RULES;
+
+  // Points are the game's XP: the level follows from them.
+  K.awardPoints=amount=>{
+    const r=S.addPoints(K.state.scores,amount);
+    K.state.scores=r.scores;
+    K.state.xp=Number(K.state.xp||0)+r.granted;
+    K.save();
+    return {granted:r.granted,capped:r.capped,room:r.room};
+  };
+  // What a question is worth right now: full the first time it is answered
+  // correctly, a practice share every time after that.
+  K.answerPoints=(base,{repeat=false}={})=>S.answerPoints(base,{repeat});
+
+  K.awardCoins=(amount,opts={})=>{
+    const r=S.addCoins(K.state.scores,amount,opts);
+    K.state.scores=r.scores;
+    K.state.coins=Number(K.state.coins||0)+r.granted;
+    K.save();
+    return {granted:r.granted,capped:r.capped,room:r.room};
+  };
+  // Spending never goes below zero, and what was spent is remembered so the
+  // shop can show a player what their coins went to.
+  K.spendCoins=amount=>{
+    const price=Math.max(0,Math.floor(Number(amount)||0));
+    if(Number(K.state.coins||0)<price)return false;
+    K.state.coins=Number(K.state.coins||0)-price;
+    K.state.scores=S.roll(K.state.scores);
+    K.state.scores.coins.spent+=price;
+    K.save();
+    return true;
+  };
+  // One exercise: a quiz or a game run. Its points are counted apart so the
+  // best single exercise can be a record of its own.
+  K.startScoreRun=()=>{ K.state.scores=S.startRun(K.state.scores); K.save(); return K.state.scores };
+
+  K.owned=id=>{ K.state.shop||={owned:[]}; K.state.shop.owned||=[]; return K.state.shop.owned.includes(String(id)) };
+  K.own=id=>{ K.state.shop||={owned:[]}; K.state.shop.owned||=[]; if(!K.owned(id))K.state.shop.owned.push(String(id)); K.save() };
 
   // Level is derived, never stored, so it can never drift from XP.
   K.level=()=>1+Math.floor(Number(K.state.xp||0)/100);

@@ -39,6 +39,7 @@
     world=world||'mix';
     if(!K.premium.can('memo',world)){K.premiumLocked({kind:'whoami',world,retry:()=>K.startWhoAmI(world)});return}
     K.audio.setTrack('play').catch(()=>{});
+    K.startScoreRun();
     K.stopSpeech();
     const pool=shuffle(candidates(world).filter(q=>cluesFor(q).length>=2));
     if(pool.length<4){K.toast(t('memo.none'));K.showHome();return}
@@ -132,10 +133,10 @@
     const stars=g.score>=max*.8?3:g.score>=max*.5?2:g.correct>0?1:0;
     // Each right guess already paid XP and coins like a quiz answer
     // (K.recordAnswerProgress); the stars add a small bonus on top.
-    const xp=stars*6;
+    const xp=stars*6,coins=stars*4;
     const G=K.progress().games||={};const w=G.whoami||={played:0,best:0};
     w.played++;if(g.score>w.best)w.best=g.score;
-    K.state.xp=Number(K.state.xp||0)+xp;
+    K.awardPoints(xp);K.awardCoins(coins);
     K.touchStreak();K.save();
     const bg=g.world==='mix'?'mysterie':g.world;
     const f=K.frame(`<section class="result-v2 fade-in is-pass">

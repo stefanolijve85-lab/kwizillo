@@ -58,22 +58,37 @@
   };
   K.totalPoints=()=>WORLD_ORDER.reduce((a,w)=>{const p=K.worldPoints(w);a.points+=p.points;a.max+=p.max;return a},{points:0,max:0});
   const totalCorrect=()=>Number(K.state.correct||0);
-  const unlockedMascots=()=>MASCOTS.filter(m=>totalCorrect()>=m.need);
+  // A buddy is earned by answering, or bought with coins in the shop; both
+  // paths end in the same unlocked tile.
+  const mascotOwned=m=>totalCorrect()>=m.need||K.owned(`mascot:${m.id}`);
+  const unlockedMascots=()=>MASCOTS.filter(mascotOwned);
+  // What a buddy costs: the answers it would otherwise take, at six coins each,
+  // rounded to fifty. Roughly a day of games for the first, a week for the last.
+  const mascotPrice=m=>Math.max(150,Math.round(m.need*6/50)*50);
+  const GOLD_PRICE=150;
 
-  // A single place that records one answered question across every counter.
+  // A single place that records one answered question across every counter, and
+  // the only place a question turns into points. A question answered correctly
+  // before pays the practice share, so playing the same ten questions all
+  // afternoon cannot outrun a child who keeps discovering new ones; the daily
+  // ceiling in scores.js catches the rest. Questions pay no coins: those come
+  // from the games, and they are what the shop runs on.
   K.recordAnswerProgress=(q,correct)=>{
-    if(!q) return;
+    if(!q) return {points:0,capped:false,repeat:false};
     const ws=worldStat(q.world),ts=topicStat(q.topic);
     ws.answered++; ts.answered++;
     K.state.answered=Number(K.state.answered||0)+1;
+    let award={granted:0,capped:false},repeat=false;
     if(correct){
-      ws.correct++; ts.correct++; ws.xp+=Number(q.xp||10);
+      repeat=progress().correctQuestionIds.includes(q.id);
+      ws.correct++; ts.correct++;
       K.state.correct=Number(K.state.correct||0)+1;
-      K.state.xp=Number(K.state.xp||0)+Number(q.xp||10);
-      K.state.coins=Number(K.state.coins||0)+2;
-      if(!progress().correctQuestionIds.includes(q.id)) progress().correctQuestionIds.push(q.id);
+      award=K.awardPoints(K.answerPoints(Number(q.xp||10),{repeat}));
+      ws.xp+=award.granted;
+      if(!repeat) progress().correctQuestionIds.push(q.id);
     }
     K.save();
+    return {points:award.granted,capped:award.capped,repeat};
   };
 
   function bottomNav(active=''){
@@ -342,12 +357,26 @@
           <span class="kcard-foot"><span>#${String(K.questions.indexOf(q)+1).padStart(3,'0')}</span><span>${esc(t('collection.discovered'))}</span></span>
         </span>
       </button>`;
-    if(tab==='cards') content=cards.length
-      ?`<div class="kcard-grid">${cards.map(card).join('')}</div>`
+    // A golden card is one whole world on one card: bought with coins, it sits
+    // in front of the cards that were answered for.
+    const goldCard=w=>`<button class="kcard gold world-${w}" data-gold="${w}">
+        <span class="kcard-frame">
+          <img class="kcard-bg" src="${K.MASTER[w]}" alt="" style="object-position:${K.WORLD_FOCUS?.[w]||'center'}" decoding="async">
+          <span class="kcard-tint"></span>
+          <span class="kcard-top"><b>${esc(t('shop.goldCard',{world:worldTitle(w)}))}</b><i>★★★★★</i></span>
+          <span class="kcard-art"><img src="${K.MASTER[w]}" alt="" loading="lazy" decoding="async"></span>
+          <span class="kcard-type">${K.worldBadge(w,'tiny')} ${esc(worldTitle(w))}</span>
+          <span class="kcard-text">${esc(t('shop.goldCardSub'))}</span>
+          <span class="kcard-foot"><span>${esc(t('shop.cards'))}</span><span>${esc(t('shop.owned'))}</span></span>
+        </span>
+      </button>`;
+    const goldOwned=WORLD_ORDER.filter(w=>K.owned(`gold:${w}`));
+    if(tab==='cards') content=cards.length||goldOwned.length
+      ?`<div class="kcard-grid">${goldOwned.map(goldCard).join('')}${cards.map(card).join('')}</div>`
       :`<div class="empty-state"><div>🃏</div><h2>${esc(t('collection.emptyTitle'))}</h2><p>${esc(t('collection.emptyBody'))}</p></div>`;
     if(tab==='mascots'){
       content=`<div class="mascot-grid">${MASCOTS.map(m=>{
-        const ok=totalCorrect()>=m.need,sel=K.state.selectedMascot===m.id;
+        const ok=mascotOwned(m),sel=K.state.selectedMascot===m.id;
         // Locked buddies show as a dark silhouette with a lock, so the child
         // can see who is waiting to be unlocked.
         // The character fills the whole tile; only the name sits on it. A
@@ -359,7 +388,29 @@
         return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'} aria-label="${esc(t(`mascot.${m.id}`))}"><img class="mascot-fill" src="${art}" alt="" decoding="async">${ok?'':'<i class="mascot-lock">🔒</i>'}${state}<b class="mascot-name">${esc(t(`mascot.${m.id}`))}${sub}</b></button>`;
       }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
     }
-    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button></div>${content}`;
+    // The shop: coins from the games buy a golden card or a buddy the child has
+    // not reached yet. Nothing here can be bought with money — see premium.js.
+    if(tab==='shop'){
+      const wallet=Number(K.state.coins||0);
+      const tile=(id,title,sub,price,art,cls='')=>{
+        const owned=K.owned(id),short=Math.max(0,price-wallet);
+        return `<article class="shop-item ${cls} ${owned?'is-owned':''}">
+          <img class="shop-art" src="${art}" alt="" loading="lazy" decoding="async">
+          <div class="shop-copy"><b>${esc(title)}</b><small>${esc(sub)}</small></div>
+          ${owned?`<span class="shop-owned">${esc(t('shop.owned'))}</span>`
+            :`<button class="shop-buy${short?' is-short':''}" data-buy="${id}" data-price="${price}" data-title="${esc(title)}">${K.icon('coin')} ${esc(t('shop.price',{n:price}))}</button>
+               ${short?`<small class="shop-short">${esc(t('shop.need',{n:short}))}</small>`:''}`}
+        </article>`;
+      };
+      const golds=WORLD_ORDER.map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,K.MASTER[w],'is-gold'));
+      const buddies=MASCOTS.filter(m=>totalCorrect()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_ART[m.id]));
+      const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
+      content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
+        <h2 class="section-title">${esc(t('shop.cards'))}</h2><div class="shop-grid">${golds.join('')}</div>
+        ${buddies.length?`<h2 class="section-title">${esc(t('shop.mascots'))}</h2><div class="shop-grid">${buddies.join('')}</div>`:''}
+        ${sold?`<p class="collection-note">${esc(t('shop.empty'))}</p>`:''}`;
+    }
+    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
     const f=nativeScreen({cls:'collection-screen',title:t('collection.title'),subtitle:t('collection.sub'),body,active:'collection'});
     f.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showCollection(b.dataset.tab)});
     // Tapping a card shows it large; tapping anywhere closes it.
@@ -373,7 +424,32 @@
     });
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
     f.querySelectorAll('[data-mascot]:not([disabled])').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.selectedMascot=b.dataset.mascot;K.save();K.showCollection('mascots')});
+    f.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{K.sfx('tap');confirmBuy(b.dataset.buy,Number(b.dataset.price),b.dataset.title)});
   };
+
+  // Buying asks once, then pays. A child with too few coins is told how many
+  // are missing instead of being shown a dead button.
+  function confirmBuy(id,price,title){
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const short=Math.max(0,price-Number(K.state.coins||0));
+    const o=document.createElement('div');o.className='simple-modal';
+    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">${short?'🪙':'🛒'}</div>
+      <h2>${esc(short?t('shop.need',{n:short}):t('shop.confirmTitle',{item:title}))}</h2>
+      <p>${esc(short?t('shop.earnHint'):t('shop.confirmBody',{item:title,n:price}))}</p>
+      ${short?`<button class="simple-ok">${esc(t('common.gotIt'))}</button>`
+        :`<div class="confirm-actions"><button class="cancel">${esc(t('common.cancel'))}</button><button class="confirm buy">${esc(t('shop.buy'))}</button></div>`}</div>`;
+    f.appendChild(o);
+    const close=()=>o.remove();
+    o.querySelector('.simple-close').onclick=close;
+    o.querySelector('.simple-ok')?.addEventListener('click',close);
+    o.querySelector('.cancel')?.addEventListener('click',close);
+    o.querySelector('.buy')?.addEventListener('click',()=>{
+      if(!K.spendCoins(price)){close();return}
+      K.own(id);K.sfx('reward');close();
+      K.toast(t('shop.bought',{item:title}));
+      K.showCollection('shop');
+    });
+  }
 
   /* ---------------- Stats ---------------- */
 
@@ -385,12 +461,21 @@
     const medal=b=>b>=9?'gold':b>=7?'silver':b>0?'bronze':'';
     const medalIcon={gold:'🥇',silver:'🥈',bronze:'🥉'};
     const sparks=Array.from({length:10},(_,i)=>`<i style="--i:${i}"></i>`).join('');
+    // The record book: what this exercise, this day, week, month and year are
+    // worth right now, and the best each of them has ever been.
+    const sum=K.scoreSummary();
+    const records=[{label:t('score.run'),now:sum.run.points,best:sum.run.best},
+      ...sum.rows.map(r=>({label:t(`score.${r.unit}`),now:r.points,best:r.best}))];
     const tile=(cls,icon,value,label)=>`<article class="stat-tile ${cls}"><span class="stat-tile-icon">${icon}</span><b data-count="${value}">0</b><small>${esc(label)}</small></article>`;
     const board=(items)=>`<div class="scoreboard v2">${items.join('')}</div>`;
     const body=`<div class="stats-hero3d"><div class="stats-fx" aria-hidden="true">${sparks}</div>
         <div class="stat-orb" style="--p:0" data-p="${pct}"><span class="stat-orb-ring"></span><span class="stat-orb-glass"></span><b data-count="${pct}" data-suffix="%">0%</b><small>${esc(t('stats.correctShort'))}</small></div>
         <div class="stats-hero-copy"><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
       <div class="stat-tiles">${tile('xp','⭐',Number(K.state.xp||0),t('stats.xpTotal'))}${tile('coins','🪙',Number(K.state.coins||0),t('stats.coins'))}${tile('streak','🔥',Number(K.state.streak||0),t('stats.streak'))}${tile('cards','🃏',progress().correctQuestionIds.length,t('stats.cards'))}</div>
+      <h2 class="section-title">${esc(t('score.title'))}</h2>
+      <div class="record-board">${records.map(r=>`<article><b>${r.now}</b><small>${esc(r.label)}</small><i>${esc(t('score.best'))} ${r.best}</i></article>`).join('')}<article class="all-time"><b>${sum.allTime}</b><small>${esc(t('score.allTime'))}</small><i>${esc(t('score.points'))}</i></article></div>
+      <p class="collection-note">${esc(t('score.todayPoints',{n:sum.rows[0].points,max:K.scoreRules.dayPoints}))} · ${esc(t('score.todayCoins',{n:sum.coins.earned,max:K.scoreRules.dayCoins}))}</p>
+      <p class="collection-note">${esc(t('score.capNote'))}</p>
       <button class="share-3d" id="statsShare"><span class="share-3d-icon">📣</span><span class="share-3d-copy"><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></span><span class="share-3d-arrow">›</span></button>
       <h2 class="section-title">${esc(t('stats.board'))}</h2>
       ${board(WORLD_ORDER.map(w=>{const b=Number((K.state.bestScores||{})[w]||0),m=medal(b);return`<article class="${m}">${m?`<i class="medal">${medalIcon[m]}</i>`:''}<span>${K.worldBadge(w)}</span><b>${b}/10</b><small>${esc(worldTitle(w))}</small></article>`}))}

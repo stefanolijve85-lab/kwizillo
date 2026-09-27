@@ -75,6 +75,7 @@
     world=world||'mix';
     if(!K.premium.can('memo',world)){K.premiumLocked({kind:'memo',world,retry:()=>K.startMemo(world)});return}
     K.audio.setTrack('play').catch(()=>{});
+    K.startScoreRun();
     K.stopSpeech();stopTimer();
     const bgWorld=world==='mix'?(K.state.lastWorld||'ruimte'):world;
     K.currentWorld=bgWorld;
@@ -220,7 +221,7 @@
     // statistics and achievements read.
     const G=K.progress().games||={};const memo=G.memo||={played:0,won:0,best:{}};
     memo.played++;if(won){memo.won++;const best=memo.best[m.world];if(!best||m.moves<best)memo.best[m.world]=m.moves}
-    K.state.xp=Number(K.state.xp||0)+xp;K.state.coins=Number(K.state.coins||0)+coins;
+    const paid=K.awardPoints(xp),earned=K.awardCoins(coins);
     K.touchStreak();K.save();
 
     const f=K.frame(`<section class="result-v2 fade-in ${won?'is-pass':'is-fail'}">
@@ -265,7 +266,7 @@
     const xp=m.pairs*3,coins=Math.ceil(m.pairs/2);
     const G=K.progress().games||={};const memo=G.memo||={played:0,won:0,best:{}};
     memo.played++;if(winner===0)memo.won++;
-    K.state.xp=Number(K.state.xp||0)+xp;K.state.coins=Number(K.state.coins||0)+coins;
+    const paid=K.awardPoints(xp);K.awardCoins(coins);
     K.touchStreak();K.save();
     const title=tie?t('memo.duelTie'):t('memo.duelWin',{name:playerName(winner)});
     const f=K.frame(`<section class="result-v2 fade-in is-pass">
