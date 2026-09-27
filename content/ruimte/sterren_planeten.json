@@ -1,0 +1,2607 @@
+{
+  "world": "ruimte",
+  "topic": "sterren_planeten",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid, zodat elk niveau een volle quiz van tien kan neerzetten. Gebouwd met tools/content-build.cjs, bewaakt door tools/content-lint.cjs.",
+  "questions": [
+    {
+      "id": "ruimte-sterren_planeten-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "IAU — the 88 official constellations",
+      "artBrief": "Nachtelijke hemel boven een donker landschap, met de sterren van een berenfiguur verbonden door zachte lichtlijnen. Geen tekst.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe noemen we een groep sterren die een figuur vormt?",
+          "answer": "Een sterrenbeeld",
+          "wrong": [
+            "Een planeet",
+            "Een komeet",
+            "Een maan"
+          ],
+          "hint": "Denk aan de Grote Beer.",
+          "explanation": "Sterren die samen een figuur lijken te vormen heten een sterrenbeeld.",
+          "fact": "De Grote Beer lijkt op een steelpan."
+        },
+        "en": {
+          "prompt": "What do we call a group of stars that forms a figure?",
+          "answer": "A constellation",
+          "wrong": [
+            "A planet",
+            "A comet",
+            "A moon"
+          ],
+          "hint": "Think of the Great Bear.",
+          "explanation": "Stars that seem to form a figure together are called a constellation.",
+          "fact": "The Great Bear looks like a saucepan."
+        },
+        "de": {
+          "prompt": "Wie nennt man eine Gruppe Sterne, die eine Figur bildet?",
+          "answer": "Ein Sternbild",
+          "wrong": [
+            "Ein Planet",
+            "Ein Komet",
+            "Ein Mond"
+          ],
+          "hint": "Denk an den Großen Bären.",
+          "explanation": "Sterne, die zusammen eine Figur zu bilden scheinen, heißen Sternbild.",
+          "fact": "Der Große Bär sieht aus wie ein Kochtopf."
+        },
+        "fr": {
+          "prompt": "Comment appelle-t-on un groupe d'étoiles qui forme une figure ?",
+          "answer": "Une constellation",
+          "wrong": [
+            "Une planète",
+            "Une comète",
+            "Une lune"
+          ],
+          "hint": "Pense à la Grande Ourse.",
+          "explanation": "Des étoiles qui semblent former une figure s'appellent une constellation.",
+          "fact": "La Grande Ourse ressemble à une casserole."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama un grupo de estrellas que forma una figura?",
+          "answer": "Una constelación",
+          "wrong": [
+            "Un planeta",
+            "Un cometa",
+            "Una luna"
+          ],
+          "hint": "Piensa en la Osa Mayor.",
+          "explanation": "Las estrellas que parecen formar una figura se llaman constelación.",
+          "fact": "La Osa Mayor parece un cazo."
+        },
+        "it": {
+          "prompt": "Come si chiama un gruppo di stelle che forma una figura?",
+          "answer": "Una costellazione",
+          "wrong": [
+            "Un pianeta",
+            "Una cometa",
+            "Una luna"
+          ],
+          "hint": "Pensa all'Orsa Maggiore.",
+          "explanation": "Le stelle che sembrano formare una figura si chiamano costellazione.",
+          "fact": "L'Orsa Maggiore sembra un pentolino."
+        },
+        "pt": {
+          "prompt": "Como se chama um grupo de estrelas que forma uma figura?",
+          "answer": "Uma constelação",
+          "wrong": [
+            "Um planeta",
+            "Um cometa",
+            "Uma lua"
+          ],
+          "hint": "Pensa na Ursa Maior.",
+          "explanation": "As estrelas que parecem formar uma figura chamam-se constelação.",
+          "fact": "A Ursa Maior parece uma panela."
+        },
+        "da": {
+          "prompt": "Hvad kalder man en gruppe stjerner, der danner en figur?",
+          "answer": "Et stjernebillede",
+          "wrong": [
+            "En planet",
+            "En komet",
+            "En måne"
+          ],
+          "hint": "Tænk på Karlsvognen.",
+          "explanation": "Stjerner, der ser ud til at danne en figur, kaldes et stjernebillede.",
+          "fact": "Karlsvognen ligner en gryde med skaft."
+        },
+        "ru": {
+          "prompt": "Как называют группу звёзд, образующую фигуру?",
+          "answer": "Созвездие",
+          "wrong": [
+            "Планета",
+            "Комета",
+            "Луна"
+          ],
+          "hint": "Вспомни Большую Медведицу.",
+          "explanation": "Звёзды, которые будто складываются в фигуру, называют созвездием.",
+          "fact": "Большая Медведица похожа на ковш."
+        },
+        "ar": {
+          "prompt": "ماذا نسمي مجموعة نجوم ترسم شكلًا؟",
+          "answer": "كوكبة",
+          "wrong": [
+            "كوكب",
+            "مذنب",
+            "قمر"
+          ],
+          "hint": "تذكر الدب الأكبر.",
+          "explanation": "النجوم التي يبدو أنها ترسم شكلًا معًا تسمى كوكبة.",
+          "fact": "الدب الأكبر يشبه مغرفة كبيرة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Hans Lipperhey's telescope patent application, 1608",
+      "artBrief": "Een kind achter een telescoop op een heuvel onder een sterrenhemel, warm licht van een zaklamp. Geen tekst.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee kun je sterren van dichtbij bekijken?",
+          "answer": "Met een telescoop",
+          "wrong": [
+            "Met een microscoop",
+            "Met een spiegel",
+            "Met een vergrootglas"
+          ],
+          "hint": "Hij maakt verre dingen groter.",
+          "explanation": "Met een telescoop haal je verre sterren dichtbij.",
+          "fact": "De eerste telescopen werden in Nederland gemaakt."
+        },
+        "en": {
+          "prompt": "What can you look at stars close up with?",
+          "answer": "A telescope",
+          "wrong": [
+            "A microscope",
+            "A mirror",
+            "A magnifying glass"
+          ],
+          "hint": "It makes distant things bigger.",
+          "explanation": "A telescope brings far-away stars close.",
+          "fact": "The first telescopes were made in the Netherlands."
+        },
+        "de": {
+          "prompt": "Womit kannst du Sterne aus der Nähe ansehen?",
+          "answer": "Mit einem Teleskop",
+          "wrong": [
+            "Mit einem Mikroskop",
+            "Mit einem Spiegel",
+            "Mit einer Lupe"
+          ],
+          "hint": "Es macht weit entfernte Dinge größer.",
+          "explanation": "Mit einem Teleskop holst du ferne Sterne ganz nah heran.",
+          "fact": "Die ersten Teleskope wurden in den Niederlanden gebaut."
+        },
+        "fr": {
+          "prompt": "Avec quoi peut-on regarder les étoiles de près ?",
+          "answer": "Un télescope",
+          "wrong": [
+            "Un microscope",
+            "Un miroir",
+            "Une loupe"
+          ],
+          "hint": "Il rend plus grandes les choses lointaines.",
+          "explanation": "Avec un télescope, les étoiles lointaines paraissent toutes proches.",
+          "fact": "Les premiers télescopes ont été fabriqués aux Pays-Bas."
+        },
+        "es": {
+          "prompt": "¿Con qué puedes ver las estrellas de cerca?",
+          "answer": "Con un telescopio",
+          "wrong": [
+            "Con un microscopio",
+            "Con un espejo",
+            "Con una lupa"
+          ],
+          "hint": "Agranda las cosas lejanas.",
+          "explanation": "Con un telescopio las estrellas lejanas se ven muy cerca.",
+          "fact": "Los primeros telescopios se fabricaron en los Países Bajos."
+        },
+        "it": {
+          "prompt": "Con che cosa puoi guardare le stelle da vicino?",
+          "answer": "Con un telescopio",
+          "wrong": [
+            "Con un microscopio",
+            "Con uno specchio",
+            "Con una lente"
+          ],
+          "hint": "Rende più grandi le cose lontane.",
+          "explanation": "Con un telescopio le stelle lontane sembrano vicinissime.",
+          "fact": "I primi telescopi furono costruiti nei Paesi Bassi."
+        },
+        "pt": {
+          "prompt": "Com o que podes ver as estrelas de perto?",
+          "answer": "Com um telescópio",
+          "wrong": [
+            "Com um microscópio",
+            "Com um espelho",
+            "Com uma lupa"
+          ],
+          "hint": "Torna maiores as coisas distantes.",
+          "explanation": "Com um telescópio as estrelas distantes ficam bem perto.",
+          "fact": "Os primeiros telescópios foram feitos nos Países Baixos."
+        },
+        "da": {
+          "prompt": "Hvad kan du se stjerner tæt på med?",
+          "answer": "Et teleskop",
+          "wrong": [
+            "Et mikroskop",
+            "Et spejl",
+            "Et forstørrelsesglas"
+          ],
+          "hint": "Det gør fjerne ting større.",
+          "explanation": "Med et teleskop kommer fjerne stjerner helt tæt på.",
+          "fact": "De første teleskoper blev bygget i Nederlandene."
+        },
+        "ru": {
+          "prompt": "С помощью чего можно разглядеть звёзды вблизи?",
+          "answer": "Телескоп",
+          "wrong": [
+            "Микроскоп",
+            "Зеркало",
+            "Лупа"
+          ],
+          "hint": "Он увеличивает далёкие предметы.",
+          "explanation": "С телескопом далёкие звёзды кажутся совсем близкими.",
+          "fact": "Первые телескопы сделали в Нидерландах."
+        },
+        "ar": {
+          "prompt": "بماذا ترى النجوم عن قرب؟",
+          "answer": "بالتلسكوب",
+          "wrong": [
+            "بالمجهر",
+            "بالمرآة",
+            "بالعدسة المكبرة"
+          ],
+          "hint": "يجعل الأشياء البعيدة أكبر.",
+          "explanation": "بالتلسكوب تبدو النجوم البعيدة قريبة جدًا.",
+          "fact": "صُنعت أول التلسكوبات في هولندا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA Science — stars and planets",
+      "artBrief": "Een felle ster die licht uitstraalt naast een donkere planeet die alleen aan één kant verlicht is.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Welk hemellichaam maakt zelf licht?",
+          "answer": "Een ster",
+          "wrong": [
+            "Een planeet",
+            "Een maan",
+            "Een asteroïde"
+          ],
+          "hint": "De zon is er een van.",
+          "explanation": "Sterren maken zelf licht; planeten en manen kaatsen het alleen terug.",
+          "fact": "De maan lijkt te schijnen, maar weerkaatst zonlicht."
+        },
+        "en": {
+          "prompt": "Which object in the sky makes its own light?",
+          "answer": "A star",
+          "wrong": [
+            "A planet",
+            "A moon",
+            "An asteroid"
+          ],
+          "hint": "The sun is one of them.",
+          "explanation": "Stars make their own light; planets and moons only reflect it.",
+          "fact": "The moon seems to shine, but it reflects sunlight."
+        },
+        "de": {
+          "prompt": "Welcher Himmelskörper macht sein eigenes Licht?",
+          "answer": "Ein Stern",
+          "wrong": [
+            "Ein Planet",
+            "Ein Mond",
+            "Ein Asteroid"
+          ],
+          "hint": "Die Sonne ist einer davon.",
+          "explanation": "Sterne machen eigenes Licht; Planeten und Monde werfen es nur zurück.",
+          "fact": "Der Mond scheint zu leuchten, wirft aber Sonnenlicht zurück."
+        },
+        "fr": {
+          "prompt": "Quel astre fabrique sa propre lumière ?",
+          "answer": "Une étoile",
+          "wrong": [
+            "Une planète",
+            "Une lune",
+            "Un astéroïde"
+          ],
+          "hint": "Le Soleil en est un.",
+          "explanation": "Les étoiles font leur lumière ; planètes et lunes ne font que la renvoyer.",
+          "fact": "La Lune semble briller, mais elle renvoie la lumière du Soleil."
+        },
+        "es": {
+          "prompt": "¿Qué astro fabrica su propia luz?",
+          "answer": "Una estrella",
+          "wrong": [
+            "Un planeta",
+            "Una luna",
+            "Un asteroide"
+          ],
+          "hint": "El Sol es uno de ellos.",
+          "explanation": "Las estrellas hacen su luz; planetas y lunas solo la reflejan.",
+          "fact": "La Luna parece brillar, pero refleja la luz del Sol."
+        },
+        "it": {
+          "prompt": "Quale corpo celeste fa la propria luce?",
+          "answer": "Una stella",
+          "wrong": [
+            "Un pianeta",
+            "Una luna",
+            "Un asteroide"
+          ],
+          "hint": "Il Sole è uno di questi.",
+          "explanation": "Le stelle fanno la propria luce; pianeti e lune la riflettono soltanto.",
+          "fact": "La Luna sembra brillare, ma riflette la luce del Sole."
+        },
+        "pt": {
+          "prompt": "Que astro faz a sua própria luz?",
+          "answer": "Uma estrela",
+          "wrong": [
+            "Um planeta",
+            "Uma lua",
+            "Um asteroide"
+          ],
+          "hint": "O Sol é um deles.",
+          "explanation": "As estrelas fazem a sua luz; planetas e luas só a refletem.",
+          "fact": "A Lua parece brilhar, mas reflete a luz do Sol."
+        },
+        "da": {
+          "prompt": "Hvilket himmellegeme laver sit eget lys?",
+          "answer": "En stjerne",
+          "wrong": [
+            "En planet",
+            "En måne",
+            "En asteroide"
+          ],
+          "hint": "Solen er en af dem.",
+          "explanation": "Stjerner laver selv lys; planeter og måner kaster det bare tilbage.",
+          "fact": "Månen ser ud til at lyse, men kaster sollys tilbage."
+        },
+        "ru": {
+          "prompt": "Какое небесное тело светит своим светом?",
+          "answer": "Звезда",
+          "wrong": [
+            "Планета",
+            "Луна",
+            "Астероид"
+          ],
+          "hint": "Солнце — одно из них.",
+          "explanation": "Звёзды светят сами; планеты и луны только отражают свет.",
+          "fact": "Луна будто светит, но она отражает солнечный свет."
+        },
+        "ar": {
+          "prompt": "أي جرم يصنع ضوءه بنفسه؟",
+          "answer": "النجم",
+          "wrong": [
+            "الكوكب",
+            "القمر",
+            "الكويكب"
+          ],
+          "hint": "الشمس واحدة منها.",
+          "explanation": "النجوم تصنع ضوءها، أما الكواكب والأقمار فتعكسه فقط.",
+          "fact": "القمر يبدو مضيئًا لكنه يعكس ضوء الشمس."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "International Dark-Sky Association",
+      "artBrief": "Twee helften in één beeld: links een stadshemel met weinig sterren, rechts een donker veld met duizenden sterren.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waar kun je de meeste sterren zien?",
+          "answer": "Ver van de stadslichten",
+          "wrong": [
+            "Midden in de stad",
+            "Onder een lantaarn",
+            "Bij volle maan"
+          ],
+          "hint": "Hoe donkerder het is, hoe meer je ziet.",
+          "explanation": "Ver van lampen is de hemel donker en zie je duizenden sterren.",
+          "fact": "Op een echt donkere plek zie je de Melkweg als een band."
+        },
+        "en": {
+          "prompt": "Where can you see the most stars?",
+          "answer": "Far from city lights",
+          "wrong": [
+            "In the middle of town",
+            "Under a street lamp",
+            "At full moon"
+          ],
+          "hint": "The darker it is, the more you see.",
+          "explanation": "Far from lamps the sky is dark and you see thousands of stars.",
+          "fact": "In a really dark place the Milky Way shows up as a band."
+        },
+        "de": {
+          "prompt": "Wo kannst du die meisten Sterne sehen?",
+          "answer": "Weit weg von Stadtlicht",
+          "wrong": [
+            "Mitten in der Stadt",
+            "Unter einer Laterne",
+            "Bei Vollmond"
+          ],
+          "hint": "Je dunkler es ist, desto mehr siehst du.",
+          "explanation": "Weit weg von Lampen ist der Himmel dunkel und du siehst tausende Sterne.",
+          "fact": "An einem richtig dunklen Ort zeigt sich die Milchstraße als Band."
+        },
+        "fr": {
+          "prompt": "Où peux-tu voir le plus d'étoiles ?",
+          "answer": "Loin des lumières de ville",
+          "wrong": [
+            "En plein centre-ville",
+            "Sous un lampadaire",
+            "À la pleine lune"
+          ],
+          "hint": "Plus il fait noir, plus tu en vois.",
+          "explanation": "Loin des lampes, le ciel est noir et on voit des milliers d'étoiles.",
+          "fact": "Dans un endroit vraiment noir, la Voie lactée apparaît comme un ruban."
+        },
+        "es": {
+          "prompt": "¿Dónde puedes ver más estrellas?",
+          "answer": "Lejos de las luces",
+          "wrong": [
+            "En el centro de la ciudad",
+            "Bajo una farola",
+            "Con luna llena"
+          ],
+          "hint": "Cuanto más oscuro, más ves.",
+          "explanation": "Lejos de las lámparas el cielo es oscuro y se ven miles de estrellas.",
+          "fact": "En un sitio muy oscuro la Vía Láctea se ve como una banda."
+        },
+        "it": {
+          "prompt": "Dove puoi vedere più stelle?",
+          "answer": "Lontano dalle luci",
+          "wrong": [
+            "In centro città",
+            "Sotto un lampione",
+            "Con la luna piena"
+          ],
+          "hint": "Più è buio, più ne vedi.",
+          "explanation": "Lontano dalle lampade il cielo è buio e si vedono migliaia di stelle.",
+          "fact": "In un posto davvero buio la Via Lattea appare come una fascia."
+        },
+        "pt": {
+          "prompt": "Onde consegues ver mais estrelas?",
+          "answer": "Longe das luzes da cidade",
+          "wrong": [
+            "No centro da cidade",
+            "Debaixo de um candeeiro",
+            "Com lua cheia"
+          ],
+          "hint": "Quanto mais escuro, mais vês.",
+          "explanation": "Longe das lâmpadas o céu fica escuro e vêem-se milhares de estrelas.",
+          "fact": "Num sítio mesmo escuro a Via Láctea aparece como uma faixa."
+        },
+        "da": {
+          "prompt": "Hvor kan du se flest stjerner?",
+          "answer": "Langt fra byens lys",
+          "wrong": [
+            "Midt i byen",
+            "Under en gadelampe",
+            "Ved fuldmåne"
+          ],
+          "hint": "Jo mørkere der er, jo flere ser du.",
+          "explanation": "Langt fra lamper er himlen mørk, og man ser tusindvis af stjerner.",
+          "fact": "Et rigtig mørkt sted viser Mælkevejen sig som et bånd."
+        },
+        "ru": {
+          "prompt": "Где видно больше всего звёзд?",
+          "answer": "Вдали от городских огней",
+          "wrong": [
+            "В центре города",
+            "Под фонарём",
+            "В полнолуние"
+          ],
+          "hint": "Чем темнее, тем больше видно.",
+          "explanation": "Вдали от ламп небо тёмное, и видны тысячи звёзд.",
+          "fact": "В очень тёмном месте Млечный Путь виден как полоса."
+        },
+        "ar": {
+          "prompt": "أين ترى أكبر عدد من النجوم؟",
+          "answer": "بعيدًا عن أضواء المدن",
+          "wrong": [
+            "في وسط المدينة",
+            "تحت عمود إنارة",
+            "في ليلة البدر"
+          ],
+          "hint": "كلما زاد الظلام رأيت أكثر.",
+          "explanation": "بعيدًا عن المصابيح تكون السماء مظلمة فترى آلاف النجوم.",
+          "fact": "في مكان مظلم حقًا يظهر درب التبانة كشريط."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA Science — Venus visibility",
+      "artBrief": "Een schemerhemel boven een landschap met één zeer heldere stip laag aan de horizon.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Welke planeet zie je vaak als heldere avondster?",
+          "answer": "Venus",
+          "wrong": [
+            "Mars",
+            "Saturnus",
+            "Jupiter"
+          ],
+          "hint": "Het is de buurplaneet richting de zon.",
+          "explanation": "Venus is zo helder dat hij de avondster wordt genoemd.",
+          "fact": "Venus is ook vaak te zien als ochtendster."
+        },
+        "en": {
+          "prompt": "Which planet often shines as the evening star?",
+          "answer": "Venus",
+          "wrong": [
+            "Mars",
+            "Saturn",
+            "Jupiter"
+          ],
+          "hint": "It is our neighbour towards the sun.",
+          "explanation": "Venus is so bright that it is called the evening star.",
+          "fact": "Venus is often the morning star as well."
+        },
+        "de": {
+          "prompt": "Welchen Planeten sieht man oft als hellen Abendstern?",
+          "answer": "Venus",
+          "wrong": [
+            "Mars",
+            "Saturn",
+            "Jupiter"
+          ],
+          "hint": "Es ist unser Nachbar Richtung Sonne.",
+          "explanation": "Venus leuchtet so hell, dass man sie Abendstern nennt.",
+          "fact": "Oft ist die Venus auch als Morgenstern zu sehen."
+        },
+        "fr": {
+          "prompt": "Quelle planète brille souvent comme étoile du soir ?",
+          "answer": "Vénus",
+          "wrong": [
+            "Mars",
+            "Saturne",
+            "Jupiter"
+          ],
+          "hint": "C'est notre voisine du côté du Soleil.",
+          "explanation": "Vénus brille si fort qu'on l'appelle l'étoile du soir.",
+          "fact": "Vénus est souvent aussi l'étoile du matin."
+        },
+        "es": {
+          "prompt": "¿Qué planeta brilla a menudo como lucero del atardecer?",
+          "answer": "Venus",
+          "wrong": [
+            "Marte",
+            "Saturno",
+            "Júpiter"
+          ],
+          "hint": "Es nuestra vecina hacia el Sol.",
+          "explanation": "Venus brilla tanto que lo llaman el lucero de la tarde.",
+          "fact": "Venus también se ve muchas veces al amanecer."
+        },
+        "it": {
+          "prompt": "Quale pianeta brilla spesso come stella della sera?",
+          "answer": "Venere",
+          "wrong": [
+            "Marte",
+            "Saturno",
+            "Giove"
+          ],
+          "hint": "È la nostra vicina verso il Sole.",
+          "explanation": "Venere brilla così tanto che la chiamano stella della sera.",
+          "fact": "Venere si vede spesso anche come stella del mattino."
+        },
+        "pt": {
+          "prompt": "Que planeta brilha muitas vezes como estrela da tarde?",
+          "answer": "Vénus",
+          "wrong": [
+            "Marte",
+            "Saturno",
+            "Júpiter"
+          ],
+          "hint": "É a nossa vizinha do lado do Sol.",
+          "explanation": "Vénus brilha tanto que lhe chamam estrela da tarde.",
+          "fact": "Vénus também aparece muitas vezes de manhã."
+        },
+        "da": {
+          "prompt": "Hvilken planet lyser ofte som aftenstjerne?",
+          "answer": "Venus",
+          "wrong": [
+            "Mars",
+            "Saturn",
+            "Jupiter"
+          ],
+          "hint": "Det er vores nabo ind mod Solen.",
+          "explanation": "Venus lyser så kraftigt, at den kaldes aftenstjernen.",
+          "fact": "Venus ses også tit som morgenstjerne."
+        },
+        "ru": {
+          "prompt": "Какая планета часто светит как вечерняя звезда?",
+          "answer": "Венера",
+          "wrong": [
+            "Марс",
+            "Сатурн",
+            "Юпитер"
+          ],
+          "hint": "Это наша соседка в сторону Солнца.",
+          "explanation": "Венера светит так ярко, что её зовут вечерней звездой.",
+          "fact": "Венеру часто видно и как утреннюю звезду."
+        },
+        "ar": {
+          "prompt": "أي كوكب يلمع غالبًا كنجمة المساء؟",
+          "answer": "الزهرة",
+          "wrong": [
+            "المريخ",
+            "زحل",
+            "المشتري"
+          ],
+          "hint": "إنه جارنا في اتجاه الشمس.",
+          "explanation": "الزهرة تلمع بشدة حتى سميت نجمة المساء.",
+          "fact": "وكثيرًا ما تُرى الزهرة نجمةً للصباح."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — Orion Nebula",
+      "artBrief": "Een kleurige wolk van gas en stof in de ruimte met jonge sterren die er doorheen schijnen.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een nevel?",
+          "answer": "Een wolk van gas en stof",
+          "wrong": [
+            "Een groep planeten",
+            "Een soort maan",
+            "Een komeetstaart"
+          ],
+          "hint": "Daar worden nieuwe sterren geboren.",
+          "explanation": "Een nevel is een enorme wolk van gas en stof in de ruimte.",
+          "fact": "De Orionnevel is met een verrekijker al te zien."
+        },
+        "en": {
+          "prompt": "What is a nebula?",
+          "answer": "A cloud of gas and dust",
+          "wrong": [
+            "A group of planets",
+            "A kind of moon",
+            "A comet's tail"
+          ],
+          "hint": "New stars are born there.",
+          "explanation": "A nebula is an enormous cloud of gas and dust in space.",
+          "fact": "The Orion nebula can already be seen with binoculars."
+        },
+        "de": {
+          "prompt": "Was ist ein Nebel im Weltall?",
+          "answer": "Eine Wolke aus Gas und Staub",
+          "wrong": [
+            "Eine Gruppe Planeten",
+            "Eine Art Mond",
+            "Ein Kometenschweif"
+          ],
+          "hint": "Dort werden neue Sterne geboren.",
+          "explanation": "Ein Nebel ist eine riesige Wolke aus Gas und Staub im Weltall.",
+          "fact": "Den Orionnebel sieht man schon mit einem Fernglas."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une nébuleuse ?",
+          "answer": "Un nuage de gaz et poussière",
+          "wrong": [
+            "Un groupe de planètes",
+            "Une sorte de lune",
+            "Une queue de comète"
+          ],
+          "hint": "C'est là que naissent les étoiles.",
+          "explanation": "Une nébuleuse est un immense nuage de gaz et de poussière.",
+          "fact": "La nébuleuse d'Orion se voit déjà aux jumelles."
+        },
+        "es": {
+          "prompt": "¿Qué es una nebulosa?",
+          "answer": "Una nube de gas y polvo",
+          "wrong": [
+            "Un grupo de planetas",
+            "Un tipo de luna",
+            "La cola de un cometa"
+          ],
+          "hint": "Allí nacen las estrellas nuevas.",
+          "explanation": "Una nebulosa es una nube enorme de gas y polvo en el espacio.",
+          "fact": "La nebulosa de Orión ya se ve con prismáticos."
+        },
+        "it": {
+          "prompt": "Che cos'è una nebulosa?",
+          "answer": "Una nube di gas e polvere",
+          "wrong": [
+            "Un gruppo di pianeti",
+            "Un tipo di luna",
+            "La coda di una cometa"
+          ],
+          "hint": "Lì nascono le stelle nuove.",
+          "explanation": "Una nebulosa è un'enorme nube di gas e polvere nello spazio.",
+          "fact": "La nebulosa di Orione si vede già con un binocolo."
+        },
+        "pt": {
+          "prompt": "O que é uma nebulosa?",
+          "answer": "Uma nuvem de gás e poeira",
+          "wrong": [
+            "Um grupo de planetas",
+            "Um tipo de lua",
+            "A cauda de um cometa"
+          ],
+          "hint": "É ali que nascem estrelas novas.",
+          "explanation": "Uma nebulosa é uma nuvem enorme de gás e poeira no espaço.",
+          "fact": "A nebulosa de Orion já se vê com binóculos."
+        },
+        "da": {
+          "prompt": "Hvad er en tåge i rummet?",
+          "answer": "En sky af gas og støv",
+          "wrong": [
+            "En gruppe planeter",
+            "En slags måne",
+            "En komethale"
+          ],
+          "hint": "Der fødes nye stjerner.",
+          "explanation": "En tåge er en kæmpe sky af gas og støv i rummet.",
+          "fact": "Oriontågen kan ses med en almindelig kikkert."
+        },
+        "ru": {
+          "prompt": "Что такое туманность?",
+          "answer": "Облако газа и пыли",
+          "wrong": [
+            "Группа планет",
+            "Вид луны",
+            "Хвост кометы"
+          ],
+          "hint": "Там рождаются новые звёзды.",
+          "explanation": "Туманность — это огромное облако газа и пыли в космосе.",
+          "fact": "Туманность Ориона видно даже в бинокль."
+        },
+        "ar": {
+          "prompt": "ما هو السديم؟",
+          "answer": "سحابة من الغاز والغبار",
+          "wrong": [
+            "مجموعة كواكب",
+            "نوع من الأقمار",
+            "ذيل مذنب"
+          ],
+          "hint": "هناك تولد النجوم الجديدة.",
+          "explanation": "السديم سحابة هائلة من الغاز والغبار في الفضاء.",
+          "fact": "سديم الجبار يُرى حتى بمنظار عادي."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "IAU — constellation Orion",
+      "artBrief": "Een sterrenbeeld van een jager met drie heldere sterren op een rij in het midden, verbonden door lichtlijnen.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Welk sterrenbeeld heeft een riem van drie sterren?",
+          "answer": "Orion",
+          "wrong": [
+            "De Grote Beer",
+            "De Leeuw",
+            "De Stier"
+          ],
+          "hint": "Hij heet ook wel de jager.",
+          "explanation": "Orion is te herkennen aan drie sterren op een rij.",
+          "fact": "Die drie sterren heten de Gordel van Orion."
+        },
+        "en": {
+          "prompt": "Which constellation has a belt of three stars?",
+          "answer": "Orion",
+          "wrong": [
+            "The Great Bear",
+            "Leo",
+            "Taurus"
+          ],
+          "hint": "It is also called the hunter.",
+          "explanation": "Orion is known by its three stars in a row.",
+          "fact": "Those three stars are called Orion's Belt."
+        },
+        "de": {
+          "prompt": "Welches Sternbild hat einen Gürtel aus drei Sternen?",
+          "answer": "Orion",
+          "wrong": [
+            "Der Große Bär",
+            "Der Löwe",
+            "Der Stier"
+          ],
+          "hint": "Man nennt es auch den Jäger.",
+          "explanation": "Orion erkennt man an drei Sternen in einer Reihe.",
+          "fact": "Diese drei Sterne heißen Gürtel des Orion."
+        },
+        "fr": {
+          "prompt": "Quelle constellation a une ceinture de trois étoiles ?",
+          "answer": "Orion",
+          "wrong": [
+            "La Grande Ourse",
+            "Le Lion",
+            "Le Taureau"
+          ],
+          "hint": "On l'appelle aussi le chasseur.",
+          "explanation": "On reconnaît Orion à ses trois étoiles alignées.",
+          "fact": "Ces trois étoiles forment la Ceinture d'Orion."
+        },
+        "es": {
+          "prompt": "¿Qué constelación tiene un cinturón de tres estrellas?",
+          "answer": "Orión",
+          "wrong": [
+            "La Osa Mayor",
+            "Leo",
+            "Tauro"
+          ],
+          "hint": "También la llaman el cazador.",
+          "explanation": "A Orión se le reconoce por tres estrellas en fila.",
+          "fact": "Esas tres estrellas forman el Cinturón de Orión."
+        },
+        "it": {
+          "prompt": "Quale costellazione ha una cintura di tre stelle?",
+          "answer": "Orione",
+          "wrong": [
+            "L'Orsa Maggiore",
+            "Il Leone",
+            "Il Toro"
+          ],
+          "hint": "La chiamano anche il cacciatore.",
+          "explanation": "Orione si riconosce dalle tre stelle in fila.",
+          "fact": "Quelle tre stelle formano la Cintura di Orione."
+        },
+        "pt": {
+          "prompt": "Que constelação tem um cinturão de três estrelas?",
+          "answer": "Orion",
+          "wrong": [
+            "A Ursa Maior",
+            "Leão",
+            "Touro"
+          ],
+          "hint": "Também lhe chamam o caçador.",
+          "explanation": "Orion reconhece-se pelas três estrelas em fila.",
+          "fact": "Essas três estrelas formam o Cinturão de Orion."
+        },
+        "da": {
+          "prompt": "Hvilket stjernebillede har et bælte af tre stjerner?",
+          "answer": "Orion",
+          "wrong": [
+            "Karlsvognen",
+            "Løven",
+            "Tyren"
+          ],
+          "hint": "Det kaldes også jægeren.",
+          "explanation": "Orion kendes på tre stjerner på række.",
+          "fact": "De tre stjerner hedder Orions bælte."
+        },
+        "ru": {
+          "prompt": "В каком созвездии есть пояс из трёх звёзд?",
+          "answer": "Орион",
+          "wrong": [
+            "Большая Медведица",
+            "Лев",
+            "Телец"
+          ],
+          "hint": "Его ещё называют охотником.",
+          "explanation": "Орион узнают по трём звёздам в ряд.",
+          "fact": "Эти три звезды называют Поясом Ориона."
+        },
+        "ar": {
+          "prompt": "أي كوكبة فيها حزام من ثلاثة نجوم؟",
+          "answer": "الجبار",
+          "wrong": [
+            "الدب الأكبر",
+            "الأسد",
+            "الثور"
+          ],
+          "hint": "تسمى أيضًا الصياد.",
+          "explanation": "تُعرف كوكبة الجبار بثلاثة نجوم في صف واحد.",
+          "fact": "تلك النجوم الثلاثة تسمى حزام الجبار."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA Science — the Sun's life cycle",
+      "artBrief": "De zon groot en opgezwollen in oranjerood, met de kleine binnenplaneten er dicht bij.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er over miljarden jaren met de zon?",
+          "answer": "Hij wordt een rode reus",
+          "wrong": [
+            "Hij wordt blauw",
+            "Hij wordt een planeet",
+            "Hij blijft precies gelijk"
+          ],
+          "hint": "Hij zwelt eerst enorm op.",
+          "explanation": "Over ongeveer vijf miljard jaar zwelt de zon op tot een rode reus.",
+          "fact": "Daarna blijft er een kleine witte dwerg van over."
+        },
+        "en": {
+          "prompt": "What happens to the sun in billions of years?",
+          "answer": "It becomes a red giant",
+          "wrong": [
+            "It turns blue",
+            "It becomes a planet",
+            "It stays exactly the same"
+          ],
+          "hint": "First it swells up enormously.",
+          "explanation": "In about five billion years the sun will swell into a red giant.",
+          "fact": "After that a small white dwarf is left behind."
+        },
+        "de": {
+          "prompt": "Was passiert in Milliarden Jahren mit der Sonne?",
+          "answer": "Sie wird ein Roter Riese",
+          "wrong": [
+            "Sie wird blau",
+            "Sie wird ein Planet",
+            "Sie bleibt genau gleich"
+          ],
+          "hint": "Zuerst bläht sie sich enorm auf.",
+          "explanation": "In etwa fünf Milliarden Jahren bläht sich die Sonne zum Roten Riesen auf.",
+          "fact": "Danach bleibt ein kleiner Weißer Zwerg übrig."
+        },
+        "fr": {
+          "prompt": "Que deviendra le Soleil dans des milliards d'années ?",
+          "answer": "Une géante rouge",
+          "wrong": [
+            "Il deviendra bleu",
+            "Il deviendra une planète",
+            "Il restera pareil"
+          ],
+          "hint": "D'abord il gonfle énormément.",
+          "explanation": "Dans environ cinq milliards d'années, le Soleil gonflera en géante rouge.",
+          "fact": "Ensuite il n'en restera qu'une petite naine blanche."
+        },
+        "es": {
+          "prompt": "¿Qué le pasará al Sol dentro de miles de millones de años?",
+          "answer": "Será una gigante roja",
+          "wrong": [
+            "Se volverá azul",
+            "Será un planeta",
+            "Seguirá igual"
+          ],
+          "hint": "Primero se hincha muchísimo.",
+          "explanation": "Dentro de unos cinco mil millones de años el Sol se hinchará.",
+          "fact": "Después quedará una pequeña enana blanca."
+        },
+        "it": {
+          "prompt": "Che cosa succederà al Sole fra miliardi di anni?",
+          "answer": "Diventerà una gigante rossa",
+          "wrong": [
+            "Diventerà blu",
+            "Diventerà un pianeta",
+            "Resterà uguale"
+          ],
+          "hint": "Prima si gonfia moltissimo.",
+          "explanation": "Fra circa cinque miliardi di anni il Sole si gonfierà.",
+          "fact": "Poi resterà solo una piccola nana bianca."
+        },
+        "pt": {
+          "prompt": "O que vai acontecer ao Sol daqui a milhares de milhões de anos?",
+          "answer": "Fica uma gigante vermelha",
+          "wrong": [
+            "Fica azul",
+            "Fica um planeta",
+            "Fica na mesma"
+          ],
+          "hint": "Primeiro incha imenso.",
+          "explanation": "Daqui a cerca de cinco mil milhões de anos o Sol vai inchar.",
+          "fact": "Depois fica só uma pequena anã branca."
+        },
+        "da": {
+          "prompt": "Hvad sker der med Solen om milliarder af år?",
+          "answer": "Den bliver en rød kæmpe",
+          "wrong": [
+            "Den bliver blå",
+            "Den bliver en planet",
+            "Den bliver helt ens"
+          ],
+          "hint": "Først svulmer den voldsomt op.",
+          "explanation": "Om cirka fem milliarder år svulmer Solen op til en rød kæmpe.",
+          "fact": "Bagefter bliver der en lille hvid dværg tilbage."
+        },
+        "ru": {
+          "prompt": "Что станет с Солнцем через миллиарды лет?",
+          "answer": "Оно станет красным гигантом",
+          "wrong": [
+            "Оно станет синим",
+            "Оно станет планетой",
+            "Оно не изменится"
+          ],
+          "hint": "Сначала оно сильно раздуется.",
+          "explanation": "Примерно через пять миллиардов лет Солнце раздуется.",
+          "fact": "Потом останется маленький белый карлик."
+        },
+        "ar": {
+          "prompt": "ماذا سيحدث للشمس بعد مليارات السنين؟",
+          "answer": "تصير عملاقًا أحمر",
+          "wrong": [
+            "تصير زرقاء",
+            "تصير كوكبًا",
+            "تبقى كما هي"
+          ],
+          "hint": "تنتفخ أولًا انتفاخًا هائلًا.",
+          "explanation": "بعد نحو خمسة مليارات سنة ستنتفخ الشمس وتصير عملاقًا أحمر.",
+          "fact": "ثم يبقى منها قزم أبيض صغير."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Yale Bright Star Catalogue (~9000 naked-eye stars)",
+      "artBrief": "Een kind op zijn rug in het gras dat omhoog kijkt naar een hemel vol sterren.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel sterren zie je met het blote oog?",
+          "answer": "Een paar duizend",
+          "wrong": [
+            "Ongeveer tien",
+            "Een miljoen",
+            "Alle sterren"
+          ],
+          "hint": "Meer dan honderd, minder dan tienduizend.",
+          "explanation": "Op een donkere plek zie je met het blote oog een paar duizend sterren.",
+          "fact": "Met een telescoop worden het er meteen miljoenen."
+        },
+        "en": {
+          "prompt": "How many stars can you see with the naked eye?",
+          "answer": "A few thousand",
+          "wrong": [
+            "About ten",
+            "A million",
+            "All of them"
+          ],
+          "hint": "More than a hundred, fewer than ten thousand.",
+          "explanation": "In a dark place the naked eye sees a few thousand stars.",
+          "fact": "Through a telescope it becomes millions at once."
+        },
+        "de": {
+          "prompt": "Wie viele Sterne siehst du mit bloßem Auge?",
+          "answer": "Ein paar tausend",
+          "wrong": [
+            "Ungefähr zehn",
+            "Eine Million",
+            "Alle Sterne"
+          ],
+          "hint": "Mehr als hundert, weniger als zehntausend.",
+          "explanation": "An einem dunklen Ort sieht das bloße Auge ein paar tausend Sterne.",
+          "fact": "Mit einem Teleskop werden es sofort Millionen."
+        },
+        "fr": {
+          "prompt": "Combien d'étoiles vois-tu à l'œil nu ?",
+          "answer": "Quelques milliers",
+          "wrong": [
+            "Environ dix",
+            "Un million",
+            "Toutes les étoiles"
+          ],
+          "hint": "Plus de cent, moins de dix mille.",
+          "explanation": "Dans un endroit sombre, l'œil nu voit quelques milliers d'étoiles.",
+          "fact": "Avec un télescope, cela devient aussitôt des millions."
+        },
+        "es": {
+          "prompt": "¿Cuántas estrellas ves a simple vista?",
+          "answer": "Unos pocos miles",
+          "wrong": [
+            "Unas diez",
+            "Un millón",
+            "Todas ellas"
+          ],
+          "hint": "Más de cien y menos de diez mil.",
+          "explanation": "En un lugar oscuro el ojo ve unos pocos miles de estrellas.",
+          "fact": "Con un telescopio pasan a ser millones."
+        },
+        "it": {
+          "prompt": "Quante stelle vedi a occhio nudo?",
+          "answer": "Qualche migliaio",
+          "wrong": [
+            "Circa dieci",
+            "Un milione",
+            "Tutte quante"
+          ],
+          "hint": "Più di cento, meno di diecimila.",
+          "explanation": "In un posto buio l'occhio nudo vede qualche migliaio di stelle.",
+          "fact": "Con un telescopio diventano subito milioni."
+        },
+        "pt": {
+          "prompt": "Quantas estrelas vês a olho nu?",
+          "answer": "Uns poucos milhares",
+          "wrong": [
+            "Umas dez",
+            "Um milhão",
+            "Todas elas"
+          ],
+          "hint": "Mais de cem e menos de dez mil.",
+          "explanation": "Num sítio escuro o olho nu vê uns poucos milhares de estrelas.",
+          "fact": "Com um telescópio passam logo a milhões."
+        },
+        "da": {
+          "prompt": "Hvor mange stjerner ser du med det blotte øje?",
+          "answer": "Et par tusind",
+          "wrong": [
+            "Omkring ti",
+            "En million",
+            "Dem alle sammen"
+          ],
+          "hint": "Mere end hundrede, mindre end ti tusind.",
+          "explanation": "Et mørkt sted ser det blotte øje et par tusind stjerner.",
+          "fact": "Med et teleskop bliver det straks millioner."
+        },
+        "ru": {
+          "prompt": "Сколько звёзд видно невооружённым глазом?",
+          "answer": "Несколько тысяч",
+          "wrong": [
+            "Около десяти",
+            "Миллион",
+            "Все звёзды"
+          ],
+          "hint": "Больше ста, но меньше десяти тысяч.",
+          "explanation": "В тёмном месте глаз видит несколько тысяч звёзд.",
+          "fact": "В телескоп их сразу становятся миллионы."
+        },
+        "ar": {
+          "prompt": "كم نجمًا ترى بالعين المجردة؟",
+          "answer": "بضعة آلاف",
+          "wrong": [
+            "نحو عشرة",
+            "مليونًا",
+            "كل النجوم"
+          ],
+          "hint": "أكثر من مئة وأقل من عشرة آلاف.",
+          "explanation": "في مكان مظلم ترى العين المجردة بضعة آلاف من النجوم.",
+          "fact": "وبالتلسكوب تصير ملايين في الحال."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "ESA Kids — why stars are invisible by day",
+      "artBrief": "Eén beeld met dag en nacht naast elkaar boven hetzelfde landschap: links blauwe lucht, rechts sterren.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zie je overdag geen sterren?",
+          "answer": "De zon overstraalt ze",
+          "wrong": [
+            "Ze gaan overdag uit",
+            "Ze zijn er dan niet",
+            "Ze verstoppen zich"
+          ],
+          "hint": "Ze staan er gewoon nog.",
+          "explanation": "Het licht van de zon is zo fel dat de sterren erbij verdwijnen.",
+          "fact": "Vanuit de ruimte zie je ook overdag sterren."
+        },
+        "en": {
+          "prompt": "Why can you not see stars during the day?",
+          "answer": "The sun outshines them",
+          "wrong": [
+            "They switch off by day",
+            "They are not there then",
+            "They hide away"
+          ],
+          "hint": "They are still up there.",
+          "explanation": "Sunlight is so bright that the stars disappear in it.",
+          "fact": "From space you can see stars in the daytime too."
+        },
+        "de": {
+          "prompt": "Warum siehst du tagsüber keine Sterne?",
+          "answer": "Die Sonne überstrahlt sie",
+          "wrong": [
+            "Sie gehen tagsüber aus",
+            "Sie sind dann nicht da",
+            "Sie verstecken sich"
+          ],
+          "hint": "Sie stehen weiterhin da oben.",
+          "explanation": "Das Sonnenlicht ist so hell, dass die Sterne darin verschwinden.",
+          "fact": "Aus dem Weltall sieht man auch am Tag Sterne."
+        },
+        "fr": {
+          "prompt": "Pourquoi ne vois-tu pas d'étoiles le jour ?",
+          "answer": "Le Soleil les éclipse",
+          "wrong": [
+            "Elles s'éteignent le jour",
+            "Elles ne sont pas là",
+            "Elles se cachent"
+          ],
+          "hint": "Elles sont toujours là-haut.",
+          "explanation": "La lumière du Soleil est si forte que les étoiles y disparaissent.",
+          "fact": "Depuis l'espace, on voit des étoiles même de jour."
+        },
+        "es": {
+          "prompt": "¿Por qué no ves estrellas de día?",
+          "answer": "El Sol las deslumbra",
+          "wrong": [
+            "Se apagan de día",
+            "No están ahí",
+            "Se esconden"
+          ],
+          "hint": "Siguen estando ahí arriba.",
+          "explanation": "La luz del Sol es tan fuerte que las estrellas desaparecen en ella.",
+          "fact": "Desde el espacio se ven estrellas también de día."
+        },
+        "it": {
+          "prompt": "Perché di giorno non vedi le stelle?",
+          "answer": "Il Sole le acceca",
+          "wrong": [
+            "Di giorno si spengono",
+            "Non ci sono",
+            "Si nascondono"
+          ],
+          "hint": "Sono sempre lassù.",
+          "explanation": "La luce del Sole è così forte che le stelle ci spariscono dentro.",
+          "fact": "Dallo spazio si vedono stelle anche di giorno."
+        },
+        "pt": {
+          "prompt": "Porque não vês estrelas de dia?",
+          "answer": "O Sol ofusca-as",
+          "wrong": [
+            "De dia apagam-se",
+            "Não estão lá",
+            "Escondem-se"
+          ],
+          "hint": "Continuam lá em cima.",
+          "explanation": "A luz do Sol é tão forte que as estrelas desaparecem nela.",
+          "fact": "Do espaço vêem-se estrelas também de dia."
+        },
+        "da": {
+          "prompt": "Hvorfor ser du ikke stjerner om dagen?",
+          "answer": "Solen overstråler dem",
+          "wrong": [
+            "De slukker om dagen",
+            "De er der ikke",
+            "De gemmer sig"
+          ],
+          "hint": "De står der stadig.",
+          "explanation": "Sollyset er så skarpt, at stjernerne forsvinder i det.",
+          "fact": "Fra rummet ser man også stjerner om dagen."
+        },
+        "ru": {
+          "prompt": "Почему днём не видно звёзд?",
+          "answer": "Солнце их затмевает",
+          "wrong": [
+            "Днём они гаснут",
+            "Их тогда нет",
+            "Они прячутся"
+          ],
+          "hint": "Они всё так же на небе.",
+          "explanation": "Свет Солнца такой яркий, что звёзды в нём пропадают.",
+          "fact": "Из космоса звёзды видно и днём."
+        },
+        "ar": {
+          "prompt": "لماذا لا ترى النجوم نهارًا؟",
+          "answer": "ضوء الشمس يطغى عليها",
+          "wrong": [
+            "تنطفئ نهارًا",
+            "ليست موجودة",
+            "تختبئ"
+          ],
+          "hint": "هي لا تزال في مكانها.",
+          "explanation": "ضوء الشمس قوي لدرجة أن النجوم تختفي فيه.",
+          "fact": "من الفضاء تُرى النجوم نهارًا أيضًا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — white dwarfs",
+      "artBrief": "Een piepklein wit gloeiend bolletje naast een veel grotere doffe ster, om het verschil te tonen.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat blijft er over als een kleine ster opbrandt?",
+          "answer": "Een witte dwerg",
+          "wrong": [
+            "Een rode reus",
+            "Een nevel",
+            "Een komeet"
+          ],
+          "hint": "Klein, heet en heel zwaar.",
+          "explanation": "Een uitgeputte kleine ster krimpt tot een witte dwerg.",
+          "fact": "Een theelepel witte dwerg weegt al een paar ton."
+        },
+        "en": {
+          "prompt": "What is left when a small star burns out?",
+          "answer": "A white dwarf",
+          "wrong": [
+            "A red giant",
+            "A nebula",
+            "A comet"
+          ],
+          "hint": "Small, hot and very heavy.",
+          "explanation": "A spent small star shrinks into a white dwarf.",
+          "fact": "A teaspoon of white dwarf already weighs a few tonnes."
+        },
+        "de": {
+          "prompt": "Was bleibt übrig, wenn ein kleiner Stern ausbrennt?",
+          "answer": "Ein Weißer Zwerg",
+          "wrong": [
+            "Ein Roter Riese",
+            "Ein Nebel",
+            "Ein Komet"
+          ],
+          "hint": "Klein, heiß und sehr schwer.",
+          "explanation": "Ein erschöpfter kleiner Stern schrumpft zu einem Weißen Zwerg.",
+          "fact": "Ein Teelöffel davon wiegt schon ein paar Tonnen."
+        },
+        "fr": {
+          "prompt": "Que reste-t-il quand une petite étoile s'éteint ?",
+          "answer": "Une naine blanche",
+          "wrong": [
+            "Une géante rouge",
+            "Une nébuleuse",
+            "Une comète"
+          ],
+          "hint": "Petite, chaude et très lourde.",
+          "explanation": "Une petite étoile épuisée se ratatine en naine blanche.",
+          "fact": "Une cuillère de naine blanche pèse déjà plusieurs tonnes."
+        },
+        "es": {
+          "prompt": "¿Qué queda cuando una estrella pequeña se apaga?",
+          "answer": "Una enana blanca",
+          "wrong": [
+            "Una gigante roja",
+            "Una nebulosa",
+            "Un cometa"
+          ],
+          "hint": "Pequeña, caliente y muy pesada.",
+          "explanation": "Una estrella pequeña agotada se encoge hasta ser una enana blanca.",
+          "fact": "Una cucharada de enana blanca ya pesa varias toneladas."
+        },
+        "it": {
+          "prompt": "Che cosa resta quando una piccola stella si spegne?",
+          "answer": "Una nana bianca",
+          "wrong": [
+            "Una gigante rossa",
+            "Una nebulosa",
+            "Una cometa"
+          ],
+          "hint": "Piccola, calda e pesantissima.",
+          "explanation": "Una piccola stella esaurita si restringe in una nana bianca.",
+          "fact": "Un cucchiaino di nana bianca pesa già qualche tonnellata."
+        },
+        "pt": {
+          "prompt": "O que fica quando uma estrela pequena se apaga?",
+          "answer": "Uma anã branca",
+          "wrong": [
+            "Uma gigante vermelha",
+            "Uma nebulosa",
+            "Um cometa"
+          ],
+          "hint": "Pequena, quente e muito pesada.",
+          "explanation": "Uma estrela pequena gasta encolhe até ficar uma anã branca.",
+          "fact": "Uma colher de anã branca já pesa umas toneladas."
+        },
+        "da": {
+          "prompt": "Hvad bliver tilbage, når en lille stjerne brænder ud?",
+          "answer": "En hvid dværg",
+          "wrong": [
+            "En rød kæmpe",
+            "En tåge",
+            "En komet"
+          ],
+          "hint": "Lille, varm og meget tung.",
+          "explanation": "En udbrændt lille stjerne skrumper til en hvid dværg.",
+          "fact": "En teskefuld hvid dværg vejer flere tons."
+        },
+        "ru": {
+          "prompt": "Что остаётся, когда маленькая звезда догорает?",
+          "answer": "Белый карлик",
+          "wrong": [
+            "Красный гигант",
+            "Туманность",
+            "Комета"
+          ],
+          "hint": "Маленький, горячий и очень тяжёлый.",
+          "explanation": "Выгоревшая небольшая звезда сжимается в белый карлик.",
+          "fact": "Ложка вещества белого карлика весит несколько тонн."
+        },
+        "ar": {
+          "prompt": "ماذا يبقى حين ينطفئ نجم صغير؟",
+          "answer": "قزم أبيض",
+          "wrong": [
+            "عملاق أحمر",
+            "سديم",
+            "مذنب"
+          ],
+          "hint": "صغير وساخن وثقيل جدًا.",
+          "explanation": "النجم الصغير المستهلك ينكمش ليصير قزمًا أبيض.",
+          "fact": "ملعقة صغيرة منه تزن أطنانًا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "IAU — Ursa Minor and Polaris",
+      "artBrief": "De noordelijke hemel met twee berenfiguren in lichtlijnen, één ster helder boven de rest.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "In welk sterrenbeeld staat de Poolster?",
+          "answer": "De Kleine Beer",
+          "wrong": [
+            "De Grote Beer",
+            "Orion",
+            "Cassiopeia"
+          ],
+          "hint": "Zijn grote naamgenoot wijst ernaar.",
+          "explanation": "De Poolster staat in het sterrenbeeld de Kleine Beer.",
+          "fact": "Daarom lijkt de hele hemel om dat punt te draaien."
+        },
+        "en": {
+          "prompt": "Which constellation holds the North Star?",
+          "answer": "The Little Bear",
+          "wrong": [
+            "The Great Bear",
+            "Orion",
+            "Cassiopeia"
+          ],
+          "hint": "Its bigger namesake points to it.",
+          "explanation": "The North Star sits in the constellation of the Little Bear.",
+          "fact": "That is why the whole sky seems to turn around that point."
+        },
+        "de": {
+          "prompt": "In welchem Sternbild steht der Polarstern?",
+          "answer": "Der Kleine Bär",
+          "wrong": [
+            "Der Große Bär",
+            "Orion",
+            "Kassiopeia"
+          ],
+          "hint": "Sein großer Namensvetter zeigt darauf.",
+          "explanation": "Der Polarstern steht im Sternbild Kleiner Bär.",
+          "fact": "Deshalb scheint sich der ganze Himmel um diesen Punkt zu drehen."
+        },
+        "fr": {
+          "prompt": "Dans quelle constellation se trouve l'étoile polaire ?",
+          "answer": "La Petite Ourse",
+          "wrong": [
+            "La Grande Ourse",
+            "Orion",
+            "Cassiopée"
+          ],
+          "hint": "Sa grande homonyme la désigne.",
+          "explanation": "L'étoile polaire se trouve dans la Petite Ourse.",
+          "fact": "C'est pourquoi tout le ciel semble tourner autour de ce point."
+        },
+        "es": {
+          "prompt": "¿En qué constelación está la estrella polar?",
+          "answer": "La Osa Menor",
+          "wrong": [
+            "La Osa Mayor",
+            "Orión",
+            "Casiopea"
+          ],
+          "hint": "Su gran tocaya la señala.",
+          "explanation": "La estrella polar está en la constelación de la Osa Menor.",
+          "fact": "Por eso todo el cielo parece girar en torno a ese punto."
+        },
+        "it": {
+          "prompt": "In quale costellazione si trova la stella polare?",
+          "answer": "L'Orsa Minore",
+          "wrong": [
+            "L'Orsa Maggiore",
+            "Orione",
+            "Cassiopea"
+          ],
+          "hint": "La sua grande omonima la indica.",
+          "explanation": "La stella polare si trova nell'Orsa Minore.",
+          "fact": "Per questo tutto il cielo sembra girare attorno a quel punto."
+        },
+        "pt": {
+          "prompt": "Em que constelação fica a estrela polar?",
+          "answer": "A Ursa Menor",
+          "wrong": [
+            "A Ursa Maior",
+            "Orion",
+            "Cassiopeia"
+          ],
+          "hint": "A sua grande homónima aponta-lhe.",
+          "explanation": "A estrela polar fica na constelação da Ursa Menor.",
+          "fact": "Por isso todo o céu parece girar à volta desse ponto."
+        },
+        "da": {
+          "prompt": "I hvilket stjernebillede står Nordstjernen?",
+          "answer": "Lille Bjørn",
+          "wrong": [
+            "Karlsvognen",
+            "Orion",
+            "Cassiopeia"
+          ],
+          "hint": "Dens store navnefælle peger på den.",
+          "explanation": "Nordstjernen står i stjernebilledet Lille Bjørn.",
+          "fact": "Derfor ser hele himlen ud til at dreje om det punkt."
+        },
+        "ru": {
+          "prompt": "В каком созвездии находится Полярная звезда?",
+          "answer": "Малая Медведица",
+          "wrong": [
+            "Большая Медведица",
+            "Орион",
+            "Кассиопея"
+          ],
+          "hint": "Её большая тёзка указывает на неё.",
+          "explanation": "Полярная звезда находится в созвездии Малой Медведицы.",
+          "fact": "Поэтому кажется, что всё небо вращается вокруг этой точки."
+        },
+        "ar": {
+          "prompt": "في أي كوكبة يقع نجم الشمال؟",
+          "answer": "الدب الأصغر",
+          "wrong": [
+            "الدب الأكبر",
+            "الجبار",
+            "ذات الكرسي"
+          ],
+          "hint": "سميّه الكبير يشير إليه.",
+          "explanation": "نجم الشمال يقع في كوكبة الدب الأصغر.",
+          "fact": "لذلك تبدو السماء كلها تدور حول تلك النقطة."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — binary star systems",
+      "artBrief": "Twee sterren die dicht om elkaar heen draaien, met een spiraal van licht tussen hen in.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet een paar sterren dat om elkaar heen draait?",
+          "answer": "Een dubbelster",
+          "wrong": [
+            "Een sterrenstelsel",
+            "Een nevel",
+            "Een planetenstelsel"
+          ],
+          "hint": "Twee in plaats van één.",
+          "explanation": "Twee sterren die om elkaar draaien heten samen een dubbelster.",
+          "fact": "Meer dan de helft van alle sterren heeft zo'n partner."
+        },
+        "en": {
+          "prompt": "What is a pair of stars circling each other called?",
+          "answer": "A double star",
+          "wrong": [
+            "A galaxy",
+            "A nebula",
+            "A planet system"
+          ],
+          "hint": "Two instead of one.",
+          "explanation": "Two stars going round each other are called a double star.",
+          "fact": "More than half of all stars have a partner like that."
+        },
+        "de": {
+          "prompt": "Wie heißt ein Sternenpaar, das umeinander kreist?",
+          "answer": "Ein Doppelstern",
+          "wrong": [
+            "Eine Galaxie",
+            "Ein Nebel",
+            "Ein Planetensystem"
+          ],
+          "hint": "Zwei statt einer.",
+          "explanation": "Zwei Sterne, die umeinander kreisen, heißen zusammen Doppelstern.",
+          "fact": "Mehr als die Hälfte aller Sterne hat so einen Partner."
+        },
+        "fr": {
+          "prompt": "Comment appelle-t-on deux étoiles qui tournent ensemble ?",
+          "answer": "Une étoile double",
+          "wrong": [
+            "Une galaxie",
+            "Une nébuleuse",
+            "Un système planétaire"
+          ],
+          "hint": "Deux au lieu d'une.",
+          "explanation": "Deux étoiles qui tournent l'une autour de l'autre forment une étoile double.",
+          "fact": "Plus de la moitié des étoiles ont une compagne."
+        },
+        "es": {
+          "prompt": "¿Cómo se llaman dos estrellas que giran juntas?",
+          "answer": "Una estrella doble",
+          "wrong": [
+            "Una galaxia",
+            "Una nebulosa",
+            "Un sistema planetario"
+          ],
+          "hint": "Dos en vez de una.",
+          "explanation": "Dos estrellas que giran una en torno a otra son una estrella doble.",
+          "fact": "Más de la mitad de las estrellas tienen pareja."
+        },
+        "it": {
+          "prompt": "Come si chiamano due stelle che girano insieme?",
+          "answer": "Una stella doppia",
+          "wrong": [
+            "Una galassia",
+            "Una nebulosa",
+            "Un sistema planetario"
+          ],
+          "hint": "Due invece di una.",
+          "explanation": "Due stelle che girano l'una attorno all'altra sono una stella doppia.",
+          "fact": "Più della metà delle stelle ha una compagna."
+        },
+        "pt": {
+          "prompt": "Como se chamam duas estrelas que giram juntas?",
+          "answer": "Uma estrela dupla",
+          "wrong": [
+            "Uma galáxia",
+            "Uma nebulosa",
+            "Um sistema planetário"
+          ],
+          "hint": "Duas em vez de uma.",
+          "explanation": "Duas estrelas que giram uma à volta da outra são uma estrela dupla.",
+          "fact": "Mais de metade das estrelas tem companheira."
+        },
+        "da": {
+          "prompt": "Hvad hedder to stjerner, der kredser om hinanden?",
+          "answer": "En dobbeltstjerne",
+          "wrong": [
+            "En galakse",
+            "En tåge",
+            "Et planetsystem"
+          ],
+          "hint": "To i stedet for én.",
+          "explanation": "To stjerner, der kredser om hinanden, kaldes en dobbeltstjerne.",
+          "fact": "Mere end halvdelen af alle stjerner har sådan en makker."
+        },
+        "ru": {
+          "prompt": "Как называют две звезды, которые кружат друг вокруг друга?",
+          "answer": "Двойная звезда",
+          "wrong": [
+            "Галактика",
+            "Туманность",
+            "Планетная система"
+          ],
+          "hint": "Две вместо одной.",
+          "explanation": "Две звезды, кружащие друг вокруг друга, называют двойной звездой.",
+          "fact": "Больше половины звёзд имеют такую пару."
+        },
+        "ar": {
+          "prompt": "ماذا نسمي نجمين يدوران حول بعضهما؟",
+          "answer": "نجم مزدوج",
+          "wrong": [
+            "مجرة",
+            "سديم",
+            "نظام كوكبي"
+          ],
+          "hint": "اثنان بدل واحد.",
+          "explanation": "النجمان اللذان يدوران حول بعضهما يسميان نجمًا مزدوجًا.",
+          "fact": "أكثر من نصف النجوم لها رفيق كهذا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — Betelgeuse",
+      "artBrief": "Een enorme roodoranje ster die de rest van het beeld klein maakt, met kleine sterren eromheen.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet de grote rode ster in Orion?",
+          "answer": "Betelgeuze",
+          "wrong": [
+            "Sirius",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Hij staat op de schouder van de jager.",
+          "explanation": "Betelgeuze is de rode reuzenster in de schouder van Orion.",
+          "fact": "Hij is zo groot dat hij tot aan Jupiter zou reiken."
+        },
+        "en": {
+          "prompt": "What is the big red star in Orion called?",
+          "answer": "Betelgeuse",
+          "wrong": [
+            "Sirius",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "It sits on the hunter's shoulder.",
+          "explanation": "Betelgeuse is the red giant star in Orion's shoulder.",
+          "fact": "It is so big that it would reach out to Jupiter."
+        },
+        "de": {
+          "prompt": "Wie heißt der große rote Stern im Orion?",
+          "answer": "Beteigeuze",
+          "wrong": [
+            "Sirius",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Er sitzt auf der Schulter des Jägers.",
+          "explanation": "Beteigeuze ist der rote Riesenstern in der Schulter des Orion.",
+          "fact": "Er ist so groß, dass er bis zum Jupiter reichen würde."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle la grande étoile rouge d'Orion ?",
+          "answer": "Bételgeuse",
+          "wrong": [
+            "Sirius",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Elle est sur l'épaule du chasseur.",
+          "explanation": "Bételgeuse est la géante rouge de l'épaule d'Orion.",
+          "fact": "Elle est si grande qu'elle atteindrait Jupiter."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama la gran estrella roja de Orión?",
+          "answer": "Betelgeuse",
+          "wrong": [
+            "Sirio",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Está en el hombro del cazador.",
+          "explanation": "Betelgeuse es la gigante roja del hombro de Orión.",
+          "fact": "Es tan grande que llegaría hasta Júpiter."
+        },
+        "it": {
+          "prompt": "Come si chiama la grande stella rossa di Orione?",
+          "answer": "Betelgeuse",
+          "wrong": [
+            "Sirio",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Sta sulla spalla del cacciatore.",
+          "explanation": "Betelgeuse è la gigante rossa nella spalla di Orione.",
+          "fact": "È così grande che arriverebbe fino a Giove."
+        },
+        "pt": {
+          "prompt": "Como se chama a grande estrela vermelha de Orion?",
+          "answer": "Betelgeuse",
+          "wrong": [
+            "Sírio",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Fica no ombro do caçador.",
+          "explanation": "Betelgeuse é a gigante vermelha no ombro de Orion.",
+          "fact": "É tão grande que chegaria a Júpiter."
+        },
+        "da": {
+          "prompt": "Hvad hedder den store røde stjerne i Orion?",
+          "answer": "Betelgeuse",
+          "wrong": [
+            "Sirius",
+            "Rigel",
+            "Polaris"
+          ],
+          "hint": "Den sidder på jægerens skulder.",
+          "explanation": "Betelgeuse er den røde kæmpestjerne i Orions skulder.",
+          "fact": "Den er så stor, at den ville nå ud til Jupiter."
+        },
+        "ru": {
+          "prompt": "Как называется большая красная звезда в Орионе?",
+          "answer": "Бетельгейзе",
+          "wrong": [
+            "Сириус",
+            "Ригель",
+            "Полярная"
+          ],
+          "hint": "Она на плече охотника.",
+          "explanation": "Бетельгейзе — красный гигант в плече Ориона.",
+          "fact": "Она такая большая, что дотянулась бы до Юпитера."
+        },
+        "ar": {
+          "prompt": "ما اسم النجم الأحمر الكبير في الجبار؟",
+          "answer": "منكب الجوزاء",
+          "wrong": [
+            "الشعرى اليمانية",
+            "رجل الجبار",
+            "الجدي"
+          ],
+          "hint": "يقع على كتف الصياد.",
+          "explanation": "منكب الجوزاء نجم عملاق أحمر في كتف الجبار.",
+          "fact": "حجمه كبير حتى إنه يصل إلى مدار المشتري."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "ESA Kids — seasons and the night sky",
+      "artBrief": "De aarde op vier plekken in haar baan om de zon, met telkens een andere sterrenhemel aan de buitenkant.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zie je in de winter andere sterrenbeelden?",
+          "answer": "De aarde draait om de zon",
+          "wrong": [
+            "De sterren verhuizen",
+            "De maan schuift ze weg",
+            "Het is te koud"
+          ],
+          "hint": "Je kijkt elk seizoen een andere kant op.",
+          "explanation": "Doordat de aarde om de zon draait, kijk je elk seizoen een andere kant op.",
+          "fact": "Orion hoort bij de winter, de Zomerdriehoek bij de zomer."
+        },
+        "en": {
+          "prompt": "Why do you see other constellations in winter?",
+          "answer": "The earth circles the sun",
+          "wrong": [
+            "The stars move house",
+            "The moon pushes them away",
+            "It is too cold"
+          ],
+          "hint": "Each season you look a different way.",
+          "explanation": "Because the earth goes round the sun, each season you face another way.",
+          "fact": "Orion belongs to winter, the Summer Triangle to summer."
+        },
+        "de": {
+          "prompt": "Warum siehst du im Winter andere Sternbilder?",
+          "answer": "Die Erde kreist um die Sonne",
+          "wrong": [
+            "Die Sterne ziehen um",
+            "Der Mond schiebt sie weg",
+            "Es ist zu kalt"
+          ],
+          "hint": "Jede Jahreszeit schaust du woanders hin.",
+          "explanation": "Weil die Erde um die Sonne läuft, blickst du jede Jahreszeit anders.",
+          "fact": "Orion gehört zum Winter, das Sommerdreieck zum Sommer."
+        },
+        "fr": {
+          "prompt": "Pourquoi voit-on d'autres constellations en hiver ?",
+          "answer": "La Terre change de place",
+          "wrong": [
+            "Les étoiles déménagent",
+            "La Lune les pousse",
+            "Il fait trop froid"
+          ],
+          "hint": "Chaque saison tu regardes ailleurs.",
+          "explanation": "Comme la Terre tourne autour du Soleil, chaque saison on regarde ailleurs.",
+          "fact": "Orion est d'hiver, le Triangle d'été est d'été."
+        },
+        "es": {
+          "prompt": "¿Por qué en invierno ves otras constelaciones?",
+          "answer": "La Tierra cambia de sitio",
+          "wrong": [
+            "Las estrellas se mudan",
+            "La Luna las aparta",
+            "Hace demasiado frío"
+          ],
+          "hint": "Cada estación miras hacia otro lado.",
+          "explanation": "Como la Tierra gira en torno al Sol, cada estación miras a otro lado.",
+          "fact": "Orión es de invierno y el Triángulo de Verano es de verano."
+        },
+        "it": {
+          "prompt": "Perché d'inverno vedi altre costellazioni?",
+          "answer": "La Terra cambia posto",
+          "wrong": [
+            "Le stelle trasIocano",
+            "La Luna le sposta",
+            "Fa troppo freddo"
+          ],
+          "hint": "Ogni stagione guardi da un'altra parte.",
+          "explanation": "Siccome la Terra gira attorno al Sole, ogni stagione guardi altrove.",
+          "fact": "Orione è d'inverno, il Triangolo Estivo è d'estate."
+        },
+        "pt": {
+          "prompt": "Porque vês outras constelações no inverno?",
+          "answer": "A Terra muda de sítio",
+          "wrong": [
+            "As estrelas mudam-se",
+            "A Lua afasta-as",
+            "Está frio de mais"
+          ],
+          "hint": "Em cada estação olhas para outro lado.",
+          "explanation": "Como a Terra gira à volta do Sol, em cada estação olhas para outro lado.",
+          "fact": "Orion é do inverno e o Triângulo de Verão é do verão."
+        },
+        "da": {
+          "prompt": "Hvorfor ser du andre stjernebilleder om vinteren?",
+          "answer": "Jorden flytter sig",
+          "wrong": [
+            "Stjernerne flytter",
+            "Månen skubber dem væk",
+            "Det er for koldt"
+          ],
+          "hint": "Hver årstid kigger du en anden vej.",
+          "explanation": "Fordi Jorden går rundt om Solen, kigger du ud ad en anden vej.",
+          "fact": "Orion hører til vinteren, Sommertrekanten til sommeren."
+        },
+        "ru": {
+          "prompt": "Почему зимой видны другие созвездия?",
+          "answer": "Земля меняет место",
+          "wrong": [
+            "Звёзды переезжают",
+            "Луна их отодвигает",
+            "Слишком холодно"
+          ],
+          "hint": "В каждый сезон смотришь в другую сторону.",
+          "explanation": "Земля обходит Солнце, и каждый сезон мы смотрим в другую сторону.",
+          "fact": "Орион — зимний, а Летний треугольник — летний."
+        },
+        "ar": {
+          "prompt": "لماذا ترى كوكبات أخرى في الشتاء؟",
+          "answer": "الأرض تغير موضعها",
+          "wrong": [
+            "النجوم تنتقل",
+            "القمر يزيحها",
+            "الجو شديد البرودة"
+          ],
+          "hint": "في كل فصل تنظر إلى جهة أخرى.",
+          "explanation": "لأن الأرض تدور حول الشمس، ننظر في كل فصل إلى جهة أخرى.",
+          "fact": "الجبار للشتاء ومثلث الصيف للصيف."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — neutron stars",
+      "artBrief": "Een piepklein fel bolletje met stralenbundels aan twee kanten, midden in de resten van een explosie.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat blijft er over na een supernova?",
+          "answer": "Een neutronenster",
+          "wrong": [
+            "Een witte dwerg",
+            "Een rode reus",
+            "Een dubbelster"
+          ],
+          "hint": "Een bal zo groot als een stad.",
+          "explanation": "Na de explosie blijft vaak een piepkleine, loodzware neutronenster over.",
+          "fact": "Zo'n ster kan honderden keren per seconde ronddraaien."
+        },
+        "en": {
+          "prompt": "What is left after a supernova?",
+          "answer": "A neutron star",
+          "wrong": [
+            "A white dwarf",
+            "A red giant",
+            "A double star"
+          ],
+          "hint": "A ball the size of a city.",
+          "explanation": "After the blast a tiny, incredibly heavy neutron star often remains.",
+          "fact": "Such a star can spin hundreds of times a second."
+        },
+        "de": {
+          "prompt": "Was bleibt nach einer Supernova übrig?",
+          "answer": "Ein Neutronenstern",
+          "wrong": [
+            "Ein Weißer Zwerg",
+            "Ein Roter Riese",
+            "Ein Doppelstern"
+          ],
+          "hint": "Eine Kugel so groß wie eine Stadt.",
+          "explanation": "Nach der Explosion bleibt oft ein winziger, bleischwerer Neutronenstern.",
+          "fact": "So ein Stern dreht sich hunderte Male pro Sekunde."
+        },
+        "fr": {
+          "prompt": "Que reste-t-il après une supernova ?",
+          "answer": "Une étoile à neutrons",
+          "wrong": [
+            "Une naine blanche",
+            "Une géante rouge",
+            "Une étoile double"
+          ],
+          "hint": "Une boule de la taille d'une ville.",
+          "explanation": "Après l'explosion, il reste souvent une étoile à neutrons minuscule.",
+          "fact": "Une telle étoile peut tourner des centaines de fois par seconde."
+        },
+        "es": {
+          "prompt": "¿Qué queda después de una supernova?",
+          "answer": "Una estrella de neutrones",
+          "wrong": [
+            "Una enana blanca",
+            "Una gigante roja",
+            "Una estrella doble"
+          ],
+          "hint": "Una bola del tamaño de una ciudad.",
+          "explanation": "Tras la explosión suele quedar una diminuta estrella de neutrones.",
+          "fact": "Puede girar cientos de veces por segundo."
+        },
+        "it": {
+          "prompt": "Che cosa resta dopo una supernova?",
+          "answer": "Una stella di neutroni",
+          "wrong": [
+            "Una nana bianca",
+            "Una gigante rossa",
+            "Una stella doppia"
+          ],
+          "hint": "Una palla grande come una città.",
+          "explanation": "Dopo l'esplosione resta spesso una minuscola stella di neutroni.",
+          "fact": "Una stella così può girare centinaia di volte al secondo."
+        },
+        "pt": {
+          "prompt": "O que fica depois de uma supernova?",
+          "answer": "Uma estrela de neutrões",
+          "wrong": [
+            "Uma anã branca",
+            "Uma gigante vermelha",
+            "Uma estrela dupla"
+          ],
+          "hint": "Uma bola do tamanho de uma cidade.",
+          "explanation": "Depois da explosão fica muitas vezes uma minúscula estrela de neutrões.",
+          "fact": "Uma estrela dessas gira centenas de vezes por segundo."
+        },
+        "da": {
+          "prompt": "Hvad bliver tilbage efter en supernova?",
+          "answer": "En neutronstjerne",
+          "wrong": [
+            "En hvid dværg",
+            "En rød kæmpe",
+            "En dobbeltstjerne"
+          ],
+          "hint": "En kugle på størrelse med en by.",
+          "explanation": "Efter eksplosionen bliver der ofte en bitte tung neutronstjerne.",
+          "fact": "Sådan en stjerne kan dreje hundredvis af gange i sekundet."
+        },
+        "ru": {
+          "prompt": "Что остаётся после вспышки сверхновой?",
+          "answer": "Нейтронная звезда",
+          "wrong": [
+            "Белый карлик",
+            "Красный гигант",
+            "Двойная звезда"
+          ],
+          "hint": "Шар размером с город.",
+          "explanation": "После взрыва часто остаётся крошечная тяжёлая нейтронная звезда.",
+          "fact": "Такая звезда может вращаться сотни раз в секунду."
+        },
+        "ar": {
+          "prompt": "ماذا يبقى بعد انفجار سوبرنوفا؟",
+          "answer": "نجم نيوتروني",
+          "wrong": [
+            "قزم أبيض",
+            "عملاق أحمر",
+            "نجم مزدوج"
+          ],
+          "hint": "كرة بحجم مدينة.",
+          "explanation": "بعد الانفجار يبقى غالبًا نجم نيوتروني صغير وثقيل جدًا.",
+          "fact": "قد يدور هذا النجم مئات المرات في الثانية."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "ESA Gaia mission — stellar census",
+      "artBrief": "De Melkweg van bovenaf gezien als een spiraal van ontelbare sterren.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel sterren staan er ongeveer in de Melkweg?",
+          "answer": "Honderden miljarden",
+          "wrong": [
+            "Ongeveer duizend",
+            "Ongeveer een miljoen",
+            "Precies acht"
+          ],
+          "hint": "Meer dan er mensen op aarde zijn.",
+          "explanation": "De Melkweg bevat naar schatting honderden miljarden sterren.",
+          "fact": "En er zijn nog eens miljarden andere sterrenstelsels."
+        },
+        "en": {
+          "prompt": "About how many stars are there in the Milky Way?",
+          "answer": "Hundreds of billions",
+          "wrong": [
+            "About a thousand",
+            "About a million",
+            "Exactly eight"
+          ],
+          "hint": "More than there are people on earth.",
+          "explanation": "The Milky Way is thought to hold hundreds of billions of stars.",
+          "fact": "And there are billions of other galaxies besides."
+        },
+        "de": {
+          "prompt": "Wie viele Sterne stehen ungefähr in der Milchstraße?",
+          "answer": "Hunderte Milliarden",
+          "wrong": [
+            "Ungefähr tausend",
+            "Ungefähr eine Million",
+            "Genau acht"
+          ],
+          "hint": "Mehr als es Menschen auf der Erde gibt.",
+          "explanation": "Die Milchstraße enthält schätzungsweise hunderte Milliarden Sterne.",
+          "fact": "Und es gibt noch Milliarden andere Galaxien."
+        },
+        "fr": {
+          "prompt": "Combien d'étoiles compte à peu près la Voie lactée ?",
+          "answer": "Des centaines de milliards",
+          "wrong": [
+            "Environ mille",
+            "Environ un million",
+            "Exactement huit"
+          ],
+          "hint": "Plus que d'habitants sur Terre.",
+          "explanation": "On estime que la Voie lactée contient des centaines de milliards d'étoiles.",
+          "fact": "Et il existe encore des milliards d'autres galaxies."
+        },
+        "es": {
+          "prompt": "¿Cuántas estrellas hay más o menos en la Vía Láctea?",
+          "answer": "Cientos de miles de millones",
+          "wrong": [
+            "Unas mil",
+            "Alrededor de un millón",
+            "Exactamente ocho"
+          ],
+          "hint": "Más que personas hay en la Tierra.",
+          "explanation": "Se calcula que la Vía Láctea tiene cientos de miles de millones.",
+          "fact": "Y hay miles de millones de galaxias más."
+        },
+        "it": {
+          "prompt": "Quante stelle ci sono circa nella Via Lattea?",
+          "answer": "Centinaia di miliardi",
+          "wrong": [
+            "Circa mille",
+            "Circa un milione",
+            "Esattamente otto"
+          ],
+          "hint": "Più di quante persone ci sono sulla Terra.",
+          "explanation": "Si stima che la Via Lattea contenga centinaia di miliardi di stelle.",
+          "fact": "E ci sono altri miliardi di galassie."
+        },
+        "pt": {
+          "prompt": "Quantas estrelas há mais ou menos na Via Láctea?",
+          "answer": "Centenas de mil milhões",
+          "wrong": [
+            "Cerca de mil",
+            "Cerca de um milhão",
+            "Exatamente oito"
+          ],
+          "hint": "Mais do que pessoas na Terra.",
+          "explanation": "Calcula-se que a Via Láctea tenha centenas de milhares de milhões.",
+          "fact": "E há mais milhares de milhões de galáxias."
+        },
+        "da": {
+          "prompt": "Hvor mange stjerner er der cirka i Mælkevejen?",
+          "answer": "Hundredvis af milliarder",
+          "wrong": [
+            "Omkring tusind",
+            "Omkring en million",
+            "Præcis otte"
+          ],
+          "hint": "Flere end der er mennesker på Jorden.",
+          "explanation": "Mælkevejen menes at rumme hundredvis af milliarder stjerner.",
+          "fact": "Og der findes milliarder af andre galakser."
+        },
+        "ru": {
+          "prompt": "Сколько примерно звёзд в Млечном Пути?",
+          "answer": "Сотни миллиардов",
+          "wrong": [
+            "Около тысячи",
+            "Около миллиона",
+            "Ровно восемь"
+          ],
+          "hint": "Больше, чем людей на Земле.",
+          "explanation": "Считается, что в Млечном Пути сотни миллиардов звёзд.",
+          "fact": "А ещё есть миллиарды других галактик."
+        },
+        "ar": {
+          "prompt": "كم نجمًا في درب التبانة تقريبًا؟",
+          "answer": "مئات المليارات",
+          "wrong": [
+            "نحو ألف",
+            "نحو مليون",
+            "ثمانية بالضبط"
+          ],
+          "hint": "أكثر من عدد الناس على الأرض.",
+          "explanation": "يُقدَّر أن في درب التبانة مئات المليارات من النجوم.",
+          "fact": "وهناك مليارات أخرى من المجرات."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Hubble's law and the expanding universe",
+      "artBrief": "Een ver sterrenstelsel waarvan het licht onderweg naar de kijker langzaam roder wordt.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met het licht van een verre melkweg?",
+          "answer": "Het wordt roder",
+          "wrong": [
+            "Het wordt blauwer",
+            "Het verdwijnt",
+            "Het gaat sneller"
+          ],
+          "hint": "Het heelal rekt onderweg uit.",
+          "explanation": "Doordat het heelal uitdijt, rekt het licht op en wordt het roder.",
+          "fact": "Daaraan zagen sterrenkundigen dat het heelal groter wordt."
+        },
+        "en": {
+          "prompt": "What happens to the light from a far-off galaxy?",
+          "answer": "It turns redder",
+          "wrong": [
+            "It turns bluer",
+            "It vanishes",
+            "It speeds up"
+          ],
+          "hint": "The universe stretches on the way.",
+          "explanation": "Because the universe expands, the light stretches and turns redder.",
+          "fact": "That is how astronomers saw that the universe is growing."
+        },
+        "de": {
+          "prompt": "Was passiert mit dem Licht einer fernen Galaxie?",
+          "answer": "Es wird röter",
+          "wrong": [
+            "Es wird blauer",
+            "Es verschwindet",
+            "Es wird schneller"
+          ],
+          "hint": "Das Weltall dehnt sich unterwegs.",
+          "explanation": "Weil sich das Weltall ausdehnt, wird das Licht gedehnt und röter.",
+          "fact": "Daran sahen Astronomen, dass das Weltall größer wird."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à la lumière d'une galaxie lointaine ?",
+          "answer": "Elle rougit",
+          "wrong": [
+            "Elle bleuit",
+            "Elle disparaît",
+            "Elle accélère"
+          ],
+          "hint": "L'univers s'étire en chemin.",
+          "explanation": "Comme l'univers s'étend, la lumière s'étire et devient plus rouge.",
+          "fact": "C'est ainsi que les astronomes ont vu que l'univers grandit."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa a la luz de una galaxia lejana?",
+          "answer": "Se vuelve más roja",
+          "wrong": [
+            "Se vuelve más azul",
+            "Desaparece",
+            "Va más rápido"
+          ],
+          "hint": "El universo se estira por el camino.",
+          "explanation": "Como el universo se expande, la luz se estira y se vuelve más roja.",
+          "fact": "Así vieron los astrónomos que el universo crece."
+        },
+        "it": {
+          "prompt": "Che cosa succede alla luce di una galassia lontana?",
+          "answer": "Diventa più rossa",
+          "wrong": [
+            "Diventa più blu",
+            "Sparisce",
+            "Va più veloce"
+          ],
+          "hint": "L'universo si allunga per strada.",
+          "explanation": "Poiché l'universo si espande, la luce si allunga e diventa più rossa.",
+          "fact": "Così gli astronomi hanno visto che l'universo cresce."
+        },
+        "pt": {
+          "prompt": "O que acontece à luz de uma galáxia distante?",
+          "answer": "Fica mais vermelha",
+          "wrong": [
+            "Fica mais azul",
+            "Desaparece",
+            "Vai mais depressa"
+          ],
+          "hint": "O universo estica-se pelo caminho.",
+          "explanation": "Como o universo se expande, a luz estica e fica mais vermelha.",
+          "fact": "Foi assim que os astrónomos viram que o universo cresce."
+        },
+        "da": {
+          "prompt": "Hvad sker der med lyset fra en fjern galakse?",
+          "answer": "Det bliver rødere",
+          "wrong": [
+            "Det bliver blåere",
+            "Det forsvinder",
+            "Det bliver hurtigere"
+          ],
+          "hint": "Universet strækker sig undervejs.",
+          "explanation": "Fordi universet udvider sig, strækkes lyset og bliver rødere.",
+          "fact": "Sådan så astronomerne, at universet vokser."
+        },
+        "ru": {
+          "prompt": "Что происходит со светом далёкой галактики?",
+          "answer": "Он краснеет",
+          "wrong": [
+            "Он синеет",
+            "Он исчезает",
+            "Он ускоряется"
+          ],
+          "hint": "Вселенная по пути растягивается.",
+          "explanation": "Вселенная расширяется, свет растягивается и становится краснее.",
+          "fact": "Так астрономы поняли, что Вселенная растёт."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لضوء مجرة بعيدة؟",
+          "answer": "يصير أكثر احمرارًا",
+          "wrong": [
+            "يصير أكثر زرقة",
+            "يختفي",
+            "يصير أسرع"
+          ],
+          "hint": "الكون يتمدد في الطريق.",
+          "explanation": "بما أن الكون يتمدد، يتمدد الضوء ويصير أكثر احمرارًا.",
+          "fact": "بهذا عرف الفلكيون أن الكون يكبر."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — Proxima Centauri",
+      "artBrief": "Een kleine rode ster alleen in het donker, met de zon als heldere stip ver weg.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Welke ster is onze naaste buur na de zon?",
+          "answer": "Proxima Centauri",
+          "wrong": [
+            "Sirius",
+            "Betelgeuze",
+            "De Poolster"
+          ],
+          "hint": "Hij hoort bij het sterrenbeeld Centaurus.",
+          "explanation": "Proxima Centauri staat na de zon het dichtst bij ons.",
+          "fact": "Zijn licht doet er ruim vier jaar over om hier te komen."
+        },
+        "en": {
+          "prompt": "Which star is our closest neighbour after the sun?",
+          "answer": "Proxima Centauri",
+          "wrong": [
+            "Sirius",
+            "Betelgeuse",
+            "The North Star"
+          ],
+          "hint": "It belongs to the constellation Centaurus.",
+          "explanation": "Proxima Centauri is the closest star to us after the sun.",
+          "fact": "Its light takes more than four years to reach us."
+        },
+        "de": {
+          "prompt": "Welcher Stern ist nach der Sonne unser nächster Nachbar?",
+          "answer": "Proxima Centauri",
+          "wrong": [
+            "Sirius",
+            "Beteigeuze",
+            "Der Polarstern"
+          ],
+          "hint": "Er gehört zum Sternbild Zentaur.",
+          "explanation": "Proxima Centauri ist nach der Sonne der nächste Stern.",
+          "fact": "Sein Licht braucht über vier Jahre bis zu uns."
+        },
+        "fr": {
+          "prompt": "Quelle étoile est notre plus proche voisine après le Soleil ?",
+          "answer": "Proxima du Centaure",
+          "wrong": [
+            "Sirius",
+            "Bételgeuse",
+            "L'étoile polaire"
+          ],
+          "hint": "Elle appartient à la constellation du Centaure.",
+          "explanation": "Proxima du Centaure est l'étoile la plus proche après le Soleil.",
+          "fact": "Sa lumière met plus de quatre ans à nous parvenir."
+        },
+        "es": {
+          "prompt": "¿Qué estrella es nuestra vecina más cercana tras el Sol?",
+          "answer": "Próxima Centauri",
+          "wrong": [
+            "Sirio",
+            "Betelgeuse",
+            "La estrella polar"
+          ],
+          "hint": "Pertenece a la constelación de Centauro.",
+          "explanation": "Próxima Centauri es la estrella más cercana después del Sol.",
+          "fact": "Su luz tarda más de cuatro años en llegar."
+        },
+        "it": {
+          "prompt": "Quale stella è la nostra vicina più prossima dopo il Sole?",
+          "answer": "Proxima Centauri",
+          "wrong": [
+            "Sirio",
+            "Betelgeuse",
+            "La stella polare"
+          ],
+          "hint": "Appartiene alla costellazione del Centauro.",
+          "explanation": "Proxima Centauri è la stella più vicina dopo il Sole.",
+          "fact": "La sua luce arriva qui in poco più di quattro anni."
+        },
+        "pt": {
+          "prompt": "Que estrela é a nossa vizinha mais próxima depois do Sol?",
+          "answer": "Próxima Centauri",
+          "wrong": [
+            "Sírio",
+            "Betelgeuse",
+            "A estrela polar"
+          ],
+          "hint": "Pertence à constelação do Centauro.",
+          "explanation": "Próxima Centauri é a estrela mais próxima depois do Sol.",
+          "fact": "A sua luz leva mais de quatro anos a chegar aqui."
+        },
+        "da": {
+          "prompt": "Hvilken stjerne er vores nærmeste nabo efter Solen?",
+          "answer": "Proxima Centauri",
+          "wrong": [
+            "Sirius",
+            "Betelgeuse",
+            "Nordstjernen"
+          ],
+          "hint": "Den hører til stjernebilledet Kentauren.",
+          "explanation": "Proxima Centauri er den nærmeste stjerne efter Solen.",
+          "fact": "Dens lys er mere end fire år om at nå hertil."
+        },
+        "ru": {
+          "prompt": "Какая звезда — наш ближайший сосед после Солнца?",
+          "answer": "Проксима Центавра",
+          "wrong": [
+            "Сириус",
+            "Бетельгейзе",
+            "Полярная звезда"
+          ],
+          "hint": "Она относится к созвездию Центавра.",
+          "explanation": "Проксима Центавра — ближайшая к нам звезда после Солнца.",
+          "fact": "Её свет идёт до нас больше четырёх лет."
+        },
+        "ar": {
+          "prompt": "أي نجم هو أقرب جار لنا بعد الشمس؟",
+          "answer": "بروكسيما سنتوري",
+          "wrong": [
+            "الشعرى اليمانية",
+            "منكب الجوزاء",
+            "نجم الشمال"
+          ],
+          "hint": "ينتمي إلى كوكبة القنطور.",
+          "explanation": "بروكسيما سنتوري أقرب نجم إلينا بعد الشمس.",
+          "fact": "يحتاج ضوءه أكثر من أربع سنوات ليصل إلينا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-sterren_planeten-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — sunspots",
+      "artBrief": "Het oppervlak van de zon van dichtbij, kokend geel met een paar donkere vlekken erin.",
+      "art": "own",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een zonnevlek?",
+          "answer": "Een koelere plek op de zon",
+          "wrong": [
+            "Een gat in de zon",
+            "Een wolk voor de zon",
+            "Een donkere planeet"
+          ],
+          "hint": "Hij ziet er donker uit, maar is nog altijd heet.",
+          "explanation": "Een zonnevlek is een gebied dat koeler is dan de rest van de zon.",
+          "fact": "Sommige zonnevlekken zijn groter dan de aarde."
+        },
+        "en": {
+          "prompt": "What is a sunspot?",
+          "answer": "A cooler patch on the sun",
+          "wrong": [
+            "A hole in the sun",
+            "A cloud in front of it",
+            "A dark planet"
+          ],
+          "hint": "It looks dark but is still scorching.",
+          "explanation": "A sunspot is an area that is cooler than the rest of the sun.",
+          "fact": "Some sunspots are bigger than the earth."
+        },
+        "de": {
+          "prompt": "Was ist ein Sonnenfleck?",
+          "answer": "Eine kühlere Stelle",
+          "wrong": [
+            "Ein Loch in der Sonne",
+            "Eine Wolke davor",
+            "Ein dunkler Planet"
+          ],
+          "hint": "Er sieht dunkel aus, ist aber immer noch heiß.",
+          "explanation": "Ein Sonnenfleck ist ein Gebiet, das kühler ist als der Rest der Sonne.",
+          "fact": "Manche Sonnenflecken sind größer als die Erde."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une tache solaire ?",
+          "answer": "Un endroit plus froid",
+          "wrong": [
+            "Un trou dans le Soleil",
+            "Un nuage devant",
+            "Une planète sombre"
+          ],
+          "hint": "Elle paraît sombre mais reste brûlante.",
+          "explanation": "Une tache solaire est une zone plus froide que le reste du Soleil.",
+          "fact": "Certaines taches sont plus grandes que la Terre."
+        },
+        "es": {
+          "prompt": "¿Qué es una mancha solar?",
+          "answer": "Una zona más fría",
+          "wrong": [
+            "Un agujero en el Sol",
+            "Una nube delante",
+            "Un planeta oscuro"
+          ],
+          "hint": "Parece oscura pero sigue ardiendo.",
+          "explanation": "Una mancha solar es una zona más fría que el resto del Sol.",
+          "fact": "Algunas manchas son más grandes que la Tierra."
+        },
+        "it": {
+          "prompt": "Che cos'è una macchia solare?",
+          "answer": "Una zona più fredda",
+          "wrong": [
+            "Un buco nel Sole",
+            "Una nuvola davanti",
+            "Un pianeta scuro"
+          ],
+          "hint": "Sembra scura ma è ancora rovente.",
+          "explanation": "Una macchia solare è una zona più fredda del resto del Sole.",
+          "fact": "Certe macchie sono più grandi della Terra."
+        },
+        "pt": {
+          "prompt": "O que é uma mancha solar?",
+          "answer": "Uma zona mais fria",
+          "wrong": [
+            "Um buraco no Sol",
+            "Uma nuvem à frente",
+            "Um planeta escuro"
+          ],
+          "hint": "Parece escura mas continua a arder.",
+          "explanation": "Uma mancha solar é uma zona mais fria do que o resto do Sol.",
+          "fact": "Algumas manchas são maiores do que a Terra."
+        },
+        "da": {
+          "prompt": "Hvad er en solplet?",
+          "answer": "Et køligere sted",
+          "wrong": [
+            "Et hul i Solen",
+            "En sky foran",
+            "En mørk planet"
+          ],
+          "hint": "Den ser mørk ud, men er stadig glohed.",
+          "explanation": "En solplet er et område, der er køligere end resten af Solen.",
+          "fact": "Nogle solpletter er større end Jorden."
+        },
+        "ru": {
+          "prompt": "Что такое солнечное пятно?",
+          "answer": "Участок похолоднее",
+          "wrong": [
+            "Дыра в Солнце",
+            "Облако перед Солнцем",
+            "Тёмная планета"
+          ],
+          "hint": "Выглядит тёмным, но всё равно раскалён.",
+          "explanation": "Солнечное пятно — участок холоднее остальной поверхности Солнца.",
+          "fact": "Некоторые пятна больше Земли."
+        },
+        "ar": {
+          "prompt": "ما هي البقعة الشمسية؟",
+          "answer": "منطقة أبرد قليلًا",
+          "wrong": [
+            "ثقب في الشمس",
+            "سحابة أمامها",
+            "كوكب مظلم"
+          ],
+          "hint": "تبدو داكنة لكنها ما زالت ملتهبة.",
+          "explanation": "البقعة الشمسية منطقة أبرد من بقية سطح الشمس.",
+          "fact": "بعض البقع أكبر من الأرض."
+        }
+      }
+    }
+  ]
+}
