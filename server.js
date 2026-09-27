@@ -54,7 +54,7 @@ const RATE_WINDOW_MS = 60000;
 // so a quick child legitimately reaches 100+ requests a minute; cache hits are
 // refunded below and never count.
 const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 240);
-const LANGS = new Set(['nl','en','pt','de','es','fr','it','ru','da']);
+const LANGS = new Set(['nl','en','pt','de','es','fr','it','ru','da','ar']);
 const hits = new Map();
 
 // Production runs behind Caddy (deploy/Caddyfile), where every socket is
@@ -267,7 +267,11 @@ const LANG_RULES = {
   fr: langRuleFor('French','fr',{prefer:/^(standard|french|fr-fr|france)$/}),
   it: langRuleFor('Italian','it',{prefer:/^(standard|italian|it-it|italy)$/}),
   ru: langRuleFor('Russian','ru',{prefer:/^(standard|russian|ru-ru|russia)$/}),
-  da: langRuleFor('Danish','da',{prefer:/^(standard|danish|da-dk|denmark)$/})
+  da: langRuleFor('Danish','da',{prefer:/^(standard|danish|da-dk|denmark)$/}),
+  // Modern Standard Arabic, the variety the questions are written in. A strong
+  // regional dialect is pushed down rather than rejected, so the language is
+  // never left without a voice at all.
+  ar: langRuleFor('Modern Standard Arabic','ar',{prefer:/^(standard|modern standard|msa|arabic|ar-sa|ar-eg)$/})
 };
 const langRule = lang => LANG_RULES[lang] || LANG_RULES.nl;
 

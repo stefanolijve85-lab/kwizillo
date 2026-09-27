@@ -1581,7 +1581,8 @@
     {id:'it',label:'Italiano',flag:'🇮🇹'},
     {id:'pt',label:'Português (Brasil)',flag:'🇧🇷'},
     {id:'da',label:'Dansk',flag:'🇩🇰'},
-    {id:'ru',label:'Русский',flag:'🇷🇺'}
+    {id:'ru',label:'Русский',flag:'🇷🇺'},
+    {id:'ar',label:'العربية',flag:'🇸🇦',dir:'rtl'}
   ];
   K.LANGUAGES=CATALOGUE.filter(l=>STRINGS[l.id]);
 
@@ -1599,14 +1600,25 @@
     return s;
   };
 
+  // Arabic reads right to left, so the page does too: every row, every grid and
+  // every icon that points somewhere flips with it. One attribute on <html>
+  // decides it, the stylesheets follow (base.css, [dir="rtl"]).
+  const DIR=Object.fromEntries(CATALOGUE.map(l=>[l.id,l.dir||'ltr']));
+  K.dirFor=id=>DIR[id]||'ltr';
+  K.isRTL=()=>K.dirFor(lang())==='rtl';
+  function applyLanguage(){
+    const id=lang();
+    document.documentElement.lang=id;
+    document.documentElement.dir=K.dirFor(id);
+  }
   K.setLanguage=id=>{
     if(!STRINGS[id]||K.state.language===id) return false;
     K.state.language=id;
     K.save();
-    document.documentElement.lang=id;
+    applyLanguage();
     return true;
   };
 
   K.speechLang=()=>K.t('lang.speech');
-  document.documentElement.lang=lang();
+  applyLanguage();
 })();

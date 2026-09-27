@@ -212,7 +212,30 @@
     if(n<1000000){const k=Math.floor(n/1000),r=n%1000;return `${k===1?'et':daNumber(k)} tusind${r?' og '+daNumber(r):''}`}
     return String(n);
   }
-  const NUMBER_WORDS={nl:nlNumber,en:enNumber,pt:ptNumber,de:deNumber,es:esNumber,fr:frNumber,it:itNumber,ru:ruNumber,da:daNumber};
+  // Arabic counts units before tens ("واحد وعشرون"), has its own words for the
+  // hundreds, and a dual for two thousand. Read aloud, not written: the digits
+  // stay on screen.
+  const AR_ONES=['صفر','واحد','اثنان','ثلاثة','أربعة','خمسة','ستة','سبعة','ثمانية','تسعة','عشرة'];
+  const AR_TEENS=['','أحد عشر','اثنا عشر','ثلاثة عشر','أربعة عشر','خمسة عشر','ستة عشر','سبعة عشر','ثمانية عشر','تسعة عشر'];
+  const AR_TENS=['','','عشرون','ثلاثون','أربعون','خمسون','ستون','سبعون','ثمانون','تسعون'];
+  const AR_HUNDREDS=['','مئة','مئتان','ثلاثمئة','أربعمئة','خمسمئة','ستمئة','سبعمئة','ثمانمئة','تسعمئة'];
+  function arNumber(n){
+    if(n<=10) return AR_ONES[n];
+    if(n<20) return AR_TEENS[n-10];
+    if(n<100){const t=Math.floor(n/10),o=n%10;return o?`${AR_ONES[o]} و${AR_TENS[t]}`:AR_TENS[t]}
+    if(n<1000){const h=Math.floor(n/100),r=n%100;return AR_HUNDREDS[h]+(r?` و${arNumber(r)}`:'')}
+    if(n<1000000){
+      const k=Math.floor(n/1000),r=n%1000;
+      // 11 to 99 thousand take the accusative singular ("أحد عشر ألفًا"); from a
+      // hundred thousand on it is the plain singular ("مئة ألف").
+      const word=k===1?'ألف':k===2?'ألفان':k<=10?`${AR_ONES[k]} آلاف`:k<100?`${arNumber(k)} ألفًا`:`${arNumber(k)} ألف`;
+      return word+(r?` و${arNumber(r)}`:'');
+    }
+    const m=Math.floor(n/1000000),r=n%1000000;
+    const word=m===1?'مليون':m===2?'مليونان':m<=10?`${AR_ONES[m]} ملايين`:m<100?`${arNumber(m)} مليونًا`:`${arNumber(m)} مليون`;
+    return word+(r?` و${arNumber(r)}`:'');
+  }
+  const NUMBER_WORDS={nl:nlNumber,en:enNumber,pt:ptNumber,de:deNumber,es:esNumber,fr:frNumber,it:itNumber,ru:ruNumber,da:daNumber,ar:arNumber};
   const UNITS={
     pt:[[/\s*%/g,' por cento'],[/\bkm\/h\b/g,'quilômetros por hora'],[/\b1 km\b/g,'1 quilômetro'],[/\bkm\b/g,'quilômetros'],[/\s*°\s*C\b/g,' graus Celsius'],[/\b1 cm\b/g,'1 centímetro'],[/\bcm\b/g,'centímetros']],
     nl:[[/\s*%/g,' procent'],[/\bkm\/u\b/g,'kilometer per uur'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' graden Celsius'],[/\bcm\b/g,'centimeter']],
@@ -223,7 +246,8 @@
     fr:[[/\s*%/g,' pour cent'],[/\bkm\/h\b/g,'kilomètres par heure'],[/\b1 km\b/g,'1 kilomètre'],[/\bkm\b/g,'kilomètres'],[/\s*°\s*C\b/g,' degrés Celsius'],[/\b1 cm\b/g,'1 centimètre'],[/\bcm\b/g,'centimètres']],
     it:[[/\s*%/g,' per cento'],[/\bkm\/h\b/g,"chilometri all'ora"],[/\b1 km\b/g,'1 chilometro'],[/\bkm\b/g,'chilometri'],[/\s*°\s*C\b/g,' gradi Celsius'],[/\b1 cm\b/g,'1 centimetro'],[/\bcm\b/g,'centimetri']],
     ru:[[/\s*%/g,' процентов'],[/\bkm\/h\b/g,'километров в час'],[/\bkm\b/g,'километров'],[/\s*°\s*C\b/g,' градусов Цельсия'],[/\bcm\b/g,'сантиметров']],
-    da:[[/\s*%/g,' procent'],[/\bkm\/h\b/g,'kilometer i timen'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' grader celsius'],[/\bcm\b/g,'centimeter']]
+    da:[[/\s*%/g,' procent'],[/\bkm\/h\b/g,'kilometer i timen'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' grader celsius'],[/\bcm\b/g,'centimeter']],
+    ar:[[/\s*%/g,' بالمئة'],[/\bkm\/h\b/g,'كيلومترًا في الساعة'],[/\bkm\b/g,'كيلومتر'],[/\s*°\s*C\b/g,' درجة مئوية'],[/\bcm\b/g,'سنتيمتر']]
   };
   // Thousands and decimals are written the local way: "28.000" and "9,5" in
   // Dutch and Portuguese, "28,000" and "9.5" in English. A map scale "1:25.000"
@@ -238,7 +262,8 @@
     fr:{group:' ',decimal:',',point:' virgule ',ratio:' pour '},
     it:{group:'.',decimal:',',point:' virgola ',ratio:' a '},
     ru:{group:' ',decimal:',',point:' запятая ',ratio:' к '},
-    da:{group:'.',decimal:',',point:' komma ',ratio:' til '}
+    da:{group:'.',decimal:',',point:' komma ',ratio:' til '},
+    ar:{group:',',decimal:'.',point:' فاصلة ',ratio:' إلى '}
   };
   // Russian units agree with the number: 1 процент, 2 процента, 5 процентов.
   const ruForm=(n,one,few,many)=>{const m=n%100,u=n%10;return (m>=11&&m<=14)?many:u===1?one:(u>=2&&u<=4)?few:many};
@@ -265,7 +290,10 @@
     // Grouped thousands first ("28.000"), then decimals ("9,58" → "negen komma vijf acht").
     out=out.replace(new RegExp(`(?<![\\d.,])\\d{1,3}(?:${g}\\d{3})+(?![\\d.,]\\d)`,'g'),m=>toWords(Number(m.replace(/[.,\s\u00a0\u202f]/g,''))));
     out=out.replace(new RegExp(`(?<![\\d.,])(\\d{1,4})${d}(\\d+)(?![\\d.,]\\d)`,'g'),(m,a,b)=>toWords(Number(a))+style.point+[...b].map(ch=>toWords(Number(ch))).join(' '));
-    out=out.replace(/(?<![\d.,])\d{1,6}(?![\d.,]\d)/g,m=>toWords(Number(m)));
+    // Up to nine digits: a longer run used to be cut after six, which turned
+    // 1000000 into "a hundred thousand" followed by a stray zero. A language
+    // whose speller does not reach that far returns the digits unchanged.
+    out=out.replace(/(?<![\d.,])\d{1,9}(?![\d.,]\d)/g,m=>toWords(Number(m)));
     // Spanish drops the -o of uno before a noun: "veintiún grados", "treinta y un años".
     if(lang==='es') out=out.replace(/\b(veinti)?uno\b(?=\s+\p{L})/gu,(m,p)=>p?'veintiún':'un');
     return out;

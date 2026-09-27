@@ -1,9 +1,10 @@
 # Kwizillo
 
-A premium educational adventure game for primary-school children, in nine
-languages: Dutch, English, German, French, Spanish, Italian, Portuguese, Danish
-and Russian. Six themed worlds, 24 topics, 480 questions per language, XP, coins,
-collectible knowledge cards and mascots.
+A premium educational adventure game for primary-school children, in ten
+languages: Dutch, English, German, French, Spanish, Italian, Portuguese, Danish,
+Russian and Arabic — the last of which turns the whole game right to left. Six
+themed worlds, 24 topics, 480 questions per language, XP, coins, collectible
+knowledge cards and mascots.
 
 ## Running locally
 
@@ -87,6 +88,11 @@ A language is four files plus one line, and the tests check the rest:
    progress, cards and per-question artwork when the language changes.
 3. A block in `facts.js`, aligned with the Dutch one.
 4. An entry in the `CATALOGUE` in `i18n.js`, and the new files in `index.html`.
+   A language that reads right to left carries `dir:'rtl'` there; the layout
+   mirrors by itself, because it is built from grids, flex rows and logical
+   properties (`inset-inline-start`, `padding-inline-start`, `text-align:start`).
+   Only what points somewhere — a back arrow — is flipped by hand, in the
+   `[dir="rtl"]` block at the end of `screens.css`.
 
 The server picks a native Milo and Luna for the language on the first line it
 speaks; `LANG_RULES` in `server.js` says which accent that language prefers, and
