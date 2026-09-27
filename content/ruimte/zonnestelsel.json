@@ -1,0 +1,427 @@
+{
+  "world": "ruimte",
+  "topic": "zonnestelsel",
+  "note": "Bron van waarheid voor de nieuwe vragen van dit onderwerp. tools/content-build.cjs maakt hieruit de questions-more*.js die de app laadt; tools/content-lint.cjs kijkt mee en vergelijkt ook met de 20 vragen die al in questions.js en questions-extra.js staan (ids 01-20), zodat er niets dubbel wordt geschreven. Deze 20 zijn nieuw: vijf per moeilijkheid, zodat elk van de zes niveaus een volle quiz van tien kan neerzetten.",
+  "questions": [
+    {
+      "id": "ruimte-zonnestelsel-21",
+      "difficulty": 1,
+      "status": "draft",
+      "source": "NASA Science — Our Solar System overview",
+      "artBrief": "De zon groot in beeld, warm en vriendelijk, met kleine planeetjes die eromheen cirkelen. Geen tekst, geen namen.",
+      "text": {
+        "nl": {
+          "prompt": "Welke ster staat midden in ons zonnestelsel?",
+          "answer": "De zon",
+          "wrong": [
+            "De Poolster",
+            "Sirius",
+            "De maan"
+          ],
+          "hint": "Je ziet hem elke dag als het licht wordt.",
+          "explanation": "De zon is de ster waar alle planeten omheen draaien.",
+          "fact": "De zon is zo groot dat er meer dan een miljoen aardes in passen."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-22",
+      "difficulty": 1,
+      "status": "draft",
+      "source": "NASA Science — Our Solar System overview",
+      "artBrief": "Acht planeten in een rustige baan om de zon, van opzij gezien, speels en overzichtelijk.",
+      "text": {
+        "nl": {
+          "prompt": "Wat draait er allemaal om de zon?",
+          "answer": "De planeten",
+          "wrong": [
+            "Alleen de maan",
+            "Alle sterren",
+            "Niets"
+          ],
+          "hint": "Onze aarde hoort er ook bij.",
+          "explanation": "Alle acht planeten draaien in een baan om de zon.",
+          "fact": "Ook kometen en asteroïden draaien om de zon, maar in veel langere rondjes."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-23",
+      "difficulty": 1,
+      "status": "draft",
+      "source": "NASA Science — Planets",
+      "artBrief": "De aarde op de voorgrond, iets verderop een roodachtige planeet, allebei in hun baan. De naam nergens in beeld.",
+      "text": {
+        "nl": {
+          "prompt": "Welke planeet komt na de aarde, verder van de zon?",
+          "answer": "Mars",
+          "wrong": [
+            "Venus",
+            "Mercurius",
+            "De maan"
+          ],
+          "hint": "Het is de planeet met de roestrode kleur.",
+          "explanation": "Na de aarde volgt Mars, die verder van de zon af staat.",
+          "fact": "Mars is ongeveer half zo groot als de aarde."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-24",
+      "difficulty": 1,
+      "status": "draft",
+      "source": "ESA Kids — Day and night",
+      "artBrief": "De aarde half in zonlicht, half in schaduw, met een pijl die de draaiing aangeeft. Vrolijk en simpel.",
+      "text": {
+        "nl": {
+          "prompt": "Waarom wordt het 's nachts donker?",
+          "answer": "Omdat de aarde draait",
+          "wrong": [
+            "Omdat de zon uitgaat",
+            "Omdat de maan de zon opeet",
+            "Omdat er een wolk voor komt"
+          ],
+          "hint": "De zon blijft gewoon schijnen.",
+          "explanation": "De aarde draait rond, en dan kijkt jouw plek even van de zon af.",
+          "fact": "De aarde draait in vierentwintig uur één keer helemaal rond."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-25",
+      "difficulty": 1,
+      "status": "draft",
+      "source": "NASA Science — Planet sizes",
+      "artBrief": "Een kleine grijze planeet met kraters, dicht bij een grote felle zon, met de andere planeten klein in de verte.",
+      "text": {
+        "nl": {
+          "prompt": "Welke van de acht planeten is de kleinste?",
+          "answer": "Mercurius",
+          "wrong": [
+            "Mars",
+            "Venus",
+            "De aarde"
+          ],
+          "hint": "Hij staat ook het dichtst bij de zon.",
+          "explanation": "Mercurius is de kleinste planeet van ons zonnestelsel.",
+          "fact": "Daar is het 's nachts ijskoud en overdag gloeiend heet."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-26",
+      "difficulty": 2,
+      "status": "draft",
+      "source": "NASA Science — Earth orbit",
+      "artBrief": "Een kalenderrondje rond de zon met de vier seizoenen erin verwerkt, de aarde op zijn baan.",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang doet de aarde over één rondje om de zon?",
+          "answer": "Ongeveer een jaar",
+          "wrong": [
+            "Een maand",
+            "Een week",
+            "Een dag"
+          ],
+          "hint": "Precies zo lang als er tussen twee verjaardagen zit.",
+          "explanation": "De aarde doet ongeveer 365 dagen over één rondje om de zon.",
+          "fact": "Elke vier jaar plakken we er een dag bij: dat is een schrikkeljaar."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-27",
+      "difficulty": 2,
+      "status": "draft",
+      "source": "IAU resolution B5 (2006) — definition of a planet",
+      "artBrief": "Een klein ijzig werelddeel ver weg tussen andere ijsbrokken, met de zon als stipje in de verte.",
+      "text": {
+        "nl": {
+          "prompt": "Wat is Pluto sinds 2006?",
+          "answer": "Een dwergplaneet",
+          "wrong": [
+            "Een maan",
+            "Een komeet",
+            "Een ster"
+          ],
+          "hint": "Hij is te klein om een gewone planeet te heten.",
+          "explanation": "Sinds 2006 heet Pluto een dwergplaneet.",
+          "fact": "Er zijn er meer: Ceres, Eris en Makemake zijn ook dwergplaneten."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-28",
+      "difficulty": 2,
+      "status": "draft",
+      "source": "NASA Science — Gas giants",
+      "artBrief": "Twee enorme gasplaneten met wolkenbanden naast elkaar, geen vaste grond te zien.",
+      "text": {
+        "nl": {
+          "prompt": "Welke twee planeten bestaan vooral uit gas?",
+          "answer": "Jupiter en Saturnus",
+          "wrong": [
+            "Aarde en Mars",
+            "Mercurius en Venus",
+            "Mars en Venus"
+          ],
+          "hint": "Het zijn de twee grootste.",
+          "explanation": "Jupiter en Saturnus zijn gasreuzen: je kunt er niet op staan.",
+          "fact": "Diep binnenin worden die gassen zo samengeperst dat ze op vloeistof lijken."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-29",
+      "difficulty": 2,
+      "status": "draft",
+      "source": "ESA — Solar eclipses",
+      "artBrief": "Een donkere schijf die voor de zon schuift, met een stralenkrans eromheen. Kinderen kijken toe met een speciale bril.",
+      "text": {
+        "nl": {
+          "prompt": "Waarom wordt het soms even donker op de dag?",
+          "answer": "De maan schuift voor de zon",
+          "wrong": [
+            "De zon gaat even uit",
+            "De aarde stopt met draaien",
+            "De zon valt achter de bergen"
+          ],
+          "hint": "Er komt iets tussen jou en de zon.",
+          "explanation": "De maan komt precies tussen de zon en de aarde, en dan wordt het even schemerig.",
+          "fact": "Kijk nooit zonder speciale bril naar de zon, ook niet tijdens een verduistering."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-30",
+      "difficulty": 2,
+      "status": "draft",
+      "source": "NASA — Apollo surface operations",
+      "artBrief": "Een astronaut die hoog boven het maanstof zweeft in een sprong, met de aarde klein aan de hemel.",
+      "text": {
+        "nl": {
+          "prompt": "Waar kun je het hoogst springen?",
+          "answer": "Op de maan",
+          "wrong": [
+            "Op de aarde",
+            "Overal even hoog",
+            "Nergens"
+          ],
+          "hint": "Daar trekt de zwaartekracht veel zachter.",
+          "explanation": "De maan trekt veel minder hard aan je, dus je springt er zes keer zo hoog.",
+          "fact": "De astronauten van Apollo huppelden over de maan omdat gewoon lopen niet lukte."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-31",
+      "difficulty": 3,
+      "status": "draft",
+      "source": "NASA Science — Solar system formation, 4.6 billion years",
+      "artBrief": "Een wolk van stof en steen die langzaam een zon en planeten wordt, als een tijdlijn in één beeld.",
+      "text": {
+        "nl": {
+          "prompt": "Hoe oud is ons zonnestelsel?",
+          "answer": "Ongeveer 4,6 miljard jaar",
+          "wrong": [
+            "Ongeveer 1 miljoen jaar",
+            "Ongeveer 100 miljoen jaar",
+            "Ongeveer 500 miljard jaar"
+          ],
+          "hint": "Veel ouder dan de dinosaurussen, en die leefden al heel lang geleden.",
+          "explanation": "Uit een wolk van gas en stof ontstonden 4,6 miljard jaar geleden de zon en de planeten.",
+          "fact": "De oudste stukjes steen die we ervan hebben, vielen als meteorieten op aarde."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-32",
+      "difficulty": 3,
+      "status": "draft",
+      "source": "NASA — Galileo mission, Io volcanism",
+      "artBrief": "Een gele, gevlekte maan met uitbarstende vulkanen, met Jupiter groot op de achtergrond.",
+      "text": {
+        "nl": {
+          "prompt": "Welke maan van Jupiter zit vol vulkanen?",
+          "answer": "Io",
+          "wrong": [
+            "Europa",
+            "Ganymedes",
+            "Callisto"
+          ],
+          "hint": "Zijn naam is het kortst van alle vier de grote manen.",
+          "explanation": "Io is de maan met de meeste vulkanen van ons hele zonnestelsel.",
+          "fact": "Jupiter kneedt Io zo hard dat de maan vanbinnen smelt."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-33",
+      "difficulty": 3,
+      "status": "draft",
+      "source": "NASA — Cassini, ring composition",
+      "artBrief": "Van dichtbij tussen de ringen: duizenden stukken ijs en steen, groot en klein, die met de planeet meedraaien.",
+      "text": {
+        "nl": {
+          "prompt": "Waar bestaan de ringen van Saturnus uit?",
+          "answer": "IJs en steen",
+          "wrong": [
+            "Gas en damp",
+            "Stof en wolken",
+            "Vloeibaar water"
+          ],
+          "hint": "Denk aan miljarden sneeuwballen op een rij.",
+          "explanation": "De ringen zijn miljarden brokken ijs en steen, van zandkorrel tot huis.",
+          "fact": "De ringen zijn duizenden kilometers breed, maar vaak maar tien meter dik."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-34",
+      "difficulty": 3,
+      "status": "draft",
+      "source": "NASA Science — Neptune winds up to 2000 km/h",
+      "artBrief": "Een diepblauwe planeet met lange, scherpe wolkenstrepen die de wind laten zien.",
+      "text": {
+        "nl": {
+          "prompt": "Welke planeet heeft de hardste wind?",
+          "answer": "Neptunus",
+          "wrong": [
+            "De aarde",
+            "Mars",
+            "Mercurius"
+          ],
+          "hint": "Het is de verste planeet van de zon.",
+          "explanation": "Op Neptunus waait het harder dan waar ook: tot bijna 2000 kilometer per uur.",
+          "fact": "De snelste storm op aarde haalt daar nog niet een kwart van."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-35",
+      "difficulty": 3,
+      "status": "draft",
+      "source": "NASA — Olympus Mons, Mars",
+      "artBrief": "Een reusachtige, flauw oplopende vulkaan op een rode vlakte, met een wolkenlaag halverwege de helling.",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet de grootste vulkaan van ons zonnestelsel?",
+          "answer": "Olympus Mons",
+          "wrong": [
+            "De Mount Everest",
+            "De Vesuvius",
+            "De Mauna Kea"
+          ],
+          "hint": "Hij staat niet op aarde, maar op de rode planeet.",
+          "explanation": "Olympus Mons op Mars is bijna drie keer zo hoog als de Mount Everest.",
+          "fact": "Hij is zo breed als Frankrijk: als je erop stond, zou je de helling niet eens zien."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-36",
+      "difficulty": 4,
+      "status": "draft",
+      "source": "NASA Science — Venus rotation (243 days) versus orbit (225 days)",
+      "artBrief": "Een planeet in dikke gele wolken met een klokje en een kalender ernaast die elkaar tegenspreken.",
+      "text": {
+        "nl": {
+          "prompt": "Op welke planeet duurt één dag langer dan één jaar?",
+          "answer": "Venus",
+          "wrong": [
+            "Mercurius",
+            "Mars",
+            "Uranus"
+          ],
+          "hint": "Deze planeet draait heel traag om zijn as, maar snel om de zon.",
+          "explanation": "Venus draait in 243 dagen één keer rond, en in 225 dagen om de zon.",
+          "fact": "Venus draait ook nog eens de verkeerde kant op: daar komt de zon in het westen op."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-37",
+      "difficulty": 4,
+      "status": "draft",
+      "source": "NASA — Voyager 1 entered interstellar space, 2012",
+      "artBrief": "Een klein ruimtevaartuig met schotelantenne ver voorbij de planeten, de zon als heldere ster achter zich.",
+      "text": {
+        "nl": {
+          "prompt": "Welke ruimtesonde vloog als eerste ons zonnestelsel uit?",
+          "answer": "Voyager 1",
+          "wrong": [
+            "Hubble",
+            "Cassini",
+            "Apollo 11"
+          ],
+          "hint": "Hij vertrok in 1977 en vliegt nog steeds door.",
+          "explanation": "Voyager 1 kwam in 2012 als eerste in de ruimte tussen de sterren.",
+          "fact": "Hij draagt een gouden plaat mee met muziek en groeten van de aarde."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-38",
+      "difficulty": 4,
+      "status": "draft",
+      "source": "NASA Science — the Sun holds 99.8% of the solar system's mass",
+      "artBrief": "Een weegschaal waarop de zon aan de ene kant alle planeten samen aan de andere kant moeiteloos optilt.",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel van al het gewicht in ons zonnestelsel zit in de zon?",
+          "answer": "Meer dan 99 procent",
+          "wrong": [
+            "Ongeveer de helft",
+            "Ongeveer een tiende",
+            "Minder dan 1 procent"
+          ],
+          "hint": "Bijna alles, en de planeten zijn samen de rest.",
+          "explanation": "De zon is zo zwaar dat alle planeten samen nog geen procent overhouden.",
+          "fact": "Juist daardoor blijven alle planeten netjes om de zon heen draaien."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-39",
+      "difficulty": 4,
+      "status": "draft",
+      "source": "Le Verrier's calculation and Galle's observation, 1846",
+      "artBrief": "Een schrijftafel met berekeningen en een telescoop bij een raam; buiten een blauwe stip aan de hemel.",
+      "text": {
+        "nl": {
+          "prompt": "Welke planeet werd eerst uitgerekend en pas daarna gezien?",
+          "answer": "Neptunus",
+          "wrong": [
+            "Uranus",
+            "Saturnus",
+            "Pluto"
+          ],
+          "hint": "Sterrenkundigen merkten dat er aan Uranus getrokken werd.",
+          "explanation": "In 1846 rekende men uit waar hij moest staan, en daar stond hij ook echt.",
+          "fact": "De telescoop vond hem diezelfde nacht nog, op bijna precies de berekende plek."
+        }
+      }
+    },
+    {
+      "id": "ruimte-zonnestelsel-40",
+      "difficulty": 4,
+      "status": "draft",
+      "source": "NASA Science — Oort Cloud",
+      "artBrief": "Een enorme bolvormige schil van ijsbrokken helemaal om het zonnestelsel heen, de zon nog maar een stipje.",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet de schil van ijsbrokken helemaal om ons zonnestelsel heen?",
+          "answer": "De Oortwolk",
+          "wrong": [
+            "De Kuipergordel",
+            "De asteroïdengordel",
+            "De Melkweg"
+          ],
+          "hint": "Hij is genoemd naar een Nederlandse sterrenkundige.",
+          "explanation": "De Oortwolk is een bol van ijsbrokken, heel ver voorbij alle planeten.",
+          "fact": "Daar komen de kometen vandaan die maar eens in de duizenden jaren langskomen."
+        }
+      }
+    }
+  ]
+}

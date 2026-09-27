@@ -305,5 +305,5 @@
     }
   };
 
-  window.KWIZILLO_QUESTIONS_DA = window.KWIZILLO_BUILD_BANK(defs, window.KWIZILLO_EXTRA_DA||{});
+  window.KWIZILLO_QUESTIONS_DA = window.KWIZILLO_BUILD_BANK(defs, window.KWIZILLO_EXTRA_DA||{}, window.KWIZILLO_MORE_DA||{});
 })();

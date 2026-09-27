@@ -22,9 +22,15 @@ function i18n() {
 
 const LANGS = i18n().LANGUAGES.map(l => l.id);
 // Dutch was first and kept the plain names; every other language is suffixed.
-const bankFiles = lang => lang === 'nl'
-  ? ['questions-extra.js', 'questions.js']
-  : [`questions-extra-${lang}.js`, `questions-${lang}.js`];
+// questions-more*.js is the layer tools/content-build.cjs writes from content/;
+// it only exists once a question has been translated into every language, so it
+// is loaded when it is there and skipped while it is not.
+const moreFile = lang => lang === 'nl' ? 'questions-more.js' : `questions-more-${lang}.js`;
+const bankFiles = lang => [
+  lang === 'nl' ? 'questions-extra.js' : `questions-extra-${lang}.js`,
+  ...(fs.existsSync(path.join(ROOT, moreFile(lang))) ? [moreFile(lang)] : []),
+  lang === 'nl' ? 'questions.js' : `questions-${lang}.js`,
+];
 
 // All banks in one context, extras before the base files that consume them.
 function loadBanks() {
@@ -36,4 +42,4 @@ function loadBanks() {
   return { ctx, banks };
 }
 
-module.exports = { LANGS, i18n, loadBanks, bankFiles, stringsFiles, ROOT };
+module.exports = { LANGS, i18n, loadBanks, bankFiles, moreFile, stringsFiles, ROOT };

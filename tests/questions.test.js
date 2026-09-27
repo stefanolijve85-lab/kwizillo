@@ -49,10 +49,26 @@ for (const [lang, bank] of Object.entries(BANKS)) {
     assert.strictEqual(bank.filter(q => q.world === world).length, 80,
       `${lang}: ${world} cannot supply eight unique batches of ten`);
   }
-  // The base set is difficulty 1-2, the advanced set (ids 11-20) 3-4.
+  // The base set is difficulty 1-2, the advanced set (ids 11-20) 3-4. Anything
+  // written after those forty states its own difficulty, so that every level can
+  // fill a quiz of ten; it only has to be one of the four.
   for (const q of bank) {
     const n = Number(q.id.slice(-2));
-    assert.ok(n <= 10 ? q.difficulty <= 2 : q.difficulty >= 3, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
+    if (n <= 10) assert.ok(q.difficulty <= 2, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
+    else if (n <= 20) assert.ok(q.difficulty >= 3, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
+    else assert.ok(q.difficulty >= 1 && q.difficulty <= 4, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
+  }
+
+  // No topic may ask the same thing twice. A child who works up to level 5 and
+  // meets a question from level 1 again learns nothing and notices at once, so
+  // this is a failure, not a remark. tools/content-lint.cjs also reports the
+  // softer case: two questions with one answer, asked differently.
+  const asked = new Map();
+  for (const q of bank) {
+    const key = `${q.world}/${q.topic}/` + q.prompt.toLowerCase().normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '').replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim();
+    assert.ok(!asked.has(key), `${lang}: ${q.id} asks the same as ${asked.get(key)}: "${q.prompt}"`);
+    asked.set(key, q.id);
   }
 
   // Questions carry no display copy for topics; that belongs to i18n.
