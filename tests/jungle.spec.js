@@ -270,12 +270,22 @@ test('in the normal ride you clear every obstacle yourself; the easy ride jumps 
 
 test('opening the runner shows its own poster, never a bare box', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeJungle').click();
-  // While the module and the artwork load: the runner's poster and the loading
-  // line, on Kwizillo blue — not the game's own green box.
-  await expect(page.locator('.jungle-poster')).toBeVisible();
-  await expect(page.locator('.jungle-loading')).toBeVisible();
-  expect(await page.evaluate(() => getComputedStyle(document.querySelector('.jungle-screen')).backgroundColor)).toBe('rgb(15, 36, 80)');
+  // What is on screen the instant the runner is opened, before its module has
+  // had a chance to load: the screen is built synchronously, so this is read in
+  // the same turn rather than raced for.
+  const first = await page.evaluate(() => {
+    window.KWIZILLO_M1.startJungle();
+    const screen = document.querySelector('.jungle-screen');
+    return {
+      poster: !!document.querySelector('.jungle-poster'),
+      loading: !!document.querySelector('.jungle-loading'),
+      background: getComputedStyle(screen).backgroundColor,
+      game: !!document.querySelector('kwizillo-jungle')
+    };
+  });
+  expect(first, 'the runner opens on its own poster, not on a bare box').toMatchObject({
+    poster: true, loading: true, background: 'rgb(15, 36, 80)', game: false
+  });
 
   // Ready: the game fades in, the poster and the loading line go away.
   await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });

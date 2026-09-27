@@ -60,10 +60,36 @@ Every change to the web app needs `build-www` + `cap sync` before the next Xcode
 | Capacitor iOS project, SPM | CODE COMPLETE |
 | StoreKit 2 plugin (products, purchase, verify, finish, current entitlements, updates, restore via `AppStore.sync`, manage sheet, trial eligibility) | CODE COMPLETE |
 | JS bridge + entitlement validity tied to the native store | CODE COMPLETE |
-| Portrait-only, light status bar, no-encryption declaration, icon + launch screen (first versions) | CODE COMPLETE |
-| Simulator build | BUILD SUCCEEDED (Xcode 26.4.1, iPhone 16 Pro Max simulator); app runs, plugin registered and reachable |
+| Light status bar, no-encryption declaration, icon + launch screen (first versions) | CODE COMPLETE |
+| iPad: universal target, portrait and landscape, layout scaled to fit | CODE COMPLETE, RUNS IN THE SIMULATOR |
+| Simulator build | BUILD SUCCEEDED (Xcode 26.4.1); runs on the iPhone 16 Pro Max and the iPad Pro 11" (M4) simulators, plugin registered and reachable |
 | Signing, StoreKit config in the scheme, device run | REQUIRES PHYSICAL IPHONE / OWNER ACTION |
 | Sandbox purchase, TestFlight | REQUIRES APP STORE CONNECT / TESTFLIGHT |
+
+## iPad
+
+The target has always been universal (`TARGETED_DEVICE_FAMILY = "1,2"`); what it
+lacked was a layout and the orientations.
+
+- **The layout is one design, 430 x 764.** A phone (under 581 px) gets it full
+  bleed, exactly as before. Anything wider — an iPad, a browser window — scales
+  that same design to fit with a transform, so the game is never laid out twice
+  and never stretched: `--fit` in `m1-runtime.js`, the rule in `base.css`.
+  Behind the frame stands the world the child is in, blurred and dimmed, so the
+  space around the game belongs to the game.
+- **Orientations**: `UISupportedInterfaceOrientations~ipad` now holds portrait,
+  upside-down and both landscapes; the iPhone stays portrait-only. The design
+  fits either way — in landscape it is bounded by the height.
+- **Split View / Slide Over**: a narrow pane is under 581 px, so it falls back to
+  the phone layout full bleed. Nothing is declared about `UIRequiresFullScreen`,
+  which is what lets the app be resized at all — check Apple's current stance on
+  that key before submission.
+- **Covered by tests**: `tests/ipad.spec.js` — six iPad sizes portrait and
+  landscape, the Split View pane, the phone layout unchanged, turning the device
+  mid-screen, and a quiz where every control stays inside the frame and keeps a
+  44 pt target.
+- **Still owner action**: run it on a real iPad, and make the iPad screenshots
+  App Store Connect asks for (13" and, if you list it, 11").
 
 ## Before App Review (later)
 

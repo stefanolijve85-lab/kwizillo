@@ -508,7 +508,7 @@
 .gold-unlock{position:absolute;inset:0;z-index:60;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 42%,rgba(90,60,0,.55),rgba(4,16,44,.88));backdrop-filter:blur(3px);animation:goldFade .35s ease both}
 .gold-unlock-card{position:relative;display:grid;justify-items:center;gap:8px;width:min(320px,86%);padding:20px 18px 18px;border-radius:30px;background:linear-gradient(180deg,#fff8e2,#ffe7a8);box-shadow:0 0 0 3px #ffd45e,0 26px 70px rgba(60,35,0,.55);text-align:center;color:#6b4500;animation:goldPop .6s cubic-bezier(.2,.9,.25,1.35) both}
 .gold-unlock .gold-rays{position:absolute;inset:-40%;background:conic-gradient(from 0deg,rgba(255,214,90,.55) 0 6deg,transparent 6deg 18deg);border-radius:50%;animation:goldSpin 9s linear infinite;z-index:0;opacity:.45}
-.gold-unlock-art{position:relative;z-index:1;width:100%;max-height:44vh;object-fit:cover;border-radius:22px;box-shadow:0 0 0 3px #fff,0 14px 30px rgba(60,35,0,.4)}
+.gold-unlock-art{position:relative;z-index:1;width:100%;max-height:min(44vh,330px);object-fit:cover;border-radius:22px;box-shadow:0 0 0 3px #fff,0 14px 30px rgba(60,35,0,.4)}
 .gold-unlock-card b{position:relative;z-index:1;font-size:16px;line-height:1.15}
 .gold-unlock-sub{position:relative;z-index:1;font-size:12px;font-weight:900;color:#8a6210}
 .gold-unlock-ok{position:relative;z-index:1;margin-top:4px;min-height:46px;padding:12px 22px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe868,#ffbd21);color:#5a3a00;font-size:15px;font-weight:1000;box-shadow:0 5px 0 #d79a10;cursor:pointer}

@@ -363,5 +363,27 @@
       let guard=0;while(el.scrollWidth>el.clientWidth+1&&size>floor&&guard++<14){size=Math.max(floor,size-.75);el.style.fontSize=size+'px'}
     });
   };
-  K.frame=html=>{K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
+  // The frame is one design — 430 by 764 — and on anything wider than a phone
+  // (an iPad, a browser window) it is scaled to fit rather than laid out again:
+  // the same game, bigger, in portrait and in landscape. A phone keeps the
+  // full-bleed layout it always had, where the frame is the screen.
+  const FRAME_W=430,FRAME_H=764;
+  function fitFrame(){
+    const phone=window.matchMedia('(max-width:580px)').matches;
+    // window, not visualViewport: an open keyboard must not shrink the game.
+    const fit=phone?1:Math.max(.6,Math.min(3,Math.min((window.innerWidth-16)/FRAME_W,(window.innerHeight-16)/FRAME_H)));
+    document.documentElement.style.setProperty('--fit',String(Math.round(fit*1000)/1000));
+  }
+  K.fitFrame=fitFrame;
+  window.addEventListener('resize',fitFrame);
+  window.addEventListener('orientationchange',()=>setTimeout(fitFrame,120));
+  fitFrame();
+
+  // On a big screen the game is a lit stage: the world it is in stands behind
+  // it, blurred and dimmed, instead of an empty blue field. Phones never see it.
+  K.stageArt=world=>{
+    const art=K.MASTER?.[world||K.currentWorld||K.state.lastWorld||'ruimte']||K.MASTER?.ruimte;
+    if(art)document.documentElement.style.setProperty('--stage-art',`url("${K.assetUrl?K.assetUrl(art):art}")`);
+  };
+  K.frame=html=>{K.stageArt();K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
 })();

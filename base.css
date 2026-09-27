@@ -40,6 +40,17 @@ button{font:inherit}
 .toast{position:absolute;z-index:40;left:50%;bottom:3%;transform:translateX(-50%);max-width:84%;background:rgba(5,35,91,.92);color:#fff;padding:12px 18px;border-radius:999px;font-weight:900;font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.25);animation:toast 2.1s ease both}@keyframes toast{0%{opacity:0;transform:translate(-50%,15px)}15%,80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}
 
 @media (max-width:580px){#app{padding:0}.game-frame{width:100vw;height:100dvh;max-height:none;aspect-ratio:auto;border-radius:0}.motion{object-fit:cover}}
+/* Bigger than a phone — an iPad, or a browser window — shows the same game at
+   the same proportions, scaled to fit instead of stretched: one design, 430 by
+   764, that never has to be laid out twice. --fit is set by m1-runtime.js. */
+@media (min-width:581px){
+  #app{overflow:hidden;position:relative}
+  /* The world the game is in, blurred behind it, so the space around the frame
+     belongs to the game instead of being an empty blue field. */
+  #app::before{content:"";position:fixed;inset:-6%;z-index:0;background-image:var(--stage-art);background-size:cover;background-position:center;filter:blur(30px) brightness(.42) saturate(1.15);opacity:.6;transition:background-image .4s ease}
+  .game-frame{z-index:1}
+  .game-frame{width:430px;height:764px;max-height:none;aspect-ratio:auto;transform:scale(var(--fit,1));transform-origin:center center}
+}
 @media (min-width:900px){.game-frame::after{content:"";position:absolute;inset:0;z-index:50;pointer-events:none;border:1px solid rgba(255,255,255,.22);border-radius:34px}}
 
 @media (max-width:420px){.answers{grid-template-columns:1fr 1fr;gap:10px}.answer{min-height:72px;font-size:13px;padding:10px}.quiz-actions{gap:10px}}

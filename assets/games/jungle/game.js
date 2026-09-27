@@ -71,7 +71,11 @@ export class KwizilloJungle extends HTMLElement{
   listen(this.root,'keydown',e=>{if(e.repeat)return;let a={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'jump',Escape:'pause',p:'pause'}[e.key];if(e.code==='Space'&&e.target===this.canvas)a='jump';if(a){e.preventDefault();this.action(a);}});
   listen(document,'visibilitychange',()=>{if(document.hidden)this.pause();});
   listen(window,'blur',()=>this.pause());
+  // The canvas is measured with its transform on it, so the picture stays sharp
+  // when the whole frame is scaled up on an iPad. A rotation changes that scale
+  // without changing the layout box, which no ResizeObserver would report.
   this.resize=new ResizeObserver(()=>this.renderer?.resize());this.resize.observe(this.canvas);
+  listen(window,'resize',()=>this.renderer?.resize());
   this.loadFor().then(images=>{
    if(!this.alive)return;
    this.renderer=new Renderer(this.canvas,images,{level:this.level,hero:this.heroKind});
