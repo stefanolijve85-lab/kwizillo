@@ -113,6 +113,6 @@
   // in full and zoomed into the next one's nose. The round avatars keep using
   // the originals.
   K.MASCOT_TILE={};
-  for(const id of Object.keys(K.MASCOT_ART)) K.MASCOT_TILE[id]=K.assetUrl(`assets/mascots/tile/${id}.jpg`);
+  for(const id of Object.keys(K.MASCOT_ART)) K.MASCOT_TILE[id]=K.assetUrl(`assets/mascots/tile/${id}.png`);
   K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
 })();

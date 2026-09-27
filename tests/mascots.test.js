@@ -14,23 +14,21 @@ const loop = src.match(/for\(const id of \[([^\]]+)\]\) ?K\.MASCOT_ART\[id\]/);
 if (loop) for (const q of loop[1].split(',')) ids.add(q.trim().replace(/'/g, ''));
 assert.ok(ids.size >= 12, `found ${ids.size} buddies in world-assets.js`);
 
-// Reads a JPEG's size from its frame header, so no image library is needed.
-function jpegSize(file) {
+// Reads a PNG's header, so no image library is needed: size, and whether it
+// carries an alpha channel at all (colour type 6 is RGBA).
+function pngInfo(file) {
   const b = fs.readFileSync(file);
-  let i = 2;
-  while (i < b.length) {
-    if (b[i] !== 0xff) { i++; continue }
-    const marker = b[i + 1];
-    if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
-    i += 2 + b.readUInt16BE(i + 2);
-  }
-  throw new Error(`no frame header in ${file}`);
+  if (b.readUInt32BE(0) !== 0x89504e47) throw new Error(`${file} is not a PNG`);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20), colourType: b[25] };
 }
 
 for (const id of [...ids].sort()) {
-  const tile = path.join(ROOT, 'assets', 'mascots', 'tile', `${id}.jpg`);
+  const tile = path.join(ROOT, 'assets', 'mascots', 'tile', `${id}.png`);
   assert.ok(fs.existsSync(tile), `${id} has a tile (run: node tools/mascot-tiles.cjs)`);
-  const { w, h } = jpegSize(tile);
+  const { w, h, colourType } = pngInfo(tile);
   assert.strictEqual(`${w}x${h}`, '640x512', `${id} tile is 640x512, not ${w}x${h}`);
+  // A cut-out, not a boxed picture: the tile must be able to be see-through.
+  assert.strictEqual(colourType, 6, `${id} tile has no alpha channel`);
 }
-console.log(`mascots: ${ids.size} buddies, every tile 640x512 ✔`);
+assert.ok(!fs.readdirSync(path.join(ROOT, 'assets', 'mascots', 'tile')).some(f => /\.jpg$/.test(f)), 'no boxed JPEG tiles are left behind');
+console.log(`mascots: ${ids.size} buddies, every tile a 640x512 cut-out ✔`);
