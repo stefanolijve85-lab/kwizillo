@@ -48,7 +48,12 @@ passen nergens, en denkers en kunstenaars passen er maar half in.
 Voorstel: **twee werelden erbij**, elk met vier onderwerpen (de UI is op vier
 gebouwd, en Home wordt dan een net raster van 4×2):
 
-| Wereld 7 — **Kunst & Muziek** | Wereld 8 — **Sport & Spel** |
+**Besloten op 2026-09-28:** het worden acht werelden. De namen volgen de
+bestaande vorm (`Ruimtewereld`, `Dierenwereld`): **Kunstwereld** (sleutel
+`kunst`, Engels *Art World*) en **Sportwereld** (sleutel `sport`, Engels
+*Sports World*). Eén woord past op de tegel en op de gouden kaart.
+
+| Wereld 7 — **Kunstwereld** | Wereld 8 — **Sportwereld** |
 |---|---|
 | `schilders_beeldhouwers` — da Vinci, Michelangelo, Van Gogh, Frida Kahlo | `olympische_spelen` — geschiedenis, symbolen, records |
 | `klassiek_tot_hiphop` — componisten, stijlen, van Bach tot Beyoncé | `balsporten` — voetbal, basketbal, tennis, regels |
@@ -189,12 +194,32 @@ wisselen), wat ook de eerste start sneller maakt.
 
 ---
 
-## 6. Wat ik van jou nodig heb
+## 6. Besloten, en wat er nog ligt
 
-1. Gaan we naar **acht werelden** (Kunst & Muziek, Sport & Spel), of blijven we
-   op zes en verdiepen we alleen?
-2. Eén **stijlreferentie** voor de illustraties, zodat 800 nieuwe platen niet uit
-   een andere app lijken te komen.
-3. Mag ik **spraaktekens uitgeven** voor het warmdraaien, en zo ja hoeveel?
-4. Wie doet de **eindredactie**? Voor een kinderapp is één leerkracht of ouder die
-   alles één keer doorleest meer waard dan welke automatische controle ook.
+Besloten op 2026-09-28: acht werelden (Kunstwereld, Sportwereld), één
+stijlreferentie voor de illustraties, spraaktekens mogen worden uitgegeven voor
+het warmdraaien, en er komt eindredactie door een mens. De pilot begint bij
+`zonnestelsel`.
+
+### Stand van de pilot
+
+| stap | stand |
+|---|---|
+| 0 · bron van waarheid | `content/ruimte/zonnestelsel.json` staat er |
+| 1 · schrijven | 20 nieuwe vragen, vijf per moeilijkheid, met bron en beeldbrief |
+| 2 · lint | `npm run content:lint` — geen blokkerende fouten |
+| 3 · feitencontrole | elke vraag met een getal of naam heeft een bron; tweede ronde nog te doen |
+| 4 · review door een mens | wacht op jou — dit is de poort voor de vertaling |
+| 5 · vertalen | 9 talen, gebeurt pas na goedkeuring |
+| 6 · illustraties | 20 platen, geen beeldtegoed op dit moment |
+| 7 · spraak warmdraaien | na de vertaling |
+
+### Wat de lint onderweg vond
+
+Zes vragen stonden twee keer in hun eigen onderwerp, in alle tien de talen —
+een kind dat naar niveau 5 klimt kreeg daar een vraag van niveau 1 terug. Ze
+zijn vervangen (zie commit) en `tests/questions.test.js` laat het niet meer
+terug komen. Vijf paren blijven staan die hetzelfde antwoord anders vragen;
+`npm run content:lint` noemt ze, en ze horen bij het bijvullen thuis:
+zonnestelsel 04/11, sterren_planeten 06/12, egyptenaren 06/18,
+romeinen 03/18, raadsels 09/12.
