@@ -121,9 +121,13 @@
       const s=worldStat(w),pct=accuracy(s);
       // Just the name, big and centred: a child reads it in one glance. The
       // bar underneath shows how the world is going once it has been played.
-      return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))}${s.answered?` · ${s.correct}/${s.answered}`:''}">
+      // Every world carries its own level, and the tile says which: four passed
+      // topic quizzes take this world — and only this world — one step up.
+      const lv=K.worldLevelProgress(w);
+      return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))} · ${esc(t('settings.level'))} ${lv.level}${s.answered?` · ${s.correct}/${s.answered}`:''}">
         <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async">
         <span class="home-world-veil"></span>
+        <span class="home-world-level">${esc(t('settings.level'))} ${lv.level}${lv.passed?` · ${lv.passed}/${lv.total}`:''}</span>
         <span class="home-world-copy">
           <b>${esc(worldTitle(w))}</b>
         </span>
@@ -221,7 +225,7 @@
         <header class="native-world-head">
           <button id="worldBack" class="world-round" aria-label="${esc(t('world.backHome'))}">${K.icon('back')}</button>
           <div class="world-title-wrap">
-            <div class="world-kicker">${K.worldBadge(world,'tiny')} ${esc(t('world.kicker'))}</div>
+            <div class="world-kicker">${K.worldBadge(world,'tiny')} ${esc(t('world.kicker'))} · ${esc(t('settings.level'))} ${K.worldLevel(world)}</div>
             <h1 class="${worldTitle(world).length>14?'long':''}">${esc(worldTitle(world))}</h1>
             <p>${esc(worldSub(world))}</p>
           </div>
@@ -590,8 +594,9 @@
       <section class="setting-card"><div class="setting-icon">🎓</div><div><b>${esc(t('settings.group'))}</b><small>${esc(t('settings.groupSub'))}</small></div><div class="stepper"><button data-group="minus">−</button><strong>${esc(t('settings.groupValue',{n:K.state.group}))}</strong><button data-group="plus">+</button></div></section>
       <section class="setting-card lang-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
-      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitValue',{n:K.core.questionSeconds(K.state.niveau||1)}))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
-      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.level'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
+      <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitPerWorld'))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
+      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
+      <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${WORLD_ORDER.map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
       <section class="setting-card"><div class="setting-icon">🔄</div><div><b>${esc(t('settings.freshStart'))}</b><small>${esc(t(K.freshStart()?'settings.freshStartOn':'settings.freshStartOff'))}</small></div><button class="native-switch ${K.freshStart()?'on':''}" id="freshToggle" aria-label="${esc(t('settings.freshStart'))}"><i></i></button></section>
       <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">${K.activeGuide()==='luna'?'🎧':'🤖'}</div><div><b>${esc(t('tour.again',{guide:K.guideName()}))}</b><small>${esc(t('tour.againSub',{guide:K.guideName()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>

@@ -174,6 +174,27 @@
   K.owned=id=>{ K.state.shop||={owned:[]}; K.state.shop.owned||=[]; return K.state.shop.owned.includes(String(id)) };
   K.own=id=>{ K.state.shop||={owned:[]}; K.state.shop.owned||=[]; if(!K.owned(id))K.state.shop.owned.push(String(id)); K.save() };
 
+  // Every world keeps its own level. A world is at level 1 until its four topic
+  // quizzes — all forty questions — have been passed at that level; then it
+  // moves up, all the way to six. Nothing is stored: the level follows from the
+  // topics that were passed, so it can never drift from what the child did.
+  K.worldLevel=world=>{
+    const P=K.progress().passed||{};
+    const keys=K.TOPIC_KEYS?.[world]||[];
+    if(!keys.length)return 1;
+    const top=K.core?.LEVELS?.length||6;
+    let level=1;
+    while(level<top&&keys.every(k=>P[level]?.[`${world}:${k}`]))level++;
+    return level;
+  };
+  // How far this world is through its current level (topics passed out of four).
+  K.worldLevelProgress=world=>{
+    const P=K.progress().passed||{};
+    const keys=K.TOPIC_KEYS?.[world]||[];
+    const level=K.worldLevel(world);
+    return {level,passed:keys.filter(k=>P[level]?.[`${world}:${k}`]).length,total:keys.length||4};
+  };
+
   // Level is derived, never stored, so it can never drift from XP.
   K.level=()=>1+Math.floor(Number(K.state.xp||0)/100);
   K.xpIntoLevel=()=>Number(K.state.xp||0)%100;

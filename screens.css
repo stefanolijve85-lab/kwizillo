@@ -1113,3 +1113,10 @@
 .shop-item.is-owned{border-color:#bfe8cb}
 .kcard.gold .kcard-frame{box-shadow:0 0 0 3px #ffcf4a,0 10px 24px rgba(122,84,6,.32)}
 .kcard.gold .kcard-tint{background:linear-gradient(180deg,rgba(255,207,74,.34),rgba(120,72,0,.52))}
+
+/* ---- every world carries its own level ---- */
+.home-world-level{position:absolute;z-index:3;top:6px;inset-inline-end:6px;padding:3px 7px;border-radius:999px;background:linear-gradient(180deg,rgba(255,230,92,.96),rgba(255,188,34,.96));color:#17235e;font-size:9px;font-weight:1000;letter-spacing:-.01em;box-shadow:0 3px 8px rgba(0,26,83,.28);white-space:nowrap}
+.setting-card.world-levels{grid-template-columns:48px 1fr auto}.setting-card.world-levels .world-level-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end;max-width:170px}
+.world-level-row span{position:relative;display:grid;place-items:center}
+.world-level-row .world-badge{width:24px;height:24px;border-radius:9px;object-fit:cover}
+.world-level-row i{position:absolute;inset-inline-end:-4px;bottom:-3px;min-width:14px;height:14px;padding:0 3px;border-radius:999px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-style:normal;font-size:9px;font-weight:1000;display:grid;place-items:center;box-shadow:0 2px 4px rgba(0,26,83,.25)}

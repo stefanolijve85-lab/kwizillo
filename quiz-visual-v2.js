@@ -35,7 +35,7 @@
     const batch=K.core.selectQuizBatch({
       questions:K.questions,world,topicKey:key,
       grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds,
-      band:K.core.difficultyBand({niveau:K.state.niveau||1})
+      band:K.core.difficultyBand({niveau:K.worldLevel(world)})
     });
     if(!batch.questions.length){K.toast(t('quiz.none'));K.showWorld(world);return}
     run.usedIds=batch.usedIds;
@@ -63,7 +63,10 @@
   // card or stepping back through the quiz lands here.
   let timer=null;
   function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
-  function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1)}
+  // The level of the world being played, not a setting: every world climbs on
+  // its own (state.js, K.worldLevel).
+  const level=()=>K.worldLevel(K.quiz?.world||K.currentWorld);
+  function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(level())}
 
   function render(q){
     K.stopSpeech();stopTimer();
@@ -150,7 +153,7 @@
       // so every voice starts the moment its card appears.
       const nextQ=K.quiz.questions[K.quiz.index+1];
       // From level 4 only the question is read; the child reads the answers.
-      const speech={answers:K.core.readsAnswers(K.state.niveau||1)};
+      const speech={answers:K.core.readsAnswers(level())};
       const warm=[feedbackSpeech(q,true),feedbackSpeech(q,false),q.hint||t('hint.fallback')];
       if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),feedbackSpeech(nextQ,true),feedbackSpeech(nextQ,false));
       await K.speakSequence(K.core.buildQuestionSpeechSegments(q,speech),{
@@ -166,11 +169,11 @@
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
-  function hintsLeftNow(){return K.core.hintsAllowed(K.state.niveau||1)-Number(K.quiz?.hintsUsed||0)}
+  function hintsLeftNow(){return K.core.hintsAllowed(level())-Number(K.quiz?.hintsUsed||0)}
   function showHint(q){
     // Reopening the hint of the same question is free.
     const again=!!K.quiz.hintedIds?.[q.id];
-    if(!again&&hintsLeftNow()<=0){K.sfx('bad');K.toast(t(K.core.hintsAllowed(K.state.niveau||1)?'quiz.hintsSpent':'quiz.noHints'));return}
+    if(!again&&hintsLeftNow()<=0){K.sfx('bad');K.toast(t(K.core.hintsAllowed(level())?'quiz.hintsSpent':'quiz.noHints'));return}
     if(!again){(K.quiz.hintedIds||={})[q.id]=true;K.quiz.hintsUsed=Number(K.quiz.hintsUsed||0)+1;const c=K.app.querySelector('#hintBtn .hint-count');if(c)c.textContent=hintsLeftNow();if(hintsLeftNow()<=0)K.app.querySelector('#hintBtn')?.classList.add('spent')}
     K.stopSpeech();K.sfx('hint');
     const f=K.app.querySelector('.game-frame');if(!f)return;
@@ -292,7 +295,7 @@
     K.stopSpeech();
     const q=K.quiz;
     const total=q?.questions.length||0,score=q?.score||0,xp=Number(q?.points||0);
-    const niveau=Number(K.state.niveau||1);
+    const niveau=level();
     const passed=K.core.quizPassed({score,total,niveau});
     const keys=K.TOPIC_KEYS[K.currentWorld]||[];
     const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
@@ -305,13 +308,14 @@
       if(ws) ws.quizzes=Number(ws.quizzes||0)+1;
       K.state.bestScores||={};
       if((q.score||0)>Number(K.state.bestScores[q.world]||0)) K.state.bestScores[q.world]=q.score||0;
-      // A passed topic is ticked off for this level; once every topic of every
-      // world is passed, the next level opens.
+      // A passed topic is ticked off for this level. Once all four topics of
+      // this world are ticked, the world itself moves up a level — every world
+      // climbs on its own, at the pace of the child playing it.
       if(passed&&isTopic){
         const P=K.progress().passed||={};
         (P[niveau]||={})[`${q.world}:${q.topicKey}`]=true;
-        const all=Object.values(K.TOPIC_KEYS).reduce((n,k)=>n+k.length,0);
-        if(Object.keys(P[niveau]).length>=all&&niveau<K.core.LEVELS.length){K.state.niveau=niveau+1;unlocked=niveau+1}
+        const now=K.worldLevel(q.world);
+        if(now>niveau) unlocked=now;
       }
       K.touchStreak();
       K.save();
@@ -341,7 +345,7 @@
         <h1>${esc(t('result.title',{score,total}))}</h1>
         <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${passed&&n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
         <p class="result-rule">${esc(t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
-        ${unlocked?`<p class="result-unlock">${esc(t('result.levelUnlocked',{niveau:unlocked}))}</p>`:''}
+        ${unlocked?`<p class="result-unlock">${esc(t('result.worldLevelUp',{world:t(`world.${q.world}.title`),niveau:unlocked}))}</p>`:''}
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         ${bonus?.html||''}
         <div class="result-native">

@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { TTS, ttsPayload } = require('./tts.js');
+const { progressAtLevel } = require('./levels.js');
 
 // Functional coverage for the flow in CLAUDE.md section 4 and the QA list in section 16.
 
@@ -682,7 +683,7 @@ test('closing the feedback card shows the same question again, answered', async 
 
 test('the question timer runs out into a time-out verdict and gets shorter with level', async ({ page }) => {
   // Level 6 -> 10 seconds per question.
-  await boot(page, SAVED({ niveau: 6 }));
+  await boot(page, SAVED({ progress: progressAtLevel(6) }));
   await page.locator('[data-world="aarde"]').click();
   await page.locator('#worldMix').click();
   await expect(page.locator('#quizTimer b')).toHaveText('10');
@@ -695,7 +696,7 @@ test('the question timer runs out into a time-out verdict and gets shorter with 
 test('the timer waits until the question has been read out', async ({ page }) => {
   let release; const gate = new Promise(r => { release = r; });
   await page.route(TTS, async route => { await gate; route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
-  await boot(page, SAVED({ voice: 'Milo', niveau: 6 }));
+  await boot(page, SAVED({ voice: 'Milo', progress: progressAtLevel(6) }));
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
   await expect(page.locator('#quizTimer')).toBeVisible();
@@ -721,12 +722,12 @@ test('the timer can be switched off; the six levels set seconds, allowed mistake
   await page.locator('#worldGear').click();
   await expect(page.locator('[data-level]')).toHaveCount(6);
   await page.locator('[data-level="3"]').click();
-  await expect(page.locator('.level-card b')).toContainText('Niveau 3');
+  await expect(page.locator('.level-card b')).toContainText('Rekenen: niveau 3');   // the dial is the sums game's level; worlds climb on their own
   await expect(page.locator('.level-card small')).toContainText('20 s per vraag · max. 4 fouten');
 });
 
 test('too many mistakes fail the level: the result demands the same topic again', async ({ page }) => {
-  await boot(page, SAVED({ niveau: 6 }));   // level 6: no mistakes allowed
+  await boot(page, SAVED({ progress: progressAtLevel(6) }));   // level 6: no mistakes allowed
   await page.locator('[data-world="dieren"]').click();
   await page.locator('.world-topic').first().click();
   const topic = await page.locator('.quiz-brand small').textContent();
@@ -849,7 +850,7 @@ test('a mixed quiz result still numbers the next quiz', async ({ page }) => {
 });
 
 test('level 5 gives one hint per quiz; level 6 none; level 1 shows no counter', async ({ page }) => {
-  await boot(page, SAVED({ niveau: 5 }));
+  await boot(page, SAVED({ progress: progressAtLevel(5) }));
   await page.locator('[data-world="wetenschap"]').click();
   await page.locator('.world-topic').first().click();
   await expect(page.locator('#hintBtn .hint-count')).toHaveText('1');
@@ -869,14 +870,14 @@ test('level 5 gives one hint per quiz; level 6 none; level 1 shows no counter', 
   await expect(page.locator('.hint-float')).toHaveCount(0);
   await expect(page.locator('.toast')).toHaveText('Je hints zijn op voor deze quiz.');
 
-  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 6; K.save(); K.showHome(); });
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; const P = K.progress().passed; for (let n = 1; n < 6; n++) { P[n] ||= {}; for (const k of K.TOPIC_KEYS.wetenschap) P[n]['wetenschap:' + k] = true } K.save(); K.showHome(); });
   await page.locator('[data-world="wetenschap"]').click();
   await page.locator('.world-topic').first().click();
   await expect(page.locator('#hintBtn')).toHaveClass(/spent/);
   await page.locator('#hintBtn').click();
   await expect(page.locator('.toast')).toHaveText('Op niveau 6 zijn er geen hints.');
 
-  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 1; K.save(); K.showHome(); });
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.progress().passed = {}; K.save(); K.showHome(); });
   await page.locator('[data-world="wetenschap"]').click();
   await page.locator('.world-topic').first().click();
   await expect(page.locator('#hintBtn .hint-count')).toHaveCount(0);
@@ -886,7 +887,7 @@ test('from level 4 the voice reads only the question; the parent zone explains e
   const spoken = [];
   // Routed before boot: Home already warms the world names, and a 503 there would switch speech off for the session.
   await page.route(TTS, route => { spoken.push(ttsPayload(route.request()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
-  await boot(page, SAVED({ niveau: 4, voice: 'Milo' }));
+  await boot(page, SAVED({ progress: progressAtLevel(4), voice: 'Milo' }));
   await page.locator('[data-world="dieren"]').click();
   // Entering the world calls out its name (after the fanfare's first beat).
   await expect.poll(() => spoken.includes('[excited] Dierenwereld!')).toBe(true);
@@ -895,7 +896,7 @@ test('from level 4 the voice reads only the question; the parent zone explains e
   await expect.poll(() => spoken.includes(q.prompt)).toBe(true);
   expect(spoken.some(s => s.startsWith('A. ')), 'answers are not read on level 4').toBe(false);
 
-  await page.evaluate(() => window.KWIZILLO_M1.showParent());
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 4; K.save(); K.showParent() });
   await expect(page.locator('.level-card small')).toHaveText('16 s per vraag · max. 3 fouten · 2 hints · alleen de vraag wordt voorgelezen');
   await page.locator('[data-level="1"]').click();
   await expect(page.locator('.level-card small')).toHaveText('30 s per vraag · max. 6 fouten · hints vrij');
