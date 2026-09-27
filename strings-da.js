@@ -115,7 +115,6 @@
     'premium.teaser.facts':'Flere fakta er en del af Kwizillo Premium. Bed en voksen om at åbne dem alle.',
     'premium.factsMore':'{n} flere fakta med Premium',
     'premium.teaser.whoami':'Hvad er jeg? i denne verden er en del af Kwizillo Premium. Bed en voksen om at åbne alle verdener.',
-    'premium.testTitle':'Testtilstand: alt er åbent','premium.testSub':'Kun på denne testadresse · alt indhold uden Premium',
     'settings.terms':'Brugsbetingelser','settings.termsBody':'Kwizillo er et læringsspil for børn. Premium er et abonnement, der trækkes via Apple og fornyes automatisk, indtil du opsiger det; du kan altid opsige det under dine Apple-abonnementer. Der er hverken reklamer eller køb inde i selve spillet.',
 
     'onboarding.language.title':'Vælg dit sprog',

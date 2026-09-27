@@ -134,10 +134,7 @@
     const line=s.isPremium?t(s.trial?'premium.statusTrial':'premium.statusActive',{type:t(s.subscriptionType==='year'?'premium.yearly':'premium.monthly')}):t(s.entitlementStatus==='expired'?'premium.statusExpired':'premium.statusFree');
     return `<section class="setting-card clickable premium-card ${s.isPremium?'active':''}" id="premiumOpen"><div class="setting-icon">⭐</div><div><b>${esc(t('premium.name'))}</b><small>${esc(line)}</small></div><em>›</em></section>`;
   };
-  // Development hosts only: a switch that opens everything for testing.
-  K.testUnlockCard=()=>P.isDevHost()?`<section class="setting-card test-card"><div class="setting-icon">🧪</div><div><b>${esc(t('premium.testTitle'))}</b><small>${esc(t('premium.testSub'))}</small></div><button class="native-switch ${P.testUnlock()?'on':''}" id="testUnlockToggle" aria-label="${esc(t('premium.testTitle'))}"><i></i></button></section>`:'';
   K.bindPremiumCard=f=>{
-    const tg=f.querySelector('#testUnlockToggle');if(tg)tg.onclick=()=>{K.sfx('tap');P.setTestUnlock(!P.testUnlock());K.showParent()};
     const c=f.querySelector('#premiumOpen');if(!c)return;
     c.onclick=()=>{K.sfx('tap');K.parentalGate(()=>P.isPremium()?K.showPremiumStatus():K.showPremium({from:'parent'}))};
   };

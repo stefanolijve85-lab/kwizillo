@@ -1051,7 +1051,6 @@
 .premium-card.active{border-color:#ffd23f;background:linear-gradient(180deg,#fff9e0,#fff)}
 .fact-premium{margin:6px auto 0;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:9px 14px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-weight:1000;font-size:12px;cursor:pointer;box-shadow:0 4px 0 #dc8c12}
 .fact-premium svg{width:14px;height:14px}
-.test-card{border-style:dashed;border-color:#b9cbd9;background:linear-gradient(180deg,#fff,#f4f7fb)}
 
 /* ==== Wat ben ik? ==== */
 .home-games{grid-template-columns:1fr 1fr 1fr}

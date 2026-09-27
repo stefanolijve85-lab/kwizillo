@@ -117,7 +117,6 @@
     'premium.teaser.facts':'Meer weetjes horen bij Kwizillo Premium. Vraag een ouder om ze allemaal te openen.',
     'premium.factsMore':'Nog {n} weetjes met Premium',
     'premium.teaser.whoami':'Wat ben ik? in deze wereld hoort bij Kwizillo Premium. Vraag een ouder om alle werelden te openen.',
-    'premium.testTitle':'Testmodus: alles open','premium.testSub':'Alleen op dit testadres · speelt alle content zonder Premium',
     'settings.terms':'Gebruiksvoorwaarden','settings.termsBody':'Kwizillo is een leerspel voor kinderen. Premium is een abonnement dat via Apple wordt afgerekend en automatisch verlengt tot het wordt opgezegd; opzeggen kan altijd via je Apple-abonnementen. Er zijn geen advertenties en geen aankopen in het spel zelf.',
 
     'onboarding.language.title':'Kies je taal',
@@ -639,7 +638,6 @@
     'premium.teaser.facts':'More facts are part of Kwizillo Premium. Ask a parent to open them all.',
     'premium.factsMore':'{n} more facts with Premium',
     'premium.teaser.whoami':'What am I? in this world is part of Kwizillo Premium. Ask a parent to open all the worlds.',
-    'premium.testTitle':'Test mode: everything open','premium.testSub':'Only on this test address · plays all content without Premium',
     'settings.terms':'Terms of Use','settings.termsBody':'Kwizillo is a learning game for children. Premium is a subscription billed through Apple that renews automatically until cancelled; you can cancel at any time in your Apple subscriptions. There are no ads and no purchases inside the game itself.',
 
     'onboarding.language.title':'Choose your language',
@@ -1161,7 +1159,6 @@
     'premium.teaser.facts':'Mais curiosidades fazem parte do Kwizillo Premium. Peça a um adulto para liberar todas.',
     'premium.factsMore':'Mais {n} curiosidades com o Premium',
     'premium.teaser.whoami':'O que sou eu? neste mundo faz parte do Kwizillo Premium. Peça a um adulto para liberar todos os mundos.',
-    'premium.testTitle':'Modo de teste: tudo aberto','premium.testSub':'Só neste endereço de teste · joga todo o conteúdo sem Premium',
     'settings.terms':'Termos de Uso','settings.termsBody':'Kwizillo é um jogo educativo para crianças. O Premium é uma assinatura cobrada pela Apple que renova automaticamente até ser cancelada; você pode cancelar quando quiser nas suas assinaturas Apple. Não há anúncios nem compras dentro do jogo.',
 
     'onboarding.language.title':'Escolha seu idioma',

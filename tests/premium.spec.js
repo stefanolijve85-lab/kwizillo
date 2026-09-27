@@ -171,22 +171,36 @@ for (const [lang, expected] of [['en', 'Unlock the whole world of Kwizillo'], ['
   });
 }
 
-test('development hosts get a "test mode" switch in the parent zone that opens everything without Premium', async ({ page }) => {
+test('no test switch in the parent zone; a development address can still open everything for one device', async ({ page }) => {
   await boot(page);
   await page.evaluate(() => window.KWIZILLO_M1.showParent());
-  await expect(page.locator('#testUnlockToggle')).toBeVisible();
-  await page.locator('#testUnlockToggle').click();
-  await expect(page.locator('#testUnlockToggle')).toHaveClass(/on/);
-  await expect(page.locator('#premiumOpen')).toContainText('Gratis versie');   // Premium itself stays off
+  // The switch that opened everything is gone, and so is the bypass behind it.
+  await expect(page.locator('#testUnlockToggle')).toHaveCount(0);
+  await expect(page.locator('.test-card')).toHaveCount(0);
+  expect(await page.evaluate(() => typeof window.KWIZILLO_M1.premium.testUnlock)).toBe('undefined');
+  await page.evaluate(() => window.KWIZILLO_M1.enterWorld('dieren'));
+  await expect(page.locator('.world-topic.locked')).toHaveCount(4);
+
+  // ?premium=1 on a development host stamps this device and cleans the address.
+  await page.goto('/?premium=1', { waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  expect(new URL(page.url()).search).toBe('');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.premium.isPremium())).toBe(true);
   await page.evaluate(() => window.KWIZILLO_M1.enterWorld('dieren'));
   await expect(page.locator('.world-topic.locked')).toHaveCount(0);
   await page.locator('[data-topic="2"]').click();
   await expect(page.locator('.quiz-v2')).toBeVisible();
-  // it is remembered, and off again on request
-  await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+
+  // It is written where every entitlement lives, so it survives a restart
+  // (this suite's own boot script wipes that key on every navigation, which is
+  // why the reload is not done here), and ?premium=0 hands it back.
+  const stamped = await page.evaluate(() => JSON.parse(localStorage.getItem('kwizillo-entitlement') || 'null'));
+  expect(stamped).toMatchObject({ status: 'active', store: 'dev', type: 'year' });
+  await page.goto('/?premium=0', { waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
-  expect(await page.evaluate(() => window.KWIZILLO_M1.premium.testUnlock())).toBe(true);
-  await page.evaluate(() => window.KWIZILLO_M1.premium.setTestUnlock(false));
+  expect(await page.evaluate(() => window.KWIZILLO_M1.premium.isPremium())).toBe(false);
   await page.evaluate(() => window.KWIZILLO_M1.enterWorld('dieren'));
   await expect(page.locator('.world-topic.locked')).toHaveCount(4);
 });

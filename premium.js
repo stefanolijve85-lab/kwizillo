@@ -169,11 +169,30 @@
 
   /* ---------------- Gating rules ---------------- */
 
-  // Development hosts only: play everything without Premium (the paywall stays
-  // reachable from the parent zone). Never exists in the iOS app or on https.
-  const TEST_KEY='kwizillo-test-unlock';
-  const testUnlock=()=>isDevHost()&&localStorage.getItem(TEST_KEY)==='1';
   const isPremium=()=>valid(ent);
+
+  // Testing on your own phone. There is no switch in the app for this — the
+  // parent zone used to carry one and it had no business in a shipping build.
+  // Instead the address itself opens the game: ?premium=1 stamps a development
+  // entitlement on this device, ?premium=0 takes it away again, and the
+  // parameter is wiped from the address bar straight afterwards. It only works
+  // on a plain-http development host (localhost or the LAN), so the iOS app and
+  // any https deployment cannot be unlocked this way — an entitlement stamped
+  // here is worthless there in any case (see `valid`).
+  function unlockFromAddress(){
+    if(!isDevHost())return;
+    let url;try{url=new URL(location.href)}catch(e){return}
+    const want=url.searchParams.get('premium');
+    if(want===null)return;
+    if(want==='0'||want==='off'){setEntitlement(null)}
+    else{
+      setEntitlement({status:'active',productId:CONFIG.products.yearly.id,type:'year',
+        expiresAt:new Date(Date.now()+3650*864e5).toISOString(),store:'dev'});
+    }
+    url.searchParams.delete('premium');
+    try{history.replaceState(null,'',url.pathname+(url.search||'')+url.hash)}catch(e){}
+  }
+  unlockFromAddress();
   const rules={
     world:world=>world===FREE.starterWorld,
     // A quiz: the whole starter world; elsewhere only the first mixed quiz(zes).
@@ -183,7 +202,7 @@
     fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld
   };
   // can('quiz', world, topicKey, quizNumber) — true when free or Premium.
-  const can=(kind,...args)=>isPremium()||testUnlock()||!!rules[kind]?.(...args);
+  const can=(kind,...args)=>isPremium()||!!rules[kind]?.(...args);
 
   /* ---------------- Pending destination ---------------- */
 
@@ -200,8 +219,7 @@
     onChange:fn=>{listeners.add(fn);return()=>listeners.delete(fn)},
     loadProducts,purchase,restore,manage,refresh,
     setPending,runPending,hasPending:()=>!!pending,
-    isDevHost,testUnlock,
-    setTestUnlock:on=>{if(!isDevHost())return;try{on?localStorage.setItem(TEST_KEY,'1'):localStorage.removeItem(TEST_KEY)}catch{}notify()}
+    isDevHost,
   };
   // The simulator's controls exist only on a development host.
   if(isDevHost()){

@@ -116,7 +116,6 @@
     'premium.teaser.facts':'Altre curiosità fanno parte di Kwizillo Premium. Chiedi a un adulto di aprirle tutte.',
     'premium.factsMore':'{n} curiosità in più con Premium',
     'premium.teaser.whoami':'Chi sono? in questo mondo fa parte di Kwizillo Premium. Chiedi a un adulto di aprire tutti i mondi.',
-    'premium.testTitle':'Modalità test: tutto aperto','premium.testSub':'Solo su questo indirizzo di prova · tutti i contenuti senza Premium',
     'settings.terms':'Condizioni d’uso','settings.termsBody':'Kwizillo è un gioco educativo per bambini. Premium è un abbonamento addebitato da Apple che si rinnova automaticamente finché non lo disdici; puoi disdirlo quando vuoi negli abbonamenti Apple. Non ci sono pubblicità né acquisti dentro il gioco.',
 
     'onboarding.language.title':'Scegli la tua lingua',

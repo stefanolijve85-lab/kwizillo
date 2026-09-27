@@ -58,12 +58,21 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
 test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo flies off; a tap moves on', async ({ page }) => {
   await boot(page);
   await expect(page.locator('.milo-tour')).toHaveCount(0);   // never on its own for a returning player
-  await page.evaluate(() => { window.KWIZILLO_M1.startTour(); });
+  // The walk in lasts under a second, so whether it happened is recorded as it
+  // happens rather than asked for afterwards: on a loaded machine the guide is
+  // already talking by the time a query arrives.
+  await page.evaluate(() => {
+    window.__walked = false;
+    new MutationObserver(() => {
+      if (document.querySelector('.milo-tour .milo-host.walking')) window.__walked = true;
+    }).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'], childList: true });
+    window.KWIZILLO_M1.startTour();
+  });
   const tour = page.locator('.milo-tour');
   await expect(tour).toBeVisible();
   // The guide is a full-body figure (no portrait window) that walks in, and its mouth sits on the figure.
   await expect(tour.locator('.milo-host')).toHaveClass(/figure-mode/);
-  await expect(tour.locator('.milo-host')).toHaveClass(/walking/);
+  await expect.poll(() => page.evaluate(() => window.__walked), { timeout: 6000 }).toBe(true);
   await expect(tour.locator('.milo-host video, .milo-host .milo-still')).toHaveCount(0);
   // The only chrome during the tour is the small Skip button at the bottom.
   await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);

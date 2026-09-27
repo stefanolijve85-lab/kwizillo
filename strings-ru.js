@@ -115,7 +115,6 @@
     'premium.teaser.facts':'Другие факты входят в Kwizillo Premium. Попроси взрослого открыть их все.',
     'premium.factsMore':'Ещё {n} фактов с Premium',
     'premium.teaser.whoami':'«Кто я?» в этом мире входит в Kwizillo Premium. Попроси взрослого открыть все миры.',
-    'premium.testTitle':'Тестовый режим: всё открыто','premium.testSub':'Только на этом тестовом адресе · весь материал без Premium',
     'settings.terms':'Условия использования','settings.termsBody':'Kwizillo — обучающая игра для детей. Premium — это подписка, которая оплачивается через Apple и продлевается сама, пока её не отменят; отменить её можно в любой момент в подписках Apple. Внутри самой игры нет ни рекламы, ни покупок.',
 
     'onboarding.language.title':'Выбери свой язык',
