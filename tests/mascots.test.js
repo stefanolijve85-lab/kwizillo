@@ -31,6 +31,6 @@ for (const id of [...ids].sort()) {
   const tile = path.join(ROOT, 'assets', 'mascots', 'tile', `${id}.jpg`);
   assert.ok(fs.existsSync(tile), `${id} has a tile (run: node tools/mascot-tiles.cjs)`);
   const { w, h } = jpegSize(tile);
-  assert.strictEqual(`${w}x${h}`, '512x640', `${id} tile is 512x640, not ${w}x${h}`);
+  assert.strictEqual(`${w}x${h}`, '640x512', `${id} tile is 640x512, not ${w}x${h}`);
 }
-console.log(`mascots: ${ids.size} buddies, every tile 512x640 ✔`);
+console.log(`mascots: ${ids.size} buddies, every tile 640x512 ✔`);

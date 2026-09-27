@@ -5,7 +5,7 @@
 // character and six tall ones cropped tight to the head — so a tile that cropped
 // to fill showed one buddy from head to tail and the next one zoomed into its
 // nose. This reads each picture, finds the character against its flat backdrop,
-// and redraws it on a 512x640 canvas at the same relative size, on the picture's
+// and redraws it on a 640x512 canvas at the same relative size, on the picture's
 // own background colour. Nothing is stretched, nothing is cut off, and the
 // originals stay where they are for the round avatars.
 //
@@ -20,8 +20,10 @@ const { chromium } = require('playwright');
 const ROOT = path.join(__dirname, '..');
 const SRC = path.join(ROOT, 'assets', 'mascots');
 const OUT = path.join(SRC, 'tile');
-const W = 512, H = 640;          // 4:5, the shape of the tiles in the collection
-const FILL = 0.88;               // how much of the height the character takes
+const W = 640, H = 512;          // 5:4, the shape of the tiles in the collection:
+                                 // a little wider than tall, so every buddy has room
+                                 // sideways and none of them look stretched
+const FILL = 0.92;               // how much of the height the character takes
 const check = process.argv.includes('--check');
 
 const sources = () => fs.readdirSync(SRC).filter(f => /\.jpg$/.test(f)).sort();

@@ -688,7 +688,7 @@
 
 /* Mascots: the character fills the tile, only the name on top of it. */
 .mascot-grid{gap:12px}
-.mascot-card{position:relative;padding:0;min-height:0;aspect-ratio:4/5;overflow:hidden;border:0;border-radius:24px;background:#dbe8ff;justify-content:flex-end;align-items:stretch;gap:0;box-shadow:0 10px 22px rgba(20,70,128,.16)}
+.mascot-card{position:relative;padding:0;min-height:0;aspect-ratio:5/4;overflow:hidden;border:0;border-radius:24px;background:#dbe8ff;justify-content:flex-end;align-items:stretch;gap:0;box-shadow:0 10px 22px rgba(20,70,128,.16)}
 .mascot-card .mascot-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s ease}
 .mascot-card:active .mascot-fill{transform:none}
 .mascot-card .mascot-name{position:relative;z-index:1;margin:0;padding:34px 10px 11px;text-align:center;font-size:15px;font-weight:1000;color:#fff;letter-spacing:.01em;text-shadow:0 2px 6px rgba(0,20,70,.55);background:linear-gradient(180deg,transparent,rgba(6,22,70,.72))}
