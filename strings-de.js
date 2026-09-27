@@ -178,6 +178,7 @@
     'world.topicPassed':'Geschafft',
     'world.topicPlayed':'Quiz {n} gespielt · {correct}/{answered} richtig',
     'world.progressLine':'{passed} von {total} Themen geschafft',
+    'world.worldProgress':'{done} von {total} Quiz dieser Welt geschafft',
     'world.mixDone':'{n} gespielt',
 
     'quiz.mixed':'Gemischtes Quiz',

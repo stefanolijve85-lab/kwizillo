@@ -212,6 +212,22 @@
     while(level<top&&keys.every(k=>P[level]?.[`${world}:${k}`]))level++;
     return level;
   };
+  // How far this world is as a whole: its four topic quizzes at each of the six
+  // levels, twenty-four in all. Every level below the current one is passed by
+  // definition — that is how a world climbs — so what is left to count is the
+  // level it stands on now. At twenty-four out of twenty-four the world is
+  // finished and its golden card is earned.
+  K.worldProgress=world=>{
+    const keys=K.TOPIC_KEYS?.[world]||[];
+    const perLevel=keys.length||4;
+    const top=K.core?.LEVELS?.length||6;
+    const total=perLevel*top;
+    const level=K.worldLevel(world);
+    const P=K.progress().passed||{};
+    const here=keys.filter(k=>P[level]?.[`${world}:${k}`]).length;
+    const done=Math.min(total,(level-1)*perLevel+here);
+    return {done,total,pct:total?Math.round(done/total*100):0};
+  };
   // How far this world is through its current level (topics passed out of four).
   K.worldLevelProgress=world=>{
     const P=K.progress().passed||{};

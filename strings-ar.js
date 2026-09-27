@@ -329,6 +329,7 @@
     'world.topicPassed':'مكتمل',
     'world.topicPlayed':'لعبت {n} اختبارات · {correct}/{answered} صحيحة',
     'world.progressLine':'أكملت {passed} من {total} مواضيع',
+    'world.worldProgress':'أكملت {done} من {total} اختبارات هذا العالم',
     'world.mixDone':'لعبت {n}',
     'quiz.mixed':'مسابقة مختلطة',
     'quiz.progress':'السؤال {current} من {total}',

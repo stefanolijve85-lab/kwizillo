@@ -179,6 +179,7 @@
     'world.topicPassed':'Superato',
     'world.topicPlayed':'Quiz {n} giocato · {correct}/{answered} giuste',
     'world.progressLine':'{passed} temi su {total} superati',
+    'world.worldProgress':'{done} dei {total} quiz di questo mondo superati',
     'world.mixDone':'{n} giocati',
 
     'quiz.mixed':'Quiz misto',

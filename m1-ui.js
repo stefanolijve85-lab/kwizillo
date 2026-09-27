@@ -158,20 +158,23 @@
     const last=K.state.lastWorld&&WORLD_ORDER.includes(K.state.lastWorld)?K.state.lastWorld:'ruimte';
 
     const worldCards=WORLD_ORDER.map(w=>{
-      const s=worldStat(w),pct=accuracy(s);
       // Just the name, big and centred: a child reads it in one glance. The
       // bar underneath shows how the world is going once it has been played.
       // Every world carries its own level, and the tile says which: four passed
       // topic quizzes take this world — and only this world — one step up.
       const lv=K.worldLevelProgress(w);
-      return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))} · ${esc(t('settings.level'))} ${lv.level}${s.answered?` · ${s.correct}/${s.answered}`:''}">
+      // The bar is the world as a whole: its four topic quizzes at each of the
+      // six levels. It was the share of answers that were right, which said
+      // nothing about how far the world had come — two right answers filled it.
+      const wp=K.worldProgress(w);
+      return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))} · ${esc(t('settings.level'))} ${lv.level} · ${esc(t('world.worldProgress',{done:wp.done,total:wp.total}))}">
         <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async">
         <span class="home-world-veil"></span>
         <span class="home-world-level">${esc(t('settings.level'))} ${lv.level}${lv.passed?` · ${lv.passed}/${lv.total}`:''}</span>
         <span class="home-world-copy">
           <b>${esc(worldTitle(w))}</b>
         </span>
-        ${s.answered?`<span class="home-world-bar"><i style="width:${pct}%"></i></span>`:''}
+        <span class="home-world-bar" title="${esc(t('world.worldProgress',{done:wp.done,total:wp.total}))}"><i style="width:${wp.pct}%"></i></span>
       </button>`;
     }).join('');
 

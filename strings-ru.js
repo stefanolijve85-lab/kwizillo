@@ -178,6 +178,7 @@
     'world.topicPassed':'Пройдено',
     'world.topicPlayed':'Сыграно викторин: {n} · {correct}/{answered} верно',
     'world.progressLine':'Пройдено тем: {passed} из {total}',
+    'world.worldProgress':'Пройдено {done} из {total} викторин этого мира',
     'world.mixDone':'сыграно: {n}',
 
     'quiz.mixed':'Смешанная викторина',

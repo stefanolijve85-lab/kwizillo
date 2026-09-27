@@ -165,3 +165,29 @@ test('the world menu says what has been played there, and a golden card carries 
   expect((band.y - card.y) / card.height).toBeLessThan(0.75);
   expect(band.width / card.width).toBeGreaterThan(0.8);
 });
+
+test('the bar under a world tile is that whole world: four quizzes at each of six levels', async ({ page }) => {
+  // Space is at level 4 with two of its four topics done there: three whole
+  // levels plus two, so fourteen of twenty-four.
+  const passed = atLevel('ruimte', 4);
+  passed[4] = { ...(passed[4] || {}), 'ruimte:zonnestelsel': true, 'ruimte:sterren_planeten': true };
+  await boot(page, { progress: { ...SAVED.progress, passed } });
+
+  expect(await page.evaluate(() => window.KWIZILLO_M1.worldProgress('ruimte'))).toEqual({ done: 14, total: 24, pct: 58 });
+  const width = w => page.locator(`[data-world="${w}"] .home-world-bar i`).evaluate(el => el.style.width);
+  expect(await width('ruimte')).toBe('58%');
+  // A world nobody has played shows an empty bar, not a full one: it used to be
+  // the share of answers that were right, so two right answers filled it.
+  expect(await width('mysterie')).toBe('0%');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.worldProgress('mysterie').done)).toBe(0);
+
+  // A world finished at all six levels is full, which is when its card is earned.
+  await page.evaluate(() => {
+    const K = window.KWIZILLO_M1, P = K.progress().passed;
+    for (let n = 1; n <= 6; n++) for (const k of K.TOPIC_KEYS.dieren) (P[n] ||= {})[`dieren:${k}`] = true;
+    K.save(); K.showHome();
+  });
+  expect(await page.evaluate(() => window.KWIZILLO_M1.worldProgress('dieren'))).toEqual({ done: 24, total: 24, pct: 100 });
+  expect(await width('dieren')).toBe('100%');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.worldMastered('dieren'))).toBe(true);
+});

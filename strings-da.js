@@ -178,6 +178,7 @@
     'world.topicPassed':'Klaret',
     'world.topicPlayed':'Quiz {n} spillet · {correct}/{answered} rigtige',
     'world.progressLine':'{passed} af {total} emner klaret',
+    'world.worldProgress':'{done} af denne verdens {total} quizzer klaret',
     'world.mixDone':'{n} spillet',
 
     'quiz.mixed':'Blandet quiz',

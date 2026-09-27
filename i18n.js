@@ -180,6 +180,7 @@
     'world.topicPassed':'Gehaald',
     'world.topicPlayed':'Quiz {n} gespeeld · {correct}/{answered} goed',
     'world.progressLine':'{passed} van de {total} onderwerpen gehaald',
+    'world.worldProgress':'{done} van de {total} quizzen van deze wereld gehaald',
     'world.mixDone':'{n} gespeeld',
 
     'quiz.mixed':'Gemengde quiz',
@@ -706,6 +707,7 @@
     'world.topicPassed':'Passed',
     'world.topicPlayed':'Quiz {n} played · {correct}/{answered} right',
     'world.progressLine':'{passed} of {total} topics passed',
+    'world.worldProgress':'{done} of this world\u2019s {total} quizzes passed',
     'world.mixDone':'{n} played',
 
     'quiz.mixed':'Mixed quiz',
@@ -1232,6 +1234,7 @@
     'world.topicPassed':'Concluído',
     'world.topicPlayed':'Quiz {n} jogado · {correct}/{answered} certas',
     'world.progressLine':'{passed} de {total} temas concluídos',
+    'world.worldProgress':'{done} de {total} quizzes deste mundo concluídos',
     'world.mixDone':'{n} jogados',
 
     'quiz.mixed':'Quiz misto',

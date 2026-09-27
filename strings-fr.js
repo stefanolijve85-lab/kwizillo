@@ -179,6 +179,7 @@
     'world.topicPassed':'Réussi',
     'world.topicPlayed':'Quiz {n} joué · {correct}/{answered} justes',
     'world.progressLine':'{passed} thèmes sur {total} réussis',
+    'world.worldProgress':'{done} des {total} quiz de ce monde réussis',
     'world.mixDone':'{n} joués',
 
     'quiz.mixed':'Quiz mélangé',
