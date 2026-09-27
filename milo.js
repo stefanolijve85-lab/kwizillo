@@ -385,6 +385,31 @@
       }
       host.pose(to.pose);bubbleAt(to.x,to.side);
     };
+    // Standing still while talking makes a guide look like a sticker. During a
+    // line it keeps pointing at the thing it is explaining, drops back to
+    // talking, and now and then gives a little hop on the spot — the hop runs
+    // on .milo-body, which the mouth hangs under, so it moves along with it.
+    // Returns the way to stop it; the pose it started from is put back.
+    const gesture=to=>{
+      // Pointing at what is spotlighted: above it points down, below it throws
+      // its arms up towards it, beside it points at it sideways.
+      const point=to.side==='top'?'pointDown':to.side==='bottom'?'cheer':(to.pose==='pointLeft'?'pointLeft':'pointRight');
+      const seq=[point,'talk',point,'talk','think','talk'];
+      let i=0,hops=0,timer=null;
+      const beat=()=>{
+        host.pose(seq[i%seq.length]);
+        // a hop every third beat, and never while the figure is mid-clip
+        if(i%3===1&&!host.el.classList.contains('clip-playing')&&hops<4){
+          hops++;host.el.classList.add('nudge');
+          setTimeout(()=>host.el.classList.remove('nudge'),700);
+        }
+        i++;
+      };
+      beat();
+      timer=setInterval(beat,1500);
+      return ()=>{clearInterval(timer);host.el.classList.remove('nudge');host.pose(to.pose)};
+    };
+
     try{
       await Promise.race([K.warmGuide(guide),sleep(1500)]);
       K.sfx('swoosh');
@@ -396,10 +421,16 @@
         await travel(to,first);first=false;
         await sleep(160);
         if(done)break;
-        const said=host.say(t(stop.key),{minMs:2600,clip:stop.key.replace('tour.','')});
+        const stopGesture=gesture(to);
+        // No lip-synced clip here on purpose: a clip replaces the figure with a
+        // video of the guide standing still, and in the tour the guide is a
+        // small full-body figure that should be pointing at what it explains.
+        // The clips stay where they read best — onboarding, up close.
+        const said=host.say(t(stop.key),{minMs:2600});
         // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
         {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb();const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-(f.bottom-6));if(over>0){to.y+=to.side==='top'?over:-over;host.moveTo(to.x,to.y,{instant:true});}}
         await Promise.race([said,waitTap(20000)]);
+        stopGesture();
         host.stop();
       }
     }finally{

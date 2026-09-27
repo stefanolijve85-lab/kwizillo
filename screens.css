@@ -771,7 +771,13 @@
 .milo-host.leave{position:absolute;left:0;top:0;pointer-events:none;animation:guide-leave .34s ease-in both}
 @keyframes guide-enter{from{opacity:0;transform:translateY(26px) scale(.8)}to{opacity:1;transform:none}}
 @keyframes guide-leave{to{opacity:0;transform:translateY(22px) scale(.82)}}
-.milo-figure{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 16px rgba(0,22,70,.42))}
+/* No filter on the cut-out: on iOS WebKit rasterises drop-shadow on a big
+   transparent PNG as a grey rectangle around the image box — the "shadow box"
+   that showed up around Milo in onboarding. The depth comes from a soft ellipse
+   on the ground instead, which is also what a game does. */
+.milo-figure{display:block;width:100%;height:auto}
+.milo-char::after{content:"";position:absolute;z-index:-1;left:14%;right:14%;bottom:0;height:6.5%;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(0,20,66,.42),rgba(0,20,66,.16) 55%,rgba(0,20,66,0) 72%)}
+.milo-host.video-mode .milo-char::after{display:none}
 .milo-host.talking .milo-char{animation:milo-talk .42s ease-in-out infinite alternate}
 @keyframes milo-float{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-9px) rotate(1.2deg)}}
 @keyframes milo-talk{from{transform:scale(1) rotate(0)}to{transform:scale(1.035) rotate(1.6deg)}}
@@ -817,6 +823,10 @@
 .milo-tour .milo-host.hopping{transition-timing-function:cubic-bezier(.3,.7,.3,1)}
 .milo-tour .milo-host.hopping .milo-body{animation:guide-hop .72s cubic-bezier(.3,0,.2,1) both}
 @keyframes guide-hop{0%{transform:translateY(0)}20%{transform:translateY(6px)}55%{transform:translateY(-46px)}100%{transform:translateY(0)}}
+/* A little hop on the spot while a line is spoken — smaller than the hop
+   between stops, and only on the figure, so the speech bubble stays put. */
+.milo-tour .milo-host.nudge .milo-body{animation:guide-nudge .62s cubic-bezier(.3,0,.2,1) both}
+@keyframes guide-nudge{0%{transform:translateY(0)}25%{transform:translateY(3px)}60%{transform:translateY(-17px)}100%{transform:translateY(0)}}
 .milo-tour .milo-bubble{position:absolute;left:var(--bx,0);width:var(--bw,260px);max-width:none;box-sizing:border-box}
 .milo-tour .bubble-top .milo-bubble{bottom:calc(100% + 12px)}
 .milo-tour .bubble-bottom .milo-bubble{top:calc(100% + 12px)}

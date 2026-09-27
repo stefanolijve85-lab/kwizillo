@@ -61,11 +61,16 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   // The walk in lasts under a second, so whether it happened is recorded as it
   // happens rather than asked for afterwards: on a loaded machine the guide is
   // already talking by the time a query arrives.
+  // What the bubble says is collected the same way, and both observers go in
+  // before the tour starts: installed afterwards, a fast stop can be over
+  // before the first mutation is seen.
   await page.evaluate(() => {
-    window.__walked = false;
+    window.__walked = false; window.__said = [];
     new MutationObserver(() => {
       if (document.querySelector('.milo-tour .milo-host.walking')) window.__walked = true;
-    }).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'], childList: true });
+      const t = document.querySelector('.milo-tour .milo-bubble')?.textContent?.trim();
+      if (t && window.__said[window.__said.length - 1] !== t) window.__said.push(t);
+    }).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'], childList: true, characterData: true });
     window.KWIZILLO_M1.startTour();
   });
   const tour = page.locator('.milo-tour');
@@ -77,21 +82,15 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   // The only chrome during the tour is the small Skip button at the bottom.
   await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);
   await expect(tour.locator('.milo-tour-skip')).toHaveText('Overslaan');
-  // The tour moves on by itself, so what the bubble said is collected while it
-  // says it: asking afterwards can land on the next stop.
-  await page.evaluate(() => {
-    window.__said = [];
-    new MutationObserver(() => {
-      const t = document.querySelector('.milo-tour .milo-bubble')?.textContent?.trim();
-      if (t && window.__said[window.__said.length - 1] !== t) window.__said.push(t);
-    }).observe(document.body, { subtree: true, childList: true, characterData: true });
-  });
   const bubble = tour.locator('.milo-bubble');
   await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('zes werelden'))), { timeout: 15000 }).toBe(true);
   await expect(tour.locator('.milo-host')).not.toHaveClass(/walking/);
-  // The worlds line has a clip: the figure hands over to the transparent video.
-  await expect(tour.locator('.milo-host')).toHaveClass(/clip-playing/);
-  await expect(tour.locator('.milo-host video.milo-clip')).toHaveCount(1);
+  // In the tour the figure stays and gestures: a lip-synced clip would replace
+  // it with a video of the guide standing still, and here it has things to
+  // point at. The clips are for onboarding, up close.
+  await expect(tour.locator('.milo-host')).not.toHaveClass(/clip-playing/);
+  await expect(tour.locator('.milo-host video.milo-clip')).toHaveCount(0);
+  await expect(tour.locator('.milo-figure')).toBeVisible();
   const spot = tour.locator('.milo-tour-spot');
   const worlds = await page.locator('.home-worlds').boundingBox();
   const s1 = await spot.boundingBox();
@@ -207,4 +206,39 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   await expect(page.locator('.onboarding .milo-host video.milo-clip')).toHaveCount(0);
   await expect(page.locator('.onboarding .milo-host .milo-mouth')).toHaveCount(1);
   await expect.poll(() => tts.some(t => /hoe oud/i.test(t))).toBe(true);
+});
+
+test('while it explains, the guide points at what it is explaining and hops on the spot', async ({ page }) => {
+  // The speech request is left hanging, which is what a line being spoken looks
+  // like from here: the stop stays put while the guide talks through it.
+  await boot(page, SAVED(), () => {});
+  // Poses and hops as they happen: a query afterwards lands wherever the loop is.
+  await page.evaluate(() => {
+    window.__poses = []; window.__hops = 0;
+    new MutationObserver(() => {
+      const h = document.querySelector('.milo-tour .milo-host');
+      if (!h) return;
+      const p = h.dataset.pose;
+      if (p && window.__poses[window.__poses.length - 1] !== p) window.__poses.push(p);
+      if (h.classList.contains('nudge')) window.__hops++;
+    }).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class', 'data-pose'] });
+    window.KWIZILLO_M1.startTour();
+  });
+  await expect(page.locator('.milo-tour .milo-figure')).toBeVisible();
+  // The first stop is the worlds; the second is the games, which is the one
+  // with six things to point at.
+  await page.waitForTimeout(2500);
+  await page.locator('.milo-tour').click({ position: { x: 10, y: 300 } });     // a tap anywhere but the skip button
+  // Wait until the spotlight has arrived on the games row.
+  await expect.poll(async () => {
+    const spot = await page.locator('.milo-tour-spot').boundingBox();
+    const games = await page.locator('.home-games').boundingBox();
+    return Math.abs(spot.y - games.y);
+  }, { timeout: 15000 }).toBeLessThan(14);
+  await expect.poll(() => page.evaluate(() => window.__poses.filter(p => /point|cheer/.test(p)).length), { timeout: 15000 }).toBeGreaterThan(0);
+  const seen = await page.evaluate(() => ({ poses: [...new Set(window.__poses)], hops: window.__hops }));
+  // It does not stand still: it points, it talks, it thinks, and it hops.
+  expect(seen.poses.length, `poses seen: ${seen.poses.join(', ')}`).toBeGreaterThanOrEqual(3);
+  expect(seen.poses.some(p => /point|cheer/.test(p)), 'it points at what it explains').toBe(true);
+  await expect.poll(() => page.evaluate(() => window.__hops), { timeout: 10000 }).toBeGreaterThan(0);
 });
