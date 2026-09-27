@@ -500,6 +500,19 @@
 .quiz-timer:not(.running){opacity:.55}
 .result-rule{margin:6px 0 0;font-size:12px;font-weight:900;color:#3566a8}
 .result-unlock{margin:6px 0 0;padding:6px 10px;border-radius:999px;background:#fff2b3;color:#7a4b00;font-size:12px;font-weight:1000}
+.result-unlock.is-gold{background:linear-gradient(180deg,#ffe58a,#ffc64a);color:#6b4500}
+/* A world finished at all six levels: the golden card takes the whole screen. */
+.gold-unlock{position:absolute;inset:0;z-index:60;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 42%,rgba(90,60,0,.55),rgba(4,16,44,.88));backdrop-filter:blur(3px);animation:goldFade .35s ease both}
+.gold-unlock-card{position:relative;display:grid;justify-items:center;gap:8px;width:min(320px,86%);padding:20px 18px 18px;border-radius:30px;background:linear-gradient(180deg,#fff8e2,#ffe7a8);box-shadow:0 0 0 3px #ffd45e,0 26px 70px rgba(60,35,0,.55);text-align:center;color:#6b4500;animation:goldPop .6s cubic-bezier(.2,.9,.25,1.35) both}
+.gold-unlock .gold-rays{position:absolute;inset:-40%;background:conic-gradient(from 0deg,rgba(255,214,90,.55) 0 6deg,transparent 6deg 18deg);border-radius:50%;animation:goldSpin 9s linear infinite;z-index:0;opacity:.45}
+.gold-unlock-art{position:relative;z-index:1;width:100%;max-height:44vh;object-fit:cover;border-radius:22px;box-shadow:0 0 0 3px #fff,0 14px 30px rgba(60,35,0,.4)}
+.gold-unlock-card b{position:relative;z-index:1;font-size:16px;line-height:1.15}
+.gold-unlock-sub{position:relative;z-index:1;font-size:12px;font-weight:900;color:#8a6210}
+.gold-unlock-ok{position:relative;z-index:1;margin-top:4px;min-height:46px;padding:12px 22px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe868,#ffbd21);color:#5a3a00;font-size:15px;font-weight:1000;box-shadow:0 5px 0 #d79a10;cursor:pointer}
+@keyframes goldFade{from{opacity:0}to{opacity:1}}
+@keyframes goldPop{0%{opacity:0;transform:scale(.6) rotate(-8deg)}70%{opacity:1;transform:scale(1.05) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes goldSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.gold-unlock,.gold-unlock-card{animation:none}.gold-unlock .gold-rays{animation:none;opacity:.25}}
 .is-fail .result-v2-card{box-shadow:0 28px 80px rgba(0,25,75,.5),0 0 0 6px rgba(255,170,90,.35)}
 .is-fail .result-stage .result-mascot{animation:none;opacity:1;transform:none}
 .level-card .level-toggle button{min-width:30px}
@@ -1124,6 +1137,10 @@
 .shop-item.is-owned{border-color:#bfe8cb}
 .kcard.gold .kcard-frame{box-shadow:0 0 0 3px #ffcf4a,0 10px 24px rgba(122,84,6,.32)}
 .kcard.gold .kcard-tint{background:linear-gradient(180deg,rgba(255,207,74,.34),rgba(120,72,0,.52))}
+/* a card the runner handed out: its own painting in a cool frame */
+.kcard.runner .kcard-frame{box-shadow:0 0 0 3px #7ee0ff,0 10px 24px rgba(10,74,110,.32)}
+.kcard.runner .kcard-tint{background:linear-gradient(180deg,rgba(64,196,255,.28),rgba(8,42,84,.55))}
+.kcard.runner .kcard-art img{object-fit:contain;background:none}
 
 /* ---- every world carries its own level ---- */
 .home-world-level{position:absolute;z-index:3;top:6px;inset-inline-end:6px;padding:3px 7px;border-radius:999px;background:linear-gradient(180deg,rgba(255,230,92,.96),rgba(255,188,34,.96));color:#17235e;font-size:9px;font-weight:1000;letter-spacing:-.01em;box-shadow:0 3px 8px rgba(0,26,83,.28);white-space:nowrap}

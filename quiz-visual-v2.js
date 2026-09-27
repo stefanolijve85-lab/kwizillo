@@ -291,6 +291,30 @@
 
   function next(){clearSpoken();stopTimer();K.quiz.index++;K.showQuiz()}
 
+  // A world finished at all six levels: its golden card flies in, turns once
+  // and stays. Tapping anywhere puts it away; the card is already in the
+  // collection by then.
+  function goldUnlock(frame,world){
+    const el=document.createElement('div');
+    el.className='gold-unlock';
+    el.innerHTML=`<div class="gold-unlock-card">
+      <span class="gold-rays" aria-hidden="true"></span>
+      <img class="gold-unlock-art" src="${K.goldArt(world)}" data-fallback="${K.goldFallback(world)}" alt="">
+      <b>${esc(t('result.worldMastered',{world:t(`world.${world}.title`)}))}</b>
+      <span class="gold-unlock-sub">${esc(t('result.goldCardEarned',{world:t(`world.${world}.title`)}))}</span>
+      <button class="gold-unlock-ok">${esc(t('common.gotIt'))}</button>
+    </div>`;
+    frame.appendChild(el);
+    K.wireFallbacks?.(el);
+    K.sfx('reward');
+    setTimeout(()=>K.sfx('gift'),420);
+    K.celebrate?.('gold',el);
+    K.speak?.(t('result.goldCardSpeech',{world:t(`world.${world}.title`)}));
+    const close=()=>{el.remove()};
+    el.onclick=close;
+    el.querySelector('.gold-unlock-ok').onclick=e=>{e.stopPropagation();K.sfx('tap');close()};
+  }
+
   K.showResult=()=>{
     K.stopSpeech();
     const q=K.quiz;
@@ -300,7 +324,7 @@
     const keys=K.TOPIC_KEYS[K.currentWorld]||[];
     const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
     const isTopic=topicIdx>=0;
-    let unlocked=null;
+    let unlocked=null,mastered=false;
     if(q&&!q._counted){
       q._counted=true;
       K.state.quizzesPlayed=Number(K.state.quizzesPlayed||0)+1;
@@ -316,6 +340,9 @@
         (P[niveau]||={})[`${q.world}:${q.topicKey}`]=true;
         const now=K.worldLevel(q.world);
         if(now>niveau) unlocked=now;
+        // All four topics passed at all six levels: the world is finished for
+        // good and its golden card is earned — not bought.
+        if(K.worldMastered?.(q.world)&&!K.owned(`gold:${q.world}`)){K.own(`gold:${q.world}`);mastered=true;}
       }
       K.touchStreak();
       K.save();
@@ -346,6 +373,7 @@
         <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${passed&&n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
         <p class="result-rule">${esc(t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
         ${unlocked?`<p class="result-unlock">${esc(t('result.worldLevelUp',{world:t(`world.${q.world}.title`),niveau:unlocked}))}</p>`:''}
+        ${mastered?`<p class="result-unlock is-gold">${esc(t('result.worldMastered',{world:t(`world.${q.world}.title`)}))}</p>`:''}
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         ${bonus?.html||''}
         <div class="result-native">
@@ -370,6 +398,9 @@
       };
       gift.onclick=open;
       setTimeout(open,1100);
+      // The whole world finished: the golden card comes in on its own screen,
+      // with a triumphant fanfare, before anything else is read out.
+      if(mastered) setTimeout(()=>{if(f.isConnected)goldUnlock(f,q.world)},1500);
     }else{
       K.sfx('bad');
     }

@@ -1,15 +1,20 @@
 export const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export function random(seed){let s=seed>>>0;return()=>{s+=0x6D2B79F5;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;};}
-export function createRun({duration=40,easy=false,seed=Date.now(),crossings=false}={}){return {duration:clamp(Number(duration)||40,30,45),easy,seed,crossings,random:random(seed),time:0,distance:0,lane:1,x:1,jump:0,buffer:0,cooldown:0,coins:0,collectedCard:false,items:[],nextRow:.5,row:0,done:false,hits:0,streak:0,bestStreak:0,magnet:0,double:0,doubleCoins:0,boost:0,boostCoins:0,shield:0,bonusCoins:0,pickups:0,jumpsCleared:0};}
-export function move(s,d){if(!s.done)s.lane=clamp(s.lane+d,0,2);}
-export function jump(s){if(s.done)return false;if(s.jump<=0){s.jump=.92;s.doubleFlip=false;return true;}
+// What a collision costs in coins. Running into something has to hurt a
+// little — but never more than the child has, so the purse can never go red.
+export const HIT_PENALTY=5;
+export function createRun({duration=40,easy=false,seed=Date.now(),crossings=false}={}){return {duration:clamp(Number(duration)||40,30,45),easy,seed,crossings,random:random(seed),time:0,distance:0,lane:1,x:1,jump:0,buffer:0,cooldown:0,coins:0,collectedCard:false,items:[],nextRow:.5,row:0,done:false,hits:0,stumble:0,lostCoins:0,streak:0,bestStreak:0,magnet:0,double:0,doubleCoins:0,boost:0,boostCoins:0,shield:0,bonusCoins:0,pickups:0,jumpsCleared:0};}
+export function move(s,d){if(!s.done&&s.stumble<=0)s.lane=clamp(s.lane+d,0,2);}
+export function jump(s){if(s.done||s.stumble>0)return false;if(s.jump<=0){s.jump=.92;s.doubleFlip=false;return true;}
 // a second press while still high in the air: the flip becomes a double somersault (a little more air time, a small bonus)
 if(!s.doubleFlip&&s.jump>.25&&s.jump<.8){s.doubleFlip=true;s.jump=Math.min(.92,s.jump+.32);s.pendingDouble=true;return 'double';}
 s.buffer=.13;return false;}
 export const height=s=>s.jump>0?Math.sin((1-s.jump/.92)*Math.PI):0;
-export function step(s,dt){const events=[];if(s.done)return events;dt=clamp(dt,0,.05);s.time=Math.min(s.duration,s.time+dt);s.cooldown=Math.max(0,s.cooldown-dt);s.magnet=Math.max(0,s.magnet-dt);s.double=Math.max(0,s.double-dt);s.boost=Math.max(0,s.boost-dt);s.buffer=Math.max(0,s.buffer-dt);const wasJumping=s.jump>0;s.jump=Math.max(0,s.jump-dt);if(wasJumping&&!s.jump){events.push({type:'land'});if(s.doubleFlip){s.coins+=3;s.bonusCoins+=3;events.push({type:'doubleflip',lane:s.x,value:3});}s.doubleFlip=false;}if(!s.jump&&s.buffer>0){jump(s);s.buffer=0;}s.x+=(s.lane-s.x)*(1-Math.exp(-19*dt));
+export function step(s,dt){const events=[];if(s.done)return events;dt=clamp(dt,0,.05);s.time=Math.min(s.duration,s.time+dt);s.cooldown=Math.max(0,s.cooldown-dt);s.stumble=Math.max(0,s.stumble-dt);s.magnet=Math.max(0,s.magnet-dt);s.double=Math.max(0,s.double-dt);s.boost=Math.max(0,s.boost-dt);s.buffer=Math.max(0,s.buffer-dt);const wasJumping=s.jump>0;s.jump=Math.max(0,s.jump-dt);if(wasJumping&&!s.jump){events.push({type:'land'});if(s.doubleFlip){s.coins+=3;s.bonusCoins+=3;events.push({type:'doubleflip',lane:s.x,value:3});}s.doubleFlip=false;}if(!s.jump&&s.buffer>0){jump(s);s.buffer=0;}s.x+=(s.lane-s.x)*(1-Math.exp(-19*dt));
 // turbo: five seconds of much faster running (everything comes at you sooner) and every coin counts double
-const speed=(s.easy?.26:.31)*(s.cooldown>.5?.75:1)*(s.boost>0?1.6:1);s.distance+=speed*dt;
+// a stumble stops the world: the child is really held for half a second,
+// then runs on a little slower while the shake wears off
+const speed=(s.easy?.26:.31)*(s.stumble>0?0:s.cooldown>.5?.75:1)*(s.boost>0?1.6:1);s.distance+=speed*dt;
 if(s.time>=s.nextRow&&s.time<s.duration-4.5){s.nextRow+=s.easy?1.65:1.3;s.row++;const lane=Math.floor(s.random()*3);const add=(kind,lane,z=0)=>s.items.push({kind,lane,z,resolved:false});add('coin',lane);add('coin',lane,-.065);add(s.row%5===0?'gold':'coin',lane,-.13);if(s.row===2||s.row===13)add('magnet',lane,-.22);if(s.row===8||s.row===19)add('double',lane,-.22);if(s.row===5||s.row===17)add('shield',lane,-.22);if(s.row===11||s.row===21)add('speed',lane,-.22);if(s.row>2){const block=(lane+1+Math.floor(s.random()*2))%3;add(s.row%3===0?'rock':'log',block);}if(s.row===9)add('card',(lane+2)%3,-.23);
 // a crossing: a car drives across the whole path while it comes towards you — jump over it, or pass in front of or behind it by changing lane
 if(s.crossings&&(s.row===6||s.row===14||s.row===20)){const dir=s.random()<.5?1:-1;const target=.3+s.random()*1.4,travel=1.15*1.35/(s.easy?.26:.31);/* the car is timed to be on the path, right in front of the child, when it arrives — so it has to be jumped */s.items.push({kind:'car',lane:target-dir*travel,z:-.35,dir,resolved:false,honked:false});}}
@@ -25,9 +30,9 @@ else if(item.kind==='speed'){s.boost=7;s.pickups++;events.push({type:'speed',lan
 else if(item.kind==='shield'){s.shield=1;s.pickups++;events.push({type:'shield',lane:item.lane});}
 else if(item.kind==='card'){s.collectedCard=true;events.push({type:'card',lane:item.lane});}
 else if((item.kind==='log'||item.kind==='car')&&height(s)>.27){s.jumpsCleared++;events.push({type:'clear',lane:item.lane});}
-else if(!s.cooldown){if(s.shield){s.shield=0;s.cooldown=.25;events.push({type:'block',lane:item.lane});}else{s.cooldown=1.1;s.hits++;s.streak=0;events.push({type:'hit',lane:item.lane});}}
+else if(!s.cooldown){if(s.shield){s.shield=0;s.cooldown=.25;events.push({type:'block',lane:item.lane});}else{s.cooldown=1.1;s.stumble=.55;s.hits++;s.streak=0;const lost=Math.min(s.coins,HIT_PENALTY);s.coins-=lost;s.lostCoins+=lost;events.push({type:'hit',lane:item.lane,lost});}}
 }else if(collectible)s.streak=0;
 }}
 
 s.items=s.items.filter(i=>i.z<1.28);if(s.time>=s.duration){s.done=true;events.push({type:'finish'});}return events;}
-export function result(s,runId,theme){return Object.freeze({version:1,game:'jungle-runner',runId,theme,seed:s.seed,coins:s.coins,cardId:s.collectedCard?'jungle-leaf':null,durationMs:Math.round(s.duration*1000),completed:true,stats:Object.freeze({bestStreak:s.bestStreak,bonusCoins:s.bonusCoins,doubleCoins:s.doubleCoins,boostCoins:s.boostCoins,pickups:s.pickups,jumpsCleared:s.jumpsCleared}),finishedAt:Date.now()});}
+export function result(s,runId,theme){return Object.freeze({version:1,game:'jungle-runner',runId,theme,seed:s.seed,coins:s.coins,cardId:s.collectedCard?'jungle-leaf':null,durationMs:Math.round(s.duration*1000),completed:true,stats:Object.freeze({bestStreak:s.bestStreak,hits:s.hits,lostCoins:s.lostCoins,bonusCoins:s.bonusCoins,doubleCoins:s.doubleCoins,boostCoins:s.boostCoins,pickups:s.pickups,jumpsCleared:s.jumpsCleared}),finishedAt:Date.now()});}

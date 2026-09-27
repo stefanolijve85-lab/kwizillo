@@ -195,6 +195,29 @@
     return {level,passed:keys.filter(k=>P[level]?.[`${world}:${k}`]).length,total:keys.length||4};
   };
 
+  // A world is mastered once its four topic quizzes have been passed at every
+  // one of the six levels: that is all 240 questions of the world, and it is
+  // what earns the golden world card.
+  K.worldMastered=world=>{
+    const P=K.progress().passed||{};
+    const keys=K.TOPIC_KEYS?.[world]||[];
+    if(!keys.length)return false;
+    const top=K.core?.LEVELS?.length||6;
+    for(let level=1;level<=top;level++) if(!keys.every(k=>P[level]?.[`${world}:${k}`])) return false;
+    return true;
+  };
+
+  // Every card the child owns, counted in one place so the collection tab, the
+  // statistics tile, the achievement and the share text can never disagree:
+  // a card per question answered correctly, the golden world cards, and the
+  // cards the runner hands out.
+  K.goldCards=()=>Object.keys(K.MASTER||{}).filter(w=>K.owned(`gold:${w}`));
+  K.runnerCards=()=>{
+    const owned=K.progress().games?.jungle?.cards||[];
+    return (K.RUNNER_CARDS||[]).filter(c=>owned.includes(c.id));
+  };
+  K.cardCount=()=>K.progress().correctQuestionIds.length+K.goldCards().length+K.runnerCards().length;
+
   // Level is derived, never stored, so it can never drift from XP.
   K.level=()=>1+Math.floor(Number(K.state.xp||0)/100);
   K.xpIntoLevel=()=>Number(K.state.xp||0)%100;

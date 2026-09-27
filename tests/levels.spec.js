@@ -97,3 +97,31 @@ test('the parent zone shows where every world stands', async ({ page }) => {
   await expect(row).toHaveCount(6);
   expect(await row.allInnerTexts()).toEqual(['1', '1', '3', '1', '1', '1']);
 });
+
+test('finishing a world at all six levels earns its golden card, with a celebration', async ({ page }) => {
+  // Space is through levels 1-5 and needs one last topic at level 6.
+  const passed = atLevel('ruimte', 6);
+  for (const key of TOPIC_KEYS.ruimte.slice(0, 3)) (passed[6] ||= {})[`ruimte:${key}`] = true;
+  await boot(page, { progress: { ...SAVED.progress, passed } });
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.worldLevel('ruimte'), window.KWIZILLO_M1.worldMastered('ruimte'), window.KWIZILLO_M1.owned('gold:ruimte')])).toEqual([6, false, false]);
+
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('.world-topic').nth(3).click();
+  await playPerfectQuiz(page);
+
+  await expect(page.locator('.result-unlock.is-gold')).toHaveText('🏆 Ruimtewereld helemaal voltooid!');
+  await expect(page.locator('.gold-unlock')).toBeVisible({ timeout: 6000 });
+  await expect(page.locator('.gold-unlock-sub')).toHaveText('Je hebt de gouden kaart van Ruimtewereld verdiend!');
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.worldMastered('ruimte'), window.KWIZILLO_M1.owned('gold:ruimte')])).toEqual([true, true]);
+
+  // It is put away with one tap, and the card is in the collection.
+  await page.locator('.gold-unlock-ok').click();
+  await expect(page.locator('.gold-unlock')).toHaveCount(0);
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('cards'));
+  await expect(page.locator('.kcard.gold')).toHaveCount(1);
+  await expect(page.locator('.kcard.gold .kcard-foot span').last()).toHaveText('Verdiend');
+  // Another quiz in that world does not hand out a second one.
+  const before = await page.evaluate(() => window.KWIZILLO_M1.cardCount());
+  await page.evaluate(() => window.KWIZILLO_M1.own('gold:ruimte'));
+  expect(await page.evaluate(() => window.KWIZILLO_M1.cardCount())).toBe(before);
+});

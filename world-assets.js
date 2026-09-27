@@ -13,6 +13,25 @@
     mysterie:'assets/worlds/mysterie.jpg'
   };
 
+  // The golden world cards: one painting per world, earned by finishing that
+  // world at all six levels (or bought in the shop). A world whose painting has
+  // not been dropped in yet falls back to its master art, so the card is never
+  // an empty frame.
+  K.GOLD_ART={};
+  for(const w of Object.keys(K.MASTER)) K.GOLD_ART[w]=`assets/cards/gold/${w}.jpg`;
+  // The cards the runner hands out, one per level of the game.
+  // The painting of a world's golden card, or the world art while its own
+  // painting has not been added yet (see K.wireFallbacks).
+  K.goldArt=w=>K.assetUrl(K.GOLD_ART?.[w]||K.MASTER[w]||'');
+  // Drop the painting in as assets/cards/gold/<world>.jpg (or .png); until it
+  // is there the card falls back to the world art, in that order.
+  K.goldFallback=w=>[K.assetUrl(`assets/cards/gold/${w}.png`),K.assetUrl(K.MASTER[w]||'')].join('|');
+  K.RUNNER_CARDS=[
+    {id:'jungle-leaf',level:'jungle',art:'assets/games/jungle/img/collectible-jungle-card.png'},
+    {id:'city-star',level:'stad',art:'assets/games/jungle/img/collectible-city-card.png'},
+    {id:'sky-feather',level:'lucht',art:'assets/games/jungle/img/collectible-sky-card.png'}
+  ];
+
   // Question illustrations come in two tiers, both 16:9.
   //
   // 1. Subject art, chosen from the wording of the question itself. This is the

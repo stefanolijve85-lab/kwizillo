@@ -88,7 +88,8 @@ export class Renderer{
  // The first opaque row of a painting (cached): where the fists are on the hanging and reaching poses.
  topOf(name){this.tops??={};if(this.tops[name]!==undefined)return this.tops[name];const im=this.images[name];const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,im.width,im.height).data;let top=0;outer:for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x+=2)if(d[(y*im.width+x)*4+3]>40){top=y;break outer;}return this.tops[name]=top/im.height;}
  flip(x,bottom,width,remaining,alpha,twice=false){const g=this.g,im=this.images[`hero-${this.hero}-flip`];const p=1-Math.max(0,Math.min(.92,remaining))/.92;const frame=twice?Math.min(7,Math.floor(((p*2)%1)*8)):flipFrame(remaining),cw=im.width/4,ch=im.height/2;const h=width*ch/cw*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.drawImage(im,(frame%4)*cw,Math.floor(frame/4)*ch,cw,ch,x-width/2,bottom-h,width,h);g.restore();}
- event(e){const p=this.point(e.lane??1,1);if(['coin','gold','combo','card','clear','magnet','shield','block','double','speed','doubleflip'].includes(e.type)){const label=this.labelFor?.(e)??({coin:`+${e.value??1}`,gold:`+${e.value??5} GOUD!`,combo:`COMBO +5`,card:'Kaart ontdekt!',clear:'Mooie sprong!',magnet:'MAGNEET!',shield:'SCHILD!',block:'Gered!',double:'DUBBELE MUNTEN!',speed:'TURBO!'})[e.type];this.labels.push({x:p.x,y:p.y-160,text:label,life:1});if(!this.reduced)for(let i=0;i<9;i++){const a=i*2.4;this.particles.push({x:p.x,y:p.y-55,vx:Math.cos(a)*80,vy:Math.sin(a)*85-50,life:.65,color:e.type==='card'?'#a2f7ff':'#ffe58e'});}}}
+ event(e){const p=this.point(e.lane??1,1);if(e.type==='hit'){const label=this.labelFor?.(e);if(label)this.labels.push({x:p.x,y:p.y-160,text:label,life:1});if(!this.reduced)for(let i=0;i<10;i++){const a=i*2.1;this.particles.push({x:p.x,y:p.y-30,vx:Math.cos(a)*70,vy:Math.sin(a)*70-40,life:.6,r:4+Math.random()*4,color:'#d8c7a6'});}return;}
+  if(['coin','gold','combo','card','clear','magnet','shield','block','double','speed','doubleflip'].includes(e.type)){const label=this.labelFor?.(e)??({coin:`+${e.value??1}`,gold:`+${e.value??5} GOUD!`,combo:`COMBO +5`,card:'Kaart ontdekt!',clear:'Mooie sprong!',magnet:'MAGNEET!',shield:'SCHILD!',block:'Gered!',double:'DUBBELE MUNTEN!',speed:'TURBO!'})[e.type];this.labels.push({x:p.x,y:p.y-160,text:label,life:1});if(!this.reduced)for(let i=0;i<9;i++){const a=i*2.4;this.particles.push({x:p.x,y:p.y-55,vx:Math.cos(a)*80,vy:Math.sin(a)*85-50,life:.65,color:e.type==='card'?'#a2f7ff':'#ffe58e'});}}}
 
  drawWorld(s,dt){const g=this.g,L=LEVELS[this.level],bg=this.images[this.scene],distance=travel(s),night=this.isNight,air=airborne(this.level,s),gliding=!!air;
  // a new bend every few seconds, eased; the run starts straight
@@ -213,6 +214,11 @@ export class Renderer{
     if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha);}
   }
   else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha,!!s.doubleFlip);
+  // bumped into something: the running stops dead, the child rocks backwards,
+  // sinks through the knees and shakes himself back up — the whole world is
+  // held still meanwhile (engine.js), so the stop is felt, not only seen.
+  else if(s.stumble>0){const k=1-s.stumble/.55,rock=Math.sin(Math.min(1,k*1.35)*Math.PI);
+   this.image(`hero-${hero}-run-01`,p.x+(this.reduced?0:Math.sin(s.stumble*47)*5*(1-k)),bottom+rock*13,211,-.36*rock+clampTilt(s),alpha);}
   else this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
   if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-heroLift,74,116,s.time,this.reduced);
   if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-heroLift,86,130,s.time,this.reduced);};

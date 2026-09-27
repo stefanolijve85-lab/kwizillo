@@ -25,7 +25,7 @@ export const TEXT={
   help:'{n} seconden • Veeg of gebruik de knoppen<br>10 munten op rij = +5 bonus<br>Pak power-ups en ontdek een kaart',
   countFollow:'Volg de munten!',countReady:'Klaar voor avontuur?',
   pauseEyebrow:'EVEN OP ADEM KOMEN',pauseTitle:'Jouw jungle<br>wacht op je.',pauseBody:'De tijd staat stil.',resume:'Verder spelen →',exit:'Rit verlaten zonder beloning',
-  hit:'Oeps! Gewoon weer verder — je munten blijven.',cardFound:'Een junglekaart ontdekt!',
+  hit:'Oeps! Even stilgestaan — ren maar weer verder.',hitLost:'Au! Je botste — {n} munten kwijt.',labelHit:'−{n}',lostCoins:'Munten kwijt',cardFound:'Een junglekaart ontdekt!',
   powerDouble:'×2 {n}s',powerMagnet:'🧲 {n}s',powerSpeed:'⚡ {n}s',powerShield:'🛡 Beschermd',powerStreak:'★ {n} op rij',
   popDouble:'BONUSSTER!',popDoubleSub:'6 seconden dubbele munten',popSpeed:'TURBO!',popSpeedSub:'7 seconden supersnel · dubbele munten',popGold:'GOUD GEVONDEN!',popGoldSub:'+{n} munten',
   popCombo:'{n} OP RIJ!',popComboSub:'+5 combo-bonus',popMagnet:'MUNTMAGNEET!',popMagnetSub:'7 seconden munten aantrekken',
@@ -71,7 +71,7 @@ export class KwizilloJungle extends HTMLElement{
    if(!this.alive)return;
    this.renderer=new Renderer(this.canvas,images,{level:this.level,hero:this.heroKind});
    this.renderer.reduced=this.options.reducedMotion??matchMedia('(prefers-reduced-motion: reduce)').matches;
-   this.renderer.labelFor=e=>({coin:`+${e.value??1}`,gold:this.t('labelGold',{n:e.value??5}),combo:this.t('labelCombo'),speed:this.t('labelSpeed'),card:this.t('labelCard'),clear:this.t('labelClear'),magnet:this.t('labelMagnet'),shield:this.t('labelShield'),block:this.t('labelBlock'),double:this.t('labelDouble')})[e.type];
+   this.renderer.labelFor=e=>({coin:`+${e.value??1}`,gold:this.t('labelGold',{n:e.value??5}),combo:this.t('labelCombo'),speed:this.t('labelSpeed'),card:this.t('labelCard'),clear:this.t('labelClear'),hit:e.lost?this.t('labelHit',{n:e.lost}):null,magnet:this.t('labelMagnet'),shield:this.t('labelShield'),block:this.t('labelBlock'),double:this.t('labelDouble')})[e.type];
    this.root.querySelector('.game').classList.toggle('reduced',this.renderer.reduced);
    this.run=createRun(this.options);
    this.home();
@@ -152,7 +152,7 @@ export class KwizilloJungle extends HTMLElement{
   if(this.phase==='playing'){
    for(const e of step(this.run,dt)){
     this.renderer.event(e);this.audio.play(e.type,e.streak);this.arcadeEvent(e);
-    if(e.type==='hit')this.toast(this.t('hit'));
+    if(e.type==='hit')this.toast(e.lost?this.t('hitLost',{n:e.lost}):this.t('hit'));
     if(e.type==='card')this.toast(this.t('cardFound'));
     if(e.type==='speed')this.options.onTempo?.(1.28);
     if(e.type==='finish'){this.phase='finished';this.finishStarted=performance.now();this.root.querySelector('.arcade-pop').classList.remove('show');const base=result(this.run,this.runId,this.level);this.reward=Object.freeze({...base,cardId:base.cardId?this.card.id:null});this.save();}
@@ -199,7 +199,7 @@ export class KwizilloJungle extends HTMLElement{
  }
  finishPanel(message,error=false){
   const T=k=>escapeText(this.t(k));
-  this.panel(`<div class="finish-panel"><div class="confetti" aria-hidden="true">${Array.from({length:18},(_,i)=>`<i style="--i:${i};--x:${(i*37)%100}%;--c:${['#ffd345','#70e8ff','#fb94d8','#b0ee85'][i%4]}"></i>`).join('')}</div><div class="eyebrow">${T('finishEyebrow')}</div><div class="finish-stars" aria-hidden="true">★ ★ ★</div><h1>${T('finish')}</h1><p class="finish-sub">${T('finishSub')}</p><div class="coin-win"><img src="${img('collectible-coin')}" alt=""><div class="reward"><b data-count>+${this.renderer.reduced?this.run.coins:0}</b><small>${T('coinsEarned')}</small></div></div><div class="run-stats"><span>★ ${T('bestStreak')} <b>${this.run.bestStreak}</b></span><span>✦ ${T('bonusCoins')} <b>+${this.run.bonusCoins+this.run.doubleCoins}</b></span></div>${this.run.collectedCard?`<div class="card-reveal"><img data-card-image alt="${T('cardAlt')}"><div><small>${T('cardEyebrow')}</small><strong>${escapeText(this.card.title)}</strong><span>${T('cardSub')}</span></div></div>`:''}<p class="save-status" role="status">${escapeText(message)}</p>${error?`<button class="primary" data-act="retry">${T('retry')}</button>`:this.saved?`<button class="primary" data-act="exit">${T('take')}</button><div class="finish-row"><button class="secondary" data-act="replay">${T('replay')}</button><button class="secondary" data-act="home">${T('again')}</button></div>`:''}</div>`);
+  this.panel(`<div class="finish-panel"><div class="confetti" aria-hidden="true">${Array.from({length:18},(_,i)=>`<i style="--i:${i};--x:${(i*37)%100}%;--c:${['#ffd345','#70e8ff','#fb94d8','#b0ee85'][i%4]}"></i>`).join('')}</div><div class="eyebrow">${T('finishEyebrow')}</div><div class="finish-stars" aria-hidden="true">★ ★ ★</div><h1>${T('finish')}</h1><p class="finish-sub">${T('finishSub')}</p><div class="coin-win"><img src="${img('collectible-coin')}" alt=""><div class="reward"><b data-count>+${this.renderer.reduced?this.run.coins:0}</b><small>${T('coinsEarned')}</small></div></div><div class="run-stats"><span>★ ${T('bestStreak')} <b>${this.run.bestStreak}</b></span><span>✦ ${T('bonusCoins')} <b>+${this.run.bonusCoins+this.run.doubleCoins}</b></span>${this.run.lostCoins?`<span class="lost">✖ ${T('lostCoins')} <b>−${this.run.lostCoins}</b></span>`:''}</div>${this.run.collectedCard?`<div class="card-reveal"><img data-card-image alt="${T('cardAlt')}"><div><small>${T('cardEyebrow')}</small><strong>${escapeText(this.card.title)}</strong><span>${T('cardSub')}</span></div></div>`:''}<p class="save-status" role="status">${escapeText(message)}</p>${error?`<button class="primary" data-act="retry">${T('retry')}</button>`:this.saved?`<button class="primary" data-act="exit">${T('take')}</button><div class="finish-row"><button class="secondary" data-act="replay">${T('replay')}</button><button class="secondary" data-act="home">${T('again')}</button></div>`:''}</div>`);
   const cardImage=this.root.querySelector('[data-card-image]');
   if(cardImage){
    const fallback=img('collectible-jungle-card');

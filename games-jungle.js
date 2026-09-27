@@ -16,14 +16,14 @@
   // Every string the runner shows, in the app language (game.js keys → i18n keys).
   const textTable=()=>{
     const map={};
-    for(const key of ['brand','eyebrow','title','titleA','titleB','back','easyShort','backShort','levelLabel','heroLabel','heroBoy','heroGirl','glideOn','glideOff','swingOn','swingOff','powerSpeed','popSpeed','popSpeedSub','labelSpeed','levelJungle','levelStad','levelLucht','canvasLabel','pause','sound','controls','left','right','jump','loading','loadErrorTitle','intro','legendMagnet','legendShield','legendGold','legendDouble','easy','music','on','off','start','help','countFollow','countReady','pauseEyebrow','pauseTitle','pauseBody','resume','exit','hit','cardFound','powerDouble','powerMagnet','powerShield','powerStreak','popDouble','popDoubleSub','popGold','popGoldSub','popCombo','popComboSub','popMagnet','popMagnetSub','popShield','popShieldSub','popBlock','popBlockSub','popCard','popCardSub','popClear','popClearSub','popDoubleflip','popDoubleflipSub','labelGold','labelCombo','labelCard','labelClear','labelMagnet','labelShield','labelBlock','labelDouble','saving','saved','saveError','finishEyebrow','finish','finishSub','coinsEarned','bestStreak','bonusCoins','cardAlt','cardEyebrow','cardSub','cardTitle','retry','take','again','replay'])map[key]=t('jungle.'+key);
+    for(const key of ['brand','eyebrow','title','titleA','titleB','back','easyShort','backShort','levelLabel','heroLabel','heroBoy','heroGirl','glideOn','glideOff','swingOn','swingOff','powerSpeed','popSpeed','popSpeedSub','labelSpeed','levelJungle','levelStad','levelLucht','canvasLabel','pause','sound','controls','left','right','jump','loading','loadErrorTitle','intro','legendMagnet','legendShield','legendGold','legendDouble','easy','music','on','off','start','help','countFollow','countReady','pauseEyebrow','pauseTitle','pauseBody','resume','exit','hit','hitLost','labelHit','lostCoins','cardFound','powerDouble','powerMagnet','powerShield','powerStreak','popDouble','popDoubleSub','popGold','popGoldSub','popCombo','popComboSub','popMagnet','popMagnetSub','popShield','popShieldSub','popBlock','popBlockSub','popCard','popCardSub','popClear','popClearSub','popDoubleflip','popDoubleflipSub','labelGold','labelCombo','labelCard','labelClear','labelMagnet','labelShield','labelBlock','labelDouble','saving','saved','saveError','finishEyebrow','finish','finishSub','coinsEarned','bestStreak','bonusCoins','cardAlt','cardEyebrow','cardSub','cardTitle','retry','take','again','replay'])map[key]=t('jungle.'+key);
     map.loadError=t('jungle.loadErrorBody');map.savedNoHost=map.saved;
     return map;
   };
 
   K.jungleText=textTable;
 
-  const jungleProgress=()=>{const G=K.progress().games||={};return G.jungle||={played:0,best:0,coins:0,runs:[],cards:[]}};
+  const jungleProgress=()=>{const G=K.progress().games||={};const j=G.jungle||={played:0,best:0,coins:0,runs:[],cards:[]};j.runs||=[];j.cards||=[];return j};
 
   // Books a finished run: coins go to the wallet exactly once per run id, so a
   // retried save or a replayed callback can never pay twice. Returns what was booked.
@@ -39,9 +39,10 @@
     const xp=10+Math.min(20,Math.floor(earned.granted/5))+(reward.cardId?5:0);
     const paid=K.awardPoints(xp);
     j.played++;j.coins+=earned.granted;if(earned.granted>j.best)j.best=earned.granted;
-    if(reward.cardId&&!j.cards.includes(reward.cardId))j.cards.push(String(reward.cardId));
+    let card=null;
+    if(reward.cardId&&!j.cards.includes(reward.cardId)){card=String(reward.cardId);j.cards.push(card);}
     K.touchStreak();K.save();
-    return {coins:earned.granted,xp:paid.granted,capped:earned.capped,duplicate:false};
+    return {coins:earned.granted,xp:paid.granted,capped:earned.capped,card,duplicate:false};
   };
 
   let active=null;
@@ -75,7 +76,7 @@
       text:textTable(),
       onStart:()=>K.audio.unlock().catch(()=>{}),
       onTempo:rate=>K.audio.setTempo?.(rate),
-      onComplete:reward=>{const booked=K.jungleReward(reward);if(booked&&booked.coins)K.sfx('reward')},
+      onComplete:reward=>{const booked=K.jungleReward(reward);if(booked&&booked.coins)K.sfx('reward');if(booked&&booked.card)K.toast(t('collection.cardAdded',{title:t('card.'+booked.card)}))},
       onExit:()=>{K.audio.setTempo?.(1);leave();K.showHome()}
     });
     active={destroy:()=>game.destroy()};

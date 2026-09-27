@@ -66,6 +66,15 @@
         const o={x:cr.left-fr.left+cr.width/2,y:cr.top-fr.top+cr.height/2};
         burst(frame,{count:150,origin:o,spread:Math.PI*1.4,power:13,gravity:.28,life:2600,z:40});
         setTimeout(()=>{if(frame.isConnected)burst(frame,{count:60,origin:o,spread:Math.PI*1.2,power:10,gravity:.3,life:2000,z:40})},260);
+      }else if(kind==='gold'){
+        // A whole world finished: three waves from the middle of the card,
+        // wide and slow, so the golden card is showered rather than sprinkled.
+        const host2=host||K.app.querySelector('.game-frame');
+        if(!host2) return;
+        const r=host2.getBoundingClientRect(), o={x:r.width/2,y:r.height*.42};
+        burst(host2,{count:170,origin:o,spread:Math.PI*1.6,power:14,gravity:.26,life:3000,z:60});
+        setTimeout(()=>{if(host2.isConnected)burst(host2,{count:90,origin:{x:r.width*.2,y:r.height*.5},spread:Math.PI,power:12,gravity:.28,life:2600,z:60})},280);
+        setTimeout(()=>{if(host2.isConnected)burst(host2,{count:90,origin:{x:r.width*.8,y:r.height*.5},spread:Math.PI,power:12,gravity:.28,life:2600,z:60})},520);
       }
     }catch(e){}
   };

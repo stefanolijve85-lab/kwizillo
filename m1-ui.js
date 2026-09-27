@@ -258,7 +258,7 @@
 
   K.showAchievements=()=>{
     K.stopSpeech();K.lastView='achievements';
-    const cards=progress().correctQuestionIds.length;
+    const cards=K.cardCount();
     const playedWorlds=WORLD_ORDER.filter(w=>worldStat(w).answered>0).length;
     const defs=[
       {icon:'🎯',key:'achievement.firstQuiz',now:Math.min(1,K.state.quizzesPlayed||0),goal:1},
@@ -284,7 +284,7 @@
   K.shareText=()=>{
     const best=Object.entries(K.state.bestScores||{}).sort((a,b)=>b[1]-a[1])[0];
     return t('share.text',{
-      name:K.state.name||'',level:K.level(),correct:totalCorrect(),cards:progress().correctQuestionIds.length,
+      name:K.state.name||'',level:K.level(),correct:totalCorrect(),cards:K.cardCount(),
       best:best?`${best[1]}/10 (${worldTitle(best[0])})`:'–'
     });
   };
@@ -318,7 +318,7 @@
         <article><span>${K.icon('coin')}</span><b>${Number(K.state.coins||0)}</b><small>${esc(t('stats.coins'))}</small></article>
         <article><span>${K.icon('flame')}</span><b>${Number(K.state.streak||0)}</b><small>${esc(t('stats.streak'))}</small></article>
         <article><span>${K.icon('star')}</span><b>${pct}%</b><small>${esc(t('stats.correctShort'))}</small></article>
-        <article><span>${K.icon('cards')}</span><b>${progress().correctQuestionIds.length}</b><small>${esc(t('stats.cards'))}</small></article>
+        <article><span>${K.icon('cards')}</span><b>${K.cardCount()}</b><small>${esc(t('stats.cards'))}</small></article>
       </div>
       <section class="setting-card profile-row"><div><b>${esc(t('profile.buddy'))}</b><small>${esc(t(`mascot.${buddy}`))} · ${esc(t(`mascot.${buddy}.desc`))}</small></div><button class="profile-link" id="profileBuddy">${esc(t('profile.chooseBuddy'))} ›</button></section>
       <section class="setting-card profile-row profile-voice"><div><b>${esc(t('profile.voice'))}</b><small>${esc(t('onboarding.voice.sub'))}</small></div><div class="quick-pills">${guides.map(([id,art])=>`<button class="quick-pill ${K.state.voice===id?'selected':''}" data-voice="${id}" aria-label="${esc(t(id==='Milo'?'voice.milo':id==='Luna'?'voice.luna':'voice.silent'))}">${art?`<img class="mascot-face" src="${art}" alt="">`:'🔇'}</button>`).join('')}</div></section>
@@ -332,6 +332,17 @@
   };
 
   /* ---------------- Collection ---------------- */
+
+  // The golden world cards are their own paintings; a world whose painting has
+  // not been added yet falls back to the world art (see wireFallbacks).
+  const goldArt=w=>K.goldArt(w);
+  // An <img> may not carry an inline onerror (the page's CSP forbids inline
+  // script), so the fallback is wired here, once per screen.
+  const wireFallbacks=K.wireFallbacks=root=>root.querySelectorAll('img[data-fallback]').forEach(im=>{
+    const step=()=>{const list=(im.dataset.fallback||'').split('|').filter(Boolean),next=list.shift();im.dataset.fallback=list.join('|');if(!next)return;im.src=next;if(list.length)im.addEventListener('error',step,{once:true})};
+    im.addEventListener('error',step,{once:true});
+  });
+
 
   K.showCollection=(tab='worlds')=>{
     K.stopSpeech();K.lastView='collection';
@@ -365,18 +376,32 @@
     // in front of the cards that were answered for.
     const goldCard=w=>`<button class="kcard gold world-${w}" data-gold="${w}">
         <span class="kcard-frame">
-          <img class="kcard-bg" src="${K.MASTER[w]}" alt="" style="object-position:${K.WORLD_FOCUS?.[w]||'center'}" decoding="async">
+          <img class="kcard-bg" src="${goldArt(w)}" data-fallback="${K.goldFallback(w)}" alt="" style="object-position:${K.WORLD_FOCUS?.[w]||'center'}" decoding="async">
           <span class="kcard-tint"></span>
           <span class="kcard-top"><b>${esc(t('shop.goldCard',{world:worldTitle(w)}))}</b><i>★★★★★</i></span>
-          <span class="kcard-art"><img src="${K.MASTER[w]}" alt="" loading="lazy" decoding="async"></span>
+          <span class="kcard-art"><img src="${goldArt(w)}" data-fallback="${K.goldFallback(w)}" alt="" loading="lazy" decoding="async"></span>
           <span class="kcard-type">${K.worldBadge(w,'tiny')} ${esc(worldTitle(w))}</span>
           <span class="kcard-text">${esc(t('shop.goldCardSub'))}</span>
-          <span class="kcard-foot"><span>${esc(t('shop.cards'))}</span><span>${esc(t('shop.owned'))}</span></span>
+          <span class="kcard-foot"><span>${esc(t('shop.cards'))}</span><span>${esc(K.worldMastered(w)?t('shop.earned'):t('shop.owned'))}</span></span>
         </span>
       </button>`;
-    const goldOwned=WORLD_ORDER.filter(w=>K.owned(`gold:${w}`));
-    if(tab==='cards') content=cards.length||goldOwned.length
-      ?`<div class="kcard-grid">${goldOwned.map(goldCard).join('')}${cards.map(card).join('')}</div>`
+    // A card the runner handed out: its own painting, its own level.
+    const runnerCard=c=>{const art=K.assetUrl(c.art),scene=K.assetUrl(`assets/games/jungle/img/picker-${c.level}.jpg`),level=t('jungle.level'+c.level[0].toUpperCase()+c.level.slice(1));
+      return `<button class="kcard runner" data-runner="${c.id}">
+        <span class="kcard-frame">
+          <img class="kcard-bg" src="${scene}" data-fallback="${art}" alt="" decoding="async">
+          <span class="kcard-tint"></span>
+          <span class="kcard-top"><b>${esc(t('card.'+c.id))}</b><i>★★★</i></span>
+          <span class="kcard-art"><img src="${art}" alt="" loading="lazy" decoding="async"></span>
+          <span class="kcard-type">🏃 ${esc(t('jungle.title'))} · ${esc(level)}</span>
+          <span class="kcard-text">${esc(t('jungle.cardSub'))}</span>
+          <span class="kcard-foot"><span>${esc(t('jungle.cardEyebrow'))}</span><span>${esc(t('collection.discovered'))}</span></span>
+        </span>
+      </button>`;};
+    const goldOwned=K.goldCards();
+    const runnerOwned=K.runnerCards();
+    if(tab==='cards') content=cards.length||goldOwned.length||runnerOwned.length
+      ?`<div class="kcard-grid">${goldOwned.map(goldCard).join('')}${runnerOwned.map(runnerCard).join('')}${cards.map(card).join('')}</div>`
       :`<div class="empty-state"><div>🃏</div><h2>${esc(t('collection.emptyTitle'))}</h2><p>${esc(t('collection.emptyBody'))}</p></div>`;
     if(tab==='mascots'){
       content=`<div class="mascot-grid">${MASCOTS.map(m=>{
@@ -396,17 +421,17 @@
     // not reached yet. Nothing here can be bought with money — see premium.js.
     if(tab==='shop'){
       const wallet=Number(K.state.coins||0);
-      const tile=(id,title,sub,price,art,cls='')=>{
+      const tile=(id,title,sub,price,art,cls='',fallback='')=>{
         const owned=K.owned(id),short=Math.max(0,price-wallet);
         return `<article class="shop-item ${cls} ${owned?'is-owned':''}">
-          <img class="shop-art" src="${art}" alt="" loading="lazy" decoding="async">
+          <img class="shop-art" src="${art}"${fallback?` data-fallback="${fallback}"`:''} alt="" loading="lazy" decoding="async">
           <div class="shop-copy"><b>${esc(title)}</b><small>${esc(sub)}</small></div>
           ${owned?`<span class="shop-owned">${esc(t('shop.owned'))}</span>`
             :`<button class="shop-buy${short?' is-short':''}" data-buy="${id}" data-price="${price}" data-title="${esc(title)}">${K.icon('coin')} ${esc(t('shop.price',{n:price}))}</button>
                ${short?`<small class="shop-short">${esc(t('shop.need',{n:short}))}</small>`:''}`}
         </article>`;
       };
-      const golds=WORLD_ORDER.map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,K.MASTER[w],'is-gold'));
+      const golds=WORLD_ORDER.map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,goldArt(w),'is-gold',K.goldFallback(w)));
       const buddies=MASCOTS.filter(m=>totalCorrect()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
       const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
       content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
@@ -414,9 +439,14 @@
         ${buddies.length?`<h2 class="section-title">${esc(t('shop.mascots'))}</h2><div class="shop-grid">${buddies.join('')}</div>`:''}
         ${sold?`<p class="collection-note">${esc(t('shop.empty'))}</p>`:''}`;
     }
-    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${cards.length}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
+    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${K.cardCount()}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
     const f=nativeScreen({cls:'collection-screen',title:t('collection.title'),subtitle:t('collection.sub'),body,active:'collection'});
+    wireFallbacks(f);
     f.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showCollection(b.dataset.tab)});
+    // A golden or runner card opens large as well.
+    const zoom=html=>{K.sfx('swoosh');const z=document.createElement('div');z.className='kcard-zoom fade-in';z.innerHTML=html;z.querySelector('.kcard').removeAttribute('data-gold');z.querySelector('.kcard').removeAttribute('data-runner');wireFallbacks(z);z.onclick=()=>{K.sfx('tap');z.remove()};f.appendChild(z)};
+    f.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>zoom(goldCard(b.dataset.gold)));
+    f.querySelectorAll('[data-runner]').forEach(b=>b.onclick=()=>zoom(runnerCard(runnerOwned.find(c=>c.id===b.dataset.runner))));
     // Tapping a card shows it large; tapping anywhere closes it.
     f.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{
       K.sfx('swoosh');
@@ -475,7 +505,7 @@
     const body=`<div class="stats-hero3d"><div class="stats-fx" aria-hidden="true">${sparks}</div>
         <div class="stat-orb" style="--p:0" data-p="${pct}"><span class="stat-orb-ring"></span><span class="stat-orb-glass"></span><b data-count="${pct}" data-suffix="%">0%</b><small>${esc(t('stats.correctShort'))}</small></div>
         <div class="stats-hero-copy"><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
-      <div class="stat-tiles">${tile('xp','⭐',Number(K.state.xp||0),t('stats.xpTotal'))}${tile('coins','🪙',Number(K.state.coins||0),t('stats.coins'))}${tile('streak','🔥',Number(K.state.streak||0),t('stats.streak'))}${tile('cards','🃏',progress().correctQuestionIds.length,t('stats.cards'))}</div>
+      <div class="stat-tiles">${tile('xp','⭐',Number(K.state.xp||0),t('stats.xpTotal'))}${tile('coins','🪙',Number(K.state.coins||0),t('stats.coins'))}${tile('streak','🔥',Number(K.state.streak||0),t('stats.streak'))}${tile('cards','🃏',K.cardCount(),t('stats.cards'))}</div>
       <h2 class="section-title">${esc(t('score.title'))}</h2>
       <div class="record-board">${records.map(r=>`<article><b>${r.now}</b><small>${esc(r.label)}</small><i>${esc(t('score.best'))} ${r.best}</i></article>`).join('')}<article class="all-time"><b>${sum.allTime}</b><small>${esc(t('score.allTime'))}</small><i>${esc(t('score.points'))}</i></article></div>
       <p class="collection-note">${esc(t('score.todayPoints',{n:sum.rows[0].points,max:K.scoreRules.dayPoints}))} · ${esc(t('score.todayCoins',{n:sum.coins.earned,max:K.scoreRules.dayCoins}))}</p>
@@ -525,7 +555,7 @@
     const stored=[
       t('privacy.itemName',{value:String(K.state.name||'').trim()||'–'}),
       t('privacy.itemSettings'),
-      t('privacy.itemProgress',{answered:Number(K.state.answered||0),correct:Number(K.state.correct||0),cards:p.correctQuestionIds.length}),
+      t('privacy.itemProgress',{answered:Number(K.state.answered||0),correct:Number(K.state.correct||0),cards:K.cardCount()}),
       t('privacy.itemPremium')
     ];
     const block=(icon,title,text,list)=>`<section class="privacy-block"><header><span aria-hidden="true">${icon}</span><h2>${esc(title)}</h2></header><p>${esc(text)}</p>${list?`<ul>${list.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`:''}</section>`;

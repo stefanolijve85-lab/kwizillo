@@ -95,7 +95,7 @@ test('every jungle string exists in nl, en and pt (no silent Dutch fallback)', a
   await boot(page);
   const result = await page.evaluate(() => {
     const K = window.KWIZILLO_M1; const out = [];
-    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle', 'powerSpeed', 'popSpeed', 'labelSpeed']);
+    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle', 'powerSpeed', 'popSpeed', 'labelSpeed', 'labelHit']);
     const keys = Object.keys(K.jungleText()).filter(k => k !== 'savedNoHost' && k !== 'loadError').map(k => 'jungle.' + k).concat(['jungle.title', 'jungle.tileSub', 'jungle.loadError', 'jungle.loadErrorBody']);
     const nl = {}; K.state.language = 'nl'; for (const k of keys) { nl[k] = K.t(k); if (nl[k] === k) out.push('nl:' + k); }
     for (const lang of ['en', 'pt']) { K.state.language = lang; for (const k of keys) { if (SAME.has(k.slice(7))) continue; if (K.t(k) === nl[k]) out.push(lang + ':' + k); } }
@@ -154,4 +154,71 @@ test('a second jump press in the air makes a double somersault that pays a small
   expect(r.twice).toBe(true);
   expect(r.landed).toBe(true);
   expect(r.gained).toBeGreaterThanOrEqual(3);
+});
+
+test('running into something really stops you, and it costs coins', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeJungle').click();
+  await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
+  await inRunner(page, '[data-act=start]').click();
+  await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
+
+  // Twelve coins in the purse, then a rock right in front of the child.
+  const hit = await page.evaluate(() => new Promise(resolve => {
+    const el = window.KWIZILLO_M1.jungle.game.element, run = el.run;
+    run.coins = 12; run.streak = 4;
+    run.items.push({ kind: 'rock', lane: run.lane, z: .995, resolved: false });
+    setTimeout(() => {
+      const held = { coins: run.coins, stumble: run.stumble, lost: run.lostCoins, hits: run.hits, streak: run.streak, distance: run.distance, lane: run.lane };
+      // While the stumble lasts the controls do nothing and the world stands still.
+      el.action('right'); el.action('jump');
+      setTimeout(() => resolve({ held, after: { lane: run.lane, jump: run.jump, distance: run.distance, stumble: run.stumble } }), 90);
+    }, 120);
+  }));
+  expect(hit.held.hits).toBe(1);
+  expect(hit.held.coins).toBe(7);            // five coins gone
+  expect(hit.held.lost).toBe(5);
+  expect(hit.held.streak).toBe(0);
+  expect(hit.held.stumble).toBeGreaterThan(0);
+  expect(hit.after.lane).toBe(hit.held.lane);         // steering is ignored
+  expect(hit.after.jump).toBe(0);                     // and so is jumping
+  expect(hit.after.distance).toBeCloseTo(hit.held.distance, 5);   // the world is held still
+  await expect(inRunner(page, '.toast')).toHaveText('Au! Je botste — 5 munten kwijt.');
+
+  // The stumble wears off by itself and the running starts again.
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.run.stumble), { timeout: 3000 }).toBe(0);
+  const moved = await page.evaluate(() => new Promise(r => { const run = window.KWIZILLO_M1.jungle.game.element.run; const d = run.distance; setTimeout(() => r(run.distance - d), 200); }));
+  expect(moved).toBeGreaterThan(0);
+
+  // The finish counts what the collisions cost.
+  await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.run.time = el.run.duration - 0.02; });
+  await expect(inRunner(page, '.finish-panel')).toBeVisible({ timeout: 8000 });
+  await expect(inRunner(page, '.run-stats .lost')).toContainText('5');
+});
+
+test('a card from the runner is in the collection the moment the run is booked, and every card is counted', async ({ page }) => {
+  await boot(page);
+  const before = await page.evaluate(() => window.KWIZILLO_M1.cardCount());
+  const booked = await page.evaluate(() => {
+    const K = window.KWIZILLO_M1;
+    return K.jungleReward({ version: 1, game: 'jungle-runner', completed: true, runId: 'run-card-1', theme: 'jungle', coins: 20, cardId: 'jungle-leaf' });
+  });
+  expect(booked.card).toBe('jungle-leaf');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.progress().games.jungle.cards)).toEqual(['jungle-leaf']);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.cardCount())).toBe(before + 1);
+
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('cards'));
+  await expect(page.locator('.kcard.runner')).toHaveCount(1);
+  await expect(page.locator('.kcard.runner .kcard-top b')).toHaveText('Jungleblad');
+  await expect(page.locator('[data-tab="cards"] i')).toHaveText(String(before + 1));
+
+  // The same card from a second run is not a second card.
+  await page.evaluate(() => window.KWIZILLO_M1.jungleReward({ version: 1, game: 'jungle-runner', completed: true, runId: 'run-card-2', theme: 'jungle', coins: 5, cardId: 'jungle-leaf' }));
+  expect(await page.evaluate(() => window.KWIZILLO_M1.cardCount())).toBe(before + 1);
+
+  // A golden card counts too, and the statistics tile shows the same number.
+  await page.evaluate(() => window.KWIZILLO_M1.own('gold:ruimte'));
+  await page.evaluate(() => window.KWIZILLO_M1.showStats());
+  await expect(page.locator('.stat-tile.cards b')).toHaveAttribute('data-count', String(before + 2));
 });
