@@ -288,7 +288,7 @@
     'memo.duelWin':'{name} gagne !','memo.duelTie':'Égalité !',
     'memo.duelSummary':'{pairs} paires en {moves} tours.',
     'memo.rematch':'Revanche',
-    'memo.speech.win':'{name} gagne ! Bien joué tous les deux !',
+    'memo.speech.win':'Nous avons un gagnant ! Bien joué tous les deux !',
     'memo.speech.tie':'Égalité ! Vous avez tous les deux une super mémoire !',
     'home.playMore':'Jouer plus',
     'math.title':'Calcul',

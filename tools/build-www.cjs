@@ -20,11 +20,20 @@ for (const f of fs.readdirSync(ROOT)) {
 }
 // assets, whole tree
 fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true });
-// the page, pointed at the production proxy
+// the configuration, pointed at the production proxy
+let cfg = fs.readFileSync(path.join(ROOT, 'config.js'), 'utf8');
+cfg = cfg.replace(/elevenLabsProxyUrl:\s*'[^']*'/, `elevenLabsProxyUrl: '${API_HOST}/api/tts'`)
+         .replace(/voiceStatusUrl:\s*'[^']*'/, `voiceStatusUrl: '${API_HOST}/api/voice-status'`);
+if (!cfg.includes(`${API_HOST}/api/tts`)) throw new Error('config block not found in config.js');
+fs.writeFileSync(path.join(OUT, 'config.js'), cfg);
+
 let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-html = html.replace(/elevenLabsProxyUrl:\s*'[^']*'/, `elevenLabsProxyUrl: '${API_HOST}/api/tts'`)
-           .replace(/voiceStatusUrl:\s*'[^']*'/, `voiceStatusUrl: '${API_HOST}/api/voice-status'`);
-if (!html.includes(`${API_HOST}/api/tts`)) throw new Error('config block not found in index.html');
+// The bundled page runs on capacitor://localhost, so the speech proxy is cross-origin:
+// it is the one host the content policy may reach, and it is named explicitly.
+const csp = html.match(/content="(default-src[^"]+)"/);
+if (!csp) throw new Error('content security policy not found in index.html');
+html = html.replace(csp[1], csp[1].replace("connect-src 'self'", `connect-src 'self' ${API_HOST}`));
+if (!html.includes(`connect-src 'self' ${API_HOST}`)) throw new Error('could not point the content policy at the proxy');
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 
 const size = dir => fs.readdirSync(dir, { withFileTypes: true }).reduce((n, e) => n + (e.isDirectory() ? size(path.join(dir, e.name)) : fs.statSync(path.join(dir, e.name)).size), 0);

@@ -38,5 +38,17 @@ for (const lang of LANGS) {
   identical[lang] = same.length;
 }
 
+// Nothing the child types may end up in a line that is spoken: speech goes to
+// ElevenLabs, and a Kids Category app may not send personal data to a third party
+// (App Review 1.3 and 5.1.4; COPPA counts a name as personal information). The
+// screen may show the name — the voice may not say it.
+const SPOKEN = k => /\.speech\.|^voice\.|^tour\.|\.hello$/.test(k);
+const PERSONAL = /\{(name|player|child)\}/;
+for (const lang of LANGS) {
+  const leaks = base.filter(k => SPOKEN(k) && PERSONAL.test(S[lang][k]));
+  assert.strictEqual(leaks.join(','), '', `${lang}: spoken line contains something the child typed: ${leaks}`);
+}
+console.log(`strings: no spoken line in ${LANGS.length} languages carries a name the child typed ✔`);
+
 console.log(`strings: ${LANGS.length} languages × ${base.length} keys, in parity ✔`);
 console.log('strings: keys identical to Dutch — ' + Object.entries(identical).map(([l, n]) => `${l} ${n}`).join(', '));

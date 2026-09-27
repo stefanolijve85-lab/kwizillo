@@ -287,7 +287,7 @@
     'memo.duelWin':'{name} vinder!','memo.duelTie':'Uafgjort!',
     'memo.duelSummary':'{pairs} par på {moves} ture.',
     'memo.rematch':'Omkamp',
-    'memo.speech.win':'{name} vinder! Flot spillet, begge to!',
+    'memo.speech.win':'Vi har en vinder! Flot spillet, begge to!',
     'memo.speech.tie':'Uafgjort! I har begge en god hukommelse!',
     'home.playMore':'Spil mere',
     'math.title':'Regning',

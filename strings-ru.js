@@ -287,7 +287,7 @@
     'memo.duelWin':'Побеждает {name}!','memo.duelTie':'Ничья!',
     'memo.duelSummary':'{pairs} пар за {moves} ходов.',
     'memo.rematch':'Реванш',
-    'memo.speech.win':'Побеждает {name}! Вы оба молодцы!',
+    'memo.speech.win':'У нас есть победитель! Вы оба молодцы!',
     'memo.speech.tie':'Ничья! У вас обоих отличная память!',
     'home.playMore':'Играть ещё',
     'math.title':'Счёт',

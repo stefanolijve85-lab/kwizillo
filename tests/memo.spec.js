@@ -129,7 +129,7 @@ test('a tile whose picture fails to load retries it, and shows the word when it 
 });
 
 test('head-to-head: two players alternate every two cards, scores are kept, the higher score wins', async ({ page }) => {
-  // A voice, so the winner can be announced; every spoken line is captured (a 503 would switch speech off for the session).
+  // A voice, so the end of the duel is announced; every spoken line is captured (a 503 would switch speech off for the session).
   const spoken = [];
   await boot(page, SAVED({ voice: 'Milo' }), route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.locator('#homeMemo').click();
@@ -167,7 +167,10 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   const [s1, s2] = await page.evaluate(() => window.KWIZILLO_M1.memo.scores);
   expect([s1, s2]).toEqual([1, pairs.length - 1]);
   await expect(page.locator('.result-v2 h1')).toHaveText('Lisa wint!');
-  await expect.poll(() => spoken.some(t => t.startsWith('Lisa wint!')), { timeout: 5000 }).toBe(true);   // the winner is announced by name
+  // The winner is named on screen, never in the voice: speech leaves the device,
+  // and a name the child typed may not (App Review 1.3/5.1.4, COPPA).
+  await expect.poll(() => spoken.some(t => t.includes('winnaar')), { timeout: 5000 }).toBe(true);
+  expect(spoken.filter(t => /Lisa|Mike/.test(t))).toEqual([]);
   await expect(page.locator('#againBtn')).toHaveText('Revanche');
   // The choice and the name are remembered for next time.
   await page.locator('#worldBtn').click();

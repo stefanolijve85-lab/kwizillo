@@ -288,7 +288,7 @@
     'memo.duelWin':'¡Gana {name}!','memo.duelTie':'¡Empate!',
     'memo.duelSummary':'{pairs} parejas en {moves} turnos.',
     'memo.rematch':'Revancha',
-    'memo.speech.win':'¡Gana {name}! ¡Bien jugado los dos!',
+    'memo.speech.win':'¡Ya tenemos ganador! ¡Bien jugado los dos!',
     'memo.speech.tie':'¡Empate! ¡Los dos tenéis muy buena memoria!',
     'home.playMore':'Jugar más',
     'math.title':'Cálculo',

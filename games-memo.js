@@ -292,7 +292,7 @@
     let opened=false;
     const open=()=>{if(opened)return;opened=true;stage.classList.add('open');K.sfx('gift');setTimeout(()=>K.sfx('reward'),350);K.celebrate?.('quiz',gift)};
     gift.onclick=open;setTimeout(open,1000);
-    K.speak(tie?t('memo.speech.tie'):t('memo.speech.win',{name:playerName(winner)}));
+    K.speak(tie?t('memo.speech.tie'):t('memo.speech.win'));   /* the winner's name stays on screen: it never goes to the speech service */
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMemo(m.world)};
     f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};

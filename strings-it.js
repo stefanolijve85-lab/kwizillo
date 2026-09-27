@@ -288,7 +288,7 @@
     'memo.duelWin':'Vince {name}!','memo.duelTie':'Pareggio!',
     'memo.duelSummary':'{pairs} coppie in {moves} mosse.',
     'memo.rematch':'Rivincita',
-    'memo.speech.win':'Vince {name}! Bravi tutti e due!',
+    'memo.speech.win':'Abbiamo un vincitore! Bravi tutti e due!',
     'memo.speech.tie':'Pareggio! Avete tutti e due una gran memoria!',
     'home.playMore':'Gioca ancora',
     'math.title':'Calcolo',

@@ -8,18 +8,18 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <title>Kwizillo</title>
+  <!-- A Kids Category app may not send anything to a third party (App Review 1.3
+       and 5.1.4). This policy is the technical proof: the page may only load and
+       talk to itself, so no analytics, ad or tracking script can be added by
+       accident. `tools/build-www.cjs` widens connect-src to the speech proxy of
+       the iOS build and nothing else. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
   <link rel="stylesheet" href="base.css" />
   <link rel="stylesheet" href="screens.css" />
 </head>
 <body>
   <main id="app" aria-live="polite"></main>
-  <script>
-    window.KWIZILLO_CONFIG = {
-      elevenLabsProxyUrl: '/api/tts',
-      voiceStatusUrl: '/api/voice-status',
-      allowBrowserVoiceFallback: false
-    };
-  </script>
+  <script src="config.js"></script>
   <script src="strings-de.js"></script>
   <script src="strings-fr.js"></script>
   <script src="strings-es.js"></script>

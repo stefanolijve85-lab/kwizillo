@@ -287,7 +287,7 @@
     'memo.duelWin':'{name} gewinnt!','memo.duelTie':'Unentschieden!',
     'memo.duelSummary':'{pairs} Paare in {moves} Zügen.',
     'memo.rematch':'Revanche',
-    'memo.speech.win':'{name} gewinnt! Schön gespielt, ihr beiden!',
+    'memo.speech.win':'Wir haben einen Gewinner! Schön gespielt, ihr beiden!',
     'memo.speech.tie':'Unentschieden! Ihr könnt euch beide gut erinnern!',
     'home.playMore':'Mehr spielen',
     'math.title':'Rechnen',
