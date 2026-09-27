@@ -97,7 +97,11 @@ for (const guide of ['milo', 'luna']) {
         mouthOffsetParent: mouth.offsetParent === fig.parentElement,
         figureAnimation: css(fig).animationName,
         figureTransform: css(fig).transform,
-        mouthLeftUnit: mouth.style.left.slice(-1)
+        // Where the mouth is placed, against where the picture actually is: the
+        // wrapper may be wider or narrower than the drawing (the tour lays the
+        // figure out by height), so a percentage of the wrapper would miss.
+        placed: parseFloat(mouth.style.left),
+        expected: fig.offsetLeft + window.KWIZILLO_M1.FACE_ANCHORS[document.querySelector('.milo-host').dataset.guide].poses.talk.x * fig.offsetWidth
       };
     });
     expect(dom.sameParent, 'body and mouth share one wrapper').toBe(true);
@@ -105,7 +109,7 @@ for (const guide of ['milo', 'luna']) {
     expect(dom.mouthOffsetParent, 'the mouth is positioned against that wrapper').toBe(true);
     expect(dom.figureAnimation, 'nothing animates the body image on its own').toBe('none');
     expect(dom.figureTransform === 'none' || dom.figureTransform === 'matrix(1, 0, 0, 1, 0, 0)').toBe(true);
-    expect(dom.mouthLeftUnit, 'the mouth is placed in percent, not pixels').toBe('%');
+    expect(Math.abs(dom.placed - dom.expected), 'the mouth is measured from the picture, not from the box around it').toBeLessThan(0.6);
   });
 
   test(`${guide}: the mouth stays on the face while the character moves and talks`, async ({ page }) => {
@@ -183,3 +187,29 @@ test('switching guide swaps the face and its anchor together', async ({ page }) 
   expect(Math.abs(again.x - milo.x)).toBeLessThan(0.004);
   expect(Math.abs(again.y - milo.y)).toBeLessThan(0.004);
 });
+
+// The tour lays the guide out by height, so the box around the picture is a
+// fifth wider or narrower than the picture itself. That is where a mouth placed
+// in percent of the box ended up beside the head.
+for (const guide of ['milo', 'luna']) {
+  test(`${guide}: the mouth is on the face in the tour, where the box is not the picture`, async ({ page }) => {
+    await boot(page, { voice: guide === 'luna' ? 'Luna' : 'Milo', tourDone: false });
+    await page.evaluate(g => { window.KWIZILLO_M1.startTour({ guide: g }) }, guide);   // the tour's promise only settles when it ends
+    await expect(page.locator('.milo-tour .milo-figure')).toBeVisible();
+    await page.waitForFunction(() => { const i = document.querySelector('.milo-tour .milo-figure'); return i && i.getBoundingClientRect().x > 10 });
+    const seen = await page.evaluate(() => {
+      const img = document.querySelector('.milo-tour .milo-figure'), mouth = document.querySelector('.milo-tour .milo-mouth');
+      const f = img.getBoundingClientRect(), m = mouth.getBoundingClientRect(), box = img.parentElement.getBoundingClientRect();
+      return {
+        boxDiffers: Math.abs(box.width - f.width),               // how far the box is from the picture
+        x: (m.x + m.width / 2 - f.x) / f.width,                  // where the mouth sits on the picture
+        y: (m.y + m.height / 2 - f.y) / f.height,
+        anchor: window.KWIZILLO_M1.FACE_ANCHORS[document.querySelector('.milo-tour .milo-host').dataset.guide].poses[document.querySelector('.milo-tour .milo-host').dataset.pose]
+      };
+    });
+    expect(Math.abs(seen.x - seen.anchor.x), 'the mouth is on the anchor, not on the box').toBeLessThan(0.01);
+    expect(Math.abs(seen.y - seen.anchor.y)).toBeLessThan(0.01);
+    expect(seen.x).toBeGreaterThan(0.1);
+    expect(seen.x).toBeLessThan(0.9);                            // and so: on the head, not next to it
+  });
+}

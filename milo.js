@@ -161,11 +161,14 @@
     el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><span class="milo-fig-wrap"><span class="milo-char"><img class="milo-figure" alt="" draggable="false"><span class="milo-mouth mouth-${g.mouthStyle||'jaw'}" hidden></span></span></span></div>`;
     const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body'),wrap=el.querySelector('.milo-fig-wrap'),char=el.querySelector('.milo-char'),figMouth=el.querySelector('.milo-mouth');
     let curPose=pose;
-    // Puts the mouth on the current pose: the anchor from K.FACE_ANCHORS, which
-    // is in fractions of the image, becomes the size the image is rendered at
-    // right now. The position is a percentage, so it is exact whatever the
-    // figure's size; only the drawn size needs pixels, because a border and a
-    // glow cannot be given in percent.
+    // Puts the mouth on the current pose: the anchor from K.FACE_ANCHORS is in
+    // fractions of the image, so it is measured against the image's own box —
+    // never against the wrapper around it. The two are not always the same:
+    // in the tour the figure is laid out by height and its width follows the
+    // pose, so the wrapper can be a fifth wider or narrower than the picture,
+    // and a mouth placed in percent of the wrapper ends up beside the head.
+    // The image's offset inside the wrapper is added, and the whole thing is
+    // measured again by the ResizeObserver below whenever the layout changes.
     const placeMouth=()=>{
       const p=poseSrc(guide,curPose);const m=p.mouth;
       if(!figure||!m){figMouth.hidden=true;return}
@@ -174,7 +177,7 @@
       if(!w||!h){figMouth.hidden=true;return}
       figMouth.hidden=false;
       figMouth.className=`milo-mouth mouth-${m.style||g.mouthStyle||'jaw'}`;
-      figMouth.style.left=(m.x*100).toFixed(3)+'%';figMouth.style.top=(m.y*100).toFixed(3)+'%';
+      figMouth.style.left=(img.offsetLeft+m.x*w).toFixed(2)+'px';figMouth.style.top=(img.offsetTop+m.y*h).toFixed(2)+'px';
       figMouth.style.setProperty('--mw',Math.max(6,Math.round(m.w*w))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m.h*h))+'px');
     };
     img.addEventListener('load',placeMouth);
