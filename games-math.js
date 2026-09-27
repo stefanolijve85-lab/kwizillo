@@ -101,7 +101,7 @@
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="mathBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
-          <div class="quiz-brand"><span>${esc(t('math.title'))}</span><small>${esc(t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:m.niveau}))}</small></div>
+          <div class="quiz-brand"><span>${esc(t('math.title'))}</span><small>${esc(m.world==='mix'?t('game.mixAll'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:m.niveau}))}</small></div>
           <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
