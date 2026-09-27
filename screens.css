@@ -1073,3 +1073,15 @@
 .quiz-card.fotozoom-card .answer{min-height:58px;padding:16px 8px 8px!important}
 .fotozoom-verdict .simple-modal-card{padding-top:0;overflow:hidden}
 .fotozoom-reveal{display:block;width:calc(100% + 40px);margin:-2px -20px 8px;aspect-ratio:16/8;object-fit:cover}
+
+/* ---- parent zone: the privacy screen (what is stored, what leaves, what is never done) ---- */
+.privacy-updated{margin:2px 0 0;text-align:center;color:#6b87a4;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.privacy-screen .panel-scroll{display:grid;gap:10px;align-content:start}
+.privacy-block{padding:13px 14px;border-radius:21px;background:#fff;border:1px solid #d6eaf9;box-shadow:0 8px 18px rgba(20,70,128,.08)}
+.privacy-block header{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.privacy-block header span{width:34px;height:34px;flex:0 0 34px;border-radius:12px;display:grid;place-items:center;background:#edf6ff;font-size:18px}
+.privacy-block h2{margin:0;color:#13235f;font-size:14px;letter-spacing:-.02em}
+.privacy-block p{margin:0;color:#52779e;font-size:10px;font-weight:800;line-height:1.5}
+.privacy-block ul{margin:9px 0 0;padding:0;list-style:none;display:grid;gap:5px}
+.privacy-block li{position:relative;padding:7px 10px 7px 26px;border-radius:13px;background:#f3f9ff;color:#2c548a;font-size:10px;font-weight:900;line-height:1.35;overflow-wrap:anywhere}
+.privacy-block li::before{content:"•";position:absolute;left:11px;top:6px;color:#61a8ea;font-size:13px;font-weight:1000}

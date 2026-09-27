@@ -274,9 +274,11 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.voiceVolume)).toBeCloseTo(0.4, 5);
   await page.getByRole('button', { name: 'Sluiten' }).click();
 
+  // Privacy is a screen of its own now; tests/privacy.spec.js checks what it says.
   await page.locator('#privacyOpen').click();
-  await expect(page.locator('.simple-modal')).toContainText('nooit naar een andere dienst');
-  await page.getByRole('button', { name: 'Begrepen' }).click();
+  await expect(page.locator('.privacy-screen')).toContainText('Nooit de naam van je kind');
+  await page.locator('.panel-back').click();
+  await expect(page.locator('.parent-screen')).toBeVisible();
 });
 
 test('switching language translates the whole app and swaps the question bank', async ({ page }) => {

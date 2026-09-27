@@ -79,4 +79,6 @@ speaks; `LANG_RULES` in `server.js` says which accent that language prefers, and
 
 ## Status
 
-See `AUDIT.md` for the architecture review and the remaining open items.
+See `AUDIT.md` for the architecture review and the remaining open items, and
+`KIDS_COMPLIANCE.md` for what the app does with data and what the two stores
+still need before a children's app may be submitted.

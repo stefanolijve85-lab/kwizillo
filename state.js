@@ -102,6 +102,19 @@
     try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY) }catch(e){}
   };
 
+  // "Erase all data" in the parent zone: every key this app ever writes goes,
+  // including the fresh-start choice and the cached App Store entitlement, so
+  // nothing of the child is left on the device. A bought Premium lives with the
+  // Apple account and comes back with "Restore purchases".
+  K.eraseAllData=()=>{
+    try{
+      const gone=[];
+      for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith('kwizillo-'))gone.push(k) }
+      gone.forEach(k=>localStorage.removeItem(k));
+      return gone;
+    }catch(e){ return [] }
+  };
+
   // Level is derived, never stored, so it can never drift from XP.
   K.level=()=>1+Math.floor(Number(K.state.xp||0)/100);
   K.xpIntoLevel=()=>Number(K.state.xp||0)%100;

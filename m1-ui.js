@@ -415,7 +415,6 @@
 
   /* ---------------- Parent zone ---------------- */
 
-  K.showPrivacyInfo=()=>showPrivacyInfo();
   // Terms of Use: a plain modal (the Premium screen links here; Apple wants both links reachable).
   K.showTermsInfo=()=>{
     const f=K.app.querySelector('.game-frame');if(!f)return;
@@ -423,20 +422,57 @@
     o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">📄</div><h2>${esc(t('settings.terms'))}</h2><p>${esc(t('settings.termsBody'))}</p><button class="simple-ok">${esc(t('common.gotIt'))}</button></div>`;
     f.appendChild(o);const close=()=>o.remove();o.querySelector('.simple-close').onclick=close;o.querySelector('.simple-ok').onclick=close;
   };
-  function showPrivacyInfo(){
+  // The privacy screen of the parent zone: what sits on this device (with the
+  // real values, so a parent can see it instead of taking our word for it), what
+  // leaves it, what the app never does, how long anything is kept, and one
+  // button that erases the lot. Apple's Kids Category and the COPPA rule both
+  // want the retention and deletion lines inside the notice itself, so they live
+  // here in the app, in every language, not only on the website.
+  const PRIVACY_UPDATED='2026-09-27';
+  const contactMail=()=>K.state.language==='nl'?'hallo@kwizillo.nl':'hello@kwizillo.com';
+  K.showPrivacy=({back}={})=>{
+    K.stopSpeech();K.lastView='privacy';
+    const p=progress();
+    const stored=[
+      t('privacy.itemName',{value:String(K.state.name||'').trim()||'–'}),
+      t('privacy.itemSettings'),
+      t('privacy.itemProgress',{answered:Number(K.state.answered||0),correct:Number(K.state.correct||0),cards:p.correctQuestionIds.length}),
+      t('privacy.itemPremium')
+    ];
+    const block=(icon,title,text,list)=>`<section class="privacy-block"><header><span aria-hidden="true">${icon}</span><h2>${esc(title)}</h2></header><p>${esc(text)}</p>${list?`<ul>${list.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`:''}</section>`;
+    const body=`${block('📱',t('privacy.device'),t('privacy.deviceBody'),stored)}
+      ${block('🗣️',t('privacy.leaves'),t('privacy.leavesBody'))}
+      ${block('🚫',t('privacy.none'),t('privacy.noneBody'))}
+      ${block('⏳',t('privacy.keep'),t('privacy.keepBody'))}
+      <p class="collection-note">${esc(t('privacy.noAccount'))}</p>
+      <section class="setting-card clickable" id="privacyContact"><div class="setting-icon">✉️</div><div><b>${esc(t('privacy.contact'))}</b><small>${esc(t('privacy.contactSub',{email:contactMail()}))}</small></div><em>›</em></section>
+      <section class="setting-card clickable reset-card" id="eraseOpen"><div class="setting-icon">🗑️</div><div><b>${esc(t('privacy.erase'))}</b><small>${esc(t('privacy.eraseSub'))}</small></div><em>›</em></section>
+      <p class="privacy-updated">${esc(t('privacy.updated',{date:PRIVACY_UPDATED}))}</p>`;
+    const f=nativeScreen({cls:'privacy-screen',title:t('settings.privacy'),subtitle:t('privacy.sub'),body,active:'parent',back:back||(()=>K.showParent())});
+    // Writing mail leaves the app and erasing cannot be undone: both wait for a grown-up.
+    f.querySelector('#privacyContact').onclick=()=>{K.sfx('tap');showParentalGate(()=>{location.href=`mailto:${contactMail()}`})};
+    f.querySelector('#eraseOpen').onclick=()=>{K.sfx('tap');showParentalGate(showEraseConfirm)};
+  };
+  K.showPrivacyInfo=()=>K.showPrivacy();   // the Premium screen links here too
+
+  function showEraseConfirm(){
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const o=document.createElement('div');o.className='simple-modal';
-    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">🛡️</div><h2>${esc(t('settings.privacy'))}</h2><p>${esc(t('settings.privacyBody'))}</p><button class="simple-ok">${esc(t('common.gotIt'))}</button></div>`;
+    o.innerHTML=`<div class="simple-modal-card danger"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">🗑️</div><h2>${esc(t('privacy.eraseTitle'))}</h2><p>${esc(t('privacy.eraseBody'))}</p><div class="confirm-actions"><button class="cancel">${esc(t('common.cancel'))}</button><button class="confirm">${esc(t('privacy.eraseConfirm'))}</button></div></div>`;
     f.appendChild(o);
-    const close=()=>o.remove();
-    o.querySelector('.simple-close').onclick=close;o.querySelector('.simple-ok').onclick=close;
+    o.querySelector('.simple-close').onclick=()=>o.remove();
+    o.querySelector('.cancel').onclick=()=>o.remove();
+    o.querySelector('.confirm').onclick=()=>{K.eraseAllData();location.reload()};
   }
+
   // Resetting wipes everything, so it sits behind a parental gate rather than a
   // plain confirm a child can tap through (CLAUDE.md section 17, kids/privacy).
   K.parentalGate=onPass=>showParentalGate(onPass);
   function showParentalGate(onPass){
     const f=K.app.querySelector('.game-frame');if(!f)return;
-    const a=3+Math.floor(Math.random()*6), b=4+Math.floor(Math.random()*6);
+    // Beyond a six-to-eight-year-old, trivial for a grown-up: two digits times
+    // one is what App Review 1.3 asks a parental gate to be.
+    const a=11+Math.floor(Math.random()*9), b=3+Math.floor(Math.random()*7);
     const o=document.createElement('div');o.className='simple-modal';
     o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">🔐</div><h2>${esc(t('gate.title'))}</h2><p>${esc(t('gate.body',{a,b}))}</p><form class="gate-form"><input id="gateInput" type="text" inputmode="numeric" autocomplete="off" placeholder="${esc(t('gate.placeholder'))}" aria-label="${esc(t('gate.placeholder'))}"><small class="gate-error" hidden>${esc(t('gate.wrong'))}</small><button type="submit" class="simple-ok">${esc(t('gate.continue'))}</button></form></div>`;
     f.appendChild(o);
@@ -474,7 +510,7 @@
       <section class="setting-card"><div class="setting-icon">🔄</div><div><b>${esc(t('settings.freshStart'))}</b><small>${esc(t(K.freshStart()?'settings.freshStartOn':'settings.freshStartOff'))}</small></div><button class="native-switch ${K.freshStart()?'on':''}" id="freshToggle" aria-label="${esc(t('settings.freshStart'))}"><i></i></button></section>
       <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">${K.activeGuide()==='luna'?'🎧':'🤖'}</div><div><b>${esc(t('tour.again',{guide:K.guideName()}))}</b><small>${esc(t('tour.againSub',{guide:K.guideName()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
-      <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('settings.privacySub'))}</small></div><em>›</em></section>
+      <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('privacy.sub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
     </div>`;
     const f=nativeScreen({cls:'parent-screen',title:t('settings.title'),subtitle:t('settings.sub'),body,active:'parent'});
@@ -487,7 +523,7 @@
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
     f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.niveau=Number(b.dataset.level);K.save();K.showParent()});
     f.querySelector('#shareOpen').onclick=()=>{K.sfx('tap');K.shareScore()};
-    f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');showPrivacyInfo()};
+    f.querySelector('#privacyOpen').onclick=()=>{K.sfx('tap');K.showPrivacy()};
     K.bindPremiumCard(f);
     f.querySelector('#resetOpen').onclick=()=>{K.sfx('tap');showParentalGate(showResetConfirm)};
   };

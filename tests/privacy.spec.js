@@ -66,3 +66,58 @@ test('the page may only load and talk to itself', async ({ page }) => {
     .map(e => e.src || e.href).filter(u => !u.startsWith(location.origin)));
   expect(remote).toEqual([]);
 });
+
+// The parent portal: the privacy screen is the notice itself (Apple's Kids
+// Category and the amended COPPA Rule want what is kept, for how long, and how
+// to erase it in the app, not only on a website), and erasing really erases.
+test('the parent portal shows what is stored and erases it behind the gate', async ({ page }) => {
+  await page.route('**/*.mp4', r => r.abort());
+  await page.route('**/api/tts', r => r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }));
+  // Seeded once, by hand: an init script would put the keys back on the reload
+  // that follows erasing, and then the test could never see them gone.
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(s => {
+    localStorage.setItem('kwizillo-fresh-start', '0');
+    localStorage.setItem('kwizillo-state', JSON.stringify(s));
+    localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', store: 'dev' }));
+    localStorage.setItem('kwizillo-test-unlock', '1');
+  }, { ...SAVED, answered: 12, correct: 9 });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click();
+  await page.locator('.motion').click().catch(() => {});
+  await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });
+  await page.evaluate(() => window.KWIZILLO_M1.showParent());
+  await page.locator('#privacyOpen').click();
+
+  const screen = page.locator('.privacy-screen');
+  await expect(screen).toBeVisible();
+  await expect(screen.locator('.privacy-block')).toHaveCount(4);                  // on this device, what leaves, never done, how long
+  await expect(screen).toContainText(CHILD);                                      // the parent sees the name that is stored
+  await expect(screen).toContainText('12');                                       // and the real counts
+  await expect(screen).toContainText('ElevenLabs');                               // the only third party is named
+  await expect(screen).toContainText(/geen advertenties|Geen advertenties/i);
+
+  await page.locator('#eraseOpen').click();                                        // a child cannot tap through this
+  await expect(page.locator('.gate-form')).toBeVisible();
+  const [a, b] = (await page.locator('.simple-modal-card p').first().innerText()).match(/\d+/g).map(Number);
+  await page.locator('#gateInput').fill(String(a * b + 1));
+  await page.locator('.gate-form .simple-ok').click();
+  await expect(page.locator('.gate-error')).toBeVisible();
+  await page.locator('#gateInput').fill(String(a * b));
+  await page.locator('.gate-form .simple-ok').click();
+  await expect(page.locator('.simple-modal-card.danger')).toBeVisible();
+  await page.locator('.simple-modal-card.danger .confirm').click();
+
+  // The reload lands on the very first run again: no name, no progress, no
+  // remembered Premium, and nothing of the child left in storage.
+  await expect(page.locator('.motion, .onboarding')).toBeVisible({ timeout: 15000 });
+  const left = await page.evaluate(() => {
+    const out = {};
+    for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); out[k] = localStorage.getItem(k); }
+    return out;
+  });
+  expect(Object.keys(left).filter(k => k !== 'kwizillo-state')).toEqual([]);       // entitlement cache, test unlock and the fresh-start choice are gone
+  expect(left['kwizillo-state'] || '').not.toContain(CHILD);                       // and the fresh state carries no name
+  expect(left['kwizillo-state'] || '').not.toContain(FRIEND);
+  expect(left['kwizillo-state'] || '').not.toContain('"answered":12');
+});
