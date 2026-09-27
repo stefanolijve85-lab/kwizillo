@@ -176,6 +176,10 @@
     'world.mix':'Inizia il quiz misto',
     'world.mixSub':'Domande da tutti e quattro i temi',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Superato',
+    'world.topicPlayed':'Quiz {n} giocato · {correct}/{answered} giuste',
+    'world.progressLine':'{passed} temi su {total} superati',
+    'world.mixDone':'{n} giocati',
 
     'quiz.mixed':'Quiz misto',
     'quiz.progress':'Domanda {current} di {total}',

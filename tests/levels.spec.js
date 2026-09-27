@@ -133,3 +133,35 @@ test('finishing a world at all six levels earns its golden card, with a celebrat
   await page.evaluate(() => window.KWIZILLO_M1.own('gold:ruimte'));
   expect(await page.evaluate(() => window.KWIZILLO_M1.cardCount())).toBe(before);
 });
+
+test('the world menu says what has been played there, and a golden card carries the name in the language being read', async ({ page }) => {
+  const passed = { 1: { 'dieren:snelle_dieren': true, 'dieren:baby_dieren': true } };
+  await boot(page, { progress: { ...SAVED.progress, passed,
+    topics: { snelle_dieren: { answered: 20, correct: 18 }, waterdieren: { answered: 10, correct: 5 } },
+    runs: { 'dieren:snelle_dieren': { quizNumber: 2, usedIds: [] }, 'dieren:waterdieren': { quizNumber: 1, usedIds: [] }, dieren: { quizNumber: 3, usedIds: [] } } } });
+  await page.locator('[data-world="dieren"]').click();
+  await expect(page.locator('.native-world')).toBeVisible();
+
+  // Two of the four topics are done, one was played but not passed, one untouched.
+  await expect(page.locator('.world-topic-done')).toHaveCount(2);
+  await expect(page.locator('.world-topic-done').first()).toHaveText('Gehaald');
+  await expect(page.locator('.world-topic-played')).toHaveCount(1);
+  await expect(page.locator('.world-topic-played')).toHaveText('Quiz 1 gespeeld · 5/10 goed');
+  await expect(page.locator('.world-progress-line')).toHaveText('2 van de 4 onderwerpen gehaald');
+  await expect(page.locator('#worldMix small')).toContainText('3 gespeeld');
+
+  // The painted banner on the card is Dutch, so Dutch shows no band over it…
+  await page.evaluate(() => { window.KWIZILLO_M1.own('gold:dieren'); window.KWIZILLO_M1.showCollection('cards') });
+  await expect(page.locator('.kcard.gold')).toHaveCount(1);
+  await expect(page.locator('.gold-band')).toHaveCount(0);
+
+  // …and every other language does, with the name it reads elsewhere.
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.setLanguage('en'); K.useBank(); K.showCollection('cards') });
+  await expect(page.locator('.gold-band')).toHaveText('Animal World');
+  const band = await page.locator('.gold-band').boundingBox();
+  const card = await page.locator('.kcard.gold').boundingBox();
+  // It sits over the painted banner, two thirds down the card, and spans it.
+  expect((band.y - card.y) / card.height).toBeGreaterThan(0.6);
+  expect((band.y - card.y) / card.height).toBeLessThan(0.75);
+  expect(band.width / card.width).toBeGreaterThan(0.8);
+});

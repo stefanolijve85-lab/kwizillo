@@ -37,8 +37,11 @@ test('a right answer rewards and moves on; a wrong one shows the answer; the rou
   await page.locator('#homeMath').click();
   const a = await currentAnswer(page);
   await page.locator(`.answer[data-a="${a}"]`).click();
-  await expect(page.locator('.math-feedback.is-good')).toBeVisible();
+  // The highlight and the feedback appear together and the round moves on by
+  // itself, so the highlight is looked for first: after waiting for the
+  // feedback it can already have gone.
   await expect(page.locator('.answer.correct')).toHaveCount(1);
+  await expect(page.locator('.math-feedback.is-good')).toBeVisible();
   await expect(page.locator('.quiz-progress strong')).toHaveText('Som 2 van 10', { timeout: 4000 });
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.xp)).toBe(10);
   // Wrong answer: the right one is shown.

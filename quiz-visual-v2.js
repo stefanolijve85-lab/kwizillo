@@ -301,7 +301,7 @@
     el.className='gold-unlock';
     el.innerHTML=`<div class="gold-unlock-card">
       <span class="gold-rays" aria-hidden="true"></span>
-      <img class="gold-unlock-art" src="${K.goldArt(world)}" data-fallback="${K.goldFallback(world)}" alt="">
+      <span class="gold-unlock-frame"><img class="gold-unlock-art" src="${K.goldArt(world)}" data-fallback="${K.goldFallback(world)}" alt="">${K.goldBand?.(world)||''}</span>
       <b>${esc(t('result.worldMastered',{world:t(`world.${world}.title`)}))}</b>
       <span class="gold-unlock-sub">${esc(t('result.goldCardEarned',{world:t(`world.${world}.title`)}))}</span>
       <button class="gold-unlock-ok">${esc(t('common.gotIt'))}</button>

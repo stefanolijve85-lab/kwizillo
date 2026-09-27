@@ -175,6 +175,10 @@
     'world.mix':'Start blandet quiz',
     'world.mixSub':'Spørgsmål fra alle fire emner',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Klaret',
+    'world.topicPlayed':'Quiz {n} spillet · {correct}/{answered} rigtige',
+    'world.progressLine':'{passed} af {total} emner klaret',
+    'world.mixDone':'{n} spillet',
 
     'quiz.mixed':'Blandet quiz',
     'quiz.progress':'Spørgsmål {current} af {total}',

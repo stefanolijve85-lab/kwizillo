@@ -175,6 +175,10 @@
     'world.mix':'Начать смешанную викторину',
     'world.mixSub':'Вопросы из всех четырёх тем',
     'world.quizNumber':'Викторина {n}',
+    'world.topicPassed':'Пройдено',
+    'world.topicPlayed':'Сыграно викторин: {n} · {correct}/{answered} верно',
+    'world.progressLine':'Пройдено тем: {passed} из {total}',
+    'world.mixDone':'сыграно: {n}',
 
     'quiz.mixed':'Смешанная викторина',
     'quiz.progress':'Вопрос {current} из {total}',

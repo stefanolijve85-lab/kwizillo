@@ -93,7 +93,9 @@ test('turning the iPad keeps the game whole, and the world stands behind it', as
 
   const portrait = await frameBox(page);
   await page.setViewportSize({ width: 1194, height: 834 });
-  await page.waitForTimeout(200);
+  // The frame is re-fitted on the window's resize event; wait for that, not for
+  // a number of milliseconds.
+  await expect.poll(async () => (await frameBox(page)).height, { timeout: 8000 }).toBeLessThanOrEqual(834);
   const landscape = await frameBox(page);
   expect(landscape.height).toBeLessThanOrEqual(834);
   expect(landscape.width / landscape.height).toBeCloseTo(portrait.width / portrait.height, 2);

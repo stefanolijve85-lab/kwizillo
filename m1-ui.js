@@ -252,7 +252,18 @@
   K.showWorld=world=>{
     K.stopSpeech();K.lastView='world';K.currentWorld=world;
     const keys=K.TOPIC_KEYS[world]||[];
-    const topics=keys.map((key,i)=>({key,label:topicLabel(key),i,count:K.core.poolFor({questions:K.questions,world,topicKey:key,grade:Number(K.state.group||5)}).length}));
+    const level=K.worldLevel(world);
+    const passedAt=K.progress().passed?.[level]||{};
+    // Wat het kind hier al gedaan heeft: gehaald op dit niveau, of hoeveel
+    // quizzen er gespeeld zijn en hoe het ging.
+    const topics=keys.map((key,i)=>{
+      const run=K.runFor(world,key),st=topicStat(key);
+      return {key,label:topicLabel(key),i,
+        count:K.core.poolFor({questions:K.questions,world,topicKey:key,grade:Number(K.state.group||5)}).length,
+        passed:!!passedAt[`${world}:${key}`],
+        quizzes:Number(run.quizNumber||0),
+        answered:Number(st.answered||0),correct:Number(st.correct||0)};
+    });
     const mixRun=K.runFor(world,null);
     const topicFree=tp=>K.premium.can('quiz',world,tp.key,Number(K.runFor(world,tp.key).quizNumber||0)+1);
     const mixFree=K.premium.can('quiz',world,null,mixRun.quizNumber+1);
@@ -268,6 +279,7 @@
             <div class="world-kicker">${K.worldBadge(world,'tiny')} ${esc(t('world.kicker'))} · ${esc(t('settings.level'))} ${K.worldLevel(world)}</div>
             <h1 class="${worldTitle(world).length>14?'long':''}">${esc(worldTitle(world))}</h1>
             <p>${esc(worldSub(world))}</p>
+            <p class="world-progress-line">${esc(t('world.progressLine',{passed:topics.filter(x=>x.passed).length,total:topics.length||4}))}</p>
           </div>
           <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
         </header>
@@ -275,12 +287,12 @@
           <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" decoding="async">
           <span class="world-topic-veil"></span>
           <span class="world-topic-num">${tp.i+1}</span>${topicFree(tp)?'':K.premiumBadge()}
-          <span class="world-topic-copy"><b>${esc(tp.label)}</b></span>
+          <span class="world-topic-copy"><b>${esc(tp.label)}</b>${tp.passed?`<small class="world-topic-done">${K.icon('check')} ${esc(t('world.topicPassed'))}</small>`:tp.quizzes?`<small class="world-topic-played">${esc(t('world.topicPlayed',{n:tp.quizzes,correct:tp.correct,answered:tp.answered}))}</small>`:''}</span>
           <i>›</i>
         </button>`).join('')}</div>
         <button class="world-mix ${mixFree?'':'locked'}" id="worldMix">
           <span>${mixFree?K.icon('play'):K.icon('lock')}</span>
-          <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${esc(t('world.mixSub'))}</small></span>
+          <span><b>${esc(t('world.mix'))}</b><small>${esc(t('world.quizNumber',{n:mixRun.quizNumber+1}))} · ${mixRun.quizNumber?esc(t('world.mixDone',{n:mixRun.quizNumber})):esc(t('world.mixSub'))}</small></span>
           <i>›</i>
         </button>
         ${bottomNav('')}
@@ -406,6 +418,13 @@
   // The golden world cards are their own paintings; a world whose painting has
   // not been added yet falls back to the world art (see wireFallbacks).
   const goldArt=w=>K.goldArt(w);
+  // The painted banner on a golden card carries the world's name in Dutch,
+  // because that is the language the art was made in. In any other language the
+  // app lays its own band over it, in the same gold, with the name the child
+  // reads everywhere else. (The lasting fix is a set of cards without text; the
+  // band can then simply be shown in every language.)
+  const goldBand=w=>K.state.language==='nl'?'':`<span class="gold-band">${esc(worldTitle(w))}</span>`;
+  K.goldBand=goldBand;
   // An <img> may not carry an inline onerror (the page's CSP forbids inline
   // script), so the fallback is wired here, once per screen.
   const wireFallbacks=K.wireFallbacks=root=>root.querySelectorAll('img[data-fallback]').forEach(im=>{
@@ -451,6 +470,7 @@
     const goldCard=w=>`<button class="kcard gold is-art world-${w}" data-gold="${w}" aria-label="${esc(t('shop.goldCard',{world:worldTitle(w)}))}">
         <span class="kcard-frame">
           <img class="kcard-bg" src="${goldArt(w)}" data-fallback="${K.goldFallback(w)}" alt="" decoding="async">
+          ${goldBand(w)}
           <span class="kcard-own">${esc(K.worldMastered(w)?t('shop.earned'):t('shop.owned'))}</span>
         </span>
       </button>`;

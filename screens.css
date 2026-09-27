@@ -159,6 +159,12 @@
 /* Touch targets stay at least 44pt in both nav implementations. */
 .native-bottom-nav button{min-height:48px}
 .world-topic,.world-mix,.home-world,.progress-world,.mascot-card,.collection-tabs button{min-height:44px}
+/* Wat je in dit onderwerp al gedaan hebt, op de tegel zelf. */
+.world-topic-copy small{display:block;margin-top:2px;font-size:9.5px;font-weight:900;letter-spacing:.01em}
+.world-topic-done{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:999px;background:rgba(58,196,110,.92);color:#04331a;text-shadow:none}
+.world-topic-done svg{width:11px;height:11px}
+.world-topic-played{color:#e7f2ff;opacity:.92;text-shadow:0 1px 3px rgba(0,20,60,.6)}
+.world-progress-line{margin:3px 0 0!important;font-size:11px!important;font-weight:900;color:#eaf4ff;opacity:.95}
 
 /* ---- Language toggle in the parent zone ---- */
 .lang-toggle{display:flex;gap:6px}
@@ -332,7 +338,7 @@
 .kcard-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12);filter:saturate(1.25) blur(.6px);opacity:.9}
 .kcard-tint{position:absolute;inset:0;background:var(--kc,linear-gradient(160deg,#3f7ff0,#1f47b0));opacity:.62;mix-blend-mode:multiply}
 .kcard-tint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,8,40,.35),rgba(0,8,40,0) 30%,rgba(0,8,40,.25) 60%,rgba(0,8,40,.6))}
-.kcard-frame>*:not(.kcard-bg):not(.kcard-tint){position:relative;z-index:1}
+.kcard-frame>*:not(.kcard-bg):not(.kcard-tint):not(.gold-band){position:relative;z-index:1}
 .kcard-frame::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
   background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.22) 45%,rgba(255,255,255,0) 60%)}
 .kcard.rare .kcard-frame{box-shadow:0 10px 22px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 2px rgba(120,200,255,.55)}
@@ -519,7 +525,7 @@
 .gold-unlock{position:absolute;inset:0;z-index:60;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 42%,rgba(90,60,0,.55),rgba(4,16,44,.88));backdrop-filter:blur(3px);animation:goldFade .35s ease both}
 .gold-unlock-card{position:relative;display:grid;justify-items:center;gap:8px;width:min(320px,86%);padding:20px 18px 18px;border-radius:30px;background:linear-gradient(180deg,#fff8e2,#ffe7a8);box-shadow:0 0 0 3px #ffd45e,0 26px 70px rgba(60,35,0,.55);text-align:center;color:#6b4500;animation:goldPop .6s cubic-bezier(.2,.9,.25,1.35) both}
 .gold-unlock .gold-rays{position:absolute;inset:-40%;background:conic-gradient(from 0deg,rgba(255,214,90,.55) 0 6deg,transparent 6deg 18deg);border-radius:50%;animation:goldSpin 9s linear infinite;z-index:0;opacity:.45}
-.gold-unlock-art{position:relative;z-index:1;width:100%;max-height:min(44vh,330px);object-fit:cover;border-radius:22px;box-shadow:0 0 0 3px #fff,0 14px 30px rgba(60,35,0,.4)}
+.gold-unlock-art{position:relative;z-index:1;display:block;width:100%;max-height:min(44vh,330px);object-fit:cover;border-radius:22px;box-shadow:0 0 0 3px #fff,0 14px 30px rgba(60,35,0,.4)}
 .gold-unlock-card b{position:relative;z-index:1;font-size:16px;line-height:1.15}
 .gold-unlock-sub{position:relative;z-index:1;font-size:12px;font-weight:900;color:#8a6210}
 .gold-unlock-ok{position:relative;z-index:1;margin-top:4px;min-height:46px;padding:12px 22px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe868,#ffbd21);color:#5a3a00;font-size:15px;font-weight:1000;box-shadow:0 5px 0 #d79a10;cursor:pointer}
@@ -1231,6 +1237,14 @@
 .kcard.gold .kcard-frame{box-shadow:0 0 0 3px #ffcf4a,0 10px 24px rgba(122,84,6,.32)}
 /* A painting that is already a card: shown edge to edge, no frame chrome. */
 .kcard.is-art .kcard-frame{padding:0;justify-content:flex-end}
+/* The world's name over the painted banner, for the languages the painting was
+   not made in. Same gold, same place. */
+.gold-band{position:absolute;z-index:3;left:8%;right:8%;top:66.6%;height:11%;display:grid;place-items:center;padding:0 6%;border-radius:999px/50%;
+  background:linear-gradient(180deg,#fff1b8,#f3bc46 52%,#c8871a);box-shadow:inset 0 0 0 1.5px rgba(120,70,10,.5),0 2px 6px rgba(50,25,0,.45);
+  color:#4a2a05;font-weight:1000;line-height:1;text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.45);font-size:clamp(7px,2.6vw,13px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.kcard-zoom .gold-band{font-size:clamp(11px,4.2vw,20px)}
+.gold-unlock-frame{position:relative;display:block;width:100%}
+.gold-unlock-frame .gold-band{font-size:clamp(12px,4.4vw,21px)}
 .kcard.is-art .kcard-bg{transform:none;filter:none;opacity:1}
 .kcard.is-art .kcard-tint{display:none}
 .kcard-own{position:relative;z-index:3;padding:14px 8px 6px;text-align:center;font-size:9.5px;font-weight:1000;letter-spacing:.04em;text-transform:uppercase;color:#ffeeb4;text-shadow:0 1px 3px rgba(0,0,0,.7);background:linear-gradient(180deg,rgba(6,16,46,0),rgba(6,16,46,.72))}

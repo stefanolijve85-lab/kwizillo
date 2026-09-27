@@ -177,6 +177,10 @@
     'world.mix':'Start gemengde quiz',
     'world.mixSub':'Vragen uit alle vier onderwerpen',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Gehaald',
+    'world.topicPlayed':'Quiz {n} gespeeld · {correct}/{answered} goed',
+    'world.progressLine':'{passed} van de {total} onderwerpen gehaald',
+    'world.mixDone':'{n} gespeeld',
 
     'quiz.mixed':'Gemengde quiz',
     'quiz.progress':'Vraag {current} van {total}',
@@ -699,6 +703,10 @@
     'world.mix':'Start mixed quiz',
     'world.mixSub':'Questions from all four topics',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Passed',
+    'world.topicPlayed':'Quiz {n} played · {correct}/{answered} right',
+    'world.progressLine':'{passed} of {total} topics passed',
+    'world.mixDone':'{n} played',
 
     'quiz.mixed':'Mixed quiz',
     'quiz.progress':'Question {current} of {total}',
@@ -1221,6 +1229,10 @@
     'world.mix':'Começar quiz misto',
     'world.mixSub':'Perguntas dos quatro temas',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Concluído',
+    'world.topicPlayed':'Quiz {n} jogado · {correct}/{answered} certas',
+    'world.progressLine':'{passed} de {total} temas concluídos',
+    'world.mixDone':'{n} jogados',
 
     'quiz.mixed':'Quiz misto',
     'quiz.progress':'Pergunta {current} de {total}',

@@ -176,6 +176,10 @@
     'world.mix':'Lancer le quiz mélangé',
     'world.mixSub':'Des questions des quatre thèmes',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Réussi',
+    'world.topicPlayed':'Quiz {n} joué · {correct}/{answered} justes',
+    'world.progressLine':'{passed} thèmes sur {total} réussis',
+    'world.mixDone':'{n} joués',
 
     'quiz.mixed':'Quiz mélangé',
     'quiz.progress':'Question {current} sur {total}',

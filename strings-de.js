@@ -175,6 +175,10 @@
     'world.mix':'Gemischtes Quiz starten',
     'world.mixSub':'Fragen aus allen vier Themen',
     'world.quizNumber':'Quiz {n}',
+    'world.topicPassed':'Geschafft',
+    'world.topicPlayed':'Quiz {n} gespielt · {correct}/{answered} richtig',
+    'world.progressLine':'{passed} von {total} Themen geschafft',
+    'world.mixDone':'{n} gespielt',
 
     'quiz.mixed':'Gemischtes Quiz',
     'quiz.progress':'Frage {current} von {total}',
