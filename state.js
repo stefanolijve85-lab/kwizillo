@@ -97,20 +97,37 @@
 
   // Fresh start: every launch begins at the intro and the onboarding, and
   // nothing from the previous session (name, progress, settings) comes back.
-  // Progress is kept, always. There used to be a "start over every time" switch
-  // in the parent zone, on by default, which wiped the saved state at every
-  // launch — handy while the app was being shown around, wrong in a game a
-  // child plays. A development host can still ask for one clean run with
-  // ?fresh=1 in the address, which the iOS app and any https deployment cannot.
-  (function freshFromAddress(){
+  // Progress is kept — in the app, and on any https deployment. There used to
+  // be a "start over every time" switch in the parent zone, on by default,
+  // which wiped the saved state at every launch; a child lost its name and its
+  // cards that way, so the switch is gone.
+  //
+  // A development address (plain http on localhost or the LAN) is the exception:
+  // there every launch starts clean, so showing the app around begins at the
+  // intro, the onboarding and the guide's tour, every time. ?keep=1 pins the
+  // state on such an address when persistence itself is what is being tested,
+  // ?keep=0 lets go again, and ?fresh=1 wipes once. The iOS app (capacitor://)
+  // and any https site never wipe, whatever the address says.
+  const FRESH_KEY='kwizillo-fresh-start';
+  const devHost=(()=>{ try{ return location.protocol==='http:'&&/^(localhost|127\.|0\.0\.0\.0$|192\.168\.|10\.|172\.(1[6-9]|2\d|3[01])\.)/.test(location.hostname) }catch(e){ return false } })();
+  (function startCleanOnDevHost(){
+    if(!devHost)return;
     try{
-      const devHost=location.protocol==='http:'&&/^(localhost|127\.|0\.0\.0\.0$|192\.168\.|10\.|172\.(1[6-9]|2\d|3[01])\.)/.test(location.hostname);
-      if(!devHost)return;
       const url=new URL(location.href);
-      if(url.searchParams.get('fresh')!=='1')return;
-      localStorage.removeItem(KEY);localStorage.removeItem(LEGACY_KEY);
-      url.searchParams.delete('fresh');
-      history.replaceState(null,'',url.pathname+(url.search||'')+url.hash);
+      const keep=url.searchParams.get('keep');
+      if(keep!==null){
+        if(keep==='1')localStorage.setItem(FRESH_KEY,'0'); else localStorage.removeItem(FRESH_KEY);
+        url.searchParams.delete('keep');
+        history.replaceState(null,'',url.pathname+(url.search||'')+url.hash);
+      }
+      const once=url.searchParams.get('fresh')==='1';
+      if(once){
+        url.searchParams.delete('fresh');
+        history.replaceState(null,'',url.pathname+(url.search||'')+url.hash);
+      }
+      if(once||localStorage.getItem(FRESH_KEY)!=='0'){
+        localStorage.removeItem(KEY);localStorage.removeItem(LEGACY_KEY);
+      }
     }catch(e){}
   })();
 

@@ -108,15 +108,17 @@ test('onboarding runs once and collects language, name and voice', async ({ page
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.tourDone)).toBe(true);
 
   // What a child types is kept: a refresh comes back to Home with the name on
-  // it, not to the intro. (There used to be a "start over every time" switch,
-  // on by default, which wiped the lot at every launch.)
-  await page.reload({ waitUntil: 'domcontentloaded' });
+  // it, not to the intro. (A development address starts clean by default so the
+  // whole opening can be shown again; ?keep=1 is how a test asks for the state
+  // to stay, which is what a phone or the app does by itself.)
+  await page.goto('/?keep=1', { waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('.onboarding')).toHaveCount(0);
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.name)).toBe('Sam');
 
-  // A development address can still ask for one clean run.
+  // And one clean run on demand, which is also what every launch on a
+  // development address does until ?keep=1 says otherwise.
   await page.goto('/?fresh=1', { waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
