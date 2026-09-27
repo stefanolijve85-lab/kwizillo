@@ -34,3 +34,6 @@ ios/App/build/
 
 # Art masters: the originals the shipped assets are made from (see tools/)
 art-source/
+
+# Voice model comparison clips (made by hand, never shipped)
+voice-samples/

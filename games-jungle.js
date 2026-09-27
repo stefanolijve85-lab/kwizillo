@@ -52,14 +52,18 @@
     leave();
     K.startScoreRun();
     K.stopSpeech();
-    const f=K.frame(`<section class="jungle-screen fade-in"><div class="jungle-mount" id="jungleMount"><div class="jungle-loading"><span class="spinner"></span><b>${esc(t('jungle.loading'))}</b></div></div></section>`);
+    // While the game's module and its artwork load, the screen shows the
+    // runner's own poster behind a dark veil — the same picture as the tile on
+    // Home, so it is already in the browser's cache and paints at once. It used
+    // to be a flat green box for as long as that took.
+    const f=K.frame(`<section class="jungle-screen fade-in"><img class="jungle-poster" src="${K.assetUrl(K.GAME_ART.jungle)}" alt="" decoding="async"><div class="jungle-mount" id="jungleMount"><div class="jungle-loading"><span class="spinner"></span><b>${esc(t('jungle.loading'))}</b></div></div></section>`);
     const level=LEVELS.includes(K.state.runnerLevel)?K.state.runnerLevel:'jungle';
     K.audio.setTrack(MUSIC[level]).catch(()=>{});
     let mod;
     try{mod=await import(new URL(K.assetUrl('assets/games/jungle/game.js'),document.baseURI).href)}
     catch(e){console.warn('Kwizillo jungle:',e?.message||e);if(f.isConnected){K.toast(t('jungle.loadError'));setTimeout(()=>K.showHome(),900)}return}
     if(!f.isConnected)return; // the child already went elsewhere while the module loaded
-    const mount=f.querySelector('#jungleMount');mount.innerHTML='';
+    const mount=f.querySelector('#jungleMount');const loading=mount.querySelector('.jungle-loading');
     const j=jungleProgress();
     const game=mod.mountJungle(mount,{
       duration:40,
@@ -73,6 +77,7 @@
       musicState:()=>K.state.musicOn!==false,
       onMusic:()=>K.audio.setMusic(K.state.musicOn===false),
       reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
+      onReady:()=>{loading?.remove();const poster=f.querySelector('.jungle-poster');if(poster){poster.style.opacity='0';setTimeout(()=>poster.remove(),300)}},
       text:textTable(),
       onStart:()=>K.audio.unlock().catch(()=>{}),
       onTempo:rate=>K.audio.setTempo?.(rate),

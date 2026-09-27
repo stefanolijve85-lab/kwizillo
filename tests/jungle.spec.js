@@ -267,3 +267,19 @@ test('in the normal ride you clear every obstacle yourself; the easy ride jumps 
   expect(stood.hits).toBe(1);
   expect(stood.coins).toBe(25);
 });
+
+test('opening the runner shows its own poster, never a bare box', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeJungle').click();
+  // While the module and the artwork load: the runner's poster and the loading
+  // line, on Kwizillo blue — not the game's own green box.
+  await expect(page.locator('.jungle-poster')).toBeVisible();
+  await expect(page.locator('.jungle-loading')).toBeVisible();
+  expect(await page.evaluate(() => getComputedStyle(document.querySelector('.jungle-screen')).backgroundColor)).toBe('rgb(15, 36, 80)');
+
+  // Ready: the game fades in, the poster and the loading line go away.
+  await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.querySelector('kwizillo-jungle')).opacity)).toBe('1');
+  await expect(page.locator('.jungle-loading')).toHaveCount(0);
+  await expect.poll(() => page.locator('.jungle-poster').count()).toBe(0);
+});

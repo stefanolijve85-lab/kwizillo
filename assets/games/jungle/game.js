@@ -57,6 +57,11 @@ export class KwizilloJungle extends HTMLElement{
   this.root=this.shadowRoot;
   const T=k=>escapeText(this.t(k));
   this.root.innerHTML=`<link rel="stylesheet" href="${css}"><section class="game" aria-label="Kwizillo ${T('title')}"><canvas tabindex="0" aria-label="${T('canvasLabel')}"></canvas><header><button data-act="pause" aria-label="${T('pause')}">Ⅱ</button><div class="progress"><span>${T('brand')}</span><div><i></i></div></div><div class="score">● <b>0</b><small>0:40</small></div><button data-act="sound" aria-label="${T('sound')}" aria-pressed="${this.audio.enabled}">♫</button></header><div class="powers" aria-live="off"></div><div class="arcade-pop" role="status"></div><div class="toast" role="status"></div><nav aria-label="${T('controls')}"><button data-act="left" aria-label="${T('left')}">←</button><button class="jump" data-act="jump">${T('jump')}</button><button data-act="right" aria-label="${T('right')}">→</button></nav><div class="overlay"><div class="panel"><h1>${T('title')}</h1><p>${T('loading')}</p></div></div></section>`;
+  // Until the artwork is in and the start screen is drawn, the element shows
+  // nothing at all: its own stylesheet is still loading, so what would be on
+  // screen for those few hundred milliseconds is a bare green box. The host
+  // keeps its own loading screen underneath until `onReady`.
+  this.style.opacity='0';
   this.canvas=this.root.querySelector('canvas');this.overlay=this.root.querySelector('.overlay');
   const listen=(target,type,fn)=>target.addEventListener(type,fn,{signal:this.abort.signal});
   listen(this.root,'click',e=>{const a=e.target.closest('[data-act]')?.dataset.act;if(a)this.action(a);});
@@ -75,9 +80,12 @@ export class KwizilloJungle extends HTMLElement{
    this.root.querySelector('.game').classList.toggle('reduced',this.renderer.reduced);
    this.run=createRun(this.options);
    this.home();
+   // Ready: fade in, and let the host take its loading screen away.
+   this.style.transition='opacity .22s ease';this.style.opacity='1';
+   try{this.options.onReady?.()}catch(e){}
    this.last=performance.now();
    this.frame=requestAnimationFrame(t=>this.tick(t));
-  }).catch(()=>this.panel(`<h1>${T('loadErrorTitle')}</h1><p>${T('loadError')}</p>`));
+  }).catch(()=>{this.style.opacity='1';try{this.options.onReady?.()}catch(e){}this.panel(`<h1>${T('loadErrorTitle')}</h1><p>${T('loadError')}</p>`)});
  }
  // Every painting this level + hero needs (missing ones fall back, see renderer.js); loaded once per combination.
  loadFor(){return loadAssets(new URL('./img/',import.meta.url),assetNames(this.level,this.heroKind),this.cache);}
