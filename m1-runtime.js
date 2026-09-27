@@ -76,7 +76,7 @@
   for(const ev of ['pageshow','focus']) window.addEventListener(ev,()=>wakeNow());
   K.audio={tracks,play,unlock,start,sting,setMusic,setSfx,setSfxVolume,setMusicVolume,setVoiceVolume,setTrack,duck,setTempo,wake,get currentId(){return currentId},get stingLive(){return stingLive},/* Read-only view of the two contexts, for the interruption test and for QA on a real phone. */get health(){return{music:ctx?ctx.state:'none',voice:voiceCtx?voiceCtx.state:'none',/* a source left over from a discarded context is silence, not music */playing:!!src&&src.context===ctx,needsWake}},get ctx(){return ctx},get voiceCtx(){return voiceCtx}};
 
-  let abort=null,voiceCtx=null,voiceSource=null,voiceUrl=null;const gate=K.core.createCancellationGate();
+  let abort=null,voiceCtx=null,voiceSource=null,voiceUrl=null,voiceStream=null;const gate=K.core.createCancellationGate();
   function ensureVoiceCtx(){if(voiceCtx&&voiceCtx.state==='closed')voiceCtx=null;if(!voiceCtx){const C=window.AudioContext||window.webkitAudioContext;if(C){voiceCtx=new C();voiceCtx.onstatechange=()=>{if(stalled(voiceCtx))needsWake=true}}}return voiceCtx}
   // iOS only lets an AudioContext start inside a user gesture. The voice context
   // used to be created after the speech fetch resolved, outside any gesture, so
@@ -150,8 +150,73 @@
     for(const text of (texts||[]).filter(Boolean)) if(!warm.some(w=>w.text===text&&w.voice===voice)) warm.push({text,voice});
     pumpWarm();
   };
+  // The line as a plain audio URL. The proxy sends it while ElevenLabs is still
+  // making it, so an <audio> element can start on the first chunk: measured on
+  // 2026-09-27, the first sound of a new sentence came at 0.86 s instead of
+  // 1.94 s. Only for a line that is not already in hand, and only while the URL
+  // stays a sane length — anything longer goes the ordinary way.
+  const STREAM_MAX_CHARS=600;
+  function speechUrl(text,voice,lang){
+    const base=K.config?.elevenLabsProxyUrl||'/api/tts';
+    const u=new URL(base,location.href);
+    u.searchParams.set('text',K.core.spellNumbers(text,lang));
+    u.searchParams.set('voice',voice);
+    u.searchParams.set('lang',lang);
+    return u.toString();
+  }
+  function canStream(text,voice,lang){
+    if(!speechAvailable||voice==='Stil')return false;
+    if(K.config?.streamSpeech===false)return false;   // QA switch: compare with and without
+    const key=voiceKey(text,lang,voice);
+    if(voiceCache.has(key)||inFlight.has(key))return false;   // already here or on its way
+    return K.core.spellNumbers(text,lang).length<=STREAM_MAX_CHARS;
+  }
+  // How loud this voice turned out to be last time. A streamed clip cannot be
+  // measured before it plays, so it borrows the level of the clips that came
+  // before it and Milo and Luna stay equally loud (CLAUDE.md section 9).
+  const gainMemory={Milo:1.6,Luna:1.6};
+  // Returns {done, loading}: `done` is the line's playback, `loading` resolves
+  // as soon as the element has really started fetching, so the caller can hold
+  // the other lines back until this one is on the wire.
+  function playVoiceStream(text,voice,lang,token,onStart){
+    const c=ensureVoiceCtx();
+    if(!c||!c.createMediaElementSource)return {done:Promise.resolve(null),loading:Promise.resolve()};
+    let onWire;
+    // The rest of the sequence waits until this one is really on the wire — a
+    // browser keeps only a handful of connections per host, and this is the line
+    // the child is waiting for. The cap is only there so a element that never
+    // loads and never errors cannot hold a whole question hostage.
+    const loading=new Promise(r=>{onWire=r;setTimeout(r,5000)});
+    const done=new Promise(resolve=>{
+      let done=false;
+      const finish=v=>{if(done)return;done=true;if(voiceNow&&voiceNow.el===a)voiceNow=null;try{a.pause()}catch(e){}resolve(v)};
+      const a=new Audio();
+      a.crossOrigin='anonymous';a.preload='auto';
+      let node;
+      try{ node=c.createMediaElementSource(a) }catch(e){ return resolve(null) }
+      const pre=c.createGain(),analyser=c.createAnalyser(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();
+      pre.gain.value=gainMemory[voice==='Luna'?'Luna':'Milo']||1.6;
+      analyser.fftSize=1024;analyser.smoothingTimeConstant=.25;
+      compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;
+      makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));
+      limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;
+      node.connect(pre);pre.connect(analyser);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);
+      a.onplaying=()=>{voiceNow={el:a,analyser,data:new Float32Array(analyser.fftSize),peak:.2};try{onStart?.(a.duration||0)}catch(e){}};
+      a.onended=()=>finish(gate.isCurrent(token));
+      // A stream that never arrives must not swallow the line: the caller then
+      // falls back to fetching the whole clip.
+      a.onerror=()=>finish(null);
+      a.addEventListener('loadstart',()=>onWire());
+      voiceStream=a;
+      a.src=speechUrl(text,voice,lang);
+      a.play().catch(()=>finish(null));
+    });
+    done.finally?.(()=>onWire());
+    return {done,loading};
+  }
+
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
-  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(stalled(c))await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,startedAt:0};pre.gain.value=measureVoiceGain(buffer);compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=performance.now();onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
+  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(stalled(c))await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,startedAt:0};const measured=measureVoiceGain(buffer);pre.gain.value=measured;const gk=(K.state.voice==='Luna'?'Luna':'Milo');gainMemory[gk]=gainMemory[gk]*.7+measured*.3;compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=performance.now();onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
     return new Promise(resolve=>{const url=URL.createObjectURL(blob),a=new Audio(url);voiceUrl=url;a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));a.onended=()=>{URL.revokeObjectURL(url);if(voiceUrl===url)voiceUrl=null;resolve(gate.isCurrent(token))};a.onerror=()=>{URL.revokeObjectURL(url);resolve(false)};a.onplaying=()=>onStart?.(a.duration||0);a.play().catch(()=>resolve(false))})
   }
   // Mouth level of the line playing right now (0..1), for a guide portrait
@@ -176,9 +241,27 @@
   // Read against the wall clock from the moment the source started: it stays
   // in step with playback and never depends on the context clock ticking.
   // How far the line playing right now is (0..1), for progress bars that follow the voice.
-  K.voiceProgress=()=>{if(!voiceNow||!voiceNow.startedAt||!voiceNow.buffer)return null;return Math.max(0,Math.min(1,(performance.now()-voiceNow.startedAt)/1000/voiceNow.buffer.duration))};
-  K.voiceLevel=()=>{if(!voiceNow||!voiceNow.startedAt)return 0;const env=envelopeOf(voiceNow.buffer);const i=Math.floor((performance.now()-voiceNow.startedAt)/1000/ENV_STEP);return i>=0&&i<env.length?env[i]:0};
-  K.stopSpeech=()=>{voiceNow=null;gate.cancel();K.audio.duck(false);try{abort?.abort()}catch(e){}abort=null;try{if(voiceSource){voiceSource.onended=null;voiceSource.stop();voiceSource.disconnect();voiceSource=null}}catch(e){}if(voiceUrl){try{URL.revokeObjectURL(voiceUrl)}catch(e){}voiceUrl=null}try{speechSynthesis?.cancel()}catch(e){}try{K.clearSpeechHighlight?.()}catch(e){}};
+  K.voiceProgress=()=>{
+    if(voiceNow?.el)return voiceNow.el.duration?Math.max(0,Math.min(1,voiceNow.el.currentTime/voiceNow.el.duration)):null;
+    if(!voiceNow||!voiceNow.startedAt||!voiceNow.buffer)return null;
+    return Math.max(0,Math.min(1,(performance.now()-voiceNow.startedAt)/1000/voiceNow.buffer.duration));
+  };
+  // A streamed line has no finished waveform to measure, so its mouth follows
+  // the sound as it plays: the running loudness against the loudest moment so
+  // far, which opens as wide on a soft phrase as on a loud one.
+  K.voiceLevel=()=>{
+    if(voiceNow?.analyser){
+      const n=voiceNow.analyser;n.getFloatTimeDomainData(voiceNow.data);
+      let sum=0;for(let i=0;i<voiceNow.data.length;i++)sum+=voiceNow.data[i]*voiceNow.data[i];
+      const rms=Math.sqrt(sum/voiceNow.data.length);
+      voiceNow.peak=Math.max(rms,voiceNow.peak*.995,.04);
+      return rms<.012?0:Math.pow(Math.min(1,rms/voiceNow.peak),.85);
+    }
+    if(!voiceNow||!voiceNow.startedAt)return 0;
+    const env=envelopeOf(voiceNow.buffer);const i=Math.floor((performance.now()-voiceNow.startedAt)/1000/ENV_STEP);
+    return i>=0&&i<env.length?env[i]:0;
+  };
+  K.stopSpeech=()=>{voiceNow=null;gate.cancel();K.audio.duck(false);try{abort?.abort()}catch(e){}abort=null;try{if(voiceSource){voiceSource.onended=null;voiceSource.stop();voiceSource.disconnect();voiceSource=null}}catch(e){}try{if(voiceStream){voiceStream.onended=null;voiceStream.onerror=null;voiceStream.pause();voiceStream.removeAttribute('src');voiceStream.load();voiceStream=null}}catch(e){}if(voiceUrl){try{URL.revokeObjectURL(voiceUrl)}catch(e){}voiceUrl=null}try{speechSynthesis?.cancel()}catch(e){}try{K.clearSpeechHighlight?.()}catch(e){}};
   // Natural pacing per CLAUDE.md section 9: a beat after the question, a shorter
   // one between answers. The wait is cancellable, so a tap still stops speech instantly.
   const GAP={question:520,answer:300,option:120,speech:0};
@@ -187,7 +270,80 @@
   // skipped, and the sequence carries on with the next answer. Before this, a
   // single upstream 429 on segment B meant the child heard the question and "A"
   // and nothing else.
-  K.speakSequence=async(segments,{onSegment,onStart,onDone,prefetch,voice}={})=>{segments=(segments||[]).filter(s=>s&&s.text);/* `voice` lets a character speak in its own voice (Milo hosts onboarding and the tour); a child who chose silence stays silent either way */const v=K.state.voice==='Stil'?'Stil':(voice||K.state.voice);if(!segments.length||v==='Stil')return;K.stopSpeech();const token=gate.begin();abort=new AbortController();const signal=abort.signal;K.audio.duck(true);const requests=segments.map(s=>fetchVoiceBlob(s.text,signal,v).then(blob=>({ok:true,blob})).catch(error=>({ok:false,error})));/* the feedback lines are queued right behind the question so they are ready however fast the child answers */if(prefetch?.length)K.prefetchSpeech(prefetch);try{for(let i=0;i<segments.length;i++){const result=await requests[i];if(!gate.isCurrent(token))return;if(!result.ok){if(result.error?.name!=='AbortError')console.warn('Kwizillo TTS: segment skipped —',result.error?.message||result.error);continue}try{onSegment?.(segments[i],i)}catch(e){}const finished=await playVoiceBlob(result.blob,token,d=>{try{onStart?.(segments[i],i,d)}catch(e){}});if(!finished||!gate.isCurrent(token))return;if(i<segments.length-1){await pause(GAP[segments[i].kind]??260,token);if(!gate.isCurrent(token))return}}try{onDone?.()}catch(e){}}catch(e){if(e?.name!=='AbortError'&&gate.isCurrent(token))console.warn('Kwizillo TTS:',e?.message||e)}finally{if(gate.isCurrent(token)){K.audio.duck(false);abort=null}}};
+  K.speakSequence=async(segments,{onSegment,onStart,onDone,prefetch,voice}={})=>{
+    segments=(segments||[]).filter(s=>s&&s.text);
+    /* `voice` lets a character speak in its own voice (Milo hosts onboarding and
+       the tour); a child who chose silence stays silent either way */
+    const v=K.state.voice==='Stil'?'Stil':(voice||K.state.voice);
+    if(!segments.length||v==='Stil')return;
+    K.stopSpeech();
+    const token=gate.begin();
+    abort=new AbortController();const signal=abort.signal;
+    K.audio.duck(true);
+    const lang=K.speechLang?.()||K.state.language||'nl';
+    // The first line streams when it is not already in hand, so the guide starts
+    // talking while the rest of the sentence is still being made. Every other
+    // line is asked for at this same moment and is ready long before its turn.
+    const announce=i=>{try{onSegment?.(segments[i],i)}catch(e){}};
+    const started=i=>d=>{try{onStart?.(segments[i],i,d)}catch(e){}};
+    const streamFirst=canStream(segments[0].text,v,lang);
+    // The first line goes out before anything else asks for a connection: it is
+    // the one the child is waiting for, and a browser only keeps a handful of
+    // connections per host.
+    let first=null;
+    if(streamFirst){
+      announce(0);
+      const stream=playVoiceStream(segments[0].text,v,lang,token,started(0));
+      first=stream.done;
+      await stream.loading;
+      if(!gate.isCurrent(token))return;
+    }
+    const requests=segments.map((s,i)=>(i===0&&streamFirst)?null
+      :fetchVoiceBlob(s.text,signal,v).then(blob=>({ok:true,blob})).catch(error=>({ok:false,error})));
+    /* the feedback lines are queued right behind the question so they are ready however fast the child answers */
+    if(prefetch?.length)K.prefetchSpeech(prefetch);
+    try{
+      for(let i=0;i<segments.length;i++){
+        if(!gate.isCurrent(token))return;
+        let finished;
+        if(i===0&&streamFirst){
+          finished=await first;
+          if(finished===null){
+            // No stream (no Web Audio, a refused element, a network hiccup):
+            // fetch the whole clip instead rather than skip the line.
+            const result=await fetchVoiceBlob(segments[0].text,signal,v).then(blob=>({ok:true,blob})).catch(error=>({ok:false,error}));
+            if(!gate.isCurrent(token))return;
+            if(!result.ok){
+              if(result.error?.name!=='AbortError')console.warn('Kwizillo TTS: segment skipped —',result.error?.message||result.error);
+              continue;
+            }
+            finished=await playVoiceBlob(result.blob,token,started(0));
+          }
+        }else{
+          // One failed segment must not silence the rest of the question: it is
+          // logged, skipped, and the sequence carries on with the next answer.
+          const result=await requests[i];
+          if(!gate.isCurrent(token))return;
+          if(!result.ok){
+            if(result.error?.name!=='AbortError')console.warn('Kwizillo TTS: segment skipped —',result.error?.message||result.error);
+            continue;
+          }
+          announce(i);
+          finished=await playVoiceBlob(result.blob,token,started(i));
+        }
+        if(!finished||!gate.isCurrent(token))return;
+        if(i<segments.length-1){
+          await pause(GAP[segments[i].kind]??260,token);
+          if(!gate.isCurrent(token))return;
+        }
+      }
+      try{onDone?.()}catch(e){}
+    }catch(e){
+      if(e?.name!=='AbortError'&&gate.isCurrent(token))console.warn('Kwizillo TTS:',e?.message||e);
+    }finally{
+      if(gate.isCurrent(token)){K.audio.duck(false);abort=null}
+    }
+  };
   K.speak=(text,opts)=>K.speakSequence([{kind:'speech',text}],opts);
 
   // ?debug shows an on-screen log (for phones without a console). Always mirrors to console.info.

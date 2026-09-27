@@ -3,6 +3,7 @@
 // console errors. The list comes from the app itself, so a new language is
 // covered the moment it is registered.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 const { LANGS } = require('./langs.js');
 
 const SAVED = lang => ({
@@ -16,7 +17,7 @@ for (const lang of LANGS) {
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     await page.route('**/*.mp4', r => r.abort());
-    await page.route('**/api/tts', r => r.fulfill({ status: 503, body: '{}' }));
+    await page.route(TTS, r => r.fulfill({ status: 503, body: '{}' }));
     await page.addInitScript(s => {
       localStorage.setItem('kwizillo-fresh-start', '0');
       localStorage.setItem('kwizillo-state', JSON.stringify(s));

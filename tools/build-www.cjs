@@ -30,10 +30,16 @@ fs.writeFileSync(path.join(OUT, 'config.js'), cfg);
 let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 // The bundled page runs on capacitor://localhost, so the speech proxy is cross-origin:
 // it is the one host the content policy may reach, and it is named explicitly.
+// Both directives are widened: the lines fetched ahead of time are connections,
+// and the line that streams is played straight from that host by an <audio>.
 const csp = html.match(/content="(default-src[^"]+)"/);
 if (!csp) throw new Error('content security policy not found in index.html');
-html = html.replace(csp[1], csp[1].replace("connect-src 'self'", `connect-src 'self' ${API_HOST}`));
-if (!html.includes(`connect-src 'self' ${API_HOST}`)) throw new Error('could not point the content policy at the proxy');
+html = html.replace(csp[1], csp[1]
+  .replace("connect-src 'self'", `connect-src 'self' ${API_HOST}`)
+  .replace("media-src 'self' data: blob:", `media-src 'self' data: blob: ${API_HOST}`));
+for (const need of [`connect-src 'self' ${API_HOST}`, `media-src 'self' data: blob: ${API_HOST}`]) {
+  if (!html.includes(need)) throw new Error('could not point the content policy at the proxy');
+}
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 
 const size = dir => fs.readdirSync(dir, { withFileTypes: true }).reduce((n, e) => n + (e.isDirectory() ? size(path.join(dir, e.name)) : fs.statSync(path.join(dir, e.name)).size), 0);

@@ -3,6 +3,7 @@
 // books them: a question pays once at full value and afterwards as practice,
 // the runner cannot pay forever, and coins buy something that stays bought.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = {
   schemaVersion: 3, language: 'nl', name: 'Wolkje', onboardingComplete: true, tourDone: true,
@@ -13,7 +14,7 @@ const SAVED = {
 
 async function boot(page, state = {}) {
   await page.route('**/*.mp4', r => r.abort());
-  await page.route('**/api/tts', r => r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }));
+  await page.route(TTS, r => r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }));
   await page.addInitScript(s => {
     localStorage.setItem('kwizillo-fresh-start', '0');
     localStorage.setItem('kwizillo-state', JSON.stringify(s));

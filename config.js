@@ -5,5 +5,8 @@
 window.KWIZILLO_CONFIG = {
   elevenLabsProxyUrl: '/api/tts',
   voiceStatusUrl: '/api/voice-status',
-  allowBrowserVoiceFallback: false
+  allowBrowserVoiceFallback: false,
+  // The first line of a sequence is streamed, so the guide starts talking while
+  // the sentence is still being made. Set to false to compare timings.
+  streamSpeech: true
 };

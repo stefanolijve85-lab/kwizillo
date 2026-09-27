@@ -432,7 +432,7 @@ function releaseUpstream(){
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function tts(text, guide, lang, {stream=false}={}){
+async function tts(text, guide, lang, {stream=false, signal=null}={}){
   // Audio tags such as "[excited]" are an eleven_v3 feature; any other model
   // would read them out, so they are dropped there.
   if(!/v3/.test(MODEL)) text=text.replace(/\[[a-z][a-z ]*\]\s*/gi,'').trim();
@@ -470,7 +470,9 @@ async function tts(text, guide, lang, {stream=false}={}){
     for(;;){
       r=await fetch(endpoint,{
         method:'POST',
-        signal:AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+        // A streamed answer stays open while the audio plays out, so it gets a
+        // longer leash; either way the client's own signal can cut it short.
+        signal:signal?AbortSignal.any([signal,AbortSignal.timeout(UPSTREAM_TIMEOUT_MS*4)]):AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
         headers:{'xi-api-key':API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
         body
       });
@@ -525,15 +527,38 @@ const server=http.createServer(async(req,res)=>{
       const voice=url.searchParams.get('voice')==='Luna'?'Luna':'Milo';
       const lang=LANGS.has(url.searchParams.get('lang'))?url.searchParams.get('lang'):'nl';
       if(!text)return json(res,400,{error:'Missing text'});
+      // The child taps away, the page closes, the phone locks: whatever ends the
+      // connection also ends the generation and frees the upstream slot. Before
+      // this, a cancelled stream left the writer waiting for a drain that would
+      // never come, and after a handful of them the proxy stopped answering.
+      const gone=new AbortController();
+      res.on('close',()=>gone.abort());
       try{
-        const out=await tts(text,voice,lang,{stream:true});
+        const out=await tts(text,voice,lang,{stream:true,signal:gone.signal});
         const head={'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang,...corsHeaders(req)};
         if(out.cached){ rateRefund(req); res.writeHead(200,{...head,'Content-Length':out.buf.length}); return res.end(out.buf) }
+        // Nothing may sit in a buffer on the way out: the point of this route
+        // is that the first chunk of audio reaches the child at once.
+        try{ req.socket.setNoDelay(true) }catch(e){}
         res.writeHead(200,head);
+        res.flushHeaders?.();
         const chunks=[];
+        let whole=true;
         try{
-          for await (const chunk of out.body){ chunks.push(Buffer.from(chunk)); if(!res.write(Buffer.from(chunk))) await new Promise(r=>res.once('drain',r)) }
-          out.save(Buffer.concat(chunks));
+          for await (const chunk of out.body){
+            if(res.writableEnded||res.destroyed){ whole=false; break }
+            const buf=Buffer.from(chunk);
+            chunks.push(buf);
+            if(!res.write(buf)) await new Promise(r=>{
+              const go=()=>{res.off('drain',go);res.off('close',go);res.off('error',go);r()};
+              res.once('drain',go);res.once('close',go);res.once('error',go);
+            });
+          }
+          // Only a clip that arrived in full goes into the cache: half a
+          // sentence must never be replayed as the whole line.
+          if(whole&&!res.destroyed) out.save(Buffer.concat(chunks));
+        }catch(e){
+          if(e?.name!=='AbortError'&&e?.name!=='TimeoutError')console.error('Kwizillo TTS stream:',e?.message||e);
         }finally{ out.done?.(); res.end() }
         return;
       }catch(e){

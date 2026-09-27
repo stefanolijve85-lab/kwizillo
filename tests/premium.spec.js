@@ -3,6 +3,7 @@
 // gets past the gate. The store is the development simulator (this is a plain
 // http page on localhost), which is exactly what a phone on the LAN sees too.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
@@ -12,7 +13,7 @@ const SAVED = (over = {}) => ({
 async function boot(page, state = SAVED(), { entitlement } = {}) {
   await page.route('**/*.mp4', route => route.abort());
   await page.route('**/*.webm', route => route.abort());
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, body: '{}' }));
+  await page.route(TTS, route => route.fulfill({ status: 503, body: '{}' }));
   await page.addInitScript(({ s, e }) => {
     localStorage.setItem('kwizillo-fresh-start', '0');
     if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s));

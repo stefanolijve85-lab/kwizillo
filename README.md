@@ -23,7 +23,11 @@ browser. Without a key the game is fully playable; Milo and Luna simply stay
 silent.
 
 Generated speech is cached in `.tts-cache/` so the same sentence does not spend
-credits twice. That directory is git-ignored.
+credits twice. That directory is git-ignored. A cached line plays in about a
+tenth of a second; a brand-new one is streamed (`GET /api/tts?text=…`) so the
+guide starts talking on the first chunk instead of after the whole clip — about
+1.8 s instead of 2.4 s, measured on 27-09-2026. Every line the app can predict
+is fetched ahead of time, so streaming is only ever the first line of a screen.
 
 ## Tests
 
@@ -44,6 +48,7 @@ npm run test:ui          # Playwright: onboarding, six worlds, quiz flow, i18n
 | `strings-<lang>.js` | the interface strings of every language added later |
 | `questions.js` / `questions-<lang>.js` | the question banks and their shared builder |
 | `quiz-core-v2.js` | pure logic: batching, scoring, speech segments, cancellation |
+| `scores.js` | pure logic: points per exercise/day/week/month/year, the records, the daily ceilings |
 | `m1-runtime.js` | audio manager, TTS client, renderer |
 | `world-assets.js` | artwork paths, all local |
 | `m1-ui.js` | Home, world, collection, achievements, stats, parent zone |
@@ -58,6 +63,18 @@ npm run test:ui          # Playwright: onboarding, six worlds, quiz flow, i18n
 
 All artwork ships in `assets/`; nothing is fetched from a CDN at runtime, so the
 game works offline.
+
+## Points, coins and the shop
+
+Answering pays **points** (the game's XP): full value the first time a question
+is answered correctly, 40% after that. Every point counts at once towards this
+exercise, this day, week, month and year, and each window keeps its record —
+the statistics screen shows all of them. Playing a game pays **coins**: the
+runner (at most 150 a run), Memo, Rekenen, Wie ben ik and Fotozoom. Both stop at
+a daily ceiling (1500 points, 250 coins) so no amount of replaying can farm
+them. Coins buy golden cards and buddies in the collection's shop tab. The rules
+live in `scores.js` and nowhere else; `K.awardPoints` and `K.awardCoins` are the
+only way into the wallet.
 
 ## Adding a language
 

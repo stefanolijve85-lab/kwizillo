@@ -3,6 +3,7 @@
 // chosen guide past the worlds, the games, the HUD and the nav, one spoken line
 // each, and never returns on its own.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Milo',
@@ -11,7 +12,7 @@ const SAVED = (over = {}) => ({
 });
 async function boot(page, state = SAVED(), tts) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', tts || (route => route.fulfill({ status: 503, body: '{}' })));
+  await page.route(TTS, tts || (route => route.fulfill({ status: 503, body: '{}' })));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
@@ -21,7 +22,7 @@ async function boot(page, state = SAVED(), tts) {
 test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in his own voice', async ({ page }) => {
   const spoken = [];
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => { spoken.push(route.request().postDataJSON()); route.fulfill({ status: 503, body: '{}' }); });
+  await page.route(TTS, route => { spoken.push(ttsPayload(route.request())); route.fulfill({ status: 503, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
@@ -107,7 +108,7 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   const spoken = [];
   await page.route('**/*.mp4', route => route.abort());
   // A 500 (unlike 503) keeps speech "available", so every line is still asked for.
-  await page.route('**/api/tts', route => { spoken.push(route.request().postDataJSON()); route.fulfill({ status: 500, body: '{}' }); });
+  await page.route(TTS, route => { spoken.push(ttsPayload(route.request())); route.fulfill({ status: 500, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
@@ -170,7 +171,7 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   const manifest = require('fs').readFileSync(require('path').join(__dirname, '..', 'guide-talks.js'), 'utf8');
   test.skip(!/milo\/talk\/nl\/name\.webm/.test(manifest), 'no Dutch Milo clip for the name step in the manifest');
   const tts = [];
-  await page.route('**/api/tts', r => { tts.push(r.request().postDataJSON().text); r.fulfill({ status: 500, body: '{}' }); });
+  await page.route(TTS, r => { tts.push(ttsPayload(r.request()).text); r.fulfill({ status: 500, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });

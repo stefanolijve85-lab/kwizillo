@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
@@ -7,7 +8,7 @@ const SAVED = (over = {}) => ({
 });
 async function boot(page, state = SAVED(), tts = route => route.fulfill({ status: 503, body: '{}' })) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', tts);
+  await page.route(TTS, tts);
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
@@ -100,7 +101,7 @@ test('levels change the kind of sums: tables at level 4, halves and percentages 
 
 test('after an answer the voice names the chosen number, then the feedback line', async ({ page }) => {
   const spoken = [];
-  await boot(page, SAVED({ voice: 'Milo' }), route => { spoken.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
+  await boot(page, SAVED({ voice: 'Milo' }), route => { spoken.push(ttsPayload(route.request()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
   await page.locator('#homeMath').click();
   await expect(page.locator('.math-sum')).toBeVisible();
   const btn = page.locator('.answer[data-a]').first();

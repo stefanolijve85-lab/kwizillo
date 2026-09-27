@@ -4,6 +4,7 @@
 // amended COPPA Rule say the same. These tests fail the moment the app talks to
 // anyone but its own server, or puts something the child typed in a request.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const CHILD = 'Wolkje', FRIEND = 'Sterretje';
 const SAVED = {
@@ -17,7 +18,7 @@ test('a whole session talks to nobody but its own server, and never sends a name
   page.on('request', r => seen.push({ url: r.url(), body: r.postData() || '' }));
   page.on('console', m => { if (/Content Security Policy|Refused to/i.test(m.text())) violations.push(m.text()); });
   await page.route('**/*.mp4', r => r.abort());
-  await page.route('**/api/tts', r => { try { spoken.push(JSON.parse(r.request().postData() || '{}').text || '') } catch {} r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
+  await page.route(TTS, r => { try { spoken.push(ttsPayload(r.request()).text || '') } catch {} r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.addInitScript(s => {
     localStorage.setItem('kwizillo-fresh-start', '0');
     localStorage.setItem('kwizillo-state', JSON.stringify(s));
@@ -72,7 +73,7 @@ test('the page may only load and talk to itself', async ({ page }) => {
 // to erase it in the app, not only on a website), and erasing really erases.
 test('the parent portal shows what is stored and erases it behind the gate', async ({ page }) => {
   await page.route('**/*.mp4', r => r.abort());
-  await page.route('**/api/tts', r => r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }));
+  await page.route(TTS, r => r.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }));
   // Seeded once, by hand: an init script would put the keys back on the reload
   // that follows erasing, and then the test could never see them gone.
   await page.goto('/', { waitUntil: 'domcontentloaded' });

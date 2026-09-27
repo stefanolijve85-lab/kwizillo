@@ -1,6 +1,7 @@
 // "Wat ben ik?": clues one at a time, four picture tiles, 100/75/50 points by
 // how many clues were needed, a miss still teaches, rewards at the end.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
@@ -9,7 +10,7 @@ const SAVED = (over = {}) => ({
 });
 async function boot(page, state = SAVED()) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, body: '{}' }));
+  await page.route(TTS, route => route.fulfill({ status: 503, body: '{}' }));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
@@ -62,7 +63,7 @@ test('five rounds of clues and pictures; earlier guesses earn more; a wrong pick
 test('the clue, the question and the four tile names are read out (tiles light up in turn), and every line of the game is requested up front', async ({ page }) => {
   const spoken = [];
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
+  await page.route(TTS, route => { try { spoken.push(ttsPayload(route.request()).text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, SAVED({ voice: 'Milo' }));
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});

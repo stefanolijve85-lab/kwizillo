@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
@@ -7,7 +8,7 @@ const SAVED = (over = {}) => ({
 });
 async function boot(page, state = SAVED(), tts) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', tts || (route => route.fulfill({ status: 503, body: '{}' })));
+  await page.route(TTS, tts || (route => route.fulfill({ status: 503, body: '{}' })));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
@@ -131,7 +132,7 @@ test('a tile whose picture fails to load retries it, and shows the word when it 
 test('head-to-head: two players alternate every two cards, scores are kept, the higher score wins', async ({ page }) => {
   // A voice, so the end of the duel is announced; every spoken line is captured (a 503 would switch speech off for the session).
   const spoken = [];
-  await boot(page, SAVED({ voice: 'Milo' }), route => { try { spoken.push(JSON.parse(route.request().postData() || '{}').text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
+  await boot(page, SAVED({ voice: 'Milo' }), route => { try { spoken.push(ttsPayload(route.request()).text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
   await page.locator('#homeMemo').click();
   await expect(page.locator('[data-mode="solo"]')).toHaveClass(/active/);
   // Player 2's name field only shows for a duel; the name is remembered.

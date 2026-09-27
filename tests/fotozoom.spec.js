@@ -1,6 +1,7 @@
 // Fotozoom: a question picture zoomed in on a detail, four names, 100/75/50
 // points by how far the child had to zoom out; a miss reveals and explains.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
@@ -9,7 +10,7 @@ const SAVED = (over = {}) => ({
 });
 async function boot(page, state = SAVED()) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, body: '{}' }));
+  await page.route(TTS, route => route.fulfill({ status: 503, body: '{}' }));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' })); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});

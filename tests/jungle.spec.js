@@ -3,6 +3,7 @@
 // jungle set without a single 404), a finished run pays coins once per run id,
 // and leaving it returns to Home with the runner torn down.
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Stil',
@@ -11,7 +12,7 @@ const SAVED = (over = {}) => ({
 });
 async function boot(page, state = SAVED()) {
   await page.route('**/*.mp4', route => route.abort());
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, body: '{}' }));
+  await page.route(TTS, route => route.fulfill({ status: 503, body: '{}' }));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});

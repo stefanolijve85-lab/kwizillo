@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { TTS, ttsPayload } = require('./tts.js');
 
 // Functional coverage for the flow in CLAUDE.md section 4 and the QA list in section 16.
 
@@ -339,7 +340,7 @@ test('the app stays playable with no speech backend', async ({ page }) => {
   const failures = [];
   page.on('pageerror', e => failures.push(e.message));
   await boot(page, SAVED({ voice: 'Milo' }));
-  await page.route('**/api/tts', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"x"}' }));
+  await page.route(TTS, route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"x"}' }));
 
   await page.locator('[data-world="mysterie"]').click();
   await page.locator('.world-topic').first().click();
@@ -416,8 +417,8 @@ test('statistics never print "undefined" for a world without counters', async ({
 
 test('feedback speech is fetched while the question is on screen, not after the answer', async ({ page }) => {
   const requests = [];
-  await page.route('**/api/tts', route => {
-    requests.push(JSON.parse(route.request().postData()).text);
+  await page.route(TTS, route => {
+    requests.push(ttsPayload(route.request()).text);
     route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) });
   });
   await boot(page, SAVED({ voice: 'Milo' }));
@@ -452,7 +453,7 @@ test('"next" on the answer card moves on with one tap while the voice plays; "No
   let release;
   const gate = new Promise(r => { release = r; });
   let n = 0;
-  await page.route('**/api/tts', async route => {
+  await page.route(TTS, async route => {
     n++;
     // The feedback line (after question + 4 answers + 2 prefetches) is held back
     // until the test releases it, so "listening" state is observable.
@@ -518,7 +519,7 @@ test('the guide choice lights up the chosen card', async ({ page }) => {
 
 test('closing the feedback card shows the answered question without reading it out', async ({ page }) => {
   const texts = [];
-  await page.route('**/api/tts', route => { texts.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
+  await page.route(TTS, route => { texts.push(ttsPayload(route.request()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
   await boot(page, SAVED({ voice: 'Milo' }));
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
@@ -534,7 +535,7 @@ test('closing the feedback card shows the answered question without reading it o
 
 test('every line the app can say next is warmed before it is needed', async ({ page }) => {
   const seen = [];
-  await page.route('**/api/tts', route => { const b = JSON.parse(route.request().postData()); seen.push(b.voice + '|' + b.text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
+  await page.route(TTS, route => { const b = ttsPayload(route.request()); seen.push(b.voice + '|' + b.text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
   await boot(page, SAVED({ voice: 'Milo' }));
   // Home warms both guides' hello lines.
   await expect.poll(() => seen.filter(t => t.startsWith('Luna|Hoi! Ik ben Luna') || t.startsWith('Milo|Hoi! Ik ben Milo')).length, { timeout: 8000 }).toBe(2);
@@ -693,7 +694,7 @@ test('the question timer runs out into a time-out verdict and gets shorter with 
 
 test('the timer waits until the question has been read out', async ({ page }) => {
   let release; const gate = new Promise(r => { release = r; });
-  await page.route('**/api/tts', async route => { await gate; route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
+  await page.route(TTS, async route => { await gate; route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(64) }); });
   await boot(page, SAVED({ voice: 'Milo', niveau: 6 }));
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
@@ -884,7 +885,7 @@ test('level 5 gives one hint per quiz; level 6 none; level 1 shows no counter', 
 test('from level 4 the voice reads only the question; the parent zone explains each level', async ({ page }) => {
   const spoken = [];
   // Routed before boot: Home already warms the world names, and a 503 there would switch speech off for the session.
-  await page.route('**/api/tts', route => { spoken.push(JSON.parse(route.request().postData()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
+  await page.route(TTS, route => { spoken.push(ttsPayload(route.request()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
   await boot(page, SAVED({ niveau: 4, voice: 'Milo' }));
   await page.locator('[data-world="dieren"]').click();
   // Entering the world calls out its name (after the fanfare's first beat).
