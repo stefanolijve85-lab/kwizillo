@@ -1,7 +1,7 @@
 # RELEASE_QA.md — Kwizillo release candidate
 
-**Branch:** `release/kwizillo-rc1`
-**Datum:** 2026-09-13
+**Branch:** `website-video-assets` (alles van 27 september; `release/kwizillo-rc1` loopt achter)
+**Datum:** 2026-09-27 (kop en §1, §1b en §4 herzien; §2, §3, §5 en §6 zijn de rondes van 13–20 september)
 **Versie:** `0.5.0`
 
 Dit document beschrijft wat is getest, hoe, en wat er nog openstaat. Onopgeloste
@@ -9,17 +9,40 @@ zaken staan er expliciet in; er is niets weggelaten omdat het slecht uitkwam.
 
 ---
 
-## 1. Geautomatiseerde tests
+## 1. Geautomatiseerde tests (27 september)
 
 | Suite | Wat | Resultaat |
 |---|---|---|
-| `tests/questions.test.js` | Beide vragenbanken: aantallen, structuur, integriteit, kruistaal-pariteit | ✅ 240 NL / 240 EN |
-| `tests/core.test.js` | Batching, spraaksegmenten, feedback-copy, state-regels, geen hardcoded copy | ✅ |
-| `tests/server-static.test.js` | Statische allowlist, `.env`-exposure, TTS-foutafhandeling | ✅ |
-| `tests/intro.spec.js` | Cinematic: één keer opgebouwd, skipbaar, geen weesTimers, geen monkeypatch | ✅ 6 tests |
-| `tests/ui-smoke.spec.js` | Volledige speelflow, i18n, persistentie, storingsgedrag, iPhone-layouts | ✅ 19 tests |
+| `npm test` (7 unit-suites) | Vragenbanken, kernlogica, scores, weetjes, mascottetegels, teksten, server | ✅ |
+| `tests/questions.test.js` | Tien banken: aantallen, structuur, integriteit, kruistaal-pariteit | ✅ 480 per taal × 10 talen, 24 onderwerpen |
+| `tests/questions.test.js` (kunst) | Eén illustratie per vraag | ✅ 480 vraagillustraties, 24 onderwerpillustraties |
+| `tests/strings.test.js` | Sleutelpariteit en geen kindernaam in gesproken tekst | ✅ 10 × 664 sleutels |
+| `tests/scores.test.js` | Punten- en coinsplafonds, perioden, records | ✅ |
+| `tests/facts.test.js` | 96 weetjes per taal met eigen illustratie | ✅ 960 |
+| `tests/mascots.test.js` | Elke buddy heeft een tegel van 640×512 | ✅ 13 |
+| `tests/server-static.test.js` | Statische allowlist, `.env`-exposure, TTS-foutafhandeling, origin-allowlist, rate limit | ✅ |
+| 20 browsersuites (`npm run test:ui`) | Intro, onboarding, quiz, niveaus, RTL, spraak, lipsync, premium, privacy, zes spellen, iPad | ✅ 154 tests |
 
-`npm test` en `npm run test:ui` — **25 browsertests en 3 unit-suites, alles groen.**
+**Alles groen.** De suite draait ook in GitHub Actions op `develop` en `release/**`
+(`.github/workflows/test.yml`).
+
+---
+
+## 1b. Wat er sinds 13 september bij is gekomen
+
+- Tien talen in plaats van drie (Duits, Frans, Spaans, Italiaans, Deens, Russisch,
+  Arabisch erbij), met gespiegelde UI voor het Arabisch.
+- 480 vragen per taal in plaats van 240; 96 weetjes per taal.
+- Zes extra spellen naast de quiz: Memo, Rekenen, Wat ben ik?, Fotozoom, Weetjes
+  en de Runner — elk per wereld of alle werelden door elkaar.
+- Punten- en coinssysteem met dag-, week-, maand- en jaarrecords en plafonds;
+  winkel voor gouden kaarten en buddy's.
+- Niveau per wereld (1–6), gouden wereldkaart bij alle zes niveaus gehaald.
+- Premium (StoreKit 2) met paywall, ouderpoort en herstel; de testschakelaar die
+  alles opende is verwijderd.
+- iPad-versie: één ontwerp dat meeschaalt, portret en landschap.
+- Spraak: streaming proxy en `eleven_flash_v2_5` — eerste geluid in 0,13–0,18 s
+  in plaats van 0,6–1,0 s.
 
 ---
 
@@ -241,33 +264,78 @@ clip getranscribeerd: "Zeven keer acht: A 56, B 48". Tests: `tests/math.spec.js`
 
 ---
 
-## 4. Wat nog openstaat
+## 4. Wat moet er nog gebeuren voordat we live kunnen (27 september)
 
-### P1 — vóór TestFlight
+Twee dingen kunnen live: **de website** (`site/`) en **de app** (web + iOS).
+Ze hangen aan elkaar: de app spreekt via `app.kwizillo.nl`, en de privacypagina's
+van de site zijn verplicht voor de App Store. De volgorde hieronder is de
+volgorde waarin het moet.
 
-**Live spraak is niet geverifieerd.**
-Alle TTS-code is aangepast: stem per taal, `language_code` per verzoek, Vlaams
-afgestraft, "Antwoord A" verwijderd, pauzes toegevoegd. **Geen daarvan is met een
-echte ElevenLabs-sleutel getest**, want die heb ik niet. `AUDIO_QA.md` kan pas
-worden ingevuld na een sessie met een geldige key. Dit is de grootste
-niet-geverifieerde aanname in deze release.
+Legenda: **[jij]** alleen jij kunt het (account, DNS, sudo, Apple) · **[ik]** kan ik doen.
 
-**Productie-backend bestaat nog niet.**
-`server.js` is een dev-server op loopback. Voor productie is nodig: HTTPS-host,
-secret store, en validatie dat de aangevraagde tekst uit de vragenbank komt in
-plaats van vrije tekst.
+### A. Eerst: de server, want daar hangt de rest aan
 
-### P2
+| # | Wat | Wie | Waarom nu |
+|---|---|---|---|
+| A1 | DNS bij Hostnet: `@`, `www` en `app` van beide domeinen naar `213.126.59.35` | **[jij]** | Alle drie staan nu nog op Hostnets parkeer-IP `91.184.0.200`; zonder dit bestaat er niets om naartoe te publiceren |
+| A2 | Server inrichten: clone, `.env` met de ElevenLabs-sleutel, systemd, nginx (`deploy/DEPLOY.md` §2–§5) | **[jij]** (sudo) | De spraakproxy van de app |
+| A3 | Certbot voor beide domeinen + `app.` | **[jij]** | De iOS-app praat alleen over HTTPS |
+| A4 | Controleren: `https://app.kwizillo.nl/api/voice-status` en een POST zonder Origin → 403 | **[ik]** zodra A1–A3 staan | Bewijs dat de proxy dicht is |
+| A5 | `TTS_DAILY_CHARS` afstemmen op je ElevenLabs-abonnement | **[jij]** | Harde bovengrens op de rekening |
 
-- ~~`assets/brand/intro.mp4` is 25 MB.~~ Opgelost: met macOS `avconvert`
-  (Preset1280x720, multipass) hergecodeerd naar 10 MB H.264 mét fast-start (moov
-  vooraan). Het origineel had de moov-atom achteraan, wat op de iPhone een
-  zwart scherm en een directe 'error' gaf. Poster `intro-poster.jpg` toegevoegd.
-- Inhoudelijke feitencontrole van de 480 vragen is niet uitgevoerd. De structuur
-  is gevalideerd, de juistheid steekproefsgewijs.
-- De Engelse bank is een vertaling van de Nederlandse. Dat geeft pariteit, maar
-  een native-Engelse redactieronde zou de formuleringen natuurlijker maken.
-- Nog geen Capacitor/Xcode-project. Dat is fase 6.
+> **Dit is de blokkade voor TestFlight.** De iOS-build wijst naar
+> `https://app.kwizillo.nl/api/tts` (`www/config.js`). Tot A1–A3 klaar zijn,
+> blijven Milo en Luna stil in de app op een toestel.
+
+### B. De website
+
+| # | Wat | Wie |
+|---|---|---|
+| B1 | ~~Teksten bijwerken: tien talen, 480 vragen, zes extra spellen~~ | **[ik]** ✅ 27 sep |
+| B2 | ~~Screenshots vernieuwen uit de huidige app~~ | **[ik]** ✅ 27 sep (`tools/site-shots.cjs`) |
+| B3 | Naam en vestigingsadres van de uitgever invullen in `site/privacy.html` en `site/en/privacy.html` (nu een gemarkeerde placeholder) | **[jij]** |
+| B4 | `hallo@kwizillo.nl` en `hello@kwizillo.com` laten aankomen | **[jij]** |
+| B5 | Publiceren (statische host of `site/` op de server) en controleren dat `/privacy.html` in beide talen laadt | **[jij]** + **[ik]** |
+| B6 | Bij App Store-lancering: "Binnenkort in de App Store" vervangen door de echte link | **[ik]** |
+
+### C. De app zelf (web release candidate)
+
+| # | Wat | Wie |
+|---|---|---|
+| C1 | Audio-QA opnieuw op het nieuwe model: `npm run test:audio` (20 NL + 20 EN, Scribe-controle) en `AUDIO_QA.md` bijwerken | **[ik]**, sleutel nodig |
+| C2 | Steekproef vraagillustraties: bij het maken van de screenshots kwam er één mis (een vis bij "wat rent sneller, een paard of een schildpad?") | **[ik]** |
+| C3 | Inhoudelijke feitencontrole van de 480 vragen per taal (structuur is getest, juistheid steekproefsgewijs) | **[jij]** / redacteur |
+| C4 | Native-redactieronde op de vertaalde banken (nu vertaald vanuit het Nederlands) | **[jij]** / redacteur |
+| C5 | `release/kwizillo-rc1` en `website-video-assets` weer samenbrengen | **[ik]**, jouw keuze welke kant op |
+
+### D. iOS naar TestFlight
+
+| # | Wat | Wie |
+|---|---|---|
+| D1 | Signing met jouw team + In-App Purchase-capability in Xcode | **[jij]** |
+| D2 | Draaien op een echte iPhone **en** een echte iPad (landschap!) | **[jij]** |
+| D3 | App Store Connect: bundle-id, contracten, belasting, bankgegevens | **[jij]** |
+| D4 | Abonnementen aanmaken: maand, jaar met 7 dagen proef, prijzen, drie localisaties, reviewscreenshot | **[jij]** (`APP_STORE_MONETIZATION_SETUP.md`) |
+| D5 | Sandbox-tester en een echte koop/herstel/verlooptest | **[jij]** |
+| D6 | Schermafbeeldingen voor de store: iPhone 6.9″ en iPad 13″ | **[ik]** maakt ze, **[jij]** uploadt |
+| D7 | TestFlight-ronde met echte kinderen | **[jij]** |
+
+### E. Kids Category en juridisch (`KIDS_COMPLIANCE.md` §8)
+
+| # | Wat | Wie |
+|---|---|---|
+| E1 | Statutaire naam, adres, telefoon, e-mail van de uitgever (DSA-handelaarstatus + beide privacypagina's) | **[jij]** |
+| E2 | Leeftijdsband kiezen (advies: 6–8) | **[jij]** |
+| E3 | Vragenlijsten: Apple leeftijdsclassificatie, App Privacy ("Data Not Collected") | **[jij]** |
+| E4 | Verwerkersovereenkomst met ElevenLabs op papier | **[jij]** |
+| E5 | Het korte beveiligingsprogramma uit `KIDS_COMPLIANCE.md` §6 schrijven | **[ik]** in concept |
+| E6 | `KIDS_COMPLIANCE.md` opnieuw lezen vlak vóór indiening — winkelregels veranderen | **[ik]** |
+
+### Kortste pad naar een testbare app op een toestel
+
+A1 → A2 → A3 (server en DNS) → D1 → D2. Daarmee speelt Kwizillo mét stem op je
+eigen iPhone en iPad. Alles in D3–D7 en E is pas nodig voor TestFlight-testers
+en de indiening.
 
 ---
 
@@ -281,8 +349,8 @@ plaats van vrije tekst.
 | 4.4 onboarding ontbreekt | ✅ opgelost |
 | 4.5 server exposeert projectmap | ✅ opgelost |
 | 4.6 TTS-proxy ongelimiteerd | ✅ grotendeels; tekstvalidatie open |
-| 4.7 Luna is Vlaams | ✅ code opgelost, live niet geverifieerd |
-| 4.8 "Antwoord A" + pauzes | ✅ opgelost, live niet geverifieerd |
+| 4.7 Luna is Vlaams | ✅ opgelost en live geverifieerd (native stem per taal, Scribe-controle) |
+| 4.8 "Antwoord A" + pauzes | ✅ opgelost en live geverifieerd |
 | 4.9 "Nog een quiz" herhaalt | ✅ opgelost |
 | 4.10 nepvoortgang | ✅ opgelost |
 | 4.11 vraagillustraties | ✅ opgelost — 24 onderwerpillustraties, 0 terugval |
@@ -297,11 +365,11 @@ plaats van vrije tekst.
 | 4.20 43 dubbele CSS-selectors | ✅ opgelost |
 | 4.21 privacy + parental gate | ✅ opgelost |
 | 4.22 CI draait niet op branch | ✅ opgelost |
-| 4.23 server op loopback | ⚠️ bewust; productie-backend is fase 6 |
+| 4.23 server op loopback | ⚠️ nog steeds: de productieserver bestaat nog niet (zie §4 A) |
 
 ---
 
-## 6. Codebase nu
+## 6. Codebase (stand 20 september; de app is sindsdien flink gegroeid)
 
 ```
 ±2.800 regels applicatiecode over 13 bestanden

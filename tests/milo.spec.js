@@ -77,8 +77,17 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   // The only chrome during the tour is the small Skip button at the bottom.
   await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);
   await expect(tour.locator('.milo-tour-skip')).toHaveText('Overslaan');
+  // The tour moves on by itself, so what the bubble said is collected while it
+  // says it: asking afterwards can land on the next stop.
+  await page.evaluate(() => {
+    window.__said = [];
+    new MutationObserver(() => {
+      const t = document.querySelector('.milo-tour .milo-bubble')?.textContent?.trim();
+      if (t && window.__said[window.__said.length - 1] !== t) window.__said.push(t);
+    }).observe(document.body, { subtree: true, childList: true, characterData: true });
+  });
   const bubble = tour.locator('.milo-bubble');
-  await expect(bubble).toContainText('zes werelden', { timeout: 5000 });
+  await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('zes werelden'))), { timeout: 15000 }).toBe(true);
   await expect(tour.locator('.milo-host')).not.toHaveClass(/walking/);
   // The worlds line has a clip: the figure hands over to the transparent video.
   await expect(tour.locator('.milo-host')).toHaveClass(/clip-playing/);

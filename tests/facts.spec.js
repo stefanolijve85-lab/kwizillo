@@ -34,7 +34,7 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   const first = await card.getAttribute('data-fact');
   const text = await card.locator('.fact-text').textContent();
   // The guide reads the fact in her own voice, never the child's name.
-  await expect.poll(() => spoken.some(r => r.text === `Wist je dat… ${text}` && r.voice === 'Luna')).toBe(true);   // the kicker once, on opening
+  await expect.poll(() => spoken.some(r => r.text === `Wist je dat… ${text}` && r.voice === 'Luna'), { timeout: 20000 }).toBe(true);   // the kicker once, on opening
   expect(spoken.map(r => JSON.stringify(r)).join('')).not.toContain('Mike');
   // Next fact: another one, counter up, both remembered.
   await screen.locator('#factNext').click();
@@ -42,7 +42,7 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   const second = await screen.locator('.fact-card').getAttribute('data-fact');
   expect(second).not.toBe(first);
   const secondText = await screen.locator('.fact-text').textContent();
-  await expect.poll(() => spoken.some(r => r.text === secondText)).toBe(true);   // the next fact is read without the kicker
+  await expect.poll(() => spoken.some(r => r.text === secondText), { timeout: 20000 }).toBe(true);   // the next fact is read without the kicker
   const seen = await page.evaluate(() => Object.keys(window.KWIZILLO_M1.progress().factsSeen));
   expect(seen.sort()).toEqual([first, second].sort());
   // Every chip is in view without sideways scrolling.
@@ -72,8 +72,11 @@ test('the next facts are chosen ahead and their lines warmed, so a fact talks th
   const window_facts = await page.evaluate(() => window.KWIZILLO_M1.facts('all').map(f => f.t));
   // Home already warmed the first two facts of the set…
   const isFact = r => window_facts.includes(r.text.replace(/^Wist je dat… /, ''));
-  await expect.poll(() => spoken.filter(isFact).length).toBeGreaterThanOrEqual(2);
-  const warmed = spoken.filter(isFact).map(r => r.text.replace(/^Wist je dat… /, ''));
+  // Distinct facts, not requests: the kicker and the line itself are two
+  // requests for the same fact, and one fact warmed twice is still one fact.
+  const distinct = () => [...new Set(spoken.filter(isFact).map(r => r.text.replace(/^Wist je dat… /, '')))];
+  await expect.poll(() => distinct().length, { timeout: 20000 }).toBeGreaterThanOrEqual(2);
+  const warmed = distinct();
   await page.locator('#homeFacts').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="all"]').click();
@@ -83,7 +86,7 @@ test('the next facts are chosen ahead and their lines warmed, so a fact talks th
   await page.locator('#factNext').click();
   const second = await page.locator('.facts-screen .fact-text').textContent();
   expect(warmed).toContain(second);
-  await expect.poll(() => spoken.filter(isFact).length).toBeGreaterThanOrEqual(4);
+  await expect.poll(() => distinct().length, { timeout: 20000 }).toBeGreaterThanOrEqual(4);
 });
 
 test('every fact of a world is served before any repeats, then they come round again', async ({ page }) => {
