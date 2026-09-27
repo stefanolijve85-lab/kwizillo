@@ -2,6 +2,14 @@ const { test, expect } = require('@playwright/test');
 const { TTS, ttsPayload } = require('./tts.js');
 const { progressAtLevel } = require('./levels.js');
 
+// A buddy earned mid-quiz introduces itself between the explanation and the
+// next question. Tap it away and carry on.
+async function feedbackNext(page) {
+  await page.locator('#feedbackNext').click();
+  const hello = page.locator('.mascot-unlock-ok');
+  if (await hello.count()) await hello.click();
+}
+
 // Functional coverage for the flow in CLAUDE.md section 4 and the QA list in section 16.
 
 const WORLDS = [
@@ -57,7 +65,7 @@ async function answerAll(page, n = 10, { correct = false } = {}) {
       await page.locator('.answer').first().click();
     }
     await expect(page.locator('.feedback-float')).toBeVisible();
-    await page.locator('#feedbackNext').click();
+    await feedbackNext(page);
   }
 }
 
@@ -212,7 +220,7 @@ test('hint, feedback and progress bar behave inside a quiz', async ({ page }) =>
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
   await expect(page.locator('.answer.correct')).toHaveCount(1);
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
 });
 
@@ -372,7 +380,7 @@ test('rapid taps and navigation during a quiz never break the screen', async ({ 
   await first.click({ force: true }).catch(() => {});
   await expect(page.locator('.feedback-float')).toHaveCount(1);
 
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await page.locator('#qBack').click();
   await expect(page.locator('.native-world')).toBeVisible();
   expect(failures).toEqual([]);
@@ -487,7 +495,7 @@ test('"next" on the answer card moves on with one tap while the voice plays; "No
   // The bar shows how far the explanation is, but one tap moves on at any time.
   await expect(page.locator('#feedbackNext')).toBeEnabled();
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 10');
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await expect(page.locator('.feedback-float')).toHaveCount(0);
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
   release();
@@ -507,7 +515,7 @@ test('"next" on the answer card moves on with one tap while the voice plays; "No
   await expect(page.locator('.feedback-float')).toBeVisible();
   await expect(page.locator('.feedback-verdict')).toContainText(/Goed|Juist|Klopt|Yes|Top/i);
   expect(await page.evaluate(() => window.KWIZILLO_M1.quiz.score)).toBe(scoreBefore);
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 3 van 10');
 });
 
@@ -562,7 +570,7 @@ test('every line the app can say next is warmed before it is needed', async ({ p
   await page.locator('#hintBtn').click();
   await page.locator('.hint-close').click();
   await page.locator('.answer').first().click();
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await expect(page.locator('.quiz-card h1')).toHaveText(q2);
   await page.waitForTimeout(500);
   const q2Requests = seen.slice(before).filter(t => t === 'Milo|' + q2).length;
@@ -627,7 +635,7 @@ test('the coin chip in a quiz opens statistics and "back" returns to the same qu
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
   await page.locator('.answer').first().click();
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   const prompt = await page.locator('.quiz-card h1').textContent();
   await page.locator('.quiz-meta [data-stats]').first().click();
   await expect(page.locator('.stats-screen')).toBeVisible();
@@ -661,7 +669,7 @@ test('the row under the answers is Back / Hint / Again; Back revisits an answere
   const first = await page.locator('.quiz-card h1').textContent();
   await page.locator('.answer').first().click();
   await expect(page.locator('.feedback-float')).toBeVisible();
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
 
   // Back: the first question again, in review state with its verdict shown.
@@ -834,7 +842,7 @@ test('finishing a topic quiz leads to the next topic, not a reshuffle of the sam
     const prompt = await page.locator('.quiz-card h1').textContent();
     expect(firstRun.has(prompt), `next topic repeated: ${prompt}`).toBe(false);
     await page.locator('.answer').first().click();
-    await page.locator('#feedbackNext').click();
+    await feedbackNext(page);
   }
   await expect(page.locator('.result-v2')).toBeVisible();
 });
@@ -966,4 +974,31 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
   await page.locator('#collectionBtn').click();
   await expect(page.locator('.progress-overall')).toContainText('Totaal 125 van 600 punten');
   await expect(page.locator('.progress-world').first()).toContainText('4 van 4 quizzen gehaald · 100 punten');
+});
+
+test('a buddy earned mid-quiz is introduced there and then, and the quiz carries on', async ({ page }) => {
+  // Four correct answers so far: the next one opens Comet, who needs five.
+  await boot(page, SAVED({ correct: 4, answered: 6 }));
+  await page.locator('[data-world="ruimte"]').click();
+  await page.locator('.world-topic').first().click();
+  await expect(page.locator('.answer')).toHaveCount(4);
+  const idx = await page.evaluate(() => {
+    const q = window.KWIZILLO_M1.quiz, cur = q.questions[q.index];
+    return [...document.querySelectorAll('.answer')].findIndex(b => decodeURIComponent(b.dataset.a) === cur.answer);
+  });
+  await page.locator('.answer').nth(idx).click();
+  await expect(page.locator('.feedback-float')).toBeVisible();
+  await page.locator('#feedbackNext').click();
+
+  // The buddy comes first, with its name and how it was earned.
+  await expect(page.locator('.mascot-unlock')).toBeVisible();
+  await expect(page.locator('.mascot-unlock-card b')).toHaveText('Comet');
+  await expect(page.locator('.mascot-unlock')).toContainText('5 goede antwoorden');
+
+  // Tapping it away goes on to the next question, and it is not shown twice.
+  await page.locator('.mascot-unlock-ok').click();
+  await expect(page.locator('.mascot-unlock')).toHaveCount(0);
+  await expect(page.locator('.answer')).toHaveCount(4);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.quiz.index)).toBe(1);
+  expect(await page.evaluate(() => (window.KWIZILLO_M1.pendingUnlocks || []).length)).toBe(0);
 });

@@ -5,6 +5,14 @@ const { test, expect } = require('@playwright/test');
 const { TTS } = require('./tts.js');
 const { atLevel, TOPIC_KEYS } = require('./levels.js');
 
+// A buddy earned mid-quiz introduces itself between the explanation and the
+// next question. Tap it away and carry on.
+async function feedbackNext(page) {
+  await page.locator('#feedbackNext').click();
+  const hello = page.locator('.mascot-unlock-ok');
+  if (await hello.count()) await hello.click();
+}
+
 const SAVED = {
   schemaVersion: 3, language: 'nl', name: 'Wolkje', onboardingComplete: true, tourDone: true,
   voice: 'Stil', group: 5, niveau: 1, soundOn: false, musicOn: false, timeLimitOn: false,
@@ -39,7 +47,7 @@ async function playPerfectQuiz(page) {
     });
     await page.locator('.answer').nth(idx).click();
     await expect(page.locator('.feedback-float')).toBeVisible({ timeout: 8000 });
-    await page.locator('#feedbackNext').click();
+    await feedbackNext(page);
   }
   await expect(page.locator('.result-v2')).toBeVisible({ timeout: 8000 });
 }

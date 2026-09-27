@@ -79,6 +79,7 @@
   // from the games, and they are what the shop runs on.
   K.recordAnswerProgress=(q,correct)=>{
     if(!q) return {points:0,capped:false,repeat:false};
+    const hadBuddies=unlockedMascots().map(m=>m.id);
     const ws=worldStat(q.world),ts=topicStat(q.topic);
     ws.answered++; ts.answered++;
     K.state.answered=Number(K.state.answered||0)+1;
@@ -91,8 +92,43 @@
       ws.xp+=award.granted;
       if(!repeat) progress().correctQuestionIds.push(q.id);
     }
+    // A buddy that just came free is worth saying out loud: the child sees who
+    // it is the moment it is earned, not the next time the collection is opened.
+    const fresh=unlockedMascots().filter(m=>!hadBuddies.includes(m.id));
+    if(fresh.length) K.pendingUnlocks=(K.pendingUnlocks||[]).concat(fresh.map(m=>m.id));
     K.save();
     return {points:award.granted,capped:award.capped,repeat};
+  };
+
+  // Shows the first buddy waiting to be introduced, if there is one. Returns
+  // true when something was shown, so the caller can wait with what it was
+  // about to do; `after` runs when the child taps it away.
+  K.showMascotUnlock=(after)=>{
+    const id=(K.pendingUnlocks||[])[0];
+    if(!id) return false;
+    const m=MASCOTS.find(x=>x.id===id);
+    const f=K.app.querySelector('.game-frame');
+    if(!m||!f){K.pendingUnlocks=[];return false}
+    K.pendingUnlocks=K.pendingUnlocks.slice(1);
+    const art=K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id];
+    const el=document.createElement('div');
+    el.className='mascot-unlock';
+    el.innerHTML=`<div class="mascot-unlock-card">
+      <span class="mascot-unlock-rays" aria-hidden="true"></span>
+      <span class="mascot-unlock-kicker">${esc(t('collection.unlockKicker'))}</span>
+      <img class="mascot-unlock-art" src="${art}" alt="">
+      <b>${esc(t(`mascot.${m.id}`))}</b>
+      <span class="mascot-unlock-sub">${esc(t(`mascot.${m.id}.desc`))}</span>
+      <span class="mascot-unlock-line">${esc(t('collection.unlockLine',{n:m.need}))}</span>
+      <button class="mascot-unlock-ok">${esc(t('common.gotIt'))}</button>
+    </div>`;
+    f.appendChild(el);
+    K.sfx('reward');
+    K.celebrate?.('gold',el);
+    const close=()=>{el.remove();if(typeof after==='function')after()};
+    el.onclick=close;
+    el.querySelector('.mascot-unlock-ok').onclick=e=>{e.stopPropagation();K.sfx('tap');close()};
+    return true;
   };
 
   function bottomNav(active=''){

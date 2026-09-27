@@ -293,3 +293,40 @@ test('opening the runner shows its own poster, never a bare box', async ({ page 
   await expect(page.locator('.jungle-loading')).toHaveCount(0);
   await expect.poll(() => page.locator('.jungle-poster').count()).toBe(0);
 });
+
+test('the coins from a run land in the purse, and the day ceiling says so out loud', async ({ page }) => {
+  await boot(page);
+  const book = (runId, coins) => page.evaluate(([runId, coins]) => {
+    const K = window.KWIZILLO_M1;
+    const before = K.state.coins;
+    const booked = K.jungleReward({ version: 1, game: 'jungle-runner', completed: true, runId, theme: 'jungle', coins, cardId: null });
+    return { before, after: K.state.coins, booked };
+  }, [runId, coins]);
+
+  // What is collected is added, up to what one run may pay.
+  const rules = await page.evaluate(() => window.KWIZILLO_M1.scoreRules);
+  const first = await book('run-a', 120);
+  expect(first.after - first.before).toBe(120);
+  const second = await book('run-b', 999);
+  expect(second.after - second.before).toBe(rules.runCoins);      // one run has its own ceiling
+
+  // Runs keep paying until the day is full.
+  for (let i = 0; i < 6; i++) await book('run-' + i, 999);
+  const wallet = await page.evaluate(() => window.KWIZILLO_M1.state.coins);
+  expect(wallet).toBe(rules.dayCoins);
+  expect(rules.dayCoins).toBeGreaterThanOrEqual(600);             // enough to reach the shop
+
+  // And the child is told, instead of seeing coins disappear.
+  await page.evaluate(() => {
+    window.__toasts = [];
+    const orig = window.KWIZILLO_M1.toast;
+    window.KWIZILLO_M1.toast = t => { window.__toasts.push(t); return orig(t) };
+  });
+  await page.locator('#homeJungle').click();
+  await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
+  await page.evaluate(() => {
+    const el = window.KWIZILLO_M1.jungle.game.element;
+    el.options.onComplete({ version: 1, game: 'jungle-runner', completed: true, runId: 'run-full', theme: 'jungle', coins: 140, cardId: null });
+  });
+  await expect.poll(() => page.evaluate(() => window.__toasts.join(' | '))).toContain('Dagmaximum');
+});

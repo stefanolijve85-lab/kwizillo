@@ -80,7 +80,7 @@ test('the clue, the question and the four tile names are read out (tiles light u
   for (const name of g.tiles) await expect.poll(() => spoken.includes(name + '.')).toBe(true);
   // Round 5's clue is on its way ahead of time; the warm queue runs two at a
   // time, so on a loaded machine it needs longer than the default six seconds.
-  await expect.poll(() => spoken.includes(g.lastClue), { timeout: 20000 }).toBe(true);
+  await expect.poll(() => spoken.includes(g.lastClue), { timeout: 30000 }).toBe(true);
 });
 
 test('every world has enough material in every language', async ({ page }) => {

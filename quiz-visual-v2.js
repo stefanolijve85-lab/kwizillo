@@ -283,7 +283,9 @@
     // The cross puts the question back on screen, answered, so the child can
     // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
     x.querySelector('#feedbackClose').onclick=()=>{K.stopSpeech();K.sfx('tap');x.remove();render(q)};
-    const go=()=>{K.stopSpeech();K.sfx('tap');next()};
+    // A buddy that was just earned is introduced between the explanation and
+    // the next question, so the child sees who it is while it happens.
+    const go=()=>{K.stopSpeech();K.sfx('tap');x.remove();if(K.showMascotUnlock?.(()=>next()))return;next()};
     // One tap moves on, also while the explanation is still being read: the bar
     // only shows how far the voice is, it is not a lock.
     nextBtn.onclick=go;

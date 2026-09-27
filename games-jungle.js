@@ -82,7 +82,18 @@
       text:textTable(),
       onStart:()=>K.audio.unlock().catch(()=>{}),
       onTempo:rate=>K.audio.setTempo?.(rate),
-      onComplete:reward=>{const booked=K.jungleReward(reward);if(booked&&booked.coins)K.sfx('reward');if(booked&&booked.card)K.toast(t('collection.cardAdded',{title:t('card.'+booked.card)}))},
+      onComplete:reward=>{
+        const booked=K.jungleReward(reward);
+        if(!booked||booked.duplicate)return;
+        if(booked.coins)K.sfx('reward');
+        // What was really added to the purse, and why it can be less than what
+        // was collected: there is a ceiling per day, so the runner cannot be
+        // farmed. Saying nothing made it look like the coins vanished.
+        const collected=Math.max(0,Math.floor(Number(reward.coins)||0));
+        if(booked.capped||booked.coins<collected)K.toast(t('score.coinsCapped',{n:booked.coins,got:collected}));
+        else if(booked.coins)K.toast(t('score.coinsAdded',{n:booked.coins}));
+        if(booked.card)setTimeout(()=>K.toast(t('collection.cardAdded',{title:t('card.'+booked.card)})),2400);
+      },
       onExit:()=>{K.audio.setTempo?.(1);leave();K.showHome()}
     });
     active={destroy:()=>game.destroy()};

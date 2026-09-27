@@ -36,9 +36,12 @@ assert.strictEqual(S.addPoints(s, 50, { keys: k }).granted, 0, 'and stays full')
 let c = S.emptyScores();
 let cr = S.addCoins(c, 900, { keys: k, runCap: S.RULES.runCoins }); c = cr.scores;
 assert.strictEqual(cr.granted, S.RULES.runCoins, 'one run cannot pay more than a run');
-cr = S.addCoins(c, 900, { keys: k, runCap: S.RULES.runCoins }); c = cr.scores;
+// Runs keep paying until the day is full, then they stop paying.
+let runs = 1;
+while (c.coins.earned < S.RULES.dayCoins && runs < 20) { cr = S.addCoins(c, 900, { keys: k, runCap: S.RULES.runCoins }); c = cr.scores; runs++ }
 assert.strictEqual(c.coins.earned, S.RULES.dayCoins, 'the day cannot pay more than a day');
 assert.ok(cr.capped);
+assert.strictEqual(S.addCoins(c, 900, { keys: k, runCap: S.RULES.runCoins }).granted, 0, 'and stays full');
 
 // --- a finished window becomes a record ------------------------------------
 const next = S.periodKeys(new Date(2026, 8, 28));            // the next day, and a new week

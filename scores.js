@@ -17,8 +17,8 @@
     repeatShare:.4,        // a question answered right before pays 40% of its points
     minRepeat:2,           // but never less than this, so a repeat is never worthless
     dayPoints:1500,        // points a day, from every screen together
-    dayCoins:250,          // coins a day, from every game together
-    runCoins:150,          // coins from one runner run, however good it goes
+    dayCoins:600,          // coins a day, from every game together
+    runCoins:250,          // coins from one runner run, however good it goes
     quizCoins:0            // questions pay points, not coins
   };
 

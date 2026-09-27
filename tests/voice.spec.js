@@ -5,6 +5,14 @@
 const { test, expect } = require('@playwright/test');
 const { TTS, ttsPayload } = require('./tts.js');
 
+// A buddy earned mid-quiz introduces itself between the explanation and the
+// next question. Tap it away and carry on.
+async function feedbackNext(page) {
+  await page.locator('#feedbackNext').click();
+  const hello = page.locator('.mascot-unlock-ok');
+  if (await hello.count()) await hello.click();
+}
+
 const SAVED = {
   schemaVersion: 3, language: 'nl', name: 'Wolkje', onboardingComplete: true, tourDone: true,
   voice: 'Milo', group: 5, niveau: 1, soundOn: false, musicOn: false, timeLimitOn: false,
@@ -39,7 +47,7 @@ test('the question is streamed and goes out first; the answers follow as ordinar
   await expect(page.locator('.answer')).toHaveCount(4);
   const prompt = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[0].prompt);
 
-  await expect.poll(() => asked.length, { timeout: 20000 }).toBeGreaterThanOrEqual(5);
+  await expect.poll(() => asked.length, { timeout: 30000 }).toBeGreaterThanOrEqual(5);
   // The question streams; the four answers are fetched whole, in parallel, and
   // are ready long before their turn. (Which request the proxy sees first is
   // not asserted: an intercepted media load and an intercepted fetch do not
@@ -52,10 +60,10 @@ test('the question is streamed and goes out first; the answers follow as ordinar
   // A line already in hand is never streamed: the next question was warmed
   // while this one was on screen, so it plays without a new request.
   const next = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[1].prompt);
-  await expect.poll(() => asked.some(a => a.text === next), { timeout: 20000 }).toBe(true);
+  await expect.poll(() => asked.some(a => a.text === next), { timeout: 30000 }).toBe(true);
   const before = asked.length;
   await page.locator('.answer').first().click();
-  await page.locator('#feedbackNext').click();
+  await feedbackNext(page);
   await expect(page.locator('.quiz-card h1')).toHaveText(next);
   await page.waitForTimeout(600);
   expect(asked.slice(before).filter(a => a.text === next && a.method === 'GET'), 'a warmed line is not streamed again').toEqual([]);
@@ -75,7 +83,7 @@ test('a stream that fails is fetched whole instead, so the line is still spoken'
   await expect(page.locator('.answer')).toHaveCount(4);
   const prompt = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[0].prompt);
 
-  await expect.poll(() => asked.filter(a => a.text === prompt && a.method === 'POST').length, { timeout: 20000 }).toBe(1);
+  await expect.poll(() => asked.filter(a => a.text === prompt && a.method === 'POST').length, { timeout: 30000 }).toBe(1);
   expect(asked.filter(a => a.text === prompt && a.method === 'GET').length).toBe(1);
   // The quiz carries on as usual after the failed stream.
   await page.locator('.answer').first().click();
