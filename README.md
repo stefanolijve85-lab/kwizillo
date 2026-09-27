@@ -56,7 +56,7 @@ npm run test:ui          # Playwright: onboarding, six worlds, quiz flow, i18n
 | `quiz-visual-v2.js` | the quiz, hint, feedback and result screens |
 | `games-memo.js` / `games-math.js` | the Memo and Rekenen games |
 | `facts.js` / `facts-ui.js` | the Weetjes bank (96 facts per language, aligned by id) and its screen |
-| `milo.js` / `guide-talks.js` | the guide host (Milo or Luna): poses, bubbles, lip-synced clips, the Home tour |
+| `milo.js` / `guide-talks.js` | the guide host (Milo or Luna): poses, bubbles, mouth anchors, lip-synced clips, the Home tour |
 | `onboarding.js` | first-run language, name, age, school group and guide, hosted by the guide |
 | `intro.js` | the opening cinematic |
 | `base.css` / `screens.css` | the two stylesheets |
@@ -99,6 +99,24 @@ speaks; `LANG_RULES` in `server.js` says which accent that language prefers, and
 `quiz-core-v2.js` needs a number speller so digits are read as words. Run
 `npm test` (key parity, placeholders, bank parity, number forms) and
 `npx playwright test tests/languages.spec.js` (every language really plays).
+
+## The guides' mouths
+
+Milo and Luna are one picture with a mouth drawn over it. Body and mouth are
+children of the same wrapper (`.milo-char`), and every movement of the character
+— the talking bob, the float, a pose turn, the tour's walk — is applied to that
+wrapper or to an ancestor of it, never to the image alone, so the mouth cannot
+slide across the face. Where a mouth sits is one table, `K.FACE_ANCHORS` in
+`milo.js`: per guide, per pose, in fractions of the image. The lip-sync only
+opens and closes it (`--open`, from the voice's loudness).
+
+```bash
+node tools/mouth-anchors.cjs --out <dir>          # every pose with its anchor on it
+node tools/mouth-anchors.cjs --out <dir> --zoom   # heads close up, grid of 1%
+```
+
+`tests/lipsync.spec.js` measures the mouth against the face while the character
+moves, for both guides and at four widths.
 
 ## Status
 

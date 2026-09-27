@@ -20,6 +20,44 @@
   // A mouth box may carry its own `style`. Milo's renders have no mouth at
   // all: a `robot` mouth is drawn on his screen (a smile that fills into an
   // "O" with the voice, the same as in his clips); Luna's opens (`jaw`).
+  // ---- Where a mouth sits on a character -------------------------------
+  // One table, both guides, every pose. The numbers are fractions of the
+  // rendered image (0..1 of its width and height), never pixels, so an anchor
+  // holds at every size and on every screen. `style` says how the mouth is
+  // drawn: Milo's renders have no mouth at all, so a `robot` mouth is drawn on
+  // his screen (a smile that fills into an "O" with the voice, the same shape
+  // his clips use); Luna's real mouth opens (`jaw`).
+  //
+  // Every pose is its own entry because the cut-outs are framed differently —
+  // they do not even share an aspect ratio — so the head sits somewhere else in
+  // each one. `portrait` is the talking head used when a line has no clip.
+  // tools/mouth-anchors.cjs draws these on the artwork so a number can be
+  // checked instead of guessed.
+  K.FACE_ANCHORS={
+    milo:{
+      style:'robot',
+      portrait:{x:.55,y:.548,w:.13,h:.055},
+      poses:{
+        wave:{x:.555,y:.36,w:.094,h:.025},talk:{x:.558,y:.365,w:.095,h:.025},
+        think:{x:.57,y:.355,w:.09,h:.025},cheer:{x:.513,y:.353,w:.084,h:.024},
+        point:{x:.46,y:.365,w:.088,h:.025},
+        walkA:{x:.507,y:.374,w:.091,h:.027},walkB:{x:.547,y:.386,w:.097,h:.028},
+        jumpA:{x:.585,y:.376,w:.085,h:.027},jumpB:{x:.535,y:.373,w:.085,h:.03}
+      }
+    },
+    luna:{
+      style:'jaw',
+      portrait:{x:.515,y:.486,w:.15,h:.05},
+      poses:{
+        wave:{x:.568,y:.224,w:.07,h:.03},talk:{x:.448,y:.226,w:.07,h:.03},
+        think:{x:.583,y:.215,w:.06,h:.03},cheer:{x:.53,y:.23,w:.08,h:.035},
+        point:{x:.458,y:.217,w:.07,h:.03},
+        walkA:{x:.657,y:.277,w:.07,h:.03},walkB:{x:.59,y:.261,w:.07,h:.03},
+        jumpA:{x:.794,y:.362,w:.07,h:.03},jumpB:{x:.544,y:.224,w:.07,h:.03}
+      }
+    }
+  };
+  const anchors=g=>K.FACE_ANCHORS[g]?.poses||{};
   const poses=(dir,m)=>({
     wave:{src:u(`${dir}/wave.png`),mouth:m.wave},talk:{src:u(`${dir}/talk.png`),mouth:m.talk},
     think:{src:u(`${dir}/think.png`),mouth:m.think},cheer:{src:u(`${dir}/cheer.png`),mouth:m.cheer},
@@ -27,17 +65,13 @@
     walkA:{src:u(`${dir}/walk-a.png`),mouth:m.walkA},walkB:{src:u(`${dir}/walk-b.png`),mouth:m.walkB},jumpA:{src:u(`${dir}/jump-a.png`),mouth:m.jumpA},jumpB:{src:u(`${dir}/jump-b.png`),mouth:m.jumpB}
   });
   K.GUIDE_POSES={
-    milo:poses('assets/mascots/milo',{wave:{x:.555,y:.36,w:.094,h:.025},talk:{x:.558,y:.365,w:.095,h:.025},think:{x:.57,y:.355,w:.09,h:.025},cheer:{x:.513,y:.353,w:.084,h:.024},point:{x:.46,y:.365,w:.088,h:.025},
-      walkA:{x:.507,y:.374,w:.091,h:.027},walkB:{x:.547,y:.386,w:.097,h:.028},jumpA:{x:.56,y:.376,w:.085,h:.027},jumpB:{x:.535,y:.373,w:.085,h:.03}}),
-    luna:poses('assets/mascots/luna',{wave:{x:.6,y:.215,w:.07,h:.03},talk:{x:.5,y:.215,w:.07,h:.03},think:{x:.62,y:.215,w:.06,h:.03},cheer:{x:.5,y:.215,w:.08,h:.035},point:{x:.48,y:.215,w:.07,h:.03}})
+    milo:poses('assets/mascots/milo',anchors('milo')),
+    luna:poses('assets/mascots/luna',anchors('luna'))
   };
   K.MILO_POSES=K.GUIDE_POSES.milo;
-  // `mouth` is where the mouth sits on the portrait (fractions of its width and
-  // height), for the audio-driven mouth used when a line has no clip.
   K.GUIDES={
-    // Milo's mouth is a light on his screen (it glows open, no chin); Luna's is a real one (chin drops).
-    milo:{voice:'Milo',name:'Milo',base:u('assets/mascots/milo/talk-base.png'),mouth:{x:.55,y:.585,w:.13,h:.06},mouthStyle:'robot'},
-    luna:{voice:'Luna',name:'Luna',base:u('assets/mascots/luna/talk-base.png'),mouth:{x:.52,y:.49,w:.15,h:.05},mouthStyle:'jaw'}
+    milo:{voice:'Milo',name:'Milo',base:u('assets/mascots/milo/talk-base.png'),mouth:K.FACE_ANCHORS.milo.portrait,mouthStyle:K.FACE_ANCHORS.milo.style},
+    luna:{voice:'Luna',name:'Luna',base:u('assets/mascots/luna/talk-base.png'),mouth:K.FACE_ANCHORS.luna.portrait,mouthStyle:K.FACE_ANCHORS.luna.style}
   };
   const guideOf=g=>K.GUIDES[g]?g:'milo';
   // The guide who hosts: Luna when the child chose her voice, otherwise Milo
@@ -118,10 +152,20 @@
     const el=document.createElement('div');
     el.className=`milo-host guide-${guide} milo-size-${size} bubble-${bubble} ${figure?'figure-mode':''}`;
     el.dataset.guide=guide;
-    el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><span class="milo-fig-wrap"><img class="milo-figure" alt="" draggable="false"><span class="milo-mouth mouth-${g.mouthStyle||'jaw'}" hidden></span></span></div>`;
-    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body'),wrap=el.querySelector('.milo-fig-wrap'),figMouth=el.querySelector('.milo-mouth');
+    // The character and its mouth are one object: both are children of
+    // .milo-char, and every movement of the character — the talking bob, the
+    // float, the pose turn, the walk — is applied to .milo-char or to an
+    // ancestor of it, never to the image alone. That is what keeps the mouth on
+    // the face; before this the talking animation ran on .milo-figure and the
+    // mouth, its sibling, stayed behind.
+    el.innerHTML=`<div class="milo-bubble" hidden></div><div class="milo-body"><span class="milo-fig-wrap"><span class="milo-char"><img class="milo-figure" alt="" draggable="false"><span class="milo-mouth mouth-${g.mouthStyle||'jaw'}" hidden></span></span></span></div>`;
+    const img=el.querySelector('.milo-figure'),bub=el.querySelector('.milo-bubble'),body=el.querySelector('.milo-body'),wrap=el.querySelector('.milo-fig-wrap'),char=el.querySelector('.milo-char'),figMouth=el.querySelector('.milo-mouth');
     let curPose=pose;
-    // Puts the mouth overlay on the current pose (fractions of the cut-out → px of the rendered image).
+    // Puts the mouth on the current pose: the anchor from K.FACE_ANCHORS, which
+    // is in fractions of the image, becomes the size the image is rendered at
+    // right now. The position is a percentage, so it is exact whatever the
+    // figure's size; only the drawn size needs pixels, because a border and a
+    // glow cannot be given in percent.
     const placeMouth=()=>{
       const p=poseSrc(guide,curPose);const m=p.mouth;
       if(!figure||!m){figMouth.hidden=true;return}
@@ -130,10 +174,15 @@
       if(!w||!h){figMouth.hidden=true;return}
       figMouth.hidden=false;
       figMouth.className=`milo-mouth mouth-${m.style||g.mouthStyle||'jaw'}`;
-      figMouth.style.left=Math.round(m.x*w)+'px';figMouth.style.top=Math.round(m.y*h)+'px';
+      figMouth.style.left=(m.x*100).toFixed(3)+'%';figMouth.style.top=(m.y*100).toFixed(3)+'%';
       figMouth.style.setProperty('--mw',Math.max(6,Math.round(m.w*w))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m.h*h))+'px');
     };
     img.addEventListener('load',placeMouth);
+    // A resize, a rotation, a pose with another aspect ratio, the tour sizing
+    // the figure by height: whenever the image is laid out differently the
+    // mouth is measured again. Nothing else in the app moves this mouth.
+    if(window.ResizeObserver){ new ResizeObserver(()=>placeMouth()).observe(img) }
+    else window.addEventListener('resize',placeMouth);
     let talkTimer=null,video=null;
     const showVideo=v=>{if(video&&video!==v){video.pause?.();video.remove()}video=v;if(!v.parentNode)body.appendChild(v);el.classList.add('video-mode')};
     const hideVideo=()=>{if(video){video.pause?.();video.remove();video=null}el.classList.remove('video-mode')};
@@ -186,7 +235,7 @@
       clipEl=v;
       const h=img.getBoundingClientRect().height;
       if(h)v.style.height=Math.round(h)+'px';
-      if(v.parentNode!==wrap)wrap.insertBefore(v,img);
+      if(v.parentNode!==wrap)wrap.insertBefore(v,char);
       figMouth.remove();img.classList.add('behind-clip');el.classList.add('clip-playing');
       // Rewind only once the metadata is in: a seek before that stalls Chromium's pipeline.
       if(v.readyState>=1){try{v.currentTime=0}catch(e){}}
@@ -207,7 +256,7 @@
       return ok;
     }
     // Back to the cut-out (after a failed clip, or on the next pose change).
-    const endClip=()=>{if(clipEl){clipEl.pause?.();clipEl.remove();clipEl=null}img.classList.remove('behind-clip');if(!figMouth.parentNode)wrap.appendChild(figMouth)};
+    const endClip=()=>{if(clipEl){clipEl.pause?.();clipEl.remove();clipEl=null}img.classList.remove('behind-clip');if(!figMouth.parentNode)char.appendChild(figMouth)};
     const api={
       el,guide,
       pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;if(!el.classList.contains('clip-playing'))endClip();placeMouth();return api},
