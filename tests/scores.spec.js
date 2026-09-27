@@ -95,28 +95,34 @@ test('the day has a ceiling for points and for coins', async ({ page }) => {
 });
 
 test('coins buy a golden card and a buddy, and what is bought stays bought', async ({ page }) => {
-  await boot(page, { coins: 200 });
+  await boot(page, { coins: 1200 });
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('shop'));
-  await expect(page.locator('.shop-wallet b')).toHaveText('200');
+  await expect(page.locator('.shop-wallet b')).toHaveText('1200');
+
+  // The buddies climb: the first one is a hundred coins, the last one far more.
+  const prices = await page.evaluate(() => [...document.querySelectorAll('[data-buy^="mascot:"]')].map(b => Number(b.dataset.price)));
+  expect(prices[0]).toBe(100);
+  expect(prices).toEqual([...prices].sort((a, b) => a - b));       // rising, never flat
+  expect(prices[prices.length - 1]).toBeGreaterThan(prices[0]);
 
   // Too few coins: the shop says how many are missing instead of failing.
   await page.locator('[data-buy^="mascot:"]').last().click();
   await expect(page.locator('.simple-modal')).toContainText('coins nodig');
   await page.locator('.simple-modal .simple-ok').click();
-  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(200);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(1200);
 
   // Enough coins: the card is paid for, owned, and shows up in the collection.
   await page.locator('[data-buy="gold:ruimte"]').click();
-  await expect(page.locator('.simple-modal')).toContainText('150 coins');
+  await expect(page.locator('.simple-modal')).toContainText('1000 coins');
   await page.locator('.simple-modal .buy').click();
   await expect(page.locator('[data-buy="gold:ruimte"]')).toHaveCount(0);
-  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(50);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(200);
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.shop.owned)).toEqual(['gold:ruimte']);
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('cards'));
   await expect(page.locator('.kcard.gold')).toHaveCount(1);
 
   // A bought buddy is unlocked without a single correct answer.
-  await page.evaluate(() => { window.KWIZILLO_M1.state.coins = 999; window.KWIZILLO_M1.save(); window.KWIZILLO_M1.showCollection('shop') });
+  await page.evaluate(() => { window.KWIZILLO_M1.state.coins = 2000; window.KWIZILLO_M1.save(); window.KWIZILLO_M1.showCollection('shop') });
   const buddy = page.locator('[data-buy^="mascot:"]').first();
   const id = await buddy.getAttribute('data-buy');
   await buddy.click();

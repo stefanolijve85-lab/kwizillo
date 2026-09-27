@@ -147,9 +147,6 @@
     'tour.nav':'Unten findest du deine Sammlung, deine Auszeichnungen und deine Statistik. Und unter Mehr sind die Einstellungen.',
     'tour.done':'Viel Spaß! Ich helfe dir, wenn du nicht weiterkommst.',
     'tour.skip':'Überspringen',
-    'settings.freshStart':'Jedes Mal neu beginnen',
-    'settings.freshStartOn':'An: jeder Start beginnt beim Intro und der Begrüßung, nichts wird behalten.',
-    'settings.freshStartOff':'Aus: Name, Fortschritt und Einstellungen bleiben erhalten.',
     'tour.again':'Rundgang mit {guide}',
     'tour.againSub':'{guide} zeigt dir noch einmal, was wo ist.',
 

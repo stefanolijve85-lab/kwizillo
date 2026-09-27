@@ -99,14 +99,23 @@ test('onboarding runs once and collects language, name and voice', async ({ page
   await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.tourDone)).toBe(true);
 
-  // Fresh start is on by default: a refresh begins again at the intro and the
-  // onboarding, and the name is gone.
+  // What a child types is kept: a refresh comes back to Home with the name on
+  // it, not to the intro. (There used to be a "start over every time" switch,
+  // on by default, which wiped the lot at every launch.)
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await tapThroughIntro(page);
+  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('.onboarding')).toHaveCount(0);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.name)).toBe('Sam');
+
+  // A development address can still ask for one clean run.
+  await page.goto('/?fresh=1', { waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.name)).toBe('');
+  expect(new URL(page.url()).search).toBe('');
 
-  // With fresh start off (parent zone) a returning player never sees onboarding again.
+  // A returning player never sees onboarding again.
   await page.evaluate(() => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  localStorage.setItem('kwizillo-state', JSON.stringify({ ...window.KWIZILLO_M1.state, name: 'Sam', onboardingComplete: true, language: 'en' })); });
   await page.reload({ waitUntil: 'domcontentloaded' });
   await tapThroughIntro(page);

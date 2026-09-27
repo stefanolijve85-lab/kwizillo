@@ -71,7 +71,8 @@
       hero:K.state.runnerHero==='girl'?'girl':'boy',
       onLevel:l=>{K.state.runnerLevel=l;K.save();K.audio.setTrack(MUSIC[l]||'jungle').catch(()=>{})},
       onHero:h=>{K.state.runnerHero=h;K.save()},
-      easy:(K.state.niveau||1)<=2,
+      // The rustige rit jumps for you up to level 4; from level 5 the child does it.
+      easy:(K.state.niveau||1)<=4,
       muted:K.state.soundOn===false,
       music:false,
       musicState:()=>K.state.musicOn!==false,

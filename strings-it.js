@@ -148,9 +148,6 @@
     'tour.nav':'In basso trovi la tua collezione, i tuoi premi e i tuoi dati. E sotto Altro ci sono le impostazioni.',
     'tour.done':'Buon divertimento! Ti aiuto ogni volta che ti blocchi.',
     'tour.skip':'Salta',
-    'settings.freshStart':'Ricominciare ogni volta',
-    'settings.freshStartOn':'Acceso: ogni avvio parte dall’intro e dal benvenuto, non si conserva niente.',
-    'settings.freshStartOff':'Spento: nome, progressi e impostazioni restano.',
     'tour.again':'Giro con {guide}',
     'tour.againSub':'{guide} ti mostra di nuovo dov’è ogni cosa.',
 

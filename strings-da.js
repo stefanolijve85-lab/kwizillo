@@ -147,9 +147,6 @@
     'tour.nav':'Nederst finder du din samling, dine pokaler og dine tal. Og under Mere er indstillingerne.',
     'tour.done':'God fornøjelse! Jeg hjælper dig, når du går i stå.',
     'tour.skip':'Spring over',
-    'settings.freshStart':'Start forfra hver gang',
-    'settings.freshStartOn':'Til: hver start begynder med introen og velkomsten, intet bliver gemt.',
-    'settings.freshStartOff':'Fra: navn, fremgang og indstillinger bliver gemt.',
     'tour.again':'Rundvisning med {guide}',
     'tour.againSub':'{guide} viser dig igen, hvor tingene er.',
 

@@ -97,14 +97,22 @@
 
   // Fresh start: every launch begins at the intro and the onboarding, and
   // nothing from the previous session (name, progress, settings) comes back.
-  // On by default for now — Stefan wants each refresh to be a clean first run
-  // while the app is shown around; the parent zone turns it off, after which
-  // progress persists across launches like any game. The flag itself lives
-  // outside the state so wiping the state cannot wipe the choice.
-  const FRESH_KEY='kwizillo-fresh-start';
-  K.freshStart=()=>{ try{ return localStorage.getItem(FRESH_KEY)!=='0' }catch(e){ return false } };
-  K.setFreshStart=on=>{ try{ localStorage.setItem(FRESH_KEY,on?'1':'0') }catch(e){} };
-  if(K.freshStart()){ try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY) }catch(e){} }
+  // Progress is kept, always. There used to be a "start over every time" switch
+  // in the parent zone, on by default, which wiped the saved state at every
+  // launch — handy while the app was being shown around, wrong in a game a
+  // child plays. A development host can still ask for one clean run with
+  // ?fresh=1 in the address, which the iOS app and any https deployment cannot.
+  (function freshFromAddress(){
+    try{
+      const devHost=location.protocol==='http:'&&/^(localhost|127\.|0\.0\.0\.0$|192\.168\.|10\.|172\.(1[6-9]|2\d|3[01])\.)/.test(location.hostname);
+      if(!devHost)return;
+      const url=new URL(location.href);
+      if(url.searchParams.get('fresh')!=='1')return;
+      localStorage.removeItem(KEY);localStorage.removeItem(LEGACY_KEY);
+      url.searchParams.delete('fresh');
+      history.replaceState(null,'',url.pathname+(url.search||'')+url.hash);
+    }catch(e){}
+  })();
 
   const stored=read(KEY)||read(LEGACY_KEY);
   K.state=migrate(stored);

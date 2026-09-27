@@ -148,9 +148,6 @@
     'tour.nav':'Abajo encuentras tu colección, tus logros y tus datos. Y en Más están los ajustes.',
     'tour.done':'¡Que te diviertas! Te ayudo siempre que te atasques.',
     'tour.skip':'Saltar',
-    'settings.freshStart':'Empezar de cero cada vez',
-    'settings.freshStartOn':'Activado: cada inicio empieza por la intro y la bienvenida, no se guarda nada.',
-    'settings.freshStartOff':'Desactivado: nombre, progreso y ajustes se guardan.',
     'tour.again':'Visita con {guide}',
     'tour.againSub':'{guide} te enseña otra vez qué hay en cada sitio.',
 

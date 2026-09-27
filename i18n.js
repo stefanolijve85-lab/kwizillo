@@ -149,9 +149,6 @@
     'tour.nav':'Onderaan vind je je collectie, je prestaties en je statistieken. En bij Meer staan de instellingen.',
     'tour.done':'Veel plezier! Ik help je als je vastzit.',
     'tour.skip':'Overslaan',
-    'settings.freshStart':'Elke keer opnieuw beginnen',
-    'settings.freshStartOn':'Aan: elke start begint bij de intro en het kennismaken, niets wordt bewaard.',
-    'settings.freshStartOff':'Uit: naam, voortgang en instellingen blijven bewaard.',
     'tour.again':'Rondleiding van {guide}',
     'tour.againSub':'{guide} laat opnieuw zien wat wat is.',
 
@@ -670,9 +667,6 @@
     'tour.nav':'At the bottom you find your collection, your awards and your stats. And under More are the settings.',
     'tour.done':'Have fun! I will help you whenever you get stuck.',
     'tour.skip':'Skip',
-    'settings.freshStart':'Start over every time',
-    'settings.freshStartOn':'On: every launch begins at the intro and the welcome, nothing is kept.',
-    'settings.freshStartOff':'Off: name, progress and settings are kept.',
     'tour.again':'Tour with {guide}',
     'tour.againSub':'{guide} shows again what is what.',
 
@@ -1191,9 +1185,6 @@
     'tour.nav':'Embaixo ficam sua coleção, suas conquistas e suas estatísticas. E em Mais estão as configurações.',
     'tour.done':'Divirta-se! Eu te ajudo sempre que travar.',
     'tour.skip':'Pular',
-    'settings.freshStart':'Começar do zero toda vez',
-    'settings.freshStartOn':'Ligado: cada abertura começa na intro e na apresentação, nada fica salvo.',
-    'settings.freshStartOff':'Desligado: nome, progresso e ajustes ficam salvos.',
     'tour.again':'Tour com {guide}',
     'tour.againSub':'{guide} mostra de novo o que é o quê.',
 

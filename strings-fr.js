@@ -148,9 +148,6 @@
     'tour.nav':'En bas tu trouves ta collection, tes trophées et tes stats. Et sous Plus il y a les réglages.',
     'tour.done':'Amuse-toi bien ! Je t’aide dès que tu bloques.',
     'tour.skip':'Passer',
-    'settings.freshStart':'Tout recommencer à chaque fois',
-    'settings.freshStartOn':'Activé : chaque lancement commence par l’intro et l’accueil, rien n’est gardé.',
-    'settings.freshStartOff':'Désactivé : prénom, progrès et réglages sont gardés.',
     'tour.again':'Visite avec {guide}',
     'tour.againSub':'{guide} te remontre où est quoi.',
 

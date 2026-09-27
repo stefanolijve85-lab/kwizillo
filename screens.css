@@ -863,7 +863,7 @@
 @property --p{syntax:'<number>';inherits:false;initial-value:0}
 .stats-hero3d{position:relative;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:16px 16px 16px 14px;border-radius:26px;overflow:hidden;color:#fff;
   background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.28),transparent 32%),radial-gradient(circle at 15% 90%,rgba(133,96,255,.55),transparent 45%),linear-gradient(160deg,#2f7bf0,#3a4fd6 55%,#5a2fb8);
-  box-shadow:0 12px 0 #2436a0,0 20px 34px rgba(0,26,80,.32);border:2px solid rgba(255,255,255,.5)}
+  box-shadow:0 10px 24px rgba(16,56,124,.26);border:2px solid rgba(255,255,255,.55)}
 .stats-hero3d::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.22),transparent 45%);pointer-events:none}
 .stats-hero-copy{position:relative;z-index:1}
 .stats-hero-copy h2{margin:0 0 4px;font-size:18px;text-shadow:0 2px 8px rgba(0,20,70,.35)}
@@ -1140,7 +1140,14 @@
 
 /* ---- Statistics, rebuilt: one hero, four chips, one record card, one row per
    world and one line per game. Everything else used to be a grid of its own. ---- */
-.stats-hero3d{grid-template-columns:auto 1fr;gap:12px;padding:14px 15px}
+/* The hero is the top of the page, not a wall: the same soft shadow as the
+   cards under it, a little less height, and room underneath so the four chips
+   are not pushed off the fold. */
+.stats-hero3d{grid-template-columns:auto 1fr;gap:12px;padding:12px 14px;border-radius:24px;margin-bottom:12px;
+  background:radial-gradient(circle at 88% 10%,rgba(255,255,255,.22),transparent 34%),linear-gradient(150deg,#3f8ef7,#4a62e2 58%,#6b43d6)}
+.stats-hero3d .stat-orb{width:88px;height:88px}
+.stats-hero3d .stat-orb b{font-size:21px}
+.stats-hero3d::after{background:linear-gradient(180deg,rgba(255,255,255,.16),transparent 42%)}
 .stats-hero-who{position:relative;z-index:1;display:flex;align-items:center;gap:7px;margin-bottom:5px}
 .stats-hero-who .mascot-face{width:26px;height:26px;box-shadow:0 0 0 2px rgba(255,255,255,.85)}
 .stats-hero-who b{font-size:12px;font-weight:1000;color:#fff;text-shadow:0 2px 6px rgba(0,20,70,.4)}
