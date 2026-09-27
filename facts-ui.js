@@ -86,7 +86,7 @@
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('home.playMore'))}</div><h1>${esc(t('facts.title'))}</h1><p id="factsSub">${esc(t('facts.sub',{seen:K.factsSeenCount(world),total}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <div class="fact-chips" role="tablist">
-          <button class="fact-chip ${world==='all'?'active':''}" data-fworld="all" role="tab" aria-selected="${world==='all'}">✨ ${esc(t('facts.all'))}</button>
+          <button class="fact-chip ${world==='all'?'active':''}" data-fworld="all" role="tab" aria-selected="${world==='all'}">✨ ${esc(t('game.mixAll'))}</button>
           ${WORLDS.map(w=>`<button class="fact-chip ${world===w?'active':''}" data-fworld="${w}" role="tab" aria-selected="${world===w}">${WORLD_EMOJI[w]} ${esc(t(`world.${w}.short`))}</button>`).join('')}
         </div>
         <div class="fact-stage" id="factStage"></div>

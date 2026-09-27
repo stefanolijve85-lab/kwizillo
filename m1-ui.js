@@ -175,11 +175,11 @@
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
-    f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.startWhoAmI(K.state.lastWorld||'mix')};
+    f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.showGamePicker('whoami')};
     f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
-    f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');K.startFotozoom(K.state.lastWorld||'mix')};
+    f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');K.showGamePicker('fotozoom')};
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
-    f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showFacts(K.state.factsWorld||'all')};
+    f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showGamePicker('facts')};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);
     // The six world names are warmed on Home so the guide calls one out the
@@ -331,6 +331,36 @@
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showProfile()}});
   };
 
+  /* ---------------- Choosing a world for a game ---------------- */
+
+  // Wat ben ik?, Fotozoom and Weetjes are played in one world or in all of them
+  // at once — the same choice Memo has always had. One picker serves all three:
+  // the mix first, then the six worlds, each behind its own painting.
+  const GAME_PICKERS={
+    whoami:{kicker:'whoami.title',art:()=>K.GAME_ART.whoami,mix:'mix',start:w=>K.startWhoAmI(w),locked:w=>!K.premium.can('memo',w)},
+    fotozoom:{kicker:'fotozoom.title',art:()=>K.GAME_ART.fotozoom,mix:'mix',start:w=>K.startFotozoom(w),locked:w=>!K.premium.can('memo',w)},
+    facts:{kicker:'facts.title',art:()=>K.GAME_ART.facts,mix:'all',start:w=>K.showFacts(w),locked:()=>false}
+  };
+  K.showGamePicker=game=>{
+    const P=GAME_PICKERS[game];if(!P)return;
+    K.audio.setTrack('play').catch(()=>{});
+    K.stopSpeech();K.lastView='home';
+    const mixArt=game==='facts'?K.GAME_ART.facts:K.GAME_ART.memoAll;
+    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker fade-in">
+      <div class="native-panel-glow"></div>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
+      <div class="panel-scroll">
+        <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
+        <div class="memo-pick-grid">${WORLD_ORDER.map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
+      </div>
+      ${K.bottomNav('home')}
+    </section>`);
+    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
+    f.querySelector('.panel-settings').onclick=()=>{K.sfx('tap');K.showParent()};
+    f.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{K.sfx('world');P.start(b.dataset.pick)});
+    K.bindNav(f);
+  };
+
   /* ---------------- Collection ---------------- */
 
   // The golden world cards are their own paintings; a world whose painting has
@@ -374,15 +404,14 @@
       </button>`;
     // A golden card is one whole world on one card: bought with coins, it sits
     // in front of the cards that were answered for.
-    const goldCard=w=>`<button class="kcard gold world-${w}" data-gold="${w}">
+    // A golden card is one whole world on one card, earned by finishing that
+    // world at all six levels (or bought in the shop). The painting is a
+    // finished card in itself — frame, title and all — so it is shown edge to
+    // edge with nothing but a line saying how it was come by.
+    const goldCard=w=>`<button class="kcard gold is-art world-${w}" data-gold="${w}" aria-label="${esc(t('shop.goldCard',{world:worldTitle(w)}))}">
         <span class="kcard-frame">
-          <img class="kcard-bg" src="${goldArt(w)}" data-fallback="${K.goldFallback(w)}" alt="" style="object-position:${K.WORLD_FOCUS?.[w]||'center'}" decoding="async">
-          <span class="kcard-tint"></span>
-          <span class="kcard-top"><b>${esc(t('shop.goldCard',{world:worldTitle(w)}))}</b><i>★★★★★</i></span>
-          <span class="kcard-art"><img src="${goldArt(w)}" data-fallback="${K.goldFallback(w)}" alt="" loading="lazy" decoding="async"></span>
-          <span class="kcard-type">${K.worldBadge(w,'tiny')} ${esc(worldTitle(w))}</span>
-          <span class="kcard-text">${esc(t('shop.goldCardSub'))}</span>
-          <span class="kcard-foot"><span>${esc(t('shop.cards'))}</span><span>${esc(K.worldMastered(w)?t('shop.earned'):t('shop.owned'))}</span></span>
+          <img class="kcard-bg" src="${goldArt(w)}" data-fallback="${K.goldFallback(w)}" alt="" decoding="async">
+          <span class="kcard-own">${esc(K.worldMastered(w)?t('shop.earned'):t('shop.owned'))}</span>
         </span>
       </button>`;
     // A card the runner handed out: its own painting, its own level.
@@ -495,32 +524,56 @@
     const medal=b=>b>=9?'gold':b>=7?'silver':b>0?'bronze':'';
     const medalIcon={gold:'🥇',silver:'🥈',bronze:'🥉'};
     const sparks=Array.from({length:10},(_,i)=>`<i style="--i:${i}"></i>`).join('');
-    // The record book: what this exercise, this day, week, month and year are
-    // worth right now, and the best each of them has ever been.
     const sum=K.scoreSummary();
-    const records=[{label:t('score.run'),now:sum.run.points,best:sum.run.best},
+    const G=progress().games||{};
+    // The hero: who is playing, how far the level has come, and how much of
+    // everything answered was right — one panel instead of three.
+    const hero=`<div class="stats-hero3d"><div class="stats-fx" aria-hidden="true">${sparks}</div>
+      <div class="stat-orb" style="--p:0" data-p="${pct}"><span class="stat-orb-ring"></span><span class="stat-orb-glass"></span><b data-count="${pct}" data-suffix="%">0%</b><small>${esc(t('stats.correctShort'))}</small></div>
+      <div class="stats-hero-copy">
+        <span class="stats-hero-who"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><b>${esc(K.state.name||t('profile.title'))}</b></span>
+        <h2>${esc(t('home.level',{level:K.level()}))}</h2>
+        <span class="stats-xp"><i style="width:${K.xpIntoLevel()}%"></i></span>
+        <p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p>
+      </div></div>`;
+    // Four numbers that never need explaining, side by side.
+    const chip=(cls,icon,value,label)=>`<article class="stat-tile ${cls}"><span class="stat-tile-icon">${icon}</span><b data-count="${value}">0</b><small>${esc(label)}</small></article>`;
+    const chips=`<div class="stat-tiles">${chip('xp','⭐',Number(K.state.xp||0),t('stats.xpTotal'))}${chip('coins','🪙',Number(K.state.coins||0),t('stats.coins'))}${chip('streak','🔥',Number(K.state.streak||0),t('stats.streak'))}${chip('cards','🃏',K.cardCount(),t('stats.cards'))}</div>`;
+    // The record book: every period as one row — what it stands at now, how far
+    // that is along its own record, and the record itself.
+    const rows=[{label:t('score.run'),now:sum.run.points,best:sum.run.best},
       ...sum.rows.map(r=>({label:t(`score.${r.unit}`),now:r.points,best:r.best}))];
-    const tile=(cls,icon,value,label)=>`<article class="stat-tile ${cls}"><span class="stat-tile-icon">${icon}</span><b data-count="${value}">0</b><small>${esc(label)}</small></article>`;
-    const board=(items)=>`<div class="scoreboard v2">${items.join('')}</div>`;
-    const body=`<div class="stats-hero3d"><div class="stats-fx" aria-hidden="true">${sparks}</div>
-        <div class="stat-orb" style="--p:0" data-p="${pct}"><span class="stat-orb-ring"></span><span class="stat-orb-glass"></span><b data-count="${pct}" data-suffix="%">0%</b><small>${esc(t('stats.correctShort'))}</small></div>
-        <div class="stats-hero-copy"><h2>${esc(t('stats.heroTitle'))}</h2><p>${esc(t('stats.heroSub',{answered,quizzes:K.state.quizzesPlayed||0,quizWord:t((K.state.quizzesPlayed||0)===1?'stats.quizOne':'stats.quizMany')}))}</p></div></div>
-      <div class="stat-tiles">${tile('xp','⭐',Number(K.state.xp||0),t('stats.xpTotal'))}${tile('coins','🪙',Number(K.state.coins||0),t('stats.coins'))}${tile('streak','🔥',Number(K.state.streak||0),t('stats.streak'))}${tile('cards','🃏',K.cardCount(),t('stats.cards'))}</div>
-      <h2 class="section-title">${esc(t('score.title'))}</h2>
-      <div class="record-board">${records.map(r=>`<article><b>${r.now}</b><small>${esc(r.label)}</small><i>${esc(t('score.best'))} ${r.best}</i></article>`).join('')}<article class="all-time"><b>${sum.allTime}</b><small>${esc(t('score.allTime'))}</small><i>${esc(t('score.points'))}</i></article></div>
-      <p class="collection-note">${esc(t('score.todayPoints',{n:sum.rows[0].points,max:K.scoreRules.dayPoints}))} · ${esc(t('score.todayCoins',{n:sum.coins.earned,max:K.scoreRules.dayCoins}))}</p>
-      <p class="collection-note">${esc(t('score.capNote'))}</p>
+    const records=`<section class="stat-card records">
+      <div class="record-alltime"><span>${K.icon('trophy')}</span><div><b data-count="${sum.allTime}">0</b><small>${esc(t('score.allTime'))} · ${esc(t('score.points'))}</small></div></div>
+      <div class="record-rows">${rows.map(r=>`<article><span class="record-label">${esc(r.label)}<em>${esc(t('score.best'))} ${r.best}</em></span><b>${r.now}</b><span class="record-track"><i style="width:${r.best?Math.min(100,Math.round(r.now/r.best*100)):0}%"></i></span></article>`).join('')}</div>
+      <p class="record-note">${esc(t('score.todayPoints',{n:sum.rows[0].points,max:K.scoreRules.dayPoints}))} · ${esc(t('score.todayCoins',{n:sum.coins.earned,max:K.scoreRules.dayCoins}))}</p>
+    </section>`;
+    // Per world: the level it stands at, its best quiz, its points — the old
+    // separate medal board said the same thing twice.
+    const worlds=`<div class="world-stat-list v3">${WORLD_ORDER.map(w=>{
+      const st=worldStat(w),p=K.worldPoints(w),wp=p.max?Math.round(p.points/p.max*100):0;
+      const b=Number((K.state.bestScores||{})[w]||0),m=medal(b);
+      return`<article class="${m}"><img class="world-stat-art" src="${K.MASTER[w]}" alt="" loading="lazy" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center'}">
+        <div class="world-stat-copy"><b>${esc(worldTitle(w))}</b>
+          <small>${esc(t('settings.level'))} ${K.worldLevel(w)} · ${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))}</small>
+          <small class="dim">${esc(t('stats.worldLine',{correct:st.correct,answered:st.answered,quizzes:st.quizzes,quizWord:t(st.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small>
+          <span class="wide-track"><i style="width:${wp}%"></i></span></div>
+        <div class="world-stat-best"><b>${b}/10</b>${m?`<i>${medalIcon[m]}</i>`:''}</div></article>`}).join('')}</div>`;
+    // The games, each in one line, with their own best beside them.
+    const memoBest=Object.values(G.memo?.best||{}).filter(Boolean);
+    const mathBest=Object.values(G.math?.best||{}).filter(Boolean);
+    const game=(icon,title,line,best)=>`<article class="game-stat"><span class="game-stat-icon">${icon}</span><div><b>${esc(title)}</b><small>${esc(line)}</small></div>${best?`<em>${esc(best)}</em>`:''}</article>`;
+    const games=`<div class="game-stat-list">
+      ${game('🧠',t('memo.title'),t('stats.memoLine',{played:Number(G.memo?.played||0),won:Number(G.memo?.won||0)}),memoBest.length?t('stats.memoBest',{n:Math.min(...memoBest)}):'')}
+      ${game('🔢',t('math.title'),t('stats.mathLine',{played:Number(G.math?.played||0),won:Number(G.math?.won||0)}),mathBest.length?`${Math.max(...mathBest)}/10`:'')}
+      ${game('🏃',t('jungle.title'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}
+    </div>`;
+    const body=`${hero}${chips}
+      <h2 class="section-title">${esc(t('score.title'))}</h2>${records}
+      <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>${worlds}
+      <h2 class="section-title">${esc(t('stats.games'))}</h2>${games}
       <button class="share-3d" id="statsShare"><span class="share-3d-icon">📣</span><span class="share-3d-copy"><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></span><span class="share-3d-arrow">›</span></button>
-      <h2 class="section-title">${esc(t('stats.board'))}</h2>
-      ${board(WORLD_ORDER.map(w=>{const b=Number((K.state.bestScores||{})[w]||0),m=medal(b);return`<article class="${m}">${m?`<i class="medal">${medalIcon[m]}</i>`:''}<span>${K.worldBadge(w)}</span><b>${b}/10</b><small>${esc(worldTitle(w))}</small></article>`}))}
-      <h2 class="section-title">${esc(t('stats.memo'))}</h2>
-      ${board(WORLD_ORDER.map(w=>{const b=Number((progress().games?.memo?.best||{})[w]||0);return`<article class="${b?'bronze':''}">${b?'<i class="medal">🧠</i>':''}<span>${K.worldBadge(w)}</span><b>${b?esc(t('stats.memoBest',{n:b})):'–'}</b><small>${esc(worldTitle(w))}</small></article>`}))}
-      <p class="collection-note">${esc(t('stats.memoLine',{played:Number(progress().games?.memo?.played||0),won:Number(progress().games?.memo?.won||0)}))}</p>
-      <h2 class="section-title">${esc(t('stats.math'))}</h2>
-      ${board([1,2,3,4,5,6].map(n=>{const b=Number((progress().games?.math?.best||{})[n]||0),m=medal(b);return`<article class="${m}">${m?`<i class="medal">${medalIcon[m]}</i>`:''}<span class="level-dot">${n}</span><b>${b?`${b}/10`:'–'}</b><small>${esc(t('memo.level',{n}))}</small></article>`}))}
-      <p class="collection-note">${esc(t('stats.mathLine',{played:Number(progress().games?.math?.played||0),won:Number(progress().games?.math?.won||0)}))}</p>
-      <h2 class="section-title">${esc(t('stats.perWorld'))}</h2>
-      <div class="world-stat-list v2">${WORLD_ORDER.map(w=>{const s=worldStat(w),p=K.worldPoints(w),pct=p.max?Math.round(p.points/p.max*100):0;return`<article><span class="world-stat-badge">${K.worldBadge(w)}</span><div><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))} · ${esc(t('stats.worldLine',{correct:s.correct,answered:s.answered,quizzes:s.quizzes,quizWord:t(s.quizzes===1?'stats.quizOne':'stats.quizMany')}))}</small><span class="wide-track"><i style="width:${pct}%"></i></span></div><em>${p.points}</em></article>`}).join('')}</div>`;
+      <p class="collection-note">${esc(t('score.capNote'))}</p>`;
     const f=nativeScreen({cls:'stats-screen',title:t('stats.title'),subtitle:t('stats.sub'),body,active:'stats',back:back||(()=>K.showHome())});
     f.querySelector('#statsShare').onclick=()=>{K.sfx('tap');K.shareScore()};
     // Numbers count up and the ring fills once the screen is on: the figures are

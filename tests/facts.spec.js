@@ -22,6 +22,8 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   const spoken = [];
   await boot(page, SAVED(), spoken);
   await page.locator('#homeFacts').click();
+  // The game asks which world first; these tests play them all mixed.
+  await page.locator('.game-picker [data-pick="all"]').click();
   const screen = page.locator('.facts-screen');
   await expect(screen).toBeVisible();
   await expect(screen.locator('h1')).toHaveText('Weetjes');
@@ -73,6 +75,8 @@ test('the next facts are chosen ahead and their lines warmed, so a fact talks th
   await expect.poll(() => spoken.filter(isFact).length).toBeGreaterThanOrEqual(2);
   const warmed = spoken.filter(isFact).map(r => r.text.replace(/^Wist je dat… /, ''));
   await page.locator('#homeFacts').click();
+  // The game asks which world first; these tests play them all mixed.
+  await page.locator('.game-picker [data-pick="all"]').click();
   const first = await page.locator('.facts-screen .fact-text').textContent();
   expect(warmed).toContain(first);   // …and the one shown is one of them: no new round trip
   // Tapping next shows the other warmed one, and two more are queued behind it.

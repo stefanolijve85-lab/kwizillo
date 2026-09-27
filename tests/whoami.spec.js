@@ -21,6 +21,8 @@ const answer = page => page.evaluate(() => { const g = window.KWIZILLO_M1.whoami
 test('five rounds of clues and pictures; earlier guesses earn more; a wrong pick shows the answer and explanation; the result rewards XP and coins', async ({ page }) => {
   await boot(page);
   await page.locator('#homeWhoAmI').click();
+  // The game asks which world first; these tests play them all mixed.
+  await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.whoami')).toBeVisible();
   await expect(page.locator('.whoami-tile')).toHaveCount(4);
   await expect(page.locator('#whoClues p')).toHaveCount(2);           // one clue + "Wat ben ik?"
@@ -69,6 +71,8 @@ test('the clue, the question and the four tile names are read out (tiles light u
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   await page.locator('#homeWhoAmI').click();
+  // The game asks which world first; these tests play them all mixed.
+  await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.whoami')).toBeVisible();
   const g = await page.evaluate(() => { const g = window.KWIZILLO_M1.whoami; return { clue: g.rounds[0].clues[0], tiles: g.rounds[0].options.map(o => o.answer), lastClue: g.rounds[4].clues[0] }; });
   await expect.poll(() => spoken.includes(g.clue)).toBe(true);

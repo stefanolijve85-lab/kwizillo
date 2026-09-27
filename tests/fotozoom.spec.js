@@ -23,6 +23,8 @@ test('five rounds: zoomed-in picture, four names, fewer zoom-outs earn more, a m
   await boot(page);
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   await page.locator('#homeFotozoom').click();
+  // The game asks which world first; these tests play them all mixed.
+  await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.fotozoom')).toBeVisible();
   await expect(page.locator('.fotozoom-answers .answer')).toHaveCount(4);
   await expect(page.locator('#fzPoints')).toHaveText('Nu 100 punten');
@@ -80,6 +82,8 @@ test('five rounds: zoomed-in picture, four names, fewer zoom-outs earn more, a m
 test('the timer follows the level; running out counts as a miss', async ({ page }) => {
   await boot(page, SAVED({ niveau: 6 }));
   await page.locator('#homeFotozoom').click();
+  // The game asks which world first; these tests play them all mixed.
+  await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('#fzTimer')).toBeVisible();
   await page.evaluate(() => { window.KWIZILLO_M1.core.questionSeconds = () => 1; });
   await page.locator('#fzRepeat').click();                     // restarts the read-out; with a stubbed voice the timer starts at once

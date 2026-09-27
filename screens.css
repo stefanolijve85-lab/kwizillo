@@ -102,6 +102,9 @@
 .onboarding-brand{font-size:clamp(30px,8.4vw,52px);font-weight:1000;line-height:.9;letter-spacing:-.06em;
   background:linear-gradient(180deg,#fff86c,#ffca26 60%,#ff9b10);-webkit-background-clip:text;background-clip:text;color:transparent;
   -webkit-text-stroke:clamp(1px,.34vw,2px) #2842ae;filter:drop-shadow(0 4px 0 #512fa8) drop-shadow(0 7px 8px rgba(0,20,70,.33))}
+/* Onboarding opens with the logo itself, as big as the screen allows. */
+.onboarding-logo{display:block;width:min(78%,330px);height:auto;margin:0 auto;filter:drop-shadow(0 10px 22px rgba(0,20,70,.42))}
+@media(max-height:700px){.onboarding-logo{width:min(64%,260px)}}
 .onboarding-steps{display:flex;gap:6px;margin:2px 0 6px}
 .onboarding-steps i{width:22px;height:5px;border-radius:999px;background:rgba(255,255,255,.28)}
 .onboarding-steps i.done{background:rgba(255,255,255,.7)}
@@ -688,6 +691,12 @@
 .memo-pick.mix{aspect-ratio:auto;height:100%;min-height:64px;max-height:132px}.memo-pick.mix .home-game-art{object-position:center 55%}
 .memo-pick-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:8px;min-height:0;height:100%;align-self:start;max-height:300px}
 .memo-pick-grid .memo-pick{aspect-ratio:auto;height:100%;min-height:0}
+/* The same picker without the two-player modes: the tiles take the room that
+   frees up, so the screen is filled instead of ending halfway. */
+.game-picker .panel-scroll{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px}
+.game-picker .memo-pick.mix{aspect-ratio:16/7;height:auto}
+.game-picker .memo-pick-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));max-height:none}
+.game-picker .memo-pick b{font-size:clamp(13px,3.6vw,16px)}
 /* A small phone: flatter tiles so all six stay fully in view. */
 @media(max-height:700px){.memo-picker .memo-mode-btn{min-height:72px}.memo-picker .memo-mode-faces{height:34px}.memo-picker .memo-mode-faces .mascot-face{width:32px;height:32px}.memo-picker .memo-mode-faces.two .mascot-face{width:30px;height:30px}}
 .memo-pick-grid .memo-pick b{left:5px;right:5px;bottom:7px;font-size:12.5px;line-height:1.05;white-space:normal;overflow-wrap:normal;hyphens:none}
@@ -1119,6 +1128,59 @@
 .record-board .all-time{grid-column:1/-1;background:linear-gradient(180deg,#fff7d8,#ffe9a8);border-color:#f2d383}
 .record-board .all-time b{font-size:25px;color:#7a5406}
 
+/* ---- Statistics, rebuilt: one hero, four chips, one record card, one row per
+   world and one line per game. Everything else used to be a grid of its own. ---- */
+.stats-hero3d{grid-template-columns:auto 1fr;gap:12px;padding:14px 15px}
+.stats-hero-who{position:relative;z-index:1;display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.stats-hero-who .mascot-face{width:26px;height:26px;box-shadow:0 0 0 2px rgba(255,255,255,.85)}
+.stats-hero-who b{font-size:12px;font-weight:1000;color:#fff;text-shadow:0 2px 6px rgba(0,20,70,.4)}
+.stats-hero-copy h2{margin:0 0 6px;font-size:20px}
+.stats-xp{position:relative;z-index:1;display:block;height:8px;margin-bottom:7px;border-radius:999px;background:rgba(6,20,60,.42);overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,10,40,.4)}
+.stats-xp i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#ffe368,#ffb01f);box-shadow:0 0 10px rgba(255,200,60,.7)}
+.stat-tiles{grid-template-columns:repeat(4,1fr);gap:7px}
+.stat-tiles .stat-tile{padding:9px 4px 8px;border-radius:17px;gap:1px}
+.stat-tiles .stat-tile-icon{width:34px;height:34px;border-radius:12px;font-size:18px}
+.stat-tiles .stat-tile b{font-size:15px}
+.stat-tiles .stat-tile small{font-size:8px;line-height:1.1;text-align:center}
+
+.stat-card{border-radius:24px;padding:12px;background:linear-gradient(180deg,#fff,#eef7ff);border:2px solid #fff;box-shadow:0 7px 0 #c6dcf0,0 13px 24px rgba(20,70,128,.14)}
+.record-alltime{display:flex;align-items:center;gap:11px;padding:11px 12px;margin-bottom:10px;border-radius:19px;background:linear-gradient(160deg,#fff3c4,#ffd76a);box-shadow:inset 0 0 0 2px rgba(255,255,255,.7),0 5px 0 #e0ab1e}
+.record-alltime>span{display:grid;place-items:center;width:38px;height:38px;color:#7a5406}
+.record-alltime>span svg{width:30px;height:30px}
+.record-alltime b{display:block;font-size:27px;line-height:1;color:#6d4a05;letter-spacing:-.02em}
+.record-alltime small{display:block;margin-top:2px;font-size:9.5px;font-weight:900;color:#8a6410;text-transform:uppercase;letter-spacing:.04em}
+.record-rows{display:grid;gap:7px}
+.record-rows article{display:grid;grid-template-columns:1fr auto;grid-template-areas:'label value' 'track track';align-items:center;column-gap:10px;row-gap:5px;padding:8px 11px;border-radius:15px;background:#fff;border:1px solid #dbebfa}
+.record-label{grid-area:label;font-size:11px;font-weight:1000;color:#23478f;line-height:1.15}
+.record-track{grid-area:track;display:block;height:9px;border-radius:999px;background:#e4eefa;overflow:hidden;box-shadow:inset 0 1px 2px rgba(20,60,120,.14)}
+.record-track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#6fc4ff,#2e6ff0)}
+.record-rows b{grid-area:value;font-size:18px;color:#12265f;text-align:end}
+.record-rows em{display:block;font-style:normal;margin-top:2px;font-size:8.5px;font-weight:900;color:#8aa5c0;text-transform:uppercase;letter-spacing:.04em}
+.record-note{margin:10px 2px 0;text-align:center;font-size:9.5px;font-weight:900;color:#5f80a4}
+
+.world-stat-list.v3{gap:10px}
+.world-stat-list.v3 article{position:relative;grid-template-columns:62px 1fr auto;gap:10px;padding:9px;border:2px solid #fff;border-radius:20px;box-shadow:0 6px 0 #c6dcf0,0 11px 20px rgba(20,70,128,.12);overflow:hidden}
+.world-stat-art{width:62px;height:62px;border-radius:15px;object-fit:cover;box-shadow:0 3px 8px rgba(0,26,80,.28),inset 0 0 0 2px rgba(255,255,255,.7)}
+.world-stat-copy{min-width:0}
+.world-stat-copy b{display:block;font-size:12.5px;color:#12265f}
+.world-stat-copy small{display:block;font-size:9px;font-weight:850;color:#4f7aab;margin-top:1px}
+.world-stat-copy small.dim{color:#8aa5c0}
+.world-stat-copy .wide-track{margin-top:5px}
+.world-stat-best{display:grid;justify-items:center;align-content:center;gap:1px;min-width:46px}
+.world-stat-best b{font-size:14px;color:#23478f}
+.world-stat-best i{font-style:normal;font-size:17px;line-height:1}
+.world-stat-list.v3 article.gold{background:linear-gradient(180deg,#fffdf1,#fff2c9)}
+.world-stat-list.v3 article.silver{background:linear-gradient(180deg,#fff,#eef3f9)}
+.world-stat-list.v3 article.bronze{background:linear-gradient(180deg,#fffaf5,#ffeddf)}
+
+.game-stat-list{display:grid;gap:9px}
+.game-stat{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:10px;padding:10px 12px;border-radius:19px;background:#fff;border:2px solid #fff;box-shadow:0 6px 0 #c6dcf0,0 11px 20px rgba(20,70,128,.12)}
+.game-stat-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;font-size:21px;background:linear-gradient(160deg,#e7f3ff,#c9e2fb);box-shadow:inset 0 0 0 2px rgba(255,255,255,.8)}
+.game-stat b{display:block;font-size:12.5px;color:#12265f}
+.game-stat small{display:block;font-size:9.5px;font-weight:850;color:#6e8aa5;margin-top:1px}
+.game-stat em{font-style:normal;font-size:13px;font-weight:1000;color:#2e6ff0;white-space:nowrap}
+@media(max-width:360px){.stat-tiles .stat-tile small{font-size:7.5px}}
+
 /* ---- the shop: coins from the games buy a golden card or a buddy ---- */
 .shop-wallet{display:grid;grid-template-columns:34px auto 1fr;align-items:center;gap:8px;padding:10px 12px;border-radius:19px;background:linear-gradient(180deg,#fff7d8,#ffe9a8);border:1px solid #f2d383}
 .shop-wallet span{display:grid;place-items:center;font-size:22px}
@@ -1136,6 +1198,11 @@
 .shop-owned{display:grid;place-items:center;min-height:38px;border-radius:999px;background:#e8f8ec;color:#2f8a4c;font-size:11px;font-weight:1000}
 .shop-item.is-owned{border-color:#bfe8cb}
 .kcard.gold .kcard-frame{box-shadow:0 0 0 3px #ffcf4a,0 10px 24px rgba(122,84,6,.32)}
+/* A painting that is already a card: shown edge to edge, no frame chrome. */
+.kcard.is-art .kcard-frame{padding:0;justify-content:flex-end}
+.kcard.is-art .kcard-bg{transform:none;filter:none;opacity:1}
+.kcard.is-art .kcard-tint{display:none}
+.kcard-own{position:relative;z-index:3;padding:14px 8px 6px;text-align:center;font-size:9.5px;font-weight:1000;letter-spacing:.04em;text-transform:uppercase;color:#ffeeb4;text-shadow:0 1px 3px rgba(0,0,0,.7);background:linear-gradient(180deg,rgba(6,16,46,0),rgba(6,16,46,.72))}
 .kcard.gold .kcard-tint{background:linear-gradient(180deg,rgba(255,207,74,.34),rgba(120,72,0,.52))}
 /* a card the runner handed out: its own painting in a cool frame */
 .kcard.runner .kcard-frame{box-shadow:0 0 0 3px #7ee0ff,0 10px 24px rgba(10,74,110,.32)}

@@ -943,7 +943,7 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
   await page.locator('.native-bottom-nav [data-nav="stats"]').click();
   const rows = page.locator('.world-stat-list article');
   await expect(rows.first()).toContainText('3 van 4 quizzen gehaald · 75 punten');
-  await expect(rows.first().locator('em')).toHaveText('75');
+  await expect(rows.first().locator('.world-stat-best b')).toHaveText('0/10');   // best quiz, none played here
   await expect(rows.nth(1)).toContainText('1 van 4 quizzen gehaald · 25 punten');
   await page.locator('.native-bottom-nav [data-nav="collection"]').click();
   await expect(page.locator('.progress-overall')).toContainText('Totaal 100 van 600 punten');

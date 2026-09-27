@@ -3,6 +3,8 @@ export function random(seed){let s=seed>>>0;return()=>{s+=0x6D2B79F5;let t=s;t=M
 // What a collision costs in coins. Running into something has to hurt a
 // little — but never more than the child has, so the purse can never go red.
 export const HIT_PENALTY=5;
+// What stands in the way — all of it can be jumped, and all of it stops you.
+export const OBSTACLES=['rock','log','car'];
 export function createRun({duration=40,easy=false,seed=Date.now(),crossings=false}={}){return {duration:clamp(Number(duration)||40,30,45),easy,seed,crossings,random:random(seed),time:0,distance:0,lane:1,x:1,jump:0,buffer:0,cooldown:0,coins:0,collectedCard:false,items:[],nextRow:.5,row:0,done:false,hits:0,stumble:0,lostCoins:0,streak:0,bestStreak:0,magnet:0,double:0,doubleCoins:0,boost:0,boostCoins:0,shield:0,bonusCoins:0,pickups:0,jumpsCleared:0};}
 export function move(s,d){if(!s.done&&s.stumble<=0)s.lane=clamp(s.lane+d,0,2);}
 export function jump(s){if(s.done||s.stumble>0)return false;if(s.jump<=0){s.jump=.92;s.doubleFlip=false;return true;}
@@ -19,7 +21,8 @@ if(s.time>=s.nextRow&&s.time<s.duration-4.5){s.nextRow+=s.easy?1.65:1.3;s.row++;
 // a crossing: a car drives across the whole path while it comes towards you — jump over it, or pass in front of or behind it by changing lane
 if(s.crossings&&(s.row===6||s.row===14||s.row===20)){const dir=s.random()<.5?1:-1;const target=.3+s.random()*1.4,travel=1.15*1.35/(s.easy?.26:.31);/* the car is timed to be on the path, right in front of the child, when it arrives — so it has to be jumped */s.items.push({kind:'car',lane:target-dir*travel,z:-.35,dir,resolved:false,honked:false});}}
 for(const item of s.items){const before=item.z;item.z+=dt*speed;
-if(item.kind==='car'){item.lane+=item.dir*dt*1.15;if(!item.honked&&item.z>.45){item.honked=true;events.push({type:'honk',lane:item.lane});}}if(s.easy&&(item.kind==='log'||item.kind==='car')&&!item.resolved&&item.z>.86&&item.z<.94&&Math.abs(s.x-item.lane)<(item.kind==='car'?1.05:.38)&&!s.jump){jump(s);events.push({type:'jump'});}const collectible=['coin','gold'].includes(item.kind);
+if(item.kind==='car'){item.lane+=item.dir*dt*1.15;if(!item.honked&&item.z>.45){item.honked=true;events.push({type:'honk',lane:item.lane});}}// the rustige rit jumps for you; in the normal ride every obstacle is yours to clear
+if(s.easy&&OBSTACLES.includes(item.kind)&&!item.resolved&&item.z>.86&&item.z<.94&&Math.abs(s.x-item.lane)<(item.kind==='car'?1.05:.38)&&!s.jump){jump(s);events.push({type:'jump'});}const collectible=['coin','gold'].includes(item.kind);
 const attracted=s.magnet>0&&collectible&&item.z>.79;
 if(((before<1&&item.z>=1)||attracted)&&!item.resolved){item.resolved=true;
 if(Math.abs(s.x-item.lane)<(item.kind==='car'?1.05:.39)||attracted){
@@ -29,7 +32,8 @@ else if(item.kind==='double'){s.double=6;s.pickups++;events.push({type:'double',
 else if(item.kind==='speed'){s.boost=7;s.pickups++;events.push({type:'speed',lane:item.lane});}
 else if(item.kind==='shield'){s.shield=1;s.pickups++;events.push({type:'shield',lane:item.lane});}
 else if(item.kind==='card'){s.collectedCard=true;events.push({type:'card',lane:item.lane});}
-else if((item.kind==='log'||item.kind==='car')&&height(s)>.27){s.jumpsCleared++;events.push({type:'clear',lane:item.lane});}
+// every obstacle can be jumped: a rock, a cone, a storm cloud as much as a log or a car
+else if(OBSTACLES.includes(item.kind)&&height(s)>.27){s.jumpsCleared++;events.push({type:'clear',lane:item.lane});}
 else if(!s.cooldown){if(s.shield){s.shield=0;s.cooldown=.25;events.push({type:'block',lane:item.lane});}else{s.cooldown=1.1;s.stumble=.55;s.hits++;s.streak=0;const lost=Math.min(s.coins,HIT_PENALTY);s.coins-=lost;s.lostCoins+=lost;events.push({type:'hit',lane:item.lane,lost});}}
 }else if(collectible)s.streak=0;
 }}

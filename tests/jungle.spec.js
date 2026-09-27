@@ -148,8 +148,16 @@ test('a second jump press in the air makes a double somersault that pays a small
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
   const r = await page.evaluate(() => new Promise(resolve => {
-    const el = window.KWIZILLO_M1.jungle.game.element; const coins0 = el.run.coins;
-    el.action('jump'); setTimeout(() => { el.action('jump'); const twice = el.run.doubleFlip; setTimeout(() => resolve({ twice, gained: el.run.coins - coins0, landed: el.run.jump === 0 }), 1400); }, 350);
+    const el = window.KWIZILLO_M1.jungle.game.element, coins0 = el.run.coins;
+    el.action('jump');
+    setTimeout(() => {
+      el.action('jump'); const twice = el.run.doubleFlip;
+      // Wait for the landing itself rather than for a number of milliseconds:
+      // on a busy machine the ride runs slower than the wall clock.
+      const done = () => resolve({ twice, gained: el.run.coins - coins0, landed: el.run.jump === 0 });
+      const t0 = Date.now();
+      (function wait(){ if(el.run.jump === 0 || Date.now() - t0 > 6000) return done(); setTimeout(wait, 60) })();
+    }, 350);
   }));
   expect(r.twice).toBe(true);
   expect(r.landed).toBe(true);
@@ -221,4 +229,41 @@ test('a card from the runner is in the collection the moment the run is booked, 
   await page.evaluate(() => window.KWIZILLO_M1.own('gold:ruimte'));
   await page.evaluate(() => window.KWIZILLO_M1.showStats());
   await expect(page.locator('.stat-tile.cards b')).toHaveAttribute('data-count', String(before + 2));
+});
+
+test('in the normal ride you clear every obstacle yourself; the easy ride jumps for you', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeJungle').click();
+  await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
+  await inRunner(page, '[data-act=start]').click();
+  await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; el.run.easy = false; });
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
+
+  // A rock is jumped over just like a log: jump in time and it is cleared.
+  const jumped = await page.evaluate(() => new Promise(resolve => {
+    const el = window.KWIZILLO_M1.jungle.game.element, run = el.run;
+    run.coins = 30; run.items.push({ kind: 'rock', lane: run.lane, z: .80, resolved: false });
+    el.action('jump');
+    const t0 = Date.now();
+    (function wait(){
+      const settled = run.jumpsCleared > 0 || run.hits > 0;
+      if (settled || Date.now() - t0 > 6000) return resolve({ coins: run.coins, hits: run.hits, cleared: run.jumpsCleared, lost: run.lostCoins });
+      setTimeout(wait, 50);
+    })();
+  }));
+  expect(jumped.hits).toBe(0);
+  expect(jumped.cleared).toBeGreaterThan(0);
+  expect(jumped.coins).toBe(30);
+  expect(jumped.lost).toBe(0);
+
+  // Standing still in front of the same rock costs the five coins.
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.run.jump), { timeout: 3000 }).toBe(0);
+  const stood = await page.evaluate(() => new Promise(resolve => {
+    const run = window.KWIZILLO_M1.jungle.game.element.run;
+    run.items.push({ kind: 'rock', lane: run.lane, z: .995, resolved: false });
+    const t0 = Date.now();
+    (function wait(){ if (run.hits > 0 || Date.now() - t0 > 6000) return resolve({ coins: run.coins, hits: run.hits }); setTimeout(wait, 50) })();
+  }));
+  expect(stood.hits).toBe(1);
+  expect(stood.coins).toBe(25);
 });

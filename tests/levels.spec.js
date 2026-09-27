@@ -119,7 +119,7 @@ test('finishing a world at all six levels earns its golden card, with a celebrat
   await expect(page.locator('.gold-unlock')).toHaveCount(0);
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('cards'));
   await expect(page.locator('.kcard.gold')).toHaveCount(1);
-  await expect(page.locator('.kcard.gold .kcard-foot span').last()).toHaveText('Verdiend');
+  await expect(page.locator('.kcard.gold .kcard-own')).toHaveText('Verdiend');
   // Another quiz in that world does not hand out a second one.
   const before = await page.evaluate(() => window.KWIZILLO_M1.cardCount());
   await page.evaluate(() => window.KWIZILLO_M1.own('gold:ruimte'));

@@ -142,9 +142,9 @@ test('the record book keeps the best exercise, day, week, month and year', async
   expect(book.allTime).toBe(160);
 
   await page.evaluate(() => window.KWIZILLO_M1.showStats());
-  const board = page.locator('.record-board');
+  const board = page.locator('.stat-card.records');
   await expect(board).toBeVisible();
-  await expect(board.locator('article')).toHaveCount(6);      // exercise, day, week, month, year, all time
-  await expect(board.locator('.all-time b')).toHaveText('160');
+  await expect(board.locator('.record-rows article')).toHaveCount(5);   // exercise, day, week, month, year
+  await expect(board.locator('.record-alltime b')).toHaveText('160');
   await expect(page.locator('.stats-screen')).toContainText('van 1500 punten vandaag');
 });

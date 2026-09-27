@@ -22,7 +22,7 @@
     const f=K.frame(`<section class="onboarding ${cls} fade-in">
       <div class="onboarding-sky"></div>
       <div class="onboarding-inner">
-        <div class="onboarding-brand">Kwizillo</div>
+        <img class="onboarding-logo" src="${K.assetUrl(K.BRAND_LOGO_SHADOW||K.BRAND_LOGO)}" alt="Kwizillo" decoding="async">
         <div class="onboarding-steps" aria-hidden="true">${dots}</div>
         <div class="onboarding-stage"></div>
         ${body}

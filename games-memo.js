@@ -53,7 +53,7 @@
           <button class="memo-mode-btn duel ${mode==='duel'?'active':''}" data-mode="duel" role="radio" aria-checked="${mode==='duel'}"><span class="memo-mode-faces two"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""><em>VS</em><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt=""></span><b>${esc(t('memo.duel'))}</b><small>${esc(t('memo.duelSub'))}</small>${mode==='duel'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
         <label class="memo-p2" ${mode==='duel'?'':'hidden'}><span>${esc(t('memo.p2Label'))}</span><input id="memoP2" type="text" maxlength="14" autocomplete="off" placeholder="${esc(t('memo.player2'))}" value="${esc(K.state.memoPlayer2||'')}" aria-label="${esc(t('memo.p2Label'))}"></label>
         </div>
-        <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.allWorlds'))}</b></button>
+        <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
         <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
       </div>
     </section>`);
@@ -130,7 +130,7 @@
       <div class="quiz-v2-ui memo-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="memoBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
-          <div class="quiz-brand"><span>Memo</span><small>${esc(m.world==='mix'?t('memo.allWorlds'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></div>
+          <div class="quiz-brand"><span>Memo</span><small>${esc(m.world==='mix'?t('game.mixAll'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></div>
           <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
         </header>
         ${m.duel?`<div class="memo-duel" id="memoDuel">${[0,1].map(i=>`<span class="memo-player ${i===m.turn?'active':''}" data-player="${i}"><b>${esc(playerName(i))}</b><em>${m.scores[i]}</em></span>`).join('')}</div>`:''}
