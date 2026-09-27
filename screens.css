@@ -688,9 +688,9 @@
 
 /* Mascots: the character fills the tile, only the name on top of it. */
 .mascot-grid{gap:12px}
-.mascot-card{position:relative;padding:0;min-height:0;aspect-ratio:1/1.15;overflow:hidden;border:0;border-radius:24px;background:#dbe8ff;justify-content:flex-end;align-items:stretch;gap:0;box-shadow:0 10px 22px rgba(20,70,128,.16)}
-.mascot-card .mascot-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;transition:transform .35s ease}
-.mascot-card:active .mascot-fill{transform:scale(1.04)}
+.mascot-card{position:relative;padding:0;min-height:0;aspect-ratio:4/5;overflow:hidden;border:0;border-radius:24px;background:#dbe8ff;justify-content:flex-end;align-items:stretch;gap:0;box-shadow:0 10px 22px rgba(20,70,128,.16)}
+.mascot-card .mascot-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s ease}
+.mascot-card:active .mascot-fill{transform:none}
 .mascot-card .mascot-name{position:relative;z-index:1;margin:0;padding:34px 10px 11px;text-align:center;font-size:15px;font-weight:1000;color:#fff;letter-spacing:.01em;text-shadow:0 2px 6px rgba(0,20,70,.55);background:linear-gradient(180deg,transparent,rgba(6,22,70,.72))}
 .mascot-card .mascot-name small{display:block;font-size:10px;font-weight:900;color:#dbe8ff;opacity:.95;margin-top:2px}
 .mascot-card .mascot-state{position:absolute;z-index:2;top:9px;right:9px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.9);color:#2f65a0;font-size:9px;font-weight:1000;box-shadow:0 3px 8px rgba(0,20,70,.2)}
@@ -1102,7 +1102,7 @@
 .shop-wallet small{color:#8a6a1e;font-size:9px;font-weight:900;line-height:1.3}
 .shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .shop-item{display:grid;gap:6px;padding:9px;border-radius:21px;background:#fff;border:1px solid #d6eaf9;box-shadow:0 8px 18px rgba(20,70,128,.08)}
-.shop-art{width:100%;aspect-ratio:1;object-fit:cover;border-radius:15px;background:#e7f3ff}
+.shop-art{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:15px;background:#e7f3ff}
 .shop-item.is-gold .shop-art{box-shadow:inset 0 0 0 3px #ffcf4a}
 .shop-copy b{display:block;font-size:12px;color:#13235f;line-height:1.1}
 .shop-copy small{display:block;margin-top:2px;color:#6b87a4;font-size:9px;font-weight:800;line-height:1.3}

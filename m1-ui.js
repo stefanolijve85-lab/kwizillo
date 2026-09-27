@@ -386,7 +386,7 @@
         // The character fills the whole tile; only the name sits on it. A
         // locked buddy is a dark silhouette with a lock and how many more
         // correct answers it takes.
-        const art=K.MASCOT_ART[m.id];
+        const art=K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id];
         const sub=ok?'':`<small>${esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>`;
         const state=sel?`<span class="mascot-state">${esc(t('collection.mascotActive'))}</span>`:'';
         return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'} aria-label="${esc(t(`mascot.${m.id}`))}"><img class="mascot-fill" src="${art}" alt="" decoding="async">${ok?'':'<i class="mascot-lock">🔒</i>'}${state}<b class="mascot-name">${esc(t(`mascot.${m.id}`))}${sub}</b></button>`;
@@ -407,7 +407,7 @@
         </article>`;
       };
       const golds=WORLD_ORDER.map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,K.MASTER[w],'is-gold'));
-      const buddies=MASCOTS.filter(m=>totalCorrect()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_ART[m.id]));
+      const buddies=MASCOTS.filter(m=>totalCorrect()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
       const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
       content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
         <h2 class="section-title">${esc(t('shop.cards'))}</h2><div class="shop-grid">${golds.join('')}</div>

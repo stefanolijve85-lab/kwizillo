@@ -89,5 +89,11 @@
   // 512x512 picture is in assets/mascots/, so the collection never shows an
   // empty tile: nova, kiko, pip, ravi, flora, draco.
   for(const id of ['nova','kiko','pip','ravi','flora','draco']) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
+  // The same pictures, redrawn to one tile shape by tools/mascot-tiles.cjs: the
+  // renders came in two formats, so a tile that cropped to fill showed one buddy
+  // in full and zoomed into the next one's nose. The round avatars keep using
+  // the originals.
+  K.MASCOT_TILE={};
+  for(const id of Object.keys(K.MASCOT_ART)) K.MASCOT_TILE[id]=K.assetUrl(`assets/mascots/tile/${id}.jpg`);
   K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
 })();
