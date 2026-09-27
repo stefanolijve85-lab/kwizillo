@@ -31,3 +31,6 @@ tools/bin/
 www/
 ios/App/App/public/
 ios/App/build/
+
+# Art masters: the originals the shipped assets are made from (see tools/)
+art-source/
