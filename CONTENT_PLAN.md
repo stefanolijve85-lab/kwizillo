@@ -219,7 +219,7 @@ het warmdraaien, en er komt eindredactie door een mens. De pilot begint bij
 Zes vragen stonden twee keer in hun eigen onderwerp, in alle tien de talen —
 een kind dat naar niveau 5 klimt kreeg daar een vraag van niveau 1 terug. Ze
 zijn vervangen (zie commit) en `tests/questions.test.js` laat het niet meer
-terug komen. Vijf paren blijven staan die hetzelfde antwoord anders vragen;
+terug komen. Vier paren blijven staan die hetzelfde antwoord anders vragen;
 `npm run content:lint` noemt ze, en ze horen bij het bijvullen thuis:
-zonnestelsel 04/11, sterren_planeten 06/12, egyptenaren 06/18,
-romeinen 03/18, raadsels 09/12.
+zonnestelsel 04/11, sterren_planeten 06/12, egyptenaren 06/18 en
+romeinen 03/18.
