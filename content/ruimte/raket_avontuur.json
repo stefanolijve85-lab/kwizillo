@@ -1,0 +1,2607 @@
+{
+  "world": "ruimte",
+  "topic": "raket_avontuur",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "ruimte-raket_avontuur-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — how rocket engines work",
+      "artBrief": "Een raket vlak na het opstijgen, met een lange bundel oranje vlammen onderuit.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat komt er onderuit een raket bij de lancering?",
+          "answer": "Hete gassen",
+          "wrong": [
+            "Koud water",
+            "Gewone lucht",
+            "Zand"
+          ],
+          "hint": "Ze worden met kracht naar beneden geduwd.",
+          "explanation": "De motor duwt hete gassen naar beneden en de raket gaat omhoog.",
+          "fact": "Dat heet actie en reactie."
+        },
+        "en": {
+          "prompt": "What comes out of the bottom of a rocket at launch?",
+          "answer": "Hot gases",
+          "wrong": [
+            "Cold water",
+            "Ordinary air",
+            "Sand"
+          ],
+          "hint": "They are pushed downwards hard.",
+          "explanation": "The engine pushes hot gases down and the rocket goes up.",
+          "fact": "That is called action and reaction."
+        },
+        "de": {
+          "prompt": "Was kommt beim Start unten aus einer Rakete?",
+          "answer": "Heiße Gase",
+          "wrong": [
+            "Kaltes Wasser",
+            "Gewöhnliche Luft",
+            "Sand"
+          ],
+          "hint": "Sie werden mit Wucht nach unten gedrückt.",
+          "explanation": "Der Motor drückt heiße Gase nach unten, und die Rakete steigt.",
+          "fact": "Das nennt man Aktion und Reaktion."
+        },
+        "fr": {
+          "prompt": "Que sort-il du bas d'une fusée au décollage ?",
+          "answer": "Des gaz brûlants",
+          "wrong": [
+            "De l'eau froide",
+            "De l'air ordinaire",
+            "Du sable"
+          ],
+          "hint": "Ils sont poussés vers le bas avec force.",
+          "explanation": "Le moteur pousse des gaz brûlants vers le bas et la fusée monte.",
+          "fact": "C'est ce qu'on appelle action et réaction."
+        },
+        "es": {
+          "prompt": "¿Qué sale por debajo de un cohete al despegar?",
+          "answer": "Gases muy calientes",
+          "wrong": [
+            "Agua fría",
+            "Aire normal",
+            "Arena"
+          ],
+          "hint": "Salen empujados hacia abajo con fuerza.",
+          "explanation": "El motor empuja gases calientes hacia abajo y el cohete sube.",
+          "fact": "Eso se llama acción y reacción."
+        },
+        "it": {
+          "prompt": "Che cosa esce da sotto un razzo al decollo?",
+          "answer": "Gas caldissimi",
+          "wrong": [
+            "Acqua fredda",
+            "Aria normale",
+            "Sabbia"
+          ],
+          "hint": "Vengono spinti in basso con forza.",
+          "explanation": "Il motore spinge gas caldi verso il basso e il razzo sale.",
+          "fact": "Si chiama azione e reazione."
+        },
+        "pt": {
+          "prompt": "O que sai por baixo de um foguetão ao descolar?",
+          "answer": "Gases muito quentes",
+          "wrong": [
+            "Água fria",
+            "Ar normal",
+            "Areia"
+          ],
+          "hint": "São empurrados para baixo com força.",
+          "explanation": "O motor empurra gases quentes para baixo e o foguetão sobe.",
+          "fact": "Chama-se ação e reação."
+        },
+        "da": {
+          "prompt": "Hvad kommer der ud forneden på en raket ved opsendelsen?",
+          "answer": "Varme gasser",
+          "wrong": [
+            "Koldt vand",
+            "Almindelig luft",
+            "Sand"
+          ],
+          "hint": "De presses kraftigt nedad.",
+          "explanation": "Motoren presser varme gasser nedad, og raketten stiger.",
+          "fact": "Det kaldes aktion og reaktion."
+        },
+        "ru": {
+          "prompt": "Что вырывается снизу у ракеты при старте?",
+          "answer": "Горячие газы",
+          "wrong": [
+            "Холодная вода",
+            "Обычный воздух",
+            "Песок"
+          ],
+          "hint": "Их с силой толкают вниз.",
+          "explanation": "Двигатель толкает горячие газы вниз, и ракета поднимается.",
+          "fact": "Это называют действием и противодействием."
+        },
+        "ar": {
+          "prompt": "ماذا يخرج من أسفل الصاروخ عند الانطلاق؟",
+          "answer": "غازات ساخنة",
+          "wrong": [
+            "ماء بارد",
+            "هواء عادي",
+            "رمل"
+          ],
+          "hint": "تُدفع إلى أسفل بقوة.",
+          "explanation": "المحرك يدفع الغازات الساخنة إلى أسفل فيصعد الصاروخ.",
+          "fact": "هذا ما يسمى الفعل ورد الفعل."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — launch countdown",
+      "artBrief": "Een vluchtleidingszaal met schermen en mensen die gespannen naar een raket kijken.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doen mensen vlak voor een lancering?",
+          "answer": "Aftellen",
+          "wrong": [
+            "Slapen",
+            "Vlaggen ophangen",
+            "Opruimen"
+          ],
+          "hint": "Tien, negen, acht...",
+          "explanation": "Vlak voor de start telt de vluchtleiding hardop af.",
+          "fact": "Bij nul gaan de motoren aan."
+        },
+        "en": {
+          "prompt": "What do people do just before a launch?",
+          "answer": "Count down",
+          "wrong": [
+            "Sleep",
+            "Hang up flags",
+            "Tidy up"
+          ],
+          "hint": "Ten, nine, eight...",
+          "explanation": "Just before the start, mission control counts down out loud.",
+          "fact": "At zero the engines light."
+        },
+        "de": {
+          "prompt": "Was machen die Leute kurz vor einem Start?",
+          "answer": "Herunterzählen",
+          "wrong": [
+            "Schlafen",
+            "Fahnen aufhängen",
+            "Aufräumen"
+          ],
+          "hint": "Zehn, neun, acht...",
+          "explanation": "Kurz vor dem Start zählt die Flugleitung laut herunter.",
+          "fact": "Bei null zünden die Motoren."
+        },
+        "fr": {
+          "prompt": "Que font les gens juste avant un décollage ?",
+          "answer": "Le compte à rebours",
+          "wrong": [
+            "Ils dorment",
+            "Ils accrochent des drapeaux",
+            "Ils rangent"
+          ],
+          "hint": "Dix, neuf, huit...",
+          "explanation": "Juste avant le départ, le contrôle compte à voix haute.",
+          "fact": "À zéro, les moteurs s'allument."
+        },
+        "es": {
+          "prompt": "¿Qué hace la gente justo antes de un lanzamiento?",
+          "answer": "La cuenta atrás",
+          "wrong": [
+            "Dormir",
+            "Colgar banderas",
+            "Recoger"
+          ],
+          "hint": "Diez, nueve, ocho...",
+          "explanation": "Justo antes de la salida, el control cuenta en voz alta.",
+          "fact": "Al llegar a cero se encienden los motores."
+        },
+        "it": {
+          "prompt": "Che cosa fanno le persone poco prima di un lancio?",
+          "answer": "Il conto alla rovescia",
+          "wrong": [
+            "Dormono",
+            "Appendono bandiere",
+            "Mettono in ordine"
+          ],
+          "hint": "Dieci, nove, otto...",
+          "explanation": "Poco prima della partenza il controllo conta ad alta voce.",
+          "fact": "A zero si accendono i motori."
+        },
+        "pt": {
+          "prompt": "O que fazem as pessoas mesmo antes do lançamento?",
+          "answer": "A contagem decrescente",
+          "wrong": [
+            "Dormem",
+            "Penduram bandeiras",
+            "Arrumam"
+          ],
+          "hint": "Dez, nove, oito...",
+          "explanation": "Mesmo antes da partida o controlo conta em voz alta.",
+          "fact": "No zero acendem-se os motores."
+        },
+        "da": {
+          "prompt": "Hvad gør folk lige før en opsendelse?",
+          "answer": "Tæller ned",
+          "wrong": [
+            "Sover",
+            "Hænger flag op",
+            "Rydder op"
+          ],
+          "hint": "Ti, ni, otte...",
+          "explanation": "Lige før start tæller flyveledelsen højt ned.",
+          "fact": "Ved nul tænder motorerne."
+        },
+        "ru": {
+          "prompt": "Что делают люди прямо перед стартом?",
+          "answer": "Ведут обратный отсчёт",
+          "wrong": [
+            "Спят",
+            "Вешают флаги",
+            "Убирают"
+          ],
+          "hint": "Десять, девять, восемь...",
+          "explanation": "Перед стартом центр управления считает вслух.",
+          "fact": "На нуле включаются двигатели."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل الناس قبل الإطلاق مباشرة؟",
+          "answer": "العد التنازلي",
+          "wrong": [
+            "ينامون",
+            "يعلقون الأعلام",
+            "ينظفون"
+          ],
+          "hint": "عشرة، تسعة، ثمانية...",
+          "explanation": "قبل الانطلاق يعد مركز التحكم بصوت عال.",
+          "fact": "وعند الصفر تشتعل المحركات."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — vertical launch configuration",
+      "artBrief": "Een raket kaarsrecht op het platform, klaar voor vertrek, met de lanceertoren ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe staat een raket vlak voor het vertrek?",
+          "answer": "Rechtop",
+          "wrong": [
+            "Op zijn kant",
+            "Ondersteboven",
+            "Schuin omlaag"
+          ],
+          "hint": "Hij moet meteen omhoog.",
+          "explanation": "Een raket staat rechtop, zodat hij recht de lucht in kan.",
+          "fact": "Liggend vervoeren gebeurt wel, maar alleen op de grond."
+        },
+        "en": {
+          "prompt": "How does a rocket stand just before it leaves?",
+          "answer": "Upright",
+          "wrong": [
+            "On its side",
+            "Upside down",
+            "Tilted downwards"
+          ],
+          "hint": "It has to go straight up.",
+          "explanation": "A rocket stands upright so it can head straight into the sky.",
+          "fact": "It travels lying down, but only on the ground."
+        },
+        "de": {
+          "prompt": "Wie steht eine Rakete kurz vor dem Start?",
+          "answer": "Aufrecht",
+          "wrong": [
+            "Auf der Seite",
+            "Kopfüber",
+            "Schräg nach unten"
+          ],
+          "hint": "Sie muss sofort nach oben.",
+          "explanation": "Eine Rakete steht aufrecht, damit sie gerade in den Himmel kann.",
+          "fact": "Liegend wird sie nur am Boden transportiert."
+        },
+        "fr": {
+          "prompt": "Comment se tient une fusée juste avant le départ ?",
+          "answer": "Debout",
+          "wrong": [
+            "Sur le côté",
+            "À l'envers",
+            "Penchée vers le bas"
+          ],
+          "hint": "Elle doit monter tout de suite.",
+          "explanation": "Une fusée se tient debout pour filer droit vers le ciel.",
+          "fact": "On ne la couche que pour la transporter au sol."
+        },
+        "es": {
+          "prompt": "¿Cómo está un cohete justo antes de salir?",
+          "answer": "De pie",
+          "wrong": [
+            "De lado",
+            "Boca abajo",
+            "Inclinado hacia abajo"
+          ],
+          "hint": "Tiene que subir enseguida.",
+          "explanation": "Un cohete está de pie para salir recto hacia el cielo.",
+          "fact": "Tumbado solo se transporta por el suelo."
+        },
+        "it": {
+          "prompt": "Come sta un razzo poco prima di partire?",
+          "answer": "In piedi",
+          "wrong": [
+            "Di fianco",
+            "A testa in giù",
+            "Inclinato in basso"
+          ],
+          "hint": "Deve salire subito.",
+          "explanation": "Un razzo sta in piedi per andare dritto verso il cielo.",
+          "fact": "Sdraiato viene solo trasportato a terra."
+        },
+        "pt": {
+          "prompt": "Como está um foguetão mesmo antes de partir?",
+          "answer": "De pé",
+          "wrong": [
+            "De lado",
+            "De cabeça para baixo",
+            "Inclinado para baixo"
+          ],
+          "hint": "Tem de subir logo.",
+          "explanation": "Um foguetão fica de pé para ir direito ao céu.",
+          "fact": "Deitado só é transportado no chão."
+        },
+        "da": {
+          "prompt": "Hvordan står en raket lige før afgang?",
+          "answer": "Oprejst",
+          "wrong": [
+            "På siden",
+            "På hovedet",
+            "Skråt nedad"
+          ],
+          "hint": "Den skal straks opad.",
+          "explanation": "En raket står oprejst, så den kan gå lige op i luften.",
+          "fact": "Liggende bliver den kun transporteret på jorden."
+        },
+        "ru": {
+          "prompt": "Как стоит ракета прямо перед стартом?",
+          "answer": "Вертикально",
+          "wrong": [
+            "На боку",
+            "Вверх ногами",
+            "Наклонённой вниз"
+          ],
+          "hint": "Ей нужно сразу вверх.",
+          "explanation": "Ракета стоит вертикально, чтобы уйти прямо в небо.",
+          "fact": "Лёжа её только перевозят по земле."
+        },
+        "ar": {
+          "prompt": "كيف يقف الصاروخ قبل الانطلاق؟",
+          "answer": "منتصبًا",
+          "wrong": [
+            "على جانبه",
+            "مقلوبًا",
+            "مائلًا إلى أسفل"
+          ],
+          "hint": "عليه أن يصعد فورًا.",
+          "explanation": "يقف الصاروخ منتصبًا ليصعد مباشرة إلى السماء.",
+          "fact": "لا يوضع مستلقيًا إلا أثناء النقل على الأرض."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — payload fairing",
+      "artBrief": "Een doorsnede van een raket met bovenin de lading en onderin de motoren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat zit er bovenin een raket?",
+          "answer": "De lading",
+          "wrong": [
+            "De grote motor",
+            "De brandstoftank",
+            "De vleugels"
+          ],
+          "hint": "Dat is waarvoor de reis wordt gemaakt.",
+          "explanation": "Bovenin zit de lading: een satelliet, vracht of mensen.",
+          "fact": "De motoren zitten juist helemaal onderin."
+        },
+        "en": {
+          "prompt": "What sits at the top of a rocket?",
+          "answer": "The payload",
+          "wrong": [
+            "The big engine",
+            "The fuel tank",
+            "The wings"
+          ],
+          "hint": "It is what the trip is for.",
+          "explanation": "At the top sits the payload: a satellite, cargo or people.",
+          "fact": "The engines are right at the bottom instead."
+        },
+        "de": {
+          "prompt": "Was sitzt ganz oben in einer Rakete?",
+          "answer": "Die Nutzlast",
+          "wrong": [
+            "Der große Motor",
+            "Der Tank",
+            "Die Flügel"
+          ],
+          "hint": "Dafür wird die ganze Reise gemacht.",
+          "explanation": "Ganz oben sitzt die Nutzlast: ein Satellit, Fracht oder Menschen.",
+          "fact": "Die Motoren sitzen dagegen ganz unten."
+        },
+        "fr": {
+          "prompt": "Qu'y a-t-il tout en haut d'une fusée ?",
+          "answer": "La charge utile",
+          "wrong": [
+            "Le gros moteur",
+            "Le réservoir",
+            "Les ailes"
+          ],
+          "hint": "C'est le but du voyage.",
+          "explanation": "Tout en haut se trouve la charge : un satellite, du fret ou des gens.",
+          "fact": "Les moteurs, eux, sont tout en bas."
+        },
+        "es": {
+          "prompt": "¿Qué va en la parte más alta de un cohete?",
+          "answer": "La carga",
+          "wrong": [
+            "El motor grande",
+            "El depósito",
+            "Las alas"
+          ],
+          "hint": "Es el motivo del viaje.",
+          "explanation": "Arriba va la carga: un satélite, mercancía o personas.",
+          "fact": "Los motores, en cambio, van abajo del todo."
+        },
+        "it": {
+          "prompt": "Che cosa si trova in cima a un razzo?",
+          "answer": "Il carico",
+          "wrong": [
+            "Il motore grande",
+            "Il serbatoio",
+            "Le ali"
+          ],
+          "hint": "È lo scopo del viaggio.",
+          "explanation": "In cima c'è il carico: un satellite, merci o persone.",
+          "fact": "I motori invece stanno proprio in fondo."
+        },
+        "pt": {
+          "prompt": "O que vai no topo de um foguetão?",
+          "answer": "A carga",
+          "wrong": [
+            "O motor grande",
+            "O depósito",
+            "As asas"
+          ],
+          "hint": "É o motivo da viagem.",
+          "explanation": "No topo vai a carga: um satélite, mercadoria ou pessoas.",
+          "fact": "Os motores ficam lá em baixo."
+        },
+        "da": {
+          "prompt": "Hvad sidder øverst i en raket?",
+          "answer": "Lasten",
+          "wrong": [
+            "Den store motor",
+            "Brændstoftanken",
+            "Vingerne"
+          ],
+          "hint": "Det er derfor hele rejsen sker.",
+          "explanation": "Øverst sidder lasten: en satellit, fragt eller mennesker.",
+          "fact": "Motorerne sidder derimod helt nederst."
+        },
+        "ru": {
+          "prompt": "Что находится на самом верху ракеты?",
+          "answer": "Полезный груз",
+          "wrong": [
+            "Большой двигатель",
+            "Топливный бак",
+            "Крылья"
+          ],
+          "hint": "Ради этого и весь полёт.",
+          "explanation": "Наверху находится груз: спутник, припасы или люди.",
+          "fact": "А двигатели стоят в самом низу."
+        },
+        "ar": {
+          "prompt": "ماذا يوجد في أعلى الصاروخ؟",
+          "answer": "الحمولة",
+          "wrong": [
+            "المحرك الكبير",
+            "خزان الوقود",
+            "الأجنحة"
+          ],
+          "hint": "من أجلها تتم الرحلة كلها.",
+          "explanation": "في الأعلى توضع الحمولة: قمر صناعي أو بضائع أو بشر.",
+          "fact": "أما المحركات فتكون في الأسفل تمامًا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NASA — propellant mass fraction",
+      "artBrief": "Een doorsnede van een raket waarin het grootste deel brandstoftank is.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is een raket zo groot?",
+          "answer": "Hij zit vol brandstof",
+          "wrong": [
+            "Voor de sier",
+            "Voor veel ramen",
+            "Om zwaar te zijn"
+          ],
+          "hint": "Bijna alles binnenin is tank.",
+          "explanation": "Het grootste deel van een raket is brandstoftank.",
+          "fact": "Bij het vertrek is negen tiende van het gewicht brandstof."
+        },
+        "en": {
+          "prompt": "Why is a rocket so big?",
+          "answer": "It is full of fuel",
+          "wrong": [
+            "To look grand",
+            "For lots of windows",
+            "To be heavy"
+          ],
+          "hint": "Almost everything inside is tank.",
+          "explanation": "Most of a rocket is fuel tank.",
+          "fact": "At lift-off nine tenths of the weight is fuel."
+        },
+        "de": {
+          "prompt": "Warum ist eine Rakete so groß?",
+          "answer": "Sie ist voller Treibstoff",
+          "wrong": [
+            "Zur Zierde",
+            "Für viele Fenster",
+            "Um schwer zu sein"
+          ],
+          "hint": "Fast alles darin ist Tank.",
+          "explanation": "Der größte Teil einer Rakete ist Treibstofftank.",
+          "fact": "Beim Start sind neun Zehntel des Gewichts Treibstoff."
+        },
+        "fr": {
+          "prompt": "Pourquoi une fusée est-elle si grande ?",
+          "answer": "Elle est pleine de carburant",
+          "wrong": [
+            "Pour faire joli",
+            "Pour avoir des fenêtres",
+            "Pour être lourde"
+          ],
+          "hint": "Presque tout à l'intérieur est réservoir.",
+          "explanation": "La plus grande partie d'une fusée est un réservoir.",
+          "fact": "Au décollage, neuf dixièmes du poids sont du carburant."
+        },
+        "es": {
+          "prompt": "¿Por qué es tan grande un cohete?",
+          "answer": "Va lleno de combustible",
+          "wrong": [
+            "Para lucirse",
+            "Para tener ventanas",
+            "Para pesar mucho"
+          ],
+          "hint": "Casi todo su interior es depósito.",
+          "explanation": "La mayor parte de un cohete es depósito de combustible.",
+          "fact": "Al despegar, nueve décimas partes del peso son combustible."
+        },
+        "it": {
+          "prompt": "Perché un razzo è così grande?",
+          "answer": "È pieno di carburante",
+          "wrong": [
+            "Per fare scena",
+            "Per avere finestrini",
+            "Per essere pesante"
+          ],
+          "hint": "Quasi tutto dentro è serbatoio.",
+          "explanation": "La maggior parte di un razzo è serbatoio di carburante.",
+          "fact": "Al decollo nove decimi del peso sono carburante."
+        },
+        "pt": {
+          "prompt": "Porque é tão grande um foguetão?",
+          "answer": "Vai cheio de combustível",
+          "wrong": [
+            "Para dar nas vistas",
+            "Para ter janelas",
+            "Para ser pesado"
+          ],
+          "hint": "Quase tudo lá dentro é depósito.",
+          "explanation": "A maior parte de um foguetão é depósito de combustível.",
+          "fact": "Ao descolar, nove décimos do peso são combustível."
+        },
+        "da": {
+          "prompt": "Hvorfor er en raket så stor?",
+          "answer": "Den er fuld af brændstof",
+          "wrong": [
+            "For at se flot ud",
+            "For at have vinduer",
+            "For at være tung"
+          ],
+          "hint": "Næsten alt indeni er tank.",
+          "explanation": "Størstedelen af en raket er brændstoftank.",
+          "fact": "Ved start er ni tiendedele af vægten brændstof."
+        },
+        "ru": {
+          "prompt": "Почему ракета такая большая?",
+          "answer": "Она полна топлива",
+          "wrong": [
+            "Для красоты",
+            "Ради окон",
+            "Чтобы быть тяжелее"
+          ],
+          "hint": "Почти всё внутри — это бак.",
+          "explanation": "Большая часть ракеты — топливный бак.",
+          "fact": "При старте девять десятых веса это топливо."
+        },
+        "ar": {
+          "prompt": "لماذا الصاروخ كبير إلى هذا الحد؟",
+          "answer": "لأنه مملوء بالوقود",
+          "wrong": [
+            "للمظهر",
+            "ليحوي نوافذ",
+            "ليكون ثقيلًا"
+          ],
+          "hint": "كل ما بداخله تقريبًا خزان.",
+          "explanation": "معظم جسم الصاروخ خزان وقود.",
+          "fact": "عند الانطلاق تسعة أعشار وزنه وقود."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — payload fairing protects the cargo",
+      "artBrief": "De puntige neus van een raket die opengaat en een satelliet vrijgeeft.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar is de puntige neus van een raket voor?",
+          "answer": "Om de lading te beschermen",
+          "wrong": [
+            "Om te versieren",
+            "Om te remmen",
+            "Om te sturen"
+          ],
+          "hint": "Hij gaat later open.",
+          "explanation": "De neus beschermt de lading tegen wind en warmte, en klapt later open.",
+          "fact": "Daarna wordt hij afgeworpen om gewicht te sparen."
+        },
+        "en": {
+          "prompt": "What is the pointed nose of a rocket for?",
+          "answer": "To protect the payload",
+          "wrong": [
+            "For decoration",
+            "For braking",
+            "For steering"
+          ],
+          "hint": "It opens up later.",
+          "explanation": "The nose shields the payload from wind and heat, then opens.",
+          "fact": "After that it is dropped to save weight."
+        },
+        "de": {
+          "prompt": "Wofür ist die spitze Nase einer Rakete da?",
+          "answer": "Zum Schutz der Nutzlast",
+          "wrong": [
+            "Zur Zierde",
+            "Zum Bremsen",
+            "Zum Lenken"
+          ],
+          "hint": "Sie geht später auf.",
+          "explanation": "Die Nase schützt die Nutzlast vor Wind und Hitze und klappt später auf.",
+          "fact": "Danach wird sie abgeworfen, um Gewicht zu sparen."
+        },
+        "fr": {
+          "prompt": "À quoi sert le nez pointu d'une fusée ?",
+          "answer": "À protéger la charge",
+          "wrong": [
+            "À décorer",
+            "À freiner",
+            "À diriger"
+          ],
+          "hint": "Il s'ouvre plus tard.",
+          "explanation": "Le nez protège la charge du vent et de la chaleur, puis s'ouvre.",
+          "fact": "Ensuite il est largué pour gagner du poids."
+        },
+        "es": {
+          "prompt": "¿Para qué sirve la punta afilada de un cohete?",
+          "answer": "Para proteger la carga",
+          "wrong": [
+            "Para decorar",
+            "Para frenar",
+            "Para dirigir"
+          ],
+          "hint": "Se abre más tarde.",
+          "explanation": "La punta protege la carga del viento y del calor y luego se abre.",
+          "fact": "Después se suelta para ahorrar peso."
+        },
+        "it": {
+          "prompt": "A che serve la punta aguzza di un razzo?",
+          "answer": "A proteggere il carico",
+          "wrong": [
+            "A decorare",
+            "A frenare",
+            "A sterzare"
+          ],
+          "hint": "Si apre più tardi.",
+          "explanation": "La punta protegge il carico da vento e calore, poi si apre.",
+          "fact": "Dopo viene sganciata per risparmiare peso."
+        },
+        "pt": {
+          "prompt": "Para que serve a ponta afiada de um foguetão?",
+          "answer": "Para proteger a carga",
+          "wrong": [
+            "Para enfeitar",
+            "Para travar",
+            "Para guiar"
+          ],
+          "hint": "Abre-se mais tarde.",
+          "explanation": "A ponta protege a carga do vento e do calor e depois abre-se.",
+          "fact": "A seguir é largada para poupar peso."
+        },
+        "da": {
+          "prompt": "Hvad er den spidse næse på en raket til?",
+          "answer": "At beskytte lasten",
+          "wrong": [
+            "At pynte",
+            "At bremse",
+            "At styre"
+          ],
+          "hint": "Den åbner sig senere.",
+          "explanation": "Næsen beskytter lasten mod vind og varme og klapper senere op.",
+          "fact": "Bagefter smides den væk for at spare vægt."
+        },
+        "ru": {
+          "prompt": "Для чего у ракеты острый нос?",
+          "answer": "Чтобы защитить груз",
+          "wrong": [
+            "Для украшения",
+            "Для торможения",
+            "Для поворотов"
+          ],
+          "hint": "Позже он раскрывается.",
+          "explanation": "Нос защищает груз от ветра и жара, а потом раскрывается.",
+          "fact": "Затем его сбрасывают, чтобы не везти лишний вес."
+        },
+        "ar": {
+          "prompt": "ما فائدة المقدمة المدببة للصاروخ؟",
+          "answer": "حماية الحمولة",
+          "wrong": [
+            "الزينة",
+            "الكبح",
+            "التوجيه"
+          ],
+          "hint": "تنفتح لاحقًا.",
+          "explanation": "المقدمة تحمي الحمولة من الرياح والحرارة ثم تنفتح.",
+          "fact": "ثم تُلقى لتخفيف الوزن."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — rockets carry their own oxidiser",
+      "artBrief": "Twee tanks naast elkaar in een raket, een met brandstof en een met vloeibare zuurstof.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom kan een raketmotor branden zonder lucht?",
+          "answer": "Hij neemt zuurstof mee",
+          "wrong": [
+            "Er is lucht in de ruimte",
+            "Hij brandt op water",
+            "Hij maakt geen vuur"
+          ],
+          "hint": "Vuur heeft twee dingen nodig.",
+          "explanation": "Een raket heeft een eigen tank met zuurstof bij zich.",
+          "fact": "Daarom werkt hij ook waar helemaal geen lucht is."
+        },
+        "en": {
+          "prompt": "Why can a rocket engine burn without air?",
+          "answer": "It carries its own oxygen",
+          "wrong": [
+            "There is air in space",
+            "It burns water",
+            "It makes no fire"
+          ],
+          "hint": "Fire needs two things.",
+          "explanation": "A rocket carries its own tank of oxygen with it.",
+          "fact": "That is why it works where there is no air at all."
+        },
+        "de": {
+          "prompt": "Warum brennt ein Raketenmotor ohne Luft?",
+          "answer": "Er hat Sauerstoff dabei",
+          "wrong": [
+            "Im All gibt es Luft",
+            "Er brennt mit Wasser",
+            "Er macht kein Feuer"
+          ],
+          "hint": "Feuer braucht zwei Dinge.",
+          "explanation": "Eine Rakete führt einen eigenen Sauerstofftank mit.",
+          "fact": "Darum läuft sie auch dort, wo gar keine Luft ist."
+        },
+        "fr": {
+          "prompt": "Pourquoi un moteur de fusée brûle-t-il sans air ?",
+          "answer": "Il emporte son oxygène",
+          "wrong": [
+            "L'espace est plein d'air",
+            "Il brûle de l'eau",
+            "Il ne fait pas de feu"
+          ],
+          "hint": "Le feu a besoin de deux choses.",
+          "explanation": "Une fusée emporte son propre réservoir d'oxygène.",
+          "fact": "C'est pourquoi elle fonctionne là où il n'y a pas d'air."
+        },
+        "es": {
+          "prompt": "¿Por qué arde un motor de cohete sin aire?",
+          "answer": "Lleva su propio oxígeno",
+          "wrong": [
+            "En el espacio hay aire",
+            "Arde con agua",
+            "No hace fuego"
+          ],
+          "hint": "El fuego necesita dos cosas.",
+          "explanation": "Un cohete lleva su propio depósito de oxígeno.",
+          "fact": "Por eso funciona donde no hay nada de aire."
+        },
+        "it": {
+          "prompt": "Perché un motore a razzo brucia senza aria?",
+          "answer": "Porta con sé l'ossigeno",
+          "wrong": [
+            "Nello spazio c'è aria",
+            "Brucia acqua",
+            "Non fa fuoco"
+          ],
+          "hint": "Il fuoco ha bisogno di due cose.",
+          "explanation": "Un razzo porta un proprio serbatoio di ossigeno.",
+          "fact": "Per questo funziona anche dove non c'è aria."
+        },
+        "pt": {
+          "prompt": "Porque arde um motor de foguetão sem ar?",
+          "answer": "Leva o seu oxigénio",
+          "wrong": [
+            "No espaço há ar",
+            "Arde com água",
+            "Não faz fogo"
+          ],
+          "hint": "O fogo precisa de duas coisas.",
+          "explanation": "Um foguetão leva o seu próprio depósito de oxigénio.",
+          "fact": "Por isso funciona onde não há ar nenhum."
+        },
+        "da": {
+          "prompt": "Hvorfor kan en raketmotor brænde uden luft?",
+          "answer": "Den har ilt med",
+          "wrong": [
+            "Der er luft i rummet",
+            "Den brænder vand",
+            "Den laver ikke ild"
+          ],
+          "hint": "Ild har brug for to ting.",
+          "explanation": "En raket har sin egen tank med ilt med sig.",
+          "fact": "Derfor virker den også, hvor der slet ingen luft er."
+        },
+        "ru": {
+          "prompt": "Почему ракетный двигатель горит без воздуха?",
+          "answer": "Он везёт свой кислород",
+          "wrong": [
+            "В космосе есть воздух",
+            "Он горит на воде",
+            "Он не даёт огня"
+          ],
+          "hint": "Огню нужны две вещи.",
+          "explanation": "У ракеты есть собственный бак с кислородом.",
+          "fact": "Поэтому она работает там, где воздуха нет совсем."
+        },
+        "ar": {
+          "prompt": "لماذا يشتعل محرك الصاروخ بلا هواء؟",
+          "answer": "يحمل الأكسجين معه",
+          "wrong": [
+            "يوجد هواء في الفضاء",
+            "يحترق بالماء",
+            "لا يصنع نارًا"
+          ],
+          "hint": "النار تحتاج إلى شيئين.",
+          "explanation": "يحمل الصاروخ خزان أكسجين خاصًا به.",
+          "fact": "لذلك يعمل حيث لا هواء إطلاقًا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — the launch cloud is mostly water vapour",
+      "artBrief": "Een enorme witte wolk onder een opstijgende raket, met waterleidingen op het platform.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waaruit bestaat de witte wolk bij een lancering vooral?",
+          "answer": "Waterdamp",
+          "wrong": [
+            "Rook van hout",
+            "Mist van zee",
+            "Sneeuw"
+          ],
+          "hint": "Er wordt water op het platform gespoten.",
+          "explanation": "Het is vooral waterdamp van het water dat het platform koelt.",
+          "fact": "Dat water dempt ook het oorverdovende geluid."
+        },
+        "en": {
+          "prompt": "What is the white cloud at a launch mostly made of?",
+          "answer": "Water vapour",
+          "wrong": [
+            "Wood smoke",
+            "Sea mist",
+            "Snow"
+          ],
+          "hint": "Water is sprayed onto the pad.",
+          "explanation": "It is mostly steam from the water that cools the launch pad.",
+          "fact": "That water also softens the deafening noise."
+        },
+        "de": {
+          "prompt": "Woraus besteht die weiße Wolke beim Start vor allem?",
+          "answer": "Wasserdampf",
+          "wrong": [
+            "Holzrauch",
+            "Nebel vom Meer",
+            "Schnee"
+          ],
+          "hint": "Auf die Rampe wird Wasser gesprüht.",
+          "explanation": "Es ist vor allem Dampf vom Wasser, das die Startrampe kühlt.",
+          "fact": "Dieses Wasser dämpft auch den ohrenbetäubenden Lärm."
+        },
+        "fr": {
+          "prompt": "De quoi est faite surtout la fumée blanche d'un décollage ?",
+          "answer": "De vapeur d'eau",
+          "wrong": [
+            "De fumée de bois",
+            "De brume marine",
+            "De neige"
+          ],
+          "hint": "On asperge le pas de tir d'eau.",
+          "explanation": "C'est surtout de la vapeur de l'eau qui refroidit le pas de tir.",
+          "fact": "Cette eau amortit aussi le bruit assourdissant."
+        },
+        "es": {
+          "prompt": "¿De qué es sobre todo la nube blanca de un lanzamiento?",
+          "answer": "De vapor de agua",
+          "wrong": [
+            "De humo de leña",
+            "De niebla marina",
+            "De nieve"
+          ],
+          "hint": "Se rocía agua sobre la plataforma.",
+          "explanation": "Es sobre todo vapor del agua que enfría la plataforma.",
+          "fact": "Esa agua también amortigua el ruido ensordecedor."
+        },
+        "it": {
+          "prompt": "Di che cosa è fatta la nuvola bianca di un lancio?",
+          "answer": "Di vapore acqueo",
+          "wrong": [
+            "Di fumo di legna",
+            "Di nebbia di mare",
+            "Di neve"
+          ],
+          "hint": "Sulla rampa si spruzza acqua.",
+          "explanation": "È soprattutto vapore dell'acqua che raffredda la rampa.",
+          "fact": "Quell'acqua smorza anche il rumore assordante."
+        },
+        "pt": {
+          "prompt": "De que é feita a nuvem branca de um lançamento?",
+          "answer": "De vapor de água",
+          "wrong": [
+            "De fumo de lenha",
+            "De nevoeiro do mar",
+            "De neve"
+          ],
+          "hint": "Espalha-se água na plataforma.",
+          "explanation": "É sobretudo vapor da água que arrefece a plataforma.",
+          "fact": "Essa água também abafa o barulho ensurdecedor."
+        },
+        "da": {
+          "prompt": "Hvad består den hvide sky ved en opsendelse mest af?",
+          "answer": "Vanddamp",
+          "wrong": [
+            "Røg fra træ",
+            "Havtåge",
+            "Sne"
+          ],
+          "hint": "Der sprøjtes vand på rampen.",
+          "explanation": "Det er mest damp fra det vand, der køler affyringsrampen.",
+          "fact": "Vandet dæmper også den øredøvende larm."
+        },
+        "ru": {
+          "prompt": "Из чего в основном белое облако при старте?",
+          "answer": "Из водяного пара",
+          "wrong": [
+            "Из дыма от дров",
+            "Из морского тумана",
+            "Из снега"
+          ],
+          "hint": "На стартовый стол льют воду.",
+          "explanation": "Это в основном пар от воды, которая охлаждает стартовый стол.",
+          "fact": "Эта вода ещё и приглушает оглушительный грохот."
+        },
+        "ar": {
+          "prompt": "مم تتكون السحابة البيضاء عند الإطلاق؟",
+          "answer": "من بخار الماء",
+          "wrong": [
+            "من دخان الحطب",
+            "من ضباب البحر",
+            "من الثلج"
+          ],
+          "hint": "يُرش الماء على المنصة.",
+          "explanation": "هي في الأغلب بخار من الماء الذي يبرد منصة الإطلاق.",
+          "fact": "ويخفف ذلك الماء أيضًا الضجيج المدوي."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "SpaceX — Falcon 9 booster landing",
+      "artBrief": "Een raket die rechtop op vier poten landt op een platform in zee.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe komt een herbruikbare raket weer terug?",
+          "answer": "Rechtop op zijn poten",
+          "wrong": [
+            "Met een parachute in zee",
+            "Op een landingsbaan",
+            "Hij komt nooit terug"
+          ],
+          "hint": "Hij remt af met zijn eigen motor.",
+          "explanation": "Zo'n raket landt rechtop op uitklapbare poten.",
+          "fact": "Soms staat het landingsplatform midden op zee."
+        },
+        "en": {
+          "prompt": "How does a reusable rocket come back?",
+          "answer": "Upright on its legs",
+          "wrong": [
+            "By parachute into the sea",
+            "On a runway",
+            "It never comes back"
+          ],
+          "hint": "It brakes with its own engine.",
+          "explanation": "Such a rocket lands upright on legs that fold out.",
+          "fact": "Sometimes the landing pad is a ship far out at sea."
+        },
+        "de": {
+          "prompt": "Wie kommt eine wiederverwendbare Rakete zurück?",
+          "answer": "Aufrecht auf ihren Beinen",
+          "wrong": [
+            "Am Fallschirm ins Meer",
+            "Auf einer Landebahn",
+            "Sie kommt nie zurück"
+          ],
+          "hint": "Sie bremst mit dem eigenen Motor.",
+          "explanation": "So eine Rakete landet aufrecht auf ausklappbaren Beinen.",
+          "fact": "Manchmal steht die Plattform mitten auf dem Meer."
+        },
+        "fr": {
+          "prompt": "Comment revient une fusée réutilisable ?",
+          "answer": "Debout sur ses pieds",
+          "wrong": [
+            "En parachute dans la mer",
+            "Sur une piste",
+            "Elle ne revient jamais"
+          ],
+          "hint": "Elle freine avec son propre moteur.",
+          "explanation": "Elle se pose debout sur des pieds qui se déplient.",
+          "fact": "Parfois la plateforme est un navire en pleine mer."
+        },
+        "es": {
+          "prompt": "¿Cómo vuelve un cohete reutilizable?",
+          "answer": "De pie sobre sus patas",
+          "wrong": [
+            "En paracaídas al mar",
+            "En una pista",
+            "No vuelve nunca"
+          ],
+          "hint": "Frena con su propio motor.",
+          "explanation": "Aterriza de pie sobre unas patas que se despliegan.",
+          "fact": "A veces la plataforma es un barco en alta mar."
+        },
+        "it": {
+          "prompt": "Come torna indietro un razzo riutilizzabile?",
+          "answer": "In piedi sulle sue zampe",
+          "wrong": [
+            "Col paracadute in mare",
+            "Su una pista",
+            "Non torna mai"
+          ],
+          "hint": "Frena con il proprio motore.",
+          "explanation": "Atterra in piedi su gambe che si aprono.",
+          "fact": "A volte la piattaforma è una nave in mezzo al mare."
+        },
+        "pt": {
+          "prompt": "Como volta um foguetão reutilizável?",
+          "answer": "De pé sobre as patas",
+          "wrong": [
+            "De paraquedas ao mar",
+            "Numa pista",
+            "Nunca volta"
+          ],
+          "hint": "Trava com o próprio motor.",
+          "explanation": "Aterra de pé sobre pernas que se abrem.",
+          "fact": "Às vezes a plataforma é um navio no meio do mar."
+        },
+        "da": {
+          "prompt": "Hvordan kommer en genbrugsraket tilbage?",
+          "answer": "Oprejst på sine ben",
+          "wrong": [
+            "I faldskærm i havet",
+            "På en landingsbane",
+            "Den kommer aldrig tilbage"
+          ],
+          "hint": "Den bremser med sin egen motor.",
+          "explanation": "Den lander oprejst på ben, der folder ud.",
+          "fact": "Nogle gange står platformen midt ude på havet."
+        },
+        "ru": {
+          "prompt": "Как возвращается многоразовая ракета?",
+          "answer": "Вертикально на опоры",
+          "wrong": [
+            "На парашюте в море",
+            "На взлётную полосу",
+            "Она не возвращается"
+          ],
+          "hint": "Она тормозит своим двигателем.",
+          "explanation": "Такая ракета садится вертикально на раскладные опоры.",
+          "fact": "Иногда площадка — это судно посреди океана."
+        },
+        "ar": {
+          "prompt": "كيف يعود الصاروخ القابل لإعادة الاستخدام؟",
+          "answer": "منتصبًا على أرجله",
+          "wrong": [
+            "بمظلة إلى البحر",
+            "على مدرج",
+            "لا يعود أبدًا"
+          ],
+          "hint": "يكبح بمحركه الخاص.",
+          "explanation": "يهبط منتصبًا على أرجل تنفتح عند الهبوط.",
+          "fact": "وأحيانًا تكون المنصة سفينة في عرض البحر."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NASA — eastward launches use the earth's rotation",
+      "artBrief": "De aarde van bovenaf met een raketbaan die met de draairichting mee naar het oosten buigt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom vertrekken raketten vaak naar het oosten?",
+          "answer": "De aarde draait mee",
+          "wrong": [
+            "Daar is het warmer",
+            "De zon staat daar",
+            "Dat is korter"
+          ],
+          "hint": "Je krijgt gratis snelheid mee.",
+          "explanation": "Door met de draaiing van de aarde mee te vliegen scheelt dat brandstof.",
+          "fact": "Daarom liggen lanceerbases graag dicht bij de evenaar."
+        },
+        "en": {
+          "prompt": "Why do rockets often launch towards the east?",
+          "answer": "The earth turns that way",
+          "wrong": [
+            "It is warmer there",
+            "The sun is there",
+            "It is a shorter trip"
+          ],
+          "hint": "You get free speed thrown in.",
+          "explanation": "Flying along with the earth's spin saves a lot of fuel.",
+          "fact": "That is why launch sites like to sit near the equator."
+        },
+        "de": {
+          "prompt": "Warum starten Raketen oft nach Osten?",
+          "answer": "Die Erde dreht sich mit",
+          "wrong": [
+            "Dort ist es wärmer",
+            "Dort steht die Sonne",
+            "Der Weg ist kürzer"
+          ],
+          "hint": "Man bekommt Tempo geschenkt.",
+          "explanation": "Mit der Erddrehung mitzufliegen spart viel Treibstoff.",
+          "fact": "Darum liegen Startplätze gern nahe am Äquator."
+        },
+        "fr": {
+          "prompt": "Pourquoi les fusées partent-elles souvent vers l'est ?",
+          "answer": "La Terre tourne par là",
+          "wrong": [
+            "Il y fait plus chaud",
+            "Le Soleil est là",
+            "Le trajet est plus court"
+          ],
+          "hint": "On gagne de la vitesse gratuite.",
+          "explanation": "Voler dans le sens de rotation de la Terre économise du carburant.",
+          "fact": "C'est pourquoi les bases aiment être près de l'équateur."
+        },
+        "es": {
+          "prompt": "¿Por qué los cohetes salen a menudo hacia el este?",
+          "answer": "La Tierra gira hacia allí",
+          "wrong": [
+            "Allí hace más calor",
+            "Allí está el Sol",
+            "El camino es más corto"
+          ],
+          "hint": "Te regalan velocidad.",
+          "explanation": "Volar con el giro de la Tierra ahorra mucho combustible.",
+          "fact": "Por eso las bases prefieren estar cerca del ecuador."
+        },
+        "it": {
+          "prompt": "Perché i razzi partono spesso verso est?",
+          "answer": "La Terra gira di là",
+          "wrong": [
+            "Lì fa più caldo",
+            "Lì c'è il Sole",
+            "È più corto"
+          ],
+          "hint": "Ti regalano velocità.",
+          "explanation": "Volare nel senso della rotazione terrestre risparmia carburante.",
+          "fact": "Per questo le basi stanno volentieri vicino all'equatore."
+        },
+        "pt": {
+          "prompt": "Porque partem os foguetões muitas vezes para leste?",
+          "answer": "A Terra roda para lá",
+          "wrong": [
+            "Faz mais calor",
+            "O Sol está lá",
+            "O caminho é mais curto"
+          ],
+          "hint": "Ganha-se velocidade de graça.",
+          "explanation": "Voar no sentido da rotação da Terra poupa muito combustível.",
+          "fact": "Por isso as bases gostam de ficar perto do equador."
+        },
+        "da": {
+          "prompt": "Hvorfor starter raketter tit mod øst?",
+          "answer": "Jorden drejer den vej",
+          "wrong": [
+            "Der er varmere",
+            "Solen står der",
+            "Vejen er kortere"
+          ],
+          "hint": "Man får fart forærende.",
+          "explanation": "At flyve med Jordens rotation sparer meget brændstof.",
+          "fact": "Derfor ligger affyringsbaser gerne tæt på ækvator."
+        },
+        "ru": {
+          "prompt": "Почему ракеты часто стартуют на восток?",
+          "answer": "Земля вращается туда же",
+          "wrong": [
+            "Там теплее",
+            "Там Солнце",
+            "Так короче"
+          ],
+          "hint": "Скорость достаётся даром.",
+          "explanation": "Полёт по вращению Земли экономит много топлива.",
+          "fact": "Поэтому космодромы любят строить ближе к экватору."
+        },
+        "ar": {
+          "prompt": "لماذا تنطلق الصواريخ غالبًا نحو الشرق؟",
+          "answer": "لأن الأرض تدور نحوه",
+          "wrong": [
+            "الجو أدفأ هناك",
+            "الشمس هناك",
+            "الطريق أقصر"
+          ],
+          "hint": "تكسب سرعة مجانية.",
+          "explanation": "الطيران مع دوران الأرض يوفر وقودًا كثيرًا.",
+          "fact": "لذلك تُبنى قواعد الإطلاق قرب خط الاستواء."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "SpaceX — Starship is the tallest rocket ever built",
+      "artBrief": "Een reusachtige zilveren raket naast kleinere raketten, om het verschil te tonen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet de grootste raket van dit moment?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturnus V",
+            "Ariane 6",
+            "Sojoez"
+          ],
+          "hint": "Hij is hoger dan een flatgebouw van veertig etages.",
+          "explanation": "Starship is met ruim 120 meter de hoogste raket ooit gebouwd.",
+          "fact": "Saturnus V was met 110 meter net iets kleiner."
+        },
+        "en": {
+          "prompt": "What is the biggest rocket at the moment called?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturn V",
+            "Ariane 6",
+            "Soyuz"
+          ],
+          "hint": "Taller than a forty-storey block of flats.",
+          "explanation": "At over 120 metres Starship is the tallest rocket ever built.",
+          "fact": "Saturn V was a little smaller at 110 metres."
+        },
+        "de": {
+          "prompt": "Wie heißt die größte Rakete von heute?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturn V",
+            "Ariane 6",
+            "Sojus"
+          ],
+          "hint": "Höher als ein Hochhaus mit vierzig Stockwerken.",
+          "explanation": "Mit über 120 Metern ist Starship die höchste je gebaute Rakete.",
+          "fact": "Saturn V war mit 110 Metern etwas kleiner."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle la plus grande fusée actuelle ?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturn V",
+            "Ariane 6",
+            "Soyouz"
+          ],
+          "hint": "Plus haute qu'un immeuble de quarante étages.",
+          "explanation": "Avec plus de 120 mètres, Starship est la plus haute fusée jamais construite.",
+          "fact": "Saturn V était un peu plus petite, 110 mètres."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama el cohete más grande de ahora?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturno V",
+            "Ariane 6",
+            "Soyuz"
+          ],
+          "hint": "Más alto que un edificio de cuarenta pisos.",
+          "explanation": "Con más de 120 metros, Starship es el cohete más alto jamás construido.",
+          "fact": "El Saturno V era algo menor, de 110 metros."
+        },
+        "it": {
+          "prompt": "Come si chiama il razzo più grande di oggi?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturn V",
+            "Ariane 6",
+            "Sojuz"
+          ],
+          "hint": "Più alto di un palazzo di quaranta piani.",
+          "explanation": "Con oltre 120 metri Starship è il razzo più alto mai costruito.",
+          "fact": "Il Saturn V era un po' più basso, 110 metri."
+        },
+        "pt": {
+          "prompt": "Como se chama o maior foguetão de agora?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturno V",
+            "Ariane 6",
+            "Soyuz"
+          ],
+          "hint": "Mais alto do que um prédio de quarenta andares.",
+          "explanation": "Com mais de 120 metros, o Starship é o foguetão mais alto de sempre.",
+          "fact": "O Saturno V era um pouco menor, 110 metros."
+        },
+        "da": {
+          "prompt": "Hvad hedder den største raket lige nu?",
+          "answer": "Starship",
+          "wrong": [
+            "Saturn V",
+            "Ariane 6",
+            "Sojuz"
+          ],
+          "hint": "Højere end en bygning på fyrre etager.",
+          "explanation": "Med over 120 meter er Starship den højeste raket nogensinde.",
+          "fact": "Saturn V var lidt mindre med 110 meter."
+        },
+        "ru": {
+          "prompt": "Как называется самая большая ракета сегодня?",
+          "answer": "Starship",
+          "wrong": [
+            "Сатурн-5",
+            "Ариан-6",
+            "Союз"
+          ],
+          "hint": "Выше сорокаэтажного дома.",
+          "explanation": "При высоте более 120 метров Starship — самая высокая ракета в истории.",
+          "fact": "Сатурн-5 был чуть ниже, 110 метров."
+        },
+        "ar": {
+          "prompt": "ما اسم أكبر صاروخ في أيامنا؟",
+          "answer": "ستارشيب",
+          "wrong": [
+            "ساتورن 5",
+            "أريان 6",
+            "سويوز"
+          ],
+          "hint": "أطول من مبنى من أربعين طابقًا.",
+          "explanation": "بارتفاع يفوق 120 مترًا، ستارشيب أطول صاروخ بُني يومًا.",
+          "fact": "وكان ساتورن 5 أقصر قليلًا بـ110 أمتار."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — reaction control thrusters",
+      "artBrief": "Kleine gasstraaltjes aan de zijkant van een ruimteschip die het langzaam laten draaien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee draait een ruimteschip zich in de ruimte?",
+          "answer": "Met kleine stuurraketjes",
+          "wrong": [
+            "Met een roer",
+            "Met vleugels",
+            "Met een propeller"
+          ],
+          "hint": "Er is geen lucht om tegenaan te duwen.",
+          "explanation": "Kleine gasstraaltjes langs de zijkant draaien het schip.",
+          "fact": "Een roer of vleugel doet in het luchtledige niets."
+        },
+        "en": {
+          "prompt": "What does a spacecraft turn itself with in space?",
+          "answer": "Small steering thrusters",
+          "wrong": [
+            "A rudder",
+            "Wings",
+            "A propeller"
+          ],
+          "hint": "There is no air to push against.",
+          "explanation": "Little jets of gas along the sides turn the craft.",
+          "fact": "A rudder or wing does nothing in a vacuum."
+        },
+        "de": {
+          "prompt": "Womit dreht sich ein Raumschiff im All?",
+          "answer": "Mit kleinen Steuerdüsen",
+          "wrong": [
+            "Mit einem Ruder",
+            "Mit Flügeln",
+            "Mit einem Propeller"
+          ],
+          "hint": "Es gibt keine Luft zum Abdrücken.",
+          "explanation": "Kleine Gasdüsen an den Seiten drehen das Schiff.",
+          "fact": "Ruder oder Flügel bringen im Vakuum nichts."
+        },
+        "fr": {
+          "prompt": "Avec quoi un vaisseau se tourne-t-il dans l'espace ?",
+          "answer": "De petits propulseurs",
+          "wrong": [
+            "Un gouvernail",
+            "Des ailes",
+            "Une hélice"
+          ],
+          "hint": "Il n'y a pas d'air pour s'appuyer.",
+          "explanation": "De petits jets de gaz sur les côtés font pivoter le vaisseau.",
+          "fact": "Un gouvernail ne sert à rien dans le vide."
+        },
+        "es": {
+          "prompt": "¿Con qué gira una nave en el espacio?",
+          "answer": "Con pequeños propulsores",
+          "wrong": [
+            "Con un timón",
+            "Con alas",
+            "Con una hélice"
+          ],
+          "hint": "No hay aire contra el que empujar.",
+          "explanation": "Unos chorritos de gas en los costados hacen girar la nave.",
+          "fact": "Un timón o un ala no sirven en el vacío."
+        },
+        "it": {
+          "prompt": "Con che cosa si gira una navicella nello spazio?",
+          "answer": "Con piccoli propulsori",
+          "wrong": [
+            "Con un timone",
+            "Con le ali",
+            "Con un'elica"
+          ],
+          "hint": "Non c'è aria su cui spingere.",
+          "explanation": "Piccoli getti di gas ai lati fanno ruotare la navicella.",
+          "fact": "Un timone nel vuoto non serve a niente."
+        },
+        "pt": {
+          "prompt": "Com o que roda uma nave no espaço?",
+          "answer": "Com pequenos propulsores",
+          "wrong": [
+            "Com um leme",
+            "Com asas",
+            "Com uma hélice"
+          ],
+          "hint": "Não há ar contra o qual empurrar.",
+          "explanation": "Pequenos jatos de gás nos lados fazem a nave rodar.",
+          "fact": "Um leme não serve de nada no vácuo."
+        },
+        "da": {
+          "prompt": "Hvad drejer et rumskib sig med ude i rummet?",
+          "answer": "Små styredyser",
+          "wrong": [
+            "Et ror",
+            "Vinger",
+            "En propel"
+          ],
+          "hint": "Der er ingen luft at skubbe fra.",
+          "explanation": "Små gasstråler på siderne drejer skibet.",
+          "fact": "Et ror eller en vinge gør intet i vakuum."
+        },
+        "ru": {
+          "prompt": "Чем корабль разворачивается в космосе?",
+          "answer": "Маленькими двигателями",
+          "wrong": [
+            "Рулём",
+            "Крыльями",
+            "Винтом"
+          ],
+          "hint": "Отталкиваться там не от чего.",
+          "explanation": "Маленькие струйки газа по бокам разворачивают корабль.",
+          "fact": "Руль и крыло в пустоте бесполезны."
+        },
+        "ar": {
+          "prompt": "بماذا تدور المركبة في الفضاء؟",
+          "answer": "بمحركات توجيه صغيرة",
+          "wrong": [
+            "بدفة",
+            "بأجنحة",
+            "بمروحة"
+          ],
+          "hint": "لا يوجد هواء تستند إليه.",
+          "explanation": "نفثات غاز صغيرة على الجانبين تدير المركبة.",
+          "fact": "الدفة والجناح لا ينفعان في الفراغ."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "ESA — geostationary orbit",
+      "artBrief": "De aarde met een satelliet die precies boven hetzelfde punt blijft hangen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een satelliet in een geostationaire baan?",
+          "answer": "Meedraaien met de aarde",
+          "wrong": [
+            "Om de maan draaien",
+            "Rechtdoor vliegen",
+            "Boven de pool hangen"
+          ],
+          "hint": "Hij blijft boven dezelfde plek staan.",
+          "explanation": "Hij draait precies even snel als de aarde en blijft dus boven één punt.",
+          "fact": "Daarom hoeft een schotel op het dak nooit te bewegen."
+        },
+        "en": {
+          "prompt": "What does a satellite in a geostationary orbit do?",
+          "answer": "Turn along with the earth",
+          "wrong": [
+            "Circle the moon",
+            "Fly in a straight line",
+            "Hover over the pole"
+          ],
+          "hint": "It stays above the same spot.",
+          "explanation": "It goes round exactly as fast as the earth, so it stays over one point.",
+          "fact": "That is why a dish on a roof never has to move."
+        },
+        "de": {
+          "prompt": "Was macht ein Satellit in geostationärer Bahn?",
+          "answer": "Er dreht mit der Erde mit",
+          "wrong": [
+            "Er umkreist den Mond",
+            "Er fliegt geradeaus",
+            "Er hängt über dem Pol"
+          ],
+          "hint": "Er bleibt über derselben Stelle.",
+          "explanation": "Er kreist genauso schnell wie die Erde und bleibt über einem Punkt.",
+          "fact": "Darum muss eine Schüssel auf dem Dach nie nachgeführt werden."
+        },
+        "fr": {
+          "prompt": "Que fait un satellite en orbite géostationnaire ?",
+          "answer": "Il tourne avec la Terre",
+          "wrong": [
+            "Il tourne autour de la Lune",
+            "Il va tout droit",
+            "Il reste au-dessus du pôle"
+          ],
+          "hint": "Il reste au-dessus du même endroit.",
+          "explanation": "Il tourne exactement à la vitesse de la Terre et reste au même point.",
+          "fact": "C'est pourquoi une parabole sur un toit ne bouge jamais."
+        },
+        "es": {
+          "prompt": "¿Qué hace un satélite en órbita geoestacionaria?",
+          "answer": "Gira junto con la Tierra",
+          "wrong": [
+            "Gira alrededor de la Luna",
+            "Va en línea recta",
+            "Queda sobre el polo"
+          ],
+          "hint": "Se queda sobre el mismo punto.",
+          "explanation": "Gira exactamente igual de rápido que la Tierra y no se mueve del sitio.",
+          "fact": "Por eso una antena en el tejado nunca se mueve."
+        },
+        "it": {
+          "prompt": "Che cosa fa un satellite in orbita geostazionaria?",
+          "answer": "Gira insieme alla Terra",
+          "wrong": [
+            "Gira attorno alla Luna",
+            "Va dritto",
+            "Resta sopra il polo"
+          ],
+          "hint": "Resta sopra lo stesso punto.",
+          "explanation": "Gira esattamente alla velocità della Terra e resta su un punto solo.",
+          "fact": "Per questo una parabola sul tetto non si muove mai."
+        },
+        "pt": {
+          "prompt": "O que faz um satélite em órbita geostacionária?",
+          "answer": "Roda junto com a Terra",
+          "wrong": [
+            "Anda à volta da Lua",
+            "Vai a direito",
+            "Fica sobre o polo"
+          ],
+          "hint": "Fica sempre sobre o mesmo sítio.",
+          "explanation": "Roda exatamente à velocidade da Terra e fica sobre um só ponto.",
+          "fact": "Por isso uma antena no telhado nunca precisa de se mexer."
+        },
+        "da": {
+          "prompt": "Hvad gør en satellit i geostationær bane?",
+          "answer": "Drejer med Jorden rundt",
+          "wrong": [
+            "Kredser om Månen",
+            "Flyver lige ud",
+            "Hænger over polen"
+          ],
+          "hint": "Den bliver over det samme sted.",
+          "explanation": "Den kredser præcis lige så hurtigt som Jorden og bliver over ét punkt.",
+          "fact": "Derfor skal en parabol på taget aldrig flyttes."
+        },
+        "ru": {
+          "prompt": "Что делает спутник на геостационарной орбите?",
+          "answer": "Вращается вместе с Землёй",
+          "wrong": [
+            "Летает вокруг Луны",
+            "Летит по прямой",
+            "Висит над полюсом"
+          ],
+          "hint": "Он остаётся над одним местом.",
+          "explanation": "Он вращается ровно со скоростью Земли и стоит над одной точкой.",
+          "fact": "Поэтому тарелке на крыше не нужно двигаться."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل قمر صناعي في مدار ثابت؟",
+          "answer": "يدور مع الأرض",
+          "wrong": [
+            "يدور حول القمر",
+            "يسير في خط مستقيم",
+            "يبقى فوق القطب"
+          ],
+          "hint": "يبقى فوق المكان نفسه.",
+          "explanation": "يدور بسرعة الأرض تمامًا فيبقى فوق نقطة واحدة.",
+          "fact": "لذلك لا يحتاج الطبق على السطح إلى تحريك."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "ESA — Ariane 6 first flight, 2024",
+      "artBrief": "Een Europese raket op het platform in de jungle van Frans-Guyana.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke Europese raket volgde de Ariane 5 op?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Sojoez",
+            "Falcon 9"
+          ],
+          "hint": "Gewoon het volgende nummer.",
+          "explanation": "Ariane 6 vloog in 2024 voor het eerst.",
+          "fact": "Hij vertrekt vanuit Kourou in Frans-Guyana."
+        },
+        "en": {
+          "prompt": "Which European rocket followed the Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Soyuz",
+            "Falcon 9"
+          ],
+          "hint": "Simply the next number.",
+          "explanation": "Ariane 6 flew for the first time in 2024.",
+          "fact": "It leaves from Kourou in French Guiana."
+        },
+        "de": {
+          "prompt": "Welche europäische Rakete folgte auf die Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Sojus",
+            "Falcon 9"
+          ],
+          "hint": "Einfach die nächste Nummer.",
+          "explanation": "Ariane 6 flog 2024 zum ersten Mal.",
+          "fact": "Sie startet von Kourou in Französisch-Guayana."
+        },
+        "fr": {
+          "prompt": "Quelle fusée européenne a succédé à Ariane 5 ?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Soyouz",
+            "Falcon 9"
+          ],
+          "hint": "Tout simplement le numéro suivant.",
+          "explanation": "Ariane 6 a volé pour la première fois en 2024.",
+          "fact": "Elle part de Kourou, en Guyane française."
+        },
+        "es": {
+          "prompt": "¿Qué cohete europeo sucedió al Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Soyuz",
+            "Falcon 9"
+          ],
+          "hint": "Simplemente el número siguiente.",
+          "explanation": "El Ariane 6 voló por primera vez en 2024.",
+          "fact": "Despega desde Kourou, en la Guayana Francesa."
+        },
+        "it": {
+          "prompt": "Quale razzo europeo è venuto dopo Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Sojuz",
+            "Falcon 9"
+          ],
+          "hint": "Semplicemente il numero dopo.",
+          "explanation": "Ariane 6 ha volato per la prima volta nel 2024.",
+          "fact": "Parte da Kourou, nella Guyana francese."
+        },
+        "pt": {
+          "prompt": "Que foguetão europeu veio depois do Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Soyuz",
+            "Falcon 9"
+          ],
+          "hint": "Simplesmente o número seguinte.",
+          "explanation": "O Ariane 6 voou pela primeira vez em 2024.",
+          "fact": "Parte de Kourou, na Guiana Francesa."
+        },
+        "da": {
+          "prompt": "Hvilken europæisk raket kom efter Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Sojuz",
+            "Falcon 9"
+          ],
+          "hint": "Simpelthen det næste nummer.",
+          "explanation": "Ariane 6 fløj første gang i 2024.",
+          "fact": "Den starter fra Kourou i Fransk Guyana."
+        },
+        "ru": {
+          "prompt": "Какая европейская ракета пришла после Ariane 5?",
+          "answer": "Ariane 6",
+          "wrong": [
+            "Vega",
+            "Союз",
+            "Falcon 9"
+          ],
+          "hint": "Просто следующий номер.",
+          "explanation": "Ariane 6 впервые полетела в 2024 году.",
+          "fact": "Она стартует из Куру во Французской Гвиане."
+        },
+        "ar": {
+          "prompt": "أي صاروخ أوروبي جاء بعد أريان 5؟",
+          "answer": "أريان 6",
+          "wrong": [
+            "فيغا",
+            "سويوز",
+            "فالكون 9"
+          ],
+          "hint": "ببساطة الرقم التالي.",
+          "explanation": "طار أريان 6 لأول مرة عام 2024.",
+          "fact": "ينطلق من كورو في غويانا الفرنسية."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "NASA — the gravity turn",
+      "artBrief": "De baan van een raket die recht omhoog begint en langzaam naar opzij buigt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom buigt een raket na de start langzaam opzij?",
+          "answer": "Om snelheid opzij te krijgen",
+          "wrong": [
+            "Om de zon te ontwijken",
+            "Om mooi te draaien",
+            "Om te kunnen filmen"
+          ],
+          "hint": "In een baan komen is vooral zijwaarts gaan.",
+          "explanation": "Om in een baan te blijven moet je vooral heel snel opzij vliegen.",
+          "fact": "Recht omhoog blijven vliegen zou je zo weer terug laten vallen."
+        },
+        "en": {
+          "prompt": "Why does a rocket slowly tilt sideways after lift-off?",
+          "answer": "To build sideways speed",
+          "wrong": [
+            "To dodge the sun",
+            "To look good turning",
+            "To be filmed better"
+          ],
+          "hint": "Reaching orbit is mostly going sideways.",
+          "explanation": "To stay in orbit you mainly have to travel sideways very fast.",
+          "fact": "Flying straight up would only let you fall back again."
+        },
+        "de": {
+          "prompt": "Warum kippt eine Rakete nach dem Start langsam zur Seite?",
+          "answer": "Um Tempo zur Seite zu holen",
+          "wrong": [
+            "Um der Sonne auszuweichen",
+            "Weil es schön aussieht",
+            "Um besser zu filmen"
+          ],
+          "hint": "In eine Bahn zu kommen heißt vor allem seitwärts.",
+          "explanation": "Für eine Umlaufbahn muss man vor allem sehr schnell seitwärts fliegen.",
+          "fact": "Nur geradeaus nach oben fiele man gleich wieder herunter."
+        },
+        "fr": {
+          "prompt": "Pourquoi une fusée s'incline-t-elle peu à peu après le départ ?",
+          "answer": "Pour prendre de la vitesse",
+          "wrong": [
+            "Pour éviter le Soleil",
+            "Parce que c'est joli",
+            "Pour être mieux filmée"
+          ],
+          "hint": "Se mettre en orbite, c'est surtout aller de côté.",
+          "explanation": "Pour rester en orbite il faut surtout filer très vite sur le côté.",
+          "fact": "Monter tout droit ne ferait que vous faire retomber."
+        },
+        "es": {
+          "prompt": "¿Por qué un cohete se inclina poco a poco tras despegar?",
+          "answer": "Para coger velocidad lateral",
+          "wrong": [
+            "Para esquivar el Sol",
+            "Porque queda bonito",
+            "Para grabarlo mejor"
+          ],
+          "hint": "Entrar en órbita es sobre todo ir de lado.",
+          "explanation": "Para quedarse en órbita hay que ir muy rápido hacia el lado.",
+          "fact": "Subir recto solo haría que volvieras a caer."
+        },
+        "it": {
+          "prompt": "Perché un razzo si inclina piano dopo il decollo?",
+          "answer": "Per prendere velocità",
+          "wrong": [
+            "Per evitare il Sole",
+            "Perché è bello",
+            "Per farsi riprendere"
+          ],
+          "hint": "Andare in orbita è soprattutto andare di lato.",
+          "explanation": "Per restare in orbita bisogna andare velocissimi di lato.",
+          "fact": "Salire dritti farebbe solo ricadere."
+        },
+        "pt": {
+          "prompt": "Porque se inclina um foguetão pouco depois de partir?",
+          "answer": "Para ganhar velocidade",
+          "wrong": [
+            "Para fugir do Sol",
+            "Porque fica bonito",
+            "Para ser filmado"
+          ],
+          "hint": "Entrar em órbita é sobretudo ir de lado.",
+          "explanation": "Para ficar em órbita é preciso ir muito depressa de lado.",
+          "fact": "Subir a direito só faria voltar a cair."
+        },
+        "da": {
+          "prompt": "Hvorfor hælder en raket langsomt til siden efter start?",
+          "answer": "For at få fart til siden",
+          "wrong": [
+            "For at undgå solen",
+            "Fordi det ser flot ud",
+            "For at blive filmet"
+          ],
+          "hint": "At komme i kredsløb er mest at gå sidelæns.",
+          "explanation": "For at blive i kredsløb skal man frem for alt flyve lynhurtigt sidelæns.",
+          "fact": "Lige op ville bare få en til at falde ned igen."
+        },
+        "ru": {
+          "prompt": "Почему ракета после старта плавно кренится вбок?",
+          "answer": "Чтобы набрать скорость вбок",
+          "wrong": [
+            "Чтобы обойти Солнце",
+            "Потому что красиво",
+            "Чтобы лучше снимали"
+          ],
+          "hint": "Выйти на орбиту — значит лететь вбок.",
+          "explanation": "Чтобы остаться на орбите, надо очень быстро лететь вбок.",
+          "fact": "Если лететь только вверх, упадёшь обратно."
+        },
+        "ar": {
+          "prompt": "لماذا يميل الصاروخ تدريجيًا بعد الانطلاق؟",
+          "answer": "ليكتسب سرعة جانبية",
+          "wrong": [
+            "ليتفادى الشمس",
+            "لأن المنظر جميل",
+            "ليسهل تصويره"
+          ],
+          "hint": "الوصول إلى المدار يعني السير جانبًا.",
+          "explanation": "للبقاء في مدار يجب الانطلاق جانبًا بسرعة هائلة.",
+          "fact": "الصعود المستقيم وحده يعيدك للسقوط."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — escape velocity is 11.2 km/s",
+      "artBrief": "Een raket die de aarde verlaat met een baan die niet meer terugkomt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe snel moet je gaan om de aarde helemaal te verlaten?",
+          "answer": "Ongeveer 40.000 km per uur",
+          "wrong": [
+            "300 km per uur",
+            "1.000 km per uur",
+            "300.000 km per uur"
+          ],
+          "hint": "Nog sneller dan voor een baan om de aarde.",
+          "explanation": "Bij ongeveer 40.000 kilometer per uur kom je los van de aarde.",
+          "fact": "Dat heet de ontsnappingssnelheid."
+        },
+        "en": {
+          "prompt": "How fast must you go to leave the earth completely?",
+          "answer": "About 40,000 km an hour",
+          "wrong": [
+            "300 km an hour",
+            "1,000 km an hour",
+            "300,000 km an hour"
+          ],
+          "hint": "Even faster than for an orbit.",
+          "explanation": "At about 40,000 kilometres an hour you break free of the earth.",
+          "fact": "That is called escape velocity."
+        },
+        "de": {
+          "prompt": "Wie schnell muss man sein, um die Erde ganz zu verlassen?",
+          "answer": "Etwa 40.000 km pro Stunde",
+          "wrong": [
+            "300 km pro Stunde",
+            "1.000 km pro Stunde",
+            "300.000 km pro Stunde"
+          ],
+          "hint": "Noch schneller als für eine Umlaufbahn.",
+          "explanation": "Bei etwa 40.000 Kilometern pro Stunde kommt man von der Erde los.",
+          "fact": "Das nennt man Fluchtgeschwindigkeit."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse faut-il aller pour quitter la Terre ?",
+          "answer": "Environ 40 000 km par heure",
+          "wrong": [
+            "300 km par heure",
+            "1 000 km par heure",
+            "300 000 km par heure"
+          ],
+          "hint": "Encore plus vite que pour une orbite.",
+          "explanation": "À environ 40 000 kilomètres par heure, on se libère de la Terre.",
+          "fact": "On appelle cela la vitesse de libération."
+        },
+        "es": {
+          "prompt": "¿A qué velocidad hay que ir para dejar la Tierra?",
+          "answer": "Unos 40.000 km por hora",
+          "wrong": [
+            "300 km por hora",
+            "1.000 km por hora",
+            "300.000 km por hora"
+          ],
+          "hint": "Aún más rápido que para una órbita.",
+          "explanation": "A unos 40.000 kilómetros por hora te sueltas de la Tierra.",
+          "fact": "Eso se llama velocidad de escape."
+        },
+        "it": {
+          "prompt": "Quanto veloce bisogna andare per lasciare la Terra?",
+          "answer": "Circa 40.000 km all'ora",
+          "wrong": [
+            "300 km all'ora",
+            "1.000 km all'ora",
+            "300.000 km all'ora"
+          ],
+          "hint": "Ancora più veloce che per un'orbita.",
+          "explanation": "A circa 40.000 chilometri all'ora ci si stacca dalla Terra.",
+          "fact": "Si chiama velocità di fuga."
+        },
+        "pt": {
+          "prompt": "A que velocidade é preciso ir para deixar a Terra?",
+          "answer": "Cerca de 40.000 km por hora",
+          "wrong": [
+            "300 km por hora",
+            "1.000 km por hora",
+            "300.000 km por hora"
+          ],
+          "hint": "Ainda mais depressa do que para uma órbita.",
+          "explanation": "A cerca de 40.000 quilómetros por hora soltamo-nos da Terra.",
+          "fact": "Chama-se velocidade de escape."
+        },
+        "da": {
+          "prompt": "Hvor hurtigt skal man for at forlade Jorden helt?",
+          "answer": "Cirka 40.000 km i timen",
+          "wrong": [
+            "300 km i timen",
+            "1.000 km i timen",
+            "300.000 km i timen"
+          ],
+          "hint": "Endnu hurtigere end til et kredsløb.",
+          "explanation": "Ved cirka 40.000 kilometer i timen slipper man fri af Jorden.",
+          "fact": "Det kaldes undvigelseshastighed."
+        },
+        "ru": {
+          "prompt": "Какая скорость нужна, чтобы совсем покинуть Землю?",
+          "answer": "Около 40 000 км в час",
+          "wrong": [
+            "300 км в час",
+            "1000 км в час",
+            "300 000 км в час"
+          ],
+          "hint": "Ещё быстрее, чем для орбиты.",
+          "explanation": "Примерно при 40 000 километрах в час отрываешься от Земли.",
+          "fact": "Это называют второй космической скоростью."
+        },
+        "ar": {
+          "prompt": "ما السرعة اللازمة لمغادرة الأرض تمامًا؟",
+          "answer": "نحو 40000 كم في الساعة",
+          "wrong": [
+            "300 كم في الساعة",
+            "1000 كم في الساعة",
+            "300000 كم في الساعة"
+          ],
+          "hint": "أسرع حتى من اللازم للمدار.",
+          "explanation": "عند نحو 40000 كيلومتر في الساعة تتحرر من الأرض.",
+          "fact": "تسمى سرعة الإفلات."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — Perseverance launched on an Atlas V, 2020",
+      "artBrief": "Een raket die opstijgt met een Marsverkenner in de neus.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Met welke raket vertrok de Marsverkenner Perseverance?",
+          "answer": "Met een Atlas V",
+          "wrong": [
+            "Met een Saturnus V",
+            "Met een Falcon Heavy",
+            "Met een Ariane 5"
+          ],
+          "hint": "Een Amerikaanse werkpaardraket.",
+          "explanation": "Perseverance vertrok in 2020 op een Atlas V.",
+          "fact": "De reis naar Mars duurde bijna zeven maanden."
+        },
+        "en": {
+          "prompt": "Which rocket carried the Mars rover Perseverance?",
+          "answer": "An Atlas V",
+          "wrong": [
+            "A Saturn V",
+            "A Falcon Heavy",
+            "An Ariane 5"
+          ],
+          "hint": "An American workhorse rocket.",
+          "explanation": "Perseverance left on an Atlas V in 2020.",
+          "fact": "The trip to Mars took almost seven months."
+        },
+        "de": {
+          "prompt": "Mit welcher Rakete startete der Marsrover Perseverance?",
+          "answer": "Mit einer Atlas V",
+          "wrong": [
+            "Mit einer Saturn V",
+            "Mit einer Falcon Heavy",
+            "Mit einer Ariane 5"
+          ],
+          "hint": "Ein amerikanisches Arbeitstier.",
+          "explanation": "Perseverance startete 2020 auf einer Atlas V.",
+          "fact": "Die Reise zum Mars dauerte fast sieben Monate."
+        },
+        "fr": {
+          "prompt": "Quelle fusée a emporté le rover Perseverance ?",
+          "answer": "Une Atlas V",
+          "wrong": [
+            "Une Saturn V",
+            "Une Falcon Heavy",
+            "Une Ariane 5"
+          ],
+          "hint": "Une fusée américaine de travail.",
+          "explanation": "Perseverance est partie sur une Atlas V en 2020.",
+          "fact": "Le voyage vers Mars a duré près de sept mois."
+        },
+        "es": {
+          "prompt": "¿Con qué cohete salió el rover Perseverance?",
+          "answer": "Con un Atlas V",
+          "wrong": [
+            "Con un Saturno V",
+            "Con un Falcon Heavy",
+            "Con un Ariane 5"
+          ],
+          "hint": "Un cohete estadounidense de faena.",
+          "explanation": "Perseverance partió en un Atlas V en 2020.",
+          "fact": "El viaje a Marte duró casi siete meses."
+        },
+        "it": {
+          "prompt": "Con quale razzo è partito il rover Perseverance?",
+          "answer": "Con un Atlas V",
+          "wrong": [
+            "Con un Saturn V",
+            "Con un Falcon Heavy",
+            "Con un Ariane 5"
+          ],
+          "hint": "Un razzo americano da lavoro.",
+          "explanation": "Perseverance è partita su un Atlas V nel 2020.",
+          "fact": "Il viaggio verso Marte è durato quasi sette mesi."
+        },
+        "pt": {
+          "prompt": "Com que foguetão partiu o rover Perseverance?",
+          "answer": "Com um Atlas V",
+          "wrong": [
+            "Com um Saturno V",
+            "Com um Falcon Heavy",
+            "Com um Ariane 5"
+          ],
+          "hint": "Um foguetão americano de trabalho.",
+          "explanation": "O Perseverance partiu num Atlas V em 2020.",
+          "fact": "A viagem até Marte demorou quase sete meses."
+        },
+        "da": {
+          "prompt": "Hvilken raket sendte Mars-køretøjet Perseverance af sted?",
+          "answer": "En Atlas V",
+          "wrong": [
+            "En Saturn V",
+            "En Falcon Heavy",
+            "En Ariane 5"
+          ],
+          "hint": "En amerikansk arbejdshest.",
+          "explanation": "Perseverance startede på en Atlas V i 2020.",
+          "fact": "Rejsen til Mars tog næsten syv måneder."
+        },
+        "ru": {
+          "prompt": "На какой ракете улетел марсоход Perseverance?",
+          "answer": "На Atlas V",
+          "wrong": [
+            "На Сатурне-5",
+            "На Falcon Heavy",
+            "На Ariane 5"
+          ],
+          "hint": "Американская рабочая лошадка.",
+          "explanation": "Perseverance стартовал на ракете Atlas V в 2020 году.",
+          "fact": "Путь до Марса занял почти семь месяцев."
+        },
+        "ar": {
+          "prompt": "بأي صاروخ انطلقت المركبة بيرسيفيرنس؟",
+          "answer": "بصاروخ أطلس 5",
+          "wrong": [
+            "بساتورن 5",
+            "بفالكون هيفي",
+            "بأريان 5"
+          ],
+          "hint": "صاروخ أمريكي عملي.",
+          "explanation": "انطلقت بيرسيفيرنس على أطلس 5 عام 2020.",
+          "fact": "استغرقت الرحلة إلى المريخ نحو سبعة أشهر."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — gravity assist manoeuvres",
+      "artBrief": "Een sonde die vlak langs een grote planeet scheert en er sneller vandaan schiet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe krijgt een sonde onderweg gratis snelheid?",
+          "answer": "Langs een planeet scheren",
+          "wrong": [
+            "Door zonnepanelen",
+            "Door af te remmen",
+            "Door lichter te worden"
+          ],
+          "hint": "De zwaartekracht geeft een zetje.",
+          "explanation": "Door vlak langs een planeet te vliegen krijgt een sonde een zetje mee.",
+          "fact": "Zo bereikte Voyager 2 vier planeten achter elkaar."
+        },
+        "en": {
+          "prompt": "How does a probe pick up free speed on the way?",
+          "answer": "By skimming a planet",
+          "wrong": [
+            "With solar panels",
+            "By braking",
+            "By getting lighter"
+          ],
+          "hint": "Gravity gives it a shove.",
+          "explanation": "Flying close past a planet gives a probe an extra push.",
+          "fact": "That is how Voyager 2 reached four planets in a row."
+        },
+        "de": {
+          "prompt": "Wie bekommt eine Sonde unterwegs Tempo geschenkt?",
+          "answer": "Dicht an einem Planeten",
+          "wrong": [
+            "Durch Solarzellen",
+            "Durch Bremsen",
+            "Durch Leichterwerden"
+          ],
+          "hint": "Die Schwerkraft gibt einen Schubs.",
+          "explanation": "Ein enger Vorbeiflug an einem Planeten gibt der Sonde einen Schubs.",
+          "fact": "So erreichte Voyager 2 vier Planeten nacheinander."
+        },
+        "fr": {
+          "prompt": "Comment une sonde gagne-t-elle de la vitesse en route ?",
+          "answer": "En frôlant une planète",
+          "wrong": [
+            "Avec des panneaux solaires",
+            "En freinant",
+            "En s'allégeant"
+          ],
+          "hint": "La gravité lui donne une poussée.",
+          "explanation": "Passer tout près d'une planète donne à la sonde une poussée.",
+          "fact": "C'est ainsi que Voyager 2 a atteint quatre planètes de suite."
+        },
+        "es": {
+          "prompt": "¿Cómo gana velocidad gratis una sonda por el camino?",
+          "answer": "Rozando un planeta",
+          "wrong": [
+            "Con placas solares",
+            "Frenando",
+            "Haciéndose más ligera"
+          ],
+          "hint": "La gravedad le da un empujón.",
+          "explanation": "Pasar muy cerca de un planeta le da un empujón a la sonda.",
+          "fact": "Así la Voyager 2 llegó a cuatro planetas seguidos."
+        },
+        "it": {
+          "prompt": "Come guadagna velocità gratis una sonda in viaggio?",
+          "answer": "Sfiorando un pianeta",
+          "wrong": [
+            "Con i pannelli solari",
+            "Frenando",
+            "Diventando più leggera"
+          ],
+          "hint": "La gravità le dà una spinta.",
+          "explanation": "Passare vicinissimo a un pianeta dà alla sonda una spinta.",
+          "fact": "Così Voyager 2 ha raggiunto quattro pianeti di fila."
+        },
+        "pt": {
+          "prompt": "Como ganha velocidade de graça uma sonda pelo caminho?",
+          "answer": "A roçar um planeta",
+          "wrong": [
+            "Com painéis solares",
+            "A travar",
+            "A ficar mais leve"
+          ],
+          "hint": "A gravidade dá-lhe um empurrão.",
+          "explanation": "Passar muito perto de um planeta dá um empurrão à sonda.",
+          "fact": "Foi assim que a Voyager 2 chegou a quatro planetas seguidos."
+        },
+        "da": {
+          "prompt": "Hvordan får en sonde gratis fart undervejs?",
+          "answer": "Ved at stryge forbi",
+          "wrong": [
+            "Med solpaneler",
+            "Ved at bremse",
+            "Ved at blive lettere"
+          ],
+          "hint": "Tyngdekraften giver et skub.",
+          "explanation": "Et tæt forbiflyvning ved en planet giver sonden et skub.",
+          "fact": "Sådan nåede Voyager 2 fire planeter i træk."
+        },
+        "ru": {
+          "prompt": "Как зонд получает бесплатную скорость в пути?",
+          "answer": "Пролетая рядом с планетой",
+          "wrong": [
+            "От солнечных батарей",
+            "Торможением",
+            "Становясь легче"
+          ],
+          "hint": "Притяжение даёт толчок.",
+          "explanation": "Близкий пролёт у планеты придаёт зонду ускорение.",
+          "fact": "Так «Вояджер-2» добрался до четырёх планет подряд."
+        },
+        "ar": {
+          "prompt": "كيف يكسب المسبار سرعة مجانية في الطريق؟",
+          "answer": "بالمرور قرب كوكب",
+          "wrong": [
+            "بالألواح الشمسية",
+            "بالكبح",
+            "بأن يصير أخف"
+          ],
+          "hint": "الجاذبية تعطيه دفعة.",
+          "explanation": "المرور القريب من كوكب يمنح المسبار دفعة إضافية.",
+          "fact": "هكذا وصل فوياجر 2 إلى أربعة كواكب تباعًا."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NASA — propellant is most of a rocket's launch mass",
+      "artBrief": "Een raket halverwege de vlucht met een half lege tank, lichter dan bij het vertrek.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom wordt een raket tijdens de vlucht steeds lichter?",
+          "answer": "De brandstof raakt op",
+          "wrong": [
+            "Hij verliest ramen",
+            "De lucht duwt hem leeg",
+            "Hij krimpt van de kou"
+          ],
+          "hint": "Wat verbrandt, is weg.",
+          "explanation": "Elke seconde verbrandt er brandstof, dus de raket wordt lichter.",
+          "fact": "Daarom gaat hij steeds sneller met dezelfde motor."
+        },
+        "en": {
+          "prompt": "Why does a rocket get lighter during its flight?",
+          "answer": "The fuel is running out",
+          "wrong": [
+            "It loses windows",
+            "The air empties it",
+            "It shrinks in the cold"
+          ],
+          "hint": "What burns is gone.",
+          "explanation": "Every second it burns fuel, so the rocket gets lighter.",
+          "fact": "That is why it keeps speeding up on the same engine."
+        },
+        "de": {
+          "prompt": "Warum wird eine Rakete im Flug immer leichter?",
+          "answer": "Der Treibstoff geht aus",
+          "wrong": [
+            "Sie verliert Fenster",
+            "Die Luft leert sie",
+            "Sie schrumpft vor Kälte"
+          ],
+          "hint": "Was verbrennt, ist weg.",
+          "explanation": "Jede Sekunde verbrennt Treibstoff, also wird die Rakete leichter.",
+          "fact": "Darum wird sie mit demselben Motor immer schneller."
+        },
+        "fr": {
+          "prompt": "Pourquoi une fusée s'allège-t-elle pendant le vol ?",
+          "answer": "Le carburant s'épuise",
+          "wrong": [
+            "Elle perd des fenêtres",
+            "L'air la vide",
+            "Elle rétrécit de froid"
+          ],
+          "hint": "Ce qui brûle a disparu.",
+          "explanation": "Chaque seconde elle brûle du carburant, donc elle s'allège.",
+          "fact": "C'est pour cela qu'elle accélère avec le même moteur."
+        },
+        "es": {
+          "prompt": "¿Por qué un cohete se aligera durante el vuelo?",
+          "answer": "Se le acaba el combustible",
+          "wrong": [
+            "Pierde ventanas",
+            "El aire lo vacía",
+            "Encoge por el frío"
+          ],
+          "hint": "Lo que arde, ya no está.",
+          "explanation": "Cada segundo quema combustible, así que se vuelve más ligero.",
+          "fact": "Por eso acelera cada vez más con el mismo motor."
+        },
+        "it": {
+          "prompt": "Perché un razzo diventa più leggero durante il volo?",
+          "answer": "Il carburante finisce",
+          "wrong": [
+            "Perde i finestrini",
+            "L'aria lo svuota",
+            "Si restringe dal freddo"
+          ],
+          "hint": "Ciò che brucia non c'è più.",
+          "explanation": "Ogni secondo brucia carburante, quindi diventa più leggero.",
+          "fact": "Per questo accelera sempre di più con lo stesso motore."
+        },
+        "pt": {
+          "prompt": "Porque fica um foguetão mais leve durante o voo?",
+          "answer": "O combustível acaba",
+          "wrong": [
+            "Perde janelas",
+            "O ar esvazia-o",
+            "Encolhe com o frio"
+          ],
+          "hint": "O que arde deixa de lá estar.",
+          "explanation": "A cada segundo queima combustível, por isso fica mais leve.",
+          "fact": "Por isso acelera cada vez mais com o mesmo motor."
+        },
+        "da": {
+          "prompt": "Hvorfor bliver en raket lettere under flyvningen?",
+          "answer": "Brændstoffet slipper op",
+          "wrong": [
+            "Den taber vinduer",
+            "Luften tømmer den",
+            "Den skrumper af kulde"
+          ],
+          "hint": "Det, der brænder, er væk.",
+          "explanation": "Hvert sekund brænder den brændstof, så den bliver lettere.",
+          "fact": "Derfor bliver den hele tiden hurtigere med samme motor."
+        },
+        "ru": {
+          "prompt": "Почему ракета в полёте становится легче?",
+          "answer": "Топливо заканчивается",
+          "wrong": [
+            "Она теряет окна",
+            "Воздух её опустошает",
+            "Она сжимается от холода"
+          ],
+          "hint": "Что сгорело, того уже нет.",
+          "explanation": "Каждую секунду сгорает топливо, и ракета становится легче.",
+          "fact": "Поэтому она разгоняется всё сильнее с тем же двигателем."
+        },
+        "ar": {
+          "prompt": "لماذا يصير الصاروخ أخف أثناء الطيران؟",
+          "answer": "لأن الوقود ينفد",
+          "wrong": [
+            "يفقد نوافذه",
+            "الهواء يفرغه",
+            "ينكمش من البرد"
+          ],
+          "hint": "ما احترق لم يعد موجودًا.",
+          "explanation": "في كل ثانية يحترق وقود، فيصير الصاروخ أخف.",
+          "fact": "لذلك يزداد سرعة بالمحرك نفسه."
+        }
+      }
+    },
+    {
+      "id": "ruimte-raket_avontuur-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Sputnik 1, 4 October 1957",
+      "artBrief": "Een kleine glimmende bol met vier lange antennes boven de aarde.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heette de eerste satelliet om de aarde?",
+          "answer": "Spoetnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "Hij vertrok in 1957.",
+          "explanation": "Spoetnik 1 was in 1957 de eerste kunstmaan in een baan om de aarde.",
+          "fact": "Hij zond een piepsignaal uit dat radioamateurs konden horen."
+        },
+        "en": {
+          "prompt": "What was the first satellite to circle the earth called?",
+          "answer": "Sputnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "It went up in 1957.",
+          "explanation": "Sputnik 1 was the first artificial moon in orbit, in 1957.",
+          "fact": "It sent out a beep that radio amateurs could hear."
+        },
+        "de": {
+          "prompt": "Wie hieß der erste Satellit in einer Erdumlaufbahn?",
+          "answer": "Sputnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "Er startete 1957.",
+          "explanation": "Sputnik 1 war 1957 der erste künstliche Mond der Erde.",
+          "fact": "Er sendete ein Piepsen, das Funkamateure hören konnten."
+        },
+        "fr": {
+          "prompt": "Comment s'appelait le premier satellite autour de la Terre ?",
+          "answer": "Spoutnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "Il est parti en 1957.",
+          "explanation": "Spoutnik 1 fut en 1957 la première lune artificielle en orbite.",
+          "fact": "Il émettait un bip que les radioamateurs entendaient."
+        },
+        "es": {
+          "prompt": "¿Cómo se llamó el primer satélite alrededor de la Tierra?",
+          "answer": "Sputnik 1",
+          "wrong": [
+            "Apolo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "Partió en 1957.",
+          "explanation": "El Sputnik 1 fue en 1957 la primera luna artificial en órbita.",
+          "fact": "Emitía un pitido que los radioaficionados podían oír."
+        },
+        "it": {
+          "prompt": "Come si chiamava il primo satellite attorno alla Terra?",
+          "answer": "Sputnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "È partito nel 1957.",
+          "explanation": "Sputnik 1 fu nel 1957 la prima luna artificiale in orbita.",
+          "fact": "Mandava un bip che i radioamatori potevano sentire."
+        },
+        "pt": {
+          "prompt": "Como se chamou o primeiro satélite à volta da Terra?",
+          "answer": "Sputnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "Partiu em 1957.",
+          "explanation": "O Sputnik 1 foi em 1957 a primeira lua artificial em órbita.",
+          "fact": "Emitia um apito que os radioamadores ouviam."
+        },
+        "da": {
+          "prompt": "Hvad hed den første satellit omkring Jorden?",
+          "answer": "Sputnik 1",
+          "wrong": [
+            "Apollo 1",
+            "Explorer 1",
+            "Hubble"
+          ],
+          "hint": "Den startede i 1957.",
+          "explanation": "Sputnik 1 var i 1957 den første kunstige måne i kredsløb.",
+          "fact": "Den sendte et bip, som radioamatører kunne høre."
+        },
+        "ru": {
+          "prompt": "Как назывался первый спутник Земли?",
+          "answer": "Спутник-1",
+          "wrong": [
+            "Аполлон-1",
+            "Эксплорер-1",
+            "Хаббл"
+          ],
+          "hint": "Он стартовал в 1957 году.",
+          "explanation": "Спутник-1 стал в 1957 году первой искусственной луной Земли.",
+          "fact": "Он посылал сигнал, который ловили радиолюбители."
+        },
+        "ar": {
+          "prompt": "ما اسم أول قمر صناعي دار حول الأرض؟",
+          "answer": "سبوتنيك 1",
+          "wrong": [
+            "أبولو 1",
+            "إكسبلورر 1",
+            "هابل"
+          ],
+          "hint": "انطلق عام 1957.",
+          "explanation": "كان سبوتنيك 1 عام 1957 أول قمر صناعي يدور حول الأرض.",
+          "fact": "كان يرسل صفيرًا يسمعه هواة الراديو."
+        }
+      }
+    }
+  ]
+}
