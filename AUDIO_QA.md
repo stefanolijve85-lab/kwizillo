@@ -1,7 +1,19 @@
 # AUDIO_QA.md — Kwizillo spraak-QA
 
 **Datum:** 2026-09-13
-**Model:** `eleven_v3` (gekozen in een blinde A/B op 2026-09-13; zie §10)
+**Model:** `eleven_flash_v2_5` sinds 2026-09-27 — zie de noot hieronder.
+`eleven_v3` was tot dan de standaard (blinde A/B op 2026-09-13; zie §10).
+
+> **2026-09-27 — waarom het model gewisseld is.** `eleven_v3` leest het mooiste,
+> maar een zin die nog nooit gesproken is kost 0,6–1,0 s tot het eerste geluid
+> en 2,0–2,7 s voor de hele zin; een kind dat de antwoorden al leest, hoort de
+> stem te laat beginnen. Zelfde zin op `eleven_flash_v2_5`: 0,13–0,18 s tot het
+> eerste geluid, 0,23–0,31 s voor de hele zin. Uitspraak gecontroleerd met
+> Scribe op nl/en/de/ar (A/B/C/D, ISS, DNA, GPS, getallen): 100 % van de
+> woorden terug, elke taal als zichzelf herkend. Een zin die al eens gesproken
+> is, komt hoe dan ook uit `.tts-cache` in milliseconden. Terug kan met
+> `ELEVENLABS_MODEL=eleven_v3` in `.env`; let op dat de cache per model is, dus
+> na een wissel wordt elke zin één keer opnieuw gemaakt.
 **Steekproef:** 20 vragen NL + 20 vragen EN, plus één volledige vraag-plus-A/B/C/D-reeks per taal
 
 Alles hieronder is gemeten met `npm run test:audio`, dat de clips genereert

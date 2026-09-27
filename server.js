@@ -35,9 +35,14 @@ const PORT = Number(process.env.PORT || 8080);
 // are what make that acceptable for a home network, never for the open internet.
 const HOST = process.env.HOST || '127.0.0.1';
 const API_KEY = process.env.ELEVENLABS_API_KEY || '';
-// eleven_v3 was chosen in a blind A/B on 2026-09-13 over multilingual_v2 for
-// intonation and pronunciation; the settings below are the ones that were heard.
-const MODEL = process.env.ELEVENLABS_MODEL || 'eleven_v3';
+// eleven_v3 was chosen in a blind A/B on 2026-09-13 for intonation, and it is
+// the finest reader of the three — but a line it has never made before takes
+// 0.6-1.0 s to the first sound and 2.0-2.7 s to the whole clip, and a child who
+// is already reading the answers hears the voice arrive late. flash_v2_5 makes
+// the same line in 0.13-0.18 s to the first sound and 0.23-0.31 s whole, with
+// the same voices, and that is what the game runs on (measured 2026-09-27; see
+// .env.example). Set ELEVENLABS_MODEL to go back to eleven_v3 or to turbo_v2_5.
+const MODEL = process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5';
 const CACHE_DIR = path.join(ROOT, '.tts-cache');
 const SELECTION_FILE = path.join(ROOT, '.voice-selection-v35.json');
 fs.mkdirSync(CACHE_DIR, { recursive: true });
