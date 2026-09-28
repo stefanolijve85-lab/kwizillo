@@ -1,0 +1,2607 @@
+{
+  "world": "wetenschap",
+  "topic": "uitvindingen",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "wetenschap-uitvindingen-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De klok",
+      "artBrief": "Een ronde wandklok met wijzers, zonder cijfers of tekst, in warm licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Met welke uitvinding lees je de tijd af?",
+          "answer": "Een klok",
+          "wrong": [
+            "Een spiegel",
+            "Een schaar",
+            "Een ballon"
+          ],
+          "hint": "Twee wijzers draaien rond.",
+          "explanation": "Een klok telt de uren, minuten en seconden voor je.",
+          "fact": "De eerste klokken hadden alleen een uurwijzer; dat was nauwkeurig genoeg."
+        },
+        "en": {
+          "prompt": "Which invention do you read the time from?",
+          "answer": "A clock",
+          "wrong": [
+            "A mirror",
+            "A pair of scissors",
+            "A balloon"
+          ],
+          "hint": "Two hands go round.",
+          "explanation": "A clock counts the hours, minutes and seconds for you.",
+          "fact": "The first clocks had only an hour hand; that was accurate enough."
+        },
+        "de": {
+          "prompt": "Mit welcher Erfindung liest du die Zeit ab?",
+          "answer": "Mit einer Uhr",
+          "wrong": [
+            "Mit einem Spiegel",
+            "Mit einer Schere",
+            "Mit einem Ballon"
+          ],
+          "hint": "Zwei Zeiger drehen sich.",
+          "explanation": "Eine Uhr zählt Stunden, Minuten und Sekunden für dich.",
+          "fact": "Die ersten Uhren hatten nur einen Stundenzeiger; das reichte damals."
+        },
+        "fr": {
+          "prompt": "Avec quelle invention lis-tu l'heure ?",
+          "answer": "Une horloge",
+          "wrong": [
+            "Un miroir",
+            "Des ciseaux",
+            "Un ballon"
+          ],
+          "hint": "Deux aiguilles tournent.",
+          "explanation": "Une horloge compte pour toi les heures, les minutes et les secondes.",
+          "fact": "Les premières horloges n'avaient qu'une aiguille des heures."
+        },
+        "es": {
+          "prompt": "¿Con qué invento lees la hora?",
+          "answer": "Con un reloj",
+          "wrong": [
+            "Con un espejo",
+            "Con unas tijeras",
+            "Con un globo"
+          ],
+          "hint": "Dos agujas giran.",
+          "explanation": "Un reloj cuenta por ti las horas, los minutos y los segundos.",
+          "fact": "Los primeros relojes solo tenían aguja horaria; bastaba con eso."
+        },
+        "it": {
+          "prompt": "Con quale invenzione leggi l'ora?",
+          "answer": "Con un orologio",
+          "wrong": [
+            "Con uno specchio",
+            "Con le forbici",
+            "Con un palloncino"
+          ],
+          "hint": "Due lancette girano.",
+          "explanation": "Un orologio conta per te ore, minuti e secondi.",
+          "fact": "I primi orologi avevano solo la lancetta delle ore."
+        },
+        "pt": {
+          "prompt": "Com que invento lês as horas?",
+          "answer": "Com um relógio",
+          "wrong": [
+            "Com um espelho",
+            "Com uma tesoura",
+            "Com um balão"
+          ],
+          "hint": "Dois ponteiros giram.",
+          "explanation": "Um relógio conta por ti as horas, os minutos e os segundos.",
+          "fact": "Os primeiros relógios só tinham ponteiro das horas."
+        },
+        "da": {
+          "prompt": "Med hvilken opfindelse aflæser du tiden?",
+          "answer": "Med et ur",
+          "wrong": [
+            "Med et spejl",
+            "Med en saks",
+            "Med en ballon"
+          ],
+          "hint": "To visere drejer rundt.",
+          "explanation": "Et ur tæller timer, minutter og sekunder for dig.",
+          "fact": "De første ure havde kun en timeviser; det var nøjagtigt nok."
+        },
+        "ru": {
+          "prompt": "По какому изобретению ты узнаёшь время?",
+          "answer": "По часам",
+          "wrong": [
+            "По зеркалу",
+            "По ножницам",
+            "По воздушному шарику"
+          ],
+          "hint": "Две стрелки идут по кругу.",
+          "explanation": "Часы считают за тебя часы, минуты и секунды.",
+          "fact": "У первых часов была только часовая стрелка, и этого хватало."
+        },
+        "ar": {
+          "prompt": "بأي اختراع تقرأ الوقت؟",
+          "answer": "بالساعة",
+          "wrong": [
+            "بالمرآة",
+            "بالمقص",
+            "ببالون"
+          ],
+          "hint": "عقربان يدوران.",
+          "explanation": "الساعة تعدّ لك الساعات والدقائق والثواني.",
+          "fact": "أول الساعات كان لها عقرب واحد للساعات فقط."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De fiets",
+      "artBrief": "Een glanzende fiets van opzij in een zonnige straat.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding met twee wielen trap je vooruit?",
+          "answer": "De fiets",
+          "wrong": [
+            "De trein",
+            "De lift",
+            "De paraplu"
+          ],
+          "hint": "Jij bent zelf de motor.",
+          "explanation": "Met trappers, ketting en twee wielen ga je veel verder dan lopend.",
+          "fact": "De allereerste fietsen hadden nog helemaal geen trappers."
+        },
+        "en": {
+          "prompt": "Which two-wheeled invention do you pedal along?",
+          "answer": "The bicycle",
+          "wrong": [
+            "The train",
+            "The lift",
+            "The umbrella"
+          ],
+          "hint": "You are the engine yourself.",
+          "explanation": "With pedals, a chain and two wheels you get much further than on foot.",
+          "fact": "The very first bicycles had no pedals at all."
+        },
+        "de": {
+          "prompt": "Welche Erfindung mit zwei Rädern trittst du vorwärts?",
+          "answer": "Das Fahrrad",
+          "wrong": [
+            "Der Zug",
+            "Der Aufzug",
+            "Der Regenschirm"
+          ],
+          "hint": "Du bist selbst der Motor.",
+          "explanation": "Mit Pedalen, Kette und zwei Rädern kommst du viel weiter als zu Fuß.",
+          "fact": "Die allerersten Fahrräder hatten noch gar keine Pedale."
+        },
+        "fr": {
+          "prompt": "Quelle invention à deux roues avances-tu en pédalant ?",
+          "answer": "Le vélo",
+          "wrong": [
+            "Le train",
+            "L'ascenseur",
+            "Le parapluie"
+          ],
+          "hint": "C'est toi le moteur.",
+          "explanation": "Avec des pédales, une chaîne et deux roues, tu vas bien plus loin qu'à pied.",
+          "fact": "Les tout premiers vélos n'avaient pas de pédales du tout."
+        },
+        "es": {
+          "prompt": "¿Qué invento de dos ruedas mueves pedaleando?",
+          "answer": "La bicicleta",
+          "wrong": [
+            "El tren",
+            "El ascensor",
+            "El paraguas"
+          ],
+          "hint": "El motor eres tú.",
+          "explanation": "Con pedales, cadena y dos ruedas llegas mucho más lejos que andando.",
+          "fact": "Las primerísimas bicicletas no tenían pedales."
+        },
+        "it": {
+          "prompt": "Quale invenzione a due ruote spingi pedalando?",
+          "answer": "La bicicletta",
+          "wrong": [
+            "Il treno",
+            "L'ascensore",
+            "L'ombrello"
+          ],
+          "hint": "Il motore sei tu.",
+          "explanation": "Con pedali, catena e due ruote arrivi molto più lontano che a piedi.",
+          "fact": "Le primissime biciclette non avevano pedali."
+        },
+        "pt": {
+          "prompt": "Que invento de duas rodas moves a pedalar?",
+          "answer": "A bicicleta",
+          "wrong": [
+            "O comboio",
+            "O elevador",
+            "O guarda-chuva"
+          ],
+          "hint": "O motor és tu.",
+          "explanation": "Com pedais, corrente e duas rodas vais muito mais longe do que a pé.",
+          "fact": "As primeiríssimas bicicletas nem tinham pedais."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse med to hjul træder du frem?",
+          "answer": "Cyklen",
+          "wrong": [
+            "Toget",
+            "Elevatoren",
+            "Paraplyen"
+          ],
+          "hint": "Du er selv motoren.",
+          "explanation": "Med pedaler, kæde og to hjul når du meget længere end til fods.",
+          "fact": "De allerførste cykler havde slet ingen pedaler."
+        },
+        "ru": {
+          "prompt": "Какое двухколёсное изобретение ты крутишь педалями?",
+          "answer": "Велосипед",
+          "wrong": [
+            "Поезд",
+            "Лифт",
+            "Зонт"
+          ],
+          "hint": "Мотор — это ты сам.",
+          "explanation": "С педалями, цепью и двумя колёсами ты уедешь гораздо дальше, чем пешком.",
+          "fact": "У самых первых велосипедов педалей вовсе не было."
+        },
+        "ar": {
+          "prompt": "أي اختراع بعجلتين تدفعه بالدواسات؟",
+          "answer": "الدراجة",
+          "wrong": [
+            "القطار",
+            "المصعد",
+            "المظلة"
+          ],
+          "hint": "أنت المحرك.",
+          "explanation": "بالدواسات والسلسلة وعجلتين تصل أبعد بكثير من المشي.",
+          "fact": "أول الدراجات لم يكن فيها دواسات إطلاقًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De koelkast",
+      "artBrief": "Een open koelkast met groente en melk, koude mist die naar buiten rolt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een koelkast?",
+          "answer": "Hij houdt eten koud",
+          "wrong": [
+            "Hij bakt brood",
+            "Hij wast kleren",
+            "Hij maakt licht"
+          ],
+          "hint": "Achterop zit hij warm.",
+          "explanation": "Een koelkast pompt warmte van binnen naar buiten, zodat het binnen koud blijft.",
+          "fact": "Daarom is de achterkant van een koelkast altijd lauw."
+        },
+        "en": {
+          "prompt": "What does a fridge do?",
+          "answer": "It keeps food cold",
+          "wrong": [
+            "It bakes bread",
+            "It washes clothes",
+            "It makes light"
+          ],
+          "hint": "Round the back it is warm.",
+          "explanation": "A fridge pumps heat from inside to outside, so it stays cold within.",
+          "fact": "That is why the back of a fridge is always lukewarm."
+        },
+        "de": {
+          "prompt": "Was macht ein Kühlschrank?",
+          "answer": "Er hält Essen kalt",
+          "wrong": [
+            "Er backt Brot",
+            "Er wäscht Kleidung",
+            "Er macht Licht"
+          ],
+          "hint": "Hinten ist er warm.",
+          "explanation": "Ein Kühlschrank pumpt Wärme von innen nach außen, damit es innen kalt bleibt.",
+          "fact": "Darum ist die Rückseite eines Kühlschranks immer lauwarm."
+        },
+        "fr": {
+          "prompt": "Que fait un réfrigérateur ?",
+          "answer": "Il garde les plats au froid",
+          "wrong": [
+            "Il cuit le pain",
+            "Il lave le linge",
+            "Il fait de la lumière"
+          ],
+          "hint": "Derrière, il est chaud.",
+          "explanation": "Un frigo pompe la chaleur de l'intérieur vers l'extérieur, pour rester froid dedans.",
+          "fact": "C'est pourquoi l'arrière d'un frigo est toujours tiède."
+        },
+        "es": {
+          "prompt": "¿Qué hace un frigorífico?",
+          "answer": "Mantiene la comida fría",
+          "wrong": [
+            "Hornea pan",
+            "Lava la ropa",
+            "Da luz"
+          ],
+          "hint": "Por detrás está caliente.",
+          "explanation": "Un frigorífico bombea el calor de dentro hacia fuera, y así dentro sigue frío.",
+          "fact": "Por eso la parte de atrás siempre está tibia."
+        },
+        "it": {
+          "prompt": "Che cosa fa un frigorifero?",
+          "answer": "Tiene il cibo al freddo",
+          "wrong": [
+            "Cuoce il pane",
+            "Lava i panni",
+            "Fa luce"
+          ],
+          "hint": "Dietro è caldo.",
+          "explanation": "Il frigorifero sposta il calore da dentro a fuori, così dentro resta freddo.",
+          "fact": "Per questo il retro di un frigorifero è sempre tiepido."
+        },
+        "pt": {
+          "prompt": "O que faz um frigorífico?",
+          "answer": "Mantém a comida fria",
+          "wrong": [
+            "Coze pão",
+            "Lava a roupa",
+            "Dá luz"
+          ],
+          "hint": "Atrás está quente.",
+          "explanation": "O frigorífico bombeia o calor de dentro para fora, e assim dentro fica frio.",
+          "fact": "Por isso as costas de um frigorífico estão sempre mornas."
+        },
+        "da": {
+          "prompt": "Hvad gør et køleskab?",
+          "answer": "Det holder maden kold",
+          "wrong": [
+            "Det bager brød",
+            "Det vasker tøj",
+            "Det laver lys"
+          ],
+          "hint": "Bagpå er det varmt.",
+          "explanation": "Et køleskab pumper varme indefra og ud, så der bliver koldt indeni.",
+          "fact": "Derfor er bagsiden af et køleskab altid lunken."
+        },
+        "ru": {
+          "prompt": "Что делает холодильник?",
+          "answer": "Держит еду холодной",
+          "wrong": [
+            "Печёт хлеб",
+            "Стирает одежду",
+            "Даёт свет"
+          ],
+          "hint": "Сзади он тёплый.",
+          "explanation": "Холодильник выкачивает тепло изнутри наружу, поэтому внутри холодно.",
+          "fact": "Поэтому задняя стенка холодильника всегда тёплая."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل الثلاجة؟",
+          "answer": "تبقي الطعام باردًا",
+          "wrong": [
+            "تخبز الخبز",
+            "تغسل الثياب",
+            "تعطي ضوءًا"
+          ],
+          "hint": "ظهرها دافئ.",
+          "explanation": "الثلاجة تضخ الحرارة من الداخل إلى الخارج فيبقى الداخل باردًا.",
+          "fact": "لذلك يكون ظهر الثلاجة دافئًا دائمًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De lift",
+      "artBrief": "Een open liftdeur in een hoge hal met verlichte knoppen zonder cijfers.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding brengt je snel naar de bovenste verdieping?",
+          "answer": "De lift",
+          "wrong": [
+            "De schommel",
+            "De glijbaan",
+            "De kruiwagen"
+          ],
+          "hint": "Je drukt op een knop.",
+          "explanation": "Een lift hangt aan sterke kabels met een tegengewicht, en een motor trekt hem omhoog.",
+          "fact": "Zonder lift zouden wolkenkrabbers nooit gebouwd zijn."
+        },
+        "en": {
+          "prompt": "Which invention takes you quickly to the top floor?",
+          "answer": "The lift",
+          "wrong": [
+            "The swing",
+            "The slide",
+            "The wheelbarrow"
+          ],
+          "hint": "You press a button.",
+          "explanation": "A lift hangs on strong cables with a counterweight, and a motor pulls it up.",
+          "fact": "Without lifts, skyscrapers would never have been built."
+        },
+        "de": {
+          "prompt": "Welche Erfindung bringt dich schnell in die oberste Etage?",
+          "answer": "Der Aufzug",
+          "wrong": [
+            "Die Schaukel",
+            "Die Rutsche",
+            "Die Schubkarre"
+          ],
+          "hint": "Du drückst auf einen Knopf.",
+          "explanation": "Ein Aufzug hängt an starken Seilen mit Gegengewicht, und ein Motor zieht ihn hoch.",
+          "fact": "Ohne Aufzug wären Wolkenkratzer nie gebaut worden."
+        },
+        "fr": {
+          "prompt": "Quelle invention te monte vite au dernier étage ?",
+          "answer": "L'ascenseur",
+          "wrong": [
+            "La balançoire",
+            "Le toboggan",
+            "La brouette"
+          ],
+          "hint": "Tu appuies sur un bouton.",
+          "explanation": "Un ascenseur pend à de solides câbles avec un contrepoids, et un moteur le hisse.",
+          "fact": "Sans ascenseur, les gratte-ciels n'auraient jamais été bâtis."
+        },
+        "es": {
+          "prompt": "¿Qué invento te sube rápido al último piso?",
+          "answer": "El ascensor",
+          "wrong": [
+            "El columpio",
+            "El tobogán",
+            "La carretilla"
+          ],
+          "hint": "Aprietas un botón.",
+          "explanation": "Un ascensor cuelga de cables fuertes con un contrapeso, y un motor lo sube.",
+          "fact": "Sin ascensores nunca se habrían construido los rascacielos."
+        },
+        "it": {
+          "prompt": "Quale invenzione ti porta in fretta all'ultimo piano?",
+          "answer": "L'ascensore",
+          "wrong": [
+            "L'altalena",
+            "Lo scivolo",
+            "La carriola"
+          ],
+          "hint": "Premi un pulsante.",
+          "explanation": "L'ascensore pende da funi robuste con un contrappeso, e un motore lo tira su.",
+          "fact": "Senza ascensore i grattacieli non sarebbero mai nati."
+        },
+        "pt": {
+          "prompt": "Que invento te leva depressa ao último andar?",
+          "answer": "O elevador",
+          "wrong": [
+            "O baloiço",
+            "O escorrega",
+            "O carrinho de mão"
+          ],
+          "hint": "Carregas num botão.",
+          "explanation": "Um elevador pende de cabos fortes com um contrapeso, e um motor puxa-o.",
+          "fact": "Sem elevador nunca se teriam construído arranha-céus."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse fører dig hurtigt til øverste etage?",
+          "answer": "Elevatoren",
+          "wrong": [
+            "Gyngen",
+            "Rutsjebanen",
+            "Trillebøren"
+          ],
+          "hint": "Du trykker på en knap.",
+          "explanation": "En elevator hænger i stærke wirer med et modvægtslod, og en motor trækker den op.",
+          "fact": "Uden elevatorer ville skyskrabere aldrig være blevet bygget."
+        },
+        "ru": {
+          "prompt": "Какое изобретение быстро поднимает на верхний этаж?",
+          "answer": "Лифт",
+          "wrong": [
+            "Качели",
+            "Горка",
+            "Тачка"
+          ],
+          "hint": "Ты нажимаешь кнопку.",
+          "explanation": "Лифт висит на прочных тросах с противовесом, и мотор тянет его вверх.",
+          "fact": "Без лифтов небоскрёбы никогда бы не построили."
+        },
+        "ar": {
+          "prompt": "أي اختراع يوصلك سريعًا إلى الطابق الأعلى؟",
+          "answer": "المصعد",
+          "wrong": [
+            "الأرجوحة",
+            "الزحليقة",
+            "عربة اليد"
+          ],
+          "hint": "تضغط زرًا.",
+          "explanation": "المصعد معلق بحبال قوية مع ثقل موازن، ومحرك يسحبه إلى أعلى.",
+          "fact": "لولا المصاعد لما بُنيت ناطحات السحاب."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De paraplu",
+      "artBrief": "Een opengeklapte paraplu in de regen met druppels die eraf spatten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvoor is een paraplu bedacht?",
+          "answer": "Om regen tegen te houden",
+          "wrong": [
+            "Om wind te maken",
+            "Om licht te geven",
+            "Om eten te koelen"
+          ],
+          "hint": "Je klapt hem open.",
+          "explanation": "Het gespannen doek leidt regen langs je heen naar de grond.",
+          "fact": "De eerste parasols waren er juist tegen de zon, niet tegen de regen."
+        },
+        "en": {
+          "prompt": "What was an umbrella invented for?",
+          "answer": "To keep the rain off",
+          "wrong": [
+            "To make wind",
+            "To give light",
+            "To cool food"
+          ],
+          "hint": "You pop it open.",
+          "explanation": "The stretched cloth leads the rain past you to the ground.",
+          "fact": "The first parasols were against the sun, not the rain."
+        },
+        "de": {
+          "prompt": "Wofür wurde der Regenschirm erfunden?",
+          "answer": "Um Regen abzuhalten",
+          "wrong": [
+            "Um Wind zu machen",
+            "Um Licht zu geben",
+            "Um Essen zu kühlen"
+          ],
+          "hint": "Du klappst ihn auf.",
+          "explanation": "Der gespannte Stoff leitet den Regen an dir vorbei zu Boden.",
+          "fact": "Die ersten Schirme waren gegen die Sonne gedacht, nicht gegen Regen."
+        },
+        "fr": {
+          "prompt": "Pourquoi a-t-on inventé le parapluie ?",
+          "answer": "Pour arrêter la pluie",
+          "wrong": [
+            "Pour faire du vent",
+            "Pour éclairer",
+            "Pour refroidir les plats"
+          ],
+          "hint": "Tu l'ouvres d'un coup.",
+          "explanation": "La toile tendue conduit la pluie à côté de toi jusqu'au sol.",
+          "fact": "Les premières ombrelles servaient contre le soleil, pas contre la pluie."
+        },
+        "es": {
+          "prompt": "¿Para qué se inventó el paraguas?",
+          "answer": "Para parar la lluvia",
+          "wrong": [
+            "Para hacer viento",
+            "Para dar luz",
+            "Para enfriar comida"
+          ],
+          "hint": "Se abre de golpe.",
+          "explanation": "La tela tensa lleva la lluvia a tu lado hasta el suelo.",
+          "fact": "Las primeras sombrillas eran contra el sol, no contra la lluvia."
+        },
+        "it": {
+          "prompt": "Perché è stato inventato l'ombrello?",
+          "answer": "Per fermare la pioggia",
+          "wrong": [
+            "Per fare vento",
+            "Per dare luce",
+            "Per raffreddare il cibo"
+          ],
+          "hint": "Lo apri di scatto.",
+          "explanation": "La tela tesa porta la pioggia di lato fino a terra.",
+          "fact": "I primi parasole servivano contro il sole, non contro la pioggia."
+        },
+        "pt": {
+          "prompt": "Para que foi inventado o guarda-chuva?",
+          "answer": "Para travar a chuva",
+          "wrong": [
+            "Para fazer vento",
+            "Para dar luz",
+            "Para arrefecer comida"
+          ],
+          "hint": "Abre-se de repente.",
+          "explanation": "O pano esticado leva a chuva ao teu lado até ao chão.",
+          "fact": "Os primeiros chapéus de sol eram contra o sol, não contra a chuva."
+        },
+        "da": {
+          "prompt": "Hvad blev paraplyen opfundet til?",
+          "answer": "At holde regnen væk",
+          "wrong": [
+            "At lave vind",
+            "At give lys",
+            "At køle mad"
+          ],
+          "hint": "Du slår den op.",
+          "explanation": "Det spændte stof leder regnen uden om dig og ned på jorden.",
+          "fact": "De første parasoller var mod solen, ikke mod regnen."
+        },
+        "ru": {
+          "prompt": "Для чего придумали зонт?",
+          "answer": "Чтобы укрыться от дождя",
+          "wrong": [
+            "Чтобы делать ветер",
+            "Чтобы светить",
+            "Чтобы охлаждать еду"
+          ],
+          "hint": "Ты его раскрываешь.",
+          "explanation": "Натянутая ткань отводит дождь мимо тебя на землю.",
+          "fact": "Первые зонты были от солнца, а не от дождя."
+        },
+        "ar": {
+          "prompt": "لماذا اختُرعت المظلة؟",
+          "answer": "لتحجب المطر",
+          "wrong": [
+            "لتصنع ريحًا",
+            "لتعطي ضوءًا",
+            "لتبرّد الطعام"
+          ],
+          "hint": "تفتحها دفعة واحدة.",
+          "explanation": "القماش المشدود يوجّه المطر بعيدًا عنك إلى الأرض.",
+          "fact": "أول الشمسيات كانت ضد الشمس لا ضد المطر."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De korenmolen",
+      "artBrief": "Een Hollandse windmolen met draaiende wieken en zakken meel ervoor.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat deed een Hollandse korenmolen?",
+          "answer": "Hij maalde graan tot meel",
+          "wrong": [
+            "Hij bakte brood",
+            "Hij spon wol",
+            "Hij smolt ijzer"
+          ],
+          "hint": "Twee zware stenen draaien.",
+          "explanation": "De wieken lieten zware maalstenen draaien die het graan fijnwreven.",
+          "fact": "Aan de stand van de wieken kon je van ver zien of er feest of rouw was."
+        },
+        "en": {
+          "prompt": "What did a Dutch corn mill do?",
+          "answer": "It ground grain into flour",
+          "wrong": [
+            "It baked bread",
+            "It spun wool",
+            "It melted iron"
+          ],
+          "hint": "Two heavy stones turn.",
+          "explanation": "The sails turned heavy millstones that crushed the grain fine.",
+          "fact": "From far away the position of the sails told you of a feast or a funeral."
+        },
+        "de": {
+          "prompt": "Was tat eine holländische Kornmühle?",
+          "answer": "Sie mahlte Korn zu Mehl",
+          "wrong": [
+            "Sie backte Brot",
+            "Sie spann Wolle",
+            "Sie schmolz Eisen"
+          ],
+          "hint": "Zwei schwere Steine drehen sich.",
+          "explanation": "Die Flügel drehten schwere Mühlsteine, die das Korn fein rieben.",
+          "fact": "An der Stellung der Flügel sah man von weitem Fest oder Trauer."
+        },
+        "fr": {
+          "prompt": "Que faisait un moulin à blé hollandais ?",
+          "answer": "Il moulait le grain",
+          "wrong": [
+            "Il cuisait le pain",
+            "Il filait la laine",
+            "Il fondait le fer"
+          ],
+          "hint": "Deux lourdes pierres tournent.",
+          "explanation": "Les ailes faisaient tourner de lourdes meules qui broyaient le grain.",
+          "fact": "De loin, la position des ailes annonçait une fête ou un deuil."
+        },
+        "es": {
+          "prompt": "¿Qué hacía un molino holandés de grano?",
+          "answer": "Molía grano para harina",
+          "wrong": [
+            "Horneaba pan",
+            "Hilaba lana",
+            "Fundía hierro"
+          ],
+          "hint": "Giran dos piedras pesadas.",
+          "explanation": "Las aspas movían pesadas muelas que trituraban el grano.",
+          "fact": "Desde lejos la posición de las aspas anunciaba fiesta o luto."
+        },
+        "it": {
+          "prompt": "Che cosa faceva un mulino olandese da grano?",
+          "answer": "Macinava il grano",
+          "wrong": [
+            "Cuoceva il pane",
+            "Filava la lana",
+            "Fondeva il ferro"
+          ],
+          "hint": "Girano due pietre pesanti.",
+          "explanation": "Le pale facevano girare macine pesanti che sbriciolavano il grano.",
+          "fact": "Da lontano la posizione delle pale annunciava festa o lutto."
+        },
+        "pt": {
+          "prompt": "O que fazia um moinho holandês de cereal?",
+          "answer": "Moía grão até virar farinha",
+          "wrong": [
+            "Cozia pão",
+            "Fiava lã",
+            "Fundia ferro"
+          ],
+          "hint": "Giram duas pedras pesadas.",
+          "explanation": "As velas faziam girar mós pesadas que moíam o grão.",
+          "fact": "De longe a posição das velas anunciava festa ou luto."
+        },
+        "da": {
+          "prompt": "Hvad gjorde en hollandsk kornmølle?",
+          "answer": "Den malede korn til mel",
+          "wrong": [
+            "Den bagte brød",
+            "Den spandt uld",
+            "Den smeltede jern"
+          ],
+          "hint": "To tunge sten drejer rundt.",
+          "explanation": "Vingerne drejede tunge møllesten, der knuste kornet fint.",
+          "fact": "Vingernes stilling fortalte langvejs fra om fest eller sorg."
+        },
+        "ru": {
+          "prompt": "Что делала голландская мельница?",
+          "answer": "Молола зерно в муку",
+          "wrong": [
+            "Пекла хлеб",
+            "Пряла шерсть",
+            "Плавила железо"
+          ],
+          "hint": "Крутятся два тяжёлых камня.",
+          "explanation": "Крылья вращали тяжёлые жернова, которые растирали зерно.",
+          "fact": "По положению крыльев издалека узнавали о празднике или трауре."
+        },
+        "ar": {
+          "prompt": "ماذا كانت طاحونة الحبوب الهولندية تفعل؟",
+          "answer": "تطحن الحَب دقيقًا",
+          "wrong": [
+            "تخبز الخبز",
+            "تغزل الصوف",
+            "تصهر الحديد"
+          ],
+          "hint": "حجران ثقيلان يدوران.",
+          "explanation": "الأشرعة كانت تدير أحجارًا ثقيلة تسحق الحَب.",
+          "fact": "من بعيد كان وضع الأشرعة يخبر بفرح أو حزن."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De parachute",
+      "artBrief": "Een opengaande parachute hoog boven een landschap.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvoor dient een parachute?",
+          "answer": "Om langzaam te dalen",
+          "wrong": [
+            "Om sneller te vallen",
+            "Om omhoog te vliegen",
+            "Om te zwemmen"
+          ],
+          "hint": "Hij vangt veel lucht.",
+          "explanation": "Het grote doek vangt zoveel lucht dat je zacht naar beneden zweeft.",
+          "fact": "Leonardo da Vinci tekende al vijfhonderd jaar geleden een parachute."
+        },
+        "en": {
+          "prompt": "What is a parachute for?",
+          "answer": "To come down slowly",
+          "wrong": [
+            "To fall faster",
+            "To fly upwards",
+            "To swim"
+          ],
+          "hint": "It catches a lot of air.",
+          "explanation": "The large canopy catches so much air that you float gently down.",
+          "fact": "Leonardo da Vinci drew a parachute five hundred years ago."
+        },
+        "de": {
+          "prompt": "Wozu dient ein Fallschirm?",
+          "answer": "Um langsam zu sinken",
+          "wrong": [
+            "Um schneller zu fallen",
+            "Um hochzufliegen",
+            "Um zu schwimmen"
+          ],
+          "hint": "Er fängt viel Luft.",
+          "explanation": "Die große Kappe fängt so viel Luft, dass du sanft nach unten schwebst.",
+          "fact": "Leonardo da Vinci zeichnete schon vor fünfhundert Jahren einen Fallschirm."
+        },
+        "fr": {
+          "prompt": "À quoi sert un parachute ?",
+          "answer": "À descendre lentement",
+          "wrong": [
+            "À tomber plus vite",
+            "À monter dans le ciel",
+            "À nager"
+          ],
+          "hint": "Il attrape beaucoup d'air.",
+          "explanation": "La grande toile retient tant d'air que tu flottes doucement vers le sol.",
+          "fact": "Léonard de Vinci a dessiné un parachute il y a cinq cents ans."
+        },
+        "es": {
+          "prompt": "¿Para qué sirve un paracaídas?",
+          "answer": "Para bajar despacio",
+          "wrong": [
+            "Para caer más rápido",
+            "Para subir volando",
+            "Para nadar"
+          ],
+          "hint": "Atrapa mucho aire.",
+          "explanation": "La gran tela recoge tanto aire que bajas flotando con suavidad.",
+          "fact": "Leonardo da Vinci dibujó un paracaídas hace quinientos años."
+        },
+        "it": {
+          "prompt": "A che serve un paracadute?",
+          "answer": "A scendere lentamente",
+          "wrong": [
+            "A cadere più in fretta",
+            "A volare in alto",
+            "A nuotare"
+          ],
+          "hint": "Cattura molta aria.",
+          "explanation": "La grande tela raccoglie tanta aria che scendi dolcemente.",
+          "fact": "Leonardo da Vinci disegnò un paracadute cinquecento anni fa."
+        },
+        "pt": {
+          "prompt": "Para que serve um paraquedas?",
+          "answer": "Para descer devagar",
+          "wrong": [
+            "Para cair mais depressa",
+            "Para subir a voar",
+            "Para nadar"
+          ],
+          "hint": "Apanha muito ar.",
+          "explanation": "O pano grande apanha tanto ar que desces a flutuar devagar.",
+          "fact": "Leonardo da Vinci desenhou um paraquedas há quinhentos anos."
+        },
+        "da": {
+          "prompt": "Hvad bruges en faldskærm til?",
+          "answer": "At dale langsomt ned",
+          "wrong": [
+            "At falde hurtigere",
+            "At flyve opad",
+            "At svømme"
+          ],
+          "hint": "Den fanger meget luft.",
+          "explanation": "Den store dug fanger så meget luft, at du svæver blidt nedad.",
+          "fact": "Leonardo da Vinci tegnede en faldskærm for fem hundrede år siden."
+        },
+        "ru": {
+          "prompt": "Для чего нужен парашют?",
+          "answer": "Чтобы спускаться медленно",
+          "wrong": [
+            "Чтобы падать быстрее",
+            "Чтобы взлетать",
+            "Чтобы плавать"
+          ],
+          "hint": "Он ловит много воздуха.",
+          "explanation": "Большой купол ловит столько воздуха, что ты плавно опускаешься.",
+          "fact": "Леонардо да Винчи нарисовал парашют пятьсот лет назад."
+        },
+        "ar": {
+          "prompt": "ما فائدة المظلة الهابطة؟",
+          "answer": "النزول ببطء",
+          "wrong": [
+            "السقوط أسرع",
+            "الطيران إلى أعلى",
+            "السباحة"
+          ],
+          "hint": "تلتقط هواء كثيرًا.",
+          "explanation": "القماش الكبير يحبس هواءً كثيرًا فتهبط بلطف.",
+          "fact": "رسم ليوناردو دافنشي مظلة هبوط قبل خمس مئة سنة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De stoommachine pompte mijnen leeg",
+      "artBrief": "Een vroege stoommachine bij een mijnschacht met stoom en een waterstraal.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar werd de eerste stoommachine voor gebruikt?",
+          "answer": "Water uit mijnen pompen",
+          "wrong": [
+            "Brood bakken",
+            "Stroom maken",
+            "Huizen verlichten"
+          ],
+          "hint": "Diep onder de grond liep het vol.",
+          "explanation": "Vroege stoommachines pompten het grondwater uit kolenmijnen weg.",
+          "fact": "Pas later kwamen stoomtreinen en stoomschepen."
+        },
+        "en": {
+          "prompt": "What was the first steam engine used for?",
+          "answer": "Pumping mines dry",
+          "wrong": [
+            "Baking bread",
+            "Making electricity",
+            "Lighting houses"
+          ],
+          "hint": "Deep underground it flooded.",
+          "explanation": "Early steam engines pumped the groundwater out of coal mines.",
+          "fact": "Steam trains and steamships only came later."
+        },
+        "de": {
+          "prompt": "Wofür diente die erste Dampfmaschine?",
+          "answer": "Bergwerke leer pumpen",
+          "wrong": [
+            "Brot backen",
+            "Strom erzeugen",
+            "Häuser beleuchten"
+          ],
+          "hint": "Tief unten lief es voll.",
+          "explanation": "Frühe Dampfmaschinen pumpten das Grundwasser aus Kohlegruben.",
+          "fact": "Dampfzüge und Dampfschiffe kamen erst später."
+        },
+        "fr": {
+          "prompt": "À quoi servait la première machine à vapeur ?",
+          "answer": "À vider les mines d'eau",
+          "wrong": [
+            "À cuire le pain",
+            "À produire du courant",
+            "À éclairer les maisons"
+          ],
+          "hint": "Au fond, tout se remplissait.",
+          "explanation": "Les premières machines à vapeur pompaient l'eau hors des mines de charbon.",
+          "fact": "Les trains et les bateaux à vapeur ne sont venus qu'après."
+        },
+        "es": {
+          "prompt": "¿Para qué se usó la primera máquina de vapor?",
+          "answer": "Para vaciar minas de agua",
+          "wrong": [
+            "Para hornear pan",
+            "Para hacer electricidad",
+            "Para alumbrar casas"
+          ],
+          "hint": "Allá abajo se inundaba todo.",
+          "explanation": "Las primeras máquinas de vapor sacaban el agua de las minas de carbón.",
+          "fact": "Los trenes y barcos de vapor llegaron después."
+        },
+        "it": {
+          "prompt": "A che serviva la prima macchina a vapore?",
+          "answer": "A svuotare le miniere",
+          "wrong": [
+            "A cuocere il pane",
+            "A fare corrente",
+            "A illuminare le case"
+          ],
+          "hint": "Laggiù si allagava tutto.",
+          "explanation": "Le prime macchine a vapore pompavano l'acqua fuori dalle miniere di carbone.",
+          "fact": "Treni e navi a vapore vennero solo dopo."
+        },
+        "pt": {
+          "prompt": "Para que serviu a primeira máquina a vapor?",
+          "answer": "Esvaziar minas de água",
+          "wrong": [
+            "Cozer pão",
+            "Fazer eletricidade",
+            "Iluminar casas"
+          ],
+          "hint": "Lá em baixo enchia tudo.",
+          "explanation": "As primeiras máquinas a vapor bombeavam a água das minas de carvão.",
+          "fact": "Comboios e navios a vapor só vieram depois."
+        },
+        "da": {
+          "prompt": "Hvad blev den første dampmaskine brugt til?",
+          "answer": "At pumpe miner tørre",
+          "wrong": [
+            "At bage brød",
+            "At lave strøm",
+            "At oplyse huse"
+          ],
+          "hint": "Dybt nede løb det fuldt.",
+          "explanation": "Tidlige dampmaskiner pumpede grundvandet ud af kulminer.",
+          "fact": "Damptog og dampskibe kom først senere."
+        },
+        "ru": {
+          "prompt": "Для чего служила первая паровая машина?",
+          "answer": "Откачивать воду из шахт",
+          "wrong": [
+            "Печь хлеб",
+            "Делать электричество",
+            "Освещать дома"
+          ],
+          "hint": "Внизу всё затапливало.",
+          "explanation": "Ранние паровые машины выкачивали грунтовые воды из угольных шахт.",
+          "fact": "Паровозы и пароходы появились позже."
+        },
+        "ar": {
+          "prompt": "فيمَ استُعملت أول آلة بخارية؟",
+          "answer": "ضخ الماء من المناجم",
+          "wrong": [
+            "خبز الخبز",
+            "توليد الكهرباء",
+            "إنارة البيوت"
+          ],
+          "hint": "في العمق كان الماء يغمر كل شيء.",
+          "explanation": "الآلات البخارية الأولى كانت تضخ الماء الجوفي من مناجم الفحم.",
+          "fact": "أما القطارات والسفن البخارية فجاءت لاحقًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Het kompas",
+      "artBrief": "Een koperen kompas met draaiende naald op een oude kaart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvoor gebruik je een kompas?",
+          "answer": "Om de richting te vinden",
+          "wrong": [
+            "Om de tijd te meten",
+            "Om afstand te meten",
+            "Om te wegen"
+          ],
+          "hint": "De naald wijst altijd dezelfde kant op.",
+          "explanation": "De magnetische naald draait naar het noorden, waar je ook staat.",
+          "fact": "Bij een sterke magneet in de buurt slaat de naald helemaal op hol."
+        },
+        "en": {
+          "prompt": "What do you use a compass for?",
+          "answer": "To find the direction",
+          "wrong": [
+            "To measure time",
+            "To measure distance",
+            "To weigh things"
+          ],
+          "hint": "The needle always points the same way.",
+          "explanation": "The magnetic needle swings to the north wherever you stand.",
+          "fact": "Near a strong magnet the needle goes completely wild."
+        },
+        "de": {
+          "prompt": "Wofür benutzt man einen Kompass?",
+          "answer": "Um die Richtung zu finden",
+          "wrong": [
+            "Um die Zeit zu messen",
+            "Um Entfernung zu messen",
+            "Um zu wiegen"
+          ],
+          "hint": "Die Nadel zeigt immer gleich.",
+          "explanation": "Die magnetische Nadel dreht sich nach Norden, wo du auch stehst.",
+          "fact": "In der Nähe eines starken Magneten spielt die Nadel völlig verrückt."
+        },
+        "fr": {
+          "prompt": "À quoi sert une boussole ?",
+          "answer": "À trouver la direction",
+          "wrong": [
+            "À mesurer le temps",
+            "À mesurer la distance",
+            "À peser"
+          ],
+          "hint": "L'aiguille pointe toujours pareil.",
+          "explanation": "L'aiguille aimantée se tourne vers le nord, où que tu sois.",
+          "fact": "Près d'un aimant puissant, l'aiguille s'affole complètement."
+        },
+        "es": {
+          "prompt": "¿Para qué sirve una brújula?",
+          "answer": "Para encontrar la dirección",
+          "wrong": [
+            "Para medir el tiempo",
+            "Para medir distancias",
+            "Para pesar"
+          ],
+          "hint": "La aguja apunta siempre igual.",
+          "explanation": "La aguja imantada gira hacia el norte estés donde estés.",
+          "fact": "Cerca de un imán fuerte la aguja se vuelve loca."
+        },
+        "it": {
+          "prompt": "A che serve una bussola?",
+          "answer": "A trovare la direzione",
+          "wrong": [
+            "A misurare il tempo",
+            "A misurare la distanza",
+            "A pesare"
+          ],
+          "hint": "L'ago punta sempre uguale.",
+          "explanation": "L'ago magnetico si gira verso nord ovunque tu sia.",
+          "fact": "Vicino a una calamita forte l'ago impazzisce."
+        },
+        "pt": {
+          "prompt": "Para que serve uma bússola?",
+          "answer": "Para achar a direção",
+          "wrong": [
+            "Para medir o tempo",
+            "Para medir distâncias",
+            "Para pesar"
+          ],
+          "hint": "A agulha aponta sempre igual.",
+          "explanation": "A agulha magnética vira-se para norte onde quer que estejas.",
+          "fact": "Perto de um íman forte a agulha enlouquece."
+        },
+        "da": {
+          "prompt": "Hvad bruger man et kompas til?",
+          "answer": "At finde retningen",
+          "wrong": [
+            "At måle tiden",
+            "At måle afstand",
+            "At veje"
+          ],
+          "hint": "Nålen peger altid samme vej.",
+          "explanation": "Den magnetiske nål drejer mod nord, uanset hvor du står.",
+          "fact": "Tæt på en stærk magnet går nålen helt amok."
+        },
+        "ru": {
+          "prompt": "Для чего нужен компас?",
+          "answer": "Чтобы найти направление",
+          "wrong": [
+            "Чтобы измерять время",
+            "Чтобы мерить расстояние",
+            "Чтобы взвешивать"
+          ],
+          "hint": "Стрелка всегда смотрит одинаково.",
+          "explanation": "Магнитная стрелка поворачивается на север, где бы ты ни стоял.",
+          "fact": "Рядом с сильным магнитом стрелка сходит с ума."
+        },
+        "ar": {
+          "prompt": "فيمَ تستعمل البوصلة؟",
+          "answer": "لإيجاد الاتجاه",
+          "wrong": [
+            "لقياس الوقت",
+            "لقياس المسافة",
+            "للوزن"
+          ],
+          "hint": "الإبرة تشير دائمًا الاتجاه نفسه.",
+          "explanation": "الإبرة المغناطيسية تتجه شمالًا أينما وقفت.",
+          "fact": "قرب مغناطيس قوي تضطرب الإبرة تمامًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Het wiel",
+      "artBrief": "Een houten kar met vier wielen vol zware stenen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat werd veel makkelijker door de uitvinding van het wiel?",
+          "answer": "Zware dingen verplaatsen",
+          "wrong": [
+            "Vuur maken",
+            "Eten koken",
+            "Kleren maken"
+          ],
+          "hint": "Rollen kost minder kracht dan slepen.",
+          "explanation": "Op wielen rolt een last mee in plaats van dat hij over de grond schuurt.",
+          "fact": "Het wiel werd eerst gebruikt om potten te draaien, pas later om te rijden."
+        },
+        "en": {
+          "prompt": "What got much easier thanks to the wheel?",
+          "answer": "Moving heavy things",
+          "wrong": [
+            "Making fire",
+            "Cooking food",
+            "Making clothes"
+          ],
+          "hint": "Rolling takes less force than dragging.",
+          "explanation": "On wheels a load rolls along instead of scraping over the ground.",
+          "fact": "The wheel was first used for turning pots, only later for driving."
+        },
+        "de": {
+          "prompt": "Was wurde durch das Rad viel leichter?",
+          "answer": "Schweres transportieren",
+          "wrong": [
+            "Feuer machen",
+            "Essen kochen",
+            "Kleider machen"
+          ],
+          "hint": "Rollen kostet weniger Kraft als ziehen.",
+          "explanation": "Auf Rädern rollt eine Last mit, statt über den Boden zu schleifen.",
+          "fact": "Das Rad diente zuerst dem Töpfern, erst später dem Fahren."
+        },
+        "fr": {
+          "prompt": "Qu'est devenu bien plus facile grâce à la roue ?",
+          "answer": "Déplacer du lourd",
+          "wrong": [
+            "Faire du feu",
+            "Cuire les aliments",
+            "Faire des vêtements"
+          ],
+          "hint": "Rouler demande moins de force que traîner.",
+          "explanation": "Sur des roues, une charge roule au lieu de frotter sur le sol.",
+          "fact": "La roue a d'abord servi à tourner des poteries, et seulement après à rouler."
+        },
+        "es": {
+          "prompt": "¿Qué se volvió mucho más fácil gracias a la rueda?",
+          "answer": "Mover cosas pesadas",
+          "wrong": [
+            "Hacer fuego",
+            "Cocinar",
+            "Hacer ropa"
+          ],
+          "hint": "Rodar cuesta menos que arrastrar.",
+          "explanation": "Sobre ruedas la carga rueda en vez de rozar contra el suelo.",
+          "fact": "La rueda sirvió primero para tornear vasijas y solo después para rodar."
+        },
+        "it": {
+          "prompt": "Che cosa è diventato molto più facile con la ruota?",
+          "answer": "Spostare cose pesanti",
+          "wrong": [
+            "Accendere il fuoco",
+            "Cuocere il cibo",
+            "Fare vestiti"
+          ],
+          "hint": "Rotolare costa meno forza.",
+          "explanation": "Su ruote un carico rotola invece di strisciare sul terreno.",
+          "fact": "La ruota servì prima a tornire vasi e solo dopo a viaggiare."
+        },
+        "pt": {
+          "prompt": "O que ficou muito mais fácil graças à roda?",
+          "answer": "Mover coisas pesadas",
+          "wrong": [
+            "Fazer fogo",
+            "Cozinhar",
+            "Fazer roupa"
+          ],
+          "hint": "Rolar custa menos força.",
+          "explanation": "Sobre rodas a carga rola em vez de arrastar pelo chão.",
+          "fact": "A roda serviu primeiro para tornear potes e só depois para andar."
+        },
+        "da": {
+          "prompt": "Hvad blev meget lettere takket være hjulet?",
+          "answer": "At flytte tunge ting",
+          "wrong": [
+            "At lave ild",
+            "At lave mad",
+            "At lave tøj"
+          ],
+          "hint": "At rulle koster mindre kraft end at slæbe.",
+          "explanation": "På hjul ruller en last med i stedet for at skrabe hen over jorden.",
+          "fact": "Hjulet blev først brugt til at dreje potter, først senere til at køre."
+        },
+        "ru": {
+          "prompt": "Что стало гораздо легче благодаря колесу?",
+          "answer": "Перевозить тяжёлое",
+          "wrong": [
+            "Добывать огонь",
+            "Готовить еду",
+            "Шить одежду"
+          ],
+          "hint": "Катить легче, чем тащить.",
+          "explanation": "На колёсах груз катится, а не скребёт по земле.",
+          "fact": "Сначала колесо крутило гончарный круг и лишь потом повезло повозки."
+        },
+        "ar": {
+          "prompt": "ما الذي صار أسهل بكثير بفضل العجلة؟",
+          "answer": "نقل الأشياء الثقيلة",
+          "wrong": [
+            "إشعال النار",
+            "طهي الطعام",
+            "صنع الثياب"
+          ],
+          "hint": "الدحرجة أسهل من السحب.",
+          "explanation": "على العجلات يتدحرج الحمل بدل أن يحتك بالأرض.",
+          "fact": "استُعملت العجلة أولًا لتشكيل الفخار ثم للتنقل."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Edison en de gloeilamp",
+      "artBrief": "Een vroege gloeilamp met koolstofdraad, gloeiend in een donkere werkplaats.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie maakte de gloeilamp die lang genoeg brandde?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Hij probeerde duizenden draadjes.",
+          "explanation": "Edison zocht net zo lang tot hij een draad vond die uren bleef gloeien.",
+          "fact": "Zijn werkplaats vroeg meer dan duizend patenten aan."
+        },
+        "en": {
+          "prompt": "Who made the light bulb that burned long enough?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "He tried thousands of filaments.",
+          "explanation": "Edison kept trying until he found a filament that glowed for hours.",
+          "fact": "His workshop applied for more than a thousand patents."
+        },
+        "de": {
+          "prompt": "Wer baute die Glühlampe, die lange genug brannte?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Er probierte tausende Fäden.",
+          "explanation": "Edison suchte so lange, bis ein Faden stundenlang glühte.",
+          "fact": "Seine Werkstatt meldete mehr als tausend Patente an."
+        },
+        "fr": {
+          "prompt": "Qui a fait l'ampoule qui brûlait assez longtemps ?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Il a essayé des milliers de filaments.",
+          "explanation": "Edison a cherché jusqu'à trouver un filament qui brillait des heures.",
+          "fact": "Son atelier a déposé plus de mille brevets."
+        },
+        "es": {
+          "prompt": "¿Quién hizo la bombilla que duraba lo suficiente?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Probó miles de filamentos.",
+          "explanation": "Edison buscó hasta dar con un filamento que brillaba durante horas.",
+          "fact": "Su taller registró más de mil patentes."
+        },
+        "it": {
+          "prompt": "Chi costruì la lampadina che durava abbastanza?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Provò migliaia di filamenti.",
+          "explanation": "Edison cercò finché trovò un filamento che brillava per ore.",
+          "fact": "La sua officina depositò più di mille brevetti."
+        },
+        "pt": {
+          "prompt": "Quem fez a lâmpada que durava o suficiente?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Experimentou milhares de filamentos.",
+          "explanation": "Edison procurou até achar um filamento que brilhava horas.",
+          "fact": "A sua oficina registou mais de mil patentes."
+        },
+        "da": {
+          "prompt": "Hvem lavede den glødepære, der brændte længe nok?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Han prøvede tusindvis af tråde.",
+          "explanation": "Edison ledte, til han fandt en tråd, der glødede i timevis.",
+          "fact": "Hans værksted søgte mere end tusind patenter."
+        },
+        "ru": {
+          "prompt": "Кто сделал лампочку, которая горела достаточно долго?",
+          "answer": "Томас Эдисон",
+          "wrong": [
+            "Никола Тесла",
+            "Генри Форд",
+            "Мария Кюри"
+          ],
+          "hint": "Он перепробовал тысячи нитей.",
+          "explanation": "Эдисон искал, пока не нашёл нить, светившую часами.",
+          "fact": "Его мастерская подала больше тысячи патентов."
+        },
+        "ar": {
+          "prompt": "من صنع المصباح المتوهج الذي دام وقتًا كافيًا؟",
+          "answer": "توماس إديسون",
+          "wrong": [
+            "نيكولا تسلا",
+            "هنري فورد",
+            "ماري كوري"
+          ],
+          "hint": "جرّب آلاف الخيوط.",
+          "explanation": "ظل إديسون يبحث حتى وجد خيطًا يتوهج ساعات.",
+          "fact": "سجّلت ورشته أكثر من ألف براءة اختراع."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De eerste auto op benzine",
+      "artBrief": "Een driewielige motorwagen uit 1885 op een landweg.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat reed in 1885 als eerste op benzine?",
+          "answer": "De eerste auto",
+          "wrong": [
+            "De eerste trein",
+            "De eerste fiets",
+            "De eerste raket"
+          ],
+          "hint": "Hij had nog maar drie wielen.",
+          "explanation": "Karl Benz bouwde een driewieler met een kleine benzinemotor.",
+          "fact": "Zijn vrouw Bertha maakte er als eerste een lange rit mee, ruim honderd kilometer."
+        },
+        "en": {
+          "prompt": "What first ran on petrol in 1885?",
+          "answer": "The first car",
+          "wrong": [
+            "The first train",
+            "The first bicycle",
+            "The first rocket"
+          ],
+          "hint": "It had only three wheels.",
+          "explanation": "Karl Benz built a three-wheeler with a small petrol engine.",
+          "fact": "His wife Bertha was the first to take it on a long trip of over a hundred kilometres."
+        },
+        "de": {
+          "prompt": "Was fuhr 1885 als Erstes mit Benzin?",
+          "answer": "Das erste Auto",
+          "wrong": [
+            "Der erste Zug",
+            "Das erste Fahrrad",
+            "Die erste Rakete"
+          ],
+          "hint": "Es hatte nur drei Räder.",
+          "explanation": "Karl Benz baute einen Dreiradwagen mit kleinem Benzinmotor.",
+          "fact": "Seine Frau Bertha fuhr damit als Erste über hundert Kilometer weit."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui a roulé le premier à l'essence en 1885 ?",
+          "answer": "La première automobile",
+          "wrong": [
+            "Le premier train",
+            "Le premier vélo",
+            "La première fusée"
+          ],
+          "hint": "Elle n'avait que trois roues.",
+          "explanation": "Karl Benz a construit un tricycle à petit moteur à essence.",
+          "fact": "Sa femme Bertha fut la première à faire plus de cent kilomètres avec."
+        },
+        "es": {
+          "prompt": "¿Qué rodó primero con gasolina en 1885?",
+          "answer": "El primer automóvil",
+          "wrong": [
+            "El primer tren",
+            "La primera bicicleta",
+            "El primer cohete"
+          ],
+          "hint": "Solo tenía tres ruedas.",
+          "explanation": "Karl Benz construyó un triciclo con un pequeño motor de gasolina.",
+          "fact": "Su mujer Bertha fue la primera en recorrer más de cien kilómetros con él."
+        },
+        "it": {
+          "prompt": "Che cosa viaggiò per primo a benzina nel 1885?",
+          "answer": "La prima automobile",
+          "wrong": [
+            "Il primo treno",
+            "La prima bicicletta",
+            "Il primo razzo"
+          ],
+          "hint": "Aveva solo tre ruote.",
+          "explanation": "Karl Benz costruì un triciclo con un piccolo motore a benzina.",
+          "fact": "Sua moglie Bertha fu la prima a percorrerci oltre cento chilometri."
+        },
+        "pt": {
+          "prompt": "O que andou primeiro a gasolina em 1885?",
+          "answer": "O primeiro automóvel",
+          "wrong": [
+            "O primeiro comboio",
+            "A primeira bicicleta",
+            "O primeiro foguetão"
+          ],
+          "hint": "Só tinha três rodas.",
+          "explanation": "Karl Benz construiu um triciclo com um pequeno motor a gasolina.",
+          "fact": "A sua mulher Bertha foi a primeira a fazer mais de cem quilómetros."
+        },
+        "da": {
+          "prompt": "Hvad kørte først på benzin i 1885?",
+          "answer": "Den første bil",
+          "wrong": [
+            "Det første tog",
+            "Den første cykel",
+            "Den første raket"
+          ],
+          "hint": "Den havde kun tre hjul.",
+          "explanation": "Karl Benz byggede en trehjuler med en lille benzinmotor.",
+          "fact": "Hans kone Bertha var den første, der kørte over hundrede kilometer i den."
+        },
+        "ru": {
+          "prompt": "Что первым поехало на бензине в 1885 году?",
+          "answer": "Первый автомобиль",
+          "wrong": [
+            "Первый поезд",
+            "Первый велосипед",
+            "Первая ракета"
+          ],
+          "hint": "У него было всего три колеса.",
+          "explanation": "Карл Бенц построил трёхколёсную повозку с маленьким бензиновым мотором.",
+          "fact": "Его жена Берта первой проехала на ней больше ста километров."
+        },
+        "ar": {
+          "prompt": "ما الذي سار أولًا بالبنزين سنة 1885؟",
+          "answer": "أول سيارة",
+          "wrong": [
+            "أول قطار",
+            "أول دراجة",
+            "أول صاروخ"
+          ],
+          "hint": "كان لها ثلاث عجلات فقط.",
+          "explanation": "بنى كارل بنز عربة بثلاث عجلات ومحرك بنزين صغير.",
+          "fact": "زوجته برتا كانت أول من قطع بها أكثر من مئة كيلومتر."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De fotocamera",
+      "artBrief": "Een oude balgcamera op een houten statief in een atelier.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding legde als eerste een beeld vast?",
+          "answer": "De fotocamera",
+          "wrong": [
+            "De telefoon",
+            "De radio",
+            "De drukpers"
+          ],
+          "hint": "Het duurde uren om één plaatje te maken.",
+          "explanation": "In een camera valt licht op een gevoelige plaat, en daar blijft het beeld staan.",
+          "fact": "Voor de oudste foto moest de camera meer dan acht uur openstaan."
+        },
+        "en": {
+          "prompt": "Which invention first captured a picture?",
+          "answer": "The camera",
+          "wrong": [
+            "The telephone",
+            "The radio",
+            "The printing press"
+          ],
+          "hint": "One picture took hours.",
+          "explanation": "In a camera light falls on a sensitive plate, and the image stays there.",
+          "fact": "The oldest photograph needed the camera open for more than eight hours."
+        },
+        "de": {
+          "prompt": "Welche Erfindung hielt zuerst ein Bild fest?",
+          "answer": "Die Fotokamera",
+          "wrong": [
+            "Das Telefon",
+            "Das Radio",
+            "Die Druckpresse"
+          ],
+          "hint": "Ein Bild dauerte Stunden.",
+          "explanation": "In einer Kamera fällt Licht auf eine empfindliche Platte, und das Bild bleibt.",
+          "fact": "Für das älteste Foto stand die Kamera über acht Stunden offen."
+        },
+        "fr": {
+          "prompt": "Quelle invention a fixé une image pour la première fois ?",
+          "answer": "L'appareil photo",
+          "wrong": [
+            "Le téléphone",
+            "La radio",
+            "L'imprimerie"
+          ],
+          "hint": "Une image prenait des heures.",
+          "explanation": "Dans un appareil, la lumière tombe sur une plaque sensible et l'image y reste.",
+          "fact": "La plus vieille photo a demandé plus de huit heures de pose."
+        },
+        "es": {
+          "prompt": "¿Qué invento capturó una imagen por primera vez?",
+          "answer": "La cámara de fotos",
+          "wrong": [
+            "El teléfono",
+            "La radio",
+            "La imprenta"
+          ],
+          "hint": "Una sola imagen tardaba horas.",
+          "explanation": "En una cámara la luz cae sobre una placa sensible y la imagen se queda allí.",
+          "fact": "La foto más antigua exigió más de ocho horas de exposición."
+        },
+        "it": {
+          "prompt": "Quale invenzione fermò per prima un'immagine?",
+          "answer": "La macchina fotografica",
+          "wrong": [
+            "Il telefono",
+            "La radio",
+            "La stampa"
+          ],
+          "hint": "Una foto richiedeva ore.",
+          "explanation": "Nella macchina la luce cade su una lastra sensibile e l'immagine resta lì.",
+          "fact": "La foto più antica richiese più di otto ore di posa."
+        },
+        "pt": {
+          "prompt": "Que invento fixou uma imagem pela primeira vez?",
+          "answer": "A máquina fotográfica",
+          "wrong": [
+            "O telefone",
+            "A rádio",
+            "A imprensa"
+          ],
+          "hint": "Uma imagem levava horas.",
+          "explanation": "Na máquina a luz cai numa placa sensível e a imagem fica lá.",
+          "fact": "A foto mais antiga exigiu mais de oito horas de exposição."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse fastholdt først et billede?",
+          "answer": "Fotoapparatet",
+          "wrong": [
+            "Telefonen",
+            "Radioen",
+            "Trykpressen"
+          ],
+          "hint": "Ét billede tog timer.",
+          "explanation": "I et kamera falder lys på en følsom plade, og billedet bliver stående.",
+          "fact": "Det ældste foto krævede over otte timers eksponering."
+        },
+        "ru": {
+          "prompt": "Какое изобретение впервые сохранило изображение?",
+          "answer": "Фотоаппарат",
+          "wrong": [
+            "Телефон",
+            "Радио",
+            "Печатный станок"
+          ],
+          "hint": "Один снимок занимал часы.",
+          "explanation": "В фотоаппарате свет падает на чувствительную пластину, и изображение остаётся.",
+          "fact": "Для самого старого снимка камера была открыта больше восьми часов."
+        },
+        "ar": {
+          "prompt": "أي اختراع ثبّت صورة لأول مرة؟",
+          "answer": "آلة التصوير",
+          "wrong": [
+            "الهاتف",
+            "الراديو",
+            "المطبعة"
+          ],
+          "hint": "الصورة الواحدة كانت تستغرق ساعات.",
+          "explanation": "في الكاميرا يسقط الضوء على لوح حساس فتبقى الصورة عليه.",
+          "fact": "أقدم صورة احتاجت أكثر من ثماني ساعات."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Marconi en de radiogolven",
+      "artBrief": "Een vroege zendinstallatie met vonkenbrug en een hoge antenne aan zee.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie stuurde als eerste een radiosignaal over de oceaan?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Hij werkte met vonken en een hoge antenne.",
+          "explanation": "In 1901 ving Marconi in Canada een signaal op dat uit Engeland kwam.",
+          "fact": "Veel geleerden dachten dat radiogolven niet om de aarde heen konden buigen."
+        },
+        "en": {
+          "prompt": "Who first sent a radio signal across the ocean?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "He worked with sparks and a tall aerial.",
+          "explanation": "In 1901 Marconi picked up a signal in Canada that came from England.",
+          "fact": "Many scholars thought radio waves could not bend around the earth."
+        },
+        "de": {
+          "prompt": "Wer sendete als Erster ein Funksignal über den Ozean?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Er arbeitete mit Funken und hoher Antenne.",
+          "explanation": "1901 empfing Marconi in Kanada ein Signal aus England.",
+          "fact": "Viele Gelehrte glaubten, Funkwellen könnten sich nicht um die Erde biegen."
+        },
+        "fr": {
+          "prompt": "Qui a envoyé le premier signal radio par-dessus l'océan ?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Il travaillait avec des étincelles.",
+          "explanation": "En 1901, Marconi a capté au Canada un signal venu d'Angleterre.",
+          "fact": "Beaucoup de savants pensaient que les ondes ne pouvaient pas suivre la Terre."
+        },
+        "es": {
+          "prompt": "¿Quién mandó la primera señal de radio sobre el océano?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Trabajaba con chispas y una antena alta.",
+          "explanation": "En 1901 Marconi captó en Canadá una señal venida de Inglaterra.",
+          "fact": "Muchos sabios creían que las ondas no podían seguir la curva de la Tierra."
+        },
+        "it": {
+          "prompt": "Chi mandò il primo segnale radio oltre l'oceano?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Lavorava con scintille e un'antenna alta.",
+          "explanation": "Nel 1901 Marconi captò in Canada un segnale partito dall'Inghilterra.",
+          "fact": "Molti studiosi pensavano che le onde non potessero seguire la Terra."
+        },
+        "pt": {
+          "prompt": "Quem enviou o primeiro sinal de rádio sobre o oceano?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Trabalhava com faíscas e uma antena alta.",
+          "explanation": "Em 1901 Marconi captou no Canadá um sinal vindo de Inglaterra.",
+          "fact": "Muitos sábios achavam que as ondas não seguiam a curva da Terra."
+        },
+        "da": {
+          "prompt": "Hvem sendte først et radiosignal over havet?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Han arbejdede med gnister og en høj antenne.",
+          "explanation": "I 1901 opfangede Marconi i Canada et signal fra England.",
+          "fact": "Mange lærde troede, at radiobølger ikke kunne følge Jordens krumning."
+        },
+        "ru": {
+          "prompt": "Кто первым послал радиосигнал через океан?",
+          "answer": "Гульельмо Маркони",
+          "wrong": [
+            "Томас Эдисон",
+            "Христиан Гюйгенс",
+            "Тим Бернерс-Ли"
+          ],
+          "hint": "Он работал с искрой и высокой антенной.",
+          "explanation": "В 1901 году Маркони поймал в Канаде сигнал из Англии.",
+          "fact": "Многие учёные думали, что радиоволны не смогут обогнуть Землю."
+        },
+        "ar": {
+          "prompt": "من أرسل أول إشارة لاسلكية عبر المحيط؟",
+          "answer": "غوليلمو ماركوني",
+          "wrong": [
+            "توماس إديسون",
+            "كريستيان هويغنز",
+            "تيم بيرنرز لي"
+          ],
+          "hint": "عمل بالشرر وهوائي عالٍ.",
+          "explanation": "سنة 1901 التقط ماركوني في كندا إشارة أُرسلت من إنجلترا.",
+          "fact": "ظن كثير من العلماء أن الموجات لا تنحني مع الأرض."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De 3D-printer",
+      "artBrief": "Een 3D-printer die laag voor laag een klein voorwerp opbouwt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een 3D-printer?",
+          "answer": "Hij bouwt laag voor laag",
+          "wrong": [
+            "Hij maakt foto's scherper",
+            "Hij drukt kranten",
+            "Hij snijdt papier"
+          ],
+          "hint": "Uit een dun draadje plastic.",
+          "explanation": "Een 3D-printer legt honderden dunne laagjes op elkaar tot het voorwerp klaar is.",
+          "fact": "In het ziekenhuis printen ze er soms een oefenmodel van een bot mee."
+        },
+        "en": {
+          "prompt": "What does a 3D printer do?",
+          "answer": "It builds layer by layer",
+          "wrong": [
+            "It sharpens photos",
+            "It prints newspapers",
+            "It cuts paper"
+          ],
+          "hint": "From a thin thread of plastic.",
+          "explanation": "A 3D printer lays hundreds of thin layers on top of each other until the object is done.",
+          "fact": "Hospitals sometimes print a practice model of a bone with one."
+        },
+        "de": {
+          "prompt": "Was macht ein 3D-Drucker?",
+          "answer": "Er baut Schicht für Schicht",
+          "wrong": [
+            "Er schärft Fotos",
+            "Er druckt Zeitungen",
+            "Er schneidet Papier"
+          ],
+          "hint": "Aus einem dünnen Kunststofffaden.",
+          "explanation": "Ein 3D-Drucker legt hunderte dünne Schichten übereinander, bis das Teil fertig ist.",
+          "fact": "Im Krankenhaus druckt man damit manchmal ein Übungsmodell eines Knochens."
+        },
+        "fr": {
+          "prompt": "Que fait une imprimante 3D ?",
+          "answer": "Elle bâtit couche par couche",
+          "wrong": [
+            "Elle rend les photos nettes",
+            "Elle imprime des journaux",
+            "Elle coupe le papier"
+          ],
+          "hint": "À partir d'un fil de plastique.",
+          "explanation": "Une imprimante 3D pose des centaines de fines couches jusqu'à obtenir l'objet.",
+          "fact": "À l'hôpital, on imprime parfois un modèle d'os pour s'entraîner."
+        },
+        "es": {
+          "prompt": "¿Qué hace una impresora 3D?",
+          "answer": "Construye capa a capa",
+          "wrong": [
+            "Aclara las fotos",
+            "Imprime periódicos",
+            "Corta papel"
+          ],
+          "hint": "A partir de un hilo de plástico.",
+          "explanation": "Una impresora 3D pone cientos de capas finas una sobre otra hasta acabar la pieza.",
+          "fact": "En el hospital a veces imprimen así un modelo de hueso para practicar."
+        },
+        "it": {
+          "prompt": "Che cosa fa una stampante 3D?",
+          "answer": "Costruisce strato su strato",
+          "wrong": [
+            "Rende nitide le foto",
+            "Stampa giornali",
+            "Taglia la carta"
+          ],
+          "hint": "Da un filo sottile di plastica.",
+          "explanation": "Una stampante 3D posa centinaia di strati finché l'oggetto è finito.",
+          "fact": "In ospedale a volte stampano così un modello di osso per esercitarsi."
+        },
+        "pt": {
+          "prompt": "O que faz uma impressora 3D?",
+          "answer": "Constrói camada a camada",
+          "wrong": [
+            "Torna as fotos nítidas",
+            "Imprime jornais",
+            "Corta papel"
+          ],
+          "hint": "A partir de um fio fino de plástico.",
+          "explanation": "Uma impressora 3D põe centenas de camadas finas até a peça ficar pronta.",
+          "fact": "No hospital às vezes imprimem assim um modelo de osso para treinar."
+        },
+        "da": {
+          "prompt": "Hvad gør en 3D-printer?",
+          "answer": "Den bygger lag på lag",
+          "wrong": [
+            "Den gør fotos skarpere",
+            "Den trykker aviser",
+            "Den skærer papir"
+          ],
+          "hint": "Ud af en tynd plasttråd.",
+          "explanation": "En 3D-printer lægger hundredvis af tynde lag oven på hinanden, til tingen er færdig.",
+          "fact": "På hospitalet printer man nogle gange en øvemodel af en knogle."
+        },
+        "ru": {
+          "prompt": "Что делает 3D-принтер?",
+          "answer": "Строит слой за слоем",
+          "wrong": [
+            "Делает фото резче",
+            "Печатает газеты",
+            "Режет бумагу"
+          ],
+          "hint": "Из тонкой пластиковой нити.",
+          "explanation": "3D-принтер кладёт сотни тонких слоёв друг на друга, пока деталь не готова.",
+          "fact": "В больнице так иногда печатают учебную модель кости."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل الطابعة ثلاثية الأبعاد؟",
+          "answer": "تبني طبقة فوق طبقة",
+          "wrong": [
+            "تجعل الصور أوضح",
+            "تطبع الصحف",
+            "تقص الورق"
+          ],
+          "hint": "من خيط بلاستيكي رفيع.",
+          "explanation": "تضع مئات الطبقات الرقيقة فوق بعضها حتى يكتمل الشيء.",
+          "fact": "في المستشفى يطبعون بها أحيانًا نموذج عظمة للتدريب."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het conservenblik",
+      "artBrief": "Rijen glimmende conservenblikken zonder etiket op een plank.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding hield eten jarenlang goed?",
+          "answer": "Het conservenblik",
+          "wrong": [
+            "De magnetron",
+            "De blender",
+            "De koffiemolen"
+          ],
+          "hint": "Eerst koken, dan luchtdicht sluiten.",
+          "explanation": "In een dichtgesoldeerd blik kunnen bacteriën niet bij het eten komen.",
+          "fact": "Het blik bestond al vijftig jaar voordat iemand de blikopener bedacht."
+        },
+        "en": {
+          "prompt": "Which invention kept food good for years?",
+          "answer": "The tin can",
+          "wrong": [
+            "The microwave",
+            "The blender",
+            "The coffee grinder"
+          ],
+          "hint": "Cook it first, then seal it airtight.",
+          "explanation": "In a soldered tin, bacteria cannot reach the food at all.",
+          "fact": "Cans existed for fifty years before anyone invented the tin opener."
+        },
+        "de": {
+          "prompt": "Welche Erfindung hielt Essen jahrelang haltbar?",
+          "answer": "Die Konservendose",
+          "wrong": [
+            "Die Mikrowelle",
+            "Der Mixer",
+            "Die Kaffeemühle"
+          ],
+          "hint": "Erst kochen, dann luftdicht schließen.",
+          "explanation": "In einer verlöteten Dose kommen Bakterien gar nicht an das Essen.",
+          "fact": "Die Dose gab es fünfzig Jahre, bevor jemand den Dosenöffner erfand."
+        },
+        "fr": {
+          "prompt": "Quelle invention a gardé les aliments des années ?",
+          "answer": "La boîte de conserve",
+          "wrong": [
+            "Le four à micro-ondes",
+            "Le mixeur",
+            "Le moulin à café"
+          ],
+          "hint": "Cuire d'abord, fermer ensuite.",
+          "explanation": "Dans une boîte soudée, les bactéries n'atteignent pas la nourriture.",
+          "fact": "La boîte existait depuis cinquante ans quand l'ouvre-boîte fut inventé."
+        },
+        "es": {
+          "prompt": "¿Qué invento conservó la comida durante años?",
+          "answer": "La lata de conserva",
+          "wrong": [
+            "El microondas",
+            "La batidora",
+            "El molinillo"
+          ],
+          "hint": "Primero cocer, luego cerrar sin aire.",
+          "explanation": "En una lata soldada las bacterias no llegan a la comida.",
+          "fact": "La lata existió cincuenta años antes de que alguien inventara el abrelatas."
+        },
+        "it": {
+          "prompt": "Quale invenzione conservò il cibo per anni?",
+          "answer": "La scatoletta",
+          "wrong": [
+            "Il microonde",
+            "Il frullatore",
+            "Il macinacaffè"
+          ],
+          "hint": "Prima cuocere, poi chiudere ermeticamente.",
+          "explanation": "In una latta saldata i batteri non raggiungono il cibo.",
+          "fact": "La latta esisteva da cinquant'anni quando fu inventato l'apriscatole."
+        },
+        "pt": {
+          "prompt": "Que invento guardou comida durante anos?",
+          "answer": "A lata de conserva",
+          "wrong": [
+            "O micro-ondas",
+            "A batedeira",
+            "O moinho de café"
+          ],
+          "hint": "Primeiro cozer, depois fechar sem ar.",
+          "explanation": "Numa lata soldada as bactérias não chegam à comida.",
+          "fact": "A lata existiu cinquenta anos antes de alguém inventar o abre-latas."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse holdt mad god i årevis?",
+          "answer": "Konservesdåsen",
+          "wrong": [
+            "Mikroovnen",
+            "Blenderen",
+            "Kaffemøllen"
+          ],
+          "hint": "Først koge, så lukke lufttæt.",
+          "explanation": "I en loddet dåse kan bakterier slet ikke nå maden.",
+          "fact": "Dåsen fandtes i halvtreds år, før nogen opfandt dåseåbneren."
+        },
+        "ru": {
+          "prompt": "Какое изобретение сохраняло еду годами?",
+          "answer": "Консервная банка",
+          "wrong": [
+            "Микроволновка",
+            "Блендер",
+            "Кофемолка"
+          ],
+          "hint": "Сначала сварить, потом запаять.",
+          "explanation": "В запаянной банке бактерии просто не доберутся до еды.",
+          "fact": "Банка существовала полвека, прежде чем придумали консервный нож."
+        },
+        "ar": {
+          "prompt": "أي اختراع حفظ الطعام سنوات؟",
+          "answer": "علبة الحفظ المعدنية",
+          "wrong": [
+            "فرن الميكروويف",
+            "الخلاط",
+            "مطحنة البن"
+          ],
+          "hint": "يُطهى أولًا ثم يُغلق بإحكام.",
+          "explanation": "في علبة ملحومة لا تصل البكتيريا إلى الطعام.",
+          "fact": "وُجدت العلبة خمسين سنة قبل أن يخترع أحد فتّاحتها."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De vaatwasmachine",
+      "artBrief": "Een vroege houten vaatwasmachine met draaiend rek vol borden.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie bedacht in 1886 de vaatwasmachine?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Ze was het breken van haar servies zat.",
+          "explanation": "Cochrane bouwde een machine met rekken en warme waterstralen.",
+          "fact": "Haar machines werden eerst vooral door hotels en restaurants gekocht."
+        },
+        "en": {
+          "prompt": "Who invented the dishwasher in 1886?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "She was tired of chipped china.",
+          "explanation": "Cochrane built a machine with racks and jets of hot water.",
+          "fact": "Her machines were bought first by hotels and restaurants."
+        },
+        "de": {
+          "prompt": "Wer erfand 1886 die Geschirrspülmaschine?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Sie hatte zerbrochenes Geschirr satt.",
+          "explanation": "Cochrane baute eine Maschine mit Körben und heißen Wasserstrahlen.",
+          "fact": "Ihre Maschinen kauften zuerst vor allem Hotels und Restaurants."
+        },
+        "fr": {
+          "prompt": "Qui a inventé le lave-vaisselle en 1886 ?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Elle en avait assez de la vaisselle cassée.",
+          "explanation": "Cochrane a bâti une machine à paniers et jets d'eau chaude.",
+          "fact": "Ses machines ont d'abord été achetées par des hôtels et des restaurants."
+        },
+        "es": {
+          "prompt": "¿Quién inventó el lavavajillas en 1886?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Estaba harta de la vajilla rota.",
+          "explanation": "Cochrane construyó una máquina con cestas y chorros de agua caliente.",
+          "fact": "Sus máquinas las compraron primero hoteles y restaurantes."
+        },
+        "it": {
+          "prompt": "Chi inventò la lavastoviglie nel 1886?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Era stufa dei piatti rotti.",
+          "explanation": "Cochrane costruì una macchina con cestelli e getti di acqua calda.",
+          "fact": "Le sue macchine furono comprate prima da alberghi e ristoranti."
+        },
+        "pt": {
+          "prompt": "Quem inventou a máquina de lavar loiça em 1886?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Estava farta de loiça partida.",
+          "explanation": "Cochrane construiu uma máquina com cestos e jatos de água quente.",
+          "fact": "As suas máquinas foram compradas primeiro por hotéis e restaurantes."
+        },
+        "da": {
+          "prompt": "Hvem opfandt opvaskemaskinen i 1886?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Hun var træt af ødelagt porcelæn.",
+          "explanation": "Cochrane byggede en maskine med kurve og stråler af varmt vand.",
+          "fact": "Hendes maskiner blev først købt af hoteller og restauranter."
+        },
+        "ru": {
+          "prompt": "Кто изобрёл посудомоечную машину в 1886 году?",
+          "answer": "Джозефина Кокрейн",
+          "wrong": [
+            "Мария Кюри",
+            "Ада Лавлейс",
+            "Берта Бенц"
+          ],
+          "hint": "Ей надоела битая посуда.",
+          "explanation": "Кокрейн построила машину с корзинами и струями горячей воды.",
+          "fact": "Её машины сначала покупали гостиницы и рестораны."
+        },
+        "ar": {
+          "prompt": "من اخترع غسالة الصحون سنة 1886؟",
+          "answer": "جوزفين كوكرين",
+          "wrong": [
+            "ماري كوري",
+            "آدا لوفلايس",
+            "برتا بنز"
+          ],
+          "hint": "سئمت كسر الأطباق.",
+          "explanation": "بنت كوكرين آلة بسلال ونفاثات ماء ساخن.",
+          "fact": "اشترت آلاتها أولًا الفنادق والمطاعم."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De magnetron",
+      "artBrief": "Een magnetron met verlicht venster en een draaiend schaaltje.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding ontdekte Percy Spencer door een gesmolten reep?",
+          "answer": "De magnetron",
+          "wrong": [
+            "De koelkast",
+            "De grill",
+            "De friteuse"
+          ],
+          "hint": "Hij stond naast een radarbuis.",
+          "explanation": "Spencer merkte dat de straling van de radar zijn reep liet smelten, en bouwde er een oven mee.",
+          "fact": "De eerste magnetron was zo groot als een koelkast."
+        },
+        "en": {
+          "prompt": "Which invention did Percy Spencer find through a melted bar?",
+          "answer": "The microwave oven",
+          "wrong": [
+            "The fridge",
+            "The grill",
+            "The deep fryer"
+          ],
+          "hint": "He was standing beside a radar tube.",
+          "explanation": "Spencer noticed the radar melted the bar in his pocket, and built an oven from it.",
+          "fact": "The first microwave oven was as big as a fridge."
+        },
+        "de": {
+          "prompt": "Welche Erfindung fand Percy Spencer durch einen geschmolzenen Riegel?",
+          "answer": "Die Mikrowelle",
+          "wrong": [
+            "Der Kühlschrank",
+            "Der Grill",
+            "Die Fritteuse"
+          ],
+          "hint": "Er stand neben einer Radarröhre.",
+          "explanation": "Spencer merkte, dass die Radarstrahlung seinen Riegel schmolz, und baute daraus einen Ofen.",
+          "fact": "Die erste Mikrowelle war so groß wie ein Kühlschrank."
+        },
+        "fr": {
+          "prompt": "Quelle invention Percy Spencer a-t-il trouvée grâce à une barre fondue ?",
+          "answer": "Le four à micro-ondes",
+          "wrong": [
+            "Le réfrigérateur",
+            "Le gril",
+            "La friteuse"
+          ],
+          "hint": "Il se tenait près d'un tube radar.",
+          "explanation": "Spencer a vu le radar faire fondre la barre dans sa poche et en a fait un four.",
+          "fact": "Le premier micro-ondes était aussi gros qu'un réfrigérateur."
+        },
+        "es": {
+          "prompt": "¿Qué invento descubrió Percy Spencer por una barrita derretida?",
+          "answer": "El microondas",
+          "wrong": [
+            "El frigorífico",
+            "La parrilla",
+            "La freidora"
+          ],
+          "hint": "Estaba junto a un tubo de radar.",
+          "explanation": "Spencer notó que el radar derretía la barrita de su bolsillo y construyó un horno.",
+          "fact": "El primer microondas era tan grande como un frigorífico."
+        },
+        "it": {
+          "prompt": "Quale invenzione scoprì Percy Spencer con una barretta sciolta?",
+          "answer": "Il forno a microonde",
+          "wrong": [
+            "Il frigorifero",
+            "La griglia",
+            "La friggitrice"
+          ],
+          "hint": "Stava accanto a un tubo radar.",
+          "explanation": "Spencer notò che il radar scioglieva la barretta in tasca e ne ricavò un forno.",
+          "fact": "Il primo microonde era grande come un frigorifero."
+        },
+        "pt": {
+          "prompt": "Que invento Percy Spencer descobriu por uma barra derretida?",
+          "answer": "O micro-ondas",
+          "wrong": [
+            "O frigorífico",
+            "O grelhador",
+            "A fritadeira"
+          ],
+          "hint": "Estava ao lado de um tubo de radar.",
+          "explanation": "Spencer viu o radar derreter a barra no bolso e fez daí um forno.",
+          "fact": "O primeiro micro-ondas era do tamanho de um frigorífico."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse fandt Percy Spencer via en smeltet bar?",
+          "answer": "Mikroovnen",
+          "wrong": [
+            "Køleskabet",
+            "Grillen",
+            "Frituregryden"
+          ],
+          "hint": "Han stod ved et radarrør.",
+          "explanation": "Spencer opdagede, at radaren smeltede baren i lommen, og byggede en ovn af det.",
+          "fact": "Den første mikroovn var så stor som et køleskab."
+        },
+        "ru": {
+          "prompt": "Какое изобретение Перси Спенсер открыл из-за растаявшего батончика?",
+          "answer": "Микроволновую печь",
+          "wrong": [
+            "Холодильник",
+            "Гриль",
+            "Фритюрницу"
+          ],
+          "hint": "Он стоял рядом с радарной лампой.",
+          "explanation": "Спенсер заметил, что радар расплавил батончик в кармане, и построил печь.",
+          "fact": "Первая микроволновка была размером с холодильник."
+        },
+        "ar": {
+          "prompt": "أي اختراع اكتشفه بيرسي سبنسر بسبب لوح شوكولا ذاب؟",
+          "answer": "فرن الميكروويف",
+          "wrong": [
+            "الثلاجة",
+            "الشواية",
+            "المقلاة العميقة"
+          ],
+          "hint": "كان يقف قرب أنبوب رادار.",
+          "explanation": "لاحظ سبنسر أن إشعاع الرادار أذاب اللوح في جيبه فصنع منه فرنًا.",
+          "fact": "أول فرن ميكروويف كان بحجم ثلاجة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De microchip",
+      "artBrief": "Een siliciumchip van dichtbij met glanzende sporen en gouden draadjes.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding uit 1958 zit in bijna elk apparaat?",
+          "answer": "De microchip",
+          "wrong": [
+            "De gloeilamp",
+            "De veerbalans",
+            "De stoommachine"
+          ],
+          "hint": "Hij past op je vingertop.",
+          "explanation": "Op één chip staan miljoenen minuscule schakelaars die samen rekenen.",
+          "fact": "In een moderne telefoon zitten er meer schakelaars dan mensen op aarde."
+        },
+        "en": {
+          "prompt": "Which invention from 1958 sits in nearly every device?",
+          "answer": "The microchip",
+          "wrong": [
+            "The light bulb",
+            "The spring scale",
+            "The steam engine"
+          ],
+          "hint": "It fits on your fingertip.",
+          "explanation": "One chip holds millions of tiny switches that calculate together.",
+          "fact": "A modern phone holds more switches than there are people on earth."
+        },
+        "de": {
+          "prompt": "Welche Erfindung von 1958 steckt in fast jedem Gerät?",
+          "answer": "Der Mikrochip",
+          "wrong": [
+            "Die Glühlampe",
+            "Die Federwaage",
+            "Die Dampfmaschine"
+          ],
+          "hint": "Er passt auf deine Fingerkuppe.",
+          "explanation": "Auf einem Chip sitzen Millionen winziger Schalter, die gemeinsam rechnen.",
+          "fact": "In einem modernen Handy sind mehr Schalter als Menschen auf der Erde."
+        },
+        "fr": {
+          "prompt": "Quelle invention de 1958 se trouve dans presque tout appareil ?",
+          "answer": "La puce électronique",
+          "wrong": [
+            "L'ampoule",
+            "Le peson",
+            "La machine à vapeur"
+          ],
+          "hint": "Elle tient sur le bout du doigt.",
+          "explanation": "Une puce porte des millions de minuscules interrupteurs qui calculent ensemble.",
+          "fact": "Un téléphone moderne en contient plus qu'il n'y a d'humains sur Terre."
+        },
+        "es": {
+          "prompt": "¿Qué invento de 1958 hay en casi todo aparato?",
+          "answer": "El microchip",
+          "wrong": [
+            "La bombilla",
+            "La balanza de muelle",
+            "La máquina de vapor"
+          ],
+          "hint": "Cabe en la yema del dedo.",
+          "explanation": "En un chip hay millones de interruptores diminutos que calculan juntos.",
+          "fact": "Un móvil moderno lleva más interruptores que personas hay en la Tierra."
+        },
+        "it": {
+          "prompt": "Quale invenzione del 1958 è in quasi ogni apparecchio?",
+          "answer": "Il microchip",
+          "wrong": [
+            "La lampadina",
+            "La bilancia a molla",
+            "La macchina a vapore"
+          ],
+          "hint": "Sta sul polpastrello.",
+          "explanation": "Su un chip stanno milioni di minuscoli interruttori che calcolano insieme.",
+          "fact": "In un telefono moderno ce ne sono più che persone sulla Terra."
+        },
+        "pt": {
+          "prompt": "Que invento de 1958 está em quase todos os aparelhos?",
+          "answer": "O microchip",
+          "wrong": [
+            "A lâmpada",
+            "A balança de mola",
+            "A máquina a vapor"
+          ],
+          "hint": "Cabe na ponta do dedo.",
+          "explanation": "Num chip há milhões de interruptores minúsculos que calculam juntos.",
+          "fact": "Um telemóvel moderno tem mais deles do que pessoas na Terra."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse fra 1958 sidder i næsten alt?",
+          "answer": "Mikrochippen",
+          "wrong": [
+            "Glødepæren",
+            "Fjedervægten",
+            "Dampmaskinen"
+          ],
+          "hint": "Den kan ligge på en fingerspids.",
+          "explanation": "På én chip sidder millioner af bittesmå kontakter, der regner sammen.",
+          "fact": "En moderne telefon har flere kontakter end der er mennesker på Jorden."
+        },
+        "ru": {
+          "prompt": "Какое изобретение 1958 года есть почти в каждом приборе?",
+          "answer": "Микросхема",
+          "wrong": [
+            "Лампочка",
+            "Пружинные весы",
+            "Паровая машина"
+          ],
+          "hint": "Она помещается на кончике пальца.",
+          "explanation": "На одной микросхеме миллионы крошечных переключателей, считающих вместе.",
+          "fact": "В современном телефоне их больше, чем людей на Земле."
+        },
+        "ar": {
+          "prompt": "أي اختراع من 1958 موجود في كل جهاز تقريبًا؟",
+          "answer": "الرقاقة الإلكترونية",
+          "wrong": [
+            "المصباح",
+            "الميزان الزنبركي",
+            "الآلة البخارية"
+          ],
+          "hint": "تتسع على طرف إصبعك.",
+          "explanation": "في الرقاقة الواحدة ملايين المفاتيح الدقيقة تحسب معًا.",
+          "fact": "في هاتف حديث مفاتيح أكثر من عدد البشر على الأرض."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-uitvindingen-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De compact disc",
+      "artBrief": "Een cd die het licht breekt in regenboogkleuren boven een speler.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding uit Nederland verving de grammofoonplaat?",
+          "answer": "De cd",
+          "wrong": [
+            "De cassette",
+            "De radio",
+            "De koptelefoon"
+          ],
+          "hint": "Een laserstraal leest hem uit.",
+          "explanation": "Philips en Sony bedachten een schijfje waarop muziek als putjes staat, gelezen door laserlicht.",
+          "fact": "De speelduur werd expres lang genoeg gemaakt voor een hele symfonie."
+        },
+        "en": {
+          "prompt": "Which Dutch invention replaced the gramophone record?",
+          "answer": "The compact disc",
+          "wrong": [
+            "The cassette",
+            "The radio",
+            "The headphones"
+          ],
+          "hint": "A laser beam reads it.",
+          "explanation": "Philips and Sony devised a disc holding music as tiny pits, read by laser light.",
+          "fact": "Its playing time was made long enough on purpose for a whole symphony."
+        },
+        "de": {
+          "prompt": "Welche Erfindung aus den Niederlanden ersetzte die Schallplatte?",
+          "answer": "Die CD",
+          "wrong": [
+            "Die Kassette",
+            "Das Radio",
+            "Der Kopfhörer"
+          ],
+          "hint": "Ein Laserstrahl liest sie.",
+          "explanation": "Philips und Sony ersannen eine Scheibe, auf der Musik als winzige Gruben liegt.",
+          "fact": "Die Spieldauer wurde absichtlich lang genug für eine ganze Sinfonie."
+        },
+        "fr": {
+          "prompt": "Quelle invention néerlandaise a remplacé le disque vinyle ?",
+          "answer": "Le disque compact",
+          "wrong": [
+            "La cassette",
+            "La radio",
+            "Le casque"
+          ],
+          "hint": "Un rayon laser le lit.",
+          "explanation": "Philips et Sony ont conçu un disque où la musique est gravée en minuscules creux.",
+          "fact": "Sa durée a été choisie exprès assez longue pour une symphonie entière."
+        },
+        "es": {
+          "prompt": "¿Qué invento neerlandés sustituyó al disco de vinilo?",
+          "answer": "El disco compacto",
+          "wrong": [
+            "El casete",
+            "La radio",
+            "Los auriculares"
+          ],
+          "hint": "Lo lee un rayo láser.",
+          "explanation": "Philips y Sony idearon un disco con la música grabada en hoyos diminutos.",
+          "fact": "Su duración se eligió a propósito para que cupiera una sinfonía entera."
+        },
+        "it": {
+          "prompt": "Quale invenzione olandese sostituì il disco in vinile?",
+          "answer": "Il compact disc",
+          "wrong": [
+            "La cassetta",
+            "La radio",
+            "Le cuffie"
+          ],
+          "hint": "Lo legge un raggio laser.",
+          "explanation": "Philips e Sony idearono un disco con la musica incisa in minuscole fossette.",
+          "fact": "La durata fu scelta apposta lunga abbastanza per una sinfonia intera."
+        },
+        "pt": {
+          "prompt": "Que invento neerlandês substituiu o disco de vinil?",
+          "answer": "O disco compacto",
+          "wrong": [
+            "A cassete",
+            "A rádio",
+            "Os auscultadores"
+          ],
+          "hint": "É lido por um raio laser.",
+          "explanation": "A Philips e a Sony criaram um disco com a música gravada em covinhas.",
+          "fact": "A duração foi escolhida de propósito para caber uma sinfonia inteira."
+        },
+        "da": {
+          "prompt": "Hvilken hollandsk opfindelse afløste grammofonpladen?",
+          "answer": "Cd'en",
+          "wrong": [
+            "Kassettebåndet",
+            "Radioen",
+            "Hovedtelefonerne"
+          ],
+          "hint": "En laserstråle læser den.",
+          "explanation": "Philips og Sony fandt på en skive, hvor musik ligger som bittesmå huller.",
+          "fact": "Spilletiden blev med vilje lang nok til en hel symfoni."
+        },
+        "ru": {
+          "prompt": "Какое нидерландское изобретение сменило грампластинку?",
+          "answer": "Компакт-диск",
+          "wrong": [
+            "Кассета",
+            "Радио",
+            "Наушники"
+          ],
+          "hint": "Его читает лазерный луч.",
+          "explanation": "Philips и Sony придумали диск, где музыка записана крошечными ямками.",
+          "fact": "Длительность нарочно сделали достаточной для целой симфонии."
+        },
+        "ar": {
+          "prompt": "أي اختراع هولندي حل محل الأسطوانة؟",
+          "answer": "القرص المدمج",
+          "wrong": [
+            "الشريط",
+            "الراديو",
+            "السماعات"
+          ],
+          "hint": "يقرؤه شعاع ليزر.",
+          "explanation": "ابتكرت فيليبس وسوني قرصًا تُسجَّل عليه الموسيقى حفرًا دقيقة.",
+          "fact": "اختيرت مدته طويلة عمدًا لتتسع لسيمفونية كاملة."
+        }
+      }
+    }
+  ]
+}
