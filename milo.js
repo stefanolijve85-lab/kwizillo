@@ -107,13 +107,13 @@
   // starts from. The browser plays a genuinely transparent video: no keying,
   // no canvas, nothing that can differ between browsers.
   // Een opgenomen clip zegt wat er stond toen hij werd gemaakt. Verandert die
-  // tekst daarna, dan klopt het beeld wel maar de stem niet meer; zo'n clip
-  // staat hier tot hij opnieuw is opgenomen (`node tools/guide-talks.js lines`).
-  // De gids valt dan terug op zijn stilstaande pose met de gesproken regel, en
-  // zegt dus nooit iets wat niet meer waar is.
+  // tekst daarna, dan klopt het beeld nog wel maar de stem niet meer. Zo'n clip
+  // staat hieronder tot hij opnieuw is opgenomen (`node tools/guide-talks.js
+  // lines`): hij speelt dan zonder geluid, zodat de gids gewoon beweegt en
+  // praat, en de regel wordt er los bij uitgesproken — die is wél bij.
   // tour.worlds: de opname zegt "de zes werelden"; het zijn er acht.
   const STALE_CLIPS=new Set(['worlds']);
-  const clipInfo=(key,guide='milo')=>{if(STALE_CLIPS.has(key))return null;const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
+  const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
   const probe=document.createElement('video');
   const safari=/AppleWebKit/.test(navigator.userAgent)&&!/Chrome|CriOS|Chromium|Android|Edg/.test(navigator.userAgent);
   const canWebm=!!probe.canPlayType('video/webm; codecs="vp9"'),canHevc=!!probe.canPlayType('video/mp4; codecs="hvc1"');
@@ -237,9 +237,9 @@
     // Swiped away while a clip plays: iOS pauses the video; play it on again
     // when the app comes back so the line finishes instead of freezing.
     document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&clipEl&&clipEl.isConnected&&clipEl.paused&&!clipEl.ended){const p=clipEl.play();if(p&&p.catch)p.catch(()=>{})}});
-    async function playClip(src){
+    async function playClip(src,{silent=false}={}){
       const v=clipVideo(src);
-      v.muted=K.state.voice==='Stil';
+      v.muted=silent||K.state.voice==='Stil';
       v.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
       if(clipEl&&clipEl!==v){clipEl.pause?.();clipEl.remove()}
       clipEl=v;
@@ -280,11 +280,16 @@
         api.bubble(html??esc(text));
         const started=Date.now();
         const info=clip&&clipInfo(clip,guide);const src=clip&&clipSrc(clip,guide);
+        const stale=clip&&STALE_CLIPS.has(clip);
         if(src){
           K.stopSpeech();
           if(info.pose&&figure)api.pose(info.pose);
           el.classList.add('talking');
-          const played=await playClip(src);
+          // Een verouderde opname speelt zonder geluid; de regel die erbij hoort
+          // wordt tegelijk uitgesproken, zodat beeld en tekst kloppen.
+          const played=stale
+            ? (await Promise.all([playClip(src,{silent:true}),K.guideSay(text,{},guide).catch(()=>{})]))[0]
+            : await playClip(src);
           el.classList.remove('talking');
           if(played){const left=minMs-(Date.now()-started);if(left>0)await new Promise(r=>setTimeout(r,left));return}
         }
