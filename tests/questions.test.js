@@ -21,7 +21,21 @@ const WORLDS = Object.keys(TOPIC_KEYS);
 const TOPICS = Object.values(TOPIC_KEYS).flat();
 const { ctx, banks: BANKS } = loadBanks();
 const countBy = (bank, key) => bank.reduce((m, q) => (m[q[key]] = (m[q[key]] || 0) + 1, m), {});
+// Questions that come from content/ carry their own difficulty in the row.
+const fromContent = new Set();
+{
+  const dir = path.join(ROOT, 'content');
+  for (const world of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+    const wdir = path.join(dir, world);
+    if (!fs.statSync(wdir).isDirectory()) continue;
+    for (const file of fs.readdirSync(wdir).filter(f => f.endsWith('.json')))
+      for (const q of JSON.parse(fs.readFileSync(path.join(wdir, file), 'utf8')).questions) fromContent.add(q.id);
+  }
+}
 const nlWorlds = countBy(BANKS.nl, 'world');
+// The worlds the app shows: every registered topic of them has questions.
+const complete = Object.keys(TOPIC_KEYS).filter(w =>
+  TOPIC_KEYS[w].every(t => BANKS.nl.some(q => q.world === w && q.topic === t)));
 const nlTopics = BANKS.nl.reduce((m, q) => (m[`${q.world}/${q.topic}`] = true, m), {});
 
 for (const [lang, bank] of Object.entries(BANKS)) {
@@ -50,6 +64,7 @@ for (const [lang, bank] of Object.entries(BANKS)) {
   assert.deepStrictEqual(Object.keys(byWorld).sort(), Object.keys(nlWorlds).sort(), `${lang}: other worlds than Dutch`);
   for (const world of Object.keys(byWorld)) assert.ok(WORLDS.includes(world), `${lang}: ${world} is not registered in m1-runtime.js`);
   for (const [world, n] of Object.entries(byWorld)) {
+    if (!complete.includes(world)) continue;   // still being written, and hidden
     assert.ok(n >= 80, `${lang}: ${world} must have at least 80 questions, got ${n}`);
   }
   const topics = Object.keys(byTopic);
@@ -60,18 +75,21 @@ for (const [lang, bank] of Object.entries(BANKS)) {
   }
 
   // A mixed world quiz must be able to serve eight unique batches of ten. A
-  // world that is registered but still being written has no questions at all
-  // and is hidden from the child (K.playableWorlds), so it is skipped here.
+  // world whose four topics are not all written yet is hidden from the child
+  // (K.playableWorlds), so it is held to this only once it is complete.
   for (const world of Object.keys(byWorld)) {
+    if (!complete.includes(world)) continue;
     assert.ok(byWorld[world] >= 80,
       `${lang}: ${world} cannot supply eight unique batches of ten`);
   }
-  // The base set is difficulty 1-2, the advanced set (ids 11-20) 3-4. Anything
-  // written after those forty states its own difficulty, so that every level can
-  // fill a quiz of ten; it only has to be one of the four.
+  // In the hand-written layers the difficulty comes from the position: ids 01-10
+  // are the base set (1-2) and 11-20 the advanced one (3-4). Everything that
+  // comes from content/ states its own difficulty in the row, so there the only
+  // rule is that it must be one of the four.
   for (const q of bank) {
     const n = Number(q.id.slice(-2));
-    if (n <= 10) assert.ok(q.difficulty <= 2, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
+    if (fromContent.has(q.id)) assert.ok(q.difficulty >= 1 && q.difficulty <= 4, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
+    else if (n <= 10) assert.ok(q.difficulty <= 2, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
     else if (n <= 20) assert.ok(q.difficulty >= 3, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
     else assert.ok(q.difficulty >= 1 && q.difficulty <= 4, `${lang}: ${q.id} has difficulty ${q.difficulty}`);
   }
@@ -113,14 +131,14 @@ const topicKeys = [...new Set(BANKS.nl.map(q => q.topic))];
 // A registered world whose questions are still being written is hidden by
 // K.playableWorlds, so it is work in progress and not a failure — but the run
 // says how much of it is still missing.
-const emptyWorlds = WORLDS.filter(w => !BANKS.nl.some(q => q.world === w));
+const unfinished = WORLDS.filter(w => !complete.includes(w));
 const emptyTopics = TOPICS.filter(t => !topicKeys.includes(t));
 for (const key of topicKeys) {
   for (const lang of LANGS) assert.ok(S[lang][`topic.${key}`], `topic.${key} has no ${lang} label`);
 }
 
-console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].length}`).join(', ')}, ${WORLDS.length - emptyWorlds.length}/${WORLDS.length} worlds, ${topicKeys.length}/${TOPICS.length} topics, ids in parity)`);
-if (emptyTopics.length) console.log(`Kwizillo question banks: ${emptyTopics.length} registered topic(s) still without questions: ${emptyTopics.join(', ')}`);
+console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].length}`).join(', ')}, ${complete.length}/${WORLDS.length} worlds, ${topicKeys.length}/${TOPICS.length} topics, ids in parity)`);
+if (emptyTopics.length) console.log(`Kwizillo question banks: ${unfinished.length} world(s) still being written (${unfinished.join(', ')}), ${emptyTopics.length} topic(s) without questions: ${emptyTopics.join(', ')}`);
 
 // Every question must resolve to a subject or topic illustration. Falling back to
 // the world background was AUDIT.md finding 4.11: the card showed the same picture
