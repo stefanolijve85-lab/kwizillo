@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "De olympische vlag",
       "artBrief": "Een witte vlag met vijf gekleurde ringen die wappert tegen een blauwe lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat staat er op de olympische vlag?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Goud voor de winnaar",
       "artBrief": "Een gouden medaille aan een lint in het zonlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat krijgt de winnaar van een olympisch onderdeel?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Het olympisch vuur",
       "artBrief": "Een grote vuurschaal die hoog boven een stadion brandt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat wordt er bij de opening van de Spelen aangestoken?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Om de vier jaar",
       "artBrief": "Een kalender met vier jaartallen en een fakkel ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Om de hoeveel jaar zijn de Olympische Zomerspelen?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De Spelen begonnen in Griekenland",
       "artBrief": "Een oud Grieks stadion van steen met een lange rechte baan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk land begonnen de Olympische Spelen?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Zilver voor de tweede plaats",
       "artBrief": "Een erepodium met drie treden en drie medailles.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke medaille is voor de tweede plaats?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De openingsoptocht",
       "artBrief": "Sporters met vlaggen die een vol stadion binnenlopen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen de sporters bij de openingsceremonie?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Schaatsen hoort bij de Winterspelen",
       "artBrief": "Een schaatser in aerodynamische houding op een ijsbaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sport hoort bij de Winterspelen?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Vijf ringen",
       "artBrief": "De vijf olympische ringen in elkaar gehaakt op een witte muur.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel ringen heeft het olympisch symbool?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De estafette",
       "artBrief": "Vier lopers op een baan, met een stokje dat wordt doorgegeven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een estafette?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "De ringen staan voor de werelddelen",
       "artBrief": "Een wereldkaart met vijf gekleurde ringen erboven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar staan de vijf olympische ringen voor?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "De fakkel wordt in Olympia aangestoken",
       "artBrief": "Een brandende fakkel bij oude zuilen in fel zonlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar wordt de olympische fakkel aangestoken?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Sneller, hoger, sterker",
       "artBrief": "Een spandoek met drie woorden boven een atletiekbaan, zonder leesbare tekst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de spreuk sneller, hoger, sterker?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "In het oude Griekenland deden alleen mannen mee",
       "artBrief": "Antieke atleten op een vaas-achtige geschilderde band.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie mochten in het oude Griekenland meedoen?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "De marathon is ruim 42 kilometer",
       "artBrief": "Een lange rij lopers op een weg door een stad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang is een marathon ongeveer?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Zwemmen om medailles",
       "artBrief": "Zwemmers in banen in een olympisch zwembad van bovenaf.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sporters strijden in een zwembad om medailles?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De eerste moderne Spelen in 1896",
       "artBrief": "Een marmeren stadion met een hoefijzervorm vol toeschouwers.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wanneer waren de eerste moderne Olympische Spelen?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Brons voor de derde plaats",
       "artBrief": "Een bronzen medaille die glanst op een donkere ondergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke medaille hoort bij de derde plaats?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De Paralympische Spelen",
       "artBrief": "Een sprinter met een loopblad in volle vaart op de baan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Voor wie zijn de Paralympische Spelen?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De fakkeltocht",
       "artBrief": "Een loper met fakkel die door een dorp rent, mensen juichen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met de fakkel voor de Spelen beginnen?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Athene 1896",
       "artBrief": "Een marmeren stadion in hoefijzervorm met een lange rechte baan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welke stad waren de eerste moderne Spelen?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "Jesse Owens won vier keer goud in 1936",
       "artBrief": "Een sprinter in oude sportkleding vlak na de start op een sintelbaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Amerikaanse sprinter won in 1936 vier keer goud?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "Michael Phelps, acht keer goud in 2008",
       "artBrief": "Een zwemmer met acht medailles om zijn nek bij een zwembad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie won acht gouden medailles op één Spelen?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "Usain Bolt, de snelste sprinter",
       "artBrief": "Een sprinter die ver voor de rest over de finish komt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Jamaicaan is de snelste sprinter ooit?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "De evenwichtsbalk",
       "artBrief": "Een turnster in evenwicht op een smalle balk in een hal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Op welk turntoestel staan alleen vrouwen?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "De Verenigde Staten wonnen de meeste medailles",
       "artBrief": "Een medaillekast vol goud, zilver en brons.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land won de meeste olympische medailles ooit?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "De olympische eed",
       "artBrief": "Een sporter met de hand op een vlag tijdens de opening.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de olympische eed?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Skateboarden kwam er in 2021 bij",
       "artBrief": "Een skateboarder in de lucht boven een betonnen kom.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sport kwam er in 2021 nieuw bij op de Spelen?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "De Spelen duren ongeveer twee weken",
       "artBrief": "Een kalenderblad met twee weken gemarkeerd naast een fakkel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang duren de Olympische Spelen ongeveer?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Een record verbroken",
       "artBrief": "Een scorebord met een nieuwe tijd erop en juichende sporters.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent het als een record wordt verbroken?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Geen Spelen in 1916, 1940 en 1944",
       "artBrief": "Een leeg stadion met gras tussen de tribunes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom waren er in 1916, 1940 en 1944 geen Spelen?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Fanny Blankers-Koen won vier keer goud in 1948",
       "artBrief": "Een atlete die juichend over de finish komt op een oude sintelbaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Nederlandse atlete won in 1948 vier keer goud?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "Meer dan tweehonderd landen",
       "artBrief": "Een zee van vlaggen van allerlei landen in een stadion.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel landen doen er tegenwoordig mee?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "Winterspelen: sneeuw en ijs",
       "artBrief": "Een skiër die door poedersneeuw een bocht maakt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het grote verschil met de Winterspelen?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Pierre de Coubertin bedacht de moderne Spelen",
       "artBrief": "Een oud bureau met papieren, pen en de vijf ringen geschetst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie bedacht de moderne Olympische Spelen?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Bijten in de medaille",
       "artBrief": "Een sporter die lachend op een gouden medaille bijt voor de camera's.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom bijten winnaars vaak in hun medaille?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Gouden medailles zijn vooral zilver",
       "artBrief": "Een doorgesneden medaille waarin zilver onder een dun laagje goud zit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Zijn gouden medailles helemaal van goud?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "Trainen op hoogte",
       "artBrief": "Een hardloper op een bergweg met wolken onder zich.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom trainen atleten soms hoog in de bergen?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "In 1896 deden er ongeveer tweehonderd mee",
       "artBrief": "Een klein groepje atleten in witte kleding op een oude baan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel sporters deden er in 1896 ongeveer mee?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "De vlag gaat naar de volgende stad",
       "artBrief": "Een vlag die bij de sluiting van hand tot hand wordt doorgegeven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er bij de sluiting met de olympische vlag?",

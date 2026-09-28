@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Kaartgebruik",
       "artBrief": "Twee kinderen met een opengevouwen stadsplattegrond op een plein.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebruik je om de weg te vinden in een vreemde stad?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Kaartconventies: water is blauw",
       "artBrief": "Een kleurige kaart met blauwe rivieren en meren tussen groen land.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke kleur heeft water meestal op een kaart?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Vier hoofdwindrichtingen",
       "artBrief": "Een kompasroos met vier duidelijke pijlen naar de hoofdrichtingen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel hoofdrichtingen heeft een kompas?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Wegenkaarten",
       "artBrief": "Een wegenkaart met lijnen, plaatsjes en een auto ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zie je op een wegenkaart?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Kompasletters",
       "artBrief": "Een kompas van dichtbij met de naald die naar de bovenste letter wijst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar staat de N op een kompas voor?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Hoogtelijnen dicht bijeen betekent steil",
       "artBrief": "Een kaartfragment met dicht opeen liggende hoogtelijnen naast een steile helling.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekenen lijnen die dicht bij elkaar liggen op een kaart?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Satellietbeelden",
       "artBrief": "Een foto van een landschap recht van boven, zoals een satelliet die maakt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een satellietkaart?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Navigatiesystemen",
       "artBrief": "Een schermpje in een auto met een blauwe route en een pijl.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een navigatiesysteem in een auto?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Zeekaarten en dieptecijfers",
       "artBrief": "Een zeekaart met dieptecijfers en een schip dat langs de kust vaart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor gebruikt een schipper een zeekaart?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Magnetoreceptie bij trekvogels",
       "artBrief": "Een zwerm trekvogels boven een landschap met zachte veldlijnen in de lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vinden trekvogels de weg over duizenden kilometers?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Breedtegraad = afstand tot de evenaar",
       "artBrief": "Een wereldbol met horizontale cirkels en de evenaar dik aangezet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat geeft de breedtegraad aan?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Navigatie op sterren",
       "artBrief": "Een zeilschip 's nachts onder een sterrenhemel met de Poolster helder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe navigeerden zeelieden vroeger 's nachts?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Een cirkel telt 360 graden",
       "artBrief": "Een kompasroos met een schaalverdeling rondom.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel graden telt een hele cirkel op een kompas?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Het lengtegraadprobleem en de scheepschronometer",
       "artBrief": "Een oude scheepsklok in een houten kist naast een zeekaart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe wisten schepen vroeger hoe ver ze naar het oosten waren?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Atlassen",
       "artBrief": "Een dik opengeslagen kaartenboek op een tafel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een atlas?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Het gradennet van meridianen en parallellen",
       "artBrief": "Een doorzichtige wereldbol met een raster van lijnen eromheen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet het denkbeeldige raster van lijnen op de aarde?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Middeleeuwse kaarten met het oosten boven",
       "artBrief": "Een oude perkamentkaart met versieringen, met het oosten bovenaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom staat op oude kaarten soms het oosten bovenaan?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "GPS op een telefoon: enkele meters nauwkeurig",
       "artBrief": "Een telefoon met een blauwe stip en een cirkel van onzekerheid op een kaart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe nauwkeurig is gps op een telefoon ongeveer?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Kaartprojecties",
       "artBrief": "Een sinaasappelschil die plat wordt gedrukt naast een wereldkaart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een kaartprojectie?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Breedtebepaling met een sextant",
       "artBrief": "Een zeeman die met een sextant de zon opmeet aan dek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe bepaalde men vroeger de breedtegraad op zee?",

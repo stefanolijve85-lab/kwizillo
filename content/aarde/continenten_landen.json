@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Zeven werelddelen (gangbare indeling)",
       "artBrief": "Een wereldkaart waarop de zeven werelddelen elk een eigen heldere kleur hebben.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel werelddelen zijn er?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Grondwet: Amsterdam is de hoofdstad van Nederland",
       "artBrief": "Grachtenpanden langs een gracht met een brug en fietsen, in ochtendlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de hoofdstad van Nederland?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Nederlandse iconen: tulpen en molens",
       "artBrief": "Een veld met kleurige tulpen en een molen op de achtergrond onder een wolkenlucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land staat bekend om tulpen en molens?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Antarctica: laagste gemeten temperatuur op aarde",
       "artBrief": "Een eindeloze ijsvlakte met pinguïns en een blauwe ijsberg in de verte.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk werelddeel is het koudst?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Eiffeltoren, Parijs, 1889",
       "artBrief": "De Eiffeltoren van onderaf gezien tegen een blauwe lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk land staat de Eiffeltoren?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "De Seine stroomt door Parijs",
       "artBrief": "Een rivier die door een stad met oude bruggen stroomt, een toren op de achtergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke rivier stroomt door Parijs?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "België grenst in het zuiden aan Nederland",
       "artBrief": "Een kaart van de Lage Landen met twee buurlanden in verschillende kleuren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land ligt direct ten zuiden van Nederland?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De Nijl, langste rivier van Afrika",
       "artBrief": "Een brede rivier die door groene oevers en woestijn slingert, van bovenaf.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de langste rivier van Afrika?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "De Middellandse Zee tussen Europa en Afrika",
       "artBrief": "Een zee tussen twee continenten, met schepen en kustlijnen aan beide kanten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke zee ligt tussen Europa en Afrika?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Europa telt ongeveer vijftig landen",
       "artBrief": "Een kaart van Europa met tientallen landen in verschillende kleuren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel landen liggen er ongeveer in Europa?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Rusland heeft elf tijdzones",
       "artBrief": "Een kaart van een enorm land met verticale banen en klokjes die verschillen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel tijdzones heeft Rusland?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Istanbul ligt in Europa en Azië",
       "artBrief": "Een stad met een brede zeestraat erdoorheen en een brug die twee oevers verbindt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke grote stad ligt in twee werelddelen?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Kilimanjaro, 5895 m, hoogste berg van Afrika",
       "artBrief": "Een besneeuwde bergtop boven een savanne met acacia's en zebra's.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de hoogste berg van Afrika?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Indonesië telt meer dan 17.000 eilanden",
       "artBrief": "Een zee vol groene eilandjes van bovenaf, met witte stranden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land bestaat uit meer dan zeventienduizend eilanden?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Vaticaanstad ligt binnen Rome",
       "artBrief": "Een kleine ommuurde stadstaat met een koepel, midden in een grote stad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk land ligt Vaticaanstad?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Canada heeft de meeste meren ter wereld",
       "artBrief": "Een luchtfoto van een bosgebied met ontelbare blauwe meren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land heeft de meeste meren ter wereld?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "La Paz, regeringszetel op 3.640 meter",
       "artBrief": "Een stad die tegen steile berghellingen op is gebouwd, met kabelbanen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke hoofdstad ligt het hoogst van allemaal?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Saoedi-Arabië heeft geen permanente rivieren",
       "artBrief": "Een droge woestijnvallei met een opgedroogde rivierbedding.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk groot land heeft helemaal geen rivieren?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Panamakanaal, geopend in 1914",
       "artBrief": "Een groot schip in een sluis tussen twee oceanen, met groene heuvels.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk kanaal verbindt de Atlantische en de Stille Oceaan?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Antipode van Nederland ligt bij Nieuw-Zeeland",
       "artBrief": "Een wereldbol met een lijn dwars door het midden van de aarde naar de andere kant.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar kom je uit als je vanuit Nederland dwars door de aarde graaft?",

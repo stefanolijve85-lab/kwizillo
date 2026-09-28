@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "De opera",
       "artBrief": "Een zangeres in kostuum voor een orkestbak vol muzikanten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een opera?",

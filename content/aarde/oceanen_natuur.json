@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Vulkanisme",
       "artBrief": "Een berg met een rokende top en gloeiende stroompjes langs de helling.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een vulkaan?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Woestijnen",
       "artBrief": "Een golvende zandduin onder een felblauwe hemel, met sporen in het zand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar vind je heel veel zand en bijna geen regen?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Rivieren",
       "artBrief": "Een rivier die door groen land naar de zee kronkelt, van bovenaf gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een rivier?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Zeebodem",
       "artBrief": "De bodem van een ondiepe zee met zand, rotsen en wat wier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat ligt er op de bodem van de zee?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Zout zeewater is niet drinkbaar",
       "artBrief": "Een glas zeewater naast een glas helder drinkwater op een strand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk water kun je niet zomaar drinken?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Karstgrotten ontstaan door oplossing van kalksteen",
       "artBrief": "Een druipsteengrot met stalactieten en een ondergronds beekje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe ontstaat een druipsteengrot?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Watervallen",
       "artBrief": "Een brede waterval die over een rotsrand in een diep bassin stort.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een waterval?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Temperatuur daalt met de hoogte",
       "artBrief": "Een bergtop met sneeuw boven een groen dal vol bloemen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is het boven op een berg kouder?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Fjorden zijn door gletsjers uitgesleten dalen",
       "artBrief": "Een diep blauw water tussen steile rotswanden, met een bootje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een fjord?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De waterkringloop",
       "artBrief": "Een wolk die regen laat vallen op bergen, met beekjes naar een meer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar komt bijna al het zoete water vandaan?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Antarctica is de grootste woestijn ter wereld",
       "artBrief": "Een droge ijsvlakte met kale rotsen en bijna geen sneeuwval.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de grootste woestijn ter wereld?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Gletsjers slijpen U-vormige dalen uit",
       "artBrief": "Een gletsjertong die door een breed dal schuift, met keien ervoor.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een gletsjer met het landschap?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Ongeveer 2,5 procent van al het water is zoet",
       "artBrief": "Een grote waterdruppel naast een piepklein druppeltje ter vergelijking.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel van al het water op aarde is zoet water?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Geisers",
       "artBrief": "Een fontein van kokend water en stoom die uit de grond schiet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een geiser?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "De boomgrens",
       "artBrief": "Een berghelling waar het bos abrupt ophoudt en alleen nog rotsen liggen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom groeien er hoog in de bergen geen bomen meer?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Zeewater bevat ongeveer 3,5 procent zout",
       "artBrief": "Een schaaltje zeezout naast een emmer zeewater op een steiger.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel procent van zeewater is zout?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Baikalmeer, 1642 meter diep",
       "artBrief": "Een helder blauw meer tussen bergen, met doorzicht tot diep onder water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het diepste meer ter wereld?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Erosie van oude gebergten",
       "artBrief": "Twee bergen naast elkaar: één scherp en jong, één afgesleten en rond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met een bergketen na miljoenen jaren?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Fytoplankton levert een groot deel van de zuurstof",
       "artBrief": "Groen plankton in helder zeewater met zonnestralen erdoorheen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar komt een groot deel van onze zuurstof vandaan?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Challenger Deep, bijna 11 kilometer diep",
       "artBrief": "Een doorsnede van de oceaan met een diepe kloof in de bodem.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe diep is het diepste punt van de oceaan ongeveer?",

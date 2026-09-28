@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Een record is de beste prestatie",
       "artBrief": "Een scorebord met een nieuwe recordtijd en juichend publiek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een wereldrecord?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Een kampioen wint het vaakst",
       "artBrief": "Een jonge sporter met een beker boven het hoofd.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe noem je iemand die een sport wint en de beste is?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Messi komt uit Argentinië",
       "artBrief": "Een voetbalshirt in blauw-witte strepen met een wereldbol.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Uit welk land komt Lionel Messi?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Jordan speelde basketbal",
       "artBrief": "Een basketballer die hoog naar de ring vliegt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sport speelde Michael Jordan?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Verstappen rijdt Formule 1",
       "artBrief": "Een snelle raceauto in een bocht met rooksporen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welke sport is Max Verstappen wereldkampioen?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Een marathonloper loopt heel ver",
       "artBrief": "Een hardloper op een lange weg met kilometerbord.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een marathonloper?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Serena Williams speelt tennis",
       "artBrief": "Een tennisster die een gele bal met kracht slaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sport doet Serena Williams?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Een held is een groot voorbeeld",
       "artBrief": "Een kind kijkt omhoog naar een poster van een sporter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een held in de sport?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "De leider draagt geel",
       "artBrief": "Een wielrenner in een gele trui met bergen op de achtergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke trui draagt de leider in de Tour de France?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De winnaar staat op het podium",
       "artBrief": "Een podium met drie treetjes: goud, zilver en brons.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar staat de winnaar na de wedstrijd?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Cruyff speelde met nummer 14",
       "artBrief": "Een voetballer in oranje met rugnummer veertien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Nederlandse voetballer speelde beroemd met rugnummer veertien?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Polsstokrecord: ruim zes meter",
       "artBrief": "Een polsstokhoogspringer zweeft over een lat hoog boven de mat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe hoog springt de wereldrecordhouder polsstokhoogspringen?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Comaneci kreeg de eerste tien",
       "artBrief": "Een turnster op de evenwichtsbalk met een scorebord erachter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie kreeg in 1976 als eerste turnster een perfecte tien?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "De Tour duurt ruim drie weken",
       "artBrief": "Een peloton wielrenners op een Franse bergweg.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang duurt de Tour de France?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Ali was een beroemde bokser",
       "artBrief": "Een boksring met handschoenen en een juichende kampioen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie was Muhammad Ali?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Serena won drieëntwintig grandslams",
       "artBrief": "Een tennisster houdt een grote zilveren schaal omhoog op het gravel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel grandslamtoernooien won Serena Williams?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Biles is een topturnster",
       "artBrief": "Een turnster hoog in de lucht midden in een schroefsprong.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie is Simone Biles?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Hoogspringen: ruim twee meter",
       "artBrief": "Een hoogspringer die achterover over de lat gaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe hoog springen de beste hoogspringers?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Persoonlijk record",
       "artBrief": "Een stopwatch en een schriftje met eigen tijden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een persoonlijk record?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Griffith-Joyner: snelste vrouw",
       "artBrief": "Een sprintster laag uit de startblokken op een rode baan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke atlete wordt de snelste vrouw ooit genoemd?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Bannister: mijl onder vier minuten",
       "artBrief": "Een loper op een oude sintelbaan met een stopwatch groot in beeld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie liep in 1954 als eerste de mijl onder vier minuten?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "Kipchoge onder twee uur",
       "artBrief": "Een marathonloper met hazen in een pijlvorm om hem heen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie liep als eerste een marathon onder twee uur?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "Te veel rugwind telt niet",
       "artBrief": "Een windmeter naast een atletiekbaan met bewegende vlaggen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom telt een sprintrecord met veel wind mee soms niet?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "De Fosbury-flop",
       "artBrief": "Een hoogspringer die achterover over de lat buigt naar een mat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de Fosbury-flop?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "Snelle zwempakken verboden",
       "artBrief": "Een zwemmer in een glanzend pak dat licht weerkaatst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom staan sommige zwemrecords uit 2008 nog steeds?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "Switzer liep Boston in 1967",
       "artBrief": "Een vrouw met startnummer tussen hardlopers in oude kleding.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat deed Kathrine Switzer in 1967?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "Het werelduurrecord",
       "artBrief": "Een baanwielrenner alleen op een houten wielerbaan, klok groot.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het werelduurrecord bij het wielrennen?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Turnen scoort boven de tien",
       "artBrief": "Een scorebord met een turnscore boven de vijftien punten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom bestaat de perfecte tien bij het turnen niet meer?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "Records zakken door techniek",
       "artBrief": "Een moderne rode atletiekbaan met hightech hardloopschoenen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom blijven records maar zakken?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Jongste kampioene: dertien",
       "artBrief": "Een jonge schoonspringster op de plank boven een diep bad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe oud was de jongste olympisch kampioene ooit?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Powell sprong 8,95 meter",
       "artBrief": "Een verspringer strekt zich uit boven de zandbak, meetlint erbij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie heeft het wereldrecord verspringen bij de mannen?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Merckx won de Tour vijf keer",
       "artBrief": "Een wielrenner in geel met vijf gele truien naast hem.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak won Eddy Merckx de Tour de France?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "Doping schrapt een record",
       "artBrief": "Een doorgestreepte naam op een uitslagenlijst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met een record als de sporter doping gebruikte?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "Een haas bepaalt het tempo",
       "artBrief": "Een groep lopers achter twee hazen met een klok langs de baan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een haas in een hardloopwedstrijd?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Olympisch record hoort bij de Spelen",
       "artBrief": "Twee scoreborden: wereldrecord en olympisch record naast elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een olympisch record?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Oudste kampioen: 72 jaar",
       "artBrief": "Een oudere sportschutter met geweer en gouden medaille.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe oud was de oudste olympisch kampioen ooit?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Berlijn is vlak en snel",
       "artBrief": "Een vlakke stadsmarathon met de Brandenburger Tor op de achtergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom vallen wereldrecords op de marathon vaak in Berlijn?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "Records naderen de grens",
       "artBrief": "Een grafiek waarin de lijn steeds vlakker wordt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom worden records steeds moeilijker te verbeteren?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "Mardini zwom voor vluchtelingen",
       "artBrief": "Een zwemster onder de olympische vlag zonder landsvlag.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Voor welk team zwom Yusra Mardini op de Spelen?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "De gele trui komt van een krant",
       "artBrief": "Een oude gele krantenpagina naast een gele wielertrui.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is de leiderstrui in de Tour de France geel?",

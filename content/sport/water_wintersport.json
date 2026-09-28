@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Zwemmen doe je in het water",
       "artBrief": "Een kind duikt met gestrekte armen in een blauw zwembad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welke sport ga je het water in?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Schaatsen glijden over ijs",
       "artBrief": "Een paar schaatsen op glanzend ijs, krassen eromheen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarop glijdt een schaats?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Ski's onder je voeten",
       "artBrief": "Twee ski's op een besneeuwde helling met bergen erachter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat bind je onder je voeten om een besneeuwde berg af te gaan?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De wind duwt het zeil",
       "artBrief": "Een kleine zeilboot met bol wit zeil op glinsterend water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat duwt een zeilboot vooruit?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "IJshockeyers staan op schaatsen",
       "artBrief": "Een ijshockeyspeler met stick en puck op een ijsbaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat heeft een ijshockeyer onder zijn schoenen?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Schoonspringen van plank of toren",
       "artBrief": "Een duikplank en toren boven een diep blauw bad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar springen schoonspringers vanaf?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Roeien met riemen",
       "artBrief": "Een roeiboot met vier roeiers, riemen in het water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee duwt een roeier zijn boot vooruit?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Wintersport vraagt sneeuw of ijs",
       "artBrief": "Een besneeuwde piste en een ijsbaan naast elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat heb je nodig voor wintersport?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Openwaterzwemmen in meer of zee",
       "artBrief": "Zwemmers met oranje badmutsen in een groot meer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar zwemmen mensen bij openwaterzwemmen?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Een olympisch bad is vijftig meter",
       "artBrief": "Een wedstrijdbad van bovenaf met tien banen en lijnen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang is een olympisch zwembad?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Rugslag: op je rug",
       "artBrief": "Een zwemmer op zijn rug, gezicht naar boven, water spat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Bij welke zwemslag kijk je naar het plafond?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "De Elfstedentocht",
       "artBrief": "Schaatsers in een lange rij op natuurijs langs een Fries dorp.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de beroemdste schaatstocht van Nederland?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Zes ijshockeyers per ploeg",
       "artBrief": "Zes spelers in formatie op het ijs, keeper bij het doel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel spelers van één ploeg staan bij ijshockey op het ijs?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "De bobslee wordt aangeduwd",
       "artBrief": "Vier bobsleeërs duwen hun slee rennend bij de start.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen bobsleeërs aan het begin van hun rit?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Curling met bezem en steen",
       "artBrief": "Een curlingsteen glijdt, twee spelers vegen ervoor.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Bij welke wintersport veeg je met een bezem over het ijs?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Schansspringen: ruim honderd meter",
       "artBrief": "Een skispringer zweeft met ski's in een V boven de sneeuw.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe ver kan een schansspringer door de lucht zweven?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De crawl is de snelste slag",
       "artBrief": "Een crawlzwemmer met arm boven water in een wedstrijdbaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke zwemslag is de snelste?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Badmuts voor minder weerstand",
       "artBrief": "Een zwemmer trekt een strakke badmuts over zijn haar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom draagt een zwemmer een badmuts?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Zeven waterpolospelers",
       "artBrief": "Waterpolospelers rond een gele bal voor een doel in het bad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel spelers van één ploeg zwemmen bij waterpolo in het bad?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Ireen Wüst won zes keer goud",
       "artBrief": "Een schaatsster in oranje pak in de bocht van een ijsbaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Nederlandse schaatsster won het vaakst olympisch goud?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "Onder de schaats smelt water",
       "artBrief": "Close-up van een schaatsijzer met een dun glanzend spoor.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom glijdt een schaats zo makkelijk?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "Triatlon: zwemmen, fietsen, lopen",
       "artBrief": "Drie plaatjes naast elkaar: zwemmer, fietser, hardloper.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Uit welke drie sporten bestaat een triatlon?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "In een groep minder tegenwind",
       "artBrief": "Schaatsers vlak achter elkaar in een lange rij op het ijs.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom rijden marathonschaatsers vlak achter elkaar?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "Nederland is het schaatsland",
       "artBrief": "Een bevroren sloot met schaatsers tussen Nederlandse weilanden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land won de meeste schaatsmedailles ooit?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "Langlaufen over vlakke sneeuw",
       "artBrief": "Een langlaufer met stokken op een vlak besneeuwd spoor.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is langlaufen?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Biatlon: langlaufen en schieten",
       "artBrief": "Een biatleet ligt op de sneeuw en mikt op kleine schijfjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke twee dingen doe je bij een biatlon?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "Een diep bad geeft minder golven",
       "artBrief": "Dwarsdoorsnede van een diep wedstrijdbad met rustig water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is een wedstrijdbad zo diep?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Tien kilometer open water",
       "artBrief": "Zwemmers in open water met boeien en een begeleidingsboot.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de langste zwemwedstrijd op de Spelen?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Matthew Webb zwom het Kanaal",
       "artBrief": "Een zwemmer in ruw grijs zeewater met de witte kliffen erachter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie zwom in 1875 als eerste het Kanaal over?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Van der Weijden zwom de elf steden",
       "artBrief": "Een zwemmer in donker kanaalwater met publiek op de kade.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is Maarten van der Weijden beroemd in Nederland?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "De klapschaats klapt los",
       "artBrief": "Close-up van een klapschaats met het ijzer los van de hak.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een klapschaats?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "Overstag: de neus door de wind",
       "artBrief": "Een zeilboot die draait, het zeil zwaait naar de andere kant.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent het als een zeilboot overstag gaat?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Strak pak, minder luchtweerstand",
       "artBrief": "Een afdaler in strak glanzend pak diep voorovergebogen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom dragen skiërs bij een afdaling een strak glad pak?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Shorttrack heeft een korte baan",
       "artBrief": "Vier shorttrackers schuin in een scherpe bocht, hand op het ijs.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het grote verschil tussen shorttrack en gewoon schaatsen?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Buizen bevriezen de ijsvloer",
       "artBrief": "Doorsnede van een ijsvloer met blauwe koelbuizen eronder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe houdt een ijshal het ijs hard?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "Zonder sneeuw geen wintersport",
       "artBrief": "Een warm zonnig eiland naast een besneeuwde bergpiste.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom doen warme landen bijna nooit mee aan de Winterspelen?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "Licht buigt in water",
       "artBrief": "Een zwembadbodem die door het water hoger lijkt te liggen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom lijkt een zwembad ondieper dan het is?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "Zout water tilt je op",
       "artBrief": "Iemand drijft rustig op zijn rug in helder zout zeewater.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom drijf je makkelijker in zeewater dan in een zwembad?",
