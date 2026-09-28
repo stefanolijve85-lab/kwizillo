@@ -1,0 +1,2607 @@
+{
+  "world": "geschiedenis",
+  "topic": "ontdekkingsreizigers",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zeilschepen in de ontdekkingstijd",
+      "artBrief": "Een driemaster met bolle zeilen op open zee onder een hoge wolkenlucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee reisden ontdekkingsreizigers over zee?",
+          "answer": "Met een zeilschip",
+          "wrong": [
+            "Met de trein",
+            "Met een vliegtuig",
+            "Met een fiets"
+          ],
+          "hint": "Het moest het van de wind hebben.",
+          "explanation": "Eeuwenlang was een zeilschip de enige manier om oceanen over te steken.",
+          "fact": "Zonder wind lag zo'n schip dagenlang stil."
+        },
+        "en": {
+          "prompt": "What did explorers travel across the sea in?",
+          "answer": "A sailing ship",
+          "wrong": [
+            "A train",
+            "An aeroplane",
+            "A bicycle"
+          ],
+          "hint": "It depended on the wind.",
+          "explanation": "For centuries a sailing ship was the only way to cross an ocean.",
+          "fact": "With no wind such a ship lay still for days."
+        },
+        "de": {
+          "prompt": "Womit reisten Entdecker über das Meer?",
+          "answer": "Mit einem Segelschiff",
+          "wrong": [
+            "Mit dem Zug",
+            "Mit dem Flugzeug",
+            "Mit dem Fahrrad"
+          ],
+          "hint": "Es war auf den Wind angewiesen.",
+          "explanation": "Jahrhundertelang war ein Segelschiff die einzige Art, Ozeane zu queren.",
+          "fact": "Ohne Wind lag so ein Schiff tagelang still."
+        },
+        "fr": {
+          "prompt": "Avec quoi les explorateurs traversaient-ils la mer ?",
+          "answer": "Un voilier",
+          "wrong": [
+            "Un train",
+            "Un avion",
+            "Un vélo"
+          ],
+          "hint": "Il dépendait du vent.",
+          "explanation": "Pendant des siècles, le voilier fut le seul moyen de traverser un océan.",
+          "fact": "Sans vent, ce navire restait immobile des jours."
+        },
+        "es": {
+          "prompt": "¿En qué viajaban los exploradores por el mar?",
+          "answer": "En un velero",
+          "wrong": [
+            "En tren",
+            "En avión",
+            "En bicicleta"
+          ],
+          "hint": "Dependía del viento.",
+          "explanation": "Durante siglos, un velero fue la única forma de cruzar un océano.",
+          "fact": "Sin viento, ese barco se quedaba quieto durante días."
+        },
+        "it": {
+          "prompt": "Con che cosa viaggiavano gli esploratori per mare?",
+          "answer": "Con un veliero",
+          "wrong": [
+            "Con il treno",
+            "Con l'aereo",
+            "Con la bicicletta"
+          ],
+          "hint": "Dipendeva dal vento.",
+          "explanation": "Per secoli il veliero fu l'unico modo per attraversare un oceano.",
+          "fact": "Senza vento restava fermo per giorni."
+        },
+        "pt": {
+          "prompt": "Em que viajavam os exploradores pelo mar?",
+          "answer": "Num veleiro",
+          "wrong": [
+            "De comboio",
+            "De avião",
+            "De bicicleta"
+          ],
+          "hint": "Dependia do vento.",
+          "explanation": "Durante séculos um veleiro foi a única forma de atravessar um oceano.",
+          "fact": "Sem vento, esse navio ficava parado durante dias."
+        },
+        "da": {
+          "prompt": "Hvad rejste opdagelsesrejsende over havet i?",
+          "answer": "Et sejlskib",
+          "wrong": [
+            "Et tog",
+            "Et fly",
+            "En cykel"
+          ],
+          "hint": "Det var afhængigt af vinden.",
+          "explanation": "I århundreder var et sejlskib den eneste måde at krydse et ocean på.",
+          "fact": "Uden vind lå sådan et skib stille i dagevis."
+        },
+        "ru": {
+          "prompt": "На чём путешественники пересекали море?",
+          "answer": "На парусном судне",
+          "wrong": [
+            "На поезде",
+            "На самолёте",
+            "На велосипеде"
+          ],
+          "hint": "Всё зависело от ветра.",
+          "explanation": "Веками парусник был единственным способом пересечь океан.",
+          "fact": "Без ветра такое судно стояло сутками."
+        },
+        "ar": {
+          "prompt": "بماذا كان المستكشفون يعبرون البحر؟",
+          "answer": "بسفينة شراعية",
+          "wrong": [
+            "بالقطار",
+            "بالطائرة",
+            "بالدراجة"
+          ],
+          "hint": "كانت تعتمد على الريح.",
+          "explanation": "لقرون كانت السفينة الشراعية الوسيلة الوحيدة لعبور المحيطات.",
+          "fact": "وبلا ريح تبقى السفينة واقفة أيامًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het kraaiennest",
+      "artBrief": "Een matroos hoog in de mast die met de hand boven de ogen naar de horizon tuurt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat deed een matroos in het kraaiennest?",
+          "answer": "Uitkijken naar land",
+          "wrong": [
+            "De bodem peilen",
+            "Vissen vangen",
+            "Zeilen naaien"
+          ],
+          "hint": "Hij zat helemaal bovenin.",
+          "explanation": "Vanuit het kraaiennest zag je land en schepen het eerst.",
+          "fact": "Wie als eerste land riep, kreeg vaak een beloning."
+        },
+        "en": {
+          "prompt": "What did a sailor do up in the crow's nest?",
+          "answer": "Watch out for land",
+          "wrong": [
+            "Sound the depth",
+            "Catch fish",
+            "Sew sails"
+          ],
+          "hint": "He sat right at the top.",
+          "explanation": "From the crow's nest you spotted land and ships first.",
+          "fact": "Whoever first shouted land often got a reward."
+        },
+        "de": {
+          "prompt": "Was machte ein Matrose im Krähennest?",
+          "answer": "Nach Land ausschauen",
+          "wrong": [
+            "Die Tiefe messen",
+            "Fische fangen",
+            "Segel nähen"
+          ],
+          "hint": "Er saß ganz oben.",
+          "explanation": "Vom Krähennest aus sah man Land und Schiffe zuerst.",
+          "fact": "Wer zuerst Land rief, bekam oft eine Belohnung."
+        },
+        "fr": {
+          "prompt": "Que faisait un marin dans la hune ?",
+          "answer": "Guetter la terre",
+          "wrong": [
+            "Sonder le fond",
+            "Pêcher",
+            "Coudre les voiles"
+          ],
+          "hint": "Il était tout en haut du mât.",
+          "explanation": "De là-haut, on voyait la terre et les navires en premier.",
+          "fact": "Celui qui criait terre le premier recevait souvent une récompense."
+        },
+        "es": {
+          "prompt": "¿Qué hacía un marinero en la cofa?",
+          "answer": "Vigilar por si había tierra",
+          "wrong": [
+            "Medir la profundidad",
+            "Pescar",
+            "Coser velas"
+          ],
+          "hint": "Estaba en lo más alto del mástil.",
+          "explanation": "Desde la cofa se veían antes que nadie la tierra y otros barcos.",
+          "fact": "Quien gritaba tierra primero solía recibir un premio."
+        },
+        "it": {
+          "prompt": "Che cosa faceva un marinaio nella coffa?",
+          "answer": "Cercava la terra",
+          "wrong": [
+            "Misurava il fondale",
+            "Pescava",
+            "Cuciva le vele"
+          ],
+          "hint": "Stava in cima all'albero.",
+          "explanation": "Dalla coffa si vedevano per primi terra e navi.",
+          "fact": "Chi gridava terra per primo spesso riceveva un premio."
+        },
+        "pt": {
+          "prompt": "O que fazia um marinheiro no cesto da gávea?",
+          "answer": "Vigiar à procura de terra",
+          "wrong": [
+            "Medir o fundo",
+            "Pescar",
+            "Coser velas"
+          ],
+          "hint": "Estava lá no alto do mastro.",
+          "explanation": "Do cesto da gávea via-se primeiro a terra e outros navios.",
+          "fact": "Quem gritasse terra primeiro costumava ganhar um prémio."
+        },
+        "da": {
+          "prompt": "Hvad lavede en sømand i udkigstønden?",
+          "answer": "Holdt udkig efter land",
+          "wrong": [
+            "Målte dybden",
+            "Fangede fisk",
+            "Syede sejl"
+          ],
+          "hint": "Han sad helt oppe i masten.",
+          "explanation": "Fra udkigstønden så man land og skibe først.",
+          "fact": "Den, der først råbte land, fik tit en belønning."
+        },
+        "ru": {
+          "prompt": "Что делал матрос в «вороньем гнезде»?",
+          "answer": "Высматривал землю",
+          "wrong": [
+            "Мерил глубину",
+            "Ловил рыбу",
+            "Чинил паруса"
+          ],
+          "hint": "Он сидел на самом верху мачты.",
+          "explanation": "Из «вороньего гнезда» первыми замечали землю и корабли.",
+          "fact": "Тому, кто первым кричал «земля», часто давали награду."
+        },
+        "ar": {
+          "prompt": "ماذا كان يفعل البحار في برج المراقبة؟",
+          "answer": "يراقب بحثًا عن اليابسة",
+          "wrong": [
+            "يقيس العمق",
+            "يصطاد السمك",
+            "يخيط الأشرعة"
+          ],
+          "hint": "كان يجلس في أعلى الصاري.",
+          "explanation": "من هناك تُرى اليابسة والسفن أولًا.",
+          "fact": "ومن يصيح «يابسة» أولًا كان ينال مكافأة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Scheepsproviand",
+      "artBrief": "Houten tonnen met gedroogd vlees, beschuit en gedroogde vruchten in een scheepsruim.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat nam een schip mee om te eten?",
+          "answer": "Gedroogd voedsel",
+          "wrong": [
+            "Verse sla",
+            "IJsjes",
+            "Warme soep"
+          ],
+          "hint": "Het moest maanden goed blijven.",
+          "explanation": "Aan boord ging gedroogd vlees, gezouten vis en keiharde scheepsbeschuit.",
+          "fact": "In dat beschuit zaten na weken vaak kevertjes."
+        },
+        "en": {
+          "prompt": "What did a ship take along to eat?",
+          "answer": "Dried food",
+          "wrong": [
+            "Fresh salad",
+            "Ice creams",
+            "Hot soup"
+          ],
+          "hint": "It had to keep for months.",
+          "explanation": "On board went dried meat, salted fish and rock-hard ship's biscuit.",
+          "fact": "After weeks that biscuit often had little beetles in it."
+        },
+        "de": {
+          "prompt": "Was nahm ein Schiff zum Essen mit?",
+          "answer": "Getrocknete Vorräte",
+          "wrong": [
+            "Frischen Salat",
+            "Eis",
+            "Heiße Suppe"
+          ],
+          "hint": "Es musste Monate halten.",
+          "explanation": "An Bord kamen Trockenfleisch, Salzfisch und steinharter Schiffszwieback.",
+          "fact": "Nach Wochen saßen in diesem Zwieback oft Käfer."
+        },
+        "fr": {
+          "prompt": "Qu'emportait un navire comme nourriture ?",
+          "answer": "Des vivres séchés",
+          "wrong": [
+            "De la salade fraîche",
+            "Des glaces",
+            "De la soupe chaude"
+          ],
+          "hint": "Cela devait tenir des mois.",
+          "explanation": "À bord : viande séchée, poisson salé et biscuits de mer très durs.",
+          "fact": "Au bout de quelques semaines, ces biscuits grouillaient de charançons."
+        },
+        "es": {
+          "prompt": "¿Qué llevaba un barco para comer?",
+          "answer": "Comida seca",
+          "wrong": [
+            "Ensalada fresca",
+            "Helados",
+            "Sopa caliente"
+          ],
+          "hint": "Tenía que aguantar meses.",
+          "explanation": "A bordo iban carne seca, pescado salado y galleta de barco durísima.",
+          "fact": "Al cabo de semanas esa galleta solía tener gorgojos."
+        },
+        "it": {
+          "prompt": "Che cosa portava una nave da mangiare?",
+          "answer": "Cibo essiccato",
+          "wrong": [
+            "Insalata fresca",
+            "Gelati",
+            "Zuppa calda"
+          ],
+          "hint": "Doveva durare mesi.",
+          "explanation": "A bordo c'erano carne secca, pesce salato e gallette durissime.",
+          "fact": "Dopo settimane in quelle gallette c'erano spesso dei punteruoli."
+        },
+        "pt": {
+          "prompt": "O que levava um navio para comer?",
+          "answer": "Comida seca",
+          "wrong": [
+            "Alface fresca",
+            "Gelados",
+            "Sopa quente"
+          ],
+          "hint": "Tinha de durar meses.",
+          "explanation": "A bordo iam carne seca, peixe salgado e bolacha de mar durríssima.",
+          "fact": "Ao fim de semanas essa bolacha tinha muitas vezes gorgulhos."
+        },
+        "da": {
+          "prompt": "Hvad tog et skib med at spise?",
+          "answer": "Tørret mad",
+          "wrong": [
+            "Frisk salat",
+            "Is",
+            "Varm suppe"
+          ],
+          "hint": "Det skulle holde i månedsvis.",
+          "explanation": "Om bord kom tørret kød, saltet fisk og stenhård skibskiks.",
+          "fact": "Efter uger var der tit biller i den kiks."
+        },
+        "ru": {
+          "prompt": "Что корабль брал с собой из еды?",
+          "answer": "Сушёные припасы",
+          "wrong": [
+            "Свежий салат",
+            "Мороженое",
+            "Горячий суп"
+          ],
+          "hint": "Еда должна была храниться месяцами.",
+          "explanation": "На борт грузили вяленое мясо, солёную рыбу и каменные сухари.",
+          "fact": "Через несколько недель в сухарях заводились жучки."
+        },
+        "ar": {
+          "prompt": "ماذا كانت السفينة تحمل من طعام؟",
+          "answer": "طعامًا مجففًا",
+          "wrong": [
+            "خسًا طازجًا",
+            "مثلجات",
+            "حساء ساخنًا"
+          ],
+          "hint": "كان عليه أن يبقى شهورًا.",
+          "explanation": "كانوا يحملون لحمًا مجففًا وسمكًا مملحًا وبقسماطًا صلبًا.",
+          "fact": "وبعد أسابيع كثيرًا ما امتلأ البقسماط بالسوس."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De kapitein",
+      "artBrief": "Een kapitein met steek en verrekijker aan het roer van een zeilschip.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet degene die de baas is op een schip?",
+          "answer": "De kapitein",
+          "wrong": [
+            "De bakker",
+            "De tuinman",
+            "De schilder"
+          ],
+          "hint": "Hij staat vaak bij het roer.",
+          "explanation": "De kapitein beslist over de koers en over alles aan boord.",
+          "fact": "Hij hield ook het logboek bij, dag voor dag."
+        },
+        "en": {
+          "prompt": "What do you call the person in charge of a ship?",
+          "answer": "The captain",
+          "wrong": [
+            "The baker",
+            "The gardener",
+            "The painter"
+          ],
+          "hint": "You often see them by the wheel.",
+          "explanation": "The captain decides the course and everything else on board.",
+          "fact": "They also kept the logbook, day by day."
+        },
+        "de": {
+          "prompt": "Wie nennt man den Chef auf einem Schiff?",
+          "answer": "Den Kapitän",
+          "wrong": [
+            "Den Bäcker",
+            "Den Gärtner",
+            "Den Maler"
+          ],
+          "hint": "Er steht oft am Ruder.",
+          "explanation": "Der Kapitän bestimmt den Kurs und alles an Bord.",
+          "fact": "Er führte auch Tag für Tag das Logbuch."
+        },
+        "fr": {
+          "prompt": "Comment appelle-t-on le chef d'un navire ?",
+          "answer": "Le capitaine",
+          "wrong": [
+            "Le boulanger",
+            "Le jardinier",
+            "Le peintre"
+          ],
+          "hint": "On le voit souvent à la barre.",
+          "explanation": "Le capitaine décide du cap et de tout ce qui se passe à bord.",
+          "fact": "Il tenait aussi le journal de bord, jour après jour."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama quien manda en un barco?",
+          "answer": "El capitán",
+          "wrong": [
+            "El panadero",
+            "El jardinero",
+            "El pintor"
+          ],
+          "hint": "Se le ve a menudo al timón.",
+          "explanation": "El capitán decide el rumbo y todo lo que pasa a bordo.",
+          "fact": "También llevaba el cuaderno de bitácora día a día."
+        },
+        "it": {
+          "prompt": "Come si chiama chi comanda una nave?",
+          "answer": "Il capitano",
+          "wrong": [
+            "Il panettiere",
+            "Il giardiniere",
+            "Il pittore"
+          ],
+          "hint": "Lo vedi spesso al timone.",
+          "explanation": "Il capitano decide la rotta e tutto quel che accade a bordo.",
+          "fact": "Teneva anche il giornale di bordo, giorno per giorno."
+        },
+        "pt": {
+          "prompt": "Como se chama quem manda num navio?",
+          "answer": "O capitão",
+          "wrong": [
+            "O padeiro",
+            "O jardineiro",
+            "O pintor"
+          ],
+          "hint": "Vê-se muitas vezes ao leme.",
+          "explanation": "O capitão decide o rumo e tudo o que acontece a bordo.",
+          "fact": "Também escrevia o diário de bordo, dia após dia."
+        },
+        "da": {
+          "prompt": "Hvad hedder den, der bestemmer på et skib?",
+          "answer": "Kaptajnen",
+          "wrong": [
+            "Bageren",
+            "Gartneren",
+            "Maleren"
+          ],
+          "hint": "Han står tit ved roret.",
+          "explanation": "Kaptajnen bestemmer kursen og alt andet om bord.",
+          "fact": "Han førte også skibsjournalen dag for dag."
+        },
+        "ru": {
+          "prompt": "Как называют главного на корабле?",
+          "answer": "Капитан",
+          "wrong": [
+            "Пекарь",
+            "Садовник",
+            "Маляр"
+          ],
+          "hint": "Его часто видно у штурвала.",
+          "explanation": "Капитан решает, каким курсом идти и что делается на борту.",
+          "fact": "Он же день за днём вёл судовой журнал."
+        },
+        "ar": {
+          "prompt": "ماذا نسمي المسؤول الأول في السفينة؟",
+          "answer": "الربان",
+          "wrong": [
+            "الخباز",
+            "البستاني",
+            "الدهان"
+          ],
+          "hint": "تراه غالبًا عند الدفة.",
+          "explanation": "الربان يقرر المسار وكل ما يجري على متن السفينة.",
+          "fact": "وكان يكتب سجل الرحلة يومًا بيوم."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zeilen hijsen",
+      "artBrief": "Matrozen die met touwen een groot wit zeil omhoog trekken.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat hijsen matrozen in de mast?",
+          "answer": "Een zeil",
+          "wrong": [
+            "Een net",
+            "Een ladder",
+            "Een bed"
+          ],
+          "hint": "De wind moet erin blazen.",
+          "explanation": "Met de zeilen omhoog vangt het schip de wind en gaat het varen.",
+          "fact": "Een groot schip kon wel dertig zeilen voeren."
+        },
+        "en": {
+          "prompt": "What do sailors hoist up the mast?",
+          "answer": "A sail",
+          "wrong": [
+            "A net",
+            "A ladder",
+            "A bed"
+          ],
+          "hint": "The wind has to blow into it.",
+          "explanation": "With the sails up, the ship catches the wind and moves.",
+          "fact": "A large ship could carry as many as thirty sails."
+        },
+        "de": {
+          "prompt": "Was ziehen Matrosen am Mast hoch?",
+          "answer": "Ein Segel",
+          "wrong": [
+            "Ein Netz",
+            "Eine Leiter",
+            "Ein Bett"
+          ],
+          "hint": "Der Wind muss hineinblasen.",
+          "explanation": "Mit gesetzten Segeln fängt das Schiff den Wind und fährt.",
+          "fact": "Ein großes Schiff konnte dreißig Segel führen."
+        },
+        "fr": {
+          "prompt": "Que hissent les marins au mât ?",
+          "answer": "Une voile",
+          "wrong": [
+            "Un filet",
+            "Une échelle",
+            "Un lit"
+          ],
+          "hint": "Le vent doit souffler dedans.",
+          "explanation": "Les voiles hissées, le navire prend le vent et avance.",
+          "fact": "Un grand navire pouvait porter jusqu'à trente voiles."
+        },
+        "es": {
+          "prompt": "¿Qué izan los marineros en el mástil?",
+          "answer": "Una vela",
+          "wrong": [
+            "Una red",
+            "Una escalera",
+            "Una cama"
+          ],
+          "hint": "El viento tiene que soplar dentro.",
+          "explanation": "Con las velas izadas, el barco toma el viento y navega.",
+          "fact": "Un gran barco podía llevar hasta treinta velas."
+        },
+        "it": {
+          "prompt": "Che cosa issano i marinai sull'albero?",
+          "answer": "Una vela",
+          "wrong": [
+            "Una rete",
+            "Una scala",
+            "Un letto"
+          ],
+          "hint": "Il vento ci deve soffiare dentro.",
+          "explanation": "Con le vele issate la nave prende il vento e parte.",
+          "fact": "Una grande nave poteva portare trenta vele."
+        },
+        "pt": {
+          "prompt": "O que içam os marinheiros no mastro?",
+          "answer": "Uma vela",
+          "wrong": [
+            "Uma rede",
+            "Uma escada",
+            "Uma cama"
+          ],
+          "hint": "O vento tem de soprar lá dentro.",
+          "explanation": "Com as velas içadas, o navio apanha o vento e anda.",
+          "fact": "Um navio grande podia levar até trinta velas."
+        },
+        "da": {
+          "prompt": "Hvad hejser matroser op i masten?",
+          "answer": "Et sejl",
+          "wrong": [
+            "Et net",
+            "En stige",
+            "En seng"
+          ],
+          "hint": "Vinden skal blæse i det.",
+          "explanation": "Med sejlene oppe fanger skibet vinden og sejler.",
+          "fact": "Et stort skib kunne føre tredive sejl."
+        },
+        "ru": {
+          "prompt": "Что матросы поднимают на мачту?",
+          "answer": "Парус",
+          "wrong": [
+            "Сеть",
+            "Лестницу",
+            "Кровать"
+          ],
+          "hint": "В него должен дуть ветер.",
+          "explanation": "С поднятыми парусами корабль ловит ветер и идёт вперёд.",
+          "fact": "Большое судно несло до тридцати парусов."
+        },
+        "ar": {
+          "prompt": "ماذا يرفع البحارة على الصاري؟",
+          "answer": "شراعًا",
+          "wrong": [
+            "شبكة",
+            "سلمًا",
+            "سريرًا"
+          ],
+          "hint": "يجب أن تهب فيه الريح.",
+          "explanation": "برفع الأشرعة تلتقط السفينة الريح فتسير.",
+          "fact": "وكانت السفن الكبيرة تحمل ثلاثين شراعًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Citrus tegen scheurbuik (James Lind, 1747)",
+      "artBrief": "Een mand met citroenen en limoenen op een scheepsdek.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom namen schepen later citroenen mee?",
+          "answer": "Tegen scheurbuik",
+          "wrong": [
+            "Voor de smaak",
+            "Om te ruilen",
+            "Om te poetsen"
+          ],
+          "hint": "Er zit iets gezonds in.",
+          "explanation": "Citrusvruchten voorkomen scheurbuik, de gevreesde zeemansziekte.",
+          "fact": "Toen dat eenmaal bekend was, stierven er veel minder zeelieden."
+        },
+        "en": {
+          "prompt": "Why did ships later take lemons along?",
+          "answer": "Against scurvy",
+          "wrong": [
+            "For the taste",
+            "To trade",
+            "For cleaning"
+          ],
+          "hint": "There is something healthy in them.",
+          "explanation": "Citrus fruit prevents scurvy, the dreaded sailors' disease.",
+          "fact": "Once that was known, far fewer sailors died."
+        },
+        "de": {
+          "prompt": "Warum nahmen Schiffe später Zitronen mit?",
+          "answer": "Gegen Skorbut",
+          "wrong": [
+            "Für den Geschmack",
+            "Zum Tauschen",
+            "Zum Putzen"
+          ],
+          "hint": "Darin steckt etwas Gesundes.",
+          "explanation": "Zitrusfrüchte verhindern Skorbut, die gefürchtete Seemannskrankheit.",
+          "fact": "Als das bekannt war, starben weit weniger Seeleute."
+        },
+        "fr": {
+          "prompt": "Pourquoi les navires ont-ils emporté des citrons ?",
+          "answer": "Contre le scorbut",
+          "wrong": [
+            "Pour le goût",
+            "Pour troquer",
+            "Pour nettoyer"
+          ],
+          "hint": "Il y a dedans quelque chose de sain.",
+          "explanation": "Les agrumes empêchent le scorbut, la maladie redoutée des marins.",
+          "fact": "Une fois cela connu, il mourut bien moins de marins."
+        },
+        "es": {
+          "prompt": "¿Por qué llevaban limones los barcos más adelante?",
+          "answer": "Contra el escorbuto",
+          "wrong": [
+            "Por el sabor",
+            "Para cambiarlos",
+            "Para limpiar"
+          ],
+          "hint": "Tienen algo muy sano.",
+          "explanation": "Los cítricos evitan el escorbuto, la temida enfermedad de los marineros.",
+          "fact": "Cuando se supo, murieron muchísimos menos marineros."
+        },
+        "it": {
+          "prompt": "Perché le navi portarono poi dei limoni?",
+          "answer": "Contro lo scorbuto",
+          "wrong": [
+            "Per il sapore",
+            "Per barattarli",
+            "Per pulire"
+          ],
+          "hint": "Contengono qualcosa di sano.",
+          "explanation": "Gli agrumi prevengono lo scorbuto, la temuta malattia dei marinai.",
+          "fact": "Quando si seppe, morirono molti meno marinai."
+        },
+        "pt": {
+          "prompt": "Porque passaram os navios a levar limões?",
+          "answer": "Contra o escorbuto",
+          "wrong": [
+            "Pelo sabor",
+            "Para trocar",
+            "Para limpar"
+          ],
+          "hint": "Têm dentro algo saudável.",
+          "explanation": "Os citrinos evitam o escorbuto, a temida doença dos marinheiros.",
+          "fact": "Quando isso se soube, morreram muitos menos marinheiros."
+        },
+        "da": {
+          "prompt": "Hvorfor tog skibe senere citroner med?",
+          "answer": "Mod skørbug",
+          "wrong": [
+            "For smagens skyld",
+            "Til at bytte med",
+            "Til rengøring"
+          ],
+          "hint": "Der er noget sundt i dem.",
+          "explanation": "Citrusfrugter forhindrer skørbug, søfolkenes frygtede sygdom.",
+          "fact": "Da det først blev kendt, døde der langt færre søfolk."
+        },
+        "ru": {
+          "prompt": "Зачем на корабли позже стали брать лимоны?",
+          "answer": "От цинги",
+          "wrong": [
+            "Для вкуса",
+            "Для обмена",
+            "Для уборки"
+          ],
+          "hint": "В них есть кое-что полезное.",
+          "explanation": "Цитрусовые предотвращают цингу — страшную болезнь моряков.",
+          "fact": "Когда это узнали, моряков стало погибать гораздо меньше."
+        },
+        "ar": {
+          "prompt": "لماذا صارت السفن تحمل الليمون؟",
+          "answer": "للوقاية من الإسقربوط",
+          "wrong": [
+            "من أجل المذاق",
+            "للمقايضة",
+            "للتنظيف"
+          ],
+          "hint": "فيه شيء مفيد للصحة.",
+          "explanation": "الحمضيات تمنع الإسقربوط، مرض البحارة المخيف.",
+          "fact": "وحين عُرف ذلك قل موت البحارة كثيرًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De Zijderoute",
+      "artBrief": "Een karavaan kamelen die door een bergpas trekt met balen zijde.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat was de Zijderoute?",
+          "answer": "Een handelsweg naar Azië",
+          "wrong": [
+            "Een rivier in China",
+            "Een soort schip",
+            "Een kledingwinkel"
+          ],
+          "hint": "Kamelen liepen erover.",
+          "explanation": "Over de Zijderoute reisden zijde, kruiden en ideeën tussen Azië en Europa.",
+          "fact": "Eén karavaan deed er soms jaren over."
+        },
+        "en": {
+          "prompt": "What was the Silk Road?",
+          "answer": "A trade route to Asia",
+          "wrong": [
+            "A river in China",
+            "A kind of ship",
+            "A clothes shop"
+          ],
+          "hint": "Camels walked along it.",
+          "explanation": "Silk, spices and ideas travelled the Silk Road between Asia and Europe.",
+          "fact": "One caravan sometimes took years to make the trip."
+        },
+        "de": {
+          "prompt": "Was war die Seidenstraße?",
+          "answer": "Ein Handelsweg nach Asien",
+          "wrong": [
+            "Ein Fluss in China",
+            "Eine Schiffsart",
+            "Ein Kleiderladen"
+          ],
+          "hint": "Kamele zogen darüber.",
+          "explanation": "Auf der Seidenstraße reisten Seide, Gewürze und Ideen zwischen Asien und Europa.",
+          "fact": "Eine Karawane brauchte manchmal Jahre."
+        },
+        "fr": {
+          "prompt": "Qu'était la route de la Soie ?",
+          "answer": "Une route commerciale",
+          "wrong": [
+            "Un fleuve de Chine",
+            "Un type de navire",
+            "Un magasin de vêtements"
+          ],
+          "hint": "Des caravanes de chameaux y passaient.",
+          "explanation": "Soie, épices et idées circulaient entre l'Asie et l'Europe.",
+          "fact": "Une caravane mettait parfois des années."
+        },
+        "es": {
+          "prompt": "¿Qué era la Ruta de la Seda?",
+          "answer": "Un camino de comercio",
+          "wrong": [
+            "Un río de China",
+            "Un tipo de barco",
+            "Una tienda de ropa"
+          ],
+          "hint": "Por ella pasaban caravanas de camellos.",
+          "explanation": "Por la Ruta de la Seda viajaban seda, especias e ideas entre Asia y Europa.",
+          "fact": "Una caravana tardaba a veces años."
+        },
+        "it": {
+          "prompt": "Che cos'era la via della seta?",
+          "answer": "Una via commerciale",
+          "wrong": [
+            "Un fiume cinese",
+            "Un tipo di nave",
+            "Un negozio di abiti"
+          ],
+          "hint": "Ci passavano carovane di cammelli.",
+          "explanation": "Sulla via della seta viaggiavano seta, spezie e idee fra Asia ed Europa.",
+          "fact": "Una carovana a volte impiegava anni."
+        },
+        "pt": {
+          "prompt": "O que era a Rota da Seda?",
+          "answer": "Um caminho de comércio",
+          "wrong": [
+            "Um rio da China",
+            "Um tipo de navio",
+            "Uma loja de roupa"
+          ],
+          "hint": "Passavam por ela caravanas de camelos.",
+          "explanation": "Pela Rota da Seda viajavam seda, especiarias e ideias entre a Ásia e a Europa.",
+          "fact": "Uma caravana demorava às vezes anos."
+        },
+        "da": {
+          "prompt": "Hvad var Silkevejen?",
+          "answer": "En handelsvej til Asien",
+          "wrong": [
+            "En flod i Kina",
+            "En skibstype",
+            "En tøjbutik"
+          ],
+          "hint": "Kamelkaravaner gik ad den.",
+          "explanation": "Ad Silkevejen rejste silke, krydderier og idéer mellem Asien og Europa.",
+          "fact": "En karavane var nogle gange år undervejs."
+        },
+        "ru": {
+          "prompt": "Что такое Шёлковый путь?",
+          "answer": "Торговая дорога в Азию",
+          "wrong": [
+            "Река в Китае",
+            "Вид корабля",
+            "Магазин одежды"
+          ],
+          "hint": "По нему шли караваны верблюдов.",
+          "explanation": "По Шёлковому пути между Азией и Европой везли шёлк, пряности и идеи.",
+          "fact": "Один караван иногда шёл годами."
+        },
+        "ar": {
+          "prompt": "ما هو طريق الحرير؟",
+          "answer": "طريق تجارة إلى آسيا",
+          "wrong": [
+            "نهر في الصين",
+            "نوع من السفن",
+            "متجر ملابس"
+          ],
+          "hint": "كانت قوافل الجمال تسلكه.",
+          "explanation": "عبر طريق الحرير انتقل الحرير والتوابل والأفكار بين آسيا وأوروبا.",
+          "fact": "وكانت القافلة تستغرق أحيانًا سنوات."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De VOC, opgericht in 1602",
+      "artBrief": "Pakhuizen aan een haven met schepen en kisten met specerijen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat was de VOC?",
+          "answer": "Een handelscompagnie",
+          "wrong": [
+            "Een soort schip",
+            "Een stad in Azië",
+            "Een zeekaart"
+          ],
+          "hint": "Ze voer naar Azië voor specerijen.",
+          "explanation": "De VOC was een Nederlands handelsbedrijf dat in 1602 werd opgericht.",
+          "fact": "Ze had eigen schepen, forten en soldaten."
+        },
+        "en": {
+          "prompt": "What was the Dutch East India Company?",
+          "answer": "A trading company",
+          "wrong": [
+            "A kind of ship",
+            "A city in Asia",
+            "A sea chart"
+          ],
+          "hint": "It sailed to Asia for spices.",
+          "explanation": "It was a Dutch trading company founded in 1602.",
+          "fact": "It had its own ships, forts and soldiers."
+        },
+        "de": {
+          "prompt": "Was war die niederländische Ostindien-Kompanie?",
+          "answer": "Eine Handelsgesellschaft",
+          "wrong": [
+            "Eine Schiffsart",
+            "Eine Stadt in Asien",
+            "Eine Seekarte"
+          ],
+          "hint": "Sie fuhr für Gewürze nach Asien.",
+          "explanation": "Sie war ein niederländisches Handelsunternehmen, gegründet 1602.",
+          "fact": "Sie hatte eigene Schiffe, Forts und Soldaten."
+        },
+        "fr": {
+          "prompt": "Qu'était la Compagnie des Indes néerlandaise ?",
+          "answer": "Une compagnie de commerce",
+          "wrong": [
+            "Un type de navire",
+            "Une ville d'Asie",
+            "Une carte marine"
+          ],
+          "hint": "Elle allait chercher des épices en Asie.",
+          "explanation": "C'était une société marchande néerlandaise fondée en 1602.",
+          "fact": "Elle avait ses propres navires, forts et soldats."
+        },
+        "es": {
+          "prompt": "¿Qué era la Compañía Neerlandesa de las Indias?",
+          "answer": "Una compañía de comercio",
+          "wrong": [
+            "Un tipo de barco",
+            "Una ciudad de Asia",
+            "Una carta náutica"
+          ],
+          "hint": "Iba a Asia a por especias.",
+          "explanation": "Era una empresa comercial neerlandesa fundada en 1602.",
+          "fact": "Tenía sus propios barcos, fuertes y soldados."
+        },
+        "it": {
+          "prompt": "Che cos'era la Compagnia olandese delle Indie?",
+          "answer": "Una compagnia commerciale",
+          "wrong": [
+            "Un tipo di nave",
+            "Una città asiatica",
+            "Una carta nautica"
+          ],
+          "hint": "Andava in Asia per le spezie.",
+          "explanation": "Era un'impresa commerciale olandese fondata nel 1602.",
+          "fact": "Aveva navi, forti e soldati propri."
+        },
+        "pt": {
+          "prompt": "O que era a Companhia Neerlandesa das Índias?",
+          "answer": "Uma companhia de comércio",
+          "wrong": [
+            "Um tipo de navio",
+            "Uma cidade da Ásia",
+            "Uma carta náutica"
+          ],
+          "hint": "Ia à Ásia buscar especiarias.",
+          "explanation": "Era uma empresa comercial neerlandesa fundada em 1602.",
+          "fact": "Tinha navios, fortes e soldados próprios."
+        },
+        "da": {
+          "prompt": "Hvad var Det Nederlandske Ostindiske Kompagni?",
+          "answer": "Et handelsselskab",
+          "wrong": [
+            "En skibstype",
+            "En by i Asien",
+            "Et søkort"
+          ],
+          "hint": "Det sejlede til Asien efter krydderier.",
+          "explanation": "Det var et nederlandsk handelsselskab grundlagt i 1602.",
+          "fact": "Det havde egne skibe, forter og soldater."
+        },
+        "ru": {
+          "prompt": "Чем была Голландская Ост-Индская компания?",
+          "answer": "Торговой компанией",
+          "wrong": [
+            "Видом корабля",
+            "Городом в Азии",
+            "Морской картой"
+          ],
+          "hint": "Она ходила в Азию за пряностями.",
+          "explanation": "Это была нидерландская торговая компания, основанная в 1602 году.",
+          "fact": "У неё были свои корабли, форты и солдаты."
+        },
+        "ar": {
+          "prompt": "ما هي شركة الهند الشرقية الهولندية؟",
+          "answer": "شركة تجارية",
+          "wrong": [
+            "نوع من السفن",
+            "مدينة في آسيا",
+            "خريطة بحرية"
+          ],
+          "hint": "كانت تبحر إلى آسيا طلبًا للتوابل.",
+          "explanation": "شركة تجارية هولندية تأسست عام 1602.",
+          "fact": "وكانت لها سفنها وحصونها وجنودها."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Reisduur naar Indië: acht maanden",
+      "artBrief": "Een wereldkaart met een lange vaarroute rond Afrika naar Azië.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang duurde een reis naar Indië ongeveer?",
+          "answer": "Ongeveer acht maanden",
+          "wrong": [
+            "Ongeveer een week",
+            "Ongeveer een maand",
+            "Ongeveer tien jaar"
+          ],
+          "hint": "Bijna een heel schooljaar.",
+          "explanation": "Een schip deed rond Afrika ongeveer acht maanden over de heenreis.",
+          "fact": "Nu vlieg je dezelfde afstand in een halve dag."
+        },
+        "en": {
+          "prompt": "How long did a voyage to the East Indies take?",
+          "answer": "About eight months",
+          "wrong": [
+            "About a week",
+            "About a month",
+            "About ten years"
+          ],
+          "hint": "Almost a whole school year.",
+          "explanation": "Round Africa, a ship needed about eight months for the outward trip.",
+          "fact": "Today you fly the same distance in half a day."
+        },
+        "de": {
+          "prompt": "Wie lange dauerte eine Reise nach Indien ungefähr?",
+          "answer": "Etwa acht Monate",
+          "wrong": [
+            "Etwa eine Woche",
+            "Etwa einen Monat",
+            "Etwa zehn Jahre"
+          ],
+          "hint": "Fast ein ganzes Schuljahr.",
+          "explanation": "Um Afrika herum brauchte ein Schiff rund acht Monate für den Hinweg.",
+          "fact": "Heute fliegt man dieselbe Strecke in einem halben Tag."
+        },
+        "fr": {
+          "prompt": "Combien de temps durait un voyage vers les Indes ?",
+          "answer": "Environ huit mois",
+          "wrong": [
+            "Environ une semaine",
+            "Environ un mois",
+            "Environ dix ans"
+          ],
+          "hint": "Presque une année scolaire entière.",
+          "explanation": "En contournant l'Afrique, un navire mettait environ huit mois à l'aller.",
+          "fact": "Aujourd'hui, on fait la même distance en une demi-journée."
+        },
+        "es": {
+          "prompt": "¿Cuánto duraba un viaje a las Indias?",
+          "answer": "Unos ocho meses",
+          "wrong": [
+            "Una semana",
+            "Un mes",
+            "Diez años"
+          ],
+          "hint": "Casi un curso escolar entero.",
+          "explanation": "Rodeando África, un barco tardaba unos ocho meses en la ida.",
+          "fact": "Hoy se recorre esa misma distancia en medio día."
+        },
+        "it": {
+          "prompt": "Quanto durava un viaggio verso le Indie?",
+          "answer": "Circa otto mesi",
+          "wrong": [
+            "Circa una settimana",
+            "Circa un mese",
+            "Circa dieci anni"
+          ],
+          "hint": "Quasi un intero anno di scuola.",
+          "explanation": "Aggirando l'Africa una nave impiegava circa otto mesi all'andata.",
+          "fact": "Oggi la stessa distanza si vola in mezza giornata."
+        },
+        "pt": {
+          "prompt": "Quanto tempo demorava uma viagem às Índias?",
+          "answer": "Cerca de oito meses",
+          "wrong": [
+            "Cerca de uma semana",
+            "Cerca de um mês",
+            "Cerca de dez anos"
+          ],
+          "hint": "Quase um ano letivo inteiro.",
+          "explanation": "A contornar a África, um navio levava cerca de oito meses na ida.",
+          "fact": "Hoje voa-se a mesma distância em meio dia."
+        },
+        "da": {
+          "prompt": "Hvor længe varede en rejse til Indien?",
+          "answer": "Cirka otte måneder",
+          "wrong": [
+            "Cirka en uge",
+            "Cirka en måned",
+            "Cirka ti år"
+          ],
+          "hint": "Næsten et helt skoleår.",
+          "explanation": "Rundt om Afrika brugte et skib cirka otte måneder på udturen.",
+          "fact": "I dag flyver man samme strækning på en halv dag."
+        },
+        "ru": {
+          "prompt": "Сколько длилось плавание в Индию?",
+          "answer": "Около восьми месяцев",
+          "wrong": [
+            "Около недели",
+            "Около месяца",
+            "Около десяти лет"
+          ],
+          "hint": "Почти весь учебный год.",
+          "explanation": "Вокруг Африки судно шло туда около восьми месяцев.",
+          "fact": "Сегодня это же расстояние пролетают за полдня."
+        },
+        "ar": {
+          "prompt": "كم كانت تستغرق الرحلة إلى الهند؟",
+          "answer": "نحو ثمانية أشهر",
+          "wrong": [
+            "نحو أسبوع",
+            "نحو شهر",
+            "نحو عشر سنوات"
+          ],
+          "hint": "قرابة سنة دراسية كاملة.",
+          "explanation": "بالدوران حول أفريقيا كانت رحلة الذهاب نحو ثمانية أشهر.",
+          "fact": "واليوم تُقطع المسافة نفسها جوًا في نصف يوم."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Windstilte op zee",
+      "artBrief": "Een zeilschip met slappe zeilen op een spiegelgladde zee.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurde er bij windstilte op zee?",
+          "answer": "Het schip lag stil",
+          "wrong": [
+            "Het voer sneller",
+            "Het zonk",
+            "Het draaide om"
+          ],
+          "hint": "Zonder wind geen vaart.",
+          "explanation": "Bij windstilte kon een zeilschip dagen of weken blijven liggen.",
+          "fact": "Het eten en het drinkwater raakten dan gevaarlijk op."
+        },
+        "en": {
+          "prompt": "What happened at sea when the wind died?",
+          "answer": "The ship lay still",
+          "wrong": [
+            "It sailed faster",
+            "It sank",
+            "It turned back"
+          ],
+          "hint": "No wind, no way.",
+          "explanation": "In a dead calm a sailing ship could sit for days or weeks.",
+          "fact": "Food and drinking water ran dangerously low."
+        },
+        "de": {
+          "prompt": "Was geschah bei Windstille auf See?",
+          "answer": "Das Schiff lag still",
+          "wrong": [
+            "Es fuhr schneller",
+            "Es sank",
+            "Es drehte um"
+          ],
+          "hint": "Kein Wind, keine Fahrt.",
+          "explanation": "Bei Flaute konnte ein Segler Tage oder Wochen liegen bleiben.",
+          "fact": "Essen und Trinkwasser wurden dann gefährlich knapp."
+        },
+        "fr": {
+          "prompt": "Que se passait-il en mer quand le vent tombait ?",
+          "answer": "Le navire restait immobile",
+          "wrong": [
+            "Il allait plus vite",
+            "Il coulait",
+            "Il faisait demi-tour"
+          ],
+          "hint": "Pas de vent, pas de route.",
+          "explanation": "Par calme plat, un voilier pouvait rester des jours ou des semaines.",
+          "fact": "La nourriture et l'eau douce venaient alors à manquer."
+        },
+        "es": {
+          "prompt": "¿Qué pasaba en el mar cuando se calmaba el viento?",
+          "answer": "El barco se quedaba quieto",
+          "wrong": [
+            "Iba más rápido",
+            "Se hundía",
+            "Daba media vuelta"
+          ],
+          "hint": "Sin viento no hay marcha.",
+          "explanation": "En calma chicha un velero podía quedarse días o semanas.",
+          "fact": "La comida y el agua dulce escaseaban peligrosamente."
+        },
+        "it": {
+          "prompt": "Che cosa succedeva in mare senza vento?",
+          "answer": "La nave restava ferma",
+          "wrong": [
+            "Andava più veloce",
+            "Affondava",
+            "Tornava indietro"
+          ],
+          "hint": "Niente vento, niente rotta.",
+          "explanation": "In bonaccia un veliero poteva restare fermo giorni o settimane.",
+          "fact": "Cibo e acqua dolce scarseggiavano pericolosamente."
+        },
+        "pt": {
+          "prompt": "O que acontecia no mar quando o vento parava?",
+          "answer": "O navio ficava parado",
+          "wrong": [
+            "Andava mais depressa",
+            "Afundava-se",
+            "Dava meia volta"
+          ],
+          "hint": "Sem vento não há viagem.",
+          "explanation": "Em calmaria um veleiro podia ficar parado dias ou semanas.",
+          "fact": "A comida e a água doce escasseavam perigosamente."
+        },
+        "da": {
+          "prompt": "Hvad skete der til søs, når vinden lagde sig?",
+          "answer": "Skibet lå stille",
+          "wrong": [
+            "Det sejlede hurtigere",
+            "Det sank",
+            "Det vendte om"
+          ],
+          "hint": "Ingen vind, ingen fart.",
+          "explanation": "I havblik kunne et sejlskib ligge stille i dage eller uger.",
+          "fact": "Mad og drikkevand slap farligt op."
+        },
+        "ru": {
+          "prompt": "Что случалось в море при полном штиле?",
+          "answer": "Корабль стоял на месте",
+          "wrong": [
+            "Он шёл быстрее",
+            "Он тонул",
+            "Он поворачивал назад"
+          ],
+          "hint": "Нет ветра — нет хода.",
+          "explanation": "В штиль парусник мог стоять днями и неделями.",
+          "fact": "Еда и пресная вода тогда подходили к концу."
+        },
+        "ar": {
+          "prompt": "ماذا كان يحدث في البحر عند سكون الريح؟",
+          "answer": "تبقى السفينة واقفة",
+          "wrong": [
+            "تسير أسرع",
+            "تغرق",
+            "تعود أدراجها"
+          ],
+          "hint": "لا ريح فلا سير.",
+          "explanation": "في السكون التام قد تبقى السفينة أيامًا أو أسابيع.",
+          "fact": "وعندها يشح الطعام والماء العذب بشكل خطير."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Leif Eriksson bereikte Vinland rond het jaar 1000",
+      "artBrief": "Een vikingschip dat aan een rotsige, beboste kust aanlegt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie bereikte lang voor Columbus al Amerika?",
+          "answer": "Leif Eriksson",
+          "wrong": [
+            "Columbus",
+            "Magellaan",
+            "Vasco da Gama"
+          ],
+          "hint": "Hij was een Viking.",
+          "explanation": "Rond het jaar duizend landden Vikingen in het noorden van Amerika.",
+          "fact": "Resten van hun nederzetting zijn in Canada gevonden."
+        },
+        "en": {
+          "prompt": "Who reached America long before Columbus?",
+          "answer": "Leif Erikson",
+          "wrong": [
+            "Columbus",
+            "Magellan",
+            "Vasco da Gama"
+          ],
+          "hint": "He was a Viking.",
+          "explanation": "Around the year one thousand, Norse sailors landed in northern America.",
+          "fact": "Remains of their settlement have been found in Canada."
+        },
+        "de": {
+          "prompt": "Wer erreichte Amerika lange vor Kolumbus?",
+          "answer": "Leif Eriksson",
+          "wrong": [
+            "Kolumbus",
+            "Magellan",
+            "Vasco da Gama"
+          ],
+          "hint": "Er war ein Wikinger.",
+          "explanation": "Um das Jahr tausend landeten Wikinger im Norden Amerikas.",
+          "fact": "Reste ihrer Siedlung wurden in Kanada gefunden."
+        },
+        "fr": {
+          "prompt": "Qui atteignit l'Amérique bien avant Colomb ?",
+          "answer": "Leif Erikson",
+          "wrong": [
+            "Colomb",
+            "Magellan",
+            "Vasco de Gama"
+          ],
+          "hint": "C'était un Viking.",
+          "explanation": "Vers l'an mille, des Vikings abordèrent le nord de l'Amérique.",
+          "fact": "Les restes de leur village ont été trouvés au Canada."
+        },
+        "es": {
+          "prompt": "¿Quién llegó a América mucho antes que Colón?",
+          "answer": "Leif Eriksson",
+          "wrong": [
+            "Colón",
+            "Magallanes",
+            "Vasco de Gama"
+          ],
+          "hint": "Era un vikingo.",
+          "explanation": "Hacia el año mil, unos vikingos desembarcaron en el norte de América.",
+          "fact": "Se han hallado restos de su asentamiento en Canadá."
+        },
+        "it": {
+          "prompt": "Chi raggiunse l'America molto prima di Colombo?",
+          "answer": "Leif Erikson",
+          "wrong": [
+            "Colombo",
+            "Magellano",
+            "Vasco da Gama"
+          ],
+          "hint": "Era un vichingo.",
+          "explanation": "Intorno all'anno mille i vichinghi sbarcarono nel nord dell'America.",
+          "fact": "Resti del loro insediamento sono stati trovati in Canada."
+        },
+        "pt": {
+          "prompt": "Quem chegou à América muito antes de Colombo?",
+          "answer": "Leif Eriksson",
+          "wrong": [
+            "Colombo",
+            "Magalhães",
+            "Vasco da Gama"
+          ],
+          "hint": "Era um viking.",
+          "explanation": "Por volta do ano mil, vikings desembarcaram no norte da América.",
+          "fact": "Encontraram-se restos do seu povoado no Canadá."
+        },
+        "da": {
+          "prompt": "Hvem nåede Amerika længe før Columbus?",
+          "answer": "Leif Eriksson",
+          "wrong": [
+            "Columbus",
+            "Magellan",
+            "Vasco da Gama"
+          ],
+          "hint": "Han var viking.",
+          "explanation": "Omkring år tusind gik vikinger i land i det nordlige Amerika.",
+          "fact": "Rester af deres bosættelse er fundet i Canada."
+        },
+        "ru": {
+          "prompt": "Кто добрался до Америки задолго до Колумба?",
+          "answer": "Лейф Эрикссон",
+          "wrong": [
+            "Колумб",
+            "Магеллан",
+            "Васко да Гама"
+          ],
+          "hint": "Он был викингом.",
+          "explanation": "Около тысячного года викинги высадились на севере Америки.",
+          "fact": "Остатки их поселения нашли в Канаде."
+        },
+        "ar": {
+          "prompt": "من وصل إلى أمريكا قبل كولومبوس بزمن طويل؟",
+          "answer": "ليف إريكسون",
+          "wrong": [
+            "كولومبوس",
+            "ماجلان",
+            "فاسكو دا غاما"
+          ],
+          "hint": "كان من الفايكنج.",
+          "explanation": "حوالي عام ألف نزل الفايكنج في شمال أمريكا.",
+          "fact": "ووجدت بقايا مستوطنتهم في كندا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Jeanne Baret voer in 1766 vermomd mee",
+      "artBrief": "Een botanist met plantenpers en verzamelde planten aan dek.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie voer vermomd als man mee op een ontdekkingsreis?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Cleopatra",
+            "Anna Boleyn",
+            "Florence Nightingale"
+          ],
+          "hint": "Ze was plantkundige.",
+          "explanation": "Jeanne Baret ging in 1766 als man verkleed mee en voer zo de wereld rond.",
+          "fact": "Ze verzamelde onderweg duizenden planten."
+        },
+        "en": {
+          "prompt": "Who sailed on an expedition disguised as a man?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Cleopatra",
+            "Anne Boleyn",
+            "Florence Nightingale"
+          ],
+          "hint": "She was a botanist.",
+          "explanation": "In 1766 Jeanne Baret joined a voyage dressed as a man and sailed round the world.",
+          "fact": "She collected thousands of plants along the way."
+        },
+        "de": {
+          "prompt": "Wer fuhr als Mann verkleidet auf einer Entdeckungsreise mit?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Kleopatra",
+            "Anne Boleyn",
+            "Florence Nightingale"
+          ],
+          "hint": "Sie war Pflanzenkundlerin.",
+          "explanation": "Jeanne Baret fuhr 1766 als Mann verkleidet mit und umrundete so die Welt.",
+          "fact": "Unterwegs sammelte sie tausende Pflanzen."
+        },
+        "fr": {
+          "prompt": "Qui participa à une expédition déguisée en homme ?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Cléopâtre",
+            "Anne Boleyn",
+            "Florence Nightingale"
+          ],
+          "hint": "Elle était botaniste.",
+          "explanation": "En 1766, Jeanne Baret embarqua habillée en homme et fit le tour du monde.",
+          "fact": "Elle récolta des milliers de plantes en chemin."
+        },
+        "es": {
+          "prompt": "¿Quién viajó en una expedición disfrazada de hombre?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Cleopatra",
+            "Ana Bolena",
+            "Florence Nightingale"
+          ],
+          "hint": "Era botánica.",
+          "explanation": "En 1766 Jeanne Baret embarcó vestida de hombre y dio la vuelta al mundo.",
+          "fact": "Por el camino recogió miles de plantas."
+        },
+        "it": {
+          "prompt": "Chi partecipò a una spedizione travestita da uomo?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Cleopatra",
+            "Anna Bolena",
+            "Florence Nightingale"
+          ],
+          "hint": "Era una botanica.",
+          "explanation": "Nel 1766 Jeanne Baret si imbarcò vestita da uomo e fece il giro del mondo.",
+          "fact": "Lungo la strada raccolse migliaia di piante."
+        },
+        "pt": {
+          "prompt": "Quem foi numa expedição disfarçada de homem?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Cleópatra",
+            "Ana Bolena",
+            "Florence Nightingale"
+          ],
+          "hint": "Era botânica.",
+          "explanation": "Em 1766 Jeanne Baret embarcou vestida de homem e deu a volta ao mundo.",
+          "fact": "Pelo caminho recolheu milhares de plantas."
+        },
+        "da": {
+          "prompt": "Hvem tog med på en opdagelsesrejse forklædt som mand?",
+          "answer": "Jeanne Baret",
+          "wrong": [
+            "Kleopatra",
+            "Anne Boleyn",
+            "Florence Nightingale"
+          ],
+          "hint": "Hun var plantekyndig.",
+          "explanation": "I 1766 tog Jeanne Baret med forklædt som mand og sejlede jorden rundt.",
+          "fact": "Undervejs samlede hun tusindvis af planter."
+        },
+        "ru": {
+          "prompt": "Кто отправился в экспедицию, переодевшись мужчиной?",
+          "answer": "Жанна Барре",
+          "wrong": [
+            "Клеопатра",
+            "Анна Болейн",
+            "Флоренс Найтингейл"
+          ],
+          "hint": "Она была ботаником.",
+          "explanation": "В 1766 году Жанна Барре ушла в плавание в мужском платье и обошла весь свет.",
+          "fact": "По пути она собрала тысячи растений."
+        },
+        "ar": {
+          "prompt": "من شاركت في رحلة استكشاف متنكرة في زي رجل؟",
+          "answer": "جان باريه",
+          "wrong": [
+            "كليوباترا",
+            "آن بولين",
+            "فلورنس نايتنجيل"
+          ],
+          "hint": "كانت عالمة نبات.",
+          "explanation": "عام 1766 أبحرت جان باريه متنكرة وطافت حول العالم.",
+          "fact": "وجمعت في الطريق آلاف النباتات."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De Columbiaanse uitwisseling",
+      "artBrief": "Aardappels, tomaten en maïs op een tafel naast een oude zeekaart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk eten brachten ontdekkingsreizigers uit Amerika mee?",
+          "answer": "Aardappels en tomaten",
+          "wrong": [
+            "Tarwe en appels",
+            "Koeien en paarden",
+            "Wol en ijzer"
+          ],
+          "hint": "Zonder die twee geen patat en geen pizza.",
+          "explanation": "Aardappel, tomaat, maïs en cacao kwamen allemaal uit Amerika.",
+          "fact": "Andersom gingen paarden, koeien en tarwe die kant op."
+        },
+        "en": {
+          "prompt": "Which foods did explorers bring back from America?",
+          "answer": "Potatoes and tomatoes",
+          "wrong": [
+            "Wheat and apples",
+            "Cows and horses",
+            "Wool and iron"
+          ],
+          "hint": "Without those two, no chips and no pizza.",
+          "explanation": "Potato, tomato, maize and cocoa all came from the Americas.",
+          "fact": "Horses, cattle and wheat went the other way."
+        },
+        "de": {
+          "prompt": "Welches Essen brachten Entdecker aus Amerika mit?",
+          "answer": "Kartoffeln und Tomaten",
+          "wrong": [
+            "Weizen und Äpfel",
+            "Kühe und Pferde",
+            "Wolle und Eisen"
+          ],
+          "hint": "Ohne die beiden keine Pommes und keine Pizza.",
+          "explanation": "Kartoffel, Tomate, Mais und Kakao kamen alle aus Amerika.",
+          "fact": "Umgekehrt gingen Pferde, Rinder und Weizen dorthin."
+        },
+        "fr": {
+          "prompt": "Quels aliments les explorateurs ont-ils rapportés d'Amérique ?",
+          "answer": "Pommes de terre et tomates",
+          "wrong": [
+            "Blé et pommes",
+            "Vaches et chevaux",
+            "Laine et fer"
+          ],
+          "hint": "Sans ces deux-là, ni frites ni pizza.",
+          "explanation": "Pomme de terre, tomate, maïs et cacao venaient tous d'Amérique.",
+          "fact": "En sens inverse partirent chevaux, bovins et blé."
+        },
+        "es": {
+          "prompt": "¿Qué alimentos trajeron los exploradores de América?",
+          "answer": "Patatas y tomates",
+          "wrong": [
+            "Trigo y manzanas",
+            "Vacas y caballos",
+            "Lana y hierro"
+          ],
+          "hint": "Sin esos dos no hay patatas fritas ni pizza.",
+          "explanation": "Patata, tomate, maíz y cacao salieron todos de América.",
+          "fact": "En sentido contrario fueron caballos, vacas y trigo."
+        },
+        "it": {
+          "prompt": "Quali cibi portarono gli esploratori dall'America?",
+          "answer": "Patate e pomodori",
+          "wrong": [
+            "Grano e mele",
+            "Mucche e cavalli",
+            "Lana e ferro"
+          ],
+          "hint": "Senza quei due niente patatine né pizza.",
+          "explanation": "Patata, pomodoro, mais e cacao vengono tutti dalle Americhe.",
+          "fact": "In senso opposto partirono cavalli, bovini e grano."
+        },
+        "pt": {
+          "prompt": "Que alimentos trouxeram os exploradores da América?",
+          "answer": "Batatas e tomates",
+          "wrong": [
+            "Trigo e maçãs",
+            "Vacas e cavalos",
+            "Lã e ferro"
+          ],
+          "hint": "Sem esses dois não há batatas fritas nem piza.",
+          "explanation": "Batata, tomate, milho e cacau vieram todos das Américas.",
+          "fact": "No sentido contrário foram cavalos, vacas e trigo."
+        },
+        "da": {
+          "prompt": "Hvilke fødevarer bragte opdagelsesrejsende med fra Amerika?",
+          "answer": "Kartofler og tomater",
+          "wrong": [
+            "Hvede og æbler",
+            "Køer og heste",
+            "Uld og jern"
+          ],
+          "hint": "Uden dem ingen pommes frites og ingen pizza.",
+          "explanation": "Kartoffel, tomat, majs og kakao kom alle fra Amerika.",
+          "fact": "Den anden vej gik heste, kvæg og hvede."
+        },
+        "ru": {
+          "prompt": "Какие продукты путешественники привезли из Америки?",
+          "answer": "Картофель и помидоры",
+          "wrong": [
+            "Пшеницу и яблоки",
+            "Коров и лошадей",
+            "Шерсть и железо"
+          ],
+          "hint": "Без них не было бы ни картошки фри, ни пиццы.",
+          "explanation": "Картофель, помидор, кукуруза и какао — всё это из Америки.",
+          "fact": "А обратно туда повезли лошадей, коров и пшеницу."
+        },
+        "ar": {
+          "prompt": "أي أطعمة جلبها المستكشفون من أمريكا؟",
+          "answer": "البطاطس والطماطم",
+          "wrong": [
+            "القمح والتفاح",
+            "الأبقار والخيول",
+            "الصوف والحديد"
+          ],
+          "hint": "بدونهما لا بطاطس مقلية ولا بيتزا.",
+          "explanation": "البطاطس والطماطم والذرة والكاكاو كلها من الأمريكتين.",
+          "fact": "وفي المقابل ذهبت الخيول والأبقار والقمح إلى هناك."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Pokken in Amerika na 1492",
+      "artBrief": "Een historische prent van een dorp met zieken, ingetogen en niet luguber.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke ziekte namen Europeanen mee naar Amerika?",
+          "answer": "De pokken",
+          "wrong": [
+            "Scheurbuik",
+            "Zeeziekte",
+            "Verkoudheid"
+          ],
+          "hint": "Ertegen bestond daar geen weerstand.",
+          "explanation": "Ziekten als pokken en mazelen troffen mensen die ze nooit eerder hadden gehad.",
+          "fact": "Daardoor stierven in korte tijd heel veel inwoners."
+        },
+        "en": {
+          "prompt": "Which disease did Europeans bring to America?",
+          "answer": "Smallpox",
+          "wrong": [
+            "Scurvy",
+            "Seasickness",
+            "A cold"
+          ],
+          "hint": "There was no resistance to it there.",
+          "explanation": "Diseases such as smallpox and measles struck people who had never met them.",
+          "fact": "Enormous numbers of inhabitants died in a short time."
+        },
+        "de": {
+          "prompt": "Welche Krankheit brachten Europäer nach Amerika?",
+          "answer": "Die Pocken",
+          "wrong": [
+            "Skorbut",
+            "Seekrankheit",
+            "Schnupfen"
+          ],
+          "hint": "Dagegen gab es dort keine Abwehr.",
+          "explanation": "Krankheiten wie Pocken und Masern trafen Menschen, die sie nie gehabt hatten.",
+          "fact": "In kurzer Zeit starben unzählige Bewohner."
+        },
+        "fr": {
+          "prompt": "Quelle maladie les Européens ont-ils apportée en Amérique ?",
+          "answer": "La variole",
+          "wrong": [
+            "Le scorbut",
+            "Le mal de mer",
+            "Le rhume"
+          ],
+          "hint": "Il n'y avait là-bas aucune défense contre elle.",
+          "explanation": "Variole et rougeole frappèrent des gens qui ne les avaient jamais rencontrées.",
+          "fact": "Un très grand nombre d'habitants moururent en peu de temps."
+        },
+        "es": {
+          "prompt": "¿Qué enfermedad llevaron los europeos a América?",
+          "answer": "La viruela",
+          "wrong": [
+            "El escorbuto",
+            "El mareo",
+            "Un resfriado"
+          ],
+          "hint": "Allí no había defensas contra ella.",
+          "explanation": "La viruela y el sarampión golpearon a gente que nunca los había tenido.",
+          "fact": "En poco tiempo murieron muchísimos habitantes."
+        },
+        "it": {
+          "prompt": "Quale malattia portarono gli europei in America?",
+          "answer": "Il vaiolo",
+          "wrong": [
+            "Lo scorbuto",
+            "Il mal di mare",
+            "Il raffreddore"
+          ],
+          "hint": "Là non c'erano difese contro di essa.",
+          "explanation": "Vaiolo e morbillo colpirono persone che non li avevano mai incontrati.",
+          "fact": "In poco tempo morirono moltissimi abitanti."
+        },
+        "pt": {
+          "prompt": "Que doença levaram os europeus para a América?",
+          "answer": "A varíola",
+          "wrong": [
+            "O escorbuto",
+            "O enjoo",
+            "Uma constipação"
+          ],
+          "hint": "Ali não havia defesas contra ela.",
+          "explanation": "A varíola e o sarampo atingiram gente que nunca os tinha tido.",
+          "fact": "Em pouco tempo morreram imensos habitantes."
+        },
+        "da": {
+          "prompt": "Hvilken sygdom bragte europæerne til Amerika?",
+          "answer": "Kopper",
+          "wrong": [
+            "Skørbug",
+            "Søsyge",
+            "Forkølelse"
+          ],
+          "hint": "Der var ingen modstandskraft mod den.",
+          "explanation": "Kopper og mæslinger ramte mennesker, der aldrig havde mødt dem.",
+          "fact": "På kort tid døde utrolig mange indbyggere."
+        },
+        "ru": {
+          "prompt": "Какую болезнь европейцы завезли в Америку?",
+          "answer": "Оспу",
+          "wrong": [
+            "Цингу",
+            "Морскую болезнь",
+            "Насморк"
+          ],
+          "hint": "Защиты от неё там не было.",
+          "explanation": "Оспа и корь ударили по людям, которые никогда с ними не встречались.",
+          "fact": "За короткое время погибло очень много жителей."
+        },
+        "ar": {
+          "prompt": "أي مرض حمله الأوروبيون إلى أمريكا؟",
+          "answer": "الجدري",
+          "wrong": [
+            "الإسقربوط",
+            "دوار البحر",
+            "الزكام"
+          ],
+          "hint": "لم تكن هناك مناعة ضده.",
+          "explanation": "أصاب الجدري والحصبة أناسًا لم يعرفوهما من قبل.",
+          "fact": "فمات عدد هائل من السكان في وقت قصير."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "HMS Beagle, reis 1831-1836",
+      "artBrief": "Een klein zeilschip voor een rotsige kust met zeeleeuwen en vogels.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Op welk schip voer Darwin de wereld rond?",
+          "answer": "De Beagle",
+          "wrong": [
+            "De Victoria",
+            "De Mayflower",
+            "De Endeavour"
+          ],
+          "hint": "Het is ook een hondenras.",
+          "explanation": "Darwin voer tussen 1831 en 1836 mee op de Beagle.",
+          "fact": "Wat hij onderweg zag, bracht hem op zijn ideeën over soorten."
+        },
+        "en": {
+          "prompt": "Which ship did Darwin sail round the world on?",
+          "answer": "The Beagle",
+          "wrong": [
+            "The Victoria",
+            "The Mayflower",
+            "The Endeavour"
+          ],
+          "hint": "It is also a breed of dog.",
+          "explanation": "Darwin sailed on the Beagle between 1831 and 1836.",
+          "fact": "What he saw on the way led him to his ideas about species."
+        },
+        "de": {
+          "prompt": "Auf welchem Schiff fuhr Darwin um die Welt?",
+          "answer": "Auf der Beagle",
+          "wrong": [
+            "Auf der Victoria",
+            "Auf der Mayflower",
+            "Auf der Endeavour"
+          ],
+          "hint": "So heißt auch eine Hunderasse.",
+          "explanation": "Darwin fuhr zwischen 1831 und 1836 auf der Beagle mit.",
+          "fact": "Was er unterwegs sah, brachte ihn auf seine Gedanken über Arten."
+        },
+        "fr": {
+          "prompt": "Sur quel navire Darwin fit-il le tour du monde ?",
+          "answer": "Le Beagle",
+          "wrong": [
+            "Le Victoria",
+            "Le Mayflower",
+            "L'Endeavour"
+          ],
+          "hint": "C'est aussi une race de chien.",
+          "explanation": "Darwin navigua sur le Beagle entre 1831 et 1836.",
+          "fact": "Ce qu'il vit en route le mena à ses idées sur les espèces."
+        },
+        "es": {
+          "prompt": "¿En qué barco dio Darwin la vuelta al mundo?",
+          "answer": "En el Beagle",
+          "wrong": [
+            "En el Victoria",
+            "En el Mayflower",
+            "En el Endeavour"
+          ],
+          "hint": "También es una raza de perro.",
+          "explanation": "Darwin navegó en el Beagle entre 1831 y 1836.",
+          "fact": "Lo que vio por el camino le llevó a sus ideas sobre las especies."
+        },
+        "it": {
+          "prompt": "Su quale nave Darwin fece il giro del mondo?",
+          "answer": "Sulla Beagle",
+          "wrong": [
+            "Sulla Victoria",
+            "Sulla Mayflower",
+            "Sulla Endeavour"
+          ],
+          "hint": "È anche una razza di cane.",
+          "explanation": "Darwin navigò sulla Beagle fra il 1831 e il 1836.",
+          "fact": "Ciò che vide lo portò alle sue idee sulle specie."
+        },
+        "pt": {
+          "prompt": "Em que navio deu Darwin a volta ao mundo?",
+          "answer": "No Beagle",
+          "wrong": [
+            "No Victoria",
+            "No Mayflower",
+            "No Endeavour"
+          ],
+          "hint": "Também é uma raça de cão.",
+          "explanation": "Darwin navegou no Beagle entre 1831 e 1836.",
+          "fact": "O que viu pelo caminho levou-o às suas ideias sobre as espécies."
+        },
+        "da": {
+          "prompt": "Hvilket skib sejlede Darwin jorden rundt på?",
+          "answer": "Beagle",
+          "wrong": [
+            "Victoria",
+            "Mayflower",
+            "Endeavour"
+          ],
+          "hint": "Det er også en hunderace.",
+          "explanation": "Darwin sejlede med Beagle mellem 1831 og 1836.",
+          "fact": "Det, han så undervejs, førte ham til hans tanker om arter."
+        },
+        "ru": {
+          "prompt": "На каком корабле Дарвин обошёл вокруг света?",
+          "answer": "На «Бигле»",
+          "wrong": [
+            "На «Виктории»",
+            "На «Мэйфлауэре»",
+            "На «Индеворе»"
+          ],
+          "hint": "Так называется и порода собак.",
+          "explanation": "Дарвин плавал на «Бигле» с 1831 по 1836 год.",
+          "fact": "Увиденное в пути привело его к мыслям о видах."
+        },
+        "ar": {
+          "prompt": "على أي سفينة طاف داروين حول العالم؟",
+          "answer": "على البيجل",
+          "wrong": [
+            "على الفيكتوريا",
+            "على ماي فلاور",
+            "على إنديفور"
+          ],
+          "hint": "وهو أيضًا اسم سلالة كلاب.",
+          "explanation": "أبحر داروين على البيجل بين 1831 و1836.",
+          "fact": "وما رآه في الطريق قاده إلى أفكاره عن الأنواع."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Van Magellaans vijf schepen keerde alleen de Victoria terug",
+      "artBrief": "Eén gehavend schip dat een haven binnenvaart, met lege ligplaatsen ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel van Magellaans vijf schepen kwamen terug?",
+          "answer": "Eén",
+          "wrong": [
+            "Alle vijf",
+            "Drie",
+            "Geen enkel"
+          ],
+          "hint": "Bijna de hele vloot ging verloren.",
+          "explanation": "Van de vijf schepen keerde alleen de Victoria terug in Spanje.",
+          "fact": "Van de ruim tweehonderd opvarenden haalden er achttien het einde."
+        },
+        "en": {
+          "prompt": "How many of Magellan's five ships came back?",
+          "answer": "One",
+          "wrong": [
+            "All five",
+            "Three",
+            "None at all"
+          ],
+          "hint": "Almost the whole fleet was lost.",
+          "explanation": "Of the five ships only the Victoria returned to Spain.",
+          "fact": "Of over two hundred crew, eighteen made it to the end."
+        },
+        "de": {
+          "prompt": "Wie viele von Magellans fünf Schiffen kehrten zurück?",
+          "answer": "Eines",
+          "wrong": [
+            "Alle fünf",
+            "Drei",
+            "Keines"
+          ],
+          "hint": "Fast die ganze Flotte ging verloren.",
+          "explanation": "Von den fünf Schiffen kam nur die Victoria nach Spanien zurück.",
+          "fact": "Von über zweihundert Mann erreichten achtzehn das Ende."
+        },
+        "fr": {
+          "prompt": "Combien des cinq navires de Magellan sont revenus ?",
+          "answer": "Un seul",
+          "wrong": [
+            "Les cinq",
+            "Trois",
+            "Aucun"
+          ],
+          "hint": "Presque toute la flotte fut perdue.",
+          "explanation": "Des cinq navires, seul le Victoria rentra en Espagne.",
+          "fact": "Sur plus de deux cents hommes, dix-huit virent la fin du voyage."
+        },
+        "es": {
+          "prompt": "¿Cuántos de los cinco barcos de Magallanes volvieron?",
+          "answer": "Uno",
+          "wrong": [
+            "Los cinco",
+            "Tres",
+            "Ninguno"
+          ],
+          "hint": "Se perdió casi toda la flota.",
+          "explanation": "De los cinco barcos, solo el Victoria regresó a España.",
+          "fact": "De más de doscientos tripulantes, dieciocho llegaron al final."
+        },
+        "it": {
+          "prompt": "Quante delle cinque navi di Magellano tornarono?",
+          "answer": "Una",
+          "wrong": [
+            "Tutte e cinque",
+            "Tre",
+            "Nessuna"
+          ],
+          "hint": "Quasi tutta la flotta andò perduta.",
+          "explanation": "Delle cinque navi solo la Victoria tornò in Spagna.",
+          "fact": "Di oltre duecento uomini diciotto videro la fine."
+        },
+        "pt": {
+          "prompt": "Quantos dos cinco navios de Magalhães voltaram?",
+          "answer": "Um",
+          "wrong": [
+            "Os cinco",
+            "Três",
+            "Nenhum"
+          ],
+          "hint": "Perdeu-se quase toda a frota.",
+          "explanation": "Dos cinco navios só o Victoria regressou a Espanha.",
+          "fact": "De mais de duzentos tripulantes, dezoito chegaram ao fim."
+        },
+        "da": {
+          "prompt": "Hvor mange af Magellans fem skibe kom tilbage?",
+          "answer": "Ét",
+          "wrong": [
+            "Alle fem",
+            "Tre",
+            "Ingen"
+          ],
+          "hint": "Næsten hele flåden gik tabt.",
+          "explanation": "Af de fem skibe vendte kun Victoria tilbage til Spanien.",
+          "fact": "Af over to hundrede mand nåede atten frem til slutningen."
+        },
+        "ru": {
+          "prompt": "Сколько из пяти кораблей Магеллана вернулись?",
+          "answer": "Один",
+          "wrong": [
+            "Все пять",
+            "Три",
+            "Ни одного"
+          ],
+          "hint": "Почти весь флот был потерян.",
+          "explanation": "Из пяти судов в Испанию вернулась только «Виктория».",
+          "fact": "Из более чем двухсот человек до конца дошли восемнадцать."
+        },
+        "ar": {
+          "prompt": "كم عادت من سفن ماجلان الخمس؟",
+          "answer": "واحدة",
+          "wrong": [
+            "كلها الخمس",
+            "ثلاث",
+            "ولا واحدة"
+          ],
+          "hint": "ضاع الأسطول كله تقريبًا.",
+          "explanation": "من السفن الخمس عادت الفيكتوريا وحدها إلى إسبانيا.",
+          "fact": "ومن أكثر من مئتي بحار وصل ثمانية عشر."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Zheng He voer vanaf 1405 met enorme vloten",
+      "artBrief": "Een reusachtig Chinees schat-schip naast kleinere Europese karvelen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke Chinese vloot voer al in 1405 naar Afrika?",
+          "answer": "Die van Zheng He",
+          "wrong": [
+            "Die van Marco Polo",
+            "Die van Columbus",
+            "Die van Da Gama"
+          ],
+          "hint": "Bijna een eeuw voor Columbus.",
+          "explanation": "Zheng He voer met enorme vloten naar India en Oost-Afrika.",
+          "fact": "Zijn grootste schepen waren vele malen groter dan die van Columbus."
+        },
+        "en": {
+          "prompt": "Which Chinese fleet sailed to Africa as early as 1405?",
+          "answer": "Zheng He's",
+          "wrong": [
+            "Marco Polo's",
+            "Columbus's",
+            "Da Gama's"
+          ],
+          "hint": "Almost a century before Columbus.",
+          "explanation": "Zheng He sailed to India and East Africa with enormous fleets.",
+          "fact": "His largest ships were many times bigger than Columbus's."
+        },
+        "de": {
+          "prompt": "Welche chinesische Flotte fuhr schon 1405 nach Afrika?",
+          "answer": "Die von Zheng He",
+          "wrong": [
+            "Die von Marco Polo",
+            "Die von Kolumbus",
+            "Die von Da Gama"
+          ],
+          "hint": "Fast ein Jahrhundert vor Kolumbus.",
+          "explanation": "Zheng He fuhr mit riesigen Flotten nach Indien und Ostafrika.",
+          "fact": "Seine größten Schiffe waren um ein Vielfaches größer als die von Kolumbus."
+        },
+        "fr": {
+          "prompt": "Quelle flotte chinoise gagna l'Afrique dès 1405 ?",
+          "answer": "Celle de Zheng He",
+          "wrong": [
+            "Celle de Marco Polo",
+            "Celle de Colomb",
+            "Celle de Da Gama"
+          ],
+          "hint": "Presque un siècle avant Colomb.",
+          "explanation": "Zheng He gagna l'Inde et l'Afrique de l'Est avec d'immenses flottes.",
+          "fact": "Ses plus grands navires dépassaient de loin ceux de Colomb."
+        },
+        "es": {
+          "prompt": "¿Qué flota china llegó a África ya en 1405?",
+          "answer": "La de Zheng He",
+          "wrong": [
+            "La de Marco Polo",
+            "La de Colón",
+            "La de Da Gama"
+          ],
+          "hint": "Casi un siglo antes que Colón.",
+          "explanation": "Zheng He llegó a la India y a África oriental con flotas enormes.",
+          "fact": "Sus barcos mayores superaban con mucho a los de Colón."
+        },
+        "it": {
+          "prompt": "Quale flotta cinese raggiunse l'Africa già nel 1405?",
+          "answer": "Quella di Zheng He",
+          "wrong": [
+            "Quella di Marco Polo",
+            "Quella di Colombo",
+            "Quella di Da Gama"
+          ],
+          "hint": "Quasi un secolo prima di Colombo.",
+          "explanation": "Zheng He raggiunse India e Africa orientale con flotte enormi.",
+          "fact": "Le sue navi più grandi superavano di molto quelle di Colombo."
+        },
+        "pt": {
+          "prompt": "Que frota chinesa chegou a África já em 1405?",
+          "answer": "A de Zheng He",
+          "wrong": [
+            "A de Marco Polo",
+            "A de Colombo",
+            "A de Vasco da Gama"
+          ],
+          "hint": "Quase um século antes de Colombo.",
+          "explanation": "Zheng He chegou à Índia e à África oriental com frotas enormes.",
+          "fact": "Os seus maiores navios eram muito maiores do que os de Colombo."
+        },
+        "da": {
+          "prompt": "Hvilken kinesisk flåde nåede Afrika allerede i 1405?",
+          "answer": "Zheng Hes",
+          "wrong": [
+            "Marco Polos",
+            "Columbus'",
+            "Da Gamas"
+          ],
+          "hint": "Næsten hundrede år før Columbus.",
+          "explanation": "Zheng He nåede Indien og Østafrika med enorme flåder.",
+          "fact": "Hans største skibe var mange gange større end Columbus'."
+        },
+        "ru": {
+          "prompt": "Какой китайский флот достиг Африки уже в 1405 году?",
+          "answer": "Флот Чжэн Хэ",
+          "wrong": [
+            "Флот Марко Поло",
+            "Флот Колумба",
+            "Флот да Гамы"
+          ],
+          "hint": "Почти на век раньше Колумба.",
+          "explanation": "Чжэн Хэ ходил в Индию и Восточную Африку с огромными флотами.",
+          "fact": "Его самые большие корабли многократно превосходили суда Колумба."
+        },
+        "ar": {
+          "prompt": "أي أسطول صيني بلغ أفريقيا عام 1405؟",
+          "answer": "أسطول تشنغ خه",
+          "wrong": [
+            "أسطول ماركو بولو",
+            "أسطول كولومبوس",
+            "أسطول دا غاما"
+          ],
+          "hint": "قبل كولومبوس بقرن تقريبًا.",
+          "explanation": "بلغ تشنغ خه الهند وشرق أفريقيا بأساطيل ضخمة.",
+          "fact": "وكانت أكبر سفنه تفوق سفن كولومبوس بأضعاف."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het logboek met knopenlijn",
+      "artBrief": "Een matroos die een lijn met knopen over de achtersteven laat lopen met een zandloper.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe maten zeelieden vroeger hun snelheid?",
+          "answer": "Met een touw met knopen",
+          "wrong": [
+            "Met een klok",
+            "Met de zon",
+            "Met de wind"
+          ],
+          "hint": "Daar komt het woord knopen vandaan.",
+          "explanation": "Een lijn met knopen ging overboord, en men telde er een zandloper bij.",
+          "fact": "Daarom heet de snelheid op zee nog steeds knopen."
+        },
+        "en": {
+          "prompt": "How did sailors once measure their speed?",
+          "answer": "With a rope full of knots",
+          "wrong": [
+            "With a clock",
+            "With the sun",
+            "With the wind"
+          ],
+          "hint": "That is where the word knots comes from.",
+          "explanation": "A knotted line went overboard and was timed with a sandglass.",
+          "fact": "That is why speed at sea is still counted in knots."
+        },
+        "de": {
+          "prompt": "Wie maßen Seeleute früher ihre Geschwindigkeit?",
+          "answer": "Mit einem Seil voller Knoten",
+          "wrong": [
+            "Mit einer Uhr",
+            "Mit der Sonne",
+            "Mit dem Wind"
+          ],
+          "hint": "Daher kommt das Wort Knoten.",
+          "explanation": "Eine Knotenleine ging über Bord und wurde mit einer Sanduhr gestoppt.",
+          "fact": "Darum wird Geschwindigkeit auf See bis heute in Knoten gezählt."
+        },
+        "fr": {
+          "prompt": "Comment les marins mesuraient-ils leur vitesse ?",
+          "answer": "Avec une corde à nœuds",
+          "wrong": [
+            "Avec une horloge",
+            "Avec le soleil",
+            "Avec le vent"
+          ],
+          "hint": "C'est de là que vient le mot nœuds.",
+          "explanation": "On jetait une ligne à nœuds par-dessus bord en comptant au sablier.",
+          "fact": "C'est pourquoi la vitesse en mer se compte encore en nœuds."
+        },
+        "es": {
+          "prompt": "¿Cómo medían antes su velocidad los marineros?",
+          "answer": "Con una cuerda con nudos",
+          "wrong": [
+            "Con un reloj",
+            "Con el sol",
+            "Con el viento"
+          ],
+          "hint": "De ahí viene la palabra nudos.",
+          "explanation": "Se echaba por la borda una cuerda con nudos y se contaba con un reloj de arena.",
+          "fact": "Por eso la velocidad en el mar se sigue midiendo en nudos."
+        },
+        "it": {
+          "prompt": "Come misuravano un tempo i marinai la velocità?",
+          "answer": "Con una corda a nodi",
+          "wrong": [
+            "Con un orologio",
+            "Con il sole",
+            "Con il vento"
+          ],
+          "hint": "Da lì viene la parola nodi.",
+          "explanation": "Si gettava in mare una sagola a nodi contando con una clessidra.",
+          "fact": "Per questo la velocità in mare si conta ancora in nodi."
+        },
+        "pt": {
+          "prompt": "Como mediam os marinheiros a sua velocidade?",
+          "answer": "Com uma corda com nós",
+          "wrong": [
+            "Com um relógio",
+            "Com o sol",
+            "Com o vento"
+          ],
+          "hint": "Daí vem a palavra nós.",
+          "explanation": "Lançava-se ao mar uma linha com nós e contava-se com uma ampulheta.",
+          "fact": "Por isso a velocidade no mar ainda se conta em nós."
+        },
+        "da": {
+          "prompt": "Hvordan målte søfolk før i tiden farten?",
+          "answer": "Med et reb fuldt af knob",
+          "wrong": [
+            "Med et ur",
+            "Med solen",
+            "Med vinden"
+          ],
+          "hint": "Derfra kommer ordet knob.",
+          "explanation": "En line med knuder gik over bord, mens man talte med et timeglas.",
+          "fact": "Derfor måles fart til søs stadig i knob."
+        },
+        "ru": {
+          "prompt": "Как моряки раньше измеряли скорость?",
+          "answer": "Верёвкой с узлами",
+          "wrong": [
+            "Часами",
+            "По солнцу",
+            "По ветру"
+          ],
+          "hint": "Отсюда и слово «узлы».",
+          "explanation": "За борт бросали лаг с узлами и отсчитывали время песочными часами.",
+          "fact": "Поэтому скорость на море до сих пор считают в узлах."
+        },
+        "ar": {
+          "prompt": "كيف كان البحارة يقيسون سرعتهم؟",
+          "answer": "بحبل فيه عقد",
+          "wrong": [
+            "بساعة",
+            "بالشمس",
+            "بالريح"
+          ],
+          "hint": "من هنا جاءت كلمة «عقدة».",
+          "explanation": "كان الحبل المعقود يُلقى في الماء مع ساعة رملية.",
+          "fact": "لذلك ما زالت السرعة في البحر تقاس بالعقد."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De Noordwestelijke Doorvaart",
+      "artBrief": "Een schip tussen ijsschotsen langs een kale noordelijke kust.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat was de Noordwestelijke Doorvaart?",
+          "answer": "Een route boven Amerika",
+          "wrong": [
+            "Een route onder Afrika",
+            "Een kanaal in Europa",
+            "Een brug over zee"
+          ],
+          "hint": "Door het ijs naar Azië.",
+          "explanation": "Eeuwenlang zochten schepen een route langs het noorden van Amerika.",
+          "fact": "Door het smeltende zeeijs is die route nu soms echt bevaarbaar."
+        },
+        "en": {
+          "prompt": "What was the Northwest Passage?",
+          "answer": "A route above America",
+          "wrong": [
+            "A route below Africa",
+            "A canal in Europe",
+            "A bridge over the sea"
+          ],
+          "hint": "Through the ice to Asia.",
+          "explanation": "For centuries ships searched for a way along the north of America.",
+          "fact": "With the sea ice melting, that route is now sometimes truly open."
+        },
+        "de": {
+          "prompt": "Was war die Nordwestpassage?",
+          "answer": "Eine Route über Amerika",
+          "wrong": [
+            "Eine Route unter Afrika",
+            "Ein Kanal in Europa",
+            "Eine Brücke übers Meer"
+          ],
+          "hint": "Durchs Eis nach Asien.",
+          "explanation": "Jahrhundertelang suchten Schiffe einen Weg nördlich um Amerika.",
+          "fact": "Durch das schmelzende Meereis ist diese Route heute manchmal frei."
+        },
+        "fr": {
+          "prompt": "Qu'était le passage du Nord-Ouest ?",
+          "answer": "Une route au nord",
+          "wrong": [
+            "Une route sous l'Afrique",
+            "Un canal en Europe",
+            "Un pont sur la mer"
+          ],
+          "hint": "À travers les glaces vers l'Asie.",
+          "explanation": "Pendant des siècles, des navires cherchèrent une voie au nord de l'Amérique.",
+          "fact": "Avec la fonte des glaces, cette route s'ouvre parfois pour de bon."
+        },
+        "es": {
+          "prompt": "¿Qué era el paso del Noroeste?",
+          "answer": "Una ruta por el norte",
+          "wrong": [
+            "Una ruta bajo África",
+            "Un canal en Europa",
+            "Un puente sobre el mar"
+          ],
+          "hint": "Entre el hielo hacia Asia.",
+          "explanation": "Durante siglos los barcos buscaron un paso por el norte de América.",
+          "fact": "Con el deshielo, esa ruta a veces está de verdad abierta."
+        },
+        "it": {
+          "prompt": "Che cos'era il passaggio a nord-ovest?",
+          "answer": "Una rotta a nord",
+          "wrong": [
+            "Una rotta sotto l'Africa",
+            "Un canale in Europa",
+            "Un ponte sul mare"
+          ],
+          "hint": "Fra i ghiacci verso l'Asia.",
+          "explanation": "Per secoli le navi cercarono una via a nord dell'America.",
+          "fact": "Con il ghiaccio che si scioglie quella rotta a volte si apre davvero."
+        },
+        "pt": {
+          "prompt": "O que era a passagem do Noroeste?",
+          "answer": "Uma rota pelo norte",
+          "wrong": [
+            "Uma rota por baixo de África",
+            "Um canal na Europa",
+            "Uma ponte sobre o mar"
+          ],
+          "hint": "Por entre o gelo até à Ásia.",
+          "explanation": "Durante séculos os navios procuraram um caminho a norte da América.",
+          "fact": "Com o degelo, essa rota às vezes abre mesmo."
+        },
+        "da": {
+          "prompt": "Hvad var Nordvestpassagen?",
+          "answer": "En rute nord om Amerika",
+          "wrong": [
+            "En rute syd om Afrika",
+            "En kanal i Europa",
+            "En bro over havet"
+          ],
+          "hint": "Gennem isen til Asien.",
+          "explanation": "I århundreder søgte skibe en vej nord om Amerika.",
+          "fact": "Med smeltende havis er ruten nu nogle gange virkelig åben."
+        },
+        "ru": {
+          "prompt": "Что такое Северо-Западный проход?",
+          "answer": "Путь севернее Америки",
+          "wrong": [
+            "Путь южнее Африки",
+            "Канал в Европе",
+            "Мост через море"
+          ],
+          "hint": "Сквозь льды в Азию.",
+          "explanation": "Веками корабли искали дорогу вдоль севера Америки.",
+          "fact": "Из-за таяния льдов этот путь теперь иногда действительно открыт."
+        },
+        "ar": {
+          "prompt": "ما هو الممر الشمالي الغربي؟",
+          "answer": "طريق شمال أمريكا",
+          "wrong": [
+            "طريق جنوب أفريقيا",
+            "قناة في أوروبا",
+            "جسر فوق البحر"
+          ],
+          "hint": "عبر الجليد إلى آسيا.",
+          "explanation": "بحثت السفن قرونًا عن طريق شمال أمريكا.",
+          "fact": "ومع ذوبان الجليد صار هذا الطريق مفتوحًا أحيانًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ontdekkingsreizigers-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Amelia Earhart verdween in 1937",
+      "artBrief": "Een klein tweemotorig vliegtuig boven een eindeloze oceaan.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vliegenier verdween in 1937 boven de Stille Oceaan?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Ze probeerde de wereld rond te vliegen.",
+          "explanation": "Amelia Earhart verdween spoorloos tijdens haar vlucht rond de wereld.",
+          "fact": "Haar vliegtuig is tot vandaag niet teruggevonden."
+        },
+        "en": {
+          "prompt": "Which flier vanished over the Pacific in 1937?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "She was trying to fly round the world.",
+          "explanation": "Amelia Earhart disappeared without trace on her flight round the world.",
+          "fact": "Her aircraft has never been found."
+        },
+        "de": {
+          "prompt": "Welche Fliegerin verschwand 1937 über dem Pazifik?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Sie wollte die Welt umfliegen.",
+          "explanation": "Amelia Earhart verschwand spurlos auf ihrem Flug um die Welt.",
+          "fact": "Ihr Flugzeug wurde bis heute nicht gefunden."
+        },
+        "fr": {
+          "prompt": "Quelle aviatrice disparut en 1937 au-dessus du Pacifique ?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Elle tentait le tour du monde en avion.",
+          "explanation": "Amelia Earhart disparut sans laisser de trace lors de son tour du monde.",
+          "fact": "Son avion n'a jamais été retrouvé."
+        },
+        "es": {
+          "prompt": "¿Qué aviadora desapareció en 1937 sobre el Pacífico?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Intentaba dar la vuelta al mundo volando.",
+          "explanation": "Amelia Earhart desapareció sin rastro en su vuelta al mundo.",
+          "fact": "Su avión no se ha encontrado hasta hoy."
+        },
+        "it": {
+          "prompt": "Quale aviatrice scomparve nel 1937 sul Pacifico?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Tentava il giro del mondo in volo.",
+          "explanation": "Amelia Earhart sparì senza lasciare traccia nel giro del mondo.",
+          "fact": "Il suo aereo non è mai stato ritrovato."
+        },
+        "pt": {
+          "prompt": "Que aviadora desapareceu em 1937 sobre o Pacífico?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Tentava dar a volta ao mundo a voar.",
+          "explanation": "Amelia Earhart desapareceu sem deixar rasto na volta ao mundo.",
+          "fact": "O avião dela nunca foi encontrado."
+        },
+        "da": {
+          "prompt": "Hvilken flyver forsvandt i 1937 over Stillehavet?",
+          "answer": "Amelia Earhart",
+          "wrong": [
+            "Roald Amundsen",
+            "Ernest Shackleton",
+            "Marco Polo"
+          ],
+          "hint": "Hun forsøgte at flyve jorden rundt.",
+          "explanation": "Amelia Earhart forsvandt sporløst under sin flyvning jorden rundt.",
+          "fact": "Hendes fly er aldrig fundet."
+        },
+        "ru": {
+          "prompt": "Какая лётчица пропала в 1937 году над Тихим океаном?",
+          "answer": "Амелия Эрхарт",
+          "wrong": [
+            "Руаль Амундсен",
+            "Эрнест Шеклтон",
+            "Марко Поло"
+          ],
+          "hint": "Она пыталась облететь вокруг света.",
+          "explanation": "Амелия Эрхарт бесследно исчезла во время кругосветного полёта.",
+          "fact": "Её самолёт так и не нашли."
+        },
+        "ar": {
+          "prompt": "أي طيارة اختفت عام 1937 فوق المحيط الهادئ؟",
+          "answer": "أميليا إيرهارت",
+          "wrong": [
+            "روالد أموندسن",
+            "إرنست شاكلتون",
+            "ماركو بولو"
+          ],
+          "hint": "كانت تحاول الطيران حول العالم.",
+          "explanation": "اختفت أميليا إيرهارت بلا أثر في رحلتها حول العالم.",
+          "fact": "ولم يُعثر على طائرتها حتى اليوم."
+        }
+      }
+    }
+  ]
+}
