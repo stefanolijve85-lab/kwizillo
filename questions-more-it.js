@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_IT = {
+    dieren: {
+      baby_dieren: [
+        ['Come si chiama un maialino piccolo?','Un porcellino',['Un agnello','Un puledro','Un pulcino'],'È rosa e grugnisce piano.','Un maiale piccolo si chiama porcellino.','Una scrofa a volte ne fa dodici in una volta.',1],
+        ['Da che cosa nasce un girino?','Da un uovo',['Da un nido d\'erba','Da un marsupio','Da un bozzolo'],'Ne galleggiano a centinaia nell\'acqua.','Le rane depongono uova nell\'acqua e da lì nascono i girini.','All\'inizio il girino respira con le branchie, come un pesce.',1],
+        ['Che cosa diventa un bruco?','Una farfalla',['Uno scarabeo','Un\'ape','Una lumaca'],'Prima diventa una crisalide.','Un bruco diventa farfalla passando per la crisalide.','Dentro la crisalide viene quasi del tutto ricostruito.',1],
+        ['Dove dorme un uccellino?','In un nido',['Nell\'acqua','Sottoterra','In una conchiglia'],'I genitori lo fanno con i rametti.','I piccoli restano nel nido finché non sanno volare.','Certi nidi vengono riusati ogni anno.',1],
+        ['Nella maggior parte degli uccelli, chi porta il cibo?','I genitori',['I vicini','I piccoli stessi','Nessuno'],'Vanno avanti e indietro tutto il giorno.','I genitori portano cibo al nido per tutta la giornata.','Una coppia di cince porta centinaia di bruchi al giorno.',1],
+        ['Perché un anatroccolo segue la mamma?','La scambia per la mamma',['Ha paura dell\'acqua','Vuole giocare','Segue ogni rumore'],'Ricorda chi vede per primo.','Segue la prima cosa che vede muoversi dopo la schiusa.','Per questo una fila di ochette seguì una volta un ricercatore.',2],
+        ['Quanto resta un pulcino nell\'uovo prima di nascere?','Circa tre settimane',['Circa un giorno','Circa tre mesi','Circa un anno'],'Poco meno di un mese.','Un uovo di gallina ha bisogno di circa ventuno giorni.','Il pulcino si apre la strada con un dentino sull\'uovo.',2],
+        ['Che cosa fa mamma coccodrillo con i piccoli appena nati?','Li porta in bocca',['Li lascia subito soli','Li nasconde sull\'albero','Li spinge in acqua'],'Più delicato di quanto sembri.','Solleva i piccoli con delicatezza in bocca e li porta all\'acqua.','A volte sorveglia il nido per mesi.',2],
+        ['Come viene al mondo un cucciolo di giraffa?','Cade da due metri',['Seduto nell\'erba','Nell\'acqua','In un nido'],'La mamma sta in piedi.','La giraffa partorisce in piedi, così il piccolo cade da due metri.','Entro un\'ora è già in piedi.',2],
+        ['Perché i cuccioli giocano a lottare così tanto?','Si stanno allenando',['Stanno litigando','Si annoiano','Cercano cibo'],'Sembra gioco, ma è imparare.','Giocando imparano a cacciare, a fuggire e a stare insieme.','Chi gioca molto se la cava spesso meglio da adulto.',2],
+        ['Quanto resta nel marsupio un cucciolo di canguro?','Circa sei mesi',['Circa una settimana','Circa due anni','Circa dieci anni'],'Mezzo anno.','Dopo circa sei mesi il piccolo esce per la prima volta.','Poi entra ed esce ancora per mesi.',3],
+        ['Quale uccello depone l\'uovo nel nido di un altro?','Il cuculo',['Il merlo','Il picchio','La rondine'],'In primavera lo si sente cantare.','Il cuculo lascia che altri uccelli crescano il suo piccolo.','Il piccolo cuculo diventa spesso più grande dei genitori adottivi.',3],
+        ['Come impara il suo canto un giovane uccello canoro?','Imitando suo padre',['Lo sa subito','Da un libro','Dal vento'],'Come i bambini che imparano a parlare.','I giovani ascoltano gli adulti e provano finché non viene bene.','Gli uccelli di zone diverse cantano con un accento proprio.',3],
+        ['Perché un puledro appena nato si alza così in fretta?','Per poter scappare',['Per mangiare','Per giocare','Per bere'],'In natura i predatori non aspettano.','Un puledro che non riesce a correre è una preda facile.','Di solito sta in piedi un\'ora dopo la nascita.',3],
+        ['Che cosa fanno i pulcini di pinguino durante una tempesta?','Si stringono insieme',['Si tuffano in mare','Scavano una tana','Volano via'],'In tanti si sta più caldi.','I pulcini formano un gruppo fitto e si scaldano a vicenda.','Un gruppo così si chiama asilo.',3],
+        ['Quante uova depone una tartaruga marina per volta?','Un centinaio',['Circa cinque','Circa mille','Esattamente uno'],'Molte più di un uccello.','Una tartaruga marina depone un centinaio di uova in una buca di sabbia.','Su cento, di solito solo una diventa adulta.',4],
+        ['Come trovano il mare le tartarughine appena nate?','Vanno verso la luce',['La mamma le accompagna','Sentono l\'odore del sale','Seguono il vento'],'Sul mare l\'orizzonte è più chiaro.','I piccoli corrono verso il punto più chiaro, cioè il mare.','Le luci sulla spiaggia a volte le mandano dalla parte sbagliata.',4],
+        ['Quanto pesa una balenottera azzurra appena nata?','Circa 2.500 chili',['Circa 25 chili','Circa 250 chili','Circa 25.000 chili'],'Più di un\'automobile.','Un piccolo di balenottera azzurra pesa già circa 2.500 chili.','Beve centinaia di litri di latte al giorno.',4],
+        ['Perché i cuccioli hanno occhi grandi e testa tonda?','Così ricevono più cure',['Per vedere meglio','Per sembrare più grandi','Per saper nuotare'],'Funziona anche con le persone.','Una testa tonda con occhi grandi fa venire voglia di accudire.','Per questo peluche e personaggi dei cartoni sono così.',4],
+        ['Quale animale fa il latte più grasso per il suo piccolo?','La foca',['La mucca','Il topo','Il canguro'],'Il piccolo deve farsi subito uno strato di grasso.','Il latte di foca è grasso per circa metà.','Con quello il piccolo mette su chili al giorno.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['Come si va nello spazio?','Con un razzo',['Con un aereo','Con una barca','Con un ascensore'],'Serve una spinta enorme.','Solo un razzo sale abbastanza in alto e veloce da raggiungere lo spazio.','Un razzo arriva a quasi 28.000 chilometri all\'ora.',1],

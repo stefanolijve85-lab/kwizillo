@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_EN = {
+    dieren: {
+      baby_dieren: [
+        ['What is a young pig called?','A piglet',['A lamb','A foal','A chick'],'It is pink and grunts softly.','A young pig is called a piglet.','A sow sometimes has twelve at once.',1],
+        ['What does a tadpole come out of?','An egg',['A nest of grass','A pouch','A cocoon'],'They float in the water in their hundreds.','Frogs lay eggs in water, and tadpoles hatch from them.','A tadpole breathes with gills at first, just like a fish.',1],
+        ['What does a caterpillar turn into?','A butterfly',['A beetle','A bee','A snail'],'It becomes a chrysalis first.','A caterpillar turns into a butterfly by way of a chrysalis.','Inside the chrysalis it is almost completely rebuilt.',1],
+        ['Where does a young bird sleep?','In a nest',['In the water','Underground','In a shell'],'The parents build it from twigs.','Young birds stay in the nest until they can fly.','Some nests are used again every year.',1],
+        ['Who fetches the food for the chicks in most birds?','The parents',['The neighbours','The chicks themselves','Nobody'],'They fly back and forth all day.','Bird parents bring food to the nest all day long.','A pair of tits brings hundreds of caterpillars a day.',1],
+        ['Why does a duckling follow its mother?','It sees her as its mother',['It is afraid of water','It wants to play','It always follows sound'],'It remembers whoever it sees first.','A duckling follows the first moving thing it sees after hatching.','That is why a row of goslings once followed a researcher.',2],
+        ['How long is a chick in the egg before it hatches?','About three weeks',['About a day','About three months','About a year'],'A little under a month.','A hen\'s egg needs about twenty-one days.','The chick taps its own way out with an egg tooth.',2],
+        ['What does a mother crocodile do with her newborns?','She carries them by mouth',['She leaves them at once','She hides them in a tree','She pushes them in the water'],'Gentler than it looks.','She lifts the young carefully in her mouth and carries them to water.','She sometimes guards the nest for months.',2],
+        ['How does a baby giraffe come into the world?','It drops two metres',['Sitting in the grass','In the water','In a nest'],'Its mother is standing up.','A giraffe gives birth standing, so the calf falls about two metres.','Within an hour it is on its feet.',2],
+        ['Why do young animals tumble about so much?','They are practising',['They are fighting','They are bored','They are hunting'],'It looks like play, but it is learning.','By tumbling, young animals learn to hunt, flee and get along.','Young animals that play a lot often cope better later on.',2],
+        ['How long does a kangaroo joey stay in the pouch?','About six months',['About a week','About two years','About ten years'],'Half a year.','After about six months the joey comes out for the first time.','After that it hops in and out for months more.',3],
+        ['Which bird lays her egg in another bird\'s nest?','The cuckoo',['The blackbird','The woodpecker','The swallow'],'You hear it calling in spring.','The cuckoo leaves other birds to raise her chick.','The cuckoo chick often grows bigger than its foster parents.',3],
+        ['How does a young songbird learn its song?','By copying its father',['It knows it at once','From a book','From the wind'],'Just like children learning to talk.','Young songbirds listen to older birds and practise until it fits.','Birds from different regions sing with their own accent.',3],
+        ['Why does a newborn foal get up so quickly?','To be able to run away',['To eat','To play','To drink'],'In the wild, predators do not wait.','A foal that cannot run along is easy prey.','It is usually standing within an hour of being born.',3],
+        ['What do emperor penguin chicks do in a storm?','They huddle close together',['They dive into the sea','They dig a burrow','They fly away'],'A crowd is warmer.','The chicks form a tight group and keep one another warm.','Such a group is called a crèche.',3],
+        ['About how many eggs does a sea turtle lay at a time?','About a hundred',['About five','About a thousand','Exactly one'],'Far more than a bird.','A sea turtle lays about a hundred eggs in a pit in the sand.','Out of a hundred, usually only one reaches adulthood.',4],
+        ['How do newly hatched sea turtles find the sea?','They head for the light',['Their mother takes them','They smell the salt','They follow the wind'],'The horizon over the sea is brightest.','The hatchlings run towards the brightest place, which is the sea.','Lamps on the beach can send them the wrong way.',4],
+        ['How much does a newborn blue whale weigh?','About 2,500 kilos',['About 25 kilos','About 250 kilos','About 25,000 kilos'],'Heavier than a car.','A blue whale calf already weighs some 2,500 kilos at birth.','It drinks hundreds of litres of milk a day.',4],
+        ['Why do baby animals have big eyes and round heads?','So they get more care',['To see better','To look bigger','To be able to swim'],'It works on people too.','A round head with big eyes makes grown-ups want to look after them.','That is why cuddly toys and cartoon characters often look like that.',4],
+        ['Which animal makes the fattest milk for its young?','The seal',['The cow','The mouse','The kangaroo'],'The pup must build up fat fast.','Seal milk is about half fat.','A pup gains kilos a day on it.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['How do you get to space?','In a rocket',['In an aeroplane','In a boat','In a lift'],'It needs a huge amount of thrust.','Only a rocket goes high and fast enough to reach space.','A rocket reaches almost 28,000 kilometres an hour.',1],

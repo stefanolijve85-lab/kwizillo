@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_ES = {
+    dieren: {
+      baby_dieren: [
+        ['¿Cómo se llama un cerdo pequeño?','Un lechón',['Un cordero','Un potro','Un pollito'],'Es rosado y gruñe bajito.','Un cerdo pequeño se llama lechón.','Una cerda tiene a veces doce de golpe.',1],
+        ['¿De dónde sale un renacuajo?','De un huevo',['De un nido de hierba','De una bolsa','De un capullo'],'Flotan a cientos en el agua.','Las ranas ponen huevos en el agua y de ahí salen los renacuajos.','Un renacuajo respira al principio con branquias, como un pez.',1],
+        ['¿En qué se convierte una oruga?','En una mariposa',['En un escarabajo','En una abeja','En un caracol'],'Antes pasa por la crisálida.','Una oruga se convierte en mariposa pasando por la crisálida.','Dentro de la crisálida se reconstruye casi por completo.',1],
+        ['¿Dónde duerme un pájaro pequeño?','En un nido',['En el agua','Bajo tierra','En una concha'],'Los padres lo hacen con ramitas.','Las crías se quedan en el nido hasta que saben volar.','Algunos nidos se vuelven a usar cada año.',1],
+        ['En la mayoría de aves, ¿quién trae la comida?','Los padres',['Los vecinos','Las crías mismas','Nadie'],'Van y vienen todo el día.','Los padres llevan comida al nido durante todo el día.','Una pareja de carboneros trae cientos de orugas al día.',1],
+        ['¿Por qué sigue un patito a su madre?','La toma por su madre',['Le da miedo el agua','Quiere jugar','Sigue cualquier ruido'],'Recuerda a quien ve primero.','Un patito sigue lo primero que ve moverse tras salir del huevo.','Por eso una fila de gansos siguió una vez a un investigador.',2],
+        ['¿Cuánto tiempo pasa un pollito dentro del huevo?','Unas tres semanas',['Un día','Tres meses','Un año'],'Poco menos de un mes.','Un huevo de gallina necesita unos veintiún días.','El pollito se abre camino con un dientecito de huevo.',2],
+        ['¿Qué hace una cocodrila con sus recién nacidos?','Los lleva en la boca',['Los deja solos','Los esconde en un árbol','Los empuja al agua'],'Más suave de lo que parece.','Levanta a las crías con cuidado en la boca y las lleva al agua.','A veces vigila el nido durante meses.',2],
+        ['¿Cómo nace una cría de jirafa?','Cae desde dos metros',['Sentada en la hierba','En el agua','En un nido'],'Su madre está de pie.','La jirafa pare de pie, así que la cría cae unos dos metros.','En menos de una hora ya está de pie.',2],
+        ['¿Por qué juegan tanto los animales jóvenes?','Están practicando',['Se están peleando','Se aburren','Buscan comida'],'Parece juego, pero es aprender.','Jugando aprenden a cazar, a huir y a convivir.','Los que juegan mucho suelen arreglárselas mejor de mayores.',2],
+        ['¿Cuánto tiempo está una cría de canguro en la bolsa?','Unos seis meses',['Una semana','Dos años','Diez años'],'Medio año.','A los seis meses aproximadamente asoma por primera vez.','Después sigue entrando y saliendo durante meses.',3],
+        ['¿Qué ave pone su huevo en el nido de otra?','El cuco',['El mirlo','El pájaro carpintero','La golondrina'],'Se le oye cantar en primavera.','El cuco deja que otras aves críen a su polluelo.','El polluelo de cuco suele crecer más que sus padres adoptivos.',3],
+        ['¿Cómo aprende su canto un pájaro joven?','Imitando a su padre',['Lo sabe enseguida','De un libro','Del viento'],'Igual que un niño aprende a hablar.','Los jóvenes escuchan a los mayores y practican hasta que sale.','Las aves de distintas zonas cantan con su propio acento.',3],
+        ['¿Por qué se levanta tan pronto un potro recién nacido?','Para poder huir',['Para comer','Para jugar','Para beber'],'En la naturaleza los depredadores no esperan.','Un potro que no puede correr es una presa fácil.','Suele estar de pie una hora después de nacer.',3],
+        ['¿Qué hacen los pollos de pingüino en una tormenta?','Se apretujan juntos',['Se tiran al mar','Cavan una madriguera','Se van volando'],'En grupo se está más caliente.','Los polluelos forman un grupo apretado y se dan calor.','A ese grupo se le llama guardería.',3],
+        ['¿Cuántos huevos pone una tortuga marina de una vez?','Alrededor de cien',['Unos cinco','Unos mil','Exactamente uno'],'Muchos más que un ave.','Una tortuga marina pone unos cien huevos en un hoyo de arena.','De cien, normalmente solo uno llega a adulto.',4],
+        ['¿Cómo encuentran el mar las tortuguitas recién nacidas?','Van hacia la luz',['Su madre las lleva','Huelen la sal','Siguen el viento'],'El horizonte sobre el mar es lo más claro.','Las crías corren hacia el punto más claro, que es el mar.','Las luces de la playa a veces las mandan al lado equivocado.',4],
+        ['¿Cuánto pesa una ballena azul recién nacida?','Unos 2.500 kilos',['Unos 25 kilos','Unos 250 kilos','Unos 25.000 kilos'],'Más que un coche.','Una cría de ballena azul pesa ya unos 2.500 kilos al nacer.','Bebe cientos de litros de leche al día.',4],
+        ['¿Por qué tienen ojos grandes las crías de animal?','Así reciben más cuidados',['Para ver mejor','Para parecer mayores','Para poder nadar'],'Con las personas funciona igual.','Una cabeza redonda con ojos grandes despierta ganas de cuidar.','Por eso los peluches y los dibujos suelen ser así.',4],
+        ['¿Qué animal hace la leche más grasa para su cría?','La foca',['La vaca','El ratón','El canguro'],'La cría necesita grasa rápido.','La leche de foca es grasa casi a la mitad.','Con ella la cría engorda kilos al día.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['¿Cómo se va al espacio?','En cohete',['En avión','En barco','En ascensor'],'Hace falta muchísimo empuje.','Solo un cohete sube tan alto y tan rápido como para llegar al espacio.','Un cohete alcanza casi 28.000 kilómetros por hora.',1],

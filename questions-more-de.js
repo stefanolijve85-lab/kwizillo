@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_DE = {
+    dieren: {
+      baby_dieren: [
+        ['Wie heißt ein junges Schwein?','Ein Ferkel',['Ein Lamm','Ein Fohlen','Ein Küken'],'Es ist rosa und grunzt leise.','Ein junges Schwein heißt Ferkel.','Eine Sau bekommt manchmal zwölf auf einmal.',1],
+        ['Woraus kommt eine Kaulquappe?','Aus einem Ei',['Aus einem Grasnest','Aus einem Beutel','Aus einem Kokon'],'Sie treiben zu Hunderten im Wasser.','Frösche legen Eier ins Wasser, daraus schlüpfen Kaulquappen.','Eine Kaulquappe atmet zuerst mit Kiemen wie ein Fisch.',1],
+        ['Was wird aus einer Raupe?','Ein Schmetterling',['Ein Käfer','Eine Biene','Eine Schnecke'],'Vorher wird sie eine Puppe.','Aus einer Raupe wird über die Puppe ein Schmetterling.','In der Puppe wird sie fast vollständig neu gebaut.',1],
+        ['Wo schläft ein junger Vogel?','In einem Nest',['Im Wasser','Unter der Erde','In einer Muschel'],'Die Eltern bauen es aus Zweigen.','Junge Vögel bleiben im Nest, bis sie fliegen können.','Manche Nester werden jedes Jahr wieder benutzt.',1],
+        ['Wer holt bei den meisten Vögeln das Futter?','Die Eltern',['Die Nachbarn','Die Jungen selbst','Niemand'],'Sie fliegen den ganzen Tag hin und her.','Vogeleltern bringen den ganzen Tag Futter ins Nest.','Ein Meisenpaar bringt täglich hunderte Raupen.',1],
+        ['Warum läuft ein Entenküken seiner Mutter hinterher?','Es hält sie für die Mutter',['Es hat Angst vor Wasser','Es will spielen','Es folgt jedem Geräusch'],'Es merkt sich, wen es zuerst sieht.','Ein Küken folgt dem Ersten, was es nach dem Schlüpfen sich bewegen sieht.','Deshalb lief eine Schar Gänse einmal einem Forscher nach.',2],
+        ['Wie lange sitzt ein Küken im Ei, bevor es schlüpft?','Etwa drei Wochen',['Etwa einen Tag','Etwa drei Monate','Etwa ein Jahr'],'Knapp einen Monat.','Ein Hühnerei braucht etwa einundzwanzig Tage.','Das Küken klopft sich mit einem Eizahn heraus.',2],
+        ['Was macht eine Krokodilmutter mit ihren Jungen?','Sie trägt sie im Maul',['Sie lässt sie sofort allein','Sie versteckt sie im Baum','Sie schubst sie ins Wasser'],'Sanfter, als es aussieht.','Sie hebt die Jungen vorsichtig ins Maul und trägt sie zum Wasser.','Das Nest bewacht sie manchmal monatelang.',2],
+        ['Wie kommt ein junges Giraffenkalb zur Welt?','Es fällt zwei Meter tief',['Sitzend im Gras','Im Wasser','In einem Nest'],'Die Mutter steht dabei.','Eine Giraffe gebärt im Stehen, also fällt das Junge etwa zwei Meter.','Innerhalb einer Stunde steht es schon.',2],
+        ['Warum balgen sich junge Tiere so viel?','Sie üben für später',['Sie streiten','Ihnen ist langweilig','Sie suchen Futter'],'Es sieht nach Spiel aus, ist aber Lernen.','Beim Balgen lernen junge Tiere jagen, fliehen und zusammenleben.','Tiere, die viel spielen, kommen später oft besser zurecht.',2],
+        ['Wie lange bleibt ein Känguru-Junges im Beutel?','Etwa sechs Monate',['Etwa eine Woche','Etwa zwei Jahre','Etwa zehn Jahre'],'Ein halbes Jahr.','Nach etwa sechs Monaten kommt das Junge zum ersten Mal heraus.','Danach hüpft es noch monatelang hinein und hinaus.',3],
+        ['Welcher Vogel legt sein Ei ins Nest eines anderen?','Der Kuckuck',['Die Amsel','Der Specht','Die Schwalbe'],'Im Frühling hört man ihn rufen.','Der Kuckuck lässt andere Vögel sein Junges großziehen.','Das Kuckucksjunge wird oft größer als seine Pflegeeltern.',3],
+        ['Wie lernt ein junger Singvogel sein Lied?','Indem er den Vater nachmacht',['Er kann es sofort','Aus einem Buch','Vom Wind'],'Wie Kinder, die sprechen lernen.','Junge Singvögel hören älteren zu und üben, bis es passt.','Vögel aus verschiedenen Gegenden singen mit eigenem Akzent.',3],
+        ['Warum steht ein neugeborenes Fohlen so schnell auf?','Um fliehen zu können',['Um zu fressen','Um zu spielen','Um zu trinken'],'In der Natur warten Raubtiere nicht.','Ein Fohlen, das nicht mitlaufen kann, ist leichte Beute.','Meist steht es schon eine Stunde nach der Geburt.',3],
+        ['Was machen Kaiserpinguinküken im Sturm?','Sie drängen sich zusammen',['Sie tauchen ins Meer','Sie graben eine Höhle','Sie fliegen weg'],'Zu vielen ist es wärmer.','Die Küken bilden eine dichte Gruppe und wärmen einander.','So eine Gruppe nennt man Kindergarten.',3],
+        ['Wie viele Eier legt eine Meeresschildkröte etwa auf einmal?','Etwa hundert',['Etwa fünf','Etwa tausend','Genau eins'],'Viel mehr als ein Vogel.','Eine Meeresschildkröte legt etwa hundert Eier in eine Sandgrube.','Von hundert wird meist nur eins erwachsen.',4],
+        ['Wie finden frisch geschlüpfte Schildkröten das Meer?','Sie laufen zum Licht',['Die Mutter bringt sie','Sie riechen das Salz','Sie folgen dem Wind'],'Über dem Meer ist der Horizont am hellsten.','Die Jungen laufen zur hellsten Stelle, und das ist das Meer.','Lampen am Strand schicken sie manchmal falsch herum.',4],
+        ['Wie viel wiegt ein neugeborener Blauwal?','Etwa 2.500 Kilo',['Etwa 25 Kilo','Etwa 250 Kilo','Etwa 25.000 Kilo'],'Schwerer als ein Auto.','Ein Blauwalkalb wiegt bei der Geburt schon rund 2.500 Kilo.','Es trinkt täglich hunderte Liter Milch.',4],
+        ['Warum haben Tierbabys große Augen und runde Köpfe?','So bekommen sie mehr Pflege',['Um besser zu sehen','Um größer zu wirken','Um schwimmen zu können'],'Bei Menschen wirkt es auch.','Ein runder Kopf mit großen Augen weckt den Wunsch zu umsorgen.','Darum sehen Kuscheltiere und Trickfiguren oft so aus.',4],
+        ['Welches Tier macht die fetteste Milch für sein Junges?','Die Robbe',['Die Kuh','Die Maus','Das Känguru'],'Das Junge braucht schnell eine Fettschicht.','Robbenmilch besteht etwa zur Hälfte aus Fett.','Ein Jungtier nimmt damit täglich Kilos zu.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['Wie kommt man ins Weltall?','Mit einer Rakete',['Mit einem Flugzeug','Mit einem Boot','Mit einem Aufzug'],'Sie braucht enorm viel Schub.','Nur eine Rakete wird hoch und schnell genug für das Weltall.','Eine Rakete schafft fast 28.000 Kilometer pro Stunde.',1],

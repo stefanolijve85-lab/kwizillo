@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_DA = {
+    dieren: {
+      baby_dieren: [
+        ['Hvad hedder en unge af en gris?','En pattegris',['Et lam','Et føl','En kylling'],'Den er lyserød og grynter sagte.','En ung gris hedder en pattegris.','En so får nogle gange tolv på én gang.',1],
+        ['Hvad kommer en haletudse ud af?','Et æg',['En rede af græs','En pose','En kokon'],'De flyder i hundredvis i vandet.','Frøer lægger æg i vandet, og derfra kommer haletudserne.','En haletudse ånder først med gæller ligesom en fisk.',1],
+        ['Hvad bliver en kålorm til?','En sommerfugl',['En bille','En bi','En snegl'],'Først bliver den en puppe.','En larve bliver til en sommerfugl via puppen.','Inde i puppen bygges den næsten helt om.',1],
+        ['Hvor sover en fugleunge?','I en rede',['I vandet','Under jorden','I en musling'],'Forældrene bygger den af kviste.','Fugleunger bliver i reden, indtil de kan flyve.','Nogle reder bruges igen hvert år.',1],
+        ['Hvem henter maden hos de fleste fugle?','Forældrene',['Naboerne','Ungerne selv','Ingen'],'De flyver frem og tilbage hele dagen.','Fugleforældre bringer mad til reden hele dagen.','Et mejsepar henter hundredvis af larver om dagen.',1],
+        ['Hvorfor går en ælling efter sin mor?','Den ser hende som mor',['Den er bange for vand','Den vil lege','Den følger enhver lyd'],'Den husker, hvem den ser først.','En ælling følger det første, den ser bevæge sig efter klækningen.','Derfor fulgte en række gæslinger engang en forsker.',2],
+        ['Hvor længe sidder en kylling i ægget?','Cirka tre uger',['Cirka en dag','Cirka tre måneder','Cirka et år'],'Lidt under en måned.','Et hønseæg skal bruge omkring enogtyve dage.','Kyllingen hakker sig ud med en lille æggetand.',2],
+        ['Hvad gør en krokodillemor med sine nyfødte?','Hun bærer dem i munden',['Hun lader dem være','Hun gemmer dem i et træ','Hun skubber dem i vandet'],'Blidere end det ser ud.','Hun løfter ungerne forsigtigt i munden og bærer dem til vandet.','Nogle gange vogter hun reden i månedsvis.',2],
+        ['Hvordan kommer en girafunge til verden?','Den falder to meter ned',['Siddende i græsset','I vandet','I en rede'],'Moderen står op imens.','En giraf føder stående, så ungen falder omkring to meter.','Inden for en time står den allerede.',2],
+        ['Hvorfor tumler unge dyr så meget rundt?','De træner til senere',['De skændes','De keder sig','De leder efter mad'],'Det ligner leg, men det er læring.','Ved at tumle lærer unger at jage, flygte og være sammen.','Dyr, der leger meget, klarer sig ofte bedre senere.',2],
+        ['Hvor længe bliver en kænguruunge i posen?','Cirka seks måneder',['Cirka en uge','Cirka to år','Cirka ti år'],'Et halvt år.','Efter cirka seks måneder kommer ungen ud for første gang.','Derefter hopper den ind og ud i flere måneder.',3],
+        ['Hvilken fugl lægger sit æg i en andens rede?','Gøgen',['Solsorten','Spætten','Svalen'],'Man hører den kukke om foråret.','Gøgen lader andre fugle opfostre sin unge.','Gøgeungen bliver ofte større end sine plejeforældre.',3],
+        ['Hvordan lærer en ung sangfugl sin sang?','Ved at efterligne faren',['Den kan det straks','Fra en bog','Af vinden'],'Ligesom børn, der lærer at tale.','Unge sangfugle lytter til de ældre og øver, til det sidder.','Fugle fra forskellige egne synger med hver sin accent.',3],
+        ['Hvorfor rejser et nyfødt føl sig så hurtigt?','For at kunne flygte',['For at spise','For at lege','For at drikke'],'I naturen venter rovdyr ikke.','Et føl, der ikke kan løbe med, er let bytte.','Det står som regel en time efter fødslen.',3],
+        ['Hvad gør kejserpingvinunger i en storm?','De klumper sig tæt sammen',['De dykker i havet','De graver en hule','De flyver væk'],'Mange sammen er varmere.','Ungerne danner en tæt klynge og holder hinanden varme.','Sådan en klynge kaldes en børnehave.',3],
+        ['Hvor mange æg lægger en havskildpadde ad gangen?','Omkring hundrede',['Omkring fem','Omkring tusind','Præcis et'],'Langt flere end en fugl.','En havskildpadde lægger omkring hundrede æg i et hul i sandet.','Ud af hundrede bliver som regel kun én voksen.',4],
+        ['Hvordan finder nyklækkede skildpadder havet?','De løber mod lyset',['Moderen fører dem','De lugter saltet','De følger vinden'],'Horisonten over havet er lysest.','Ungerne løber mod det lyseste sted, og det er havet.','Lamper på stranden sender dem nogle gange den forkerte vej.',4],
+        ['Hvor meget vejer en nyfødt blåhval?','Cirka 2.500 kilo',['Cirka 25 kilo','Cirka 250 kilo','Cirka 25.000 kilo'],'Tungere end en bil.','En blåhvalunge vejer allerede omkring 2.500 kilo ved fødslen.','Den drikker hundredvis af liter mælk om dagen.',4],
+        ['Hvorfor har dyreunger store øjne og runde hoveder?','Så får de mere omsorg',['For at se bedre','For at se større ud','For at kunne svømme'],'Det virker også på mennesker.','Et rundt hoved med store øjne gør, at voksne vil passe på dem.','Derfor ser bamser og tegnefilmfigurer tit sådan ud.',4],
+        ['Hvilket dyr laver den fedeste mælk til sin unge?','Sælen',['Koen','Musen','Kænguruen'],'Ungen skal hurtigt have et fedtlag.','Sælmælk består af cirka halvdelen fedt.','Ungen tager kilo på om dagen af den.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['Hvordan kommer man ud i rummet?','Med en raket',['Med et fly','Med en båd','Med en elevator'],'Der skal vildt meget kraft til.','Kun en raket kommer højt og hurtigt nok til at nå rummet.','En raket når næsten 28.000 kilometer i timen.',1],

@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_PT = {
+    dieren: {
+      baby_dieren: [
+        ['Como se chama um porco pequeno?','Um leitão',['Um cordeiro','Um potro','Um pinto'],'É cor-de-rosa e grunhe baixinho.','Um porco pequeno chama-se leitão.','Uma porca tem às vezes doze de uma vez.',1],
+        ['De onde sai um girino?','De um ovo',['De um ninho de erva','De uma bolsa','De um casulo'],'Flutuam às centenas na água.','As rãs põem ovos na água e daí saem os girinos.','No início o girino respira por guelras, como um peixe.',1],
+        ['Em que se transforma uma lagarta?','Numa borboleta',['Num escaravelho','Numa abelha','Num caracol'],'Primeiro passa a crisálida.','Uma lagarta torna-se borboleta passando pela crisálida.','Dentro da crisálida é quase toda reconstruída.',1],
+        ['Onde dorme um passarinho novo?','Num ninho',['Na água','Debaixo da terra','Numa concha'],'Os pais fazem-no de raminhos.','As crias ficam no ninho até saberem voar.','Alguns ninhos voltam a ser usados todos os anos.',1],
+        ['Na maioria das aves, quem traz a comida?','Os pais',['Os vizinhos','As próprias crias','Ninguém'],'Andam de um lado para o outro o dia todo.','Os pais levam comida ao ninho o dia inteiro.','Um casal de chapins traz centenas de lagartas por dia.',1],
+        ['Porque anda um patinho atrás da mãe?','Vê-a como sua mãe',['Tem medo da água','Quer brincar','Segue qualquer barulho'],'Lembra-se de quem vê primeiro.','Segue a primeira coisa que vê mexer-se depois de nascer.','Por isso uma fila de gansinhos seguiu um investigador.',2],
+        ['Quanto tempo está um pinto dentro do ovo?','Cerca de três semanas',['Cerca de um dia','Cerca de três meses','Cerca de um ano'],'Pouco menos de um mês.','Um ovo de galinha precisa de cerca de vinte e um dias.','O pinto abre caminho com um dentinho no bico.',2],
+        ['O que faz a mãe crocodilo às crias recém-nascidas?','Leva-as na boca',['Deixa-as logo sozinhas','Esconde-as numa árvore','Empurra-as para a água'],'Mais suave do que parece.','Levanta as crias com cuidado na boca e leva-as para a água.','Às vezes guarda o ninho durante meses.',2],
+        ['Como vem ao mundo uma cria de girafa?','Cai dois metros',['Sentada na erva','Na água','Num ninho'],'A mãe está de pé.','A girafa pare de pé, por isso a cria cai cerca de dois metros.','Numa hora já está em pé.',2],
+        ['Porque brincam tanto à luta os animais novos?','Estão a treinar',['Estão zangados','Estão aborrecidos','Procuram comida'],'Parece brincadeira, mas é aprender.','A brincar aprendem a caçar, a fugir e a viver juntos.','Os que brincam muito costumam safar-se melhor mais tarde.',2],
+        ['Quanto tempo fica uma cria de canguru na bolsa?','Cerca de seis meses',['Cerca de uma semana','Cerca de dois anos','Cerca de dez anos'],'Meio ano.','Ao fim de uns seis meses sai pela primeira vez.','Depois ainda entra e sai durante meses.',3],
+        ['Que ave põe o ovo no ninho de outra?','O cuco',['O melro','O pica-pau','A andorinha'],'Ouve-se cantar na primavera.','O cuco deixa que outras aves criem o seu filhote.','O filhote do cuco fica muitas vezes maior do que os pais adotivos.',3],
+        ['Como aprende o seu canto uma ave jovem?','Imitando o pai',['Sabe logo','Num livro','Com o vento'],'Tal como as crianças aprendem a falar.','Os jovens ouvem os mais velhos e treinam até acertar.','As aves de regiões diferentes cantam com sotaque próprio.',3],
+        ['Porque se levanta tão depressa um potro acabado de nascer?','Para poder fugir',['Para comer','Para brincar','Para beber'],'Na natureza os predadores não esperam.','Um potro que não consegue correr é presa fácil.','Costuma estar de pé uma hora depois de nascer.',3],
+        ['O que fazem as crias de pinguim numa tempestade?','Juntam-se bem apertadas',['Mergulham no mar','Cavam uma toca','Vão-se embora a voar'],'Em grupo está-se mais quente.','As crias formam um grupo apertado e aquecem-se umas às outras.','A esse grupo chama-se creche.',3],
+        ['Quantos ovos põe uma tartaruga marinha de cada vez?','Cerca de cem',['Cerca de cinco','Cerca de mil','Exatamente um'],'Muitos mais do que uma ave.','Uma tartaruga marinha põe cerca de cem ovos num buraco na areia.','De cem, normalmente só uma chega a adulta.',4],
+        ['Como encontram o mar as tartaruguinhas recém-nascidas?','Vão para a luz',['A mãe leva-as','Cheiram o sal','Seguem o vento'],'Sobre o mar o horizonte é mais claro.','As crias correm para o sítio mais claro, que é o mar.','As luzes da praia às vezes mandam-nas para o lado errado.',4],
+        ['Quanto pesa uma baleia-azul acabada de nascer?','Cerca de 2.500 quilos',['Cerca de 25 quilos','Cerca de 250 quilos','Cerca de 25.000 quilos'],'Mais do que um carro.','Uma cria de baleia-azul pesa logo uns 2.500 quilos ao nascer.','Bebe centenas de litros de leite por dia.',4],
+        ['Porque têm os bebés animais olhos grandes e cabeça redonda?','Assim recebem mais cuidados',['Para ver melhor','Para parecerem maiores','Para saberem nadar'],'Com as pessoas funciona igual.','Uma cabeça redonda com olhos grandes dá vontade de cuidar.','Por isso os peluches e os bonecos são muitas vezes assim.',4],
+        ['Que animal faz o leite mais gordo para a cria?','A foca',['A vaca','O rato','O canguru'],'A cria precisa de gordura depressa.','O leite de foca é quase metade gordura.','Com ele a cria engorda quilos por dia.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['Como se vai para o espaço?','Num foguetão',['Num avião','Num barco','Num elevador'],'É preciso um empurrão enorme.','Só um foguetão sobe alto e depressa o suficiente para chegar ao espaço.','Um foguetão chega a quase 28.000 quilómetros por hora.',1],

@@ -1,0 +1,2607 @@
+{
+  "world": "dieren",
+  "topic": "baby_dieren",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "dieren-baby_dieren-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Standaard Nederlandse diernamen (Van Dale)",
+      "artBrief": "Een roze biggetje in het stro naast een grote zeug, warm zonlicht in de stal.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet een jong varken?",
+          "answer": "Een big",
+          "wrong": [
+            "Een lam",
+            "Een veulen",
+            "Een kuiken"
+          ],
+          "hint": "Hij is roze en knort zachtjes.",
+          "explanation": "Een jong varken heet een big.",
+          "fact": "Een zeug krijgt er soms wel twaalf tegelijk."
+        },
+        "en": {
+          "prompt": "What is a young pig called?",
+          "answer": "A piglet",
+          "wrong": [
+            "A lamb",
+            "A foal",
+            "A chick"
+          ],
+          "hint": "It is pink and grunts softly.",
+          "explanation": "A young pig is called a piglet.",
+          "fact": "A sow sometimes has twelve at once."
+        },
+        "de": {
+          "prompt": "Wie heißt ein junges Schwein?",
+          "answer": "Ein Ferkel",
+          "wrong": [
+            "Ein Lamm",
+            "Ein Fohlen",
+            "Ein Küken"
+          ],
+          "hint": "Es ist rosa und grunzt leise.",
+          "explanation": "Ein junges Schwein heißt Ferkel.",
+          "fact": "Eine Sau bekommt manchmal zwölf auf einmal."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle un jeune cochon ?",
+          "answer": "Un porcelet",
+          "wrong": [
+            "Un agneau",
+            "Un poulain",
+            "Un poussin"
+          ],
+          "hint": "Il est rose et grogne doucement.",
+          "explanation": "Un jeune cochon s'appelle un porcelet.",
+          "fact": "Une truie en a parfois douze d'un coup."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama un cerdo pequeño?",
+          "answer": "Un lechón",
+          "wrong": [
+            "Un cordero",
+            "Un potro",
+            "Un pollito"
+          ],
+          "hint": "Es rosado y gruñe bajito.",
+          "explanation": "Un cerdo pequeño se llama lechón.",
+          "fact": "Una cerda tiene a veces doce de golpe."
+        },
+        "it": {
+          "prompt": "Come si chiama un maialino piccolo?",
+          "answer": "Un porcellino",
+          "wrong": [
+            "Un agnello",
+            "Un puledro",
+            "Un pulcino"
+          ],
+          "hint": "È rosa e grugnisce piano.",
+          "explanation": "Un maiale piccolo si chiama porcellino.",
+          "fact": "Una scrofa a volte ne fa dodici in una volta."
+        },
+        "pt": {
+          "prompt": "Como se chama um porco pequeno?",
+          "answer": "Um leitão",
+          "wrong": [
+            "Um cordeiro",
+            "Um potro",
+            "Um pinto"
+          ],
+          "hint": "É cor-de-rosa e grunhe baixinho.",
+          "explanation": "Um porco pequeno chama-se leitão.",
+          "fact": "Uma porca tem às vezes doze de uma vez."
+        },
+        "da": {
+          "prompt": "Hvad hedder en unge af en gris?",
+          "answer": "En pattegris",
+          "wrong": [
+            "Et lam",
+            "Et føl",
+            "En kylling"
+          ],
+          "hint": "Den er lyserød og grynter sagte.",
+          "explanation": "En ung gris hedder en pattegris.",
+          "fact": "En so får nogle gange tolv på én gang."
+        },
+        "ru": {
+          "prompt": "Как называют детёныша свиньи?",
+          "answer": "Поросёнок",
+          "wrong": [
+            "Ягнёнок",
+            "Жеребёнок",
+            "Цыплёнок"
+          ],
+          "hint": "Он розовый и тихо хрюкает.",
+          "explanation": "Детёныша свиньи называют поросёнком.",
+          "fact": "У свиньи их бывает и двенадцать сразу."
+        },
+        "ar": {
+          "prompt": "ماذا نسمي صغير الخنزير؟",
+          "answer": "خنوص",
+          "wrong": [
+            "حمل",
+            "مهر",
+            "كتكوت"
+          ],
+          "hint": "لونه وردي ويصدر صوتًا خافتًا.",
+          "explanation": "صغير الخنزير يسمى خنوصًا.",
+          "fact": "قد تلد الخنزيرة اثني عشر مرة واحدة."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "RSPB / natuurgids — levenscyclus van de kikker",
+      "artBrief": "Een helder slootje met een tros doorzichtige eitjes waarin kleine zwarte stipjes zitten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waaruit komt een kikkervisje?",
+          "answer": "Uit een eitje",
+          "wrong": [
+            "Uit een nest van gras",
+            "Uit een buidel",
+            "Uit een cocon"
+          ],
+          "hint": "Ze drijven met honderden in het water.",
+          "explanation": "Kikkers leggen eitjes in het water, daar komen kikkervisjes uit.",
+          "fact": "Een kikkervisje heeft eerst kieuwen, net als een vis."
+        },
+        "en": {
+          "prompt": "What does a tadpole come out of?",
+          "answer": "An egg",
+          "wrong": [
+            "A nest of grass",
+            "A pouch",
+            "A cocoon"
+          ],
+          "hint": "They float in the water in their hundreds.",
+          "explanation": "Frogs lay eggs in water, and tadpoles hatch from them.",
+          "fact": "A tadpole breathes with gills at first, just like a fish."
+        },
+        "de": {
+          "prompt": "Woraus kommt eine Kaulquappe?",
+          "answer": "Aus einem Ei",
+          "wrong": [
+            "Aus einem Grasnest",
+            "Aus einem Beutel",
+            "Aus einem Kokon"
+          ],
+          "hint": "Sie treiben zu Hunderten im Wasser.",
+          "explanation": "Frösche legen Eier ins Wasser, daraus schlüpfen Kaulquappen.",
+          "fact": "Eine Kaulquappe atmet zuerst mit Kiemen wie ein Fisch."
+        },
+        "fr": {
+          "prompt": "D'où sort un têtard ?",
+          "answer": "D'un œuf",
+          "wrong": [
+            "D'un nid d'herbe",
+            "D'une poche",
+            "D'un cocon"
+          ],
+          "hint": "Ils flottent par centaines dans l'eau.",
+          "explanation": "Les grenouilles pondent des œufs dans l'eau, d'où sortent les têtards.",
+          "fact": "Un têtard respire d'abord avec des branchies, comme un poisson."
+        },
+        "es": {
+          "prompt": "¿De dónde sale un renacuajo?",
+          "answer": "De un huevo",
+          "wrong": [
+            "De un nido de hierba",
+            "De una bolsa",
+            "De un capullo"
+          ],
+          "hint": "Flotan a cientos en el agua.",
+          "explanation": "Las ranas ponen huevos en el agua y de ahí salen los renacuajos.",
+          "fact": "Un renacuajo respira al principio con branquias, como un pez."
+        },
+        "it": {
+          "prompt": "Da che cosa nasce un girino?",
+          "answer": "Da un uovo",
+          "wrong": [
+            "Da un nido d'erba",
+            "Da un marsupio",
+            "Da un bozzolo"
+          ],
+          "hint": "Ne galleggiano a centinaia nell'acqua.",
+          "explanation": "Le rane depongono uova nell'acqua e da lì nascono i girini.",
+          "fact": "All'inizio il girino respira con le branchie, come un pesce."
+        },
+        "pt": {
+          "prompt": "De onde sai um girino?",
+          "answer": "De um ovo",
+          "wrong": [
+            "De um ninho de erva",
+            "De uma bolsa",
+            "De um casulo"
+          ],
+          "hint": "Flutuam às centenas na água.",
+          "explanation": "As rãs põem ovos na água e daí saem os girinos.",
+          "fact": "No início o girino respira por guelras, como um peixe."
+        },
+        "da": {
+          "prompt": "Hvad kommer en haletudse ud af?",
+          "answer": "Et æg",
+          "wrong": [
+            "En rede af græs",
+            "En pose",
+            "En kokon"
+          ],
+          "hint": "De flyder i hundredvis i vandet.",
+          "explanation": "Frøer lægger æg i vandet, og derfra kommer haletudserne.",
+          "fact": "En haletudse ånder først med gæller ligesom en fisk."
+        },
+        "ru": {
+          "prompt": "Из чего появляется головастик?",
+          "answer": "Из икринки",
+          "wrong": [
+            "Из гнезда из травы",
+            "Из сумки",
+            "Из кокона"
+          ],
+          "hint": "Их сотнями видно в воде.",
+          "explanation": "Лягушки откладывают икру в воду, из неё выходят головастики.",
+          "fact": "Сначала головастик дышит жабрами, как рыба."
+        },
+        "ar": {
+          "prompt": "من أين يخرج الشرغوف؟",
+          "answer": "من بيضة",
+          "wrong": [
+            "من عش من العشب",
+            "من جراب",
+            "من شرنقة"
+          ],
+          "hint": "تطفو بالمئات في الماء.",
+          "explanation": "تضع الضفادع بيضها في الماء ومنه تخرج الشراغيف.",
+          "fact": "يتنفس الشرغوف أولًا بالخياشيم مثل السمك."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Natuurgids — metamorfose van vlinders",
+      "artBrief": "Een rups op een blad, en vlak erboven dezelfde soort als vlinder met open vleugels.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat wordt een rups later?",
+          "answer": "Een vlinder",
+          "wrong": [
+            "Een kever",
+            "Een bij",
+            "Een slak"
+          ],
+          "hint": "Hij verandert eerst in een pop.",
+          "explanation": "Een rups verandert via een pop in een vlinder.",
+          "fact": "Binnen in de pop wordt het rupsje bijna helemaal opnieuw gebouwd."
+        },
+        "en": {
+          "prompt": "What does a caterpillar turn into?",
+          "answer": "A butterfly",
+          "wrong": [
+            "A beetle",
+            "A bee",
+            "A snail"
+          ],
+          "hint": "It becomes a chrysalis first.",
+          "explanation": "A caterpillar turns into a butterfly by way of a chrysalis.",
+          "fact": "Inside the chrysalis it is almost completely rebuilt."
+        },
+        "de": {
+          "prompt": "Was wird aus einer Raupe?",
+          "answer": "Ein Schmetterling",
+          "wrong": [
+            "Ein Käfer",
+            "Eine Biene",
+            "Eine Schnecke"
+          ],
+          "hint": "Vorher wird sie eine Puppe.",
+          "explanation": "Aus einer Raupe wird über die Puppe ein Schmetterling.",
+          "fact": "In der Puppe wird sie fast vollständig neu gebaut."
+        },
+        "fr": {
+          "prompt": "Que devient une chenille ?",
+          "answer": "Un papillon",
+          "wrong": [
+            "Un scarabée",
+            "Une abeille",
+            "Un escargot"
+          ],
+          "hint": "Elle passe d'abord par la chrysalide.",
+          "explanation": "Une chenille devient un papillon en passant par la chrysalide.",
+          "fact": "Dans la chrysalide, elle est presque entièrement reconstruite."
+        },
+        "es": {
+          "prompt": "¿En qué se convierte una oruga?",
+          "answer": "En una mariposa",
+          "wrong": [
+            "En un escarabajo",
+            "En una abeja",
+            "En un caracol"
+          ],
+          "hint": "Antes pasa por la crisálida.",
+          "explanation": "Una oruga se convierte en mariposa pasando por la crisálida.",
+          "fact": "Dentro de la crisálida se reconstruye casi por completo."
+        },
+        "it": {
+          "prompt": "Che cosa diventa un bruco?",
+          "answer": "Una farfalla",
+          "wrong": [
+            "Uno scarabeo",
+            "Un'ape",
+            "Una lumaca"
+          ],
+          "hint": "Prima diventa una crisalide.",
+          "explanation": "Un bruco diventa farfalla passando per la crisalide.",
+          "fact": "Dentro la crisalide viene quasi del tutto ricostruito."
+        },
+        "pt": {
+          "prompt": "Em que se transforma uma lagarta?",
+          "answer": "Numa borboleta",
+          "wrong": [
+            "Num escaravelho",
+            "Numa abelha",
+            "Num caracol"
+          ],
+          "hint": "Primeiro passa a crisálida.",
+          "explanation": "Uma lagarta torna-se borboleta passando pela crisálida.",
+          "fact": "Dentro da crisálida é quase toda reconstruída."
+        },
+        "da": {
+          "prompt": "Hvad bliver en kålorm til?",
+          "answer": "En sommerfugl",
+          "wrong": [
+            "En bille",
+            "En bi",
+            "En snegl"
+          ],
+          "hint": "Først bliver den en puppe.",
+          "explanation": "En larve bliver til en sommerfugl via puppen.",
+          "fact": "Inde i puppen bygges den næsten helt om."
+        },
+        "ru": {
+          "prompt": "В кого превращается гусеница?",
+          "answer": "В бабочку",
+          "wrong": [
+            "В жука",
+            "В пчелу",
+            "В улитку"
+          ],
+          "hint": "Сначала она становится куколкой.",
+          "explanation": "Гусеница через куколку превращается в бабочку.",
+          "fact": "Внутри куколки она перестраивается почти заново."
+        },
+        "ar": {
+          "prompt": "إلى ماذا تتحول اليرقة؟",
+          "answer": "إلى فراشة",
+          "wrong": [
+            "إلى خنفساء",
+            "إلى نحلة",
+            "إلى حلزون"
+          ],
+          "hint": "تصير أولًا شرنقة.",
+          "explanation": "تتحول اليرقة إلى فراشة مرورًا بالشرنقة.",
+          "fact": "داخل الشرنقة يُعاد بناؤها كلها تقريبًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "RSPB — nesting birds",
+      "artBrief": "Een nest in een boomtak met drie jonge vogeltjes met opengesperde snavels.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar slaapt een jong vogeltje?",
+          "answer": "In een nest",
+          "wrong": [
+            "In het water",
+            "Onder de grond",
+            "In een schelp"
+          ],
+          "hint": "De ouders bouwen het van takjes.",
+          "explanation": "Jonge vogels blijven in het nest tot ze kunnen vliegen.",
+          "fact": "Sommige nesten worden elk jaar opnieuw gebruikt."
+        },
+        "en": {
+          "prompt": "Where does a young bird sleep?",
+          "answer": "In a nest",
+          "wrong": [
+            "In the water",
+            "Underground",
+            "In a shell"
+          ],
+          "hint": "The parents build it from twigs.",
+          "explanation": "Young birds stay in the nest until they can fly.",
+          "fact": "Some nests are used again every year."
+        },
+        "de": {
+          "prompt": "Wo schläft ein junger Vogel?",
+          "answer": "In einem Nest",
+          "wrong": [
+            "Im Wasser",
+            "Unter der Erde",
+            "In einer Muschel"
+          ],
+          "hint": "Die Eltern bauen es aus Zweigen.",
+          "explanation": "Junge Vögel bleiben im Nest, bis sie fliegen können.",
+          "fact": "Manche Nester werden jedes Jahr wieder benutzt."
+        },
+        "fr": {
+          "prompt": "Où dort un jeune oiseau ?",
+          "answer": "Dans un nid",
+          "wrong": [
+            "Dans l'eau",
+            "Sous terre",
+            "Dans un coquillage"
+          ],
+          "hint": "Les parents le font avec des brindilles.",
+          "explanation": "Les jeunes oiseaux restent au nid jusqu'à savoir voler.",
+          "fact": "Certains nids resservent chaque année."
+        },
+        "es": {
+          "prompt": "¿Dónde duerme un pájaro pequeño?",
+          "answer": "En un nido",
+          "wrong": [
+            "En el agua",
+            "Bajo tierra",
+            "En una concha"
+          ],
+          "hint": "Los padres lo hacen con ramitas.",
+          "explanation": "Las crías se quedan en el nido hasta que saben volar.",
+          "fact": "Algunos nidos se vuelven a usar cada año."
+        },
+        "it": {
+          "prompt": "Dove dorme un uccellino?",
+          "answer": "In un nido",
+          "wrong": [
+            "Nell'acqua",
+            "Sottoterra",
+            "In una conchiglia"
+          ],
+          "hint": "I genitori lo fanno con i rametti.",
+          "explanation": "I piccoli restano nel nido finché non sanno volare.",
+          "fact": "Certi nidi vengono riusati ogni anno."
+        },
+        "pt": {
+          "prompt": "Onde dorme um passarinho novo?",
+          "answer": "Num ninho",
+          "wrong": [
+            "Na água",
+            "Debaixo da terra",
+            "Numa concha"
+          ],
+          "hint": "Os pais fazem-no de raminhos.",
+          "explanation": "As crias ficam no ninho até saberem voar.",
+          "fact": "Alguns ninhos voltam a ser usados todos os anos."
+        },
+        "da": {
+          "prompt": "Hvor sover en fugleunge?",
+          "answer": "I en rede",
+          "wrong": [
+            "I vandet",
+            "Under jorden",
+            "I en musling"
+          ],
+          "hint": "Forældrene bygger den af kviste.",
+          "explanation": "Fugleunger bliver i reden, indtil de kan flyve.",
+          "fact": "Nogle reder bruges igen hvert år."
+        },
+        "ru": {
+          "prompt": "Где спит птенец?",
+          "answer": "В гнезде",
+          "wrong": [
+            "В воде",
+            "Под землёй",
+            "В ракушке"
+          ],
+          "hint": "Родители строят его из веточек.",
+          "explanation": "Птенцы сидят в гнезде, пока не научатся летать.",
+          "fact": "Некоторые гнёзда используют каждый год заново."
+        },
+        "ar": {
+          "prompt": "أين ينام فرخ الطير؟",
+          "answer": "في عش",
+          "wrong": [
+            "في الماء",
+            "تحت الأرض",
+            "في صدفة"
+          ],
+          "hint": "يبنيه الوالدان من الأغصان.",
+          "explanation": "تبقى الفراخ في العش حتى تتعلم الطيران.",
+          "fact": "بعض الأعشاش تُستعمل من جديد كل عام."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "RSPB — parental care in birds",
+      "artBrief": "Een oudervogel met een worm in de snavel boven een nest vol jongen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie haalt bij veel vogels het eten voor de jongen?",
+          "answer": "De ouders",
+          "wrong": [
+            "De buren",
+            "De jongen zelf",
+            "Niemand"
+          ],
+          "hint": "Ze vliegen de hele dag heen en weer.",
+          "explanation": "Vogelouders brengen de hele dag door eten naar het nest.",
+          "fact": "Een koolmeespaar brengt per dag honderden rupsen."
+        },
+        "en": {
+          "prompt": "Who fetches the food for the chicks in most birds?",
+          "answer": "The parents",
+          "wrong": [
+            "The neighbours",
+            "The chicks themselves",
+            "Nobody"
+          ],
+          "hint": "They fly back and forth all day.",
+          "explanation": "Bird parents bring food to the nest all day long.",
+          "fact": "A pair of tits brings hundreds of caterpillars a day."
+        },
+        "de": {
+          "prompt": "Wer holt bei den meisten Vögeln das Futter?",
+          "answer": "Die Eltern",
+          "wrong": [
+            "Die Nachbarn",
+            "Die Jungen selbst",
+            "Niemand"
+          ],
+          "hint": "Sie fliegen den ganzen Tag hin und her.",
+          "explanation": "Vogeleltern bringen den ganzen Tag Futter ins Nest.",
+          "fact": "Ein Meisenpaar bringt täglich hunderte Raupen."
+        },
+        "fr": {
+          "prompt": "Chez la plupart des oiseaux, qui apporte la nourriture ?",
+          "answer": "Les parents",
+          "wrong": [
+            "Les voisins",
+            "Les petits eux-mêmes",
+            "Personne"
+          ],
+          "hint": "Ils font des allers-retours toute la journée.",
+          "explanation": "Les parents apportent à manger au nid toute la journée.",
+          "fact": "Un couple de mésanges apporte des centaines de chenilles par jour."
+        },
+        "es": {
+          "prompt": "En la mayoría de aves, ¿quién trae la comida?",
+          "answer": "Los padres",
+          "wrong": [
+            "Los vecinos",
+            "Las crías mismas",
+            "Nadie"
+          ],
+          "hint": "Van y vienen todo el día.",
+          "explanation": "Los padres llevan comida al nido durante todo el día.",
+          "fact": "Una pareja de carboneros trae cientos de orugas al día."
+        },
+        "it": {
+          "prompt": "Nella maggior parte degli uccelli, chi porta il cibo?",
+          "answer": "I genitori",
+          "wrong": [
+            "I vicini",
+            "I piccoli stessi",
+            "Nessuno"
+          ],
+          "hint": "Vanno avanti e indietro tutto il giorno.",
+          "explanation": "I genitori portano cibo al nido per tutta la giornata.",
+          "fact": "Una coppia di cince porta centinaia di bruchi al giorno."
+        },
+        "pt": {
+          "prompt": "Na maioria das aves, quem traz a comida?",
+          "answer": "Os pais",
+          "wrong": [
+            "Os vizinhos",
+            "As próprias crias",
+            "Ninguém"
+          ],
+          "hint": "Andam de um lado para o outro o dia todo.",
+          "explanation": "Os pais levam comida ao ninho o dia inteiro.",
+          "fact": "Um casal de chapins traz centenas de lagartas por dia."
+        },
+        "da": {
+          "prompt": "Hvem henter maden hos de fleste fugle?",
+          "answer": "Forældrene",
+          "wrong": [
+            "Naboerne",
+            "Ungerne selv",
+            "Ingen"
+          ],
+          "hint": "De flyver frem og tilbage hele dagen.",
+          "explanation": "Fugleforældre bringer mad til reden hele dagen.",
+          "fact": "Et mejsepar henter hundredvis af larver om dagen."
+        },
+        "ru": {
+          "prompt": "Кто у большинства птиц приносит еду птенцам?",
+          "answer": "Родители",
+          "wrong": [
+            "Соседи",
+            "Сами птенцы",
+            "Никто"
+          ],
+          "hint": "Они летают туда-сюда весь день.",
+          "explanation": "Птицы-родители весь день носят корм в гнездо.",
+          "fact": "Пара синиц приносит сотни гусениц в день."
+        },
+        "ar": {
+          "prompt": "من يجلب الطعام للفراخ عند معظم الطيور؟",
+          "answer": "الوالدان",
+          "wrong": [
+            "الجيران",
+            "الفراخ بنفسها",
+            "لا أحد"
+          ],
+          "hint": "يطيران ذهابًا وإيابًا طوال النهار.",
+          "explanation": "يجلب الوالدان الطعام إلى العش طوال اليوم.",
+          "fact": "زوج من القرقف يجلب مئات اليرقات يوميًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Konrad Lorenz — imprinting in geese and ducks",
+      "artBrief": "Een rij eendenkuikens die achter elkaar aan een moeder-eend over het water varen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom loopt een eendenkuiken achter zijn moeder aan?",
+          "answer": "Het ziet haar als moeder",
+          "wrong": [
+            "Het is bang voor water",
+            "Het wil spelen",
+            "Het volgt altijd geluid"
+          ],
+          "hint": "Het onthoudt wie het als eerste ziet.",
+          "explanation": "Een kuiken volgt wat het vlak na het uitkomen als eerste ziet bewegen.",
+          "fact": "Daardoor liep een groepje ganzen ooit achter een onderzoeker aan."
+        },
+        "en": {
+          "prompt": "Why does a duckling follow its mother?",
+          "answer": "It sees her as its mother",
+          "wrong": [
+            "It is afraid of water",
+            "It wants to play",
+            "It always follows sound"
+          ],
+          "hint": "It remembers whoever it sees first.",
+          "explanation": "A duckling follows the first moving thing it sees after hatching.",
+          "fact": "That is why a row of goslings once followed a researcher."
+        },
+        "de": {
+          "prompt": "Warum läuft ein Entenküken seiner Mutter hinterher?",
+          "answer": "Es hält sie für die Mutter",
+          "wrong": [
+            "Es hat Angst vor Wasser",
+            "Es will spielen",
+            "Es folgt jedem Geräusch"
+          ],
+          "hint": "Es merkt sich, wen es zuerst sieht.",
+          "explanation": "Ein Küken folgt dem Ersten, was es nach dem Schlüpfen sich bewegen sieht.",
+          "fact": "Deshalb lief eine Schar Gänse einmal einem Forscher nach."
+        },
+        "fr": {
+          "prompt": "Pourquoi un caneton suit-il sa mère ?",
+          "answer": "Il la prend pour sa mère",
+          "wrong": [
+            "Il a peur de l'eau",
+            "Il veut jouer",
+            "Il suit tous les bruits"
+          ],
+          "hint": "Il retient qui il voit en premier.",
+          "explanation": "Un caneton suit la première chose qui bouge après l'éclosion.",
+          "fact": "C'est pour cela qu'une file d'oisons a suivi un chercheur."
+        },
+        "es": {
+          "prompt": "¿Por qué sigue un patito a su madre?",
+          "answer": "La toma por su madre",
+          "wrong": [
+            "Le da miedo el agua",
+            "Quiere jugar",
+            "Sigue cualquier ruido"
+          ],
+          "hint": "Recuerda a quien ve primero.",
+          "explanation": "Un patito sigue lo primero que ve moverse tras salir del huevo.",
+          "fact": "Por eso una fila de gansos siguió una vez a un investigador."
+        },
+        "it": {
+          "prompt": "Perché un anatroccolo segue la mamma?",
+          "answer": "La scambia per la mamma",
+          "wrong": [
+            "Ha paura dell'acqua",
+            "Vuole giocare",
+            "Segue ogni rumore"
+          ],
+          "hint": "Ricorda chi vede per primo.",
+          "explanation": "Segue la prima cosa che vede muoversi dopo la schiusa.",
+          "fact": "Per questo una fila di ochette seguì una volta un ricercatore."
+        },
+        "pt": {
+          "prompt": "Porque anda um patinho atrás da mãe?",
+          "answer": "Vê-a como sua mãe",
+          "wrong": [
+            "Tem medo da água",
+            "Quer brincar",
+            "Segue qualquer barulho"
+          ],
+          "hint": "Lembra-se de quem vê primeiro.",
+          "explanation": "Segue a primeira coisa que vê mexer-se depois de nascer.",
+          "fact": "Por isso uma fila de gansinhos seguiu um investigador."
+        },
+        "da": {
+          "prompt": "Hvorfor går en ælling efter sin mor?",
+          "answer": "Den ser hende som mor",
+          "wrong": [
+            "Den er bange for vand",
+            "Den vil lege",
+            "Den følger enhver lyd"
+          ],
+          "hint": "Den husker, hvem den ser først.",
+          "explanation": "En ælling følger det første, den ser bevæge sig efter klækningen.",
+          "fact": "Derfor fulgte en række gæslinger engang en forsker."
+        },
+        "ru": {
+          "prompt": "Почему утёнок ходит за мамой?",
+          "answer": "Он считает её мамой",
+          "wrong": [
+            "Он боится воды",
+            "Он хочет играть",
+            "Он идёт на любой звук"
+          ],
+          "hint": "Он запоминает того, кого увидел первым.",
+          "explanation": "Утёнок идёт за первым, что увидел движущимся после вылупления.",
+          "fact": "Поэтому вереница гусят однажды пошла за учёным."
+        },
+        "ar": {
+          "prompt": "لماذا يمشي فرخ البط خلف أمه؟",
+          "answer": "يعدها أمه",
+          "wrong": [
+            "يخاف من الماء",
+            "يريد اللعب",
+            "يتبع أي صوت"
+          ],
+          "hint": "يحفظ أول من يراه.",
+          "explanation": "يتبع الفرخ أول شيء متحرك يراه بعد الفقس.",
+          "fact": "لذلك تبع صف من الإوز باحثًا ذات مرة."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Poultry science — chicken eggs hatch after about 21 days",
+      "artBrief": "Een ei waar een kuiken uitkomt, met de schaal half gebroken, in warm licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang zit een kuiken in het ei voordat het uitkomt?",
+          "answer": "Ongeveer drie weken",
+          "wrong": [
+            "Ongeveer een dag",
+            "Ongeveer drie maanden",
+            "Ongeveer een jaar"
+          ],
+          "hint": "Iets minder dan een maand.",
+          "explanation": "Een kippenei heeft ongeveer eenentwintig dagen nodig.",
+          "fact": "Het kuiken tikt zichzelf met een eitandje naar buiten."
+        },
+        "en": {
+          "prompt": "How long is a chick in the egg before it hatches?",
+          "answer": "About three weeks",
+          "wrong": [
+            "About a day",
+            "About three months",
+            "About a year"
+          ],
+          "hint": "A little under a month.",
+          "explanation": "A hen's egg needs about twenty-one days.",
+          "fact": "The chick taps its own way out with an egg tooth."
+        },
+        "de": {
+          "prompt": "Wie lange sitzt ein Küken im Ei, bevor es schlüpft?",
+          "answer": "Etwa drei Wochen",
+          "wrong": [
+            "Etwa einen Tag",
+            "Etwa drei Monate",
+            "Etwa ein Jahr"
+          ],
+          "hint": "Knapp einen Monat.",
+          "explanation": "Ein Hühnerei braucht etwa einundzwanzig Tage.",
+          "fact": "Das Küken klopft sich mit einem Eizahn heraus."
+        },
+        "fr": {
+          "prompt": "Combien de temps un poussin reste-t-il dans l'œuf ?",
+          "answer": "Environ trois semaines",
+          "wrong": [
+            "Environ un jour",
+            "Environ trois mois",
+            "Environ un an"
+          ],
+          "hint": "Un peu moins d'un mois.",
+          "explanation": "Un œuf de poule met environ vingt et un jours.",
+          "fact": "Le poussin se fraye un chemin avec une petite dent d'œuf."
+        },
+        "es": {
+          "prompt": "¿Cuánto tiempo pasa un pollito dentro del huevo?",
+          "answer": "Unas tres semanas",
+          "wrong": [
+            "Un día",
+            "Tres meses",
+            "Un año"
+          ],
+          "hint": "Poco menos de un mes.",
+          "explanation": "Un huevo de gallina necesita unos veintiún días.",
+          "fact": "El pollito se abre camino con un dientecito de huevo."
+        },
+        "it": {
+          "prompt": "Quanto resta un pulcino nell'uovo prima di nascere?",
+          "answer": "Circa tre settimane",
+          "wrong": [
+            "Circa un giorno",
+            "Circa tre mesi",
+            "Circa un anno"
+          ],
+          "hint": "Poco meno di un mese.",
+          "explanation": "Un uovo di gallina ha bisogno di circa ventuno giorni.",
+          "fact": "Il pulcino si apre la strada con un dentino sull'uovo."
+        },
+        "pt": {
+          "prompt": "Quanto tempo está um pinto dentro do ovo?",
+          "answer": "Cerca de três semanas",
+          "wrong": [
+            "Cerca de um dia",
+            "Cerca de três meses",
+            "Cerca de um ano"
+          ],
+          "hint": "Pouco menos de um mês.",
+          "explanation": "Um ovo de galinha precisa de cerca de vinte e um dias.",
+          "fact": "O pinto abre caminho com um dentinho no bico."
+        },
+        "da": {
+          "prompt": "Hvor længe sidder en kylling i ægget?",
+          "answer": "Cirka tre uger",
+          "wrong": [
+            "Cirka en dag",
+            "Cirka tre måneder",
+            "Cirka et år"
+          ],
+          "hint": "Lidt under en måned.",
+          "explanation": "Et hønseæg skal bruge omkring enogtyve dage.",
+          "fact": "Kyllingen hakker sig ud med en lille æggetand."
+        },
+        "ru": {
+          "prompt": "Сколько цыплёнок сидит в яйце до вылупления?",
+          "answer": "Около трёх недель",
+          "wrong": [
+            "Около дня",
+            "Около трёх месяцев",
+            "Около года"
+          ],
+          "hint": "Чуть меньше месяца.",
+          "explanation": "Куриному яйцу нужен примерно двадцать один день.",
+          "fact": "Цыплёнок пробивает скорлупу особым яйцевым зубом."
+        },
+        "ar": {
+          "prompt": "كم يبقى الكتكوت داخل البيضة قبل أن يفقس؟",
+          "answer": "نحو ثلاثة أسابيع",
+          "wrong": [
+            "نحو يوم",
+            "نحو ثلاثة أشهر",
+            "نحو سنة"
+          ],
+          "hint": "أقل قليلًا من شهر.",
+          "explanation": "تحتاج بيضة الدجاج إلى نحو واحد وعشرين يومًا.",
+          "fact": "يشق الكتكوت طريقه بسن صغيرة على منقاره."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "National Geographic — crocodile parental care",
+      "artBrief": "Een krokodil met een piepklein jong voorzichtig in haar bek, aan de waterkant.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een moederkrokodil met haar pasgeboren jongen?",
+          "answer": "Ze draagt ze in haar bek",
+          "wrong": [
+            "Ze laat ze meteen alleen",
+            "Ze verstopt ze in een boom",
+            "Ze duwt ze het water in"
+          ],
+          "hint": "Voorzichtiger dan het lijkt.",
+          "explanation": "Ze tilt de jongen voorzichtig in haar bek naar het water.",
+          "fact": "Ze bewaakt het nest soms maandenlang."
+        },
+        "en": {
+          "prompt": "What does a mother crocodile do with her newborns?",
+          "answer": "She carries them by mouth",
+          "wrong": [
+            "She leaves them at once",
+            "She hides them in a tree",
+            "She pushes them in the water"
+          ],
+          "hint": "Gentler than it looks.",
+          "explanation": "She lifts the young carefully in her mouth and carries them to water.",
+          "fact": "She sometimes guards the nest for months."
+        },
+        "de": {
+          "prompt": "Was macht eine Krokodilmutter mit ihren Jungen?",
+          "answer": "Sie trägt sie im Maul",
+          "wrong": [
+            "Sie lässt sie sofort allein",
+            "Sie versteckt sie im Baum",
+            "Sie schubst sie ins Wasser"
+          ],
+          "hint": "Sanfter, als es aussieht.",
+          "explanation": "Sie hebt die Jungen vorsichtig ins Maul und trägt sie zum Wasser.",
+          "fact": "Das Nest bewacht sie manchmal monatelang."
+        },
+        "fr": {
+          "prompt": "Que fait une maman crocodile de ses nouveau-nés ?",
+          "answer": "Elle les porte en gueule",
+          "wrong": [
+            "Elle les laisse seuls",
+            "Elle les cache dans un arbre",
+            "Elle les pousse à l'eau"
+          ],
+          "hint": "Plus doux qu'il n'y paraît.",
+          "explanation": "Elle soulève délicatement les petits dans sa gueule jusqu'à l'eau.",
+          "fact": "Elle garde parfois le nid pendant des mois."
+        },
+        "es": {
+          "prompt": "¿Qué hace una cocodrila con sus recién nacidos?",
+          "answer": "Los lleva en la boca",
+          "wrong": [
+            "Los deja solos",
+            "Los esconde en un árbol",
+            "Los empuja al agua"
+          ],
+          "hint": "Más suave de lo que parece.",
+          "explanation": "Levanta a las crías con cuidado en la boca y las lleva al agua.",
+          "fact": "A veces vigila el nido durante meses."
+        },
+        "it": {
+          "prompt": "Che cosa fa mamma coccodrillo con i piccoli appena nati?",
+          "answer": "Li porta in bocca",
+          "wrong": [
+            "Li lascia subito soli",
+            "Li nasconde sull'albero",
+            "Li spinge in acqua"
+          ],
+          "hint": "Più delicato di quanto sembri.",
+          "explanation": "Solleva i piccoli con delicatezza in bocca e li porta all'acqua.",
+          "fact": "A volte sorveglia il nido per mesi."
+        },
+        "pt": {
+          "prompt": "O que faz a mãe crocodilo às crias recém-nascidas?",
+          "answer": "Leva-as na boca",
+          "wrong": [
+            "Deixa-as logo sozinhas",
+            "Esconde-as numa árvore",
+            "Empurra-as para a água"
+          ],
+          "hint": "Mais suave do que parece.",
+          "explanation": "Levanta as crias com cuidado na boca e leva-as para a água.",
+          "fact": "Às vezes guarda o ninho durante meses."
+        },
+        "da": {
+          "prompt": "Hvad gør en krokodillemor med sine nyfødte?",
+          "answer": "Hun bærer dem i munden",
+          "wrong": [
+            "Hun lader dem være",
+            "Hun gemmer dem i et træ",
+            "Hun skubber dem i vandet"
+          ],
+          "hint": "Blidere end det ser ud.",
+          "explanation": "Hun løfter ungerne forsigtigt i munden og bærer dem til vandet.",
+          "fact": "Nogle gange vogter hun reden i månedsvis."
+        },
+        "ru": {
+          "prompt": "Что делает мама-крокодил с новорождёнными?",
+          "answer": "Носит их в пасти",
+          "wrong": [
+            "Сразу оставляет их",
+            "Прячет их на дереве",
+            "Сталкивает их в воду"
+          ],
+          "hint": "Гораздо нежнее, чем кажется.",
+          "explanation": "Она осторожно берёт малышей в пасть и несёт к воде.",
+          "fact": "Иногда она охраняет гнездо месяцами."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل أم التمساح بصغارها حديثي الفقس؟",
+          "answer": "تحملهم في فمها",
+          "wrong": [
+            "تتركهم فورًا",
+            "تخبئهم في شجرة",
+            "تدفعهم إلى الماء"
+          ],
+          "hint": "أرق مما يبدو.",
+          "explanation": "ترفع الصغار برفق في فمها وتحملهم إلى الماء.",
+          "fact": "وقد تحرس العش شهورًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "San Diego Zoo — giraffe calves drop about two metres",
+      "artBrief": "Een pasgeboren giraffe die wankel opstaat naast zijn hoge moeder in de savanne.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe komt een jonge giraffe ter wereld?",
+          "answer": "Hij valt twee meter omlaag",
+          "wrong": [
+            "Zittend in het gras",
+            "In het water",
+            "In een nest"
+          ],
+          "hint": "Zijn moeder staat erbij.",
+          "explanation": "Een giraffe bevalt staand, dus het jong valt ongeveer twee meter.",
+          "fact": "Binnen een uur staat het al op zijn poten."
+        },
+        "en": {
+          "prompt": "How does a baby giraffe come into the world?",
+          "answer": "It drops two metres",
+          "wrong": [
+            "Sitting in the grass",
+            "In the water",
+            "In a nest"
+          ],
+          "hint": "Its mother is standing up.",
+          "explanation": "A giraffe gives birth standing, so the calf falls about two metres.",
+          "fact": "Within an hour it is on its feet."
+        },
+        "de": {
+          "prompt": "Wie kommt ein junges Giraffenkalb zur Welt?",
+          "answer": "Es fällt zwei Meter tief",
+          "wrong": [
+            "Sitzend im Gras",
+            "Im Wasser",
+            "In einem Nest"
+          ],
+          "hint": "Die Mutter steht dabei.",
+          "explanation": "Eine Giraffe gebärt im Stehen, also fällt das Junge etwa zwei Meter.",
+          "fact": "Innerhalb einer Stunde steht es schon."
+        },
+        "fr": {
+          "prompt": "Comment vient au monde un girafon ?",
+          "answer": "Il tombe de deux mètres",
+          "wrong": [
+            "Assis dans l'herbe",
+            "Dans l'eau",
+            "Dans un nid"
+          ],
+          "hint": "Sa mère est debout.",
+          "explanation": "La girafe met bas debout, donc le petit tombe d'environ deux mètres.",
+          "fact": "Une heure plus tard, il est déjà sur ses pattes."
+        },
+        "es": {
+          "prompt": "¿Cómo nace una cría de jirafa?",
+          "answer": "Cae desde dos metros",
+          "wrong": [
+            "Sentada en la hierba",
+            "En el agua",
+            "En un nido"
+          ],
+          "hint": "Su madre está de pie.",
+          "explanation": "La jirafa pare de pie, así que la cría cae unos dos metros.",
+          "fact": "En menos de una hora ya está de pie."
+        },
+        "it": {
+          "prompt": "Come viene al mondo un cucciolo di giraffa?",
+          "answer": "Cade da due metri",
+          "wrong": [
+            "Seduto nell'erba",
+            "Nell'acqua",
+            "In un nido"
+          ],
+          "hint": "La mamma sta in piedi.",
+          "explanation": "La giraffa partorisce in piedi, così il piccolo cade da due metri.",
+          "fact": "Entro un'ora è già in piedi."
+        },
+        "pt": {
+          "prompt": "Como vem ao mundo uma cria de girafa?",
+          "answer": "Cai dois metros",
+          "wrong": [
+            "Sentada na erva",
+            "Na água",
+            "Num ninho"
+          ],
+          "hint": "A mãe está de pé.",
+          "explanation": "A girafa pare de pé, por isso a cria cai cerca de dois metros.",
+          "fact": "Numa hora já está em pé."
+        },
+        "da": {
+          "prompt": "Hvordan kommer en girafunge til verden?",
+          "answer": "Den falder to meter ned",
+          "wrong": [
+            "Siddende i græsset",
+            "I vandet",
+            "I en rede"
+          ],
+          "hint": "Moderen står op imens.",
+          "explanation": "En giraf føder stående, så ungen falder omkring to meter.",
+          "fact": "Inden for en time står den allerede."
+        },
+        "ru": {
+          "prompt": "Как появляется на свет детёныш жирафа?",
+          "answer": "Он падает с двух метров",
+          "wrong": [
+            "Сидя в траве",
+            "В воде",
+            "В гнезде"
+          ],
+          "hint": "Мама при этом стоит.",
+          "explanation": "Жирафа рожает стоя, и детёныш падает примерно с двух метров.",
+          "fact": "Через час он уже стоит на ногах."
+        },
+        "ar": {
+          "prompt": "كيف يأتي صغير الزرافة إلى الدنيا؟",
+          "answer": "يسقط من مترين",
+          "wrong": [
+            "جالسًا في العشب",
+            "في الماء",
+            "في عش"
+          ],
+          "hint": "أمه واقفة أثناء ذلك.",
+          "explanation": "تلد الزرافة واقفة، فيسقط الصغير نحو مترين.",
+          "fact": "وخلال ساعة يكون واقفًا على قوائمه."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Animal behaviour — play in juvenile mammals",
+      "artBrief": "Twee jonge vossen die stoeien in het gras, met hun moeder die toekijkt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom stoeien jonge dieren zoveel?",
+          "answer": "Ze oefenen voor later",
+          "wrong": [
+            "Ze hebben ruzie",
+            "Ze vervelen zich",
+            "Ze zoeken eten"
+          ],
+          "hint": "Het lijkt spelen, maar het is leren.",
+          "explanation": "Door te stoeien leren jonge dieren jagen, vluchten en samenleven.",
+          "fact": "Jonge dieren die veel spelen, redden zich later vaak beter."
+        },
+        "en": {
+          "prompt": "Why do young animals tumble about so much?",
+          "answer": "They are practising",
+          "wrong": [
+            "They are fighting",
+            "They are bored",
+            "They are hunting"
+          ],
+          "hint": "It looks like play, but it is learning.",
+          "explanation": "By tumbling, young animals learn to hunt, flee and get along.",
+          "fact": "Young animals that play a lot often cope better later on."
+        },
+        "de": {
+          "prompt": "Warum balgen sich junge Tiere so viel?",
+          "answer": "Sie üben für später",
+          "wrong": [
+            "Sie streiten",
+            "Ihnen ist langweilig",
+            "Sie suchen Futter"
+          ],
+          "hint": "Es sieht nach Spiel aus, ist aber Lernen.",
+          "explanation": "Beim Balgen lernen junge Tiere jagen, fliehen und zusammenleben.",
+          "fact": "Tiere, die viel spielen, kommen später oft besser zurecht."
+        },
+        "fr": {
+          "prompt": "Pourquoi les jeunes animaux chahutent-ils autant ?",
+          "answer": "Ils s'entraînent",
+          "wrong": [
+            "Ils se disputent",
+            "Ils s'ennuient",
+            "Ils cherchent à manger"
+          ],
+          "hint": "Cela ressemble à un jeu, mais c'est un apprentissage.",
+          "explanation": "En chahutant, ils apprennent à chasser, à fuir et à vivre ensemble.",
+          "fact": "Ceux qui jouent beaucoup s'en sortent souvent mieux plus tard."
+        },
+        "es": {
+          "prompt": "¿Por qué juegan tanto los animales jóvenes?",
+          "answer": "Están practicando",
+          "wrong": [
+            "Se están peleando",
+            "Se aburren",
+            "Buscan comida"
+          ],
+          "hint": "Parece juego, pero es aprender.",
+          "explanation": "Jugando aprenden a cazar, a huir y a convivir.",
+          "fact": "Los que juegan mucho suelen arreglárselas mejor de mayores."
+        },
+        "it": {
+          "prompt": "Perché i cuccioli giocano a lottare così tanto?",
+          "answer": "Si stanno allenando",
+          "wrong": [
+            "Stanno litigando",
+            "Si annoiano",
+            "Cercano cibo"
+          ],
+          "hint": "Sembra gioco, ma è imparare.",
+          "explanation": "Giocando imparano a cacciare, a fuggire e a stare insieme.",
+          "fact": "Chi gioca molto se la cava spesso meglio da adulto."
+        },
+        "pt": {
+          "prompt": "Porque brincam tanto à luta os animais novos?",
+          "answer": "Estão a treinar",
+          "wrong": [
+            "Estão zangados",
+            "Estão aborrecidos",
+            "Procuram comida"
+          ],
+          "hint": "Parece brincadeira, mas é aprender.",
+          "explanation": "A brincar aprendem a caçar, a fugir e a viver juntos.",
+          "fact": "Os que brincam muito costumam safar-se melhor mais tarde."
+        },
+        "da": {
+          "prompt": "Hvorfor tumler unge dyr så meget rundt?",
+          "answer": "De træner til senere",
+          "wrong": [
+            "De skændes",
+            "De keder sig",
+            "De leder efter mad"
+          ],
+          "hint": "Det ligner leg, men det er læring.",
+          "explanation": "Ved at tumle lærer unger at jage, flygte og være sammen.",
+          "fact": "Dyr, der leger meget, klarer sig ofte bedre senere."
+        },
+        "ru": {
+          "prompt": "Почему детёныши так много возятся и играют?",
+          "answer": "Они тренируются",
+          "wrong": [
+            "Они ссорятся",
+            "Им скучно",
+            "Они ищут еду"
+          ],
+          "hint": "Похоже на игру, но это учёба.",
+          "explanation": "В игре малыши учатся охотиться, убегать и жить вместе.",
+          "fact": "Те, кто много играл, потом часто справляются лучше."
+        },
+        "ar": {
+          "prompt": "لماذا تتصارع صغار الحيوانات كثيرًا؟",
+          "answer": "إنها تتدرب",
+          "wrong": [
+            "إنها تتشاجر",
+            "إنها تشعر بالملل",
+            "إنها تبحث عن طعام"
+          ],
+          "hint": "يبدو لعبًا لكنه تعلم.",
+          "explanation": "بالمصارعة تتعلم الصغار الصيد والهرب والعيش معًا.",
+          "fact": "الصغار التي تلعب كثيرًا تنجح غالبًا أكثر لاحقًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "San Diego Zoo — kangaroo joeys leave the pouch at about six months",
+      "artBrief": "Een kangoeroejong dat uit de buidel van zijn moeder kijkt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang blijft een kangoeroejong in de buidel?",
+          "answer": "Ongeveer zes maanden",
+          "wrong": [
+            "Ongeveer een week",
+            "Ongeveer twee jaar",
+            "Ongeveer tien jaar"
+          ],
+          "hint": "Een half jaar.",
+          "explanation": "Na ongeveer zes maanden komt het jong voor het eerst naar buiten.",
+          "fact": "Daarna springt het er nog maandenlang in en uit."
+        },
+        "en": {
+          "prompt": "How long does a kangaroo joey stay in the pouch?",
+          "answer": "About six months",
+          "wrong": [
+            "About a week",
+            "About two years",
+            "About ten years"
+          ],
+          "hint": "Half a year.",
+          "explanation": "After about six months the joey comes out for the first time.",
+          "fact": "After that it hops in and out for months more."
+        },
+        "de": {
+          "prompt": "Wie lange bleibt ein Känguru-Junges im Beutel?",
+          "answer": "Etwa sechs Monate",
+          "wrong": [
+            "Etwa eine Woche",
+            "Etwa zwei Jahre",
+            "Etwa zehn Jahre"
+          ],
+          "hint": "Ein halbes Jahr.",
+          "explanation": "Nach etwa sechs Monaten kommt das Junge zum ersten Mal heraus.",
+          "fact": "Danach hüpft es noch monatelang hinein und hinaus."
+        },
+        "fr": {
+          "prompt": "Combien de temps un bébé kangourou reste-t-il dans la poche ?",
+          "answer": "Environ six mois",
+          "wrong": [
+            "Environ une semaine",
+            "Environ deux ans",
+            "Environ dix ans"
+          ],
+          "hint": "Une demi-année.",
+          "explanation": "Au bout de six mois environ, il sort pour la première fois.",
+          "fact": "Ensuite il y entre et en sort encore pendant des mois."
+        },
+        "es": {
+          "prompt": "¿Cuánto tiempo está una cría de canguro en la bolsa?",
+          "answer": "Unos seis meses",
+          "wrong": [
+            "Una semana",
+            "Dos años",
+            "Diez años"
+          ],
+          "hint": "Medio año.",
+          "explanation": "A los seis meses aproximadamente asoma por primera vez.",
+          "fact": "Después sigue entrando y saliendo durante meses."
+        },
+        "it": {
+          "prompt": "Quanto resta nel marsupio un cucciolo di canguro?",
+          "answer": "Circa sei mesi",
+          "wrong": [
+            "Circa una settimana",
+            "Circa due anni",
+            "Circa dieci anni"
+          ],
+          "hint": "Mezzo anno.",
+          "explanation": "Dopo circa sei mesi il piccolo esce per la prima volta.",
+          "fact": "Poi entra ed esce ancora per mesi."
+        },
+        "pt": {
+          "prompt": "Quanto tempo fica uma cria de canguru na bolsa?",
+          "answer": "Cerca de seis meses",
+          "wrong": [
+            "Cerca de uma semana",
+            "Cerca de dois anos",
+            "Cerca de dez anos"
+          ],
+          "hint": "Meio ano.",
+          "explanation": "Ao fim de uns seis meses sai pela primeira vez.",
+          "fact": "Depois ainda entra e sai durante meses."
+        },
+        "da": {
+          "prompt": "Hvor længe bliver en kænguruunge i posen?",
+          "answer": "Cirka seks måneder",
+          "wrong": [
+            "Cirka en uge",
+            "Cirka to år",
+            "Cirka ti år"
+          ],
+          "hint": "Et halvt år.",
+          "explanation": "Efter cirka seks måneder kommer ungen ud for første gang.",
+          "fact": "Derefter hopper den ind og ud i flere måneder."
+        },
+        "ru": {
+          "prompt": "Сколько кенгурёнок сидит в сумке?",
+          "answer": "Около шести месяцев",
+          "wrong": [
+            "Около недели",
+            "Около двух лет",
+            "Около десяти лет"
+          ],
+          "hint": "Полгода.",
+          "explanation": "Примерно через шесть месяцев он впервые выглядывает наружу.",
+          "fact": "Потом ещё месяцами прыгает туда и обратно."
+        },
+        "ar": {
+          "prompt": "كم يبقى صغير الكنغر في الجراب؟",
+          "answer": "نحو ستة أشهر",
+          "wrong": [
+            "نحو أسبوع",
+            "نحو سنتين",
+            "نحو عشر سنوات"
+          ],
+          "hint": "نصف سنة.",
+          "explanation": "بعد نحو ستة أشهر يخرج الصغير لأول مرة.",
+          "fact": "ثم يظل يدخل ويخرج شهورًا أخرى."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "RSPB — cuckoos are brood parasites",
+      "artBrief": "Een groot koekoeksjong in een klein nest naast twee veel kleinere vogeltjes.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vogel legt haar ei in het nest van een ander?",
+          "answer": "De koekoek",
+          "wrong": [
+            "De merel",
+            "De specht",
+            "De zwaluw"
+          ],
+          "hint": "Je hoort hem in het voorjaar roepen.",
+          "explanation": "De koekoek laat andere vogels haar jong grootbrengen.",
+          "fact": "Het koekoeksjong wordt vaak groter dan zijn pleegouders."
+        },
+        "en": {
+          "prompt": "Which bird lays her egg in another bird's nest?",
+          "answer": "The cuckoo",
+          "wrong": [
+            "The blackbird",
+            "The woodpecker",
+            "The swallow"
+          ],
+          "hint": "You hear it calling in spring.",
+          "explanation": "The cuckoo leaves other birds to raise her chick.",
+          "fact": "The cuckoo chick often grows bigger than its foster parents."
+        },
+        "de": {
+          "prompt": "Welcher Vogel legt sein Ei ins Nest eines anderen?",
+          "answer": "Der Kuckuck",
+          "wrong": [
+            "Die Amsel",
+            "Der Specht",
+            "Die Schwalbe"
+          ],
+          "hint": "Im Frühling hört man ihn rufen.",
+          "explanation": "Der Kuckuck lässt andere Vögel sein Junges großziehen.",
+          "fact": "Das Kuckucksjunge wird oft größer als seine Pflegeeltern."
+        },
+        "fr": {
+          "prompt": "Quel oiseau pond son œuf dans le nid d'un autre ?",
+          "answer": "Le coucou",
+          "wrong": [
+            "Le merle",
+            "Le pic",
+            "L'hirondelle"
+          ],
+          "hint": "On l'entend chanter au printemps.",
+          "explanation": "Le coucou laisse d'autres oiseaux élever son petit.",
+          "fact": "Le jeune coucou devient souvent plus grand que ses parents adoptifs."
+        },
+        "es": {
+          "prompt": "¿Qué ave pone su huevo en el nido de otra?",
+          "answer": "El cuco",
+          "wrong": [
+            "El mirlo",
+            "El pájaro carpintero",
+            "La golondrina"
+          ],
+          "hint": "Se le oye cantar en primavera.",
+          "explanation": "El cuco deja que otras aves críen a su polluelo.",
+          "fact": "El polluelo de cuco suele crecer más que sus padres adoptivos."
+        },
+        "it": {
+          "prompt": "Quale uccello depone l'uovo nel nido di un altro?",
+          "answer": "Il cuculo",
+          "wrong": [
+            "Il merlo",
+            "Il picchio",
+            "La rondine"
+          ],
+          "hint": "In primavera lo si sente cantare.",
+          "explanation": "Il cuculo lascia che altri uccelli crescano il suo piccolo.",
+          "fact": "Il piccolo cuculo diventa spesso più grande dei genitori adottivi."
+        },
+        "pt": {
+          "prompt": "Que ave põe o ovo no ninho de outra?",
+          "answer": "O cuco",
+          "wrong": [
+            "O melro",
+            "O pica-pau",
+            "A andorinha"
+          ],
+          "hint": "Ouve-se cantar na primavera.",
+          "explanation": "O cuco deixa que outras aves criem o seu filhote.",
+          "fact": "O filhote do cuco fica muitas vezes maior do que os pais adotivos."
+        },
+        "da": {
+          "prompt": "Hvilken fugl lægger sit æg i en andens rede?",
+          "answer": "Gøgen",
+          "wrong": [
+            "Solsorten",
+            "Spætten",
+            "Svalen"
+          ],
+          "hint": "Man hører den kukke om foråret.",
+          "explanation": "Gøgen lader andre fugle opfostre sin unge.",
+          "fact": "Gøgeungen bliver ofte større end sine plejeforældre."
+        },
+        "ru": {
+          "prompt": "Какая птица подкладывает яйцо в чужое гнездо?",
+          "answer": "Кукушка",
+          "wrong": [
+            "Дрозд",
+            "Дятел",
+            "Ласточка"
+          ],
+          "hint": "Весной слышно, как она кукует.",
+          "explanation": "Кукушка оставляет своего птенца другим птицам.",
+          "fact": "Кукушонок часто становится больше приёмных родителей."
+        },
+        "ar": {
+          "prompt": "أي طائر يضع بيضه في عش غيره؟",
+          "answer": "الوقواق",
+          "wrong": [
+            "الشحرور",
+            "نقار الخشب",
+            "السنونو"
+          ],
+          "hint": "يُسمع صوته في الربيع.",
+          "explanation": "يترك الوقواق طيورًا أخرى تربي صغيره.",
+          "fact": "وغالبًا يصير صغيره أكبر من والديه بالتبني."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Song learning in songbirds (Marler)",
+      "artBrief": "Een jonge zangvogel naast zijn vader op een tak, allebei met open snavel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe leert een jonge zangvogel zijn liedje?",
+          "answer": "Door zijn vader na te doen",
+          "wrong": [
+            "Hij kan het meteen",
+            "Uit een boekje",
+            "Van de wind"
+          ],
+          "hint": "Net als kinderen die leren praten.",
+          "explanation": "Jonge zangvogels luisteren naar oudere vogels en oefenen net zo lang.",
+          "fact": "Vogels uit verschillende streken zingen met een eigen accent."
+        },
+        "en": {
+          "prompt": "How does a young songbird learn its song?",
+          "answer": "By copying its father",
+          "wrong": [
+            "It knows it at once",
+            "From a book",
+            "From the wind"
+          ],
+          "hint": "Just like children learning to talk.",
+          "explanation": "Young songbirds listen to older birds and practise until it fits.",
+          "fact": "Birds from different regions sing with their own accent."
+        },
+        "de": {
+          "prompt": "Wie lernt ein junger Singvogel sein Lied?",
+          "answer": "Indem er den Vater nachmacht",
+          "wrong": [
+            "Er kann es sofort",
+            "Aus einem Buch",
+            "Vom Wind"
+          ],
+          "hint": "Wie Kinder, die sprechen lernen.",
+          "explanation": "Junge Singvögel hören älteren zu und üben, bis es passt.",
+          "fact": "Vögel aus verschiedenen Gegenden singen mit eigenem Akzent."
+        },
+        "fr": {
+          "prompt": "Comment un jeune oiseau chanteur apprend-il son chant ?",
+          "answer": "En imitant son père",
+          "wrong": [
+            "Il le sait tout de suite",
+            "Dans un livre",
+            "Du vent"
+          ],
+          "hint": "Comme un enfant qui apprend à parler.",
+          "explanation": "Les jeunes écoutent les plus vieux et répètent jusqu'à y arriver.",
+          "fact": "Les oiseaux de régions différentes chantent avec un accent."
+        },
+        "es": {
+          "prompt": "¿Cómo aprende su canto un pájaro joven?",
+          "answer": "Imitando a su padre",
+          "wrong": [
+            "Lo sabe enseguida",
+            "De un libro",
+            "Del viento"
+          ],
+          "hint": "Igual que un niño aprende a hablar.",
+          "explanation": "Los jóvenes escuchan a los mayores y practican hasta que sale.",
+          "fact": "Las aves de distintas zonas cantan con su propio acento."
+        },
+        "it": {
+          "prompt": "Come impara il suo canto un giovane uccello canoro?",
+          "answer": "Imitando suo padre",
+          "wrong": [
+            "Lo sa subito",
+            "Da un libro",
+            "Dal vento"
+          ],
+          "hint": "Come i bambini che imparano a parlare.",
+          "explanation": "I giovani ascoltano gli adulti e provano finché non viene bene.",
+          "fact": "Gli uccelli di zone diverse cantano con un accento proprio."
+        },
+        "pt": {
+          "prompt": "Como aprende o seu canto uma ave jovem?",
+          "answer": "Imitando o pai",
+          "wrong": [
+            "Sabe logo",
+            "Num livro",
+            "Com o vento"
+          ],
+          "hint": "Tal como as crianças aprendem a falar.",
+          "explanation": "Os jovens ouvem os mais velhos e treinam até acertar.",
+          "fact": "As aves de regiões diferentes cantam com sotaque próprio."
+        },
+        "da": {
+          "prompt": "Hvordan lærer en ung sangfugl sin sang?",
+          "answer": "Ved at efterligne faren",
+          "wrong": [
+            "Den kan det straks",
+            "Fra en bog",
+            "Af vinden"
+          ],
+          "hint": "Ligesom børn, der lærer at tale.",
+          "explanation": "Unge sangfugle lytter til de ældre og øver, til det sidder.",
+          "fact": "Fugle fra forskellige egne synger med hver sin accent."
+        },
+        "ru": {
+          "prompt": "Как молодая певчая птица учит свою песню?",
+          "answer": "Повторяя за отцом",
+          "wrong": [
+            "Знает её сразу",
+            "По книжке",
+            "У ветра"
+          ],
+          "hint": "Как дети, которые учатся говорить.",
+          "explanation": "Молодые слушают взрослых птиц и повторяют, пока не выйдет.",
+          "fact": "Птицы из разных мест поют со своим акцентом."
+        },
+        "ar": {
+          "prompt": "كيف يتعلم الطائر المغرد الصغير أغنيته؟",
+          "answer": "بتقليد أبيه",
+          "wrong": [
+            "يعرفها فورًا",
+            "من كتاب",
+            "من الريح"
+          ],
+          "hint": "مثل الأطفال حين يتعلمون الكلام.",
+          "explanation": "تستمع الصغار إلى الكبار وتتمرن حتى تتقنها.",
+          "fact": "طيور المناطق المختلفة تغني بلكنة خاصة."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Precocial young — foals stand within an hour",
+      "artBrief": "Een pasgeboren veulen dat op wankele benen naast zijn moeder staat in de wei.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom staat een pasgeboren veulen al snel op?",
+          "answer": "Om te kunnen vluchten",
+          "wrong": [
+            "Om te eten",
+            "Om te spelen",
+            "Om te drinken"
+          ],
+          "hint": "In de natuur wachten roofdieren niet.",
+          "explanation": "Een veulen dat niet mee kan rennen is een makkelijke prooi.",
+          "fact": "Binnen een uur na de geboorte staat het meestal al."
+        },
+        "en": {
+          "prompt": "Why does a newborn foal get up so quickly?",
+          "answer": "To be able to run away",
+          "wrong": [
+            "To eat",
+            "To play",
+            "To drink"
+          ],
+          "hint": "In the wild, predators do not wait.",
+          "explanation": "A foal that cannot run along is easy prey.",
+          "fact": "It is usually standing within an hour of being born."
+        },
+        "de": {
+          "prompt": "Warum steht ein neugeborenes Fohlen so schnell auf?",
+          "answer": "Um fliehen zu können",
+          "wrong": [
+            "Um zu fressen",
+            "Um zu spielen",
+            "Um zu trinken"
+          ],
+          "hint": "In der Natur warten Raubtiere nicht.",
+          "explanation": "Ein Fohlen, das nicht mitlaufen kann, ist leichte Beute.",
+          "fact": "Meist steht es schon eine Stunde nach der Geburt."
+        },
+        "fr": {
+          "prompt": "Pourquoi un poulain se lève-t-il si vite ?",
+          "answer": "Pour pouvoir s'enfuir",
+          "wrong": [
+            "Pour manger",
+            "Pour jouer",
+            "Pour boire"
+          ],
+          "hint": "Dans la nature, les prédateurs n'attendent pas.",
+          "explanation": "Un poulain qui ne peut pas suivre est une proie facile.",
+          "fact": "Il tient debout en général une heure après sa naissance."
+        },
+        "es": {
+          "prompt": "¿Por qué se levanta tan pronto un potro recién nacido?",
+          "answer": "Para poder huir",
+          "wrong": [
+            "Para comer",
+            "Para jugar",
+            "Para beber"
+          ],
+          "hint": "En la naturaleza los depredadores no esperan.",
+          "explanation": "Un potro que no puede correr es una presa fácil.",
+          "fact": "Suele estar de pie una hora después de nacer."
+        },
+        "it": {
+          "prompt": "Perché un puledro appena nato si alza così in fretta?",
+          "answer": "Per poter scappare",
+          "wrong": [
+            "Per mangiare",
+            "Per giocare",
+            "Per bere"
+          ],
+          "hint": "In natura i predatori non aspettano.",
+          "explanation": "Un puledro che non riesce a correre è una preda facile.",
+          "fact": "Di solito sta in piedi un'ora dopo la nascita."
+        },
+        "pt": {
+          "prompt": "Porque se levanta tão depressa um potro acabado de nascer?",
+          "answer": "Para poder fugir",
+          "wrong": [
+            "Para comer",
+            "Para brincar",
+            "Para beber"
+          ],
+          "hint": "Na natureza os predadores não esperam.",
+          "explanation": "Um potro que não consegue correr é presa fácil.",
+          "fact": "Costuma estar de pé uma hora depois de nascer."
+        },
+        "da": {
+          "prompt": "Hvorfor rejser et nyfødt føl sig så hurtigt?",
+          "answer": "For at kunne flygte",
+          "wrong": [
+            "For at spise",
+            "For at lege",
+            "For at drikke"
+          ],
+          "hint": "I naturen venter rovdyr ikke.",
+          "explanation": "Et føl, der ikke kan løbe med, er let bytte.",
+          "fact": "Det står som regel en time efter fødslen."
+        },
+        "ru": {
+          "prompt": "Почему новорождённый жеребёнок так быстро встаёт?",
+          "answer": "Чтобы суметь убежать",
+          "wrong": [
+            "Чтобы поесть",
+            "Чтобы поиграть",
+            "Чтобы попить"
+          ],
+          "hint": "В природе хищники не ждут.",
+          "explanation": "Жеребёнок, который не может бежать, — лёгкая добыча.",
+          "fact": "Обычно он стоит уже через час после рождения."
+        },
+        "ar": {
+          "prompt": "لماذا يقف المهر حديث الولادة بسرعة؟",
+          "answer": "ليتمكن من الهرب",
+          "wrong": [
+            "ليأكل",
+            "ليلعب",
+            "ليشرب"
+          ],
+          "hint": "في البرية لا تنتظر المفترسات.",
+          "explanation": "المهر الذي لا يستطيع الركض فريسة سهلة.",
+          "fact": "وعادة يقف بعد ساعة من ولادته."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "British Antarctic Survey — emperor penguin crèches",
+      "artBrief": "Een dicht groepje grijze pinguïnkuikens bij elkaar op het ijs, met volwassen dieren eromheen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doen keizerspinguïnkuikens als het stormt?",
+          "answer": "Ze kruipen dicht bijeen",
+          "wrong": [
+            "Ze duiken in zee",
+            "Ze graven een hol",
+            "Ze vliegen weg"
+          ],
+          "hint": "Met velen heb je het warmer.",
+          "explanation": "De kuikens vormen een dicht groepje en houden elkaar warm.",
+          "fact": "Zo'n groepje heet een crèche."
+        },
+        "en": {
+          "prompt": "What do emperor penguin chicks do in a storm?",
+          "answer": "They huddle close together",
+          "wrong": [
+            "They dive into the sea",
+            "They dig a burrow",
+            "They fly away"
+          ],
+          "hint": "A crowd is warmer.",
+          "explanation": "The chicks form a tight group and keep one another warm.",
+          "fact": "Such a group is called a crèche."
+        },
+        "de": {
+          "prompt": "Was machen Kaiserpinguinküken im Sturm?",
+          "answer": "Sie drängen sich zusammen",
+          "wrong": [
+            "Sie tauchen ins Meer",
+            "Sie graben eine Höhle",
+            "Sie fliegen weg"
+          ],
+          "hint": "Zu vielen ist es wärmer.",
+          "explanation": "Die Küken bilden eine dichte Gruppe und wärmen einander.",
+          "fact": "So eine Gruppe nennt man Kindergarten."
+        },
+        "fr": {
+          "prompt": "Que font les poussins manchots pendant une tempête ?",
+          "answer": "Ils se serrent ensemble",
+          "wrong": [
+            "Ils plongent en mer",
+            "Ils creusent un terrier",
+            "Ils s'envolent"
+          ],
+          "hint": "À plusieurs, on a plus chaud.",
+          "explanation": "Les poussins forment un groupe serré et se tiennent chaud.",
+          "fact": "Ce groupe s'appelle une crèche."
+        },
+        "es": {
+          "prompt": "¿Qué hacen los pollos de pingüino en una tormenta?",
+          "answer": "Se apretujan juntos",
+          "wrong": [
+            "Se tiran al mar",
+            "Cavan una madriguera",
+            "Se van volando"
+          ],
+          "hint": "En grupo se está más caliente.",
+          "explanation": "Los polluelos forman un grupo apretado y se dan calor.",
+          "fact": "A ese grupo se le llama guardería."
+        },
+        "it": {
+          "prompt": "Che cosa fanno i pulcini di pinguino durante una tempesta?",
+          "answer": "Si stringono insieme",
+          "wrong": [
+            "Si tuffano in mare",
+            "Scavano una tana",
+            "Volano via"
+          ],
+          "hint": "In tanti si sta più caldi.",
+          "explanation": "I pulcini formano un gruppo fitto e si scaldano a vicenda.",
+          "fact": "Un gruppo così si chiama asilo."
+        },
+        "pt": {
+          "prompt": "O que fazem as crias de pinguim numa tempestade?",
+          "answer": "Juntam-se bem apertadas",
+          "wrong": [
+            "Mergulham no mar",
+            "Cavam uma toca",
+            "Vão-se embora a voar"
+          ],
+          "hint": "Em grupo está-se mais quente.",
+          "explanation": "As crias formam um grupo apertado e aquecem-se umas às outras.",
+          "fact": "A esse grupo chama-se creche."
+        },
+        "da": {
+          "prompt": "Hvad gør kejserpingvinunger i en storm?",
+          "answer": "De klumper sig tæt sammen",
+          "wrong": [
+            "De dykker i havet",
+            "De graver en hule",
+            "De flyver væk"
+          ],
+          "hint": "Mange sammen er varmere.",
+          "explanation": "Ungerne danner en tæt klynge og holder hinanden varme.",
+          "fact": "Sådan en klynge kaldes en børnehave."
+        },
+        "ru": {
+          "prompt": "Что делают птенцы императорских пингвинов в метель?",
+          "answer": "Сбиваются в плотную кучу",
+          "wrong": [
+            "Ныряют в море",
+            "Роют нору",
+            "Улетают"
+          ],
+          "hint": "Вместе теплее.",
+          "explanation": "Птенцы сбиваются в плотную группу и греют друг друга.",
+          "fact": "Такую группу называют детским садом."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل فراخ البطريق في العاصفة؟",
+          "answer": "تتلاصق في مجموعة",
+          "wrong": [
+            "تغوص في البحر",
+            "تحفر جحرًا",
+            "تطير بعيدًا"
+          ],
+          "hint": "الدفء أكبر مع الجماعة.",
+          "explanation": "تتجمع الفراخ في كتلة متلاصقة وتدفئ بعضها.",
+          "fact": "وتسمى هذه المجموعة حضانة."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NOAA — sea turtles lay about a hundred eggs per clutch",
+      "artBrief": "Een zeeschildpad die 's nachts eieren legt in een kuil op het strand.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel eieren legt een zeeschildpad per keer ongeveer?",
+          "answer": "Ongeveer honderd",
+          "wrong": [
+            "Ongeveer vijf",
+            "Ongeveer duizend",
+            "Precies één"
+          ],
+          "hint": "Veel meer dan een vogel.",
+          "explanation": "Een zeeschildpad legt per nest ongeveer honderd eieren in het zand.",
+          "fact": "Van de honderd haalt er meestal maar eentje de volwassen leeftijd."
+        },
+        "en": {
+          "prompt": "About how many eggs does a sea turtle lay at a time?",
+          "answer": "About a hundred",
+          "wrong": [
+            "About five",
+            "About a thousand",
+            "Exactly one"
+          ],
+          "hint": "Far more than a bird.",
+          "explanation": "A sea turtle lays about a hundred eggs in a pit in the sand.",
+          "fact": "Out of a hundred, usually only one reaches adulthood."
+        },
+        "de": {
+          "prompt": "Wie viele Eier legt eine Meeresschildkröte etwa auf einmal?",
+          "answer": "Etwa hundert",
+          "wrong": [
+            "Etwa fünf",
+            "Etwa tausend",
+            "Genau eins"
+          ],
+          "hint": "Viel mehr als ein Vogel.",
+          "explanation": "Eine Meeresschildkröte legt etwa hundert Eier in eine Sandgrube.",
+          "fact": "Von hundert wird meist nur eins erwachsen."
+        },
+        "fr": {
+          "prompt": "Combien d'œufs pond une tortue de mer à la fois ?",
+          "answer": "Une centaine",
+          "wrong": [
+            "Environ cinq",
+            "Environ mille",
+            "Exactement un"
+          ],
+          "hint": "Bien plus qu'un oiseau.",
+          "explanation": "Une tortue de mer pond une centaine d'œufs dans un trou de sable.",
+          "fact": "Sur cent, un seul devient adulte en général."
+        },
+        "es": {
+          "prompt": "¿Cuántos huevos pone una tortuga marina de una vez?",
+          "answer": "Alrededor de cien",
+          "wrong": [
+            "Unos cinco",
+            "Unos mil",
+            "Exactamente uno"
+          ],
+          "hint": "Muchos más que un ave.",
+          "explanation": "Una tortuga marina pone unos cien huevos en un hoyo de arena.",
+          "fact": "De cien, normalmente solo uno llega a adulto."
+        },
+        "it": {
+          "prompt": "Quante uova depone una tartaruga marina per volta?",
+          "answer": "Un centinaio",
+          "wrong": [
+            "Circa cinque",
+            "Circa mille",
+            "Esattamente uno"
+          ],
+          "hint": "Molte più di un uccello.",
+          "explanation": "Una tartaruga marina depone un centinaio di uova in una buca di sabbia.",
+          "fact": "Su cento, di solito solo una diventa adulta."
+        },
+        "pt": {
+          "prompt": "Quantos ovos põe uma tartaruga marinha de cada vez?",
+          "answer": "Cerca de cem",
+          "wrong": [
+            "Cerca de cinco",
+            "Cerca de mil",
+            "Exatamente um"
+          ],
+          "hint": "Muitos mais do que uma ave.",
+          "explanation": "Uma tartaruga marinha põe cerca de cem ovos num buraco na areia.",
+          "fact": "De cem, normalmente só uma chega a adulta."
+        },
+        "da": {
+          "prompt": "Hvor mange æg lægger en havskildpadde ad gangen?",
+          "answer": "Omkring hundrede",
+          "wrong": [
+            "Omkring fem",
+            "Omkring tusind",
+            "Præcis et"
+          ],
+          "hint": "Langt flere end en fugl.",
+          "explanation": "En havskildpadde lægger omkring hundrede æg i et hul i sandet.",
+          "fact": "Ud af hundrede bliver som regel kun én voksen."
+        },
+        "ru": {
+          "prompt": "Сколько яиц откладывает морская черепаха за раз?",
+          "answer": "Около ста",
+          "wrong": [
+            "Около пяти",
+            "Около тысячи",
+            "Ровно одно"
+          ],
+          "hint": "Намного больше, чем птица.",
+          "explanation": "Морская черепаха откладывает около ста яиц в ямку в песке.",
+          "fact": "Из сотни взрослой обычно становится только одна."
+        },
+        "ar": {
+          "prompt": "كم بيضة تضع السلحفاة البحرية في المرة؟",
+          "answer": "نحو مئة",
+          "wrong": [
+            "نحو خمس",
+            "نحو ألف",
+            "واحدة فقط"
+          ],
+          "hint": "أكثر بكثير من الطائر.",
+          "explanation": "تضع السلحفاة البحرية نحو مئة بيضة في حفرة بالرمل.",
+          "fact": "ومن كل مئة تصل عادة واحدة إلى سن البلوغ."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NOAA — hatchlings orient towards the brightest horizon",
+      "artBrief": "Piepkleine schildpadjes die bij maanlicht over het strand naar de branding rennen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vinden pasgeboren zeeschildpadjes de zee?",
+          "answer": "Ze lopen naar het licht",
+          "wrong": [
+            "Hun moeder brengt ze",
+            "Ze ruiken het zout",
+            "Ze volgen de wind"
+          ],
+          "hint": "De horizon boven zee is het lichtst.",
+          "explanation": "De jongen rennen naar de lichtste plek, en dat is de zee.",
+          "fact": "Lampen op het strand sturen ze daarom soms de verkeerde kant op."
+        },
+        "en": {
+          "prompt": "How do newly hatched sea turtles find the sea?",
+          "answer": "They head for the light",
+          "wrong": [
+            "Their mother takes them",
+            "They smell the salt",
+            "They follow the wind"
+          ],
+          "hint": "The horizon over the sea is brightest.",
+          "explanation": "The hatchlings run towards the brightest place, which is the sea.",
+          "fact": "Lamps on the beach can send them the wrong way."
+        },
+        "de": {
+          "prompt": "Wie finden frisch geschlüpfte Schildkröten das Meer?",
+          "answer": "Sie laufen zum Licht",
+          "wrong": [
+            "Die Mutter bringt sie",
+            "Sie riechen das Salz",
+            "Sie folgen dem Wind"
+          ],
+          "hint": "Über dem Meer ist der Horizont am hellsten.",
+          "explanation": "Die Jungen laufen zur hellsten Stelle, und das ist das Meer.",
+          "fact": "Lampen am Strand schicken sie manchmal falsch herum."
+        },
+        "fr": {
+          "prompt": "Comment les bébés tortues trouvent-ils la mer ?",
+          "answer": "Ils vont vers la lumière",
+          "wrong": [
+            "Leur mère les guide",
+            "Ils sentent le sel",
+            "Ils suivent le vent"
+          ],
+          "hint": "L'horizon est plus clair au-dessus de la mer.",
+          "explanation": "Les petits courent vers l'endroit le plus clair, c'est-à-dire la mer.",
+          "fact": "Les lampes de la plage les envoient parfois du mauvais côté."
+        },
+        "es": {
+          "prompt": "¿Cómo encuentran el mar las tortuguitas recién nacidas?",
+          "answer": "Van hacia la luz",
+          "wrong": [
+            "Su madre las lleva",
+            "Huelen la sal",
+            "Siguen el viento"
+          ],
+          "hint": "El horizonte sobre el mar es lo más claro.",
+          "explanation": "Las crías corren hacia el punto más claro, que es el mar.",
+          "fact": "Las luces de la playa a veces las mandan al lado equivocado."
+        },
+        "it": {
+          "prompt": "Come trovano il mare le tartarughine appena nate?",
+          "answer": "Vanno verso la luce",
+          "wrong": [
+            "La mamma le accompagna",
+            "Sentono l'odore del sale",
+            "Seguono il vento"
+          ],
+          "hint": "Sul mare l'orizzonte è più chiaro.",
+          "explanation": "I piccoli corrono verso il punto più chiaro, cioè il mare.",
+          "fact": "Le luci sulla spiaggia a volte le mandano dalla parte sbagliata."
+        },
+        "pt": {
+          "prompt": "Como encontram o mar as tartaruguinhas recém-nascidas?",
+          "answer": "Vão para a luz",
+          "wrong": [
+            "A mãe leva-as",
+            "Cheiram o sal",
+            "Seguem o vento"
+          ],
+          "hint": "Sobre o mar o horizonte é mais claro.",
+          "explanation": "As crias correm para o sítio mais claro, que é o mar.",
+          "fact": "As luzes da praia às vezes mandam-nas para o lado errado."
+        },
+        "da": {
+          "prompt": "Hvordan finder nyklækkede skildpadder havet?",
+          "answer": "De løber mod lyset",
+          "wrong": [
+            "Moderen fører dem",
+            "De lugter saltet",
+            "De følger vinden"
+          ],
+          "hint": "Horisonten over havet er lysest.",
+          "explanation": "Ungerne løber mod det lyseste sted, og det er havet.",
+          "fact": "Lamper på stranden sender dem nogle gange den forkerte vej."
+        },
+        "ru": {
+          "prompt": "Как новорождённые черепашки находят море?",
+          "answer": "Бегут на свет",
+          "wrong": [
+            "Их приводит мама",
+            "Они чуют соль",
+            "Они идут по ветру"
+          ],
+          "hint": "Над морем горизонт самый светлый.",
+          "explanation": "Малыши бегут к самому светлому месту, а это море.",
+          "fact": "Фонари на пляже иногда уводят их не туда."
+        },
+        "ar": {
+          "prompt": "كيف تجد صغار السلاحف طريقها إلى البحر؟",
+          "answer": "تتجه نحو الضوء",
+          "wrong": [
+            "أمها تقودها",
+            "تشم الملح",
+            "تتبع الريح"
+          ],
+          "hint": "الأفق فوق البحر هو الأكثر إضاءة.",
+          "explanation": "تركض الصغار نحو أكثر الجهات إضاءة، وهي البحر.",
+          "fact": "مصابيح الشاطئ قد ترسلها أحيانًا في الاتجاه الخطأ."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "NOAA — blue whale calves weigh about 2500 kg at birth",
+      "artBrief": "Een jonge blauwe vinvis naast zijn enorme moeder in helderblauw water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel weegt een pasgeboren blauwe vinvis?",
+          "answer": "Ongeveer 2.500 kilo",
+          "wrong": [
+            "Ongeveer 25 kilo",
+            "Ongeveer 250 kilo",
+            "Ongeveer 25.000 kilo"
+          ],
+          "hint": "Zwaarder dan een auto.",
+          "explanation": "Een babyblauwe vinvis weegt bij de geboorte al zo'n 2.500 kilo.",
+          "fact": "Hij drinkt per dag honderden liters melk."
+        },
+        "en": {
+          "prompt": "How much does a newborn blue whale weigh?",
+          "answer": "About 2,500 kilos",
+          "wrong": [
+            "About 25 kilos",
+            "About 250 kilos",
+            "About 25,000 kilos"
+          ],
+          "hint": "Heavier than a car.",
+          "explanation": "A blue whale calf already weighs some 2,500 kilos at birth.",
+          "fact": "It drinks hundreds of litres of milk a day."
+        },
+        "de": {
+          "prompt": "Wie viel wiegt ein neugeborener Blauwal?",
+          "answer": "Etwa 2.500 Kilo",
+          "wrong": [
+            "Etwa 25 Kilo",
+            "Etwa 250 Kilo",
+            "Etwa 25.000 Kilo"
+          ],
+          "hint": "Schwerer als ein Auto.",
+          "explanation": "Ein Blauwalkalb wiegt bei der Geburt schon rund 2.500 Kilo.",
+          "fact": "Es trinkt täglich hunderte Liter Milch."
+        },
+        "fr": {
+          "prompt": "Combien pèse un bébé baleine bleue à la naissance ?",
+          "answer": "Environ 2 500 kilos",
+          "wrong": [
+            "Environ 25 kilos",
+            "Environ 250 kilos",
+            "Environ 25 000 kilos"
+          ],
+          "hint": "Plus lourd qu'une voiture.",
+          "explanation": "Un baleineau bleu pèse déjà quelque 2 500 kilos à la naissance.",
+          "fact": "Il boit des centaines de litres de lait par jour."
+        },
+        "es": {
+          "prompt": "¿Cuánto pesa una ballena azul recién nacida?",
+          "answer": "Unos 2.500 kilos",
+          "wrong": [
+            "Unos 25 kilos",
+            "Unos 250 kilos",
+            "Unos 25.000 kilos"
+          ],
+          "hint": "Más que un coche.",
+          "explanation": "Una cría de ballena azul pesa ya unos 2.500 kilos al nacer.",
+          "fact": "Bebe cientos de litros de leche al día."
+        },
+        "it": {
+          "prompt": "Quanto pesa una balenottera azzurra appena nata?",
+          "answer": "Circa 2.500 chili",
+          "wrong": [
+            "Circa 25 chili",
+            "Circa 250 chili",
+            "Circa 25.000 chili"
+          ],
+          "hint": "Più di un'automobile.",
+          "explanation": "Un piccolo di balenottera azzurra pesa già circa 2.500 chili.",
+          "fact": "Beve centinaia di litri di latte al giorno."
+        },
+        "pt": {
+          "prompt": "Quanto pesa uma baleia-azul acabada de nascer?",
+          "answer": "Cerca de 2.500 quilos",
+          "wrong": [
+            "Cerca de 25 quilos",
+            "Cerca de 250 quilos",
+            "Cerca de 25.000 quilos"
+          ],
+          "hint": "Mais do que um carro.",
+          "explanation": "Uma cria de baleia-azul pesa logo uns 2.500 quilos ao nascer.",
+          "fact": "Bebe centenas de litros de leite por dia."
+        },
+        "da": {
+          "prompt": "Hvor meget vejer en nyfødt blåhval?",
+          "answer": "Cirka 2.500 kilo",
+          "wrong": [
+            "Cirka 25 kilo",
+            "Cirka 250 kilo",
+            "Cirka 25.000 kilo"
+          ],
+          "hint": "Tungere end en bil.",
+          "explanation": "En blåhvalunge vejer allerede omkring 2.500 kilo ved fødslen.",
+          "fact": "Den drikker hundredvis af liter mælk om dagen."
+        },
+        "ru": {
+          "prompt": "Сколько весит новорождённый синий кит?",
+          "answer": "Около 2500 килограммов",
+          "wrong": [
+            "Около 25 килограммов",
+            "Около 250 килограммов",
+            "Около 25 000 килограммов"
+          ],
+          "hint": "Тяжелее автомобиля.",
+          "explanation": "Детёныш синего кита при рождении весит около 2500 килограммов.",
+          "fact": "Он выпивает сотни литров молока в день."
+        },
+        "ar": {
+          "prompt": "كم يزن الحوت الأزرق حديث الولادة؟",
+          "answer": "نحو 2500 كيلوغرام",
+          "wrong": [
+            "نحو 25 كيلوغرامًا",
+            "نحو 250 كيلوغرامًا",
+            "نحو 25000 كيلوغرام"
+          ],
+          "hint": "أثقل من سيارة.",
+          "explanation": "يزن صغير الحوت الأزرق عند الولادة نحو 2500 كيلوغرام.",
+          "fact": "ويشرب مئات اللترات من الحليب يوميًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Konrad Lorenz — Kindchenschema (baby schema)",
+      "artBrief": "Drie babydieren naast elkaar met grote ogen en ronde koppen: een poesje, een uiltje en een puppy.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom hebben babydieren grote ogen en een rond kopje?",
+          "answer": "Zo krijgen ze meer zorg",
+          "wrong": [
+            "Om beter te zien",
+            "Om groter te lijken",
+            "Om te kunnen zwemmen"
+          ],
+          "hint": "Het werkt ook bij mensen.",
+          "explanation": "Een rond kopje met grote ogen maakt dat volwassenen willen verzorgen.",
+          "fact": "Daarom lijken knuffels en tekenfilmfiguren er vaak op."
+        },
+        "en": {
+          "prompt": "Why do baby animals have big eyes and round heads?",
+          "answer": "So they get more care",
+          "wrong": [
+            "To see better",
+            "To look bigger",
+            "To be able to swim"
+          ],
+          "hint": "It works on people too.",
+          "explanation": "A round head with big eyes makes grown-ups want to look after them.",
+          "fact": "That is why cuddly toys and cartoon characters often look like that."
+        },
+        "de": {
+          "prompt": "Warum haben Tierbabys große Augen und runde Köpfe?",
+          "answer": "So bekommen sie mehr Pflege",
+          "wrong": [
+            "Um besser zu sehen",
+            "Um größer zu wirken",
+            "Um schwimmen zu können"
+          ],
+          "hint": "Bei Menschen wirkt es auch.",
+          "explanation": "Ein runder Kopf mit großen Augen weckt den Wunsch zu umsorgen.",
+          "fact": "Darum sehen Kuscheltiere und Trickfiguren oft so aus."
+        },
+        "fr": {
+          "prompt": "Pourquoi les bébés animaux ont-ils de grands yeux ?",
+          "answer": "Pour qu'on s'occupe d'eux",
+          "wrong": [
+            "Pour mieux voir",
+            "Pour paraître plus grands",
+            "Pour pouvoir nager"
+          ],
+          "hint": "Cela marche aussi chez les humains.",
+          "explanation": "Une tête ronde aux grands yeux donne envie de prendre soin.",
+          "fact": "C'est pourquoi peluches et personnages de dessins animés y ressemblent."
+        },
+        "es": {
+          "prompt": "¿Por qué tienen ojos grandes las crías de animal?",
+          "answer": "Así reciben más cuidados",
+          "wrong": [
+            "Para ver mejor",
+            "Para parecer mayores",
+            "Para poder nadar"
+          ],
+          "hint": "Con las personas funciona igual.",
+          "explanation": "Una cabeza redonda con ojos grandes despierta ganas de cuidar.",
+          "fact": "Por eso los peluches y los dibujos suelen ser así."
+        },
+        "it": {
+          "prompt": "Perché i cuccioli hanno occhi grandi e testa tonda?",
+          "answer": "Così ricevono più cure",
+          "wrong": [
+            "Per vedere meglio",
+            "Per sembrare più grandi",
+            "Per saper nuotare"
+          ],
+          "hint": "Funziona anche con le persone.",
+          "explanation": "Una testa tonda con occhi grandi fa venire voglia di accudire.",
+          "fact": "Per questo peluche e personaggi dei cartoni sono così."
+        },
+        "pt": {
+          "prompt": "Porque têm os bebés animais olhos grandes e cabeça redonda?",
+          "answer": "Assim recebem mais cuidados",
+          "wrong": [
+            "Para ver melhor",
+            "Para parecerem maiores",
+            "Para saberem nadar"
+          ],
+          "hint": "Com as pessoas funciona igual.",
+          "explanation": "Uma cabeça redonda com olhos grandes dá vontade de cuidar.",
+          "fact": "Por isso os peluches e os bonecos são muitas vezes assim."
+        },
+        "da": {
+          "prompt": "Hvorfor har dyreunger store øjne og runde hoveder?",
+          "answer": "Så får de mere omsorg",
+          "wrong": [
+            "For at se bedre",
+            "For at se større ud",
+            "For at kunne svømme"
+          ],
+          "hint": "Det virker også på mennesker.",
+          "explanation": "Et rundt hoved med store øjne gør, at voksne vil passe på dem.",
+          "fact": "Derfor ser bamser og tegnefilmfigurer tit sådan ud."
+        },
+        "ru": {
+          "prompt": "Почему у детёнышей большие глаза и круглая голова?",
+          "answer": "Так о них больше заботятся",
+          "wrong": [
+            "Чтобы лучше видеть",
+            "Чтобы казаться больше",
+            "Чтобы уметь плавать"
+          ],
+          "hint": "С людьми работает так же.",
+          "explanation": "Круглая голова и большие глаза вызывают желание заботиться.",
+          "fact": "Поэтому игрушки и мультяшные герои часто такие."
+        },
+        "ar": {
+          "prompt": "لماذا لصغار الحيوانات عيون كبيرة ورؤوس مستديرة؟",
+          "answer": "لتنال رعاية أكثر",
+          "wrong": [
+            "لترى أفضل",
+            "لتبدو أكبر",
+            "لتتعلم السباحة"
+          ],
+          "hint": "الأمر ينطبق على البشر أيضًا.",
+          "explanation": "الرأس المستدير والعيون الكبيرة تدفع الكبار إلى الرعاية.",
+          "fact": "لذلك تشبهها الدمى وشخصيات الرسوم غالبًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-baby_dieren-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Marine mammal science — seal milk is about half fat",
+      "artBrief": "Een zeehondenpup met dikke witte vacht naast zijn moeder op een rots.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier maakt de vetste melk voor zijn jong?",
+          "answer": "De zeehond",
+          "wrong": [
+            "De koe",
+            "De muis",
+            "De kangoeroe"
+          ],
+          "hint": "Het jong moet snel een vetlaag krijgen.",
+          "explanation": "Zeehondenmelk bestaat voor ongeveer de helft uit vet.",
+          "fact": "Een pup wordt er per dag kilo's zwaarder van."
+        },
+        "en": {
+          "prompt": "Which animal makes the fattest milk for its young?",
+          "answer": "The seal",
+          "wrong": [
+            "The cow",
+            "The mouse",
+            "The kangaroo"
+          ],
+          "hint": "The pup must build up fat fast.",
+          "explanation": "Seal milk is about half fat.",
+          "fact": "A pup gains kilos a day on it."
+        },
+        "de": {
+          "prompt": "Welches Tier macht die fetteste Milch für sein Junges?",
+          "answer": "Die Robbe",
+          "wrong": [
+            "Die Kuh",
+            "Die Maus",
+            "Das Känguru"
+          ],
+          "hint": "Das Junge braucht schnell eine Fettschicht.",
+          "explanation": "Robbenmilch besteht etwa zur Hälfte aus Fett.",
+          "fact": "Ein Jungtier nimmt damit täglich Kilos zu."
+        },
+        "fr": {
+          "prompt": "Quel animal fait le lait le plus gras pour son petit ?",
+          "answer": "Le phoque",
+          "wrong": [
+            "La vache",
+            "La souris",
+            "Le kangourou"
+          ],
+          "hint": "Le petit doit vite se faire une couche de graisse.",
+          "explanation": "Le lait de phoque contient environ la moitié de gras.",
+          "fact": "Un bébé phoque prend des kilos par jour."
+        },
+        "es": {
+          "prompt": "¿Qué animal hace la leche más grasa para su cría?",
+          "answer": "La foca",
+          "wrong": [
+            "La vaca",
+            "El ratón",
+            "El canguro"
+          ],
+          "hint": "La cría necesita grasa rápido.",
+          "explanation": "La leche de foca es grasa casi a la mitad.",
+          "fact": "Con ella la cría engorda kilos al día."
+        },
+        "it": {
+          "prompt": "Quale animale fa il latte più grasso per il suo piccolo?",
+          "answer": "La foca",
+          "wrong": [
+            "La mucca",
+            "Il topo",
+            "Il canguro"
+          ],
+          "hint": "Il piccolo deve farsi subito uno strato di grasso.",
+          "explanation": "Il latte di foca è grasso per circa metà.",
+          "fact": "Con quello il piccolo mette su chili al giorno."
+        },
+        "pt": {
+          "prompt": "Que animal faz o leite mais gordo para a cria?",
+          "answer": "A foca",
+          "wrong": [
+            "A vaca",
+            "O rato",
+            "O canguru"
+          ],
+          "hint": "A cria precisa de gordura depressa.",
+          "explanation": "O leite de foca é quase metade gordura.",
+          "fact": "Com ele a cria engorda quilos por dia."
+        },
+        "da": {
+          "prompt": "Hvilket dyr laver den fedeste mælk til sin unge?",
+          "answer": "Sælen",
+          "wrong": [
+            "Koen",
+            "Musen",
+            "Kænguruen"
+          ],
+          "hint": "Ungen skal hurtigt have et fedtlag.",
+          "explanation": "Sælmælk består af cirka halvdelen fedt.",
+          "fact": "Ungen tager kilo på om dagen af den."
+        },
+        "ru": {
+          "prompt": "У какого животного самое жирное молоко для детёныша?",
+          "answer": "У тюленя",
+          "wrong": [
+            "У коровы",
+            "У мыши",
+            "У кенгуру"
+          ],
+          "hint": "Детёнышу нужно быстро нарастить жир.",
+          "explanation": "Тюленье молоко примерно наполовину состоит из жира.",
+          "fact": "На нём малыш прибавляет килограммы в день."
+        },
+        "ar": {
+          "prompt": "أي حيوان يصنع أدسم حليب لصغيره؟",
+          "answer": "الفقمة",
+          "wrong": [
+            "البقرة",
+            "الفأر",
+            "الكنغر"
+          ],
+          "hint": "على الصغير أن يكوّن طبقة دهن سريعًا.",
+          "explanation": "حليب الفقمة نحو نصفه دهون.",
+          "fact": "يزداد وزن الصغير به كيلوغرامات يوميًا."
+        }
+      }
+    }
+  ]
+}
