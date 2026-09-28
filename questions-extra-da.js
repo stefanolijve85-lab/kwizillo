@@ -85,7 +85,7 @@
         ["Hvilken by blev begravet under aske fra Vesuv i år 79?","Pompeji",["Rom","Athen","Karthago"],"Byen blev først fundet igen århundreder senere.","Pompeji forsvandt under meter af aske, da Vesuv gik i udbrud.","Asken bevarede huse, brød og endda mennesker."],
         ["Hvilken romer blev myrdet i senatet den 15. marts?","Julius Cæsar",["Nero","Augustus","Hadrian"],"Hans ven Brutus var med.","Julius Cæsar blev stukket ned af senatorer i år 44 før vores tidsregning.","Måneden juli er opkaldt efter ham."],
         ["Hvilket romertal står for 50?","L",["C","X","D"],"Hverken X eller C.","I romertal er L halvtreds, C hundrede og D fem hundrede.","Året 2026 skrives MMXXVI."],
-        ["Hvilket sprog talte romerne?","Latin",["Græsk","Italiensk","Fransk"],"Mange danske ord kommer derfra.","Romerne talte latin.","Fransk, spansk og italiensk er opstået af latin."],
+        ["Hvad skrev romerske børn med i skolen?","Med en stylus",["Med en fjerpen","Med en pensel","Med kridt"],"Tavlen var dækket af voks.","Børnene ridsede bogstaver i en vokstavle med en spids stylus.","Den flade ende glattede voksen ud igen, som et viskelæder."],
         ["Hvad hed den romerske hærenhed på cirka 5.000 soldater?","En legion",["En deling","En kohorte","En garde"],"Dens soldater hed legionærer.","En legion var en hær på cirka fem tusind veltrænede soldater.","En legionær skulle marchere tredive kilometer om dagen med sin oppakning."],
         ["Hvilken hollandsk by var den romerske by Ulpia Noviomagus?","Nijmegen",["Utrecht","Maastricht","Leiden"],"Hollands ældste by.","Nijmegen var den romerske by Ulpia Noviomagus.","Nijmegen fejrede sin 2000-års fødselsdag i 2005."]
       ],

@@ -85,7 +85,7 @@
         ["Qual cidade foi soterrada pelas cinzas do Vesúvio no ano 79?","Pompeia",["Roma","Atenas","Cartago"],"A cidade só foi reencontrada séculos depois.","Pompeia sumiu sob metros de cinzas quando o Vesúvio entrou em erupção.","As cinzas preservaram casas, pão e até pessoas."],
         ["Qual romano foi assassinado no senado em 15 de março?","Júlio César",["Nero","Augusto","Adriano"],"Seu amigo Brutus participou.","Júlio César foi morto a facadas por senadores em 44 a.C.","O mês de julho tem o nome dele."],
         ["Qual algarismo romano vale 50?","L",["C","X","D"],"Não é X nem C.","Em algarismos romanos, L é cinquenta, C é cem e D é quinhentos.","O ano 2026 se escreve MMXXVI."],
-        ["Qual língua os romanos falavam?","Latim",["Grego","Italiano","Francês"],"Muitas palavras do português vêm dela.","Os romanos falavam latim.","Português, espanhol, francês e italiano nasceram do latim."],
+        ["Com que escreviam as crianças romanas na escola?","Com um estilete",["Com uma pena","Com um pincel","Com giz"],"A tabuinha estava coberta de cera.","As crianças gravavam letras numa tabuinha de cera com um estilete.","A ponta achatada alisava a cera, como uma borracha."],
         ["Como se chamava a unidade do exército romano com cerca de 5.000 soldados?","Uma legião",["Um pelotão","Uma coorte","Uma guarda"],"Seus soldados eram legionários.","Uma legião era um exército de cerca de cinco mil soldados bem treinados.","Um legionário tinha que marchar trinta quilômetros por dia com a mochila."],
         ["Qual cidade holandesa era a cidade romana Ulpia Noviomagus?","Nijmegen",["Utrecht","Maastricht","Leiden"],"A cidade mais antiga da Holanda.","Nijmegen era a cidade romana Ulpia Noviomagus.","Nijmegen comemorou 2000 anos em 2005."]
       ],

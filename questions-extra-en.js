@@ -85,7 +85,7 @@
         ["Which city was buried under ash from Vesuvius in the year 79?","Pompeii",["Rome","Athens","Carthage"],"The city was only found again centuries later.","Pompeii vanished under metres of ash when Vesuvius erupted.","The ash preserved houses, bread and even people."],
         ["Which Roman was murdered in the senate on 15 March?","Julius Caesar",["Nero","Augustus","Hadrian"],"His friend Brutus joined in.","Julius Caesar was stabbed to death by senators in 44 BC.","The month of July is named after him."],
         ["Which Roman numeral stands for 50?","L",["C","X","D"],"Not X and not C.","In Roman numerals L is fifty, C a hundred and D five hundred.","The year 2026 is written MMXXVI."],
-        ["What language did the Romans speak?","Latin",["Greek","Italian","French"],"Many English words come from it.","The Romans spoke Latin.","French, Spanish and Italian grew out of Latin."],
+        ["What did Roman children write with at school?","With a stylus",["With a quill","With a brush","With chalk"],"The little board was covered in wax.","Children scratched letters into a wax tablet with a pointed stylus.","The flat end smoothed the wax again, like an eraser."],
         ["What was the Roman army unit of about 5,000 soldiers called?","A legion",["A platoon","A cohort","A guard"],"Its soldiers were called legionaries.","A legion was an army of about five thousand well-trained soldiers.","A legionary had to march thirty kilometres a day with his pack."],
         ["Which Dutch city was the Roman town Ulpia Noviomagus?","Nijmegen",["Utrecht","Maastricht","Leiden"],"The oldest city in the Netherlands.","Nijmegen was the Roman town Ulpia Noviomagus.","Nijmegen celebrated its 2000th birthday in 2005."]
       ],

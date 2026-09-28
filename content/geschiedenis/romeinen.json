@@ -1,0 +1,2607 @@
+{
+  "world": "geschiedenis",
+  "topic": "romeinen",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "geschiedenis-romeinen-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Rome als hoofdstad",
+      "artBrief": "Het Forum Romanum met tempels en zuilen in fel zonlicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke stad was de hoofdstad van het Romeinse Rijk?",
+          "answer": "Rome",
+          "wrong": [
+            "Athene",
+            "Parijs",
+            "Caïro"
+          ],
+          "hint": "Alle wegen leidden ernaartoe.",
+          "explanation": "Rome was het middelpunt van het rijk, waar de keizer en de senaat zaten.",
+          "fact": "Alle mijlpalen langs de wegen telden de afstand tot Rome."
+        },
+        "en": {
+          "prompt": "Which city was the capital of the Roman Empire?",
+          "answer": "Rome",
+          "wrong": [
+            "Athens",
+            "Paris",
+            "Cairo"
+          ],
+          "hint": "All roads led there.",
+          "explanation": "Rome was the centre of the empire, home to the emperor and the senate.",
+          "fact": "Every milestone along the roads counted the distance to Rome."
+        },
+        "de": {
+          "prompt": "Welche Stadt war die Hauptstadt des Römischen Reiches?",
+          "answer": "Rom",
+          "wrong": [
+            "Athen",
+            "Paris",
+            "Kairo"
+          ],
+          "hint": "Alle Wege führten dorthin.",
+          "explanation": "Rom war der Mittelpunkt des Reiches, mit dem Kaiser und dem Senat.",
+          "fact": "Jeder Meilenstein an den Straßen zählte die Entfernung nach Rom."
+        },
+        "fr": {
+          "prompt": "Quelle ville était la capitale de l'Empire romain ?",
+          "answer": "Rome",
+          "wrong": [
+            "Athènes",
+            "Paris",
+            "Le Caire"
+          ],
+          "hint": "Tous les chemins y menaient.",
+          "explanation": "Rome était le centre de l'empire, où siégeaient l'empereur et le sénat.",
+          "fact": "Chaque borne des routes comptait la distance jusqu'à Rome."
+        },
+        "es": {
+          "prompt": "¿Qué ciudad era la capital del Imperio romano?",
+          "answer": "Roma",
+          "wrong": [
+            "Atenas",
+            "París",
+            "El Cairo"
+          ],
+          "hint": "Todos los caminos llevaban allí.",
+          "explanation": "Roma era el centro del imperio, donde estaban el emperador y el senado.",
+          "fact": "Cada miliario de las calzadas contaba la distancia hasta Roma."
+        },
+        "it": {
+          "prompt": "Quale città era la capitale dell'Impero romano?",
+          "answer": "Roma",
+          "wrong": [
+            "Atene",
+            "Parigi",
+            "Il Cairo"
+          ],
+          "hint": "Tutte le strade portavano lì.",
+          "explanation": "Roma era il centro dell'impero, con l'imperatore e il senato.",
+          "fact": "Ogni pietra miliare contava la distanza fino a Roma."
+        },
+        "pt": {
+          "prompt": "Que cidade era a capital do Império Romano?",
+          "answer": "Roma",
+          "wrong": [
+            "Atenas",
+            "Paris",
+            "O Cairo"
+          ],
+          "hint": "Todos os caminhos lá iam dar.",
+          "explanation": "Roma era o centro do império, com o imperador e o senado.",
+          "fact": "Cada marco das estradas contava a distância até Roma."
+        },
+        "da": {
+          "prompt": "Hvilken by var hovedstad i Romerriget?",
+          "answer": "Rom",
+          "wrong": [
+            "Athen",
+            "Paris",
+            "Kairo"
+          ],
+          "hint": "Alle veje førte dertil.",
+          "explanation": "Rom var rigets midtpunkt, hvor kejseren og senatet sad.",
+          "fact": "Hver milesten langs vejene talte afstanden til Rom."
+        },
+        "ru": {
+          "prompt": "Какой город был столицей Римской империи?",
+          "answer": "Рим",
+          "wrong": [
+            "Афины",
+            "Париж",
+            "Каир"
+          ],
+          "hint": "Все дороги вели туда.",
+          "explanation": "Рим был центром империи: там были император и сенат.",
+          "fact": "Каждый верстовой столб считал расстояние до Рима."
+        },
+        "ar": {
+          "prompt": "أي مدينة كانت عاصمة الإمبراطورية الرومانية؟",
+          "answer": "روما",
+          "wrong": [
+            "أثينا",
+            "باريس",
+            "القاهرة"
+          ],
+          "hint": "كل الطرق كانت تؤدي إليها.",
+          "explanation": "كانت روما مركز الإمبراطورية، وفيها الإمبراطور ومجلس الشيوخ.",
+          "fact": "كل علامة على الطرق كانت تحسب المسافة إلى روما."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De wolvin van Romulus en Remus",
+      "artBrief": "Het bronzen beeld van een wolvin met twee kleine jongens eronder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier voedde volgens de sage Romulus en Remus?",
+          "answer": "Een wolvin",
+          "wrong": [
+            "Een beer",
+            "Een adelaar",
+            "Een geit"
+          ],
+          "hint": "Ze vond de baby's bij de rivier.",
+          "explanation": "Volgens het verhaal zoogde een wolvin de tweeling die Rome stichtte.",
+          "fact": "Het beeld van de wolvin is nog steeds het symbool van Rome."
+        },
+        "en": {
+          "prompt": "Which animal fed Romulus and Remus in the legend?",
+          "answer": "A she-wolf",
+          "wrong": [
+            "A bear",
+            "An eagle",
+            "A goat"
+          ],
+          "hint": "She found the babies by the river.",
+          "explanation": "The story says a she-wolf suckled the twins who founded Rome.",
+          "fact": "The statue of the she-wolf is still the symbol of Rome."
+        },
+        "de": {
+          "prompt": "Welches Tier säugte der Sage nach Romulus und Remus?",
+          "answer": "Eine Wölfin",
+          "wrong": [
+            "Ein Bär",
+            "Ein Adler",
+            "Eine Ziege"
+          ],
+          "hint": "Sie fand die Babys am Fluss.",
+          "explanation": "Die Sage erzählt, eine Wölfin säugte die Zwillinge, die Rom gründeten.",
+          "fact": "Die Statue der Wölfin ist bis heute das Zeichen Roms."
+        },
+        "fr": {
+          "prompt": "Quel animal a nourri Romulus et Rémus dans la légende ?",
+          "answer": "Une louve",
+          "wrong": [
+            "Un ours",
+            "Un aigle",
+            "Une chèvre"
+          ],
+          "hint": "Elle a trouvé les bébés au bord du fleuve.",
+          "explanation": "La légende dit qu'une louve allaita les jumeaux qui fondèrent Rome.",
+          "fact": "La statue de la louve reste le symbole de Rome."
+        },
+        "es": {
+          "prompt": "¿Qué animal amamantó a Rómulo y Remo en la leyenda?",
+          "answer": "Una loba",
+          "wrong": [
+            "Un oso",
+            "Un águila",
+            "Una cabra"
+          ],
+          "hint": "Los encontró junto al río.",
+          "explanation": "La leyenda dice que una loba amamantó a los gemelos que fundaron Roma.",
+          "fact": "La estatua de la loba sigue siendo el símbolo de Roma."
+        },
+        "it": {
+          "prompt": "Quale animale allattò Romolo e Remo nella leggenda?",
+          "answer": "Una lupa",
+          "wrong": [
+            "Un orso",
+            "Un'aquila",
+            "Una capra"
+          ],
+          "hint": "Trovò i neonati sul fiume.",
+          "explanation": "La leggenda dice che una lupa allattò i gemelli che fondarono Roma.",
+          "fact": "La statua della lupa è ancora il simbolo di Roma."
+        },
+        "pt": {
+          "prompt": "Que animal amamentou Rómulo e Remo na lenda?",
+          "answer": "Uma loba",
+          "wrong": [
+            "Um urso",
+            "Uma águia",
+            "Uma cabra"
+          ],
+          "hint": "Encontrou os bebés junto ao rio.",
+          "explanation": "A lenda diz que uma loba amamentou os gémeos que fundaram Roma.",
+          "fact": "A estátua da loba continua a ser o símbolo de Roma."
+        },
+        "da": {
+          "prompt": "Hvilket dyr diede Romulus og Remus i sagnet?",
+          "answer": "En hunulv",
+          "wrong": [
+            "En bjørn",
+            "En ørn",
+            "En ged"
+          ],
+          "hint": "Hun fandt babyerne ved floden.",
+          "explanation": "Sagnet siger, at en hunulv diede tvillingerne, der grundlagde Rom.",
+          "fact": "Statuen af ulven er stadig Roms symbol."
+        },
+        "ru": {
+          "prompt": "Кто, по легенде, вскормил Ромула и Рема?",
+          "answer": "Волчица",
+          "wrong": [
+            "Медведь",
+            "Орёл",
+            "Коза"
+          ],
+          "hint": "Она нашла младенцев у реки.",
+          "explanation": "Легенда говорит, что волчица вскормила близнецов, основавших Рим.",
+          "fact": "Статуя волчицы до сих пор символ Рима."
+        },
+        "ar": {
+          "prompt": "أي حيوان أرضع رومولوس وريموس في الأسطورة؟",
+          "answer": "ذئبة",
+          "wrong": [
+            "دب",
+            "نسر",
+            "عنزة"
+          ],
+          "hint": "وجدتهما عند النهر.",
+          "explanation": "تقول الأسطورة إن ذئبة أرضعت التوأم اللذين أسّسا روما.",
+          "fact": "تمثال الذئبة ما زال رمز روما."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De toga",
+      "artBrief": "Een Romein in een witte toga met rode zoom op een pleintje.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een toga?",
+          "answer": "Een lang gewaad",
+          "wrong": [
+            "Een helm",
+            "Een zwaard",
+            "Een schip"
+          ],
+          "hint": "Je slaat hem om je schouder.",
+          "explanation": "De toga was een lap wol die om het lichaam werd gedrapeerd.",
+          "fact": "Alleen Romeinse burgers mochten een toga dragen."
+        },
+        "en": {
+          "prompt": "What is a toga?",
+          "answer": "A long robe",
+          "wrong": [
+            "A helmet",
+            "A sword",
+            "A ship"
+          ],
+          "hint": "You drape it over your shoulder.",
+          "explanation": "The toga was a length of wool wrapped around the body.",
+          "fact": "Only Roman citizens were allowed to wear one."
+        },
+        "de": {
+          "prompt": "Was ist eine Toga?",
+          "answer": "Ein langes Gewand",
+          "wrong": [
+            "Ein Helm",
+            "Ein Schwert",
+            "Ein Schiff"
+          ],
+          "hint": "Man legt sie über die Schulter.",
+          "explanation": "Die Toga war eine Bahn Wolle, die um den Körper gelegt wurde.",
+          "fact": "Nur römische Bürger durften eine Toga tragen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une toge ?",
+          "answer": "Un long vêtement",
+          "wrong": [
+            "Un casque",
+            "Une épée",
+            "Un navire"
+          ],
+          "hint": "On la pose sur l'épaule.",
+          "explanation": "La toge était une bande de laine drapée autour du corps.",
+          "fact": "Seuls les citoyens romains avaient le droit d'en porter une."
+        },
+        "es": {
+          "prompt": "¿Qué es una toga?",
+          "answer": "Una túnica larga",
+          "wrong": [
+            "Un casco",
+            "Una espada",
+            "Un barco"
+          ],
+          "hint": "Se echa sobre el hombro.",
+          "explanation": "La toga era un paño de lana que se envolvía alrededor del cuerpo.",
+          "fact": "Solo los ciudadanos romanos podían llevarla."
+        },
+        "it": {
+          "prompt": "Che cos'è una toga?",
+          "answer": "Una veste lunga",
+          "wrong": [
+            "Un elmo",
+            "Una spada",
+            "Una nave"
+          ],
+          "hint": "Si posa sulla spalla.",
+          "explanation": "La toga era un telo di lana avvolto intorno al corpo.",
+          "fact": "Solo i cittadini romani potevano indossarla."
+        },
+        "pt": {
+          "prompt": "O que é uma toga?",
+          "answer": "Uma veste comprida",
+          "wrong": [
+            "Um elmo",
+            "Uma espada",
+            "Um navio"
+          ],
+          "hint": "Põe-se sobre o ombro.",
+          "explanation": "A toga era um pano de lã enrolado à volta do corpo.",
+          "fact": "Só os cidadãos romanos a podiam usar."
+        },
+        "da": {
+          "prompt": "Hvad er en toga?",
+          "answer": "En lang klædning",
+          "wrong": [
+            "En hjelm",
+            "Et sværd",
+            "Et skib"
+          ],
+          "hint": "Man lægger den over skulderen.",
+          "explanation": "Togaen var et stykke uld, der blev svøbt om kroppen.",
+          "fact": "Kun romerske borgere måtte bære toga."
+        },
+        "ru": {
+          "prompt": "Что такое тога?",
+          "answer": "Длинное одеяние",
+          "wrong": [
+            "Шлем",
+            "Меч",
+            "Корабль"
+          ],
+          "hint": "Её перекидывают через плечо.",
+          "explanation": "Тога была полотном шерсти, обёрнутым вокруг тела.",
+          "fact": "Носить её могли только римские граждане."
+        },
+        "ar": {
+          "prompt": "ما هي التوجا؟",
+          "answer": "رداء طويل",
+          "wrong": [
+            "خوذة",
+            "سيف",
+            "سفينة"
+          ],
+          "hint": "تُلقى على الكتف.",
+          "explanation": "التوجا كانت قطعة صوف تُلف حول الجسم.",
+          "fact": "لم يكن يلبسها إلا المواطنون الرومان."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Wagenrennen",
+      "artBrief": "Een tweewielige strijdwagen met vier paarden in een arena vol zand.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat trokken de paarden in de Romeinse arena?",
+          "answer": "Een strijdwagen",
+          "wrong": [
+            "Een auto",
+            "Een trein",
+            "Een fiets"
+          ],
+          "hint": "Twee wielen en veel stof.",
+          "explanation": "Wagenrennen was de populairste sport, met vier teams in eigen kleuren.",
+          "fact": "In het Circus Maximus pasten meer dan honderdduizend toeschouwers."
+        },
+        "en": {
+          "prompt": "What did the horses pull in a Roman arena?",
+          "answer": "A chariot",
+          "wrong": [
+            "A car",
+            "A train",
+            "A bicycle"
+          ],
+          "hint": "Two wheels and a lot of dust.",
+          "explanation": "Chariot racing was the favourite sport, with four teams in their own colours.",
+          "fact": "The Circus Maximus held more than a hundred thousand people."
+        },
+        "de": {
+          "prompt": "Was zogen die Pferde in der römischen Arena?",
+          "answer": "Einen Streitwagen",
+          "wrong": [
+            "Ein Auto",
+            "Einen Zug",
+            "Ein Fahrrad"
+          ],
+          "hint": "Zwei Räder und viel Staub.",
+          "explanation": "Wagenrennen war der beliebteste Sport, mit vier Mannschaften in Farben.",
+          "fact": "In den Circus Maximus passten über hunderttausend Zuschauer."
+        },
+        "fr": {
+          "prompt": "Que tiraient les chevaux dans l'arène romaine ?",
+          "answer": "Un char",
+          "wrong": [
+            "Une voiture",
+            "Un train",
+            "Un vélo"
+          ],
+          "hint": "Deux roues et beaucoup de poussière.",
+          "explanation": "La course de chars était le sport préféré, avec quatre équipes en couleurs.",
+          "fact": "Le Circus Maximus accueillait plus de cent mille spectateurs."
+        },
+        "es": {
+          "prompt": "¿Qué tiraban los caballos en la arena romana?",
+          "answer": "Un carro de carreras",
+          "wrong": [
+            "Un coche",
+            "Un tren",
+            "Una bicicleta"
+          ],
+          "hint": "Dos ruedas y mucho polvo.",
+          "explanation": "Las carreras de carros eran el deporte favorito, con cuatro equipos y colores.",
+          "fact": "En el Circo Máximo cabían más de cien mil personas."
+        },
+        "it": {
+          "prompt": "Che cosa tiravano i cavalli nell'arena romana?",
+          "answer": "Un carro da corsa",
+          "wrong": [
+            "Un'automobile",
+            "Un treno",
+            "Una bicicletta"
+          ],
+          "hint": "Due ruote e tanta polvere.",
+          "explanation": "La corsa dei carri era lo sport preferito, con quattro squadre a colori.",
+          "fact": "Nel Circo Massimo entravano più di centomila persone."
+        },
+        "pt": {
+          "prompt": "O que puxavam os cavalos na arena romana?",
+          "answer": "Uma biga de corrida",
+          "wrong": [
+            "Um carro",
+            "Um comboio",
+            "Uma bicicleta"
+          ],
+          "hint": "Duas rodas e muito pó.",
+          "explanation": "As corridas de bigas eram o desporto favorito, com quatro equipas e cores.",
+          "fact": "No Circo Máximo cabiam mais de cem mil pessoas."
+        },
+        "da": {
+          "prompt": "Hvad trak hestene i den romerske arena?",
+          "answer": "En stridsvogn",
+          "wrong": [
+            "En bil",
+            "Et tog",
+            "En cykel"
+          ],
+          "hint": "To hjul og masser af støv.",
+          "explanation": "Vognvæddeløb var den mest populære sport med fire hold i hver sin farve.",
+          "fact": "I Circus Maximus var der plads til over hundrede tusind tilskuere."
+        },
+        "ru": {
+          "prompt": "Что тянули кони на римской арене?",
+          "answer": "Колесницу",
+          "wrong": [
+            "Машину",
+            "Поезд",
+            "Велосипед"
+          ],
+          "hint": "Два колеса и много пыли.",
+          "explanation": "Гонки колесниц были любимым спортом: четыре команды в своих цветах.",
+          "fact": "В Большом цирке помещалось более ста тысяч зрителей."
+        },
+        "ar": {
+          "prompt": "ماذا كانت الخيول تجرّ في الحلبة الرومانية؟",
+          "answer": "عربة سباق",
+          "wrong": [
+            "سيارة",
+            "قطارًا",
+            "دراجة"
+          ],
+          "hint": "عجلتان وغبار كثير.",
+          "explanation": "سباق العربات كان الرياضة المفضلة، بأربعة فرق لكل منها لون.",
+          "fact": "كان السيرك الأكبر يتسع لأكثر من مئة ألف متفرج."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Rome ligt in Italië",
+      "artBrief": "Een kaartachtig landschap van de Italiaanse laars met Rome gemarkeerd.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "In welk land ligt Rome?",
+          "answer": "In Italië",
+          "wrong": [
+            "In Spanje",
+            "In Egypte",
+            "In Griekenland"
+          ],
+          "hint": "Het land heeft de vorm van een laars.",
+          "explanation": "Rome ligt aan de rivier de Tiber, in het midden van Italië.",
+          "fact": "Midden in Rome ligt een heel klein eigen land: Vaticaanstad."
+        },
+        "en": {
+          "prompt": "Which country is Rome in?",
+          "answer": "In Italy",
+          "wrong": [
+            "In Spain",
+            "In Egypt",
+            "In Greece"
+          ],
+          "hint": "The country is shaped like a boot.",
+          "explanation": "Rome lies on the river Tiber, in the middle of Italy.",
+          "fact": "Inside Rome sits a tiny country of its own: Vatican City."
+        },
+        "de": {
+          "prompt": "In welchem Land liegt Rom?",
+          "answer": "In Italien",
+          "wrong": [
+            "In Spanien",
+            "In Ägypten",
+            "In Griechenland"
+          ],
+          "hint": "Das Land hat die Form eines Stiefels.",
+          "explanation": "Rom liegt am Fluss Tiber, mitten in Italien.",
+          "fact": "Mitten in Rom liegt ein winziges eigenes Land: die Vatikanstadt."
+        },
+        "fr": {
+          "prompt": "Dans quel pays se trouve Rome ?",
+          "answer": "En Italie",
+          "wrong": [
+            "En Espagne",
+            "En Égypte",
+            "En Grèce"
+          ],
+          "hint": "Le pays a la forme d'une botte.",
+          "explanation": "Rome est au bord du Tibre, au milieu de l'Italie.",
+          "fact": "Au cœur de Rome se trouve un minuscule pays : le Vatican."
+        },
+        "es": {
+          "prompt": "¿En qué país está Roma?",
+          "answer": "En Italia",
+          "wrong": [
+            "En España",
+            "En Egipto",
+            "En Grecia"
+          ],
+          "hint": "El país tiene forma de bota.",
+          "explanation": "Roma está junto al río Tíber, en el centro de Italia.",
+          "fact": "Dentro de Roma hay un país diminuto: la Ciudad del Vaticano."
+        },
+        "it": {
+          "prompt": "In quale paese si trova Roma?",
+          "answer": "In Italia",
+          "wrong": [
+            "In Spagna",
+            "In Egitto",
+            "In Grecia"
+          ],
+          "hint": "Il paese ha la forma di uno stivale.",
+          "explanation": "Roma sorge sul fiume Tevere, al centro dell'Italia.",
+          "fact": "Dentro Roma c'è un paese piccolissimo: la Città del Vaticano."
+        },
+        "pt": {
+          "prompt": "Em que país fica Roma?",
+          "answer": "Em Itália",
+          "wrong": [
+            "Em Espanha",
+            "No Egito",
+            "Na Grécia"
+          ],
+          "hint": "O país tem forma de bota.",
+          "explanation": "Roma fica junto ao rio Tibre, no meio da Itália.",
+          "fact": "Dentro de Roma há um país minúsculo: o Vaticano."
+        },
+        "da": {
+          "prompt": "I hvilket land ligger Rom?",
+          "answer": "I Italien",
+          "wrong": [
+            "I Spanien",
+            "I Egypten",
+            "I Grækenland"
+          ],
+          "hint": "Landet har form som en støvle.",
+          "explanation": "Rom ligger ved floden Tiberen midt i Italien.",
+          "fact": "Midt i Rom ligger et bittelille land: Vatikanstaten."
+        },
+        "ru": {
+          "prompt": "В какой стране находится Рим?",
+          "answer": "В Италии",
+          "wrong": [
+            "В Испании",
+            "В Египте",
+            "В Греции"
+          ],
+          "hint": "Страна похожа на сапог.",
+          "explanation": "Рим стоит на реке Тибр, в середине Италии.",
+          "fact": "Внутри Рима есть крошечная страна — Ватикан."
+        },
+        "ar": {
+          "prompt": "في أي بلد تقع روما؟",
+          "answer": "في إيطاليا",
+          "wrong": [
+            "في إسبانيا",
+            "في مصر",
+            "في اليونان"
+          ],
+          "hint": "البلد على شكل حذاء طويل.",
+          "explanation": "روما على نهر التيبر في وسط إيطاليا.",
+          "fact": "داخل روما بلد صغير جدًا هو الفاتيكان."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Gladiatoren",
+      "artBrief": "Twee gladiatoren met schild en helm in een arena, publiek op de tribunes.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie waren de gladiatoren?",
+          "answer": "Vechters in de arena",
+          "wrong": [
+            "Bakkers",
+            "Boeren",
+            "Priesters"
+          ],
+          "hint": "Het publiek juichte voor ze.",
+          "explanation": "Gladiatoren vochten voor publiek, vaak met schild, helm en zwaard.",
+          "fact": "De beroemdste gladiatoren werden bekend zoals sterren nu."
+        },
+        "en": {
+          "prompt": "Who were the gladiators?",
+          "answer": "Fighters in the arena",
+          "wrong": [
+            "Bakers",
+            "Farmers",
+            "Priests"
+          ],
+          "hint": "The crowd cheered for them.",
+          "explanation": "Gladiators fought in front of a crowd, often with shield, helmet and sword.",
+          "fact": "The most famous ones were known the way stars are today."
+        },
+        "de": {
+          "prompt": "Wer waren die Gladiatoren?",
+          "answer": "Kämpfer in der Arena",
+          "wrong": [
+            "Bäcker",
+            "Bauern",
+            "Priester"
+          ],
+          "hint": "Das Publikum jubelte ihnen zu.",
+          "explanation": "Gladiatoren kämpften vor Publikum, oft mit Schild, Helm und Schwert.",
+          "fact": "Die berühmtesten waren bekannt wie heute Stars."
+        },
+        "fr": {
+          "prompt": "Qui étaient les gladiateurs ?",
+          "answer": "Des combattants d'arène",
+          "wrong": [
+            "Des boulangers",
+            "Des paysans",
+            "Des prêtres"
+          ],
+          "hint": "La foule les acclamait.",
+          "explanation": "Les gladiateurs combattaient devant le public, souvent avec bouclier et épée.",
+          "fact": "Les plus célèbres étaient connus comme des vedettes."
+        },
+        "es": {
+          "prompt": "¿Quiénes eran los gladiadores?",
+          "answer": "Luchadores de la arena",
+          "wrong": [
+            "Panaderos",
+            "Campesinos",
+            "Sacerdotes"
+          ],
+          "hint": "El público los aclamaba.",
+          "explanation": "Los gladiadores luchaban ante el público, con escudo, casco y espada.",
+          "fact": "Los más famosos eran conocidos como hoy lo son las estrellas."
+        },
+        "it": {
+          "prompt": "Chi erano i gladiatori?",
+          "answer": "Combattenti dell'arena",
+          "wrong": [
+            "Fornai",
+            "Contadini",
+            "Sacerdoti"
+          ],
+          "hint": "Il pubblico li acclamava.",
+          "explanation": "I gladiatori combattevano davanti al pubblico, con scudo, elmo e spada.",
+          "fact": "I più famosi erano noti come oggi lo sono le star."
+        },
+        "pt": {
+          "prompt": "Quem eram os gladiadores?",
+          "answer": "Lutadores da arena",
+          "wrong": [
+            "Padeiros",
+            "Camponeses",
+            "Sacerdotes"
+          ],
+          "hint": "O público aclamava-os.",
+          "explanation": "Os gladiadores lutavam perante o público, com escudo, elmo e espada.",
+          "fact": "Os mais famosos eram conhecidos como hoje são as estrelas."
+        },
+        "da": {
+          "prompt": "Hvem var gladiatorerne?",
+          "answer": "Kæmpere i arenaen",
+          "wrong": [
+            "Bagere",
+            "Bønder",
+            "Præster"
+          ],
+          "hint": "Publikum jublede over dem.",
+          "explanation": "Gladiatorer kæmpede foran publikum, ofte med skjold, hjelm og sværd.",
+          "fact": "De mest berømte var kendte, som stjerner er i dag."
+        },
+        "ru": {
+          "prompt": "Кем были гладиаторы?",
+          "answer": "Бойцами на арене",
+          "wrong": [
+            "Пекарями",
+            "Крестьянами",
+            "Жрецами"
+          ],
+          "hint": "Публика им рукоплескала.",
+          "explanation": "Гладиаторы сражались перед зрителями со щитом, шлемом и мечом.",
+          "fact": "Самых известных знали так же, как сегодня знают звёзд."
+        },
+        "ar": {
+          "prompt": "من كان المصارعون الرومان؟",
+          "answer": "مقاتلون في الحلبة",
+          "wrong": [
+            "خبازون",
+            "فلاحون",
+            "كهنة"
+          ],
+          "hint": "كان الجمهور يهتف لهم.",
+          "explanation": "كان المصارعون يقاتلون أمام الجمهور بالدرع والخوذة والسيف.",
+          "fact": "أشهرهم كانوا معروفين كما تُعرف النجوم اليوم."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De Romeinse villa",
+      "artBrief": "Een groot landhuis met zuilen, binnentuin en fontein op het platteland.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat was een Romeinse villa?",
+          "answer": "Een groot landhuis",
+          "wrong": [
+            "Een kleine boot",
+            "Een soort brood",
+            "Een wapen"
+          ],
+          "hint": "Buiten de stad, met een tuin.",
+          "explanation": "Rijke Romeinen hadden een villa op het land, met binnentuin en fontein.",
+          "fact": "Onder veel villa's lagen kelders vol wijn en olijfolie."
+        },
+        "en": {
+          "prompt": "What was a Roman villa?",
+          "answer": "A large country house",
+          "wrong": [
+            "A small boat",
+            "A kind of bread",
+            "A weapon"
+          ],
+          "hint": "Outside the city, with a garden.",
+          "explanation": "Rich Romans had a villa in the country, with a courtyard and a fountain.",
+          "fact": "Under many villas lay cellars full of wine and olive oil."
+        },
+        "de": {
+          "prompt": "Was war eine römische Villa?",
+          "answer": "Ein großes Landhaus",
+          "wrong": [
+            "Ein kleines Boot",
+            "Eine Brotsorte",
+            "Eine Waffe"
+          ],
+          "hint": "Draußen vor der Stadt, mit Garten.",
+          "explanation": "Reiche Römer hatten eine Villa auf dem Land, mit Innenhof und Brunnen.",
+          "fact": "Unter vielen Villen lagen Keller voller Wein und Olivenöl."
+        },
+        "fr": {
+          "prompt": "Qu'était une villa romaine ?",
+          "answer": "Une grande maison",
+          "wrong": [
+            "Un petit bateau",
+            "Une sorte de pain",
+            "Une arme"
+          ],
+          "hint": "Hors de la ville, avec un jardin.",
+          "explanation": "Les riches Romains avaient une villa à la campagne, avec cour et fontaine.",
+          "fact": "Sous beaucoup de villas dormaient des caves de vin et d'huile."
+        },
+        "es": {
+          "prompt": "¿Qué era una villa romana?",
+          "answer": "Una gran casa de campo",
+          "wrong": [
+            "Un barco pequeño",
+            "Un tipo de pan",
+            "Un arma"
+          ],
+          "hint": "Fuera de la ciudad, con jardín.",
+          "explanation": "Los romanos ricos tenían una villa en el campo, con patio y fuente.",
+          "fact": "Bajo muchas villas había bodegas llenas de vino y aceite."
+        },
+        "it": {
+          "prompt": "Che cos'era una villa romana?",
+          "answer": "Una grande casa di campagna",
+          "wrong": [
+            "Una barchetta",
+            "Un tipo di pane",
+            "Un'arma"
+          ],
+          "hint": "Fuori città, con giardino.",
+          "explanation": "I romani ricchi avevano una villa in campagna, con cortile e fontana.",
+          "fact": "Sotto molte ville c'erano cantine piene di vino e olio."
+        },
+        "pt": {
+          "prompt": "O que era uma villa romana?",
+          "answer": "Uma grande casa de campo",
+          "wrong": [
+            "Um barco pequeno",
+            "Um tipo de pão",
+            "Uma arma"
+          ],
+          "hint": "Fora da cidade, com jardim.",
+          "explanation": "Os romanos ricos tinham uma villa no campo, com pátio e fonte.",
+          "fact": "Sob muitas villas havia caves cheias de vinho e azeite."
+        },
+        "da": {
+          "prompt": "Hvad var en romersk villa?",
+          "answer": "Et stort landhus",
+          "wrong": [
+            "En lille båd",
+            "En slags brød",
+            "Et våben"
+          ],
+          "hint": "Uden for byen, med have.",
+          "explanation": "Rige romere havde en villa på landet med gårdhave og springvand.",
+          "fact": "Under mange villaer lå kældre fulde af vin og olivenolie."
+        },
+        "ru": {
+          "prompt": "Что такое римская вилла?",
+          "answer": "Большой загородный дом",
+          "wrong": [
+            "Маленькая лодка",
+            "Вид хлеба",
+            "Оружие"
+          ],
+          "hint": "За городом, с садом.",
+          "explanation": "У богатых римлян была вилла за городом, с двором и фонтаном.",
+          "fact": "Под многими виллами были погреба с вином и оливковым маслом."
+        },
+        "ar": {
+          "prompt": "ما هي الفيلا الرومانية؟",
+          "answer": "بيت ريفي كبير",
+          "wrong": [
+            "قارب صغير",
+            "نوع من الخبز",
+            "سلاح"
+          ],
+          "hint": "خارج المدينة وفيه حديقة.",
+          "explanation": "كان للأثرياء فيلا في الريف بفناء ونافورة.",
+          "fact": "تحت كثير من الفيلات أقبية مليئة بالنبيذ والزيت."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Leren sandalen",
+      "artBrief": "Romeinse legersandalen met riempjes en spijkers onder de zool.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat droegen Romeinen aan hun voeten?",
+          "answer": "Leren sandalen",
+          "wrong": [
+            "Houten klompen",
+            "Rubberen laarzen",
+            "Wollen sloffen"
+          ],
+          "hint": "Riempjes en spijkers.",
+          "explanation": "Soldaten droegen sandalen met spijkers onder de zool, voor grip.",
+          "fact": "Zo'n zool sleet na ongeveer vijfhonderd kilometer marcheren."
+        },
+        "en": {
+          "prompt": "What did Romans wear on their feet?",
+          "answer": "Leather sandals",
+          "wrong": [
+            "Wooden clogs",
+            "Rubber boots",
+            "Woollen slippers"
+          ],
+          "hint": "Straps and hobnails.",
+          "explanation": "Soldiers wore sandals with nails in the sole, for grip on the road.",
+          "fact": "A sole like that wore out after about five hundred kilometres."
+        },
+        "de": {
+          "prompt": "Was trugen Römer an den Füßen?",
+          "answer": "Ledersandalen",
+          "wrong": [
+            "Holzschuhe",
+            "Gummistiefel",
+            "Wollpantoffeln"
+          ],
+          "hint": "Riemen und Nägel.",
+          "explanation": "Soldaten trugen Sandalen mit Nägeln in der Sohle, für besseren Halt.",
+          "fact": "So eine Sohle war nach rund fünfhundert Kilometern durch."
+        },
+        "fr": {
+          "prompt": "Que portaient les Romains aux pieds ?",
+          "answer": "Des sandales de cuir",
+          "wrong": [
+            "Des sabots de bois",
+            "Des bottes en caoutchouc",
+            "Des chaussons de laine"
+          ],
+          "hint": "Des lanières et des clous.",
+          "explanation": "Les soldats portaient des sandales cloutées, pour ne pas glisser.",
+          "fact": "Une semelle comme ça s'usait après environ cinq cents kilomètres."
+        },
+        "es": {
+          "prompt": "¿Qué llevaban los romanos en los pies?",
+          "answer": "Sandalias de cuero",
+          "wrong": [
+            "Zuecos de madera",
+            "Botas de goma",
+            "Zapatillas de lana"
+          ],
+          "hint": "Correas y clavos.",
+          "explanation": "Los soldados usaban sandalias con clavos en la suela, para agarrarse.",
+          "fact": "Una suela así se gastaba tras unos quinientos kilómetros."
+        },
+        "it": {
+          "prompt": "Che cosa portavano i romani ai piedi?",
+          "answer": "Sandali di cuoio",
+          "wrong": [
+            "Zoccoli di legno",
+            "Stivali di gomma",
+            "Pantofole di lana"
+          ],
+          "hint": "Cinghie e chiodi.",
+          "explanation": "I soldati portavano sandali con chiodi sotto la suola, per non scivolare.",
+          "fact": "Una suola così si consumava dopo circa cinquecento chilometri."
+        },
+        "pt": {
+          "prompt": "O que usavam os romanos nos pés?",
+          "answer": "Sandálias de couro",
+          "wrong": [
+            "Tamancos de madeira",
+            "Botas de borracha",
+            "Chinelos de lã"
+          ],
+          "hint": "Tiras e pregos.",
+          "explanation": "Os soldados usavam sandálias com pregos na sola, para não escorregar.",
+          "fact": "Uma sola dessas gastava-se ao fim de uns quinhentos quilómetros."
+        },
+        "da": {
+          "prompt": "Hvad gik romerne med på fødderne?",
+          "answer": "Læbersandaler",
+          "wrong": [
+            "Træsko",
+            "Gummistøvler",
+            "Uldhjemmesko"
+          ],
+          "hint": "Remme og søm.",
+          "explanation": "Soldater gik i sandaler med søm i sålen for bedre greb.",
+          "fact": "En sål som den var slidt op efter omkring fem hundrede kilometer."
+        },
+        "ru": {
+          "prompt": "Что римляне носили на ногах?",
+          "answer": "Кожаные сандалии",
+          "wrong": [
+            "Деревянные башмаки",
+            "Резиновые сапоги",
+            "Шерстяные тапочки"
+          ],
+          "hint": "Ремешки и гвозди.",
+          "explanation": "Солдаты носили сандалии с гвоздями в подошве, чтобы не скользить.",
+          "fact": "Такая подошва снашивалась примерно через пятьсот километров."
+        },
+        "ar": {
+          "prompt": "ماذا كان الرومان يلبسون في أقدامهم؟",
+          "answer": "صنادل جلدية",
+          "wrong": [
+            "قباقيب خشبية",
+            "جزمًا مطاطية",
+            "خفافًا صوفية"
+          ],
+          "hint": "أحزمة ومسامير.",
+          "explanation": "كان الجنود يلبسون صنادل بمسامير في النعل كي لا ينزلقوا.",
+          "fact": "كان النعل يتلف بعد نحو خمس مئة كيلومتر."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Slaven deden het zware werk",
+      "artBrief": "Mensen die water dragen en de vloer boenen in een Romeins huis.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie deden het zwaarste werk in een Romeins huis?",
+          "answer": "De slaven",
+          "wrong": [
+            "De keizers",
+            "De senatoren",
+            "De soldaten"
+          ],
+          "hint": "Zij hadden geen keuze.",
+          "explanation": "Slaven deden het huiswerk, de akkers en de mijnen, zonder loon of vrijheid.",
+          "fact": "Soms kon een slaaf vrij worden en zelf een winkel beginnen."
+        },
+        "en": {
+          "prompt": "Who did the hardest work in a Roman household?",
+          "answer": "The slaves",
+          "wrong": [
+            "The emperors",
+            "The senators",
+            "The soldiers"
+          ],
+          "hint": "They had no choice.",
+          "explanation": "Slaves did the housework, the fields and the mines, without pay or freedom.",
+          "fact": "Some were freed and went on to run a shop of their own."
+        },
+        "de": {
+          "prompt": "Wer machte die schwerste Arbeit in einem römischen Haus?",
+          "answer": "Die Sklaven",
+          "wrong": [
+            "Die Kaiser",
+            "Die Senatoren",
+            "Die Soldaten"
+          ],
+          "hint": "Sie hatten keine Wahl.",
+          "explanation": "Sklaven erledigten Haus, Felder und Bergwerke, ohne Lohn und Freiheit.",
+          "fact": "Manche wurden frei und führten später einen eigenen Laden."
+        },
+        "fr": {
+          "prompt": "Qui faisait le travail le plus dur dans une maison romaine ?",
+          "answer": "Les esclaves",
+          "wrong": [
+            "Les empereurs",
+            "Les sénateurs",
+            "Les soldats"
+          ],
+          "hint": "Ils n'avaient pas le choix.",
+          "explanation": "Les esclaves faisaient la maison, les champs et les mines, sans salaire ni liberté.",
+          "fact": "Certains étaient affranchis et tenaient ensuite une boutique."
+        },
+        "es": {
+          "prompt": "¿Quién hacía el trabajo más duro en una casa romana?",
+          "answer": "Los esclavos",
+          "wrong": [
+            "Los emperadores",
+            "Los senadores",
+            "Los soldados"
+          ],
+          "hint": "No podían elegir.",
+          "explanation": "Los esclavos hacían la casa, los campos y las minas, sin paga ni libertad.",
+          "fact": "Algunos quedaban libres y llegaban a tener su propia tienda."
+        },
+        "it": {
+          "prompt": "Chi faceva il lavoro più duro in una casa romana?",
+          "answer": "Gli schiavi",
+          "wrong": [
+            "Gli imperatori",
+            "I senatori",
+            "I soldati"
+          ],
+          "hint": "Non potevano scegliere.",
+          "explanation": "Gli schiavi facevano la casa, i campi e le miniere, senza paga né libertà.",
+          "fact": "Alcuni venivano liberati e aprivano una bottega propria."
+        },
+        "pt": {
+          "prompt": "Quem fazia o trabalho mais duro numa casa romana?",
+          "answer": "Os escravos",
+          "wrong": [
+            "Os imperadores",
+            "Os senadores",
+            "Os soldados"
+          ],
+          "hint": "Não podiam escolher.",
+          "explanation": "Os escravos faziam a casa, os campos e as minas, sem salário nem liberdade.",
+          "fact": "Alguns eram libertados e chegavam a ter loja própria."
+        },
+        "da": {
+          "prompt": "Hvem udførte det hårdeste arbejde i et romersk hjem?",
+          "answer": "Slaverne",
+          "wrong": [
+            "Kejserne",
+            "Senatorerne",
+            "Soldaterne"
+          ],
+          "hint": "De havde ikke noget valg.",
+          "explanation": "Slaver klarede huset, markerne og minerne uden løn og frihed.",
+          "fact": "Nogle blev frigivet og drev siden deres egen butik."
+        },
+        "ru": {
+          "prompt": "Кто выполнял самую тяжёлую работу в римском доме?",
+          "answer": "Рабы",
+          "wrong": [
+            "Императоры",
+            "Сенаторы",
+            "Солдаты"
+          ],
+          "hint": "У них не было выбора.",
+          "explanation": "Рабы делали работу по дому, в поле и в шахтах, без платы и свободы.",
+          "fact": "Некоторых отпускали на волю, и они открывали свою лавку."
+        },
+        "ar": {
+          "prompt": "من كان يقوم بأشق عمل في البيت الروماني؟",
+          "answer": "العبيد",
+          "wrong": [
+            "الأباطرة",
+            "أعضاء المجلس",
+            "الجنود"
+          ],
+          "hint": "لم يكن لهم خيار.",
+          "explanation": "كان العبيد يعملون في البيت والحقول والمناجم بلا أجر ولا حرية.",
+          "fact": "بعضهم كان يُعتق ويفتح دكانًا خاصًا به."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De amfoor",
+      "artBrief": "Rijen grote kleikruiken met puntige bodem in een voorraadkelder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat was een amfoor?",
+          "answer": "Een grote kruik",
+          "wrong": [
+            "Een soort schip",
+            "Een helm",
+            "Een munt"
+          ],
+          "hint": "Met een punt onderaan.",
+          "explanation": "In amforen vervoerden Romeinen wijn, olie en vissaus over zee.",
+          "fact": "De punt paste precies in het zand of in een houder aan boord."
+        },
+        "en": {
+          "prompt": "What was an amphora?",
+          "answer": "A big clay jar",
+          "wrong": [
+            "A kind of ship",
+            "A helmet",
+            "A coin"
+          ],
+          "hint": "It had a pointed base.",
+          "explanation": "Romans shipped wine, oil and fish sauce across the sea in amphorae.",
+          "fact": "The point fitted neatly into sand or into a rack on board."
+        },
+        "de": {
+          "prompt": "Was war eine Amphore?",
+          "answer": "Ein großer Tonkrug",
+          "wrong": [
+            "Eine Schiffsart",
+            "Ein Helm",
+            "Eine Münze"
+          ],
+          "hint": "Unten lief sie spitz zu.",
+          "explanation": "In Amphoren brachten Römer Wein, Öl und Fischsoße übers Meer.",
+          "fact": "Die Spitze steckte genau im Sand oder in einem Gestell an Bord."
+        },
+        "fr": {
+          "prompt": "Qu'était une amphore ?",
+          "answer": "Une grande jarre",
+          "wrong": [
+            "Une sorte de navire",
+            "Un casque",
+            "Une pièce de monnaie"
+          ],
+          "hint": "Elle finissait en pointe.",
+          "explanation": "Dans les amphores, les Romains transportaient vin, huile et sauce de poisson.",
+          "fact": "La pointe se fichait dans le sable ou dans un casier à bord."
+        },
+        "es": {
+          "prompt": "¿Qué era un ánfora?",
+          "answer": "Una vasija grande",
+          "wrong": [
+            "Un tipo de barco",
+            "Un casco",
+            "Una moneda"
+          ],
+          "hint": "Terminaba en punta.",
+          "explanation": "En ánforas los romanos llevaban vino, aceite y salsa de pescado por mar.",
+          "fact": "La punta encajaba en la arena o en un soporte del barco."
+        },
+        "it": {
+          "prompt": "Che cos'era un'anfora?",
+          "answer": "Un grande vaso di terracotta",
+          "wrong": [
+            "Un tipo di nave",
+            "Un elmo",
+            "Una moneta"
+          ],
+          "hint": "Finiva a punta.",
+          "explanation": "Nelle anfore i romani portavano vino, olio e salsa di pesce per mare.",
+          "fact": "La punta entrava nella sabbia o in un sostegno a bordo."
+        },
+        "pt": {
+          "prompt": "O que era uma ânfora?",
+          "answer": "Um grande pote de barro",
+          "wrong": [
+            "Um tipo de navio",
+            "Um elmo",
+            "Uma moeda"
+          ],
+          "hint": "Acabava em bico.",
+          "explanation": "Em ânforas os romanos levavam vinho, azeite e molho de peixe pelo mar.",
+          "fact": "O bico encaixava na areia ou num suporte a bordo."
+        },
+        "da": {
+          "prompt": "Hvad var en amfora?",
+          "answer": "En stor lerkrukke",
+          "wrong": [
+            "En slags skib",
+            "En hjelm",
+            "En mønt"
+          ],
+          "hint": "Den var spids forneden.",
+          "explanation": "I amforaer sejlede romerne vin, olie og fiskesauce over havet.",
+          "fact": "Spidsen passede i sandet eller i et stativ om bord."
+        },
+        "ru": {
+          "prompt": "Что такое амфора?",
+          "answer": "Большой глиняный кувшин",
+          "wrong": [
+            "Вид корабля",
+            "Шлем",
+            "Монета"
+          ],
+          "hint": "Внизу она заострённая.",
+          "explanation": "В амфорах римляне возили по морю вино, масло и рыбный соус.",
+          "fact": "Острый конец втыкали в песок или ставили в держатель."
+        },
+        "ar": {
+          "prompt": "ما هي الأمفورا؟",
+          "answer": "جرة فخارية كبيرة",
+          "wrong": [
+            "نوع من السفن",
+            "خوذة",
+            "عملة"
+          ],
+          "hint": "قاعها مدبّب.",
+          "explanation": "في الأمفورات نقل الرومان النبيذ والزيت وصلصة السمك بحرًا.",
+          "fact": "كان الطرف المدبب يثبت في الرمل أو في حامل على السفينة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Keizer Augustus",
+      "artBrief": "Een marmeren borstbeeld van Augustus met lauwerkrans.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heette de eerste keizer van Rome?",
+          "answer": "Augustus",
+          "wrong": [
+            "Nero",
+            "Hannibal",
+            "Trajanus"
+          ],
+          "hint": "Hij was de aangenomen zoon van Caesar.",
+          "explanation": "Augustus werd in 27 voor Christus de eerste keizer van het rijk.",
+          "fact": "Hij zei dat hij Rome van baksteen in marmer had veranderd."
+        },
+        "en": {
+          "prompt": "Who was the first emperor of Rome?",
+          "answer": "Augustus",
+          "wrong": [
+            "Nero",
+            "Hannibal",
+            "Trajan"
+          ],
+          "hint": "He was Caesar's adopted son.",
+          "explanation": "Augustus became the first emperor in 27 BC.",
+          "fact": "He said he had found Rome in brick and left it in marble."
+        },
+        "de": {
+          "prompt": "Wie hieß der erste Kaiser Roms?",
+          "answer": "Augustus",
+          "wrong": [
+            "Nero",
+            "Hannibal",
+            "Trajan"
+          ],
+          "hint": "Er war der Adoptivsohn Caesars.",
+          "explanation": "Augustus wurde 27 vor Christus der erste Kaiser des Reiches.",
+          "fact": "Er sagte, er habe Rom aus Ziegeln in Marmor verwandelt."
+        },
+        "fr": {
+          "prompt": "Qui fut le premier empereur de Rome ?",
+          "answer": "Auguste",
+          "wrong": [
+            "Néron",
+            "Hannibal",
+            "Trajan"
+          ],
+          "hint": "C'était le fils adoptif de César.",
+          "explanation": "Auguste devint le premier empereur en 27 avant Jésus-Christ.",
+          "fact": "Il disait avoir trouvé Rome en brique et l'avoir laissée en marbre."
+        },
+        "es": {
+          "prompt": "¿Quién fue el primer emperador de Roma?",
+          "answer": "Augusto",
+          "wrong": [
+            "Nerón",
+            "Aníbal",
+            "Trajano"
+          ],
+          "hint": "Era el hijo adoptivo de César.",
+          "explanation": "Augusto se convirtió en el primer emperador en el 27 antes de Cristo.",
+          "fact": "Decía que había encontrado Roma de ladrillo y la dejaba de mármol."
+        },
+        "it": {
+          "prompt": "Chi fu il primo imperatore di Roma?",
+          "answer": "Augusto",
+          "wrong": [
+            "Nerone",
+            "Annibale",
+            "Traiano"
+          ],
+          "hint": "Era il figlio adottivo di Cesare.",
+          "explanation": "Augusto divenne il primo imperatore nel 27 avanti Cristo.",
+          "fact": "Diceva di aver trovato Roma di mattoni e di lasciarla di marmo."
+        },
+        "pt": {
+          "prompt": "Quem foi o primeiro imperador de Roma?",
+          "answer": "Augusto",
+          "wrong": [
+            "Nero",
+            "Aníbal",
+            "Trajano"
+          ],
+          "hint": "Era o filho adotivo de César.",
+          "explanation": "Augusto tornou-se o primeiro imperador em 27 antes de Cristo.",
+          "fact": "Dizia ter encontrado Roma de tijolo e deixá-la de mármore."
+        },
+        "da": {
+          "prompt": "Hvem var Roms første kejser?",
+          "answer": "Augustus",
+          "wrong": [
+            "Nero",
+            "Hannibal",
+            "Trajan"
+          ],
+          "hint": "Han var Cæsars adoptivsøn.",
+          "explanation": "Augustus blev rigets første kejser i år 27 før Kristus.",
+          "fact": "Han sagde, han fandt Rom i tegl og efterlod den i marmor."
+        },
+        "ru": {
+          "prompt": "Кто был первым императором Рима?",
+          "answer": "Август",
+          "wrong": [
+            "Нерон",
+            "Ганнибал",
+            "Траян"
+          ],
+          "hint": "Он был приёмным сыном Цезаря.",
+          "explanation": "Август стал первым императором в 27 году до нашей эры.",
+          "fact": "Он говорил, что принял Рим кирпичным, а оставил мраморным."
+        },
+        "ar": {
+          "prompt": "من كان أول إمبراطور لروما؟",
+          "answer": "أغسطس",
+          "wrong": [
+            "نيرون",
+            "هانيبال",
+            "تراجان"
+          ],
+          "hint": "كان الابن بالتبني ليوليوس قيصر.",
+          "explanation": "صار أغسطس أول إمبراطور سنة 27 قبل الميلاد.",
+          "fact": "قال إنه وجد روما من طوب وتركها من رخام."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Romeins beton",
+      "artBrief": "Een halfgebouwde koepel met steigers en emmers mortel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke uitvinding liet Romeinen enorme koepels bouwen?",
+          "answer": "Beton",
+          "wrong": [
+            "Het papier",
+            "Het glas",
+            "Het buskruit"
+          ],
+          "hint": "Het wordt vloeibaar gestort en hard.",
+          "explanation": "Met beton van vulkanische as konden ze koepels en havens bouwen.",
+          "fact": "Het Pantheon in Rome heeft na tweeduizend jaar nog een betonnen koepel."
+        },
+        "en": {
+          "prompt": "Which invention let the Romans build huge domes?",
+          "answer": "Concrete",
+          "wrong": [
+            "Paper",
+            "Glass",
+            "Gunpowder"
+          ],
+          "hint": "It is poured wet and sets hard.",
+          "explanation": "Concrete made from volcanic ash let them build domes and harbours.",
+          "fact": "The Pantheon still carries its concrete dome after two thousand years."
+        },
+        "de": {
+          "prompt": "Welche Erfindung ermöglichte riesige römische Kuppeln?",
+          "answer": "Beton",
+          "wrong": [
+            "Papier",
+            "Glas",
+            "Schießpulver"
+          ],
+          "hint": "Flüssig gegossen, dann steinhart.",
+          "explanation": "Mit Beton aus Vulkanasche bauten sie Kuppeln und Häfen.",
+          "fact": "Das Pantheon trägt seine Betonkuppel seit zweitausend Jahren."
+        },
+        "fr": {
+          "prompt": "Quelle invention permit ces énormes coupoles romaines ?",
+          "answer": "Le béton",
+          "wrong": [
+            "Le papier",
+            "Le verre",
+            "La poudre à canon"
+          ],
+          "hint": "On le coule liquide, il devient dur.",
+          "explanation": "Le béton de cendre volcanique permit de bâtir coupoles et ports.",
+          "fact": "Le Panthéon porte sa coupole de béton depuis deux mille ans."
+        },
+        "es": {
+          "prompt": "¿Qué invento permitió esas enormes cúpulas romanas?",
+          "answer": "El hormigón",
+          "wrong": [
+            "El papel",
+            "El vidrio",
+            "La pólvora"
+          ],
+          "hint": "Se vierte líquido y se endurece.",
+          "explanation": "El hormigón de ceniza volcánica permitió levantar cúpulas y puertos.",
+          "fact": "El Panteón sostiene su cúpula de hormigón desde hace dos mil años."
+        },
+        "it": {
+          "prompt": "Quale invenzione permise le enormi cupole romane?",
+          "answer": "Il calcestruzzo",
+          "wrong": [
+            "La carta",
+            "Il vetro",
+            "La polvere da sparo"
+          ],
+          "hint": "Si versa liquido e diventa duro.",
+          "explanation": "Il calcestruzzo di cenere vulcanica permise cupole e porti.",
+          "fact": "Il Pantheon regge la sua cupola da duemila anni."
+        },
+        "pt": {
+          "prompt": "Que invenção permitiu as enormes cúpulas romanas?",
+          "answer": "O betão",
+          "wrong": [
+            "O papel",
+            "O vidro",
+            "A pólvora"
+          ],
+          "hint": "Deita-se líquido e fica duro.",
+          "explanation": "O betão de cinza vulcânica permitiu erguer cúpulas e portos.",
+          "fact": "O Panteão sustenta a sua cúpula de betão há dois mil anos."
+        },
+        "da": {
+          "prompt": "Hvilken opfindelse gav romerne kæmpe kupler?",
+          "answer": "Beton",
+          "wrong": [
+            "Papir",
+            "Glas",
+            "Krudt"
+          ],
+          "hint": "Den hældes flydende og bliver hård.",
+          "explanation": "Beton af vulkansk aske gjorde kupler og havne mulige.",
+          "fact": "Pantheon bærer stadig sin betonkuppel efter to tusind år."
+        },
+        "ru": {
+          "prompt": "Какое изобретение дало римлянам огромные купола?",
+          "answer": "Бетон",
+          "wrong": [
+            "Бумага",
+            "Стекло",
+            "Порох"
+          ],
+          "hint": "Его льют жидким, он твердеет.",
+          "explanation": "Бетон из вулканического пепла позволил строить купола и гавани.",
+          "fact": "Пантеон держит бетонный купол уже две тысячи лет."
+        },
+        "ar": {
+          "prompt": "أي اختراع سمح للرومان ببناء قباب ضخمة؟",
+          "answer": "الخرسانة",
+          "wrong": [
+            "الورق",
+            "الزجاج",
+            "البارود"
+          ],
+          "hint": "تُصب سائلة ثم تتصلب.",
+          "explanation": "الخرسانة من الرماد البركاني سمحت ببناء القباب والموانئ.",
+          "fact": "البانثيون يحمل قبته الخرسانية منذ ألفي عام."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Saturnalia",
+      "artBrief": "Een winterfeest met kaarsen, kransen en kleine cadeautjes op tafel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk Romeins feest vierde men midden in de winter?",
+          "answer": "Saturnalia",
+          "wrong": [
+            "Lupercalia",
+            "Olympia",
+            "Vestalia"
+          ],
+          "hint": "Men gaf elkaar kleine cadeautjes.",
+          "explanation": "Tijdens Saturnalia werd gefeest en gaven mensen elkaar geschenken.",
+          "fact": "Even mochten slaven aan tafel zitten en hun meesters bedienen."
+        },
+        "en": {
+          "prompt": "Which Roman festival came in the middle of winter?",
+          "answer": "Saturnalia",
+          "wrong": [
+            "Lupercalia",
+            "Olympia",
+            "Vestalia"
+          ],
+          "hint": "People gave each other small gifts.",
+          "explanation": "During Saturnalia there were feasts and people exchanged presents.",
+          "fact": "For a day slaves sat at the table and masters served them."
+        },
+        "de": {
+          "prompt": "Welches römische Fest fiel mitten in den Winter?",
+          "answer": "Saturnalien",
+          "wrong": [
+            "Lupercalien",
+            "Olympia",
+            "Vestalien"
+          ],
+          "hint": "Man schenkte sich Kleinigkeiten.",
+          "explanation": "Bei den Saturnalien wurde gefeiert und man beschenkte einander.",
+          "fact": "Für einen Tag saßen Sklaven am Tisch und die Herren bedienten."
+        },
+        "fr": {
+          "prompt": "Quelle fête romaine tombait au milieu de l'hiver ?",
+          "answer": "Les Saturnales",
+          "wrong": [
+            "Les Lupercales",
+            "Les Olympies",
+            "Les Vestalies"
+          ],
+          "hint": "On s'offrait de petits cadeaux.",
+          "explanation": "Pendant les Saturnales on festoyait et on s'échangeait des présents.",
+          "fact": "Un jour durant, les esclaves mangeaient et les maîtres servaient."
+        },
+        "es": {
+          "prompt": "¿Qué fiesta romana caía en pleno invierno?",
+          "answer": "Las Saturnales",
+          "wrong": [
+            "Las Lupercales",
+            "Las Olimpiadas",
+            "Las Vestalias"
+          ],
+          "hint": "Se regalaban cosas pequeñas.",
+          "explanation": "En las Saturnales había banquetes y la gente intercambiaba regalos.",
+          "fact": "Por un día los esclavos se sentaban y los amos servían."
+        },
+        "it": {
+          "prompt": "Quale festa romana cadeva in pieno inverno?",
+          "answer": "I Saturnali",
+          "wrong": [
+            "I Lupercali",
+            "Le Olimpiadi",
+            "Le Vestalie"
+          ],
+          "hint": "Ci si scambiava piccoli doni.",
+          "explanation": "Durante i Saturnali si banchettava e ci si faceva regali.",
+          "fact": "Per un giorno gli schiavi sedevano e i padroni servivano."
+        },
+        "pt": {
+          "prompt": "Que festa romana caía a meio do inverno?",
+          "answer": "As Saturnais",
+          "wrong": [
+            "As Lupercais",
+            "As Olimpíadas",
+            "As Vestais"
+          ],
+          "hint": "Trocavam-se pequenos presentes.",
+          "explanation": "Nas Saturnais havia banquetes e as pessoas ofereciam prendas.",
+          "fact": "Por um dia os escravos sentavam-se e os donos serviam."
+        },
+        "da": {
+          "prompt": "Hvilken romersk fest lå midt om vinteren?",
+          "answer": "Saturnalia",
+          "wrong": [
+            "Lupercalia",
+            "Olympia",
+            "Vestalia"
+          ],
+          "hint": "Man gav hinanden små gaver.",
+          "explanation": "Under Saturnalia blev der festet, og folk gav hinanden gaver.",
+          "fact": "En dag sad slaverne til bords, mens herrerne serverede."
+        },
+        "ru": {
+          "prompt": "Какой римский праздник приходился на середину зимы?",
+          "answer": "Сатурналии",
+          "wrong": [
+            "Луперкалии",
+            "Олимпии",
+            "Весталии"
+          ],
+          "hint": "Люди дарили друг другу мелочи.",
+          "explanation": "На Сатурналиях пировали и обменивались подарками.",
+          "fact": "На один день рабы садились за стол, а хозяева прислуживали."
+        },
+        "ar": {
+          "prompt": "أي عيد روماني كان في منتصف الشتاء؟",
+          "answer": "الساتورناليا",
+          "wrong": [
+            "اللوبركاليا",
+            "الأولمبيا",
+            "الفستاليا"
+          ],
+          "hint": "كانوا يتبادلون هدايا صغيرة.",
+          "explanation": "في الساتورناليا كانت الولائم وتبادل الهدايا.",
+          "fact": "ليوم واحد يجلس العبيد ويخدمهم أسيادهم."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Vesta en het heilige vuur",
+      "artBrief": "Een ronde tempel met een altaarvuur en priesteressen in het wit.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke godin bewaakte een vuur dat nooit uit mocht?",
+          "answer": "Vesta",
+          "wrong": [
+            "Venus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "Haar tempel was rond.",
+          "explanation": "De Vestaalse maagden hielden het heilige vuur van Rome dag en nacht brandend.",
+          "fact": "Ging het vuur uit, dan dacht men dat Rome gevaar liep."
+        },
+        "en": {
+          "prompt": "Which goddess guarded a fire that must never go out?",
+          "answer": "Vesta",
+          "wrong": [
+            "Venus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "Her temple was round.",
+          "explanation": "The Vestal Virgins kept Rome's sacred fire burning day and night.",
+          "fact": "If it went out, people feared Rome itself was in danger."
+        },
+        "de": {
+          "prompt": "Welche Göttin hütete ein Feuer, das nie ausgehen durfte?",
+          "answer": "Vesta",
+          "wrong": [
+            "Venus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "Ihr Tempel war rund.",
+          "explanation": "Die Vestalinnen hielten Roms heiliges Feuer Tag und Nacht am Brennen.",
+          "fact": "Ging es aus, fürchtete man um ganz Rom."
+        },
+        "fr": {
+          "prompt": "Quelle déesse gardait un feu qui ne devait jamais s'éteindre ?",
+          "answer": "Vesta",
+          "wrong": [
+            "Vénus",
+            "Junon",
+            "Diane"
+          ],
+          "hint": "Son temple était rond.",
+          "explanation": "Les vestales entretenaient le feu sacré de Rome jour et nuit.",
+          "fact": "S'il s'éteignait, on craignait pour Rome entière."
+        },
+        "es": {
+          "prompt": "¿Qué diosa guardaba un fuego que nunca debía apagarse?",
+          "answer": "Vesta",
+          "wrong": [
+            "Venus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "Su templo era redondo.",
+          "explanation": "Las vestales mantenían el fuego sagrado de Roma día y noche.",
+          "fact": "Si se apagaba, se temía por toda la ciudad."
+        },
+        "it": {
+          "prompt": "Quale dea custodiva un fuoco che non doveva spegnersi?",
+          "answer": "Vesta",
+          "wrong": [
+            "Venere",
+            "Giunone",
+            "Diana"
+          ],
+          "hint": "Il suo tempio era rotondo.",
+          "explanation": "Le vestali tenevano acceso il fuoco sacro di Roma giorno e notte.",
+          "fact": "Se si spegneva, si temeva per tutta la città."
+        },
+        "pt": {
+          "prompt": "Que deusa guardava um fogo que nunca podia apagar-se?",
+          "answer": "Vesta",
+          "wrong": [
+            "Vénus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "O seu templo era redondo.",
+          "explanation": "As vestais mantinham o fogo sagrado de Roma aceso dia e noite.",
+          "fact": "Se se apagasse, temia-se pela cidade inteira."
+        },
+        "da": {
+          "prompt": "Hvilken gudinde vogtede en ild, der aldrig måtte gå ud?",
+          "answer": "Vesta",
+          "wrong": [
+            "Venus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "Hendes tempel var rundt.",
+          "explanation": "Vestalinderne holdt Roms hellige ild brændende dag og nat.",
+          "fact": "Gik den ud, frygtede man for hele byen."
+        },
+        "ru": {
+          "prompt": "Какая богиня хранила огонь, который нельзя было гасить?",
+          "answer": "Веста",
+          "wrong": [
+            "Венера",
+            "Юнона",
+            "Диана"
+          ],
+          "hint": "Её храм был круглым.",
+          "explanation": "Весталки день и ночь поддерживали священный огонь Рима.",
+          "fact": "Если он гас, боялись за весь город."
+        },
+        "ar": {
+          "prompt": "أي إلهة كانت تحرس نارًا لا يجوز أن تنطفئ؟",
+          "answer": "فيستا",
+          "wrong": [
+            "فينوس",
+            "يونو",
+            "ديانا"
+          ],
+          "hint": "معبدها كان دائريًا.",
+          "explanation": "كانت كاهنات فيستا يُبقين نار روما المقدسة مشتعلة ليلًا ونهارًا.",
+          "fact": "إن انطفأت خافوا على المدينة كلها."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De achtdaagse Romeinse week",
+      "artBrief": "Een marktplein met kramen op de marktdag, met een kalendersteen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel dagen telde de oude Romeinse week?",
+          "answer": "Acht dagen",
+          "wrong": [
+            "Zeven dagen",
+            "Vijf dagen",
+            "Tien dagen"
+          ],
+          "hint": "De achtste dag was marktdag.",
+          "explanation": "De Romeinse week liep van marktdag tot marktdag, acht dagen lang.",
+          "fact": "Pas eeuwen later namen ze de week van zeven dagen over."
+        },
+        "en": {
+          "prompt": "How many days were in the old Roman week?",
+          "answer": "Eight days",
+          "wrong": [
+            "Seven days",
+            "Five days",
+            "Ten days"
+          ],
+          "hint": "The eighth day was market day.",
+          "explanation": "The Roman week ran from market day to market day, eight days long.",
+          "fact": "Only centuries later did they take over the seven-day week."
+        },
+        "de": {
+          "prompt": "Wie viele Tage hatte die alte römische Woche?",
+          "answer": "Acht Tage",
+          "wrong": [
+            "Sieben Tage",
+            "Fünf Tage",
+            "Zehn Tage"
+          ],
+          "hint": "Der achte Tag war Markttag.",
+          "explanation": "Die römische Woche lief von Markttag zu Markttag, acht Tage lang.",
+          "fact": "Erst Jahrhunderte später übernahm man die Sieben-Tage-Woche."
+        },
+        "fr": {
+          "prompt": "Combien de jours comptait l'ancienne semaine romaine ?",
+          "answer": "Huit jours",
+          "wrong": [
+            "Sept jours",
+            "Cinq jours",
+            "Dix jours"
+          ],
+          "hint": "Le huitième jour était jour de marché.",
+          "explanation": "La semaine romaine allait d'un marché à l'autre, sur huit jours.",
+          "fact": "Ce n'est que bien plus tard qu'ils ont pris la semaine de sept jours."
+        },
+        "es": {
+          "prompt": "¿Cuántos días tenía la antigua semana romana?",
+          "answer": "Ocho días",
+          "wrong": [
+            "Siete días",
+            "Cinco días",
+            "Diez días"
+          ],
+          "hint": "El octavo día era de mercado.",
+          "explanation": "La semana romana iba de mercado a mercado, ocho días seguidos.",
+          "fact": "Solo siglos después adoptaron la semana de siete días."
+        },
+        "it": {
+          "prompt": "Quanti giorni aveva l'antica settimana romana?",
+          "answer": "Otto giorni",
+          "wrong": [
+            "Sette giorni",
+            "Cinque giorni",
+            "Dieci giorni"
+          ],
+          "hint": "L'ottavo giorno era di mercato.",
+          "explanation": "La settimana romana andava da mercato a mercato, otto giorni.",
+          "fact": "Solo secoli dopo presero la settimana di sette giorni."
+        },
+        "pt": {
+          "prompt": "Quantos dias tinha a antiga semana romana?",
+          "answer": "Oito dias",
+          "wrong": [
+            "Sete dias",
+            "Cinco dias",
+            "Dez dias"
+          ],
+          "hint": "O oitavo dia era de mercado.",
+          "explanation": "A semana romana ia de mercado a mercado, durante oito dias.",
+          "fact": "Só séculos depois adotaram a semana de sete dias."
+        },
+        "da": {
+          "prompt": "Hvor mange dage havde den gamle romerske uge?",
+          "answer": "Otte dage",
+          "wrong": [
+            "Syv dage",
+            "Fem dage",
+            "Ti dage"
+          ],
+          "hint": "Den ottende dag var markedsdag.",
+          "explanation": "Den romerske uge gik fra marked til marked, otte dage i træk.",
+          "fact": "Først århundreder senere overtog de ugen på syv dage."
+        },
+        "ru": {
+          "prompt": "Сколько дней было в старой римской неделе?",
+          "answer": "Восемь дней",
+          "wrong": [
+            "Семь дней",
+            "Пять дней",
+            "Десять дней"
+          ],
+          "hint": "Восьмой день был базарным.",
+          "explanation": "Римская неделя шла от рынка до рынка, восемь дней подряд.",
+          "fact": "Лишь века спустя переняли неделю из семи дней."
+        },
+        "ar": {
+          "prompt": "كم يومًا كان في الأسبوع الروماني القديم؟",
+          "answer": "ثمانية أيام",
+          "wrong": [
+            "سبعة أيام",
+            "خمسة أيام",
+            "عشرة أيام"
+          ],
+          "hint": "اليوم الثامن كان يوم السوق.",
+          "explanation": "كان الأسبوع الروماني يمتد من سوق إلى سوق، ثمانية أيام.",
+          "fact": "وبعد قرون فقط أخذوا بأسبوع السبعة أيام."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "476: het einde van het West-Romeinse Rijk",
+      "artBrief": "Een verlaten Romeinse stadspoort met overwoekerde zuilen bij avondlicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "In welk jaar viel het West-Romeinse Rijk?",
+          "answer": "In het jaar 476",
+          "wrong": [
+            "In het jaar 1066",
+            "In het jaar 79",
+            "In het jaar 1492"
+          ],
+          "hint": "Ruim vijftienhonderd jaar geleden.",
+          "explanation": "In 476 werd de laatste keizer van het westen afgezet.",
+          "fact": "Het oostelijke deel ging nog bijna duizend jaar door."
+        },
+        "en": {
+          "prompt": "In which year did the Western Roman Empire fall?",
+          "answer": "In the year 476",
+          "wrong": [
+            "In the year 1066",
+            "In the year 79",
+            "In the year 1492"
+          ],
+          "hint": "Over fifteen hundred years ago.",
+          "explanation": "In 476 the last emperor in the west was removed from the throne.",
+          "fact": "The eastern half carried on for almost another thousand years."
+        },
+        "de": {
+          "prompt": "In welchem Jahr fiel das Weströmische Reich?",
+          "answer": "Im Jahr 476",
+          "wrong": [
+            "Im Jahr 1066",
+            "Im Jahr 79",
+            "Im Jahr 1492"
+          ],
+          "hint": "Vor gut fünfzehnhundert Jahren.",
+          "explanation": "476 wurde der letzte Kaiser des Westens abgesetzt.",
+          "fact": "Der östliche Teil bestand noch fast tausend Jahre weiter."
+        },
+        "fr": {
+          "prompt": "En quelle année tomba l'Empire romain d'Occident ?",
+          "answer": "En l'an 476",
+          "wrong": [
+            "En l'an 1066",
+            "En l'an 79",
+            "En l'an 1492"
+          ],
+          "hint": "Il y a plus de quinze siècles.",
+          "explanation": "En 476, le dernier empereur d'Occident fut écarté du trône.",
+          "fact": "La partie orientale continua près de mille ans encore."
+        },
+        "es": {
+          "prompt": "¿En qué año cayó el Imperio romano de Occidente?",
+          "answer": "En el año 476",
+          "wrong": [
+            "En el año 1066",
+            "En el año 79",
+            "En el año 1492"
+          ],
+          "hint": "Hace más de quince siglos.",
+          "explanation": "En el 476 fue depuesto el último emperador de Occidente.",
+          "fact": "La parte oriental siguió casi mil años más."
+        },
+        "it": {
+          "prompt": "In quale anno cadde l'Impero romano d'Occidente?",
+          "answer": "Nell'anno 476",
+          "wrong": [
+            "Nell'anno 1066",
+            "Nell'anno 79",
+            "Nell'anno 1492"
+          ],
+          "hint": "Più di quindici secoli fa.",
+          "explanation": "Nel 476 l'ultimo imperatore d'Occidente fu deposto.",
+          "fact": "La parte orientale continuò per quasi mille anni ancora."
+        },
+        "pt": {
+          "prompt": "Em que ano caiu o Império Romano do Ocidente?",
+          "answer": "No ano 476",
+          "wrong": [
+            "No ano 1066",
+            "No ano 79",
+            "No ano 1492"
+          ],
+          "hint": "Há mais de quinze séculos.",
+          "explanation": "Em 476 o último imperador do Ocidente foi deposto.",
+          "fact": "A parte oriental continuou quase mais mil anos."
+        },
+        "da": {
+          "prompt": "I hvilket år faldt Vestromerriget?",
+          "answer": "I år 476",
+          "wrong": [
+            "I år 1066",
+            "I år 79",
+            "I år 1492"
+          ],
+          "hint": "For over femten hundrede år siden.",
+          "explanation": "I 476 blev den sidste kejser i vest sat fra tronen.",
+          "fact": "Den østlige del fortsatte næsten tusind år endnu."
+        },
+        "ru": {
+          "prompt": "В каком году пала Западная Римская империя?",
+          "answer": "В 476 году",
+          "wrong": [
+            "В 1066 году",
+            "В 79 году",
+            "В 1492 году"
+          ],
+          "hint": "Больше пятнадцати веков назад.",
+          "explanation": "В 476 году последнего императора запада лишили трона.",
+          "fact": "Восточная часть держалась ещё почти тысячу лет."
+        },
+        "ar": {
+          "prompt": "في أي سنة سقطت الإمبراطورية الرومانية الغربية؟",
+          "answer": "سنة 476",
+          "wrong": [
+            "سنة 1066",
+            "سنة 79",
+            "سنة 1492"
+          ],
+          "hint": "قبل أكثر من خمسة عشر قرنًا.",
+          "explanation": "في سنة 476 خُلع آخر إمبراطور في الغرب.",
+          "fact": "أما الشرق فاستمر نحو ألف سنة أخرى."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De Via Appia",
+      "artBrief": "Een rechte weg van grote platte stenen tussen pijnbomen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heette de beroemdste Romeinse hoofdweg?",
+          "answer": "De Via Appia",
+          "wrong": [
+            "De Via Maris",
+            "De Zijderoute",
+            "De Limes"
+          ],
+          "hint": "Hij loopt zuidwaarts vanuit Rome.",
+          "explanation": "De Via Appia werd al in 312 voor Christus aangelegd, van Rome naar het zuiden.",
+          "fact": "Stukken van die weg liggen er na meer dan tweeduizend jaar nog."
+        },
+        "en": {
+          "prompt": "What was the most famous Roman main road called?",
+          "answer": "The Via Appia",
+          "wrong": [
+            "The Via Maris",
+            "The Silk Road",
+            "The Limes"
+          ],
+          "hint": "It runs south out of Rome.",
+          "explanation": "The Via Appia was built as early as 312 BC, running south from Rome.",
+          "fact": "Stretches of it are still there after more than two thousand years."
+        },
+        "de": {
+          "prompt": "Wie hieß die berühmteste römische Hauptstraße?",
+          "answer": "Die Via Appia",
+          "wrong": [
+            "Die Via Maris",
+            "Die Seidenstraße",
+            "Der Limes"
+          ],
+          "hint": "Sie führt von Rom nach Süden.",
+          "explanation": "Die Via Appia entstand schon 312 vor Christus, von Rom aus südwärts.",
+          "fact": "Teile davon liegen nach über zweitausend Jahren noch da."
+        },
+        "fr": {
+          "prompt": "Comment s'appelait la plus célèbre voie romaine ?",
+          "answer": "La Via Appia",
+          "wrong": [
+            "La Via Maris",
+            "La route de la soie",
+            "Le limes"
+          ],
+          "hint": "Elle part de Rome vers le sud.",
+          "explanation": "La Via Appia fut tracée dès 312 avant Jésus-Christ, vers le sud.",
+          "fact": "Des tronçons sont encore là après plus de deux mille ans."
+        },
+        "es": {
+          "prompt": "¿Cómo se llamaba la calzada romana más famosa?",
+          "answer": "La Vía Apia",
+          "wrong": [
+            "La Vía Maris",
+            "La ruta de la seda",
+            "El limes"
+          ],
+          "hint": "Sale de Roma hacia el sur.",
+          "explanation": "La Vía Apia se trazó ya en el 312 antes de Cristo, de Roma al sur.",
+          "fact": "Hay tramos que siguen ahí tras más de dos mil años."
+        },
+        "it": {
+          "prompt": "Come si chiamava la più famosa strada romana?",
+          "answer": "La Via Appia",
+          "wrong": [
+            "La Via Maris",
+            "La via della seta",
+            "Il limes"
+          ],
+          "hint": "Parte da Roma verso sud.",
+          "explanation": "La Via Appia fu tracciata già nel 312 avanti Cristo, verso il sud.",
+          "fact": "Alcuni tratti sono ancora lì dopo più di duemila anni."
+        },
+        "pt": {
+          "prompt": "Como se chamava a mais famosa estrada romana?",
+          "answer": "A Via Ápia",
+          "wrong": [
+            "A Via Maris",
+            "A rota da seda",
+            "O limes"
+          ],
+          "hint": "Sai de Roma para sul.",
+          "explanation": "A Via Ápia foi traçada já em 312 antes de Cristo, de Roma para sul.",
+          "fact": "Há troços que lá continuam após mais de dois mil anos."
+        },
+        "da": {
+          "prompt": "Hvad hed den mest berømte romerske hovedvej?",
+          "answer": "Via Appia",
+          "wrong": [
+            "Via Maris",
+            "Silkevejen",
+            "Limes"
+          ],
+          "hint": "Den går sydpå fra Rom.",
+          "explanation": "Via Appia blev anlagt allerede i 312 før Kristus, sydpå fra Rom.",
+          "fact": "Stykker af den ligger der stadig efter over to tusind år."
+        },
+        "ru": {
+          "prompt": "Как называлась самая известная римская дорога?",
+          "answer": "Аппиева дорога",
+          "wrong": [
+            "Виа Марис",
+            "Шёлковый путь",
+            "Лимес"
+          ],
+          "hint": "Она идёт из Рима на юг.",
+          "explanation": "Аппиеву дорогу проложили ещё в 312 году до нашей эры.",
+          "fact": "Её участки лежат там и спустя две тысячи лет."
+        },
+        "ar": {
+          "prompt": "ما اسم أشهر طريق روماني رئيسي؟",
+          "answer": "الطريق الأبيّ",
+          "wrong": [
+            "طريق البحر",
+            "طريق الحرير",
+            "الليمس"
+          ],
+          "hint": "يخرج من روما نحو الجنوب.",
+          "explanation": "شُق الطريق الأبيّ سنة 312 قبل الميلاد من روما جنوبًا.",
+          "fact": "ما زالت أجزاء منه قائمة بعد أكثر من ألفي عام."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Hannibal over de Alpen",
+      "artBrief": "Olifanten en soldaten op een besneeuwd bergpad.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke generaal trok met olifanten over de Alpen?",
+          "answer": "Hannibal",
+          "wrong": [
+            "Caesar",
+            "Nero",
+            "Augustus"
+          ],
+          "hint": "Hij kwam uit Carthago.",
+          "explanation": "Hannibal verraste Rome door met een leger en olifanten de bergen over te gaan.",
+          "fact": "Van zijn olifanten overleefde bijna geen enkele de tocht."
+        },
+        "en": {
+          "prompt": "Which general crossed the Alps with elephants?",
+          "answer": "Hannibal",
+          "wrong": [
+            "Caesar",
+            "Nero",
+            "Augustus"
+          ],
+          "hint": "He came from Carthage.",
+          "explanation": "Hannibal surprised Rome by taking an army and elephants over the mountains.",
+          "fact": "Almost none of his elephants survived the crossing."
+        },
+        "de": {
+          "prompt": "Welcher Feldherr zog mit Elefanten über die Alpen?",
+          "answer": "Hannibal",
+          "wrong": [
+            "Caesar",
+            "Nero",
+            "Augustus"
+          ],
+          "hint": "Er kam aus Karthago.",
+          "explanation": "Hannibal überraschte Rom, indem er Heer und Elefanten über die Berge führte.",
+          "fact": "Fast keiner seiner Elefanten überlebte den Marsch."
+        },
+        "fr": {
+          "prompt": "Quel général a franchi les Alpes avec des éléphants ?",
+          "answer": "Hannibal",
+          "wrong": [
+            "César",
+            "Néron",
+            "Auguste"
+          ],
+          "hint": "Il venait de Carthage.",
+          "explanation": "Hannibal surprit Rome en passant les montagnes avec une armée et des éléphants.",
+          "fact": "Presque aucun de ses éléphants n'a survécu à la traversée."
+        },
+        "es": {
+          "prompt": "¿Qué general cruzó los Alpes con elefantes?",
+          "answer": "Aníbal",
+          "wrong": [
+            "César",
+            "Nerón",
+            "Augusto"
+          ],
+          "hint": "Venía de Cartago.",
+          "explanation": "Aníbal sorprendió a Roma pasando las montañas con un ejército y elefantes.",
+          "fact": "Casi ninguno de sus elefantes sobrevivió al paso."
+        },
+        "it": {
+          "prompt": "Quale generale attraversò le Alpi con gli elefanti?",
+          "answer": "Annibale",
+          "wrong": [
+            "Cesare",
+            "Nerone",
+            "Augusto"
+          ],
+          "hint": "Veniva da Cartagine.",
+          "explanation": "Annibale sorprese Roma passando le montagne con esercito ed elefanti.",
+          "fact": "Quasi nessuno dei suoi elefanti sopravvisse alla traversata."
+        },
+        "pt": {
+          "prompt": "Que general atravessou os Alpes com elefantes?",
+          "answer": "Aníbal",
+          "wrong": [
+            "César",
+            "Nero",
+            "Augusto"
+          ],
+          "hint": "Vinha de Cartago.",
+          "explanation": "Aníbal surpreendeu Roma passando as montanhas com um exército e elefantes.",
+          "fact": "Quase nenhum dos seus elefantes sobreviveu à travessia."
+        },
+        "da": {
+          "prompt": "Hvilken hærfører krydsede Alperne med elefanter?",
+          "answer": "Hannibal",
+          "wrong": [
+            "Cæsar",
+            "Nero",
+            "Augustus"
+          ],
+          "hint": "Han kom fra Kartago.",
+          "explanation": "Hannibal overraskede Rom ved at føre hær og elefanter over bjergene.",
+          "fact": "Næsten ingen af hans elefanter overlevede turen."
+        },
+        "ru": {
+          "prompt": "Какой полководец перешёл Альпы со слонами?",
+          "answer": "Ганнибал",
+          "wrong": [
+            "Цезарь",
+            "Нерон",
+            "Август"
+          ],
+          "hint": "Он был из Карфагена.",
+          "explanation": "Ганнибал удивил Рим, проведя войско и слонов через горы.",
+          "fact": "Почти ни один его слон не пережил перехода."
+        },
+        "ar": {
+          "prompt": "أي قائد عبر جبال الألب بالفيلة؟",
+          "answer": "هانيبال",
+          "wrong": [
+            "قيصر",
+            "نيرون",
+            "أغسطس"
+          ],
+          "hint": "جاء من قرطاج.",
+          "explanation": "فاجأ هانيبال روما بعبوره الجبال بجيش وفيلة.",
+          "fact": "لم ينجُ من فيلته في العبور إلا القليل جدًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Hypocaustum: vloerverwarming",
+      "artBrief": "Een doorsnede van een vloer op stapeltjes steen met warme lucht eronder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe verwarmden rijke Romeinen hun huis?",
+          "answer": "Warme lucht onder de vloer",
+          "wrong": [
+            "Met een kolenkachel",
+            "Met dierenvachten",
+            "Met warm water in bed"
+          ],
+          "hint": "Een vuur stookte de kelder.",
+          "explanation": "Een vuur verwarmde de ruimte onder de vloer, en de warmte trok omhoog.",
+          "fact": "Dat heette een hypocaustum, en de vloer werd soms te heet voor blote voeten."
+        },
+        "en": {
+          "prompt": "How did rich Romans heat their houses?",
+          "answer": "Warm air under the floor",
+          "wrong": [
+            "With a coal stove",
+            "With animal furs",
+            "With hot water in bed"
+          ],
+          "hint": "A fire burned in the cellar.",
+          "explanation": "A fire heated the space under the floor and the warmth rose through it.",
+          "fact": "It was called a hypocaust, and the floor could get too hot for bare feet."
+        },
+        "de": {
+          "prompt": "Wie heizten reiche Römer ihr Haus?",
+          "answer": "Warme Luft unterm Boden",
+          "wrong": [
+            "Mit einem Kohleofen",
+            "Mit Tierfellen",
+            "Mit warmem Wasser im Bett"
+          ],
+          "hint": "Im Keller brannte ein Feuer.",
+          "explanation": "Ein Feuer heizte den Raum unter dem Boden, die Wärme stieg auf.",
+          "fact": "Das hieß Hypokaustum, und der Boden wurde manchmal zu heiß."
+        },
+        "fr": {
+          "prompt": "Comment les riches Romains chauffaient-ils leur maison ?",
+          "answer": "De l'air chaud sous le sol",
+          "wrong": [
+            "Avec un poêle à charbon",
+            "Avec des fourrures",
+            "Avec de l'eau chaude au lit"
+          ],
+          "hint": "Un feu brûlait en dessous.",
+          "explanation": "Un feu chauffait l'espace sous le sol et la chaleur montait à travers.",
+          "fact": "Cela s'appelait un hypocauste, et le sol devenait parfois brûlant."
+        },
+        "es": {
+          "prompt": "¿Cómo calentaban su casa los romanos ricos?",
+          "answer": "Aire caliente bajo el suelo",
+          "wrong": [
+            "Con una estufa de carbón",
+            "Con pieles de animales",
+            "Con agua caliente en la cama"
+          ],
+          "hint": "Abajo ardía un fuego.",
+          "explanation": "Un fuego calentaba el hueco bajo el suelo y el calor subía por él.",
+          "fact": "Se llamaba hipocausto, y el suelo a veces quemaba los pies."
+        },
+        "it": {
+          "prompt": "Come scaldavano la casa i romani ricchi?",
+          "answer": "Aria calda sotto il suolo",
+          "wrong": [
+            "Con una stufa a carbone",
+            "Con pelli di animali",
+            "Con acqua calda a letto"
+          ],
+          "hint": "Sotto ardeva un fuoco.",
+          "explanation": "Un fuoco scaldava lo spazio sotto il pavimento e il calore saliva.",
+          "fact": "Si chiamava ipocausto, e il pavimento a volte scottava."
+        },
+        "pt": {
+          "prompt": "Como aqueciam a casa os romanos ricos?",
+          "answer": "Ar quente sob o chão",
+          "wrong": [
+            "Com um fogão a carvão",
+            "Com peles de animais",
+            "Com água quente na cama"
+          ],
+          "hint": "Em baixo ardia um fogo.",
+          "explanation": "Um fogo aquecia o vão sob o chão e o calor subia por ele.",
+          "fact": "Chamava-se hipocausto, e o chão às vezes queimava os pés."
+        },
+        "da": {
+          "prompt": "Hvordan varmede rige romere deres hus op?",
+          "answer": "Varm luft under gulvet",
+          "wrong": [
+            "Med en kulovn",
+            "Med dyreskind",
+            "Med varmt vand i sengen"
+          ],
+          "hint": "Nedenunder brændte en ild.",
+          "explanation": "En ild varmede rummet under gulvet, og varmen steg op gennem det.",
+          "fact": "Det hed et hypokaust, og gulvet kunne blive for varmt til bare fødder."
+        },
+        "ru": {
+          "prompt": "Как богатые римляне отапливали дом?",
+          "answer": "Тёплый воздух под полом",
+          "wrong": [
+            "Угольной печью",
+            "Шкурами зверей",
+            "Тёплой водой в постели"
+          ],
+          "hint": "Внизу горел огонь.",
+          "explanation": "Огонь грел пространство под полом, и тепло поднималось вверх.",
+          "fact": "Это называлось гипокауст, и пол иногда обжигал босые ноги."
+        },
+        "ar": {
+          "prompt": "كيف كان الأثرياء الرومان يدفئون بيوتهم؟",
+          "answer": "هواء ساخن تحت الأرضية",
+          "wrong": [
+            "بموقد فحم",
+            "بجلود الحيوانات",
+            "بماء ساخن في الفراش"
+          ],
+          "hint": "في الأسفل تشتعل نار.",
+          "explanation": "نار تسخّن الفراغ تحت الأرضية، والحرارة تصعد عبرها.",
+          "fact": "سُمّي هيبوكاوست، وكانت الأرضية أحيانًا تحرق القدم."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-romeinen-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Een miljoen inwoners",
+      "artBrief": "Een drukke Romeinse straat met hoge huurblokken en veel mensen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel mensen woonden er rond het jaar 100 in Rome?",
+          "answer": "Ongeveer een miljoen",
+          "wrong": [
+            "Ongeveer duizend",
+            "Ongeveer tienduizend",
+            "Meer dan honderd miljoen"
+          ],
+          "hint": "Zo groot als Amsterdam nu.",
+          "explanation": "Rome was toen de grootste stad ter wereld, met ongeveer een miljoen inwoners.",
+          "fact": "Pas rond 1800 haalde Londen dat aantal weer."
+        },
+        "en": {
+          "prompt": "How many people lived in Rome around the year 100?",
+          "answer": "About a million",
+          "wrong": [
+            "About a thousand",
+            "About ten thousand",
+            "Over a hundred million"
+          ],
+          "hint": "As big as a major city today.",
+          "explanation": "Rome was then the largest city on earth, with around a million people.",
+          "fact": "No European city reached that number again until about 1800."
+        },
+        "de": {
+          "prompt": "Wie viele Menschen lebten um das Jahr 100 in Rom?",
+          "answer": "Etwa eine Million",
+          "wrong": [
+            "Etwa tausend",
+            "Etwa zehntausend",
+            "Über hundert Millionen"
+          ],
+          "hint": "So groß wie eine Großstadt heute.",
+          "explanation": "Rom war damals die größte Stadt der Welt mit rund einer Million Menschen.",
+          "fact": "Erst um 1800 erreichte eine Stadt in Europa diese Zahl wieder."
+        },
+        "fr": {
+          "prompt": "Combien de personnes vivaient à Rome vers l'an 100 ?",
+          "answer": "Environ un million",
+          "wrong": [
+            "Environ mille",
+            "Environ dix mille",
+            "Plus de cent millions"
+          ],
+          "hint": "Comme une grande ville d'aujourd'hui.",
+          "explanation": "Rome était alors la plus grande ville du monde, avec près d'un million d'habitants.",
+          "fact": "Aucune ville d'Europe n'a retrouvé ce chiffre avant 1800."
+        },
+        "es": {
+          "prompt": "¿Cuánta gente vivía en Roma hacia el año 100?",
+          "answer": "Cerca de un millón",
+          "wrong": [
+            "Cerca de mil",
+            "Cerca de diez mil",
+            "Más de cien millones"
+          ],
+          "hint": "Como una gran ciudad de hoy.",
+          "explanation": "Roma era entonces la mayor ciudad del mundo, con casi un millón de personas.",
+          "fact": "Ninguna ciudad europea volvió a esa cifra hasta cerca de 1800."
+        },
+        "it": {
+          "prompt": "Quante persone vivevano a Roma intorno all'anno 100?",
+          "answer": "Circa un milione",
+          "wrong": [
+            "Circa mille",
+            "Circa diecimila",
+            "Più di cento milioni"
+          ],
+          "hint": "Come una grande città di oggi.",
+          "explanation": "Roma era allora la città più grande del mondo, con quasi un milione di abitanti.",
+          "fact": "Nessuna città europea tornò a quel numero prima del 1800."
+        },
+        "pt": {
+          "prompt": "Quanta gente vivia em Roma por volta do ano 100?",
+          "answer": "Cerca de um milhão",
+          "wrong": [
+            "Cerca de mil",
+            "Cerca de dez mil",
+            "Mais de cem milhões"
+          ],
+          "hint": "Como uma grande cidade de hoje.",
+          "explanation": "Roma era então a maior cidade do mundo, com perto de um milhão de pessoas.",
+          "fact": "Nenhuma cidade europeia voltou a esse número antes de 1800."
+        },
+        "da": {
+          "prompt": "Hvor mange mennesker boede der i Rom omkring år 100?",
+          "answer": "Omkring en million",
+          "wrong": [
+            "Omkring tusind",
+            "Omkring ti tusind",
+            "Over hundrede millioner"
+          ],
+          "hint": "Så stor som en storby i dag.",
+          "explanation": "Rom var dengang verdens største by med omkring en million mennesker.",
+          "fact": "Først omkring år 1800 nåede en by i Europa det tal igen."
+        },
+        "ru": {
+          "prompt": "Сколько людей жило в Риме около 100 года?",
+          "answer": "Около миллиона",
+          "wrong": [
+            "Около тысячи",
+            "Около десяти тысяч",
+            "Больше ста миллионов"
+          ],
+          "hint": "Как крупный город сегодня.",
+          "explanation": "Рим тогда был самым большим городом мира, около миллиона жителей.",
+          "fact": "Ни один город Европы не достиг этого числа до 1800 года."
+        },
+        "ar": {
+          "prompt": "كم شخصًا كان يعيش في روما نحو سنة 100؟",
+          "answer": "نحو مليون",
+          "wrong": [
+            "نحو ألف",
+            "نحو عشرة آلاف",
+            "أكثر من مئة مليون"
+          ],
+          "hint": "مثل مدينة كبيرة اليوم.",
+          "explanation": "كانت روما أكبر مدينة في العالم، بنحو مليون نسمة.",
+          "fact": "لم تبلغ مدينة أوروبية هذا العدد ثانية قبل سنة 1800."
+        }
+      }
+    }
+  ]
+}
