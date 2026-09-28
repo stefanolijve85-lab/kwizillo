@@ -1,0 +1,2607 @@
+{
+  "world": "geschiedenis",
+  "topic": "ridders_kastelen",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "geschiedenis-ridders_kastelen-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Ridders te paard",
+      "artBrief": "Een ridder in harnas op een paard met sierdekens, voor een kasteelpoort.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier hoorde bij een ridder?",
+          "answer": "Het paard",
+          "wrong": [
+            "De olifant",
+            "De pinguïn",
+            "De kameel"
+          ],
+          "hint": "Hij reed erop de strijd in.",
+          "explanation": "Een ridder vocht te paard, en zijn paard was kostbaar en goed getraind.",
+          "fact": "Een strijdros kostte soms net zoveel als een klein huis."
+        },
+        "en": {
+          "prompt": "Which animal belonged with a knight?",
+          "answer": "The horse",
+          "wrong": [
+            "The elephant",
+            "The penguin",
+            "The camel"
+          ],
+          "hint": "He rode into battle on it.",
+          "explanation": "A knight fought on horseback, and his horse was costly and well trained.",
+          "fact": "A warhorse sometimes cost as much as a small house."
+        },
+        "de": {
+          "prompt": "Welches Tier gehörte zu einem Ritter?",
+          "answer": "Das Pferd",
+          "wrong": [
+            "Der Elefant",
+            "Der Pinguin",
+            "Das Kamel"
+          ],
+          "hint": "Er ritt damit in den Kampf.",
+          "explanation": "Ein Ritter kämpfte zu Pferd, und sein Pferd war teuer und gut geschult.",
+          "fact": "Ein Streitross kostete manchmal so viel wie ein kleines Haus."
+        },
+        "fr": {
+          "prompt": "Quel animal allait avec un chevalier ?",
+          "answer": "Le cheval",
+          "wrong": [
+            "L'éléphant",
+            "Le manchot",
+            "Le chameau"
+          ],
+          "hint": "Il partait au combat dessus.",
+          "explanation": "Un chevalier combattait à cheval, et sa monture coûtait cher et était bien dressée.",
+          "fact": "Un destrier valait parfois autant qu'une petite maison."
+        },
+        "es": {
+          "prompt": "¿Qué animal acompañaba a un caballero?",
+          "answer": "El caballo",
+          "wrong": [
+            "El elefante",
+            "El pingüino",
+            "El camello"
+          ],
+          "hint": "Iba a la batalla montado en él.",
+          "explanation": "Un caballero luchaba a caballo, y su montura era cara y estaba bien adiestrada.",
+          "fact": "Un caballo de guerra costaba a veces como una casa pequeña."
+        },
+        "it": {
+          "prompt": "Quale animale accompagnava un cavaliere?",
+          "answer": "Il cavallo",
+          "wrong": [
+            "L'elefante",
+            "Il pinguino",
+            "Il cammello"
+          ],
+          "hint": "Ci andava in battaglia.",
+          "explanation": "Un cavaliere combatteva a cavallo, e la sua cavalcatura era costosa e ben addestrata.",
+          "fact": "Un destriero costava a volte come una casetta."
+        },
+        "pt": {
+          "prompt": "Que animal acompanhava um cavaleiro?",
+          "answer": "O cavalo",
+          "wrong": [
+            "O elefante",
+            "O pinguim",
+            "O camelo"
+          ],
+          "hint": "Ia para a batalha nele.",
+          "explanation": "Um cavaleiro lutava a cavalo, e a sua montada era caríssima e bem treinada.",
+          "fact": "Um cavalo de guerra chegava a custar como uma casa pequena."
+        },
+        "da": {
+          "prompt": "Hvilket dyr hørte til en ridder?",
+          "answer": "Hesten",
+          "wrong": [
+            "Elefanten",
+            "Pingvinen",
+            "Kamelen"
+          ],
+          "hint": "Han red i kamp på den.",
+          "explanation": "En ridder kæmpede til hest, og hesten var dyr og godt trænet.",
+          "fact": "En stridshest kostede nogle gange som et lille hus."
+        },
+        "ru": {
+          "prompt": "Какое животное было у рыцаря?",
+          "answer": "Конь",
+          "wrong": [
+            "Слон",
+            "Пингвин",
+            "Верблюд"
+          ],
+          "hint": "На нём он шёл в бой.",
+          "explanation": "Рыцарь сражался верхом, и его конь был дорогим и хорошо обученным.",
+          "fact": "Боевой конь стоил иногда как небольшой дом."
+        },
+        "ar": {
+          "prompt": "أي حيوان كان يرافق الفارس؟",
+          "answer": "الحصان",
+          "wrong": [
+            "الفيل",
+            "البطريق",
+            "الجمل"
+          ],
+          "hint": "كان يدخل المعركة عليه.",
+          "explanation": "كان الفارس يقاتل على ظهر حصان، وحصانه غالي الثمن ومدرَّب جيدًا.",
+          "fact": "كان حصان الحرب يساوي أحيانًا ثمن بيت صغير."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het ridderzwaard",
+      "artBrief": "Een zwaard met versierd gevest dat aan een riem hangt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk wapen droeg een ridder aan zijn zij?",
+          "answer": "Een zwaard",
+          "wrong": [
+            "Een hamer",
+            "Een bezem",
+            "Een vork"
+          ],
+          "hint": "Het hing in een schede.",
+          "explanation": "Het zwaard was het belangrijkste wapen en teken van een ridder.",
+          "fact": "Sommige zwaarden kregen zelfs een eigen naam."
+        },
+        "en": {
+          "prompt": "Which weapon did a knight wear at his side?",
+          "answer": "A sword",
+          "wrong": [
+            "A hammer",
+            "A broom",
+            "A fork"
+          ],
+          "hint": "It hung in a scabbard.",
+          "explanation": "The sword was a knight's chief weapon and his badge.",
+          "fact": "Some swords were even given names of their own."
+        },
+        "de": {
+          "prompt": "Welche Waffe trug ein Ritter an der Seite?",
+          "answer": "Ein Schwert",
+          "wrong": [
+            "Einen Hammer",
+            "Einen Besen",
+            "Eine Gabel"
+          ],
+          "hint": "Es hing in einer Scheide.",
+          "explanation": "Das Schwert war die wichtigste Waffe und das Zeichen des Ritters.",
+          "fact": "Manche Schwerter bekamen sogar einen eigenen Namen."
+        },
+        "fr": {
+          "prompt": "Quelle arme un chevalier portait-il au côté ?",
+          "answer": "Une épée",
+          "wrong": [
+            "Un marteau",
+            "Un balai",
+            "Une fourchette"
+          ],
+          "hint": "Elle pendait dans un fourreau.",
+          "explanation": "L'épée était l'arme principale et le signe du chevalier.",
+          "fact": "Certaines épées recevaient même un nom."
+        },
+        "es": {
+          "prompt": "¿Qué arma llevaba un caballero al costado?",
+          "answer": "Una espada",
+          "wrong": [
+            "Un martillo",
+            "Una escoba",
+            "Un tenedor"
+          ],
+          "hint": "Colgaba de una vaina.",
+          "explanation": "La espada era el arma principal y la señal del caballero.",
+          "fact": "Algunas espadas llegaban a tener nombre propio."
+        },
+        "it": {
+          "prompt": "Quale arma portava al fianco un cavaliere?",
+          "answer": "Una spada",
+          "wrong": [
+            "Un martello",
+            "Una scopa",
+            "Una forchetta"
+          ],
+          "hint": "Stava in un fodero.",
+          "explanation": "La spada era l'arma principale e il segno del cavaliere.",
+          "fact": "Alcune spade ricevevano perfino un nome."
+        },
+        "pt": {
+          "prompt": "Que arma um cavaleiro levava ao lado?",
+          "answer": "Uma espada",
+          "wrong": [
+            "Um martelo",
+            "Uma vassoura",
+            "Um garfo"
+          ],
+          "hint": "Ficava numa bainha.",
+          "explanation": "A espada era a arma principal e o sinal do cavaleiro.",
+          "fact": "Algumas espadas até recebiam um nome próprio."
+        },
+        "da": {
+          "prompt": "Hvilket våben bar en ridder ved siden?",
+          "answer": "Et sværd",
+          "wrong": [
+            "En hammer",
+            "En kost",
+            "En gaffel"
+          ],
+          "hint": "Det hang i en skede.",
+          "explanation": "Sværdet var ridderens vigtigste våben og hans tegn.",
+          "fact": "Nogle sværd fik endda deres eget navn."
+        },
+        "ru": {
+          "prompt": "Какое оружие рыцарь носил на боку?",
+          "answer": "Меч",
+          "wrong": [
+            "Молоток",
+            "Метлу",
+            "Вилку"
+          ],
+          "hint": "Он висел в ножнах.",
+          "explanation": "Меч был главным оружием и знаком рыцаря.",
+          "fact": "У некоторых мечей было собственное имя."
+        },
+        "ar": {
+          "prompt": "أي سلاح كان الفارس يحمله إلى جانبه؟",
+          "answer": "سيف",
+          "wrong": [
+            "مطرقة",
+            "مكنسة",
+            "شوكة"
+          ],
+          "hint": "كان معلقًا في غمد.",
+          "explanation": "السيف كان السلاح الأهم وعلامة الفارس.",
+          "fact": "بعض السيوف كان لها اسم خاص."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vlaggen op kasteeltorens",
+      "artBrief": "Een kasteeltoren met een wapperende wimpel tegen een blauwe lucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat wappert er vaak boven op een kasteeltoren?",
+          "answer": "Een vlag",
+          "wrong": [
+            "Een schoorsteen",
+            "Een schotel",
+            "Een molen"
+          ],
+          "hint": "Je ziet er de kleuren van de heer aan.",
+          "explanation": "De vlag liet zien wie de heer van het kasteel was.",
+          "fact": "Hing de vlag er niet, dan was de heer meestal van huis."
+        },
+        "en": {
+          "prompt": "What often flies from the top of a castle tower?",
+          "answer": "A flag",
+          "wrong": [
+            "A chimney",
+            "A satellite dish",
+            "A windmill"
+          ],
+          "hint": "It shows the lord's colours.",
+          "explanation": "The flag showed who the lord of the castle was.",
+          "fact": "If it was not flying, the lord was usually away."
+        },
+        "de": {
+          "prompt": "Was weht oft oben auf einem Burgturm?",
+          "answer": "Eine Fahne",
+          "wrong": [
+            "Ein Schornstein",
+            "Eine Satellitenschüssel",
+            "Eine Windmühle"
+          ],
+          "hint": "Man sieht die Farben des Herrn.",
+          "explanation": "Die Fahne zeigte, wer der Herr der Burg war.",
+          "fact": "Fehlte sie, war der Herr meist nicht zu Hause."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui flotte souvent au sommet d'une tour ?",
+          "answer": "Un drapeau",
+          "wrong": [
+            "Une cheminée",
+            "Une antenne",
+            "Un moulin"
+          ],
+          "hint": "On y voit les couleurs du seigneur.",
+          "explanation": "Le drapeau montrait qui était le seigneur du château.",
+          "fact": "S'il n'y était pas, le seigneur était en général absent."
+        },
+        "es": {
+          "prompt": "¿Qué ondea a menudo en lo alto de una torre?",
+          "answer": "Una bandera",
+          "wrong": [
+            "Una chimenea",
+            "Una antena",
+            "Un molino"
+          ],
+          "hint": "En ella se ven los colores del señor.",
+          "explanation": "La bandera mostraba quién era el señor del castillo.",
+          "fact": "Si no estaba izada, el señor solía andar fuera."
+        },
+        "it": {
+          "prompt": "Che cosa sventola spesso in cima a una torre?",
+          "answer": "Una bandiera",
+          "wrong": [
+            "Un camino",
+            "Un'antenna",
+            "Un mulino"
+          ],
+          "hint": "Mostra i colori del signore.",
+          "explanation": "La bandiera diceva chi era il signore del castello.",
+          "fact": "Se non c'era, il signore era di solito lontano."
+        },
+        "pt": {
+          "prompt": "O que muitas vezes tremula no alto de uma torre?",
+          "answer": "Uma bandeira",
+          "wrong": [
+            "Uma chaminé",
+            "Uma antena",
+            "Um moinho"
+          ],
+          "hint": "Nela vês as cores do senhor.",
+          "explanation": "A bandeira mostrava quem era o senhor do castelo.",
+          "fact": "Se não estava içada, o senhor costumava estar fora."
+        },
+        "da": {
+          "prompt": "Hvad vajer der ofte øverst på et borgtårn?",
+          "answer": "En fane",
+          "wrong": [
+            "En skorsten",
+            "En parabol",
+            "En vindmølle"
+          ],
+          "hint": "Man ser herrens farver.",
+          "explanation": "Fanen viste, hvem der var herre på borgen.",
+          "fact": "Hang den ikke, var herren oftest ude."
+        },
+        "ru": {
+          "prompt": "Что часто развевается на башне замка?",
+          "answer": "Флаг",
+          "wrong": [
+            "Труба",
+            "Тарелка",
+            "Мельница"
+          ],
+          "hint": "На нём цвета сеньора.",
+          "explanation": "Флаг показывал, кто хозяин замка.",
+          "fact": "Если его не было, хозяин обычно был в отъезде."
+        },
+        "ar": {
+          "prompt": "ما الذي يرفرف غالبًا فوق برج القلعة؟",
+          "answer": "راية",
+          "wrong": [
+            "مدخنة",
+            "طبق هوائي",
+            "طاحونة"
+          ],
+          "hint": "ترى فيها ألوان السيد.",
+          "explanation": "الراية كانت تُظهر من هو سيد القلعة.",
+          "fact": "إن لم تكن مرفوعة فالسيد غالبًا مسافر."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Middeleeuws dagelijks eten",
+      "artBrief": "Een houten tafel met donker brood, een kom pap en een kruik.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat aten gewone mensen in de middeleeuwen vooral?",
+          "answer": "Brood en pap",
+          "wrong": [
+            "Pizza",
+            "Hamburgers",
+            "Frietjes"
+          ],
+          "hint": "Van graan gemaakt.",
+          "explanation": "Het dagelijkse eten bestond uit donker brood, pap en soms groente.",
+          "fact": "Vlees was er meestal alleen op feestdagen."
+        },
+        "en": {
+          "prompt": "What did ordinary people mostly eat in the Middle Ages?",
+          "answer": "Bread and porridge",
+          "wrong": [
+            "Pizza",
+            "Hamburgers",
+            "Chips"
+          ],
+          "hint": "Made from grain.",
+          "explanation": "Daily food was dark bread, porridge and sometimes vegetables.",
+          "fact": "Meat was usually for feast days only."
+        },
+        "de": {
+          "prompt": "Was aßen einfache Leute im Mittelalter vor allem?",
+          "answer": "Brot und Brei",
+          "wrong": [
+            "Pizza",
+            "Hamburger",
+            "Pommes"
+          ],
+          "hint": "Aus Getreide gemacht.",
+          "explanation": "Das tägliche Essen war dunkles Brot, Brei und manchmal Gemüse.",
+          "fact": "Fleisch gab es meist nur an Festtagen."
+        },
+        "fr": {
+          "prompt": "Que mangeaient surtout les gens simples au Moyen Âge ?",
+          "answer": "Du pain et de la bouillie",
+          "wrong": [
+            "De la pizza",
+            "Des hamburgers",
+            "Des frites"
+          ],
+          "hint": "Fait à partir de céréales.",
+          "explanation": "Le repas quotidien, c'était du pain noir, de la bouillie et parfois des légumes.",
+          "fact": "La viande n'apparaissait souvent que les jours de fête."
+        },
+        "es": {
+          "prompt": "¿Qué comía sobre todo la gente sencilla en la Edad Media?",
+          "answer": "Pan y gachas",
+          "wrong": [
+            "Pizza",
+            "Hamburguesas",
+            "Patatas fritas"
+          ],
+          "hint": "Hecho de cereal.",
+          "explanation": "La comida diaria era pan oscuro, gachas y a veces verdura.",
+          "fact": "La carne solía reservarse para los días de fiesta."
+        },
+        "it": {
+          "prompt": "Che cosa mangiava la gente comune nel Medioevo?",
+          "answer": "Pane e polenta",
+          "wrong": [
+            "Pizza",
+            "Hamburger",
+            "Patatine fritte"
+          ],
+          "hint": "Fatto di cereali.",
+          "explanation": "Il cibo di ogni giorno era pane scuro, polenta e a volte verdura.",
+          "fact": "La carne compariva quasi solo nei giorni di festa."
+        },
+        "pt": {
+          "prompt": "O que comia a gente simples na Idade Média?",
+          "answer": "Pão e papas",
+          "wrong": [
+            "Pizza",
+            "Hambúrgueres",
+            "Batatas fritas"
+          ],
+          "hint": "Feito de cereais.",
+          "explanation": "A comida diária era pão escuro, papas e às vezes legumes.",
+          "fact": "A carne quase só aparecia nos dias de festa."
+        },
+        "da": {
+          "prompt": "Hvad spiste almindelige folk mest i middelalderen?",
+          "answer": "Brød og grød",
+          "wrong": [
+            "Pizza",
+            "Burgere",
+            "Pommes frites"
+          ],
+          "hint": "Lavet af korn.",
+          "explanation": "Den daglige mad var mørkt brød, grød og af og til grønt.",
+          "fact": "Kød var der næsten kun på festdage."
+        },
+        "ru": {
+          "prompt": "Что чаще всего ели простые люди в Средневековье?",
+          "answer": "Хлеб и кашу",
+          "wrong": [
+            "Пиццу",
+            "Гамбургеры",
+            "Картошку фри"
+          ],
+          "hint": "Это делают из зерна.",
+          "explanation": "Ежедневной едой были тёмный хлеб, каша и иногда овощи.",
+          "fact": "Мясо бывало в основном по праздникам."
+        },
+        "ar": {
+          "prompt": "ماذا كان يأكل الناس البسطاء في العصور الوسطى؟",
+          "answer": "خبز وحريرة",
+          "wrong": [
+            "بيتزا",
+            "همبرغر",
+            "بطاطا مقلية"
+          ],
+          "hint": "يُصنع من الحبوب.",
+          "explanation": "الطعام اليومي كان خبزًا أسمر وحريرة وأحيانًا خضارًا.",
+          "fact": "اللحم كان في الأعياد فقط تقريبًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De grote zaal als slaapplek",
+      "artBrief": "Een grote zaal met haardvuur waar knechten op stro langs de muren slapen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar sliepen de knechten in een kasteel?",
+          "answer": "In de grote zaal",
+          "wrong": [
+            "In de gracht",
+            "Op het dak",
+            "In de put"
+          ],
+          "hint": "Dicht bij het vuur.",
+          "explanation": "De knechten sliepen op stro in de grote zaal, waar de haard brandde.",
+          "fact": "Alleen de heer en zijn gezin hadden een eigen kamer."
+        },
+        "en": {
+          "prompt": "Where did the servants sleep in a castle?",
+          "answer": "In the great hall",
+          "wrong": [
+            "In the moat",
+            "On the roof",
+            "In the well"
+          ],
+          "hint": "Close to the fire.",
+          "explanation": "Servants slept on straw in the great hall, where the hearth burned.",
+          "fact": "Only the lord and his family had a room of their own."
+        },
+        "de": {
+          "prompt": "Wo schliefen die Knechte in einer Burg?",
+          "answer": "In der großen Halle",
+          "wrong": [
+            "Im Wassergraben",
+            "Auf dem Dach",
+            "Im Brunnen"
+          ],
+          "hint": "Nah beim Feuer.",
+          "explanation": "Die Knechte schliefen auf Stroh in der Halle, wo der Kamin brannte.",
+          "fact": "Nur der Herr und seine Familie hatten ein eigenes Zimmer."
+        },
+        "fr": {
+          "prompt": "Où dormaient les serviteurs dans un château ?",
+          "answer": "Dans la grande salle",
+          "wrong": [
+            "Dans les douves",
+            "Sur le toit",
+            "Dans le puits"
+          ],
+          "hint": "Tout près du feu.",
+          "explanation": "Les serviteurs dormaient sur la paille dans la salle où brûlait l'âtre.",
+          "fact": "Seuls le seigneur et sa famille avaient une chambre à eux."
+        },
+        "es": {
+          "prompt": "¿Dónde dormían los criados en un castillo?",
+          "answer": "En el gran salón",
+          "wrong": [
+            "En el foso",
+            "En el tejado",
+            "En el pozo"
+          ],
+          "hint": "Cerca del fuego.",
+          "explanation": "Los criados dormían sobre paja en el salón, donde ardía la chimenea.",
+          "fact": "Solo el señor y su familia tenían habitación propia."
+        },
+        "it": {
+          "prompt": "Dove dormivano i servi in un castello?",
+          "answer": "Nella grande sala",
+          "wrong": [
+            "Nel fossato",
+            "Sul tetto",
+            "Nel pozzo"
+          ],
+          "hint": "Vicino al fuoco.",
+          "explanation": "I servi dormivano sulla paglia nella sala, dove ardeva il focolare.",
+          "fact": "Solo il signore e la sua famiglia avevano una stanza propria."
+        },
+        "pt": {
+          "prompt": "Onde dormiam os criados num castelo?",
+          "answer": "No grande salão",
+          "wrong": [
+            "No fosso",
+            "No telhado",
+            "No poço"
+          ],
+          "hint": "Perto do fogo.",
+          "explanation": "Os criados dormiam sobre palha no salão, onde ardia a lareira.",
+          "fact": "Só o senhor e a família tinham quarto próprio."
+        },
+        "da": {
+          "prompt": "Hvor sov tjenestefolkene på en borg?",
+          "answer": "I den store sal",
+          "wrong": [
+            "I voldgraven",
+            "På taget",
+            "I brønden"
+          ],
+          "hint": "Tæt ved ilden.",
+          "explanation": "Tjenestefolkene sov på halm i salen, hvor ildstedet brændte.",
+          "fact": "Kun herren og hans familie havde eget kammer."
+        },
+        "ru": {
+          "prompt": "Где спали слуги в замке?",
+          "answer": "В большом зале",
+          "wrong": [
+            "Во рву",
+            "На крыше",
+            "В колодце"
+          ],
+          "hint": "Рядом с огнём.",
+          "explanation": "Слуги спали на соломе в зале, где горел очаг.",
+          "fact": "Своя комната была только у хозяина и его семьи."
+        },
+        "ar": {
+          "prompt": "أين كان الخدم ينامون في القلعة؟",
+          "answer": "في القاعة الكبيرة",
+          "wrong": [
+            "في الخندق",
+            "على السطح",
+            "في البئر"
+          ],
+          "hint": "قرب النار.",
+          "explanation": "كان الخدم ينامون على القش في القاعة حيث يشتعل الموقد.",
+          "fact": "السيد وعائلته وحدهم كانت لهم غرفة خاصة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Een volledig harnas woog 20-30 kg",
+      "artBrief": "Een harnas op een standaard in een wapenkamer, met helm ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe zwaar was een compleet harnas ongeveer?",
+          "answer": "Ongeveer 25 kilo",
+          "wrong": [
+            "Ongeveer 2 kilo",
+            "Ongeveer 100 kilo",
+            "Ongeveer 500 kilo"
+          ],
+          "hint": "Ongeveer zo zwaar als een grote hond.",
+          "explanation": "Een goed harnas woog twintig tot dertig kilo, verdeeld over het lichaam.",
+          "fact": "Daarin kon een geoefende ridder rennen en zelfs opstaan uit het zand."
+        },
+        "en": {
+          "prompt": "About how heavy was a full suit of armour?",
+          "answer": "About 25 kilos",
+          "wrong": [
+            "About 2 kilos",
+            "About 100 kilos",
+            "About 500 kilos"
+          ],
+          "hint": "About as heavy as a large dog.",
+          "explanation": "Good armour weighed twenty to thirty kilos, spread over the body.",
+          "fact": "In it a trained knight could run and even get up off the ground."
+        },
+        "de": {
+          "prompt": "Wie schwer war eine vollständige Rüstung etwa?",
+          "answer": "Etwa 25 Kilo",
+          "wrong": [
+            "Etwa 2 Kilo",
+            "Etwa 100 Kilo",
+            "Etwa 500 Kilo"
+          ],
+          "hint": "So schwer wie ein großer Hund.",
+          "explanation": "Eine gute Rüstung wog zwanzig bis dreißig Kilo, verteilt über den Körper.",
+          "fact": "Darin konnte ein geübter Ritter laufen und sogar aufstehen."
+        },
+        "fr": {
+          "prompt": "Combien pesait environ une armure complète ?",
+          "answer": "Environ 25 kilos",
+          "wrong": [
+            "Environ 2 kilos",
+            "Environ 100 kilos",
+            "Environ 500 kilos"
+          ],
+          "hint": "À peu près comme un gros chien.",
+          "explanation": "Une bonne armure pesait vingt à trente kilos, répartis sur le corps.",
+          "fact": "Un chevalier entraîné pouvait y courir et même se relever."
+        },
+        "es": {
+          "prompt": "¿Cuánto pesaba más o menos una armadura completa?",
+          "answer": "Unos 25 kilos",
+          "wrong": [
+            "Unos 2 kilos",
+            "Unos 100 kilos",
+            "Unos 500 kilos"
+          ],
+          "hint": "Casi como un perro grande.",
+          "explanation": "Una buena armadura pesaba de veinte a treinta kilos repartidos por el cuerpo.",
+          "fact": "Con ella un caballero entrenado podía correr e incluso levantarse del suelo."
+        },
+        "it": {
+          "prompt": "Quanto pesava circa un'armatura completa?",
+          "answer": "Circa 25 chili",
+          "wrong": [
+            "Circa 2 chili",
+            "Circa 100 chili",
+            "Circa 500 chili"
+          ],
+          "hint": "Come un cane grosso.",
+          "explanation": "Una buona armatura pesava venti o trenta chili, distribuiti sul corpo.",
+          "fact": "Con essa un cavaliere allenato correva e si rialzava da terra."
+        },
+        "pt": {
+          "prompt": "Quanto pesava mais ou menos uma armadura completa?",
+          "answer": "Cerca de 25 quilos",
+          "wrong": [
+            "Cerca de 2 quilos",
+            "Cerca de 100 quilos",
+            "Cerca de 500 quilos"
+          ],
+          "hint": "Quase como um cão grande.",
+          "explanation": "Uma boa armadura pesava vinte a trinta quilos, repartidos pelo corpo.",
+          "fact": "Com ela um cavaleiro treinado corria e até se levantava do chão."
+        },
+        "da": {
+          "prompt": "Hvor tung var en hel rustning omtrent?",
+          "answer": "Omkring 25 kilo",
+          "wrong": [
+            "Omkring 2 kilo",
+            "Omkring 100 kilo",
+            "Omkring 500 kilo"
+          ],
+          "hint": "Cirka som en stor hund.",
+          "explanation": "En god rustning vejede tyve til tredive kilo fordelt på kroppen.",
+          "fact": "I den kunne en øvet ridder løbe og selv rejse sig op."
+        },
+        "ru": {
+          "prompt": "Сколько примерно весили полные доспехи?",
+          "answer": "Около 25 килограммов",
+          "wrong": [
+            "Около 2 килограммов",
+            "Около 100 килограммов",
+            "Около 500 килограммов"
+          ],
+          "hint": "Как большая собака.",
+          "explanation": "Хорошие доспехи весили двадцать-тридцать килограммов, распределённых по телу.",
+          "fact": "В них обученный рыцарь бегал и даже вставал с земли."
+        },
+        "ar": {
+          "prompt": "كم كان يزن الدرع الكامل تقريبًا؟",
+          "answer": "نحو 25 كيلوغرامًا",
+          "wrong": [
+            "نحو 2 كيلوغرام",
+            "نحو 100 كيلوغرام",
+            "نحو 500 كيلوغرام"
+          ],
+          "hint": "مثل كلب كبير تقريبًا.",
+          "explanation": "الدرع الجيد كان يزن عشرين إلى ثلاثين كيلوغرامًا موزعة على الجسم.",
+          "fact": "كان الفارس المدرَّب يركض به وينهض عن الأرض."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Wenteltrappen met de klok mee",
+      "artBrief": "Een smalle stenen wenteltrap die rechtsom omhoog draait.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom draaiden kasteeltrappen meestal rechtsom?",
+          "answer": "Zo had de verdediger ruimte",
+          "wrong": [
+            "Het stond mooier",
+            "Het bouwde makkelijker",
+            "Het bracht geluk"
+          ],
+          "hint": "Denk aan de zwaardarm.",
+          "explanation": "Wie van boven verdedigde had rechts alle ruimte, de aanvaller niet.",
+          "fact": "Bij linkshandige families draaide de trap soms juist andersom."
+        },
+        "en": {
+          "prompt": "Why did castle stairs usually spiral to the right?",
+          "answer": "It gave the defender room",
+          "wrong": [
+            "It looked better",
+            "It was easier to build",
+            "It brought luck"
+          ],
+          "hint": "Think of the sword arm.",
+          "explanation": "Defending from above left the right arm free; the attacker's did not.",
+          "fact": "Left-handed families sometimes had the stairs turn the other way."
+        },
+        "de": {
+          "prompt": "Warum drehten Burgtreppen meist nach rechts?",
+          "answer": "Der Verteidiger hatte Platz",
+          "wrong": [
+            "Es sah schöner aus",
+            "Es ließ sich leichter bauen",
+            "Es brachte Glück"
+          ],
+          "hint": "Denk an den Schwertarm.",
+          "explanation": "Wer von oben verteidigte, hatte rechts Platz, der Angreifer nicht.",
+          "fact": "Bei linkshändigen Familien drehte die Treppe manchmal andersherum."
+        },
+        "fr": {
+          "prompt": "Pourquoi les escaliers de château tournaient-ils à droite ?",
+          "answer": "Le défenseur avait la place",
+          "wrong": [
+            "C'était plus joli",
+            "C'était plus facile à bâtir",
+            "Cela portait chance"
+          ],
+          "hint": "Pense au bras qui tient l'épée.",
+          "explanation": "En défendant d'en haut, on avait le bras droit libre ; l'assaillant non.",
+          "fact": "Chez les familles gauchères, l'escalier tournait parfois à l'inverse."
+        },
+        "es": {
+          "prompt": "¿Por qué las escaleras de castillo giraban a la derecha?",
+          "answer": "Daba espacio al defensor",
+          "wrong": [
+            "Quedaba más bonito",
+            "Era más fácil de construir",
+            "Daba buena suerte"
+          ],
+          "hint": "Piensa en el brazo de la espada.",
+          "explanation": "Quien defendía desde arriba tenía el brazo derecho libre; el atacante no.",
+          "fact": "En familias zurdas la escalera giraba a veces al revés."
+        },
+        "it": {
+          "prompt": "Perché le scale dei castelli girano a destra?",
+          "answer": "Dava spazio al difensore",
+          "wrong": [
+            "Era più bello",
+            "Era più facile da costruire",
+            "Portava fortuna"
+          ],
+          "hint": "Pensa al braccio della spada.",
+          "explanation": "Chi difendeva dall'alto aveva il braccio destro libero, l'assalitore no.",
+          "fact": "Nelle famiglie mancine la scala a volte girava al contrario."
+        },
+        "pt": {
+          "prompt": "Porque as escadas dos castelos giravam à direita?",
+          "answer": "Dava espaço ao defensor",
+          "wrong": [
+            "Ficava mais bonito",
+            "Era mais fácil de construir",
+            "Dava sorte"
+          ],
+          "hint": "Pensa no braço da espada.",
+          "explanation": "Quem defendia de cima tinha o braço direito livre; o atacante não.",
+          "fact": "Em famílias esquerdinas a escada girava às vezes ao contrário."
+        },
+        "da": {
+          "prompt": "Hvorfor drejede borgtrapper mod højre?",
+          "answer": "Forsvareren fik plads",
+          "wrong": [
+            "Det var pænere",
+            "Det var lettere at bygge",
+            "Det gav held"
+          ],
+          "hint": "Tænk på sværdarmen.",
+          "explanation": "Den, der forsvarede oppefra, havde højre arm fri; angriberen ikke.",
+          "fact": "Hos venstrehåndede familier drejede trappen nogle gange omvendt."
+        },
+        "ru": {
+          "prompt": "Почему лестницы в замках закручены вправо?",
+          "answer": "Защитнику было место",
+          "wrong": [
+            "Так красивее",
+            "Так легче строить",
+            "Так было к удаче"
+          ],
+          "hint": "Подумай о руке с мечом.",
+          "explanation": "У того, кто защищался сверху, правая рука была свободна, у нападавшего нет.",
+          "fact": "У левшей лестница иногда закручивалась наоборот."
+        },
+        "ar": {
+          "prompt": "لماذا كانت سلالم القلاع تلتف إلى اليمين؟",
+          "answer": "لتبقى مساحة للمدافع",
+          "wrong": [
+            "كان أجمل",
+            "كان أسهل بناء",
+            "كان يجلب الحظ"
+          ],
+          "hint": "فكّر في يد السيف.",
+          "explanation": "من يدافع من أعلى تبقى يده اليمنى حرة، أما المهاجم فلا.",
+          "fact": "عند العائلات اليسراوية كان السلم يلتف أحيانًا بالعكس."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Het valhek in de poort",
+      "artBrief": "Een zwaar houten hek met ijzeren punten boven een kasteelpoort.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een valhek?",
+          "answer": "Een hek dat omlaag valt",
+          "wrong": [
+            "Een brug over de gracht",
+            "Een luik in het dak",
+            "Een raam met tralies"
+          ],
+          "hint": "Het zit in de poort.",
+          "explanation": "Bij gevaar viel het zware hek met punten voor de poortdoorgang.",
+          "fact": "Vaak hing er nog een tweede achter, om aanvallers in te sluiten."
+        },
+        "en": {
+          "prompt": "What is a portcullis?",
+          "answer": "A grille that drops down",
+          "wrong": [
+            "A bridge over the moat",
+            "A hatch in the roof",
+            "A barred window"
+          ],
+          "hint": "It sits in the gateway.",
+          "explanation": "In danger the heavy spiked grille dropped across the gate passage.",
+          "fact": "Often a second one hung behind, to trap attackers between them."
+        },
+        "de": {
+          "prompt": "Was ist ein Fallgitter?",
+          "answer": "Ein Gitter, das herabfällt",
+          "wrong": [
+            "Eine Brücke über den Graben",
+            "Eine Luke im Dach",
+            "Ein vergittertes Fenster"
+          ],
+          "hint": "Es steckt im Tor.",
+          "explanation": "Bei Gefahr fiel das schwere Gitter mit Spitzen vor die Tordurchfahrt.",
+          "fact": "Oft hing dahinter ein zweites, um Angreifer einzusperren."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une herse ?",
+          "answer": "Une grille qui tombe",
+          "wrong": [
+            "Un pont sur les douves",
+            "Une trappe au toit",
+            "Une fenêtre à barreaux"
+          ],
+          "hint": "Elle se trouve dans le passage de la porte.",
+          "explanation": "En cas de danger, la lourde grille à pointes tombait devant l'entrée.",
+          "fact": "Souvent une seconde herse piégeait les assaillants entre les deux."
+        },
+        "es": {
+          "prompt": "¿Qué es un rastrillo de castillo?",
+          "answer": "Una reja que cae hacia abajo",
+          "wrong": [
+            "Un puente sobre el foso",
+            "Una trampilla en el techo",
+            "Una ventana con barrotes"
+          ],
+          "hint": "Está en el pasaje de la puerta.",
+          "explanation": "Ante el peligro, la pesada reja con puntas caía en la entrada.",
+          "fact": "Muchas veces había otra detrás, para atrapar a los atacantes."
+        },
+        "it": {
+          "prompt": "Che cos'è una saracinesca?",
+          "answer": "Una grata che cade giù",
+          "wrong": [
+            "Un ponte sul fossato",
+            "Una botola nel tetto",
+            "Una finestra con sbarre"
+          ],
+          "hint": "Sta nel passaggio della porta.",
+          "explanation": "In caso di pericolo la grata pesante cadeva davanti all'ingresso.",
+          "fact": "Spesso una seconda intrappolava gli assalitori in mezzo."
+        },
+        "pt": {
+          "prompt": "O que é um rastilho de porta, a grade pesada?",
+          "answer": "Uma grade que cai",
+          "wrong": [
+            "Uma ponte sobre o fosso",
+            "Um alçapão no telhado",
+            "Uma janela com grades"
+          ],
+          "hint": "Fica na passagem da porta.",
+          "explanation": "Ao primeiro perigo a grade pesada caía em frente à entrada.",
+          "fact": "Muitas vezes havia outra atrás, para prender os atacantes."
+        },
+        "da": {
+          "prompt": "Hvad er et faldgitter?",
+          "answer": "Et gitter, der falder ned",
+          "wrong": [
+            "En bro over graven",
+            "En luge i taget",
+            "Et vindue med tremmer"
+          ],
+          "hint": "Det sidder i portrummet.",
+          "explanation": "Ved fare faldt det tunge gitter med spidser ned foran porten.",
+          "fact": "Ofte hang der et til bagved, så angribere blev fanget."
+        },
+        "ru": {
+          "prompt": "Что такое опускная решётка?",
+          "answer": "Решётка, падающая вниз",
+          "wrong": [
+            "Мост через ров",
+            "Люк в крыше",
+            "Окно с прутьями"
+          ],
+          "hint": "Она стоит в проходе ворот.",
+          "explanation": "При опасности тяжёлая решётка с шипами падала перед проходом.",
+          "fact": "Часто позади была вторая, чтобы запереть нападавших."
+        },
+        "ar": {
+          "prompt": "ما هي البوابة الساقطة؟",
+          "answer": "شبكة تهبط إلى أسفل",
+          "wrong": [
+            "جسر فوق الخندق",
+            "فتحة في السطح",
+            "نافذة بقضبان"
+          ],
+          "hint": "تكون في مدخل البوابة.",
+          "explanation": "عند الخطر تهبط الشبكة الثقيلة ذات الأسنان أمام المدخل.",
+          "fact": "كثيرًا ما كانت خلفها ثانية لتحصر المهاجمين."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De hofnar",
+      "artBrief": "Een nar met belletjesmuts die het gezelschap aan een lange tafel vermaakt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat deed een hofnar?",
+          "answer": "De mensen laten lachen",
+          "wrong": [
+            "De paarden verzorgen",
+            "Het eten koken",
+            "De muren bouwen"
+          ],
+          "hint": "Hij droeg een muts met belletjes.",
+          "explanation": "De nar vermaakte het hof met grappen, liedjes en kunstjes.",
+          "fact": "Hij mocht als enige de heer plagen zonder straf."
+        },
+        "en": {
+          "prompt": "What did a court jester do?",
+          "answer": "Make people laugh",
+          "wrong": [
+            "Look after the horses",
+            "Cook the food",
+            "Build the walls"
+          ],
+          "hint": "He wore a cap with bells.",
+          "explanation": "The jester entertained the court with jokes, songs and tricks.",
+          "fact": "He alone was allowed to tease the lord without punishment."
+        },
+        "de": {
+          "prompt": "Was machte ein Hofnarr?",
+          "answer": "Die Leute zum Lachen bringen",
+          "wrong": [
+            "Die Pferde versorgen",
+            "Das Essen kochen",
+            "Die Mauern bauen"
+          ],
+          "hint": "Er trug eine Mütze mit Glöckchen.",
+          "explanation": "Der Narr unterhielt den Hof mit Witzen, Liedern und Kunststücken.",
+          "fact": "Nur er durfte den Herrn ungestraft necken."
+        },
+        "fr": {
+          "prompt": "Que faisait un bouffon de cour ?",
+          "answer": "Faire rire les gens",
+          "wrong": [
+            "S'occuper des chevaux",
+            "Faire la cuisine",
+            "Bâtir les murs"
+          ],
+          "hint": "Il portait un bonnet à grelots.",
+          "explanation": "Le bouffon distrayait la cour par des blagues, des chansons et des tours.",
+          "fact": "Lui seul pouvait taquiner le seigneur sans être puni."
+        },
+        "es": {
+          "prompt": "¿Qué hacía un bufón de la corte?",
+          "answer": "Hacer reír a la gente",
+          "wrong": [
+            "Cuidar los caballos",
+            "Cocinar la comida",
+            "Levantar los muros"
+          ],
+          "hint": "Llevaba un gorro con cascabeles.",
+          "explanation": "El bufón entretenía a la corte con bromas, canciones y trucos.",
+          "fact": "Era el único que podía burlarse del señor sin castigo."
+        },
+        "it": {
+          "prompt": "Che cosa faceva il giullare di corte?",
+          "answer": "Far ridere la gente",
+          "wrong": [
+            "Curare i cavalli",
+            "Cucinare il cibo",
+            "Costruire le mura"
+          ],
+          "hint": "Portava un cappello con campanelli.",
+          "explanation": "Il giullare divertiva la corte con scherzi, canzoni e giochi.",
+          "fact": "Era il solo che poteva prendere in giro il signore."
+        },
+        "pt": {
+          "prompt": "O que fazia um bobo da corte?",
+          "answer": "Fazer as pessoas rir",
+          "wrong": [
+            "Cuidar dos cavalos",
+            "Cozinhar a comida",
+            "Levantar as muralhas"
+          ],
+          "hint": "Usava um gorro com sinos.",
+          "explanation": "O bobo divertia a corte com piadas, canções e truques.",
+          "fact": "Era o único que podia gozar com o senhor sem castigo."
+        },
+        "da": {
+          "prompt": "Hvad gjorde en hofnar?",
+          "answer": "Fik folk til at grine",
+          "wrong": [
+            "Passede hestene",
+            "Lavede maden",
+            "Byggede murene"
+          ],
+          "hint": "Han havde hue med bjælder.",
+          "explanation": "Naren underholdt hoffet med vitser, sange og kunster.",
+          "fact": "Kun han måtte drille herren uden straf."
+        },
+        "ru": {
+          "prompt": "Что делал придворный шут?",
+          "answer": "Смешил людей",
+          "wrong": [
+            "Ухаживал за конями",
+            "Готовил еду",
+            "Строил стены"
+          ],
+          "hint": "Он носил шапку с бубенцами.",
+          "explanation": "Шут развлекал двор шутками, песнями и фокусами.",
+          "fact": "Только ему разрешалось дразнить сеньора без наказания."
+        },
+        "ar": {
+          "prompt": "ماذا كان يفعل مهرِّج القصر؟",
+          "answer": "يُضحك الناس",
+          "wrong": [
+            "يعتني بالخيول",
+            "يطبخ الطعام",
+            "يبني الأسوار"
+          ],
+          "hint": "كان يلبس قبعة بأجراس.",
+          "explanation": "المهرِّج كان يسلي البلاط بالنكات والأغاني والألعاب.",
+          "fact": "كان الوحيد الذي يمزح مع السيد دون عقاب."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De waterput binnen de muren",
+      "artBrief": "Een ronde stenen put op een binnenplaats met emmer en touw.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom had elk kasteel een put binnen de muren?",
+          "answer": "Voor water bij een beleg",
+          "wrong": [
+            "Om vissen te kweken",
+            "Om afval te storten",
+            "Om in te baden"
+          ],
+          "hint": "Buiten komen kon dan niet.",
+          "explanation": "Zonder eigen put gaf een belegerd kasteel het al na dagen op.",
+          "fact": "Sommige putten waren meer dan veertig meter diep."
+        },
+        "en": {
+          "prompt": "Why did every castle have a well inside the walls?",
+          "answer": "For water during a siege",
+          "wrong": [
+            "To keep fish in",
+            "To throw rubbish in",
+            "To bathe in"
+          ],
+          "hint": "Going outside was not an option.",
+          "explanation": "Without its own well a besieged castle gave in within days.",
+          "fact": "Some wells were more than forty metres deep."
+        },
+        "de": {
+          "prompt": "Warum hatte jede Burg einen Brunnen innerhalb der Mauern?",
+          "answer": "Für Wasser bei Belagerung",
+          "wrong": [
+            "Um Fische zu züchten",
+            "Um Abfall zu entsorgen",
+            "Um darin zu baden"
+          ],
+          "hint": "Nach draußen ging es dann nicht.",
+          "explanation": "Ohne eigenen Brunnen gab eine belagerte Burg schon nach Tagen auf.",
+          "fact": "Manche Brunnen waren über vierzig Meter tief."
+        },
+        "fr": {
+          "prompt": "Pourquoi chaque château avait-il un puits à l'intérieur ?",
+          "answer": "Pour l'eau en cas de siège",
+          "wrong": [
+            "Pour élever des poissons",
+            "Pour jeter les déchets",
+            "Pour se baigner"
+          ],
+          "hint": "Sortir devenait impossible.",
+          "explanation": "Sans puits, un château assiégé cédait en quelques jours.",
+          "fact": "Certains puits dépassaient quarante mètres de profondeur."
+        },
+        "es": {
+          "prompt": "¿Por qué tenía cada castillo un pozo dentro de los muros?",
+          "answer": "Para tener agua en un asedio",
+          "wrong": [
+            "Para criar peces",
+            "Para tirar basura",
+            "Para bañarse"
+          ],
+          "hint": "Salir fuera ya no era posible.",
+          "explanation": "Sin pozo propio, un castillo asediado cedía en pocos días.",
+          "fact": "Algunos pozos pasaban de los cuarenta metros de profundidad."
+        },
+        "it": {
+          "prompt": "Perché ogni castello aveva un pozzo dentro le mura?",
+          "answer": "Per l'acqua in un assedio",
+          "wrong": [
+            "Per allevare pesci",
+            "Per gettare i rifiuti",
+            "Per farci il bagno"
+          ],
+          "hint": "Uscire non era possibile.",
+          "explanation": "Senza pozzo un castello assediato cedeva in pochi giorni.",
+          "fact": "Alcuni pozzi superavano i quaranta metri di profondità."
+        },
+        "pt": {
+          "prompt": "Porque cada castelo tinha um poço dentro das muralhas?",
+          "answer": "Para ter água num cerco",
+          "wrong": [
+            "Para criar peixes",
+            "Para deitar o lixo",
+            "Para tomar banho"
+          ],
+          "hint": "Sair já não era possível.",
+          "explanation": "Sem poço próprio, um castelo cercado cedia em poucos dias.",
+          "fact": "Alguns poços passavam dos quarenta metros de fundo."
+        },
+        "da": {
+          "prompt": "Hvorfor havde hver borg en brønd inden for murene?",
+          "answer": "Vand under en belejring",
+          "wrong": [
+            "For at avle fisk",
+            "For at smide affald",
+            "For at bade i"
+          ],
+          "hint": "Man kunne ikke komme ud.",
+          "explanation": "Uden egen brønd gav en belejret borg op efter få dage.",
+          "fact": "Nogle brønde var over fyrre meter dybe."
+        },
+        "ru": {
+          "prompt": "Зачем в каждом замке был колодец внутри стен?",
+          "answer": "Вода во время осады",
+          "wrong": [
+            "Чтобы разводить рыбу",
+            "Чтобы бросать мусор",
+            "Чтобы купаться"
+          ],
+          "hint": "Выйти наружу было нельзя.",
+          "explanation": "Без своего колодца осаждённый замок сдавался через несколько дней.",
+          "fact": "Некоторые колодцы были глубже сорока метров."
+        },
+        "ar": {
+          "prompt": "لماذا كان لكل قلعة بئر داخل الأسوار؟",
+          "answer": "للماء أثناء الحصار",
+          "wrong": [
+            "لتربية الأسماك",
+            "لرمي النفايات",
+            "للاستحمام"
+          ],
+          "hint": "الخروج لم يكن ممكنًا.",
+          "explanation": "بدون بئر خاصة كانت القلعة المحاصَرة تستسلم بعد أيام.",
+          "fact": "بعض الآبار كان عمقها أكثر من أربعين مترًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Page op zijn zevende, ridder rond zijn eenentwintigste",
+      "artBrief": "Drie figuren naast elkaar: een jonge page, een schildknaap en een ridder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang duurde de opleiding tot ridder?",
+          "answer": "Ongeveer veertien jaar",
+          "wrong": [
+            "Ongeveer een week",
+            "Ongeveer een jaar",
+            "Ongeveer vijftig jaar"
+          ],
+          "hint": "Je begon als kind van zeven.",
+          "explanation": "Vanaf zijn zevende leerde een jongen eerst als page, daarna als schildknaap.",
+          "fact": "Rond zijn eenentwintigste werd hij tot ridder geslagen."
+        },
+        "en": {
+          "prompt": "How long did it take to be trained as a knight?",
+          "answer": "About fourteen years",
+          "wrong": [
+            "About a week",
+            "About a year",
+            "About fifty years"
+          ],
+          "hint": "You started as a child of seven.",
+          "explanation": "From the age of seven a boy served first as a page, then as a squire.",
+          "fact": "At about twenty-one he was knighted."
+        },
+        "de": {
+          "prompt": "Wie lange dauerte die Ausbildung zum Ritter?",
+          "answer": "Etwa vierzehn Jahre",
+          "wrong": [
+            "Etwa eine Woche",
+            "Etwa ein Jahr",
+            "Etwa fünfzig Jahre"
+          ],
+          "hint": "Man begann als Kind von sieben.",
+          "explanation": "Ab sieben diente ein Junge erst als Page, dann als Knappe.",
+          "fact": "Mit etwa einundzwanzig wurde er zum Ritter geschlagen."
+        },
+        "fr": {
+          "prompt": "Combien de temps durait la formation d'un chevalier ?",
+          "answer": "Environ quatorze ans",
+          "wrong": [
+            "Environ une semaine",
+            "Environ un an",
+            "Environ cinquante ans"
+          ],
+          "hint": "On commençait enfant, à sept ans.",
+          "explanation": "Dès sept ans, un garçon servait d'abord comme page, puis comme écuyer.",
+          "fact": "Vers vingt et un ans, il était adoubé."
+        },
+        "es": {
+          "prompt": "¿Cuánto duraba la formación de un caballero?",
+          "answer": "Unos catorce años",
+          "wrong": [
+            "Una semana",
+            "Un año",
+            "Cincuenta años"
+          ],
+          "hint": "Se empezaba de niño, a los siete.",
+          "explanation": "Desde los siete años un muchacho servía primero de paje y luego de escudero.",
+          "fact": "Hacia los veintiuno era armado caballero."
+        },
+        "it": {
+          "prompt": "Quanto durava l'addestramento di un cavaliere?",
+          "answer": "Circa quattordici anni",
+          "wrong": [
+            "Circa una settimana",
+            "Circa un anno",
+            "Circa cinquant'anni"
+          ],
+          "hint": "Si iniziava a sette anni.",
+          "explanation": "Dai sette anni un ragazzo serviva prima come paggio, poi come scudiero.",
+          "fact": "Verso i ventuno anni veniva armato cavaliere."
+        },
+        "pt": {
+          "prompt": "Quanto durava a formação de um cavaleiro?",
+          "answer": "Cerca de catorze anos",
+          "wrong": [
+            "Cerca de uma semana",
+            "Cerca de um ano",
+            "Cerca de cinquenta anos"
+          ],
+          "hint": "Começava-se aos sete anos.",
+          "explanation": "Desde os sete anos um rapaz servia primeiro de pajem e depois de escudeiro.",
+          "fact": "Por volta dos vinte e um era armado cavaleiro."
+        },
+        "da": {
+          "prompt": "Hvor længe varede det at blive ridder?",
+          "answer": "Omkring fjorten år",
+          "wrong": [
+            "Omkring en uge",
+            "Omkring et år",
+            "Omkring halvtreds år"
+          ],
+          "hint": "Man begyndte som barn på syv.",
+          "explanation": "Fra syv år tjente en dreng først som page, siden som væbner.",
+          "fact": "Omkring de enogtyve blev han slået til ridder."
+        },
+        "ru": {
+          "prompt": "Сколько длилось обучение рыцаря?",
+          "answer": "Около четырнадцати лет",
+          "wrong": [
+            "Около недели",
+            "Около года",
+            "Около пятидесяти лет"
+          ],
+          "hint": "Начинали ребёнком в семь лет.",
+          "explanation": "С семи лет мальчик служил сначала пажом, потом оруженосцем.",
+          "fact": "Около двадцати одного года его посвящали в рыцари."
+        },
+        "ar": {
+          "prompt": "كم كان يستغرق التدرُّب ليصبح المرء فارسًا؟",
+          "answer": "نحو أربعة عشر عامًا",
+          "wrong": [
+            "نحو أسبوع",
+            "نحو عام",
+            "نحو خمسين عامًا"
+          ],
+          "hint": "يبدأ الطفل في السابعة.",
+          "explanation": "من السابعة كان الصبي يخدم أولًا كوصيف ثم كحامل درع.",
+          "fact": "وفي نحو الحادية والعشرين يُرسَم فارسًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Belegeringen",
+      "artBrief": "Tenten en soldaten rond een kasteel op een heuvel, met belegeringstuig.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat was een belegering?",
+          "answer": "Een kasteel insluiten",
+          "wrong": [
+            "Een feest op het kasteel",
+            "Een ruzie tussen ridders",
+            "Een reis naar het oosten"
+          ],
+          "hint": "Wachten tot het eten op is.",
+          "explanation": "Bij een belegering sloot een leger een kasteel af tot het zich overgaf.",
+          "fact": "Vaak won honger de strijd, niet het wapen."
+        },
+        "en": {
+          "prompt": "What was a siege?",
+          "answer": "Shutting a castle in",
+          "wrong": [
+            "A feast at the castle",
+            "A quarrel between knights",
+            "A journey to the east"
+          ],
+          "hint": "Waiting until the food runs out.",
+          "explanation": "In a siege an army sealed off a castle until it surrendered.",
+          "fact": "Hunger often won the fight, not the weapons."
+        },
+        "de": {
+          "prompt": "Was war eine Belagerung?",
+          "answer": "Eine Burg einschließen",
+          "wrong": [
+            "Ein Fest auf der Burg",
+            "Ein Streit unter Rittern",
+            "Eine Reise nach Osten"
+          ],
+          "hint": "Warten, bis das Essen aus ist.",
+          "explanation": "Bei einer Belagerung schloss ein Heer eine Burg ab, bis sie aufgab.",
+          "fact": "Oft entschied der Hunger den Kampf, nicht die Waffe."
+        },
+        "fr": {
+          "prompt": "Qu'était un siège ?",
+          "answer": "Encercler un château",
+          "wrong": [
+            "Une fête au château",
+            "Une dispute entre chevaliers",
+            "Un voyage vers l'est"
+          ],
+          "hint": "Attendre que les vivres manquent.",
+          "explanation": "Lors d'un siège, une armée bouclait un château jusqu'à sa reddition.",
+          "fact": "Souvent c'était la faim qui décidait, pas les armes."
+        },
+        "es": {
+          "prompt": "¿Qué era un asedio?",
+          "answer": "Cercar un castillo",
+          "wrong": [
+            "Una fiesta en el castillo",
+            "Una pelea entre caballeros",
+            "Un viaje a oriente"
+          ],
+          "hint": "Esperar a que se acabe la comida.",
+          "explanation": "En un asedio un ejército cercaba un castillo hasta que se rendía.",
+          "fact": "Muchas veces ganaba el hambre, no las armas."
+        },
+        "it": {
+          "prompt": "Che cos'era un assedio?",
+          "answer": "Chiudere dentro un castello",
+          "wrong": [
+            "Una festa al castello",
+            "Un litigio tra cavalieri",
+            "Un viaggio verso oriente"
+          ],
+          "hint": "Aspettare che finisca il cibo.",
+          "explanation": "In un assedio un esercito chiudeva un castello finché si arrendeva.",
+          "fact": "Spesso vinceva la fame, non le armi."
+        },
+        "pt": {
+          "prompt": "O que era um cerco?",
+          "answer": "Fechar um castelo",
+          "wrong": [
+            "Uma festa no castelo",
+            "Uma briga entre cavaleiros",
+            "Uma viagem ao oriente"
+          ],
+          "hint": "Esperar que a comida acabe.",
+          "explanation": "Num cerco um exército fechava um castelo até ele se render.",
+          "fact": "Muitas vezes vencia a fome, não as armas."
+        },
+        "da": {
+          "prompt": "Hvad var en belejring?",
+          "answer": "At lukke en borg inde",
+          "wrong": [
+            "En fest på borgen",
+            "Et skænderi mellem riddere",
+            "En rejse mod øst"
+          ],
+          "hint": "Vente, til maden slipper op.",
+          "explanation": "Under en belejring lukkede en hær borgen af, indtil den gav op.",
+          "fact": "Ofte vandt sulten kampen, ikke våbnene."
+        },
+        "ru": {
+          "prompt": "Что такое осада?",
+          "answer": "Окружить замок",
+          "wrong": [
+            "Праздник в замке",
+            "Ссора между рыцарями",
+            "Поездка на восток"
+          ],
+          "hint": "Ждать, пока кончится еда.",
+          "explanation": "При осаде войско запирало замок, пока тот не сдавался.",
+          "fact": "Часто побеждал голод, а не оружие."
+        },
+        "ar": {
+          "prompt": "ما هو الحصار؟",
+          "answer": "إغلاق القلعة",
+          "wrong": [
+            "حفل في القلعة",
+            "خلاف بين الفرسان",
+            "رحلة إلى الشرق"
+          ],
+          "hint": "الانتظار حتى ينفد الطعام.",
+          "explanation": "في الحصار يطوّق جيش قلعة حتى تستسلم.",
+          "fact": "كثيرًا ما كان الجوع يحسم المعركة لا السلاح."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De kruisboog",
+      "artBrief": "Een kruisboog met opgespannen pees en een korte, dikke pijl ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk wapen kon zelfs een harnas doorboren?",
+          "answer": "De kruisboog",
+          "wrong": [
+            "Een houten stok",
+            "Een zweep",
+            "Een touw"
+          ],
+          "hint": "Je spande hem met een hendel.",
+          "explanation": "Een kruisboogpijl ging door maliën en soms door plaatstaal heen.",
+          "fact": "Een boer kon er na één dag oefenen al mee raak schieten."
+        },
+        "en": {
+          "prompt": "Which weapon could pierce even armour?",
+          "answer": "The crossbow",
+          "wrong": [
+            "A wooden stick",
+            "A whip",
+            "A rope"
+          ],
+          "hint": "You drew it with a lever.",
+          "explanation": "A crossbow bolt went through mail and sometimes through plate.",
+          "fact": "A farmer could shoot straight with one after a single day of practice."
+        },
+        "de": {
+          "prompt": "Welche Waffe durchschlug sogar eine Rüstung?",
+          "answer": "Die Armbrust",
+          "wrong": [
+            "Ein Holzstock",
+            "Eine Peitsche",
+            "Ein Seil"
+          ],
+          "hint": "Man spannte sie mit einem Hebel.",
+          "explanation": "Ein Armbrustbolzen ging durch Kettengeflecht und manchmal durch Plattenstahl.",
+          "fact": "Ein Bauer traf damit schon nach einem Tag Übung."
+        },
+        "fr": {
+          "prompt": "Quelle arme pouvait percer même une armure ?",
+          "answer": "L'arbalète",
+          "wrong": [
+            "Un bâton de bois",
+            "Un fouet",
+            "Une corde"
+          ],
+          "hint": "On la tendait avec un levier.",
+          "explanation": "Un carreau d'arbalète traversait la maille et parfois la plaque.",
+          "fact": "Un paysan visait juste après une seule journée d'exercice."
+        },
+        "es": {
+          "prompt": "¿Qué arma podía atravesar incluso una armadura?",
+          "answer": "La ballesta",
+          "wrong": [
+            "Un palo de madera",
+            "Un látigo",
+            "Una cuerda"
+          ],
+          "hint": "Se tensaba con una palanca.",
+          "explanation": "Un virote de ballesta pasaba la malla y a veces la placa de acero.",
+          "fact": "Un campesino acertaba con ella tras un solo día de práctica."
+        },
+        "it": {
+          "prompt": "Quale arma bucava anche un'armatura?",
+          "answer": "La balestra",
+          "wrong": [
+            "Un bastone di legno",
+            "Una frusta",
+            "Una corda"
+          ],
+          "hint": "Si tendeva con una leva.",
+          "explanation": "Un dardo di balestra passava la maglia e a volte la piastra.",
+          "fact": "Un contadino imparava a colpire in un solo giorno."
+        },
+        "pt": {
+          "prompt": "Que arma furava até uma armadura?",
+          "answer": "A besta",
+          "wrong": [
+            "Um pau de madeira",
+            "Um chicote",
+            "Uma corda"
+          ],
+          "hint": "Armava-se com uma alavanca.",
+          "explanation": "Uma seta de besta passava a malha e às vezes a placa de aço.",
+          "fact": "Um camponês acertava com ela depois de um só dia."
+        },
+        "da": {
+          "prompt": "Hvilket våben kunne gennembore en rustning?",
+          "answer": "Armbrøsten",
+          "wrong": [
+            "En træstok",
+            "En pisk",
+            "En snor"
+          ],
+          "hint": "Man spændte den med et håndtag.",
+          "explanation": "En armbrøstbolt gik gennem ringbrynje og af og til gennem pladestål.",
+          "fact": "En bonde kunne ramme med den efter én dags øvelse."
+        },
+        "ru": {
+          "prompt": "Какое оружие пробивало даже доспехи?",
+          "answer": "Арбалет",
+          "wrong": [
+            "Деревянная палка",
+            "Кнут",
+            "Верёвка"
+          ],
+          "hint": "Его натягивали рычагом.",
+          "explanation": "Арбалетный болт проходил сквозь кольчугу, иногда сквозь сталь.",
+          "fact": "Крестьянин попадал из него уже после одного дня тренировки."
+        },
+        "ar": {
+          "prompt": "أي سلاح كان يخترق حتى الدرع؟",
+          "answer": "القوس النابض",
+          "wrong": [
+            "عصا خشبية",
+            "سوط",
+            "حبل"
+          ],
+          "hint": "كان يُشدّ برافعة.",
+          "explanation": "سهم القوس النابض كان يخترق الزرد وأحيانًا الصفائح.",
+          "fact": "كان الفلاح يصيب به بعد يوم تدريب واحد."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Kantelen op de weergang",
+      "artBrief": "De bovenkant van een kasteelmuur met afwisselend hoge en lage stukken.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvoor dienden de kantelen op een kasteelmuur?",
+          "answer": "Om achter te schuilen",
+          "wrong": [
+            "Voor de sier",
+            "Om regen op te vangen",
+            "Om vlaggen te planten"
+          ],
+          "hint": "Hoog, laag, hoog, laag.",
+          "explanation": "Achter het hoge deel schuilde de verdediger; door het lage schoot hij.",
+          "fact": "Daardoor kon hij zich dekken en toch terugvechten."
+        },
+        "en": {
+          "prompt": "What were the battlements on a castle wall for?",
+          "answer": "To shelter behind",
+          "wrong": [
+            "For decoration",
+            "To catch rain",
+            "To plant flags in"
+          ],
+          "hint": "High, low, high, low.",
+          "explanation": "Behind the high parts the defender hid; through the low parts he shot.",
+          "fact": "That let him take cover and still fight back."
+        },
+        "de": {
+          "prompt": "Wozu dienten die Zinnen auf einer Burgmauer?",
+          "answer": "Um sich dahinter zu decken",
+          "wrong": [
+            "Zur Zierde",
+            "Um Regen zu fangen",
+            "Für Fahnen"
+          ],
+          "hint": "Hoch, niedrig, hoch, niedrig.",
+          "explanation": "Hinter dem hohen Teil deckte sich der Verteidiger, durch den niedrigen schoss er.",
+          "fact": "So konnte er in Deckung bleiben und trotzdem zurückschießen."
+        },
+        "fr": {
+          "prompt": "À quoi servaient les créneaux d'un mur de château ?",
+          "answer": "À s'abriter derrière",
+          "wrong": [
+            "À décorer",
+            "À recueillir la pluie",
+            "À planter des drapeaux"
+          ],
+          "hint": "Haut, bas, haut, bas.",
+          "explanation": "Derrière la partie haute, le défenseur s'abritait ; par la basse, il tirait.",
+          "fact": "Il pouvait ainsi se couvrir et riposter quand même."
+        },
+        "es": {
+          "prompt": "¿Para qué servían las almenas de un muro?",
+          "answer": "Para resguardarse detrás",
+          "wrong": [
+            "De adorno",
+            "Para recoger lluvia",
+            "Para poner banderas"
+          ],
+          "hint": "Alto, bajo, alto, bajo.",
+          "explanation": "Tras la parte alta se cubría el defensor; por la baja disparaba.",
+          "fact": "Así podía protegerse y responder al ataque."
+        },
+        "it": {
+          "prompt": "A che servivano i merli di un muro?",
+          "answer": "Per ripararsi dietro",
+          "wrong": [
+            "Per bellezza",
+            "Per raccogliere pioggia",
+            "Per piantare bandiere"
+          ],
+          "hint": "Alto, basso, alto, basso.",
+          "explanation": "Dietro la parte alta il difensore si copriva, dalla bassa tirava.",
+          "fact": "Così restava al riparo e rispondeva comunque."
+        },
+        "pt": {
+          "prompt": "Para que serviam as ameias de uma muralha?",
+          "answer": "Para se abrigar atrás",
+          "wrong": [
+            "Para enfeitar",
+            "Para juntar chuva",
+            "Para pôr bandeiras"
+          ],
+          "hint": "Alto, baixo, alto, baixo.",
+          "explanation": "Atrás da parte alta o defensor cobria-se; pela baixa disparava.",
+          "fact": "Assim ficava protegido e respondia ao ataque."
+        },
+        "da": {
+          "prompt": "Hvad brugte man murtakkerne på en borgmur til?",
+          "answer": "At søge dækning bag",
+          "wrong": [
+            "Til pynt",
+            "Til at samle regn",
+            "Til at sætte faner i"
+          ],
+          "hint": "Høj, lav, høj, lav.",
+          "explanation": "Bag den høje del dækkede forsvareren sig; gennem den lave skød han.",
+          "fact": "Sådan kunne han være i dækning og stadig skyde igen."
+        },
+        "ru": {
+          "prompt": "Для чего нужны зубцы на стене замка?",
+          "answer": "Чтобы укрыться за ними",
+          "wrong": [
+            "Для красоты",
+            "Чтобы собирать дождь",
+            "Чтобы ставить флаги"
+          ],
+          "hint": "Высокий, низкий, высокий.",
+          "explanation": "За высокой частью защитник укрывался, через низкую стрелял.",
+          "fact": "Так он был в укрытии и всё же отвечал."
+        },
+        "ar": {
+          "prompt": "لماذا كانت الشُّرَف على سور القلعة؟",
+          "answer": "للاحتماء خلفها",
+          "wrong": [
+            "للزينة",
+            "لجمع المطر",
+            "لتثبيت الرايات"
+          ],
+          "hint": "عالٍ، منخفض، عالٍ.",
+          "explanation": "خلف الجزء العالي يحتمي المدافع، ومن المنخفض يرمي.",
+          "fact": "فيبقى محميًا ويردّ في الوقت نفسه."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Geletterdheid in de middeleeuwen",
+      "artBrief": "Een monnik die in een klooster een boek overschrijft bij kaarslicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie konden er in de middeleeuwen meestal lezen?",
+          "answer": "Monniken en rijken",
+          "wrong": [
+            "Bijna iedereen",
+            "Alleen kinderen",
+            "Helemaal niemand"
+          ],
+          "hint": "Boeken waren peperduur.",
+          "explanation": "Lezen en schrijven leerde je vooral in kloosters en aan rijke hoven.",
+          "fact": "Eén boek overschrijven kostte een monnik soms een jaar."
+        },
+        "en": {
+          "prompt": "Who could usually read in the Middle Ages?",
+          "answer": "Monks and the rich",
+          "wrong": [
+            "Almost everybody",
+            "Only children",
+            "Nobody at all"
+          ],
+          "hint": "Books cost a fortune.",
+          "explanation": "Reading and writing were learned mainly in monasteries and rich courts.",
+          "fact": "Copying one book could take a monk a year."
+        },
+        "de": {
+          "prompt": "Wer konnte im Mittelalter meist lesen?",
+          "answer": "Mönche und Reiche",
+          "wrong": [
+            "Fast alle",
+            "Nur Kinder",
+            "Überhaupt niemand"
+          ],
+          "hint": "Bücher waren sündhaft teuer.",
+          "explanation": "Lesen und Schreiben lernte man vor allem in Klöstern und an reichen Höfen.",
+          "fact": "Ein Buch abzuschreiben kostete einen Mönch manchmal ein Jahr."
+        },
+        "fr": {
+          "prompt": "Qui savait généralement lire au Moyen Âge ?",
+          "answer": "Les moines et les riches",
+          "wrong": [
+            "Presque tout le monde",
+            "Seulement les enfants",
+            "Absolument personne"
+          ],
+          "hint": "Les livres coûtaient une fortune.",
+          "explanation": "On apprenait à lire surtout dans les monastères et les cours riches.",
+          "fact": "Copier un seul livre prenait parfois un an à un moine."
+        },
+        "es": {
+          "prompt": "¿Quiénes solían saber leer en la Edad Media?",
+          "answer": "Monjes y ricos",
+          "wrong": [
+            "Casi todo el mundo",
+            "Solo los niños",
+            "Nadie en absoluto"
+          ],
+          "hint": "Los libros costaban una fortuna.",
+          "explanation": "Leer y escribir se aprendía sobre todo en monasterios y cortes ricas.",
+          "fact": "Copiar un solo libro le llevaba a un monje hasta un año."
+        },
+        "it": {
+          "prompt": "Chi sapeva leggere di solito nel Medioevo?",
+          "answer": "I monaci e i ricchi",
+          "wrong": [
+            "Quasi tutti",
+            "Solo i bambini",
+            "Proprio nessuno"
+          ],
+          "hint": "I libri costavano un patrimonio.",
+          "explanation": "Si imparava a leggere soprattutto nei monasteri e nelle corti ricche.",
+          "fact": "Copiare un solo libro poteva costare a un monaco un anno."
+        },
+        "pt": {
+          "prompt": "Quem sabia ler normalmente na Idade Média?",
+          "answer": "Monges e ricos",
+          "wrong": [
+            "Quase todos",
+            "Só as crianças",
+            "Ninguém mesmo"
+          ],
+          "hint": "Os livros custavam uma fortuna.",
+          "explanation": "Ler e escrever aprendia-se sobretudo em mosteiros e cortes ricas.",
+          "fact": "Copiar um só livro podia levar um ano a um monge."
+        },
+        "da": {
+          "prompt": "Hvem kunne som regel læse i middelalderen?",
+          "answer": "Munke og rige",
+          "wrong": [
+            "Næsten alle",
+            "Kun børn",
+            "Slet ingen"
+          ],
+          "hint": "Bøger kostede en formue.",
+          "explanation": "Læsning og skrivning lærte man mest i klostre og ved rige hoffer.",
+          "fact": "At skrive én bog af kunne tage en munk et år."
+        },
+        "ru": {
+          "prompt": "Кто обычно умел читать в Средневековье?",
+          "answer": "Монахи и богатые",
+          "wrong": [
+            "Почти все",
+            "Только дети",
+            "Совсем никто"
+          ],
+          "hint": "Книги стоили целое состояние.",
+          "explanation": "Читать и писать учились в основном в монастырях и богатых дворах.",
+          "fact": "Переписать одну книгу монаху случалось за год."
+        },
+        "ar": {
+          "prompt": "من كان يعرف القراءة عادة في العصور الوسطى؟",
+          "answer": "الرهبان والأغنياء",
+          "wrong": [
+            "الجميع تقريبًا",
+            "الأطفال فقط",
+            "لا أحد أبدًا"
+          ],
+          "hint": "الكتب كانت غالية جدًا.",
+          "explanation": "القراءة والكتابة كانت تُتعلَّم في الأديرة والبلاطات الغنية.",
+          "fact": "نسخ كتاب واحد كان يستغرق من الراهب عامًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Magna Carta, 1215",
+      "artBrief": "Een perkamentrol met zegels op een tafel tussen edelen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk document beperkte in 1215 de macht van de koning?",
+          "answer": "De Magna Carta",
+          "wrong": [
+            "De riddercode",
+            "Het Domesday Book",
+            "De Vrede van Utrecht"
+          ],
+          "hint": "Engelse edelen dwongen het af.",
+          "explanation": "Met de Magna Carta moest de koning zich ook aan de wet houden.",
+          "fact": "Het idee erachter staat nog in veel grondwetten."
+        },
+        "en": {
+          "prompt": "Which document limited the king's power in 1215?",
+          "answer": "Magna Carta",
+          "wrong": [
+            "The knights' code",
+            "The Domesday Book",
+            "The Peace of Utrecht"
+          ],
+          "hint": "English nobles forced it on him.",
+          "explanation": "Magna Carta meant the king too had to obey the law.",
+          "fact": "The idea behind it still stands in many constitutions."
+        },
+        "de": {
+          "prompt": "Welches Dokument beschränkte 1215 die Macht des Königs?",
+          "answer": "Die Magna Carta",
+          "wrong": [
+            "Der Ritterkodex",
+            "Das Domesday Book",
+            "Der Friede von Utrecht"
+          ],
+          "hint": "Englische Adlige erzwangen sie.",
+          "explanation": "Mit der Magna Carta musste sich auch der König an das Recht halten.",
+          "fact": "Der Gedanke dahinter steht bis heute in vielen Verfassungen."
+        },
+        "fr": {
+          "prompt": "Quel document limita en 1215 le pouvoir du roi ?",
+          "answer": "La Magna Carta",
+          "wrong": [
+            "Le code de chevalerie",
+            "Le Domesday Book",
+            "La paix d'Utrecht"
+          ],
+          "hint": "Des nobles anglais l'imposèrent.",
+          "explanation": "Avec la Magna Carta, le roi lui aussi devait obéir à la loi.",
+          "fact": "L'idée figure encore dans beaucoup de constitutions."
+        },
+        "es": {
+          "prompt": "¿Qué documento limitó en 1215 el poder del rey?",
+          "answer": "La Carta Magna",
+          "wrong": [
+            "El código de caballería",
+            "El Domesday Book",
+            "La paz de Utrecht"
+          ],
+          "hint": "Se la impusieron los nobles ingleses.",
+          "explanation": "Con la Carta Magna también el rey debía obedecer la ley.",
+          "fact": "La idea sigue presente en muchas constituciones."
+        },
+        "it": {
+          "prompt": "Quale documento limitò nel 1215 il potere del re?",
+          "answer": "La Magna Carta",
+          "wrong": [
+            "Il codice cavalleresco",
+            "Il Domesday Book",
+            "La pace di Utrecht"
+          ],
+          "hint": "Glielo imposero i nobili inglesi.",
+          "explanation": "Con la Magna Carta anche il re doveva obbedire alla legge.",
+          "fact": "L'idea sta ancora in molte costituzioni."
+        },
+        "pt": {
+          "prompt": "Que documento limitou em 1215 o poder do rei?",
+          "answer": "A Magna Carta",
+          "wrong": [
+            "O código de cavalaria",
+            "O Domesday Book",
+            "A paz de Utrecht"
+          ],
+          "hint": "Os nobres ingleses impuseram-na.",
+          "explanation": "Com a Magna Carta também o rei tinha de obedecer à lei.",
+          "fact": "A ideia continua em muitas constituições."
+        },
+        "da": {
+          "prompt": "Hvilket dokument begrænsede kongens magt i 1215?",
+          "answer": "Magna Carta",
+          "wrong": [
+            "Ridderkodeksen",
+            "Domesday Book",
+            "Freden i Utrecht"
+          ],
+          "hint": "Engelske adelige tvang den frem.",
+          "explanation": "Med Magna Carta skulle også kongen følge loven.",
+          "fact": "Tanken bag står stadig i mange grundlove."
+        },
+        "ru": {
+          "prompt": "Какой документ ограничил власть короля в 1215 году?",
+          "answer": "Великая хартия",
+          "wrong": [
+            "Рыцарский кодекс",
+            "Книга судного дня",
+            "Утрехтский мир"
+          ],
+          "hint": "Её добились английские бароны.",
+          "explanation": "По Великой хартии и король должен был подчиняться закону.",
+          "fact": "Эта мысль до сих пор есть во многих конституциях."
+        },
+        "ar": {
+          "prompt": "أي وثيقة حدّت من سلطة الملك عام 1215؟",
+          "answer": "الماغنا كارتا",
+          "wrong": [
+            "مدونة الفروسية",
+            "كتاب يوم الحساب",
+            "صلح أوترخت"
+          ],
+          "hint": "فرضها النبلاء الإنجليز.",
+          "explanation": "بالماغنا كارتا صار على الملك أيضًا أن يطيع القانون.",
+          "fact": "الفكرة نفسها لا تزال في دساتير كثيرة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Motte-en-bailey",
+      "artBrief": "Een houten toren op een kunstmatige heuvel met een omheind voorterrein.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe zag het eerste soort kasteel eruit?",
+          "answer": "Houten toren op een heuvel",
+          "wrong": [
+            "Een stenen burcht met torens",
+            "Een paleis met tuinen",
+            "Een grot in de rots"
+          ],
+          "hint": "Snel te bouwen van aarde en hout.",
+          "explanation": "De eerste kastelen waren houten torens op een opgeworpen heuvel.",
+          "fact": "Pas later bouwde men ze opnieuw in steen."
+        },
+        "en": {
+          "prompt": "What did the earliest kind of castle look like?",
+          "answer": "A wooden tower on a mound",
+          "wrong": [
+            "A stone castle with towers",
+            "A palace with gardens",
+            "A cave in the rock"
+          ],
+          "hint": "Quick to build from earth and wood.",
+          "explanation": "The first castles were wooden towers on a heaped-up mound.",
+          "fact": "Only later were they rebuilt in stone."
+        },
+        "de": {
+          "prompt": "Wie sah die erste Art von Burg aus?",
+          "answer": "Ein Holzturm auf einem Hügel",
+          "wrong": [
+            "Eine Steinburg mit Türmen",
+            "Ein Palast mit Gärten",
+            "Eine Höhle im Fels"
+          ],
+          "hint": "Schnell aus Erde und Holz gebaut.",
+          "explanation": "Die ersten Burgen waren Holztürme auf einem aufgeschütteten Hügel.",
+          "fact": "Erst später baute man sie in Stein neu."
+        },
+        "fr": {
+          "prompt": "À quoi ressemblait le tout premier type de château ?",
+          "answer": "Une tour de bois",
+          "wrong": [
+            "Un château de pierre à tours",
+            "Un palais avec jardins",
+            "Une grotte dans la roche"
+          ],
+          "hint": "Vite bâti en terre et en bois.",
+          "explanation": "Les premiers châteaux étaient des tours de bois sur une butte de terre.",
+          "fact": "Ce n'est que plus tard qu'on les rebâtit en pierre."
+        },
+        "es": {
+          "prompt": "¿Cómo era el primer tipo de castillo?",
+          "answer": "Una torre de madera",
+          "wrong": [
+            "Un castillo de piedra",
+            "Un palacio con jardines",
+            "Una cueva en la roca"
+          ],
+          "hint": "Rápido de levantar con tierra y madera.",
+          "explanation": "Los primeros castillos eran torres de madera sobre un montículo de tierra.",
+          "fact": "Solo más tarde se rehicieron en piedra."
+        },
+        "it": {
+          "prompt": "Com'era il primo tipo di castello?",
+          "answer": "Una torre di legno",
+          "wrong": [
+            "Un castello di pietra",
+            "Un palazzo con giardini",
+            "Una grotta nella roccia"
+          ],
+          "hint": "Rapido da fare in terra e legno.",
+          "explanation": "I primi castelli erano torri di legno su un poggio di terra.",
+          "fact": "Solo più tardi furono rifatti in pietra."
+        },
+        "pt": {
+          "prompt": "Como era o primeiro tipo de castelo?",
+          "answer": "Uma torre de madeira",
+          "wrong": [
+            "Um castelo de pedra",
+            "Um palácio com jardins",
+            "Uma gruta na rocha"
+          ],
+          "hint": "Rápido de erguer em terra e madeira.",
+          "explanation": "Os primeiros castelos eram torres de madeira sobre um monte de terra.",
+          "fact": "Só mais tarde foram refeitos em pedra."
+        },
+        "da": {
+          "prompt": "Hvordan så den første slags borg ud?",
+          "answer": "Et trætårn på en høj",
+          "wrong": [
+            "En stenborg med tårne",
+            "Et palads med haver",
+            "En hule i klippen"
+          ],
+          "hint": "Hurtigt bygget af jord og træ.",
+          "explanation": "De første borge var trætårne på en opkastet jordhøj.",
+          "fact": "Først senere blev de bygget om i sten."
+        },
+        "ru": {
+          "prompt": "Как выглядел самый первый вид замка?",
+          "answer": "Деревянная башня на холме",
+          "wrong": [
+            "Каменный замок с башнями",
+            "Дворец с садами",
+            "Пещера в скале"
+          ],
+          "hint": "Быстро строится из земли и дерева.",
+          "explanation": "Первые замки были деревянными башнями на насыпном холме.",
+          "fact": "Только позже их перестроили в камне."
+        },
+        "ar": {
+          "prompt": "كيف كان شكل أول نوع من القلاع؟",
+          "answer": "برج خشبي على تلة",
+          "wrong": [
+            "قلعة حجرية بأبراج",
+            "قصر بحدائق",
+            "كهف في الصخر"
+          ],
+          "hint": "يُبنى سريعًا من تراب وخشب.",
+          "explanation": "أوائل القلاع كانت أبراجًا خشبية على تلة من تراب مكوَّم.",
+          "fact": "ولم تُبنَ بالحجر إلا لاحقًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De trebuchet met tegengewicht",
+      "artBrief": "Een groot houten werptuig met een zware bak aan de korte arm.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee slingerde een trebuchet zijn stenen weg?",
+          "answer": "Met een zwaar tegengewicht",
+          "wrong": [
+            "Met buskruit",
+            "Met paarden",
+            "Met veren"
+          ],
+          "hint": "Het valt, de arm gaat omhoog.",
+          "explanation": "Een bak vol stenen viel omlaag en slingerde de arm razendsnel omhoog.",
+          "fact": "Zo vloog een steen van honderd kilo tot driehonderd meter ver."
+        },
+        "en": {
+          "prompt": "What flung the stones from a trebuchet?",
+          "answer": "A heavy counterweight",
+          "wrong": [
+            "Gunpowder",
+            "Horses",
+            "Springs"
+          ],
+          "hint": "It falls, the arm swings up.",
+          "explanation": "A box full of stones dropped and whipped the arm upwards.",
+          "fact": "That sent a hundred-kilo stone up to three hundred metres."
+        },
+        "de": {
+          "prompt": "Womit schleuderte ein Trebuchet seine Steine?",
+          "answer": "Mit einem Gegengewicht",
+          "wrong": [
+            "Mit Schießpulver",
+            "Mit Pferden",
+            "Mit Federn"
+          ],
+          "hint": "Es fällt, der Arm schnellt hoch.",
+          "explanation": "Ein Kasten voller Steine fiel herab und riss den Arm nach oben.",
+          "fact": "So flog ein hundert Kilo schwerer Stein bis zu dreihundert Meter."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui lançait les pierres d'un trébuchet ?",
+          "answer": "Un lourd contrepoids",
+          "wrong": [
+            "De la poudre",
+            "Des chevaux",
+            "Des ressorts"
+          ],
+          "hint": "Il tombe, le bras se relève.",
+          "explanation": "Un caisson plein de pierres tombait et propulsait le bras vers le haut.",
+          "fact": "Une pierre de cent kilos volait ainsi jusqu'à trois cents mètres."
+        },
+        "es": {
+          "prompt": "¿Qué lanzaba las piedras de un trebuchet?",
+          "answer": "Un contrapeso muy pesado",
+          "wrong": [
+            "La pólvora",
+            "Los caballos",
+            "Unos muelles"
+          ],
+          "hint": "Cae, y el brazo sube de golpe.",
+          "explanation": "Un cajón lleno de piedras caía y lanzaba el brazo hacia arriba.",
+          "fact": "Así una piedra de cien kilos volaba hasta trescientos metros."
+        },
+        "it": {
+          "prompt": "Che cosa lanciava le pietre di un trabucco?",
+          "answer": "Un contrappeso pesante",
+          "wrong": [
+            "La polvere da sparo",
+            "I cavalli",
+            "Delle molle"
+          ],
+          "hint": "Cade, e il braccio scatta su.",
+          "explanation": "Una cassa piena di pietre cadeva e lanciava il braccio in alto.",
+          "fact": "Così una pietra di cento chili volava fino a trecento metri."
+        },
+        "pt": {
+          "prompt": "O que lançava as pedras de um trebuchet?",
+          "answer": "Um contrapeso pesado",
+          "wrong": [
+            "A pólvora",
+            "Os cavalos",
+            "Umas molas"
+          ],
+          "hint": "Cai, e o braço sobe de repente.",
+          "explanation": "Uma caixa cheia de pedras caía e atirava o braço para cima.",
+          "fact": "Assim uma pedra de cem quilos voava até trezentos metros."
+        },
+        "da": {
+          "prompt": "Hvad slyngede stenene fra en blide?",
+          "answer": "En tung modvægt",
+          "wrong": [
+            "Krudt",
+            "Heste",
+            "Fjedre"
+          ],
+          "hint": "Den falder, armen farer op.",
+          "explanation": "En kasse fuld af sten faldt ned og rev armen opad.",
+          "fact": "Sådan fløj en sten på hundrede kilo op til tre hundrede meter."
+        },
+        "ru": {
+          "prompt": "Что метало камни требушета?",
+          "answer": "Тяжёлый противовес",
+          "wrong": [
+            "Порох",
+            "Кони",
+            "Пружины"
+          ],
+          "hint": "Он падает, рычаг летит вверх.",
+          "explanation": "Ящик с камнями падал вниз и швырял рычаг вверх.",
+          "fact": "Так камень в сто килограммов летел на триста метров."
+        },
+        "ar": {
+          "prompt": "ما الذي كان يقذف حجارة المنجنيق؟",
+          "answer": "ثقل موازن كبير",
+          "wrong": [
+            "البارود",
+            "الخيول",
+            "نوابض"
+          ],
+          "hint": "يهبط فيرتفع الذراع.",
+          "explanation": "صندوق مملوء بالحجارة يهبط فيرفع الذراع بسرعة.",
+          "fact": "فيطير حجر يزن مئة كيلوغرام إلى ثلاث مئة متر."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Langdurige belegeringen",
+      "artBrief": "Een belegeringskamp in de sneeuw rond een kasteel, maanden later.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang kon een belegering duren?",
+          "answer": "Soms meer dan een jaar",
+          "wrong": [
+            "Hooguit een uur",
+            "Hooguit een dag",
+            "Nooit langer dan een week"
+          ],
+          "hint": "Beide partijen moesten blijven eten.",
+          "explanation": "Sommige belegeringen duurden maanden of zelfs jaren.",
+          "fact": "De belegeraars bouwden dan hutten en zelfs een eigen dorp."
+        },
+        "en": {
+          "prompt": "How long could a siege last?",
+          "answer": "Sometimes over a year",
+          "wrong": [
+            "An hour at most",
+            "A day at most",
+            "Never over a week"
+          ],
+          "hint": "Both sides still had to eat.",
+          "explanation": "Some sieges went on for months or even years.",
+          "fact": "The besiegers built huts and sometimes a whole village."
+        },
+        "de": {
+          "prompt": "Wie lange konnte eine Belagerung dauern?",
+          "answer": "Manchmal über ein Jahr",
+          "wrong": [
+            "Höchstens eine Stunde",
+            "Höchstens einen Tag",
+            "Nie länger als eine Woche"
+          ],
+          "hint": "Beide Seiten mussten weiter essen.",
+          "explanation": "Manche Belagerungen zogen sich Monate oder sogar Jahre hin.",
+          "fact": "Die Belagerer bauten dann Hütten und sogar ein eigenes Dorf."
+        },
+        "fr": {
+          "prompt": "Combien de temps pouvait durer un siège ?",
+          "answer": "Parfois plus d'un an",
+          "wrong": [
+            "Une heure au plus",
+            "Un jour au plus",
+            "Jamais plus d'une semaine"
+          ],
+          "hint": "Les deux camps devaient manger.",
+          "explanation": "Certains sièges se prolongeaient des mois, voire des années.",
+          "fact": "Les assiégeants bâtissaient des cabanes, parfois un village entier."
+        },
+        "es": {
+          "prompt": "¿Cuánto podía durar un asedio?",
+          "answer": "A veces más de un año",
+          "wrong": [
+            "Una hora como mucho",
+            "Un día como mucho",
+            "Nunca más de una semana"
+          ],
+          "hint": "Los dos bandos tenían que seguir comiendo.",
+          "explanation": "Algunos asedios se alargaban meses e incluso años.",
+          "fact": "Los sitiadores levantaban cabañas y hasta un pueblo entero."
+        },
+        "it": {
+          "prompt": "Quanto poteva durare un assedio?",
+          "answer": "A volte più di un anno",
+          "wrong": [
+            "Al massimo un'ora",
+            "Al massimo un giorno",
+            "Mai più di una settimana"
+          ],
+          "hint": "Tutti dovevano continuare a mangiare.",
+          "explanation": "Alcuni assedi andavano avanti per mesi o perfino anni.",
+          "fact": "Gli assedianti costruivano capanne e anche un villaggio."
+        },
+        "pt": {
+          "prompt": "Quanto tempo podia durar um cerco?",
+          "answer": "Às vezes mais de um ano",
+          "wrong": [
+            "No máximo uma hora",
+            "No máximo um dia",
+            "Nunca mais de uma semana"
+          ],
+          "hint": "Os dois lados tinham de comer.",
+          "explanation": "Alguns cercos arrastavam-se meses e até anos.",
+          "fact": "Os sitiantes construíam cabanas e mesmo uma aldeia."
+        },
+        "da": {
+          "prompt": "Hvor længe kunne en belejring vare?",
+          "answer": "Nogle gange over et år",
+          "wrong": [
+            "Højst en time",
+            "Højst en dag",
+            "Aldrig over en uge"
+          ],
+          "hint": "Begge sider skulle stadig spise.",
+          "explanation": "Nogle belejringer trak ud i måneder eller endda år.",
+          "fact": "Belejrerne byggede hytter og somme tider en hel landsby."
+        },
+        "ru": {
+          "prompt": "Сколько могла длиться осада?",
+          "answer": "Иногда больше года",
+          "wrong": [
+            "Не больше часа",
+            "Не больше дня",
+            "Никогда больше недели"
+          ],
+          "hint": "Обеим сторонам надо было есть.",
+          "explanation": "Некоторые осады тянулись месяцами и даже годами.",
+          "fact": "Осаждающие строили хижины, а иногда целую деревню."
+        },
+        "ar": {
+          "prompt": "كم يمكن أن يطول الحصار؟",
+          "answer": "أحيانًا أكثر من عام",
+          "wrong": [
+            "ساعة على الأكثر",
+            "يوم على الأكثر",
+            "لا يزيد على أسبوع"
+          ],
+          "hint": "الطرفان يجب أن يأكلا.",
+          "explanation": "بعض الحصارات استمرت شهورًا بل سنوات.",
+          "fact": "كان المحاصِرون يبنون أكواخًا وأحيانًا قرية كاملة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-ridders_kastelen-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Kanonnen maakten hoge muren kwetsbaar",
+      "artBrief": "Een kanon dat vuurt op een kasteelmuur waar brokken uit vallen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom verdwenen kastelen na ongeveer 1450?",
+          "answer": "Kanonnen braken de muren",
+          "wrong": [
+            "Ze waren te duur",
+            "Ridders hadden er genoeg van",
+            "De pest kwam"
+          ],
+          "hint": "Een nieuw wapen veranderde alles.",
+          "explanation": "Met kanonnen waren hoge stenen muren ineens een makkelijk doelwit.",
+          "fact": "Daarna bouwde men lage forten met dikke aarden wallen."
+        },
+        "en": {
+          "prompt": "Why did castles disappear after about 1450?",
+          "answer": "Cannon broke the walls",
+          "wrong": [
+            "They cost too much to heat",
+            "Knights had had enough",
+            "The plague came"
+          ],
+          "hint": "A new weapon changed everything.",
+          "explanation": "With cannon, tall stone walls suddenly made an easy target.",
+          "fact": "After that people built low forts with thick earth banks."
+        },
+        "de": {
+          "prompt": "Warum verschwanden Burgen nach etwa 1450?",
+          "answer": "Kanonen brachen die Mauern",
+          "wrong": [
+            "Heizen war zu teuer",
+            "Ritter hatten genug",
+            "Die Pest kam"
+          ],
+          "hint": "Eine neue Waffe änderte alles.",
+          "explanation": "Mit Kanonen wurden hohe Steinmauern plötzlich ein leichtes Ziel.",
+          "fact": "Danach baute man niedrige Forts mit dicken Erdwällen."
+        },
+        "fr": {
+          "prompt": "Pourquoi les châteaux disparurent-ils après 1450 environ ?",
+          "answer": "Le canon brisait les murs",
+          "wrong": [
+            "Le chauffage coûtait cher",
+            "Les chevaliers refusaient",
+            "La peste est arrivée"
+          ],
+          "hint": "Une arme nouvelle a tout changé.",
+          "explanation": "Avec les canons, les hauts murs de pierre devinrent une cible facile.",
+          "fact": "On bâtit ensuite des forts bas à épaisses levées de terre."
+        },
+        "es": {
+          "prompt": "¿Por qué desaparecieron los castillos después de 1450?",
+          "answer": "El cañón rompía los muros",
+          "wrong": [
+            "Costaban mucho de calentar",
+            "Los caballeros se cansaron",
+            "Llegó la peste"
+          ],
+          "hint": "Un arma nueva lo cambió todo.",
+          "explanation": "Con los cañones, los altos muros de piedra pasaron a ser un blanco fácil.",
+          "fact": "Después se construyeron fuertes bajos con gruesos terraplenes."
+        },
+        "it": {
+          "prompt": "Perché i castelli scomparvero dopo il 1450?",
+          "answer": "I cannoni rompevano i muri",
+          "wrong": [
+            "Scaldarli costava troppo",
+            "I cavalieri si stancarono",
+            "Arrivò la peste"
+          ],
+          "hint": "Una nuova arma cambiò tutto.",
+          "explanation": "Con i cannoni le alte mura di pietra divennero un facile bersaglio.",
+          "fact": "Poi si costruirono forti bassi con spessi terrapieni."
+        },
+        "pt": {
+          "prompt": "Porque desapareceram os castelos depois de 1450?",
+          "answer": "Os canhões rompiam muros",
+          "wrong": [
+            "Aquecê-los custava muito",
+            "Os cavaleiros cansaram-se",
+            "Chegou a peste"
+          ],
+          "hint": "Uma arma nova mudou tudo.",
+          "explanation": "Com canhões, as muralhas altas de pedra tornaram-se um alvo fácil.",
+          "fact": "Depois fizeram-se fortes baixos com grossos taludes de terra."
+        },
+        "da": {
+          "prompt": "Hvorfor forsvandt borgene efter cirka 1450?",
+          "answer": "Kanoner brød murene",
+          "wrong": [
+            "De var for dyre at varme",
+            "Ridderne fik nok",
+            "Pesten kom"
+          ],
+          "hint": "Et nyt våben ændrede alt.",
+          "explanation": "Med kanoner blev høje stenmure pludselig et let mål.",
+          "fact": "Derefter byggede man lave forter med tykke jordvolde."
+        },
+        "ru": {
+          "prompt": "Почему замки исчезли после 1450 года?",
+          "answer": "Пушки ломали стены",
+          "wrong": [
+            "Их дорого отапливать",
+            "Рыцарям надоело",
+            "Пришла чума"
+          ],
+          "hint": "Новое оружие всё изменило.",
+          "explanation": "С пушками высокие каменные стены стали лёгкой целью.",
+          "fact": "После этого строили низкие форты с толстыми земляными валами."
+        },
+        "ar": {
+          "prompt": "لماذا اختفت القلاع بعد نحو عام 1450؟",
+          "answer": "المدافع كسرت الأسوار",
+          "wrong": [
+            "تدفئتها غالية جدًا",
+            "الفرسان تعبوا",
+            "جاء الطاعون"
+          ],
+          "hint": "سلاح جديد غيّر كل شيء.",
+          "explanation": "مع المدافع صارت الأسوار الحجرية العالية هدفًا سهلًا.",
+          "fact": "بعدها بُنيت حصون منخفضة بسدود ترابية سميكة."
+        }
+      }
+    }
+  ]
+}

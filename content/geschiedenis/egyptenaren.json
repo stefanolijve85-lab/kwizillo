@@ -792,7 +792,7 @@
       "art": "todo",
       "text": {
         "nl": {
-          "prompt": "Wat deden Egyptenaren met de organen van een mummie?",
+          "prompt": "Wat deden Egyptenaren met de ingewanden van een mummie?",
           "answer": "Ze bewaarden ze in potten",
           "wrong": [
             "Ze gooiden ze weg",
@@ -804,7 +804,7 @@
           "fact": "Alleen het hart bleef in het lichaam zitten."
         },
         "en": {
-          "prompt": "What did Egyptians do with a mummy's organs?",
+          "prompt": "What did the Egyptians do with a mummy's innards?",
           "answer": "They kept them in jars",
           "wrong": [
             "They threw them away",
@@ -816,7 +816,7 @@
           "fact": "Only the heart was left inside the body."
         },
         "de": {
-          "prompt": "Was machten Ägypter mit den Organen einer Mumie?",
+          "prompt": "Was machten Ägypter mit den Innereien einer Mumie?",
           "answer": "Sie bewahrten sie in Krügen",
           "wrong": [
             "Sie warfen sie weg",

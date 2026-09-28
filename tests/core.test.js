@@ -266,13 +266,27 @@ assert.deepStrictEqual([1,2,3,4,5,6].map(n=>core.difficultyBand({niveau:n})), [[
   assert.ok(bandOf(1).every(d => d === 1), 'level 1 mixed quiz is all difficulty 1');
   assert.ok(bandOf(6).every(d => d === 4), 'level 6 mixed quiz is all difficulty 4');
   assert.ok(bandOf(3).every(d => d === 2 || d === 3), 'level 3 mixed quiz stays in 2-3');
-  // A topic that has been filled up to ten questions per difficulty serves a
-  // level-6 quiz entirely out of difficulty 4; one that has not yet been filled
-  // borrows from the nearest difficulty, easy first. Both are in the bank right
-  // now, and both behaviours have to hold.
-  const bandTopic = key => core.selectQuizBatch({ questions, world: 'ruimte', topicKey: key, limit: 10, band: [4, 4], rng: () => 0.42 }).questions.map(q => q.difficulty);
-  assert.deepStrictEqual(bandTopic('zonnestelsel'), [4,4,4,4,4,4,4,4,4,4], 'a filled topic serves level 6 from difficulty 4 alone');
-  assert.deepStrictEqual(bandTopic('astronauten'), [3,3,3,3,3,4,4,4,4,4], 'a topic with five 4s fills the rest with 3s, easy first');
+  // A topic filled up to ten questions per difficulty serves a level-6 quiz
+  // entirely out of difficulty 4; one that is not filled yet borrows from the
+  // nearest difficulty, easy first. Which topics are filled keeps changing while
+  // content lands, so both cases are picked from the bank instead of named here.
+  const fours = new Map();
+  for (const q of questions) {
+    const key = `${q.world}/${q.topic}`;
+    fours.set(key, (fours.get(key) || 0) + (q.difficulty === 4 ? 1 : 0));
+  }
+  const bandTopic = key => core.selectQuizBatch({ questions, world: key.split('/')[0], topicKey: key.split('/')[1], limit: 10, band: [4, 4], rng: () => 0.42 }).questions.map(q => q.difficulty);
+  const filled = [...fours].find(([, n]) => n >= 10);
+  assert.ok(filled, 'at least one topic should hold ten difficulty-4 questions');
+  assert.deepStrictEqual(bandTopic(filled[0]), Array(10).fill(4), `${filled[0]}: a filled topic serves level 6 from difficulty 4 alone`);
+  const short = [...fours].find(([, n]) => n > 0 && n < 10);
+  if (short) {
+    const d = bandTopic(short[0]);
+    assert.strictEqual(d.length, 10, `${short[0]}: a level-6 quiz is still ten questions`);
+    assert.strictEqual(d.filter(x => x === 4).length, short[1], `${short[0]}: all its difficulty-4 questions are used`);
+    assert.ok(d.every(x => x === 3 || x === 4), `${short[0]}: the rest is borrowed from difficulty 3`);
+    assert.deepStrictEqual(d, [...d].sort((a, b) => a - b), `${short[0]}: the borrowed questions come first`);
+  }
 }
 // Hints and reading follow the level: free hints and full read-out on 1-2,
 // a budget from 3, question-only reading from 4, no hints on 6.
