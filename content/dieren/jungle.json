@@ -1,0 +1,2607 @@
+{
+  "world": "dieren",
+  "topic": "jungle",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "dieren-jungle-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "WWF — Asian elephants",
+      "artBrief": "Een olifant met kleine oren tussen hoge groene bomen in een tropisch bos.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk groot dier met een slurf leeft in de jungle van Azië?",
+          "answer": "De olifant",
+          "wrong": [
+            "De giraffe",
+            "De ijsbeer",
+            "Het nijlpaard"
+          ],
+          "hint": "Hij trekt met zijn slurf takken naar beneden.",
+          "explanation": "In de bossen van Azië leven olifanten met kleinere oren dan in Afrika.",
+          "fact": "Ze maken paden die andere dieren ook gebruiken."
+        },
+        "en": {
+          "prompt": "Which big animal with a trunk lives in the jungles of Asia?",
+          "answer": "The elephant",
+          "wrong": [
+            "The giraffe",
+            "The polar bear",
+            "The hippo"
+          ],
+          "hint": "It pulls branches down with its trunk.",
+          "explanation": "Asian forests are home to elephants with smaller ears than African ones.",
+          "fact": "They cut paths that other animals use too."
+        },
+        "de": {
+          "prompt": "Welches große Tier mit Rüssel lebt im Dschungel Asiens?",
+          "answer": "Der Elefant",
+          "wrong": [
+            "Die Giraffe",
+            "Der Eisbär",
+            "Das Nilpferd"
+          ],
+          "hint": "Er zieht Äste mit dem Rüssel herunter.",
+          "explanation": "In Asiens Wäldern leben Elefanten mit kleineren Ohren als in Afrika.",
+          "fact": "Sie bahnen Pfade, die auch andere Tiere nutzen."
+        },
+        "fr": {
+          "prompt": "Quel gros animal à trompe vit dans la jungle d'Asie ?",
+          "answer": "L'éléphant",
+          "wrong": [
+            "La girafe",
+            "L'ours polaire",
+            "L'hippopotame"
+          ],
+          "hint": "Il tire les branches avec sa trompe.",
+          "explanation": "Les forêts d'Asie abritent des éléphants aux oreilles plus petites.",
+          "fact": "Ils ouvrent des sentiers qu'utilisent d'autres animaux."
+        },
+        "es": {
+          "prompt": "¿Qué animal grande con trompa vive en la jungla de Asia?",
+          "answer": "El elefante",
+          "wrong": [
+            "La jirafa",
+            "El oso polar",
+            "El hipopótamo"
+          ],
+          "hint": "Baja las ramas con la trompa.",
+          "explanation": "En los bosques de Asia viven elefantes con orejas más pequeñas.",
+          "fact": "Abren senderos que también usan otros animales."
+        },
+        "it": {
+          "prompt": "Quale grande animale con la proboscide vive nella giungla asiatica?",
+          "answer": "L'elefante",
+          "wrong": [
+            "La giraffa",
+            "L'orso polare",
+            "L'ippopotamo"
+          ],
+          "hint": "Tira giù i rami con la proboscide.",
+          "explanation": "Nelle foreste asiatiche vivono elefanti con orecchie più piccole.",
+          "fact": "Aprono sentieri che usano anche altri animali."
+        },
+        "pt": {
+          "prompt": "Que animal grande com tromba vive na selva da Ásia?",
+          "answer": "O elefante",
+          "wrong": [
+            "A girafa",
+            "O urso polar",
+            "O hipopótamo"
+          ],
+          "hint": "Puxa os ramos com a tromba.",
+          "explanation": "Nas florestas da Ásia vivem elefantes com orelhas mais pequenas.",
+          "fact": "Abrem trilhos que outros animais também usam."
+        },
+        "da": {
+          "prompt": "Hvilket stort dyr med snabel lever i Asiens jungle?",
+          "answer": "Elefanten",
+          "wrong": [
+            "Giraffen",
+            "Isbjørnen",
+            "Flodhesten"
+          ],
+          "hint": "Den trækker grene ned med snablen.",
+          "explanation": "I Asiens skove lever elefanter med mindre ører end i Afrika.",
+          "fact": "De baner stier, som andre dyr også bruger."
+        },
+        "ru": {
+          "prompt": "Какое большое животное с хоботом живёт в джунглях Азии?",
+          "answer": "Слон",
+          "wrong": [
+            "Жираф",
+            "Белый медведь",
+            "Бегемот"
+          ],
+          "hint": "Он притягивает ветки хоботом.",
+          "explanation": "В лесах Азии живут слоны с ушами меньше, чем у африканских.",
+          "fact": "Они протаптывают тропы, которыми пользуются и другие звери."
+        },
+        "ar": {
+          "prompt": "أي حيوان كبير له خرطوم يعيش في أدغال آسيا؟",
+          "answer": "الفيل",
+          "wrong": [
+            "الزرافة",
+            "الدب القطبي",
+            "فرس النهر"
+          ],
+          "hint": "يجذب الأغصان بخرطومه.",
+          "explanation": "في غابات آسيا تعيش فيلة آذانها أصغر من فيلة أفريقيا.",
+          "fact": "تفتح ممرات يستخدمها غيرها من الحيوانات."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "WWF — tigers live in Asian forests",
+      "artBrief": "Een tijger met oranje vacht en zwarte strepen die door dicht groen sluipt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke grote kat met strepen leeft in de jungle van Azië?",
+          "answer": "De tijger",
+          "wrong": [
+            "De leeuw",
+            "De cheeta",
+            "De lynx"
+          ],
+          "hint": "Zijn strepen verdwijnen in hoog gras.",
+          "explanation": "De tijger is de grootste katachtige en leeft in Aziatische bossen.",
+          "fact": "Geen twee tijgers hebben hetzelfde strepenpatroon."
+        },
+        "en": {
+          "prompt": "Which big striped cat lives in the jungles of Asia?",
+          "answer": "The tiger",
+          "wrong": [
+            "The lion",
+            "The cheetah",
+            "The lynx"
+          ],
+          "hint": "Its stripes vanish in tall grass.",
+          "explanation": "The tiger is the largest cat and lives in Asian forests.",
+          "fact": "No two tigers have the same pattern of stripes."
+        },
+        "de": {
+          "prompt": "Welche große gestreifte Katze lebt im Dschungel Asiens?",
+          "answer": "Der Tiger",
+          "wrong": [
+            "Der Löwe",
+            "Der Gepard",
+            "Der Luchs"
+          ],
+          "hint": "Seine Streifen verschwinden im hohen Gras.",
+          "explanation": "Der Tiger ist die größte Katze und lebt in asiatischen Wäldern.",
+          "fact": "Keine zwei Tiger haben dasselbe Streifenmuster."
+        },
+        "fr": {
+          "prompt": "Quel grand félin rayé vit dans la jungle d'Asie ?",
+          "answer": "Le tigre",
+          "wrong": [
+            "Le lion",
+            "Le guépard",
+            "Le lynx"
+          ],
+          "hint": "Ses rayures disparaissent dans les hautes herbes.",
+          "explanation": "Le tigre est le plus grand félin et vit dans les forêts d'Asie.",
+          "fact": "Deux tigres n'ont jamais les mêmes rayures."
+        },
+        "es": {
+          "prompt": "¿Qué felino grande y rayado vive en la jungla de Asia?",
+          "answer": "El tigre",
+          "wrong": [
+            "El león",
+            "El guepardo",
+            "El lince"
+          ],
+          "hint": "Sus rayas desaparecen entre la hierba alta.",
+          "explanation": "El tigre es el felino más grande y vive en bosques asiáticos.",
+          "fact": "No hay dos tigres con el mismo dibujo de rayas."
+        },
+        "it": {
+          "prompt": "Quale grande felino a strisce vive nella giungla asiatica?",
+          "answer": "La tigre",
+          "wrong": [
+            "Il leone",
+            "Il ghepardo",
+            "La lince"
+          ],
+          "hint": "Le sue strisce spariscono nell'erba alta.",
+          "explanation": "La tigre è il felino più grande e vive nelle foreste asiatiche.",
+          "fact": "Non esistono due tigri con lo stesso disegno."
+        },
+        "pt": {
+          "prompt": "Que felino grande e riscado vive na selva da Ásia?",
+          "answer": "O tigre",
+          "wrong": [
+            "O leão",
+            "A chita",
+            "O lince"
+          ],
+          "hint": "As riscas desaparecem na erva alta.",
+          "explanation": "O tigre é o maior felino e vive nas florestas da Ásia.",
+          "fact": "Não há dois tigres com o mesmo padrão de riscas."
+        },
+        "da": {
+          "prompt": "Hvilken stor stribet kat lever i Asiens jungle?",
+          "answer": "Tigeren",
+          "wrong": [
+            "Løven",
+            "Geparden",
+            "Los"
+          ],
+          "hint": "Striberne forsvinder i højt græs.",
+          "explanation": "Tigeren er den største kat og lever i asiatiske skove.",
+          "fact": "Ingen to tigre har samme stribemønster."
+        },
+        "ru": {
+          "prompt": "Какая большая полосатая кошка живёт в джунглях Азии?",
+          "answer": "Тигр",
+          "wrong": [
+            "Лев",
+            "Гепард",
+            "Рысь"
+          ],
+          "hint": "Его полосы исчезают в высокой траве.",
+          "explanation": "Тигр — самая крупная кошка и живёт в лесах Азии.",
+          "fact": "Узор полос у каждого тигра свой."
+        },
+        "ar": {
+          "prompt": "أي قط كبير مخطط يعيش في أدغال آسيا؟",
+          "answer": "النمر",
+          "wrong": [
+            "الأسد",
+            "الفهد",
+            "الوشق"
+          ],
+          "hint": "خطوطه تختفي في العشب الطويل.",
+          "explanation": "النمر أكبر السنوريات ويعيش في غابات آسيا.",
+          "fact": "لا يوجد نمران بالنقش نفسه."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Köppen climate classification — tropical rainforest",
+      "artBrief": "Een stortbui in een groen bos, met water dat van grote bladeren druipt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat valt er bijna elke dag in een regenwoud?",
+          "answer": "Regen",
+          "wrong": [
+            "Sneeuw",
+            "Hagel",
+            "Zand"
+          ],
+          "hint": "Daar dankt het bos zijn naam aan.",
+          "explanation": "In een regenwoud valt vrijwel elke dag een stortbui.",
+          "fact": "Daarom is het er altijd warm en vochtig."
+        },
+        "en": {
+          "prompt": "What falls almost every day in a rainforest?",
+          "answer": "Rain",
+          "wrong": [
+            "Snow",
+            "Hail",
+            "Sand"
+          ],
+          "hint": "The forest is named after it.",
+          "explanation": "A rainforest gets a downpour nearly every day.",
+          "fact": "That is why it is always warm and damp there."
+        },
+        "de": {
+          "prompt": "Was fällt in einem Regenwald fast täglich?",
+          "answer": "Regen",
+          "wrong": [
+            "Schnee",
+            "Hagel",
+            "Sand"
+          ],
+          "hint": "Danach heißt der Wald.",
+          "explanation": "Im Regenwald geht fast jeden Tag ein Schauer nieder.",
+          "fact": "Darum ist es dort immer warm und feucht."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui tombe presque tous les jours dans une forêt tropicale ?",
+          "answer": "La pluie",
+          "wrong": [
+            "La neige",
+            "La grêle",
+            "Le sable"
+          ],
+          "hint": "La forêt en tire son nom.",
+          "explanation": "Dans une forêt tropicale, une averse tombe presque chaque jour.",
+          "fact": "C'est pourquoi il y fait toujours chaud et humide."
+        },
+        "es": {
+          "prompt": "¿Qué cae casi todos los días en una selva tropical?",
+          "answer": "Lluvia",
+          "wrong": [
+            "Nieve",
+            "Granizo",
+            "Arena"
+          ],
+          "hint": "De ahí viene el nombre del bosque.",
+          "explanation": "En una selva tropical cae un chaparrón casi cada día.",
+          "fact": "Por eso allí siempre hace calor y humedad."
+        },
+        "it": {
+          "prompt": "Che cosa cade quasi ogni giorno in una foresta pluviale?",
+          "answer": "La pioggia",
+          "wrong": [
+            "La neve",
+            "La grandine",
+            "La sabbia"
+          ],
+          "hint": "Da lì viene il nome della foresta.",
+          "explanation": "In una foresta pluviale cade un acquazzone quasi ogni giorno.",
+          "fact": "Per questo lì è sempre caldo e umido."
+        },
+        "pt": {
+          "prompt": "O que cai quase todos os dias numa floresta tropical?",
+          "answer": "Chuva",
+          "wrong": [
+            "Neve",
+            "Granizo",
+            "Areia"
+          ],
+          "hint": "É daí que vem o nome da floresta.",
+          "explanation": "Numa floresta tropical cai um aguaceiro quase todos os dias.",
+          "fact": "Por isso está lá sempre calor e humidade."
+        },
+        "da": {
+          "prompt": "Hvad falder næsten hver dag i en regnskov?",
+          "answer": "Regn",
+          "wrong": [
+            "Sne",
+            "Hagl",
+            "Sand"
+          ],
+          "hint": "Skoven har navn efter det.",
+          "explanation": "I en regnskov kommer der byger næsten hver dag.",
+          "fact": "Derfor er der altid varmt og fugtigt."
+        },
+        "ru": {
+          "prompt": "Что выпадает в тропическом лесу почти каждый день?",
+          "answer": "Дождь",
+          "wrong": [
+            "Снег",
+            "Град",
+            "Песок"
+          ],
+          "hint": "От этого и название леса.",
+          "explanation": "В тропическом лесу почти каждый день проходит ливень.",
+          "fact": "Поэтому там всегда тепло и влажно."
+        },
+        "ar": {
+          "prompt": "ما الذي يسقط كل يوم تقريبًا في الغابة المطيرة؟",
+          "answer": "المطر",
+          "wrong": [
+            "الثلج",
+            "البرد",
+            "الرمل"
+          ],
+          "hint": "من هنا جاء اسم الغابة.",
+          "explanation": "في الغابة المطيرة يهطل وابل كل يوم تقريبًا.",
+          "fact": "لذلك الجو هناك دائم الدفء والرطوبة."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "WWF — orangutans of Borneo and Sumatra",
+      "artBrief": "Een oranjeharige mensaap die aan een tak hangt in een dicht groen bos.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke mensaap met oranje haren leeft in de jungle?",
+          "answer": "De orang-oetan",
+          "wrong": [
+            "De gorilla",
+            "De chimpansee",
+            "De baviaan"
+          ],
+          "hint": "Zijn naam betekent bosmens.",
+          "explanation": "Orang-oetans leven in de bossen van Borneo en Sumatra.",
+          "fact": "Elke avond bouwen ze een nieuw nest in een boom."
+        },
+        "en": {
+          "prompt": "Which great ape with orange hair lives in the jungle?",
+          "answer": "The orangutan",
+          "wrong": [
+            "The gorilla",
+            "The chimpanzee",
+            "The baboon"
+          ],
+          "hint": "Its name means forest person.",
+          "explanation": "Orangutans live in the forests of Borneo and Sumatra.",
+          "fact": "Every evening they build a fresh nest in a tree."
+        },
+        "de": {
+          "prompt": "Welcher Menschenaffe mit orangem Fell lebt im Dschungel?",
+          "answer": "Der Orang-Utan",
+          "wrong": [
+            "Der Gorilla",
+            "Der Schimpanse",
+            "Der Pavian"
+          ],
+          "hint": "Sein Name bedeutet Waldmensch.",
+          "explanation": "Orang-Utans leben in den Wäldern von Borneo und Sumatra.",
+          "fact": "Jeden Abend bauen sie ein neues Nest im Baum."
+        },
+        "fr": {
+          "prompt": "Quel grand singe au poil orange vit dans la jungle ?",
+          "answer": "L'orang-outan",
+          "wrong": [
+            "Le gorille",
+            "Le chimpanzé",
+            "Le babouin"
+          ],
+          "hint": "Son nom signifie homme des bois.",
+          "explanation": "Les orangs-outans vivent dans les forêts de Bornéo et Sumatra.",
+          "fact": "Chaque soir, ils construisent un nouveau nid dans un arbre."
+        },
+        "es": {
+          "prompt": "¿Qué simio de pelo naranja vive en la jungla?",
+          "answer": "El orangután",
+          "wrong": [
+            "El gorila",
+            "El chimpancé",
+            "El babuino"
+          ],
+          "hint": "Su nombre significa hombre del bosque.",
+          "explanation": "Los orangutanes viven en los bosques de Borneo y Sumatra.",
+          "fact": "Cada noche construyen un nido nuevo en un árbol."
+        },
+        "it": {
+          "prompt": "Quale scimmia dal pelo arancione vive nella giungla?",
+          "answer": "L'orangutan",
+          "wrong": [
+            "Il gorilla",
+            "Lo scimpanzé",
+            "Il babbuino"
+          ],
+          "hint": "Il suo nome significa uomo della foresta.",
+          "explanation": "Gli orangutan vivono nelle foreste del Borneo e di Sumatra.",
+          "fact": "Ogni sera costruiscono un nido nuovo su un albero."
+        },
+        "pt": {
+          "prompt": "Que grande símio de pelo cor de laranja vive na selva?",
+          "answer": "O orangotango",
+          "wrong": [
+            "O gorila",
+            "O chimpanzé",
+            "O babuíno"
+          ],
+          "hint": "O nome dele significa homem da floresta.",
+          "explanation": "Os orangotangos vivem nas florestas do Bornéu e de Samatra.",
+          "fact": "Todas as noites constroem um ninho novo numa árvore."
+        },
+        "da": {
+          "prompt": "Hvilken menneskeabe med orange pels lever i junglen?",
+          "answer": "Orangutangen",
+          "wrong": [
+            "Gorillaen",
+            "Chimpansen",
+            "Bavianen"
+          ],
+          "hint": "Navnet betyder skovmenneske.",
+          "explanation": "Orangutanger lever i skovene på Borneo og Sumatra.",
+          "fact": "Hver aften bygger de en ny rede i et træ."
+        },
+        "ru": {
+          "prompt": "Какая человекообразная обезьяна с рыжей шерстью живёт в джунглях?",
+          "answer": "Орангутан",
+          "wrong": [
+            "Горилла",
+            "Шимпанзе",
+            "Павиан"
+          ],
+          "hint": "Его имя означает «лесной человек».",
+          "explanation": "Орангутаны живут в лесах Борнео и Суматры.",
+          "fact": "Каждый вечер они строят новое гнездо на дереве."
+        },
+        "ar": {
+          "prompt": "أي قرد عظيم ذو شعر برتقالي يعيش في الأدغال؟",
+          "answer": "إنسان الغاب",
+          "wrong": [
+            "الغوريلا",
+            "الشمبانزي",
+            "البابون"
+          ],
+          "hint": "اسمه يعني إنسان الغابة.",
+          "explanation": "يعيش إنسان الغاب في غابات بورنيو وسومطرة.",
+          "fact": "يبني كل مساء عشًا جديدًا على شجرة."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Bat Conservation International — roosting behaviour",
+      "artBrief": "Een rij vleermuizen die ondersteboven slapen aan een tak in de schaduw.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doen vleermuizen overdag in de jungle?",
+          "answer": "Ze hangen te slapen",
+          "wrong": [
+            "Ze jagen op vogels",
+            "Ze zwemmen",
+            "Ze graven gangen"
+          ],
+          "hint": "Ondersteboven aan een tak.",
+          "explanation": "Vleermuizen slapen overdag ondersteboven en jagen 's nachts.",
+          "fact": "Sommige soorten eten vooral fruit en verspreiden zo zaden."
+        },
+        "en": {
+          "prompt": "What do bats do in the jungle during the day?",
+          "answer": "They hang and sleep",
+          "wrong": [
+            "They hunt birds",
+            "They swim",
+            "They dig tunnels"
+          ],
+          "hint": "Upside down on a branch.",
+          "explanation": "Bats sleep upside down by day and hunt at night.",
+          "fact": "Some kinds mostly eat fruit and spread seeds that way."
+        },
+        "de": {
+          "prompt": "Was machen Fledermäuse tagsüber im Dschungel?",
+          "answer": "Sie hängen und schlafen",
+          "wrong": [
+            "Sie jagen Vögel",
+            "Sie schwimmen",
+            "Sie graben Gänge"
+          ],
+          "hint": "Kopfüber an einem Ast.",
+          "explanation": "Fledermäuse schlafen tagsüber kopfüber und jagen nachts.",
+          "fact": "Manche Arten fressen vor allem Früchte und verbreiten so Samen."
+        },
+        "fr": {
+          "prompt": "Que font les chauves-souris le jour dans la jungle ?",
+          "answer": "Elles dorment suspendues",
+          "wrong": [
+            "Elles chassent des oiseaux",
+            "Elles nagent",
+            "Elles creusent"
+          ],
+          "hint": "La tête en bas sur une branche.",
+          "explanation": "Les chauves-souris dorment le jour la tête en bas et chassent la nuit.",
+          "fact": "Certaines mangent surtout des fruits et dispersent les graines."
+        },
+        "es": {
+          "prompt": "¿Qué hacen los murciélagos de día en la jungla?",
+          "answer": "Duermen colgados",
+          "wrong": [
+            "Cazan pájaros",
+            "Nadan",
+            "Cavan túneles"
+          ],
+          "hint": "Boca abajo en una rama.",
+          "explanation": "Los murciélagos duermen boca abajo de día y cazan de noche.",
+          "fact": "Algunos comen sobre todo fruta y así reparten semillas."
+        },
+        "it": {
+          "prompt": "Che cosa fanno i pipistrelli di giorno nella giungla?",
+          "answer": "Dormono appesi",
+          "wrong": [
+            "Cacciano uccelli",
+            "Nuotano",
+            "Scavano gallerie"
+          ],
+          "hint": "A testa in giù su un ramo.",
+          "explanation": "I pipistrelli dormono a testa in giù di giorno e cacciano di notte.",
+          "fact": "Alcuni mangiano soprattutto frutta e spargono i semi."
+        },
+        "pt": {
+          "prompt": "O que fazem os morcegos de dia na selva?",
+          "answer": "Dormem pendurados",
+          "wrong": [
+            "Caçam aves",
+            "Nadam",
+            "Cavam túneis"
+          ],
+          "hint": "De cabeça para baixo num ramo.",
+          "explanation": "Os morcegos dormem de cabeça para baixo de dia e caçam à noite.",
+          "fact": "Alguns comem sobretudo fruta e espalham sementes."
+        },
+        "da": {
+          "prompt": "Hvad laver flagermus om dagen i junglen?",
+          "answer": "De hænger og sover",
+          "wrong": [
+            "De jager fugle",
+            "De svømmer",
+            "De graver gange"
+          ],
+          "hint": "På hovedet i en gren.",
+          "explanation": "Flagermus sover på hovedet om dagen og jager om natten.",
+          "fact": "Nogle arter spiser mest frugt og spreder frø."
+        },
+        "ru": {
+          "prompt": "Что делают летучие мыши днём в джунглях?",
+          "answer": "Висят и спят",
+          "wrong": [
+            "Охотятся на птиц",
+            "Плавают",
+            "Роют норы"
+          ],
+          "hint": "Вниз головой на ветке.",
+          "explanation": "Днём летучие мыши спят вниз головой, а охотятся ночью.",
+          "fact": "Некоторые едят фрукты и разносят семена."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل الخفافيش نهارًا في الأدغال؟",
+          "answer": "تنام معلقة",
+          "wrong": [
+            "تصطاد الطيور",
+            "تسبح",
+            "تحفر أنفاقًا"
+          ],
+          "hint": "رأسًا على عقب على غصن.",
+          "explanation": "تنام الخفافيش نهارًا مقلوبة وتصطاد ليلًا.",
+          "fact": "بعضها يأكل الفاكهة وينشر البذور."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Rainforests receive over 2000 mm of rain a year",
+      "artBrief": "Een regenmeter naast een groen bos, met de bui die naar beneden komt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel regen valt er per jaar in een regenwoud?",
+          "answer": "Meer dan twee meter",
+          "wrong": [
+            "Ongeveer tien centimeter",
+            "Ongeveer een halve meter",
+            "Meer dan honderd meter"
+          ],
+          "hint": "Veel meer dan in Nederland.",
+          "explanation": "In een regenwoud valt meer dan twee meter regen per jaar.",
+          "fact": "In Nederland is dat ongeveer tachtig centimeter."
+        },
+        "en": {
+          "prompt": "How much rain falls in a rainforest in a year?",
+          "answer": "More than two metres",
+          "wrong": [
+            "About ten centimetres",
+            "About half a metre",
+            "More than a hundred metres"
+          ],
+          "hint": "Far more than in northern Europe.",
+          "explanation": "A rainforest gets over two metres of rain a year.",
+          "fact": "In the Netherlands it is about eighty centimetres."
+        },
+        "de": {
+          "prompt": "Wie viel Regen fällt pro Jahr in einem Regenwald?",
+          "answer": "Mehr als zwei Meter",
+          "wrong": [
+            "Etwa zehn Zentimeter",
+            "Etwa ein halber Meter",
+            "Mehr als hundert Meter"
+          ],
+          "hint": "Viel mehr als bei uns.",
+          "explanation": "In einem Regenwald fallen über zwei Meter Regen im Jahr.",
+          "fact": "In Deutschland sind es etwa achtzig Zentimeter."
+        },
+        "fr": {
+          "prompt": "Combien de pluie tombe par an dans une forêt tropicale ?",
+          "answer": "Plus de deux mètres",
+          "wrong": [
+            "Environ dix centimètres",
+            "Environ un demi-mètre",
+            "Plus de cent mètres"
+          ],
+          "hint": "Bien plus que chez nous.",
+          "explanation": "Une forêt tropicale reçoit plus de deux mètres de pluie par an.",
+          "fact": "En France, c'est environ quatre-vingts centimètres."
+        },
+        "es": {
+          "prompt": "¿Cuánta lluvia cae al año en una selva tropical?",
+          "answer": "Más de dos metros",
+          "wrong": [
+            "Unos diez centímetros",
+            "Medio metro",
+            "Más de cien metros"
+          ],
+          "hint": "Muchísimo más que aquí.",
+          "explanation": "En una selva tropical caen más de dos metros de lluvia al año.",
+          "fact": "En España la media es mucho menor."
+        },
+        "it": {
+          "prompt": "Quanta pioggia cade in un anno in una foresta pluviale?",
+          "answer": "Più di due metri",
+          "wrong": [
+            "Circa dieci centimetri",
+            "Circa mezzo metro",
+            "Più di cento metri"
+          ],
+          "hint": "Molto più che da noi.",
+          "explanation": "In una foresta pluviale cadono oltre due metri di pioggia all'anno.",
+          "fact": "In Italia sono circa ottanta centimetri."
+        },
+        "pt": {
+          "prompt": "Quanta chuva cai por ano numa floresta tropical?",
+          "answer": "Mais de dois metros",
+          "wrong": [
+            "Cerca de dez centímetros",
+            "Cerca de meio metro",
+            "Mais de cem metros"
+          ],
+          "hint": "Muito mais do que aqui.",
+          "explanation": "Numa floresta tropical caem mais de dois metros de chuva por ano.",
+          "fact": "Em Portugal são muito menos."
+        },
+        "da": {
+          "prompt": "Hvor meget regn falder der om året i en regnskov?",
+          "answer": "Mere end to meter",
+          "wrong": [
+            "Cirka ti centimeter",
+            "Cirka en halv meter",
+            "Mere end hundrede meter"
+          ],
+          "hint": "Meget mere end hos os.",
+          "explanation": "I en regnskov falder der over to meter regn om året.",
+          "fact": "I Danmark er det cirka halvfjerds centimeter."
+        },
+        "ru": {
+          "prompt": "Сколько дождя выпадает за год в тропическом лесу?",
+          "answer": "Больше двух метров",
+          "wrong": [
+            "Около десяти сантиметров",
+            "Около полуметра",
+            "Больше ста метров"
+          ],
+          "hint": "Намного больше, чем у нас.",
+          "explanation": "В тропическом лесу выпадает больше двух метров осадков в год.",
+          "fact": "В средней полосе — около шестидесяти сантиметров."
+        },
+        "ar": {
+          "prompt": "كم يسقط من مطر سنويًا في الغابة المطيرة؟",
+          "answer": "أكثر من مترين",
+          "wrong": [
+            "نحو عشرة سنتيمترات",
+            "نحو نصف متر",
+            "أكثر من مئة متر"
+          ],
+          "hint": "أكثر بكثير مما يسقط عندنا.",
+          "explanation": "يسقط في الغابة المطيرة أكثر من مترين من المطر سنويًا.",
+          "fact": "في أوروبا الغربية نحو ثمانين سنتيمترًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Forest strata — less than 2% of light reaches the floor",
+      "artBrief": "Een blik omhoog vanaf de donkere bosbodem naar een dicht dak van bladeren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is het donker op de bodem van het regenwoud?",
+          "answer": "De bomen nemen het licht weg",
+          "wrong": [
+            "Het is er altijd nacht",
+            "De grond is zwart",
+            "Er hangt rook"
+          ],
+          "hint": "Kijk eens omhoog.",
+          "explanation": "Het dichte bladerdak vangt bijna al het zonlicht op.",
+          "fact": "Op de bodem komt minder dan een honderdste van het licht."
+        },
+        "en": {
+          "prompt": "Why is it dark on the rainforest floor?",
+          "answer": "The trees take the light",
+          "wrong": [
+            "It is always night",
+            "The soil is black",
+            "Smoke hangs there"
+          ],
+          "hint": "Try looking up.",
+          "explanation": "The dense roof of leaves catches almost all the sunlight.",
+          "fact": "Less than one hundredth of the light reaches the floor."
+        },
+        "de": {
+          "prompt": "Warum ist es am Boden des Regenwaldes dunkel?",
+          "answer": "Die Bäume nehmen das Licht",
+          "wrong": [
+            "Dort ist immer Nacht",
+            "Der Boden ist schwarz",
+            "Dort hängt Rauch"
+          ],
+          "hint": "Schau mal nach oben.",
+          "explanation": "Das dichte Blätterdach fängt fast das ganze Sonnenlicht ab.",
+          "fact": "Am Boden kommt weniger als ein Hundertstel an."
+        },
+        "fr": {
+          "prompt": "Pourquoi fait-il sombre au sol de la forêt tropicale ?",
+          "answer": "Les arbres prennent tout",
+          "wrong": [
+            "Il y fait toujours nuit",
+            "Le sol est noir",
+            "De la fumée y flotte"
+          ],
+          "hint": "Regarde vers le haut.",
+          "explanation": "L'épaisse voûte de feuilles capte presque toute la lumière.",
+          "fact": "Moins d'un centième arrive jusqu'au sol."
+        },
+        "es": {
+          "prompt": "¿Por qué está oscuro el suelo de la selva?",
+          "answer": "Los árboles se llevan la luz",
+          "wrong": [
+            "Allí siempre es de noche",
+            "La tierra es negra",
+            "Hay humo"
+          ],
+          "hint": "Mira hacia arriba.",
+          "explanation": "La densa bóveda de hojas atrapa casi toda la luz del sol.",
+          "fact": "Al suelo llega menos de una centésima parte."
+        },
+        "it": {
+          "prompt": "Perché è buio sul suolo della foresta pluviale?",
+          "answer": "Gli alberi prendono la luce",
+          "wrong": [
+            "Lì è sempre notte",
+            "Il terreno è nero",
+            "C'è del fumo"
+          ],
+          "hint": "Prova a guardare in alto.",
+          "explanation": "La fitta volta di foglie cattura quasi tutta la luce del sole.",
+          "fact": "Al suolo arriva meno di un centesimo della luce."
+        },
+        "pt": {
+          "prompt": "Porque está escuro no chão da floresta tropical?",
+          "answer": "As árvores levam a luz",
+          "wrong": [
+            "Ali é sempre noite",
+            "A terra é preta",
+            "Há fumo"
+          ],
+          "hint": "Olha para cima.",
+          "explanation": "A copa densa de folhas apanha quase toda a luz do sol.",
+          "fact": "Ao chão chega menos de uma centésima parte."
+        },
+        "da": {
+          "prompt": "Hvorfor er der mørkt på regnskovens bund?",
+          "answer": "Træerne tager lyset",
+          "wrong": [
+            "Der er altid nat",
+            "Jorden er sort",
+            "Der hænger røg"
+          ],
+          "hint": "Kig op.",
+          "explanation": "Det tætte bladtag fanger næsten alt sollyset.",
+          "fact": "Under en hundrededel af lyset når bunden."
+        },
+        "ru": {
+          "prompt": "Почему на дне тропического леса темно?",
+          "answer": "Деревья забирают свет",
+          "wrong": [
+            "Там всегда ночь",
+            "Земля чёрная",
+            "Там висит дым"
+          ],
+          "hint": "Посмотри вверх.",
+          "explanation": "Плотный полог листвы задерживает почти весь солнечный свет.",
+          "fact": "До земли доходит меньше сотой части света."
+        },
+        "ar": {
+          "prompt": "لماذا الظلام يسود أرض الغابة المطيرة؟",
+          "answer": "الأشجار تحجب الضوء",
+          "wrong": [
+            "الليل دائم هناك",
+            "التربة سوداء",
+            "هناك دخان"
+          ],
+          "hint": "انظر إلى أعلى.",
+          "explanation": "سقف الأوراق الكثيف يحجز معظم ضوء الشمس.",
+          "fact": "يصل إلى الأرض أقل من واحد بالمئة من الضوء."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Hornbills of Asia and Africa",
+      "artBrief": "Een grote vogel met een enorme gekleurde snavel met een bult erop, op een tak.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vogel heeft een enorme snavel met een bult erop?",
+          "answer": "De neushoornvogel",
+          "wrong": [
+            "De toekan",
+            "De papegaai",
+            "De adelaar"
+          ],
+          "hint": "Zijn naam klinkt naar een groot grijs dier.",
+          "explanation": "De neushoornvogel heeft een grote snavel met een hoornachtige bult.",
+          "fact": "Het vrouwtje metselt zichzelf in een boomholte in."
+        },
+        "en": {
+          "prompt": "Which bird has a huge beak with a bump on top?",
+          "answer": "The hornbill",
+          "wrong": [
+            "The toucan",
+            "The parrot",
+            "The eagle"
+          ],
+          "hint": "Its name sounds like a big grey animal.",
+          "explanation": "The hornbill has a large beak with a horn-like bump.",
+          "fact": "The female walls herself into a tree hole."
+        },
+        "de": {
+          "prompt": "Welcher Vogel hat einen riesigen Schnabel mit Aufsatz?",
+          "answer": "Der Nashornvogel",
+          "wrong": [
+            "Der Tukan",
+            "Der Papagei",
+            "Der Adler"
+          ],
+          "hint": "Sein Name klingt nach einem großen grauen Tier.",
+          "explanation": "Der Nashornvogel hat einen großen Schnabel mit hornartigem Aufsatz.",
+          "fact": "Das Weibchen mauert sich in einer Baumhöhle ein."
+        },
+        "fr": {
+          "prompt": "Quel oiseau a un énorme bec surmonté d'une bosse ?",
+          "answer": "Le calao",
+          "wrong": [
+            "Le toucan",
+            "Le perroquet",
+            "L'aigle"
+          ],
+          "hint": "Son autre nom évoque un gros animal gris.",
+          "explanation": "Le calao a un grand bec surmonté d'une excroissance cornée.",
+          "fact": "La femelle se mure dans un creux d'arbre."
+        },
+        "es": {
+          "prompt": "¿Qué ave tiene un pico enorme con un bulto encima?",
+          "answer": "El cálao",
+          "wrong": [
+            "El tucán",
+            "El loro",
+            "El águila"
+          ],
+          "hint": "Su otro nombre recuerda a un gran animal gris.",
+          "explanation": "El cálao tiene un pico grande con un bulto córneo encima.",
+          "fact": "La hembra se tapia dentro del hueco de un árbol."
+        },
+        "it": {
+          "prompt": "Quale uccello ha un becco enorme con una protuberanza?",
+          "answer": "Il bucero",
+          "wrong": [
+            "Il tucano",
+            "Il pappagallo",
+            "L'aquila"
+          ],
+          "hint": "Il suo altro nome ricorda un grosso animale grigio.",
+          "explanation": "Il bucero ha un grande becco con una escrescenza cornea.",
+          "fact": "La femmina si mura dentro una cavità dell'albero."
+        },
+        "pt": {
+          "prompt": "Que ave tem um bico enorme com uma bossa em cima?",
+          "answer": "O calau",
+          "wrong": [
+            "O tucano",
+            "O papagaio",
+            "A águia"
+          ],
+          "hint": "O outro nome lembra um grande animal cinzento.",
+          "explanation": "O calau tem um bico grande com uma bossa córnea.",
+          "fact": "A fêmea fecha-se dentro do buraco de uma árvore."
+        },
+        "da": {
+          "prompt": "Hvilken fugl har et kæmpe næb med en pukkel på?",
+          "answer": "Næsehornsfuglen",
+          "wrong": [
+            "Tukanen",
+            "Papegøjen",
+            "Ørnen"
+          ],
+          "hint": "Navnet lyder som et stort gråt dyr.",
+          "explanation": "Næsehornsfuglen har et stort næb med en hornagtig pukkel.",
+          "fact": "Hunnen murer sig inde i et hul i et træ."
+        },
+        "ru": {
+          "prompt": "У какой птицы огромный клюв с выростом сверху?",
+          "answer": "Птица-носорог",
+          "wrong": [
+            "Тукан",
+            "Попугай",
+            "Орёл"
+          ],
+          "hint": "Её имя напоминает большое серое животное.",
+          "explanation": "У птицы-носорога большой клюв с роговым выростом.",
+          "fact": "Самка замуровывает себя в дупле."
+        },
+        "ar": {
+          "prompt": "أي طائر له منقار ضخم فوقه نتوء؟",
+          "answer": "أبو قرن",
+          "wrong": [
+            "الطوقان",
+            "الببغاء",
+            "النسر"
+          ],
+          "hint": "اسمه يذكّر بحيوان رمادي ضخم.",
+          "explanation": "لأبي قرن منقار كبير فوقه نتوء قرني.",
+          "fact": "تسد الأنثى على نفسها تجويف الشجرة."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Lianas in tropical forests",
+      "artBrief": "Dikke slingerende planten die als touwen van hoge boomtakken hangen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een liaan?",
+          "answer": "Een klimplant",
+          "wrong": [
+            "Een aapje",
+            "Een slang",
+            "Een boomsoort"
+          ],
+          "hint": "Tarzan zou er blij mee zijn.",
+          "explanation": "Lianen zijn klimplanten die als touwen aan de bomen hangen.",
+          "fact": "Sommige worden wel honderd meter lang."
+        },
+        "en": {
+          "prompt": "What is a liana?",
+          "answer": "A climbing plant",
+          "wrong": [
+            "A little monkey",
+            "A snake",
+            "A kind of tree"
+          ],
+          "hint": "Tarzan would be pleased with it.",
+          "explanation": "Lianas are climbing plants that hang from the trees like ropes.",
+          "fact": "Some grow a hundred metres long."
+        },
+        "de": {
+          "prompt": "Was ist eine Liane?",
+          "answer": "Eine Kletterpflanze",
+          "wrong": [
+            "Ein kleiner Affe",
+            "Eine Schlange",
+            "Eine Baumart"
+          ],
+          "hint": "Tarzan hätte seine Freude daran.",
+          "explanation": "Lianen sind Kletterpflanzen, die wie Seile in den Bäumen hängen.",
+          "fact": "Manche werden hundert Meter lang."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une liane ?",
+          "answer": "Une plante grimpante",
+          "wrong": [
+            "Un petit singe",
+            "Un serpent",
+            "Une sorte d'arbre"
+          ],
+          "hint": "Tarzan en serait ravi.",
+          "explanation": "Les lianes sont des plantes grimpantes qui pendent comme des cordes.",
+          "fact": "Certaines atteignent cent mètres de long."
+        },
+        "es": {
+          "prompt": "¿Qué es una liana?",
+          "answer": "Una planta trepadora",
+          "wrong": [
+            "Un monito",
+            "Una serpiente",
+            "Un tipo de árbol"
+          ],
+          "hint": "A Tarzán le encantaría.",
+          "explanation": "Las lianas son plantas trepadoras que cuelgan como cuerdas.",
+          "fact": "Algunas llegan a los cien metros de largo."
+        },
+        "it": {
+          "prompt": "Che cos'è una liana?",
+          "answer": "Una pianta rampicante",
+          "wrong": [
+            "Una scimmietta",
+            "Un serpente",
+            "Un tipo di albero"
+          ],
+          "hint": "Tarzan ne sarebbe felice.",
+          "explanation": "Le liane sono piante rampicanti che pendono come corde.",
+          "fact": "Alcune arrivano a cento metri di lunghezza."
+        },
+        "pt": {
+          "prompt": "O que é uma liana?",
+          "answer": "Uma planta trepadeira",
+          "wrong": [
+            "Um macaquinho",
+            "Uma cobra",
+            "Um tipo de árvore"
+          ],
+          "hint": "O Tarzan ia adorar.",
+          "explanation": "As lianas são trepadeiras que pendem das árvores como cordas.",
+          "fact": "Algumas chegam a cem metros de comprimento."
+        },
+        "da": {
+          "prompt": "Hvad er en lian?",
+          "answer": "En klatreplante",
+          "wrong": [
+            "En lille abe",
+            "En slange",
+            "En slags træ"
+          ],
+          "hint": "Tarzan ville være glad for den.",
+          "explanation": "Lianer er klatreplanter, der hænger som tove i træerne.",
+          "fact": "Nogle bliver hundrede meter lange."
+        },
+        "ru": {
+          "prompt": "Что такое лиана?",
+          "answer": "Вьющееся растение",
+          "wrong": [
+            "Обезьянка",
+            "Змея",
+            "Порода дерева"
+          ],
+          "hint": "Тарзан был бы доволен.",
+          "explanation": "Лианы — это вьющиеся растения, свисающие с деревьев верёвками.",
+          "fact": "Некоторые вырастают до ста метров."
+        },
+        "ar": {
+          "prompt": "ما هي اللبلابة المتسلقة في الأدغال؟",
+          "answer": "نبتة متسلقة",
+          "wrong": [
+            "قرد صغير",
+            "أفعى",
+            "نوع من الشجر"
+          ],
+          "hint": "طرزان كان سيفرح بها.",
+          "explanation": "النباتات المتسلقة تتدلى من الأشجار كالحبال.",
+          "fact": "بعضها يبلغ طوله مئة متر."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Piranhas of the Amazon basin",
+      "artBrief": "Een zilverkleurige vis met scherpe tandjes in het bruine water van een rivier.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vis met scherpe tandjes leeft in de Amazone?",
+          "answer": "De piranha",
+          "wrong": [
+            "De haai",
+            "De zalm",
+            "De snoek"
+          ],
+          "hint": "Hij zwemt in grote scholen.",
+          "explanation": "Piranha's zijn kleine vissen met heel scherpe tanden.",
+          "fact": "De meeste soorten eten vooral vis, zaden en fruit."
+        },
+        "en": {
+          "prompt": "Which sharp-toothed fish lives in the Amazon?",
+          "answer": "The piranha",
+          "wrong": [
+            "The shark",
+            "The salmon",
+            "The pike"
+          ],
+          "hint": "It swims in big shoals.",
+          "explanation": "Piranhas are small fish with very sharp teeth.",
+          "fact": "Most kinds mainly eat fish, seeds and fruit."
+        },
+        "de": {
+          "prompt": "Welcher Fisch mit scharfen Zähnen lebt im Amazonas?",
+          "answer": "Der Piranha",
+          "wrong": [
+            "Der Hai",
+            "Der Lachs",
+            "Der Hecht"
+          ],
+          "hint": "Er schwimmt in großen Schwärmen.",
+          "explanation": "Piranhas sind kleine Fische mit sehr scharfen Zähnen.",
+          "fact": "Die meisten Arten fressen vor allem Fisch, Samen und Früchte."
+        },
+        "fr": {
+          "prompt": "Quel poisson aux dents pointues vit en Amazonie ?",
+          "answer": "Le piranha",
+          "wrong": [
+            "Le requin",
+            "Le saumon",
+            "Le brochet"
+          ],
+          "hint": "Il nage en grands bancs.",
+          "explanation": "Les piranhas sont de petits poissons aux dents très coupantes.",
+          "fact": "La plupart mangent surtout du poisson, des graines et des fruits."
+        },
+        "es": {
+          "prompt": "¿Qué pez de dientes afilados vive en el Amazonas?",
+          "answer": "La piraña",
+          "wrong": [
+            "El tiburón",
+            "El salmón",
+            "El lucio"
+          ],
+          "hint": "Nada en grandes bancos.",
+          "explanation": "Las pirañas son peces pequeños con dientes muy afilados.",
+          "fact": "La mayoría come sobre todo peces, semillas y fruta."
+        },
+        "it": {
+          "prompt": "Quale pesce dai denti affilati vive in Amazzonia?",
+          "answer": "Il piranha",
+          "wrong": [
+            "Lo squalo",
+            "Il salmone",
+            "Il luccio"
+          ],
+          "hint": "Nuota in grandi banchi.",
+          "explanation": "I piranha sono pesci piccoli con denti molto affilati.",
+          "fact": "La maggior parte mangia pesce, semi e frutta."
+        },
+        "pt": {
+          "prompt": "Que peixe de dentes afiados vive na Amazónia?",
+          "answer": "A piranha",
+          "wrong": [
+            "O tubarão",
+            "O salmão",
+            "O lúcio"
+          ],
+          "hint": "Nada em grandes cardumes.",
+          "explanation": "As piranhas são peixes pequenos com dentes muito afiados.",
+          "fact": "A maioria come sobretudo peixe, sementes e fruta."
+        },
+        "da": {
+          "prompt": "Hvilken fisk med skarpe tænder lever i Amazonas?",
+          "answer": "Piratfisken",
+          "wrong": [
+            "Hajen",
+            "Laksen",
+            "Gedden"
+          ],
+          "hint": "Den svømmer i store stimer.",
+          "explanation": "Piratfisk er små fisk med meget skarpe tænder.",
+          "fact": "De fleste arter spiser mest fisk, frø og frugt."
+        },
+        "ru": {
+          "prompt": "Какая рыба с острыми зубами живёт в Амазонке?",
+          "answer": "Пиранья",
+          "wrong": [
+            "Акула",
+            "Лосось",
+            "Щука"
+          ],
+          "hint": "Она плавает большими стаями.",
+          "explanation": "Пираньи — небольшие рыбы с очень острыми зубами.",
+          "fact": "Большинство видов ест рыбу, семена и фрукты."
+        },
+        "ar": {
+          "prompt": "أي سمكة حادة الأسنان تعيش في الأمازون؟",
+          "answer": "البيرانا",
+          "wrong": [
+            "القرش",
+            "السلمون",
+            "الكراكي"
+          ],
+          "hint": "تسبح في أسراب كبيرة.",
+          "explanation": "البيرانا سمكة صغيرة بأسنان حادة جدًا.",
+          "fact": "معظم أنواعها تأكل السمك والبذور والفاكهة."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "WWF — the Amazon holds millions of species",
+      "artBrief": "Een collage van talloze verschillende insecten, vogels en planten uit één bos.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel soorten leven er in het Amazonewoud?",
+          "answer": "Miljoenen",
+          "wrong": [
+            "Ongeveer honderd",
+            "Ongeveer duizend",
+            "Precies tienduizend"
+          ],
+          "hint": "Meer dan iemand ooit geteld heeft.",
+          "explanation": "In het Amazonewoud leven naar schatting miljoenen soorten.",
+          "fact": "Er worden nog elk jaar nieuwe soorten ontdekt."
+        },
+        "en": {
+          "prompt": "How many species live in the Amazon forest?",
+          "answer": "Millions",
+          "wrong": [
+            "About a hundred",
+            "About a thousand",
+            "Exactly ten thousand"
+          ],
+          "hint": "More than anyone has ever counted.",
+          "explanation": "The Amazon forest is thought to hold millions of species.",
+          "fact": "New ones are still being found every year."
+        },
+        "de": {
+          "prompt": "Wie viele Arten leben im Amazonaswald?",
+          "answer": "Millionen",
+          "wrong": [
+            "Etwa hundert",
+            "Etwa tausend",
+            "Genau zehntausend"
+          ],
+          "hint": "Mehr, als je jemand gezählt hat.",
+          "explanation": "Im Amazonaswald leben schätzungsweise Millionen Arten.",
+          "fact": "Jedes Jahr werden noch neue entdeckt."
+        },
+        "fr": {
+          "prompt": "Combien d'espèces vivent dans la forêt amazonienne ?",
+          "answer": "Des millions",
+          "wrong": [
+            "Environ cent",
+            "Environ mille",
+            "Exactement dix mille"
+          ],
+          "hint": "Plus que personne n'en a jamais compté.",
+          "explanation": "On estime que la forêt amazonienne abrite des millions d'espèces.",
+          "fact": "On en découvre encore de nouvelles chaque année."
+        },
+        "es": {
+          "prompt": "¿Cuántas especies viven en la selva amazónica?",
+          "answer": "Millones",
+          "wrong": [
+            "Unas cien",
+            "Unas mil",
+            "Exactamente diez mil"
+          ],
+          "hint": "Más de las que nadie ha contado.",
+          "explanation": "Se calcula que en la Amazonia viven millones de especies.",
+          "fact": "Cada año se siguen descubriendo nuevas."
+        },
+        "it": {
+          "prompt": "Quante specie vivono nella foresta amazzonica?",
+          "answer": "Milioni",
+          "wrong": [
+            "Circa cento",
+            "Circa mille",
+            "Esattamente diecimila"
+          ],
+          "hint": "Più di quante ne abbia mai contate qualcuno.",
+          "explanation": "Si stima che l'Amazzonia ospiti milioni di specie.",
+          "fact": "Ogni anno se ne scoprono ancora di nuove."
+        },
+        "pt": {
+          "prompt": "Quantas espécies vivem na floresta amazónica?",
+          "answer": "Milhões",
+          "wrong": [
+            "Cerca de cem",
+            "Cerca de mil",
+            "Exatamente dez mil"
+          ],
+          "hint": "Mais do que alguém alguma vez contou.",
+          "explanation": "Calcula-se que a Amazónia tenha milhões de espécies.",
+          "fact": "Todos os anos ainda se descobrem novas."
+        },
+        "da": {
+          "prompt": "Hvor mange arter lever der i Amazonas-skoven?",
+          "answer": "Millioner",
+          "wrong": [
+            "Omkring hundrede",
+            "Omkring tusind",
+            "Præcis ti tusind"
+          ],
+          "hint": "Flere, end nogen nogensinde har talt.",
+          "explanation": "Man regner med, at Amazonas rummer millioner af arter.",
+          "fact": "Hvert år findes der stadig nye."
+        },
+        "ru": {
+          "prompt": "Сколько видов живёт в лесах Амазонки?",
+          "answer": "Миллионы",
+          "wrong": [
+            "Около ста",
+            "Около тысячи",
+            "Ровно десять тысяч"
+          ],
+          "hint": "Больше, чем кто-либо когда-либо считал.",
+          "explanation": "Считается, что в Амазонии обитают миллионы видов.",
+          "fact": "Новые находят каждый год."
+        },
+        "ar": {
+          "prompt": "كم نوعًا يعيش في غابة الأمازون؟",
+          "answer": "ملايين",
+          "wrong": [
+            "نحو مئة",
+            "نحو ألف",
+            "عشرة آلاف بالضبط"
+          ],
+          "hint": "أكثر مما أحصاه أحد يومًا.",
+          "explanation": "يُقدَّر أن في غابة الأمازون ملايين الأنواع.",
+          "fact": "وما زالت أنواع جديدة تُكتشف كل عام."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Okapi Conservation Project — Congo rainforest",
+      "artBrief": "Een okapi met een donkerbruin lijf en witte strepen op zijn achterpoten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier lijkt op een paard met strepen op zijn poten?",
+          "answer": "De okapi",
+          "wrong": [
+            "De zebra",
+            "De tapir",
+            "De antilope"
+          ],
+          "hint": "Hij is familie van de giraffe.",
+          "explanation": "De okapi leeft verborgen in het regenwoud van Congo.",
+          "fact": "Hij werd pas in 1901 door wetenschappers beschreven."
+        },
+        "en": {
+          "prompt": "Which animal looks like a horse with striped legs?",
+          "answer": "The okapi",
+          "wrong": [
+            "The zebra",
+            "The tapir",
+            "The antelope"
+          ],
+          "hint": "It is related to the giraffe.",
+          "explanation": "The okapi lives hidden in the rainforest of Congo.",
+          "fact": "Scientists only described it in 1901."
+        },
+        "de": {
+          "prompt": "Welches Tier sieht aus wie ein Pferd mit gestreiften Beinen?",
+          "answer": "Das Okapi",
+          "wrong": [
+            "Das Zebra",
+            "Der Tapir",
+            "Die Antilope"
+          ],
+          "hint": "Es ist mit der Giraffe verwandt.",
+          "explanation": "Das Okapi lebt versteckt im Regenwald des Kongo.",
+          "fact": "Erst 1901 wurde es wissenschaftlich beschrieben."
+        },
+        "fr": {
+          "prompt": "Quel animal ressemble à un cheval aux pattes rayées ?",
+          "answer": "L'okapi",
+          "wrong": [
+            "Le zèbre",
+            "Le tapir",
+            "L'antilope"
+          ],
+          "hint": "Il est de la famille de la girafe.",
+          "explanation": "L'okapi vit caché dans la forêt du Congo.",
+          "fact": "Les scientifiques ne l'ont décrit qu'en 1901."
+        },
+        "es": {
+          "prompt": "¿Qué animal parece un caballo con patas rayadas?",
+          "answer": "El okapi",
+          "wrong": [
+            "La cebra",
+            "El tapir",
+            "El antílope"
+          ],
+          "hint": "Es pariente de la jirafa.",
+          "explanation": "El okapi vive escondido en la selva del Congo.",
+          "fact": "No fue descrito por la ciencia hasta 1901."
+        },
+        "it": {
+          "prompt": "Quale animale sembra un cavallo con le zampe a strisce?",
+          "answer": "L'okapi",
+          "wrong": [
+            "La zebra",
+            "Il tapiro",
+            "L'antilope"
+          ],
+          "hint": "È parente della giraffa.",
+          "explanation": "L'okapi vive nascosto nella foresta del Congo.",
+          "fact": "Gli scienziati lo hanno descritto solo nel 1901."
+        },
+        "pt": {
+          "prompt": "Que animal parece um cavalo com patas às riscas?",
+          "answer": "O okapi",
+          "wrong": [
+            "A zebra",
+            "A anta",
+            "O antílope"
+          ],
+          "hint": "É parente da girafa.",
+          "explanation": "O okapi vive escondido na floresta do Congo.",
+          "fact": "Só foi descrito pela ciência em 1901."
+        },
+        "da": {
+          "prompt": "Hvilket dyr ligner en hest med stribede ben?",
+          "answer": "Okapien",
+          "wrong": [
+            "Zebraen",
+            "Tapiren",
+            "Antilopen"
+          ],
+          "hint": "Den er i familie med giraffen.",
+          "explanation": "Okapien lever skjult i Congos regnskov.",
+          "fact": "Forskerne beskrev den først i 1901."
+        },
+        "ru": {
+          "prompt": "Какое животное похоже на лошадь с полосатыми ногами?",
+          "answer": "Окапи",
+          "wrong": [
+            "Зебра",
+            "Тапир",
+            "Антилопа"
+          ],
+          "hint": "Он родственник жирафа.",
+          "explanation": "Окапи скрытно живёт в лесах Конго.",
+          "fact": "Учёные описали его только в 1901 году."
+        },
+        "ar": {
+          "prompt": "أي حيوان يشبه حصانًا بأرجل مخططة؟",
+          "answer": "الأوكابي",
+          "wrong": [
+            "الحمار الوحشي",
+            "التابير",
+            "الظبي"
+          ],
+          "hint": "إنه من عائلة الزرافة.",
+          "explanation": "يعيش الأوكابي مختبئًا في غابة الكونغو.",
+          "fact": "لم يصفه العلماء إلا عام 1901."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "WHO / rainforest plants in modern medicine",
+      "artBrief": "Een plant uit het regenwoud naast een potje pillen en een vijzel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar komt een groot deel van onze medicijnen vandaan?",
+          "answer": "Uit regenwoudplanten",
+          "wrong": [
+            "Uit woestijnzand",
+            "Uit zeewater",
+            "Uit steenkool"
+          ],
+          "hint": "Groen en groeiend.",
+          "explanation": "Veel medicijnen zijn gemaakt uit stoffen uit tropische planten.",
+          "fact": "Daarom is elke verdwenen soort ook een verloren kans."
+        },
+        "en": {
+          "prompt": "Where does a large share of our medicine come from?",
+          "answer": "From rainforest plants",
+          "wrong": [
+            "From desert sand",
+            "From sea water",
+            "From coal"
+          ],
+          "hint": "Green and growing.",
+          "explanation": "Many medicines are made from substances in tropical plants.",
+          "fact": "So every species lost is also a chance lost."
+        },
+        "de": {
+          "prompt": "Woher kommt ein großer Teil unserer Medikamente?",
+          "answer": "Aus Regenwaldpflanzen",
+          "wrong": [
+            "Aus Wüstensand",
+            "Aus Meerwasser",
+            "Aus Kohle"
+          ],
+          "hint": "Grün und wachsend.",
+          "explanation": "Viele Medikamente stammen aus Stoffen tropischer Pflanzen.",
+          "fact": "Jede verlorene Art ist deshalb auch eine verlorene Chance."
+        },
+        "fr": {
+          "prompt": "D'où vient une grande partie de nos médicaments ?",
+          "answer": "De plantes de la forêt",
+          "wrong": [
+            "Du sable du désert",
+            "De l'eau de mer",
+            "Du charbon"
+          ],
+          "hint": "Vert et vivant.",
+          "explanation": "Beaucoup de médicaments viennent de substances de plantes tropicales.",
+          "fact": "Chaque espèce perdue est donc aussi une chance perdue."
+        },
+        "es": {
+          "prompt": "¿De dónde sale buena parte de nuestras medicinas?",
+          "answer": "De plantas de la selva",
+          "wrong": [
+            "De arena del desierto",
+            "De agua de mar",
+            "Del carbón"
+          ],
+          "hint": "Verde y vivo.",
+          "explanation": "Muchos medicamentos salen de sustancias de plantas tropicales.",
+          "fact": "Por eso cada especie perdida es también una oportunidad perdida."
+        },
+        "it": {
+          "prompt": "Da dove viene gran parte delle nostre medicine?",
+          "answer": "Da piante della foresta",
+          "wrong": [
+            "Dalla sabbia del deserto",
+            "Dall'acqua di mare",
+            "Dal carbone"
+          ],
+          "hint": "Verde e vivo.",
+          "explanation": "Molti medicinali nascono da sostanze di piante tropicali.",
+          "fact": "Ogni specie perduta è quindi anche un'occasione perduta."
+        },
+        "pt": {
+          "prompt": "De onde vem grande parte dos nossos medicamentos?",
+          "answer": "De plantas da floresta",
+          "wrong": [
+            "De areia do deserto",
+            "De água do mar",
+            "Do carvão"
+          ],
+          "hint": "Verde e vivo.",
+          "explanation": "Muitos medicamentos vêm de substâncias de plantas tropicais.",
+          "fact": "Por isso cada espécie perdida é também uma hipótese perdida."
+        },
+        "da": {
+          "prompt": "Hvor kommer en stor del af vores medicin fra?",
+          "answer": "Fra regnskovens planter",
+          "wrong": [
+            "Fra ørkensand",
+            "Fra havvand",
+            "Fra kul"
+          ],
+          "hint": "Grønt og levende.",
+          "explanation": "Mange lægemidler stammer fra stoffer i tropiske planter.",
+          "fact": "Derfor er hver tabt art også en tabt mulighed."
+        },
+        "ru": {
+          "prompt": "Откуда берётся большая часть наших лекарств?",
+          "answer": "Из растений тропиков",
+          "wrong": [
+            "Из песка пустыни",
+            "Из морской воды",
+            "Из угля"
+          ],
+          "hint": "Зелёное и живое.",
+          "explanation": "Многие лекарства сделаны из веществ тропических растений.",
+          "fact": "Поэтому каждый исчезнувший вид — это и потерянный шанс."
+        },
+        "ar": {
+          "prompt": "من أين يأتي جزء كبير من أدويتنا؟",
+          "answer": "من نباتات الغابات",
+          "wrong": [
+            "من رمل الصحراء",
+            "من ماء البحر",
+            "من الفحم"
+          ],
+          "hint": "أخضر وحي.",
+          "explanation": "كثير من الأدوية مصدره مواد في نباتات استوائية.",
+          "fact": "لذلك كل نوع يختفي فرصة تضيع."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Gibbons brachiate at up to 55 km/h",
+      "artBrief": "Een gibbon die met lange armen van tak naar tak zwiert.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke aap slingert het snelst door de bomen?",
+          "answer": "De gibbon",
+          "wrong": [
+            "De gorilla",
+            "De luiaard",
+            "De orang-oetan"
+          ],
+          "hint": "Hij heeft extreem lange armen.",
+          "explanation": "Een gibbon zwiert met vijftig kilometer per uur door de boomkruinen.",
+          "fact": "Hij kan in één zwaai tien meter overbruggen."
+        },
+        "en": {
+          "prompt": "Which ape swings through the trees fastest?",
+          "answer": "The gibbon",
+          "wrong": [
+            "The gorilla",
+            "The sloth",
+            "The orangutan"
+          ],
+          "hint": "It has extremely long arms.",
+          "explanation": "A gibbon swings through the canopy at fifty kilometres an hour.",
+          "fact": "It can cross ten metres in a single swing."
+        },
+        "de": {
+          "prompt": "Welcher Affe schwingt am schnellsten durch die Bäume?",
+          "answer": "Der Gibbon",
+          "wrong": [
+            "Der Gorilla",
+            "Das Faultier",
+            "Der Orang-Utan"
+          ],
+          "hint": "Er hat extrem lange Arme.",
+          "explanation": "Ein Gibbon schwingt mit fünfzig Kilometern pro Stunde durch die Kronen.",
+          "fact": "In einem Schwung schafft er zehn Meter."
+        },
+        "fr": {
+          "prompt": "Quel singe se balance le plus vite dans les arbres ?",
+          "answer": "Le gibbon",
+          "wrong": [
+            "Le gorille",
+            "Le paresseux",
+            "L'orang-outan"
+          ],
+          "hint": "Il a des bras très longs.",
+          "explanation": "Un gibbon file dans la canopée à cinquante kilomètres à l'heure.",
+          "fact": "Il franchit dix mètres d'un seul élan."
+        },
+        "es": {
+          "prompt": "¿Qué simio se balancea más rápido por los árboles?",
+          "answer": "El gibón",
+          "wrong": [
+            "El gorila",
+            "El perezoso",
+            "El orangután"
+          ],
+          "hint": "Tiene brazos larguísimos.",
+          "explanation": "Un gibón cruza las copas a cincuenta kilómetros por hora.",
+          "fact": "De un solo impulso salva diez metros."
+        },
+        "it": {
+          "prompt": "Quale scimmia si dondola più veloce fra gli alberi?",
+          "answer": "Il gibbone",
+          "wrong": [
+            "Il gorilla",
+            "Il bradipo",
+            "L'orangutan"
+          ],
+          "hint": "Ha braccia lunghissime.",
+          "explanation": "Un gibbone attraversa le chiome a cinquanta chilometri all'ora.",
+          "fact": "Con un solo slancio copre dieci metri."
+        },
+        "pt": {
+          "prompt": "Que símio se balança mais depressa pelas árvores?",
+          "answer": "O gibão",
+          "wrong": [
+            "O gorila",
+            "A preguiça",
+            "O orangotango"
+          ],
+          "hint": "Tem braços compridíssimos.",
+          "explanation": "Um gibão atravessa as copas a cinquenta quilómetros por hora.",
+          "fact": "Num só impulso vence dez metros."
+        },
+        "da": {
+          "prompt": "Hvilken abe svinger sig hurtigst gennem træerne?",
+          "answer": "Gibbonen",
+          "wrong": [
+            "Gorillaen",
+            "Dovendyret",
+            "Orangutangen"
+          ],
+          "hint": "Den har ekstremt lange arme.",
+          "explanation": "En gibbon svinger sig gennem kronerne med halvtreds kilometer i timen.",
+          "fact": "Den klarer ti meter i ét sving."
+        },
+        "ru": {
+          "prompt": "Какая обезьяна быстрее всех перелетает по деревьям?",
+          "answer": "Гиббон",
+          "wrong": [
+            "Горилла",
+            "Ленивец",
+            "Орангутан"
+          ],
+          "hint": "У него очень длинные руки.",
+          "explanation": "Гиббон проносится по кронам со скоростью пятьдесят километров в час.",
+          "fact": "За один мах он покрывает десять метров."
+        },
+        "ar": {
+          "prompt": "أي قرد يتأرجح أسرع بين الأشجار؟",
+          "answer": "الجيبون",
+          "wrong": [
+            "الغوريلا",
+            "الكسلان",
+            "إنسان الغاب"
+          ],
+          "hint": "ذراعاه طويلتان جدًا.",
+          "explanation": "يندفع الجيبون بين القمم بخمسين كيلومترًا في الساعة.",
+          "fact": "وبأرجحة واحدة يقطع عشرة أمتار."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Rapid nutrient cycling on the rainforest floor",
+      "artBrief": "Een blad op de bosbodem dat half vergaan is, met schimmels en mieren eromheen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met een blad dat op de bosbodem valt?",
+          "answer": "Het vergaat heel snel",
+          "wrong": [
+            "Het blijft jaren liggen",
+            "Het bevriest",
+            "Het verandert in steen"
+          ],
+          "hint": "Het is er warm en vochtig.",
+          "explanation": "Schimmels en insecten breken een blad in weken helemaal af.",
+          "fact": "Daardoor is de bosbodem zelf juist dun en arm."
+        },
+        "en": {
+          "prompt": "What happens to a leaf that falls on the forest floor?",
+          "answer": "It rots away very fast",
+          "wrong": [
+            "It lies there for years",
+            "It freezes",
+            "It turns to stone"
+          ],
+          "hint": "It is warm and damp down there.",
+          "explanation": "Fungi and insects break a leaf down completely in weeks.",
+          "fact": "That is why the forest soil itself is thin and poor."
+        },
+        "de": {
+          "prompt": "Was passiert mit einem Blatt auf dem Waldboden?",
+          "answer": "Es verrottet sehr schnell",
+          "wrong": [
+            "Es liegt jahrelang",
+            "Es gefriert",
+            "Es wird zu Stein"
+          ],
+          "hint": "Dort unten ist es warm und feucht.",
+          "explanation": "Pilze und Insekten zersetzen ein Blatt in wenigen Wochen.",
+          "fact": "Darum ist der Waldboden selbst dünn und arm."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à une feuille tombée au sol de la forêt ?",
+          "answer": "Elle pourrit très vite",
+          "wrong": [
+            "Elle reste des années",
+            "Elle gèle",
+            "Elle devient pierre"
+          ],
+          "hint": "Il y fait chaud et humide.",
+          "explanation": "Champignons et insectes décomposent une feuille en quelques semaines.",
+          "fact": "C'est pourquoi le sol lui-même est mince et pauvre."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa a una hoja que cae al suelo de la selva?",
+          "answer": "Se pudre muy rápido",
+          "wrong": [
+            "Se queda años",
+            "Se congela",
+            "Se vuelve piedra"
+          ],
+          "hint": "Ahí abajo hace calor y humedad.",
+          "explanation": "Hongos e insectos deshacen una hoja en pocas semanas.",
+          "fact": "Por eso el propio suelo es delgado y pobre."
+        },
+        "it": {
+          "prompt": "Che fine fa una foglia caduta sul suolo della foresta?",
+          "answer": "Marcisce molto in fretta",
+          "wrong": [
+            "Resta lì per anni",
+            "Si congela",
+            "Diventa pietra"
+          ],
+          "hint": "Laggiù è caldo e umido.",
+          "explanation": "Funghi e insetti disfano una foglia in poche settimane.",
+          "fact": "Per questo il suolo stesso è sottile e povero."
+        },
+        "pt": {
+          "prompt": "O que acontece a uma folha que cai no chão da floresta?",
+          "answer": "Apodrece muito depressa",
+          "wrong": [
+            "Fica lá anos",
+            "Congela",
+            "Vira pedra"
+          ],
+          "hint": "Lá em baixo é quente e húmido.",
+          "explanation": "Fungos e insetos desfazem uma folha em poucas semanas.",
+          "fact": "Por isso o próprio solo é fino e pobre."
+        },
+        "da": {
+          "prompt": "Hvad sker der med et blad, der falder på skovbunden?",
+          "answer": "Det rådner meget hurtigt",
+          "wrong": [
+            "Det ligger i årevis",
+            "Det fryser",
+            "Det bliver til sten"
+          ],
+          "hint": "Dernede er der varmt og fugtigt.",
+          "explanation": "Svampe og insekter nedbryder et blad på få uger.",
+          "fact": "Derfor er selve skovbunden tynd og fattig."
+        },
+        "ru": {
+          "prompt": "Что происходит с листом, упавшим на лесную подстилку?",
+          "answer": "Он очень быстро сгнивает",
+          "wrong": [
+            "Он лежит годами",
+            "Он замерзает",
+            "Он каменеет"
+          ],
+          "hint": "Внизу тепло и влажно.",
+          "explanation": "Грибы и насекомые разлагают лист за несколько недель.",
+          "fact": "Поэтому сама почва там тонкая и бедная."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لورقة تسقط على أرض الغابة؟",
+          "answer": "تتعفن بسرعة كبيرة",
+          "wrong": [
+            "تبقى سنوات",
+            "تتجمد",
+            "تتحول إلى حجر"
+          ],
+          "hint": "الجو هناك حار ورطب.",
+          "explanation": "تفكك الفطريات والحشرات الورقة خلال أسابيع.",
+          "fact": "لذلك تربة الغابة نفسها رقيقة وفقيرة."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Blue morpho butterfly, Amazon basin",
+      "artBrief": "Een grote vlinder met schitterend blauwe vleugels boven een bospad.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vlinder heeft schitterend blauwe vleugels?",
+          "answer": "De blauwe morpho",
+          "wrong": [
+            "De monarchvlinder",
+            "De citroenvlinder",
+            "De atalanta"
+          ],
+          "hint": "Je ziet hem flitsen boven een bospad.",
+          "explanation": "De blauwe morpho leeft in de bossen van Midden- en Zuid-Amerika.",
+          "fact": "Zijn vleugels zijn niet blauw geverfd, maar breken het licht."
+        },
+        "en": {
+          "prompt": "Which butterfly has brilliant blue wings?",
+          "answer": "The blue morpho",
+          "wrong": [
+            "The monarch",
+            "The brimstone",
+            "The red admiral"
+          ],
+          "hint": "You see it flash above a forest path.",
+          "explanation": "The blue morpho lives in the forests of Central and South America.",
+          "fact": "Its wings are not painted blue; they bend the light."
+        },
+        "de": {
+          "prompt": "Welcher Schmetterling hat leuchtend blaue Flügel?",
+          "answer": "Der blaue Morphofalter",
+          "wrong": [
+            "Der Monarchfalter",
+            "Der Zitronenfalter",
+            "Der Admiral"
+          ],
+          "hint": "Man sieht ihn über einem Waldweg aufblitzen.",
+          "explanation": "Der blaue Morphofalter lebt in Mittel- und Südamerika.",
+          "fact": "Seine Flügel sind nicht blau gefärbt, sie brechen das Licht."
+        },
+        "fr": {
+          "prompt": "Quel papillon a des ailes d'un bleu éclatant ?",
+          "answer": "Le morpho bleu",
+          "wrong": [
+            "Le monarque",
+            "Le citron",
+            "Le vulcain"
+          ],
+          "hint": "On le voit briller au-dessus d'un sentier.",
+          "explanation": "Le morpho bleu vit dans les forêts d'Amérique centrale et du Sud.",
+          "fact": "Ses ailes ne sont pas peintes en bleu : elles courbent la lumière."
+        },
+        "es": {
+          "prompt": "¿Qué mariposa tiene alas de un azul brillante?",
+          "answer": "La morfo azul",
+          "wrong": [
+            "La monarca",
+            "La limonera",
+            "La vanesa"
+          ],
+          "hint": "La ves destellar sobre un sendero.",
+          "explanation": "La morfo azul vive en los bosques de América Central y del Sur.",
+          "fact": "Sus alas no están pintadas de azul: desvían la luz."
+        },
+        "it": {
+          "prompt": "Quale farfalla ha ali di un azzurro brillante?",
+          "answer": "La morfo azzurra",
+          "wrong": [
+            "La monarca",
+            "La cedronella",
+            "La vanessa"
+          ],
+          "hint": "La vedi lampeggiare su un sentiero.",
+          "explanation": "La morfo azzurra vive nelle foreste dell'America centrale e del Sud.",
+          "fact": "Le sue ali non sono dipinte di blu: piegano la luce."
+        },
+        "pt": {
+          "prompt": "Que borboleta tem asas de um azul brilhante?",
+          "answer": "A morfo azul",
+          "wrong": [
+            "A monarca",
+            "A borboleta-limão",
+            "A vanessa"
+          ],
+          "hint": "Vê-la brilhar sobre um trilho.",
+          "explanation": "A morfo azul vive nas florestas da América Central e do Sul.",
+          "fact": "As asas não são pintadas de azul: dobram a luz."
+        },
+        "da": {
+          "prompt": "Hvilken sommerfugl har skinnende blå vinger?",
+          "answer": "Den blå morfo",
+          "wrong": [
+            "Monarksommerfuglen",
+            "Citronsommerfuglen",
+            "Admiralen"
+          ],
+          "hint": "Man ser den blinke over en skovsti.",
+          "explanation": "Den blå morfo lever i Mellem- og Sydamerikas skove.",
+          "fact": "Vingerne er ikke malet blå; de bøjer lyset."
+        },
+        "ru": {
+          "prompt": "У какой бабочки сияющие синие крылья?",
+          "answer": "Голубая морфо",
+          "wrong": [
+            "Монарх",
+            "Лимонница",
+            "Адмирал"
+          ],
+          "hint": "Она вспыхивает над лесной тропой.",
+          "explanation": "Голубая морфо живёт в лесах Центральной и Южной Америки.",
+          "fact": "Её крылья не окрашены в синий: они преломляют свет."
+        },
+        "ar": {
+          "prompt": "أي فراشة لها أجنحة زرقاء لامعة؟",
+          "answer": "المورفو الزرقاء",
+          "wrong": [
+            "الملكية",
+            "الليمونية",
+            "الأميرال"
+          ],
+          "hint": "تراها تلمع فوق درب في الغابة.",
+          "explanation": "تعيش المورفو الزرقاء في غابات أمريكا الوسطى والجنوبية.",
+          "fact": "أجنحتها ليست مصبوغة بالأزرق بل تحرف الضوء."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Rainforests hold over half of all land species",
+      "artBrief": "Een wereldkaart waarop de regenwoudgordel oplicht, vol dierensilhouetten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel van alle landdieren leeft in regenwouden?",
+          "answer": "Meer dan de helft",
+          "wrong": [
+            "Ongeveer een tiende",
+            "Ongeveer een kwart",
+            "Bijna niets"
+          ],
+          "hint": "Meer dan je zou denken van zo'n klein gebied.",
+          "explanation": "Regenwouden beslaan weinig oppervlak maar herbergen de meeste soorten.",
+          "fact": "Ze bedekken maar een paar procent van het landoppervlak."
+        },
+        "en": {
+          "prompt": "How many of all land animals live in rainforests?",
+          "answer": "More than half",
+          "wrong": [
+            "About a tenth",
+            "About a quarter",
+            "Almost none"
+          ],
+          "hint": "More than you would expect from such a small area.",
+          "explanation": "Rainforests cover little ground but hold most of the species.",
+          "fact": "They make up only a few per cent of the land surface."
+        },
+        "de": {
+          "prompt": "Wie viele aller Landtiere leben in Regenwäldern?",
+          "answer": "Mehr als die Hälfte",
+          "wrong": [
+            "Etwa ein Zehntel",
+            "Etwa ein Viertel",
+            "Fast keine"
+          ],
+          "hint": "Mehr, als man bei so wenig Fläche denkt.",
+          "explanation": "Regenwälder haben wenig Fläche, beherbergen aber die meisten Arten.",
+          "fact": "Sie bedecken nur wenige Prozent des Landes."
+        },
+        "fr": {
+          "prompt": "Quelle part des animaux terrestres vit en forêt tropicale ?",
+          "answer": "Plus de la moitié",
+          "wrong": [
+            "Environ un dixième",
+            "Environ un quart",
+            "Presque aucun"
+          ],
+          "hint": "Beaucoup, pour une si petite surface.",
+          "explanation": "Les forêts tropicales occupent peu d'espace mais abritent le plus d'espèces.",
+          "fact": "Elles couvrent quelques pour cent des terres seulement."
+        },
+        "es": {
+          "prompt": "¿Qué parte de los animales terrestres vive en selvas?",
+          "answer": "Más de la mitad",
+          "wrong": [
+            "Una décima parte",
+            "Una cuarta parte",
+            "Casi ninguno"
+          ],
+          "hint": "Mucho, para tan poca superficie.",
+          "explanation": "Las selvas ocupan poco terreno pero albergan la mayoría de especies.",
+          "fact": "Solo cubren un pequeño porcentaje de la tierra firme."
+        },
+        "it": {
+          "prompt": "Quanta parte degli animali terrestri vive nelle foreste pluviali?",
+          "answer": "Più della metà",
+          "wrong": [
+            "Circa un decimo",
+            "Circa un quarto",
+            "Quasi nessuno"
+          ],
+          "hint": "Tanti, per una superficie così piccola.",
+          "explanation": "Le foreste pluviali occupano poco spazio ma ospitano quasi tutte le specie.",
+          "fact": "Coprono solo pochi per cento delle terre emerse."
+        },
+        "pt": {
+          "prompt": "Que parte dos animais terrestres vive em florestas tropicais?",
+          "answer": "Mais de metade",
+          "wrong": [
+            "Cerca de um décimo",
+            "Cerca de um quarto",
+            "Quase nenhuns"
+          ],
+          "hint": "Muitos, para tão pouca área.",
+          "explanation": "As florestas tropicais ocupam pouco espaço mas têm a maioria das espécies.",
+          "fact": "Cobrem apenas uns poucos por cento das terras."
+        },
+        "da": {
+          "prompt": "Hvor mange af alle landdyr lever i regnskove?",
+          "answer": "Mere end halvdelen",
+          "wrong": [
+            "Cirka en tiendedel",
+            "Cirka en fjerdedel",
+            "Næsten ingen"
+          ],
+          "hint": "Mange, i forhold til så lidt areal.",
+          "explanation": "Regnskove fylder lidt, men rummer flest arter.",
+          "fact": "De dækker kun få procent af landjorden."
+        },
+        "ru": {
+          "prompt": "Какая часть сухопутных животных живёт в тропических лесах?",
+          "answer": "Больше половины",
+          "wrong": [
+            "Около десятой части",
+            "Около четверти",
+            "Почти никто"
+          ],
+          "hint": "Много — для такой маленькой площади.",
+          "explanation": "Тропические леса занимают мало места, но хранят большинство видов.",
+          "fact": "Они покрывают лишь несколько процентов суши."
+        },
+        "ar": {
+          "prompt": "كم نسبة الحيوانات البرية التي تعيش في الغابات المطيرة؟",
+          "answer": "أكثر من النصف",
+          "wrong": [
+            "نحو العُشر",
+            "نحو الربع",
+            "لا شيء تقريبًا"
+          ],
+          "hint": "كثير جدًا مقابل مساحة صغيرة.",
+          "explanation": "الغابات المطيرة صغيرة المساحة لكنها تضم معظم الأنواع.",
+          "fact": "لا تغطي سوى نسبة ضئيلة من اليابسة."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Kapok (Ceiba pentandra) reaches 70 m",
+      "artBrief": "Een reusachtige boom met een brede stam en wortels als muren, hoog boven het bos uit.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke boom in het regenwoud wordt zeventig meter hoog?",
+          "answer": "De kapokboom",
+          "wrong": [
+            "De berk",
+            "De olijfboom",
+            "De den"
+          ],
+          "hint": "Zijn wortels staan als muren rond de stam.",
+          "explanation": "De kapokboom steekt met zeventig meter boven het bladerdak uit.",
+          "fact": "In zijn takken leven vogels, apen en zelfs kikkers."
+        },
+        "en": {
+          "prompt": "Which rainforest tree grows seventy metres tall?",
+          "answer": "The kapok tree",
+          "wrong": [
+            "The birch",
+            "The olive tree",
+            "The pine"
+          ],
+          "hint": "Its roots stand around the trunk like walls.",
+          "explanation": "The kapok tree rises seventy metres above the canopy.",
+          "fact": "Birds, monkeys and even frogs live in its branches."
+        },
+        "de": {
+          "prompt": "Welcher Regenwaldbaum wird siebzig Meter hoch?",
+          "answer": "Der Kapokbaum",
+          "wrong": [
+            "Die Birke",
+            "Der Olivenbaum",
+            "Die Kiefer"
+          ],
+          "hint": "Seine Wurzeln stehen wie Mauern um den Stamm.",
+          "explanation": "Der Kapokbaum ragt mit siebzig Metern über das Blätterdach.",
+          "fact": "In seinen Ästen leben Vögel, Affen und sogar Frösche."
+        },
+        "fr": {
+          "prompt": "Quel arbre de la forêt tropicale atteint soixante-dix mètres ?",
+          "answer": "Le fromager",
+          "wrong": [
+            "Le bouleau",
+            "L'olivier",
+            "Le pin"
+          ],
+          "hint": "Ses racines forment des murs autour du tronc.",
+          "explanation": "Le fromager dépasse la canopée de ses soixante-dix mètres.",
+          "fact": "Oiseaux, singes et même grenouilles vivent dans ses branches."
+        },
+        "es": {
+          "prompt": "¿Qué árbol de la selva llega a setenta metros?",
+          "answer": "La ceiba",
+          "wrong": [
+            "El abedul",
+            "El olivo",
+            "El pino"
+          ],
+          "hint": "Sus raíces forman muros junto al tronco.",
+          "explanation": "La ceiba asoma setenta metros por encima de las copas.",
+          "fact": "En sus ramas viven aves, monos e incluso ranas."
+        },
+        "it": {
+          "prompt": "Quale albero della foresta pluviale arriva a settanta metri?",
+          "answer": "La ceiba",
+          "wrong": [
+            "La betulla",
+            "L'ulivo",
+            "Il pino"
+          ],
+          "hint": "Le sue radici formano muri attorno al tronco.",
+          "explanation": "La ceiba svetta settanta metri sopra le chiome.",
+          "fact": "Sui suoi rami vivono uccelli, scimmie e perfino rane."
+        },
+        "pt": {
+          "prompt": "Que árvore da floresta tropical chega aos setenta metros?",
+          "answer": "A sumaúma",
+          "wrong": [
+            "A bétula",
+            "A oliveira",
+            "O pinheiro"
+          ],
+          "hint": "As raízes formam paredes junto ao tronco.",
+          "explanation": "A sumaúma ergue-se setenta metros acima das copas.",
+          "fact": "Nos seus ramos vivem aves, macacos e até rãs."
+        },
+        "da": {
+          "prompt": "Hvilket regnskovstræ bliver halvfjerds meter højt?",
+          "answer": "Kapoktræet",
+          "wrong": [
+            "Birken",
+            "Oliventræet",
+            "Fyrren"
+          ],
+          "hint": "Rødderne står som mure om stammen.",
+          "explanation": "Kapoktræet rager halvfjerds meter op over bladtaget.",
+          "fact": "I dets grene lever fugle, aber og endda frøer."
+        },
+        "ru": {
+          "prompt": "Какое дерево тропического леса вырастает до семидесяти метров?",
+          "answer": "Сейба",
+          "wrong": [
+            "Берёза",
+            "Олива",
+            "Сосна"
+          ],
+          "hint": "Его корни стоят вокруг ствола как стены.",
+          "explanation": "Сейба поднимается на семьдесят метров над пологом леса.",
+          "fact": "В её ветвях живут птицы, обезьяны и даже лягушки."
+        },
+        "ar": {
+          "prompt": "أي شجرة في الغابة المطيرة تبلغ سبعين مترًا؟",
+          "answer": "شجرة الكابوك",
+          "wrong": [
+            "البتولا",
+            "الزيتون",
+            "الصنوبر"
+          ],
+          "hint": "جذورها تقف حول الجذع كالجدران.",
+          "explanation": "ترتفع شجرة الكابوك سبعين مترًا فوق سقف الغابة.",
+          "fact": "في أغصانها تعيش طيور وقرود وحتى ضفادع."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Elephant ears as heat radiators",
+      "artBrief": "Een olifant die zijn grote oren als waaiers heen en weer beweegt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe koelt een olifant zich af?",
+          "answer": "Met zijn oren wapperen",
+          "wrong": [
+            "Door te zweten",
+            "Door te hijgen",
+            "Door stil te staan"
+          ],
+          "hint": "Kijk naar zijn grootste lichaamsdeel.",
+          "explanation": "Door met zijn dunne oren te wapperen koelt het bloed erin af.",
+          "fact": "Olifanten kunnen bijna niet zweten."
+        },
+        "en": {
+          "prompt": "How does an elephant cool itself down?",
+          "answer": "By flapping its ears",
+          "wrong": [
+            "By sweating",
+            "By panting",
+            "By standing still"
+          ],
+          "hint": "Look at its largest body part.",
+          "explanation": "Flapping its thin ears cools the blood running through them.",
+          "fact": "Elephants can hardly sweat at all."
+        },
+        "de": {
+          "prompt": "Wie kühlt sich ein Elefant ab?",
+          "answer": "Er wedelt mit den Ohren",
+          "wrong": [
+            "Er schwitzt",
+            "Er hechelt",
+            "Er steht still"
+          ],
+          "hint": "Schau auf seinen größten Körperteil.",
+          "explanation": "Beim Wedeln kühlt das Blut in den dünnen Ohren ab.",
+          "fact": "Elefanten können kaum schwitzen."
+        },
+        "fr": {
+          "prompt": "Comment un éléphant se rafraîchit-il ?",
+          "answer": "En agitant ses oreilles",
+          "wrong": [
+            "En transpirant",
+            "En haletant",
+            "En restant immobile"
+          ],
+          "hint": "Regarde sa plus grande partie du corps.",
+          "explanation": "En les agitant, le sang qui passe dans ses fines oreilles refroidit.",
+          "fact": "Les éléphants ne transpirent presque pas."
+        },
+        "es": {
+          "prompt": "¿Cómo se refresca un elefante?",
+          "answer": "Agitando las orejas",
+          "wrong": [
+            "Sudando",
+            "Jadeando",
+            "Quedándose quieto"
+          ],
+          "hint": "Mira su parte más grande.",
+          "explanation": "Al agitar sus finas orejas se enfría la sangre que pasa por ellas.",
+          "fact": "Los elefantes casi no pueden sudar."
+        },
+        "it": {
+          "prompt": "Come si rinfresca un elefante?",
+          "answer": "Sventolando le orecchie",
+          "wrong": [
+            "Sudando",
+            "Ansimando",
+            "Stando fermo"
+          ],
+          "hint": "Guarda la sua parte più grande.",
+          "explanation": "Sventolando le orecchie sottili raffredda il sangue che vi scorre.",
+          "fact": "Gli elefanti quasi non riescono a sudare."
+        },
+        "pt": {
+          "prompt": "Como se refresca um elefante?",
+          "answer": "A abanar as orelhas",
+          "wrong": [
+            "A transpirar",
+            "A arfar",
+            "A ficar quieto"
+          ],
+          "hint": "Olha para a maior parte do corpo dele.",
+          "explanation": "Ao abanar as orelhas finas arrefece o sangue que passa nelas.",
+          "fact": "Os elefantes quase não conseguem transpirar."
+        },
+        "da": {
+          "prompt": "Hvordan køler en elefant sig ned?",
+          "answer": "Ved at vifte med ørerne",
+          "wrong": [
+            "Ved at svede",
+            "Ved at gispe",
+            "Ved at stå stille"
+          ],
+          "hint": "Kig på dens største kropsdel.",
+          "explanation": "Når den vifter, køles blodet i de tynde ører.",
+          "fact": "Elefanter kan næsten ikke svede."
+        },
+        "ru": {
+          "prompt": "Как слон себя охлаждает?",
+          "answer": "Машет ушами",
+          "wrong": [
+            "Потеет",
+            "Часто дышит",
+            "Стоит неподвижно"
+          ],
+          "hint": "Посмотри на самую большую часть его тела.",
+          "explanation": "Когда он машет тонкими ушами, кровь в них остывает.",
+          "fact": "Потеть слоны почти не умеют."
+        },
+        "ar": {
+          "prompt": "كيف يبرّد الفيل نفسه؟",
+          "answer": "يحرك أذنيه",
+          "wrong": [
+            "بالتعرق",
+            "باللهاث",
+            "بالوقوف ساكنًا"
+          ],
+          "hint": "انظر إلى أكبر جزء في جسمه.",
+          "explanation": "بتحريك أذنيه الرقيقتين يبرد الدم الذي يجري فيهما.",
+          "fact": "الفيلة لا تكاد تعرق."
+        }
+      }
+    },
+    {
+      "id": "dieren-jungle-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Lemurs are endemic to Madagascar",
+      "artBrief": "Een groepje maki's met lange gestreepte staarten op een tak op Madagaskar.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke dieren leven alleen op Madagaskar?",
+          "answer": "De maki's",
+          "wrong": [
+            "De chimpansees",
+            "De gibbons",
+            "De bavianen"
+          ],
+          "hint": "Ze hebben lange gestreepte staarten.",
+          "explanation": "Maki's komen nergens anders ter wereld in het wild voor.",
+          "fact": "Ze kwamen er miljoenen jaren geleden waarschijnlijk drijvend aan."
+        },
+        "en": {
+          "prompt": "Which animals live only on Madagascar?",
+          "answer": "The lemurs",
+          "wrong": [
+            "The chimpanzees",
+            "The gibbons",
+            "The baboons"
+          ],
+          "hint": "They have long striped tails.",
+          "explanation": "Lemurs are found in the wild nowhere else in the world.",
+          "fact": "They probably drifted there millions of years ago."
+        },
+        "de": {
+          "prompt": "Welche Tiere leben nur auf Madagaskar?",
+          "answer": "Die Lemuren",
+          "wrong": [
+            "Die Schimpansen",
+            "Die Gibbons",
+            "Die Paviane"
+          ],
+          "hint": "Sie haben lange geringelte Schwänze.",
+          "explanation": "Lemuren kommen wild nirgendwo sonst auf der Welt vor.",
+          "fact": "Sie kamen wohl vor Millionen Jahren treibend dorthin."
+        },
+        "fr": {
+          "prompt": "Quels animaux ne vivent qu'à Madagascar ?",
+          "answer": "Les lémuriens",
+          "wrong": [
+            "Les chimpanzés",
+            "Les gibbons",
+            "Les babouins"
+          ],
+          "hint": "Ils ont de longues queues rayées.",
+          "explanation": "Les lémuriens ne vivent à l'état sauvage nulle part ailleurs.",
+          "fact": "Ils y sont sans doute arrivés à la dérive il y a des millions d'années."
+        },
+        "es": {
+          "prompt": "¿Qué animales viven solo en Madagascar?",
+          "answer": "Los lémures",
+          "wrong": [
+            "Los chimpancés",
+            "Los gibones",
+            "Los babuinos"
+          ],
+          "hint": "Tienen colas largas a rayas.",
+          "explanation": "Los lémures no viven en libertad en ningún otro lugar del mundo.",
+          "fact": "Llegaron allí probablemente a la deriva hace millones de años."
+        },
+        "it": {
+          "prompt": "Quali animali vivono solo in Madagascar?",
+          "answer": "I lemuri",
+          "wrong": [
+            "Gli scimpanzé",
+            "I gibboni",
+            "I babbuini"
+          ],
+          "hint": "Hanno lunghe code a strisce.",
+          "explanation": "I lemuri non vivono allo stato selvatico in nessun altro luogo.",
+          "fact": "Probabilmente ci arrivarono alla deriva milioni di anni fa."
+        },
+        "pt": {
+          "prompt": "Que animais vivem só em Madagáscar?",
+          "answer": "Os lémures",
+          "wrong": [
+            "Os chimpanzés",
+            "Os gibões",
+            "Os babuínos"
+          ],
+          "hint": "Têm caudas compridas às riscas.",
+          "explanation": "Os lémures não vivem em liberdade em mais nenhum sítio do mundo.",
+          "fact": "Chegaram lá provavelmente à deriva há milhões de anos."
+        },
+        "da": {
+          "prompt": "Hvilke dyr lever kun på Madagaskar?",
+          "answer": "Lemurerne",
+          "wrong": [
+            "Chimpanserne",
+            "Gibbonerne",
+            "Bavianerne"
+          ],
+          "hint": "De har lange stribede haler.",
+          "explanation": "Lemurer lever vildt ingen andre steder i verden.",
+          "fact": "De kom formentlig drivende dertil for millioner af år siden."
+        },
+        "ru": {
+          "prompt": "Какие животные живут только на Мадагаскаре?",
+          "answer": "Лемуры",
+          "wrong": [
+            "Шимпанзе",
+            "Гиббоны",
+            "Павианы"
+          ],
+          "hint": "У них длинные полосатые хвосты.",
+          "explanation": "В дикой природе лемуры не встречаются больше нигде.",
+          "fact": "Скорее всего, они приплыли туда миллионы лет назад."
+        },
+        "ar": {
+          "prompt": "أي حيوانات تعيش في مدغشقر وحدها؟",
+          "answer": "الليمور",
+          "wrong": [
+            "الشمبانزي",
+            "الجيبون",
+            "البابون"
+          ],
+          "hint": "لها ذيول طويلة مخططة.",
+          "explanation": "لا يعيش الليمور في البرية في أي مكان آخر في العالم.",
+          "fact": "وصل إلى هناك على الأرجح منجرفًا قبل ملايين السنين."
+        }
+      }
+    }
+  ]
+}
