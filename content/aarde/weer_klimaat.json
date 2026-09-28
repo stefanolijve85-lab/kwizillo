@@ -1,0 +1,2607 @@
+{
+  "world": "aarde",
+  "topic": "weer_klimaat",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "aarde-weer_klimaat-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Neerslag en bescherming",
+      "artBrief": "Een kind met een gekleurde paraplu in een plas, regen die eromheen spat.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat neem je mee als het regent?",
+          "answer": "Een paraplu",
+          "wrong": [
+            "Een zonnebril",
+            "Een waaier",
+            "Een schep"
+          ],
+          "hint": "Je houdt hem boven je hoofd.",
+          "explanation": "Met een paraplu blijf je droog in de regen.",
+          "fact": "De oudste parasols werden al duizenden jaren geleden gebruikt."
+        },
+        "en": {
+          "prompt": "What do you take with you when it rains?",
+          "answer": "An umbrella",
+          "wrong": [
+            "Sunglasses",
+            "A fan",
+            "A spade"
+          ],
+          "hint": "You hold it above your head.",
+          "explanation": "An umbrella keeps you dry in the rain.",
+          "fact": "The oldest parasols were used thousands of years ago."
+        },
+        "de": {
+          "prompt": "Was nimmst du mit, wenn es regnet?",
+          "answer": "Einen Regenschirm",
+          "wrong": [
+            "Eine Sonnenbrille",
+            "Einen Fächer",
+            "Eine Schaufel"
+          ],
+          "hint": "Du hältst ihn über den Kopf.",
+          "explanation": "Mit einem Schirm bleibst du im Regen trocken.",
+          "fact": "Die ältesten Sonnenschirme sind tausende Jahre alt."
+        },
+        "fr": {
+          "prompt": "Que prends-tu quand il pleut ?",
+          "answer": "Un parapluie",
+          "wrong": [
+            "Des lunettes de soleil",
+            "Un éventail",
+            "Une pelle"
+          ],
+          "hint": "Tu le tiens au-dessus de la tête.",
+          "explanation": "Avec un parapluie, on reste au sec sous la pluie.",
+          "fact": "Les plus vieilles ombrelles ont des milliers d'années."
+        },
+        "es": {
+          "prompt": "¿Qué llevas cuando llueve?",
+          "answer": "Un paraguas",
+          "wrong": [
+            "Unas gafas de sol",
+            "Un abanico",
+            "Una pala"
+          ],
+          "hint": "Lo sostienes sobre la cabeza.",
+          "explanation": "Con un paraguas te mantienes seco bajo la lluvia.",
+          "fact": "Las sombrillas más antiguas tienen miles de años."
+        },
+        "it": {
+          "prompt": "Che cosa prendi quando piove?",
+          "answer": "Un ombrello",
+          "wrong": [
+            "Occhiali da sole",
+            "Un ventaglio",
+            "Una pala"
+          ],
+          "hint": "Lo tieni sopra la testa.",
+          "explanation": "Con un ombrello resti asciutto sotto la pioggia.",
+          "fact": "I primi parasoli hanno migliaia di anni."
+        },
+        "pt": {
+          "prompt": "O que levas quando chove?",
+          "answer": "Um guarda-chuva",
+          "wrong": [
+            "Óculos de sol",
+            "Um leque",
+            "Uma pá"
+          ],
+          "hint": "Seguras-o por cima da cabeça.",
+          "explanation": "Com um guarda-chuva ficas seco à chuva.",
+          "fact": "Os primeiros guarda-sóis têm milhares de anos."
+        },
+        "da": {
+          "prompt": "Hvad tager du med, når det regner?",
+          "answer": "En paraply",
+          "wrong": [
+            "Solbriller",
+            "En vifte",
+            "En skovl"
+          ],
+          "hint": "Du holder den over hovedet.",
+          "explanation": "Med en paraply bliver du tør i regnen.",
+          "fact": "De ældste parasoller er tusinder af år gamle."
+        },
+        "ru": {
+          "prompt": "Что берут с собой, когда идёт дождь?",
+          "answer": "Зонт",
+          "wrong": [
+            "Солнечные очки",
+            "Веер",
+            "Лопату"
+          ],
+          "hint": "Его держат над головой.",
+          "explanation": "С зонтом под дождём остаёшься сухим.",
+          "fact": "Самым старым зонтам от солнца тысячи лет."
+        },
+        "ar": {
+          "prompt": "ماذا تأخذ معك حين تمطر؟",
+          "answer": "مظلة",
+          "wrong": [
+            "نظارة شمس",
+            "مروحة يدوية",
+            "مجرفة"
+          ],
+          "hint": "تمسكها فوق رأسك.",
+          "explanation": "بالمظلة تبقى جافًا تحت المطر.",
+          "fact": "أقدم المظلات الشمسية عمرها آلاف السنين."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Regenbogen ontstaan door breking in regendruppels",
+      "artBrief": "Een regenboog boven een nat landschap met de zon laag achter de kijker.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat zie je soms als het regent terwijl de zon schijnt?",
+          "answer": "Een regenboog",
+          "wrong": [
+            "Sneeuw",
+            "Mist",
+            "Hagel"
+          ],
+          "hint": "Hij heeft heel veel kleuren.",
+          "explanation": "Zonlicht breekt in de regendruppels en valt uiteen in kleuren.",
+          "fact": "Je ziet een regenboog altijd met de zon in je rug."
+        },
+        "en": {
+          "prompt": "What do you sometimes see when it rains in sunshine?",
+          "answer": "A rainbow",
+          "wrong": [
+            "Snow",
+            "Fog",
+            "Hail"
+          ],
+          "hint": "It has a great many colours.",
+          "explanation": "Sunlight bends inside the raindrops and splits into colours.",
+          "fact": "You always see a rainbow with the sun behind you."
+        },
+        "de": {
+          "prompt": "Was siehst du manchmal, wenn es bei Sonne regnet?",
+          "answer": "Einen Regenbogen",
+          "wrong": [
+            "Schnee",
+            "Nebel",
+            "Hagel"
+          ],
+          "hint": "Er hat sehr viele Farben.",
+          "explanation": "Sonnenlicht bricht in den Regentropfen und zerfällt in Farben.",
+          "fact": "Einen Regenbogen sieht man immer mit der Sonne im Rücken."
+        },
+        "fr": {
+          "prompt": "Que vois-tu parfois quand il pleut au soleil ?",
+          "answer": "Un arc-en-ciel",
+          "wrong": [
+            "De la neige",
+            "Du brouillard",
+            "De la grêle"
+          ],
+          "hint": "Il a énormément de couleurs.",
+          "explanation": "La lumière se courbe dans les gouttes et se sépare en couleurs.",
+          "fact": "On voit toujours un arc-en-ciel le soleil dans le dos."
+        },
+        "es": {
+          "prompt": "¿Qué ves a veces cuando llueve con sol?",
+          "answer": "Un arcoíris",
+          "wrong": [
+            "Nieve",
+            "Niebla",
+            "Granizo"
+          ],
+          "hint": "Tiene muchísimos colores.",
+          "explanation": "La luz del sol se dobla en las gotas y se separa en colores.",
+          "fact": "El arcoíris se ve siempre con el sol a tu espalda."
+        },
+        "it": {
+          "prompt": "Che cosa vedi a volte se piove col sole?",
+          "answer": "Un arcobaleno",
+          "wrong": [
+            "La neve",
+            "La nebbia",
+            "La grandine"
+          ],
+          "hint": "Ha moltissimi colori.",
+          "explanation": "La luce del sole si piega nelle gocce e si divide in colori.",
+          "fact": "L'arcobaleno si vede sempre con il sole alle spalle."
+        },
+        "pt": {
+          "prompt": "O que vês às vezes quando chove com sol?",
+          "answer": "Um arco-íris",
+          "wrong": [
+            "Neve",
+            "Nevoeiro",
+            "Granizo"
+          ],
+          "hint": "Tem imensas cores.",
+          "explanation": "A luz do sol dobra-se nas gotas e separa-se em cores.",
+          "fact": "Vê-se sempre um arco-íris com o sol nas costas."
+        },
+        "da": {
+          "prompt": "Hvad ser man nogle gange, når det regner i solskin?",
+          "answer": "En regnbue",
+          "wrong": [
+            "Sne",
+            "Tåge",
+            "Hagl"
+          ],
+          "hint": "Den har rigtig mange farver.",
+          "explanation": "Sollyset brydes i regndråberne og deles op i farver.",
+          "fact": "Man ser altid en regnbue med solen i ryggen."
+        },
+        "ru": {
+          "prompt": "Что иногда видно, когда дождь идёт при солнце?",
+          "answer": "Радугу",
+          "wrong": [
+            "Снег",
+            "Туман",
+            "Град"
+          ],
+          "hint": "В ней очень много цветов.",
+          "explanation": "Солнечный свет преломляется в каплях и распадается на цвета.",
+          "fact": "Радугу всегда видно, когда солнце за спиной."
+        },
+        "ar": {
+          "prompt": "ماذا ترى أحيانًا حين تمطر والشمس ساطعة؟",
+          "answer": "قوس قزح",
+          "wrong": [
+            "ثلجًا",
+            "ضبابًا",
+            "بَرَدًا"
+          ],
+          "hint": "فيه ألوان كثيرة.",
+          "explanation": "ينكسر ضوء الشمس في قطرات المطر فينقسم إلى ألوان.",
+          "fact": "ترى قوس قزح دائمًا والشمس خلف ظهرك."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Sneeuw",
+      "artBrief": "Grote sneeuwvlokken die op een tak en een want vallen, van dichtbij.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet bevroren water dat uit de lucht valt?",
+          "answer": "Sneeuw",
+          "wrong": [
+            "Regen",
+            "Mist",
+            "Dauw"
+          ],
+          "hint": "Je kunt er ballen van maken.",
+          "explanation": "Sneeuw bestaat uit ijskristallen die in de wolk ontstaan.",
+          "fact": "Geen twee sneeuwvlokken zijn precies hetzelfde."
+        },
+        "en": {
+          "prompt": "What is frozen water falling from the sky called?",
+          "answer": "Snow",
+          "wrong": [
+            "Rain",
+            "Fog",
+            "Dew"
+          ],
+          "hint": "You can make balls out of it.",
+          "explanation": "Snow is made of ice crystals that form inside the cloud.",
+          "fact": "No two snowflakes are exactly alike."
+        },
+        "de": {
+          "prompt": "Wie heißt gefrorenes Wasser, das vom Himmel fällt?",
+          "answer": "Schnee",
+          "wrong": [
+            "Regen",
+            "Nebel",
+            "Tau"
+          ],
+          "hint": "Man kann Bälle daraus machen.",
+          "explanation": "Schnee besteht aus Eiskristallen, die in der Wolke entstehen.",
+          "fact": "Keine zwei Schneeflocken sind genau gleich."
+        },
+        "fr": {
+          "prompt": "Comment appelle-t-on l'eau gelée qui tombe du ciel ?",
+          "answer": "La neige",
+          "wrong": [
+            "La pluie",
+            "Le brouillard",
+            "La rosée"
+          ],
+          "hint": "On peut en faire des boules.",
+          "explanation": "La neige est faite de cristaux de glace formés dans le nuage.",
+          "fact": "Deux flocons ne sont jamais exactement pareils."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama el agua helada que cae del cielo?",
+          "answer": "Nieve",
+          "wrong": [
+            "Lluvia",
+            "Niebla",
+            "Rocío"
+          ],
+          "hint": "Puedes hacer bolas con ella.",
+          "explanation": "La nieve está hecha de cristales de hielo formados en la nube.",
+          "fact": "No hay dos copos exactamente iguales."
+        },
+        "it": {
+          "prompt": "Come si chiama l'acqua gelata che cade dal cielo?",
+          "answer": "La neve",
+          "wrong": [
+            "La pioggia",
+            "La nebbia",
+            "La rugiada"
+          ],
+          "hint": "Ci si possono fare le palle.",
+          "explanation": "La neve è fatta di cristalli di ghiaccio nati dentro la nuvola.",
+          "fact": "Non esistono due fiocchi identici."
+        },
+        "pt": {
+          "prompt": "Como se chama a água gelada que cai do céu?",
+          "answer": "Neve",
+          "wrong": [
+            "Chuva",
+            "Nevoeiro",
+            "Orvalho"
+          ],
+          "hint": "Podes fazer bolas com ela.",
+          "explanation": "A neve é feita de cristais de gelo formados na nuvem.",
+          "fact": "Não há dois flocos exatamente iguais."
+        },
+        "da": {
+          "prompt": "Hvad hedder frossent vand, der falder fra himlen?",
+          "answer": "Sne",
+          "wrong": [
+            "Regn",
+            "Tåge",
+            "Dug"
+          ],
+          "hint": "Man kan lave bolde af det.",
+          "explanation": "Sne består af iskrystaller, der dannes inde i skyen.",
+          "fact": "Ingen to snefnug er helt ens."
+        },
+        "ru": {
+          "prompt": "Как называется замёрзшая вода, падающая с неба?",
+          "answer": "Снег",
+          "wrong": [
+            "Дождь",
+            "Туман",
+            "Роса"
+          ],
+          "hint": "Из него можно лепить.",
+          "explanation": "Снег состоит из ледяных кристаллов, рождающихся в облаке.",
+          "fact": "Двух одинаковых снежинок не бывает."
+        },
+        "ar": {
+          "prompt": "ماذا نسمي الماء المتجمد الذي يسقط من السماء؟",
+          "answer": "الثلج",
+          "wrong": [
+            "المطر",
+            "الضباب",
+            "الندى"
+          ],
+          "hint": "يمكن صنع كرات منه.",
+          "explanation": "الثلج بلورات جليدية تتكون داخل السحابة.",
+          "fact": "ولا توجد ندفتان متطابقتان تمامًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zonnestraling warmt de atmosfeer op",
+      "artBrief": "Een zomerse hemel met de zon hoog en warme lucht boven een veld.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet de zon met de lucht?",
+          "answer": "Die maakt hem warmer",
+          "wrong": [
+            "Die maakt hem kouder",
+            "Die maakt hem nat",
+            "Die doet er niets mee"
+          ],
+          "hint": "Denk aan een zomerse dag.",
+          "explanation": "De zon verwarmt eerst de grond en die verwarmt de lucht erboven.",
+          "fact": "Daarom is het 's middags warmer dan bij zonsopgang."
+        },
+        "en": {
+          "prompt": "What does the sun do to the air?",
+          "answer": "It makes it warmer",
+          "wrong": [
+            "It makes it colder",
+            "It makes it wet",
+            "It does nothing to it"
+          ],
+          "hint": "Think of a summer day.",
+          "explanation": "The sun warms the ground first, and the ground warms the air above it.",
+          "fact": "That is why the afternoon is warmer than sunrise."
+        },
+        "de": {
+          "prompt": "Was macht die Sonne mit der Luft?",
+          "answer": "Sie macht sie wärmer",
+          "wrong": [
+            "Sie macht sie kälter",
+            "Sie macht sie nass",
+            "Sie macht gar nichts"
+          ],
+          "hint": "Denk an einen Sommertag.",
+          "explanation": "Die Sonne wärmt zuerst den Boden, und der wärmt die Luft darüber.",
+          "fact": "Darum ist es nachmittags wärmer als bei Sonnenaufgang."
+        },
+        "fr": {
+          "prompt": "Que fait le soleil à l'air ?",
+          "answer": "Il le réchauffe",
+          "wrong": [
+            "Il le refroidit",
+            "Il le mouille",
+            "Il ne lui fait rien"
+          ],
+          "hint": "Pense à un jour d'été.",
+          "explanation": "Le soleil chauffe d'abord le sol, qui chauffe l'air au-dessus.",
+          "fact": "C'est pourquoi l'après-midi est plus chaud que l'aube."
+        },
+        "es": {
+          "prompt": "¿Qué le hace el sol al aire?",
+          "answer": "Lo calienta",
+          "wrong": [
+            "Lo enfría",
+            "Lo moja",
+            "No le hace nada"
+          ],
+          "hint": "Piensa en un día de verano.",
+          "explanation": "El sol calienta primero el suelo, y este calienta el aire de encima.",
+          "fact": "Por eso hace más calor por la tarde que al amanecer."
+        },
+        "it": {
+          "prompt": "Che cosa fa il sole all'aria?",
+          "answer": "La rende più calda",
+          "wrong": [
+            "La rende più fredda",
+            "La bagna",
+            "Non le fa nulla"
+          ],
+          "hint": "Pensa a un giorno d'estate.",
+          "explanation": "Il sole scalda prima il suolo, che scalda l'aria sopra di sé.",
+          "fact": "Per questo il pomeriggio è più caldo dell'alba."
+        },
+        "pt": {
+          "prompt": "O que faz o sol ao ar?",
+          "answer": "Torna-o mais quente",
+          "wrong": [
+            "Torna-o mais frio",
+            "Molha-o",
+            "Não lhe faz nada"
+          ],
+          "hint": "Pensa num dia de verão.",
+          "explanation": "O sol aquece primeiro o chão, e este aquece o ar por cima.",
+          "fact": "Por isso à tarde está mais calor do que ao nascer do sol."
+        },
+        "da": {
+          "prompt": "Hvad gør solen ved luften?",
+          "answer": "Den gør den varmere",
+          "wrong": [
+            "Den gør den koldere",
+            "Den gør den våd",
+            "Den gør ingenting"
+          ],
+          "hint": "Tænk på en sommerdag.",
+          "explanation": "Solen varmer først jorden, og jorden varmer luften ovenover.",
+          "fact": "Derfor er det varmere om eftermiddagen end ved solopgang."
+        },
+        "ru": {
+          "prompt": "Что солнце делает с воздухом?",
+          "answer": "Делает его теплее",
+          "wrong": [
+            "Делает его холоднее",
+            "Делает его мокрым",
+            "Ничего не делает"
+          ],
+          "hint": "Вспомни летний день.",
+          "explanation": "Солнце сначала нагревает землю, а она — воздух над собой.",
+          "fact": "Поэтому днём теплее, чем на рассвете."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل الشمس بالهواء؟",
+          "answer": "تجعله أدفأ",
+          "wrong": [
+            "تجعله أبرد",
+            "تجعله رطبًا",
+            "لا تفعل شيئًا"
+          ],
+          "hint": "تذكر يومًا صيفيًا.",
+          "explanation": "تسخن الشمس الأرض أولًا، والأرض تسخن الهواء فوقها.",
+          "fact": "لذلك يكون العصر أدفأ من الفجر."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Onbewolkte hemel",
+      "artBrief": "Een strakblauwe lucht boven een groen weiland, zonder enige wolk.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat betekent het als de lucht helemaal blauw is?",
+          "answer": "Er zijn geen wolken",
+          "wrong": [
+            "Het gaat regenen",
+            "Het wordt nacht",
+            "Er komt onweer"
+          ],
+          "hint": "Je ziet niets wits.",
+          "explanation": "Een strakblauwe lucht betekent dat er geen wolken zijn.",
+          "fact": "De lucht is blauw omdat blauw licht het meest verstrooid wordt."
+        },
+        "en": {
+          "prompt": "What does it mean when the sky is completely blue?",
+          "answer": "There are no clouds",
+          "wrong": [
+            "It is going to rain",
+            "Night is coming",
+            "A storm is due"
+          ],
+          "hint": "You see nothing white.",
+          "explanation": "A clear blue sky means there are no clouds.",
+          "fact": "The sky is blue because blue light is scattered most."
+        },
+        "de": {
+          "prompt": "Was bedeutet es, wenn der Himmel ganz blau ist?",
+          "answer": "Es gibt keine Wolken",
+          "wrong": [
+            "Es fängt an zu regnen",
+            "Es wird Nacht",
+            "Es gibt Gewitter"
+          ],
+          "hint": "Du siehst nichts Weißes.",
+          "explanation": "Ein strahlend blauer Himmel bedeutet, dass keine Wolken da sind.",
+          "fact": "Der Himmel ist blau, weil blaues Licht am stärksten gestreut wird."
+        },
+        "fr": {
+          "prompt": "Que veut dire un ciel entièrement bleu ?",
+          "answer": "Il n'y a pas de nuages",
+          "wrong": [
+            "Il va pleuvoir",
+            "La nuit arrive",
+            "L'orage approche"
+          ],
+          "hint": "Tu ne vois rien de blanc.",
+          "explanation": "Un ciel tout bleu signifie qu'il n'y a pas de nuages.",
+          "fact": "Le ciel est bleu parce que la lumière bleue se disperse le plus."
+        },
+        "es": {
+          "prompt": "¿Qué significa que el cielo esté totalmente azul?",
+          "answer": "No hay nubes",
+          "wrong": [
+            "Va a llover",
+            "Se hace de noche",
+            "Viene tormenta"
+          ],
+          "hint": "No ves nada blanco.",
+          "explanation": "Un cielo azul del todo significa que no hay nubes.",
+          "fact": "El cielo es azul porque la luz azul se dispersa más."
+        },
+        "it": {
+          "prompt": "Che cosa vuol dire un cielo tutto azzurro?",
+          "answer": "Non ci sono nuvole",
+          "wrong": [
+            "Sta per piovere",
+            "Sta per farsi notte",
+            "Arriva un temporale"
+          ],
+          "hint": "Non vedi niente di bianco.",
+          "explanation": "Un cielo tutto azzurro significa che non ci sono nuvole.",
+          "fact": "Il cielo è azzurro perché la luce blu si diffonde di più."
+        },
+        "pt": {
+          "prompt": "O que quer dizer um céu todo azul?",
+          "answer": "Não há nuvens",
+          "wrong": [
+            "Vai chover",
+            "Vem a noite",
+            "Vem trovoada"
+          ],
+          "hint": "Não vês nada branco.",
+          "explanation": "Um céu todo azul quer dizer que não há nuvens.",
+          "fact": "O céu é azul porque a luz azul se espalha mais."
+        },
+        "da": {
+          "prompt": "Hvad betyder det, når himlen er helt blå?",
+          "answer": "Der er ingen skyer",
+          "wrong": [
+            "Det begynder at regne",
+            "Det bliver nat",
+            "Der kommer torden"
+          ],
+          "hint": "Du ser ikke noget hvidt.",
+          "explanation": "En helt blå himmel betyder, at der ingen skyer er.",
+          "fact": "Himlen er blå, fordi blåt lys spredes mest."
+        },
+        "ru": {
+          "prompt": "Что значит совсем синее небо?",
+          "answer": "Облаков нет",
+          "wrong": [
+            "Скоро дождь",
+            "Скоро ночь",
+            "Будет гроза"
+          ],
+          "hint": "Ничего белого не видно.",
+          "explanation": "Ясное синее небо значит, что облаков нет.",
+          "fact": "Небо синее, потому что синий свет рассеивается сильнее."
+        },
+        "ar": {
+          "prompt": "ماذا يعني أن تكون السماء زرقاء تمامًا؟",
+          "answer": "لا توجد سحب",
+          "wrong": [
+            "ستمطر قريبًا",
+            "سيحل الليل",
+            "ستأتي عاصفة"
+          ],
+          "hint": "لا ترى شيئًا أبيض.",
+          "explanation": "السماء الزرقاء الصافية تعني أنه لا سحب فيها.",
+          "fact": "لونها أزرق لأن الضوء الأزرق يتشتت أكثر."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Dauw ontstaat als lucht afkoelt tot het dauwpunt",
+      "artBrief": "Grasstengels in de ochtend met glinsterende druppels erop.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is dauw?",
+          "answer": "Druppels op koud gras",
+          "wrong": [
+            "Regen in de zomer",
+            "Fijne sneeuw",
+            "Mist in de bergen"
+          ],
+          "hint": "Je ziet het 's ochtends vroeg.",
+          "explanation": "Als de grond 's nachts afkoelt, slaat waterdamp neer als dauwdruppels.",
+          "fact": "Bij vorst wordt diezelfde dauw witte rijp."
+        },
+        "en": {
+          "prompt": "What is dew?",
+          "answer": "Drops on cold grass",
+          "wrong": [
+            "Rain in summer",
+            "Fine snow",
+            "Mist in the mountains"
+          ],
+          "hint": "You see it early in the morning.",
+          "explanation": "As the ground cools at night, water vapour settles as dewdrops.",
+          "fact": "In frost the same dew turns into white hoarfrost."
+        },
+        "de": {
+          "prompt": "Was ist Tau?",
+          "answer": "Tropfen auf kaltem Gras",
+          "wrong": [
+            "Regen im Sommer",
+            "Feiner Schnee",
+            "Nebel im Gebirge"
+          ],
+          "hint": "Man sieht ihn früh am Morgen.",
+          "explanation": "Kühlt der Boden nachts ab, schlägt sich Wasserdampf als Tau nieder.",
+          "fact": "Bei Frost wird aus demselben Tau weißer Reif."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que la rosée ?",
+          "answer": "Gouttes sur l'herbe",
+          "wrong": [
+            "De la pluie d'été",
+            "De la neige fine",
+            "Du brouillard de montagne"
+          ],
+          "hint": "On la voit tôt le matin.",
+          "explanation": "Quand le sol refroidit la nuit, la vapeur se dépose en gouttes.",
+          "fact": "Par temps de gel, cette rosée devient du givre blanc."
+        },
+        "es": {
+          "prompt": "¿Qué es el rocío?",
+          "answer": "Gotas sobre hierba fría",
+          "wrong": [
+            "Lluvia de verano",
+            "Nieve fina",
+            "Niebla de montaña"
+          ],
+          "hint": "Se ve a primera hora de la mañana.",
+          "explanation": "Al enfriarse el suelo de noche, el vapor se posa en forma de gotas.",
+          "fact": "Con helada, ese mismo rocío se vuelve escarcha blanca."
+        },
+        "it": {
+          "prompt": "Che cos'è la rugiada?",
+          "answer": "Gocce sull'erba fredda",
+          "wrong": [
+            "Pioggia d'estate",
+            "Neve fine",
+            "Nebbia di montagna"
+          ],
+          "hint": "La vedi la mattina presto.",
+          "explanation": "Quando il suolo si raffredda di notte, il vapore si posa in gocce.",
+          "fact": "Col gelo quella stessa rugiada diventa brina bianca."
+        },
+        "pt": {
+          "prompt": "O que é o orvalho?",
+          "answer": "Gotas na erva fria",
+          "wrong": [
+            "Chuva de verão",
+            "Neve fina",
+            "Nevoeiro na serra"
+          ],
+          "hint": "Vê-se de manhã cedo.",
+          "explanation": "Quando o chão arrefece de noite, o vapor deposita-se em gotas.",
+          "fact": "Com geada esse mesmo orvalho vira geada branca."
+        },
+        "da": {
+          "prompt": "Hvad er dug?",
+          "answer": "Dråber på koldt græs",
+          "wrong": [
+            "Sommerregn",
+            "Fin sne",
+            "Tåge i bjergene"
+          ],
+          "hint": "Man ser det tidligt om morgenen.",
+          "explanation": "Når jorden køler af om natten, sætter vanddamp sig som dugdråber.",
+          "fact": "Ved frost bliver den samme dug til hvid rim."
+        },
+        "ru": {
+          "prompt": "Что такое роса?",
+          "answer": "Капли на холодной траве",
+          "wrong": [
+            "Летний дождь",
+            "Мелкий снег",
+            "Туман в горах"
+          ],
+          "hint": "Её видно ранним утром.",
+          "explanation": "Когда земля за ночь остывает, пар оседает каплями росы.",
+          "fact": "В мороз та же роса превращается в белый иней."
+        },
+        "ar": {
+          "prompt": "ما هو الندى؟",
+          "answer": "قطرات على العشب البارد",
+          "wrong": [
+            "مطر صيفي",
+            "ثلج ناعم",
+            "ضباب الجبال"
+          ],
+          "hint": "تراه في الصباح الباكر.",
+          "explanation": "حين تبرد الأرض ليلًا يتكثف بخار الماء قطرات ندى.",
+          "fact": "ومع الصقيع يتحول الندى نفسه إلى صقيع أبيض."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Wolkvorming door condensatie",
+      "artBrief": "Warme lucht die opstijgt en bovenin verandert in een witte wolk.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe ontstaat een wolk?",
+          "answer": "Waterdamp wordt druppels",
+          "wrong": [
+            "Rook stijgt op",
+            "Stof waait omhoog",
+            "De zon maakt hem"
+          ],
+          "hint": "Hoog in de lucht is het kouder.",
+          "explanation": "Opstijgende lucht koelt af en de damp erin wordt piepkleine druppeltjes.",
+          "fact": "Eén wolk kan honderden tonnen water bevatten."
+        },
+        "en": {
+          "prompt": "How does a cloud form?",
+          "answer": "Vapour turns into drops",
+          "wrong": [
+            "Smoke rises",
+            "Dust blows up",
+            "The sun makes it"
+          ],
+          "hint": "It is colder high up.",
+          "explanation": "Rising air cools and the vapour in it becomes tiny droplets.",
+          "fact": "One cloud can hold hundreds of tonnes of water."
+        },
+        "de": {
+          "prompt": "Wie entsteht eine Wolke?",
+          "answer": "Wasserdampf wird zu Tropfen",
+          "wrong": [
+            "Rauch steigt auf",
+            "Staub wirbelt hoch",
+            "Die Sonne macht sie"
+          ],
+          "hint": "Hoch oben ist es kälter.",
+          "explanation": "Aufsteigende Luft kühlt ab, und der Dampf wird zu winzigen Tröpfchen.",
+          "fact": "Eine Wolke kann hunderte Tonnen Wasser enthalten."
+        },
+        "fr": {
+          "prompt": "Comment se forme un nuage ?",
+          "answer": "La vapeur devient gouttes",
+          "wrong": [
+            "La fumée monte",
+            "La poussière s'envole",
+            "Le soleil le fabrique"
+          ],
+          "hint": "Il fait plus froid en altitude.",
+          "explanation": "L'air qui monte se refroidit et sa vapeur devient de minuscules gouttes.",
+          "fact": "Un seul nuage peut contenir des centaines de tonnes d'eau."
+        },
+        "es": {
+          "prompt": "¿Cómo se forma una nube?",
+          "answer": "El vapor se hace gotas",
+          "wrong": [
+            "Sube humo",
+            "Vuela polvo",
+            "La fabrica el sol"
+          ],
+          "hint": "Arriba hace más frío.",
+          "explanation": "El aire que sube se enfría y su vapor se vuelve gotitas diminutas.",
+          "fact": "Una sola nube puede contener cientos de toneladas de agua."
+        },
+        "it": {
+          "prompt": "Come nasce una nuvola?",
+          "answer": "Il vapore diventa gocce",
+          "wrong": [
+            "Sale del fumo",
+            "Vola della polvere",
+            "La fa il sole"
+          ],
+          "hint": "In alto fa più freddo.",
+          "explanation": "L'aria che sale si raffredda e il vapore diventa goccioline.",
+          "fact": "Una sola nuvola può contenere centinaia di tonnellate d'acqua."
+        },
+        "pt": {
+          "prompt": "Como se forma uma nuvem?",
+          "answer": "O vapor vira gotas",
+          "wrong": [
+            "Sobe fumo",
+            "Voa poeira",
+            "É o sol que a faz"
+          ],
+          "hint": "Lá em cima está mais frio.",
+          "explanation": "O ar que sobe arrefece e o vapor vira gotinhas minúsculas.",
+          "fact": "Uma só nuvem pode ter centenas de toneladas de água."
+        },
+        "da": {
+          "prompt": "Hvordan opstår en sky?",
+          "answer": "Damp bliver til dråber",
+          "wrong": [
+            "Røg stiger op",
+            "Støv hvirvler op",
+            "Solen laver den"
+          ],
+          "hint": "Højt oppe er det koldere.",
+          "explanation": "Luft, der stiger, køler af, og dampen bliver til bittesmå dråber.",
+          "fact": "Én sky kan indeholde hundredvis af tons vand."
+        },
+        "ru": {
+          "prompt": "Как образуется облако?",
+          "answer": "Пар превращается в капли",
+          "wrong": [
+            "Поднимается дым",
+            "Взлетает пыль",
+            "Его делает солнце"
+          ],
+          "hint": "Наверху холоднее.",
+          "explanation": "Поднимающийся воздух остывает, и пар в нём становится капельками.",
+          "fact": "В одном облаке бывают сотни тонн воды."
+        },
+        "ar": {
+          "prompt": "كيف تتكون السحابة؟",
+          "answer": "بخار يتحول إلى قطرات",
+          "wrong": [
+            "يصعد الدخان",
+            "يتطاير الغبار",
+            "تصنعها الشمس"
+          ],
+          "hint": "في الأعالي يكون البرد أشد.",
+          "explanation": "الهواء الصاعد يبرد فيتحول بخاره إلى قطيرات صغيرة.",
+          "fact": "سحابة واحدة قد تحمل مئات الأطنان من الماء."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Schaal van Beaufort: 10 is zware storm",
+      "artBrief": "Bomen die zwaar doorbuigen in de wind met golven op de achtergrond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat betekent windkracht tien?",
+          "answer": "Een zware storm",
+          "wrong": [
+            "Een zacht briesje",
+            "Windstil weer",
+            "Een lichte bries"
+          ],
+          "hint": "Dan waaien er takken af.",
+          "explanation": "Windkracht tien staat op de schaal van Beaufort voor zware storm.",
+          "fact": "Bij kracht twaalf spreken we van een orkaan."
+        },
+        "en": {
+          "prompt": "What does wind force ten mean?",
+          "answer": "A heavy storm",
+          "wrong": [
+            "A gentle breeze",
+            "Dead calm",
+            "A light breeze"
+          ],
+          "hint": "Branches come off the trees.",
+          "explanation": "On the Beaufort scale, force ten means a heavy storm.",
+          "fact": "Force twelve is called a hurricane."
+        },
+        "de": {
+          "prompt": "Was bedeutet Windstärke zehn?",
+          "answer": "Ein schwerer Sturm",
+          "wrong": [
+            "Eine leichte Brise",
+            "Windstille",
+            "Ein laues Lüftchen"
+          ],
+          "hint": "Dann brechen Äste ab.",
+          "explanation": "Auf der Beaufortskala steht Stärke zehn für schweren Sturm.",
+          "fact": "Stärke zwölf nennt man Orkan."
+        },
+        "fr": {
+          "prompt": "Que veut dire force dix sur l'échelle du vent ?",
+          "answer": "Une forte tempête",
+          "wrong": [
+            "Une brise légère",
+            "Un calme plat",
+            "Un souffle léger"
+          ],
+          "hint": "Des branches cassent.",
+          "explanation": "Sur l'échelle de Beaufort, la force dix correspond à une forte tempête.",
+          "fact": "La force douze s'appelle un ouragan."
+        },
+        "es": {
+          "prompt": "¿Qué significa fuerza diez del viento?",
+          "answer": "Un temporal fuerte",
+          "wrong": [
+            "Una brisa suave",
+            "Calma total",
+            "Un vientecillo"
+          ],
+          "hint": "Se parten ramas.",
+          "explanation": "En la escala de Beaufort, la fuerza diez es un temporal fuerte.",
+          "fact": "La fuerza doce se llama huracán."
+        },
+        "it": {
+          "prompt": "Che cosa vuol dire forza dieci del vento?",
+          "answer": "Una forte tempesta",
+          "wrong": [
+            "Una brezza leggera",
+            "Bonaccia",
+            "Un venticello"
+          ],
+          "hint": "Si spezzano i rami.",
+          "explanation": "Sulla scala Beaufort la forza dieci indica una forte tempesta.",
+          "fact": "La forza dodici si chiama uragano."
+        },
+        "pt": {
+          "prompt": "O que quer dizer força dez do vento?",
+          "answer": "Uma tempestade forte",
+          "wrong": [
+            "Uma brisa suave",
+            "Calmaria",
+            "Uma aragem"
+          ],
+          "hint": "Partem-se ramos.",
+          "explanation": "Na escala de Beaufort a força dez é uma tempestade forte.",
+          "fact": "A força doze chama-se furacão."
+        },
+        "da": {
+          "prompt": "Hvad betyder vindstyrke ti?",
+          "answer": "En stærk storm",
+          "wrong": [
+            "En let brise",
+            "Havblik",
+            "En svag vind"
+          ],
+          "hint": "Så knækker der grene.",
+          "explanation": "På Beaufortskalaen betyder styrke ti en stærk storm.",
+          "fact": "Styrke tolv kaldes en orkan."
+        },
+        "ru": {
+          "prompt": "Что значит десять баллов ветра?",
+          "answer": "Сильный шторм",
+          "wrong": [
+            "Лёгкий ветерок",
+            "Полный штиль",
+            "Слабый бриз"
+          ],
+          "hint": "Ломаются ветки.",
+          "explanation": "По шкале Бофорта десять баллов — это сильный шторм.",
+          "fact": "Двенадцать баллов называют ураганом."
+        },
+        "ar": {
+          "prompt": "ماذا تعني قوة الريح عشرة؟",
+          "answer": "عاصفة قوية",
+          "wrong": [
+            "نسيم لطيف",
+            "سكون تام",
+            "هواء خفيف"
+          ],
+          "hint": "تتكسر الأغصان.",
+          "explanation": "على مقياس بوفورت تعني القوة عشرة عاصفة قوية.",
+          "fact": "والقوة اثنتا عشرة تسمى إعصارًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Seizoenen ontstaan door de scheve as van de aarde",
+      "artBrief": "De zon hoog aan de zomerhemel en laag aan de winterhemel, naast elkaar.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is het in de zomer warmer dan in de winter?",
+          "answer": "De zon staat hoger",
+          "wrong": [
+            "De aarde staat dichterbij",
+            "De zon brandt harder",
+            "De maan is verder weg"
+          ],
+          "hint": "Kijk naar de stand van de zon.",
+          "explanation": "Doordat de aarde scheef staat, staat de zon 's zomers hoger en schijnt hij langer.",
+          "fact": "In januari staat de aarde juist het dichtst bij de zon."
+        },
+        "en": {
+          "prompt": "Why is it warmer in summer than in winter?",
+          "answer": "The sun stands higher",
+          "wrong": [
+            "The earth is closer",
+            "The sun burns harder",
+            "The moon is further away"
+          ],
+          "hint": "Look at where the sun sits.",
+          "explanation": "Because the earth is tilted, the summer sun stands higher and shines longer.",
+          "fact": "In January the earth is actually closest to the sun."
+        },
+        "de": {
+          "prompt": "Warum ist es im Sommer wärmer als im Winter?",
+          "answer": "Die Sonne steht höher",
+          "wrong": [
+            "Die Erde ist näher dran",
+            "Die Sonne brennt stärker",
+            "Der Mond ist weiter weg"
+          ],
+          "hint": "Achte auf den Sonnenstand.",
+          "explanation": "Weil die Erde geneigt ist, steht die Sonne im Sommer höher und länger.",
+          "fact": "Im Januar ist die Erde der Sonne sogar am nächsten."
+        },
+        "fr": {
+          "prompt": "Pourquoi fait-il plus chaud en été qu'en hiver ?",
+          "answer": "Le soleil est plus haut",
+          "wrong": [
+            "La Terre est plus près",
+            "Le soleil brûle plus fort",
+            "La Lune est plus loin"
+          ],
+          "hint": "Regarde la hauteur du soleil.",
+          "explanation": "Comme la Terre est inclinée, le soleil d'été monte plus haut et plus longtemps.",
+          "fact": "En janvier, la Terre est pourtant au plus près du soleil."
+        },
+        "es": {
+          "prompt": "¿Por qué hace más calor en verano que en invierno?",
+          "answer": "El sol está más alto",
+          "wrong": [
+            "La Tierra está más cerca",
+            "El sol quema más",
+            "La Luna está más lejos"
+          ],
+          "hint": "Fíjate en la altura del sol.",
+          "explanation": "Como la Tierra está inclinada, en verano el sol sube más y dura más.",
+          "fact": "En enero la Tierra está incluso más cerca del sol."
+        },
+        "it": {
+          "prompt": "Perché d'estate fa più caldo che d'inverno?",
+          "answer": "Il sole sta più in alto",
+          "wrong": [
+            "La Terra è più vicina",
+            "Il sole brucia di più",
+            "La Luna è più lontana"
+          ],
+          "hint": "Guarda l'altezza del sole.",
+          "explanation": "Poiché la Terra è inclinata, d'estate il sole sale più in alto e più a lungo.",
+          "fact": "A gennaio la Terra è perfino più vicina al sole."
+        },
+        "pt": {
+          "prompt": "Porque faz mais calor no verão do que no inverno?",
+          "answer": "O sol está mais alto",
+          "wrong": [
+            "A Terra está mais perto",
+            "O sol arde mais",
+            "A Lua está mais longe"
+          ],
+          "hint": "Repara na altura do sol.",
+          "explanation": "Como a Terra está inclinada, no verão o sol sobe mais e dura mais.",
+          "fact": "Em janeiro a Terra está até mais perto do sol."
+        },
+        "da": {
+          "prompt": "Hvorfor er det varmere om sommeren end om vinteren?",
+          "answer": "Solen står højere",
+          "wrong": [
+            "Jorden er tættere på",
+            "Solen brænder kraftigere",
+            "Månen er længere væk"
+          ],
+          "hint": "Læg mærke til solens højde.",
+          "explanation": "Fordi Jorden hælder, står sommersolen højere og skinner længere.",
+          "fact": "I januar er Jorden faktisk tættest på Solen."
+        },
+        "ru": {
+          "prompt": "Почему летом теплее, чем зимой?",
+          "answer": "Солнце стоит выше",
+          "wrong": [
+            "Земля ближе к солнцу",
+            "Солнце жарче горит",
+            "Луна дальше"
+          ],
+          "hint": "Посмотри на высоту солнца.",
+          "explanation": "Из-за наклона Земли летом солнце поднимается выше и светит дольше.",
+          "fact": "А в январе Земля как раз ближе всего к Солнцу."
+        },
+        "ar": {
+          "prompt": "لماذا الصيف أدفأ من الشتاء؟",
+          "answer": "الشمس ترتفع أكثر",
+          "wrong": [
+            "الأرض أقرب إلى الشمس",
+            "الشمس تحرق أكثر",
+            "القمر أبعد"
+          ],
+          "hint": "انتبه إلى ارتفاع الشمس.",
+          "explanation": "لأن محور الأرض مائل ترتفع الشمس صيفًا أكثر وتبقى أطول.",
+          "fact": "وفي يناير تكون الأرض أقرب ما تكون إلى الشمس."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Smog",
+      "artBrief": "Een stad onder een bruinige waas, met de zon vaag erdoorheen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is smog?",
+          "answer": "Vuile mist boven een stad",
+          "wrong": [
+            "Mist op zee",
+            "Rook uit een vulkaan",
+            "Een hoge wolk"
+          ],
+          "hint": "Het woord komt van smoke en fog.",
+          "explanation": "Smog is een mengsel van mist en luchtvervuiling boven steden.",
+          "fact": "Bij smog blijft de vieze lucht onder een warme laag hangen."
+        },
+        "en": {
+          "prompt": "What is smog?",
+          "answer": "Dirty haze over a city",
+          "wrong": [
+            "Fog at sea",
+            "Smoke from a volcano",
+            "A high cloud"
+          ],
+          "hint": "The word comes from smoke and fog.",
+          "explanation": "Smog is a mixture of fog and air pollution over cities.",
+          "fact": "In smog the dirty air is trapped under a warm layer."
+        },
+        "de": {
+          "prompt": "Was ist Smog?",
+          "answer": "Schmutziger Dunst",
+          "wrong": [
+            "Nebel auf See",
+            "Rauch aus einem Vulkan",
+            "Eine hohe Wolke"
+          ],
+          "hint": "Das Wort kommt von smoke und fog.",
+          "explanation": "Smog ist eine Mischung aus Nebel und Luftverschmutzung über Städten.",
+          "fact": "Bei Smog bleibt die schlechte Luft unter einer warmen Schicht hängen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que le smog ?",
+          "answer": "Une brume sale sur une ville",
+          "wrong": [
+            "Du brouillard en mer",
+            "La fumée d'un volcan",
+            "Un nuage haut"
+          ],
+          "hint": "Le mot vient de smoke et fog.",
+          "explanation": "Le smog est un mélange de brouillard et de pollution au-dessus des villes.",
+          "fact": "L'air sale y reste coincé sous une couche d'air chaud."
+        },
+        "es": {
+          "prompt": "¿Qué es el esmog?",
+          "answer": "Neblina sucia urbana",
+          "wrong": [
+            "Niebla en el mar",
+            "Humo de un volcán",
+            "Una nube alta"
+          ],
+          "hint": "La palabra viene de smoke y fog.",
+          "explanation": "El esmog es una mezcla de niebla y contaminación sobre las ciudades.",
+          "fact": "El aire sucio queda atrapado bajo una capa de aire caliente."
+        },
+        "it": {
+          "prompt": "Che cos'è lo smog?",
+          "answer": "Foschia sporca sulla città",
+          "wrong": [
+            "Nebbia sul mare",
+            "Fumo di un vulcano",
+            "Una nuvola alta"
+          ],
+          "hint": "La parola viene da smoke e fog.",
+          "explanation": "Lo smog è un misto di nebbia e inquinamento sopra le città.",
+          "fact": "L'aria sporca resta intrappolata sotto uno strato caldo."
+        },
+        "pt": {
+          "prompt": "O que é o smog?",
+          "answer": "Névoa suja sobre a cidade",
+          "wrong": [
+            "Nevoeiro no mar",
+            "Fumo de um vulcão",
+            "Uma nuvem alta"
+          ],
+          "hint": "A palavra vem de smoke e fog.",
+          "explanation": "O smog é uma mistura de nevoeiro e poluição sobre as cidades.",
+          "fact": "O ar sujo fica preso debaixo de uma camada quente."
+        },
+        "da": {
+          "prompt": "Hvad er smog?",
+          "answer": "Snavset dis over en by",
+          "wrong": [
+            "Tåge på havet",
+            "Røg fra en vulkan",
+            "En høj sky"
+          ],
+          "hint": "Ordet kommer af smoke og fog.",
+          "explanation": "Smog er en blanding af tåge og luftforurening over byer.",
+          "fact": "Den snavsede luft bliver fanget under et varmt lag."
+        },
+        "ru": {
+          "prompt": "Что такое смог?",
+          "answer": "Грязная дымка над городом",
+          "wrong": [
+            "Туман в море",
+            "Дым вулкана",
+            "Высокое облако"
+          ],
+          "hint": "Слово сложено из smoke и fog.",
+          "explanation": "Смог — это смесь тумана и загрязнения воздуха над городами.",
+          "fact": "Грязный воздух застревает под тёплым слоем."
+        },
+        "ar": {
+          "prompt": "ما هو الضباب الدخاني؟",
+          "answer": "ضباب متسخ فوق المدينة",
+          "wrong": [
+            "ضباب البحر",
+            "دخان بركان",
+            "سحابة عالية"
+          ],
+          "hint": "الكلمة من دخان وضباب.",
+          "explanation": "الضباب الدخاني خليط من الضباب وتلوث الهواء فوق المدن.",
+          "fact": "ويبقى الهواء الملوث حبيسًا تحت طبقة دافئة."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Orkaan: windsnelheid vanaf 119 km/u",
+      "artBrief": "Een enorme spiraalwolk boven de oceaan, van bovenaf gezien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe hard waait het minstens in een orkaan?",
+          "answer": "Ruim 120 km per uur",
+          "wrong": [
+            "Ongeveer 30 km per uur",
+            "Ongeveer 60 km per uur",
+            "Ruim 500 km per uur"
+          ],
+          "hint": "Harder dan een auto op de snelweg.",
+          "explanation": "Vanaf ongeveer honderdtwintig kilometer per uur heet een storm een orkaan.",
+          "fact": "De zwaarste orkanen halen meer dan driehonderd kilometer per uur."
+        },
+        "en": {
+          "prompt": "How hard does the wind blow in a hurricane, at least?",
+          "answer": "Over 120 km an hour",
+          "wrong": [
+            "About 30 km an hour",
+            "About 60 km an hour",
+            "Over 500 km an hour"
+          ],
+          "hint": "Faster than a car on the motorway.",
+          "explanation": "From about a hundred and twenty kilometres an hour a storm counts as a hurricane.",
+          "fact": "The worst hurricanes pass three hundred kilometres an hour."
+        },
+        "de": {
+          "prompt": "Wie stark weht es in einem Orkan mindestens?",
+          "answer": "Über 120 km pro Stunde",
+          "wrong": [
+            "Etwa 30 km pro Stunde",
+            "Etwa 60 km pro Stunde",
+            "Über 500 km pro Stunde"
+          ],
+          "hint": "Schneller als ein Auto auf der Autobahn.",
+          "explanation": "Ab etwa hundertzwanzig Kilometern pro Stunde heißt ein Sturm Orkan.",
+          "fact": "Die schwersten Wirbelstürme schaffen über dreihundert."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse souffle au minimum un ouragan ?",
+          "answer": "Plus de 120 km par heure",
+          "wrong": [
+            "Environ 30 km par heure",
+            "Environ 60 km par heure",
+            "Plus de 500 km par heure"
+          ],
+          "hint": "Plus vite qu'une voiture sur l'autoroute.",
+          "explanation": "À partir d'environ cent vingt kilomètres à l'heure, on parle d'ouragan.",
+          "fact": "Les pires dépassent trois cents kilomètres à l'heure."
+        },
+        "es": {
+          "prompt": "¿A qué velocidad sopla como mínimo un huracán?",
+          "answer": "Más de 120 km por hora",
+          "wrong": [
+            "Unos 30 km por hora",
+            "Unos 60 km por hora",
+            "Más de 500 km por hora"
+          ],
+          "hint": "Más rápido que un coche en la autopista.",
+          "explanation": "A partir de unos ciento veinte kilómetros por hora se habla de huracán.",
+          "fact": "Los peores superan los trescientos kilómetros por hora."
+        },
+        "it": {
+          "prompt": "Quanto soffia almeno il vento in un uragano?",
+          "answer": "Oltre 120 km all'ora",
+          "wrong": [
+            "Circa 30 km all'ora",
+            "Circa 60 km all'ora",
+            "Oltre 500 km all'ora"
+          ],
+          "hint": "Più veloce di un'auto in autostrada.",
+          "explanation": "Da circa centoventi chilometri orari una tempesta si chiama uragano.",
+          "fact": "I peggiori superano i trecento chilometri orari."
+        },
+        "pt": {
+          "prompt": "A que velocidade sopra no mínimo um furacão?",
+          "answer": "Mais de 120 km por hora",
+          "wrong": [
+            "Cerca de 30 km por hora",
+            "Cerca de 60 km por hora",
+            "Mais de 500 km por hora"
+          ],
+          "hint": "Mais depressa do que um carro na autoestrada.",
+          "explanation": "A partir de cerca de cento e vinte quilómetros por hora é furacão.",
+          "fact": "Os piores passam os trezentos quilómetros por hora."
+        },
+        "da": {
+          "prompt": "Hvor kraftigt blæser det mindst i en orkan?",
+          "answer": "Over 120 km i timen",
+          "wrong": [
+            "Cirka 30 km i timen",
+            "Cirka 60 km i timen",
+            "Over 500 km i timen"
+          ],
+          "hint": "Hurtigere end en bil på motorvejen.",
+          "explanation": "Fra omkring hundrede og tyve kilometer i timen kaldes en storm en orkan.",
+          "fact": "De værste kommer over tre hundrede kilometer i timen."
+        },
+        "ru": {
+          "prompt": "Какой ветер в урагане как минимум?",
+          "answer": "Больше 120 км в час",
+          "wrong": [
+            "Около 30 км в час",
+            "Около 60 км в час",
+            "Больше 500 км в час"
+          ],
+          "hint": "Быстрее машины на трассе.",
+          "explanation": "Примерно со ста двадцати километров в час шторм называют ураганом.",
+          "fact": "Самые сильные разгоняются за триста километров в час."
+        },
+        "ar": {
+          "prompt": "كم تبلغ سرعة الرياح في الإعصار على الأقل؟",
+          "answer": "أكثر من 120 كم في الساعة",
+          "wrong": [
+            "نحو 30 كم في الساعة",
+            "نحو 60 كم في الساعة",
+            "أكثر من 500 كم في الساعة"
+          ],
+          "hint": "أسرع من سيارة على الطريق السريع.",
+          "explanation": "من نحو مئة وعشرين كيلومترًا في الساعة تسمى العاصفة إعصارًا.",
+          "fact": "وأعتاها تتجاوز ثلاثمئة كيلومتر في الساعة."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het oog van een tropische cycloon",
+      "artBrief": "Een orkaan van bovenaf met een rustig, helder gat in het midden.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is het oog van een orkaan?",
+          "answer": "De rustige kern",
+          "wrong": [
+            "De ergste plek",
+            "De voorkant",
+            "Het einde"
+          ],
+          "hint": "Daar is de lucht juist helder.",
+          "explanation": "In het oog is het bijna windstil en schijnt vaak de zon.",
+          "fact": "Daaromheen staat juist de allerzwaarste windmuur."
+        },
+        "en": {
+          "prompt": "What is the eye of a hurricane?",
+          "answer": "The calm centre",
+          "wrong": [
+            "The worst spot",
+            "The front",
+            "The end"
+          ],
+          "hint": "The sky there is actually clear.",
+          "explanation": "In the eye it is almost windless and the sun often shines.",
+          "fact": "Around it stands the fiercest wall of wind of all."
+        },
+        "de": {
+          "prompt": "Was ist das Auge eines Orkans?",
+          "answer": "Der ruhige Kern",
+          "wrong": [
+            "Die schlimmste Stelle",
+            "Die Vorderseite",
+            "Das Ende"
+          ],
+          "hint": "Dort ist der Himmel sogar klar.",
+          "explanation": "Im Auge ist es fast windstill und oft scheint die Sonne.",
+          "fact": "Rundherum steht dafür die stärkste Windmauer."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que l'œil d'un ouragan ?",
+          "answer": "Le cœur calme",
+          "wrong": [
+            "L'endroit le pire",
+            "L'avant",
+            "La fin"
+          ],
+          "hint": "Le ciel y est même dégagé.",
+          "explanation": "Dans l'œil, il n'y a presque pas de vent et le soleil brille souvent.",
+          "fact": "Tout autour se dresse le mur de vent le plus violent."
+        },
+        "es": {
+          "prompt": "¿Qué es el ojo de un huracán?",
+          "answer": "El centro tranquilo",
+          "wrong": [
+            "El punto peor",
+            "La parte delantera",
+            "El final"
+          ],
+          "hint": "Allí el cielo hasta está despejado.",
+          "explanation": "En el ojo casi no hay viento y muchas veces brilla el sol.",
+          "fact": "Alrededor está justo la pared de viento más brutal."
+        },
+        "it": {
+          "prompt": "Che cos'è l'occhio di un uragano?",
+          "answer": "Il centro tranquillo",
+          "wrong": [
+            "Il punto peggiore",
+            "La parte davanti",
+            "La fine"
+          ],
+          "hint": "Lì il cielo è perfino sereno.",
+          "explanation": "Nell'occhio non c'è quasi vento e spesso splende il sole.",
+          "fact": "Tutt'intorno c'è invece il muro di vento più violento."
+        },
+        "pt": {
+          "prompt": "O que é o olho de um furacão?",
+          "answer": "O centro calmo",
+          "wrong": [
+            "O sítio pior",
+            "A frente",
+            "O fim"
+          ],
+          "hint": "Ali o céu até está limpo.",
+          "explanation": "No olho quase não há vento e muitas vezes brilha o sol.",
+          "fact": "À volta fica a parede de vento mais violenta."
+        },
+        "da": {
+          "prompt": "Hvad er en orkans øje?",
+          "answer": "Den rolige kerne",
+          "wrong": [
+            "Det værste sted",
+            "Forkanten",
+            "Slutningen"
+          ],
+          "hint": "Der er himlen faktisk klar.",
+          "explanation": "I øjet er der næsten vindstille, og solen skinner tit.",
+          "fact": "Rundt om står til gengæld den kraftigste vindmur."
+        },
+        "ru": {
+          "prompt": "Что такое глаз урагана?",
+          "answer": "Спокойная середина",
+          "wrong": [
+            "Самое страшное место",
+            "Передний край",
+            "Конец"
+          ],
+          "hint": "Там небо даже чистое.",
+          "explanation": "В глазу почти нет ветра и часто светит солнце.",
+          "fact": "А вокруг стоит самая яростная стена ветра."
+        },
+        "ar": {
+          "prompt": "ما هي عين الإعصار؟",
+          "answer": "مركزه الهادئ",
+          "wrong": [
+            "أسوأ أجزائه",
+            "مقدمته",
+            "نهايته"
+          ],
+          "hint": "السماء هناك صافية فعلًا.",
+          "explanation": "في العين يكاد ينعدم الهواء وتشرق الشمس غالبًا.",
+          "fact": "أما حولها فيقوم أعنف جدار من الرياح."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Warme lucht is minder dicht en stijgt",
+      "artBrief": "Een luchtballon die opstijgt terwijl de brander warme lucht maakt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom stijgt warme lucht op?",
+          "answer": "Warme lucht is lichter",
+          "wrong": [
+            "De wind duwt hem omhoog",
+            "De zon trekt hem omhoog",
+            "Hij is zwaarder"
+          ],
+          "hint": "Denk aan een luchtballon.",
+          "explanation": "Warme lucht zet uit en wordt lichter dan de koude lucht eromheen.",
+          "fact": "Een luchtballon stijgt precies om die reden."
+        },
+        "en": {
+          "prompt": "Why does warm air rise?",
+          "answer": "Warm air is lighter",
+          "wrong": [
+            "The wind pushes it up",
+            "The sun pulls it up",
+            "It is heavier"
+          ],
+          "hint": "Think of a hot-air balloon.",
+          "explanation": "Warm air expands and becomes lighter than the cold air around it.",
+          "fact": "A hot-air balloon rises for exactly that reason."
+        },
+        "de": {
+          "prompt": "Warum steigt warme Luft auf?",
+          "answer": "Warme Luft ist leichter",
+          "wrong": [
+            "Der Wind drückt sie hoch",
+            "Die Sonne zieht sie hoch",
+            "Sie ist schwerer"
+          ],
+          "hint": "Denk an einen Heißluftballon.",
+          "explanation": "Warme Luft dehnt sich aus und wird leichter als die kalte ringsum.",
+          "fact": "Genau darum steigt ein Heißluftballon."
+        },
+        "fr": {
+          "prompt": "Pourquoi l'air chaud monte-t-il ?",
+          "answer": "L'air chaud est plus léger",
+          "wrong": [
+            "Le vent le pousse",
+            "Le soleil l'aspire",
+            "Il est plus lourd"
+          ],
+          "hint": "Pense à une montgolfière.",
+          "explanation": "L'air chaud se dilate et devient plus léger que l'air froid autour.",
+          "fact": "Une montgolfière s'élève exactement pour cette raison."
+        },
+        "es": {
+          "prompt": "¿Por qué sube el aire caliente?",
+          "answer": "El aire caliente pesa menos",
+          "wrong": [
+            "El viento lo empuja",
+            "El sol tira de él",
+            "Pesa más"
+          ],
+          "hint": "Piensa en un globo aerostático.",
+          "explanation": "El aire caliente se dilata y pesa menos que el aire frío de alrededor.",
+          "fact": "Un globo aerostático sube justo por eso."
+        },
+        "it": {
+          "prompt": "Perché l'aria calda sale?",
+          "answer": "L'aria calda è più leggera",
+          "wrong": [
+            "La spinge il vento",
+            "La tira il sole",
+            "È più pesante"
+          ],
+          "hint": "Pensa a una mongolfiera.",
+          "explanation": "L'aria calda si dilata e diventa più leggera di quella fredda.",
+          "fact": "Una mongolfiera sale proprio per questo."
+        },
+        "pt": {
+          "prompt": "Porque sobe o ar quente?",
+          "answer": "O ar quente é mais leve",
+          "wrong": [
+            "O vento empurra-o",
+            "O sol puxa-o",
+            "É mais pesado"
+          ],
+          "hint": "Pensa num balão de ar quente.",
+          "explanation": "O ar quente dilata-se e fica mais leve do que o ar frio à volta.",
+          "fact": "Um balão de ar quente sobe exatamente por isso."
+        },
+        "da": {
+          "prompt": "Hvorfor stiger varm luft op?",
+          "answer": "Varm luft er lettere",
+          "wrong": [
+            "Vinden skubber den op",
+            "Solen trækker den op",
+            "Den er tungere"
+          ],
+          "hint": "Tænk på en luftballon.",
+          "explanation": "Varm luft udvider sig og bliver lettere end den kolde luft omkring.",
+          "fact": "En luftballon stiger netop af den grund."
+        },
+        "ru": {
+          "prompt": "Почему тёплый воздух поднимается?",
+          "answer": "Тёплый воздух легче",
+          "wrong": [
+            "Его толкает ветер",
+            "Его тянет солнце",
+            "Он тяжелее"
+          ],
+          "hint": "Вспомни воздушный шар.",
+          "explanation": "Тёплый воздух расширяется и становится легче холодного вокруг.",
+          "fact": "Именно поэтому взлетает воздушный шар."
+        },
+        "ar": {
+          "prompt": "لماذا يرتفع الهواء الساخن؟",
+          "answer": "الهواء الساخن أخف",
+          "wrong": [
+            "تدفعه الريح",
+            "تجذبه الشمس",
+            "لأنه أثقل"
+          ],
+          "hint": "تذكر منطاد الهواء الساخن.",
+          "explanation": "الهواء الساخن يتمدد فيصير أخف من الهواء البارد حوله.",
+          "fact": "ولهذا بالضبط يرتفع المنطاد."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Regenmeters",
+      "artBrief": "Een glazen maatbuisje in een tuin waarin regenwater staat.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat meet een regenmeter?",
+          "answer": "Hoeveel regen er valt",
+          "wrong": [
+            "Hoe hard het waait",
+            "Hoe koud het is",
+            "Hoe vochtig de lucht is"
+          ],
+          "hint": "Er staat water in een buisje.",
+          "explanation": "Een regenmeter meet hoeveel millimeter neerslag er valt.",
+          "fact": "Eén millimeter regen is een liter water per vierkante meter."
+        },
+        "en": {
+          "prompt": "What does a rain gauge measure?",
+          "answer": "How much rain falls",
+          "wrong": [
+            "How hard the wind blows",
+            "How cold it is",
+            "How damp the air is"
+          ],
+          "hint": "There is water in a little tube.",
+          "explanation": "A rain gauge measures how many millimetres of rain fall.",
+          "fact": "One millimetre of rain is a litre of water per square metre."
+        },
+        "de": {
+          "prompt": "Was misst ein Regenmesser?",
+          "answer": "Wie viel Regen fällt",
+          "wrong": [
+            "Wie stark es weht",
+            "Wie kalt es ist",
+            "Wie feucht die Luft ist"
+          ],
+          "hint": "In einem Röhrchen steht Wasser.",
+          "explanation": "Ein Regenmesser misst, wie viele Millimeter Niederschlag fallen.",
+          "fact": "Ein Millimeter Regen ist ein Liter Wasser pro Quadratmeter."
+        },
+        "fr": {
+          "prompt": "Que mesure un pluviomètre ?",
+          "answer": "La quantité de pluie",
+          "wrong": [
+            "La force du vent",
+            "Le froid qu'il fait",
+            "L'humidité de l'air"
+          ],
+          "hint": "Il y a de l'eau dans un petit tube.",
+          "explanation": "Un pluviomètre mesure combien de millimètres de pluie tombent.",
+          "fact": "Un millimètre de pluie, c'est un litre par mètre carré."
+        },
+        "es": {
+          "prompt": "¿Qué mide un pluviómetro?",
+          "answer": "Cuánta lluvia cae",
+          "wrong": [
+            "Cuánto viento hace",
+            "Cuánto frío hace",
+            "Cuánta humedad hay"
+          ],
+          "hint": "Hay agua dentro de un tubito.",
+          "explanation": "Un pluviómetro mide cuántos milímetros de lluvia caen.",
+          "fact": "Un milímetro de lluvia es un litro de agua por metro cuadrado."
+        },
+        "it": {
+          "prompt": "Che cosa misura un pluviometro?",
+          "answer": "Quanta pioggia cade",
+          "wrong": [
+            "Quanto soffia il vento",
+            "Quanto fa freddo",
+            "Quanto è umida l'aria"
+          ],
+          "hint": "Nel tubetto c'è dell'acqua.",
+          "explanation": "Un pluviometro misura quanti millimetri di pioggia cadono.",
+          "fact": "Un millimetro di pioggia è un litro per metro quadrato."
+        },
+        "pt": {
+          "prompt": "O que mede um pluviómetro?",
+          "answer": "Quanta chuva cai",
+          "wrong": [
+            "Quanto vento faz",
+            "Que frio está",
+            "Quanta humidade há"
+          ],
+          "hint": "Há água dentro de um tubinho.",
+          "explanation": "Um pluviómetro mede quantos milímetros de chuva caem.",
+          "fact": "Um milímetro de chuva é um litro por metro quadrado."
+        },
+        "da": {
+          "prompt": "Hvad måler en regnmåler?",
+          "answer": "Hvor meget regn der falder",
+          "wrong": [
+            "Hvor kraftigt det blæser",
+            "Hvor koldt det er",
+            "Hvor fugtig luften er"
+          ],
+          "hint": "Der står vand i et lille rør.",
+          "explanation": "En regnmåler måler, hvor mange millimeter nedbør der falder.",
+          "fact": "En millimeter regn er en liter vand pr. kvadratmeter."
+        },
+        "ru": {
+          "prompt": "Что измеряет дождемер?",
+          "answer": "Сколько выпало дождя",
+          "wrong": [
+            "Силу ветра",
+            "Насколько холодно",
+            "Влажность воздуха"
+          ],
+          "hint": "В трубке стоит вода.",
+          "explanation": "Дождемер показывает, сколько миллиметров осадков выпало.",
+          "fact": "Один миллиметр дождя — это литр воды на квадратный метр."
+        },
+        "ar": {
+          "prompt": "ماذا يقيس مقياس المطر؟",
+          "answer": "كمية المطر الساقط",
+          "wrong": [
+            "قوة الريح",
+            "شدة البرد",
+            "رطوبة الهواء"
+          ],
+          "hint": "يوجد ماء في أنبوب صغير.",
+          "explanation": "يقيس مقياس المطر كم مليمترًا من المطر سقط.",
+          "fact": "ومليمتر واحد يعني لترًا من الماء لكل متر مربع."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Tornado's",
+      "artBrief": "Een donkere trechterwolk die over een vlak landschap trekt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er bij een tornado?",
+          "answer": "Lucht draait in een slurf",
+          "wrong": [
+            "De zee stroomt leeg",
+            "De grond scheurt",
+            "De hemel wordt rood"
+          ],
+          "hint": "Hij hangt aan een onweerswolk.",
+          "explanation": "Bij een tornado draait de lucht razendsnel rond in een trechter.",
+          "fact": "In een tornado kan het harder waaien dan in een orkaan."
+        },
+        "en": {
+          "prompt": "What happens in a tornado?",
+          "answer": "Air spins in a funnel",
+          "wrong": [
+            "The sea drains away",
+            "The ground cracks",
+            "The sky turns red"
+          ],
+          "hint": "It hangs from a thunder cloud.",
+          "explanation": "In a tornado the air whirls round at tremendous speed in a funnel.",
+          "fact": "Inside a tornado the wind can be stronger than in a hurricane."
+        },
+        "de": {
+          "prompt": "Was passiert bei einem Tornado?",
+          "answer": "Luft dreht sich im Rüssel",
+          "wrong": [
+            "Das Meer läuft leer",
+            "Der Boden reißt auf",
+            "Der Himmel wird rot"
+          ],
+          "hint": "Er hängt an einer Gewitterwolke.",
+          "explanation": "Bei einem Tornado wirbelt die Luft rasend schnell in einem Trichter.",
+          "fact": "Im Tornado kann es stärker wehen als in einem Orkan."
+        },
+        "fr": {
+          "prompt": "Que se passe-t-il dans une tornade ?",
+          "answer": "L'air tourne en entonnoir",
+          "wrong": [
+            "La mer se vide",
+            "Le sol se fend",
+            "Le ciel devient rouge"
+          ],
+          "hint": "Elle pend à un nuage d'orage.",
+          "explanation": "Dans une tornade, l'air tourbillonne à toute vitesse en entonnoir.",
+          "fact": "Le vent y souffle parfois plus fort que dans un ouragan."
+        },
+        "es": {
+          "prompt": "¿Qué pasa en un tornado?",
+          "answer": "El aire gira en un embudo",
+          "wrong": [
+            "El mar se vacía",
+            "La tierra se agrieta",
+            "El cielo se pone rojo"
+          ],
+          "hint": "Cuelga de una nube de tormenta.",
+          "explanation": "En un tornado el aire gira a una velocidad tremenda formando un embudo.",
+          "fact": "Dentro puede soplar más fuerte que en un huracán."
+        },
+        "it": {
+          "prompt": "Che cosa succede in un tornado?",
+          "answer": "L'aria gira in un imbuto",
+          "wrong": [
+            "Il mare si svuota",
+            "Il suolo si spacca",
+            "Il cielo diventa rosso"
+          ],
+          "hint": "Pende da una nuvola temporalesca.",
+          "explanation": "In un tornado l'aria vortica a velocità enorme dentro un imbuto.",
+          "fact": "Dentro può soffiare più forte che in un uragano."
+        },
+        "pt": {
+          "prompt": "O que acontece num tornado?",
+          "answer": "O ar roda num funil",
+          "wrong": [
+            "O mar esvazia-se",
+            "O chão racha",
+            "O céu fica vermelho"
+          ],
+          "hint": "Pende de uma nuvem de trovoada.",
+          "explanation": "Num tornado o ar roda a uma velocidade enorme dentro de um funil.",
+          "fact": "Lá dentro pode soprar mais do que num furacão."
+        },
+        "da": {
+          "prompt": "Hvad sker der i en tornado?",
+          "answer": "Luften drejer i en tragt",
+          "wrong": [
+            "Havet løber tomt",
+            "Jorden revner",
+            "Himlen bliver rød"
+          ],
+          "hint": "Den hænger under en tordensky.",
+          "explanation": "I en tornado hvirvler luften rundt i en tragt med enorm fart.",
+          "fact": "Inde i den kan det blæse kraftigere end i en orkan."
+        },
+        "ru": {
+          "prompt": "Что происходит при торнадо?",
+          "answer": "Воздух крутится воронкой",
+          "wrong": [
+            "Море уходит",
+            "Земля трескается",
+            "Небо краснеет"
+          ],
+          "hint": "Он свисает из грозовой тучи.",
+          "explanation": "При торнадо воздух с огромной скоростью вращается в воронке.",
+          "fact": "Внутри ветер бывает сильнее, чем в урагане."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث في الإعصار القمعي؟",
+          "answer": "الهواء يدور في قمع",
+          "wrong": [
+            "البحر يفرغ",
+            "الأرض تتشقق",
+            "السماء تحمر"
+          ],
+          "hint": "يتدلى من سحابة رعدية.",
+          "explanation": "في التورنادو يدور الهواء بسرعة هائلة داخل قمع.",
+          "fact": "وقد تكون الرياح داخله أقوى من إعصار بحري."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Broeikasgassen en opwarming",
+      "artBrief": "Een aarde met een doorzichtige deken eromheen die warmte vasthoudt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom wordt het op aarde warmer?",
+          "answer": "Meer broeikasgas in de lucht",
+          "wrong": [
+            "De zon komt dichterbij",
+            "De aarde draait sneller",
+            "Er zijn meer vulkanen"
+          ],
+          "hint": "Het komt vooral van verbranden.",
+          "explanation": "Gassen als koolstofdioxide houden warmte vast als een deken.",
+          "fact": "Sinds 1880 is de aarde ruim een graad warmer geworden."
+        },
+        "en": {
+          "prompt": "Why is the earth getting warmer?",
+          "answer": "More greenhouse gas",
+          "wrong": [
+            "The sun is coming closer",
+            "The earth spins faster",
+            "There are more volcanoes"
+          ],
+          "hint": "It comes mostly from burning things.",
+          "explanation": "Gases such as carbon dioxide trap heat like a blanket.",
+          "fact": "Since 1880 the earth has warmed by more than one degree."
+        },
+        "de": {
+          "prompt": "Warum wird es auf der Erde wärmer?",
+          "answer": "Mehr Treibhausgas",
+          "wrong": [
+            "Die Sonne kommt näher",
+            "Die Erde dreht schneller",
+            "Es gibt mehr Vulkane"
+          ],
+          "hint": "Es kommt vor allem vom Verbrennen.",
+          "explanation": "Gase wie Kohlendioxid halten Wärme fest wie eine Decke.",
+          "fact": "Seit 1880 ist die Erde über ein Grad wärmer geworden."
+        },
+        "fr": {
+          "prompt": "Pourquoi la Terre se réchauffe-t-elle ?",
+          "answer": "Plus de gaz à effet de serre",
+          "wrong": [
+            "Le soleil se rapproche",
+            "La Terre tourne plus vite",
+            "Il y a plus de volcans"
+          ],
+          "hint": "Cela vient surtout des combustions.",
+          "explanation": "Des gaz comme le dioxyde de carbone retiennent la chaleur comme une couverture.",
+          "fact": "Depuis 1880, la Terre a gagné plus d'un degré."
+        },
+        "es": {
+          "prompt": "¿Por qué se está calentando la Tierra?",
+          "answer": "Más gases invernadero",
+          "wrong": [
+            "El sol se acerca",
+            "La Tierra gira más rápido",
+            "Hay más volcanes"
+          ],
+          "hint": "Viene sobre todo de quemar cosas.",
+          "explanation": "Gases como el dióxido de carbono retienen el calor como una manta.",
+          "fact": "Desde 1880 la Tierra se ha calentado más de un grado."
+        },
+        "it": {
+          "prompt": "Perché la Terra si sta scaldando?",
+          "answer": "Più gas serra nell'aria",
+          "wrong": [
+            "Il sole si avvicina",
+            "La Terra gira più veloce",
+            "Ci sono più vulcani"
+          ],
+          "hint": "Viene soprattutto dalle combustioni.",
+          "explanation": "Gas come l'anidride carbonica trattengono il calore come una coperta.",
+          "fact": "Dal 1880 la Terra si è scaldata di oltre un grado."
+        },
+        "pt": {
+          "prompt": "Porque está a Terra a aquecer?",
+          "answer": "Mais gases de estufa",
+          "wrong": [
+            "O sol está a aproximar-se",
+            "A Terra roda mais depressa",
+            "Há mais vulcões"
+          ],
+          "hint": "Vem sobretudo de queimar coisas.",
+          "explanation": "Gases como o dióxido de carbono seguram o calor como um cobertor.",
+          "fact": "Desde 1880 a Terra aqueceu mais de um grau."
+        },
+        "da": {
+          "prompt": "Hvorfor bliver Jorden varmere?",
+          "answer": "Mere drivhusgas i luften",
+          "wrong": [
+            "Solen kommer nærmere",
+            "Jorden drejer hurtigere",
+            "Der er flere vulkaner"
+          ],
+          "hint": "Det kommer mest fra afbrænding.",
+          "explanation": "Gasser som kuldioxid holder på varmen som et tæppe.",
+          "fact": "Siden 1880 er Jorden blevet over en grad varmere."
+        },
+        "ru": {
+          "prompt": "Почему Земля становится теплее?",
+          "answer": "Больше парниковых газов",
+          "wrong": [
+            "Солнце приближается",
+            "Земля крутится быстрее",
+            "Стало больше вулканов"
+          ],
+          "hint": "В основном из-за сжигания топлива.",
+          "explanation": "Газы вроде углекислого держат тепло как одеяло.",
+          "fact": "С 1880 года Земля потеплела больше чем на градус."
+        },
+        "ar": {
+          "prompt": "لماذا تزداد حرارة الأرض؟",
+          "answer": "غازات دفيئة أكثر",
+          "wrong": [
+            "الشمس تقترب",
+            "الأرض تدور أسرع",
+            "البراكين ازدادت"
+          ],
+          "hint": "السبب الأكبر هو حرق الوقود.",
+          "explanation": "غازات مثل ثاني أكسيد الكربون تحبس الحرارة كالبطانية.",
+          "fact": "ومنذ 1880 ارتفعت حرارة الأرض أكثر من درجة."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De straalstroom",
+      "artBrief": "Een lint van snelle wind hoog boven de aarde, met een vliegtuig erin.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een straalstroom?",
+          "answer": "Een wind hoog in de lucht",
+          "wrong": [
+            "Een zeestroming",
+            "Een soort bliksem",
+            "Een lange regenbui"
+          ],
+          "hint": "Vliegtuigen maken er gebruik van.",
+          "explanation": "Een straalstroom is een band van zeer snelle wind op tien kilometer hoogte.",
+          "fact": "Met de wind mee vliegt een toestel een uur sneller naar huis."
+        },
+        "en": {
+          "prompt": "What is a jet stream?",
+          "answer": "A wind high in the sky",
+          "wrong": [
+            "A sea current",
+            "A kind of lightning",
+            "A long rain shower"
+          ],
+          "hint": "Aircraft make use of it.",
+          "explanation": "A jet stream is a band of very fast wind ten kilometres up.",
+          "fact": "Flying with it, a plane gets home an hour sooner."
+        },
+        "de": {
+          "prompt": "Was ist ein Jetstream?",
+          "answer": "Ein Wind hoch in der Luft",
+          "wrong": [
+            "Eine Meeresströmung",
+            "Eine Art Blitz",
+            "Ein langer Regenschauer"
+          ],
+          "hint": "Flugzeuge nutzen ihn aus.",
+          "explanation": "Ein Jetstream ist ein Band sehr schnellen Windes in zehn Kilometern Höhe.",
+          "fact": "Mit dem Wind fliegt ein Flugzeug eine Stunde schneller heim."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un courant-jet ?",
+          "answer": "Un vent très haut",
+          "wrong": [
+            "Un courant marin",
+            "Une sorte d'éclair",
+            "Une longue averse"
+          ],
+          "hint": "Les avions s'en servent.",
+          "explanation": "Un courant-jet est un ruban de vent très rapide à dix kilomètres d'altitude.",
+          "fact": "Vent dans le dos, un avion rentre une heure plus tôt."
+        },
+        "es": {
+          "prompt": "¿Qué es una corriente en chorro?",
+          "answer": "Un viento muy alto",
+          "wrong": [
+            "Una corriente marina",
+            "Un tipo de rayo",
+            "Un chaparrón largo"
+          ],
+          "hint": "Los aviones la aprovechan.",
+          "explanation": "Es una banda de viento rapidísimo a diez kilómetros de altura.",
+          "fact": "Con ella a favor, un avión vuelve una hora antes."
+        },
+        "it": {
+          "prompt": "Che cos'è una corrente a getto?",
+          "answer": "Un vento molto in alto",
+          "wrong": [
+            "Una corrente marina",
+            "Un tipo di fulmine",
+            "Un lungo acquazzone"
+          ],
+          "hint": "Gli aerei la sfruttano.",
+          "explanation": "È una fascia di vento velocissimo a dieci chilometri di quota.",
+          "fact": "Con il vento a favore un aereo torna un'ora prima."
+        },
+        "pt": {
+          "prompt": "O que é uma corrente de jato?",
+          "answer": "Um vento muito alto",
+          "wrong": [
+            "Uma corrente marítima",
+            "Um tipo de relâmpago",
+            "Um aguaceiro longo"
+          ],
+          "hint": "Os aviões aproveitam-na.",
+          "explanation": "É uma faixa de vento rapidíssimo a dez quilómetros de altura.",
+          "fact": "Com ela a favor, um avião chega uma hora mais cedo."
+        },
+        "da": {
+          "prompt": "Hvad er en jetstrøm?",
+          "answer": "En vind højt oppe",
+          "wrong": [
+            "En havstrøm",
+            "En slags lyn",
+            "En lang regnbyge"
+          ],
+          "hint": "Fly udnytter den.",
+          "explanation": "En jetstrøm er et bånd af meget hurtig vind i ti kilometers højde.",
+          "fact": "Med vinden i ryggen er flyet hjemme en time før."
+        },
+        "ru": {
+          "prompt": "Что такое струйное течение?",
+          "answer": "Ветер высоко в небе",
+          "wrong": [
+            "Морское течение",
+            "Вид молнии",
+            "Долгий ливень"
+          ],
+          "hint": "Самолёты им пользуются.",
+          "explanation": "Это полоса очень быстрого ветра на высоте десяти километров.",
+          "fact": "По ветру самолёт возвращается на час раньше."
+        },
+        "ar": {
+          "prompt": "ما هو التيار النفاث؟",
+          "answer": "رياح عالية جدًا",
+          "wrong": [
+            "تيار بحري",
+            "نوع من البرق",
+            "زخة مطر طويلة"
+          ],
+          "hint": "الطائرات تستفيد منه.",
+          "explanation": "هو شريط من رياح سريعة جدًا على ارتفاع عشرة كيلومترات.",
+          "fact": "ومع الريح تصل الطائرة أبكر بساعة."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Ongeveer honderd blikseminslagen per seconde wereldwijd",
+      "artBrief": "Een aardbol bij nacht met tientallen lichtflitsen boven verschillende continenten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel keer slaat de bliksem per seconde in op aarde?",
+          "answer": "Ongeveer honderd keer",
+          "wrong": [
+            "Ongeveer één keer",
+            "Ongeveer tien keer",
+            "Ongeveer tienduizend keer"
+          ],
+          "hint": "Ergens op aarde onweert het altijd.",
+          "explanation": "Wereldwijd slaat de bliksem ongeveer honderd keer per seconde in.",
+          "fact": "Op elk moment woeden er zo'n tweeduizend onweersbuien."
+        },
+        "en": {
+          "prompt": "How many times a second does lightning strike the earth?",
+          "answer": "About a hundred times",
+          "wrong": [
+            "About once",
+            "About ten times",
+            "About ten thousand times"
+          ],
+          "hint": "Somewhere on earth a storm is always raging.",
+          "explanation": "Worldwide, lightning strikes about a hundred times a second.",
+          "fact": "At any moment some two thousand thunderstorms are under way."
+        },
+        "de": {
+          "prompt": "Wie oft schlägt der Blitz pro Sekunde auf der Erde ein?",
+          "answer": "Etwa hundert Mal",
+          "wrong": [
+            "Etwa einmal",
+            "Etwa zehn Mal",
+            "Etwa zehntausend Mal"
+          ],
+          "hint": "Irgendwo auf der Erde gewittert es immer.",
+          "explanation": "Weltweit schlägt der Blitz etwa hundert Mal pro Sekunde ein.",
+          "fact": "In jedem Moment toben rund zweitausend Gewitter."
+        },
+        "fr": {
+          "prompt": "Combien de fois par seconde la foudre frappe-t-elle la Terre ?",
+          "answer": "Environ cent fois",
+          "wrong": [
+            "Environ une fois",
+            "Environ dix fois",
+            "Environ dix mille fois"
+          ],
+          "hint": "Quelque part sur Terre, il y a toujours un orage.",
+          "explanation": "Dans le monde, la foudre frappe environ cent fois par seconde.",
+          "fact": "À chaque instant, quelque deux mille orages sont en cours."
+        },
+        "es": {
+          "prompt": "¿Cuántas veces por segundo cae un rayo en la Tierra?",
+          "answer": "Unas cien veces",
+          "wrong": [
+            "Una vez",
+            "Diez veces",
+            "Diez mil veces"
+          ],
+          "hint": "En algún lugar siempre hay tormenta.",
+          "explanation": "En todo el mundo cae un rayo unas cien veces por segundo.",
+          "fact": "En cada momento hay unas dos mil tormentas activas."
+        },
+        "it": {
+          "prompt": "Quante volte al secondo cade un fulmine sulla Terra?",
+          "answer": "Circa cento volte",
+          "wrong": [
+            "Circa una volta",
+            "Circa dieci volte",
+            "Circa diecimila volte"
+          ],
+          "hint": "Da qualche parte c'è sempre un temporale.",
+          "explanation": "Nel mondo il fulmine colpisce circa cento volte al secondo.",
+          "fact": "In ogni istante sono in corso circa duemila temporali."
+        },
+        "pt": {
+          "prompt": "Quantas vezes por segundo cai um raio na Terra?",
+          "answer": "Cerca de cem vezes",
+          "wrong": [
+            "Cerca de uma vez",
+            "Cerca de dez vezes",
+            "Cerca de dez mil vezes"
+          ],
+          "hint": "Algures há sempre trovoada.",
+          "explanation": "No mundo inteiro cai um raio cerca de cem vezes por segundo.",
+          "fact": "Em cada momento há umas duas mil trovoadas a decorrer."
+        },
+        "da": {
+          "prompt": "Hvor mange gange i sekundet slår lynet ned på Jorden?",
+          "answer": "Cirka hundrede gange",
+          "wrong": [
+            "Cirka en gang",
+            "Cirka ti gange",
+            "Cirka ti tusind gange"
+          ],
+          "hint": "Et sted på Jorden er der altid tordenvejr.",
+          "explanation": "På verdensplan slår lynet ned cirka hundrede gange i sekundet.",
+          "fact": "I ethvert øjeblik raser der omkring to tusind tordenvejr."
+        },
+        "ru": {
+          "prompt": "Сколько раз в секунду на Землю бьёт молния?",
+          "answer": "Около ста раз",
+          "wrong": [
+            "Примерно один раз",
+            "Примерно десять раз",
+            "Примерно десять тысяч раз"
+          ],
+          "hint": "Где-то на Земле гроза всегда.",
+          "explanation": "Во всём мире молния ударяет около ста раз в секунду.",
+          "fact": "В любой момент идёт примерно две тысячи гроз."
+        },
+        "ar": {
+          "prompt": "كم مرة في الثانية يضرب البرق الأرض؟",
+          "answer": "نحو مئة مرة",
+          "wrong": [
+            "نحو مرة",
+            "نحو عشر مرات",
+            "نحو عشرة آلاف مرة"
+          ],
+          "hint": "في مكان ما على الأرض عاصفة دائمًا.",
+          "explanation": "يضرب البرق حول العالم نحو مئة مرة في الثانية.",
+          "fact": "وفي كل لحظة تدور نحو ألفي عاصفة رعدية."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De ozonlaag houdt uv-straling tegen",
+      "artBrief": "Een blauwe schil om de aarde die felle stralen tegenhoudt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet de ozonlaag?",
+          "answer": "Hij houdt uv-licht tegen",
+          "wrong": [
+            "Hij maakt regen",
+            "Hij houdt warmte vast",
+            "Hij maakt wind"
+          ],
+          "hint": "Zonder hem zou je snel verbranden.",
+          "explanation": "De ozonlaag vangt het gevaarlijkste deel van het zonlicht af.",
+          "fact": "Het gat erin wordt langzaam kleiner sinds bepaalde gassen verboden zijn."
+        },
+        "en": {
+          "prompt": "What does the ozone layer do?",
+          "answer": "It blocks ultraviolet light",
+          "wrong": [
+            "It makes rain",
+            "It holds in heat",
+            "It makes wind"
+          ],
+          "hint": "Without it you would burn quickly.",
+          "explanation": "The ozone layer catches the most dangerous part of sunlight.",
+          "fact": "The hole in it is slowly shrinking since certain gases were banned."
+        },
+        "de": {
+          "prompt": "Was macht die Ozonschicht?",
+          "answer": "Sie hält UV-Licht ab",
+          "wrong": [
+            "Sie macht Regen",
+            "Sie hält Wärme fest",
+            "Sie macht Wind"
+          ],
+          "hint": "Ohne sie würdest du schnell verbrennen.",
+          "explanation": "Die Ozonschicht fängt den gefährlichsten Teil des Sonnenlichts ab.",
+          "fact": "Das Loch darin schrumpft langsam, seit bestimmte Gase verboten sind."
+        },
+        "fr": {
+          "prompt": "Que fait la couche d'ozone ?",
+          "answer": "Elle arrête les ultraviolets",
+          "wrong": [
+            "Elle fabrique la pluie",
+            "Elle retient la chaleur",
+            "Elle fabrique le vent"
+          ],
+          "hint": "Sans elle, on brûlerait vite.",
+          "explanation": "La couche d'ozone arrête la partie la plus dangereuse du soleil.",
+          "fact": "Le trou se referme lentement depuis l'interdiction de certains gaz."
+        },
+        "es": {
+          "prompt": "¿Qué hace la capa de ozono?",
+          "answer": "Frena la luz ultravioleta",
+          "wrong": [
+            "Fabrica lluvia",
+            "Retiene el calor",
+            "Fabrica viento"
+          ],
+          "hint": "Sin ella te quemarías enseguida.",
+          "explanation": "La capa de ozono detiene la parte más peligrosa de la luz solar.",
+          "fact": "El agujero se va cerrando desde que se prohibieron ciertos gases."
+        },
+        "it": {
+          "prompt": "Che cosa fa lo strato di ozono?",
+          "answer": "Ferma la luce ultravioletta",
+          "wrong": [
+            "Fa la pioggia",
+            "Trattiene il calore",
+            "Fa il vento"
+          ],
+          "hint": "Senza di esso ti scotteresti subito.",
+          "explanation": "L'ozono blocca la parte più pericolosa della luce del sole.",
+          "fact": "Il buco si chiude lentamente da quando certi gas sono vietati."
+        },
+        "pt": {
+          "prompt": "O que faz a camada de ozono?",
+          "answer": "Trava a luz ultravioleta",
+          "wrong": [
+            "Faz chuva",
+            "Segura o calor",
+            "Faz vento"
+          ],
+          "hint": "Sem ela queimavas-te depressa.",
+          "explanation": "A camada de ozono trava a parte mais perigosa da luz do sol.",
+          "fact": "O buraco vai fechando desde que certos gases foram proibidos."
+        },
+        "da": {
+          "prompt": "Hvad gør ozonlaget?",
+          "answer": "Det stopper ultraviolet lys",
+          "wrong": [
+            "Det laver regn",
+            "Det holder på varmen",
+            "Det laver vind"
+          ],
+          "hint": "Uden det ville man hurtigt blive forbrændt.",
+          "explanation": "Ozonlaget standser den farligste del af sollyset.",
+          "fact": "Hullet i det bliver langsomt mindre, efter visse gasser blev forbudt."
+        },
+        "ru": {
+          "prompt": "Что делает озоновый слой?",
+          "answer": "Задерживает ультрафиолет",
+          "wrong": [
+            "Делает дождь",
+            "Держит тепло",
+            "Создаёт ветер"
+          ],
+          "hint": "Без него легко обгореть.",
+          "explanation": "Озоновый слой задерживает самую опасную часть солнечного света.",
+          "fact": "Дыра в нём медленно затягивается после запрета некоторых газов."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل طبقة الأوزون؟",
+          "answer": "تحجب الأشعة فوق البنفسجية",
+          "wrong": [
+            "تصنع المطر",
+            "تحبس الحرارة",
+            "تصنع الرياح"
+          ],
+          "hint": "بدونها تحترق البشرة سريعًا.",
+          "explanation": "تحجب طبقة الأوزون أخطر جزء من ضوء الشمس.",
+          "fact": "والثقب فيها يصغر ببطء منذ منع غازات معينة."
+        }
+      }
+    },
+    {
+      "id": "aarde-weer_klimaat-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Weerballonnen met radiosonde",
+      "artBrief": "Een witte ballon die opstijgt met een klein meetkastje eronder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat meet een weerballon hoog in de lucht?",
+          "answer": "Temperatuur en vocht",
+          "wrong": [
+            "Het aantal vogels",
+            "De kleur van de lucht",
+            "Het geluid van donder"
+          ],
+          "hint": "Er hangt een kastje onder.",
+          "explanation": "Een weerballon meet onderweg temperatuur, luchtdruk en vochtigheid.",
+          "fact": "Hij stijgt tot ruim dertig kilometer en knapt daar."
+        },
+        "en": {
+          "prompt": "What does a weather balloon measure high in the air?",
+          "answer": "Temperature and moisture",
+          "wrong": [
+            "The number of birds",
+            "The colour of the sky",
+            "The sound of thunder"
+          ],
+          "hint": "A little box hangs below it.",
+          "explanation": "A weather balloon measures temperature, air pressure and humidity on its way up.",
+          "fact": "It climbs over thirty kilometres and then bursts."
+        },
+        "de": {
+          "prompt": "Was misst ein Wetterballon hoch in der Luft?",
+          "answer": "Temperatur und Feuchte",
+          "wrong": [
+            "Die Zahl der Vögel",
+            "Die Farbe des Himmels",
+            "Das Geräusch des Donners"
+          ],
+          "hint": "Unter ihm hängt ein Kästchen.",
+          "explanation": "Ein Wetterballon misst unterwegs Temperatur, Luftdruck und Feuchtigkeit.",
+          "fact": "Er steigt über dreißig Kilometer hoch und platzt dann."
+        },
+        "fr": {
+          "prompt": "Que mesure un ballon-sonde très haut dans le ciel ?",
+          "answer": "Température et humidité",
+          "wrong": [
+            "Le nombre d'oiseaux",
+            "La couleur du ciel",
+            "Le bruit du tonnerre"
+          ],
+          "hint": "Une petite boîte pend dessous.",
+          "explanation": "Un ballon-sonde mesure température, pression et humidité en montant.",
+          "fact": "Il grimpe à plus de trente kilomètres, puis éclate."
+        },
+        "es": {
+          "prompt": "¿Qué mide un globo sonda allá arriba?",
+          "answer": "Temperatura y humedad",
+          "wrong": [
+            "El número de pájaros",
+            "El color del cielo",
+            "El sonido del trueno"
+          ],
+          "hint": "Lleva una cajita colgando.",
+          "explanation": "Un globo sonda mide temperatura, presión y humedad mientras sube.",
+          "fact": "Llega a más de treinta kilómetros y allí revienta."
+        },
+        "it": {
+          "prompt": "Che cosa misura un pallone sonda lassù in alto?",
+          "answer": "Temperatura e umidità",
+          "wrong": [
+            "Il numero di uccelli",
+            "Il colore del cielo",
+            "Il rumore del tuono"
+          ],
+          "hint": "Sotto ha una scatoletta.",
+          "explanation": "Un pallone sonda misura temperatura, pressione e umidità salendo.",
+          "fact": "Sale oltre trenta chilometri e lì scoppia."
+        },
+        "pt": {
+          "prompt": "O que mede um balão meteorológico lá no alto?",
+          "answer": "Temperatura e humidade",
+          "wrong": [
+            "O número de aves",
+            "A cor do céu",
+            "O som do trovão"
+          ],
+          "hint": "Leva uma caixinha pendurada.",
+          "explanation": "Um balão destes mede temperatura, pressão e humidade enquanto sobe.",
+          "fact": "Sobe mais de trinta quilómetros e depois rebenta."
+        },
+        "da": {
+          "prompt": "Hvad måler en vejrballon højt oppe?",
+          "answer": "Temperatur og fugtighed",
+          "wrong": [
+            "Antallet af fugle",
+            "Himlens farve",
+            "Tordenens lyd"
+          ],
+          "hint": "Der hænger en lille kasse under den.",
+          "explanation": "En vejrballon måler temperatur, lufttryk og fugtighed på vejen op.",
+          "fact": "Den stiger over tredive kilometer og sprænger så."
+        },
+        "ru": {
+          "prompt": "Что измеряет метеозонд высоко в небе?",
+          "answer": "Температуру и влажность",
+          "wrong": [
+            "Число птиц",
+            "Цвет неба",
+            "Звук грома"
+          ],
+          "hint": "Под ним висит коробочка.",
+          "explanation": "Метеозонд по пути измеряет температуру, давление и влажность.",
+          "fact": "Он поднимается выше тридцати километров и там лопается."
+        },
+        "ar": {
+          "prompt": "ماذا يقيس بالون الطقس في الأعالي؟",
+          "answer": "الحرارة والرطوبة",
+          "wrong": [
+            "عدد الطيور",
+            "لون السماء",
+            "صوت الرعد"
+          ],
+          "hint": "يتدلى تحته صندوق صغير.",
+          "explanation": "يقيس بالون الطقس الحرارة والضغط والرطوبة وهو يصعد.",
+          "fact": "يرتفع أكثر من ثلاثين كيلومترًا ثم ينفجر."
+        }
+      }
+    }
+  ]
+}
