@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "WWF — Asian elephants",
       "artBrief": "Een olifant met kleine oren tussen hoge groene bomen in een tropisch bos.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk groot dier met een slurf leeft in de jungle van Azië?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "WWF — tigers live in Asian forests",
       "artBrief": "Een tijger met oranje vacht en zwarte strepen die door dicht groen sluipt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke grote kat met strepen leeft in de jungle van Azië?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Köppen climate classification — tropical rainforest",
       "artBrief": "Een stortbui in een groen bos, met water dat van grote bladeren druipt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat valt er bijna elke dag in een regenwoud?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "WWF — orangutans of Borneo and Sumatra",
       "artBrief": "Een oranjeharige mensaap die aan een tak hangt in een dicht groen bos.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke mensaap met oranje haren leeft in de jungle?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Bat Conservation International — roosting behaviour",
       "artBrief": "Een rij vleermuizen die ondersteboven slapen aan een tak in de schaduw.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen vleermuizen overdag in de jungle?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Rainforests receive over 2000 mm of rain a year",
       "artBrief": "Een regenmeter naast een groen bos, met de bui die naar beneden komt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel regen valt er per jaar in een regenwoud?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Forest strata — less than 2% of light reaches the floor",
       "artBrief": "Een blik omhoog vanaf de donkere bosbodem naar een dicht dak van bladeren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is het donker op de bodem van het regenwoud?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Hornbills of Asia and Africa",
       "artBrief": "Een grote vogel met een enorme gekleurde snavel met een bult erop, op een tak.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vogel heeft een enorme snavel met een bult erop?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Lianas in tropical forests",
       "artBrief": "Dikke slingerende planten die als touwen van hoge boomtakken hangen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een liaan?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Piranhas of the Amazon basin",
       "artBrief": "Een zilverkleurige vis met scherpe tandjes in het bruine water van een rivier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vis met scherpe tandjes leeft in de Amazone?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "WWF — the Amazon holds millions of species",
       "artBrief": "Een collage van talloze verschillende insecten, vogels en planten uit één bos.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel soorten leven er in het Amazonewoud?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Okapi Conservation Project — Congo rainforest",
       "artBrief": "Een okapi met een donkerbruin lijf en witte strepen op zijn achterpoten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier lijkt op een paard met strepen op zijn poten?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "WHO / rainforest plants in modern medicine",
       "artBrief": "Een plant uit het regenwoud naast een potje pillen en een vijzel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar komt een groot deel van onze medicijnen vandaan?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Gibbons brachiate at up to 55 km/h",
       "artBrief": "Een gibbon die met lange armen van tak naar tak zwiert.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke aap slingert het snelst door de bomen?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Rapid nutrient cycling on the rainforest floor",
       "artBrief": "Een blad op de bosbodem dat half vergaan is, met schimmels en mieren eromheen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met een blad dat op de bosbodem valt?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Blue morpho butterfly, Amazon basin",
       "artBrief": "Een grote vlinder met schitterend blauwe vleugels boven een bospad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vlinder heeft schitterend blauwe vleugels?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Rainforests hold over half of all land species",
       "artBrief": "Een wereldkaart waarop de regenwoudgordel oplicht, vol dierensilhouetten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel van alle landdieren leeft in regenwouden?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Kapok (Ceiba pentandra) reaches 70 m",
       "artBrief": "Een reusachtige boom met een brede stam en wortels als muren, hoog boven het bos uit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke boom in het regenwoud wordt zeventig meter hoog?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Elephant ears as heat radiators",
       "artBrief": "Een olifant die zijn grote oren als waaiers heen en weer beweegt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe koelt een olifant zich af?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Lemurs are endemic to Madagascar",
       "artBrief": "Een groepje maki's met lange gestreepte staarten op een tak op Madagaskar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke dieren leven alleen op Madagaskar?",

@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Neerslag en bescherming",
       "artBrief": "Een kind met een gekleurde paraplu in een plas, regen die eromheen spat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat neem je mee als het regent?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Regenbogen ontstaan door breking in regendruppels",
       "artBrief": "Een regenboog boven een nat landschap met de zon laag achter de kijker.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zie je soms als het regent terwijl de zon schijnt?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Sneeuw",
       "artBrief": "Grote sneeuwvlokken die op een tak en een want vallen, van dichtbij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet bevroren water dat uit de lucht valt?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Zonnestraling warmt de atmosfeer op",
       "artBrief": "Een zomerse hemel met de zon hoog en warme lucht boven een veld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet de zon met de lucht?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Onbewolkte hemel",
       "artBrief": "Een strakblauwe lucht boven een groen weiland, zonder enige wolk.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent het als de lucht helemaal blauw is?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Dauw ontstaat als lucht afkoelt tot het dauwpunt",
       "artBrief": "Grasstengels in de ochtend met glinsterende druppels erop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is dauw?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Wolkvorming door condensatie",
       "artBrief": "Warme lucht die opstijgt en bovenin verandert in een witte wolk.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe ontstaat een wolk?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Schaal van Beaufort: 10 is zware storm",
       "artBrief": "Bomen die zwaar doorbuigen in de wind met golven op de achtergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent windkracht tien?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Seizoenen ontstaan door de scheve as van de aarde",
       "artBrief": "De zon hoog aan de zomerhemel en laag aan de winterhemel, naast elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is het in de zomer warmer dan in de winter?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Smog",
       "artBrief": "Een stad onder een bruinige waas, met de zon vaag erdoorheen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is smog?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Orkaan: windsnelheid vanaf 119 km/u",
       "artBrief": "Een enorme spiraalwolk boven de oceaan, van bovenaf gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe hard waait het minstens in een orkaan?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Het oog van een tropische cycloon",
       "artBrief": "Een orkaan van bovenaf met een rustig, helder gat in het midden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het oog van een orkaan?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Warme lucht is minder dicht en stijgt",
       "artBrief": "Een luchtballon die opstijgt terwijl de brander warme lucht maakt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom stijgt warme lucht op?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Regenmeters",
       "artBrief": "Een glazen maatbuisje in een tuin waarin regenwater staat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat meet een regenmeter?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Tornado's",
       "artBrief": "Een donkere trechterwolk die over een vlak landschap trekt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er bij een tornado?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Broeikasgassen en opwarming",
       "artBrief": "Een aarde met een doorzichtige deken eromheen die warmte vasthoudt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom wordt het op aarde warmer?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De straalstroom",
       "artBrief": "Een lint van snelle wind hoog boven de aarde, met een vliegtuig erin.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een straalstroom?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Ongeveer honderd blikseminslagen per seconde wereldwijd",
       "artBrief": "Een aardbol bij nacht met tientallen lichtflitsen boven verschillende continenten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel keer slaat de bliksem per seconde in op aarde?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De ozonlaag houdt uv-straling tegen",
       "artBrief": "Een blauwe schil om de aarde die felle stralen tegenhoudt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet de ozonlaag?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Weerballonnen met radiosonde",
       "artBrief": "Een witte ballon die opstijgt met een klein meetkastje eronder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat meet een weerballon hoog in de lucht?",

@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Gewone tuinslak, ongeveer 1 mm per seconde",
       "artBrief": "Een slak op een blad met een glinsterend spoor achter zich.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier is juist heel langzaam?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Vogelvlucht — vleugels en vliegspieren",
       "artBrief": "Een vogel in volle vlucht met wijd uitgeslagen vleugels tegen een blauwe lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat helpt een vogel om snel te vliegen?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Haas (Lepus europaeus) haalt 70 km/u",
       "artBrief": "Een haas die met lange oren plat achterover door een veld rent.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier rent hard en heeft lange oren?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Rode reuzenkangoeroe springt tot 9 meter ver",
       "artBrief": "Een kangoeroe midden in een grote sprong boven het rode gras.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier komt in één sprong heel ver?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Hartslag bij inspanning",
       "artBrief": "Een rennend kind met een tekening van een kloppend hart ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet je hart als je hard rent?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Jachtluipaard: 93-104 km/u gemeten",
       "artBrief": "Een jachtluipaard op volle snelheid met alle vier de poten van de grond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe snel rent een jachtluipaard ongeveer?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Staartgebruik bij wendbaarheid (cheetah tail)",
       "artBrief": "Een rennend dier dat scherp bocht, met de staart als tegenwicht opzij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom hebben veel snelle dieren een lange staart?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Precociale hoefdieren — gazellen rennen binnen een uur",
       "artBrief": "Een pasgeboren gazelle die naast zijn moeder over de savanne rent.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk jong dier rent al vlak na de geboorte mee?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Kolibries zijn de enige vogels die achteruit kunnen vliegen",
       "artBrief": "Een kolibrie die stil in de lucht hangt bij een bloem.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vogel kan ook achteruit vliegen?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Tuimelaar zwemt tot 40 km/u",
       "artBrief": "Een dolfijn die vlak onder het wateroppervlak snel voortschiet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe snel zwemt een dolfijn ongeveer?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Honingbij: ongeveer 200 vleugelslagen per seconde",
       "artBrief": "Een bij in de lucht met vleugels die als een waas zichtbaar zijn.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak slaat een bij per seconde met haar vleugels?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Struisvogel: vleugels te klein voor het lichaamsgewicht",
       "artBrief": "Een struisvogel die met opgeheven vleugels over het zand rent.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom kan een struisvogel niet vliegen?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Rosse grutto vloog 13.560 km non-stop, 2022",
       "artBrief": "Een steltloper hoog boven een lege oceaan, met een lange route eronder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vogel vliegt het verst zonder te landen?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Rode reuzenkangoeroe haalt 60-70 km/u",
       "artBrief": "Een kangoeroe die in lange sprongen over een vlakte stuitert.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe snel kan een kangoeroe springen?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Zijwinder-adder (sidewinding) in los zand",
       "artBrief": "Een slang die in schuine bochten over een zandduin beweegt, met S-sporen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe beweegt een woestijnslang zich door los zand?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Bidsprinkhaankreeft: slag in 2,3 milliseconden",
       "artBrief": "Een felgekleurde kreeft die met een klap een schelp breekt, met belletjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier maakt de snelste beweging van allemaal?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Kameleontong: uitschieten in ongeveer 0,07 seconde",
       "artBrief": "Een kameleon met uitgeschoten tong die een insect vangt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe snel schiet de tong van een kameleon uit?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Persistence hunting — menselijke uithouding",
       "artBrief": "Een hardloper die in de verte over een savanne draaft in de hitte.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier kan het langst achter elkaar blijven rennen?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Kolibriehart: tot 1260 slagen per minuut",
       "artBrief": "Een kolibrie van dichtbij met een tekening van een snel kloppend hart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak klopt het hart van een vliegende kolibrie?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Rüppells gier op 11.300 meter hoogte, 1973",
       "artBrief": "Een gier die hoog boven de wolken zweeft, met een vliegtuig kleiner eronder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vogel is het hoogst ooit gezien?",

@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Standaard Nederlandse diernamen (Van Dale)",
       "artBrief": "Een roze biggetje in het stro naast een grote zeug, warm zonlicht in de stal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet een jong varken?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "RSPB / natuurgids — levenscyclus van de kikker",
       "artBrief": "Een helder slootje met een tros doorzichtige eitjes waarin kleine zwarte stipjes zitten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waaruit komt een kikkervisje?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Natuurgids — metamorfose van vlinders",
       "artBrief": "Een rups op een blad, en vlak erboven dezelfde soort als vlinder met open vleugels.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat wordt een rups later?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "RSPB — nesting birds",
       "artBrief": "Een nest in een boomtak met drie jonge vogeltjes met opengesperde snavels.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar slaapt een jong vogeltje?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "RSPB — parental care in birds",
       "artBrief": "Een oudervogel met een worm in de snavel boven een nest vol jongen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie haalt bij veel vogels het eten voor de jongen?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Konrad Lorenz — imprinting in geese and ducks",
       "artBrief": "Een rij eendenkuikens die achter elkaar aan een moeder-eend over het water varen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom loopt een eendenkuiken achter zijn moeder aan?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Poultry science — chicken eggs hatch after about 21 days",
       "artBrief": "Een ei waar een kuiken uitkomt, met de schaal half gebroken, in warm licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang zit een kuiken in het ei voordat het uitkomt?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "National Geographic — crocodile parental care",
       "artBrief": "Een krokodil met een piepklein jong voorzichtig in haar bek, aan de waterkant.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een moederkrokodil met haar pasgeboren jongen?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "San Diego Zoo — giraffe calves drop about two metres",
       "artBrief": "Een pasgeboren giraffe die wankel opstaat naast zijn hoge moeder in de savanne.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe komt een jonge giraffe ter wereld?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Animal behaviour — play in juvenile mammals",
       "artBrief": "Twee jonge vossen die stoeien in het gras, met hun moeder die toekijkt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom stoeien jonge dieren zoveel?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "San Diego Zoo — kangaroo joeys leave the pouch at about six months",
       "artBrief": "Een kangoeroejong dat uit de buidel van zijn moeder kijkt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang blijft een kangoeroejong in de buidel?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "RSPB — cuckoos are brood parasites",
       "artBrief": "Een groot koekoeksjong in een klein nest naast twee veel kleinere vogeltjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vogel legt haar ei in het nest van een ander?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Song learning in songbirds (Marler)",
       "artBrief": "Een jonge zangvogel naast zijn vader op een tak, allebei met open snavel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe leert een jonge zangvogel zijn liedje?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Precocial young — foals stand within an hour",
       "artBrief": "Een pasgeboren veulen dat op wankele benen naast zijn moeder staat in de wei.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom staat een pasgeboren veulen al snel op?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "British Antarctic Survey — emperor penguin crèches",
       "artBrief": "Een dicht groepje grijze pinguïnkuikens bij elkaar op het ijs, met volwassen dieren eromheen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen keizerspinguïnkuikens als het stormt?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "NOAA — sea turtles lay about a hundred eggs per clutch",
       "artBrief": "Een zeeschildpad die 's nachts eieren legt in een kuil op het strand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel eieren legt een zeeschildpad per keer ongeveer?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "NOAA — hatchlings orient towards the brightest horizon",
       "artBrief": "Piepkleine schildpadjes die bij maanlicht over het strand naar de branding rennen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vinden pasgeboren zeeschildpadjes de zee?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "NOAA — blue whale calves weigh about 2500 kg at birth",
       "artBrief": "Een jonge blauwe vinvis naast zijn enorme moeder in helderblauw water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel weegt een pasgeboren blauwe vinvis?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Konrad Lorenz — Kindchenschema (baby schema)",
       "artBrief": "Drie babydieren naast elkaar met grote ogen en ronde koppen: een poesje, een uiltje en een puppy.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom hebben babydieren grote ogen en een rond kopje?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Marine mammal science — seal milk is about half fat",
       "artBrief": "Een zeehondenpup met dikke witte vacht naast zijn moeder op een rots.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier maakt de vetste melk voor zijn jong?",

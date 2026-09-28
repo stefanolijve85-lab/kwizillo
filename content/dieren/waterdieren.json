@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "NOAA — sharks",
       "artBrief": "Een haai die rustig door helder blauw water glijdt, met zijn rugvin in beeld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk zeedier heeft een vin op zijn rug en scherpe tanden?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "NOAA — jellyfish",
       "artBrief": "Een doorzichtige kwal met lange slierten die zacht door het water zweeft.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat drijft doorzichtig in zee en kan prikken?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "NOAA — sea stars have five arms",
       "artBrief": "Een oranje zeester op een rots onder water, van bovenaf gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel armen heeft een zeester meestal?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "NOAA — seahorses",
       "artBrief": "Een klein zeepaardje dat met zijn staart om een plantje gekruld zit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk zeedier lijkt op een klein paardje?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "NOAA — baleen whales feed on krill",
       "artBrief": "Een grote walvis met open bek die door een wolk kleine garnaaltjes zwemt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat eet een grote walvis vooral?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "NOAA — cetacean blowholes",
       "artBrief": "Een dolfijn die net boven water komt, met een fontein uit het gat op zijn kop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe ademt een dolfijn?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Cephalopod ink defence",
       "artBrief": "Een octopus die een wolk donkere inkt achterlaat en wegschiet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een octopus als hij schrikt?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Salmon home by smell (olfactory imprinting)",
       "artBrief": "Een zalm die tegen de stroom een riviertje in zwemt, met bergen op de achtergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vindt een zalm de rivier waar hij geboren is?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Whale shark — largest fish, up to 18 m",
       "artBrief": "Een enorme gevlekte haai met open bek naast een kleine duiker.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de grootste vis ter wereld?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Swim bladder in bony fish",
       "artBrief": "Een doorsnede van een vis waarin een luchtblaasje zichtbaar is.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor heeft een vis een zwemblaas?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Humpback whale song / odontocete clicks",
       "artBrief": "Twee walvissen in diep blauw water met geluidsgolven tussen hen in.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe praten walvissen met elkaar?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Clownfish and anemone mutualism",
       "artBrief": "Een oranje clownvis tussen de zachte tentakels van een zeeanemoon.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een clownvis in een zeeanemoon?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Deep-sea pigmentation: red is invisible at depth",
       "artBrief": "Een rode diepzeevis in bijna zwart water, nauwelijks te zien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zijn veel diepzeevissen rood of zwart?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Sea star regeneration",
       "artBrief": "Een zeester met vier gewone armen en een die duidelijk nog klein is.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk zeedier laat een verloren arm weer aangroeien?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Penguins fly through water with their wings",
       "artBrief": "Een pinguïn die als een torpedo onder water zwemt met vleugels als peddels.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat maakt een pinguïn onder water zo snel?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Greenland shark lifespan estimated 250-400 years",
       "artBrief": "Een grijze haai die langzaam door ijskoud, donker water zwemt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe oud kan een Groenlandse haai worden?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Haemocyanin makes octopus blood blue",
       "artBrief": "Een octopus in close-up met een blauwige gloed over zijn huid.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk zeedier heeft blauw bloed?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Ampullae of Lorenzini detect electric fields",
       "artBrief": "Een haai boven de zandbodem met fijne stippellijnen rond zijn snuit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vindt een haai prooi in troebel water?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Bioluminescence in the deep sea",
       "artBrief": "Een pikdonkere diepzee met kleine dieren die zelf blauwgroen oplichten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het licht dat diepzeedieren zelf maken?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Sperm whales dive for 60-90 minutes",
       "artBrief": "Een potvis die kaarsrecht omlaag duikt in het donkere diepe water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang kan een potvis onder water blijven?",
