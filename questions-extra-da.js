@@ -118,7 +118,7 @@
       lichaam: [
         ["Hvor mange knogler har et voksent menneske?","206",["100","350","500"],"En baby har flere.","Et voksent menneske har 206 knogler.","Babyer har cirka 300 knogler, der senere vokser sammen."],
         ["Hvilket organ renser dit blod og laver urin?","Nyrerne",["Lungerne","Leveren","Maven"],"Du har to af dem.","Nyrerne filtrerer affaldsstoffer fra dit blod.","De filtrerer cirka 180 liter blod hver dag."],
-        ["Hvad er kroppens største organ?","Huden",["Hjertet","Leveren","Hjernen"],"Det sidder udenpå.","Huden er kroppens største organ.","Hos en voksen vejer huden cirka 4 kilo."],
+        ["Hvor kommer sveden i din hud fra?","Fra små svedkirtler",["Fra hårene","Fra blodkarrene","Fra fedtlaget"],"De ligger dybt under huden.","Svedkirtler presser væske ud gennem en lille pore, og det køler dig af.","Din hud har millioner af dem, flest i hænder og fødder."],
         ["Hvor mange gange slår dit hjerte cirka på en dag?","Cirka 100.000 gange",["1.000 gange","10.000 gange","1 million gange"],"Cirka halvfjerds gange i minuttet.","Dit hjerte slår cirka hundrede tusind gange om dagen.","På et helt liv bliver det mere end 2,5 milliarder slag."],
         ["Hvilken del af blodet bekæmper sygdomme?","De hvide blodlegemer",["De røde blodlegemer","Blodpladerne","Plasmaet"],"Ikke de celler, der fragter ilt.","De hvide blodlegemer opsporer bakterier og rydder dem væk.","En dråbe blod indeholder tusindvis af hvide blodlegemer."],
         ["Hvilken muskel under lungerne trækker du vejret med?","Mellemgulvet",["Bicepsen","Lægmusklen","Mavemusklerne"],"Når den spænder, strømmer luften ind.","Mellemgulvet bevæger sig op og ned for at fylde og tømme lungerne.","Hikke er en krampe i mellemgulvet."],

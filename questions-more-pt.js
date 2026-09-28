@@ -363,6 +363,30 @@
         ['Que planeta foi calculado antes de ser visto?','Neptuno',['Urano','Saturno','Plutão'],'Os astrónomos viam algo a puxar Urano.','Em 1846 calcularam onde devia estar, e estava lá mesmo.','O telescópio encontrou-o nessa mesma noite, quase no ponto previsto.',4],
         ['Como se chama a casca de gelos à volta do sistema?','A nuvem de Oort',['A cintura de Kuiper','A cintura de asteroides','A Via Láctea'],'Tem o nome de um astrónomo neerlandês.','A nuvem de Oort é uma esfera de pedaços de gelo, para lá de tudo.','É de lá que vêm os cometas que passam uma vez em mil anos.',4]
       ]
+    },
+    wetenschap: {
+      lichaam: [
+        ['Quantos dedos tem normalmente uma mão?','Cinco',['Três','Sete','Dez'],'Conta-os.','Uma mão tem quatro dedos e um polegar, cinco ao todo.','Só o polegar consegue tocar em todos os outros dedos.',1],
+        ['Com que sentes que algo é doce?','Com a língua',['Com as orelhas','Com o cabelo','Com o cotovelo'],'Está na tua boca.','A língua tem milhares de pequenas papilas.','Sem o nariz sabes muito menos ao que comes; por isso tudo sabe a pouco com constipação.',1],
+        ['De que precisa o teu corpo todas as noites?','De dormir',['De desporto','De rebuçados','De barulho'],'Os olhos fecham-se sozinhos.','A dormir, o corpo repara-se e o cérebro arruma o dia.','As crianças crescem sobretudo de noite.',1],
+        ['Com que cheiras?','Com o nariz',['Com o joelho','Com a orelha','Com o calcanhar'],'Está no meio da cara.','No alto do nariz há células que levam os cheiros ao cérebro.','Uma pessoa distingue mais de mil cheiros diferentes.',1],
+        ['Onde fica o teu coração?','No peito',['No pé','Na mão','No joelho'],'Põe a mão em cima.','O coração fica entre os pulmões, um pouco à esquerda.','O teu coração é quase do tamanho do teu punho.',1],
+        ['Porque tens de beber todos os dias?','Perdes água sem parar',['A água faz-te crescer','A água limpa os dentes','A água fortalece o cabelo'],'Pensa no suor e no chichi.','Perdes água pelo suor, pelo chichi e até pela respiração, por isso repões.','Mais de metade do teu corpo é água.',2],
+        ['O que faz o estômago com a comida?','Amassa-a até virar papa',['Bombeia o sangue','Limpa o ar','Comanda os músculos'],'Aperta e mistura.','Os músculos da parede amassam a comida e o ácido desfá-la.','Vazio é do tamanho de um punho, mas estica imenso.',2],
+        ['O que acontece ao coração quando corres?','Bate mais depressa',['Para','Bate mais devagar','Não muda nada'],'Sente-o no pescoço.','Os músculos pedem mais oxigénio, por isso o coração bombeia mais rápido.','Depois do esforço o batimento desce aos poucos.',2],
+        ['Porque tens de lavar os dentes?','Contra as cáries',['Contra as dores de cabeça','Contra os espirros','Contra a tosse'],'As bactérias adoram açúcar.','As bactérias transformam o açúcar em ácido, e esse ácido come o dente.','O esmalte é o material mais duro de todo o corpo.',2],
+        ['O que faz o teu corpo quando tens frio?','Começas a tremer',['Começas a suar','Ficas mais alto','Começas a espirrar'],'Os músculos vibram depressa.','Tremer é contrair os músculos muito depressa, e isso produz calor.','A pele de galinha vem do tempo do pelo espesso.',2],
+        ['Quanto sangue tem mais ou menos um adulto?','Cerca de cinco litros',['Cerca de meio litro','Cerca de vinte litros','Cerca de cinquenta litros'],'Cinco pacotes de leite.','Um corpo adulto tem cerca de cinco litros de sangue.','Esse sangue dá todos os dias uma volta longa por todo o corpo.',3],
+        ['Qual é o osso mais pequeno do corpo?','O estribo',['O osso do nariz','Um osso do dedo','A costela menor'],'Está no ouvido.','O estribo, no ouvido médio, mede apenas alguns milímetros.','Com o martelo e a bigorna leva o som para dentro.',3],
+        ['Para que precisas de dois olhos?','Para ver a profundidade',['Para ver mais longe','Para ler mais depressa','Para poder piscar'],'Fecha um e tenta agarrar algo.','Cada olho vê de forma ligeiramente diferente, e o cérebro faz disso profundidade.','Por isso apanhar com um olho fechado é bem mais difícil.',3],
+        ['O que fazem os glóbulos vermelhos?','Transportam o oxigénio',['Fabricam ossos','Digerem a comida','Enviam sinais'],'Vão buscá-lo aos pulmões.','Os glóbulos vermelhos carregam oxigénio nos pulmões e entregam-no pelo corpo.','Uma gota de sangue tem milhões deles.',3],
+        ['A que velocidade viaja um sinal nervoso?','Mais de 400 km por hora',['Lento como um caracol','Rápido como uma bicicleta','Rápido como a luz'],'Mais do que um carro de corrida.','Os nervos mais rápidos transmitem a mais de cem metros por segundo.','Por isso afastas a mão antes de sentires a dor.',3],
+        ['Quantas vezes respiras por dia, mais ou menos?','Cerca de 20.000 vezes',['Cerca de 200 vezes','Cerca de 2.000 vezes','Cerca de 2 milhões de vezes'],'Cerca de quinze vezes por minuto.','Uma criança respira umas vinte mil vezes por dia sem pensar nisso.','Nunca tens de te lembrar: trata disso o tronco cerebral.',4],
+        ['Que órgão faz bílis para digerir a gordura?','O fígado',['Os pulmões','O baço','Os rins'],'Fica sob as costelas à direita.','O fígado faz bílis, que parte a gordura em gotinhas minúsculas.','O fígado é o único órgão capaz de voltar a crescer.',4],
+        ['Onde são feitas as novas células do sangue?','Na medula dos ossos',['No estômago','Na pele','No coração'],'Bem dentro dos teus ossos.','Na medula mole dos ossos nascem milhões de células por segundo.','Um glóbulo vermelho vive cerca de quatro meses.',4],
+        ['Como se chama o círculo preto que deixa entrar a luz?','A pupila',['A pálpebra','A sobrancelha','O canal lacrimal'],'Fica maior no escuro.','A pupila é a abertura por onde entra a luz; a íris regula o tamanho.','No escuro abre até três vezes mais.',4],
+        ['Porque não podes engolir e respirar ao mesmo tempo?','Uma tampa fecha a traqueia',['A língua é grande demais','Os pulmões param','O estômago empurra'],'Uma tampinha fecha-se.','Ao engolir, a epiglote dobra-se sobre a traqueia para a comida seguir o caminho certo.','Quando falha, vai pelo lado errado e tens de tossir.',4]
+      ]
     }
   };
 })();

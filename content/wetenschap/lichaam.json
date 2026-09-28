@@ -1,0 +1,2607 @@
+{
+  "world": "wetenschap",
+  "topic": "lichaam",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "wetenschap-lichaam-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vijf vingers per hand",
+      "artBrief": "Een open kinderhand van dichtbij, met alle vijf vingers goed zichtbaar.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel vingers heeft één hand meestal?",
+          "answer": "Vijf",
+          "wrong": [
+            "Drie",
+            "Zeven",
+            "Tien"
+          ],
+          "hint": "Tel maar na.",
+          "explanation": "Aan één hand zitten vier vingers en een duim, samen vijf.",
+          "fact": "De duim kan als enige de andere vingers aanraken."
+        },
+        "en": {
+          "prompt": "How many fingers does one hand usually have?",
+          "answer": "Five",
+          "wrong": [
+            "Three",
+            "Seven",
+            "Ten"
+          ],
+          "hint": "Go ahead and count.",
+          "explanation": "One hand has four fingers and a thumb, five in all.",
+          "fact": "The thumb is the only one that can touch all the others."
+        },
+        "de": {
+          "prompt": "Wie viele Finger hat eine Hand meistens?",
+          "answer": "Fünf",
+          "wrong": [
+            "Drei",
+            "Sieben",
+            "Zehn"
+          ],
+          "hint": "Zähl ruhig nach.",
+          "explanation": "An einer Hand sitzen vier Finger und ein Daumen, zusammen fünf.",
+          "fact": "Nur der Daumen kann alle anderen Finger berühren."
+        },
+        "fr": {
+          "prompt": "Combien de doigts a une main d'habitude ?",
+          "answer": "Cinq",
+          "wrong": [
+            "Trois",
+            "Sept",
+            "Dix"
+          ],
+          "hint": "Compte-les.",
+          "explanation": "Une main a quatre doigts et un pouce, cinq en tout.",
+          "fact": "Le pouce est le seul à pouvoir toucher tous les autres."
+        },
+        "es": {
+          "prompt": "¿Cuántos dedos tiene normalmente una mano?",
+          "answer": "Cinco",
+          "wrong": [
+            "Tres",
+            "Siete",
+            "Diez"
+          ],
+          "hint": "Cuéntalos.",
+          "explanation": "Una mano tiene cuatro dedos y un pulgar, cinco en total.",
+          "fact": "El pulgar es el único que puede tocar a todos los demás."
+        },
+        "it": {
+          "prompt": "Quante dita ha di solito una mano?",
+          "answer": "Cinque",
+          "wrong": [
+            "Tre",
+            "Sette",
+            "Dieci"
+          ],
+          "hint": "Contale pure.",
+          "explanation": "Una mano ha quattro dita e un pollice, cinque in tutto.",
+          "fact": "Solo il pollice riesce a toccare tutte le altre dita."
+        },
+        "pt": {
+          "prompt": "Quantos dedos tem normalmente uma mão?",
+          "answer": "Cinco",
+          "wrong": [
+            "Três",
+            "Sete",
+            "Dez"
+          ],
+          "hint": "Conta-os.",
+          "explanation": "Uma mão tem quatro dedos e um polegar, cinco ao todo.",
+          "fact": "Só o polegar consegue tocar em todos os outros dedos."
+        },
+        "da": {
+          "prompt": "Hvor mange fingre har en hånd som regel?",
+          "answer": "Fem",
+          "wrong": [
+            "Tre",
+            "Syv",
+            "Ti"
+          ],
+          "hint": "Tæl dem bare.",
+          "explanation": "En hånd har fire fingre og en tommel, fem i alt.",
+          "fact": "Kun tommelen kan røre alle de andre fingre."
+        },
+        "ru": {
+          "prompt": "Сколько пальцев обычно на одной руке?",
+          "answer": "Пять",
+          "wrong": [
+            "Три",
+            "Семь",
+            "Десять"
+          ],
+          "hint": "Посчитай сам.",
+          "explanation": "На руке четыре пальца и большой палец — всего пять.",
+          "fact": "Только большой палец может коснуться всех остальных."
+        },
+        "ar": {
+          "prompt": "كم إصبعًا في اليد الواحدة عادة؟",
+          "answer": "خمسة",
+          "wrong": [
+            "ثلاثة",
+            "سبعة",
+            "عشرة"
+          ],
+          "hint": "عدّها بنفسك.",
+          "explanation": "في اليد أربعة أصابع وإبهام، خمسة في المجموع.",
+          "fact": "الإبهام وحده يستطيع ملامسة كل الأصابع الأخرى."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Proeven met je tong",
+      "artBrief": "Een close-up van een tong met honing en citroen ernaast op een schaaltje.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee proef je of iets zoet is?",
+          "answer": "Met je tong",
+          "wrong": [
+            "Met je oren",
+            "Met je haar",
+            "Met je elleboog"
+          ],
+          "hint": "Het ligt in je mond.",
+          "explanation": "Op je tong zitten duizenden kleine smaakpapillen.",
+          "fact": "Zonder je neus proef je veel minder; daarom smaakt eten flauw bij verkoudheid."
+        },
+        "en": {
+          "prompt": "What do you taste sweetness with?",
+          "answer": "With your tongue",
+          "wrong": [
+            "With your ears",
+            "With your hair",
+            "With your elbow"
+          ],
+          "hint": "It sits in your mouth.",
+          "explanation": "Your tongue carries thousands of tiny taste buds.",
+          "fact": "Without your nose you taste much less, which is why food is dull with a cold."
+        },
+        "de": {
+          "prompt": "Womit schmeckst du, ob etwas süß ist?",
+          "answer": "Mit der Zunge",
+          "wrong": [
+            "Mit den Ohren",
+            "Mit den Haaren",
+            "Mit dem Ellbogen"
+          ],
+          "hint": "Sie liegt im Mund.",
+          "explanation": "Auf der Zunge sitzen Tausende winziger Geschmacksknospen.",
+          "fact": "Ohne Nase schmeckst du viel weniger, darum ist Essen bei Schnupfen fad."
+        },
+        "fr": {
+          "prompt": "Avec quoi goûtes-tu qu'une chose est sucrée ?",
+          "answer": "Avec la langue",
+          "wrong": [
+            "Avec les oreilles",
+            "Avec les cheveux",
+            "Avec le coude"
+          ],
+          "hint": "Elle est dans ta bouche.",
+          "explanation": "Ta langue porte des milliers de petites papilles.",
+          "fact": "Sans le nez on goûte beaucoup moins, d'où le repas fade quand on est enrhumé."
+        },
+        "es": {
+          "prompt": "¿Con qué notas que algo es dulce?",
+          "answer": "Con la lengua",
+          "wrong": [
+            "Con las orejas",
+            "Con el pelo",
+            "Con el codo"
+          ],
+          "hint": "Está en tu boca.",
+          "explanation": "La lengua tiene miles de papilas diminutas.",
+          "fact": "Sin la nariz saboreas mucho menos; por eso la comida sabe sosa con catarro."
+        },
+        "it": {
+          "prompt": "Con che cosa senti se una cosa è dolce?",
+          "answer": "Con la lingua",
+          "wrong": [
+            "Con le orecchie",
+            "Con i capelli",
+            "Con il gomito"
+          ],
+          "hint": "Sta nella bocca.",
+          "explanation": "Sulla lingua ci sono migliaia di piccole papille gustative.",
+          "fact": "Senza naso senti molto meno il sapore: per questo col raffreddore è insipido."
+        },
+        "pt": {
+          "prompt": "Com que sentes que algo é doce?",
+          "answer": "Com a língua",
+          "wrong": [
+            "Com as orelhas",
+            "Com o cabelo",
+            "Com o cotovelo"
+          ],
+          "hint": "Está na tua boca.",
+          "explanation": "A língua tem milhares de pequenas papilas.",
+          "fact": "Sem o nariz sabes muito menos ao que comes; por isso tudo sabe a pouco com constipação."
+        },
+        "da": {
+          "prompt": "Hvad smager du med, om noget er sødt?",
+          "answer": "Med tungen",
+          "wrong": [
+            "Med ørerne",
+            "Med håret",
+            "Med albuen"
+          ],
+          "hint": "Den ligger i munden.",
+          "explanation": "På tungen sidder tusindvis af små smagsløg.",
+          "fact": "Uden næsen smager du meget mindre, derfor smager mad fladt ved forkølelse."
+        },
+        "ru": {
+          "prompt": "Чем ты чувствуешь, что еда сладкая?",
+          "answer": "Языком",
+          "wrong": [
+            "Ушами",
+            "Волосами",
+            "Локтем"
+          ],
+          "hint": "Он у тебя во рту.",
+          "explanation": "На языке тысячи крошечных вкусовых сосочков.",
+          "fact": "Без носа вкус слабее — потому при насморке еда пресная."
+        },
+        "ar": {
+          "prompt": "بماذا تتذوق أن الشيء حلو؟",
+          "answer": "بلسانك",
+          "wrong": [
+            "بأذنيك",
+            "بشعرك",
+            "بمرفقك"
+          ],
+          "hint": "إنه في فمك.",
+          "explanation": "على لسانك آلاف الحليمات الذوقية الصغيرة.",
+          "fact": "بدون الأنف تتذوق أقل بكثير، ولهذا يصير الطعام باهتًا مع الزكام."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Slaap",
+      "artBrief": "Een kind dat rustig slaapt in bed bij zacht nachtlicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat heeft je lichaam elke nacht nodig?",
+          "answer": "Slaap",
+          "wrong": [
+            "Sport",
+            "Snoep",
+            "Lawaai"
+          ],
+          "hint": "Je ogen vallen er vanzelf van dicht.",
+          "explanation": "In je slaap herstelt je lichaam en ruimen je hersenen de dag op.",
+          "fact": "Kinderen groeien vooral 's nachts."
+        },
+        "en": {
+          "prompt": "What does your body need every night?",
+          "answer": "Sleep",
+          "wrong": [
+            "Sport",
+            "Sweets",
+            "Noise"
+          ],
+          "hint": "Your eyes close by themselves.",
+          "explanation": "While you sleep your body repairs itself and your brain tidies up the day.",
+          "fact": "Children grow mostly at night."
+        },
+        "de": {
+          "prompt": "Was braucht dein Körper jede Nacht?",
+          "answer": "Schlaf",
+          "wrong": [
+            "Sport",
+            "Süßigkeiten",
+            "Lärm"
+          ],
+          "hint": "Die Augen fallen von selbst zu.",
+          "explanation": "Im Schlaf repariert sich dein Körper und dein Gehirn räumt den Tag auf.",
+          "fact": "Kinder wachsen vor allem nachts."
+        },
+        "fr": {
+          "prompt": "De quoi ton corps a-t-il besoin chaque nuit ?",
+          "answer": "De sommeil",
+          "wrong": [
+            "De sport",
+            "De bonbons",
+            "De bruit"
+          ],
+          "hint": "Les yeux se ferment tout seuls.",
+          "explanation": "Pendant le sommeil ton corps se répare et ton cerveau range la journée.",
+          "fact": "Les enfants grandissent surtout la nuit."
+        },
+        "es": {
+          "prompt": "¿Qué necesita tu cuerpo cada noche?",
+          "answer": "Dormir",
+          "wrong": [
+            "Deporte",
+            "Caramelos",
+            "Ruido"
+          ],
+          "hint": "Los ojos se cierran solos.",
+          "explanation": "Mientras duermes tu cuerpo se repara y tu cerebro ordena el día.",
+          "fact": "Los niños crecen sobre todo de noche."
+        },
+        "it": {
+          "prompt": "Di che cosa ha bisogno il tuo corpo ogni notte?",
+          "answer": "Di sonno",
+          "wrong": [
+            "Di sport",
+            "Di caramelle",
+            "Di rumore"
+          ],
+          "hint": "Gli occhi si chiudono da soli.",
+          "explanation": "Nel sonno il corpo si ripara e il cervello mette in ordine la giornata.",
+          "fact": "I bambini crescono soprattutto di notte."
+        },
+        "pt": {
+          "prompt": "De que precisa o teu corpo todas as noites?",
+          "answer": "De dormir",
+          "wrong": [
+            "De desporto",
+            "De rebuçados",
+            "De barulho"
+          ],
+          "hint": "Os olhos fecham-se sozinhos.",
+          "explanation": "A dormir, o corpo repara-se e o cérebro arruma o dia.",
+          "fact": "As crianças crescem sobretudo de noite."
+        },
+        "da": {
+          "prompt": "Hvad har din krop brug for hver nat?",
+          "answer": "Søvn",
+          "wrong": [
+            "Sport",
+            "Slik",
+            "Larm"
+          ],
+          "hint": "Øjnene falder i af sig selv.",
+          "explanation": "I søvnen reparerer kroppen sig, og hjernen rydder op i dagen.",
+          "fact": "Børn vokser mest om natten."
+        },
+        "ru": {
+          "prompt": "Что нужно твоему телу каждую ночь?",
+          "answer": "Сон",
+          "wrong": [
+            "Спорт",
+            "Конфеты",
+            "Шум"
+          ],
+          "hint": "Глаза закрываются сами.",
+          "explanation": "Во сне тело восстанавливается, а мозг разбирает прошедший день.",
+          "fact": "Дети растут в основном ночью."
+        },
+        "ar": {
+          "prompt": "ماذا يحتاج جسمك كل ليلة؟",
+          "answer": "النوم",
+          "wrong": [
+            "الرياضة",
+            "الحلوى",
+            "الضجيج"
+          ],
+          "hint": "العينان تنغلقان وحدهما.",
+          "explanation": "في النوم يصلح الجسم نفسه ويرتب الدماغ يومك.",
+          "fact": "الأطفال ينمون في الليل أكثر."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Ruiken met je neus",
+      "artBrief": "Een kind dat aan een bloem ruikt, met zichtbare geurwolkjes.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee ruik je?",
+          "answer": "Met je neus",
+          "wrong": [
+            "Met je knie",
+            "Met je oor",
+            "Met je hiel"
+          ],
+          "hint": "Hij zit midden in je gezicht.",
+          "explanation": "Boven in je neus zitten cellen die geuren doorgeven aan je hersenen.",
+          "fact": "Een mens kan meer dan duizend verschillende geuren herkennen."
+        },
+        "en": {
+          "prompt": "What do you smell with?",
+          "answer": "With your nose",
+          "wrong": [
+            "With your knee",
+            "With your ear",
+            "With your heel"
+          ],
+          "hint": "It sits in the middle of your face.",
+          "explanation": "High up in your nose sit cells that pass smells to your brain.",
+          "fact": "People can tell apart more than a thousand different smells."
+        },
+        "de": {
+          "prompt": "Womit riechst du?",
+          "answer": "Mit der Nase",
+          "wrong": [
+            "Mit dem Knie",
+            "Mit dem Ohr",
+            "Mit der Ferse"
+          ],
+          "hint": "Sie sitzt mitten im Gesicht.",
+          "explanation": "Oben in der Nase sitzen Zellen, die Gerüche ans Gehirn weitergeben.",
+          "fact": "Ein Mensch erkennt mehr als tausend verschiedene Gerüche."
+        },
+        "fr": {
+          "prompt": "Avec quoi sens-tu les odeurs ?",
+          "answer": "Avec le nez",
+          "wrong": [
+            "Avec le genou",
+            "Avec l'oreille",
+            "Avec le talon"
+          ],
+          "hint": "Il est au milieu du visage.",
+          "explanation": "Tout en haut du nez, des cellules transmettent les odeurs au cerveau.",
+          "fact": "Un humain reconnaît plus de mille odeurs différentes."
+        },
+        "es": {
+          "prompt": "¿Con qué hueles?",
+          "answer": "Con la nariz",
+          "wrong": [
+            "Con la rodilla",
+            "Con la oreja",
+            "Con el talón"
+          ],
+          "hint": "Está en medio de la cara.",
+          "explanation": "Arriba en la nariz hay células que pasan los olores al cerebro.",
+          "fact": "Una persona distingue más de mil olores diferentes."
+        },
+        "it": {
+          "prompt": "Con che cosa senti gli odori?",
+          "answer": "Con il naso",
+          "wrong": [
+            "Con il ginocchio",
+            "Con l'orecchio",
+            "Con il tallone"
+          ],
+          "hint": "Sta in mezzo al viso.",
+          "explanation": "In alto nel naso ci sono cellule che portano gli odori al cervello.",
+          "fact": "Una persona riconosce più di mille odori diversi."
+        },
+        "pt": {
+          "prompt": "Com que cheiras?",
+          "answer": "Com o nariz",
+          "wrong": [
+            "Com o joelho",
+            "Com a orelha",
+            "Com o calcanhar"
+          ],
+          "hint": "Está no meio da cara.",
+          "explanation": "No alto do nariz há células que levam os cheiros ao cérebro.",
+          "fact": "Uma pessoa distingue mais de mil cheiros diferentes."
+        },
+        "da": {
+          "prompt": "Hvad lugter du med?",
+          "answer": "Med næsen",
+          "wrong": [
+            "Med knæet",
+            "Med øret",
+            "Med hælen"
+          ],
+          "hint": "Den sidder midt i ansigtet.",
+          "explanation": "Øverst i næsen sidder celler, der sender lugte videre til hjernen.",
+          "fact": "Et menneske kan kende mere end tusind forskellige lugte."
+        },
+        "ru": {
+          "prompt": "Чем ты нюхаешь?",
+          "answer": "Носом",
+          "wrong": [
+            "Коленом",
+            "Ухом",
+            "Пяткой"
+          ],
+          "hint": "Он посреди лица.",
+          "explanation": "Вверху носа есть клетки, которые передают запахи в мозг.",
+          "fact": "Человек различает больше тысячи разных запахов."
+        },
+        "ar": {
+          "prompt": "بماذا تشمّ؟",
+          "answer": "بأنفك",
+          "wrong": [
+            "بركبتك",
+            "بأذنك",
+            "بكعبك"
+          ],
+          "hint": "هو في وسط الوجه.",
+          "explanation": "في أعلى الأنف خلايا تنقل الروائح إلى الدماغ.",
+          "fact": "يميّز الإنسان أكثر من ألف رائحة مختلفة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het hart in je borst",
+      "artBrief": "Een silhouet van een kind met een gloeiend hart op de juiste plek in de borst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar in je lichaam zit je hart?",
+          "answer": "In je borst",
+          "wrong": [
+            "In je voet",
+            "In je hand",
+            "In je knie"
+          ],
+          "hint": "Leg je hand er maar op.",
+          "explanation": "Je hart ligt tussen je longen, iets naar links.",
+          "fact": "Je hart is ongeveer zo groot als je eigen vuist."
+        },
+        "en": {
+          "prompt": "Where in your body is your heart?",
+          "answer": "In your chest",
+          "wrong": [
+            "In your foot",
+            "In your hand",
+            "In your knee"
+          ],
+          "hint": "Put your hand on it.",
+          "explanation": "Your heart lies between your lungs, a little to the left.",
+          "fact": "Your heart is about the size of your own fist."
+        },
+        "de": {
+          "prompt": "Wo im Körper sitzt dein Herz?",
+          "answer": "In der Brust",
+          "wrong": [
+            "Im Fuß",
+            "In der Hand",
+            "Im Knie"
+          ],
+          "hint": "Leg die Hand darauf.",
+          "explanation": "Dein Herz liegt zwischen den Lungen, etwas nach links.",
+          "fact": "Dein Herz ist ungefähr so groß wie deine eigene Faust."
+        },
+        "fr": {
+          "prompt": "Où se trouve ton cœur dans le corps ?",
+          "answer": "Dans la poitrine",
+          "wrong": [
+            "Dans le pied",
+            "Dans la main",
+            "Dans le genou"
+          ],
+          "hint": "Pose ta main dessus.",
+          "explanation": "Ton cœur est entre les poumons, un peu à gauche.",
+          "fact": "Ton cœur est à peu près gros comme ton poing."
+        },
+        "es": {
+          "prompt": "¿Dónde está tu corazón?",
+          "answer": "En el pecho",
+          "wrong": [
+            "En el pie",
+            "En la mano",
+            "En la rodilla"
+          ],
+          "hint": "Pon la mano encima.",
+          "explanation": "Tu corazón está entre los pulmones, algo hacia la izquierda.",
+          "fact": "Tu corazón es más o menos del tamaño de tu puño."
+        },
+        "it": {
+          "prompt": "Dove si trova il tuo cuore?",
+          "answer": "Nel petto",
+          "wrong": [
+            "Nel piede",
+            "Nella mano",
+            "Nel ginocchio"
+          ],
+          "hint": "Appoggiaci la mano.",
+          "explanation": "Il cuore sta fra i polmoni, un po' verso sinistra.",
+          "fact": "Il tuo cuore è grande più o meno come il tuo pugno."
+        },
+        "pt": {
+          "prompt": "Onde fica o teu coração?",
+          "answer": "No peito",
+          "wrong": [
+            "No pé",
+            "Na mão",
+            "No joelho"
+          ],
+          "hint": "Põe a mão em cima.",
+          "explanation": "O coração fica entre os pulmões, um pouco à esquerda.",
+          "fact": "O teu coração é quase do tamanho do teu punho."
+        },
+        "da": {
+          "prompt": "Hvor i kroppen sidder dit hjerte?",
+          "answer": "I brystet",
+          "wrong": [
+            "I foden",
+            "I hånden",
+            "I knæet"
+          ],
+          "hint": "Læg hånden på.",
+          "explanation": "Dit hjerte ligger mellem lungerne, lidt til venstre.",
+          "fact": "Dit hjerte er cirka så stort som din egen knytnæve."
+        },
+        "ru": {
+          "prompt": "Где в теле находится сердце?",
+          "answer": "В груди",
+          "wrong": [
+            "В ступне",
+            "В ладони",
+            "В колене"
+          ],
+          "hint": "Приложи руку.",
+          "explanation": "Сердце лежит между лёгкими, чуть левее середины.",
+          "fact": "Сердце примерно размером с твой кулак."
+        },
+        "ar": {
+          "prompt": "أين يقع قلبك في جسمك؟",
+          "answer": "في الصدر",
+          "wrong": [
+            "في القدم",
+            "في اليد",
+            "في الركبة"
+          ],
+          "hint": "ضع يدك فوقه.",
+          "explanation": "القلب بين الرئتين، ومائل قليلًا إلى اليسار.",
+          "fact": "قلبك تقريبًا بحجم قبضة يدك."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Je verliest steeds water",
+      "artBrief": "Een glas water naast een bezweet kind na het sporten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom moet je elke dag drinken?",
+          "answer": "Je verliest steeds water",
+          "wrong": [
+            "Water maakt je langer",
+            "Water poetst je tanden",
+            "Water maakt je haar sterk"
+          ],
+          "hint": "Denk aan zweten en plassen.",
+          "explanation": "Je raakt water kwijt door zweet, plas en zelfs je adem, dus vul je het aan.",
+          "fact": "Meer dan de helft van je lichaam bestaat uit water."
+        },
+        "en": {
+          "prompt": "Why do you have to drink every day?",
+          "answer": "You keep losing water",
+          "wrong": [
+            "Water makes you taller",
+            "Water cleans your teeth",
+            "Water makes hair strong"
+          ],
+          "hint": "Think of sweating and weeing.",
+          "explanation": "You lose water through sweat, wee and even your breath, so you top it up.",
+          "fact": "More than half of your body is water."
+        },
+        "de": {
+          "prompt": "Warum musst du jeden Tag trinken?",
+          "answer": "Du verlierst ständig Wasser",
+          "wrong": [
+            "Wasser macht größer",
+            "Wasser putzt die Zähne",
+            "Wasser stärkt die Haare"
+          ],
+          "hint": "Denk an Schwitzen und Pinkeln.",
+          "explanation": "Du verlierst Wasser durch Schweiß, Pipi und sogar den Atem, also füllst du auf.",
+          "fact": "Mehr als die Hälfte deines Körpers ist Wasser."
+        },
+        "fr": {
+          "prompt": "Pourquoi faut-il boire tous les jours ?",
+          "answer": "Tu perds sans cesse de l'eau",
+          "wrong": [
+            "L'eau fait grandir",
+            "L'eau lave les dents",
+            "L'eau renforce les cheveux"
+          ],
+          "hint": "Pense à la sueur et au pipi.",
+          "explanation": "Tu perds de l'eau par la sueur, le pipi et même le souffle, donc tu la remplaces.",
+          "fact": "Plus de la moitié de ton corps est faite d'eau."
+        },
+        "es": {
+          "prompt": "¿Por qué hay que beber todos los días?",
+          "answer": "Pierdes agua sin parar",
+          "wrong": [
+            "El agua te hace más alto",
+            "El agua limpia los dientes",
+            "El agua fortalece el pelo"
+          ],
+          "hint": "Piensa en sudar y hacer pis.",
+          "explanation": "Pierdes agua al sudar, al orinar e incluso al respirar, así que la repones.",
+          "fact": "Más de la mitad de tu cuerpo es agua."
+        },
+        "it": {
+          "prompt": "Perché devi bere ogni giorno?",
+          "answer": "Perdi acqua di continuo",
+          "wrong": [
+            "L'acqua ti fa più alto",
+            "L'acqua pulisce i denti",
+            "L'acqua rinforza i capelli"
+          ],
+          "hint": "Pensa al sudore e alla pipì.",
+          "explanation": "Perdi acqua con il sudore, la pipì e perfino il respiro, quindi la ricarichi.",
+          "fact": "Più della metà del tuo corpo è acqua."
+        },
+        "pt": {
+          "prompt": "Porque tens de beber todos os dias?",
+          "answer": "Perdes água sem parar",
+          "wrong": [
+            "A água faz-te crescer",
+            "A água limpa os dentes",
+            "A água fortalece o cabelo"
+          ],
+          "hint": "Pensa no suor e no chichi.",
+          "explanation": "Perdes água pelo suor, pelo chichi e até pela respiração, por isso repões.",
+          "fact": "Mais de metade do teu corpo é água."
+        },
+        "da": {
+          "prompt": "Hvorfor skal du drikke hver dag?",
+          "answer": "Du mister hele tiden vand",
+          "wrong": [
+            "Vand gør dig højere",
+            "Vand pudser tænder",
+            "Vand styrker håret"
+          ],
+          "hint": "Tænk på sved og tis.",
+          "explanation": "Du mister vand gennem sved, tis og endda din ånde, så du fylder op.",
+          "fact": "Mere end halvdelen af din krop er vand."
+        },
+        "ru": {
+          "prompt": "Почему нужно пить каждый день?",
+          "answer": "Ты всё время теряешь воду",
+          "wrong": [
+            "Вода делает выше",
+            "Вода чистит зубы",
+            "Вода укрепляет волосы"
+          ],
+          "hint": "Вспомни про пот и туалет.",
+          "explanation": "Вода уходит с потом, мочой и даже дыханием, поэтому её надо восполнять.",
+          "fact": "Больше половины твоего тела — вода."
+        },
+        "ar": {
+          "prompt": "لماذا يجب أن تشرب كل يوم؟",
+          "answer": "تفقد الماء باستمرار",
+          "wrong": [
+            "الماء يزيد الطول",
+            "الماء ينظف الأسنان",
+            "الماء يقوّي الشعر"
+          ],
+          "hint": "فكّر في العرق والتبوّل.",
+          "explanation": "تفقد الماء بالعرق والبول وحتى بالتنفس، لذلك تعوّضه.",
+          "fact": "أكثر من نصف جسمك ماء."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De maag kneedt eten",
+      "artBrief": "Een doorsnede van een maag die voedsel tot brij kneedt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet je maag met het eten?",
+          "answer": "Ze kneedt eten tot brij",
+          "wrong": [
+            "Ze pompt bloed rond",
+            "Ze maakt lucht schoon",
+            "Ze stuurt je spieren"
+          ],
+          "hint": "Ze knijpt en mengt.",
+          "explanation": "Spieren in de maagwand kneden het eten en zuur maakt het fijn.",
+          "fact": "Je maag is leeg zo groot als een vuist, maar rekt flink uit."
+        },
+        "en": {
+          "prompt": "What does your stomach do with food?",
+          "answer": "It kneads food into mush",
+          "wrong": [
+            "It pumps blood around",
+            "It cleans the air",
+            "It steers your muscles"
+          ],
+          "hint": "It squeezes and mixes.",
+          "explanation": "Muscles in the stomach wall knead the food while acid breaks it down.",
+          "fact": "Empty, your stomach is fist-sized, but it stretches a lot."
+        },
+        "de": {
+          "prompt": "Was macht dein Magen mit dem Essen?",
+          "answer": "Er knetet es zu Brei",
+          "wrong": [
+            "Er pumpt Blut herum",
+            "Er reinigt die Luft",
+            "Er steuert die Muskeln"
+          ],
+          "hint": "Er drückt und mischt.",
+          "explanation": "Muskeln in der Magenwand kneten das Essen, und Säure zersetzt es.",
+          "fact": "Leer ist der Magen faustgroß, aber er dehnt sich stark."
+        },
+        "fr": {
+          "prompt": "Que fait ton estomac avec la nourriture ?",
+          "answer": "Il la pétrit en bouillie",
+          "wrong": [
+            "Il pompe le sang",
+            "Il nettoie l'air",
+            "Il dirige les muscles"
+          ],
+          "hint": "Il presse et mélange.",
+          "explanation": "Des muscles de la paroi pétrissent la nourriture et l'acide la décompose.",
+          "fact": "Vide, l'estomac fait la taille d'un poing, mais il s'étire beaucoup."
+        },
+        "es": {
+          "prompt": "¿Qué hace tu estómago con la comida?",
+          "answer": "La amasa hasta hacer papilla",
+          "wrong": [
+            "Bombea la sangre",
+            "Limpia el aire",
+            "Dirige los músculos"
+          ],
+          "hint": "Aprieta y mezcla.",
+          "explanation": "Los músculos de la pared amasan la comida y el ácido la deshace.",
+          "fact": "Vacío es como un puño, pero se estira muchísimo."
+        },
+        "it": {
+          "prompt": "Che cosa fa lo stomaco con il cibo?",
+          "answer": "Lo impasta in poltiglia",
+          "wrong": [
+            "Pompa il sangue",
+            "Pulisce l'aria",
+            "Guida i muscoli"
+          ],
+          "hint": "Preme e mescola.",
+          "explanation": "I muscoli della parete impastano il cibo e l'acido lo scompone.",
+          "fact": "Vuoto è grande come un pugno, ma si allarga moltissimo."
+        },
+        "pt": {
+          "prompt": "O que faz o estômago com a comida?",
+          "answer": "Amassa-a até virar papa",
+          "wrong": [
+            "Bombeia o sangue",
+            "Limpa o ar",
+            "Comanda os músculos"
+          ],
+          "hint": "Aperta e mistura.",
+          "explanation": "Os músculos da parede amassam a comida e o ácido desfá-la.",
+          "fact": "Vazio é do tamanho de um punho, mas estica imenso."
+        },
+        "da": {
+          "prompt": "Hvad gør maven ved maden?",
+          "answer": "Den ælter den til grød",
+          "wrong": [
+            "Den pumper blod rundt",
+            "Den renser luft",
+            "Den styrer musklerne"
+          ],
+          "hint": "Den klemmer og blander.",
+          "explanation": "Muskler i mavevæggen ælter maden, og syre bryder den ned.",
+          "fact": "Tom er maven på størrelse med en knytnæve, men den udvider sig meget."
+        },
+        "ru": {
+          "prompt": "Что желудок делает с едой?",
+          "answer": "Разминает её в кашицу",
+          "wrong": [
+            "Качает кровь",
+            "Очищает воздух",
+            "Управляет мышцами"
+          ],
+          "hint": "Он сжимает и смешивает.",
+          "explanation": "Мышцы стенки разминают еду, а кислота расщепляет её.",
+          "fact": "Пустой желудок размером с кулак, но сильно растягивается."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل معدتك بالطعام؟",
+          "answer": "تعجنه حتى يصير هريسًا",
+          "wrong": [
+            "تضخ الدم",
+            "تنظّف الهواء",
+            "توجّه العضلات"
+          ],
+          "hint": "تضغط وتخلط.",
+          "explanation": "عضلات جدار المعدة تعجن الطعام والحمض يفككه.",
+          "fact": "المعدة الفارغة بحجم قبضة، لكنها تتمدد كثيرًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Hartslag tijdens inspanning",
+      "artBrief": "Een rennend kind met een hartslaglijn die sneller gaat.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met je hartslag als je rent?",
+          "answer": "Hij gaat sneller",
+          "wrong": [
+            "Hij stopt",
+            "Hij gaat langzamer",
+            "Er verandert niets"
+          ],
+          "hint": "Voel maar in je hals.",
+          "explanation": "Je spieren vragen meer zuurstof, dus je hart pompt sneller.",
+          "fact": "Na het sporten zakt je hartslag stap voor stap weer."
+        },
+        "en": {
+          "prompt": "What happens to your heartbeat when you run?",
+          "answer": "It gets faster",
+          "wrong": [
+            "It stops",
+            "It gets slower",
+            "Nothing changes"
+          ],
+          "hint": "Feel it in your neck.",
+          "explanation": "Your muscles want more oxygen, so your heart pumps faster.",
+          "fact": "After exercise your heartbeat drops back step by step."
+        },
+        "de": {
+          "prompt": "Was passiert mit deinem Herzschlag beim Rennen?",
+          "answer": "Er wird schneller",
+          "wrong": [
+            "Er hört auf",
+            "Er wird langsamer",
+            "Es ändert sich nichts"
+          ],
+          "hint": "Fühl mal am Hals.",
+          "explanation": "Deine Muskeln brauchen mehr Sauerstoff, also pumpt das Herz schneller.",
+          "fact": "Nach dem Sport sinkt der Herzschlag Schritt für Schritt wieder."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à ton cœur quand tu cours ?",
+          "answer": "Il bat plus vite",
+          "wrong": [
+            "Il s'arrête",
+            "Il bat plus lentement",
+            "Rien ne change"
+          ],
+          "hint": "Sens-le dans ton cou.",
+          "explanation": "Tes muscles réclament plus d'oxygène, donc le cœur pompe plus vite.",
+          "fact": "Après le sport, le rythme redescend petit à petit."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa a tu corazón cuando corres?",
+          "answer": "Late más deprisa",
+          "wrong": [
+            "Se para",
+            "Late más despacio",
+            "No cambia nada"
+          ],
+          "hint": "Nótalo en el cuello.",
+          "explanation": "Tus músculos piden más oxígeno, así que el corazón bombea más rápido.",
+          "fact": "Tras el ejercicio el pulso baja poco a poco."
+        },
+        "it": {
+          "prompt": "Che cosa succede al cuore quando corri?",
+          "answer": "Batte più in fretta",
+          "wrong": [
+            "Si ferma",
+            "Batte più piano",
+            "Non cambia nulla"
+          ],
+          "hint": "Sentilo sul collo.",
+          "explanation": "I muscoli chiedono più ossigeno, così il cuore pompa più veloce.",
+          "fact": "Dopo lo sport il battito scende poco a poco."
+        },
+        "pt": {
+          "prompt": "O que acontece ao coração quando corres?",
+          "answer": "Bate mais depressa",
+          "wrong": [
+            "Para",
+            "Bate mais devagar",
+            "Não muda nada"
+          ],
+          "hint": "Sente-o no pescoço.",
+          "explanation": "Os músculos pedem mais oxigénio, por isso o coração bombeia mais rápido.",
+          "fact": "Depois do esforço o batimento desce aos poucos."
+        },
+        "da": {
+          "prompt": "Hvad sker der med hjerteslaget, når du løber?",
+          "answer": "Det bliver hurtigere",
+          "wrong": [
+            "Det stopper",
+            "Det bliver langsommere",
+            "Der sker ingenting"
+          ],
+          "hint": "Mærk efter på halsen.",
+          "explanation": "Dine muskler vil have mere ilt, så hjertet pumper hurtigere.",
+          "fact": "Efter træning falder pulsen langsomt igen."
+        },
+        "ru": {
+          "prompt": "Что происходит с сердцем, когда ты бежишь?",
+          "answer": "Оно бьётся быстрее",
+          "wrong": [
+            "Оно останавливается",
+            "Оно бьётся медленнее",
+            "Ничего не меняется"
+          ],
+          "hint": "Пощупай на шее.",
+          "explanation": "Мышцам нужно больше кислорода, поэтому сердце качает быстрее.",
+          "fact": "После нагрузки пульс постепенно снижается."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لنبض قلبك عندما تركض؟",
+          "answer": "يصير أسرع",
+          "wrong": [
+            "يتوقف",
+            "يصير أبطأ",
+            "لا يتغير شيء"
+          ],
+          "hint": "تحسّسه في رقبتك.",
+          "explanation": "عضلاتك تطلب أكسجينًا أكثر، فيضخ القلب أسرع.",
+          "fact": "بعد الرياضة يهبط النبض تدريجيًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Tandenpoetsen tegen gaatjes",
+      "artBrief": "Een tandenborstel met tandpasta voor een rij glanzende tanden.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom moet je je tanden poetsen?",
+          "answer": "Tegen gaatjes",
+          "wrong": [
+            "Tegen hoofdpijn",
+            "Tegen niezen",
+            "Tegen kriebelhoest"
+          ],
+          "hint": "Bacteriën houden van suiker.",
+          "explanation": "Bacteriën maken zuur van suikerresten, en dat zuur vreet aan je tanden.",
+          "fact": "Tandglazuur is het hardste materiaal van je hele lichaam."
+        },
+        "en": {
+          "prompt": "Why do you have to brush your teeth?",
+          "answer": "Against holes in them",
+          "wrong": [
+            "Against headaches",
+            "Against sneezing",
+            "Against a tickly cough"
+          ],
+          "hint": "Bacteria love sugar.",
+          "explanation": "Bacteria turn leftover sugar into acid, and that acid eats into your teeth.",
+          "fact": "Tooth enamel is the hardest material in your whole body."
+        },
+        "de": {
+          "prompt": "Warum musst du die Zähne putzen?",
+          "answer": "Gegen Löcher darin",
+          "wrong": [
+            "Gegen Kopfweh",
+            "Gegen Niesen",
+            "Gegen Kitzelhusten"
+          ],
+          "hint": "Bakterien mögen Zucker.",
+          "explanation": "Bakterien machen aus Zuckerresten Säure, und die frisst an den Zähnen.",
+          "fact": "Zahnschmelz ist das härteste Material deines Körpers."
+        },
+        "fr": {
+          "prompt": "Pourquoi faut-il se brosser les dents ?",
+          "answer": "Contre les caries",
+          "wrong": [
+            "Contre le mal de tête",
+            "Contre les éternuements",
+            "Contre la toux"
+          ],
+          "hint": "Les bactéries aiment le sucre.",
+          "explanation": "Les bactéries transforment le sucre en acide, et cet acide ronge les dents.",
+          "fact": "L'émail est la matière la plus dure de tout ton corps."
+        },
+        "es": {
+          "prompt": "¿Por qué hay que cepillarse los dientes?",
+          "answer": "Contra las caries",
+          "wrong": [
+            "Contra el dolor de cabeza",
+            "Contra los estornudos",
+            "Contra la tos"
+          ],
+          "hint": "A las bacterias les gusta el azúcar.",
+          "explanation": "Las bacterias convierten el azúcar en ácido, y ese ácido come el diente.",
+          "fact": "El esmalte es el material más duro de todo tu cuerpo."
+        },
+        "it": {
+          "prompt": "Perché bisogna lavarsi i denti?",
+          "answer": "Contro le carie",
+          "wrong": [
+            "Contro il mal di testa",
+            "Contro gli starnuti",
+            "Contro la tosse"
+          ],
+          "hint": "Ai batteri piace lo zucchero.",
+          "explanation": "I batteri trasformano lo zucchero in acido, e l'acido rovina il dente.",
+          "fact": "Lo smalto è il materiale più duro di tutto il corpo."
+        },
+        "pt": {
+          "prompt": "Porque tens de lavar os dentes?",
+          "answer": "Contra as cáries",
+          "wrong": [
+            "Contra as dores de cabeça",
+            "Contra os espirros",
+            "Contra a tosse"
+          ],
+          "hint": "As bactérias adoram açúcar.",
+          "explanation": "As bactérias transformam o açúcar em ácido, e esse ácido come o dente.",
+          "fact": "O esmalte é o material mais duro de todo o corpo."
+        },
+        "da": {
+          "prompt": "Hvorfor skal du børste tænder?",
+          "answer": "Mod huller i dem",
+          "wrong": [
+            "Mod hovedpine",
+            "Mod nysen",
+            "Mod kildehoste"
+          ],
+          "hint": "Bakterier elsker sukker.",
+          "explanation": "Bakterier laver syre af sukkerrester, og den syre æder i tænderne.",
+          "fact": "Tandemaljen er det hårdeste materiale i hele kroppen."
+        },
+        "ru": {
+          "prompt": "Зачем чистить зубы?",
+          "answer": "Чтобы не было дырок",
+          "wrong": [
+            "От головной боли",
+            "От чихания",
+            "От щекотного кашля"
+          ],
+          "hint": "Бактерии любят сахар.",
+          "explanation": "Бактерии делают из остатков сахара кислоту, и она разъедает зуб.",
+          "fact": "Эмаль — самый твёрдый материал в твоём теле."
+        },
+        "ar": {
+          "prompt": "لماذا يجب تنظيف الأسنان؟",
+          "answer": "ضد التسوّس",
+          "wrong": [
+            "ضد الصداع",
+            "ضد العطاس",
+            "ضد السعال"
+          ],
+          "hint": "البكتيريا تحب السكر.",
+          "explanation": "البكتيريا تحوّل بقايا السكر إلى حمض، والحمض ينخر السن.",
+          "fact": "مينا الأسنان أصلب مادة في جسمك كله."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Rillen bij kou",
+      "artBrief": "Een kind in de kou met een dikke jas, ademwolkjes zichtbaar.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet je lichaam als je het koud hebt?",
+          "answer": "Je gaat rillen",
+          "wrong": [
+            "Je gaat zweten",
+            "Je wordt langer",
+            "Je gaat niezen"
+          ],
+          "hint": "Je spieren trillen snel.",
+          "explanation": "Rillen is snel samentrekken van spieren, en dat maakt warmte.",
+          "fact": "Kippenvel is een restje van vroeger, toen dikke vacht overeind ging staan."
+        },
+        "en": {
+          "prompt": "What does your body do when you are cold?",
+          "answer": "You start shivering",
+          "wrong": [
+            "You start sweating",
+            "You get taller",
+            "You start sneezing"
+          ],
+          "hint": "Your muscles tremble fast.",
+          "explanation": "Shivering is muscles tightening fast, and that makes heat.",
+          "fact": "Goosebumps are left over from when thick fur stood up."
+        },
+        "de": {
+          "prompt": "Was macht dein Körper, wenn dir kalt ist?",
+          "answer": "Du fängst an zu zittern",
+          "wrong": [
+            "Du fängst an zu schwitzen",
+            "Du wirst größer",
+            "Du fängst an zu niesen"
+          ],
+          "hint": "Deine Muskeln zittern schnell.",
+          "explanation": "Zittern ist schnelles Anspannen der Muskeln, und das erzeugt Wärme.",
+          "fact": "Gänsehaut ist ein Rest aus der Zeit mit dickem Fell."
+        },
+        "fr": {
+          "prompt": "Que fait ton corps quand tu as froid ?",
+          "answer": "Tu te mets à frissonner",
+          "wrong": [
+            "Tu te mets à transpirer",
+            "Tu grandis",
+            "Tu te mets à éternuer"
+          ],
+          "hint": "Tes muscles tremblent vite.",
+          "explanation": "Frissonner, c'est contracter vite les muscles, et cela produit de la chaleur.",
+          "fact": "La chair de poule est un reste du temps des fourrures épaisses."
+        },
+        "es": {
+          "prompt": "¿Qué hace tu cuerpo cuando tienes frío?",
+          "answer": "Empiezas a tiritar",
+          "wrong": [
+            "Empiezas a sudar",
+            "Te haces más alto",
+            "Empiezas a estornudar"
+          ],
+          "hint": "Los músculos tiemblan rápido.",
+          "explanation": "Tiritar es apretar los músculos muy deprisa, y eso genera calor.",
+          "fact": "La piel de gallina viene de cuando teníamos pelo espeso."
+        },
+        "it": {
+          "prompt": "Che cosa fa il corpo quando hai freddo?",
+          "answer": "Cominci a tremare",
+          "wrong": [
+            "Cominci a sudare",
+            "Diventi più alto",
+            "Cominci a starnutire"
+          ],
+          "hint": "I muscoli vibrano in fretta.",
+          "explanation": "Tremare è contrarre i muscoli molto in fretta, e questo produce calore.",
+          "fact": "La pelle d'oca è un ricordo dei tempi della pelliccia folta."
+        },
+        "pt": {
+          "prompt": "O que faz o teu corpo quando tens frio?",
+          "answer": "Começas a tremer",
+          "wrong": [
+            "Começas a suar",
+            "Ficas mais alto",
+            "Começas a espirrar"
+          ],
+          "hint": "Os músculos vibram depressa.",
+          "explanation": "Tremer é contrair os músculos muito depressa, e isso produz calor.",
+          "fact": "A pele de galinha vem do tempo do pelo espesso."
+        },
+        "da": {
+          "prompt": "Hvad gør kroppen, når du fryser?",
+          "answer": "Du begynder at ryste",
+          "wrong": [
+            "Du begynder at svede",
+            "Du bliver højere",
+            "Du begynder at nyse"
+          ],
+          "hint": "Musklerne ryster hurtigt.",
+          "explanation": "At ryste er muskler, der spænder hurtigt, og det giver varme.",
+          "fact": "Gåsehud er en rest fra dengang tyk pels rejste sig."
+        },
+        "ru": {
+          "prompt": "Что делает тело, когда тебе холодно?",
+          "answer": "Ты начинаешь дрожать",
+          "wrong": [
+            "Ты начинаешь потеть",
+            "Ты становишься выше",
+            "Ты начинаешь чихать"
+          ],
+          "hint": "Мышцы быстро трясутся.",
+          "explanation": "Дрожь — это быстрые сокращения мышц, и от них идёт тепло.",
+          "fact": "Гусиная кожа осталась с тех времён, когда шерсть вставала дыбом."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل جسمك حين تشعر بالبرد؟",
+          "answer": "تبدأ بالارتجاف",
+          "wrong": [
+            "تبدأ بالتعرّق",
+            "تصير أطول",
+            "تبدأ بالعطاس"
+          ],
+          "hint": "العضلات ترتجف بسرعة.",
+          "explanation": "الارتجاف هو انقباض سريع للعضلات، وهذا يولّد حرارة.",
+          "fact": "قشعريرة الجلد بقية من زمن الفراء الكثيف."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Ongeveer vijf liter bloed",
+      "artBrief": "Vijf gevulde flessen van een liter naast een silhouet van een mens.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel bloed heeft een volwassene ongeveer?",
+          "answer": "Ongeveer vijf liter",
+          "wrong": [
+            "Ongeveer een halve liter",
+            "Ongeveer twintig liter",
+            "Ongeveer vijftig liter"
+          ],
+          "hint": "Vijf pakken melk.",
+          "explanation": "In een volwassen lichaam zit ongeveer vijf liter bloed.",
+          "fact": "Dat bloed legt elke dag een lange ronde door je hele lichaam af."
+        },
+        "en": {
+          "prompt": "About how much blood does an adult have?",
+          "answer": "About five litres",
+          "wrong": [
+            "About half a litre",
+            "About twenty litres",
+            "About fifty litres"
+          ],
+          "hint": "Five cartons of milk.",
+          "explanation": "An adult body holds around five litres of blood.",
+          "fact": "That blood travels a long loop through your whole body every day."
+        },
+        "de": {
+          "prompt": "Wie viel Blut hat ein Erwachsener etwa?",
+          "answer": "Etwa fünf Liter",
+          "wrong": [
+            "Etwa einen halben Liter",
+            "Etwa zwanzig Liter",
+            "Etwa fünfzig Liter"
+          ],
+          "hint": "Fünf Tüten Milch.",
+          "explanation": "In einem erwachsenen Körper stecken rund fünf Liter Blut.",
+          "fact": "Dieses Blut dreht jeden Tag eine lange Runde durch den ganzen Körper."
+        },
+        "fr": {
+          "prompt": "Quelle quantité de sang a un adulte environ ?",
+          "answer": "Environ cinq litres",
+          "wrong": [
+            "Environ un demi-litre",
+            "Environ vingt litres",
+            "Environ cinquante litres"
+          ],
+          "hint": "Cinq briques de lait.",
+          "explanation": "Un corps adulte contient à peu près cinq litres de sang.",
+          "fact": "Ce sang fait chaque jour un long tour de tout le corps."
+        },
+        "es": {
+          "prompt": "¿Cuánta sangre tiene un adulto más o menos?",
+          "answer": "Unos cinco litros",
+          "wrong": [
+            "Medio litro",
+            "Unos veinte litros",
+            "Unos cincuenta litros"
+          ],
+          "hint": "Cinco cartones de leche.",
+          "explanation": "Un cuerpo adulto contiene unos cinco litros de sangre.",
+          "fact": "Esa sangre da cada día una vuelta larga por todo el cuerpo."
+        },
+        "it": {
+          "prompt": "Quanto sangue ha più o meno un adulto?",
+          "answer": "Circa cinque litri",
+          "wrong": [
+            "Circa mezzo litro",
+            "Circa venti litri",
+            "Circa cinquanta litri"
+          ],
+          "hint": "Cinque cartoni di latte.",
+          "explanation": "Un corpo adulto contiene circa cinque litri di sangue.",
+          "fact": "Quel sangue compie ogni giorno un lungo giro per tutto il corpo."
+        },
+        "pt": {
+          "prompt": "Quanto sangue tem mais ou menos um adulto?",
+          "answer": "Cerca de cinco litros",
+          "wrong": [
+            "Cerca de meio litro",
+            "Cerca de vinte litros",
+            "Cerca de cinquenta litros"
+          ],
+          "hint": "Cinco pacotes de leite.",
+          "explanation": "Um corpo adulto tem cerca de cinco litros de sangue.",
+          "fact": "Esse sangue dá todos os dias uma volta longa por todo o corpo."
+        },
+        "da": {
+          "prompt": "Hvor meget blod har en voksen cirka?",
+          "answer": "Omkring fem liter",
+          "wrong": [
+            "Omkring en halv liter",
+            "Omkring tyve liter",
+            "Omkring halvtreds liter"
+          ],
+          "hint": "Fem kartoner mælk.",
+          "explanation": "En voksen krop rummer omkring fem liter blod.",
+          "fact": "Det blod tager hver dag en lang tur rundt i hele kroppen."
+        },
+        "ru": {
+          "prompt": "Сколько крови примерно у взрослого?",
+          "answer": "Около пяти литров",
+          "wrong": [
+            "Около полулитра",
+            "Около двадцати литров",
+            "Около пятидесяти литров"
+          ],
+          "hint": "Пять пакетов молока.",
+          "explanation": "В теле взрослого около пяти литров крови.",
+          "fact": "Эта кровь каждый день проходит длинный круг по всему телу."
+        },
+        "ar": {
+          "prompt": "كم لتر دم تقريبًا عند الشخص البالغ؟",
+          "answer": "نحو خمسة لترات",
+          "wrong": [
+            "نحو نصف لتر",
+            "نحو عشرين لترًا",
+            "نحو خمسين لترًا"
+          ],
+          "hint": "خمس علب حليب.",
+          "explanation": "في جسم البالغ نحو خمسة لترات من الدم.",
+          "fact": "هذا الدم يدور كل يوم دورة طويلة في الجسم كله."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het stijgbeugeltje",
+      "artBrief": "Een enorm uitvergroot gehoorbeentje naast een muntje ter vergelijking.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk bot is het kleinste van je lichaam?",
+          "answer": "Het stijgbeugeltje",
+          "wrong": [
+            "Het neusbeen",
+            "Een vingerkootje",
+            "De kleinste rib"
+          ],
+          "hint": "Het zit in je oor.",
+          "explanation": "Het stijgbeugeltje in je middenoor is maar een paar millimeter groot.",
+          "fact": "Samen met hamer en aambeeld geeft het geluid door naar binnen."
+        },
+        "en": {
+          "prompt": "Which is the smallest bone in your body?",
+          "answer": "The stirrup bone",
+          "wrong": [
+            "The nose bone",
+            "A finger bone",
+            "The smallest rib"
+          ],
+          "hint": "It sits in your ear.",
+          "explanation": "The stirrup in your middle ear is only a few millimetres long.",
+          "fact": "With the hammer and anvil it passes sound further inside."
+        },
+        "de": {
+          "prompt": "Welcher Knochen ist der kleinste im Körper?",
+          "answer": "Der Steigbügel",
+          "wrong": [
+            "Das Nasenbein",
+            "Ein Fingerglied",
+            "Die kleinste Rippe"
+          ],
+          "hint": "Er sitzt im Ohr.",
+          "explanation": "Der Steigbügel im Mittelohr ist nur wenige Millimeter groß.",
+          "fact": "Mit Hammer und Amboss gibt er den Schall nach innen weiter."
+        },
+        "fr": {
+          "prompt": "Quel est le plus petit os du corps ?",
+          "answer": "L'étrier",
+          "wrong": [
+            "L'os du nez",
+            "Un os du doigt",
+            "La plus petite côte"
+          ],
+          "hint": "Il est dans l'oreille.",
+          "explanation": "L'étrier, dans l'oreille moyenne, ne mesure que quelques millimètres.",
+          "fact": "Avec le marteau et l'enclume, il transmet le son vers l'intérieur."
+        },
+        "es": {
+          "prompt": "¿Cuál es el hueso más pequeño del cuerpo?",
+          "answer": "El estribo",
+          "wrong": [
+            "El hueso de la nariz",
+            "Un hueso del dedo",
+            "La costilla menor"
+          ],
+          "hint": "Está en el oído.",
+          "explanation": "El estribo, en el oído medio, mide solo unos milímetros.",
+          "fact": "Con el martillo y el yunque pasa el sonido hacia dentro."
+        },
+        "it": {
+          "prompt": "Qual è l'osso più piccolo del corpo?",
+          "answer": "La staffa",
+          "wrong": [
+            "L'osso del naso",
+            "Un osso del dito",
+            "La costola più piccola"
+          ],
+          "hint": "Sta nell'orecchio.",
+          "explanation": "La staffa, nell'orecchio medio, misura solo pochi millimetri.",
+          "fact": "Con martello e incudine porta il suono più all'interno."
+        },
+        "pt": {
+          "prompt": "Qual é o osso mais pequeno do corpo?",
+          "answer": "O estribo",
+          "wrong": [
+            "O osso do nariz",
+            "Um osso do dedo",
+            "A costela menor"
+          ],
+          "hint": "Está no ouvido.",
+          "explanation": "O estribo, no ouvido médio, mede apenas alguns milímetros.",
+          "fact": "Com o martelo e a bigorna leva o som para dentro."
+        },
+        "da": {
+          "prompt": "Hvilket knogle er den mindste i kroppen?",
+          "answer": "Stigbøjlen",
+          "wrong": [
+            "Næsebenet",
+            "En fingerknogle",
+            "Det mindste ribben"
+          ],
+          "hint": "Den sidder i øret.",
+          "explanation": "Stigbøjlen i mellemøret er kun få millimeter stor.",
+          "fact": "Sammen med hammer og ambolt sender den lyden videre indad."
+        },
+        "ru": {
+          "prompt": "Какая кость самая маленькая в теле?",
+          "answer": "Стремечко",
+          "wrong": [
+            "Носовая кость",
+            "Косточка пальца",
+            "Самое малое ребро"
+          ],
+          "hint": "Она в ухе.",
+          "explanation": "Стремечко в среднем ухе всего несколько миллиметров.",
+          "fact": "Вместе с молоточком и наковальней оно передаёт звук внутрь."
+        },
+        "ar": {
+          "prompt": "ما أصغر عظمة في جسمك؟",
+          "answer": "عظمة الرِّكاب",
+          "wrong": [
+            "عظمة الأنف",
+            "عظمة إصبع",
+            "أصغر ضلع"
+          ],
+          "hint": "إنها في أذنك.",
+          "explanation": "عظمة الركاب في الأذن الوسطى لا تتجاوز بضعة مليمترات.",
+          "fact": "مع المطرقة والسندان تنقل الصوت إلى الداخل."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Twee ogen geven diepte",
+      "artBrief": "Twee ogen die naar een bal kijken, met lijnen die samenkomen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom heb je twee ogen nodig?",
+          "answer": "Om diepte te zien",
+          "wrong": [
+            "Om verder te kijken",
+            "Om sneller te lezen",
+            "Om te kunnen knipperen"
+          ],
+          "hint": "Sluit er eens één en pak iets.",
+          "explanation": "Elk oog ziet net iets anders, en je hersenen maken daar diepte van.",
+          "fact": "Daarom is vangen met één oog dicht veel lastiger."
+        },
+        "en": {
+          "prompt": "Why do you need two eyes?",
+          "answer": "To see depth",
+          "wrong": [
+            "To look further",
+            "To read faster",
+            "To be able to blink"
+          ],
+          "hint": "Close one and try to grab something.",
+          "explanation": "Each eye sees things slightly differently, and your brain turns that into depth.",
+          "fact": "That is why catching with one eye shut is much harder."
+        },
+        "de": {
+          "prompt": "Warum brauchst du zwei Augen?",
+          "answer": "Um Tiefe zu sehen",
+          "wrong": [
+            "Um weiter zu sehen",
+            "Um schneller zu lesen",
+            "Um blinzeln zu können"
+          ],
+          "hint": "Schließ eins und greif nach etwas.",
+          "explanation": "Jedes Auge sieht etwas anderes, und dein Gehirn macht daraus Tiefe.",
+          "fact": "Darum ist Fangen mit einem Auge viel schwerer."
+        },
+        "fr": {
+          "prompt": "Pourquoi as-tu besoin de deux yeux ?",
+          "answer": "Pour voir le relief",
+          "wrong": [
+            "Pour voir plus loin",
+            "Pour lire plus vite",
+            "Pour pouvoir cligner"
+          ],
+          "hint": "Ferme-en un et attrape un objet.",
+          "explanation": "Chaque œil voit un peu autrement, et ton cerveau en fait du relief.",
+          "fact": "C'est pour ça qu'attraper avec un œil fermé est bien plus dur."
+        },
+        "es": {
+          "prompt": "¿Para qué necesitas dos ojos?",
+          "answer": "Para ver la profundidad",
+          "wrong": [
+            "Para ver más lejos",
+            "Para leer más rápido",
+            "Para poder parpadear"
+          ],
+          "hint": "Cierra uno e intenta coger algo.",
+          "explanation": "Cada ojo ve algo distinto, y tu cerebro lo convierte en profundidad.",
+          "fact": "Por eso atrapar con un ojo cerrado cuesta mucho más."
+        },
+        "it": {
+          "prompt": "Perché ti servono due occhi?",
+          "answer": "Per vedere la profondità",
+          "wrong": [
+            "Per vedere più lontano",
+            "Per leggere più in fretta",
+            "Per poter sbattere gli occhi"
+          ],
+          "hint": "Chiudine uno e prendi un oggetto.",
+          "explanation": "Ogni occhio vede in modo un po' diverso, e il cervello ne ricava la profondità.",
+          "fact": "Per questo prendere al volo con un occhio chiuso è molto più difficile."
+        },
+        "pt": {
+          "prompt": "Para que precisas de dois olhos?",
+          "answer": "Para ver a profundidade",
+          "wrong": [
+            "Para ver mais longe",
+            "Para ler mais depressa",
+            "Para poder piscar"
+          ],
+          "hint": "Fecha um e tenta agarrar algo.",
+          "explanation": "Cada olho vê de forma ligeiramente diferente, e o cérebro faz disso profundidade.",
+          "fact": "Por isso apanhar com um olho fechado é bem mais difícil."
+        },
+        "da": {
+          "prompt": "Hvorfor har du brug for to øjne?",
+          "answer": "For at se dybde",
+          "wrong": [
+            "For at se længere",
+            "For at læse hurtigere",
+            "For at kunne blinke"
+          ],
+          "hint": "Luk det ene og grib noget.",
+          "explanation": "Hvert øje ser lidt forskelligt, og hjernen laver dybde ud af det.",
+          "fact": "Derfor er det meget sværere at gribe med ét øje lukket."
+        },
+        "ru": {
+          "prompt": "Зачем нужны два глаза?",
+          "answer": "Чтобы видеть глубину",
+          "wrong": [
+            "Чтобы видеть дальше",
+            "Чтобы читать быстрее",
+            "Чтобы моргать"
+          ],
+          "hint": "Закрой один и возьми предмет.",
+          "explanation": "Каждый глаз видит чуть иначе, и мозг делает из этого объём.",
+          "fact": "Поэтому ловить мяч с одним закрытым глазом гораздо труднее."
+        },
+        "ar": {
+          "prompt": "لماذا تحتاج إلى عينين؟",
+          "answer": "لترى العمق",
+          "wrong": [
+            "لترى أبعد",
+            "لتقرأ أسرع",
+            "لتستطيع الرمش"
+          ],
+          "hint": "أغمض واحدة وحاول الإمساك بشيء.",
+          "explanation": "كل عين ترى بشكل مختلف قليلًا، والدماغ يصنع من ذلك عمقًا.",
+          "fact": "لهذا الإمساك بالكرة بعين واحدة أصعب بكثير."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Rode bloedcellen vervoeren zuurstof",
+      "artBrief": "Rode bloedcellen die als schijfjes door een bloedvat stromen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doen rode bloedcellen?",
+          "answer": "Ze brengen zuurstof rond",
+          "wrong": [
+            "Ze maken botten aan",
+            "Ze verteren je eten",
+            "Ze sturen signalen"
+          ],
+          "hint": "Ze halen het op in je longen.",
+          "explanation": "Rode bloedcellen laden zuurstof in de longen en leveren die door je lichaam.",
+          "fact": "In één druppel bloed zitten miljoenen van die cellen."
+        },
+        "en": {
+          "prompt": "What do red blood cells do?",
+          "answer": "They carry oxygen around",
+          "wrong": [
+            "They build bones",
+            "They digest your food",
+            "They send signals"
+          ],
+          "hint": "They pick it up in your lungs.",
+          "explanation": "Red blood cells load oxygen in the lungs and deliver it through your body.",
+          "fact": "One drop of blood holds millions of them."
+        },
+        "de": {
+          "prompt": "Was tun rote Blutkörperchen?",
+          "answer": "Sie bringen Sauerstoff",
+          "wrong": [
+            "Sie bauen Knochen",
+            "Sie verdauen das Essen",
+            "Sie senden Signale"
+          ],
+          "hint": "Sie holen ihn in der Lunge.",
+          "explanation": "Rote Blutkörperchen laden Sauerstoff in der Lunge und liefern ihn im Körper aus.",
+          "fact": "In einem Blutstropfen stecken Millionen davon."
+        },
+        "fr": {
+          "prompt": "Que font les globules rouges ?",
+          "answer": "Ils portent l'oxygène",
+          "wrong": [
+            "Ils fabriquent les os",
+            "Ils digèrent la nourriture",
+            "Ils envoient des signaux"
+          ],
+          "hint": "Ils le prennent dans les poumons.",
+          "explanation": "Les globules rouges chargent l'oxygène dans les poumons et le livrent partout.",
+          "fact": "Une goutte de sang en contient des millions."
+        },
+        "es": {
+          "prompt": "¿Qué hacen los glóbulos rojos?",
+          "answer": "Llevan el oxígeno",
+          "wrong": [
+            "Fabrican huesos",
+            "Digieren la comida",
+            "Envían señales"
+          ],
+          "hint": "Lo recogen en los pulmones.",
+          "explanation": "Los glóbulos rojos cargan oxígeno en los pulmones y lo reparten por el cuerpo.",
+          "fact": "Una gota de sangre contiene millones de ellos."
+        },
+        "it": {
+          "prompt": "Che cosa fanno i globuli rossi?",
+          "answer": "Portano in giro l'ossigeno",
+          "wrong": [
+            "Costruiscono le ossa",
+            "Digeriscono il cibo",
+            "Mandano segnali"
+          ],
+          "hint": "Lo prendono nei polmoni.",
+          "explanation": "I globuli rossi caricano ossigeno nei polmoni e lo consegnano nel corpo.",
+          "fact": "In una goccia di sangue ce ne sono milioni."
+        },
+        "pt": {
+          "prompt": "O que fazem os glóbulos vermelhos?",
+          "answer": "Transportam o oxigénio",
+          "wrong": [
+            "Fabricam ossos",
+            "Digerem a comida",
+            "Enviam sinais"
+          ],
+          "hint": "Vão buscá-lo aos pulmões.",
+          "explanation": "Os glóbulos vermelhos carregam oxigénio nos pulmões e entregam-no pelo corpo.",
+          "fact": "Uma gota de sangue tem milhões deles."
+        },
+        "da": {
+          "prompt": "Hvad gør de røde blodlegemer?",
+          "answer": "De fragter ilt rundt",
+          "wrong": [
+            "De bygger knogler",
+            "De fordøjer maden",
+            "De sender signaler"
+          ],
+          "hint": "De henter den i lungerne.",
+          "explanation": "Røde blodlegemer laster ilt i lungerne og leverer den rundt i kroppen.",
+          "fact": "En dråbe blod rummer millioner af dem."
+        },
+        "ru": {
+          "prompt": "Что делают красные клетки крови?",
+          "answer": "Разносят кислород",
+          "wrong": [
+            "Строят кости",
+            "Переваривают еду",
+            "Посылают сигналы"
+          ],
+          "hint": "Они берут его в лёгких.",
+          "explanation": "Красные клетки берут кислород в лёгких и разносят его по телу.",
+          "fact": "В одной капле крови их миллионы."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل كريات الدم الحمراء؟",
+          "answer": "تنقل الأكسجين",
+          "wrong": [
+            "تبني العظام",
+            "تهضم الطعام",
+            "ترسل إشارات"
+          ],
+          "hint": "تأخذه من الرئتين.",
+          "explanation": "الكريات الحمراء تحمّل الأكسجين في الرئتين وتوصله إلى الجسم.",
+          "fact": "في قطرة دم واحدة ملايين منها."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Zenuwsignalen zijn razendsnel",
+      "artBrief": "Een lichtflits die langs een zenuwbaan van hand naar hersenen schiet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe snel kan een zenuwsignaal reizen?",
+          "answer": "Ruim 400 kilometer per uur",
+          "wrong": [
+            "Zo snel als een slak",
+            "Zo snel als een fiets",
+            "Zo snel als het licht"
+          ],
+          "hint": "Sneller dan een raceauto.",
+          "explanation": "De snelste zenuwen geven een prikkel met meer dan honderd meter per seconde door.",
+          "fact": "Daarom trek je je hand al weg voordat je de pijn voelt."
+        },
+        "en": {
+          "prompt": "How fast can a nerve signal travel?",
+          "answer": "Over 400 kilometres an hour",
+          "wrong": [
+            "As slow as a snail",
+            "As fast as a bicycle",
+            "As fast as light"
+          ],
+          "hint": "Faster than a racing car.",
+          "explanation": "The quickest nerves pass a signal on at over a hundred metres per second.",
+          "fact": "That is why your hand pulls back before you feel the pain."
+        },
+        "de": {
+          "prompt": "Wie schnell kann ein Nervensignal reisen?",
+          "answer": "Über 400 Kilometer je Stunde",
+          "wrong": [
+            "So schnell wie eine Schnecke",
+            "So schnell wie ein Fahrrad",
+            "So schnell wie das Licht"
+          ],
+          "hint": "Schneller als ein Rennwagen.",
+          "explanation": "Die schnellsten Nerven geben einen Reiz mit über hundert Metern je Sekunde weiter.",
+          "fact": "Darum ziehst du die Hand weg, bevor du den Schmerz spürst."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse va un signal nerveux ?",
+          "answer": "Plus de 400 km par heure",
+          "wrong": [
+            "Aussi lent qu'un escargot",
+            "Aussi vite qu'un vélo",
+            "Aussi vite que la lumière"
+          ],
+          "hint": "Plus vite qu'une voiture de course.",
+          "explanation": "Les nerfs les plus rapides transmettent à plus de cent mètres par seconde.",
+          "fact": "C'est pour ça que ta main se retire avant que tu sentes la douleur."
+        },
+        "es": {
+          "prompt": "¿A qué velocidad viaja una señal nerviosa?",
+          "answer": "Más de 400 km por hora",
+          "wrong": [
+            "Como un caracol",
+            "Como una bicicleta",
+            "Tan rápido como la luz"
+          ],
+          "hint": "Más rápido que un coche de carreras.",
+          "explanation": "Los nervios más veloces transmiten a más de cien metros por segundo.",
+          "fact": "Por eso apartas la mano antes de sentir el dolor."
+        },
+        "it": {
+          "prompt": "Quanto veloce viaggia un segnale nervoso?",
+          "answer": "Oltre 400 km all'ora",
+          "wrong": [
+            "Lento come una lumaca",
+            "Veloce come una bici",
+            "Veloce come la luce"
+          ],
+          "hint": "Più di un'auto da corsa.",
+          "explanation": "I nervi più rapidi trasmettono a oltre cento metri al secondo.",
+          "fact": "Per questo ritiri la mano prima di sentire il dolore."
+        },
+        "pt": {
+          "prompt": "A que velocidade viaja um sinal nervoso?",
+          "answer": "Mais de 400 km por hora",
+          "wrong": [
+            "Lento como um caracol",
+            "Rápido como uma bicicleta",
+            "Rápido como a luz"
+          ],
+          "hint": "Mais do que um carro de corrida.",
+          "explanation": "Os nervos mais rápidos transmitem a mais de cem metros por segundo.",
+          "fact": "Por isso afastas a mão antes de sentires a dor."
+        },
+        "da": {
+          "prompt": "Hvor hurtigt kan et nervesignal rejse?",
+          "answer": "Over 400 km i timen",
+          "wrong": [
+            "Langsomt som en snegl",
+            "Hurtigt som en cykel",
+            "Hurtigt som lyset"
+          ],
+          "hint": "Hurtigere end en racerbil.",
+          "explanation": "De hurtigste nerver sender signalet videre med over hundrede meter i sekundet.",
+          "fact": "Derfor trækker du hånden væk, før du mærker smerten."
+        },
+        "ru": {
+          "prompt": "Как быстро летит нервный сигнал?",
+          "answer": "Больше 400 км в час",
+          "wrong": [
+            "Медленно, как улитка",
+            "Быстро, как велосипед",
+            "Быстро, как свет"
+          ],
+          "hint": "Быстрее гоночной машины.",
+          "explanation": "Самые быстрые нервы передают сигнал со скоростью больше ста метров в секунду.",
+          "fact": "Поэтому рука отдёргивается раньше, чем ты почувствуешь боль."
+        },
+        "ar": {
+          "prompt": "ما سرعة الإشارة العصبية؟",
+          "answer": "أكثر من 400 كم في الساعة",
+          "wrong": [
+            "بطيئة كالحلزون",
+            "سريعة كالدراجة",
+            "سريعة كالضوء"
+          ],
+          "hint": "أسرع من سيارة سباق.",
+          "explanation": "أسرع الأعصاب تنقل الإشارة بأكثر من مئة متر في الثانية.",
+          "fact": "لهذا تسحب يدك قبل أن تشعر بالألم."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Ongeveer twintigduizend ademhalingen per dag",
+      "artBrief": "Longen die uitzetten en krimpen, met een klok op de achtergrond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vaak adem je ongeveer per dag?",
+          "answer": "Ongeveer 20.000 keer",
+          "wrong": [
+            "Ongeveer 200 keer",
+            "Ongeveer 2.000 keer",
+            "Ongeveer 2 miljoen keer"
+          ],
+          "hint": "Ongeveer vijftien keer per minuut.",
+          "explanation": "Een kind ademt rond de twintigduizend keer per dag, zonder erbij na te denken.",
+          "fact": "Je hoeft er nooit aan te denken, want je hersenstam regelt het."
+        },
+        "en": {
+          "prompt": "About how often do you breathe in a day?",
+          "answer": "About 20,000 times",
+          "wrong": [
+            "About 200 times",
+            "About 2,000 times",
+            "About 2 million times"
+          ],
+          "hint": "Around fifteen times a minute.",
+          "explanation": "A child breathes some twenty thousand times a day without thinking about it.",
+          "fact": "You never have to remember, because your brain stem runs it."
+        },
+        "de": {
+          "prompt": "Wie oft atmest du ungefähr am Tag?",
+          "answer": "Etwa 20.000 Mal",
+          "wrong": [
+            "Etwa 200 Mal",
+            "Etwa 2.000 Mal",
+            "Etwa 2 Millionen Mal"
+          ],
+          "hint": "Rund fünfzehn Mal pro Minute.",
+          "explanation": "Ein Kind atmet etwa zwanzigtausend Mal am Tag, ohne daran zu denken.",
+          "fact": "Du musst nie daran denken, das regelt dein Hirnstamm."
+        },
+        "fr": {
+          "prompt": "Combien de fois respires-tu par jour environ ?",
+          "answer": "Environ 20 000 fois",
+          "wrong": [
+            "Environ 200 fois",
+            "Environ 2 000 fois",
+            "Environ 2 millions de fois"
+          ],
+          "hint": "Environ quinze fois par minute.",
+          "explanation": "Un enfant respire quelque vingt mille fois par jour sans y penser.",
+          "fact": "Tu n'as jamais à y penser : ton tronc cérébral s'en charge."
+        },
+        "es": {
+          "prompt": "¿Cuántas veces respiras al día más o menos?",
+          "answer": "Unas 20.000 veces",
+          "wrong": [
+            "Unas 200 veces",
+            "Unas 2.000 veces",
+            "Unos 2 millones de veces"
+          ],
+          "hint": "Unas quince veces por minuto.",
+          "explanation": "Un niño respira unas veinte mil veces al día sin pensarlo.",
+          "fact": "Nunca tienes que acordarte: lo lleva tu tronco cerebral."
+        },
+        "it": {
+          "prompt": "Quante volte respiri circa in un giorno?",
+          "answer": "Circa 20.000 volte",
+          "wrong": [
+            "Circa 200 volte",
+            "Circa 2.000 volte",
+            "Circa 2 milioni di volte"
+          ],
+          "hint": "Circa quindici volte al minuto.",
+          "explanation": "Un bambino respira circa ventimila volte al giorno senza pensarci.",
+          "fact": "Non devi mai ricordartene: ci pensa il tronco encefalico."
+        },
+        "pt": {
+          "prompt": "Quantas vezes respiras por dia, mais ou menos?",
+          "answer": "Cerca de 20.000 vezes",
+          "wrong": [
+            "Cerca de 200 vezes",
+            "Cerca de 2.000 vezes",
+            "Cerca de 2 milhões de vezes"
+          ],
+          "hint": "Cerca de quinze vezes por minuto.",
+          "explanation": "Uma criança respira umas vinte mil vezes por dia sem pensar nisso.",
+          "fact": "Nunca tens de te lembrar: trata disso o tronco cerebral."
+        },
+        "da": {
+          "prompt": "Hvor mange gange trækker du vejret på en dag?",
+          "answer": "Omkring 20.000 gange",
+          "wrong": [
+            "Omkring 200 gange",
+            "Omkring 2.000 gange",
+            "Omkring 2 millioner gange"
+          ],
+          "hint": "Cirka femten gange i minuttet.",
+          "explanation": "Et barn trækker vejret omkring tyve tusind gange om dagen uden at tænke over det.",
+          "fact": "Du skal aldrig huske det, for hjernestammen styrer det."
+        },
+        "ru": {
+          "prompt": "Сколько раз в день ты примерно дышишь?",
+          "answer": "Около 20 000 раз",
+          "wrong": [
+            "Около 200 раз",
+            "Около 2 000 раз",
+            "Около 2 миллионов раз"
+          ],
+          "hint": "Примерно пятнадцать раз в минуту.",
+          "explanation": "Ребёнок дышит около двадцати тысяч раз в день, не думая об этом.",
+          "fact": "Помнить об этом не надо: этим управляет ствол мозга."
+        },
+        "ar": {
+          "prompt": "كم مرة تتنفس في اليوم تقريبًا؟",
+          "answer": "نحو 20 ألف مرة",
+          "wrong": [
+            "نحو 200 مرة",
+            "نحو ألفي مرة",
+            "نحو مليوني مرة"
+          ],
+          "hint": "نحو خمس عشرة مرة في الدقيقة.",
+          "explanation": "الطفل يتنفس نحو عشرين ألف مرة يوميًا دون أن يفكر.",
+          "fact": "لا تحتاج أن تتذكر: جذع الدماغ يتكفل بذلك."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De lever maakt gal",
+      "artBrief": "De lever met de galblaas eronder, in warme kleuren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk orgaan maakt gal om vet te verteren?",
+          "answer": "De lever",
+          "wrong": [
+            "De longen",
+            "De milt",
+            "De nieren"
+          ],
+          "hint": "Hij ligt rechts onder je ribben.",
+          "explanation": "De lever maakt gal, die vet in kleine druppeltjes splitst.",
+          "fact": "De lever is het enige orgaan dat weer kan aangroeien."
+        },
+        "en": {
+          "prompt": "Which organ makes bile to digest fat?",
+          "answer": "The liver",
+          "wrong": [
+            "The lungs",
+            "The spleen",
+            "The kidneys"
+          ],
+          "hint": "It sits under your ribs on the right.",
+          "explanation": "The liver makes bile, which splits fat into tiny droplets.",
+          "fact": "The liver is the only organ that can grow back."
+        },
+        "de": {
+          "prompt": "Welches Organ macht Galle, um Fett zu verdauen?",
+          "answer": "Die Leber",
+          "wrong": [
+            "Die Lunge",
+            "Die Milz",
+            "Die Nieren"
+          ],
+          "hint": "Sie liegt rechts unter den Rippen.",
+          "explanation": "Die Leber macht Galle, die Fett in winzige Tröpfchen zerlegt.",
+          "fact": "Die Leber ist das einzige Organ, das nachwachsen kann."
+        },
+        "fr": {
+          "prompt": "Quel organe fabrique la bile pour digérer le gras ?",
+          "answer": "Le foie",
+          "wrong": [
+            "Les poumons",
+            "La rate",
+            "Les reins"
+          ],
+          "hint": "Il est sous les côtes, à droite.",
+          "explanation": "Le foie fabrique la bile, qui coupe le gras en gouttelettes minuscules.",
+          "fact": "Le foie est le seul organe qui peut repousser."
+        },
+        "es": {
+          "prompt": "¿Qué órgano fabrica bilis para digerir la grasa?",
+          "answer": "El hígado",
+          "wrong": [
+            "Los pulmones",
+            "El bazo",
+            "Los riñones"
+          ],
+          "hint": "Está bajo las costillas derechas.",
+          "explanation": "El hígado fabrica bilis, que parte la grasa en gotitas diminutas.",
+          "fact": "El hígado es el único órgano capaz de volver a crecer."
+        },
+        "it": {
+          "prompt": "Quale organo produce la bile per digerire i grassi?",
+          "answer": "Il fegato",
+          "wrong": [
+            "I polmoni",
+            "La milza",
+            "I reni"
+          ],
+          "hint": "Sta sotto le costole a destra.",
+          "explanation": "Il fegato produce la bile, che spezza il grasso in goccioline minuscole.",
+          "fact": "Il fegato è l'unico organo che può ricrescere."
+        },
+        "pt": {
+          "prompt": "Que órgão faz bílis para digerir a gordura?",
+          "answer": "O fígado",
+          "wrong": [
+            "Os pulmões",
+            "O baço",
+            "Os rins"
+          ],
+          "hint": "Fica sob as costelas à direita.",
+          "explanation": "O fígado faz bílis, que parte a gordura em gotinhas minúsculas.",
+          "fact": "O fígado é o único órgão capaz de voltar a crescer."
+        },
+        "da": {
+          "prompt": "Hvilket organ laver galde til at fordøje fedt?",
+          "answer": "Leveren",
+          "wrong": [
+            "Lungerne",
+            "Milten",
+            "Nyrerne"
+          ],
+          "hint": "Den ligger under ribbenene til højre.",
+          "explanation": "Leveren laver galde, som deler fedt op i bittesmå dråber.",
+          "fact": "Leveren er det eneste organ, der kan vokse ud igen."
+        },
+        "ru": {
+          "prompt": "Какой орган делает желчь для переваривания жира?",
+          "answer": "Печень",
+          "wrong": [
+            "Лёгкие",
+            "Селезёнка",
+            "Почки"
+          ],
+          "hint": "Она справа под рёбрами.",
+          "explanation": "Печень делает желчь, которая разбивает жир на крошечные капельки.",
+          "fact": "Печень — единственный орган, способный отрасти заново."
+        },
+        "ar": {
+          "prompt": "أي عضو يصنع العصارة الصفراء لهضم الدهن؟",
+          "answer": "الكبد",
+          "wrong": [
+            "الرئتان",
+            "الطحال",
+            "الكليتان"
+          ],
+          "hint": "يقع تحت الأضلاع يمينًا.",
+          "explanation": "الكبد يصنع الصفراء التي تفتّت الدهن إلى قطيرات صغيرة.",
+          "fact": "الكبد هو العضو الوحيد الذي يستطيع أن ينمو من جديد."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Bloedcellen uit beenmerg",
+      "artBrief": "Een doorsnede van een bot met rood merg in het midden.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar worden nieuwe bloedcellen gemaakt?",
+          "answer": "In het beenmerg",
+          "wrong": [
+            "In je maag",
+            "In je huid",
+            "In je hart"
+          ],
+          "hint": "Diep in je botten.",
+          "explanation": "In het zachte merg midden in je botten ontstaan elke seconde miljoenen bloedcellen.",
+          "fact": "Een rode bloedcel leeft ongeveer vier maanden."
+        },
+        "en": {
+          "prompt": "Where are new blood cells made?",
+          "answer": "In the bone marrow",
+          "wrong": [
+            "In your stomach",
+            "In your skin",
+            "In your heart"
+          ],
+          "hint": "Deep inside your bones.",
+          "explanation": "In the soft marrow inside your bones millions of blood cells form every second.",
+          "fact": "A red blood cell lives about four months."
+        },
+        "de": {
+          "prompt": "Wo entstehen neue Blutkörperchen?",
+          "answer": "Im Knochenmark",
+          "wrong": [
+            "Im Magen",
+            "In der Haut",
+            "Im Herzen"
+          ],
+          "hint": "Tief in den Knochen.",
+          "explanation": "Im weichen Mark der Knochen entstehen jede Sekunde Millionen Blutkörperchen.",
+          "fact": "Ein rotes Blutkörperchen lebt etwa vier Monate."
+        },
+        "fr": {
+          "prompt": "Où fabrique-t-on les nouvelles cellules du sang ?",
+          "answer": "Dans la moelle des os",
+          "wrong": [
+            "Dans l'estomac",
+            "Dans la peau",
+            "Dans le cœur"
+          ],
+          "hint": "Au fond de tes os.",
+          "explanation": "Dans la moelle molle des os naissent chaque seconde des millions de cellules.",
+          "fact": "Un globule rouge vit environ quatre mois."
+        },
+        "es": {
+          "prompt": "¿Dónde se fabrican las células nuevas de la sangre?",
+          "answer": "En la médula de los huesos",
+          "wrong": [
+            "En el estómago",
+            "En la piel",
+            "En el corazón"
+          ],
+          "hint": "En lo hondo de tus huesos.",
+          "explanation": "En la médula blanda de los huesos nacen millones de células cada segundo.",
+          "fact": "Un glóbulo rojo vive unos cuatro meses."
+        },
+        "it": {
+          "prompt": "Dove si formano le nuove cellule del sangue?",
+          "answer": "Nel midollo delle ossa",
+          "wrong": [
+            "Nello stomaco",
+            "Nella pelle",
+            "Nel cuore"
+          ],
+          "hint": "Nel profondo delle ossa.",
+          "explanation": "Nel midollo morbido delle ossa nascono milioni di cellule ogni secondo.",
+          "fact": "Un globulo rosso vive circa quattro mesi."
+        },
+        "pt": {
+          "prompt": "Onde são feitas as novas células do sangue?",
+          "answer": "Na medula dos ossos",
+          "wrong": [
+            "No estômago",
+            "Na pele",
+            "No coração"
+          ],
+          "hint": "Bem dentro dos teus ossos.",
+          "explanation": "Na medula mole dos ossos nascem milhões de células por segundo.",
+          "fact": "Um glóbulo vermelho vive cerca de quatro meses."
+        },
+        "da": {
+          "prompt": "Hvor dannes nye blodlegemer?",
+          "answer": "I knoglemarven",
+          "wrong": [
+            "I maven",
+            "I huden",
+            "I hjertet"
+          ],
+          "hint": "Dybt inde i knoglerne.",
+          "explanation": "I den bløde marv inde i knoglerne dannes millioner af blodlegemer hvert sekund.",
+          "fact": "Et rødt blodlegeme lever cirka fire måneder."
+        },
+        "ru": {
+          "prompt": "Где образуются новые клетки крови?",
+          "answer": "В костном мозге",
+          "wrong": [
+            "В желудке",
+            "В коже",
+            "В сердце"
+          ],
+          "hint": "Глубоко внутри костей.",
+          "explanation": "В мягком мозге внутри костей каждую секунду рождаются миллионы клеток.",
+          "fact": "Красная клетка крови живёт около четырёх месяцев."
+        },
+        "ar": {
+          "prompt": "أين تُصنع خلايا الدم الجديدة؟",
+          "answer": "في نخاع العظم",
+          "wrong": [
+            "في المعدة",
+            "في الجلد",
+            "في القلب"
+          ],
+          "hint": "في عمق عظامك.",
+          "explanation": "في النخاع اللين داخل العظام تولد ملايين الخلايا كل ثانية.",
+          "fact": "كرية الدم الحمراء تعيش نحو أربعة أشهر."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De pupil laat licht binnen",
+      "artBrief": "Een oog van heel dichtbij, met de pupil groot en klein.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet het zwarte rondje dat licht je oog in laat?",
+          "answer": "De pupil",
+          "wrong": [
+            "Het ooglid",
+            "De wenkbrauw",
+            "De traanbuis"
+          ],
+          "hint": "Het wordt groter in het donker.",
+          "explanation": "De pupil is het gaatje waardoor licht naar binnen valt; de iris regelt de grootte.",
+          "fact": "In het donker wordt je pupil wel drie keer zo wijd."
+        },
+        "en": {
+          "prompt": "What is the black circle that lets light into your eye?",
+          "answer": "The pupil",
+          "wrong": [
+            "The eyelid",
+            "The eyebrow",
+            "The tear duct"
+          ],
+          "hint": "It grows bigger in the dark.",
+          "explanation": "The pupil is the opening light falls through; the iris sets how wide it is.",
+          "fact": "In the dark your pupil opens up to three times as wide."
+        },
+        "de": {
+          "prompt": "Wie heißt der schwarze Kreis, der Licht ins Auge lässt?",
+          "answer": "Die Pupille",
+          "wrong": [
+            "Das Augenlid",
+            "Die Augenbraue",
+            "Der Tränenkanal"
+          ],
+          "hint": "Im Dunkeln wird er größer.",
+          "explanation": "Die Pupille ist die Öffnung für das Licht; die Iris stellt die Weite ein.",
+          "fact": "Im Dunkeln öffnet sie sich bis zu dreimal so weit."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle le rond noir qui laisse entrer la lumière ?",
+          "answer": "La pupille",
+          "wrong": [
+            "La paupière",
+            "Le sourcil",
+            "Le canal lacrymal"
+          ],
+          "hint": "Elle grandit dans le noir.",
+          "explanation": "La pupille est l'ouverture par où passe la lumière ; l'iris règle sa taille.",
+          "fact": "Dans le noir elle s'ouvre jusqu'à trois fois plus grand."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama el círculo negro que deja entrar la luz?",
+          "answer": "La pupila",
+          "wrong": [
+            "El párpado",
+            "La ceja",
+            "El conducto lagrimal"
+          ],
+          "hint": "Se hace más grande a oscuras.",
+          "explanation": "La pupila es la abertura por donde entra la luz; el iris ajusta su tamaño.",
+          "fact": "A oscuras se abre hasta tres veces más."
+        },
+        "it": {
+          "prompt": "Come si chiama il cerchio nero che fa entrare la luce?",
+          "answer": "La pupilla",
+          "wrong": [
+            "La palpebra",
+            "Il sopracciglio",
+            "Il canale lacrimale"
+          ],
+          "hint": "Al buio diventa più grande.",
+          "explanation": "La pupilla è l'apertura per la luce; l'iride ne regola la larghezza.",
+          "fact": "Al buio si apre fino a tre volte tanto."
+        },
+        "pt": {
+          "prompt": "Como se chama o círculo preto que deixa entrar a luz?",
+          "answer": "A pupila",
+          "wrong": [
+            "A pálpebra",
+            "A sobrancelha",
+            "O canal lacrimal"
+          ],
+          "hint": "Fica maior no escuro.",
+          "explanation": "A pupila é a abertura por onde entra a luz; a íris regula o tamanho.",
+          "fact": "No escuro abre até três vezes mais."
+        },
+        "da": {
+          "prompt": "Hvad hedder den sorte cirkel, der lukker lys ind i øjet?",
+          "answer": "Pupillen",
+          "wrong": [
+            "Øjenlåget",
+            "Øjenbrynet",
+            "Tårekanalen"
+          ],
+          "hint": "Den bliver større i mørke.",
+          "explanation": "Pupillen er åbningen, lyset falder igennem; regnbuehinden styrer størrelsen.",
+          "fact": "I mørke åbner den sig op til tre gange så meget."
+        },
+        "ru": {
+          "prompt": "Как называется чёрный кружок, впускающий свет в глаз?",
+          "answer": "Зрачок",
+          "wrong": [
+            "Веко",
+            "Бровь",
+            "Слёзный канал"
+          ],
+          "hint": "В темноте он становится больше.",
+          "explanation": "Зрачок — это отверстие для света, а радужка задаёт его ширину.",
+          "fact": "В темноте он расширяется до трёх раз."
+        },
+        "ar": {
+          "prompt": "ما اسم الدائرة السوداء التي تُدخل الضوء إلى العين؟",
+          "answer": "البؤبؤ",
+          "wrong": [
+            "الجفن",
+            "الحاجب",
+            "القناة الدمعية"
+          ],
+          "hint": "يكبر في الظلام.",
+          "explanation": "البؤبؤ هو الفتحة التي يدخل منها الضوء، والقزحية تضبط اتساعها.",
+          "fact": "في الظلام يتسع إلى ثلاثة أضعاف."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-lichaam-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het strotklepje sluit de luchtpijp",
+      "artBrief": "Een doorsnede van de keel met het klepje dat de luchtpijp afsluit.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom kun je niet slikken en ademen tegelijk?",
+          "answer": "Je strotklepje sluit af",
+          "wrong": [
+            "Je tong is te groot",
+            "Je longen staan stil",
+            "Je maag duwt terug"
+          ],
+          "hint": "Er gaat een klepje dicht.",
+          "explanation": "Bij het slikken klapt het strotklepje over je luchtpijp, zodat eten de goede kant op gaat.",
+          "fact": "Gaat dat mis, dan schiet het in je keel en moet je hoesten."
+        },
+        "en": {
+          "prompt": "Why can't you swallow and breathe at the same time?",
+          "answer": "A flap closes your airway",
+          "wrong": [
+            "Your tongue is too big",
+            "Your lungs stand still",
+            "Your stomach pushes back"
+          ],
+          "hint": "A little lid drops shut.",
+          "explanation": "When you swallow, a flap folds over your windpipe so food goes the right way.",
+          "fact": "When that goes wrong, food goes down the wrong pipe and you cough."
+        },
+        "de": {
+          "prompt": "Warum kannst du nicht schlucken und atmen zugleich?",
+          "answer": "Ein Deckel schließt zu",
+          "wrong": [
+            "Die Zunge ist zu groß",
+            "Die Lunge steht still",
+            "Der Magen drückt zurück"
+          ],
+          "hint": "Ein Klappdeckel geht zu.",
+          "explanation": "Beim Schlucken klappt der Kehldeckel über die Luftröhre, damit Essen richtig läuft.",
+          "fact": "Geht das schief, verschluckst du dich und musst husten."
+        },
+        "fr": {
+          "prompt": "Pourquoi ne peux-tu pas avaler et respirer en même temps ?",
+          "answer": "Un clapet ferme la trachée",
+          "wrong": [
+            "Ta langue est trop grosse",
+            "Tes poumons s'arrêtent",
+            "Ton estomac repousse"
+          ],
+          "hint": "Un petit couvercle se ferme.",
+          "explanation": "En avalant, l'épiglotte se rabat sur la trachée pour que la nourriture aille bien.",
+          "fact": "Quand ça rate, ça passe de travers et tu tousses."
+        },
+        "es": {
+          "prompt": "¿Por qué no puedes tragar y respirar a la vez?",
+          "answer": "Una tapa cierra la tráquea",
+          "wrong": [
+            "La lengua es muy grande",
+            "Los pulmones se paran",
+            "El estómago empuja"
+          ],
+          "hint": "Se cierra una tapita.",
+          "explanation": "Al tragar, la epiglotis se dobla sobre la tráquea para que la comida vaya bien.",
+          "fact": "Si falla, se va por el otro lado y toses."
+        },
+        "it": {
+          "prompt": "Perché non puoi deglutire e respirare insieme?",
+          "answer": "Una valvola chiude tutto",
+          "wrong": [
+            "La lingua è troppo grande",
+            "I polmoni si fermano",
+            "Lo stomaco spinge indietro"
+          ],
+          "hint": "Un coperchietto si chiude.",
+          "explanation": "Quando deglutisci l'epiglottide si abbassa sulla trachea e il cibo va nel posto giusto.",
+          "fact": "Se sbaglia strada, ti va di traverso e tossisci."
+        },
+        "pt": {
+          "prompt": "Porque não podes engolir e respirar ao mesmo tempo?",
+          "answer": "Uma tampa fecha a traqueia",
+          "wrong": [
+            "A língua é grande demais",
+            "Os pulmões param",
+            "O estômago empurra"
+          ],
+          "hint": "Uma tampinha fecha-se.",
+          "explanation": "Ao engolir, a epiglote dobra-se sobre a traqueia para a comida seguir o caminho certo.",
+          "fact": "Quando falha, vai pelo lado errado e tens de tossir."
+        },
+        "da": {
+          "prompt": "Hvorfor kan du ikke synke og trække vejret samtidig?",
+          "answer": "Et låg lukker luftrøret",
+          "wrong": [
+            "Tungen er for stor",
+            "Lungerne står stille",
+            "Maven skubber tilbage"
+          ],
+          "hint": "Et lille låg klapper i.",
+          "explanation": "Når du synker, klapper strubelåget over luftrøret, så maden går den rigtige vej.",
+          "fact": "Går det galt, ryger det i den gale hals, og du hoster."
+        },
+        "ru": {
+          "prompt": "Почему нельзя глотать и дышать одновременно?",
+          "answer": "Клапан закрывает трахею",
+          "wrong": [
+            "Язык слишком большой",
+            "Лёгкие замирают",
+            "Желудок толкает назад"
+          ],
+          "hint": "Закрывается маленькая крышечка.",
+          "explanation": "При глотании надгортанник закрывает дыхательное горло, и еда идёт куда надо.",
+          "fact": "Если не успеет, ты поперхнёшься и закашляешь."
+        },
+        "ar": {
+          "prompt": "لماذا لا تستطيع البلع والتنفس معًا؟",
+          "answer": "غطاء يغلق القصبة",
+          "wrong": [
+            "لسانك كبير جدًا",
+            "رئتاك تتوقفان",
+            "معدتك تدفع للخلف"
+          ],
+          "hint": "ينغلق غطاء صغير.",
+          "explanation": "عند البلع ينطبق لسان المزمار على القصبة ليمضي الطعام في طريقه الصحيح.",
+          "fact": "وإذا أخطأ الطريق شرقت وسعلت."
+        }
+      }
+    }
+  ]
+}

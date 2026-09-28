@@ -118,7 +118,7 @@
       lichaam: [
         ["Quantos ossos tem um ser humano adulto?","206",["100","350","500"],"Um bebê tem mais.","Um adulto tem 206 ossos.","Os bebês têm cerca de 300 ossinhos que depois se juntam."],
         ["Qual órgão limpa o sangue e produz a urina?","Os rins",["Os pulmões","O fígado","O estômago"],"Você tem dois.","Os rins filtram as impurezas do sangue.","Eles filtram uns 180 litros de sangue por dia."],
-        ["Qual é o maior órgão do seu corpo?","A pele",["O coração","O fígado","O cérebro"],"Fica do lado de fora.","A pele é o maior órgão do corpo.","Num adulto a pele pesa cerca de 4 quilos."],
+        ["De onde vem o suor na tua pele?","De pequenas glândulas",["Dos pelos","Dos vasos sanguíneos","Da camada de gordura"],"Estão fundo sob a pele.","Pequenas glândulas empurram o suor por um poro minúsculo, e isso arrefece-te.","A tua pele tem milhões delas, sobretudo nas mãos e nos pés."],
         ["Quantas vezes, mais ou menos, o coração bate por dia?","Cerca de 100.000 vezes",["1.000 vezes","10.000 vezes","1 milhão de vezes"],"Uns setenta por minuto.","O coração bate cerca de cem mil vezes por dia.","Numa vida inteira, são mais de 2,5 bilhões de batidas."],
         ["Qual parte do sangue luta contra as doenças?","Os glóbulos brancos",["Os glóbulos vermelhos","As plaquetas","O plasma"],"Não são as células que carregam oxigênio.","Os glóbulos brancos encontram os micróbios e os eliminam.","Uma gota de sangue tem milhares de glóbulos brancos."],
         ["Como se chama o músculo embaixo dos pulmões com que você respira?","O diafragma",["O bíceps","A panturrilha","O abdômen"],"Quando ele contrai, o ar entra.","O diafragma sobe e desce para encher e esvaziar os pulmões.","O soluço é um espasmo do diafragma."],

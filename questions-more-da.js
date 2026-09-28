@@ -363,6 +363,30 @@
         ['Hvilken planet blev først regnet ud og så set?','Neptun',['Uranus','Saturn','Pluto'],'Astronomerne mærkede, at noget trak i Uranus.','I 1846 regnede man ud, hvor den måtte stå, og der stod den.','Teleskopet fandt den samme nat, næsten præcis hvor den skulle være.',4],
         ['Hvad hedder skallen af isklumper om vores solsystem?','Oort-skyen',['Kuiperbæltet','Asteroidebæltet','Mælkevejen'],'Den er opkaldt efter en nederlandsk astronom.','Oort-skyen er en kugle af isklumper, langt uden for alle planeter.','Derfra kommer de kometer, som kun kommer forbi hvert tusinde år.',4]
       ]
+    },
+    wetenschap: {
+      lichaam: [
+        ['Hvor mange fingre har en hånd som regel?','Fem',['Tre','Syv','Ti'],'Tæl dem bare.','En hånd har fire fingre og en tommel, fem i alt.','Kun tommelen kan røre alle de andre fingre.',1],
+        ['Hvad smager du med, om noget er sødt?','Med tungen',['Med ørerne','Med håret','Med albuen'],'Den ligger i munden.','På tungen sidder tusindvis af små smagsløg.','Uden næsen smager du meget mindre, derfor smager mad fladt ved forkølelse.',1],
+        ['Hvad har din krop brug for hver nat?','Søvn',['Sport','Slik','Larm'],'Øjnene falder i af sig selv.','I søvnen reparerer kroppen sig, og hjernen rydder op i dagen.','Børn vokser mest om natten.',1],
+        ['Hvad lugter du med?','Med næsen',['Med knæet','Med øret','Med hælen'],'Den sidder midt i ansigtet.','Øverst i næsen sidder celler, der sender lugte videre til hjernen.','Et menneske kan kende mere end tusind forskellige lugte.',1],
+        ['Hvor i kroppen sidder dit hjerte?','I brystet',['I foden','I hånden','I knæet'],'Læg hånden på.','Dit hjerte ligger mellem lungerne, lidt til venstre.','Dit hjerte er cirka så stort som din egen knytnæve.',1],
+        ['Hvorfor skal du drikke hver dag?','Du mister hele tiden vand',['Vand gør dig højere','Vand pudser tænder','Vand styrker håret'],'Tænk på sved og tis.','Du mister vand gennem sved, tis og endda din ånde, så du fylder op.','Mere end halvdelen af din krop er vand.',2],
+        ['Hvad gør maven ved maden?','Den ælter den til grød',['Den pumper blod rundt','Den renser luft','Den styrer musklerne'],'Den klemmer og blander.','Muskler i mavevæggen ælter maden, og syre bryder den ned.','Tom er maven på størrelse med en knytnæve, men den udvider sig meget.',2],
+        ['Hvad sker der med hjerteslaget, når du løber?','Det bliver hurtigere',['Det stopper','Det bliver langsommere','Der sker ingenting'],'Mærk efter på halsen.','Dine muskler vil have mere ilt, så hjertet pumper hurtigere.','Efter træning falder pulsen langsomt igen.',2],
+        ['Hvorfor skal du børste tænder?','Mod huller i dem',['Mod hovedpine','Mod nysen','Mod kildehoste'],'Bakterier elsker sukker.','Bakterier laver syre af sukkerrester, og den syre æder i tænderne.','Tandemaljen er det hårdeste materiale i hele kroppen.',2],
+        ['Hvad gør kroppen, når du fryser?','Du begynder at ryste',['Du begynder at svede','Du bliver højere','Du begynder at nyse'],'Musklerne ryster hurtigt.','At ryste er muskler, der spænder hurtigt, og det giver varme.','Gåsehud er en rest fra dengang tyk pels rejste sig.',2],
+        ['Hvor meget blod har en voksen cirka?','Omkring fem liter',['Omkring en halv liter','Omkring tyve liter','Omkring halvtreds liter'],'Fem kartoner mælk.','En voksen krop rummer omkring fem liter blod.','Det blod tager hver dag en lang tur rundt i hele kroppen.',3],
+        ['Hvilket knogle er den mindste i kroppen?','Stigbøjlen',['Næsebenet','En fingerknogle','Det mindste ribben'],'Den sidder i øret.','Stigbøjlen i mellemøret er kun få millimeter stor.','Sammen med hammer og ambolt sender den lyden videre indad.',3],
+        ['Hvorfor har du brug for to øjne?','For at se dybde',['For at se længere','For at læse hurtigere','For at kunne blinke'],'Luk det ene og grib noget.','Hvert øje ser lidt forskelligt, og hjernen laver dybde ud af det.','Derfor er det meget sværere at gribe med ét øje lukket.',3],
+        ['Hvad gør de røde blodlegemer?','De fragter ilt rundt',['De bygger knogler','De fordøjer maden','De sender signaler'],'De henter den i lungerne.','Røde blodlegemer laster ilt i lungerne og leverer den rundt i kroppen.','En dråbe blod rummer millioner af dem.',3],
+        ['Hvor hurtigt kan et nervesignal rejse?','Over 400 km i timen',['Langsomt som en snegl','Hurtigt som en cykel','Hurtigt som lyset'],'Hurtigere end en racerbil.','De hurtigste nerver sender signalet videre med over hundrede meter i sekundet.','Derfor trækker du hånden væk, før du mærker smerten.',3],
+        ['Hvor mange gange trækker du vejret på en dag?','Omkring 20.000 gange',['Omkring 200 gange','Omkring 2.000 gange','Omkring 2 millioner gange'],'Cirka femten gange i minuttet.','Et barn trækker vejret omkring tyve tusind gange om dagen uden at tænke over det.','Du skal aldrig huske det, for hjernestammen styrer det.',4],
+        ['Hvilket organ laver galde til at fordøje fedt?','Leveren',['Lungerne','Milten','Nyrerne'],'Den ligger under ribbenene til højre.','Leveren laver galde, som deler fedt op i bittesmå dråber.','Leveren er det eneste organ, der kan vokse ud igen.',4],
+        ['Hvor dannes nye blodlegemer?','I knoglemarven',['I maven','I huden','I hjertet'],'Dybt inde i knoglerne.','I den bløde marv inde i knoglerne dannes millioner af blodlegemer hvert sekund.','Et rødt blodlegeme lever cirka fire måneder.',4],
+        ['Hvad hedder den sorte cirkel, der lukker lys ind i øjet?','Pupillen',['Øjenlåget','Øjenbrynet','Tårekanalen'],'Den bliver større i mørke.','Pupillen er åbningen, lyset falder igennem; regnbuehinden styrer størrelsen.','I mørke åbner den sig op til tre gange så meget.',4],
+        ['Hvorfor kan du ikke synke og trække vejret samtidig?','Et låg lukker luftrøret',['Tungen er for stor','Lungerne står stille','Maven skubber tilbage'],'Et lille låg klapper i.','Når du synker, klapper strubelåget over luftrøret, så maden går den rigtige vej.','Går det galt, ryger det i den gale hals, og du hoster.',4]
+      ]
     }
   };
 })();
