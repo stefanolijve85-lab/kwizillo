@@ -4,7 +4,7 @@
   window.KWIZILLO_EXTRA_DE = {
     ruimte: {
       zonnestelsel: [
-        ["Welcher Planet hat die meisten bekannten Monde?","Saturn",["Mars","Erde","Venus"],"Dieser Gasriese hat mehr als hundert.","Saturn hat die meisten bekannten Monde, mehr als 140.","Sein größter Mond Titan ist größer als der Planet Merkur."],
+        ["Wie viele Monde hat Saturn ungefähr?", "Mehr als hundert", ["Einen", "Zwei", "Gar keinen"], "Jedes Jahr findet man neue.", "Um Saturn kreisen über hundert Monde, von Riesen bis zu Eisbrocken.", "Der größte, Titan, ist größer als der Planet Merkur.",],
         ["Welcher Planet ist der einzige, der „auf der Seite“ rotiert?","Uranus",["Jupiter","Mars","Neptun"],"Seine Achse liegt fast flach.","Uranus dreht sich mit einer um fast 98 Grad gekippten Achse.","Darum dauert ein Winter an den Polen von Uranus über 20 Jahre."],
         ["Wie heißt der Gürtel aus Gesteinsbrocken zwischen Mars und Jupiter?","Der Asteroidengürtel",["Der Kuipergürtel","Die Milchstraße","Der Mondring"],"Dort schweben Millionen Brocken.","Zwischen Mars und Jupiter liegt der Asteroidengürtel.","Sein größtes Objekt, Ceres, ist ein Zwergplanet."],
         ["Welcher Planet ist der heißeste?","Venus",["Merkur","Mars","Jupiter"],"Nicht der Planet, der der Sonne am nächsten ist.","Venus ist heißer als Merkur, weil ihre dicke Atmosphäre die Wärme festhält.","Auf der Venus sind es etwa 465 Grad, heiß genug, um Blei zu schmelzen."],
@@ -17,7 +17,7 @@
       ],
       sterren_planeten: [
         ["Welche Galaxie liegt der Milchstraße am nächsten?","Andromeda",["Orion","Sirius","Kassiopeia"],"Du siehst sie mit dem Auge als blassen Fleck.","Andromeda ist die nächste große Galaxie.","In etwa 4 Milliarden Jahren stoßen Andromeda und die Milchstraße zusammen."],
-        ["Welche Farbe hat die heißeste Sternenart?","Blau",["Rot","Gelb","Orange"],"Das Gegenteil von dem, was ein Wasserhahn dir beibringt.","Blaue Sterne sind die heißesten, rote die kühlsten.","Unsere Sonne ist ein gelber Stern mit mittlerer Temperatur."],
+        ["Wie heiß ist die heißeste Art Stern ungefähr?", "Über 30.000 Grad", ["Etwa 100 Grad", "Etwa 1.000 Grad", "Etwa 5.000 Grad"], "Viel heißer als unsere Sonne.", "Die heißesten Sterne erreichen an der Oberfläche Zehntausende Grad.", "Unsere Sonne ist mit knapp 5.500 Grad ein ruhiger Durchschnittsstern.",],
         ["Was ist ein Lichtjahr?","Eine Entfernung",["Eine Zeit","Ein Gewicht","Eine Temperatur"],"Es geht darum, wie weit, nicht wie lange.","Ein Lichtjahr ist die Strecke, die Licht in einem Jahr zurücklegt.","Das sind etwa 9,5 Billionen Kilometer."],
         ["Was ist der hellste Stern am Nachthimmel?","Sirius",["Der Polarstern","Beteigeuze","Wega"],"Er gehört zum Sternbild Großer Hund.","Sirius ist der hellste Stern, den wir nachts sehen.","Sirius ist „nur“ 8,6 Lichtjahre entfernt."],
         ["Was entsteht, wenn ein schwerer Stern am Ende seines Lebens explodiert?","Eine Supernova",["Ein Komet","Ein Planet","Ein Regenbogen"],"Eine gewaltige Explosion.","Eine Supernova ist die Explosion eines schweren Sterns.","So eine Explosion kann kurz eine ganze Galaxie überstrahlen."],
@@ -61,7 +61,7 @@
         ["Welcher Fluss ließ jedes Jahr fruchtbaren Schlamm zurück?","Der Nil",["Der Euphrat","Der Tigris","Der Rhein"],"Der längste Fluss Afrikas.","Die jährliche Überschwemmung des Nils machte die Felder fruchtbar.","Ohne den Nil wäre Ägypten ganz Wüste."],
         ["Welche Statue mit Löwenkörper und Menschenkopf steht bei den Pyramiden?","Die Sphinx",["Anubis","Der Obelisk","Der Kolossus"],"Sie wacht über die Pyramiden von Gizeh.","Die Sphinx ist eine riesige Statue mit Löwenkörper und Menschenkopf.","Sie ist 73 Meter lang und 20 Meter hoch."],
         ["Welcher Gott hatte den Kopf eines Schakals?","Anubis",["Ra","Horus","Osiris"],"Er gehörte zum Mumifizieren.","Anubis, der Gott mit dem Schakalkopf, wachte über die Toten.","Priester trugen beim Einbalsamieren eine Anubis-Maske."],
-        ["Worauf schrieben die Ägypter?","Auf Papyrus",["Auf Papier","Auf Pergament","Auf Tontafeln"],"Aus einer Schilfpflanze vom Nil gemacht.","Papyrus wurde aus den Stängeln der Papyruspflanze gemacht.","Unser Wort „Papier“ kommt von Papyrus."],
+        ["Woraus machten die Ägypter Papyrus?", "Aus einer Schilfpflanze", ["Aus Tierhaut", "Aus Baumrinde", "Aus feinem Sand"], "Sie wuchs am Nil.", "Sie schnitten den Stängel in Streifen, legten sie kreuzweise und klopften sie zu einem Blatt.", "Trocken gelagert hält Papyrus Jahrtausende.",],
         ["Welches Tier war im alten Ägypten heilig?","Die Katze",["Der Hund","Das Pferd","Das Huhn"],"Man hat sogar Katzenmumien gefunden.","Katzen wurden verehrt; sie schützten das Getreide vor Mäusen.","Eine Katze zu töten konnte schwer bestraft werden."],
         ["Wer war die letzte Pharaonin von Ägypten?","Kleopatra",["Nefertiti","Hatschepsut","Tutanchamun"],"Eine Königin, die mit den Römern zu tun hatte.","Kleopatra VII. war die letzte Herrscherin des alten Ägypten.","Nach ihrem Tod wurde Ägypten eine Provinz Roms."]
       ],

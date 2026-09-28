@@ -4,7 +4,7 @@
   window.KWIZILLO_EXTRA_EN = {
     ruimte: {
       zonnestelsel: [
-        ["Which planet has the most known moons?","Saturn",["Mars","Earth","Venus"],"This gas giant has more than a hundred.","Saturn has the most known moons, more than 140.","Its largest moon, Titan, is bigger than the planet Mercury."],
+        ["About how many moons does Saturn have?", "More than a hundred", ["One", "Two", "None at all"], "They find new ones every year.", "More than a hundred moons circle Saturn, from giants to lumps of ice.", "The largest, Titan, is bigger than the planet Mercury.",],
         ["Which planet is the only one that spins \"on its side\"?","Uranus",["Jupiter","Mars","Neptune"],"Its axis lies almost flat.","Uranus spins with an axis tilted by almost 98 degrees.","That is why a winter at the poles of Uranus lasts over 20 years."],
         ["What is the belt of rocks between Mars and Jupiter called?","The asteroid belt",["The Kuiper belt","The Milky Way","The moon ring"],"Millions of rocks float there.","Between Mars and Jupiter lies the asteroid belt.","Its largest object, Ceres, is a dwarf planet."],
         ["Which planet is the hottest?","Venus",["Mercury","Mars","Jupiter"],"Not the planet closest to the sun.","Venus is hotter than Mercury because its thick atmosphere traps heat.","On Venus it is about 465 degrees, hot enough to melt lead."],
@@ -17,7 +17,7 @@
       ],
       sterren_planeten: [
         ["Which galaxy is closest to the Milky Way?","Andromeda",["Orion","Sirius","Cassiopeia"],"You can see it with the naked eye as a faint smudge.","Andromeda is the nearest large galaxy.","In about 4 billion years Andromeda and the Milky Way will collide."],
-        ["What colour is the hottest kind of star?","Blue",["Red","Yellow","Orange"],"The opposite of what a tap teaches you.","Blue stars are the hottest, red stars the coolest.","Our sun is a yellow star with an average temperature."],
+        ["How hot is the hottest kind of star?", "Over 30,000 degrees", ["About 100 degrees", "About 1,000 degrees", "About 5,000 degrees"], "Far hotter than our sun.", "The hottest stars reach tens of thousands of degrees at their surface.", "Our sun, at nearly 5,500 degrees, is a calm, average star.",],
         ["What is a light-year?","A distance",["A time","A weight","A temperature"],"It is about how far, not how long.","A light-year is the distance light travels in one year.","That is about 9.5 trillion kilometres."],
         ["What is the brightest star in the night sky?","Sirius",["The North Star","Betelgeuse","Vega"],"It belongs to the constellation Canis Major.","Sirius is the brightest star we see at night.","Sirius is \"only\" 8.6 light-years away."],
         ["What forms when a heavy star explodes at the end of its life?","A supernova",["A comet","A planet","A rainbow"],"A giant explosion.","A supernova is the explosion of a massive star.","Such an explosion can briefly outshine a whole galaxy."],
@@ -61,7 +61,7 @@
         ["Which river left fertile mud behind every year?","The Nile",["The Euphrates","The Tigris","The Rhine"],"The longest river in Africa.","The yearly flooding of the Nile made the fields fertile.","Without the Nile, Egypt would be all desert."],
         ["What is the statue with a lion's body and a human head near the pyramids?","The Sphinx",["Anubis","The Obelisk","The Colossus"],"It guards the pyramids of Giza.","The Sphinx is a huge statue with a lion's body and a human head.","It is 73 metres long and 20 metres high."],
         ["Which god had the head of a jackal?","Anubis",["Ra","Horus","Osiris"],"He belonged to mummification.","Anubis, the god with the jackal head, watched over the dead.","Priests wore an Anubis mask during embalming."],
-        ["What did the Egyptians write on?","Papyrus",["Paper","Parchment","Clay tablets"],"Made from a reed plant from the Nile.","Papyrus was made from the stems of the papyrus plant.","Our word \"paper\" comes from papyrus."],
+        ["What did the Egyptians make papyrus from?", "From a reed plant", ["From animal hide", "From tree bark", "From fine sand"], "It grew along the Nile.", "They cut the stem into strips, laid them crosswise and beat them into one sheet.", "Kept dry, papyrus lasts for thousands of years.",],
         ["Which animal was sacred in ancient Egypt?","The cat",["The dog","The horse","The chicken"],"Cat mummies have even been found.","Cats were revered; they protected the grain from mice.","Killing a cat could be severely punished."],
         ["Who was the last pharaoh of Egypt?","Cleopatra",["Nefertiti","Hatshepsut","Tutankhamun"],"A queen who dealt with the Romans.","Cleopatra VII was the last ruler of ancient Egypt.","After her death Egypt became a province of Rome."]
       ],

@@ -4,7 +4,7 @@
   window.KWIZILLO_EXTRA_FR = {
     ruimte: {
       zonnestelsel: [
-        ["Quelle planète a le plus de lunes connues ?","Saturne",["Mars","la Terre","Vénus"],"Cette géante gazeuse en a plus de cent.","Saturne a le plus de lunes connues, plus de 140.","Sa plus grande lune, Titan, est plus grosse que la planète Mercure."],
+        ["Combien de lunes a Saturne environ ?", "Plus de cent", ["Une", "Deux", "Aucune"], "On en découvre chaque année.", "Plus de cent lunes tournent autour de Saturne, des géantes aux blocs de glace.", "La plus grande, Titan, dépasse la planète Mercure.",],
         ["Quelle planète est la seule à tourner « couchée sur le côté » ?","Uranus",["Jupiter","Mars","Neptune"],"Son axe est presque à plat.","Uranus tourne avec un axe incliné de près de 98 degrés.","C’est pourquoi un hiver aux pôles d’Uranus dure plus de 20 ans."],
         ["Comment s’appelle la ceinture de rochers entre Mars et Jupiter ?","La ceinture d’astéroïdes",["La ceinture de Kuiper","La Voie lactée","L’anneau lunaire"],"Des millions de rochers y flottent.","Entre Mars et Jupiter se trouve la ceinture d’astéroïdes.","Son plus gros objet, Cérès, est une planète naine."],
         ["Quelle planète est la plus chaude ?","Vénus",["Mercure","Mars","Jupiter"],"Pas la planète la plus proche du Soleil.","Vénus est plus chaude que Mercure car son atmosphère épaisse retient la chaleur.","Sur Vénus il fait environ 465 degrés, assez pour faire fondre du plomb."],
@@ -17,7 +17,7 @@
       ],
       sterren_planeten: [
         ["Quelle galaxie est la plus proche de la Voie lactée ?","Andromède",["Orion","Sirius","Cassiopée"],"Tu la vois à l’œil nu comme une tache pâle.","Andromède est la grande galaxie la plus proche.","Dans environ 4 milliards d’années, Andromède et la Voie lactée entreront en collision."],
-        ["De quelle couleur est la sorte d’étoile la plus chaude ?","Bleue",["Rouge","Jaune","Orange"],"Le contraire de ce que t’apprend un robinet.","Les étoiles bleues sont les plus chaudes, les rouges les plus froides.","Notre Soleil est une étoile jaune de température moyenne."],
+        ["Quelle chaleur atteint l'étoile la plus chaude ?", "Plus de 30 000 degrés", ["Environ 100 degrés", "Environ 1 000 degrés", "Environ 5 000 degrés"], "Bien plus chaud que notre soleil.", "Les étoiles les plus chaudes atteignent des dizaines de milliers de degrés en surface.", "Notre soleil, à près de 5 500 degrés, est une étoile moyenne et tranquille.",],
         ["Qu’est-ce qu’une année-lumière ?","Une distance",["Une durée","Un poids","Une température"],"Il s’agit d’une longueur, pas d’un temps.","Une année-lumière est la distance que la lumière parcourt en un an.","Cela fait environ 9,5 billions de kilomètres."],
         ["Quelle est l’étoile la plus brillante du ciel nocturne ?","Sirius",["l’étoile Polaire","Bételgeuse","Véga"],"Elle appartient à la constellation du Grand Chien.","Sirius est l’étoile la plus brillante que nous voyons la nuit.","Sirius n’est qu’à 8,6 années-lumière."],
         ["Que se forme-t-il quand une étoile lourde explose à la fin de sa vie ?","Une supernova",["Une comète","Une planète","Un arc-en-ciel"],"Une explosion gigantesque.","Une supernova est l’explosion d’une étoile massive.","Une telle explosion peut brièvement éclipser toute une galaxie."],
@@ -61,7 +61,7 @@
         ["Quel fleuve laissait chaque année une boue fertile ?","Le Nil",["L’Euphrate","Le Tigre","Le Rhin"],"Le plus long fleuve d’Afrique.","La crue annuelle du Nil rendait les champs fertiles.","Sans le Nil, l’Égypte serait entièrement un désert."],
         ["Quelle statue à corps de lion et tête humaine se dresse près des pyramides ?","Le Sphinx",["Anubis","L’obélisque","Le Colosse"],"Il garde les pyramides de Gizeh.","Le Sphinx est une immense statue à corps de lion et tête humaine.","Il mesure 73 mètres de long et 20 mètres de haut."],
         ["Quel dieu avait une tête de chacal ?","Anubis",["Rê","Horus","Osiris"],"Il était lié à la momification.","Anubis, le dieu à tête de chacal, veillait sur les morts.","Les prêtres portaient un masque d’Anubis pendant l’embaumement."],
-        ["Sur quoi les Égyptiens écrivaient-ils ?","Sur du papyrus",["Sur du papier","Sur du parchemin","Sur des tablettes d’argile"],"Fait à partir d’un roseau du Nil.","Le papyrus était fabriqué avec les tiges de la plante de papyrus.","Notre mot « papier » vient de papyrus."],
+        ["Avec quoi les Égyptiens faisaient-ils le papyrus ?", "Avec un roseau", ["Avec de la peau", "Avec de l'écorce", "Avec du sable fin"], "Il poussait le long du Nil.", "Ils coupaient la tige en bandes, les croisaient et les martelaient en une feuille.", "Au sec, le papyrus se conserve des millénaires.",],
         ["Quel animal était sacré dans l’Égypte ancienne ?","Le chat",["Le chien","Le cheval","La poule"],"On a même retrouvé des momies de chats.","Les chats étaient vénérés ; ils protégeaient le grain des souris.","Tuer un chat pouvait être sévèrement puni."],
         ["Qui a été la dernière pharaonne d’Égypte ?","Cléopâtre",["Néfertiti","Hatchepsout","Toutânkhamon"],"Une reine qui traitait avec les Romains.","Cléopâtre VII a été la dernière souveraine de l’Égypte ancienne.","Après sa mort, l’Égypte est devenue une province de Rome."]
       ],

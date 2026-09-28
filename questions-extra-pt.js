@@ -4,7 +4,7 @@
   window.KWIZILLO_EXTRA_PT = {
     ruimte: {
       zonnestelsel: [
-        ["Qual planeta tem mais luas conhecidas?","Saturno",["Marte","Terra","Vênus"],"Este gigante gasoso tem mais de cem.","Saturno tem o maior número de luas conhecidas, mais de 140.","Sua maior lua, Titã, é maior que o planeta Mercúrio."],
+        ["Quantas luas tem Saturno mais ou menos?", "Mais de cem", ["Uma", "Duas", "Nenhuma"], "Todos os anos encontram novas.", "À volta de Saturno giram mais de cem luas, de gigantes a blocos de gelo.", "A maior, Titã, é maior do que o planeta Mercúrio.",],
         ["Qual planeta é o único que gira \"deitado\"?","Urano",["Júpiter","Marte","Netuno"],"Seu eixo fica quase na horizontal.","Urano gira com um eixo inclinado quase 98 graus.","Por isso um inverno nos polos de Urano dura mais de 20 anos."],
         ["Como se chama o cinturão de rochas entre Marte e Júpiter?","O cinturão de asteroides",["O cinturão de Kuiper","A Via Láctea","O anel da Lua"],"Milhões de rochas flutuam lá.","Entre Marte e Júpiter fica o cinturão de asteroides.","Seu maior objeto, Ceres, é um planeta anão."],
         ["Qual planeta é o mais quente?","Vênus",["Mercúrio","Marte","Júpiter"],"Não é o planeta mais perto do Sol.","Vênus é mais quente que Mercúrio porque sua atmosfera grossa prende o calor.","Em Vênus faz cerca de 465 graus, o bastante para derreter chumbo."],
@@ -17,7 +17,7 @@
       ],
       sterren_planeten: [
         ["Qual galáxia fica mais perto da Via Láctea?","Andrômeda",["Órion","Sirius","Cassiopeia"],"Dá para ver a olho nu como uma mancha fraca.","Andrômeda é a grande galáxia mais próxima.","Em cerca de 4 bilhões de anos, Andrômeda e a Via Láctea vão se chocar."],
-        ["Qual é a cor da estrela mais quente?","Azul",["Vermelha","Amarela","Laranja"],"O contrário do que a torneira ensina.","Estrelas azuis são as mais quentes; as vermelhas, as mais frias.","Nosso Sol é uma estrela amarela de temperatura média."],
+        ["Que calor atinge a estrela mais quente?", "Mais de 30.000 graus", ["Cerca de 100 graus", "Cerca de 1.000 graus", "Cerca de 5.000 graus"], "Muito mais do que o nosso sol.", "As estrelas mais quentes chegam a dezenas de milhares de graus à superfície.", "O nosso sol, com quase 5.500 graus, é uma estrela média e calma.",],
         ["O que é um ano-luz?","Uma distância",["Um tempo","Um peso","Uma temperatura"],"É sobre quão longe, não quanto tempo.","Um ano-luz é a distância que a luz percorre em um ano.","São cerca de 9,5 trilhões de quilômetros."],
         ["Qual é a estrela mais brilhante do céu noturno?","Sirius",["A Estrela Polar","Betelgeuse","Vega"],"Fica na constelação do Cão Maior.","Sirius é a estrela mais brilhante que vemos à noite.","Sirius está \"só\" a 8,6 anos-luz de nós."],
         ["O que surge quando uma estrela pesada explode no fim da vida?","Uma supernova",["Um cometa","Um planeta","Um arco-íris"],"Uma explosão gigante.","Uma supernova é a explosão de uma estrela muito massiva.","Essa explosão pode brilhar por um tempo mais que uma galáxia inteira."],
@@ -61,7 +61,7 @@
         ["Qual rio deixava lama fértil todo ano?","O Nilo",["O Eufrates","O Tigre","O Reno"],"O rio mais longo da África.","A cheia anual do Nilo deixava os campos férteis.","Sem o Nilo, o Egito seria só deserto."],
         ["Como se chama a estátua com corpo de leão e cabeça humana perto das pirâmides?","A Esfinge",["Anúbis","O Obelisco","O Colosso"],"Ela guarda as pirâmides de Gizé.","A Esfinge é uma estátua enorme com corpo de leão e cabeça de gente.","Tem 73 metros de comprimento e 20 de altura."],
         ["Qual deus tinha cabeça de chacal?","Anúbis",["Rá","Hórus","Osíris"],"Ele estava ligado à mumificação.","Anúbis, o deus com cabeça de chacal, cuidava dos mortos.","Os sacerdotes usavam uma máscara de Anúbis durante o embalsamamento."],
-        ["Em que os egípcios escreviam?","Papiro",["Papel","Pergaminho","Tábuas de argila"],"Feito de uma planta do Nilo.","O papiro era feito dos caules da planta papiro.","Nossa palavra \"papel\" vem de papiro."],
+        ["De que faziam os egípcios o papiro?", "De uma planta de junco", ["De pele de animal", "De casca de árvore", "De areia fina"], "Crescia ao longo do Nilo.", "Cortavam o caule em tiras, cruzavam-nas e batiam-nas até formar uma folha.", "Guardado a seco, o papiro dura milhares de anos.",],
         ["Qual animal era sagrado no Egito antigo?","O gato",["O cachorro","O cavalo","A galinha"],"Até múmias de gato foram achadas.","Os gatos eram venerados; eles protegiam os grãos dos ratos.","Quem matasse um gato podia ser punido com severidade."],
         ["Quem foi a última faraó do Egito?","Cleópatra",["Nefertiti","Hatshepsut","Tutancâmon"],"Uma rainha que lidou com os romanos.","Cleópatra VII foi a última governante do Egito antigo.","Depois da morte dela, o Egito virou província de Roma."]
       ],

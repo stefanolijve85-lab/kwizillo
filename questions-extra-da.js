@@ -4,7 +4,7 @@
   window.KWIZILLO_EXTRA_DA = {
     ruimte: {
       zonnestelsel: [
-        ["Hvilken planet har flest kendte måner?","Saturn",["Mars","Jorden","Venus"],"Denne gaskæmpe har mere end hundrede.","Saturn har flest kendte måner, mere end 140.","Dens største måne, Titan, er større end planeten Merkur."],
+        ["Hvor mange måner har Saturn cirka?", "Mere end hundrede", ["Én", "To", "Slet ingen"], "Man finder nye hvert år.", "Om Saturn kredser over hundrede måner, fra kæmper til isklumper.", "Den største, Titan, er større end planeten Merkur.",],
         ["Hvilken planet er den eneste, der drejer „liggende på siden“?","Uranus",["Jupiter","Mars","Neptun"],"Dens akse ligger næsten fladt.","Uranus drejer med en akse, der hælder næsten 98 grader.","Derfor varer en vinter ved Uranus’ poler mere end 20 år."],
         ["Hvad hedder bæltet af sten mellem Mars og Jupiter?","Asteroidebæltet",["Kuiperbæltet","Mælkevejen","Måneringen"],"Der svæver millioner af sten.","Mellem Mars og Jupiter ligger asteroidebæltet.","Dets største objekt, Ceres, er en dværgplanet."],
         ["Hvilken planet er den varmeste?","Venus",["Merkur","Mars","Jupiter"],"Ikke den planet, der er tættest på Solen.","Venus er varmere end Merkur, fordi dens tykke atmosfære holder på varmen.","På Venus er der cirka 465 grader, nok til at smelte bly."],
@@ -17,7 +17,7 @@
       ],
       sterren_planeten: [
         ["Hvilken galakse ligger tættest på Mælkevejen?","Andromeda",["Orion","Sirius","Cassiopeia"],"Du kan se den med det blotte øje som en svag plet.","Andromeda er den nærmeste store galakse.","Om cirka 4 milliarder år støder Andromeda og Mælkevejen sammen."],
-        ["Hvilken farve har den varmeste slags stjerne?","Blå",["Rød","Gul","Orange"],"Det modsatte af det, en vandhane lærer dig.","Blå stjerner er de varmeste, røde stjerner de koldeste.","Vores Sol er en gul stjerne med middeltemperatur."],
+        ["Hvor varm er den varmeste slags stjerne?", "Over 30.000 grader", ["Omkring 100 grader", "Omkring 1.000 grader", "Omkring 5.000 grader"], "Meget varmere end vores sol.", "De varmeste stjerner når titusinder af grader på overfladen.", "Vores sol er med knap 5.500 grader en rolig, helt almindelig stjerne.",],
         ["Hvad er et lysår?","En afstand",["En tid","En vægt","En temperatur"],"Det handler om hvor langt, ikke hvor længe.","Et lysår er den strækning, lyset tilbagelægger på et år.","Det er cirka 9,5 billioner kilometer."],
         ["Hvad er den klareste stjerne på nattehimlen?","Sirius",["Nordstjernen","Betelgeuse","Vega"],"Den hører til stjernebilledet Store Hund.","Sirius er den klareste stjerne, vi ser om natten.","Sirius er „kun“ 8,6 lysår væk."],
         ["Hvad dannes der, når en tung stjerne eksploderer ved sit livs slutning?","En supernova",["En komet","En planet","En regnbue"],"En kæmpe eksplosion.","En supernova er eksplosionen af en meget tung stjerne.","Sådan en eksplosion kan kortvarigt lyse mere end en hel galakse."],
@@ -61,7 +61,7 @@
         ["Hvilken flod efterlod hvert år frugtbart mudder?","Nilen",["Eufrat","Tigris","Rhinen"],"Afrikas længste flod.","Nilens årlige oversvømmelse gjorde markerne frugtbare.","Uden Nilen ville Egypten være ren ørken."],
         ["Hvilken statue med løvekrop og menneskehoved står ved pyramiderne?","Sfinksen",["Anubis","Obelisken","Kolossen"],"Den vogter pyramiderne i Giza.","Sfinksen er en kæmpe statue med løvekrop og menneskehoved.","Den er 73 meter lang og 20 meter høj."],
         ["Hvilken gud havde hoved som en sjakal?","Anubis",["Ra","Horus","Osiris"],"Han hørte til mumificeringen.","Anubis, guden med sjakalhovedet, vågede over de døde.","Præsterne bar en Anubis-maske under balsameringen."],
-        ["Hvad skrev egypterne på?","Papyrus",["Papir","Pergament","Lertavler"],"Lavet af en sivplante fra Nilen.","Papyrus blev lavet af stænglerne fra papyrusplanten.","Ordet „papir“ kommer fra papyrus."],
+        ["Hvad lavede egypterne papyrus af?", "Af en sivplante", ["Af dyrehud", "Af bark", "Af fint sand"], "Den voksede langs Nilen.", "De skar stænglen i strimler, lagde dem på kryds og bankede dem til ét ark.", "Opbevaret tørt holder papyrus i årtusinder.",],
         ["Hvilket dyr var helligt i det gamle Egypten?","Katten",["Hunden","Hesten","Hønen"],"Man har endda fundet kattemumier.","Katte blev æret; de beskyttede kornet mod mus.","At slå en kat ihjel kunne straffes hårdt."],
         ["Hvem var Egyptens sidste farao?","Kleopatra",["Nefertiti","Hatshepsut","Tutankhamon"],"En dronning, der forhandlede med romerne.","Kleopatra 7. var det gamle Egyptens sidste hersker.","Efter hendes død blev Egypten en provins under Rom."]
       ],

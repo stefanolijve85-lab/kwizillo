@@ -238,3 +238,67 @@ terug komen. Vier paren blijven staan die hetzelfde antwoord anders vragen;
 `npm run content:lint` noemt ze, en ze horen bij het bijvullen thuis:
 zonnestelsel 04/11, sterren_planeten 06/12, egyptenaren 06/18 en
 romeinen 03/18.
+
+---
+
+## 7. De nachtronde: alle 24 onderwerpen gevuld
+
+In de nacht van 27 op 28 september 2026 zijn de overige 23 onderwerpen
+dezelfde pijplijn door gegaan als de pilot. Stand nu:
+
+| | voor | na |
+|---|---|---|
+| Vragen per taal | 480 | **960** |
+| Vragen in tien talen | 4800 | **9600** |
+| Onderwerpen met tien vragen per moeilijkheid | 1 van 24 | **24 van 24** |
+| Niveau 6 zonder herhaling | alleen `zonnestelsel` | **elk onderwerp** |
+| Eigen vraagillustraties | 480 | 540 (420 wachten nog) |
+
+Elke ronde was dezelfde vier stappen: de bestaande twintig prompts uitlezen
+zodat er niets dubbel komt, twintig nieuwe vragen schrijven in nl/en/de/fr/es,
+linten en de lengtes bijstellen, dan it/pt/da/ru/ar erbij, opnieuw linten,
+`node tools/content-build.cjs`, `npm test`, commit, push.
+
+### Wat de lint in deze ronde tegenhield
+
+- **Kruisdubbel:** "Waarom stijgt warme lucht op?" stond al bij weer en klimaat;
+  de nieuwe versie bij slimme proefjes werd het ei in azijn.
+- **Antwoord in de vraag:** twee raadsels (de zeventien schapen, de drie appels)
+  verklapten hun eigen antwoord. Vervangen door raadsels zonder verklapper.
+- **Lengtes:** ruim tachtig antwoorden en afleiders waren langer dan 28 tekens,
+  vrijwel allemaal in de/fr/es/it/pt/ru. Allemaal ingekort vóór de build.
+
+### De zes dubbele paren uit de oude bank zijn weg
+
+De vier paren die hierboven nog openstonden, plus twee die deze ronde
+bovenkwamen, zijn herschreven zodat ze bij de bestaande illustratie passen —
+er hoefde dus geen plaat opnieuw:
+
+| vraag | was | is nu |
+|---|---|---|
+| `romeinen-18` | welke taal spraken de Romeinen (net als 03) | schrijven op een wastafeltje met een stylus |
+| `lichaam-13` | het grootste orgaan (net als 09) | waar het zweet in je huid vandaan komt |
+| `natuur_energie-17` | waterkracht (net als 07) | de stuwdam zelf |
+| `slimme_proefjes-11` | bakpoeder en azijn (net als 01) | welk gas het schuim maakt |
+| `zonnestelsel-11` | een tweede vraag met antwoord Saturnus | hoeveel manen Saturnus heeft |
+| `sterren_planeten-12` | een tweede vraag met antwoord blauw | hoe heet de heetste sterren zijn |
+| `egyptenaren-18` | een tweede vraag met antwoord papyrus | waarvan papyrus gemaakt werd |
+
+`npm run content:lint` meldt nu geen enkel paar meer met hetzelfde antwoord.
+
+### Wat er nog ligt
+
+1. **420 platen.** Alles na `ruimte/astronauten` staat in `content/` als
+   `"art": "todo"`, en `npm test` roept het getal bij elke run. Blokkerend:
+   ElevenLabs gaf `quota_exceeded — 0 credits remaining` tijdens de ronde.
+   Kosten om het af te maken: 420 × 3,4 cent ≈ **14 euro**.
+2. **Spraak warmdraaien** voor diezelfde vragen (`node tools/warm-speech.cjs`),
+   geblokkeerd door hetzelfde tegoed.
+3. **Eindredactie.** Daarvoor is `review.html` gebouwd:
+   `node tools/review-page.cjs` bakt alle 480 nieuwe vragen met plaat,
+   antwoorden, hint, uitleg en weetje in één pagina, in alle tien talen, met
+   goed/aanpassen per vraag en een downloadknop voor de beslissingen.
+   Open hem via `npm start` → `http://localhost:8080/review.html` (dan onthoudt
+   de browser je oordelen; bij openen als bestand kan dat niet).
+4. **De twee nieuwe werelden** (Kunstwereld, Sportwereld) zijn nog appwerk:
+   wereldselectie, muziek, collectie en illustraties, daarna 8 × 4 × 40 = 1280.

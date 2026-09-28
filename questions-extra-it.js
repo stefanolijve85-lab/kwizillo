@@ -4,7 +4,7 @@
   window.KWIZILLO_EXTRA_IT = {
     ruimte: {
       zonnestelsel: [
-        ["Quale pianeta ha più lune conosciute?","Saturno",["Marte","la Terra","Venere"],"Questo gigante gassoso ne ha più di cento.","Saturno ha il maggior numero di lune conosciute, più di 140.","La sua luna più grande, Titano, è più grande del pianeta Mercurio."],
+        ["Quante lune ha circa Saturno?", "Più di cento", ["Una", "Due", "Nessuna"], "Ogni anno se ne trovano di nuove.", "Attorno a Saturno girano più di cento lune, da giganti a blocchi di ghiaccio.", "La maggiore, Titano, è più grande del pianeta Mercurio.",],
         ["Quale pianeta è l’unico a girare «sdraiato su un fianco»?","Urano",["Giove","Marte","Nettuno"],"Il suo asse è quasi piatto.","Urano gira con l’asse inclinato di quasi 98 gradi.","Per questo un inverno ai poli di Urano dura più di 20 anni."],
         ["Come si chiama la fascia di rocce tra Marte e Giove?","La fascia degli asteroidi",["La fascia di Kuiper","La Via Lattea","L’anello lunare"],"Lì galleggiano milioni di rocce.","Tra Marte e Giove si trova la fascia degli asteroidi.","Il suo oggetto più grande, Cerere, è un pianeta nano."],
         ["Quale pianeta è il più caldo?","Venere",["Mercurio","Marte","Giove"],"Non è il pianeta più vicino al Sole.","Venere è più caldo di Mercurio perché la sua atmosfera spessa trattiene il calore.","Su Venere ci sono circa 465 gradi, abbastanza per fondere il piombo."],
@@ -17,7 +17,7 @@
       ],
       sterren_planeten: [
         ["Quale galassia è la più vicina alla Via Lattea?","Andromeda",["Orione","Sirio","Cassiopea"],"La vedi a occhio nudo come una macchia chiara.","Andromeda è la grande galassia più vicina.","Tra circa 4 miliardi di anni Andromeda e la Via Lattea si scontreranno."],
-        ["Di che colore è il tipo di stella più caldo?","Azzurro",["Rosso","Giallo","Arancione"],"Il contrario di quello che insegna un rubinetto.","Le stelle azzurre sono le più calde, quelle rosse le più fredde.","Il nostro Sole è una stella gialla di temperatura media."],
+        ["Quanto è calda la stella più calda?", "Oltre 30.000 gradi", ["Circa 100 gradi", "Circa 1.000 gradi", "Circa 5.000 gradi"], "Molto più del nostro sole.", "Le stelle più calde toccano decine di migliaia di gradi in superficie.", "Il nostro sole, con quasi 5.500 gradi, è una stella media e tranquilla.",],
         ["Che cos’è un anno luce?","Una distanza",["Un tempo","Un peso","Una temperatura"],"Dice quanto lontano, non quanto dura.","Un anno luce è la distanza che la luce percorre in un anno.","Sono circa 9,5 mila miliardi di chilometri."],
         ["Qual è la stella più luminosa del cielo notturno?","Sirio",["la stella Polare","Betelgeuse","Vega"],"Appartiene alla costellazione del Cane Maggiore.","Sirio è la stella più luminosa che vediamo di notte.","Sirio è «solo» a 8,6 anni luce."],
         ["Che cosa si forma quando una stella pesante esplode alla fine della sua vita?","Una supernova",["Una cometa","Un pianeta","Un arcobaleno"],"Un’esplosione gigantesca.","Una supernova è l’esplosione di una stella molto massiccia.","Un’esplosione così può brillare più di un’intera galassia per un po’."],
@@ -61,7 +61,7 @@
         ["Quale fiume lasciava ogni anno un fango fertile?","Il Nilo",["L’Eufrate","Il Tigri","Il Reno"],"Il fiume più lungo dell’Africa.","La piena annuale del Nilo rendeva fertili i campi.","Senza il Nilo l’Egitto sarebbe tutto deserto."],
         ["Quale statua con corpo di leone e testa umana sta vicino alle piramidi?","La Sfinge",["Anubi","L’obelisco","Il Colosso"],"Sorveglia le piramidi di Giza.","La Sfinge è un’enorme statua con corpo di leone e testa umana.","È lunga 73 metri e alta 20."],
         ["Quale dio aveva la testa di sciacallo?","Anubi",["Ra","Horus","Osiride"],"Era legato alla mummificazione.","Anubi, il dio con la testa di sciacallo, vegliava sui morti.","I sacerdoti indossavano una maschera di Anubi durante l’imbalsamazione."],
-        ["Su che cosa scrivevano gli egizi?","Sul papiro",["Sulla carta","Sulla pergamena","Su tavolette d’argilla"],"Fatto con una pianta di canna del Nilo.","Il papiro si faceva con i fusti della pianta di papiro.","Dalla parola papiro viene «paper» in inglese."],
+        ["Con che cosa facevano il papiro gli egizi?", "Con una pianta di canna", ["Con pelle di animale", "Con corteccia", "Con sabbia fine"], "Cresceva lungo il Nilo.", "Tagliavano il fusto a strisce, le incrociavano e le battevano fino a farne un foglio.", "Tenuto all'asciutto, il papiro dura millenni.",],
         ["Quale animale era sacro nell’antico Egitto?","Il gatto",["Il cane","Il cavallo","La gallina"],"Sono state trovate perfino mummie di gatto.","I gatti erano venerati; proteggevano il grano dai topi.","Uccidere un gatto poteva essere punito duramente."],
         ["Chi è stata l’ultima faraona d’Egitto?","Cleopatra",["Nefertiti","Hatshepsut","Tutankhamon"],"Una regina che trattava con i romani.","Cleopatra VII fu l’ultima sovrana dell’antico Egitto.","Dopo la sua morte l’Egitto diventò una provincia di Roma."]
       ],

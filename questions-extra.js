@@ -6,7 +6,7 @@
   window.KWIZILLO_EXTRA_NL = {
     ruimte: {
       zonnestelsel: [
-        ['Welke planeet heeft de meeste bekende manen?','Saturnus',['Mars','Aarde','Venus'],'Deze gasreus heeft er meer dan honderd.','Saturnus heeft de meeste bekende manen, meer dan 140.','Zijn grootste maan, Titan, is groter dan de planeet Mercurius.'],
+        ["Hoeveel manen heeft Saturnus ongeveer?", "Meer dan honderd", ["Eén", "Twee", "Helemaal geen"], "Elk jaar vinden ze er nieuwe.", "Rond Saturnus draaien meer dan honderd manen, van reuzen tot brokken ijs.", "De grootste, Titan, is groter dan de planeet Mercurius.",],
         ['Welke planeet draait als enige "op zijn zij"?','Uranus',['Jupiter','Mars','Neptunus'],'Zijn as ligt bijna plat.','Uranus draait met een as die bijna 98 graden gekanteld is.','Daardoor duurt een winter op de polen van Uranus ruim 20 jaar.'],
         ['Hoe heet de gordel van rotsblokken tussen Mars en Jupiter?','De asteroïdengordel',['De Kuipergordel','De Melkweg','De maanring'],'Er zweven miljoenen rotsen.','Tussen Mars en Jupiter ligt de asteroïdengordel.','Het grootste object erin, Ceres, is een dwergplaneet.'],
         ['Welke planeet is het heetst?','Venus',['Mercurius','Mars','Jupiter'],'Niet de planeet die het dichtst bij de zon staat.','Venus is heter dan Mercurius door zijn dikke atmosfeer die warmte vasthoudt.','Op Venus is het ongeveer 465 graden, heet genoeg om lood te smelten.'],
@@ -19,7 +19,7 @@
       ],
       sterren_planeten: [
         ['Hoe heet het sterrenstelsel dat het dichtst bij de Melkweg staat?','Andromeda',['Orion','Sirius','Cassiopeia'],'Het is met het blote oog te zien als vaag vlekje.','Andromeda is het dichtstbijzijnde grote sterrenstelsel.','Over ongeveer 4 miljard jaar botsen Andromeda en de Melkweg.'],
-        ['Welke kleur heeft de heetste ster?','Blauw',['Rood','Geel','Oranje'],'Het tegenovergestelde van wat een kraan je leert.','Blauwe sterren zijn het heetst, rode sterren het koelst.','Onze zon is een gele ster met een gemiddelde temperatuur.'],
+        ["Hoe heet is de heetste soort ster ongeveer?", "Meer dan 30.000 graden", ["Ongeveer 100 graden", "Ongeveer 1.000 graden", "Ongeveer 5.000 graden"], "Veel heter dan onze zon.", "De heetste sterren halen aan hun oppervlak tienduizenden graden.", "Onze zon is met bijna 5.500 graden een rustige, gemiddelde ster.",],
         ['Wat is een lichtjaar?','Een afstand',['Een tijd','Een gewicht','Een temperatuur'],'Het gaat over hoe ver, niet hoe lang.','Een lichtjaar is de afstand die licht in één jaar aflegt.','Dat is ongeveer 9,5 biljoen kilometer.'],
         ['Hoe heet de helderste ster aan de nachthemel?','Sirius',['Poolster','Betelgeuze','Vega'],'Hij hoort bij het sterrenbeeld Grote Hond.','Sirius is de helderste ster die we \'s nachts zien.','Sirius staat "maar" 8,6 lichtjaar van ons vandaan.'],
         ['Wat ontstaat als een zware ster aan het eind van zijn leven ontploft?','Een supernova',['Een komeet','Een planeet','Een regenboog'],'Een enorme explosie.','Een supernova is de explosie van een zware ster.','Zo\'n explosie kan even feller schijnen dan een heel sterrenstelsel.'],
@@ -63,7 +63,7 @@
         ['Welke rivier liet elk jaar vruchtbare modder achter?','De Nijl',['De Eufraat','De Tigris','De Rijn'],'De langste rivier van Afrika.','De jaarlijkse overstroming van de Nijl maakte de akkers vruchtbaar.','Zonder de Nijl zou Egypte helemaal woestijn zijn.'],
         ['Hoe heet het beeld met een leeuwenlichaam en een mensenhoofd bij de piramiden?','De Sfinx',['Anubis','De Obelisk','De Kolos'],'Hij bewaakt de piramiden van Gizeh.','De Sfinx is een reusachtig beeld met een leeuwenlichaam en een mensenhoofd.','Hij is 73 meter lang en 20 meter hoog.'],
         ['Welke god had de kop van een jakhals?','Anubis',['Ra','Horus','Osiris'],'Hij hoorde bij het mummificeren.','Anubis, de god met de jakhalskop, waakte over de doden.','Priesters droegen een Anubis-masker tijdens de balseming.'],
-        ['Waarop schreven de Egyptenaren?','Papyrus',['Papier','Perkament','Kleitabletten'],'Gemaakt van een rietplant uit de Nijl.','Papyrus werd gemaakt van de stengels van de papyrusplant.','Ons woord "papier" komt van papyrus.'],
+        ["Waarvan maakten de Egyptenaren papyrus?", "Van een rietplant", ["Van dierenhuid", "Van boomschors", "Van fijn zand"], "Hij groeide langs de Nijl.", "Ze sneden de stengel in repen, legden die kruislings en klopten ze tot één vel.", "Droog bewaard gaat papyrus duizenden jaren mee.",],
         ['Welk dier was heilig in het oude Egypte?','De kat',['De hond','Het paard','De kip'],'Er zijn zelfs kattenmummies gevonden.','Katten werden vereerd; ze beschermden het graan tegen muizen.','Wie een kat doodde, kon zwaar gestraft worden.'],
         ['Hoe heet de laatste farao van Egypte?','Cleopatra',['Nefertiti','Hatsjepsoet','Toetanchamon'],'Een koningin die met de Romeinen te maken kreeg.','Cleopatra VII was de laatste heerser van het oude Egypte.','Na haar dood werd Egypte een provincie van Rome.']
       ],
