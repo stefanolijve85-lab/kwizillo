@@ -1,13 +1,4 @@
 {
   "note": "Tijdelijke platen, gemaakt door tools/placeholder-art.cjs. Vervangen zodra er echte renders zijn.",
-  "files": [
-    "assets/topics/schilderkunst.jpg",
-    "assets/topics/muziek.jpg",
-    "assets/topics/bouwkunst.jpg",
-    "assets/topics/dans_theater.jpg",
-    "assets/topics/balsporten.jpg",
-    "assets/topics/olympische_spelen.jpg",
-    "assets/topics/water_wintersport.jpg",
-    "assets/topics/records_helden.jpg"
-  ]
+  "files": []
 }

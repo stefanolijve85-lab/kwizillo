@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Basisgereedschap van de schilder",
       "artBrief": "Een hand met een kwast die een streek zet op een wit doek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee schildert een kunstenaar op een doek?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Kleurenleer: blauw en geel geven groen",
       "artBrief": "Twee verfklodders, blauw en geel, die in het midden groen worden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke twee kleuren maken samen groen?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Doek op een ezel",
       "artBrief": "Een leeg gespannen schildersdoek op een houten ezel in een atelier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarop schildert een kunstenaar meestal?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Het portret",
       "artBrief": "Een geschilderd portret van een onbekend gezicht in een gouden lijst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een portret?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Rood en geel geven oranje",
       "artBrief": "Rode en gele verf die in elkaar lopen tot oranje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke twee kleuren maken samen oranje?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Het museum",
       "artBrief": "Een lichte museumzaal met schilderijen aan de muur en een bankje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar kun je beroemde schilderijen zien?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Het palet",
       "artBrief": "Een houten palet met klodders verf en een penseel erop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarop mengt een schilder zijn verf?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Het zelfportret",
       "artBrief": "Een schilder die in een spiegel kijkt en zichzelf schildert.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een zelfportret?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Rood en blauw geven paars",
       "artBrief": "Rode en blauwe verf die samen paars worden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke kleur krijg je van rood en blauw?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Het landschap",
       "artBrief": "Een geschilderd landschap met velden, bomen en een verre horizon.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een landschap in de kunst?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Verf uit gemalen steen en planten",
       "artBrief": "Vijzels met gekleurde poeders naast potjes met pigment.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvan maakte men vroeger verf?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Het stilleven",
       "artBrief": "Een tafel met fruit, een kan en een kaars, geschilderd in warm licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een stilleven?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "De schets",
       "artBrief": "Een schetsboek met snelle potloodlijnen naast een doek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor maakt een kunstenaar eerst een schets?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Olieverf droogt langzaam",
       "artBrief": "Dikke olieverf op een palet met een glanzend oppervlak.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke verf droogt heel langzaam?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "De muurschildering",
       "artBrief": "Een grote kleurrijke schildering op een blinde stadsmuur.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een muurschildering?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Het fresco",
       "artBrief": "Een schilder die op natte kalk van een kerkmuur werkt op een steiger.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een fresco?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De lijst",
       "artBrief": "Een sierlijke vergulde lijst om een schilderij aan een muur.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat hoort er om een schilderij aan de muur?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De drie primaire kleuren",
       "artBrief": "Drie verfvlekken in rood, geel en blauw op wit papier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke drie kleuren heten de primaire kleuren?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De aquarel",
       "artBrief": "Doorschijnende waterverf die uitvloeit op nat papier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een aquarel?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Leonardo da Vinci, Mona Lisa, ca. 1503",
       "artBrief": "Een geschilderd vrouwenportret met een raadselachtige glimlach in een museumzaal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie schilderde de Mona Lisa?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "Rembrandt, De Nachtwacht, 1642",
       "artBrief": "Een groot groepsportret van schutters in donker goudlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Nederlandse schilder maakte De Nachtwacht?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "Vincent van Gogh, De sterrennacht, 1889",
       "artBrief": "Een nachtblauwe lucht vol draaiende sterren boven een dorp.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie schilderde De sterrennacht?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "Impressionisme: licht en sfeer",
       "artBrief": "Een vijver met waterlelies in losse, lichte verfstreken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat wilden impressionisten vooral schilderen?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "Piet Mondriaan, vlakken en lijnen",
       "artBrief": "Rechthoeken in rood, geel en blauw tussen zwarte lijnen op wit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke schilder maakte vlakken in rood, geel en blauw?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "Johannes Vermeer, Meisje met de parel",
       "artBrief": "Een meisje met een blauwgele hoofddoek en een grote parel, in zacht licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie schilderde Het meisje met de parel?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "Abstracte kunst",
       "artBrief": "Een doek met kleurvlakken en vormen die niets nabootsen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is abstracte kunst?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Frida Kahlo en haar zelfportretten",
       "artBrief": "Een atelier met bloemen, kleurige doeken en een ezel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Mexicaanse schilderes maakte veel zelfportretten?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "De restaurator",
       "artBrief": "Iemand met loep en fijn penseeltje die een oud schilderij bijwerkt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een restaurator?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Vergeelde vernis",
       "artBrief": "Een oud schilderij waarvan een schoongemaakte hoek veel helderder is.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zijn oude schilderijen vaak donkerder geworden?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "De Mona Lisa hangt in het Louvre",
       "artBrief": "Een museumzaal met glazen vitrine en een grote glazen piramide erbuiten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk museum hangt de Mona Lisa?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Kubisme",
       "artBrief": "Een portret opgebouwd uit hoekige vlakken vanuit meerdere kanten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de stroming van Picasso met hoekige vlakken?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "Perspectief",
       "artBrief": "Een geschilderde straat met lijnen die samenkomen in de verte.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is perspectief in een schilderij?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "Pointillisme: schilderen met stipjes",
       "artBrief": "Een detail van een doek dat van dichtbij uit losse kleurstippen bestaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke schilders werkten met duizenden kleine stipjes?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Het drieluik",
       "artBrief": "Een geschilderd altaarstuk met drie panelen, de zijkanten iets naar binnen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een drieluik?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Michelangelo, Sixtijnse Kapel, 1508-1512",
       "artBrief": "Een beschilderd kerkgewelf met figuren, gezien van onderaf.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie beschilderde het plafond van de Sixtijnse Kapel?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Van Gogh verkocht bij leven bijna niets",
       "artBrief": "Een stapel doeken tegen een atelierwand bij avondlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel schilderijen verkocht Van Gogh tijdens zijn leven?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "Tempera: verf met eigeel",
       "artBrief": "Een kom met eigeel naast potjes pigment en een penseel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is tempera?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "Edvard Munch, De schreeuw, 1893",
       "artBrief": "Een brug boven water onder een oranjerode golvende lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk beroemde schilderij toont een figuur die gilt?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "Pigment",
       "artBrief": "Kleurpoeders in open potjes, fel en droog.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is pigment?",

@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "De gitaar",
       "artBrief": "Een akoestische gitaar tegen een warme muur, snaren goed zichtbaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk instrument heeft zes snaren en een hals?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "De trommel",
       "artBrief": "Een trommel met twee houten stokken erop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee sla je meestal op een trommel?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "De piano",
       "artBrief": "Een rij zwarte en witte pianotoetsen van dichtbij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk instrument heeft zwarte en witte toetsen?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Zingen",
       "artBrief": "Een kind dat zingt met gesloten ogen in een lichtbundel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je met je stem als je muziek maakt?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Zes snaren",
       "artBrief": "De hals van een gitaar met zes strakke snaren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel snaren heeft een gitaar meestal?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "De fluit",
       "artBrief": "Een dwarsfluit die glanst in zacht licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Op welk instrument maak je muziek door te blazen?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De maat",
       "artBrief": "Een voet die de maat tikt naast een muziekstandaard.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat tikt een muzikant vaak mee met zijn voet?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De viool en de strijkstok",
       "artBrief": "Een viool met strijkstok op een fluwelen doek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk instrument bespeel je met een strijkstok?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Het lied",
       "artBrief": "Een microfoon met een geopend tekstschrift ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een lied?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De dirigent",
       "artBrief": "Een dirigent van achteren gezien voor een orkest.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet degene die een orkest leidt?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Het orkest",
       "artBrief": "Een vol symfonieorkest van bovenaf gezien in een concertzaal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een orkest?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "De metronoom",
       "artBrief": "Een houten metronoom met slingerende wijzer op een piano.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee oefen je om precies in de maat te blijven?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Achtentachtig toetsen",
       "artBrief": "Een hele pianoklavier van opzij, van laag naar hoog.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel toetsen heeft een gewone piano?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Noten",
       "artBrief": "Een notenbalk vol noten op een vergeeld blad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zijn noten in de muziek?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Piano betekent zacht",
       "artBrief": "Een pianist die met heel lichte aanslag speelt bij kaarslicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent het woord piano in de muziek?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "De klankkast",
       "artBrief": "Een doorsnede van een gitaar met de holle klankkast erin.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor dient de holle kast van een gitaar?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De koperblazers",
       "artBrief": "Een trompet en trombone met glanzend koper naast elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Bij welke familie horen de trompet en de trombone?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De melodie",
       "artBrief": "Een golvende lijn van noten die oploopt en weer daalt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de melodie van een lied?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De blokfluit",
       "artBrief": "Vingers die de gaatjes van een blokfluit sluiten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je als je blokfluit speelt?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Het koor",
       "artBrief": "Een koor in rijen dat samen zingt in een kerk.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet een groep mensen die samen zingt?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Tsjaikovski, De notenkraker, 1892",
       "artBrief": "Een balletdecor met een grote kerstboom en een notenkrakerpop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie componeerde het ballet De notenkraker?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "Mozart componeerde al als kind",
       "artBrief": "Een kind aan een klavecimbel met bladmuziek bij kaarslicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke componist schreef al muziek toen hij vijf was?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "De symfonie",
       "artBrief": "Een orkest in vol ornaat op een podium met de dirigent centraal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een symfonie?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "Bladmuziek",
       "artBrief": "Open bladmuziek op een standaard met een potlood ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waaruit lezen muzikanten tijdens het spelen?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "De sopraan",
       "artBrief": "Een zangeres die hoog uithaalt in een lichtbundel op een podium.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de hoogste vrouwenstem in een koor?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "Grote trommels klinken lager",
       "artBrief": "Een grote en een kleine trommel naast elkaar, van opzij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom klinkt een grote trommel lager dan een kleine?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "De contrabas",
       "artBrief": "Een contrabas die naast een violist staat, veel groter dan hij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk strijkinstrument is het grootst van het orkest?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Vivaldi, De vier jaargetijden",
       "artBrief": "Vier kleine landschappen in lente, zomer, herfst en winter naast elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie schreef De vier jaargetijden?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "Het octaaf",
       "artBrief": "Een klavier waarop acht witte toetsen zijn gemarkeerd.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een octaaf?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Jazz uit New Orleans",
       "artBrief": "Een klein jazzcombo met trompet en contrabas in een warme club.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke muzieksoort ontstond in New Orleans?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Beethoven werd doof",
       "artBrief": "Een componist die aan een piano schrijft met zijn oor tegen het hout.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke componist bleef schrijven toen hij doof werd?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Het strijkkwartet",
       "artBrief": "Vier strijkers die in een kring tegenover elkaar spelen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel muzikanten spelen er in een strijkkwartet?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "A capella",
       "artBrief": "Een koor dat zingt op een leeg podium, zonder instrumenten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent a capella zingen?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "Stradivari uit Cremona",
       "artBrief": "Een vioolbouwer die in een werkplaats een blank vioolblad schuurt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welke stad bouwde Stradivari zijn beroemde violen?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Het pijporgel",
       "artBrief": "Een kerkorgel met honderden pijpen van klein naar groot.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe maakt een kerkorgel geluid?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Presto is snel",
       "artBrief": "Een metronoom die heel snel heen en weer slaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk woord betekent dat je heel snel moet spelen?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Het akkoord",
       "artBrief": "Drie vingers die tegelijk drie toetsen indrukken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een akkoord?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "Klankkleur",
       "artBrief": "Een fluit, een viool en een trompet naast elkaar, in hetzelfde licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom klinkt een fluit anders dan een viool bij dezelfde toon?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "De fonograaf van 1877",
       "artBrief": "Een oude fonograaf met wasrol en grote hoorn.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding van 1877 kon geluid opnemen en afspelen?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "De stemtoon A is 440 hertz",
       "artBrief": "Een stemvork die trilt naast een piano.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak per seconde trilt de stemtoon A?",
