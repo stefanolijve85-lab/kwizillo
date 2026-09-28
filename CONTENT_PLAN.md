@@ -288,168 +288,66 @@ er hoefde dus geen plaat opnieuw:
 
 ### Wat er nog ligt
 
-1. **420 platen.** Alles na `ruimte/astronauten` staat in `content/` als
-   `"art": "todo"`, en `npm test` roept het getal bij elke run. Blokkerend:
-   ElevenLabs gaf `quota_exceeded — 0 credits remaining` tijdens de ronde.
-   Kosten om het af te maken: 420 × 3,4 cent ≈ **14 euro**.
-2. **Spraak warmdraaien** voor diezelfde vragen (`node tools/warm-speech.cjs`),
-   geblokkeerd door hetzelfde tegoed.
-3. **Eindredactie.** Daarvoor is `review.html` gebouwd:
-   `node tools/review-page.cjs` bakt alle 480 nieuwe vragen met plaat,
-   antwoorden, hint, uitleg en weetje in één pagina, in alle tien talen, met
-   goed/aanpassen per vraag en een downloadknop voor de beslissingen.
-   Open hem via `npm start` → `http://localhost:8080/review.html` (dan onthoudt
-   de browser je oordelen; bij openen als bestand kan dat niet).
-4. **De twee nieuwe werelden** (Kunstwereld, Sportwereld) zijn nog appwerk:
-   wereldselectie, muziek, collectie en illustraties, daarna 8 × 4 × 40 = 1280.
-
----
-
-## 8. De twee nieuwe werelden staan
-
-Op 28 september 2026 zijn Kunstwereld en Sportwereld er als volwaardige
-werelden bij gekomen — eerst het appwerk, daarna acht keer veertig vragen.
-
-| | voor | na |
-|---|---|---|
-| Werelden | 6 | **8** |
-| Onderwerpen | 24 | **32** |
-| Vragen per taal | 960 | **1280** |
-| Vragen in tien talen | 9600 | **12.800** |
-
-### Het appwerk
-
-De wereldlijst stond op vijf plaatsen los in de code. Die is nu één registratie
-in `m1-runtime.js` (`K.WORLDS` + `K.TOPIC_KEYS`), met `K.playableWorlds()`
-ernaast: die toont alleen werelden waarvan alle vier de onderwerpen vragen
-hebben. `m1-ui.js`, `games-memo.js`, `games-whoami.js` en `facts-ui.js` lezen
-die lijst nu uit in plaats van hun eigen kopie. Zo kon een wereld al in de code
-staan terwijl de vragen nog geschreven werden, zonder een kapot scherm.
-
-Verder: veertien nieuwe tekstsleutels per taal (titels, ondertitels, acht
-onderwerpnamen), muziek gekoppeld aan bestaande tracks (geen nieuwe audio),
-tien tijdelijke platen gerenderd met Playwright in plaats van AI-credits
-(`tools/placeholder-art.cjs`, bijgehouden in `assets/placeholder-art.json`), en
-`questions.js` die nu ook werelden bouwt die alleen uit `content/` komen.
-
-### Wat de lint en de tests tegenhielden
-
-- **Kerkorgel werd een orgaan.** De vraag over het orgel in `kunst/muziek`
-  kreeg de anatomieplaat, omdat `orgaan`/`organ` in de regexlijst van
-  `SUBJECT_ART` stond. Die woorden zijn eruit; een kerkorgel is geen lichaamsdeel.
-- **"1.00" op het scorebord.** `tests/core.test.js` vond cijfers die in de
-  spraaktekst bleven staan, in het weetje over de eerste tien van Comaneci.
-  In tien talen herschreven naar woorden.
-- **Lengtes, opnieuw.** Enkele tientallen antwoorden boven de 28 tekens,
-  vrijwel allemaal in de/fr/es/it/pt/ru/ar. Allemaal ingekort vóór de build.
-
-### Wat er nog ligt voor deze twee werelden
-
-1. **Tien tijdelijke platen** (twee wereldhelden, acht onderwerpkaarten) wachten
-   op echte illustraties. `npm test` noemt het aantal bij elke run.
-2. **320 vraagplaten** staan als `"art": "todo"` — samen met de oude achterstand
-   nu 740 vragen op de onderwerpplaat.
-3. **Weetjes** (`facts`) voor kunst en sport: 16 per wereld × 10 talen, plus 32
-   illustraties. `facts-ui.js` verbergt een wereld zonder weetjes, dus het is
-   niet stuk — het is er alleen nog niet.
-4. Punt 1 en 2 zijn geblokkeerd door hetzelfde ElevenLabs-tegoed als in §7.
-
----
-
-## 9. De doorlichting: alle 1280 vragen en alle 540 platen nagelopen
-
-Op 28 september 2026 is de hele bank vraag voor vraag nagelezen (Nederlands,
-met steekproeven in de andere talen) en is elke vraagplaat naast zijn vraag
-gelegd via contactvellen van twaalf platen tegelijk.
-
-### Machinaal gevonden en opgelost
-
-| wat | waar | oplossing |
-|---|---|---|
-| Onzinnige afleider "… altijd", in tien talen meevertaald | `jungle-07` ("Slang altijd"), `romeinen-10` ("Een gladiator altijd") | afleider rechtgezet in alle talen |
-| Afleider met uitleg erin | `oceanen_natuur-03` ("Magma ondergronds") | "Magma" |
-| Meervoud als antwoord op een enkelvoudsvraag | `baby_dieren-07` ("Welpen") | "Welp", ook als afleider elders |
-| Hint die het antwoord verklapt | `sterren_planeten-06`, `waterdieren-05`, `romeinen-19` | nieuwe hints in tien talen |
-| Vraag die haar eigen antwoord noemt (alleen in het Portugees) | `baby_dieren-01`, `baby_dieren-07` | vraag herschreven naar "o bebé do cão/leão" |
-| Dezelfde vraag twee keer in één onderwerp | jaguar (`jungle-05`/`18`), hiërogliefen (`egyptenaren-04`/`11`), heilige kat (`egyptenaren-09`/`19`), onweerswolk (`weer_klimaat-08`/`15`), schildknaap (`ridders_kastelen-09`/`11`), slotgracht (`ridders_kastelen-03`/`13`), jachtluipaard (`snelle_dieren-01`/`02`) | zeven vragen vervangen door nieuwe: tapir, de ankh, kalksteen, cirruswolk, de page, hoeveel mensen er in een kasteel woonden, de snelst zwemmende vogel |
-| Dezelfde vraag in twee werelden | hattrick (`balsporten-19`/`records_helden-16`), marathonafstand (`olympische_spelen-15`/`records_helden-12`) | `records_helden` kreeg de grandslams van Serena Williams en het polsstokrecord |
-
-### Fouten in de inhoud
-
-- **`continenten_landen-17`** vroeg welk land de meeste buurlanden heeft, met
-  China goed en Rusland fout — maar allebei hebben er veertien. De vraag is nu:
-  hoeveel buurlanden heeft China.
-- **`ridders_kastelen-12`** noemde het lansgevecht een toernooi, terwijl het
-  weetje zelf zei dat het een steekspel heet. Nu heet het antwoord steekspel.
-- **`verborgen_schatten-15`** (Piet Hein) schreef de zilvervloot aan de VOC toe;
-  dat was de WIC.
-- **`raket_avontuur-14`** zei dat de Saturnus V hoger was dan de Dom van Utrecht
-  (110,6 tegen 112,3 meter). Nu staat er, net als in de negen andere talen, het
-  Vrijheidsbeeld.
-- **`speurtocht-31`** gaf als anagram van "raadsel" het niet-bestaande woord
-  "sladeer"; nu "noten" en "tonen". Het Deense voorbeeld was uit het Duits
-  overgenomen en is vervangen door "lampe" en "palme".
-- Bewust gelaten: `snelle_dieren-05` ("paard of schildpad?") noemt het antwoord
-  in de vraag. Dat is voor de jongste spelers een keuzevraag, geen fout.
-
-### Wat de platen betreft
-
-Alle 540 vraagplaten bestaan, staan in het manifest en horen bij een bestaande
-vraag; geen dode verwijzing, geen weespaat. De platen die bij de nieuwe vragen
-uit `content/` zijn gemaakt, passen stuk voor stuk. In de oudere reeks (ids 01
-tot 10) staan de platen die het onderwerp wel tonen maar de vraag niet:
-
-`zonnestelsel-11` (manen van Saturnus, maar Jupiter in beeld), `egyptenaren-07`
-(sfinx gevraagd, piramide getoond), `snelle_dieren-01` (jachtluipaard, zebra's
-in beeld), `snelle_dieren-03`, `waterdieren-02` (octopus, lege grot),
-`waterdieren-06` (zeeschildpad, leeg strand), `jungle-01`, `jungle-03`,
-`jungle-05` (jaguar, alleen rivier), `jungle-07` (kameleon, groene slang),
-`speurtocht-03` (vergrootglas, egel), `ridders_kastelen-01` en `-02`,
-`lichaam-01`, `-03` en `-07` (beeldspraak in plaats van het orgaan),
-`slimme_proefjes-05` en `-06`, en `uitvindingen-14` (Marie Curie, een jongen in
-beeld).
-
-Daar komen de vragen bij die in deze ronde zijn herschreven en dus een nieuwe
-plaat nodig hebben: `jungle-18` (tapir), `egyptenaren-11` (ankh),
-`egyptenaren-19` (kalksteengroeve), `weer_klimaat-15` (cirrus),
-`snelle_dieren-02` (pinguïn onder water) en `ridders_kastelen-11` (page).
-
-Samen met de tien tijdelijke platen van de nieuwe werelden en de 740 vragen die
-nog op de onderwerpplaat staan, is dat de hele beeldschuld. Alles wacht op
-tegoed bij de beeldgenerator.
-
-## 10 · De beeld- en spraakronde van 28 september
-
-Met het bijgevulde ElevenLabs-tegoed (302.500 credits) is in één ronde het
-grootste deel van de beeldschuld ingelost en is de spraak warm gedraaid.
-
-| wat | stand |
-|---|---|
-| Onderwerpkaarten kunst en sport | 8 gemaakt, `assets/placeholder-art.json` is leeg |
-| Eigen vraagplaten | van 540 naar 1139; **141 vragen** staan nog op de onderwerpplaat |
-| Spraak nl en en | Milo én Luna, 10.240 regels, 368.574 tekens, cache 19.932 bestanden (928 MB) |
-| Herstelde platen | schilderkunst-02 (cartoongezichten), -04 (gezichtloos portret), -05 |
-
-Nieuw gereedschap: `tools/topic-art.cjs` (render → onderwerpkaart 1024 × 576),
-de tegenhanger van `tools/question-art.cjs`.
-
-De platen zijn gemaakt met **gpt-image-2** op de ElevenLabs-flows "Kwizillo
-vraagplaten — kunst", "— sport" en "— aarde, dieren, geschiedenis, mysterie,
-ruimte, wetenschap", steeds uit de `artBrief` in `content/`, met de vaste
-stijlregel ervoor. Gemeten prijs: 184,58 credits (3,36 cent) per plaat.
-
-### Wat er nog ligt
-
-- **141 vraagplaten**: mysterie/speurtocht, mysterie/verborgen_schatten,
-  ruimte/raket_avontuur, wetenschap/lichaam, wetenschap/natuur_energie,
-  wetenschap/slimme_proefjes, wetenschap/uitvindingen (elk 20), plus
-  `geschiedenis-romeinen-22`.
-- **`geschiedenis-romeinen-22`** (de bronzen wolvin met Romulus en Remus) is
-  twee keer geweigerd door het filter van de beeldgenerator. De brief moet
-  anders, of de plaat komt van elders.
-- **248 vraag-only platen** (`tools/safe-art-prompts.json` → `assets/questions/s/`)
-  voor de vragen waarvan de plaat het antwoord verraadt. De teksten staan
-  klaar, er is nog niets gerenderd en `K.SAFE_ART_IDS` is nog leeg; tot die
-  tijd leent het spel de plaat van een buurvraag.
 - **Spraak in de andere acht talen**: niet vooruit betaald; de cache vult zich
   tijdens het spelen.
+- **De liggende openingsfilm** (`assets/brand/intro-wide.mp4`): Higgsfield
+  `reframe` heeft geen tegoed meer. Tot die tijd toont het brede frame de
+  staande film heel, met de wereldkunst onscherp erachter (landscape.css).
+- **Milo's `worlds`-clip** opnieuw inspreken.
+
+---
+
+## 11 · De tweede ronde van 28 september — de laatste platen
+
+Diezelfde dag is de beeldschuld helemaal ingelost.
+
+| | |
+|---|---|
+| Vraagplaten afgemaakt | 141 (de zeven laatste onderwerpen, elk 20, plus `geschiedenis-romeinen-22`) |
+| Stand vraagplaten | **1280 van 1280** — geen vraag zonder eigen plaat |
+| Vraag-only platen | **162** nieuw in `assets/questions/s/` |
+| Nieuw gereedschap | `tools/safe-art.cjs` |
+| Kosten | ~303 renders × 3,36 cent ≈ $10,20 |
+
+### De vraag-only platen
+
+`answer-art.js` merkt de vragen waarvan de eigen plaat het antwoord weggeeft
+(`K.artRevealsAnswer`, 160 van de 1280). Die vielen terug op de onderwerpplaat.
+Nu is er per zo'n vraag een tweede plaat: dezelfde stijl, maar getekend bij de
+vráág — het toneel en het moment van je afvragen, zonder het antwoord in beeld.
+`question-art-manifest.js` leest `assets/questions/s/` en vult `K.SAFE_ART_IDS`
+vanzelf.
+
+`tools/safe-art-prompts.json` gaf de regels ("toon de vraag, niet het
+antwoord"), maar geen scène. Elke plaat kreeg daarom een eigen Nederlandse
+beschrijving: een leeg planetarium, een tempelmuur waar het zand nog op ligt,
+een verlaten toernooiveld, een savanne zonder dieren. Gerenderd zijn de 160 die
+het spel vandaag gebruikt plus twee uit het plan.
+
+### Opnieuw gemaakt na het nakijken
+
+| Plaat | Waarom |
+|---|---|
+| `geschiedenis-romeinen-22` | twee keer geblokkeerd; nu alleen het bronzen beeld op zijn sokkel |
+| `wetenschap-lichaam-36` | cartoongezichten op de longen |
+| `wetenschap-natuur_energie-32` | vol tekst en een sticker met een gezicht |
+| `wetenschap-slimme_proefjes-25` | twee schapen in plaats van een zwart en een wit lapje stof |
+| `ruimte-zonnestelsel-07` (vraag-only) | toonde de planeten |
+| `wetenschap-uitvindingen-01` (vraag-only) | microscoop in beeld |
+| `mysterie-speurtocht-03` (vraag-only) | vergrootglas op tafel |
+| `dieren-snelle_dieren-01` (vraag-only) | leeuw op de jacht |
+| `dieren-jungle-03` (vraag-only) | een stoomtrein in het regenwoud |
+
+Drie renders werden door het filter geweigerd (een surfer, open oceaanwater,
+een rotsige vlakte) en zijn anders geformuleerd.
+
+### Wat er daarna nog ligt
+
+- **Spraak in de andere acht talen**: niet vooruit betaald; de cache vult zich
+  tijdens het spelen.
+- **De liggende openingsfilm** (`assets/brand/intro-wide.mp4`): Higgsfield
+  `reframe` heeft geen tegoed meer.
+- **Milo's `worlds`-clip** opnieuw inspreken.
+- **86 vraag-only platen** uit `tools/safe-art-prompts.json` zijn niet gemaakt:
+  die horen bij vragen die het spel vandaag niet als verraderlijk aanmerkt.
+  Wordt die regel ruimer, dan staan de opdrachten klaar.
