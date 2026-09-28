@@ -1,0 +1,2607 @@
+{
+  "world": "dieren",
+  "topic": "snelle_dieren",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "dieren-snelle_dieren-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Gewone tuinslak, ongeveer 1 mm per seconde",
+      "artBrief": "Een slak op een blad met een glinsterend spoor achter zich.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier is juist heel langzaam?",
+          "answer": "De slak",
+          "wrong": [
+            "De haas",
+            "Het paard",
+            "De hond"
+          ],
+          "hint": "Hij laat een glimmend spoor achter.",
+          "explanation": "Een slak kruipt ongeveer een millimeter per seconde.",
+          "fact": "Over honderd meter zou hij een hele dag doen."
+        },
+        "en": {
+          "prompt": "Which animal is really slow?",
+          "answer": "The snail",
+          "wrong": [
+            "The hare",
+            "The horse",
+            "The dog"
+          ],
+          "hint": "It leaves a shiny trail.",
+          "explanation": "A snail creeps about a millimetre a second.",
+          "fact": "A hundred metres would take it a whole day."
+        },
+        "de": {
+          "prompt": "Welches Tier ist besonders langsam?",
+          "answer": "Die Schnecke",
+          "wrong": [
+            "Der Hase",
+            "Das Pferd",
+            "Der Hund"
+          ],
+          "hint": "Sie hinterlässt eine glänzende Spur.",
+          "explanation": "Eine Schnecke kriecht etwa einen Millimeter pro Sekunde.",
+          "fact": "Für hundert Meter bräuchte sie einen ganzen Tag."
+        },
+        "fr": {
+          "prompt": "Quel animal est justement très lent ?",
+          "answer": "L'escargot",
+          "wrong": [
+            "Le lièvre",
+            "Le cheval",
+            "Le chien"
+          ],
+          "hint": "Il laisse une trace brillante.",
+          "explanation": "Un escargot avance d'environ un millimètre par seconde.",
+          "fact": "Cent mètres lui prendraient une journée entière."
+        },
+        "es": {
+          "prompt": "¿Qué animal es justamente muy lento?",
+          "answer": "El caracol",
+          "wrong": [
+            "La liebre",
+            "El caballo",
+            "El perro"
+          ],
+          "hint": "Deja un rastro brillante.",
+          "explanation": "Un caracol avanza un milímetro por segundo más o menos.",
+          "fact": "Cien metros le llevarían un día entero."
+        },
+        "it": {
+          "prompt": "Quale animale è invece lentissimo?",
+          "answer": "La lumaca",
+          "wrong": [
+            "La lepre",
+            "Il cavallo",
+            "Il cane"
+          ],
+          "hint": "Lascia una scia lucida.",
+          "explanation": "Una lumaca avanza circa un millimetro al secondo.",
+          "fact": "Per cento metri ci metterebbe un giorno intero."
+        },
+        "pt": {
+          "prompt": "Que animal é mesmo muito lento?",
+          "answer": "O caracol",
+          "wrong": [
+            "A lebre",
+            "O cavalo",
+            "O cão"
+          ],
+          "hint": "Deixa um rasto brilhante.",
+          "explanation": "Um caracol avança cerca de um milímetro por segundo.",
+          "fact": "Cem metros levariam-lhe um dia inteiro."
+        },
+        "da": {
+          "prompt": "Hvilket dyr er til gengæld meget langsomt?",
+          "answer": "Sneglen",
+          "wrong": [
+            "Haren",
+            "Hesten",
+            "Hunden"
+          ],
+          "hint": "Den efterlader et blankt spor.",
+          "explanation": "En snegl kryber cirka en millimeter i sekundet.",
+          "fact": "Hundrede meter ville tage den en hel dag."
+        },
+        "ru": {
+          "prompt": "Какое животное, наоборот, очень медленное?",
+          "answer": "Улитка",
+          "wrong": [
+            "Заяц",
+            "Лошадь",
+            "Собака"
+          ],
+          "hint": "Она оставляет блестящий след.",
+          "explanation": "Улитка ползёт примерно миллиметр в секунду.",
+          "fact": "На сто метров у неё ушёл бы целый день."
+        },
+        "ar": {
+          "prompt": "أي حيوان بطيء جدًا؟",
+          "answer": "الحلزون",
+          "wrong": [
+            "الأرنب البري",
+            "الحصان",
+            "الكلب"
+          ],
+          "hint": "يترك أثرًا لامعًا.",
+          "explanation": "يزحف الحلزون نحو مليمتر واحد في الثانية.",
+          "fact": "مئة متر تحتاج منه يومًا كاملًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vogelvlucht — vleugels en vliegspieren",
+      "artBrief": "Een vogel in volle vlucht met wijd uitgeslagen vleugels tegen een blauwe lucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat helpt een vogel om snel te vliegen?",
+          "answer": "Zijn vleugels",
+          "wrong": [
+            "Zijn snavel",
+            "Zijn ogen",
+            "Zijn veren op de kop"
+          ],
+          "hint": "Hij slaat ermee door de lucht.",
+          "explanation": "Sterke vleugels en vliegspieren maken een vogel snel.",
+          "fact": "De borstspieren van een vogel zijn vaak het zwaarst van zijn lijf."
+        },
+        "en": {
+          "prompt": "What helps a bird fly fast?",
+          "answer": "Its wings",
+          "wrong": [
+            "Its beak",
+            "Its eyes",
+            "The feathers on its head"
+          ],
+          "hint": "It beats them through the air.",
+          "explanation": "Strong wings and flight muscles make a bird fast.",
+          "fact": "A bird's chest muscles are often the heaviest part of it."
+        },
+        "de": {
+          "prompt": "Was hilft einem Vogel, schnell zu fliegen?",
+          "answer": "Seine Flügel",
+          "wrong": [
+            "Sein Schnabel",
+            "Seine Augen",
+            "Die Federn am Kopf"
+          ],
+          "hint": "Er schlägt damit durch die Luft.",
+          "explanation": "Starke Flügel und Flugmuskeln machen einen Vogel schnell.",
+          "fact": "Die Brustmuskeln sind oft der schwerste Teil eines Vogels."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui aide un oiseau à voler vite ?",
+          "answer": "Ses ailes",
+          "wrong": [
+            "Son bec",
+            "Ses yeux",
+            "Les plumes de sa tête"
+          ],
+          "hint": "Il les bat dans l'air.",
+          "explanation": "Des ailes et des muscles puissants rendent l'oiseau rapide.",
+          "fact": "Les muscles de la poitrine sont souvent sa partie la plus lourde."
+        },
+        "es": {
+          "prompt": "¿Qué ayuda a un pájaro a volar rápido?",
+          "answer": "Sus alas",
+          "wrong": [
+            "Su pico",
+            "Sus ojos",
+            "Las plumas de la cabeza"
+          ],
+          "hint": "Las bate en el aire.",
+          "explanation": "Unas alas y unos músculos fuertes hacen rápido a un ave.",
+          "fact": "Los músculos del pecho suelen ser su parte más pesada."
+        },
+        "it": {
+          "prompt": "Che cosa aiuta un uccello a volare veloce?",
+          "answer": "Le sue ali",
+          "wrong": [
+            "Il becco",
+            "Gli occhi",
+            "Le piume della testa"
+          ],
+          "hint": "Le batte nell'aria.",
+          "explanation": "Ali e muscoli forti rendono veloce un uccello.",
+          "fact": "I muscoli del petto sono spesso la parte più pesante."
+        },
+        "pt": {
+          "prompt": "O que ajuda uma ave a voar depressa?",
+          "answer": "As asas",
+          "wrong": [
+            "O bico",
+            "Os olhos",
+            "As penas da cabeça"
+          ],
+          "hint": "Bate-as no ar.",
+          "explanation": "Asas e músculos fortes tornam uma ave rápida.",
+          "fact": "Os músculos do peito são muitas vezes a parte mais pesada."
+        },
+        "da": {
+          "prompt": "Hvad hjælper en fugl med at flyve hurtigt?",
+          "answer": "Dens vinger",
+          "wrong": [
+            "Dens næb",
+            "Dens øjne",
+            "Fjerene på hovedet"
+          ],
+          "hint": "Den slår med dem gennem luften.",
+          "explanation": "Stærke vinger og flyvemuskler gør en fugl hurtig.",
+          "fact": "Brystmusklerne er tit det tungeste på en fugl."
+        },
+        "ru": {
+          "prompt": "Что помогает птице лететь быстро?",
+          "answer": "Её крылья",
+          "wrong": [
+            "Её клюв",
+            "Её глаза",
+            "Перья на голове"
+          ],
+          "hint": "Она бьёт ими по воздуху.",
+          "explanation": "Сильные крылья и лётные мышцы делают птицу быстрой.",
+          "fact": "Грудные мышцы часто самая тяжёлая часть птицы."
+        },
+        "ar": {
+          "prompt": "ما الذي يساعد الطائر على الطيران بسرعة؟",
+          "answer": "جناحاه",
+          "wrong": [
+            "منقاره",
+            "عيناه",
+            "ريش رأسه"
+          ],
+          "hint": "يضرب بهما الهواء.",
+          "explanation": "الأجنحة القوية وعضلات الطيران تجعل الطائر سريعًا.",
+          "fact": "عضلات الصدر غالبًا أثقل أجزاء الطائر."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Haas (Lepus europaeus) haalt 70 km/u",
+      "artBrief": "Een haas die met lange oren plat achterover door een veld rent.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier rent hard en heeft lange oren?",
+          "answer": "De haas",
+          "wrong": [
+            "De muis",
+            "De egel",
+            "De schildpad"
+          ],
+          "hint": "Hij zit vaak in een veld.",
+          "explanation": "Een haas haalt op de vlucht wel zeventig kilometer per uur.",
+          "fact": "Zijn lange oren koelen hem ook af."
+        },
+        "en": {
+          "prompt": "Which animal runs fast and has long ears?",
+          "answer": "The hare",
+          "wrong": [
+            "The mouse",
+            "The hedgehog",
+            "The tortoise"
+          ],
+          "hint": "You often see it in a field.",
+          "explanation": "A fleeing hare reaches seventy kilometres an hour.",
+          "fact": "Its long ears also help it cool down."
+        },
+        "de": {
+          "prompt": "Welches Tier rennt schnell und hat lange Ohren?",
+          "answer": "Der Hase",
+          "wrong": [
+            "Die Maus",
+            "Der Igel",
+            "Die Schildkröte"
+          ],
+          "hint": "Man sieht ihn oft auf dem Feld.",
+          "explanation": "Ein flüchtender Hase schafft siebzig Kilometer pro Stunde.",
+          "fact": "Seine langen Ohren kühlen ihn außerdem."
+        },
+        "fr": {
+          "prompt": "Quel animal court vite et a de longues oreilles ?",
+          "answer": "Le lièvre",
+          "wrong": [
+            "La souris",
+            "Le hérisson",
+            "La tortue"
+          ],
+          "hint": "On le voit souvent dans un champ.",
+          "explanation": "Un lièvre en fuite atteint soixante-dix kilomètres à l'heure.",
+          "fact": "Ses longues oreilles le rafraîchissent aussi."
+        },
+        "es": {
+          "prompt": "¿Qué animal corre rápido y tiene orejas largas?",
+          "answer": "La liebre",
+          "wrong": [
+            "El ratón",
+            "El erizo",
+            "La tortuga"
+          ],
+          "hint": "Se la ve a menudo en un campo.",
+          "explanation": "Una liebre que huye alcanza setenta kilómetros por hora.",
+          "fact": "Sus orejas largas también la refrescan."
+        },
+        "it": {
+          "prompt": "Quale animale corre forte e ha orecchie lunghe?",
+          "answer": "La lepre",
+          "wrong": [
+            "Il topo",
+            "Il riccio",
+            "La tartaruga"
+          ],
+          "hint": "Si vede spesso in un campo.",
+          "explanation": "Una lepre in fuga raggiunge settanta chilometri orari.",
+          "fact": "Le lunghe orecchie la rinfrescano anche."
+        },
+        "pt": {
+          "prompt": "Que animal corre depressa e tem orelhas compridas?",
+          "answer": "A lebre",
+          "wrong": [
+            "O rato",
+            "O ouriço",
+            "A tartaruga"
+          ],
+          "hint": "Vê-se muitas vezes num campo.",
+          "explanation": "Uma lebre em fuga chega aos setenta quilómetros por hora.",
+          "fact": "As orelhas compridas também a arrefecem."
+        },
+        "da": {
+          "prompt": "Hvilket dyr løber stærkt og har lange ører?",
+          "answer": "Haren",
+          "wrong": [
+            "Musen",
+            "Pindsvinet",
+            "Skildpadden"
+          ],
+          "hint": "Man ser den tit på en mark.",
+          "explanation": "En flygtende hare når halvfjerds kilometer i timen.",
+          "fact": "De lange ører køler den også."
+        },
+        "ru": {
+          "prompt": "Какое животное быстро бегает и имеет длинные уши?",
+          "answer": "Заяц",
+          "wrong": [
+            "Мышь",
+            "Ёж",
+            "Черепаха"
+          ],
+          "hint": "Его часто видно в поле.",
+          "explanation": "Убегающий заяц развивает семьдесят километров в час.",
+          "fact": "Длинные уши ещё и охлаждают его."
+        },
+        "ar": {
+          "prompt": "أي حيوان يعدو بسرعة وله أذنان طويلتان؟",
+          "answer": "الأرنب البري",
+          "wrong": [
+            "الفأر",
+            "القنفذ",
+            "السلحفاة"
+          ],
+          "hint": "كثيرًا ما تراه في حقل.",
+          "explanation": "الأرنب البري الهارب يبلغ سبعين كيلومترًا في الساعة.",
+          "fact": "أذناه الطويلتان تبردانه أيضًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Rode reuzenkangoeroe springt tot 9 meter ver",
+      "artBrief": "Een kangoeroe midden in een grote sprong boven het rode gras.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier komt in één sprong heel ver?",
+          "answer": "De kangoeroe",
+          "wrong": [
+            "De koe",
+            "De pinguïn",
+            "De schildpad"
+          ],
+          "hint": "Hij heeft enorme achterpoten.",
+          "explanation": "Een kangoeroe springt in één keer wel negen meter ver.",
+          "fact": "Springen kost hem minder energie dan lopen."
+        },
+        "en": {
+          "prompt": "Which animal covers a huge distance in one leap?",
+          "answer": "The kangaroo",
+          "wrong": [
+            "The cow",
+            "The penguin",
+            "The tortoise"
+          ],
+          "hint": "It has enormous hind legs.",
+          "explanation": "A kangaroo can leap nine metres in one bound.",
+          "fact": "Hopping costs it less energy than walking."
+        },
+        "de": {
+          "prompt": "Welches Tier kommt mit einem Sprung sehr weit?",
+          "answer": "Das Känguru",
+          "wrong": [
+            "Die Kuh",
+            "Der Pinguin",
+            "Die Schildkröte"
+          ],
+          "hint": "Es hat riesige Hinterbeine.",
+          "explanation": "Ein Känguru springt in einem Satz neun Meter weit.",
+          "fact": "Springen kostet es weniger Kraft als Gehen."
+        },
+        "fr": {
+          "prompt": "Quel animal franchit une grande distance d'un seul bond ?",
+          "answer": "Le kangourou",
+          "wrong": [
+            "La vache",
+            "Le manchot",
+            "La tortue"
+          ],
+          "hint": "Il a d'énormes pattes arrière.",
+          "explanation": "Un kangourou saute neuf mètres d'un seul bond.",
+          "fact": "Sauter lui coûte moins d'énergie que marcher."
+        },
+        "es": {
+          "prompt": "¿Qué animal avanza muchísimo de un solo salto?",
+          "answer": "El canguro",
+          "wrong": [
+            "La vaca",
+            "El pingüino",
+            "La tortuga"
+          ],
+          "hint": "Tiene patas traseras enormes.",
+          "explanation": "Un canguro salta nueve metros de una vez.",
+          "fact": "Saltar le cuesta menos energía que caminar."
+        },
+        "it": {
+          "prompt": "Quale animale copre tanta strada con un solo salto?",
+          "answer": "Il canguro",
+          "wrong": [
+            "La mucca",
+            "Il pinguino",
+            "La tartaruga"
+          ],
+          "hint": "Ha zampe posteriori enormi.",
+          "explanation": "Un canguro salta nove metri in un balzo solo.",
+          "fact": "Saltare gli costa meno energia del camminare."
+        },
+        "pt": {
+          "prompt": "Que animal avança imenso num só salto?",
+          "answer": "O canguru",
+          "wrong": [
+            "A vaca",
+            "O pinguim",
+            "A tartaruga"
+          ],
+          "hint": "Tem patas traseiras enormes.",
+          "explanation": "Um canguru salta nove metros de uma vez.",
+          "fact": "Saltar custa-lhe menos energia do que andar."
+        },
+        "da": {
+          "prompt": "Hvilket dyr kommer langt i ét spring?",
+          "answer": "Kænguruen",
+          "wrong": [
+            "Koen",
+            "Pingvinen",
+            "Skildpadden"
+          ],
+          "hint": "Den har enorme bagben.",
+          "explanation": "En kænguru springer ni meter i ét hop.",
+          "fact": "At hoppe koster den mindre energi end at gå."
+        },
+        "ru": {
+          "prompt": "Какое животное за один прыжок покрывает много?",
+          "answer": "Кенгуру",
+          "wrong": [
+            "Корова",
+            "Пингвин",
+            "Черепаха"
+          ],
+          "hint": "У него огромные задние ноги.",
+          "explanation": "Кенгуру прыгает до девяти метров за раз.",
+          "fact": "Прыгать ему легче, чем ходить."
+        },
+        "ar": {
+          "prompt": "أي حيوان يقطع مسافة كبيرة بقفزة واحدة؟",
+          "answer": "الكنغر",
+          "wrong": [
+            "البقرة",
+            "البطريق",
+            "السلحفاة"
+          ],
+          "hint": "له قائمتان خلفيتان ضخمتان.",
+          "explanation": "يقفز الكنغر تسعة أمتار في وثبة واحدة.",
+          "fact": "القفز يكلفه طاقة أقل من المشي."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Hartslag bij inspanning",
+      "artBrief": "Een rennend kind met een tekening van een kloppend hart ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet je hart als je hard rent?",
+          "answer": "Het klopt sneller",
+          "wrong": [
+            "Het stopt even",
+            "Het klopt langzamer",
+            "Er verandert niets"
+          ],
+          "hint": "Je spieren willen meer zuurstof.",
+          "explanation": "Bij inspanning pompt je hart sneller om je spieren bij te houden.",
+          "fact": "Bij topsporters klopt het in rust juist extra langzaam."
+        },
+        "en": {
+          "prompt": "What does your heart do when you run hard?",
+          "answer": "It beats faster",
+          "wrong": [
+            "It stops for a moment",
+            "It beats slower",
+            "Nothing changes"
+          ],
+          "hint": "Your muscles want more oxygen.",
+          "explanation": "Under effort the heart pumps faster to keep the muscles supplied.",
+          "fact": "In top athletes it beats extra slowly at rest."
+        },
+        "de": {
+          "prompt": "Was macht dein Herz, wenn du schnell rennst?",
+          "answer": "Es schlägt schneller",
+          "wrong": [
+            "Es hört kurz auf",
+            "Es schlägt langsamer",
+            "Es ändert sich nichts"
+          ],
+          "hint": "Deine Muskeln wollen mehr Sauerstoff.",
+          "explanation": "Bei Anstrengung pumpt das Herz schneller für die Muskeln.",
+          "fact": "Bei Spitzensportlern schlägt es in Ruhe besonders langsam."
+        },
+        "fr": {
+          "prompt": "Que fait ton cœur quand tu cours vite ?",
+          "answer": "Il bat plus vite",
+          "wrong": [
+            "Il s'arrête un instant",
+            "Il bat plus lentement",
+            "Rien ne change"
+          ],
+          "hint": "Tes muscles veulent plus d'oxygène.",
+          "explanation": "À l'effort, le cœur pompe plus vite pour suivre les muscles.",
+          "fact": "Chez les grands sportifs, il bat très lentement au repos."
+        },
+        "es": {
+          "prompt": "¿Qué hace tu corazón cuando corres mucho?",
+          "answer": "Late más rápido",
+          "wrong": [
+            "Se para un momento",
+            "Late más despacio",
+            "No cambia nada"
+          ],
+          "hint": "Tus músculos quieren más oxígeno.",
+          "explanation": "Con el esfuerzo el corazón bombea más rápido para los músculos.",
+          "fact": "En los deportistas late muy despacio en reposo."
+        },
+        "it": {
+          "prompt": "Che cosa fa il tuo cuore quando corri forte?",
+          "answer": "Batte più in fretta",
+          "wrong": [
+            "Si ferma un attimo",
+            "Batte più piano",
+            "Non cambia niente"
+          ],
+          "hint": "I muscoli vogliono più ossigeno.",
+          "explanation": "Sotto sforzo il cuore pompa più in fretta per i muscoli.",
+          "fact": "Negli atleti a riposo batte molto lentamente."
+        },
+        "pt": {
+          "prompt": "O que faz o teu coração quando corres muito?",
+          "answer": "Bate mais depressa",
+          "wrong": [
+            "Pára um instante",
+            "Bate mais devagar",
+            "Não muda nada"
+          ],
+          "hint": "Os músculos querem mais oxigénio.",
+          "explanation": "No esforço o coração bombeia mais depressa para os músculos.",
+          "fact": "Nos atletas bate muito devagar em repouso."
+        },
+        "da": {
+          "prompt": "Hvad gør dit hjerte, når du løber stærkt?",
+          "answer": "Det slår hurtigere",
+          "wrong": [
+            "Det stopper kort",
+            "Det slår langsommere",
+            "Der sker ingenting"
+          ],
+          "hint": "Dine muskler vil have mere ilt.",
+          "explanation": "Ved anstrengelse pumper hjertet hurtigere for musklerne.",
+          "fact": "Hos topatleter slår det ekstra langsomt i hvile."
+        },
+        "ru": {
+          "prompt": "Что делает сердце, когда ты быстро бежишь?",
+          "answer": "Бьётся чаще",
+          "wrong": [
+            "Ненадолго останавливается",
+            "Бьётся медленнее",
+            "Ничего не меняется"
+          ],
+          "hint": "Мышцам нужно больше кислорода.",
+          "explanation": "При нагрузке сердце качает быстрее, чтобы успевать за мышцами.",
+          "fact": "У спортсменов в покое оно бьётся особенно медленно."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل قلبك حين تعدو بسرعة؟",
+          "answer": "ينبض أسرع",
+          "wrong": [
+            "يتوقف لحظة",
+            "ينبض أبطأ",
+            "لا يتغير شيء"
+          ],
+          "hint": "عضلاتك تريد أكسجينًا أكثر.",
+          "explanation": "عند المجهود يضخ القلب أسرع ليلاحق العضلات.",
+          "fact": "عند الرياضيين ينبض ببطء شديد أثناء الراحة."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Jachtluipaard: 93-104 km/u gemeten",
+      "artBrief": "Een jachtluipaard op volle snelheid met alle vier de poten van de grond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe snel rent een jachtluipaard ongeveer?",
+          "answer": "Ongeveer 110 km per uur",
+          "wrong": [
+            "Ongeveer 30 km per uur",
+            "Ongeveer 60 km per uur",
+            "Ongeveer 300 km per uur"
+          ],
+          "hint": "Sneller dan een auto op de snelweg.",
+          "explanation": "Een jachtluipaard haalt ruim honderd kilometer per uur.",
+          "fact": "Hij zet in drie seconden zijn topsnelheid neer."
+        },
+        "en": {
+          "prompt": "About how fast does a cheetah run?",
+          "answer": "About 110 km an hour",
+          "wrong": [
+            "About 30 km an hour",
+            "About 60 km an hour",
+            "About 300 km an hour"
+          ],
+          "hint": "Faster than a car on the motorway.",
+          "explanation": "A cheetah reaches over a hundred kilometres an hour.",
+          "fact": "It gets to top speed in three seconds."
+        },
+        "de": {
+          "prompt": "Wie schnell rennt ein Gepard ungefähr?",
+          "answer": "Etwa 110 km pro Stunde",
+          "wrong": [
+            "Etwa 30 km pro Stunde",
+            "Etwa 60 km pro Stunde",
+            "Etwa 300 km pro Stunde"
+          ],
+          "hint": "Schneller als ein Auto auf der Autobahn.",
+          "explanation": "Ein Gepard schafft über hundert Kilometer pro Stunde.",
+          "fact": "Seine Höchstgeschwindigkeit erreicht er in drei Sekunden."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse court un guépard environ ?",
+          "answer": "Environ 110 km par heure",
+          "wrong": [
+            "Environ 30 km par heure",
+            "Environ 60 km par heure",
+            "Environ 300 km par heure"
+          ],
+          "hint": "Plus vite qu'une voiture sur l'autoroute.",
+          "explanation": "Un guépard dépasse les cent kilomètres à l'heure.",
+          "fact": "Il atteint sa vitesse maximale en trois secondes."
+        },
+        "es": {
+          "prompt": "¿A qué velocidad corre un guepardo más o menos?",
+          "answer": "Unos 110 km por hora",
+          "wrong": [
+            "Unos 30 km por hora",
+            "Unos 60 km por hora",
+            "Unos 300 km por hora"
+          ],
+          "hint": "Más rápido que un coche en la autopista.",
+          "explanation": "Un guepardo supera los cien kilómetros por hora.",
+          "fact": "Alcanza su velocidad máxima en tres segundos."
+        },
+        "it": {
+          "prompt": "Quanto corre più o meno un ghepardo?",
+          "answer": "Circa 110 km all'ora",
+          "wrong": [
+            "Circa 30 km all'ora",
+            "Circa 60 km all'ora",
+            "Circa 300 km all'ora"
+          ],
+          "hint": "Più veloce di un'auto in autostrada.",
+          "explanation": "Un ghepardo supera i cento chilometri orari.",
+          "fact": "Raggiunge la massima velocità in tre secondi."
+        },
+        "pt": {
+          "prompt": "A que velocidade corre uma chita mais ou menos?",
+          "answer": "Cerca de 110 km por hora",
+          "wrong": [
+            "Cerca de 30 km por hora",
+            "Cerca de 60 km por hora",
+            "Cerca de 300 km por hora"
+          ],
+          "hint": "Mais depressa do que um carro na autoestrada.",
+          "explanation": "Uma chita passa dos cem quilómetros por hora.",
+          "fact": "Chega à velocidade máxima em três segundos."
+        },
+        "da": {
+          "prompt": "Hvor hurtigt løber en gepard cirka?",
+          "answer": "Cirka 110 km i timen",
+          "wrong": [
+            "Cirka 30 km i timen",
+            "Cirka 60 km i timen",
+            "Cirka 300 km i timen"
+          ],
+          "hint": "Hurtigere end en bil på motorvejen.",
+          "explanation": "En gepard når over hundrede kilometer i timen.",
+          "fact": "Den er oppe i topfart på tre sekunder."
+        },
+        "ru": {
+          "prompt": "Какую скорость развивает гепард?",
+          "answer": "Около 110 км в час",
+          "wrong": [
+            "Около 30 км в час",
+            "Около 60 км в час",
+            "Около 300 км в час"
+          ],
+          "hint": "Быстрее машины на трассе.",
+          "explanation": "Гепард разгоняется больше ста километров в час.",
+          "fact": "Максимальную скорость он набирает за три секунды."
+        },
+        "ar": {
+          "prompt": "كم تبلغ سرعة الفهد تقريبًا؟",
+          "answer": "نحو 110 كم في الساعة",
+          "wrong": [
+            "نحو 30 كم في الساعة",
+            "نحو 60 كم في الساعة",
+            "نحو 300 كم في الساعة"
+          ],
+          "hint": "أسرع من سيارة على الطريق السريع.",
+          "explanation": "يتجاوز الفهد مئة كيلومتر في الساعة.",
+          "fact": "ويبلغ سرعته القصوى في ثلاث ثوان."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Staartgebruik bij wendbaarheid (cheetah tail)",
+      "artBrief": "Een rennend dier dat scherp bocht, met de staart als tegenwicht opzij.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom hebben veel snelle dieren een lange staart?",
+          "answer": "Om bochten te kunnen maken",
+          "wrong": [
+            "Om vliegen weg te jagen",
+            "Om warm te blijven",
+            "Om te graven"
+          ],
+          "hint": "Denk aan een koorddanser met een stok.",
+          "explanation": "De staart werkt als tegenwicht in scherpe bochten.",
+          "fact": "Zonder staart zou een jachtluipaard in de bocht omvallen."
+        },
+        "en": {
+          "prompt": "Why do many fast animals have a long tail?",
+          "answer": "To help them turn",
+          "wrong": [
+            "To swat away flies",
+            "To stay warm",
+            "To dig"
+          ],
+          "hint": "Think of a tightrope walker with a pole.",
+          "explanation": "The tail works as a counterweight in sharp turns.",
+          "fact": "Without it a cheetah would topple over in a bend."
+        },
+        "de": {
+          "prompt": "Warum haben viele schnelle Tiere einen langen Schwanz?",
+          "answer": "Um Kurven zu schaffen",
+          "wrong": [
+            "Um Fliegen zu verjagen",
+            "Um warm zu bleiben",
+            "Um zu graben"
+          ],
+          "hint": "Denk an einen Seiltänzer mit Stange.",
+          "explanation": "Der Schwanz wirkt als Gegengewicht in engen Kurven.",
+          "fact": "Ohne ihn würde ein Gepard in der Kurve stürzen."
+        },
+        "fr": {
+          "prompt": "Pourquoi beaucoup d'animaux rapides ont-ils une longue queue ?",
+          "answer": "Pour prendre les virages",
+          "wrong": [
+            "Pour chasser les mouches",
+            "Pour rester au chaud",
+            "Pour creuser"
+          ],
+          "hint": "Pense à un funambule avec sa perche.",
+          "explanation": "La queue sert de contrepoids dans les virages serrés.",
+          "fact": "Sans elle, un guépard basculerait dans le tournant."
+        },
+        "es": {
+          "prompt": "¿Por qué muchos animales veloces tienen cola larga?",
+          "answer": "Para poder girar",
+          "wrong": [
+            "Para espantar moscas",
+            "Para estar calientes",
+            "Para cavar"
+          ],
+          "hint": "Piensa en un equilibrista con su pértiga.",
+          "explanation": "La cola hace de contrapeso en las curvas cerradas.",
+          "fact": "Sin ella un guepardo se caería al girar."
+        },
+        "it": {
+          "prompt": "Perché molti animali veloci hanno la coda lunga?",
+          "answer": "Per riuscire a curvare",
+          "wrong": [
+            "Per scacciare le mosche",
+            "Per stare al caldo",
+            "Per scavare"
+          ],
+          "hint": "Pensa a un funambolo con l'asta.",
+          "explanation": "La coda fa da contrappeso nelle curve strette.",
+          "fact": "Senza di essa un ghepardo cadrebbe in curva."
+        },
+        "pt": {
+          "prompt": "Porque têm muitos animais rápidos uma cauda comprida?",
+          "answer": "Para conseguirem virar",
+          "wrong": [
+            "Para enxotar moscas",
+            "Para se aquecerem",
+            "Para cavar"
+          ],
+          "hint": "Pensa num equilibrista com a vara.",
+          "explanation": "A cauda funciona como contrapeso nas curvas apertadas.",
+          "fact": "Sem ela uma chita caía na curva."
+        },
+        "da": {
+          "prompt": "Hvorfor har mange hurtige dyr en lang hale?",
+          "answer": "For at kunne dreje",
+          "wrong": [
+            "For at jage fluer væk",
+            "For at holde varmen",
+            "For at grave"
+          ],
+          "hint": "Tænk på en linedanser med stang.",
+          "explanation": "Halen virker som modvægt i skarpe sving.",
+          "fact": "Uden den ville en gepard vælte i svinget."
+        },
+        "ru": {
+          "prompt": "Зачем многим быстрым животным длинный хвост?",
+          "answer": "Чтобы входить в повороты",
+          "wrong": [
+            "Чтобы отгонять мух",
+            "Чтобы греться",
+            "Чтобы копать"
+          ],
+          "hint": "Вспомни канатоходца с шестом.",
+          "explanation": "Хвост работает как противовес в резких поворотах.",
+          "fact": "Без него гепард заваливался бы на вираже."
+        },
+        "ar": {
+          "prompt": "لماذا لكثير من الحيوانات السريعة ذيل طويل؟",
+          "answer": "ليتمكن من الانعطاف",
+          "wrong": [
+            "لطرد الذباب",
+            "ليبقى دافئًا",
+            "للحفر"
+          ],
+          "hint": "تذكر لاعب الحبل وعصاه.",
+          "explanation": "الذيل يعمل كثقل موازن في المنعطفات الحادة.",
+          "fact": "بدونه يسقط الفهد عند الانعطاف."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Precociale hoefdieren — gazellen rennen binnen een uur",
+      "artBrief": "Een pasgeboren gazelle die naast zijn moeder over de savanne rent.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk jong dier rent al vlak na de geboorte mee?",
+          "answer": "De gazelle",
+          "wrong": [
+            "De muis",
+            "De kat",
+            "De vleermuis"
+          ],
+          "hint": "Op de savanne kun je niet wachten.",
+          "explanation": "Een gazellenjong rent binnen een uur met de kudde mee.",
+          "fact": "Muizen en katten worden juist blind en hulpeloos geboren."
+        },
+        "en": {
+          "prompt": "Which young animal runs with the herd almost at once?",
+          "answer": "The gazelle",
+          "wrong": [
+            "The mouse",
+            "The cat",
+            "The bat"
+          ],
+          "hint": "On the savannah there is no waiting.",
+          "explanation": "A gazelle calf runs with the herd within an hour.",
+          "fact": "Mice and cats are born blind and helpless instead."
+        },
+        "de": {
+          "prompt": "Welches Jungtier rennt fast sofort mit?",
+          "answer": "Die Gazelle",
+          "wrong": [
+            "Die Maus",
+            "Die Katze",
+            "Die Fledermaus"
+          ],
+          "hint": "In der Savanne wird nicht gewartet.",
+          "explanation": "Ein Gazellenjunges läuft binnen einer Stunde mit der Herde.",
+          "fact": "Mäuse und Katzen kommen dagegen blind zur Welt."
+        },
+        "fr": {
+          "prompt": "Quel petit court avec le troupeau presque tout de suite ?",
+          "answer": "La gazelle",
+          "wrong": [
+            "La souris",
+            "Le chat",
+            "La chauve-souris"
+          ],
+          "hint": "Dans la savane, on n'attend pas.",
+          "explanation": "Un petit de gazelle suit le troupeau au bout d'une heure.",
+          "fact": "Les souris et les chats naissent aveugles et sans défense."
+        },
+        "es": {
+          "prompt": "¿Qué cría corre con el grupo casi enseguida?",
+          "answer": "La gacela",
+          "wrong": [
+            "El ratón",
+            "El gato",
+            "El murciélago"
+          ],
+          "hint": "En la sabana no se espera.",
+          "explanation": "Una cría de gacela corre con la manada en una hora.",
+          "fact": "Los ratones y los gatos nacen ciegos e indefensos."
+        },
+        "it": {
+          "prompt": "Quale cucciolo corre con il branco quasi subito?",
+          "answer": "La gazzella",
+          "wrong": [
+            "Il topo",
+            "Il gatto",
+            "Il pipistrello"
+          ],
+          "hint": "Nella savana non si aspetta.",
+          "explanation": "Un cucciolo di gazzella segue il branco entro un'ora.",
+          "fact": "Topi e gatti nascono invece ciechi e indifesi."
+        },
+        "pt": {
+          "prompt": "Que cria corre com o grupo quase logo a seguir?",
+          "answer": "A gazela",
+          "wrong": [
+            "O rato",
+            "O gato",
+            "O morcego"
+          ],
+          "hint": "Na savana não se espera.",
+          "explanation": "Uma cria de gazela corre com a manada ao fim de uma hora.",
+          "fact": "Os ratos e os gatos nascem cegos e indefesos."
+        },
+        "da": {
+          "prompt": "Hvilken unge løber med flokken næsten med det samme?",
+          "answer": "Gazellen",
+          "wrong": [
+            "Musen",
+            "Katten",
+            "Flagermusen"
+          ],
+          "hint": "På savannen venter man ikke.",
+          "explanation": "En gazelleunge løber med flokken inden for en time.",
+          "fact": "Mus og katte fødes derimod blinde og hjælpeløse."
+        },
+        "ru": {
+          "prompt": "Какой детёныш бежит со стадом почти сразу?",
+          "answer": "Газель",
+          "wrong": [
+            "Мышь",
+            "Кошка",
+            "Летучая мышь"
+          ],
+          "hint": "В саванне ждать нельзя.",
+          "explanation": "Детёныш газели бежит со стадом уже через час.",
+          "fact": "А мыши и кошки рождаются слепыми и беспомощными."
+        },
+        "ar": {
+          "prompt": "أي صغير يجري مع القطيع فورًا تقريبًا؟",
+          "answer": "الغزال",
+          "wrong": [
+            "الفأر",
+            "القط",
+            "الخفاش"
+          ],
+          "hint": "في السافانا لا انتظار.",
+          "explanation": "صغير الغزال يجري مع القطيع خلال ساعة.",
+          "fact": "أما الفئران والقطط فتولد عمياء عاجزة."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Kolibries zijn de enige vogels die achteruit kunnen vliegen",
+      "artBrief": "Een kolibrie die stil in de lucht hangt bij een bloem.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vogel kan ook achteruit vliegen?",
+          "answer": "De kolibrie",
+          "wrong": [
+            "De mus",
+            "De adelaar",
+            "De uil"
+          ],
+          "hint": "Hij kan ook stil in de lucht hangen.",
+          "explanation": "De kolibrie is de enige vogel die echt achteruit kan vliegen.",
+          "fact": "Zijn vleugels maken daarbij een liggende acht."
+        },
+        "en": {
+          "prompt": "Which bird can also fly backwards?",
+          "answer": "The hummingbird",
+          "wrong": [
+            "The sparrow",
+            "The eagle",
+            "The owl"
+          ],
+          "hint": "It can hang still in the air too.",
+          "explanation": "The hummingbird is the only bird that can truly fly backwards.",
+          "fact": "Its wings trace a figure of eight on its side."
+        },
+        "de": {
+          "prompt": "Welcher Vogel kann auch rückwärts fliegen?",
+          "answer": "Der Kolibri",
+          "wrong": [
+            "Der Spatz",
+            "Der Adler",
+            "Die Eule"
+          ],
+          "hint": "Er kann auch in der Luft stehen.",
+          "explanation": "Der Kolibri ist der einzige Vogel, der wirklich rückwärts fliegt.",
+          "fact": "Seine Flügel zeichnen dabei eine liegende Acht."
+        },
+        "fr": {
+          "prompt": "Quel oiseau peut aussi voler en arrière ?",
+          "answer": "Le colibri",
+          "wrong": [
+            "Le moineau",
+            "L'aigle",
+            "Le hibou"
+          ],
+          "hint": "Il peut aussi rester immobile en l'air.",
+          "explanation": "Le colibri est le seul oiseau capable de voler vraiment en arrière.",
+          "fact": "Ses ailes dessinent alors un huit couché."
+        },
+        "es": {
+          "prompt": "¿Qué ave puede volar también hacia atrás?",
+          "answer": "El colibrí",
+          "wrong": [
+            "El gorrión",
+            "El águila",
+            "El búho"
+          ],
+          "hint": "También puede quedarse quieto en el aire.",
+          "explanation": "El colibrí es la única ave que vuela de verdad hacia atrás.",
+          "fact": "Sus alas dibujan entonces un ocho tumbado."
+        },
+        "it": {
+          "prompt": "Quale uccello sa volare anche all'indietro?",
+          "answer": "Il colibrì",
+          "wrong": [
+            "Il passero",
+            "L'aquila",
+            "Il gufo"
+          ],
+          "hint": "Sa anche restare fermo in aria.",
+          "explanation": "Il colibrì è l'unico uccello che vola davvero all'indietro.",
+          "fact": "Le sue ali disegnano un otto coricato."
+        },
+        "pt": {
+          "prompt": "Que ave também consegue voar para trás?",
+          "answer": "O beija-flor",
+          "wrong": [
+            "O pardal",
+            "A águia",
+            "A coruja"
+          ],
+          "hint": "Também fica parado no ar.",
+          "explanation": "O beija-flor é a única ave que voa mesmo para trás.",
+          "fact": "As asas desenham então um oito deitado."
+        },
+        "da": {
+          "prompt": "Hvilken fugl kan også flyve baglæns?",
+          "answer": "Kolibrien",
+          "wrong": [
+            "Spurven",
+            "Ørnen",
+            "Uglen"
+          ],
+          "hint": "Den kan også stå stille i luften.",
+          "explanation": "Kolibrien er den eneste fugl, der virkelig flyver baglæns.",
+          "fact": "Vingerne tegner et liggende ottetal."
+        },
+        "ru": {
+          "prompt": "Какая птица умеет летать и задом наперёд?",
+          "answer": "Колибри",
+          "wrong": [
+            "Воробей",
+            "Орёл",
+            "Сова"
+          ],
+          "hint": "Она умеет и зависать в воздухе.",
+          "explanation": "Колибри — единственная птица, которая по-настоящему летает назад.",
+          "fact": "Её крылья описывают при этом лежачую восьмёрку."
+        },
+        "ar": {
+          "prompt": "أي طائر يستطيع الطيران إلى الخلف أيضًا؟",
+          "answer": "الطنان",
+          "wrong": [
+            "العصفور",
+            "النسر",
+            "البومة"
+          ],
+          "hint": "ويستطيع الوقوف ثابتًا في الهواء.",
+          "explanation": "الطنان هو الطائر الوحيد الذي يطير فعلًا إلى الخلف.",
+          "fact": "يرسم جناحاه حينها رقم ثمانية مستلقيًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Tuimelaar zwemt tot 40 km/u",
+      "artBrief": "Een dolfijn die vlak onder het wateroppervlak snel voortschiet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe snel zwemt een dolfijn ongeveer?",
+          "answer": "Ongeveer 40 km per uur",
+          "wrong": [
+            "Ongeveer 5 km per uur",
+            "Ongeveer 100 km per uur",
+            "Ongeveer 300 km per uur"
+          ],
+          "hint": "Sneller dan een fiets, langzamer dan een auto.",
+          "explanation": "Een dolfijn haalt zo'n veertig kilometer per uur.",
+          "fact": "Hij surft graag mee op de boeggolf van een schip."
+        },
+        "en": {
+          "prompt": "About how fast does a dolphin swim?",
+          "answer": "About 40 km an hour",
+          "wrong": [
+            "About 5 km an hour",
+            "About 100 km an hour",
+            "About 300 km an hour"
+          ],
+          "hint": "Faster than a bike, slower than a car.",
+          "explanation": "A dolphin reaches about forty kilometres an hour.",
+          "fact": "It likes to surf the bow wave of a ship."
+        },
+        "de": {
+          "prompt": "Wie schnell schwimmt ein Delfin ungefähr?",
+          "answer": "Etwa 40 km pro Stunde",
+          "wrong": [
+            "Etwa 5 km pro Stunde",
+            "Etwa 100 km pro Stunde",
+            "Etwa 300 km pro Stunde"
+          ],
+          "hint": "Schneller als ein Fahrrad, langsamer als ein Auto.",
+          "explanation": "Ein Delfin schafft etwa vierzig Kilometer pro Stunde.",
+          "fact": "Gern surft er auf der Bugwelle eines Schiffes mit."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse nage un dauphin environ ?",
+          "answer": "Environ 40 km par heure",
+          "wrong": [
+            "Environ 5 km par heure",
+            "Environ 100 km par heure",
+            "Environ 300 km par heure"
+          ],
+          "hint": "Plus vite qu'un vélo, moins qu'une voiture.",
+          "explanation": "Un dauphin atteint environ quarante kilomètres à l'heure.",
+          "fact": "Il aime surfer sur la vague d'étrave d'un bateau."
+        },
+        "es": {
+          "prompt": "¿A qué velocidad nada un delfín más o menos?",
+          "answer": "Unos 40 km por hora",
+          "wrong": [
+            "Unos 5 km por hora",
+            "Unos 100 km por hora",
+            "Unos 300 km por hora"
+          ],
+          "hint": "Más que una bici, menos que un coche.",
+          "explanation": "Un delfín alcanza unos cuarenta kilómetros por hora.",
+          "fact": "Le gusta surfear la ola de proa de un barco."
+        },
+        "it": {
+          "prompt": "Quanto nuota più o meno un delfino?",
+          "answer": "Circa 40 km all'ora",
+          "wrong": [
+            "Circa 5 km all'ora",
+            "Circa 100 km all'ora",
+            "Circa 300 km all'ora"
+          ],
+          "hint": "Più di una bici, meno di un'auto.",
+          "explanation": "Un delfino raggiunge circa quaranta chilometri orari.",
+          "fact": "Ama farsi trasportare dall'onda di prua di una nave."
+        },
+        "pt": {
+          "prompt": "A que velocidade nada um golfinho mais ou menos?",
+          "answer": "Cerca de 40 km por hora",
+          "wrong": [
+            "Cerca de 5 km por hora",
+            "Cerca de 100 km por hora",
+            "Cerca de 300 km por hora"
+          ],
+          "hint": "Mais do que uma bicicleta, menos do que um carro.",
+          "explanation": "Um golfinho chega aos quarenta quilómetros por hora.",
+          "fact": "Gosta de surfar a onda da proa de um barco."
+        },
+        "da": {
+          "prompt": "Hvor hurtigt svømmer en delfin cirka?",
+          "answer": "Cirka 40 km i timen",
+          "wrong": [
+            "Cirka 5 km i timen",
+            "Cirka 100 km i timen",
+            "Cirka 300 km i timen"
+          ],
+          "hint": "Hurtigere end en cykel, langsommere end en bil.",
+          "explanation": "En delfin når cirka fyrre kilometer i timen.",
+          "fact": "Den surfer gerne med på et skibs bovbølge."
+        },
+        "ru": {
+          "prompt": "С какой скоростью плывёт дельфин?",
+          "answer": "Около 40 км в час",
+          "wrong": [
+            "Около 5 км в час",
+            "Около 100 км в час",
+            "Около 300 км в час"
+          ],
+          "hint": "Быстрее велосипеда, медленнее машины.",
+          "explanation": "Дельфин развивает около сорока километров в час.",
+          "fact": "Он любит кататься на волне перед носом корабля."
+        },
+        "ar": {
+          "prompt": "كم تبلغ سرعة سباحة الدلفين تقريبًا؟",
+          "answer": "نحو 40 كم في الساعة",
+          "wrong": [
+            "نحو 5 كم في الساعة",
+            "نحو 100 كم في الساعة",
+            "نحو 300 كم في الساعة"
+          ],
+          "hint": "أسرع من دراجة وأبطأ من سيارة.",
+          "explanation": "يبلغ الدلفين نحو أربعين كيلومترًا في الساعة.",
+          "fact": "ويحب ركوب موجة مقدمة السفينة."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Honingbij: ongeveer 200 vleugelslagen per seconde",
+      "artBrief": "Een bij in de lucht met vleugels die als een waas zichtbaar zijn.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vaak slaat een bij per seconde met haar vleugels?",
+          "answer": "Ongeveer 200 keer",
+          "wrong": [
+            "Ongeveer 2 keer",
+            "Ongeveer 20 keer",
+            "Ongeveer 2.000 keer"
+          ],
+          "hint": "Daarom hoor je een zoemtoon.",
+          "explanation": "Een honingbij slaat ongeveer tweehonderd keer per seconde.",
+          "fact": "Die snelheid maakt precies het zoemende geluid."
+        },
+        "en": {
+          "prompt": "How often does a bee beat its wings each second?",
+          "answer": "About 200 times",
+          "wrong": [
+            "About 2 times",
+            "About 20 times",
+            "About 2,000 times"
+          ],
+          "hint": "That is why you hear a buzz.",
+          "explanation": "A honeybee beats its wings about two hundred times a second.",
+          "fact": "That speed is exactly what makes the buzzing sound."
+        },
+        "de": {
+          "prompt": "Wie oft schlägt eine Biene pro Sekunde mit den Flügeln?",
+          "answer": "Etwa 200 Mal",
+          "wrong": [
+            "Etwa 2 Mal",
+            "Etwa 20 Mal",
+            "Etwa 2.000 Mal"
+          ],
+          "hint": "Darum hörst du ein Summen.",
+          "explanation": "Eine Honigbiene schlägt rund zweihundert Mal pro Sekunde.",
+          "fact": "Genau dieses Tempo erzeugt das Summen."
+        },
+        "fr": {
+          "prompt": "Combien de fois par seconde une abeille bat-elle des ailes ?",
+          "answer": "Environ 200 fois",
+          "wrong": [
+            "Environ 2 fois",
+            "Environ 20 fois",
+            "Environ 2 000 fois"
+          ],
+          "hint": "C'est pour cela qu'on entend un bourdonnement.",
+          "explanation": "Une abeille bat des ailes environ deux cents fois par seconde.",
+          "fact": "C'est exactement cette cadence qui fait le bourdonnement."
+        },
+        "es": {
+          "prompt": "¿Cuántas veces por segundo bate las alas una abeja?",
+          "answer": "Unas 200 veces",
+          "wrong": [
+            "Unas 2 veces",
+            "Unas 20 veces",
+            "Unas 2.000 veces"
+          ],
+          "hint": "Por eso se oye un zumbido.",
+          "explanation": "Una abeja mueve las alas unas doscientas veces por segundo.",
+          "fact": "Justo esa velocidad produce el zumbido."
+        },
+        "it": {
+          "prompt": "Quante volte al secondo batte le ali un'ape?",
+          "answer": "Circa 200 volte",
+          "wrong": [
+            "Circa 2 volte",
+            "Circa 20 volte",
+            "Circa 2.000 volte"
+          ],
+          "hint": "Per questo senti un ronzio.",
+          "explanation": "Un'ape batte le ali circa duecento volte al secondo.",
+          "fact": "È proprio quella velocità a fare il ronzio."
+        },
+        "pt": {
+          "prompt": "Quantas vezes por segundo bate as asas uma abelha?",
+          "answer": "Cerca de 200 vezes",
+          "wrong": [
+            "Cerca de 2 vezes",
+            "Cerca de 20 vezes",
+            "Cerca de 2.000 vezes"
+          ],
+          "hint": "É por isso que se ouve um zumbido.",
+          "explanation": "Uma abelha bate as asas cerca de duzentas vezes por segundo.",
+          "fact": "É essa velocidade que faz o zumbido."
+        },
+        "da": {
+          "prompt": "Hvor tit slår en bi med vingerne i sekundet?",
+          "answer": "Cirka 200 gange",
+          "wrong": [
+            "Cirka 2 gange",
+            "Cirka 20 gange",
+            "Cirka 2.000 gange"
+          ],
+          "hint": "Derfor hører man en summen.",
+          "explanation": "En honningbi slår med vingerne cirka to hundrede gange i sekundet.",
+          "fact": "Netop den fart laver summelyden."
+        },
+        "ru": {
+          "prompt": "Сколько раз в секунду пчела машет крыльями?",
+          "answer": "Около 200 раз",
+          "wrong": [
+            "Около 2 раз",
+            "Около 20 раз",
+            "Около 2000 раз"
+          ],
+          "hint": "Поэтому слышно жужжание.",
+          "explanation": "Медоносная пчела машет крыльями около двухсот раз в секунду.",
+          "fact": "Именно эта частота и даёт жужжание."
+        },
+        "ar": {
+          "prompt": "كم مرة في الثانية ترفرف النحلة بجناحيها؟",
+          "answer": "نحو 200 مرة",
+          "wrong": [
+            "نحو مرتين",
+            "نحو 20 مرة",
+            "نحو 2000 مرة"
+          ],
+          "hint": "لهذا تسمع طنينًا.",
+          "explanation": "ترفرف نحلة العسل نحو مئتي مرة في الثانية.",
+          "fact": "وهذه السرعة بالذات هي التي تصنع الطنين."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Struisvogel: vleugels te klein voor het lichaamsgewicht",
+      "artBrief": "Een struisvogel die met opgeheven vleugels over het zand rent.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom kan een struisvogel niet vliegen?",
+          "answer": "Zijn vleugels zijn te klein",
+          "wrong": [
+            "Hij is te lui",
+            "Hij heeft geen veren",
+            "Hij is bang voor hoogte"
+          ],
+          "hint": "Kijk naar zijn gewicht.",
+          "explanation": "Voor zijn zware lijf zijn de vleugels veel te klein.",
+          "fact": "Hij gebruikt ze wel om te sturen tijdens het rennen."
+        },
+        "en": {
+          "prompt": "Why can an ostrich not fly?",
+          "answer": "Its wings are too small",
+          "wrong": [
+            "It is too lazy",
+            "It has no feathers",
+            "It is scared of heights"
+          ],
+          "hint": "Look at its weight.",
+          "explanation": "For such a heavy body the wings are far too small.",
+          "fact": "It does use them to steer while running."
+        },
+        "de": {
+          "prompt": "Warum kann ein Strauß nicht fliegen?",
+          "answer": "Seine Flügel sind zu klein",
+          "wrong": [
+            "Er ist zu faul",
+            "Er hat keine Federn",
+            "Er hat Höhenangst"
+          ],
+          "hint": "Achte auf sein Gewicht.",
+          "explanation": "Für seinen schweren Körper sind die Flügel viel zu klein.",
+          "fact": "Beim Rennen benutzt er sie aber zum Steuern."
+        },
+        "fr": {
+          "prompt": "Pourquoi une autruche ne peut-elle pas voler ?",
+          "answer": "Ses ailes sont trop petites",
+          "wrong": [
+            "Elle est trop paresseuse",
+            "Elle n'a pas de plumes",
+            "Elle a le vertige"
+          ],
+          "hint": "Regarde son poids.",
+          "explanation": "Pour un corps aussi lourd, les ailes sont bien trop petites.",
+          "fact": "Elle s'en sert quand même pour se diriger en courant."
+        },
+        "es": {
+          "prompt": "¿Por qué no puede volar un avestruz?",
+          "answer": "Sus alas son muy pequeñas",
+          "wrong": [
+            "Es demasiado perezoso",
+            "No tiene plumas",
+            "Le dan miedo las alturas"
+          ],
+          "hint": "Fíjate en su peso.",
+          "explanation": "Para un cuerpo tan pesado las alas son demasiado pequeñas.",
+          "fact": "Sí las usa para girar mientras corre."
+        },
+        "it": {
+          "prompt": "Perché uno struzzo non riesce a volare?",
+          "answer": "Le ali sono troppo piccole",
+          "wrong": [
+            "È troppo pigro",
+            "Non ha piume",
+            "Ha paura dell'altezza"
+          ],
+          "hint": "Guarda il suo peso.",
+          "explanation": "Per un corpo così pesante le ali sono troppo piccole.",
+          "fact": "Le usa però per sterzare mentre corre."
+        },
+        "pt": {
+          "prompt": "Porque não consegue voar uma avestruz?",
+          "answer": "As asas são pequenas de mais",
+          "wrong": [
+            "É preguiçosa de mais",
+            "Não tem penas",
+            "Tem medo das alturas"
+          ],
+          "hint": "Repara no peso dela.",
+          "explanation": "Para um corpo tão pesado as asas são pequenas de mais.",
+          "fact": "Ainda assim usa-as para virar enquanto corre."
+        },
+        "da": {
+          "prompt": "Hvorfor kan en struds ikke flyve?",
+          "answer": "Vingerne er for små",
+          "wrong": [
+            "Den er for doven",
+            "Den har ingen fjer",
+            "Den har højdeskræk"
+          ],
+          "hint": "Se på dens vægt.",
+          "explanation": "Til så tung en krop er vingerne alt for små.",
+          "fact": "Den bruger dem dog til at styre, mens den løber."
+        },
+        "ru": {
+          "prompt": "Почему страус не умеет летать?",
+          "answer": "Крылья слишком малы",
+          "wrong": [
+            "Он слишком ленив",
+            "У него нет перьев",
+            "Он боится высоты"
+          ],
+          "hint": "Посмотри на его вес.",
+          "explanation": "Для такого тяжёлого тела крылья слишком малы.",
+          "fact": "Но на бегу он рулит ими."
+        },
+        "ar": {
+          "prompt": "لماذا لا تستطيع النعامة الطيران؟",
+          "answer": "جناحاها صغيران جدًا",
+          "wrong": [
+            "إنها كسولة",
+            "لا ريش لها",
+            "تخاف المرتفعات"
+          ],
+          "hint": "انتبه إلى وزنها.",
+          "explanation": "لجسم بهذا الثقل يبقى الجناحان صغيرين جدًا.",
+          "fact": "لكنها تستعملهما للتوجيه أثناء العدو."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Rosse grutto vloog 13.560 km non-stop, 2022",
+      "artBrief": "Een steltloper hoog boven een lege oceaan, met een lange route eronder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vogel vliegt het verst zonder te landen?",
+          "answer": "De rosse grutto",
+          "wrong": [
+            "De zwaluw",
+            "De merel",
+            "De duif"
+          ],
+          "hint": "Hij steekt de hele Stille Oceaan over.",
+          "explanation": "Een rosse grutto vloog in 2022 ruim 13.000 kilometer non-stop.",
+          "fact": "Die reis duurde elf dagen zonder eten of slapen."
+        },
+        "en": {
+          "prompt": "Which bird flies furthest without landing?",
+          "answer": "The bar-tailed godwit",
+          "wrong": [
+            "The swallow",
+            "The blackbird",
+            "The pigeon"
+          ],
+          "hint": "It crosses the whole Pacific.",
+          "explanation": "In 2022 a bar-tailed godwit flew over 13,000 kilometres non-stop.",
+          "fact": "The trip took eleven days without eating or sleeping."
+        },
+        "de": {
+          "prompt": "Welcher Vogel fliegt am weitesten ohne zu landen?",
+          "answer": "Die Pfuhlschnepfe",
+          "wrong": [
+            "Die Schwalbe",
+            "Die Amsel",
+            "Die Taube"
+          ],
+          "hint": "Sie überquert den ganzen Pazifik.",
+          "explanation": "2022 flog eine Pfuhlschnepfe über 13.000 Kilometer ohne Pause.",
+          "fact": "Die Reise dauerte elf Tage ohne Essen und Schlaf."
+        },
+        "fr": {
+          "prompt": "Quel oiseau vole le plus loin sans se poser ?",
+          "answer": "La barge rousse",
+          "wrong": [
+            "L'hirondelle",
+            "Le merle",
+            "Le pigeon"
+          ],
+          "hint": "Elle traverse tout le Pacifique.",
+          "explanation": "En 2022, une barge rousse a volé plus de 13 000 kilomètres d'affilée.",
+          "fact": "Le trajet a duré onze jours sans manger ni dormir."
+        },
+        "es": {
+          "prompt": "¿Qué ave vuela más lejos sin posarse?",
+          "answer": "La aguja colipinta",
+          "wrong": [
+            "La golondrina",
+            "El mirlo",
+            "La paloma"
+          ],
+          "hint": "Cruza todo el Pacífico.",
+          "explanation": "En 2022 una aguja colipinta voló más de 13.000 kilómetros seguidos.",
+          "fact": "El viaje duró once días sin comer ni dormir."
+        },
+        "it": {
+          "prompt": "Quale uccello vola più lontano senza fermarsi?",
+          "answer": "La pittima minore",
+          "wrong": [
+            "La rondine",
+            "Il merlo",
+            "Il piccione"
+          ],
+          "hint": "Attraversa tutto il Pacifico.",
+          "explanation": "Nel 2022 una pittima volò oltre 13.000 chilometri senza sosta.",
+          "fact": "Il viaggio durò undici giorni senza mangiare né dormire."
+        },
+        "pt": {
+          "prompt": "Que ave voa mais longe sem pousar?",
+          "answer": "O maçarico-de-bico-virado",
+          "wrong": [
+            "A andorinha",
+            "O melro",
+            "O pombo"
+          ],
+          "hint": "Atravessa todo o Pacífico.",
+          "explanation": "Em 2022 um destes voou mais de 13.000 quilómetros sem parar.",
+          "fact": "A viagem durou onze dias sem comer nem dormir."
+        },
+        "da": {
+          "prompt": "Hvilken fugl flyver længst uden at lande?",
+          "answer": "Lille kobbersneppe",
+          "wrong": [
+            "Svalen",
+            "Solsorten",
+            "Duen"
+          ],
+          "hint": "Den krydser hele Stillehavet.",
+          "explanation": "I 2022 fløj en lille kobbersneppe over 13.000 kilometer uden pause.",
+          "fact": "Turen tog elleve dage uden mad og søvn."
+        },
+        "ru": {
+          "prompt": "Какая птица летит дальше всех без посадки?",
+          "answer": "Малый веретенник",
+          "wrong": [
+            "Ласточка",
+            "Дрозд",
+            "Голубь"
+          ],
+          "hint": "Он пересекает весь Тихий океан.",
+          "explanation": "В 2022 году малый веретенник пролетел больше 13 000 километров подряд.",
+          "fact": "Перелёт занял одиннадцать дней без еды и сна."
+        },
+        "ar": {
+          "prompt": "أي طائر يطير أبعد مسافة دون أن يحط؟",
+          "answer": "البقويقة ذات الذيل المخطط",
+          "wrong": [
+            "السنونو",
+            "الشحرور",
+            "الحمامة"
+          ],
+          "hint": "يعبر المحيط الهادئ كله.",
+          "explanation": "عام 2022 طار أحدها أكثر من 13000 كيلومتر دون توقف.",
+          "fact": "استغرقت الرحلة أحد عشر يومًا بلا أكل أو نوم."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Rode reuzenkangoeroe haalt 60-70 km/u",
+      "artBrief": "Een kangoeroe die in lange sprongen over een vlakte stuitert.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe snel kan een kangoeroe springen?",
+          "answer": "Ongeveer 60 km per uur",
+          "wrong": [
+            "Ongeveer 10 km per uur",
+            "Ongeveer 20 km per uur",
+            "Ongeveer 150 km per uur"
+          ],
+          "hint": "Ongeveer zo snel als een brommer.",
+          "explanation": "Een rode reuzenkangoeroe haalt zestig kilometer per uur.",
+          "fact": "Hoe sneller hij springt, hoe zuiniger hij wordt."
+        },
+        "en": {
+          "prompt": "How fast can a kangaroo hop?",
+          "answer": "About 60 km an hour",
+          "wrong": [
+            "About 10 km an hour",
+            "About 20 km an hour",
+            "About 150 km an hour"
+          ],
+          "hint": "About as fast as a moped.",
+          "explanation": "A red kangaroo reaches sixty kilometres an hour.",
+          "fact": "The faster it hops, the less energy each hop costs."
+        },
+        "de": {
+          "prompt": "Wie schnell kann ein Känguru springen?",
+          "answer": "Etwa 60 km pro Stunde",
+          "wrong": [
+            "Etwa 10 km pro Stunde",
+            "Etwa 20 km pro Stunde",
+            "Etwa 150 km pro Stunde"
+          ],
+          "hint": "Etwa so schnell wie ein Moped.",
+          "explanation": "Ein rotes Riesenkänguru schafft sechzig Kilometer pro Stunde.",
+          "fact": "Je schneller es springt, desto sparsamer wird es."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse un kangourou peut-il sauter ?",
+          "answer": "Environ 60 km par heure",
+          "wrong": [
+            "Environ 10 km par heure",
+            "Environ 20 km par heure",
+            "Environ 150 km par heure"
+          ],
+          "hint": "À peu près comme un cyclomoteur.",
+          "explanation": "Un grand kangourou roux atteint soixante kilomètres à l'heure.",
+          "fact": "Plus il saute vite, moins chaque saut lui coûte."
+        },
+        "es": {
+          "prompt": "¿A qué velocidad puede saltar un canguro?",
+          "answer": "Unos 60 km por hora",
+          "wrong": [
+            "Unos 10 km por hora",
+            "Unos 20 km por hora",
+            "Unos 150 km por hora"
+          ],
+          "hint": "Más o menos como un ciclomotor.",
+          "explanation": "Un canguro rojo alcanza sesenta kilómetros por hora.",
+          "fact": "Cuanto más rápido salta, menos le cuesta cada salto."
+        },
+        "it": {
+          "prompt": "Quanto veloce può saltare un canguro?",
+          "answer": "Circa 60 km all'ora",
+          "wrong": [
+            "Circa 10 km all'ora",
+            "Circa 20 km all'ora",
+            "Circa 150 km all'ora"
+          ],
+          "hint": "Più o meno come un motorino.",
+          "explanation": "Un canguro rosso raggiunge sessanta chilometri orari.",
+          "fact": "Più salta veloce, meno gli costa ogni balzo."
+        },
+        "pt": {
+          "prompt": "A que velocidade consegue saltar um canguru?",
+          "answer": "Cerca de 60 km por hora",
+          "wrong": [
+            "Cerca de 10 km por hora",
+            "Cerca de 20 km por hora",
+            "Cerca de 150 km por hora"
+          ],
+          "hint": "Mais ou menos como uma motorizada.",
+          "explanation": "Um canguru-vermelho chega aos sessenta quilómetros por hora.",
+          "fact": "Quanto mais depressa salta, menos lhe custa cada salto."
+        },
+        "da": {
+          "prompt": "Hvor hurtigt kan en kænguru springe?",
+          "answer": "Cirka 60 km i timen",
+          "wrong": [
+            "Cirka 10 km i timen",
+            "Cirka 20 km i timen",
+            "Cirka 150 km i timen"
+          ],
+          "hint": "Cirka som en knallert.",
+          "explanation": "En rød kæmpekænguru når tres kilometer i timen.",
+          "fact": "Jo hurtigere den hopper, jo billigere bliver hvert hop."
+        },
+        "ru": {
+          "prompt": "С какой скоростью прыгает кенгуру?",
+          "answer": "Около 60 км в час",
+          "wrong": [
+            "Около 10 км в час",
+            "Около 20 км в час",
+            "Около 150 км в час"
+          ],
+          "hint": "Примерно как мопед.",
+          "explanation": "Большой рыжий кенгуру разгоняется до шестидесяти километров в час.",
+          "fact": "Чем быстрее он скачет, тем экономнее каждый прыжок."
+        },
+        "ar": {
+          "prompt": "كم تبلغ سرعة قفز الكنغر؟",
+          "answer": "نحو 60 كم في الساعة",
+          "wrong": [
+            "نحو 10 كم في الساعة",
+            "نحو 20 كم في الساعة",
+            "نحو 150 كم في الساعة"
+          ],
+          "hint": "تقريبًا مثل دراجة نارية صغيرة.",
+          "explanation": "يبلغ الكنغر الأحمر الكبير ستين كيلومترًا في الساعة.",
+          "fact": "وكلما أسرع في القفز قلّت كلفة كل وثبة."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Zijwinder-adder (sidewinding) in los zand",
+      "artBrief": "Een slang die in schuine bochten over een zandduin beweegt, met S-sporen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe beweegt een woestijnslang zich door los zand?",
+          "answer": "Zijwaarts, in bochten",
+          "wrong": [
+            "Rechtdoor, heel langzaam",
+            "Door te springen",
+            "Door te graven"
+          ],
+          "hint": "Ze laat schuine strepen achter.",
+          "explanation": "Door zijwaarts te bewegen raakt ze het hete zand maar even aan.",
+          "fact": "Haar sporen zijn losse schuine strepen, geen doorlopende lijn."
+        },
+        "en": {
+          "prompt": "How does a desert snake move over loose sand?",
+          "answer": "Sideways, in curves",
+          "wrong": [
+            "Straight on, very slowly",
+            "By jumping",
+            "By digging"
+          ],
+          "hint": "It leaves slanted stripes behind.",
+          "explanation": "Moving sideways keeps it touching the hot sand only briefly.",
+          "fact": "Its tracks are separate slanted lines, not one long trail."
+        },
+        "de": {
+          "prompt": "Wie bewegt sich eine Wüstenschlange über losen Sand?",
+          "answer": "Seitwärts, in Bögen",
+          "wrong": [
+            "Geradeaus, ganz langsam",
+            "Durch Springen",
+            "Durch Graben"
+          ],
+          "hint": "Sie hinterlässt schräge Streifen.",
+          "explanation": "Seitwärts berührt sie den heißen Sand nur kurz.",
+          "fact": "Ihre Spur besteht aus einzelnen schrägen Strichen."
+        },
+        "fr": {
+          "prompt": "Comment un serpent du désert avance-t-il sur le sable ?",
+          "answer": "De côté, en boucles",
+          "wrong": [
+            "Tout droit, très lentement",
+            "En sautant",
+            "En creusant"
+          ],
+          "hint": "Il laisse des traits obliques.",
+          "explanation": "En allant de côté, il ne touche le sable brûlant qu'un instant.",
+          "fact": "Ses traces sont des traits séparés, pas une ligne continue."
+        },
+        "es": {
+          "prompt": "¿Cómo avanza una serpiente del desierto por la arena?",
+          "answer": "De lado, en curvas",
+          "wrong": [
+            "Recta y muy despacio",
+            "Dando saltos",
+            "Cavando"
+          ],
+          "hint": "Deja rayas inclinadas.",
+          "explanation": "Yendo de lado toca la arena ardiente solo un instante.",
+          "fact": "Sus huellas son rayas sueltas, no una línea continua."
+        },
+        "it": {
+          "prompt": "Come si muove un serpente del deserto sulla sabbia?",
+          "answer": "Di lato, a curve",
+          "wrong": [
+            "Dritto e lentissimo",
+            "Saltando",
+            "Scavando"
+          ],
+          "hint": "Lascia striscie oblique.",
+          "explanation": "Muovendosi di lato tocca la sabbia rovente solo un attimo.",
+          "fact": "Le sue tracce sono trattini separati, non una linea."
+        },
+        "pt": {
+          "prompt": "Como avança uma cobra do deserto na areia solta?",
+          "answer": "De lado, em curvas",
+          "wrong": [
+            "A direito e devagar",
+            "Aos saltos",
+            "A cavar"
+          ],
+          "hint": "Deixa riscos inclinados.",
+          "explanation": "Indo de lado só toca a areia a ferver por instantes.",
+          "fact": "As pegadas são riscos soltos, não uma linha contínua."
+        },
+        "da": {
+          "prompt": "Hvordan bevæger en ørkenslange sig i løst sand?",
+          "answer": "Sidelæns, i buer",
+          "wrong": [
+            "Lige ud, meget langsomt",
+            "Ved at springe",
+            "Ved at grave"
+          ],
+          "hint": "Den efterlader skrå striber.",
+          "explanation": "Ved at gå sidelæns rører den kun det hede sand kort.",
+          "fact": "Sporene er løse skrå streger, ikke en sammenhængende linje."
+        },
+        "ru": {
+          "prompt": "Как змея пустыни движется по сыпучему песку?",
+          "answer": "Боком, дугами",
+          "wrong": [
+            "Прямо и очень медленно",
+            "Прыжками",
+            "Закапываясь"
+          ],
+          "hint": "Она оставляет косые полосы.",
+          "explanation": "Двигаясь боком, она лишь на миг касается раскалённого песка.",
+          "fact": "Её след — отдельные косые чёрточки, а не сплошная линия."
+        },
+        "ar": {
+          "prompt": "كيف تتحرك أفعى الصحراء على الرمل الناعم؟",
+          "answer": "جانبيًا في انحناءات",
+          "wrong": [
+            "مستقيمة وببطء",
+            "بالقفز",
+            "بالحفر"
+          ],
+          "hint": "تترك خطوطًا مائلة.",
+          "explanation": "بالحركة الجانبية تلامس الرمل الحارق لحظة فقط.",
+          "fact": "أثرها خطوط مائلة منفصلة لا خط متصل."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Bidsprinkhaankreeft: slag in 2,3 milliseconden",
+      "artBrief": "Een felgekleurde kreeft die met een klap een schelp breekt, met belletjes.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier maakt de snelste beweging van allemaal?",
+          "answer": "De bidsprinkhaankreeft",
+          "wrong": [
+            "Het jachtluipaard",
+            "De slechtvalk",
+            "De kolibrie"
+          ],
+          "hint": "Hij slaat, hij rent niet.",
+          "explanation": "Zijn klap duurt maar twee duizendste van een seconde.",
+          "fact": "De klap gaat zo snel dat het water even oplicht."
+        },
+        "en": {
+          "prompt": "Which animal makes the fastest movement of all?",
+          "answer": "The mantis shrimp",
+          "wrong": [
+            "The cheetah",
+            "The peregrine falcon",
+            "The hummingbird"
+          ],
+          "hint": "It strikes, it does not run.",
+          "explanation": "Its punch takes only two thousandths of a second.",
+          "fact": "The blow is so fast that the water flashes with light."
+        },
+        "de": {
+          "prompt": "Welches Tier macht die schnellste Bewegung überhaupt?",
+          "answer": "Der Fangschreckenkrebs",
+          "wrong": [
+            "Der Gepard",
+            "Der Wanderfalke",
+            "Der Kolibri"
+          ],
+          "hint": "Er schlägt zu, er rennt nicht.",
+          "explanation": "Sein Schlag dauert nur zwei Tausendstel einer Sekunde.",
+          "fact": "Der Schlag ist so schnell, dass das Wasser kurz aufleuchtet."
+        },
+        "fr": {
+          "prompt": "Quel animal fait le mouvement le plus rapide de tous ?",
+          "answer": "La crevette-mante",
+          "wrong": [
+            "Le guépard",
+            "Le faucon pèlerin",
+            "Le colibri"
+          ],
+          "hint": "Elle frappe, elle ne court pas.",
+          "explanation": "Son coup ne dure que deux millièmes de seconde.",
+          "fact": "Le coup est si rapide que l'eau s'illumine un instant."
+        },
+        "es": {
+          "prompt": "¿Qué animal hace el movimiento más rápido de todos?",
+          "answer": "El camarón mantis",
+          "wrong": [
+            "El guepardo",
+            "El halcón peregrino",
+            "El colibrí"
+          ],
+          "hint": "Golpea, no corre.",
+          "explanation": "Su golpe dura solo dos milésimas de segundo.",
+          "fact": "Es tan veloz que el agua llega a destellar."
+        },
+        "it": {
+          "prompt": "Quale animale fa il movimento più veloce di tutti?",
+          "answer": "La canocchia",
+          "wrong": [
+            "Il ghepardo",
+            "Il falco pellegrino",
+            "Il colibrì"
+          ],
+          "hint": "Colpisce, non corre.",
+          "explanation": "Il suo colpo dura solo due millesimi di secondo.",
+          "fact": "È così rapido che l'acqua lampeggia un istante."
+        },
+        "pt": {
+          "prompt": "Que animal faz o movimento mais rápido de todos?",
+          "answer": "O camarão-louva-a-deus",
+          "wrong": [
+            "A chita",
+            "O falcão-peregrino",
+            "O beija-flor"
+          ],
+          "hint": "Dá um golpe, não corre.",
+          "explanation": "O golpe dura apenas dois milésimos de segundo.",
+          "fact": "É tão rápido que a água chega a brilhar."
+        },
+        "da": {
+          "prompt": "Hvilket dyr laver den hurtigste bevægelse af alle?",
+          "answer": "Mantisrejen",
+          "wrong": [
+            "Geparden",
+            "Vandrefalken",
+            "Kolibrien"
+          ],
+          "hint": "Den slår, den løber ikke.",
+          "explanation": "Dens slag varer kun to tusindedele af et sekund.",
+          "fact": "Slaget er så hurtigt, at vandet lyser op et øjeblik."
+        },
+        "ru": {
+          "prompt": "У какого животного самое быстрое движение?",
+          "answer": "Рак-богомол",
+          "wrong": [
+            "Гепард",
+            "Сапсан",
+            "Колибри"
+          ],
+          "hint": "Он бьёт, а не бежит.",
+          "explanation": "Его удар длится всего две тысячных секунды.",
+          "fact": "Удар так быстр, что вода на миг вспыхивает светом."
+        },
+        "ar": {
+          "prompt": "أي حيوان يقوم بأسرع حركة على الإطلاق؟",
+          "answer": "جمبري السرعوف",
+          "wrong": [
+            "الفهد",
+            "الصقر الشاهين",
+            "الطنان"
+          ],
+          "hint": "يضرب ولا يعدو.",
+          "explanation": "ضربته لا تستغرق سوى جزأين من ألف من الثانية.",
+          "fact": "سرعتها تجعل الماء يومض لحظة."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Kameleontong: uitschieten in ongeveer 0,07 seconde",
+      "artBrief": "Een kameleon met uitgeschoten tong die een insect vangt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe snel schiet de tong van een kameleon uit?",
+          "answer": "In een honderdste seconde",
+          "wrong": [
+            "In een seconde",
+            "In tien seconden",
+            "In een minuut"
+          ],
+          "hint": "Sneller dan je kunt knipperen.",
+          "explanation": "De tong schiet in ongeveer een honderdste seconde naar zijn prooi.",
+          "fact": "Hij is uitgestrekt langer dan het hele dier."
+        },
+        "en": {
+          "prompt": "How fast does a chameleon's tongue shoot out?",
+          "answer": "In a hundredth of a second",
+          "wrong": [
+            "In one second",
+            "In ten seconds",
+            "In a minute"
+          ],
+          "hint": "Faster than you can blink.",
+          "explanation": "The tongue reaches its prey in about a hundredth of a second.",
+          "fact": "Stretched out it is longer than the whole animal."
+        },
+        "de": {
+          "prompt": "Wie schnell schnellt die Zunge eines Chamäleons vor?",
+          "answer": "In einer hundertstel Sekunde",
+          "wrong": [
+            "In einer Sekunde",
+            "In zehn Sekunden",
+            "In einer Minute"
+          ],
+          "hint": "Schneller, als du blinzeln kannst.",
+          "explanation": "Die Zunge erreicht die Beute in etwa einer hundertstel Sekunde.",
+          "fact": "Ausgestreckt ist sie länger als das ganze Tier."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse la langue d'un caméléon jaillit-elle ?",
+          "answer": "En un centième de seconde",
+          "wrong": [
+            "En une seconde",
+            "En dix secondes",
+            "En une minute"
+          ],
+          "hint": "Plus vite que tu ne clignes des yeux.",
+          "explanation": "La langue atteint sa proie en un centième de seconde environ.",
+          "fact": "Déployée, elle est plus longue que l'animal entier."
+        },
+        "es": {
+          "prompt": "¿Cuánto tarda en salir la lengua de un camaleón?",
+          "answer": "Una centésima de segundo",
+          "wrong": [
+            "Un segundo",
+            "Diez segundos",
+            "Un minuto"
+          ],
+          "hint": "Más rápido de lo que parpadeas.",
+          "explanation": "La lengua llega a la presa en una centésima de segundo.",
+          "fact": "Estirada es más larga que todo el animal."
+        },
+        "it": {
+          "prompt": "Quanto ci mette la lingua di un camaleonte a scattare?",
+          "answer": "Un centesimo di secondo",
+          "wrong": [
+            "Un secondo",
+            "Dieci secondi",
+            "Un minuto"
+          ],
+          "hint": "Più veloce di un battito di ciglia.",
+          "explanation": "La lingua raggiunge la preda in circa un centesimo di secondo.",
+          "fact": "Distesa è più lunga dell'animale intero."
+        },
+        "pt": {
+          "prompt": "Quanto demora a língua de um camaleão a sair?",
+          "answer": "Um centésimo de segundo",
+          "wrong": [
+            "Um segundo",
+            "Dez segundos",
+            "Um minuto"
+          ],
+          "hint": "Mais depressa do que um piscar de olhos.",
+          "explanation": "A língua chega à presa em cerca de um centésimo de segundo.",
+          "fact": "Esticada é mais comprida do que o animal todo."
+        },
+        "da": {
+          "prompt": "Hvor hurtigt skyder en kamæleons tunge frem?",
+          "answer": "På en hundrededel sekund",
+          "wrong": [
+            "På et sekund",
+            "På ti sekunder",
+            "På et minut"
+          ],
+          "hint": "Hurtigere end du kan blinke.",
+          "explanation": "Tungen når byttet på cirka en hundrededel sekund.",
+          "fact": "Udstrakt er den længere end hele dyret."
+        },
+        "ru": {
+          "prompt": "Как быстро выстреливает язык хамелеона?",
+          "answer": "За сотую долю секунды",
+          "wrong": [
+            "За секунду",
+            "За десять секунд",
+            "За минуту"
+          ],
+          "hint": "Быстрее, чем ты моргнёшь.",
+          "explanation": "Язык достаёт добычу примерно за сотую долю секунды.",
+          "fact": "В вытянутом виде он длиннее всего животного."
+        },
+        "ar": {
+          "prompt": "كم تستغرق لسان الحرباء لتنطلق؟",
+          "answer": "جزء من مئة من الثانية",
+          "wrong": [
+            "ثانية واحدة",
+            "عشر ثوان",
+            "دقيقة"
+          ],
+          "hint": "أسرع من رمشة عين.",
+          "explanation": "يصل اللسان إلى الفريسة في نحو جزء من مئة من الثانية.",
+          "fact": "وهو ممدودًا أطول من الحيوان كله."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Persistence hunting — menselijke uithouding",
+      "artBrief": "Een hardloper die in de verte over een savanne draaft in de hitte.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier kan het langst achter elkaar blijven rennen?",
+          "answer": "De mens",
+          "wrong": [
+            "Het jachtluipaard",
+            "De haas",
+            "De kat"
+          ],
+          "hint": "Niet het snelst, wel het langst.",
+          "explanation": "Mensen kunnen uren doorlopen omdat ze goed kunnen zweten.",
+          "fact": "Sommige jagers dreven een antilope zo lang op tot die niet meer kon."
+        },
+        "en": {
+          "prompt": "Which animal can keep running the longest?",
+          "answer": "The human",
+          "wrong": [
+            "The cheetah",
+            "The hare",
+            "The cat"
+          ],
+          "hint": "Not the fastest, but the longest.",
+          "explanation": "People can run for hours because they sweat so well.",
+          "fact": "Some hunters chased an antelope until it simply could not go on."
+        },
+        "de": {
+          "prompt": "Welches Tier kann am längsten am Stück laufen?",
+          "answer": "Der Mensch",
+          "wrong": [
+            "Der Gepard",
+            "Der Hase",
+            "Die Katze"
+          ],
+          "hint": "Nicht am schnellsten, aber am längsten.",
+          "explanation": "Menschen laufen stundenlang, weil sie so gut schwitzen können.",
+          "fact": "Manche Jäger trieben eine Antilope, bis sie nicht mehr konnte."
+        },
+        "fr": {
+          "prompt": "Quel animal peut courir le plus longtemps d'affilée ?",
+          "answer": "L'être humain",
+          "wrong": [
+            "Le guépard",
+            "Le lièvre",
+            "Le chat"
+          ],
+          "hint": "Pas le plus rapide, mais le plus endurant.",
+          "explanation": "L'humain court des heures parce qu'il transpire très bien.",
+          "fact": "Certains chasseurs poussaient une antilope jusqu'à l'épuisement."
+        },
+        "es": {
+          "prompt": "¿Qué animal puede correr más rato seguido?",
+          "answer": "El ser humano",
+          "wrong": [
+            "El guepardo",
+            "La liebre",
+            "El gato"
+          ],
+          "hint": "No el más rápido, sí el más resistente.",
+          "explanation": "Las personas corren horas porque sudan muy bien.",
+          "fact": "Algunos cazadores perseguían a un antílope hasta agotarlo."
+        },
+        "it": {
+          "prompt": "Quale animale riesce a correre più a lungo di seguito?",
+          "answer": "L'essere umano",
+          "wrong": [
+            "Il ghepardo",
+            "La lepre",
+            "Il gatto"
+          ],
+          "hint": "Non il più veloce, ma il più resistente.",
+          "explanation": "Le persone corrono per ore perché sudano molto bene.",
+          "fact": "Alcuni cacciatori inseguivano un'antilope fino a sfinirla."
+        },
+        "pt": {
+          "prompt": "Que animal consegue correr mais tempo seguido?",
+          "answer": "O ser humano",
+          "wrong": [
+            "A chita",
+            "A lebre",
+            "O gato"
+          ],
+          "hint": "Não o mais rápido, mas o mais resistente.",
+          "explanation": "As pessoas correm horas porque transpiram muito bem.",
+          "fact": "Alguns caçadores perseguiam um antílope até ele já não poder."
+        },
+        "da": {
+          "prompt": "Hvilket dyr kan løbe længst i træk?",
+          "answer": "Mennesket",
+          "wrong": [
+            "Geparden",
+            "Haren",
+            "Katten"
+          ],
+          "hint": "Ikke hurtigst, men længst.",
+          "explanation": "Mennesker kan løbe i timevis, fordi de sveder så godt.",
+          "fact": "Nogle jægere jagede en antilope, til den ikke kunne mere."
+        },
+        "ru": {
+          "prompt": "Какое животное может бежать дольше всех подряд?",
+          "answer": "Человек",
+          "wrong": [
+            "Гепард",
+            "Заяц",
+            "Кошка"
+          ],
+          "hint": "Не быстрее всех, но дольше всех.",
+          "explanation": "Люди бегут часами, потому что хорошо потеют.",
+          "fact": "Некоторые охотники гнали антилопу, пока она не выбивалась из сил."
+        },
+        "ar": {
+          "prompt": "أي حيوان يستطيع الجري أطول مدة متواصلة؟",
+          "answer": "الإنسان",
+          "wrong": [
+            "الفهد",
+            "الأرنب البري",
+            "القط"
+          ],
+          "hint": "ليس الأسرع لكنه الأطول نفسًا.",
+          "explanation": "يجري الناس ساعات لأنهم يتعرقون جيدًا.",
+          "fact": "بعض الصيادين كانوا يطاردون ظبيًا حتى ينهك."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Kolibriehart: tot 1260 slagen per minuut",
+      "artBrief": "Een kolibrie van dichtbij met een tekening van een snel kloppend hart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vaak klopt het hart van een vliegende kolibrie?",
+          "answer": "Ruim 1.000 keer per minuut",
+          "wrong": [
+            "60 keer per minuut",
+            "200 keer per minuut",
+            "10.000 keer per minuut"
+          ],
+          "hint": "Veel sneller dan dat van jou.",
+          "explanation": "Tijdens het vliegen klopt het kolibriehart ruim duizend keer per minuut.",
+          "fact": "'s Nachts zakt dat naar vijftig om energie te sparen."
+        },
+        "en": {
+          "prompt": "How fast does a flying hummingbird's heart beat?",
+          "answer": "Over 1,000 times a minute",
+          "wrong": [
+            "60 times a minute",
+            "200 times a minute",
+            "10,000 times a minute"
+          ],
+          "hint": "Much faster than yours.",
+          "explanation": "In flight a hummingbird's heart beats over a thousand times a minute.",
+          "fact": "At night it drops to fifty to save energy."
+        },
+        "de": {
+          "prompt": "Wie oft schlägt das Herz eines fliegenden Kolibris?",
+          "answer": "Über 1.000 Mal pro Minute",
+          "wrong": [
+            "60 Mal pro Minute",
+            "200 Mal pro Minute",
+            "10.000 Mal pro Minute"
+          ],
+          "hint": "Viel schneller als deins.",
+          "explanation": "Im Flug schlägt das Kolibriherz über tausend Mal pro Minute.",
+          "fact": "Nachts sinkt es auf fünfzig, um Energie zu sparen."
+        },
+        "fr": {
+          "prompt": "À quelle vitesse bat le cœur d'un colibri en vol ?",
+          "answer": "Plus de 1 000 par minute",
+          "wrong": [
+            "60 fois par minute",
+            "200 fois par minute",
+            "10 000 fois par minute"
+          ],
+          "hint": "Bien plus vite que le tien.",
+          "explanation": "En vol, le cœur du colibri bat plus de mille fois par minute.",
+          "fact": "La nuit il descend à cinquante pour économiser."
+        },
+        "es": {
+          "prompt": "¿Cuántas veces late el corazón de un colibrí en vuelo?",
+          "answer": "Más de 1.000 por minuto",
+          "wrong": [
+            "60 por minuto",
+            "200 por minuto",
+            "10.000 por minuto"
+          ],
+          "hint": "Mucho más rápido que el tuyo.",
+          "explanation": "En vuelo el corazón del colibrí late más de mil veces por minuto.",
+          "fact": "De noche baja a cincuenta para ahorrar energía."
+        },
+        "it": {
+          "prompt": "Quanto batte il cuore di un colibrì in volo?",
+          "answer": "Oltre 1.000 volte al minuto",
+          "wrong": [
+            "60 volte al minuto",
+            "200 volte al minuto",
+            "10.000 volte al minuto"
+          ],
+          "hint": "Molto più veloce del tuo.",
+          "explanation": "In volo il cuore del colibrì batte oltre mille volte al minuto.",
+          "fact": "Di notte scende a cinquanta per risparmiare."
+        },
+        "pt": {
+          "prompt": "Quantas vezes bate o coração de um beija-flor em voo?",
+          "answer": "Mais de 1.000 por minuto",
+          "wrong": [
+            "60 por minuto",
+            "200 por minuto",
+            "10.000 por minuto"
+          ],
+          "hint": "Muito mais depressa do que o teu.",
+          "explanation": "Em voo o coração do beija-flor bate mais de mil vezes por minuto.",
+          "fact": "De noite desce para cinquenta para poupar energia."
+        },
+        "da": {
+          "prompt": "Hvor tit slår hjertet på en flyvende kolibri?",
+          "answer": "Over 1.000 gange i minuttet",
+          "wrong": [
+            "60 gange i minuttet",
+            "200 gange i minuttet",
+            "10.000 gange i minuttet"
+          ],
+          "hint": "Meget hurtigere end dit.",
+          "explanation": "Under flugt slår kolibriens hjerte over tusind gange i minuttet.",
+          "fact": "Om natten falder det til halvtreds for at spare energi."
+        },
+        "ru": {
+          "prompt": "Сколько бьётся сердце колибри в полёте?",
+          "answer": "Больше 1000 раз в минуту",
+          "wrong": [
+            "60 раз в минуту",
+            "200 раз в минуту",
+            "10 000 раз в минуту"
+          ],
+          "hint": "Намного быстрее твоего.",
+          "explanation": "В полёте сердце колибри бьётся больше тысячи раз в минуту.",
+          "fact": "Ночью оно замедляется до пятидесяти ради экономии."
+        },
+        "ar": {
+          "prompt": "كم ينبض قلب الطنان أثناء الطيران؟",
+          "answer": "أكثر من 1000 في الدقيقة",
+          "wrong": [
+            "60 في الدقيقة",
+            "200 في الدقيقة",
+            "10000 في الدقيقة"
+          ],
+          "hint": "أسرع بكثير من قلبك.",
+          "explanation": "أثناء الطيران ينبض قلب الطنان أكثر من ألف مرة في الدقيقة.",
+          "fact": "وليلًا يهبط إلى خمسين لتوفير الطاقة."
+        }
+      }
+    },
+    {
+      "id": "dieren-snelle_dieren-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Rüppells gier op 11.300 meter hoogte, 1973",
+      "artBrief": "Een gier die hoog boven de wolken zweeft, met een vliegtuig kleiner eronder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vogel is het hoogst ooit gezien?",
+          "answer": "De Rüppells gier",
+          "wrong": [
+            "De adelaar",
+            "De zwaan",
+            "De kraanvogel"
+          ],
+          "hint": "Hij vloog hoger dan een verkeersvliegtuig.",
+          "explanation": "Een Rüppells gier werd op ruim elf kilometer hoogte waargenomen.",
+          "fact": "Daar is zo weinig zuurstof dat een mens het niet zou volhouden."
+        },
+        "en": {
+          "prompt": "Which bird has been seen flying highest?",
+          "answer": "Rüppell's vulture",
+          "wrong": [
+            "The eagle",
+            "The swan",
+            "The crane"
+          ],
+          "hint": "It flew higher than an airliner.",
+          "explanation": "A Rüppell's vulture was recorded at over eleven kilometres up.",
+          "fact": "There is so little oxygen there that a person could not cope."
+        },
+        "de": {
+          "prompt": "Welcher Vogel wurde am höchsten gesichtet?",
+          "answer": "Der Sperbergeier",
+          "wrong": [
+            "Der Adler",
+            "Der Schwan",
+            "Der Kranich"
+          ],
+          "hint": "Er flog höher als ein Verkehrsflugzeug.",
+          "explanation": "Ein Sperbergeier wurde in über elf Kilometern Höhe erfasst.",
+          "fact": "Dort ist so wenig Sauerstoff, dass ein Mensch es nicht aushielte."
+        },
+        "fr": {
+          "prompt": "Quel oiseau a été vu le plus haut ?",
+          "answer": "Le vautour de Rüppell",
+          "wrong": [
+            "L'aigle",
+            "Le cygne",
+            "La grue"
+          ],
+          "hint": "Il volait plus haut qu'un avion de ligne.",
+          "explanation": "Un vautour de Rüppell a été repéré à plus de onze kilomètres.",
+          "fact": "L'oxygène y est si rare qu'un humain ne tiendrait pas."
+        },
+        "es": {
+          "prompt": "¿Qué ave se ha visto volando más alto?",
+          "answer": "El buitre de Rüppell",
+          "wrong": [
+            "El águila",
+            "El cisne",
+            "La grulla"
+          ],
+          "hint": "Volaba más alto que un avión de pasajeros.",
+          "explanation": "Se registró un buitre de Rüppell a más de once kilómetros.",
+          "fact": "Allí hay tan poco oxígeno que una persona no aguantaría."
+        },
+        "it": {
+          "prompt": "Quale uccello è stato visto volare più in alto?",
+          "answer": "L'avvoltoio di Rüppell",
+          "wrong": [
+            "L'aquila",
+            "Il cigno",
+            "La gru"
+          ],
+          "hint": "Volava più in alto di un aereo di linea.",
+          "explanation": "Un avvoltoio di Rüppell fu rilevato a oltre undici chilometri.",
+          "fact": "Lassù l'ossigeno è così scarso che un uomo non reggerebbe."
+        },
+        "pt": {
+          "prompt": "Que ave já foi vista a voar mais alto?",
+          "answer": "O grifo-de-Rüppell",
+          "wrong": [
+            "A águia",
+            "O cisne",
+            "O grou"
+          ],
+          "hint": "Voava mais alto do que um avião de passageiros.",
+          "explanation": "Registou-se um grifo-de-Rüppell a mais de onze quilómetros.",
+          "fact": "Ali o oxigénio é tão escasso que uma pessoa não aguentava."
+        },
+        "da": {
+          "prompt": "Hvilken fugl er set flyve højest?",
+          "answer": "Rüppells grib",
+          "wrong": [
+            "Ørnen",
+            "Svanen",
+            "Tranen"
+          ],
+          "hint": "Den fløj højere end et passagerfly.",
+          "explanation": "En Rüppells grib blev registreret i over elleve kilometers højde.",
+          "fact": "Der er så lidt ilt, at et menneske ikke ville klare det."
+        },
+        "ru": {
+          "prompt": "Какую птицу видели летящей выше всех?",
+          "answer": "Гриф Рюппеля",
+          "wrong": [
+            "Орёл",
+            "Лебедь",
+            "Журавль"
+          ],
+          "hint": "Он летел выше пассажирского самолёта.",
+          "explanation": "Грифа Рюппеля зафиксировали на высоте больше одиннадцати километров.",
+          "fact": "Там так мало кислорода, что человек бы не выдержал."
+        },
+        "ar": {
+          "prompt": "أي طائر شوهد يطير على أعلى ارتفاع؟",
+          "answer": "نسر روبل",
+          "wrong": [
+            "النسر",
+            "البجعة",
+            "الكركي"
+          ],
+          "hint": "طار أعلى من طائرة ركاب.",
+          "explanation": "رُصد نسر روبل على ارتفاع يزيد عن أحد عشر كيلومترًا.",
+          "fact": "الأكسجين هناك قليل جدًا بحيث لا يحتمله إنسان."
+        }
+      }
+    }
+  ]
+}
