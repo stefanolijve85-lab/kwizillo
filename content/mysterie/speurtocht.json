@@ -1,0 +1,2607 @@
+{
+  "world": "mysterie",
+  "topic": "speurtocht",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "mysterie-speurtocht-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het notitieboekje",
+      "artBrief": "Een klein notitieboekje met potlood op een houten tafel, zonder tekst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat neem je mee om aanwijzingen op te schrijven?",
+          "answer": "Een notitieboekje",
+          "wrong": [
+            "Een frisbee",
+            "Een kussen",
+            "Een emmer"
+          ],
+          "hint": "Met een potlood erbij.",
+          "explanation": "Wie alles meteen opschrijft, vergeet later geen enkel detail.",
+          "fact": "Echte rechercheurs schrijven ook de tijd erbij, tot op de minuut."
+        },
+        "en": {
+          "prompt": "What do you bring along to write clues down?",
+          "answer": "A notebook",
+          "wrong": [
+            "A frisbee",
+            "A pillow",
+            "A bucket"
+          ],
+          "hint": "With a pencil to go with it.",
+          "explanation": "Writing everything down at once means you forget no detail later.",
+          "fact": "Real detectives add the time as well, down to the minute."
+        },
+        "de": {
+          "prompt": "Was nimmst du mit, um Hinweise aufzuschreiben?",
+          "answer": "Ein Notizbuch",
+          "wrong": [
+            "Eine Frisbee",
+            "Ein Kissen",
+            "Einen Eimer"
+          ],
+          "hint": "Dazu einen Bleistift.",
+          "explanation": "Wer alles sofort aufschreibt, vergisst später kein Detail.",
+          "fact": "Echte Ermittler notieren auch die Uhrzeit, auf die Minute genau."
+        },
+        "fr": {
+          "prompt": "Qu'emportes-tu pour noter les indices ?",
+          "answer": "Un carnet",
+          "wrong": [
+            "Un frisbee",
+            "Un coussin",
+            "Un seau"
+          ],
+          "hint": "Avec un crayon.",
+          "explanation": "En notant tout sur-le-champ, on n'oublie aucun détail ensuite.",
+          "fact": "Les vrais enquêteurs ajoutent l'heure, à la minute près."
+        },
+        "es": {
+          "prompt": "¿Qué llevas para apuntar las pistas?",
+          "answer": "Una libreta",
+          "wrong": [
+            "Un frisbi",
+            "Un cojín",
+            "Un cubo"
+          ],
+          "hint": "Con un lápiz al lado.",
+          "explanation": "Si lo apuntas todo al momento, luego no olvidas ningún detalle.",
+          "fact": "Los investigadores de verdad apuntan también la hora, al minuto."
+        },
+        "it": {
+          "prompt": "Che cosa porti con te per annotare gli indizi?",
+          "answer": "Un taccuino",
+          "wrong": [
+            "Un frisbee",
+            "Un cuscino",
+            "Un secchio"
+          ],
+          "hint": "Con una matita.",
+          "explanation": "Chi annota tutto subito non dimentica poi nessun dettaglio.",
+          "fact": "I veri investigatori segnano anche l'ora, al minuto."
+        },
+        "pt": {
+          "prompt": "O que levas para apontar as pistas?",
+          "answer": "Um caderno",
+          "wrong": [
+            "Um disco voador",
+            "Uma almofada",
+            "Um balde"
+          ],
+          "hint": "Com um lápis ao lado.",
+          "explanation": "Quem aponta tudo logo não esquece depois nenhum pormenor.",
+          "fact": "Os investigadores a sério apontam também a hora, ao minuto."
+        },
+        "da": {
+          "prompt": "Hvad tager du med for at skrive spor ned?",
+          "answer": "En notesbog",
+          "wrong": [
+            "En frisbee",
+            "En pude",
+            "En spand"
+          ],
+          "hint": "Med en blyant til.",
+          "explanation": "Skriver man alt ned med det samme, glemmer man intet senere.",
+          "fact": "Rigtige efterforskere noterer også klokkeslættet på minuttet."
+        },
+        "ru": {
+          "prompt": "Что берут с собой, чтобы записывать улики?",
+          "answer": "Блокнот",
+          "wrong": [
+            "Фрисби",
+            "Подушку",
+            "Ведро"
+          ],
+          "hint": "И карандаш к нему.",
+          "explanation": "Кто записывает всё сразу, тот потом не забудет ни одной мелочи.",
+          "fact": "Настоящие сыщики отмечают ещё и время, с точностью до минуты."
+        },
+        "ar": {
+          "prompt": "ماذا تأخذ معك لتدوين الأدلة؟",
+          "answer": "دفتر ملاحظات",
+          "wrong": [
+            "قرصًا طائرًا",
+            "وسادة",
+            "دلوًا"
+          ],
+          "hint": "ومعه قلم رصاص.",
+          "explanation": "من يدوّن كل شيء فورًا لا ينسى أي تفصيل لاحقًا.",
+          "fact": "المحققون الحقيقيون يسجلون الوقت أيضًا بالدقيقة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De zaklamp",
+      "artBrief": "Een zaklamp die een bundel licht werpt in een donkere kelder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebruik je om in het donker te zoeken?",
+          "answer": "Een zaklamp",
+          "wrong": [
+            "Een bord",
+            "Een kussen",
+            "Een emmer"
+          ],
+          "hint": "Hij werpt een bundel licht.",
+          "explanation": "Met een zaklamp zie je onder meubels en in donkere hoeken.",
+          "fact": "Schijn je schuin over de vloer, dan zie je stof en voetsporen veel beter."
+        },
+        "en": {
+          "prompt": "What do you use to search in the dark?",
+          "answer": "A torch",
+          "wrong": [
+            "A plate",
+            "A pillow",
+            "A bucket"
+          ],
+          "hint": "It throws a beam of light.",
+          "explanation": "With a torch you can see under furniture and into dark corners.",
+          "fact": "Shine it low across the floor and dust and footprints show up far better."
+        },
+        "de": {
+          "prompt": "Was benutzt du, um im Dunkeln zu suchen?",
+          "answer": "Eine Taschenlampe",
+          "wrong": [
+            "Einen Teller",
+            "Ein Kissen",
+            "Einen Eimer"
+          ],
+          "hint": "Sie wirft einen Lichtkegel.",
+          "explanation": "Mit einer Taschenlampe siehst du unter Möbel und in dunkle Ecken.",
+          "fact": "Leuchte flach über den Boden, dann treten Staub und Fußspuren hervor."
+        },
+        "fr": {
+          "prompt": "Qu'utilises-tu pour chercher dans le noir ?",
+          "answer": "Une lampe de poche",
+          "wrong": [
+            "Une assiette",
+            "Un coussin",
+            "Un seau"
+          ],
+          "hint": "Elle lance un faisceau.",
+          "explanation": "Avec une lampe on voit sous les meubles et dans les coins sombres.",
+          "fact": "Éclaire à ras du sol : poussière et empreintes ressortent bien mieux."
+        },
+        "es": {
+          "prompt": "¿Qué usas para buscar en la oscuridad?",
+          "answer": "Una linterna",
+          "wrong": [
+            "Un plato",
+            "Un cojín",
+            "Un cubo"
+          ],
+          "hint": "Lanza un haz de luz.",
+          "explanation": "Con una linterna ves debajo de los muebles y en los rincones oscuros.",
+          "fact": "Alumbra rasante al suelo y el polvo y las pisadas se ven mucho mejor."
+        },
+        "it": {
+          "prompt": "Che cosa usi per cercare al buio?",
+          "answer": "Una torcia",
+          "wrong": [
+            "Un piatto",
+            "Un cuscino",
+            "Un secchio"
+          ],
+          "hint": "Manda un fascio di luce.",
+          "explanation": "Con una torcia vedi sotto i mobili e negli angoli scuri.",
+          "fact": "Illumina rasente il pavimento e polvere e impronte saltano fuori."
+        },
+        "pt": {
+          "prompt": "O que usas para procurar no escuro?",
+          "answer": "Uma lanterna",
+          "wrong": [
+            "Um prato",
+            "Uma almofada",
+            "Um balde"
+          ],
+          "hint": "Lança um feixe de luz.",
+          "explanation": "Com uma lanterna vês debaixo dos móveis e nos cantos escuros.",
+          "fact": "Ilumina rente ao chão e o pó e as pegadas saltam à vista."
+        },
+        "da": {
+          "prompt": "Hvad bruger du til at lede i mørke?",
+          "answer": "En lommelygte",
+          "wrong": [
+            "En tallerken",
+            "En pude",
+            "En spand"
+          ],
+          "hint": "Den kaster en lyskegle.",
+          "explanation": "Med en lommelygte ser du under møbler og ind i mørke hjørner.",
+          "fact": "Lys hen ad gulvet, så træder støv og fodspor langt tydeligere frem."
+        },
+        "ru": {
+          "prompt": "Чем ищут в темноте?",
+          "answer": "Фонариком",
+          "wrong": [
+            "Тарелкой",
+            "Подушкой",
+            "Ведром"
+          ],
+          "hint": "Он даёт луч света.",
+          "explanation": "С фонариком видно под мебелью и в тёмных углах.",
+          "fact": "Посвети вдоль пола — пыль и следы станут гораздо заметнее."
+        },
+        "ar": {
+          "prompt": "بماذا تبحث في الظلام؟",
+          "answer": "بمصباح يدوي",
+          "wrong": [
+            "بصحن",
+            "بوسادة",
+            "بدلو"
+          ],
+          "hint": "يرسل شعاعًا من الضوء.",
+          "explanation": "بالمصباح ترى تحت الأثاث وفي الزوايا المظلمة.",
+          "fact": "سلّط الضوء بمحاذاة الأرض فيظهر الغبار وآثار الأقدام بوضوح."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Sporen in de sneeuw",
+      "artBrief": "Een rij afdrukken in verse sneeuw die naar de bosrand loopt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar let je op bij een spoor in de sneeuw?",
+          "answer": "De vorm van de afdruk",
+          "wrong": [
+            "De kleur van de lucht",
+            "Het geluid van de wind",
+            "De smaak van de sneeuw"
+          ],
+          "hint": "Groot of klein, diep of ondiep.",
+          "explanation": "Aan de vorm en de diepte zie je wie of wat er langs is gekomen.",
+          "fact": "Aan de afstand tussen de stappen zie je of iemand liep of rende."
+        },
+        "en": {
+          "prompt": "What do you look at in a track in the snow?",
+          "answer": "The shape of the print",
+          "wrong": [
+            "The colour of the sky",
+            "The sound of the wind",
+            "The taste of the snow"
+          ],
+          "hint": "Big or small, deep or shallow.",
+          "explanation": "The shape and the depth tell you who or what came past.",
+          "fact": "The gap between prints shows whether someone walked or ran."
+        },
+        "de": {
+          "prompt": "Worauf achtest du bei einer Spur im Schnee?",
+          "answer": "Auf die Form des Abdrucks",
+          "wrong": [
+            "Auf die Farbe des Himmels",
+            "Auf das Geräusch des Windes",
+            "Auf den Geschmack"
+          ],
+          "hint": "Groß oder klein, tief oder flach.",
+          "explanation": "Form und Tiefe verraten, wer oder was vorbeigekommen ist.",
+          "fact": "Am Abstand der Schritte sieht man, ob jemand ging oder rannte."
+        },
+        "fr": {
+          "prompt": "Que regardes-tu dans une trace sur la neige ?",
+          "answer": "La forme de l'empreinte",
+          "wrong": [
+            "La couleur du ciel",
+            "Le bruit du vent",
+            "Le goût de la neige"
+          ],
+          "hint": "Grande ou petite, creuse ou légère.",
+          "explanation": "La forme et la profondeur disent qui ou quoi est passé par là.",
+          "fact": "L'écart entre les pas montre si la personne marchait ou courait."
+        },
+        "es": {
+          "prompt": "¿En qué te fijas en un rastro sobre la nieve?",
+          "answer": "En la forma de la huella",
+          "wrong": [
+            "En el color del cielo",
+            "En el sonido del viento",
+            "En el sabor de la nieve"
+          ],
+          "hint": "Grande o pequeña, honda o leve.",
+          "explanation": "La forma y la profundidad dicen quién o qué pasó por ahí.",
+          "fact": "La distancia entre pisadas indica si alguien andaba o corría."
+        },
+        "it": {
+          "prompt": "A che cosa guardi in una traccia sulla neve?",
+          "answer": "Alla forma dell'impronta",
+          "wrong": [
+            "Al colore del cielo",
+            "Al rumore del vento",
+            "Al sapore della neve"
+          ],
+          "hint": "Grande o piccola, profonda o no.",
+          "explanation": "Forma e profondità dicono chi o che cosa è passato di lì.",
+          "fact": "La distanza fra i passi dice se qualcuno camminava o correva."
+        },
+        "pt": {
+          "prompt": "Em que reparas num rasto na neve?",
+          "answer": "Na forma da pegada",
+          "wrong": [
+            "Na cor do céu",
+            "No som do vento",
+            "No sabor da neve"
+          ],
+          "hint": "Grande ou pequena, funda ou leve.",
+          "explanation": "A forma e a fundura dizem quem ou o que passou por ali.",
+          "fact": "A distância entre passos mostra se alguém andava ou corria."
+        },
+        "da": {
+          "prompt": "Hvad ser du efter i et spor i sneen?",
+          "answer": "Aftrykkets form",
+          "wrong": [
+            "Himlens farve",
+            "Vindens lyd",
+            "Sneens smag"
+          ],
+          "hint": "Stort eller lille, dybt eller fladt.",
+          "explanation": "Form og dybde fortæller, hvem eller hvad der er kommet forbi.",
+          "fact": "Afstanden mellem trinene viser, om nogen gik eller løb."
+        },
+        "ru": {
+          "prompt": "На что смотрят в следе на снегу?",
+          "answer": "На форму отпечатка",
+          "wrong": [
+            "На цвет неба",
+            "На шум ветра",
+            "На вкус снега"
+          ],
+          "hint": "Большой или маленький, глубокий или нет.",
+          "explanation": "Форма и глубина подсказывают, кто или что здесь прошло.",
+          "fact": "По расстоянию между шагами видно, шёл человек или бежал."
+        },
+        "ar": {
+          "prompt": "إلامَ تنظر في أثر على الثلج؟",
+          "answer": "إلى شكل الأثر",
+          "wrong": [
+            "إلى لون السماء",
+            "إلى صوت الريح",
+            "إلى طعم الثلج"
+          ],
+          "hint": "كبير أم صغير، عميق أم سطحي.",
+          "explanation": "الشكل والعمق يخبران من أو ما الذي مرّ من هنا.",
+          "fact": "والمسافة بين الخطوات تبيّن إن كان يمشي أم يركض."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Niet aanraken",
+      "artBrief": "Een klein voorwerp op de grond met een markeringspion ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doe je als je iets belangrijks vindt?",
+          "answer": "Niet aanraken en melden",
+          "wrong": [
+            "Meteen oppakken",
+            "In je zak stoppen",
+            "Weggooien"
+          ],
+          "hint": "Laat het liggen waar het ligt.",
+          "explanation": "Waar iets ligt, vertelt vaak net zoveel als het voorwerp zelf.",
+          "fact": "Daarom leggen onderzoekers eerst nummers neer voordat er iets wordt verplaatst."
+        },
+        "en": {
+          "prompt": "What do you do when you find something important?",
+          "answer": "Leave it and report it",
+          "wrong": [
+            "Pick it up at once",
+            "Put it in your pocket",
+            "Throw it away"
+          ],
+          "hint": "Let it lie where it lies.",
+          "explanation": "Where something lies often says as much as the object itself.",
+          "fact": "That is why investigators lay down numbers before anything is moved."
+        },
+        "de": {
+          "prompt": "Was tust du, wenn du etwas Wichtiges findest?",
+          "answer": "Liegen lassen und melden",
+          "wrong": [
+            "Sofort aufheben",
+            "Einstecken",
+            "Wegwerfen"
+          ],
+          "hint": "Lass es da, wo es liegt.",
+          "explanation": "Wo etwas liegt, sagt oft genauso viel wie der Gegenstand selbst.",
+          "fact": "Darum legen Ermittler erst Nummern aus, bevor etwas bewegt wird."
+        },
+        "fr": {
+          "prompt": "Que fais-tu si tu trouves quelque chose d'important ?",
+          "answer": "Le laisser et prévenir",
+          "wrong": [
+            "Le ramasser aussitôt",
+            "Le mettre en poche",
+            "Le jeter"
+          ],
+          "hint": "Laisse-le où il est.",
+          "explanation": "L'endroit où se trouve un objet en dit souvent autant que l'objet.",
+          "fact": "C'est pourquoi on pose d'abord des numéros avant de déplacer quoi que ce soit."
+        },
+        "es": {
+          "prompt": "¿Qué haces si encuentras algo importante?",
+          "answer": "No tocarlo y avisar",
+          "wrong": [
+            "Cogerlo enseguida",
+            "Guardarlo en el bolsillo",
+            "Tirarlo"
+          ],
+          "hint": "Déjalo donde está.",
+          "explanation": "El sitio donde está algo cuenta a menudo tanto como el objeto.",
+          "fact": "Por eso se colocan números antes de mover nada."
+        },
+        "it": {
+          "prompt": "Che cosa fai se trovi qualcosa di importante?",
+          "answer": "Non toccarlo e avvisare",
+          "wrong": [
+            "Raccoglierlo subito",
+            "Metterlo in tasca",
+            "Buttarlo via"
+          ],
+          "hint": "Lascialo dov'è.",
+          "explanation": "Il punto in cui si trova un oggetto dice spesso quanto l'oggetto stesso.",
+          "fact": "Per questo si posano numeri prima di spostare qualsiasi cosa."
+        },
+        "pt": {
+          "prompt": "O que fazes se encontras algo importante?",
+          "answer": "Não tocar e avisar",
+          "wrong": [
+            "Apanhar logo",
+            "Meter ao bolso",
+            "Deitar fora"
+          ],
+          "hint": "Deixa ficar onde está.",
+          "explanation": "O sítio onde algo está conta muitas vezes tanto como o objeto.",
+          "fact": "Por isso põem-se números antes de mexer seja no que for."
+        },
+        "da": {
+          "prompt": "Hvad gør du, hvis du finder noget vigtigt?",
+          "answer": "Lad det ligge og sig til",
+          "wrong": [
+            "Saml det op straks",
+            "Put det i lommen",
+            "Smid det væk"
+          ],
+          "hint": "Lad det ligge, hvor det ligger.",
+          "explanation": "Hvor noget ligger, siger ofte lige så meget som tingen selv.",
+          "fact": "Derfor lægger efterforskere numre ud, før noget flyttes."
+        },
+        "ru": {
+          "prompt": "Что делать, если нашёл что-то важное?",
+          "answer": "Не трогать и сообщить",
+          "wrong": [
+            "Сразу поднять",
+            "Положить в карман",
+            "Выбросить"
+          ],
+          "hint": "Пусть лежит, где лежит.",
+          "explanation": "Место, где лежит предмет, говорит порой не меньше самого предмета.",
+          "fact": "Поэтому сначала раскладывают номерки, а уже потом что-то двигают."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل إذا وجدت شيئًا مهمًا؟",
+          "answer": "لا تلمسه وأبلغ عنه",
+          "wrong": [
+            "ترفعه فورًا",
+            "تضعه في جيبك",
+            "ترميه"
+          ],
+          "hint": "اتركه في مكانه.",
+          "explanation": "مكان وجود الشيء يقول أحيانًا بقدر ما يقوله الشيء نفسه.",
+          "fact": "لذلك توضع أرقام قبل تحريك أي شيء."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De getuige",
+      "artBrief": "Een kind dat door een raam naar buiten kijkt in de avond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een getuige?",
+          "answer": "Iemand die iets heeft gezien",
+          "wrong": [
+            "Iemand die slaapt",
+            "Iemand die kookt",
+            "Iemand die rent"
+          ],
+          "hint": "Die persoon kan vertellen wat er gebeurde.",
+          "explanation": "Een getuige vertelt wat hij of zij zelf heeft waargenomen.",
+          "fact": "Ook wat iemand hoorde of rook telt mee als waarneming."
+        },
+        "en": {
+          "prompt": "What is a witness?",
+          "answer": "Someone who saw something",
+          "wrong": [
+            "Someone asleep",
+            "Someone cooking",
+            "Someone running"
+          ],
+          "hint": "That person can tell what happened.",
+          "explanation": "A witness tells what he or she noticed personally.",
+          "fact": "What someone heard or smelled counts as noticing too."
+        },
+        "de": {
+          "prompt": "Was ist ein Zeuge?",
+          "answer": "Wer etwas gesehen hat",
+          "wrong": [
+            "Jemand, der schläft",
+            "Jemand, der kocht",
+            "Jemand, der rennt"
+          ],
+          "hint": "Diese Person kann erzählen, was geschah.",
+          "explanation": "Ein Zeuge erzählt, was er oder sie selbst wahrgenommen hat.",
+          "fact": "Auch was jemand gehört oder gerochen hat, zählt als Wahrnehmung."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un témoin ?",
+          "answer": "Quelqu'un qui a vu",
+          "wrong": [
+            "Quelqu'un qui dort",
+            "Quelqu'un qui cuisine",
+            "Quelqu'un qui court"
+          ],
+          "hint": "Cette personne peut raconter.",
+          "explanation": "Un témoin raconte ce qu'il a lui-même perçu.",
+          "fact": "Ce que quelqu'un a entendu ou senti compte aussi."
+        },
+        "es": {
+          "prompt": "¿Qué es un testigo?",
+          "answer": "Alguien que vio algo",
+          "wrong": [
+            "Alguien que duerme",
+            "Alguien que cocina",
+            "Alguien que corre"
+          ],
+          "hint": "Esa persona puede contarlo.",
+          "explanation": "Un testigo cuenta lo que percibió por sí mismo.",
+          "fact": "Lo que alguien oyó u olió también cuenta como percepción."
+        },
+        "it": {
+          "prompt": "Che cos'è un testimone?",
+          "answer": "Chi ha visto qualcosa",
+          "wrong": [
+            "Chi dorme",
+            "Chi cucina",
+            "Chi corre"
+          ],
+          "hint": "Quella persona può raccontare.",
+          "explanation": "Un testimone racconta ciò che ha percepito di persona.",
+          "fact": "Conta anche ciò che qualcuno ha sentito o annusato."
+        },
+        "pt": {
+          "prompt": "O que é uma testemunha?",
+          "answer": "Alguém que viu algo",
+          "wrong": [
+            "Alguém que dorme",
+            "Alguém que cozinha",
+            "Alguém que corre"
+          ],
+          "hint": "Essa pessoa pode contar.",
+          "explanation": "Uma testemunha conta o que percebeu por si própria.",
+          "fact": "O que alguém ouviu ou cheirou também conta."
+        },
+        "da": {
+          "prompt": "Hvad er et vidne?",
+          "answer": "En, der har set noget",
+          "wrong": [
+            "En, der sover",
+            "En, der laver mad",
+            "En, der løber"
+          ],
+          "hint": "Den person kan fortælle.",
+          "explanation": "Et vidne fortæller, hvad han eller hun selv har opfattet.",
+          "fact": "Også hvad nogen hørte eller lugtede, tæller med."
+        },
+        "ru": {
+          "prompt": "Кто такой свидетель?",
+          "answer": "Тот, кто что-то видел",
+          "wrong": [
+            "Тот, кто спит",
+            "Тот, кто готовит",
+            "Тот, кто бежит"
+          ],
+          "hint": "Этот человек может рассказать.",
+          "explanation": "Свидетель рассказывает то, что заметил сам.",
+          "fact": "Услышанное или учуянное тоже считается наблюдением."
+        },
+        "ar": {
+          "prompt": "من هو الشاهد؟",
+          "answer": "من رأى شيئًا",
+          "wrong": [
+            "من ينام",
+            "من يطبخ",
+            "من يركض"
+          ],
+          "hint": "هذا الشخص يستطيع أن يروي.",
+          "explanation": "الشاهد يروي ما أدركه بنفسه.",
+          "fact": "وما سمعه أحدهم أو شمّه يُحسب أيضًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Handschoenen bij sporenonderzoek",
+      "artBrief": "Handen in dunne handschoenen die voorzichtig iets oppakken met een pincet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom draagt een speurder handschoenen?",
+          "answer": "Om geen sporen te maken",
+          "wrong": [
+            "Voor warme handen",
+            "Om mooi te staan",
+            "Om harder te rennen"
+          ],
+          "hint": "Anders vind je je eigen vingers terug.",
+          "explanation": "Zonder handschoenen laat je overal je eigen vingerafdrukken achter.",
+          "fact": "Ook één haar van de onderzoeker kan een onderzoek in de war schoppen."
+        },
+        "en": {
+          "prompt": "Why does an investigator wear gloves?",
+          "answer": "To leave no traces",
+          "wrong": [
+            "For warm hands",
+            "To look smart",
+            "To run faster"
+          ],
+          "hint": "Otherwise you find your own fingers.",
+          "explanation": "Without gloves you leave your own fingerprints everywhere.",
+          "fact": "Even one hair from the investigator can muddle a whole case."
+        },
+        "de": {
+          "prompt": "Warum trägt ein Ermittler Handschuhe?",
+          "answer": "Um keine Spuren zu machen",
+          "wrong": [
+            "Für warme Hände",
+            "Weil es gut aussieht",
+            "Um schneller zu rennen"
+          ],
+          "hint": "Sonst findest du deine eigenen Finger.",
+          "explanation": "Ohne Handschuhe hinterlässt du überall eigene Fingerabdrücke.",
+          "fact": "Schon ein Haar des Ermittlers kann eine Untersuchung durcheinanderbringen."
+        },
+        "fr": {
+          "prompt": "Pourquoi un enquêteur porte-t-il des gants ?",
+          "answer": "Pour ne rien y laisser",
+          "wrong": [
+            "Pour avoir chaud",
+            "Parce que c'est joli",
+            "Pour courir plus vite"
+          ],
+          "hint": "Sinon tu retrouves tes propres doigts.",
+          "explanation": "Sans gants, tu laisses partout tes propres empreintes.",
+          "fact": "Même un cheveu de l'enquêteur peut brouiller toute une enquête."
+        },
+        "es": {
+          "prompt": "¿Por qué lleva guantes un investigador?",
+          "answer": "Para no dejar rastros",
+          "wrong": [
+            "Para no pasar frío",
+            "Porque queda bien",
+            "Para correr más"
+          ],
+          "hint": "Si no, te encuentras tus propios dedos.",
+          "explanation": "Sin guantes dejas tus propias huellas por todas partes.",
+          "fact": "Hasta un pelo del investigador puede enredar una investigación."
+        },
+        "it": {
+          "prompt": "Perché un investigatore indossa i guanti?",
+          "answer": "Per non lasciare tracce",
+          "wrong": [
+            "Per avere le mani calde",
+            "Perché sta bene",
+            "Per correre di più"
+          ],
+          "hint": "Altrimenti trovi le tue dita.",
+          "explanation": "Senza guanti lasci le tue impronte dappertutto.",
+          "fact": "Persino un capello dell'investigatore può confondere un'indagine."
+        },
+        "pt": {
+          "prompt": "Porque usa luvas um investigador?",
+          "answer": "Para não deixar rastos",
+          "wrong": [
+            "Para ter mãos quentes",
+            "Porque fica bem",
+            "Para correr mais"
+          ],
+          "hint": "Senão encontras os teus dedos.",
+          "explanation": "Sem luvas deixas as tuas próprias impressões por todo o lado.",
+          "fact": "Até um cabelo do investigador pode baralhar uma investigação."
+        },
+        "da": {
+          "prompt": "Hvorfor bruger en efterforsker handsker?",
+          "answer": "For ikke at sætte spor",
+          "wrong": [
+            "For varme hænder",
+            "Fordi det ser godt ud",
+            "For at løbe hurtigere"
+          ],
+          "hint": "Ellers finder du dine egne fingre.",
+          "explanation": "Uden handsker efterlader du dine egne fingeraftryk overalt.",
+          "fact": "Selv ét hår fra efterforskeren kan forplumre en sag."
+        },
+        "ru": {
+          "prompt": "Зачем следователь надевает перчатки?",
+          "answer": "Чтобы не оставить следов",
+          "wrong": [
+            "Чтобы руки были в тепле",
+            "Потому что красиво",
+            "Чтобы быстрее бегать"
+          ],
+          "hint": "Иначе найдёшь свои же пальцы.",
+          "explanation": "Без перчаток ты оставляешь повсюду собственные отпечатки.",
+          "fact": "Даже один волос следователя может запутать расследование."
+        },
+        "ar": {
+          "prompt": "لماذا يلبس المحقق قفازات؟",
+          "answer": "كي لا يترك آثارًا",
+          "wrong": [
+            "ليدفئ يديه",
+            "لأنه شكل جميل",
+            "ليركض أسرع"
+          ],
+          "hint": "وإلا وجدت بصماتك أنت.",
+          "explanation": "بلا قفازات تترك بصماتك في كل مكان.",
+          "fact": "حتى شعرة واحدة من المحقق قد تربك التحقيق."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Een aanwijzing bewaren",
+      "artBrief": "Een prikbord met kaartjes en touwtjes die verbanden leggen, zonder tekst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doe je met een aanwijzing die je nog niet snapt?",
+          "answer": "Bewaren en later bekijken",
+          "wrong": [
+            "Meteen weggooien",
+            "Aan niemand vertellen",
+            "Snel vergeten"
+          ],
+          "hint": "Misschien past hij later wel.",
+          "explanation": "Een los stukje wordt vaak pas begrijpelijk als je de rest hebt gevonden.",
+          "fact": "Veel zaken zijn opgelost door een aanwijzing die jaren bleef liggen."
+        },
+        "en": {
+          "prompt": "What do you do with a clue you cannot place yet?",
+          "answer": "Keep it and look later",
+          "wrong": [
+            "Throw it away at once",
+            "Tell nobody",
+            "Forget it quickly"
+          ],
+          "hint": "It may fit later on.",
+          "explanation": "A loose piece often makes sense only once you have found the rest.",
+          "fact": "Many cases were solved by a clue that lay unused for years."
+        },
+        "de": {
+          "prompt": "Was machst du mit einem Hinweis, den du noch nicht verstehst?",
+          "answer": "Aufheben und später ansehen",
+          "wrong": [
+            "Sofort wegwerfen",
+            "Niemandem sagen",
+            "Schnell vergessen"
+          ],
+          "hint": "Vielleicht passt er später.",
+          "explanation": "Ein einzelnes Stück ergibt oft erst Sinn, wenn du den Rest gefunden hast.",
+          "fact": "Viele Fälle wurden durch einen Hinweis gelöst, der jahrelang liegen blieb."
+        },
+        "fr": {
+          "prompt": "Que fais-tu d'un indice que tu ne comprends pas ?",
+          "answer": "Le garder pour plus tard",
+          "wrong": [
+            "Le jeter tout de suite",
+            "N'en parler à personne",
+            "L'oublier vite"
+          ],
+          "hint": "Il servira peut-être ensuite.",
+          "explanation": "Un morceau isolé ne prend souvent son sens qu'une fois le reste trouvé.",
+          "fact": "Bien des affaires ont été résolues par un indice laissé de côté des années."
+        },
+        "es": {
+          "prompt": "¿Qué haces con una pista que aún no entiendes?",
+          "answer": "Guardarla para después",
+          "wrong": [
+            "Tirarla enseguida",
+            "No contarla a nadie",
+            "Olvidarla rápido"
+          ],
+          "hint": "Quizá encaje más tarde.",
+          "explanation": "Una pieza suelta suele cobrar sentido cuando aparece el resto.",
+          "fact": "Muchos casos se resolvieron con una pista guardada durante años."
+        },
+        "it": {
+          "prompt": "Che cosa fai con un indizio che non capisci?",
+          "answer": "Conservarlo per dopo",
+          "wrong": [
+            "Buttarlo subito",
+            "Non dirlo a nessuno",
+            "Dimenticarlo in fretta"
+          ],
+          "hint": "Forse tornerà utile.",
+          "explanation": "Un pezzo isolato acquista senso solo quando trovi il resto.",
+          "fact": "Molti casi sono stati risolti da un indizio rimasto lì per anni."
+        },
+        "pt": {
+          "prompt": "O que fazes a uma pista que ainda não percebes?",
+          "answer": "Guardar e ver depois",
+          "wrong": [
+            "Deitar fora logo",
+            "Não contar a ninguém",
+            "Esquecer depressa"
+          ],
+          "hint": "Talvez encaixe mais tarde.",
+          "explanation": "Uma peça solta só faz sentido quando encontras o resto.",
+          "fact": "Muitos casos foram resolvidos por uma pista parada durante anos."
+        },
+        "da": {
+          "prompt": "Hvad gør du med et spor, du ikke forstår endnu?",
+          "answer": "Gem det til senere",
+          "wrong": [
+            "Smid det væk straks",
+            "Sig det til ingen",
+            "Glem det hurtigt"
+          ],
+          "hint": "Måske passer det senere.",
+          "explanation": "En løs brik giver tit først mening, når resten er fundet.",
+          "fact": "Mange sager er løst af et spor, der lå ubrugt i årevis."
+        },
+        "ru": {
+          "prompt": "Что делать с уликой, которую пока не понимаешь?",
+          "answer": "Сохранить на потом",
+          "wrong": [
+            "Сразу выбросить",
+            "Никому не говорить",
+            "Поскорее забыть"
+          ],
+          "hint": "Может, подойдёт позже.",
+          "explanation": "Отдельный кусочек часто обретает смысл, когда найдено остальное.",
+          "fact": "Многие дела раскрыли благодаря улике, пролежавшей годы."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل بدليل لم تفهمه بعد؟",
+          "answer": "تحفظه لوقت لاحق",
+          "wrong": [
+            "ترميه فورًا",
+            "لا تخبر أحدًا",
+            "تنساه بسرعة"
+          ],
+          "hint": "ربما يناسب لاحقًا.",
+          "explanation": "القطعة المفردة كثيرًا ما تتضح بعد أن تجد البقية.",
+          "fact": "قضايا كثيرة حُلّت بدليل بقي سنوات دون استعمال."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De tijdlijn",
+      "artBrief": "Een lange rij kaartjes op een tafel, op volgorde gelegd.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een tijdlijn in een onderzoek?",
+          "answer": "De volgorde van alles",
+          "wrong": [
+            "Een soort klok",
+            "Een lijn op de kaart",
+            "Een liniaal"
+          ],
+          "hint": "Wat gebeurde eerst?",
+          "explanation": "Op een tijdlijn zet je alle gebeurtenissen op volgorde achter elkaar.",
+          "fact": "Zo zie je meteen of het verhaal van iemand ergens niet klopt."
+        },
+        "en": {
+          "prompt": "What is a timeline in an investigation?",
+          "answer": "The order of everything",
+          "wrong": [
+            "A kind of clock",
+            "A line on the map",
+            "A ruler"
+          ],
+          "hint": "What happened first?",
+          "explanation": "On a timeline you set out every event one after the other in order.",
+          "fact": "That shows at once where someone's story does not add up."
+        },
+        "de": {
+          "prompt": "Was ist ein Zeitstrahl bei einer Ermittlung?",
+          "answer": "Die Reihenfolge von allem",
+          "wrong": [
+            "Eine Art Uhr",
+            "Eine Linie auf der Karte",
+            "Ein Lineal"
+          ],
+          "hint": "Was geschah zuerst?",
+          "explanation": "Auf einem Zeitstrahl ordnest du alle Ereignisse hintereinander.",
+          "fact": "So fällt sofort auf, wo die Geschichte von jemandem nicht stimmt."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une chronologie dans une enquête ?",
+          "answer": "L'ordre de tout",
+          "wrong": [
+            "Une sorte d'horloge",
+            "Une ligne sur la carte",
+            "Une règle"
+          ],
+          "hint": "Qu'est-ce qui s'est passé d'abord ?",
+          "explanation": "Sur une chronologie, on range tous les événements les uns après les autres.",
+          "fact": "On voit ainsi tout de suite où le récit de quelqu'un ne tient pas."
+        },
+        "es": {
+          "prompt": "¿Qué es una línea de tiempo en una investigación?",
+          "answer": "El orden de todo",
+          "wrong": [
+            "Una especie de reloj",
+            "Una raya en el mapa",
+            "Una regla"
+          ],
+          "hint": "¿Qué pasó primero?",
+          "explanation": "En una línea de tiempo colocas todos los hechos uno detrás de otro.",
+          "fact": "Así se ve enseguida dónde no encaja el relato de alguien."
+        },
+        "it": {
+          "prompt": "Che cos'è una linea del tempo in un'indagine?",
+          "answer": "L'ordine di tutto",
+          "wrong": [
+            "Una specie di orologio",
+            "Una riga sulla mappa",
+            "Un righello"
+          ],
+          "hint": "Che cosa è successo prima?",
+          "explanation": "Sulla linea del tempo metti tutti i fatti uno dopo l'altro.",
+          "fact": "Così si vede subito dove il racconto di qualcuno non torna."
+        },
+        "pt": {
+          "prompt": "O que é uma linha do tempo numa investigação?",
+          "answer": "A ordem de tudo",
+          "wrong": [
+            "Uma espécie de relógio",
+            "Uma linha no mapa",
+            "Uma régua"
+          ],
+          "hint": "O que aconteceu primeiro?",
+          "explanation": "Numa linha do tempo pões todos os factos uns a seguir aos outros.",
+          "fact": "Assim vê-se logo onde a história de alguém não bate certo."
+        },
+        "da": {
+          "prompt": "Hvad er en tidslinje i en efterforskning?",
+          "answer": "Rækkefølgen af det hele",
+          "wrong": [
+            "En slags ur",
+            "En streg på kortet",
+            "En lineal"
+          ],
+          "hint": "Hvad skete først?",
+          "explanation": "På en tidslinje sætter du alle hændelser efter hinanden i rækkefølge.",
+          "fact": "Så ses det straks, hvor nogens forklaring ikke hænger sammen."
+        },
+        "ru": {
+          "prompt": "Что такое лента времени в расследовании?",
+          "answer": "Порядок всех событий",
+          "wrong": [
+            "Вид часов",
+            "Линия на карте",
+            "Линейка"
+          ],
+          "hint": "Что случилось раньше?",
+          "explanation": "На ленте времени все события выстраивают друг за другом по порядку.",
+          "fact": "Сразу видно, где чей-то рассказ не сходится."
+        },
+        "ar": {
+          "prompt": "ما هو الخط الزمني في تحقيق؟",
+          "answer": "ترتيب كل ما جرى",
+          "wrong": [
+            "نوع من الساعات",
+            "خط على الخريطة",
+            "مسطرة"
+          ],
+          "hint": "ما الذي حدث أولًا؟",
+          "explanation": "على الخط الزمني ترتب كل الأحداث واحدًا بعد الآخر.",
+          "fact": "فيظهر فورًا أين لا تستقيم رواية أحدهم."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Bewijs in een zakje",
+      "artBrief": "Een doorzichtig zakje met een klein voorwerp erin op een tafel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe bewaar je een gevonden voorwerp het beste?",
+          "answer": "In een zakje met een label",
+          "wrong": [
+            "In je broekzak",
+            "Onder je kussen",
+            "In een plas water"
+          ],
+          "hint": "Zodat het niet verandert.",
+          "explanation": "In een gesloten zakje blijft het voorwerp schoon en raakt er niets bij.",
+          "fact": "Op het label staan de plek, de datum en wie het vond."
+        },
+        "en": {
+          "prompt": "How do you best keep an object you found?",
+          "answer": "In a bag with a label",
+          "wrong": [
+            "In your trouser pocket",
+            "Under your pillow",
+            "In a puddle"
+          ],
+          "hint": "So that it does not change.",
+          "explanation": "In a sealed bag the object stays clean and nothing else gets on it.",
+          "fact": "The label carries the place, the date and who found it."
+        },
+        "de": {
+          "prompt": "Wie bewahrst du einen Fund am besten auf?",
+          "answer": "In einer Tüte mit Etikett",
+          "wrong": [
+            "In der Hosentasche",
+            "Unter dem Kissen",
+            "In einer Pfütze"
+          ],
+          "hint": "Damit er sich nicht verändert.",
+          "explanation": "In einer verschlossenen Tüte bleibt der Fund sauber und nichts kommt hinzu.",
+          "fact": "Auf dem Etikett stehen Ort, Datum und wer es fand."
+        },
+        "fr": {
+          "prompt": "Comment conserver au mieux un objet trouvé ?",
+          "answer": "Dans un sachet étiqueté",
+          "wrong": [
+            "Dans ta poche",
+            "Sous ton oreiller",
+            "Dans une flaque"
+          ],
+          "hint": "Pour qu'il ne change pas.",
+          "explanation": "Dans un sachet fermé l'objet reste propre et rien ne vient s'y ajouter.",
+          "fact": "L'étiquette porte le lieu, la date et le nom de celui qui l'a trouvé."
+        },
+        "es": {
+          "prompt": "¿Cómo se guarda mejor un objeto hallado?",
+          "answer": "En una bolsa con etiqueta",
+          "wrong": [
+            "En el bolsillo",
+            "Bajo la almohada",
+            "En un charco"
+          ],
+          "hint": "Para que no cambie.",
+          "explanation": "En una bolsa cerrada el objeto sigue limpio y no se le añade nada.",
+          "fact": "La etiqueta lleva el lugar, la fecha y quién lo encontró."
+        },
+        "it": {
+          "prompt": "Come si conserva al meglio un oggetto trovato?",
+          "answer": "In un sacchetto chiuso",
+          "wrong": [
+            "In tasca",
+            "Sotto il cuscino",
+            "In una pozzanghera"
+          ],
+          "hint": "Perché non cambi.",
+          "explanation": "In un sacchetto chiuso l'oggetto resta pulito e non ci si aggiunge nulla.",
+          "fact": "Sulla targhetta ci sono luogo, data e chi l'ha trovato."
+        },
+        "pt": {
+          "prompt": "Como se guarda melhor um objeto encontrado?",
+          "answer": "Num saco com etiqueta",
+          "wrong": [
+            "No bolso",
+            "Debaixo da almofada",
+            "Numa poça"
+          ],
+          "hint": "Para que não mude.",
+          "explanation": "Num saco fechado o objeto fica limpo e nada se lhe junta.",
+          "fact": "Na etiqueta ficam o local, a data e quem o encontrou."
+        },
+        "da": {
+          "prompt": "Hvordan gemmer man bedst en fundet ting?",
+          "answer": "I en pose med mærkat",
+          "wrong": [
+            "I bukselommen",
+            "Under puden",
+            "I en vandpyt"
+          ],
+          "hint": "Så den ikke ændrer sig.",
+          "explanation": "I en lukket pose bliver tingen ren, og der kommer ikke noget til.",
+          "fact": "På mærkatet står sted, dato og hvem der fandt den."
+        },
+        "ru": {
+          "prompt": "Как лучше хранить найденный предмет?",
+          "answer": "В пакете с ярлыком",
+          "wrong": [
+            "В кармане брюк",
+            "Под подушкой",
+            "В луже"
+          ],
+          "hint": "Чтобы он не изменился.",
+          "explanation": "В закрытом пакете предмет остаётся чистым, и к нему ничего не пристаёт.",
+          "fact": "На ярлыке пишут место, дату и того, кто нашёл."
+        },
+        "ar": {
+          "prompt": "كيف تحفظ شيئًا عثرت عليه؟",
+          "answer": "في كيس عليه بطاقة",
+          "wrong": [
+            "في جيبك",
+            "تحت وسادتك",
+            "في بركة ماء"
+          ],
+          "hint": "كي لا يتغير.",
+          "explanation": "في كيس مغلق يبقى الشيء نظيفًا ولا يختلط به شيء.",
+          "fact": "على البطاقة المكان والتاريخ ومن وجده."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Foto van een spoor",
+      "artBrief": "Een camera die van dichtbij een afdruk in de modder fotografeert, met een liniaal ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom fotografeer je een spoor meteen?",
+          "answer": "Het verdwijnt snel",
+          "wrong": [
+            "Voor het fotoalbum",
+            "Omdat het mooi staat",
+            "Om de camera te testen"
+          ],
+          "hint": "Regen of wind wist het uit.",
+          "explanation": "Een afdruk in modder of sneeuw is soms na een uur alweer weg.",
+          "fact": "Daarom legt een onderzoeker er een liniaal naast, voor de maat."
+        },
+        "en": {
+          "prompt": "Why do you photograph a track straight away?",
+          "answer": "It disappears quickly",
+          "wrong": [
+            "For the photo album",
+            "Because it looks nice",
+            "To test the camera"
+          ],
+          "hint": "Rain or wind wipes it out.",
+          "explanation": "A print in mud or snow can be gone within the hour.",
+          "fact": "That is why an investigator lays a ruler beside it, for scale."
+        },
+        "de": {
+          "prompt": "Warum fotografiert man eine Spur sofort?",
+          "answer": "Sie verschwindet schnell",
+          "wrong": [
+            "Fürs Fotoalbum",
+            "Weil sie schön aussieht",
+            "Um die Kamera zu testen"
+          ],
+          "hint": "Regen oder Wind wischt sie weg.",
+          "explanation": "Ein Abdruck im Schlamm oder Schnee kann nach einer Stunde weg sein.",
+          "fact": "Darum legt ein Ermittler ein Lineal daneben, für das Maß."
+        },
+        "fr": {
+          "prompt": "Pourquoi photographier une trace tout de suite ?",
+          "answer": "Elle disparaît vite",
+          "wrong": [
+            "Pour l'album photo",
+            "Parce que c'est joli",
+            "Pour tester l'appareil"
+          ],
+          "hint": "La pluie ou le vent l'efface.",
+          "explanation": "Une empreinte dans la boue ou la neige peut disparaître en une heure.",
+          "fact": "C'est pourquoi on pose une règle à côté, pour l'échelle."
+        },
+        "es": {
+          "prompt": "¿Por qué se fotografía una huella enseguida?",
+          "answer": "Desaparece muy rápido",
+          "wrong": [
+            "Para el álbum",
+            "Porque queda bonita",
+            "Para probar la cámara"
+          ],
+          "hint": "La lluvia o el viento la borra.",
+          "explanation": "Una huella en barro o nieve puede irse en una hora.",
+          "fact": "Por eso se pone una regla al lado, para la medida."
+        },
+        "it": {
+          "prompt": "Perché si fotografa subito una traccia?",
+          "answer": "Sparisce in fretta",
+          "wrong": [
+            "Per l'album",
+            "Perché è bella",
+            "Per provare la macchina"
+          ],
+          "hint": "Pioggia o vento la cancellano.",
+          "explanation": "Un'impronta nel fango o nella neve può sparire in un'ora.",
+          "fact": "Per questo si mette un righello accanto, per la misura."
+        },
+        "pt": {
+          "prompt": "Porque se fotografa logo um rasto?",
+          "answer": "Desaparece depressa",
+          "wrong": [
+            "Para o álbum",
+            "Porque fica bonito",
+            "Para testar a câmara"
+          ],
+          "hint": "A chuva ou o vento apaga-o.",
+          "explanation": "Uma pegada na lama ou na neve pode sumir numa hora.",
+          "fact": "Por isso põe-se uma régua ao lado, para a medida."
+        },
+        "da": {
+          "prompt": "Hvorfor fotograferer man et spor med det samme?",
+          "answer": "Det forsvinder hurtigt",
+          "wrong": [
+            "Til fotoalbummet",
+            "Fordi det ser flot ud",
+            "For at teste kameraet"
+          ],
+          "hint": "Regn eller vind visker det ud.",
+          "explanation": "Et aftryk i mudder eller sne kan være væk efter en time.",
+          "fact": "Derfor lægger man en lineal ved siden af, for målet."
+        },
+        "ru": {
+          "prompt": "Почему след фотографируют сразу?",
+          "answer": "Он быстро исчезает",
+          "wrong": [
+            "Для фотоальбома",
+            "Потому что красиво",
+            "Чтобы проверить камеру"
+          ],
+          "hint": "Дождь или ветер его сотрут.",
+          "explanation": "Отпечаток в грязи или снегу может пропасть за час.",
+          "fact": "Поэтому рядом кладут линейку — для масштаба."
+        },
+        "ar": {
+          "prompt": "لماذا يُصوَّر الأثر فورًا؟",
+          "answer": "يختفي بسرعة",
+          "wrong": [
+            "من أجل ألبوم الصور",
+            "لأنه جميل",
+            "لتجربة الكاميرا"
+          ],
+          "hint": "المطر أو الريح يمحوه.",
+          "explanation": "الأثر في الطين أو الثلج قد يزول خلال ساعة.",
+          "fact": "لذلك توضع مسطرة بجانبه لبيان المقياس."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het anagram",
+      "artBrief": "Letterblokjes die door elkaar liggen op een tafel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een anagram?",
+          "answer": "Zelfde letters, ander woord",
+          "wrong": [
+            "Een woord zonder klinkers",
+            "Een woord van klinkers",
+            "Een woord in code"
+          ],
+          "hint": "Schud de letters door elkaar.",
+          "explanation": "Bij een anagram maak je een nieuw woord van precies dezelfde letters.",
+          "fact": "Van het woord 'raadsel' maak je zo bijvoorbeeld 'sladeer'."
+        },
+        "en": {
+          "prompt": "What is an anagram?",
+          "answer": "Same letters, other word",
+          "wrong": [
+            "A word with no vowels",
+            "A word of only vowels",
+            "A word in code"
+          ],
+          "hint": "Shuffle the letters.",
+          "explanation": "In an anagram you make a new word from exactly the same letters.",
+          "fact": "From the word 'listen' you get 'silent' that way."
+        },
+        "de": {
+          "prompt": "Was ist ein Anagramm?",
+          "answer": "Gleiche Buchstaben, neu",
+          "wrong": [
+            "Ein Wort ohne Vokale",
+            "Ein Wort nur aus Vokalen",
+            "Ein Wort in Code"
+          ],
+          "hint": "Misch die Buchstaben.",
+          "explanation": "Bei einem Anagramm baust du aus genau denselben Buchstaben ein neues Wort.",
+          "fact": "Aus 'Lager' wird so zum Beispiel 'Regal'."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une anagramme ?",
+          "answer": "Mêmes lettres, autre mot",
+          "wrong": [
+            "Un mot sans voyelles",
+            "Un mot de voyelles",
+            "Un mot codé"
+          ],
+          "hint": "Mélange les lettres.",
+          "explanation": "Dans une anagramme, on forme un mot nouveau avec exactement les mêmes lettres.",
+          "fact": "De 'chien' on tire ainsi 'niche'."
+        },
+        "es": {
+          "prompt": "¿Qué es un anagrama?",
+          "answer": "Mismas letras, otra palabra",
+          "wrong": [
+            "Palabra sin vocales",
+            "Palabra solo de vocales",
+            "Palabra en clave"
+          ],
+          "hint": "Baraja las letras.",
+          "explanation": "En un anagrama formas una palabra nueva con exactamente las mismas letras.",
+          "fact": "De 'roma' sale así 'amor'."
+        },
+        "it": {
+          "prompt": "Che cos'è un anagramma?",
+          "answer": "Stesse lettere, altra parola",
+          "wrong": [
+            "Parola senza vocali",
+            "Parola di sole vocali",
+            "Parola in codice"
+          ],
+          "hint": "Mescola le lettere.",
+          "explanation": "In un anagramma componi una parola nuova con le stesse identiche lettere.",
+          "fact": "Da 'roma' si ottiene così 'amor'."
+        },
+        "pt": {
+          "prompt": "O que é um anagrama?",
+          "answer": "Mesmas letras, outra palavra",
+          "wrong": [
+            "Palavra sem vogais",
+            "Palavra só de vogais",
+            "Palavra em código"
+          ],
+          "hint": "Baralha as letras.",
+          "explanation": "Num anagrama formas uma palavra nova com exatamente as mesmas letras.",
+          "fact": "De 'roma' sai assim 'amor'."
+        },
+        "da": {
+          "prompt": "Hvad er et anagram?",
+          "answer": "Samme bogstaver, nyt ord",
+          "wrong": [
+            "Et ord uden vokaler",
+            "Et ord kun af vokaler",
+            "Et ord i kode"
+          ],
+          "hint": "Bland bogstaverne.",
+          "explanation": "I et anagram laver du et nyt ord af præcis de samme bogstaver.",
+          "fact": "Af 'lager' bliver på den måde 'regal'."
+        },
+        "ru": {
+          "prompt": "Что такое анаграмма?",
+          "answer": "Те же буквы, другое слово",
+          "wrong": [
+            "Слово без гласных",
+            "Слово из одних гласных",
+            "Слово в коде"
+          ],
+          "hint": "Перемешай буквы.",
+          "explanation": "В анаграмме из тех же самых букв складывают новое слово.",
+          "fact": "Из слова «апельсин» так получается «спаниель»."
+        },
+        "ar": {
+          "prompt": "ما هو الجناس التصحيفي؟",
+          "answer": "الحروف نفسها بكلمة أخرى",
+          "wrong": [
+            "كلمة بلا حروف علة",
+            "كلمة من حروف علة",
+            "كلمة بالشيفرة"
+          ],
+          "hint": "اخلط الحروف.",
+          "explanation": "في هذا النوع تصنع كلمة جديدة من الحروف نفسها تمامًا.",
+          "fact": "من كلمة «رسم» تخرج «سمر» مثلًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het noodsignaal",
+      "artBrief": "Een seinlamp op een schip die in het donker knippert.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is het bekendste noodsignaal in morse?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Drie kort, drie lang, drie kort.",
+          "explanation": "Dit signaal is gekozen omdat het simpel en goed te herkennen is.",
+          "fact": "De letters staan niet voor woorden; ze klinken alleen heel duidelijk."
+        },
+        "en": {
+          "prompt": "What is the best known distress signal in Morse?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Three short, three long, three short.",
+          "explanation": "The signal was chosen because it is simple and easy to recognise.",
+          "fact": "The letters do not stand for words; they just sound very clear."
+        },
+        "de": {
+          "prompt": "Was ist das bekannteste Notsignal im Morsecode?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Dreimal kurz, dreimal lang, dreimal kurz.",
+          "explanation": "Das Signal wurde gewählt, weil es einfach und gut erkennbar ist.",
+          "fact": "Die Buchstaben stehen für keine Wörter, sie klingen nur sehr deutlich."
+        },
+        "fr": {
+          "prompt": "Quel est le signal de détresse le plus connu en morse ?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Trois courts, trois longs, trois courts.",
+          "explanation": "Ce signal a été choisi parce qu'il est simple et bien reconnaissable.",
+          "fact": "Les lettres ne veulent rien dire ; elles sonnent seulement très clair."
+        },
+        "es": {
+          "prompt": "¿Cuál es la señal de auxilio más conocida en morse?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Tres cortas, tres largas, tres cortas.",
+          "explanation": "Se eligió esa señal porque es sencilla y fácil de reconocer.",
+          "fact": "Las letras no significan palabras; solo suenan muy claras."
+        },
+        "it": {
+          "prompt": "Qual è il segnale di soccorso più noto in morse?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Tre brevi, tre lunghi, tre brevi.",
+          "explanation": "È stato scelto perché è semplice e facile da riconoscere.",
+          "fact": "Le lettere non stanno per parole: suonano solo molto chiare."
+        },
+        "pt": {
+          "prompt": "Qual é o sinal de socorro mais conhecido em morse?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Três curtos, três longos, três curtos.",
+          "explanation": "Foi escolhido por ser simples e fácil de reconhecer.",
+          "fact": "As letras não significam palavras; só soam muito claras."
+        },
+        "da": {
+          "prompt": "Hvad er det mest kendte nødsignal i morse?",
+          "answer": "S O S",
+          "wrong": [
+            "A B C",
+            "X Y Z",
+            "T N T"
+          ],
+          "hint": "Tre korte, tre lange, tre korte.",
+          "explanation": "Signalet blev valgt, fordi det er enkelt og let at genkende.",
+          "fact": "Bogstaverne står ikke for ord; de lyder bare meget tydeligt."
+        },
+        "ru": {
+          "prompt": "Какой сигнал бедствия в азбуке Морзе самый известный?",
+          "answer": "С О С",
+          "wrong": [
+            "А Б В",
+            "Х У Z",
+            "Т Н Т"
+          ],
+          "hint": "Три коротких, три длинных, три коротких.",
+          "explanation": "Этот сигнал выбрали за простоту и узнаваемость.",
+          "fact": "Буквы не означают слов, они просто очень чётко звучат."
+        },
+        "ar": {
+          "prompt": "ما أشهر إشارة استغاثة في شيفرة مورس؟",
+          "answer": "س و س",
+          "wrong": [
+            "أ ب ج",
+            "س ص ض",
+            "ت ن ت"
+          ],
+          "hint": "ثلاث قصيرة وثلاث طويلة وثلاث قصيرة.",
+          "explanation": "اختيرت هذه الإشارة لأنها بسيطة وسهلة التمييز.",
+          "fact": "الحروف لا تعني كلمات، إنما صوتها واضح جدًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Twee getuigen, twee verhalen",
+      "artBrief": "Twee mensen die vanaf verschillende kanten naar hetzelfde plein kijken.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom vertellen twee getuigen soms iets anders?",
+          "answer": "Het geheugen is niet perfect",
+          "wrong": [
+            "Eén van hen liegt altijd",
+            "Ze hebben niets gezien",
+            "Ze verzinnen alles"
+          ],
+          "hint": "Iedereen kijkt naar iets anders.",
+          "explanation": "Je hersenen vullen gaten in je herinnering zelf op, zonder dat je het merkt.",
+          "fact": "Daarom vragen onderzoekers liever naar details dan naar conclusies."
+        },
+        "en": {
+          "prompt": "Why do two witnesses sometimes tell it differently?",
+          "answer": "Memory is not perfect",
+          "wrong": [
+            "One of them always lies",
+            "They saw nothing",
+            "They make it all up"
+          ],
+          "hint": "Everyone looks at something else.",
+          "explanation": "Your brain fills the gaps in a memory by itself, without you noticing.",
+          "fact": "That is why investigators ask about details rather than conclusions."
+        },
+        "de": {
+          "prompt": "Warum erzählen zwei Zeugen manchmal Verschiedenes?",
+          "answer": "Das Gedächtnis täuscht",
+          "wrong": [
+            "Einer lügt immer",
+            "Sie haben nichts gesehen",
+            "Sie erfinden alles"
+          ],
+          "hint": "Jeder schaut auf etwas anderes.",
+          "explanation": "Dein Gehirn füllt Lücken in der Erinnerung selbst auf, ohne dass du es merkst.",
+          "fact": "Darum fragen Ermittler lieber nach Details als nach Schlüssen."
+        },
+        "fr": {
+          "prompt": "Pourquoi deux témoins racontent-ils parfois autrement ?",
+          "answer": "La mémoire trompe",
+          "wrong": [
+            "L'un ment toujours",
+            "Ils n'ont rien vu",
+            "Ils inventent tout"
+          ],
+          "hint": "Chacun regarde autre chose.",
+          "explanation": "Ton cerveau comble tout seul les trous d'un souvenir, sans que tu le remarques.",
+          "fact": "D'où l'habitude de demander des détails plutôt que des conclusions."
+        },
+        "es": {
+          "prompt": "¿Por qué dos testigos cuentan a veces cosas distintas?",
+          "answer": "La memoria no es perfecta",
+          "wrong": [
+            "Uno siempre miente",
+            "No vieron nada",
+            "Se lo inventan todo"
+          ],
+          "hint": "Cada uno mira otra cosa.",
+          "explanation": "Tu cerebro rellena solo los huecos del recuerdo sin que lo notes.",
+          "fact": "Por eso se pregunta por detalles y no por conclusiones."
+        },
+        "it": {
+          "prompt": "Perché due testimoni a volte raccontano cose diverse?",
+          "answer": "La memoria inganna",
+          "wrong": [
+            "Uno mente sempre",
+            "Non hanno visto nulla",
+            "Inventano tutto"
+          ],
+          "hint": "Ognuno guarda altro.",
+          "explanation": "Il cervello riempie da solo i vuoti del ricordo, senza che te ne accorga.",
+          "fact": "Per questo si chiedono dettagli e non conclusioni."
+        },
+        "pt": {
+          "prompt": "Porque contam duas testemunhas às vezes coisas diferentes?",
+          "answer": "A memória engana",
+          "wrong": [
+            "Uma mente sempre",
+            "Não viram nada",
+            "Inventam tudo"
+          ],
+          "hint": "Cada um olha para outra coisa.",
+          "explanation": "O teu cérebro preenche sozinho as falhas da memória, sem dares por isso.",
+          "fact": "Por isso perguntam pormenores e não conclusões."
+        },
+        "da": {
+          "prompt": "Hvorfor fortæller to vidner nogle gange noget forskelligt?",
+          "answer": "Hukommelsen narrer os",
+          "wrong": [
+            "Den ene lyver altid",
+            "De så ingenting",
+            "De finder på det hele"
+          ],
+          "hint": "Alle kigger på noget forskelligt.",
+          "explanation": "Hjernen fylder selv hullerne i et minde ud, uden at du mærker det.",
+          "fact": "Derfor spørger efterforskere om detaljer frem for konklusioner."
+        },
+        "ru": {
+          "prompt": "Почему два свидетеля порой рассказывают разное?",
+          "answer": "Память обманывает",
+          "wrong": [
+            "Один всегда лжёт",
+            "Они ничего не видели",
+            "Они всё выдумывают"
+          ],
+          "hint": "Каждый смотрит на своё.",
+          "explanation": "Мозг сам достраивает пробелы в воспоминании, а ты этого не замечаешь.",
+          "fact": "Поэтому спрашивают о деталях, а не о выводах."
+        },
+        "ar": {
+          "prompt": "لماذا يروي شاهدان أحيانًا روايتين مختلفتين؟",
+          "answer": "الذاكرة تخدع",
+          "wrong": [
+            "أحدهما يكذب دائمًا",
+            "لم يريا شيئًا",
+            "يختلقان كل شيء"
+          ],
+          "hint": "كل واحد ينظر إلى شيء آخر.",
+          "explanation": "الدماغ يملأ فجوات الذكرى وحده دون أن تشعر.",
+          "fact": "لذلك يسأل المحققون عن التفاصيل لا عن الخلاصات."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het pincet",
+      "artBrief": "Een pincet die een piepklein draadje van een tafel tilt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee pakt een speurder een piepklein draadje op?",
+          "answer": "Met een pincet",
+          "wrong": [
+            "Met een hamer",
+            "Met een zaag",
+            "Met een bezem"
+          ],
+          "hint": "Twee dunne punten.",
+          "explanation": "Met een pincet pak je iets op zonder het te beschadigen of aan te raken.",
+          "fact": "Kleine vezels blijven vaak hangen aan ruwe randen en spijkers."
+        },
+        "en": {
+          "prompt": "What does an investigator pick up a tiny thread with?",
+          "answer": "With tweezers",
+          "wrong": [
+            "With a hammer",
+            "With a saw",
+            "With a broom"
+          ],
+          "hint": "Two thin points.",
+          "explanation": "Tweezers lift something without damaging or touching it.",
+          "fact": "Small fibres often catch on rough edges and nails."
+        },
+        "de": {
+          "prompt": "Womit hebt ein Ermittler einen winzigen Faden auf?",
+          "answer": "Mit einer Pinzette",
+          "wrong": [
+            "Mit einem Hammer",
+            "Mit einer Säge",
+            "Mit einem Besen"
+          ],
+          "hint": "Zwei dünne Spitzen.",
+          "explanation": "Mit einer Pinzette hebst du etwas auf, ohne es zu beschädigen oder anzufassen.",
+          "fact": "Kleine Fasern hängen oft an rauen Kanten und Nägeln."
+        },
+        "fr": {
+          "prompt": "Avec quoi ramasse-t-on un fil minuscule ?",
+          "answer": "Avec une pince fine",
+          "wrong": [
+            "Avec un marteau",
+            "Avec une scie",
+            "Avec un balai"
+          ],
+          "hint": "Deux pointes fines.",
+          "explanation": "Une pince permet de soulever sans abîmer ni toucher.",
+          "fact": "Les petites fibres s'accrochent souvent aux bords rugueux et aux clous."
+        },
+        "es": {
+          "prompt": "¿Con qué recoge un investigador un hilo diminuto?",
+          "answer": "Con unas pinzas",
+          "wrong": [
+            "Con un martillo",
+            "Con una sierra",
+            "Con una escoba"
+          ],
+          "hint": "Dos puntas finas.",
+          "explanation": "Con pinzas levantas algo sin dañarlo ni tocarlo.",
+          "fact": "Las fibras pequeñas se enganchan a menudo en bordes ásperos y clavos."
+        },
+        "it": {
+          "prompt": "Con che cosa si raccoglie un filo piccolissimo?",
+          "answer": "Con una pinzetta",
+          "wrong": [
+            "Con un martello",
+            "Con una sega",
+            "Con una scopa"
+          ],
+          "hint": "Due punte sottili.",
+          "explanation": "Con la pinzetta sollevi senza rovinare né toccare.",
+          "fact": "Le fibre piccole restano spesso attaccate a bordi ruvidi e chiodi."
+        },
+        "pt": {
+          "prompt": "Com que se apanha um fio minúsculo?",
+          "answer": "Com uma pinça",
+          "wrong": [
+            "Com um martelo",
+            "Com uma serra",
+            "Com uma vassoura"
+          ],
+          "hint": "Duas pontas finas.",
+          "explanation": "Com uma pinça levantas sem estragar nem tocar.",
+          "fact": "As fibras pequenas prendem-se muitas vezes a bordos ásperos e pregos."
+        },
+        "da": {
+          "prompt": "Hvad samler en efterforsker en bitte lille tråd op med?",
+          "answer": "Med en pincet",
+          "wrong": [
+            "Med en hammer",
+            "Med en sav",
+            "Med en kost"
+          ],
+          "hint": "To tynde spidser.",
+          "explanation": "Med en pincet løfter du noget uden at skade eller røre det.",
+          "fact": "Små fibre hænger ofte fast på ru kanter og søm."
+        },
+        "ru": {
+          "prompt": "Чем следователь поднимает крошечную нитку?",
+          "answer": "Пинцетом",
+          "wrong": [
+            "Молотком",
+            "Пилой",
+            "Метлой"
+          ],
+          "hint": "Два тонких кончика.",
+          "explanation": "Пинцетом можно поднять вещь, не повредив и не коснувшись её.",
+          "fact": "Мелкие волокна часто цепляются за шершавые края и гвозди."
+        },
+        "ar": {
+          "prompt": "بماذا يلتقط المحقق خيطًا دقيقًا جدًا؟",
+          "answer": "بملقط",
+          "wrong": [
+            "بمطرقة",
+            "بمنشار",
+            "بمكنسة"
+          ],
+          "hint": "طرفان رفيعان.",
+          "explanation": "بالملقط ترفع الشيء دون أن تتلفه أو تلمسه.",
+          "fact": "الألياف الصغيرة تعلق غالبًا بالحواف الخشنة والمسامير."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het acrostichon",
+      "artBrief": "Een geopend schriftje met regels tekst waarvan de eerste letters opvallen, onleesbaar klein.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet een boodschap in de eerste letters van elke regel?",
+          "answer": "Een acrostichon",
+          "wrong": [
+            "Een anagram",
+            "Een palindroom",
+            "Een rijmpje"
+          ],
+          "hint": "Lees alleen de eerste letters.",
+          "explanation": "Bij een acrostichon vormen de eerste letters van de regels samen een woord.",
+          "fact": "Dichters verstopten er vroeger de naam van hun geliefde in."
+        },
+        "en": {
+          "prompt": "What is a message hidden in the first letters of each line?",
+          "answer": "An acrostic",
+          "wrong": [
+            "An anagram",
+            "A palindrome",
+            "A rhyme"
+          ],
+          "hint": "Read only the first letters.",
+          "explanation": "In an acrostic the first letters of the lines spell out a word.",
+          "fact": "Poets used to hide the name of their sweetheart that way."
+        },
+        "de": {
+          "prompt": "Wie heißt eine Botschaft in den ersten Buchstaben jeder Zeile?",
+          "answer": "Ein Akrostichon",
+          "wrong": [
+            "Ein Anagramm",
+            "Ein Palindrom",
+            "Ein Reim"
+          ],
+          "hint": "Lies nur die ersten Buchstaben.",
+          "explanation": "Bei einem Akrostichon ergeben die ersten Buchstaben der Zeilen ein Wort.",
+          "fact": "Dichter versteckten darin früher den Namen ihrer Liebsten."
+        },
+        "fr": {
+          "prompt": "Comment appelle-t-on un message caché en début de ligne ?",
+          "answer": "Un acrostiche",
+          "wrong": [
+            "Une anagramme",
+            "Un palindrome",
+            "Une rime"
+          ],
+          "hint": "Ne lis que les premières lettres.",
+          "explanation": "Dans un acrostiche, les premières lettres des lignes forment un mot.",
+          "fact": "Les poètes y cachaient autrefois le nom de leur bien-aimée."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama un mensaje en las primeras letras de cada línea?",
+          "answer": "Un acróstico",
+          "wrong": [
+            "Un anagrama",
+            "Un palíndromo",
+            "Una rima"
+          ],
+          "hint": "Lee solo las primeras letras.",
+          "explanation": "En un acróstico las primeras letras de las líneas forman una palabra.",
+          "fact": "Los poetas escondían así el nombre de su amada."
+        },
+        "it": {
+          "prompt": "Come si chiama un messaggio nelle prime lettere dei versi?",
+          "answer": "Un acrostico",
+          "wrong": [
+            "Un anagramma",
+            "Un palindromo",
+            "Una rima"
+          ],
+          "hint": "Leggi solo le prime lettere.",
+          "explanation": "In un acrostico le prime lettere dei versi formano una parola.",
+          "fact": "I poeti vi nascondevano il nome dell'amata."
+        },
+        "pt": {
+          "prompt": "Como se chama uma mensagem nas primeiras letras das linhas?",
+          "answer": "Um acróstico",
+          "wrong": [
+            "Um anagrama",
+            "Um palíndromo",
+            "Uma rima"
+          ],
+          "hint": "Lê só as primeiras letras.",
+          "explanation": "Num acróstico as primeiras letras das linhas formam uma palavra.",
+          "fact": "Os poetas escondiam ali o nome da amada."
+        },
+        "da": {
+          "prompt": "Hvad kalder man en besked i de første bogstaver i hver linje?",
+          "answer": "Et akrostikon",
+          "wrong": [
+            "Et anagram",
+            "Et palindrom",
+            "Et rim"
+          ],
+          "hint": "Læs kun de første bogstaver.",
+          "explanation": "I et akrostikon danner linjernes første bogstaver et ord.",
+          "fact": "Digtere gemte før i tiden deres elskedes navn på den måde."
+        },
+        "ru": {
+          "prompt": "Как называют послание в первых буквах строк?",
+          "answer": "Акростих",
+          "wrong": [
+            "Анаграмма",
+            "Палиндром",
+            "Рифма"
+          ],
+          "hint": "Читай только первые буквы.",
+          "explanation": "В акростихе первые буквы строк складываются в слово.",
+          "fact": "Поэты прятали так имя возлюбленной."
+        },
+        "ar": {
+          "prompt": "ما اسم رسالة مخبأة في أوائل الأسطر؟",
+          "answer": "الأكروستيك",
+          "wrong": [
+            "الجناس التصحيفي",
+            "المقلوب المستوي",
+            "القافية"
+          ],
+          "hint": "اقرأ الحروف الأولى فقط.",
+          "explanation": "في هذا الأسلوب تكوّن أوائل الأسطر كلمة.",
+          "fact": "كان الشعراء يخبئون بها اسم محبوبتهم."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het palindroom",
+      "artBrief": "Een spiegelend wateroppervlak met een symmetrische weerkaatsing van een brug.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een palindroom?",
+          "answer": "Achterstevoren hetzelfde",
+          "wrong": [
+            "Een woord zonder klinkers",
+            "Een woord van klinkers",
+            "Een woord in code"
+          ],
+          "hint": "Lees het eens van rechts naar links.",
+          "explanation": "Een palindroom lees je van voren en van achteren precies hetzelfde.",
+          "fact": "Het woord 'lepel' is er een, en 'parterretrap' ook."
+        },
+        "en": {
+          "prompt": "What is a palindrome?",
+          "answer": "The same backwards",
+          "wrong": [
+            "A word with no vowels",
+            "A word of only vowels",
+            "A word in code"
+          ],
+          "hint": "Try reading it right to left.",
+          "explanation": "A palindrome reads exactly the same forwards and backwards.",
+          "fact": "The word 'level' is one, and so is 'racecar'."
+        },
+        "de": {
+          "prompt": "Was ist ein Palindrom?",
+          "answer": "Rückwärts genau gleich",
+          "wrong": [
+            "Ein Wort ohne Vokale",
+            "Ein Wort nur aus Vokalen",
+            "Ein Wort in Code"
+          ],
+          "hint": "Lies es von rechts nach links.",
+          "explanation": "Ein Palindrom liest sich vorwärts und rückwärts genau gleich.",
+          "fact": "Das Wort 'Otto' ist eins, 'Reittier' auch."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un palindrome ?",
+          "answer": "Pareil à l'envers",
+          "wrong": [
+            "Un mot sans voyelles",
+            "Un mot de voyelles",
+            "Un mot codé"
+          ],
+          "hint": "Lis-le de droite à gauche.",
+          "explanation": "Un palindrome se lit exactement pareil dans les deux sens.",
+          "fact": "Le mot 'kayak' en est un, 'radar' aussi."
+        },
+        "es": {
+          "prompt": "¿Qué es un palíndromo?",
+          "answer": "Igual al revés",
+          "wrong": [
+            "Palabra sin vocales",
+            "Palabra solo de vocales",
+            "Palabra en clave"
+          ],
+          "hint": "Léelo de derecha a izquierda.",
+          "explanation": "Un palíndromo se lee igual hacia delante y hacia atrás.",
+          "fact": "La palabra 'reconocer' lo es, y 'oso' también."
+        },
+        "it": {
+          "prompt": "Che cos'è un palindromo?",
+          "answer": "Uguale anche al contrario",
+          "wrong": [
+            "Parola senza vocali",
+            "Parola di sole vocali",
+            "Parola in codice"
+          ],
+          "hint": "Leggila da destra a sinistra.",
+          "explanation": "Un palindromo si legge identico nei due sensi.",
+          "fact": "La parola 'anna' lo è, e anche 'ingegni'."
+        },
+        "pt": {
+          "prompt": "O que é um palíndromo?",
+          "answer": "Igual ao contrário",
+          "wrong": [
+            "Palavra sem vogais",
+            "Palavra só de vogais",
+            "Palavra em código"
+          ],
+          "hint": "Lê da direita para a esquerda.",
+          "explanation": "Um palíndromo lê-se igual nos dois sentidos.",
+          "fact": "A palavra 'ovo' é um, e 'reviver' também."
+        },
+        "da": {
+          "prompt": "Hvad er et palindrom?",
+          "answer": "Ens den anden vej",
+          "wrong": [
+            "Et ord uden vokaler",
+            "Et ord kun af vokaler",
+            "Et ord i kode"
+          ],
+          "hint": "Læs det fra højre mod venstre.",
+          "explanation": "Et palindrom læses ens forfra og bagfra.",
+          "fact": "Ordet 'regninger' er et, og 'anna' er et andet."
+        },
+        "ru": {
+          "prompt": "Что такое палиндром?",
+          "answer": "Одинаково наоборот",
+          "wrong": [
+            "Слово без гласных",
+            "Слово из одних гласных",
+            "Слово в коде"
+          ],
+          "hint": "Прочти справа налево.",
+          "explanation": "Палиндром читается одинаково в обе стороны.",
+          "fact": "Слово «шалаш» такое, и «казак» тоже."
+        },
+        "ar": {
+          "prompt": "ما هي الكلمة المقلوبة المستوية؟",
+          "answer": "تُقرأ نفسها بالعكس",
+          "wrong": [
+            "كلمة بلا حروف علة",
+            "كلمة من حروف علة",
+            "كلمة بالشيفرة"
+          ],
+          "hint": "اقرأها من اليسار.",
+          "explanation": "الكلمة المقلوبة المستوية تُقرأ متطابقة في الاتجاهين.",
+          "fact": "كلمة «كلاك» منها، و«خوخ» أيضًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Vezels en haren",
+      "artBrief": "Een vergrootglas boven een donkere stof met een lichte vezel erop.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom bewaren speurders vezels en haren?",
+          "answer": "Ze verraden waar je was",
+          "wrong": [
+            "Ze zijn mooi",
+            "Ze ruiken lekker",
+            "Ze zijn kostbaar"
+          ],
+          "hint": "Kleding laat overal iets achter.",
+          "explanation": "Een vezel van een trui op een plek bewijst dat die trui daar geweest is.",
+          "fact": "Elke mens verliest per dag makkelijk honderd haren."
+        },
+        "en": {
+          "prompt": "Why do investigators keep fibres and hairs?",
+          "answer": "They show where you were",
+          "wrong": [
+            "They look nice",
+            "They smell good",
+            "They are valuable"
+          ],
+          "hint": "Clothing leaves something everywhere.",
+          "explanation": "A fibre from a jumper at a place proves that jumper has been there.",
+          "fact": "Every person easily loses a hundred hairs a day."
+        },
+        "de": {
+          "prompt": "Warum heben Ermittler Fasern und Haare auf?",
+          "answer": "Sie verraten, wo du warst",
+          "wrong": [
+            "Sie sehen schön aus",
+            "Sie riechen gut",
+            "Sie sind wertvoll"
+          ],
+          "hint": "Kleidung lässt überall etwas zurück.",
+          "explanation": "Eine Faser von einem Pullover beweist, dass dieser Pullover dort war.",
+          "fact": "Jeder Mensch verliert leicht hundert Haare am Tag."
+        },
+        "fr": {
+          "prompt": "Pourquoi garder des fibres et des cheveux ?",
+          "answer": "Ils disent où tu étais",
+          "wrong": [
+            "Ils sont jolis",
+            "Ils sentent bon",
+            "Ils valent cher"
+          ],
+          "hint": "Les vêtements laissent partout quelque chose.",
+          "explanation": "Une fibre de pull sur un lieu prouve que ce pull y est passé.",
+          "fact": "Chacun perd facilement cent cheveux par jour."
+        },
+        "es": {
+          "prompt": "¿Por qué se guardan fibras y pelos?",
+          "answer": "Dicen dónde estuviste",
+          "wrong": [
+            "Son bonitos",
+            "Huelen bien",
+            "Valen dinero"
+          ],
+          "hint": "La ropa deja algo en todas partes.",
+          "explanation": "Una fibra de un jersey en un lugar prueba que ese jersey estuvo allí.",
+          "fact": "Cada persona pierde con facilidad cien pelos al día."
+        },
+        "it": {
+          "prompt": "Perché si conservano fibre e capelli?",
+          "answer": "Dicono dove sei stato",
+          "wrong": [
+            "Sono belli",
+            "Profumano",
+            "Valgono molto"
+          ],
+          "hint": "I vestiti lasciano sempre qualcosa.",
+          "explanation": "Una fibra di maglione in un luogo prova che quel maglione è passato di lì.",
+          "fact": "Ognuno perde facilmente cento capelli al giorno."
+        },
+        "pt": {
+          "prompt": "Porque se guardam fibras e cabelos?",
+          "answer": "Dizem onde estiveste",
+          "wrong": [
+            "São bonitos",
+            "Cheiram bem",
+            "Valem dinheiro"
+          ],
+          "hint": "A roupa deixa sempre algo.",
+          "explanation": "Uma fibra de camisola num sítio prova que essa camisola lá esteve.",
+          "fact": "Cada pessoa perde com facilidade cem cabelos por dia."
+        },
+        "da": {
+          "prompt": "Hvorfor gemmer efterforskere fibre og hår?",
+          "answer": "De røber, hvor du var",
+          "wrong": [
+            "De er pæne",
+            "De dufter godt",
+            "De er værdifulde"
+          ],
+          "hint": "Tøj efterlader noget overalt.",
+          "explanation": "En fiber fra en trøje et sted beviser, at netop den trøje har været der.",
+          "fact": "Hvert menneske taber nemt hundrede hår om dagen."
+        },
+        "ru": {
+          "prompt": "Зачем хранят волокна и волосы?",
+          "answer": "Они выдают, где ты был",
+          "wrong": [
+            "Они красивые",
+            "Они приятно пахнут",
+            "Они дорогие"
+          ],
+          "hint": "Одежда всюду что-то оставляет.",
+          "explanation": "Волокно от свитера на месте доказывает, что этот свитер там побывал.",
+          "fact": "Человек легко теряет сотню волос в день."
+        },
+        "ar": {
+          "prompt": "لماذا تُحفظ الألياف والشعرات؟",
+          "answer": "تكشف أين كنت",
+          "wrong": [
+            "لأنها جميلة",
+            "لأن رائحتها طيبة",
+            "لأنها ثمينة"
+          ],
+          "hint": "الملابس تترك شيئًا في كل مكان.",
+          "explanation": "ليفة من كنزة في مكان تثبت أن تلك الكنزة كانت هناك.",
+          "fact": "كل إنسان يفقد بسهولة مئة شعرة في اليوم."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Onderzoek met erfelijk materiaal",
+      "artBrief": "Een laboratorium met buisjes in een rek en een blauw oplichtend scherm.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waaraan kunnen speurders iemand herkennen bij één haar?",
+          "answer": "Aan het erfelijk materiaal",
+          "wrong": [
+            "Aan de kleur alleen",
+            "Aan de lengte",
+            "Aan de geur"
+          ],
+          "hint": "Het staat in elke cel.",
+          "explanation": "In de cellen bij de haarwortel zit de erfelijke code die bij één mens hoort.",
+          "fact": "Eeneiige tweelingen hebben bijna dezelfde code, maar andere vingerafdrukken."
+        },
+        "en": {
+          "prompt": "What can identify someone from a single hair?",
+          "answer": "The material of inheritance",
+          "wrong": [
+            "The colour alone",
+            "The length",
+            "The smell"
+          ],
+          "hint": "It sits in every cell.",
+          "explanation": "The cells at the hair root carry the inherited code that belongs to one person.",
+          "fact": "Identical twins share almost the same code, but not their fingerprints."
+        },
+        "de": {
+          "prompt": "Woran erkennt man jemanden an einem einzigen Haar?",
+          "answer": "Am Erbmaterial",
+          "wrong": [
+            "Nur an der Farbe",
+            "An der Länge",
+            "Am Geruch"
+          ],
+          "hint": "Es steckt in jeder Zelle.",
+          "explanation": "In den Zellen an der Haarwurzel steckt der Erbcode, der zu einem Menschen gehört.",
+          "fact": "Eineiige Zwillinge haben fast denselben Code, aber andere Fingerabdrücke."
+        },
+        "fr": {
+          "prompt": "Grâce à quoi reconnaît-on quelqu'un à un seul cheveu ?",
+          "answer": "Au matériel héréditaire",
+          "wrong": [
+            "À la couleur seule",
+            "À la longueur",
+            "À l'odeur"
+          ],
+          "hint": "Il est dans chaque cellule.",
+          "explanation": "Les cellules de la racine portent le code hérité propre à une personne.",
+          "fact": "Les vrais jumeaux ont presque le même code, mais pas les mêmes empreintes."
+        },
+        "es": {
+          "prompt": "¿Gracias a qué se reconoce a alguien por un solo pelo?",
+          "answer": "Al material hereditario",
+          "wrong": [
+            "Solo al color",
+            "A la longitud",
+            "Al olor"
+          ],
+          "hint": "Está en cada célula.",
+          "explanation": "Las células de la raíz llevan el código heredado propio de una persona.",
+          "fact": "Los gemelos idénticos tienen casi el mismo código, pero otras huellas."
+        },
+        "it": {
+          "prompt": "Grazie a che cosa si riconosce qualcuno da un capello?",
+          "answer": "Al materiale ereditario",
+          "wrong": [
+            "Solo al colore",
+            "Alla lunghezza",
+            "All'odore"
+          ],
+          "hint": "Sta in ogni cellula.",
+          "explanation": "Nelle cellule della radice c'è il codice ereditario che appartiene a una persona.",
+          "fact": "I gemelli identici hanno quasi lo stesso codice ma impronte diverse."
+        },
+        "pt": {
+          "prompt": "Graças a que se reconhece alguém por um só cabelo?",
+          "answer": "Ao material hereditário",
+          "wrong": [
+            "Só à cor",
+            "Ao comprimento",
+            "Ao cheiro"
+          ],
+          "hint": "Está em cada célula.",
+          "explanation": "Nas células da raiz está o código herdado que pertence a uma pessoa.",
+          "fact": "Gémeos idênticos têm quase o mesmo código, mas impressões diferentes."
+        },
+        "da": {
+          "prompt": "Hvad kan kende en person på ét enkelt hår?",
+          "answer": "Arvematerialet",
+          "wrong": [
+            "Kun farven",
+            "Længden",
+            "Lugten"
+          ],
+          "hint": "Det sidder i hver celle.",
+          "explanation": "I cellerne ved hårroden ligger den arvekode, der hører til ét menneske.",
+          "fact": "Enæggede tvillinger har næsten samme kode, men ikke samme fingeraftryk."
+        },
+        "ru": {
+          "prompt": "По чему узнают человека по одному волосу?",
+          "answer": "По наследственному веществу",
+          "wrong": [
+            "Только по цвету",
+            "По длине",
+            "По запаху"
+          ],
+          "hint": "Оно есть в каждой клетке.",
+          "explanation": "В клетках у корня волоса лежит наследственный код одного человека.",
+          "fact": "У однояйцевых близнецов код почти совпадает, а отпечатки разные."
+        },
+        "ar": {
+          "prompt": "بمَ يُعرف الشخص من شعرة واحدة؟",
+          "answer": "بالمادة الوراثية",
+          "wrong": [
+            "باللون فقط",
+            "بالطول",
+            "بالرائحة"
+          ],
+          "hint": "موجودة في كل خلية.",
+          "explanation": "في خلايا جذر الشعرة شيفرة وراثية تخص إنسانًا واحدًا.",
+          "fact": "التوأم المتطابق يتشارك الشيفرة تقريبًا لا البصمات."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De koude zaak",
+      "artBrief": "Een stoffige archiefdoos met oude mappen in een kelder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een koude zaak?",
+          "answer": "Een oude, onopgeloste zaak",
+          "wrong": [
+            "Een zaak in de winter",
+            "Een zaak over ijs",
+            "Een opgeloste zaak"
+          ],
+          "hint": "De map ligt al jaren in het archief.",
+          "explanation": "Een koude zaak is een onderzoek dat is vastgelopen en later opnieuw wordt bekeken.",
+          "fact": "Door nieuwe technieken worden zulke zaken soms na dertig jaar alsnog opgelost."
+        },
+        "en": {
+          "prompt": "What is a cold case?",
+          "answer": "An old unsolved case",
+          "wrong": [
+            "A case in winter",
+            "A case about ice",
+            "A case already solved"
+          ],
+          "hint": "The file has sat in the archive for years.",
+          "explanation": "A cold case is an investigation that stalled and is taken up again later.",
+          "fact": "New techniques sometimes solve such cases after thirty years."
+        },
+        "de": {
+          "prompt": "Was ist ein Cold Case?",
+          "answer": "Ein alter ungelöster Fall",
+          "wrong": [
+            "Ein Fall im Winter",
+            "Ein Fall über Eis",
+            "Ein gelöster Fall"
+          ],
+          "hint": "Die Akte liegt seit Jahren im Archiv.",
+          "explanation": "Ein Cold Case ist eine Ermittlung, die stecken blieb und später neu geprüft wird.",
+          "fact": "Neue Technik löst solche Fälle manchmal nach dreißig Jahren doch noch."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une affaire non résolue rouverte ?",
+          "answer": "Un vieux dossier repris",
+          "wrong": [
+            "Une affaire d'hiver",
+            "Une affaire de glace",
+            "Une affaire réglée"
+          ],
+          "hint": "Le dossier dort aux archives depuis des années.",
+          "explanation": "C'est une enquête bloquée que l'on reprend bien plus tard.",
+          "fact": "Les techniques nouvelles en résolvent parfois après trente ans."
+        },
+        "es": {
+          "prompt": "¿Qué es un caso sin resolver que se reabre?",
+          "answer": "Un caso antiguo parado",
+          "wrong": [
+            "Un caso de invierno",
+            "Un caso sobre hielo",
+            "Un caso resuelto"
+          ],
+          "hint": "La carpeta lleva años en el archivo.",
+          "explanation": "Es una investigación que se atascó y se retoma mucho después.",
+          "fact": "Las técnicas nuevas resuelven a veces esos casos tras treinta años."
+        },
+        "it": {
+          "prompt": "Che cos'è un caso irrisolto ripreso dopo anni?",
+          "answer": "Un vecchio caso fermo",
+          "wrong": [
+            "Un caso d'inverno",
+            "Un caso sul ghiaccio",
+            "Un caso risolto"
+          ],
+          "hint": "Il fascicolo dorme in archivio.",
+          "explanation": "È un'indagine che si è bloccata e viene ripresa molto più tardi.",
+          "fact": "Le nuove tecniche a volte li risolvono dopo trent'anni."
+        },
+        "pt": {
+          "prompt": "O que é um caso antigo por resolver que se reabre?",
+          "answer": "Um caso parado há anos",
+          "wrong": [
+            "Um caso de inverno",
+            "Um caso sobre gelo",
+            "Um caso resolvido"
+          ],
+          "hint": "A pasta dorme no arquivo.",
+          "explanation": "É uma investigação que encalhou e é retomada muito mais tarde.",
+          "fact": "As técnicas novas resolvem-nos por vezes ao fim de trinta anos."
+        },
+        "da": {
+          "prompt": "Hvad er en gammel uopklaret sag, der tages op igen?",
+          "answer": "En sag, der har ligget",
+          "wrong": [
+            "En sag om vinteren",
+            "En sag om is",
+            "En opklaret sag"
+          ],
+          "hint": "Mappen har ligget i arkivet i årevis.",
+          "explanation": "Det er en efterforskning, der gik i stå og bliver taget op meget senere.",
+          "fact": "Ny teknik opklarer nogle gange sådanne sager efter tredive år."
+        },
+        "ru": {
+          "prompt": "Что такое старое нераскрытое дело, за которое берутся снова?",
+          "answer": "Дело, лежавшее годами",
+          "wrong": [
+            "Дело зимой",
+            "Дело про лёд",
+            "Раскрытое дело"
+          ],
+          "hint": "Папка годами пылится в архиве.",
+          "explanation": "Это расследование, которое зашло в тупик и возобновляется много позже.",
+          "fact": "Новые методы порой раскрывают такие дела и через тридцать лет."
+        },
+        "ar": {
+          "prompt": "ما هي القضية القديمة التي تُفتح من جديد؟",
+          "answer": "قضية توقفت منذ سنوات",
+          "wrong": [
+            "قضية في الشتاء",
+            "قضية عن الجليد",
+            "قضية محلولة"
+          ],
+          "hint": "ملفها نائم في الأرشيف.",
+          "explanation": "هي تحقيق تعثّر ثم يُستأنف بعد وقت طويل.",
+          "fact": "التقنيات الجديدة تحلّ مثلها أحيانًا بعد ثلاثين سنة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-speurtocht-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De codemachine",
+      "artBrief": "Een oude codemachine met toetsen en lampjes op een houten bureau.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke codemachine werd in de oorlog gekraakt?",
+          "answer": "De Enigma",
+          "wrong": [
+            "De morsesleutel",
+            "De telegraaf",
+            "De rekenliniaal"
+          ],
+          "hint": "Hij had toetsen en lampjes.",
+          "explanation": "Wiskundigen in Engeland ontcijferden de berichten van de Enigma-machine.",
+          "fact": "Daarvoor bouwden ze een van de eerste rekenmachines ter wereld."
+        },
+        "en": {
+          "prompt": "Which code machine was cracked during the war?",
+          "answer": "The Enigma",
+          "wrong": [
+            "The Morse key",
+            "The telegraph",
+            "The slide rule"
+          ],
+          "hint": "It had keys and little lamps.",
+          "explanation": "Mathematicians in England deciphered the messages of the Enigma machine.",
+          "fact": "To do it they built one of the first computing machines in the world."
+        },
+        "de": {
+          "prompt": "Welche Codemaschine wurde im Krieg geknackt?",
+          "answer": "Die Enigma",
+          "wrong": [
+            "Die Morsetaste",
+            "Der Telegraf",
+            "Der Rechenschieber"
+          ],
+          "hint": "Sie hatte Tasten und Lämpchen.",
+          "explanation": "Mathematiker in England entzifferten die Funksprüche der Enigma-Maschine.",
+          "fact": "Dafür bauten sie eine der ersten Rechenmaschinen der Welt."
+        },
+        "fr": {
+          "prompt": "Quelle machine à coder a été percée pendant la guerre ?",
+          "answer": "L'Enigma",
+          "wrong": [
+            "Le manipulateur morse",
+            "Le télégraphe",
+            "La règle à calcul"
+          ],
+          "hint": "Elle avait des touches et des lampes.",
+          "explanation": "Des mathématiciens anglais ont déchiffré les messages de la machine Enigma.",
+          "fact": "Pour cela ils ont bâti une des premières machines à calculer du monde."
+        },
+        "es": {
+          "prompt": "¿Qué máquina de claves se descifró en la guerra?",
+          "answer": "La Enigma",
+          "wrong": [
+            "El manipulador morse",
+            "El telégrafo",
+            "La regla de cálculo"
+          ],
+          "hint": "Tenía teclas y lucecitas.",
+          "explanation": "Unos matemáticos en Inglaterra descifraron los mensajes de la máquina Enigma.",
+          "fact": "Para lograrlo construyeron una de las primeras máquinas de calcular."
+        },
+        "it": {
+          "prompt": "Quale macchina cifrante fu decifrata in guerra?",
+          "answer": "L'Enigma",
+          "wrong": [
+            "Il tasto morse",
+            "Il telegrafo",
+            "Il regolo calcolatore"
+          ],
+          "hint": "Aveva tasti e lampadine.",
+          "explanation": "Matematici in Inghilterra decifrarono i messaggi della macchina Enigma.",
+          "fact": "Per farlo costruirono una delle prime macchine da calcolo del mondo."
+        },
+        "pt": {
+          "prompt": "Que máquina de cifra foi decifrada na guerra?",
+          "answer": "A Enigma",
+          "wrong": [
+            "O manipulador morse",
+            "O telégrafo",
+            "A régua de cálculo"
+          ],
+          "hint": "Tinha teclas e luzinhas.",
+          "explanation": "Matemáticos em Inglaterra decifraram as mensagens da máquina Enigma.",
+          "fact": "Para isso construíram uma das primeiras máquinas de calcular do mundo."
+        },
+        "da": {
+          "prompt": "Hvilken kodemaskine blev knækket under krigen?",
+          "answer": "Enigma",
+          "wrong": [
+            "Morsenøglen",
+            "Telegrafen",
+            "Regnestokken"
+          ],
+          "hint": "Den havde taster og små lamper.",
+          "explanation": "Matematikere i England tydede beskederne fra Enigma-maskinen.",
+          "fact": "Til det byggede de en af verdens første regnemaskiner."
+        },
+        "ru": {
+          "prompt": "Какую шифровальную машину разгадали на войне?",
+          "answer": "«Энигму»",
+          "wrong": [
+            "Ключ Морзе",
+            "Телеграф",
+            "Логарифмическую линейку"
+          ],
+          "hint": "У неё были клавиши и лампочки.",
+          "explanation": "Математики в Англии расшифровали сообщения машины «Энигма».",
+          "fact": "Для этого они построили одну из первых вычислительных машин."
+        },
+        "ar": {
+          "prompt": "أي آلة تشفير فُكّت شيفرتها في الحرب؟",
+          "answer": "آلة إنيغما",
+          "wrong": [
+            "مفتاح مورس",
+            "التلغراف",
+            "المسطرة الحاسبة"
+          ],
+          "hint": "كانت لها مفاتيح ومصابيح صغيرة.",
+          "explanation": "فكّ علماء رياضيات في إنجلترا رسائل آلة إنيغما.",
+          "fact": "ولأجل ذلك بنوا واحدة من أوائل آلات الحساب في العالم."
+        }
+      }
+    }
+  ]
+}
