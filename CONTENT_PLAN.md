@@ -417,3 +417,39 @@ plaat nodig hebben: `jungle-18` (tapir), `egyptenaren-11` (ankh),
 Samen met de tien tijdelijke platen van de nieuwe werelden en de 740 vragen die
 nog op de onderwerpplaat staan, is dat de hele beeldschuld. Alles wacht op
 tegoed bij de beeldgenerator.
+
+## 10 · De beeld- en spraakronde van 28 september
+
+Met het bijgevulde ElevenLabs-tegoed (302.500 credits) is in één ronde het
+grootste deel van de beeldschuld ingelost en is de spraak warm gedraaid.
+
+| wat | stand |
+|---|---|
+| Onderwerpkaarten kunst en sport | 8 gemaakt, `assets/placeholder-art.json` is leeg |
+| Eigen vraagplaten | van 540 naar 1139; **141 vragen** staan nog op de onderwerpplaat |
+| Spraak nl en en | Milo én Luna, 10.240 regels, 368.574 tekens, cache 19.932 bestanden (928 MB) |
+| Herstelde platen | schilderkunst-02 (cartoongezichten), -04 (gezichtloos portret), -05 |
+
+Nieuw gereedschap: `tools/topic-art.cjs` (render → onderwerpkaart 1024 × 576),
+de tegenhanger van `tools/question-art.cjs`.
+
+De platen zijn gemaakt met **gpt-image-2** op de ElevenLabs-flows "Kwizillo
+vraagplaten — kunst", "— sport" en "— aarde, dieren, geschiedenis, mysterie,
+ruimte, wetenschap", steeds uit de `artBrief` in `content/`, met de vaste
+stijlregel ervoor. Gemeten prijs: 184,58 credits (3,36 cent) per plaat.
+
+### Wat er nog ligt
+
+- **141 vraagplaten**: mysterie/speurtocht, mysterie/verborgen_schatten,
+  ruimte/raket_avontuur, wetenschap/lichaam, wetenschap/natuur_energie,
+  wetenschap/slimme_proefjes, wetenschap/uitvindingen (elk 20), plus
+  `geschiedenis-romeinen-22`.
+- **`geschiedenis-romeinen-22`** (de bronzen wolvin met Romulus en Remus) is
+  twee keer geweigerd door het filter van de beeldgenerator. De brief moet
+  anders, of de plaat komt van elders.
+- **248 vraag-only platen** (`tools/safe-art-prompts.json` → `assets/questions/s/`)
+  voor de vragen waarvan de plaat het antwoord verraadt. De teksten staan
+  klaar, er is nog niets gerenderd en `K.SAFE_ART_IDS` is nog leeg; tot die
+  tijd leent het spel de plaat van een buurvraag.
+- **Spraak in de andere acht talen**: niet vooruit betaald; de cache vult zich
+  tijdens het spelen.

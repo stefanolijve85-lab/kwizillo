@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Surfen doe je op golven",
       "artBrief": "Een surfer op een board in de krul van een blauwgroene golf.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarop surft een surfer?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "Een wetsuit houdt je warm",
       "artBrief": "Een surfer in zwart wetsuit met board onder de arm op het strand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom draagt een surfer een wetsuit?",

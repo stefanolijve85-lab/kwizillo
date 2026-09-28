@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Het spinnenweb",
       "artBrief": "Een web vol dauwdruppels in het ochtendlicht tussen takken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier maakt een web van draden?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Winterslaap",
       "artBrief": "Een slapende egel opgerold in een nest van bladeren onder de sneeuw.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen egels en marmotten als het koud wordt?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Herfstbladeren",
       "artBrief": "Een bos in fel geel en oranje met dwarrelende bladeren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er in de herfst met bladeren?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Het slijmspoor van een slak",
       "artBrief": "Een slak op een blad met een glanzend spoor erachter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat laat een slak achter op de grond?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De stekels van een egel",
       "artBrief": "Een egel die zich tot een stekelige bal heeft opgerold.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom heeft een egel stekels?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Geluid kaatst in een schelp",
       "artBrief": "Een grote schelp bij een oor, met fijne geluidsgolven in de opening.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom hoor je de zee in een schelp?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Mieren tillen veel",
       "artBrief": "Een mier die een blad draagt dat veel groter is dan zijzelf.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel keer hun eigen gewicht kan een mier dragen?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Vogels claimen hun gebied",
       "artBrief": "Een zingende merel op een tak in vroeg ochtendlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zingen vogels vroeg in de ochtend?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Jaarringen",
       "artBrief": "Een doorgezaagde boomstam met duidelijk zichtbare jaarringen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom heeft een boomstam ringen?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "IJs drijft",
       "artBrief": "Een ijsschots die drijft in donker water met een deel onder water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom drijft een ijsschots op water?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Een halo om de maan",
       "artBrief": "Een grote lichtkring om de volle maan in een ijzige nacht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zit er soms een grote lichtkring om de maan?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Walvisgezang",
       "artBrief": "Een bultrug die zingt in diep blauw water met zichtbare geluidsgolven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zingen bultruggen lange liederen?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Roze meren",
       "artBrief": "Een fel roze zoutmeer met witte zoutranden vanuit de lucht gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is het water van sommige meren knalroze?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Sprites boven onweer",
       "artBrief": "Rode lichtflitsen hoog boven een onweerswolk in de nachtelijke hemel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zijn sprites boven een onweerswolk?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Dolfijnen slapen met één hersenhelft",
       "artBrief": "Een dolfijn die rustig net onder het wateroppervlak zweeft bij maanlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe slapen dolfijnen zonder te verdrinken?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "De Bermudadriehoek",
       "artBrief": "Een kaartachtige zee met mist en een klein schip, driehoekige vorm in het water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de Bermudadriehoek?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De oudste bomen",
       "artBrief": "Een eeuwenoude gedraaide den op een kale bergrug.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe oud kan de oudste boom ter wereld zijn?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Monarchvlinders vinden hun bos",
       "artBrief": "Duizenden oranje vlinders op dennentakken in een bergbos.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vinden monarchvlinders een bos dat ze nooit zagen?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Zeshoekige basaltzuilen",
       "artBrief": "Een kust van perfect zeshoekige donkere zuilen bij de zee.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe ontstaan perfect zeshoekige rotszuilen?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De bloedwaterval",
       "artBrief": "Een roodgekleurde waterstroom die uit een witte gletsjer loopt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom loopt er in Antarctica een rode waterval uit het ijs?",

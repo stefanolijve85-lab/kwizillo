@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Zeilschepen in de ontdekkingstijd",
       "artBrief": "Een driemaster met bolle zeilen op open zee onder een hoge wolkenlucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee reisden ontdekkingsreizigers over zee?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Het kraaiennest",
       "artBrief": "Een matroos hoog in de mast die met de hand boven de ogen naar de horizon tuurt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat deed een matroos in het kraaiennest?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Scheepsproviand",
       "artBrief": "Houten tonnen met gedroogd vlees, beschuit en gedroogde vruchten in een scheepsruim.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat nam een schip mee om te eten?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "De kapitein",
       "artBrief": "Een kapitein met steek en verrekijker aan het roer van een zeilschip.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet degene die de baas is op een schip?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Zeilen hijsen",
       "artBrief": "Matrozen die met touwen een groot wit zeil omhoog trekken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat hijsen matrozen in de mast?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Citrus tegen scheurbuik (James Lind, 1747)",
       "artBrief": "Een mand met citroenen en limoenen op een scheepsdek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom namen schepen later citroenen mee?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De Zijderoute",
       "artBrief": "Een karavaan kamelen die door een bergpas trekt met balen zijde.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat was de Zijderoute?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De VOC, opgericht in 1602",
       "artBrief": "Pakhuizen aan een haven met schepen en kisten met specerijen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat was de VOC?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Reisduur naar Indië: acht maanden",
       "artBrief": "Een wereldkaart met een lange vaarroute rond Afrika naar Azië.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang duurde een reis naar Indië ongeveer?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Windstilte op zee",
       "artBrief": "Een zeilschip met slappe zeilen op een spiegelgladde zee.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurde er bij windstilte op zee?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Leif Eriksson bereikte Vinland rond het jaar 1000",
       "artBrief": "Een vikingschip dat aan een rotsige, beboste kust aanlegt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie bereikte lang voor Columbus al Amerika?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Jeanne Baret voer in 1766 vermomd mee",
       "artBrief": "Een botanist met plantenpers en verzamelde planten aan dek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie voer vermomd als man mee op een ontdekkingsreis?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "De Columbiaanse uitwisseling",
       "artBrief": "Aardappels, tomaten en maïs op een tafel naast een oude zeekaart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk eten brachten ontdekkingsreizigers uit Amerika mee?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Pokken in Amerika na 1492",
       "artBrief": "Een historische prent van een dorp met zieken, ingetogen en niet luguber.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke ziekte namen Europeanen mee naar Amerika?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "HMS Beagle, reis 1831-1836",
       "artBrief": "Een klein zeilschip voor een rotsige kust met zeeleeuwen en vogels.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Op welk schip voer Darwin de wereld rond?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Van Magellaans vijf schepen keerde alleen de Victoria terug",
       "artBrief": "Eén gehavend schip dat een haven binnenvaart, met lege ligplaatsen ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel van Magellaans vijf schepen kwamen terug?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Zheng He voer vanaf 1405 met enorme vloten",
       "artBrief": "Een reusachtig Chinees schat-schip naast kleinere Europese karvelen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Chinese vloot voer al in 1405 naar Afrika?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Het logboek met knopenlijn",
       "artBrief": "Een matroos die een lijn met knopen over de achtersteven laat lopen met een zandloper.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe maten zeelieden vroeger hun snelheid?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De Noordwestelijke Doorvaart",
       "artBrief": "Een schip tussen ijsschotsen langs een kale noordelijke kust.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat was de Noordwestelijke Doorvaart?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Amelia Earhart verdween in 1937",
       "artBrief": "Een klein tweemotorig vliegtuig boven een eindeloze oceaan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vliegenier verdween in 1937 boven de Stille Oceaan?",

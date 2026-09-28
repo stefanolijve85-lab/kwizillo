@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Ridders te paard",
       "artBrief": "Een ridder in harnas op een paard met sierdekens, voor een kasteelpoort.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk dier hoorde bij een ridder?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Het ridderzwaard",
       "artBrief": "Een zwaard met versierd gevest dat aan een riem hangt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk wapen droeg een ridder aan zijn zij?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Vlaggen op kasteeltorens",
       "artBrief": "Een kasteeltoren met een wapperende wimpel tegen een blauwe lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat wappert er vaak boven op een kasteeltoren?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Middeleeuws dagelijks eten",
       "artBrief": "Een houten tafel met donker brood, een kom pap en een kruik.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat aten gewone mensen in de middeleeuwen vooral?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De grote zaal als slaapplek",
       "artBrief": "Een grote zaal met haardvuur waar knechten op stro langs de muren slapen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar sliepen de knechten in een kasteel?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Een volledig harnas woog 20-30 kg",
       "artBrief": "Een harnas op een standaard in een wapenkamer, met helm ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe zwaar was een compleet harnas ongeveer?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Wenteltrappen met de klok mee",
       "artBrief": "Een smalle stenen wenteltrap die rechtsom omhoog draait.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom draaiden kasteeltrappen meestal rechtsom?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Het valhek in de poort",
       "artBrief": "Een zwaar houten hek met ijzeren punten boven een kasteelpoort.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een valhek?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "De hofnar",
       "artBrief": "Een nar met belletjesmuts die het gezelschap aan een lange tafel vermaakt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat deed een hofnar?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De waterput binnen de muren",
       "artBrief": "Een ronde stenen put op een binnenplaats met emmer en touw.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom had elk kasteel een put binnen de muren?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Page op zijn zevende, ridder rond zijn eenentwintigste",
       "artBrief": "Drie figuren naast elkaar: een jonge page, een schildknaap en een ridder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang duurde de opleiding tot ridder?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Belegeringen",
       "artBrief": "Tenten en soldaten rond een kasteel op een heuvel, met belegeringstuig.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat was een belegering?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "De kruisboog",
       "artBrief": "Een kruisboog met opgespannen pees en een korte, dikke pijl ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk wapen kon zelfs een harnas doorboren?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Kantelen op de weergang",
       "artBrief": "De bovenkant van een kasteelmuur met afwisselend hoge en lage stukken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor dienden de kantelen op een kasteelmuur?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Geletterdheid in de middeleeuwen",
       "artBrief": "Een monnik die in een klooster een boek overschrijft bij kaarslicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie konden er in de middeleeuwen meestal lezen?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Magna Carta, 1215",
       "artBrief": "Een perkamentrol met zegels op een tafel tussen edelen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk document beperkte in 1215 de macht van de koning?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Motte-en-bailey",
       "artBrief": "Een houten toren op een kunstmatige heuvel met een omheind voorterrein.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe zag het eerste soort kasteel eruit?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De trebuchet met tegengewicht",
       "artBrief": "Een groot houten werptuig met een zware bak aan de korte arm.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee slingerde een trebuchet zijn stenen weg?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Langdurige belegeringen",
       "artBrief": "Een belegeringskamp in de sneeuw rond een kasteel, maanden later.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang kon een belegering duren?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Kanonnen maakten hoge muren kwetsbaar",
       "artBrief": "Een kanon dat vuurt op een kasteelmuur waar brokken uit vallen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom verdwenen kastelen na ongeveer 1450?",

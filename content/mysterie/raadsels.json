@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Bladeren die geen boom zijn",
       "artBrief": "Een oude houten tafel met een leeslampje en een gesloten koffer, mysterieus licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik heb bladeren, maar ben geen boom. Wat ben ik?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Een staart zonder dier",
       "artBrief": "Een lentehemel met wolken en een lang lint dat in de wind danst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik heb een staart, maar ben geen dier. Wat ben ik?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Een hoed zonder hoofd",
       "artBrief": "Een mistig bos met mos, varens en gefilterd zonlicht op de bosgrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik heb een hoed, maar geen hoofd. Wat ben ik?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Vol gaten en toch vol water",
       "artBrief": "Een glanzend aanrecht met schuim en waterdruppels in het licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik zit vol gaten en houd toch water vast. Wat ben ik?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Het volgt je altijd",
       "artBrief": "Een zonnig plein met lange donkere strepen over de stenen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik volg je overal, maar raak je nooit aan. Wat ben ik?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Hoe meer je neemt, hoe meer je achterlaat",
       "artBrief": "Een leeg zandstrand bij zonsopkomst met een spoor dat de verte in loopt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe meer je ervan neemt, hoe meer je achterlaat. Wat is het?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Korter als het werkt",
       "artBrief": "Een donkere kamer met een warme gloed op een tafelkleed.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik word korter terwijl ik werk en ik geef licht. Wat ben ik?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Een bed zonder slaper",
       "artBrief": "Een rivierdal van boven gezien, met bochten tussen groene oevers.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik heb een bed, maar slaap nooit. Wat ben ik?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Omhoog en omlaag zonder te bewegen",
       "artBrief": "Een stenen trappenhuis in een oud gebouw, van onderaf gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik ga omhoog en omlaag, maar beweeg zelf niet. Wat ben ik?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Een kop die niet drinkt",
       "artBrief": "Een werkbank met houtkrullen, een hamer en een pot met ijzerwerk.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik heb een kop, maar drink nooit. Wat ben ik?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Links wel, rechts nooit",
       "artBrief": "Twee open handen naar elkaar toe boven een tafel, in zacht licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat kun je in je linkerhand houden, maar nooit in je rechter?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Altijd vooruit en toch onzichtbaar",
       "artBrief": "Een lange weg die in de ochtendmist verdwijnt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik ben altijd voor je, maar je kunt me nooit zien. Wat ben ik?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Breekt zodra je het noemt",
       "artBrief": "Een lege bibliotheekzaal met stofdeeltjes in een lichtstraal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik breek zodra je mijn naam uitspreekt. Wat ben ik?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Zeventien schapen",
       "artBrief": "Een donkere kamer met een warme oranje gloed op de muren en wat rook in de lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Ik ben altijd hongerig en ga dood als ik drink. Wat ben ik?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Een kilo tegen een kilo",
       "artBrief": "Een ouderwetse balansweegschaal met twee gesloten zakken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat weegt meer: een kilo veren of een kilo steen?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Drie vissers, drie vissen",
       "artBrief": "Drie hengels op een steiger bij zonsopkomst boven stil water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Twee vaders en twee zonen vangen elk één vis, samen drie. Hoe kan dat?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Drie van de vijf",
       "artBrief": "Kinderen op een schoolplein die naar elkaar roepen, van achteren gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Het is van jou, maar anderen gebruiken het veel vaker dan jij. Wat is het?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De slak en de put",
       "artBrief": "Een oude stenen put met mos en een touw dat in het donker verdwijnt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Een slak klimt drie meter per dag en zakt 's nachts twee. Hoeveel dagen tot tien meter?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Vier, twee en drie poten",
       "artBrief": "Een zandpad bij zonsopkomst met een lange schaduwstreep en een wandelstok tegen een steen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat loopt 's ochtends op vier poten, 's middags op twee en 's avonds op drie?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Hoe meer ervan, hoe minder je ziet",
       "artBrief": "Een kamer waarin een kaars net is gedoofd, met rook in de lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe meer er van mij is, hoe minder je ziet. Wat ben ik?",

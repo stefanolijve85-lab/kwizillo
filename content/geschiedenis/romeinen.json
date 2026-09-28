@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Rome als hoofdstad",
       "artBrief": "Het Forum Romanum met tempels en zuilen in fel zonlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke stad was de hoofdstad van het Romeinse Rijk?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "De toga",
       "artBrief": "Een Romein in een witte toga met rode zoom op een pleintje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een toga?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Wagenrennen",
       "artBrief": "Een tweewielige strijdwagen met vier paarden in een arena vol zand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat trokken de paarden in de Romeinse arena?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Rome ligt in Italië",
       "artBrief": "Een kaartachtig landschap van de Italiaanse laars met Rome gemarkeerd.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk land ligt Rome?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Gladiatoren",
       "artBrief": "Twee gladiatoren met schild en helm in een arena, publiek op de tribunes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie waren de gladiatoren?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De Romeinse villa",
       "artBrief": "Een groot landhuis met zuilen, binnentuin en fontein op het platteland.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat was een Romeinse villa?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Leren sandalen",
       "artBrief": "Romeinse legersandalen met riempjes en spijkers onder de zool.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat droegen Romeinen aan hun voeten?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Slaven deden het zware werk",
       "artBrief": "Mensen die water dragen en de vloer boenen in een Romeins huis.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie deden het zwaarste werk in een Romeins huis?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De amfoor",
       "artBrief": "Rijen grote kleikruiken met puntige bodem in een voorraadkelder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat was een amfoor?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Keizer Augustus",
       "artBrief": "Een marmeren borstbeeld van Augustus met lauwerkrans.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heette de eerste keizer van Rome?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Romeins beton",
       "artBrief": "Een halfgebouwde koepel met steigers en emmers mortel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding liet Romeinen enorme koepels bouwen?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Saturnalia",
       "artBrief": "Een winterfeest met kaarsen, kransen en kleine cadeautjes op tafel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk Romeins feest vierde men midden in de winter?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Vesta en het heilige vuur",
       "artBrief": "Een ronde tempel met een altaarvuur en priesteressen in het wit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke godin bewaakte een vuur dat nooit uit mocht?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "De achtdaagse Romeinse week",
       "artBrief": "Een marktplein met kramen op de marktdag, met een kalendersteen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel dagen telde de oude Romeinse week?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "476: het einde van het West-Romeinse Rijk",
       "artBrief": "Een verlaten Romeinse stadspoort met overwoekerde zuilen bij avondlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk jaar viel het West-Romeinse Rijk?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De Via Appia",
       "artBrief": "Een rechte weg van grote platte stenen tussen pijnbomen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heette de beroemdste Romeinse hoofdweg?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Hannibal over de Alpen",
       "artBrief": "Olifanten en soldaten op een besneeuwd bergpad.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke generaal trok met olifanten over de Alpen?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Hypocaustum: vloerverwarming",
       "artBrief": "Een doorsnede van een vloer op stapeltjes steen met warme lucht eronder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe verwarmden rijke Romeinen hun huis?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Een miljoen inwoners",
       "artBrief": "Een drukke Romeinse straat met hoge huurblokken en veel mensen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel mensen woonden er rond het jaar 100 in Rome?",
