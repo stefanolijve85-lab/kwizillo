@@ -114,7 +114,13 @@
     const f=K.app.querySelector('.game-frame');
     if(!m||!f){K.pendingUnlocks=[];return false}
     K.pendingUnlocks=K.pendingUnlocks.slice(1);
-    const art=K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id];
+    // De hele portretplaat in een lijst, niet de uitgesneden tegel: het masker
+    // van macOS laat bij sommige buddy's een stuk achtergrond staan (terra hield
+    // een pluk gras vast) of snijdt er juist iets af (milo's voet). In het
+    // raster is de uitsnede nodig — daar staan er dertien naast elkaar en moet
+    // elke kaart dezelfde vorm hebben — maar hier staat er één, groot, en dan
+    // is de eigen plaat heel netjes.
+    const art=K.MASCOT_ART[m.id]||K.MASCOT_TILE[m.id];
     const el=document.createElement('div');
     el.className='mascot-unlock';
     el.innerHTML=`<div class="mascot-unlock-card">

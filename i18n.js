@@ -539,6 +539,14 @@
     'track.play':'Spelletjes',
 
     'intro.skip':'Intro overslaan',
+    'welcome.back.title':'Hoi {name}!',
+    'welcome.back.sub':'Klaar om verder te spelen?',
+    'welcome.back.continue':'Verder spelen',
+    'welcome.back.other':'Iemand anders speelt',
+    'welcome.back.where':'Je was hier gebleven',
+    'welcome.pick.title':'Wie speelt er?',
+    'welcome.pick.new':'Nieuwe speler',
+    'welcome.pick.back':'Terug',
     'intro.tapToStart':'Tik om te starten',
     'intro.tapForSound':'Tik voor geluid'
   };
@@ -1078,6 +1086,14 @@
     'track.play':'Games',
 
     'intro.skip':'Skip intro',
+    'welcome.back.title':'Hi {name}!',
+    'welcome.back.sub':'Ready to carry on?',
+    'welcome.back.continue':'Keep playing',
+    'welcome.back.other':'Someone else is playing',
+    'welcome.back.where':'You left off here',
+    'welcome.pick.title':'Who is playing?',
+    'welcome.pick.new':'New player',
+    'welcome.pick.back':'Back',
     'intro.tapToStart':'Tap to start',
     'intro.tapForSound':'Tap for sound'
   };
@@ -1617,6 +1633,14 @@
     'track.play':'Jogos',
 
     'intro.skip':'Pular introdução',
+    'welcome.back.title':'Oi, {name}!',
+    'welcome.back.sub':'Pronto para continuar?',
+    'welcome.back.continue':'Continuar jogando',
+    'welcome.back.other':'Outra pessoa vai jogar',
+    'welcome.back.where':'Você parou aqui',
+    'welcome.pick.title':'Quem vai jogar?',
+    'welcome.pick.new':'Novo jogador',
+    'welcome.pick.back':'Voltar',
     'intro.tapToStart':'Toque para começar',
     'intro.tapForSound':'Toque para ouvir'
   };

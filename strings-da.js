@@ -537,6 +537,14 @@
     'track.play':'Spil',
 
     'intro.skip':'Spring introen over',
+    'welcome.back.title':'Hej {name}!',
+    'welcome.back.sub':'Klar til at spille videre?',
+    'welcome.back.continue':'Spil videre',
+    'welcome.back.other':'En anden spiller',
+    'welcome.back.where':'Her slap du',
+    'welcome.pick.title':'Hvem spiller?',
+    'welcome.pick.new':'Ny spiller',
+    'welcome.pick.back':'Tilbage',
     'intro.tapToStart':'Tryk for at starte',
     'intro.tapForSound':'Tryk for lyd'
   };

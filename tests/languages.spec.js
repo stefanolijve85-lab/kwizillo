@@ -26,6 +26,7 @@ for (const lang of LANGS) {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await page.locator('.motion').click();
     await page.locator('.motion').click().catch(() => {});
+    await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
     await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });
 
     await page.locator('[data-world="wetenschap"]').first().click();

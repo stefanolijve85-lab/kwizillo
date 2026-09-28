@@ -140,6 +140,63 @@
     try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY) }catch(e){}
   };
 
+  /* ---------------- Meer dan één speler op één toestel ---------------- */
+
+  // Broertjes, zusjes, een vriendje op bezoek: op één tablet spelen er meer.
+  // Naast de huidige speler (KEY) staat hier een kast met de anderen, op naam.
+  // Wisselen legt de huidige speler in de kast en haalt de ander eruit, zodat
+  // niemands voortgang verdwijnt door een ander die even wil spelen.
+  const PLAYERS_KEY='kwizillo-players';
+  const nameKey=n=>String(n||'').trim().toLowerCase();
+  const readPlayers=()=>{ const v=read(PLAYERS_KEY); return v&&typeof v==='object'?v:{} };
+  const writePlayers=m=>{ try{ localStorage.setItem(PLAYERS_KEY,JSON.stringify(m)) }catch(e){} };
+
+  K.players={
+    // De huidige speler in de kast leggen (of bijwerken). Zonder naam gebeurt
+    // er niets: een spel dat nog in de onboarding zit hoort er nog niet in.
+    stash(){
+      const key=nameKey(K.state.name);
+      if(!key) return false;
+      const all=readPlayers();
+      all[key]={savedAt:Date.now(),state:clone(K.state)};
+      writePlayers(all);
+      return true;
+    },
+    // Iedereen behalve wie er nu speelt, nieuwste eerst.
+    others(){
+      const me=nameKey(K.state.name);
+      return Object.entries(readPlayers())
+        .filter(([k,v])=>k!==me&&v&&v.state&&v.state.name)
+        .sort((a,b)=>(b[1].savedAt||0)-(a[1].savedAt||0))
+        .map(([k,v])=>({key:k,name:v.state.name,savedAt:v.savedAt||0,state:v.state}));
+    },
+    has(name){ return !!readPlayers()[nameKey(name)] },
+    // Terughalen: de huidige speler gaat eerst de kast in, dan neemt de ander
+    // het over. Geeft false als die naam er niet is.
+    load(name){
+      const rec=readPlayers()[nameKey(name)];
+      if(!rec||!rec.state) return false;
+      K.players.stash();
+      K.state=migrate(rec.state);
+      K.save();
+      return true;
+    },
+    // Een nieuwe speler begint blanco, maar wel in dezelfde taal: die is op het
+    // toestel gekozen en hoeft niet opnieuw.
+    startFresh(){
+      K.players.stash();
+      const lang=K.state.language;
+      K.state=clone(DEFAULTS);
+      K.state.language=lang;
+      K.save();
+    },
+    forget(name){
+      const all=readPlayers();
+      delete all[nameKey(name)];
+      writePlayers(all);
+    }
+  };
+
   // "Erase all data" in the parent zone: every key this app ever writes goes,
   // including the fresh-start choice and the cached App Store entitlement, so
   // nothing of the child is left on the device. A bought Premium lives with the

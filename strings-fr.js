@@ -538,6 +538,14 @@
     'track.play':'Jeux',
 
     'intro.skip':'Passer l’intro',
+    'welcome.back.title':'Salut {name} !',
+    'welcome.back.sub':'Prêt à continuer ?',
+    'welcome.back.continue':'Continuer à jouer',
+    'welcome.back.other':'Quelqu’un d’autre joue',
+    'welcome.back.where':'Tu t’étais arrêté ici',
+    'welcome.pick.title':'Qui joue ?',
+    'welcome.pick.new':'Nouveau joueur',
+    'welcome.pick.back':'Retour',
     'intro.tapToStart':'Touche pour commencer',
     'intro.tapForSound':'Touche pour le son'
   };

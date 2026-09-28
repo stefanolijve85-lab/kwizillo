@@ -51,6 +51,9 @@ async function tapThroughIntro(page) {
   await expect(motion).toBeVisible({ timeout: 8000 });
   await motion.click();
   await motion.click().catch(() => {});
+  // Wie al een naam heeft komt na de film op het terugkeerscherm uit
+  // (welcome-back.js); "Verder spelen" brengt hem op Home.
+  await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
 }
 
 // Answers n questions. `correct` picks the right tile (needed to pass a level);
@@ -166,7 +169,8 @@ test('all six worlds open with local art and four topics', async ({ page }) => {
     await expect(page.locator('#worldMix')).toBeVisible();
 
     const src = await page.locator('.native-world-bg').getAttribute('src');
-    expect(src).toBe(`assets/worlds/${key}.jpg`);
+    // Achter het pad hangt een versiemerk (?v20) tegen oude browsercache.
+    expect(src.split('?')[0]).toBe(`assets/worlds/${key}.jpg`);
     expect(src).not.toMatch(/^https?:/);
 
     await page.getByRole('button', { name: 'Terug naar home' }).click();
@@ -245,7 +249,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
 
   await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
-  await expect(page.locator('.progress-world')).toHaveCount(6);
+  await expect(page.locator('.progress-world')).toHaveCount(8);
   await page.getByRole('button', { name: /Kaarten/ }).click();
   await expect(page.locator('.kcard')).toHaveCount(2);
   // Every card carries its question's own illustration and opens large on tap.
@@ -260,7 +264,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
 
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
   await expect(page.locator('.stat-orb b')).toHaveText('75%');
-  await expect(page.locator('.world-stat-list article')).toHaveCount(6);
+  await expect(page.locator('.world-stat-list article')).toHaveCount(8);
 
   await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
   await expect(page.locator('.settings-list')).toBeVisible();
@@ -780,7 +784,7 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390
     const overflow = async () => page.evaluate(() =>
       document.documentElement.scrollWidth > document.documentElement.clientWidth);
 
-    await expect(page.locator('.home-world')).toHaveCount(6);
+    await expect(page.locator('.home-world')).toHaveCount(8);
     expect(await overflow(), 'home overflows horizontally').toBe(false);
 
     // The longest world title ("Geschiedeniswereld") used to push the settings
@@ -944,8 +948,10 @@ test('a question whose picture would show the answer gets a related picture inst
   const shown = await page.locator('.quiz-art .art-main').getAttribute('src');
   const own = await page.evaluate(() => window.KWIZILLO_M1.questionArtFor('dieren-snelle_dieren-07'));
   expect(shown).not.toBe(own);
-  // …a neighbour of the same topic with an explanatory answer (the streamlined fish), not the cheetah topic art
-  expect(shown).toContain('dieren-snelle_dieren-04');
+  // …maar zijn eigen vraag-only plaat: getekend bij de vraag, zonder het
+  // antwoord erin (assets/questions/s/, zie answer-art.js en tools/safe-art.cjs).
+  // Vóór die platen er waren leende de vraag de plaat van een buurvraag.
+  expect(shown).toContain('assets/questions/s/dieren-snelle_dieren-07');
   await page.getByRole('button', { name: /Hint/ }).click();
   expect(await page.locator('.hint-visual img').getAttribute('src')).toBe(shown);
   await page.getByRole('button', { name: 'Hint sluiten' }).click();
@@ -965,7 +971,7 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
   await expect(rows.first().locator('.world-stat-best b')).toHaveText('0/10');   // best quiz, none played here
   await expect(rows.nth(1)).toContainText('1 van 4 quizzen gehaald · 25 punten');
   await page.locator('.native-bottom-nav [data-nav="collection"]').click();
-  await expect(page.locator('.progress-overall')).toContainText('Totaal 100 van 600 punten');
+  await expect(page.locator('.progress-overall')).toContainText('Totaal 100 van 800 punten');
   await expect(page.locator('.progress-world').first().locator('em')).toHaveText('75');
   // Passing the fourth space topic completes the world.
   await page.locator('.native-bottom-nav [data-nav="home"]').click();
@@ -974,7 +980,7 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
   await answerAll(page, 10, { correct: true });
   await expect(page.locator('.result-v2')).toBeVisible();
   await page.locator('#collectionBtn').click();
-  await expect(page.locator('.progress-overall')).toContainText('Totaal 125 van 600 punten');
+  await expect(page.locator('.progress-overall')).toContainText('Totaal 125 van 800 punten');
   await expect(page.locator('.progress-world').first()).toContainText('4 van 4 quizzen gehaald · 100 punten');
 });
 

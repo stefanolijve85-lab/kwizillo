@@ -23,6 +23,7 @@ async function boot(page) {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   for (let i = 0; i < 4 && !(await page.locator('.home').count()); i++) {
     await page.locator('.motion').click({ timeout: 4000 }).catch(() => {});
+    await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
     await page.waitForTimeout(700);
   }
   await expect(page.locator('.home')).toBeVisible({ timeout: 15000 });
@@ -69,7 +70,7 @@ test('an iPad in Split View falls back to the phone layout, full bleed', async (
   expect(Math.round(box.width)).toBe(507);
   expect(Math.round(box.height)).toBe(1194);
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--fit').trim())).toBe('1');
-  await expect(page.locator('.home-world')).toHaveCount(6);
+  await expect(page.locator('.home-world')).toHaveCount(8);
 });
 
 test('the phone layout is untouched: the frame is the screen, unscaled', async ({ page }) => {

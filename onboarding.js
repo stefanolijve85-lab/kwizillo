@@ -188,6 +188,9 @@
     };
   }
 
-  K.startOnboarding=stepLanguage;
+  // De eerste speler begint bij de taal. Een tweede kind op hetzelfde toestel
+  // slaat die over: de taal is al gekozen en staat niet bij dit kind maar bij
+  // de tablet. Dat begint dus bij zijn naam.
+  K.startOnboarding=({from}={})=>from==='name'?stepName():stepLanguage();
   K.needsOnboarding=()=>!K.state.onboardingComplete;
 })();

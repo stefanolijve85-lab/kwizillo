@@ -30,12 +30,13 @@ async function boot(page, state = {}) {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   for (let i = 0; i < 4 && !(await page.locator('.home').count()); i++) {
     await page.locator('.motion').click({ timeout: 4000 }).catch(() => {});
+    await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
     await page.waitForTimeout(700);
   }
   await expect(page.locator('.home')).toBeVisible({ timeout: 15000 });
 }
 
-const levels = page => page.evaluate(() => Object.fromEntries(['ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie'].map(w => [w, window.KWIZILLO_M1.worldLevel(w)])));
+const levels = page => page.evaluate(() => Object.fromEntries(window.KWIZILLO_M1.WORLDS.map(w => [w, window.KWIZILLO_M1.worldLevel(w)])));
 
 // Answers a whole ten-question quiz correctly.
 async function playPerfectQuiz(page) {
@@ -54,8 +55,8 @@ async function playPerfectQuiz(page) {
 
 test('a new player starts at level 1 in every world, and the tile says so', async ({ page }) => {
   await boot(page);
-  expect(await levels(page)).toEqual({ ruimte: 1, dieren: 1, aarde: 1, geschiedenis: 1, wetenschap: 1, mysterie: 1 });
-  await expect(page.locator('.home-world-level')).toHaveCount(6);
+  expect(await levels(page)).toEqual({ ruimte: 1, dieren: 1, aarde: 1, geschiedenis: 1, wetenschap: 1, mysterie: 1, kunst: 1, sport: 1 });
+  await expect(page.locator('.home-world-level')).toHaveCount(8);
   await expect(page.locator('[data-world="ruimte"] .home-world-level')).toHaveText('Niveau 1');
   // The quiz really runs at level 1: thirty seconds and every hint free.
   await page.locator('[data-world="ruimte"]').click();
@@ -102,8 +103,8 @@ test('the parent zone shows where every world stands', async ({ page }) => {
   await boot(page, { progress: { ...SAVED.progress, passed: atLevel('aarde', 3) } });
   await page.evaluate(() => window.KWIZILLO_M1.showParent());
   const row = page.locator('.world-levels .world-level-row span');
-  await expect(row).toHaveCount(6);
-  expect(await row.allInnerTexts()).toEqual(['1', '1', '3', '1', '1', '1']);
+  await expect(row).toHaveCount(8);
+  expect(await row.allInnerTexts()).toEqual(['1', '1', '3', '1', '1', '1', '1', '1']);
 });
 
 test('finishing a world at all six levels earns its golden card, with a celebration', async ({ page }) => {

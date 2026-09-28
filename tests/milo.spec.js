@@ -16,6 +16,7 @@ async function boot(page, state = SAVED(), tts) {
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }
 
@@ -25,6 +26,7 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   await page.route(TTS, route => { spoken.push(ttsPayload(route.request())); route.fulfill({ status: 503, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   const host = page.locator('.onboarding .milo-host');
   await expect(host).toHaveAttribute('data-pose', 'wave');
@@ -128,6 +130,7 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   await page.route(TTS, route => { spoken.push(ttsPayload(route.request())); route.fulfill({ status: 500, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   await page.getByRole('button', { name: /Nederlands/ }).click();
   await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
@@ -191,6 +194,7 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   await page.route(TTS, r => { tts.push(ttsPayload(r.request()).text); r.fulfill({ status: 500, body: '{}' }); });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   await page.getByRole('button', { name: /Nederlands/ }).click();
   const host = page.locator('.onboarding .milo-host');

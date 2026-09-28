@@ -114,6 +114,7 @@
     if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);el.querySelector('#introSound').textContent='▶ '+K.t('intro.tapToStart')});
   };
 
-  // First run goes to onboarding, returning players go straight to Home.
-  K.playIntro(()=>K.needsOnboarding()?K.startOnboarding():K.showHome());
+  // De eerste keer: de onboarding. Daarna: "Hoi Jan, verder spelen?" met wat er
+  // al gehaald is, of een andere speler. Zie welcome-back.js.
+  K.playIntro(()=>K.afterIntro?.()??(K.needsOnboarding()?K.startOnboarding():K.showHome()));
 })();

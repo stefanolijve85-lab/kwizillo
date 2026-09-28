@@ -537,6 +537,14 @@
     'track.play':'Игры',
 
     'intro.skip':'Пропустить заставку',
+    'welcome.back.title':'Привет, {name}!',
+    'welcome.back.sub':'Готов продолжить?',
+    'welcome.back.continue':'Играть дальше',
+    'welcome.back.other':'Играет кто-то другой',
+    'welcome.back.where':'Ты остановился здесь',
+    'welcome.pick.title':'Кто играет?',
+    'welcome.pick.new':'Новый игрок',
+    'welcome.pick.back':'Назад',
     'intro.tapToStart':'Нажми, чтобы начать',
     'intro.tapForSound':'Нажми, чтобы услышать'
   };

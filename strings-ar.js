@@ -714,6 +714,14 @@
     'track.play':'الألعاب',
 
     'intro.skip':'تخطَّ المقدمة',
+    'welcome.back.title':'مرحبًا {name}!',
+    'welcome.back.sub':'جاهز للمتابعة؟',
+    'welcome.back.continue':'تابع اللعب',
+    'welcome.back.other':'شخص آخر يلعب',
+    'welcome.back.where':'توقّفت هنا',
+    'welcome.pick.title':'من يلعب؟',
+    'welcome.pick.new':'لاعب جديد',
+    'welcome.pick.back':'رجوع',
     'intro.tapToStart':'اضغط للبدء',
     'intro.tapForSound':'اضغط لتشغيل الصوت'
   };

@@ -22,6 +22,7 @@ async function boot(page, state = {}) {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   for (let i = 0; i < 4 && !(await page.locator('.home').count()); i++) {
     await page.locator('.motion').click({ timeout: 4000 }).catch(() => {});
+    await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
     await page.waitForTimeout(700);
   }
   await expect(page.locator('.home')).toBeVisible({ timeout: 15000 });
@@ -105,6 +106,7 @@ test('Arabic speaks Arabic: the guide asks for the Arabic voice and numbers are 
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   for (let i = 0; i < 4 && !(await page.locator('.home').count()); i++) {
     await page.locator('.motion').click({ timeout: 4000 }).catch(() => {});
+    await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
     await page.waitForTimeout(700);
   }
   await expect(page.locator('.home')).toBeVisible({ timeout: 15000 });
