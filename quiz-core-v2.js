@@ -93,7 +93,9 @@
   const SUBJECT_ART=[
     ['dissolve',/\b(oplossen|opgelost|oplost|suiker|dissolve|dissolves|dissolving|sugar)\b/],
     ['light',/\b(schaduw|schaduwen|spiegel|shadow|shadows|mirror)\b/],
-    ['body',/\b(spier|spieren|orgaan|organen|hersenen|skelet|bloedvaten|muscle|muscles|organ|organs|skeleton)\b/],
+    // "orgaan/organ" is deliberately not in this list: a church organ is not a
+    //  body part, and the word alone sent kunst-muziek to the anatomy picture.
+    ['body',/\b(spier|spieren|hersenen|skelet|bloedvaten|muscle|muscles|skeleton)\b/],
     ['castle',/\b(ridder|ridders|kasteel|kastelen|middeleeuws|middeleeuwse|harnas|slotgracht|knight|knights|castle|castles|medieval|armour)\b/]
   ];
   function questionArtKind(q){
