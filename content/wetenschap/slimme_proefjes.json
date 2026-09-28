@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Lucht duwt een ballon vooruit",
       "artBrief": "Een opgeblazen ballon die door een kamer suist met een luchtstreep erachter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er als je een opgeblazen ballon loslaat?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Hout drijft",
       "artBrief": "Een stuk hout dat drijft in een glazen bak water, een steen ernaast op de bodem.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat blijft drijven op water?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Water wordt ijs",
       "artBrief": "Een glas water half bevroren in een vriesvak met rijp.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met water in de vriezer?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "De magneet",
       "artBrief": "Een staafmagneet die een tros spijkers optilt boven een tafel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee pak je spijkers op zonder ze aan te raken?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Zwart wordt het snelst warm",
       "artBrief": "Een zwart en een wit lapje naast elkaar in de zon, met een thermometer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke kleur wordt in de zon het snelst warm?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Een schip heeft veel lucht",
       "artBrief": "Een doorsnede van een schip vol lucht naast een zinkende spijker.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zinkt een spijker maar drijft een groot schip?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Zeep breekt de oppervlaktespanning",
       "artBrief": "Peperkorrels op water die naar de rand schieten als er zeep bij komt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er als je zeep bij peper op water doet?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Rodekoolsap als indicator",
       "artBrief": "Drie glazen rodekoolsap in paars, roze en groen naast elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet rodekoolsap als je er azijn bij doet?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Warme lucht stijgt",
       "artBrief": "Een ei in een glas azijn met belletjes op de schaal, ernaast een doorzichtig ei zonder schaal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met een ei dat een dag in azijn ligt?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Licht breekt in water",
       "artBrief": "Een rietje in een glas water dat geknikt lijkt op het wateroppervlak.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe ziet een rietje eruit dat schuin in een glas water staat?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Eén ding tegelijk veranderen",
       "artBrief": "Twee identieke plantjes, één met meer water, met labels zonder tekst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom verander je bij een proef maar één ding tegelijk?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Oppervlaktespanning draagt een paperclip",
       "artBrief": "Een paperclip die op het wateroppervlak ligt met een deukje in het water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom drijft een paperclip als je hem voorzichtig neerlegt?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Een appel wordt bruin",
       "artBrief": "Een halve appel die aan de snijkant bruin verkleurt naast een verse helft.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom wordt een doorgesneden appel bruin?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "De eiproef",
       "artBrief": "Twee eieren in een glas water: één op de bodem, één omhoog gekanteld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe zie je of een ei nog vers is?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Suiker lost sneller op in heet water",
       "artBrief": "Twee glazen water, één dampend, met suikerkorrels die verdwijnen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet suiker in heet water vergeleken met koud?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "De controlegroep",
       "artBrief": "Twee rijen potjes, één rij behandeld en één rij onbehandeld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een controlegroep in een proef?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Luchtdruk duwt door een rietje",
       "artBrief": "Een glas limonade met een rietje en pijltjes die de luchtdruk tonen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom komt limonade omhoog als je door een rietje zuigt?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Damp wordt druppeltjes",
       "artBrief": "Een dampende kop thee met kleine condensdruppels in de lucht erboven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de witte damp boven een kop thee?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Lakmoespapier",
       "artBrief": "Strookjes indicatorpapier die rood en blauw kleuren naast twee bekers.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een lakmoespapiertje?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De snelkookpan",
       "artBrief": "Een snelkookpan met gesloten deksel en stoom bij het ventiel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom koken aardappels sneller in een snelkookpan?",

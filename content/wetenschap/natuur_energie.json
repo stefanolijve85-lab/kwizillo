@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Zonnepanelen vangen licht",
       "artBrief": "Blauwe zonnepanelen op een dak in fel zonlicht, met de zon erboven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zetten zonnepanelen om in stroom?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Licht uitdoen bespaart energie",
       "artBrief": "Een hand die een lichtschakelaar omlaag doet in een lege kamer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat kun je thuis doen om energie te besparen?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Benzine in een gewone auto",
       "artBrief": "Een tankpistool in de tankopening van een auto bij een pomp.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke brandstof gaat er in een gewone auto?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Stroom uit het stopcontact",
       "artBrief": "Een stekker die in een stopcontact gaat, met een klein vonkje licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat komt er uit een stopcontact?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Elektrisch rijden zonder uitlaat",
       "artBrief": "Een elektrische auto aan een laadpaal in een groene straat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke auto rijdt zonder uitlaatgassen?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Op zee waait het harder",
       "artBrief": "Een rij windmolens in zee met schuimende golven eronder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zetten we windmolens op zee?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Een gloeilamp wordt heet",
       "artBrief": "Een gloeilamp met gloeiende draad naast een koele ledlamp.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met een gloeilamp die brandt?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Dubbel glas houdt warmte binnen",
       "artBrief": "Een doorsnede van een raam met twee glasplaten en lucht ertussen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet dubbel glas in een raam?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Aardgas komt diep uit de bodem",
       "artBrief": "Een boortoren met een doorsnede van gesteentelagen en een gasbel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar komt aardgas vandaan?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De fietsdynamo",
       "artBrief": "Een dynamo tegen een draaiend fietswiel, met het voorlicht aan.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een dynamo op een fiets?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Te weinig of te veel wind",
       "artBrief": "Een windmolen met stilstaande wieken tijdens een storm.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom staan windmolens soms stil?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "De kilowattuur",
       "artBrief": "Een slimme meter met een oplopend cijferdisplay in een meterkast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat meet een kilowattuur?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Hout groeit weer aan",
       "artBrief": "Jonge boompjes naast een stapel gezaagd haardhout.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom heet hout een hernieuwbare brandstof?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Kernsplijting",
       "artBrief": "Een gestileerd atoom dat in twee stukken uiteenvalt met een lichtflits.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er in een kerncentrale?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Zonnepanelen op het zuiden",
       "artBrief": "Een dak met panelen en de baan van de zon als boog erboven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom liggen zonnepanelen vaak op het zuiden?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Een gloeilamp geeft vooral warmte",
       "artBrief": "Een warmtebeeld van een gloeiende lamp met rode en gele gloed.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel van de energie van een gloeilamp wordt licht?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De warmtepomp",
       "artBrief": "Een warmtepomp buiten aan een huis, met koude en warme luchtstromen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een warmtepomp?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Zonnepanelen bij bewolking",
       "artBrief": "Zonnepanelen onder een bewolkte lucht met diffuus licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom werkt een zonnepaneel ook bij bewolking?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Hoogspanning verliest minder",
       "artBrief": "Hoogspanningsmasten met kabels die door een landschap lopen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom gaat stroom met hoge spanning door het land?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Het stroomnet kan overbelast raken",
       "artBrief": "Een verdeelstation met veel kabels en een oplichtende meter.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er als iedereen tegelijk veel stroom gebruikt?",

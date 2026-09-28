@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "NASA — how rocket engines work",
       "artBrief": "Een raket vlak na het opstijgen, met een lange bundel oranje vlammen onderuit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat komt er onderuit een raket bij de lancering?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "NASA — launch countdown",
       "artBrief": "Een vluchtleidingszaal met schermen en mensen die gespannen naar een raket kijken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen mensen vlak voor een lancering?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "NASA — vertical launch configuration",
       "artBrief": "Een raket kaarsrecht op het platform, klaar voor vertrek, met de lanceertoren ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe staat een raket vlak voor het vertrek?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "NASA — payload fairing",
       "artBrief": "Een doorsnede van een raket met bovenin de lading en onderin de motoren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zit er bovenin een raket?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "NASA — propellant mass fraction",
       "artBrief": "Een doorsnede van een raket waarin het grootste deel brandstoftank is.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is een raket zo groot?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "NASA — payload fairing protects the cargo",
       "artBrief": "De puntige neus van een raket die opengaat en een satelliet vrijgeeft.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar is de puntige neus van een raket voor?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "NASA — rockets carry their own oxidiser",
       "artBrief": "Twee tanks naast elkaar in een raket, een met brandstof en een met vloeibare zuurstof.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom kan een raketmotor branden zonder lucht?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "NASA — the launch cloud is mostly water vapour",
       "artBrief": "Een enorme witte wolk onder een opstijgende raket, met waterleidingen op het platform.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waaruit bestaat de witte wolk bij een lancering vooral?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "SpaceX — Falcon 9 booster landing",
       "artBrief": "Een raket die rechtop op vier poten landt op een platform in zee.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe komt een herbruikbare raket weer terug?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "NASA — eastward launches use the earth's rotation",
       "artBrief": "De aarde van bovenaf met een raketbaan die met de draairichting mee naar het oosten buigt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom vertrekken raketten vaak naar het oosten?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "SpaceX — Starship is the tallest rocket ever built",
       "artBrief": "Een reusachtige zilveren raket naast kleinere raketten, om het verschil te tonen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de grootste raket van dit moment?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "NASA — reaction control thrusters",
       "artBrief": "Kleine gasstraaltjes aan de zijkant van een ruimteschip die het langzaam laten draaien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee draait een ruimteschip zich in de ruimte?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "ESA — geostationary orbit",
       "artBrief": "De aarde met een satelliet die precies boven hetzelfde punt blijft hangen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een satelliet in een geostationaire baan?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "ESA — Ariane 6 first flight, 2024",
       "artBrief": "Een Europese raket op het platform in de jungle van Frans-Guyana.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Europese raket volgde de Ariane 5 op?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "NASA — the gravity turn",
       "artBrief": "De baan van een raket die recht omhoog begint en langzaam naar opzij buigt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom buigt een raket na de start langzaam opzij?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "NASA — escape velocity is 11.2 km/s",
       "artBrief": "Een raket die de aarde verlaat met een baan die niet meer terugkomt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe snel moet je gaan om de aarde helemaal te verlaten?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "NASA — Perseverance launched on an Atlas V, 2020",
       "artBrief": "Een raket die opstijgt met een Marsverkenner in de neus.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Met welke raket vertrok de Marsverkenner Perseverance?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "NASA — gravity assist manoeuvres",
       "artBrief": "Een sonde die vlak langs een grote planeet scheert en er sneller vandaan schiet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe krijgt een sonde onderweg gratis snelheid?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "NASA — propellant is most of a rocket's launch mass",
       "artBrief": "Een raket halverwege de vlucht met een half lege tank, lichter dan bij het vertrek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom wordt een raket tijdens de vlucht steeds lichter?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Sputnik 1, 4 October 1957",
       "artBrief": "Een kleine glimmende bol met vier lange antennes boven de aarde.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heette de eerste satelliet om de aarde?",

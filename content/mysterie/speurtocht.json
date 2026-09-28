@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Het notitieboekje",
       "artBrief": "Een klein notitieboekje met potlood op een houten tafel, zonder tekst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat neem je mee om aanwijzingen op te schrijven?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "De zaklamp",
       "artBrief": "Een zaklamp die een bundel licht werpt in een donkere kelder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebruik je om in het donker te zoeken?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Sporen in de sneeuw",
       "artBrief": "Een rij afdrukken in verse sneeuw die naar de bosrand loopt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar let je op bij een spoor in de sneeuw?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Niet aanraken",
       "artBrief": "Een klein voorwerp op de grond met een markeringspion ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je als je iets belangrijks vindt?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De getuige",
       "artBrief": "Een kind dat door een raam naar buiten kijkt in de avond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een getuige?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Handschoenen bij sporenonderzoek",
       "artBrief": "Handen in dunne handschoenen die voorzichtig iets oppakken met een pincet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom draagt een speurder handschoenen?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Een aanwijzing bewaren",
       "artBrief": "Een prikbord met kaartjes en touwtjes die verbanden leggen, zonder tekst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je met een aanwijzing die je nog niet snapt?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De tijdlijn",
       "artBrief": "Een lange rij kaartjes op een tafel, op volgorde gelegd.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een tijdlijn in een onderzoek?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Bewijs in een zakje",
       "artBrief": "Een doorzichtig zakje met een klein voorwerp erin op een tafel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe bewaar je een gevonden voorwerp het beste?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Foto van een spoor",
       "artBrief": "Een camera die van dichtbij een afdruk in de modder fotografeert, met een liniaal ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom fotografeer je een spoor meteen?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Het anagram",
       "artBrief": "Letterblokjes die door elkaar liggen op een tafel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een anagram?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Het noodsignaal",
       "artBrief": "Een seinlamp op een schip die in het donker knippert.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is het bekendste noodsignaal in morse?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Twee getuigen, twee verhalen",
       "artBrief": "Twee mensen die vanaf verschillende kanten naar hetzelfde plein kijken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom vertellen twee getuigen soms iets anders?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Het pincet",
       "artBrief": "Een pincet die een piepklein draadje van een tafel tilt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee pakt een speurder een piepklein draadje op?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Het acrostichon",
       "artBrief": "Een geopend schriftje met regels tekst waarvan de eerste letters opvallen, onleesbaar klein.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet een boodschap in de eerste letters van elke regel?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Het palindroom",
       "artBrief": "Een spiegelend wateroppervlak met een symmetrische weerkaatsing van een brug.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een palindroom?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Vezels en haren",
       "artBrief": "Een vergrootglas boven een donkere stof met een lichte vezel erop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom bewaren speurders vezels en haren?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Onderzoek met erfelijk materiaal",
       "artBrief": "Een laboratorium met buisjes in een rek en een blauw oplichtend scherm.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waaraan kunnen speurders iemand herkennen bij één haar?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De koude zaak",
       "artBrief": "Een stoffige archiefdoos met oude mappen in een kelder.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een koude zaak?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De codemachine",
       "artBrief": "Een oude codemachine met toetsen en lampjes op een houten bureau.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke codemachine werd in de oorlog gekraakt?",

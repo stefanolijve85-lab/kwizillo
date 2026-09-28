@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Goud en juwelen",
       "artBrief": "Een open kist vol glinsterende gouden munten en edelstenen in fakkellicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een schat meestal in oude verhalen?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "De schatkist",
       "artBrief": "Een houten kist met ijzeren banden en een zwaar slot op een strand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarin bewaren piraten in verhalen hun schat?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "De schep",
       "artBrief": "Een schep die rechtop in verse aarde staat naast een kuil.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebruik je om een schat op te graven?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "De metaaldetector",
       "artBrief": "Iemand die met een metaaldetector over een akker loopt bij laag licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk apparaat piept bij metaal in de grond?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Duiken naar wrakken",
       "artBrief": "Een duiker met lamp bij een begroeid scheepswrak in blauw water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar zoeken duikers naar verborgen schatten?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Vondsten zijn beschermd",
       "artBrief": "Een afgezet opgravingsvak met touwtjes en genummerde paaltjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom mag je niet zomaar overal graven?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Melden bij een museum",
       "artBrief": "Een museumtafel met een klein oud voorwerp op een doek en witte handschoenen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je als je iets heel ouds in de tuin vindt?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De archeoloog",
       "artBrief": "Een archeoloog die met een kwastje aarde van een pot veegt in een opgravingsput.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een archeoloog?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Laag op laag",
       "artBrief": "Een dwarsdoorsnede van de bodem met muurresten in verschillende lagen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom liggen oude steden onder de grond?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Goud roest niet",
       "artBrief": "Een gouden munt die glanst naast een verroest stuk ijzer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat maakt goud zo bijzonder voor schatten?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "De grafheuvel",
       "artBrief": "Een groene ronde heuvel in een heidelandschap bij zonsopkomst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een grafheuvel?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Munten verraden de tijd",
       "artBrief": "Oude munten op een tafel met een vergrootglas erboven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zijn munten zo handig voor archeologen?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "De Dode Zeerollen",
       "artBrief": "Kleikruiken in een grotopening boven een kale woestijnvallei.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke oude rollen werden gevonden in grotten bij de Dode Zee?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "De Rosetta-steen",
       "artBrief": "Een donkere steen met ingekraste tekens in een museumvitrine.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de Rosetta-steen?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Schatten achter glas",
       "artBrief": "Een verlichte museumvitrine met een gouden voorwerp erin.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom staan schatten in een museum achter glas?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Het wrak van de Vasa",
       "artBrief": "Een enorm houten oorlogsschip uit de zeventiende eeuw in een museumhal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is de Vasa, die in 1961 werd opgetakeld?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Bewaard in het veen",
       "artBrief": "Een donker veenlandschap met een houten voorwerp half in de turf.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom blijven voorwerpen in veen zo goed bewaard?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De Barnsteenkamer",
       "artBrief": "Een zaal met wanden van warm oranje barnsteen en kaarslicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke beroemde kamer van barnsteen verdween in de oorlog?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De muntschat",
       "artBrief": "Een aarden pot op zijn kant waaruit zilveren munten rollen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een muntschat in de grond?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Een vondst melden",
       "artBrief": "Een vinder die een voorwerp overhandigt aan iemand met een formulier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat moet je in Nederland doen met een oude vondst?",

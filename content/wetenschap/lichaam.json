@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Vijf vingers per hand",
       "artBrief": "Een open kinderhand van dichtbij, met alle vijf vingers goed zichtbaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel vingers heeft één hand meestal?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Proeven met je tong",
       "artBrief": "Een close-up van een tong met honing en citroen ernaast op een schaaltje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee proef je of iets zoet is?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Slaap",
       "artBrief": "Een kind dat rustig slaapt in bed bij zacht nachtlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat heeft je lichaam elke nacht nodig?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Ruiken met je neus",
       "artBrief": "Een kind dat aan een bloem ruikt, met zichtbare geurwolkjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee ruik je?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Het hart in je borst",
       "artBrief": "Een silhouet van een kind met een gloeiend hart op de juiste plek in de borst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar in je lichaam zit je hart?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Je verliest steeds water",
       "artBrief": "Een glas water naast een bezweet kind na het sporten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom moet je elke dag drinken?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De maag kneedt eten",
       "artBrief": "Een doorsnede van een maag die voedsel tot brij kneedt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet je maag met het eten?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "Hartslag tijdens inspanning",
       "artBrief": "Een rennend kind met een hartslaglijn die sneller gaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er met je hartslag als je rent?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Tandenpoetsen tegen gaatjes",
       "artBrief": "Een tandenborstel met tandpasta voor een rij glanzende tanden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom moet je je tanden poetsen?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Rillen bij kou",
       "artBrief": "Een kind in de kou met een dikke jas, ademwolkjes zichtbaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet je lichaam als je het koud hebt?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Ongeveer vijf liter bloed",
       "artBrief": "Vijf gevulde flessen van een liter naast een silhouet van een mens.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel bloed heeft een volwassene ongeveer?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Het stijgbeugeltje",
       "artBrief": "Een enorm uitvergroot gehoorbeentje naast een muntje ter vergelijking.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk bot is het kleinste van je lichaam?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Twee ogen geven diepte",
       "artBrief": "Twee ogen die naar een bal kijken, met lijnen die samenkomen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom heb je twee ogen nodig?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Rode bloedcellen vervoeren zuurstof",
       "artBrief": "Rode bloedcellen die als schijfjes door een bloedvat stromen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doen rode bloedcellen?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Zenuwsignalen zijn razendsnel",
       "artBrief": "Een lichtflits die langs een zenuwbaan van hand naar hersenen schiet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe snel kan een zenuwsignaal reizen?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Ongeveer twintigduizend ademhalingen per dag",
       "artBrief": "Longen die uitzetten en krimpen, met een klok op de achtergrond.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak adem je ongeveer per dag?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De lever maakt gal",
       "artBrief": "De lever met de galblaas eronder, in warme kleuren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk orgaan maakt gal om vet te verteren?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Bloedcellen uit beenmerg",
       "artBrief": "Een doorsnede van een bot met rood merg in het midden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar worden nieuwe bloedcellen gemaakt?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De pupil laat licht binnen",
       "artBrief": "Een oog van heel dichtbij, met de pupil groot en klein.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet het zwarte rondje dat licht je oog in laat?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Het strotklepje sluit de luchtpijp",
       "artBrief": "Een doorsnede van de keel met het klepje dat de luchtpijp afsluit.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom kun je niet slikken en ademen tegelijk?",

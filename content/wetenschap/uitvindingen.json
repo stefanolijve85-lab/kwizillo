@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "De klok",
       "artBrief": "Een ronde wandklok met wijzers, zonder cijfers of tekst, in warm licht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Met welke uitvinding lees je de tijd af?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "De fiets",
       "artBrief": "Een glanzende fiets van opzij in een zonnige straat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding met twee wielen trap je vooruit?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "De koelkast",
       "artBrief": "Een open koelkast met groente en melk, koude mist die naar buiten rolt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een koelkast?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "De lift",
       "artBrief": "Een open liftdeur in een hoge hal met verlichte knoppen zonder cijfers.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding brengt je snel naar de bovenste verdieping?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De paraplu",
       "artBrief": "Een opengeklapte paraplu in de regen met druppels die eraf spatten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor is een paraplu bedacht?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "De korenmolen",
       "artBrief": "Een Hollandse windmolen met draaiende wieken en zakken meel ervoor.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat deed een Hollandse korenmolen?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De parachute",
       "artBrief": "Een opengaande parachute hoog boven een landschap.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor dient een parachute?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De stoommachine pompte mijnen leeg",
       "artBrief": "Een vroege stoommachine bij een mijnschacht met stoom en een waterstraal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar werd de eerste stoommachine voor gebruikt?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Het kompas",
       "artBrief": "Een koperen kompas met draaiende naald op een oude kaart.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor gebruik je een kompas?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Het wiel",
       "artBrief": "Een houten kar met vier wielen vol zware stenen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat werd veel makkelijker door de uitvinding van het wiel?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Edison en de gloeilamp",
       "artBrief": "Een vroege gloeilamp met koolstofdraad, gloeiend in een donkere werkplaats.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie maakte de gloeilamp die lang genoeg brandde?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "De eerste auto op benzine",
       "artBrief": "Een driewielige motorwagen uit 1885 op een landweg.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat reed in 1885 als eerste op benzine?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "De fotocamera",
       "artBrief": "Een oude balgcamera op een houten statief in een atelier.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding legde als eerste een beeld vast?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Marconi en de radiogolven",
       "artBrief": "Een vroege zendinstallatie met vonkenbrug en een hoge antenne aan zee.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie stuurde als eerste een radiosignaal over de oceaan?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "De 3D-printer",
       "artBrief": "Een 3D-printer die laag voor laag een klein voorwerp opbouwt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een 3D-printer?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Het conservenblik",
       "artBrief": "Rijen glimmende conservenblikken zonder etiket op een plank.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding hield eten jarenlang goed?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De vaatwasmachine",
       "artBrief": "Een vroege houten vaatwasmachine met draaiend rek vol borden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie bedacht in 1886 de vaatwasmachine?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De magnetron",
       "artBrief": "Een magnetron met verlicht venster en een draaiend schaaltje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding ontdekte Percy Spencer door een gesmolten reep?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De microchip",
       "artBrief": "Een siliciumchip van dichtbij met glanzende sporen en gouden draadjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding uit 1958 zit in bijna elk apparaat?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De compact disc",
       "artBrief": "Een cd die het licht breekt in regenboogkleuren boven een speler.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke uitvinding uit Nederland verving de grammofoonplaat?",
