@@ -1,0 +1,2607 @@
+{
+  "world": "mysterie",
+  "topic": "natuurmysteries",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "mysterie-natuurmysteries-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het spinnenweb",
+      "artBrief": "Een web vol dauwdruppels in het ochtendlicht tussen takken.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier maakt een web van draden?",
+          "answer": "De spin",
+          "wrong": [
+            "De mier",
+            "De vis",
+            "De slak"
+          ],
+          "hint": "Acht poten.",
+          "explanation": "Een spin maakt zijde in haar achterlijf en spint daar een vangnet van.",
+          "fact": "Spinnenzijde is voor zijn dikte sterker dan staal."
+        },
+        "en": {
+          "prompt": "Which animal makes a web of threads?",
+          "answer": "The spider",
+          "wrong": [
+            "The ant",
+            "The fish",
+            "The snail"
+          ],
+          "hint": "Eight legs.",
+          "explanation": "A spider makes silk in its body and spins a net from it.",
+          "fact": "For its thickness, spider silk is stronger than steel."
+        },
+        "de": {
+          "prompt": "Welches Tier macht ein Netz aus Fäden?",
+          "answer": "Die Spinne",
+          "wrong": [
+            "Die Ameise",
+            "Der Fisch",
+            "Die Schnecke"
+          ],
+          "hint": "Acht Beine.",
+          "explanation": "Eine Spinne macht Seide im Hinterleib und spinnt daraus ein Fangnetz.",
+          "fact": "Für ihre Dicke ist Spinnenseide fester als Stahl."
+        },
+        "fr": {
+          "prompt": "Quel animal fabrique une toile de fils ?",
+          "answer": "L'araignée",
+          "wrong": [
+            "La fourmi",
+            "Le poisson",
+            "L'escargot"
+          ],
+          "hint": "Huit pattes.",
+          "explanation": "Une araignée produit de la soie dans son abdomen et en tisse un filet.",
+          "fact": "À épaisseur égale, la soie d'araignée est plus solide que l'acier."
+        },
+        "es": {
+          "prompt": "¿Qué animal teje una red de hilos?",
+          "answer": "La araña",
+          "wrong": [
+            "La hormiga",
+            "El pez",
+            "El caracol"
+          ],
+          "hint": "Ocho patas.",
+          "explanation": "Una araña fabrica seda en su abdomen y con ella teje una red.",
+          "fact": "Para su grosor, la seda de araña es más fuerte que el acero."
+        },
+        "it": {
+          "prompt": "Quale animale costruisce una tela di fili?",
+          "answer": "Il ragno",
+          "wrong": [
+            "La formica",
+            "Il pesce",
+            "La lumaca"
+          ],
+          "hint": "Otto zampe.",
+          "explanation": "Il ragno produce seta nell'addome e ne tesse una rete per catturare.",
+          "fact": "A parità di spessore la seta di ragno è più resistente dell'acciaio."
+        },
+        "pt": {
+          "prompt": "Que animal faz uma teia de fios?",
+          "answer": "A aranha",
+          "wrong": [
+            "A formiga",
+            "O peixe",
+            "O caracol"
+          ],
+          "hint": "Oito patas.",
+          "explanation": "A aranha produz seda no abdómen e tece com ela uma rede.",
+          "fact": "Para a sua espessura, a seda de aranha é mais forte do que o aço."
+        },
+        "da": {
+          "prompt": "Hvilket dyr laver et spind af tråde?",
+          "answer": "Edderkoppen",
+          "wrong": [
+            "Myren",
+            "Fisken",
+            "Sneglen"
+          ],
+          "hint": "Otte ben.",
+          "explanation": "En edderkop laver silke i bagkroppen og spinder et fangstnet af den.",
+          "fact": "For sin tykkelse er edderkoppesilke stærkere end stål."
+        },
+        "ru": {
+          "prompt": "Какое животное плетёт паутину?",
+          "answer": "Паук",
+          "wrong": [
+            "Муравей",
+            "Рыба",
+            "Улитка"
+          ],
+          "hint": "Восемь ног.",
+          "explanation": "Паук вырабатывает шёлк в брюшке и плетёт из него ловчую сеть.",
+          "fact": "При той же толщине паутина прочнее стали."
+        },
+        "ar": {
+          "prompt": "أي حيوان ينسج شبكة من الخيوط؟",
+          "answer": "العنكبوت",
+          "wrong": [
+            "النملة",
+            "السمكة",
+            "الحلزون"
+          ],
+          "hint": "ثماني أرجل.",
+          "explanation": "العنكبوت يصنع الحرير في بطنه وينسج منه شبكة صيد.",
+          "fact": "حرير العنكبوت، بالنسبة لسمكه، أقوى من الفولاذ."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Winterslaap",
+      "artBrief": "Een slapende egel opgerold in een nest van bladeren onder de sneeuw.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doen egels en marmotten als het koud wordt?",
+          "answer": "Ze houden winterslaap",
+          "wrong": [
+            "Ze gaan zwemmen",
+            "Ze worden groter",
+            "Ze bouwen een huis"
+          ],
+          "hint": "Ze slapen de winter door.",
+          "explanation": "In winterslaap zakt hun temperatuur en hartslag, zodat ze bijna geen voedsel nodig hebben.",
+          "fact": "Het hart van een winterslapende egel klopt soms maar een paar keer per minuut."
+        },
+        "en": {
+          "prompt": "What do hedgehogs and marmots do when it turns cold?",
+          "answer": "They hibernate",
+          "wrong": [
+            "They go swimming",
+            "They grow bigger",
+            "They build a house"
+          ],
+          "hint": "They sleep through the winter.",
+          "explanation": "In hibernation their temperature and heartbeat drop, so they hardly need any food.",
+          "fact": "A hibernating hedgehog's heart sometimes beats only a few times a minute."
+        },
+        "de": {
+          "prompt": "Was tun Igel und Murmeltiere, wenn es kalt wird?",
+          "answer": "Sie halten Winterschlaf",
+          "wrong": [
+            "Sie gehen schwimmen",
+            "Sie werden größer",
+            "Sie bauen ein Haus"
+          ],
+          "hint": "Sie verschlafen den Winter.",
+          "explanation": "Im Winterschlaf sinken Temperatur und Herzschlag, so brauchen sie kaum Nahrung.",
+          "fact": "Das Herz eines schlafenden Igels schlägt manchmal nur wenige Male pro Minute."
+        },
+        "fr": {
+          "prompt": "Que font hérissons et marmottes quand il fait froid ?",
+          "answer": "Ils hibernent",
+          "wrong": [
+            "Ils vont nager",
+            "Ils grandissent",
+            "Ils bâtissent une maison"
+          ],
+          "hint": "Ils dorment tout l'hiver.",
+          "explanation": "En hibernation leur température et leur cœur ralentissent, ils ne mangent presque pas.",
+          "fact": "Le cœur d'un hérisson endormi bat parfois quelques fois par minute."
+        },
+        "es": {
+          "prompt": "¿Qué hacen erizos y marmotas cuando llega el frío?",
+          "answer": "Hibernan",
+          "wrong": [
+            "Se van a nadar",
+            "Crecen más",
+            "Construyen una casa"
+          ],
+          "hint": "Duermen todo el invierno.",
+          "explanation": "Al hibernar bajan su temperatura y su pulso, así casi no necesitan comer.",
+          "fact": "El corazón de un erizo dormido late a veces pocas veces por minuto."
+        },
+        "it": {
+          "prompt": "Che fanno ricci e marmotte quando arriva il freddo?",
+          "answer": "Vanno in letargo",
+          "wrong": [
+            "Vanno a nuotare",
+            "Diventano più grandi",
+            "Costruiscono una casa"
+          ],
+          "hint": "Dormono tutto l'inverno.",
+          "explanation": "In letargo temperatura e battito scendono, così non serve quasi cibo.",
+          "fact": "Il cuore di un riccio addormentato batte a volte poche volte al minuto."
+        },
+        "pt": {
+          "prompt": "O que fazem ouriços e marmotas quando fica frio?",
+          "answer": "Hibernam",
+          "wrong": [
+            "Vão nadar",
+            "Ficam maiores",
+            "Constroem uma casa"
+          ],
+          "hint": "Dormem o inverno inteiro.",
+          "explanation": "Na hibernação a temperatura e o coração descem, por isso quase não precisam de comer.",
+          "fact": "O coração de um ouriço a dormir bate às vezes poucas vezes por minuto."
+        },
+        "da": {
+          "prompt": "Hvad gør pindsvin og murmeldyr, når det bliver koldt?",
+          "answer": "De går i vinterhi",
+          "wrong": [
+            "De tager ud at svømme",
+            "De bliver større",
+            "De bygger et hus"
+          ],
+          "hint": "De sover vinteren væk.",
+          "explanation": "I vinterhi falder temperatur og puls, så de næsten ingen føde behøver.",
+          "fact": "Hjertet på et sovende pindsvin slår nogle gange kun få gange i minuttet."
+        },
+        "ru": {
+          "prompt": "Что делают ежи и сурки, когда холодает?",
+          "answer": "Впадают в спячку",
+          "wrong": [
+            "Идут плавать",
+            "Становятся больше",
+            "Строят дом"
+          ],
+          "hint": "Они просыпают зиму.",
+          "explanation": "В спячке температура и пульс падают, поэтому еда почти не нужна.",
+          "fact": "Сердце спящего ежа иногда бьётся всего несколько раз в минуту."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل القنفذ والمرموط عندما يشتد البرد؟",
+          "answer": "يدخلان في بيات شتوي",
+          "wrong": [
+            "يذهبان للسباحة",
+            "يكبران",
+            "يبنيان بيتًا"
+          ],
+          "hint": "ينامان الشتاء كله.",
+          "explanation": "في البيات تنخفض حرارتهما ونبضهما فلا يحتاجان طعامًا تقريبًا.",
+          "fact": "قلب القنفذ النائم ينبض أحيانًا مرات قليلة في الدقيقة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Herfstbladeren",
+      "artBrief": "Een bos in fel geel en oranje met dwarrelende bladeren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er in de herfst met bladeren?",
+          "answer": "Ze worden geel en vallen",
+          "wrong": [
+            "Ze worden blauw",
+            "Ze groeien harder",
+            "Ze worden steen"
+          ],
+          "hint": "De boom haalt het groen eruit.",
+          "explanation": "De boom haalt het bruikbare groen terug, en dan blijven geel en rood over.",
+          "fact": "Het groen, bladgroen, is het enige dat de boom bewaart voor de lente."
+        },
+        "en": {
+          "prompt": "What happens to leaves in autumn?",
+          "answer": "They turn yellow and fall",
+          "wrong": [
+            "They turn blue",
+            "They grow faster",
+            "They turn to stone"
+          ],
+          "hint": "The tree takes the green back.",
+          "explanation": "The tree pulls the useful green back in, leaving yellow and red behind.",
+          "fact": "That green, chlorophyll, is the one thing the tree saves for spring."
+        },
+        "de": {
+          "prompt": "Was passiert im Herbst mit den Blättern?",
+          "answer": "Sie werden gelb und fallen",
+          "wrong": [
+            "Sie werden blau",
+            "Sie wachsen schneller",
+            "Sie werden zu Stein"
+          ],
+          "hint": "Der Baum holt das Grün zurück.",
+          "explanation": "Der Baum zieht das nützliche Grün zurück, übrig bleiben Gelb und Rot.",
+          "fact": "Dieses Grün, das Blattgrün, ist das Einzige, was der Baum für den Frühling aufhebt."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il aux feuilles en automne ?",
+          "answer": "Elles jaunissent et tombent",
+          "wrong": [
+            "Elles bleuissent",
+            "Elles poussent plus vite",
+            "Elles deviennent pierre"
+          ],
+          "hint": "L'arbre reprend le vert.",
+          "explanation": "L'arbre récupère le vert utile, et il reste le jaune et le rouge.",
+          "fact": "Ce vert, la chlorophylle, est la seule chose que l'arbre garde pour le printemps."
+        },
+        "es": {
+          "prompt": "¿Qué les pasa a las hojas en otoño?",
+          "answer": "Se vuelven amarillas y caen",
+          "wrong": [
+            "Se vuelven azules",
+            "Crecen más rápido",
+            "Se hacen piedra"
+          ],
+          "hint": "El árbol recupera el verde.",
+          "explanation": "El árbol recupera el verde útil y quedan el amarillo y el rojo.",
+          "fact": "Ese verde, la clorofila, es lo único que el árbol guarda para la primavera."
+        },
+        "it": {
+          "prompt": "Che succede alle foglie in autunno?",
+          "answer": "Ingialliscono e cadono",
+          "wrong": [
+            "Diventano blu",
+            "Crescono più in fretta",
+            "Diventano pietra"
+          ],
+          "hint": "L'albero riprende il verde.",
+          "explanation": "L'albero riprende il verde utile e restano il giallo e il rosso.",
+          "fact": "Quel verde, la clorofilla, è l'unica cosa che l'albero conserva per la primavera."
+        },
+        "pt": {
+          "prompt": "O que acontece às folhas no outono?",
+          "answer": "Ficam amarelas e caem",
+          "wrong": [
+            "Ficam azuis",
+            "Crescem mais depressa",
+            "Viram pedra"
+          ],
+          "hint": "A árvore recupera o verde.",
+          "explanation": "A árvore recolhe o verde útil e ficam o amarelo e o vermelho.",
+          "fact": "Esse verde, a clorofila, é a única coisa que a árvore guarda para a primavera."
+        },
+        "da": {
+          "prompt": "Hvad sker der med bladene om efteråret?",
+          "answer": "De bliver gule og falder",
+          "wrong": [
+            "De bliver blå",
+            "De vokser hurtigere",
+            "De bliver til sten"
+          ],
+          "hint": "Træet henter det grønne hjem.",
+          "explanation": "Træet trækker det brugbare grønne tilbage, og tilbage bliver gult og rødt.",
+          "fact": "Det grønne, bladgrøntet, er det eneste, træet gemmer til foråret."
+        },
+        "ru": {
+          "prompt": "Что происходит с листьями осенью?",
+          "answer": "Желтеют и опадают",
+          "wrong": [
+            "Синеют",
+            "Растут быстрее",
+            "Превращаются в камень"
+          ],
+          "hint": "Дерево забирает зелень.",
+          "explanation": "Дерево вытягивает полезную зелень обратно, и остаются жёлтый и красный.",
+          "fact": "Эту зелень, хлорофилл, дерево единственно и бережёт до весны."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث للأوراق في الخريف؟",
+          "answer": "تصفرّ وتسقط",
+          "wrong": [
+            "تزرقّ",
+            "تنمو أسرع",
+            "تتحول حجرًا"
+          ],
+          "hint": "الشجرة تسحب اللون الأخضر.",
+          "explanation": "تسحب الشجرة الأخضر المفيد فيبقى الأصفر والأحمر.",
+          "fact": "ذلك الأخضر، اليخضور، هو الشيء الوحيد الذي تحفظه الشجرة للربيع."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het slijmspoor van een slak",
+      "artBrief": "Een slak op een blad met een glanzend spoor erachter.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat laat een slak achter op de grond?",
+          "answer": "Een glimmend slijmspoor",
+          "wrong": [
+            "Voetstappen",
+            "Veren",
+            "Schubben"
+          ],
+          "hint": "Het glinstert in het licht.",
+          "explanation": "Op dat laagje slijm glijdt de slak vooruit zonder zich te bezeren.",
+          "fact": "Zo kruipt een slak zelfs over de rand van een scherp mes."
+        },
+        "en": {
+          "prompt": "What does a snail leave behind on the ground?",
+          "answer": "A shiny slime trail",
+          "wrong": [
+            "Footprints",
+            "Feathers",
+            "Scales"
+          ],
+          "hint": "It glistens in the light.",
+          "explanation": "On that layer of slime the snail glides along without hurting itself.",
+          "fact": "A snail can even crawl along the edge of a sharp knife."
+        },
+        "de": {
+          "prompt": "Was lässt eine Schnecke auf dem Boden zurück?",
+          "answer": "Eine glänzende Schleimspur",
+          "wrong": [
+            "Fußspuren",
+            "Federn",
+            "Schuppen"
+          ],
+          "hint": "Sie glitzert im Licht.",
+          "explanation": "Auf dieser Schleimschicht gleitet die Schnecke, ohne sich zu verletzen.",
+          "fact": "So kriecht eine Schnecke sogar über die Schneide eines Messers."
+        },
+        "fr": {
+          "prompt": "Que laisse un escargot sur le sol ?",
+          "answer": "Une traînée de bave",
+          "wrong": [
+            "Des empreintes",
+            "Des plumes",
+            "Des écailles"
+          ],
+          "hint": "Elle brille à la lumière.",
+          "explanation": "Sur cette couche de bave l'escargot glisse sans se blesser.",
+          "fact": "Un escargot peut même ramper sur le fil d'un couteau."
+        },
+        "es": {
+          "prompt": "¿Qué deja un caracol en el suelo?",
+          "answer": "Un rastro de baba",
+          "wrong": [
+            "Huellas",
+            "Plumas",
+            "Escamas"
+          ],
+          "hint": "Brilla con la luz.",
+          "explanation": "Sobre esa capa de baba el caracol se desliza sin hacerse daño.",
+          "fact": "Un caracol puede recorrer incluso el filo de un cuchillo."
+        },
+        "it": {
+          "prompt": "Che cosa lascia una lumaca sul terreno?",
+          "answer": "Una scia lucida di bava",
+          "wrong": [
+            "Impronte",
+            "Piume",
+            "Squame"
+          ],
+          "hint": "Luccica alla luce.",
+          "explanation": "Su quello strato di bava la lumaca scivola senza farsi male.",
+          "fact": "Una lumaca riesce a strisciare perfino sul filo di un coltello."
+        },
+        "pt": {
+          "prompt": "O que deixa um caracol no chão?",
+          "answer": "Um rasto brilhante de baba",
+          "wrong": [
+            "Pegadas",
+            "Penas",
+            "Escamas"
+          ],
+          "hint": "Brilha à luz.",
+          "explanation": "Sobre essa camada de baba o caracol desliza sem se magoar.",
+          "fact": "Um caracol consegue mesmo rastejar sobre o gume de uma faca."
+        },
+        "da": {
+          "prompt": "Hvad efterlader en snegl på jorden?",
+          "answer": "Et blankt slimspor",
+          "wrong": [
+            "Fodspor",
+            "Fjer",
+            "Skæl"
+          ],
+          "hint": "Det glimter i lyset.",
+          "explanation": "På det lag slim glider sneglen frem uden at komme til skade.",
+          "fact": "En snegl kan endda kravle hen over æggen på en kniv."
+        },
+        "ru": {
+          "prompt": "Что улитка оставляет на земле?",
+          "answer": "Блестящий след слизи",
+          "wrong": [
+            "Следы лап",
+            "Перья",
+            "Чешую"
+          ],
+          "hint": "Он блестит на свету.",
+          "explanation": "По слою слизи улитка скользит и не ранится.",
+          "fact": "Улитка может проползти даже по лезвию ножа."
+        },
+        "ar": {
+          "prompt": "ماذا يترك الحلزون على الأرض؟",
+          "answer": "أثرًا لامعًا من المخاط",
+          "wrong": [
+            "آثار أقدام",
+            "ريشًا",
+            "حراشف"
+          ],
+          "hint": "يلمع في الضوء.",
+          "explanation": "على طبقة المخاط ينزلق الحلزون دون أن يجرح نفسه.",
+          "fact": "يستطيع الحلزون الزحف حتى على حد سكين."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De stekels van een egel",
+      "artBrief": "Een egel die zich tot een stekelige bal heeft opgerold.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom heeft een egel stekels?",
+          "answer": "Om zich te beschermen",
+          "wrong": [
+            "Om te vliegen",
+            "Om te zwemmen",
+            "Om te graven"
+          ],
+          "hint": "Hij rolt zich op.",
+          "explanation": "Bij gevaar rolt de egel zich op tot een bal waar geen roofdier bij kan.",
+          "fact": "Een egel heeft er ongeveer vijfduizend, en ze zijn eigenlijk harde haren."
+        },
+        "en": {
+          "prompt": "Why does a hedgehog have spines?",
+          "answer": "To protect itself",
+          "wrong": [
+            "To fly",
+            "To swim",
+            "To dig"
+          ],
+          "hint": "It rolls up.",
+          "explanation": "In danger the hedgehog rolls into a ball no predator can get into.",
+          "fact": "It has about five thousand spines, and they are really hard hairs."
+        },
+        "de": {
+          "prompt": "Warum hat ein Igel Stacheln?",
+          "answer": "Um sich zu schützen",
+          "wrong": [
+            "Um zu fliegen",
+            "Um zu schwimmen",
+            "Um zu graben"
+          ],
+          "hint": "Er rollt sich ein.",
+          "explanation": "Bei Gefahr rollt sich der Igel zu einer Kugel, an die kein Räuber herankommt.",
+          "fact": "Er hat rund fünftausend Stacheln, und das sind eigentlich harte Haare."
+        },
+        "fr": {
+          "prompt": "Pourquoi un hérisson a-t-il des piquants ?",
+          "answer": "Pour se protéger",
+          "wrong": [
+            "Pour voler",
+            "Pour nager",
+            "Pour creuser"
+          ],
+          "hint": "Il se met en boule.",
+          "explanation": "En cas de danger il se roule en boule et aucun prédateur ne peut l'atteindre.",
+          "fact": "Il en porte environ cinq mille, et ce sont en fait des poils durs."
+        },
+        "es": {
+          "prompt": "¿Por qué tiene púas un erizo?",
+          "answer": "Para protegerse",
+          "wrong": [
+            "Para volar",
+            "Para nadar",
+            "Para cavar"
+          ],
+          "hint": "Se hace una bola.",
+          "explanation": "Ante el peligro se enrolla en una bola a la que ningún depredador llega.",
+          "fact": "Tiene unas cinco mil púas, que en realidad son pelos duros."
+        },
+        "it": {
+          "prompt": "Perché il riccio ha gli aculei?",
+          "answer": "Per proteggersi",
+          "wrong": [
+            "Per volare",
+            "Per nuotare",
+            "Per scavare"
+          ],
+          "hint": "Si arrotola a palla.",
+          "explanation": "In pericolo si arrotola in una palla che nessun predatore riesce ad aprire.",
+          "fact": "Ne ha circa cinquemila, e in realtà sono peli induriti."
+        },
+        "pt": {
+          "prompt": "Porque tem o ouriço espinhos?",
+          "answer": "Para se proteger",
+          "wrong": [
+            "Para voar",
+            "Para nadar",
+            "Para escavar"
+          ],
+          "hint": "Enrola-se em bola.",
+          "explanation": "Em perigo enrola-se numa bola em que nenhum predador consegue tocar.",
+          "fact": "Tem cerca de cinco mil espinhos, que na verdade são pelos duros."
+        },
+        "da": {
+          "prompt": "Hvorfor har et pindsvin pigge?",
+          "answer": "For at beskytte sig",
+          "wrong": [
+            "For at flyve",
+            "For at svømme",
+            "For at grave"
+          ],
+          "hint": "Det ruller sig sammen.",
+          "explanation": "Ved fare ruller pindsvinet sig til en kugle, som intet rovdyr kan komme ind i.",
+          "fact": "Det har omkring fem tusind pigge, og de er egentlig hårde hår."
+        },
+        "ru": {
+          "prompt": "Зачем ежу иголки?",
+          "answer": "Чтобы защищаться",
+          "wrong": [
+            "Чтобы летать",
+            "Чтобы плавать",
+            "Чтобы рыть"
+          ],
+          "hint": "Он сворачивается клубком.",
+          "explanation": "При опасности ёж сворачивается в шар, куда хищнику не добраться.",
+          "fact": "Их около пяти тысяч, и это на самом деле жёсткие волосы."
+        },
+        "ar": {
+          "prompt": "لماذا للقنفذ أشواك؟",
+          "answer": "ليحمي نفسه",
+          "wrong": [
+            "ليطير",
+            "ليسبح",
+            "ليحفر"
+          ],
+          "hint": "يتكوّر على نفسه.",
+          "explanation": "عند الخطر يتكوّر كرةً لا يستطيع مفترس الوصول إليها.",
+          "fact": "له نحو خمسة آلاف شوكة، وهي في الحقيقة شعر متصلب."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Geluid kaatst in een schelp",
+      "artBrief": "Een grote schelp bij een oor, met fijne geluidsgolven in de opening.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom hoor je de zee in een schelp?",
+          "answer": "Geluid kaatst in de schelp",
+          "wrong": [
+            "De zee zit erin",
+            "Het is de wind",
+            "De schelp fluit zelf"
+          ],
+          "hint": "Een lege beker doet het ook.",
+          "explanation": "De geluiden om je heen kaatsen in de holte en versterken elkaar tot een ruis.",
+          "fact": "Houd je een lege mok tegen je oor, dan hoor je precies hetzelfde."
+        },
+        "en": {
+          "prompt": "Why do you hear the sea in a shell?",
+          "answer": "Sound echoes in the shell",
+          "wrong": [
+            "The sea is inside",
+            "It is the wind",
+            "The shell whistles"
+          ],
+          "hint": "An empty cup does it too.",
+          "explanation": "The sounds around you bounce inside the hollow and build up into a rushing noise.",
+          "fact": "Hold an empty mug to your ear and you hear exactly the same."
+        },
+        "de": {
+          "prompt": "Warum hört man in einer Muschel das Meer?",
+          "answer": "Schall hallt in der Muschel",
+          "wrong": [
+            "Das Meer ist darin",
+            "Es ist der Wind",
+            "Die Muschel pfeift"
+          ],
+          "hint": "Eine leere Tasse kann das auch.",
+          "explanation": "Die Geräusche um dich herum hallen im Hohlraum und verstärken sich zu einem Rauschen.",
+          "fact": "Halte eine leere Tasse ans Ohr und du hörst genau dasselbe."
+        },
+        "fr": {
+          "prompt": "Pourquoi entend-on la mer dans un coquillage ?",
+          "answer": "Le son résonne dedans",
+          "wrong": [
+            "La mer est dedans",
+            "C'est le vent",
+            "Le coquillage siffle"
+          ],
+          "hint": "Une tasse vide le fait aussi.",
+          "explanation": "Les bruits autour de toi rebondissent dans la cavité et s'additionnent en un souffle.",
+          "fact": "Mets une tasse vide contre ton oreille : tu entends la même chose."
+        },
+        "es": {
+          "prompt": "¿Por qué se oye el mar en una caracola?",
+          "answer": "El sonido rebota dentro",
+          "wrong": [
+            "El mar está dentro",
+            "Es el viento",
+            "La caracola silba"
+          ],
+          "hint": "Una taza vacía hace lo mismo.",
+          "explanation": "Los sonidos de alrededor rebotan en el hueco y se suman en un rumor.",
+          "fact": "Pon una taza vacía en la oreja y oirás exactamente lo mismo."
+        },
+        "it": {
+          "prompt": "Perché si sente il mare in una conchiglia?",
+          "answer": "Il suono rimbomba dentro",
+          "wrong": [
+            "Il mare è dentro",
+            "È il vento",
+            "La conchiglia fischia"
+          ],
+          "hint": "Anche una tazza vuota lo fa.",
+          "explanation": "I rumori intorno rimbalzano nella cavità e si sommano in un fruscio.",
+          "fact": "Metti una tazza vuota all'orecchio e senti la stessa cosa."
+        },
+        "pt": {
+          "prompt": "Porque se ouve o mar dentro de um búzio?",
+          "answer": "O som ecoa lá dentro",
+          "wrong": [
+            "O mar está lá dentro",
+            "É o vento",
+            "O búzio assobia"
+          ],
+          "hint": "Uma chávena vazia faz o mesmo.",
+          "explanation": "Os sons à tua volta ressaltam na cavidade e somam-se num sussurro.",
+          "fact": "Põe uma caneca vazia ao ouvido e ouves exatamente o mesmo."
+        },
+        "da": {
+          "prompt": "Hvorfor hører man havet i en konkylie?",
+          "answer": "Lyden runger inde i den",
+          "wrong": [
+            "Havet er inde i den",
+            "Det er vinden",
+            "Konkylien fløjter"
+          ],
+          "hint": "En tom kop kan det samme.",
+          "explanation": "Lydene omkring dig kaster tilbage i hulrummet og bygger sig op til en susen.",
+          "fact": "Hold en tom kop for øret, så hører du præcis det samme."
+        },
+        "ru": {
+          "prompt": "Почему в раковине слышно море?",
+          "answer": "Звук отражается внутри",
+          "wrong": [
+            "Море внутри",
+            "Это ветер",
+            "Раковина свистит"
+          ],
+          "hint": "Пустая чашка делает то же.",
+          "explanation": "Звуки вокруг отражаются в полости и складываются в шум.",
+          "fact": "Приложи к уху пустую кружку — услышишь то же самое."
+        },
+        "ar": {
+          "prompt": "لماذا نسمع البحر في الصدفة؟",
+          "answer": "الصوت يتردد داخلها",
+          "wrong": [
+            "البحر داخلها",
+            "إنها الريح",
+            "الصدفة تصفر"
+          ],
+          "hint": "الكوب الفارغ يفعل ذلك أيضًا.",
+          "explanation": "الأصوات من حولك ترتد في التجويف وتتراكم في همس.",
+          "fact": "ضع كوبًا فارغًا على أذنك تسمع الشيء نفسه."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Mieren tillen veel",
+      "artBrief": "Een mier die een blad draagt dat veel groter is dan zijzelf.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel keer hun eigen gewicht kan een mier dragen?",
+          "answer": "Wel vijftig keer",
+          "wrong": [
+            "Twee keer",
+            "Een half keer",
+            "Duizend keer"
+          ],
+          "hint": "Veel meer dan jij.",
+          "explanation": "Kleine dieren hebben naar verhouding veel sterkere spieren dan grote.",
+          "fact": "Zou jij dat kunnen, dan tilde je een auto boven je hoofd."
+        },
+        "en": {
+          "prompt": "How many times its own weight can an ant carry?",
+          "answer": "As much as fifty times",
+          "wrong": [
+            "Two times",
+            "Half a time",
+            "A thousand times"
+          ],
+          "hint": "Far more than you.",
+          "explanation": "Small animals have much stronger muscles for their size than big ones.",
+          "fact": "If you could do that, you would lift a car above your head."
+        },
+        "de": {
+          "prompt": "Wie viel Mal ihr eigenes Gewicht trägt eine Ameise?",
+          "answer": "Bis zu fünfzig Mal",
+          "wrong": [
+            "Zwei Mal",
+            "Ein halbes Mal",
+            "Tausend Mal"
+          ],
+          "hint": "Viel mehr als du.",
+          "explanation": "Kleine Tiere haben im Verhältnis viel stärkere Muskeln als große.",
+          "fact": "Könntest du das, würdest du ein Auto über den Kopf heben."
+        },
+        "fr": {
+          "prompt": "Combien de fois son poids une fourmi peut-elle porter ?",
+          "answer": "Jusqu'à cinquante fois",
+          "wrong": [
+            "Deux fois",
+            "La moitié",
+            "Mille fois"
+          ],
+          "hint": "Bien plus que toi.",
+          "explanation": "Les petits animaux ont, pour leur taille, des muscles bien plus forts que les grands.",
+          "fact": "Si tu en faisais autant, tu soulèverais une voiture."
+        },
+        "es": {
+          "prompt": "¿Cuántas veces su peso puede cargar una hormiga?",
+          "answer": "Hasta cincuenta veces",
+          "wrong": [
+            "Dos veces",
+            "La mitad",
+            "Mil veces"
+          ],
+          "hint": "Mucho más que tú.",
+          "explanation": "Los animales pequeños tienen músculos mucho más fuertes en proporción.",
+          "fact": "Si tú pudieras, levantarías un coche sobre tu cabeza."
+        },
+        "it": {
+          "prompt": "Quante volte il suo peso porta una formica?",
+          "answer": "Fino a cinquanta volte",
+          "wrong": [
+            "Due volte",
+            "Mezza volta",
+            "Mille volte"
+          ],
+          "hint": "Molto più di te.",
+          "explanation": "Gli animali piccoli hanno muscoli molto più forti in proporzione.",
+          "fact": "Se ci riuscissi tu, solleveresti un'auto sopra la testa."
+        },
+        "pt": {
+          "prompt": "Quantas vezes o seu peso carrega uma formiga?",
+          "answer": "Até cinquenta vezes",
+          "wrong": [
+            "Duas vezes",
+            "Meia vez",
+            "Mil vezes"
+          ],
+          "hint": "Muito mais do que tu.",
+          "explanation": "Os animais pequenos têm músculos muito mais fortes em proporção.",
+          "fact": "Se conseguisses, erguias um carro acima da cabeça."
+        },
+        "da": {
+          "prompt": "Hvor mange gange sin egen vægt bærer en myre?",
+          "answer": "Op til halvtreds gange",
+          "wrong": [
+            "To gange",
+            "En halv gang",
+            "Tusind gange"
+          ],
+          "hint": "Meget mere end dig.",
+          "explanation": "Små dyr har forholdsvis langt stærkere muskler end store.",
+          "fact": "Kunne du det, ville du løfte en bil over hovedet."
+        },
+        "ru": {
+          "prompt": "Во сколько раз больше своего веса несёт муравей?",
+          "answer": "До пятидесяти раз",
+          "wrong": [
+            "В два раза",
+            "В половину",
+            "В тысячу раз"
+          ],
+          "hint": "Гораздо больше, чем ты.",
+          "explanation": "У маленьких животных мышцы относительно намного сильнее.",
+          "fact": "Если бы ты так мог, ты поднял бы автомобиль над головой."
+        },
+        "ar": {
+          "prompt": "كم ضعف وزنها تحمل النملة؟",
+          "answer": "حتى خمسين ضعفًا",
+          "wrong": [
+            "ضعفين",
+            "نصف وزنها",
+            "ألف ضعف"
+          ],
+          "hint": "أكثر منك بكثير.",
+          "explanation": "الحيوانات الصغيرة عضلاتها أقوى نسبيًا من الكبيرة.",
+          "fact": "لو استطعت مثلها لرفعت سيارة فوق رأسك."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Vogels claimen hun gebied",
+      "artBrief": "Een zingende merel op een tak in vroeg ochtendlicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zingen vogels vroeg in de ochtend?",
+          "answer": "Om hun gebied te claimen",
+          "wrong": [
+            "Om de zon te wekken",
+            "Omdat ze dromen",
+            "Om regen te roepen"
+          ],
+          "hint": "Het is nog stil buiten.",
+          "explanation": "In de stille ochtendlucht draagt hun lied het verst, en zo laten ze horen waar hun plek is.",
+          "fact": "Merels in de stad zingen soms 's nachts, omdat het overdag te lawaaiig is."
+        },
+        "en": {
+          "prompt": "Why do birds sing early in the morning?",
+          "answer": "To claim their patch",
+          "wrong": [
+            "To wake the sun",
+            "Because they dream",
+            "To call the rain"
+          ],
+          "hint": "It is still quiet outside.",
+          "explanation": "In the still morning air their song carries furthest, telling everyone where their patch is.",
+          "fact": "City blackbirds sometimes sing at night, because the day is too noisy."
+        },
+        "de": {
+          "prompt": "Warum singen Vögel früh am Morgen?",
+          "answer": "Um ihr Revier zu behaupten",
+          "wrong": [
+            "Um die Sonne zu wecken",
+            "Weil sie träumen",
+            "Um Regen zu rufen"
+          ],
+          "hint": "Draußen ist es noch still.",
+          "explanation": "In der stillen Morgenluft trägt ihr Lied am weitesten und zeigt allen, wo ihr Revier ist.",
+          "fact": "Amseln in der Stadt singen manchmal nachts, weil es tagsüber zu laut ist."
+        },
+        "fr": {
+          "prompt": "Pourquoi les oiseaux chantent-ils tôt le matin ?",
+          "answer": "Pour marquer leur territoire",
+          "wrong": [
+            "Pour réveiller le soleil",
+            "Parce qu'ils rêvent",
+            "Pour appeler la pluie"
+          ],
+          "hint": "Dehors, tout est encore calme.",
+          "explanation": "Dans l'air calme du matin leur chant porte le plus loin et dit à tous où est leur coin.",
+          "fact": "Les merles des villes chantent parfois la nuit, car le jour est trop bruyant."
+        },
+        "es": {
+          "prompt": "¿Por qué cantan los pájaros temprano?",
+          "answer": "Para marcar su territorio",
+          "wrong": [
+            "Para despertar al sol",
+            "Porque sueñan",
+            "Para llamar la lluvia"
+          ],
+          "hint": "Fuera todavía hay silencio.",
+          "explanation": "En el aire quieto de la mañana su canto llega más lejos y avisa dónde está su zona.",
+          "fact": "Los mirlos de ciudad cantan a veces de noche porque de día hay ruido."
+        },
+        "it": {
+          "prompt": "Perché gli uccelli cantano presto al mattino?",
+          "answer": "Per segnare il territorio",
+          "wrong": [
+            "Per svegliare il sole",
+            "Perché sognano",
+            "Per chiamare la pioggia"
+          ],
+          "hint": "Fuori c'è ancora silenzio.",
+          "explanation": "Nell'aria calma del mattino il canto arriva più lontano e dice a tutti dov'è il loro spazio.",
+          "fact": "I merli di città a volte cantano di notte, perché di giorno c'è troppo rumore."
+        },
+        "pt": {
+          "prompt": "Porque cantam as aves de manhã cedo?",
+          "answer": "Para marcar o território",
+          "wrong": [
+            "Para acordar o sol",
+            "Porque sonham",
+            "Para chamar a chuva"
+          ],
+          "hint": "Lá fora ainda há silêncio.",
+          "explanation": "No ar calmo da manhã o canto chega mais longe e diz a todos onde é o seu espaço.",
+          "fact": "Os melros da cidade às vezes cantam de noite, porque de dia há muito barulho."
+        },
+        "da": {
+          "prompt": "Hvorfor synger fugle tidligt om morgenen?",
+          "answer": "For at markere revir",
+          "wrong": [
+            "For at vække solen",
+            "Fordi de drømmer",
+            "For at kalde på regn"
+          ],
+          "hint": "Udenfor er der stadig stille.",
+          "explanation": "I den stille morgenluft bærer sangen længst og fortæller alle, hvor deres plads er.",
+          "fact": "Solsorte i byen synger somme tider om natten, fordi dagen er for larmende."
+        },
+        "ru": {
+          "prompt": "Почему птицы поют рано утром?",
+          "answer": "Чтобы застолбить участок",
+          "wrong": [
+            "Чтобы разбудить солнце",
+            "Потому что видят сны",
+            "Чтобы позвать дождь"
+          ],
+          "hint": "На улице ещё тихо.",
+          "explanation": "В тихом утреннем воздухе песня слышна дальше всего и сообщает, чей это участок.",
+          "fact": "Городские дрозды порой поют ночью, потому что днём слишком шумно."
+        },
+        "ar": {
+          "prompt": "لماذا تغرّد الطيور باكرًا في الصباح؟",
+          "answer": "لتعلن منطقتها",
+          "wrong": [
+            "لتوقظ الشمس",
+            "لأنها تحلم",
+            "لتستدعي المطر"
+          ],
+          "hint": "الجو في الخارج ما زال هادئًا.",
+          "explanation": "في هدوء الصباح يصل الغناء أبعد ما يمكن ويخبر الجميع أين مكانها.",
+          "fact": "شحارير المدن تغرّد أحيانًا ليلًا لأن النهار صاخب."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Jaarringen",
+      "artBrief": "Een doorgezaagde boomstam met duidelijk zichtbare jaarringen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom heeft een boomstam ringen?",
+          "answer": "Elk jaar groeit er een ring",
+          "wrong": [
+            "Ze worden geverfd",
+            "De wind maakt ze",
+            "Insecten knagen ze"
+          ],
+          "hint": "Tel ze en je weet iets.",
+          "explanation": "In de zomer groeit de boom snel en licht, in de winter langzaam en donker; samen is dat een ring.",
+          "fact": "Aan brede en smalle ringen zie je welke jaren nat of droog waren."
+        },
+        "en": {
+          "prompt": "Why does a tree trunk have rings?",
+          "answer": "One ring grows each year",
+          "wrong": [
+            "They are painted on",
+            "The wind makes them",
+            "Insects gnaw them"
+          ],
+          "hint": "Count them and you know something.",
+          "explanation": "In summer the tree grows fast and pale, in winter slowly and dark; together that is a ring.",
+          "fact": "Wide and narrow rings show which years were wet or dry."
+        },
+        "de": {
+          "prompt": "Warum hat ein Baumstamm Ringe?",
+          "answer": "Jedes Jahr wächst ein Ring",
+          "wrong": [
+            "Sie werden gemalt",
+            "Der Wind macht sie",
+            "Insekten nagen sie"
+          ],
+          "hint": "Zähl sie und du weißt etwas.",
+          "explanation": "Im Sommer wächst der Baum schnell und hell, im Winter langsam und dunkel; zusammen ergibt das einen Ring.",
+          "fact": "An breiten und schmalen Ringen sieht man nasse und trockene Jahre."
+        },
+        "fr": {
+          "prompt": "Pourquoi un tronc d'arbre a-t-il des cernes ?",
+          "answer": "Un cerne pousse chaque année",
+          "wrong": [
+            "On les peint",
+            "Le vent les fait",
+            "Des insectes les rongent"
+          ],
+          "hint": "Compte-les et tu sais quelque chose.",
+          "explanation": "L'été l'arbre pousse vite et clair, l'hiver lentement et sombre ; ensemble cela fait un cerne.",
+          "fact": "Des cernes larges ou étroits racontent les années humides ou sèches."
+        },
+        "es": {
+          "prompt": "¿Por qué tiene anillos un tronco de árbol?",
+          "answer": "Cada año crece un anillo",
+          "wrong": [
+            "Se los pintan",
+            "Los hace el viento",
+            "Los roen insectos"
+          ],
+          "hint": "Cuéntalos y sabrás algo.",
+          "explanation": "En verano el árbol crece rápido y claro, en invierno lento y oscuro; juntos forman un anillo.",
+          "fact": "Anillos anchos o estrechos cuentan qué años fueron húmedos o secos."
+        },
+        "it": {
+          "prompt": "Perché un tronco ha gli anelli?",
+          "answer": "Ogni anno cresce un anello",
+          "wrong": [
+            "Sono dipinti",
+            "Li fa il vento",
+            "Li rodono gli insetti"
+          ],
+          "hint": "Contali e saprai qualcosa.",
+          "explanation": "D'estate l'albero cresce in fretta e chiaro, d'inverno piano e scuro: insieme fanno un anello.",
+          "fact": "Anelli larghi o stretti raccontano gli anni umidi o secchi."
+        },
+        "pt": {
+          "prompt": "Porque tem um tronco anéis?",
+          "answer": "Cada ano cresce um anel",
+          "wrong": [
+            "São pintados",
+            "Fá-los o vento",
+            "Roem-nos insetos"
+          ],
+          "hint": "Conta-os e ficas a saber algo.",
+          "explanation": "No verão a árvore cresce rápido e claro, no inverno devagar e escuro; juntos dão um anel.",
+          "fact": "Anéis largos ou estreitos contam que anos foram húmidos ou secos."
+        },
+        "da": {
+          "prompt": "Hvorfor har en træstamme ringe?",
+          "answer": "Hvert år vokser en ring",
+          "wrong": [
+            "De males på",
+            "Vinden laver dem",
+            "Insekter gnaver dem"
+          ],
+          "hint": "Tæl dem, så ved du noget.",
+          "explanation": "Om sommeren vokser træet hurtigt og lyst, om vinteren langsomt og mørkt; sammen bliver det en ring.",
+          "fact": "Brede og smalle ringe fortæller om våde og tørre år."
+        },
+        "ru": {
+          "prompt": "Почему у ствола дерева есть кольца?",
+          "answer": "Каждый год растёт кольцо",
+          "wrong": [
+            "Их рисуют",
+            "Их делает ветер",
+            "Их выгрызают насекомые"
+          ],
+          "hint": "Сосчитай их — и кое-что узнаешь.",
+          "explanation": "Летом дерево растёт быстро и светло, зимой медленно и тёмно; вместе это кольцо.",
+          "fact": "Широкие и узкие кольца рассказывают о влажных и сухих годах."
+        },
+        "ar": {
+          "prompt": "لماذا في جذع الشجرة حلقات؟",
+          "answer": "كل سنة تنمو حلقة",
+          "wrong": [
+            "تُرسم بالدهان",
+            "تصنعها الريح",
+            "تقضمها الحشرات"
+          ],
+          "hint": "عدّها فتعرف شيئًا.",
+          "explanation": "في الصيف تنمو الشجرة سريعًا وفاتحًا، وفي الشتاء ببطء وداكنًا، فتتكون حلقة.",
+          "fact": "الحلقات العريضة والضيقة تحكي السنوات الرطبة والجافة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "IJs drijft",
+      "artBrief": "Een ijsschots die drijft in donker water met een deel onder water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom drijft een ijsschots op water?",
+          "answer": "IJs is lichter dan water",
+          "wrong": [
+            "IJs is zwaarder",
+            "IJs is warm",
+            "IJs is van zout"
+          ],
+          "hint": "Toch is het hetzelfde spul.",
+          "explanation": "Bevroren water neemt meer ruimte in, dus is het lichter dan hetzelfde volume vloeibaar water.",
+          "fact": "Van een ijsberg steekt maar ongeveer een tiende boven water uit."
+        },
+        "en": {
+          "prompt": "Why does an ice floe float on water?",
+          "answer": "Ice is lighter than water",
+          "wrong": [
+            "Ice is heavier",
+            "Ice is warm",
+            "Ice is made of salt"
+          ],
+          "hint": "Yet it is the same stuff.",
+          "explanation": "Frozen water takes up more room, so it is lighter than the same volume of liquid water.",
+          "fact": "Only about a tenth of an iceberg sticks out above the surface."
+        },
+        "de": {
+          "prompt": "Warum schwimmt eine Eisscholle auf Wasser?",
+          "answer": "Eis ist leichter als Wasser",
+          "wrong": [
+            "Eis ist schwerer",
+            "Eis ist warm",
+            "Eis ist aus Salz"
+          ],
+          "hint": "Dabei ist es dasselbe Zeug.",
+          "explanation": "Gefrorenes Wasser braucht mehr Platz, also ist es leichter als dieselbe Menge flüssiges Wasser.",
+          "fact": "Von einem Eisberg ragt nur etwa ein Zehntel aus dem Wasser."
+        },
+        "fr": {
+          "prompt": "Pourquoi un morceau de glace flotte-t-il sur l'eau ?",
+          "answer": "La glace est plus légère",
+          "wrong": [
+            "La glace est plus lourde",
+            "La glace est chaude",
+            "La glace est du sel"
+          ],
+          "hint": "C'est pourtant la même matière.",
+          "explanation": "L'eau gelée prend plus de place, elle est donc plus légère que le même volume d'eau liquide.",
+          "fact": "D'un iceberg, un dixième seulement dépasse de l'eau."
+        },
+        "es": {
+          "prompt": "¿Por qué flota un trozo de hielo en el agua?",
+          "answer": "El hielo pesa menos",
+          "wrong": [
+            "El hielo pesa más",
+            "El hielo está caliente",
+            "El hielo es sal"
+          ],
+          "hint": "Y eso que es lo mismo.",
+          "explanation": "El agua congelada ocupa más espacio, así que pesa menos que ese mismo volumen de agua.",
+          "fact": "De un iceberg solo asoma una décima parte."
+        },
+        "it": {
+          "prompt": "Perché un pezzo di ghiaccio galleggia sull'acqua?",
+          "answer": "Il ghiaccio è più leggero",
+          "wrong": [
+            "Il ghiaccio è più pesante",
+            "Il ghiaccio è caldo",
+            "Il ghiaccio è di sale"
+          ],
+          "hint": "Eppure è la stessa sostanza.",
+          "explanation": "L'acqua ghiacciata occupa più spazio, quindi pesa meno dello stesso volume d'acqua.",
+          "fact": "Di un iceberg sporge solo un decimo circa."
+        },
+        "pt": {
+          "prompt": "Porque flutua um pedaço de gelo na água?",
+          "answer": "O gelo é mais leve",
+          "wrong": [
+            "O gelo é mais pesado",
+            "O gelo é quente",
+            "O gelo é de sal"
+          ],
+          "hint": "E é a mesma matéria.",
+          "explanation": "A água gelada ocupa mais espaço, por isso pesa menos do que o mesmo volume de água.",
+          "fact": "De um icebergue só sobressai cerca de um décimo."
+        },
+        "da": {
+          "prompt": "Hvorfor flyder et stykke is på vand?",
+          "answer": "Is er lettere end vand",
+          "wrong": [
+            "Is er tungere",
+            "Is er varmt",
+            "Is er lavet af salt"
+          ],
+          "hint": "Og det er ellers det samme stof.",
+          "explanation": "Frosset vand fylder mere, så det er lettere end den samme mængde flydende vand.",
+          "fact": "Af et isbjerg stikker kun omkring en tiendedel op over vandet."
+        },
+        "ru": {
+          "prompt": "Почему льдина плавает на воде?",
+          "answer": "Лёд легче воды",
+          "wrong": [
+            "Лёд тяжелее",
+            "Лёд тёплый",
+            "Лёд из соли"
+          ],
+          "hint": "А ведь это одно и то же вещество.",
+          "explanation": "Замёрзшая вода занимает больше места, поэтому она легче того же объёма жидкой воды.",
+          "fact": "У айсберга над водой видна лишь примерно десятая часть."
+        },
+        "ar": {
+          "prompt": "لماذا تطفو قطعة الجليد على الماء؟",
+          "answer": "الجليد أخف من الماء",
+          "wrong": [
+            "الجليد أثقل",
+            "الجليد دافئ",
+            "الجليد من ملح"
+          ],
+          "hint": "مع أنه المادة نفسها.",
+          "explanation": "الماء المتجمد يشغل حيزًا أكبر، فيصير أخف من الحجم نفسه من الماء السائل.",
+          "fact": "من الجبل الجليدي لا يظهر فوق الماء إلا نحو العُشر."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Een halo om de maan",
+      "artBrief": "Een grote lichtkring om de volle maan in een ijzige nacht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zit er soms een grote lichtkring om de maan?",
+          "answer": "IJskristallen breken licht",
+          "wrong": [
+            "Wolken van stof",
+            "De maan gloeit",
+            "Vliegtuigen maken ze"
+          ],
+          "hint": "Hoog in de lucht is het ijzig koud.",
+          "explanation": "Hoge sluierwolken zitten vol ijskristallen die het maanlicht afbuigen tot een ring.",
+          "fact": "Zo'n ring betekende vroeger dat er slecht weer op komst was, en vaak klopt dat."
+        },
+        "en": {
+          "prompt": "Why is there sometimes a big ring of light round the moon?",
+          "answer": "Ice crystals bend the light",
+          "wrong": [
+            "Clouds of dust",
+            "The moon glows",
+            "Planes make them"
+          ],
+          "hint": "High up it is freezing cold.",
+          "explanation": "High veils of cloud are full of ice crystals that bend moonlight into a ring.",
+          "fact": "People used to read such a ring as a sign of bad weather, and often they were right."
+        },
+        "de": {
+          "prompt": "Warum liegt manchmal ein großer Lichtring um den Mond?",
+          "answer": "Eiskristalle brechen Licht",
+          "wrong": [
+            "Staubwolken",
+            "Der Mond glüht",
+            "Flugzeuge machen sie"
+          ],
+          "hint": "Hoch oben ist es eisig kalt.",
+          "explanation": "Hohe Schleierwolken sind voller Eiskristalle, die das Mondlicht zu einem Ring beugen.",
+          "fact": "Früher galt so ein Ring als Zeichen für schlechtes Wetter, und oft stimmt das."
+        },
+        "fr": {
+          "prompt": "Pourquoi voit-on parfois un grand halo autour de la lune ?",
+          "answer": "Des cristaux de glace",
+          "wrong": [
+            "Des nuages de poussière",
+            "La lune rougeoie",
+            "Les avions les font"
+          ],
+          "hint": "Là-haut il fait un froid glacial.",
+          "explanation": "Les voiles de nuages sont pleins de cristaux de glace qui plient la lumière en anneau.",
+          "fact": "Autrefois un tel halo annonçait le mauvais temps, et souvent c'était vrai."
+        },
+        "es": {
+          "prompt": "¿Por qué hay a veces un gran halo alrededor de la luna?",
+          "answer": "Cristales de hielo",
+          "wrong": [
+            "Nubes de polvo",
+            "La luna brilla más",
+            "Los aviones los hacen"
+          ],
+          "hint": "Allá arriba hace un frío helador.",
+          "explanation": "Los velos de nubes altas llevan cristales de hielo que curvan la luz en un anillo.",
+          "fact": "Antes ese halo anunciaba mal tiempo, y muchas veces acertaba."
+        },
+        "it": {
+          "prompt": "Perché a volte c'è un grande alone intorno alla luna?",
+          "answer": "Cristalli di ghiaccio",
+          "wrong": [
+            "Nubi di polvere",
+            "La luna brilla di più",
+            "Lo fanno gli aerei"
+          ],
+          "hint": "Lassù fa un freddo gelido.",
+          "explanation": "I veli di nubi alte sono pieni di cristalli che piegano la luce in un anello.",
+          "fact": "Un tempo quell'alone annunciava maltempo, e spesso ci azzeccava."
+        },
+        "pt": {
+          "prompt": "Porque há às vezes um grande halo à volta da lua?",
+          "answer": "Cristais de gelo",
+          "wrong": [
+            "Nuvens de pó",
+            "A lua brilha mais",
+            "Fazem-nos os aviões"
+          ],
+          "hint": "Lá em cima faz um frio gelado.",
+          "explanation": "Os véus de nuvens altas têm cristais de gelo que dobram a luz num anel.",
+          "fact": "Antigamente esse halo anunciava mau tempo, e muitas vezes acertava."
+        },
+        "da": {
+          "prompt": "Hvorfor er der somme tider en stor lysring om månen?",
+          "answer": "Iskrystaller bøjer lyset",
+          "wrong": [
+            "Skyer af støv",
+            "Månen gløder",
+            "Fly laver dem"
+          ],
+          "hint": "Højt oppe er der isnende koldt.",
+          "explanation": "Høje slørskyer er fulde af iskrystaller, der bøjer månelyset til en ring.",
+          "fact": "Før i tiden varslede sådan en ring dårligt vejr, og ofte passede det."
+        },
+        "ru": {
+          "prompt": "Почему вокруг луны иногда большое светлое кольцо?",
+          "answer": "Ледяные кристаллы гнут свет",
+          "wrong": [
+            "Облака пыли",
+            "Луна разгорается",
+            "Их делают самолёты"
+          ],
+          "hint": "Высоко там ледяной холод.",
+          "explanation": "Высокие перистые облака полны кристаллов льда, которые сгибают лунный свет в кольцо.",
+          "fact": "Раньше такое кольцо считали приметой непогоды, и часто она сбывалась."
+        },
+        "ar": {
+          "prompt": "لماذا تظهر أحيانًا هالة كبيرة حول القمر؟",
+          "answer": "بلورات الجليد تحني الضوء",
+          "wrong": [
+            "غيوم من غبار",
+            "القمر يتوهج",
+            "الطائرات تصنعها"
+          ],
+          "hint": "في الأعلى برد قارس.",
+          "explanation": "الغيوم الرقيقة العالية مليئة ببلورات جليد تحني ضوء القمر إلى حلقة.",
+          "fact": "قديمًا كانت الهالة إشارة إلى سوء الطقس، وغالبًا ما صدقت."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Walvisgezang",
+      "artBrief": "Een bultrug die zingt in diep blauw water met zichtbare geluidsgolven.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zingen bultruggen lange liederen?",
+          "answer": "Om elkaar te vinden",
+          "wrong": [
+            "Om vissen te lokken",
+            "Om water te verwarmen",
+            "Om te ademen"
+          ],
+          "hint": "Geluid reist ver onder water.",
+          "explanation": "Hun lage tonen dragen honderden kilometers ver door de oceaan.",
+          "fact": "Alle mannetjes in een gebied zingen hetzelfde lied, en dat verandert elk jaar."
+        },
+        "en": {
+          "prompt": "Why do humpback whales sing long songs?",
+          "answer": "To find one another",
+          "wrong": [
+            "To lure fish",
+            "To warm the water",
+            "To breathe"
+          ],
+          "hint": "Sound travels far under water.",
+          "explanation": "Their low notes carry hundreds of kilometres through the ocean.",
+          "fact": "All the males in an area sing the same song, and it changes every year."
+        },
+        "de": {
+          "prompt": "Warum singen Buckelwale lange Lieder?",
+          "answer": "Um einander zu finden",
+          "wrong": [
+            "Um Fische zu locken",
+            "Um Wasser zu wärmen",
+            "Um zu atmen"
+          ],
+          "hint": "Schall reist weit unter Wasser.",
+          "explanation": "Ihre tiefen Töne tragen hunderte Kilometer weit durch den Ozean.",
+          "fact": "Alle Männchen eines Gebiets singen dasselbe Lied, und es ändert sich jedes Jahr."
+        },
+        "fr": {
+          "prompt": "Pourquoi les baleines à bosse chantent-elles longtemps ?",
+          "answer": "Pour se retrouver",
+          "wrong": [
+            "Pour attirer les poissons",
+            "Pour chauffer l'eau",
+            "Pour respirer"
+          ],
+          "hint": "Le son va loin sous l'eau.",
+          "explanation": "Leurs notes graves portent à des centaines de kilomètres dans l'océan.",
+          "fact": "Tous les mâles d'une région chantent le même chant, qui change chaque année."
+        },
+        "es": {
+          "prompt": "¿Por qué cantan largo las ballenas jorobadas?",
+          "answer": "Para encontrarse",
+          "wrong": [
+            "Para atraer peces",
+            "Para calentar el agua",
+            "Para respirar"
+          ],
+          "hint": "El sonido viaja lejos bajo el agua.",
+          "explanation": "Sus notas graves llegan a cientos de kilómetros por el océano.",
+          "fact": "Todos los machos de una zona cantan la misma canción, que cambia cada año."
+        },
+        "it": {
+          "prompt": "Perché le megattere cantano canti lunghi?",
+          "answer": "Per ritrovarsi",
+          "wrong": [
+            "Per attirare i pesci",
+            "Per scaldare l'acqua",
+            "Per respirare"
+          ],
+          "hint": "Il suono va lontano sott'acqua.",
+          "explanation": "Le loro note basse viaggiano per centinaia di chilometri nell'oceano.",
+          "fact": "Tutti i maschi di una zona cantano lo stesso canto, che cambia ogni anno."
+        },
+        "pt": {
+          "prompt": "Porque cantam as baleias-de-bossa cantos longos?",
+          "answer": "Para se encontrarem",
+          "wrong": [
+            "Para atrair peixes",
+            "Para aquecer a água",
+            "Para respirar"
+          ],
+          "hint": "O som viaja longe debaixo de água.",
+          "explanation": "As notas graves chegam a centenas de quilómetros pelo oceano.",
+          "fact": "Todos os machos de uma zona cantam o mesmo canto, que muda todos os anos."
+        },
+        "da": {
+          "prompt": "Hvorfor synger pukkelhvaler lange sange?",
+          "answer": "For at finde hinanden",
+          "wrong": [
+            "For at lokke fisk",
+            "For at varme vandet",
+            "For at trække vejret"
+          ],
+          "hint": "Lyd rejser langt under vand.",
+          "explanation": "Deres dybe toner bærer hundredvis af kilometer gennem havet.",
+          "fact": "Alle hanner i et område synger den samme sang, og den ændrer sig hvert år."
+        },
+        "ru": {
+          "prompt": "Почему горбатые киты поют длинные песни?",
+          "answer": "Чтобы найти друг друга",
+          "wrong": [
+            "Чтобы приманить рыбу",
+            "Чтобы согреть воду",
+            "Чтобы дышать"
+          ],
+          "hint": "Под водой звук идёт далеко.",
+          "explanation": "Их низкие ноты разносятся в океане на сотни километров.",
+          "fact": "Все самцы в районе поют одну и ту же песню, и она меняется каждый год."
+        },
+        "ar": {
+          "prompt": "لماذا تغني الحيتان الحدباء أغاني طويلة؟",
+          "answer": "ليجد بعضها بعضًا",
+          "wrong": [
+            "لتجذب السمك",
+            "لتدفئ الماء",
+            "لتتنفس"
+          ],
+          "hint": "الصوت يسافر بعيدًا تحت الماء.",
+          "explanation": "نغماتها المنخفضة تسافر مئات الكيلومترات في المحيط.",
+          "fact": "كل الذكور في منطقة يغنون اللحن نفسه، ويتغير كل عام."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Roze meren",
+      "artBrief": "Een fel roze zoutmeer met witte zoutranden vanuit de lucht gezien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is het water van sommige meren knalroze?",
+          "answer": "Door zoutminnende algen",
+          "wrong": [
+            "Door rode stenen",
+            "Door de zonsondergang",
+            "Door verf"
+          ],
+          "hint": "Het water is er extreem zout.",
+          "explanation": "In extreem zout water leven algen en bacteriën die een rode kleurstof maken.",
+          "fact": "Flamingo's worden roze door precies dezelfde kleurstof te eten."
+        },
+        "en": {
+          "prompt": "Why is the water of some lakes bright pink?",
+          "answer": "Salt-loving algae",
+          "wrong": [
+            "Red stones",
+            "The sunset",
+            "Spilled paint"
+          ],
+          "hint": "The water there is extremely salty.",
+          "explanation": "In extremely salty water live algae and bacteria that make a red pigment.",
+          "fact": "Flamingos turn pink by eating exactly the same pigment."
+        },
+        "de": {
+          "prompt": "Warum ist das Wasser mancher Seen knallrosa?",
+          "answer": "Durch salzliebende Algen",
+          "wrong": [
+            "Durch rote Steine",
+            "Durch den Sonnenuntergang",
+            "Durch Farbe"
+          ],
+          "hint": "Das Wasser ist dort extrem salzig.",
+          "explanation": "In extrem salzigem Wasser leben Algen und Bakterien, die einen roten Farbstoff bilden.",
+          "fact": "Flamingos werden rosa, weil sie genau diesen Farbstoff fressen."
+        },
+        "fr": {
+          "prompt": "Pourquoi l'eau de certains lacs est-elle rose vif ?",
+          "answer": "Des algues du sel",
+          "wrong": [
+            "Des pierres rouges",
+            "Le coucher du soleil",
+            "De la peinture"
+          ],
+          "hint": "L'eau y est extrêmement salée.",
+          "explanation": "Dans l'eau très salée vivent des algues et des bactéries qui font un pigment rouge.",
+          "fact": "Les flamants deviennent roses en mangeant exactement ce pigment."
+        },
+        "es": {
+          "prompt": "¿Por qué el agua de algunos lagos es rosa fuerte?",
+          "answer": "Algas que aman la sal",
+          "wrong": [
+            "Piedras rojas",
+            "La puesta de sol",
+            "Pintura"
+          ],
+          "hint": "Allí el agua es saladísima.",
+          "explanation": "En agua muy salada viven algas y bacterias que fabrican un pigmento rojo.",
+          "fact": "Los flamencos se vuelven rosas comiendo justo ese pigmento."
+        },
+        "it": {
+          "prompt": "Perché l'acqua di certi laghi è rosa acceso?",
+          "answer": "Alghe amanti del sale",
+          "wrong": [
+            "Pietre rosse",
+            "Il tramonto",
+            "Della vernice"
+          ],
+          "hint": "L'acqua lì è salatissima.",
+          "explanation": "Nell'acqua molto salata vivono alghe e batteri che producono un pigmento rosso.",
+          "fact": "I fenicotteri diventano rosa mangiando proprio quel pigmento."
+        },
+        "pt": {
+          "prompt": "Porque é a água de certos lagos cor-de-rosa forte?",
+          "answer": "Algas que adoram sal",
+          "wrong": [
+            "Pedras vermelhas",
+            "O pôr do sol",
+            "Tinta"
+          ],
+          "hint": "Ali a água é saladíssima.",
+          "explanation": "Em água muito salgada vivem algas e bactérias que fazem um pigmento vermelho.",
+          "fact": "Os flamingos ficam cor-de-rosa comendo exatamente esse pigmento."
+        },
+        "da": {
+          "prompt": "Hvorfor er vandet i nogle søer knaldlyserødt?",
+          "answer": "Saltelskende alger",
+          "wrong": [
+            "Røde sten",
+            "Solnedgangen",
+            "Maling"
+          ],
+          "hint": "Vandet der er ekstremt salt.",
+          "explanation": "I ekstremt salt vand lever alger og bakterier, der laver et rødt farvestof.",
+          "fact": "Flamingoer bliver lyserøde af at spise netop det farvestof."
+        },
+        "ru": {
+          "prompt": "Почему вода некоторых озёр ярко-розовая?",
+          "answer": "Из-за солелюбивых водорослей",
+          "wrong": [
+            "Из-за красных камней",
+            "Из-за заката",
+            "Из-за краски"
+          ],
+          "hint": "Вода там страшно солёная.",
+          "explanation": "В очень солёной воде живут водоросли и бактерии, дающие красный пигмент.",
+          "fact": "Фламинго розовеют, поедая именно этот пигмент."
+        },
+        "ar": {
+          "prompt": "لماذا ماء بعض البحيرات وردي فاقع؟",
+          "answer": "طحالب تحب الملح",
+          "wrong": [
+            "حجارة حمراء",
+            "غروب الشمس",
+            "دهان ملون"
+          ],
+          "hint": "الماء هناك شديد الملوحة.",
+          "explanation": "في الماء شديد الملوحة تعيش طحالب وبكتيريا تصنع صبغة حمراء.",
+          "fact": "الفلامنغو يصير ورديًا لأنه يأكل هذه الصبغة نفسها."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Sprites boven onweer",
+      "artBrief": "Rode lichtflitsen hoog boven een onweerswolk in de nachtelijke hemel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat zijn sprites boven een onweerswolk?",
+          "answer": "Rode lichtflitsen hoog boven",
+          "wrong": [
+            "Vallende sterren",
+            "Vogels met licht",
+            "Ballonnen met lampen"
+          ],
+          "hint": "Ze duren korter dan een oogwenk.",
+          "explanation": "Boven een zwaar onweer schieten soms rode flitsen omhoog, tientallen kilometers hoog.",
+          "fact": "Piloten vertelden er jaren over voordat iemand er in 1989 een foto van maakte."
+        },
+        "en": {
+          "prompt": "What are sprites above a thundercloud?",
+          "answer": "Red flashes high above",
+          "wrong": [
+            "Falling stars",
+            "Birds with lights",
+            "Balloons with lamps"
+          ],
+          "hint": "They last less than a blink.",
+          "explanation": "Above a heavy storm red flashes sometimes shoot upward, tens of kilometres high.",
+          "fact": "Pilots reported them for years before anyone photographed one in 1989."
+        },
+        "de": {
+          "prompt": "Was sind Sprites über einer Gewitterwolke?",
+          "answer": "Rote Blitze hoch darüber",
+          "wrong": [
+            "Sternschnuppen",
+            "Vögel mit Licht",
+            "Ballons mit Lampen"
+          ],
+          "hint": "Sie dauern kürzer als ein Wimpernschlag.",
+          "explanation": "Über einem schweren Gewitter schießen manchmal rote Blitze nach oben, zig Kilometer hoch.",
+          "fact": "Piloten berichteten jahrelang davon, bevor 1989 jemand ein Foto machte."
+        },
+        "fr": {
+          "prompt": "Que sont les sprites au-dessus d'un orage ?",
+          "answer": "Des éclairs rouges très haut",
+          "wrong": [
+            "Des étoiles filantes",
+            "Des oiseaux lumineux",
+            "Des ballons éclairés"
+          ],
+          "hint": "Ils durent moins qu'un clin d'œil.",
+          "explanation": "Au-dessus d'un gros orage jaillissent parfois des éclairs rouges à des dizaines de kilomètres.",
+          "fact": "Des pilotes en parlaient depuis des années avant la première photo en 1989."
+        },
+        "es": {
+          "prompt": "¿Qué son los duendes rojos sobre una tormenta?",
+          "answer": "Destellos rojos muy arriba",
+          "wrong": [
+            "Estrellas fugaces",
+            "Pájaros con luz",
+            "Globos con lámparas"
+          ],
+          "hint": "Duran menos que un parpadeo.",
+          "explanation": "Sobre una tormenta fuerte a veces saltan destellos rojos a decenas de kilómetros.",
+          "fact": "Los pilotos los contaron durante años antes de la primera foto en 1989."
+        },
+        "it": {
+          "prompt": "Che cosa sono gli sprite sopra un temporale?",
+          "answer": "Lampi rossi molto in alto",
+          "wrong": [
+            "Stelle cadenti",
+            "Uccelli luminosi",
+            "Palloni con lampade"
+          ],
+          "hint": "Durano meno di un battito di ciglia.",
+          "explanation": "Sopra un temporale forte guizzano a volte lampi rossi a decine di chilometri.",
+          "fact": "I piloti ne parlarono per anni prima della prima foto nel 1989."
+        },
+        "pt": {
+          "prompt": "O que são os sprites acima de uma trovoada?",
+          "answer": "Clarões vermelhos no alto",
+          "wrong": [
+            "Estrelas cadentes",
+            "Aves com luz",
+            "Balões com lâmpadas"
+          ],
+          "hint": "Duram menos do que um piscar.",
+          "explanation": "Sobre uma trovoada forte saltam às vezes clarões vermelhos a dezenas de quilómetros.",
+          "fact": "Os pilotos falaram deles anos antes da primeira foto em 1989."
+        },
+        "da": {
+          "prompt": "Hvad er sprites over en tordensky?",
+          "answer": "Røde glimt højt over",
+          "wrong": [
+            "Stjerneskud",
+            "Fugle med lys",
+            "Balloner med lamper"
+          ],
+          "hint": "De varer kortere end et blink.",
+          "explanation": "Over et kraftigt tordenvejr skyder der somme tider røde glimt op, titusindvis af meter oppe.",
+          "fact": "Piloter fortalte om dem i årevis, før nogen fotograferede et i 1989."
+        },
+        "ru": {
+          "prompt": "Что такое спрайты над грозовой тучей?",
+          "answer": "Красные вспышки высоко",
+          "wrong": [
+            "Падающие звёзды",
+            "Птицы с огоньками",
+            "Шары с лампами"
+          ],
+          "hint": "Они короче, чем моргание.",
+          "explanation": "Над сильной грозой порой вверх бьют красные вспышки на десятки километров.",
+          "fact": "Пилоты рассказывали о них годами, пока в 1989-м их не сфотографировали."
+        },
+        "ar": {
+          "prompt": "ما هي ومضات السبرايت فوق سحابة الرعد؟",
+          "answer": "ومضات حمراء عالية جدًا",
+          "wrong": [
+            "شهب",
+            "طيور مضيئة",
+            "بالونات بمصابيح"
+          ],
+          "hint": "تدوم أقل من رمشة عين.",
+          "explanation": "فوق العاصفة الشديدة تنطلق أحيانًا ومضات حمراء على ارتفاع عشرات الكيلومترات.",
+          "fact": "تحدث عنها الطيارون سنوات قبل أن يُصوّرها أحد سنة 1989."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Dolfijnen slapen met één hersenhelft",
+      "artBrief": "Een dolfijn die rustig net onder het wateroppervlak zweeft bij maanlicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe slapen dolfijnen zonder te verdrinken?",
+          "answer": "Met één hersenhelft tegelijk",
+          "wrong": [
+            "Ze slapen nooit",
+            "Ze slapen op het strand",
+            "Ze ademen onder water"
+          ],
+          "hint": "De helft blijft wakker.",
+          "explanation": "Eén helft van hun brein slaapt terwijl de andere ademhalen en zwemmen regelt.",
+          "fact": "Ook één oog blijft daarbij open, aan de kant die wakker is."
+        },
+        "en": {
+          "prompt": "How do dolphins sleep without drowning?",
+          "answer": "One brain half at a time",
+          "wrong": [
+            "They never sleep",
+            "They sleep on the beach",
+            "They breathe under water"
+          ],
+          "hint": "Half stays awake.",
+          "explanation": "One half of the brain sleeps while the other keeps breathing and swimming going.",
+          "fact": "One eye stays open too, on the side that is awake."
+        },
+        "de": {
+          "prompt": "Wie schlafen Delfine, ohne zu ertrinken?",
+          "answer": "Mit einer Gehirnhälfte",
+          "wrong": [
+            "Sie schlafen nie",
+            "Sie schlafen am Strand",
+            "Sie atmen unter Wasser"
+          ],
+          "hint": "Die Hälfte bleibt wach.",
+          "explanation": "Eine Hälfte des Gehirns schläft, während die andere Atmen und Schwimmen steuert.",
+          "fact": "Auch ein Auge bleibt offen, auf der wachen Seite."
+        },
+        "fr": {
+          "prompt": "Comment les dauphins dorment-ils sans se noyer ?",
+          "answer": "Un demi-cerveau à la fois",
+          "wrong": [
+            "Ils ne dorment jamais",
+            "Ils dorment sur la plage",
+            "Ils respirent sous l'eau"
+          ],
+          "hint": "La moitié reste éveillée.",
+          "explanation": "Une moitié du cerveau dort tandis que l'autre gère la respiration et la nage.",
+          "fact": "Un œil reste ouvert aussi, du côté éveillé."
+        },
+        "es": {
+          "prompt": "¿Cómo duermen los delfines sin ahogarse?",
+          "answer": "Con medio cerebro cada vez",
+          "wrong": [
+            "Nunca duermen",
+            "Duermen en la playa",
+            "Respiran bajo el agua"
+          ],
+          "hint": "La mitad sigue despierta.",
+          "explanation": "Una mitad del cerebro duerme mientras la otra sigue respirando y nadando.",
+          "fact": "También queda un ojo abierto, el del lado despierto."
+        },
+        "it": {
+          "prompt": "Come dormono i delfini senza annegare?",
+          "answer": "Con mezzo cervello per volta",
+          "wrong": [
+            "Non dormono mai",
+            "Dormono sulla spiaggia",
+            "Respirano sott'acqua"
+          ],
+          "hint": "Metà resta sveglia.",
+          "explanation": "Metà del cervello dorme mentre l'altra continua a respirare e nuotare.",
+          "fact": "Resta aperto anche un occhio, dalla parte sveglia."
+        },
+        "pt": {
+          "prompt": "Como dormem os golfinhos sem se afogarem?",
+          "answer": "Com meio cérebro de cada vez",
+          "wrong": [
+            "Nunca dormem",
+            "Dormem na praia",
+            "Respiram debaixo de água"
+          ],
+          "hint": "Metade fica acordada.",
+          "explanation": "Metade do cérebro dorme enquanto a outra continua a respirar e a nadar.",
+          "fact": "Um olho também fica aberto, do lado que está acordado."
+        },
+        "da": {
+          "prompt": "Hvordan sover delfiner uden at drukne?",
+          "answer": "Med én hjernehalvdel",
+          "wrong": [
+            "De sover aldrig",
+            "De sover på stranden",
+            "De ånder under vand"
+          ],
+          "hint": "Halvdelen bliver vågen.",
+          "explanation": "Den ene halvdel af hjernen sover, mens den anden styrer vejrtrækning og svømning.",
+          "fact": "Det ene øje bliver også åbent, på den vågne side."
+        },
+        "ru": {
+          "prompt": "Как дельфины спят и не тонут?",
+          "answer": "Одним полушарием мозга",
+          "wrong": [
+            "Они никогда не спят",
+            "Они спят на берегу",
+            "Они дышат под водой"
+          ],
+          "hint": "Половина остаётся бодрой.",
+          "explanation": "Одно полушарие спит, пока другое управляет дыханием и плаванием.",
+          "fact": "Один глаз тоже остаётся открытым — со стороны бодрствующей половины."
+        },
+        "ar": {
+          "prompt": "كيف تنام الدلافين دون أن تغرق؟",
+          "answer": "بنصف دماغ في كل مرة",
+          "wrong": [
+            "لا تنام أبدًا",
+            "تنام على الشاطئ",
+            "تتنفس تحت الماء"
+          ],
+          "hint": "النصف الآخر يبقى مستيقظًا.",
+          "explanation": "نصف الدماغ ينام بينما النصف الآخر يدير التنفس والسباحة.",
+          "fact": "وتبقى عين واحدة مفتوحة، في الجهة المستيقظة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De Bermudadriehoek",
+      "artBrief": "Een kaartachtige zee met mist en een klein schip, driehoekige vorm in het water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de Bermudadriehoek?",
+          "answer": "Een zeegebied vol verhalen",
+          "wrong": [
+            "Een gat in de zee",
+            "Een eiland",
+            "Een soort storm"
+          ],
+          "hint": "Tussen Florida, Puerto Rico en Bermuda.",
+          "explanation": "In dat stuk oceaan verdwenen schepen en vliegtuigen, maar niet vaker dan elders.",
+          "fact": "Onderzoek wijst vooral op zwaar weer en menselijke fouten, niet op iets mysterieus."
+        },
+        "en": {
+          "prompt": "What is the Bermuda Triangle?",
+          "answer": "A sea area full of stories",
+          "wrong": [
+            "A hole in the sea",
+            "An island",
+            "A kind of storm"
+          ],
+          "hint": "Between Florida, Puerto Rico and Bermuda.",
+          "explanation": "Ships and planes vanished in that stretch of ocean, but no more often than elsewhere.",
+          "fact": "Studies point to rough weather and human error, not to anything mysterious."
+        },
+        "de": {
+          "prompt": "Was ist das Bermudadreieck?",
+          "answer": "Ein Seegebiet mit Sagen",
+          "wrong": [
+            "Ein Loch im Meer",
+            "Eine Insel",
+            "Eine Sturmart"
+          ],
+          "hint": "Zwischen Florida, Puerto Rico und Bermuda.",
+          "explanation": "Dort verschwanden Schiffe und Flugzeuge, aber nicht häufiger als anderswo.",
+          "fact": "Untersuchungen nennen schweres Wetter und menschliche Fehler, nichts Geheimnisvolles."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que le triangle des Bermudes ?",
+          "answer": "Une zone de mer à légendes",
+          "wrong": [
+            "Un trou dans la mer",
+            "Une île",
+            "Une sorte de tempête"
+          ],
+          "hint": "Entre la Floride, Porto Rico et les Bermudes.",
+          "explanation": "Des navires et des avions y ont disparu, mais pas plus souvent qu'ailleurs.",
+          "fact": "Les études pointent le mauvais temps et l'erreur humaine, rien de mystérieux."
+        },
+        "es": {
+          "prompt": "¿Qué es el triángulo de las Bermudas?",
+          "answer": "Un mar lleno de historias",
+          "wrong": [
+            "Un agujero en el mar",
+            "Una isla",
+            "Un tipo de tormenta"
+          ],
+          "hint": "Entre Florida, Puerto Rico y Bermudas.",
+          "explanation": "Allí desaparecieron barcos y aviones, pero no más a menudo que en otras partes.",
+          "fact": "Los estudios señalan mal tiempo y errores humanos, nada misterioso."
+        },
+        "it": {
+          "prompt": "Che cos'è il triangolo delle Bermude?",
+          "answer": "Un mare pieno di storie",
+          "wrong": [
+            "Un buco nel mare",
+            "Un'isola",
+            "Un tipo di tempesta"
+          ],
+          "hint": "Fra Florida, Portorico e Bermuda.",
+          "explanation": "Lì sparirono navi e aerei, ma non più spesso che altrove.",
+          "fact": "Gli studi indicano maltempo ed errori umani, niente di misterioso."
+        },
+        "pt": {
+          "prompt": "O que é o triângulo das Bermudas?",
+          "answer": "Um mar cheio de histórias",
+          "wrong": [
+            "Um buraco no mar",
+            "Uma ilha",
+            "Um tipo de tempestade"
+          ],
+          "hint": "Entre a Florida, Porto Rico e as Bermudas.",
+          "explanation": "Ali desapareceram navios e aviões, mas não mais vezes do que noutros sítios.",
+          "fact": "Os estudos apontam mau tempo e erro humano, nada de misterioso."
+        },
+        "da": {
+          "prompt": "Hvad er Bermudatrekanten?",
+          "answer": "Et hav fuldt af historier",
+          "wrong": [
+            "Et hul i havet",
+            "En ø",
+            "En slags storm"
+          ],
+          "hint": "Mellem Florida, Puerto Rico og Bermuda.",
+          "explanation": "Der forsvandt skibe og fly, men ikke oftere end andre steder.",
+          "fact": "Undersøgelser peger på hårdt vejr og menneskelige fejl, ikke noget mystisk."
+        },
+        "ru": {
+          "prompt": "Что такое Бермудский треугольник?",
+          "answer": "Море, полное историй",
+          "wrong": [
+            "Дыра в море",
+            "Остров",
+            "Вид шторма"
+          ],
+          "hint": "Между Флоридой, Пуэрто-Рико и Бермудами.",
+          "explanation": "Там пропадали суда и самолёты, но не чаще, чем в других местах.",
+          "fact": "Исследования указывают на непогоду и человеческие ошибки, а не на загадку."
+        },
+        "ar": {
+          "prompt": "ما هو مثلث برمودا؟",
+          "answer": "بحر مليء بالحكايات",
+          "wrong": [
+            "ثقب في البحر",
+            "جزيرة",
+            "نوع من العواصف"
+          ],
+          "hint": "بين فلوريدا وبورتوريكو وبرمودا.",
+          "explanation": "اختفت هناك سفن وطائرات، لكن ليس أكثر من أماكن أخرى.",
+          "fact": "الدراسات تشير إلى سوء الطقس والخطأ البشري لا إلى سرّ غامض."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De oudste bomen",
+      "artBrief": "Een eeuwenoude gedraaide den op een kale bergrug.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe oud kan de oudste boom ter wereld zijn?",
+          "answer": "Meer dan 4.000 jaar",
+          "wrong": [
+            "Ongeveer 100 jaar",
+            "Ongeveer 500 jaar",
+            "Meer dan 100.000 jaar"
+          ],
+          "hint": "Ouder dan de piramides van Gizeh.",
+          "explanation": "In de bergen van Californië staan dennen die al duizenden jaren groeien.",
+          "fact": "De oudste kreeg de naam Methusalem, en de plek blijft geheim."
+        },
+        "en": {
+          "prompt": "How old can the oldest tree on earth be?",
+          "answer": "More than 4,000 years",
+          "wrong": [
+            "About 100 years",
+            "About 500 years",
+            "More than 100,000 years"
+          ],
+          "hint": "Older than the pyramids of Giza.",
+          "explanation": "In the mountains of California grow pines that have lived for thousands of years.",
+          "fact": "The oldest was named Methuselah, and its spot is kept secret."
+        },
+        "de": {
+          "prompt": "Wie alt kann der älteste Baum der Erde sein?",
+          "answer": "Mehr als 4.000 Jahre",
+          "wrong": [
+            "Etwa 100 Jahre",
+            "Etwa 500 Jahre",
+            "Mehr als 100.000 Jahre"
+          ],
+          "hint": "Älter als die Pyramiden von Gizeh.",
+          "explanation": "In den Bergen Kaliforniens wachsen Kiefern, die schon Jahrtausende leben.",
+          "fact": "Die älteste heißt Methusalem, und ihr Standort bleibt geheim."
+        },
+        "fr": {
+          "prompt": "Quel âge peut avoir le plus vieil arbre du monde ?",
+          "answer": "Plus de 4 000 ans",
+          "wrong": [
+            "Environ 100 ans",
+            "Environ 500 ans",
+            "Plus de 100 000 ans"
+          ],
+          "hint": "Plus vieux que les pyramides de Gizeh.",
+          "explanation": "Dans les montagnes de Californie poussent des pins vieux de plusieurs millénaires.",
+          "fact": "Le plus vieux se nomme Mathusalem et son emplacement reste secret."
+        },
+        "es": {
+          "prompt": "¿Cuántos años puede tener el árbol más viejo?",
+          "answer": "Más de 4.000 años",
+          "wrong": [
+            "Unos 100 años",
+            "Unos 500 años",
+            "Más de 100.000 años"
+          ],
+          "hint": "Más viejo que las pirámides de Guiza.",
+          "explanation": "En las montañas de California crecen pinos con miles de años de vida.",
+          "fact": "Al más viejo lo llamaron Matusalén y su lugar se mantiene en secreto."
+        },
+        "it": {
+          "prompt": "Quanti anni può avere l'albero più vecchio?",
+          "answer": "Più di 4.000 anni",
+          "wrong": [
+            "Circa 100 anni",
+            "Circa 500 anni",
+            "Più di 100.000 anni"
+          ],
+          "hint": "Più vecchio delle piramidi di Giza.",
+          "explanation": "Sulle montagne della California crescono pini vivi da millenni.",
+          "fact": "Il più antico si chiama Matusalemme e il luogo resta segreto."
+        },
+        "pt": {
+          "prompt": "Que idade pode ter a árvore mais velha do mundo?",
+          "answer": "Mais de 4.000 anos",
+          "wrong": [
+            "Cerca de 100 anos",
+            "Cerca de 500 anos",
+            "Mais de 100.000 anos"
+          ],
+          "hint": "Mais velha do que as pirâmides de Gizé.",
+          "explanation": "Nas montanhas da Califórnia crescem pinheiros com milhares de anos.",
+          "fact": "À mais antiga chamaram Matusalém e o local é mantido em segredo."
+        },
+        "da": {
+          "prompt": "Hvor gammelt kan verdens ældste træ være?",
+          "answer": "Mere end 4.000 år",
+          "wrong": [
+            "Omkring 100 år",
+            "Omkring 500 år",
+            "Mere end 100.000 år"
+          ],
+          "hint": "Ældre end pyramiderne i Giza.",
+          "explanation": "I Californiens bjerge vokser fyrretræer, der har levet i årtusinder.",
+          "fact": "Det ældste fik navnet Metusalem, og stedet holdes hemmeligt."
+        },
+        "ru": {
+          "prompt": "Сколько лет может быть самому старому дереву?",
+          "answer": "Больше 4000 лет",
+          "wrong": [
+            "Около 100 лет",
+            "Около 500 лет",
+            "Больше 100 000 лет"
+          ],
+          "hint": "Старше пирамид Гизы.",
+          "explanation": "В горах Калифорнии растут сосны, живущие тысячи лет.",
+          "fact": "Самую старую назвали Мафусаилом, а место держат в тайне."
+        },
+        "ar": {
+          "prompt": "كم يمكن أن يبلغ عمر أقدم شجرة في العالم؟",
+          "answer": "أكثر من 4000 سنة",
+          "wrong": [
+            "نحو 100 سنة",
+            "نحو 500 سنة",
+            "أكثر من 100 ألف سنة"
+          ],
+          "hint": "أقدم من أهرامات الجيزة.",
+          "explanation": "في جبال كاليفورنيا صنوبر يعيش منذ آلاف السنين.",
+          "fact": "سُمّيت أقدمها ميتوشالح، ومكانها يبقى سرًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Monarchvlinders vinden hun bos",
+      "artBrief": "Duizenden oranje vlinders op dennentakken in een bergbos.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vinden monarchvlinders een bos dat ze nooit zagen?",
+          "answer": "Het zit in hun instinct",
+          "wrong": [
+            "Ze volgen hun ouders",
+            "Ze volgen schepen",
+            "Ze vragen de weg"
+          ],
+          "hint": "Hun overgrootouders waren er.",
+          "explanation": "De vlinders die aankomen zijn generaties later geboren en sturen toch op zon en aardmagnetisme.",
+          "fact": "Ze vliegen soms vierduizend kilometer naar precies dezelfde bergbossen."
+        },
+        "en": {
+          "prompt": "How do monarch butterflies find a forest they have never seen?",
+          "answer": "It is in their instinct",
+          "wrong": [
+            "They follow their parents",
+            "They follow ships",
+            "They ask the way"
+          ],
+          "hint": "Their great-grandparents were there.",
+          "explanation": "The butterflies that arrive were born generations later and still steer by sun and magnetism.",
+          "fact": "They fly up to four thousand kilometres to exactly the same mountain forests."
+        },
+        "de": {
+          "prompt": "Wie finden Monarchfalter einen Wald, den sie nie sahen?",
+          "answer": "Es steckt im Instinkt",
+          "wrong": [
+            "Sie folgen den Eltern",
+            "Sie folgen Schiffen",
+            "Sie fragen nach dem Weg"
+          ],
+          "hint": "Ihre Urgroßeltern waren dort.",
+          "explanation": "Die ankommenden Falter sind Generationen später geboren und steuern doch nach Sonne und Magnetfeld.",
+          "fact": "Sie fliegen bis zu viertausend Kilometer in genau dieselben Bergwälder."
+        },
+        "fr": {
+          "prompt": "Comment les monarques trouvent-ils une forêt jamais vue ?",
+          "answer": "C'est dans leur instinct",
+          "wrong": [
+            "Ils suivent leurs parents",
+            "Ils suivent les bateaux",
+            "Ils demandent la route"
+          ],
+          "hint": "Leurs arrière-grands-parents y étaient.",
+          "explanation": "Les papillons qui arrivent sont nés des générations plus tard et se guident au soleil et au magnétisme.",
+          "fact": "Ils volent jusqu'à quatre mille kilomètres vers les mêmes forêts de montagne."
+        },
+        "es": {
+          "prompt": "¿Cómo hallan las mariposas monarca un bosque nunca visto?",
+          "answer": "Está en su instinto",
+          "wrong": [
+            "Siguen a sus padres",
+            "Siguen a los barcos",
+            "Preguntan el camino"
+          ],
+          "hint": "Sus bisabuelos estuvieron allí.",
+          "explanation": "Las que llegan nacieron generaciones después y aun así se guían por el sol y el magnetismo.",
+          "fact": "Vuelan hasta cuatro mil kilómetros a los mismos bosques de montaña."
+        },
+        "it": {
+          "prompt": "Come trovano le monarca un bosco mai visto?",
+          "answer": "È nel loro istinto",
+          "wrong": [
+            "Seguono i genitori",
+            "Seguono le navi",
+            "Chiedono la strada"
+          ],
+          "hint": "Ci erano stati i bisnonni.",
+          "explanation": "Quelle che arrivano sono nate generazioni dopo e si orientano con sole e magnetismo.",
+          "fact": "Volano fino a quattromila chilometri verso gli stessi boschi di montagna."
+        },
+        "pt": {
+          "prompt": "Como acham as borboletas-monarca um bosque nunca visto?",
+          "answer": "Está no seu instinto",
+          "wrong": [
+            "Seguem os pais",
+            "Seguem os navios",
+            "Perguntam o caminho"
+          ],
+          "hint": "Os bisavós estiveram lá.",
+          "explanation": "As que chegam nasceram gerações depois e guiam-se pelo sol e pelo magnetismo.",
+          "fact": "Voam até quatro mil quilómetros para os mesmos bosques de montanha."
+        },
+        "da": {
+          "prompt": "Hvordan finder monarksommerfugle en skov, de aldrig har set?",
+          "answer": "Det ligger i instinktet",
+          "wrong": [
+            "De følger forældrene",
+            "De følger skibe",
+            "De spørger om vej"
+          ],
+          "hint": "Deres oldeforældre var der.",
+          "explanation": "De sommerfugle, der ankommer, er født generationer senere og styrer alligevel efter sol og magnetfelt.",
+          "fact": "De flyver op til fire tusind kilometer til præcis de samme bjergskove."
+        },
+        "ru": {
+          "prompt": "Как монархи находят лес, которого не видели?",
+          "answer": "Это заложено в инстинкте",
+          "wrong": [
+            "Летят за родителями",
+            "Летят за кораблями",
+            "Спрашивают дорогу"
+          ],
+          "hint": "Там были их прадеды.",
+          "explanation": "Прилетевшие бабочки родились поколениями позже и всё же ориентируются по солнцу и магнитному полю.",
+          "fact": "Они пролетают до четырёх тысяч километров в те же горные леса."
+        },
+        "ar": {
+          "prompt": "كيف تجد فراشات المونارك غابة لم ترها قط؟",
+          "answer": "الأمر في غريزتها",
+          "wrong": [
+            "تتبع والديها",
+            "تتبع السفن",
+            "تسأل عن الطريق"
+          ],
+          "hint": "أجدادها كانوا هناك.",
+          "explanation": "الفراشات الواصلة وُلدت بعد أجيال ومع ذلك تهتدي بالشمس والمجال المغناطيسي.",
+          "fact": "تطير حتى أربعة آلاف كيلومتر إلى الغابات الجبلية نفسها."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Zeshoekige basaltzuilen",
+      "artBrief": "Een kust van perfect zeshoekige donkere zuilen bij de zee.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe ontstaan perfect zeshoekige rotszuilen?",
+          "answer": "Lava koelt af en krimpt",
+          "wrong": [
+            "Mensen hakten ze",
+            "De zee sleep ze",
+            "IJs perste ze"
+          ],
+          "hint": "Denk aan barsten in droge modder.",
+          "explanation": "Bij langzaam afkoelen krimpt lava en scheurt ze in een patroon van zeshoeken.",
+          "fact": "De bekendste staan in Noord-Ierland en heten de Reuzendam."
+        },
+        "en": {
+          "prompt": "How do perfectly six-sided rock columns form?",
+          "answer": "Lava cools and shrinks",
+          "wrong": [
+            "People carved them",
+            "The sea ground them",
+            "Ice pressed them"
+          ],
+          "hint": "Think of cracks in dry mud.",
+          "explanation": "Cooling slowly, lava shrinks and cracks into a pattern of hexagons.",
+          "fact": "The best known stand in Northern Ireland and are called the Giant's Causeway."
+        },
+        "de": {
+          "prompt": "Wie entstehen perfekt sechseckige Felssäulen?",
+          "answer": "Lava kühlt ab und schrumpft",
+          "wrong": [
+            "Menschen hieben sie",
+            "Das Meer schliff sie",
+            "Eis presste sie"
+          ],
+          "hint": "Denk an Risse in trockenem Schlamm.",
+          "explanation": "Beim langsamen Abkühlen schrumpft Lava und reißt in ein Muster aus Sechsecken.",
+          "fact": "Die bekanntesten stehen in Nordirland und heißen Riesendamm."
+        },
+        "fr": {
+          "prompt": "Comment se forment des colonnes de roche à six côtés ?",
+          "answer": "La lave refroidit",
+          "wrong": [
+            "Des hommes les ont taillées",
+            "La mer les a polies",
+            "La glace les a pressées"
+          ],
+          "hint": "Pense aux craquelures de la boue sèche.",
+          "explanation": "En refroidissant lentement, la lave rétrécit et se fend en un motif d'hexagones.",
+          "fact": "Les plus connues sont en Irlande du Nord : la Chaussée des Géants."
+        },
+        "es": {
+          "prompt": "¿Cómo se forman columnas de roca de seis lados?",
+          "answer": "La lava se enfría y encoge",
+          "wrong": [
+            "Las talló la gente",
+            "Las pulió el mar",
+            "Las prensó el hielo"
+          ],
+          "hint": "Piensa en el barro seco agrietado.",
+          "explanation": "Al enfriarse despacio la lava encoge y se raja en un patrón de hexágonos.",
+          "fact": "Las más famosas están en Irlanda del Norte: la Calzada del Gigante."
+        },
+        "it": {
+          "prompt": "Come nascono colonne di roccia a sei lati?",
+          "answer": "La lava si raffredda",
+          "wrong": [
+            "Le hanno scolpite gli uomini",
+            "Le ha levigate il mare",
+            "Le ha compresse il ghiaccio"
+          ],
+          "hint": "Pensa alle crepe nel fango secco.",
+          "explanation": "Raffreddandosi lentamente la lava si ritira e si spacca in un motivo di esagoni.",
+          "fact": "Le più famose sono in Irlanda del Nord: il Selciato del Gigante."
+        },
+        "pt": {
+          "prompt": "Como se formam colunas de rocha com seis lados?",
+          "answer": "A lava arrefece e encolhe",
+          "wrong": [
+            "Foram talhadas por pessoas",
+            "Foi o mar que as poliu",
+            "Foi o gelo que as prensou"
+          ],
+          "hint": "Pensa nas gretas da lama seca.",
+          "explanation": "Ao arrefecer devagar a lava encolhe e racha num padrão de hexágonos.",
+          "fact": "As mais conhecidas ficam na Irlanda do Norte: a Calçada do Gigante."
+        },
+        "da": {
+          "prompt": "Hvordan opstår helt sekskantede klippesøjler?",
+          "answer": "Lava køler af og skrumper",
+          "wrong": [
+            "Mennesker huggede dem",
+            "Havet slev dem",
+            "Is pressede dem"
+          ],
+          "hint": "Tænk på revner i tørt mudder.",
+          "explanation": "Når lava køler langsomt af, skrumper den og revner i et mønster af sekskanter.",
+          "fact": "De mest kendte står i Nordirland og hedder Giant's Causeway."
+        },
+        "ru": {
+          "prompt": "Как возникают ровные шестигранные колонны скал?",
+          "answer": "Лава стынет и сжимается",
+          "wrong": [
+            "Их вырубили люди",
+            "Их отшлифовало море",
+            "Их сдавил лёд"
+          ],
+          "hint": "Вспомни трещины в сухой глине.",
+          "explanation": "Остывая медленно, лава сжимается и трескается узором из шестиугольников.",
+          "fact": "Самые известные — в Северной Ирландии, Дорога гигантов."
+        },
+        "ar": {
+          "prompt": "كيف تتكون أعمدة صخرية سداسية تمامًا؟",
+          "answer": "الحمم تبرد فتنكمش",
+          "wrong": [
+            "نحتها البشر",
+            "صقلها البحر",
+            "ضغطها الجليد"
+          ],
+          "hint": "فكّر في تشقق الطين الجاف.",
+          "explanation": "عند التبريد البطيء تنكمش الحمم وتتشقق في نمط من السداسيات.",
+          "fact": "أشهرها في أيرلندا الشمالية وتسمى جسر العمالقة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-natuurmysteries-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De bloedwaterval",
+      "artBrief": "Een roodgekleurde waterstroom die uit een witte gletsjer loopt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom loopt er in Antarctica een rode waterval uit het ijs?",
+          "answer": "IJzer in het water roest",
+          "wrong": [
+            "Rode algen",
+            "Verf van onderzoekers",
+            "Rood gesteente"
+          ],
+          "hint": "Het lijkt bloed, maar dat is het niet.",
+          "explanation": "Onder de gletsjer zit zout water vol ijzer; in de lucht roest dat meteen rood.",
+          "fact": "Dat water zat miljoenen jaren opgesloten en zit toch vol leven."
+        },
+        "en": {
+          "prompt": "Why does a red waterfall run from the ice in Antarctica?",
+          "answer": "Iron in the water rusts",
+          "wrong": [
+            "Red algae",
+            "Paint from researchers",
+            "Red rock"
+          ],
+          "hint": "It looks like blood, but it is not.",
+          "explanation": "Under the glacier sits salty water full of iron; in the air it rusts red at once.",
+          "fact": "That water was locked away for millions of years and is still full of life."
+        },
+        "de": {
+          "prompt": "Warum fließt in der Antarktis ein roter Wasserfall aus dem Eis?",
+          "answer": "Eisen im Wasser rostet",
+          "wrong": [
+            "Rote Algen",
+            "Farbe von Forschern",
+            "Rotes Gestein"
+          ],
+          "hint": "Es sieht aus wie Blut, ist es aber nicht.",
+          "explanation": "Unter dem Gletscher liegt Salzwasser voller Eisen; an der Luft rostet es sofort rot.",
+          "fact": "Dieses Wasser war Millionen Jahre eingeschlossen und steckt trotzdem voller Leben."
+        },
+        "fr": {
+          "prompt": "Pourquoi une cascade rouge coule-t-elle de la glace en Antarctique ?",
+          "answer": "Le fer de l'eau rouille",
+          "wrong": [
+            "Des algues rouges",
+            "De la peinture",
+            "De la roche rouge"
+          ],
+          "hint": "On dirait du sang, mais non.",
+          "explanation": "Sous le glacier dort une eau salée pleine de fer ; à l'air elle rouille aussitôt.",
+          "fact": "Cette eau est restée enfermée des millions d'années et grouille pourtant de vie."
+        },
+        "es": {
+          "prompt": "¿Por qué sale una cascada roja del hielo en la Antártida?",
+          "answer": "El hierro del agua se oxida",
+          "wrong": [
+            "Algas rojas",
+            "Pintura de los científicos",
+            "Roca roja"
+          ],
+          "hint": "Parece sangre, pero no lo es.",
+          "explanation": "Bajo el glaciar hay agua salada llena de hierro; al aire se oxida de rojo al instante.",
+          "fact": "Esa agua estuvo encerrada millones de años y aun así está llena de vida."
+        },
+        "it": {
+          "prompt": "Perché in Antartide esce una cascata rossa dal ghiaccio?",
+          "answer": "Il ferro si arrugginisce",
+          "wrong": [
+            "Alghe rosse",
+            "Vernice dei ricercatori",
+            "Roccia rossa"
+          ],
+          "hint": "Sembra sangue, ma non lo è.",
+          "explanation": "Sotto il ghiacciaio c'è acqua salata piena di ferro; all'aria arrugginisce subito.",
+          "fact": "Quell'acqua è rimasta chiusa milioni di anni ed è comunque piena di vita."
+        },
+        "pt": {
+          "prompt": "Porque corre uma cascata vermelha do gelo na Antártida?",
+          "answer": "O ferro da água enferruja",
+          "wrong": [
+            "Algas vermelhas",
+            "Tinta dos investigadores",
+            "Rocha vermelha"
+          ],
+          "hint": "Parece sangue, mas não é.",
+          "explanation": "Sob o glaciar há água salgada cheia de ferro; ao ar enferruja logo de vermelho.",
+          "fact": "Essa água esteve fechada milhões de anos e mesmo assim está cheia de vida."
+        },
+        "da": {
+          "prompt": "Hvorfor løber der et rødt vandfald ud af isen i Antarktis?",
+          "answer": "Jern i vandet ruster",
+          "wrong": [
+            "Røde alger",
+            "Maling fra forskere",
+            "Rødt klippestykke"
+          ],
+          "hint": "Det ligner blod, men er det ikke.",
+          "explanation": "Under gletsjeren ligger saltvand fuldt af jern; i luften ruster det straks rødt.",
+          "fact": "Det vand har været lukket inde i millioner af år og er alligevel fuldt af liv."
+        },
+        "ru": {
+          "prompt": "Почему в Антарктиде из льда течёт красный водопад?",
+          "answer": "Железо в воде ржавеет",
+          "wrong": [
+            "Красные водоросли",
+            "Краска учёных",
+            "Красная порода"
+          ],
+          "hint": "Похоже на кровь, но это не она.",
+          "explanation": "Под ледником солёная вода полна железа, и на воздухе оно сразу ржавеет.",
+          "fact": "Эта вода была заперта миллионы лет и всё равно полна жизни."
+        },
+        "ar": {
+          "prompt": "لماذا يسيل شلال أحمر من الجليد في أنتاركتيكا؟",
+          "answer": "الحديد في الماء يصدأ",
+          "wrong": [
+            "طحالب حمراء",
+            "دهان الباحثين",
+            "صخر أحمر"
+          ],
+          "hint": "يشبه الدم لكنه ليس دمًا.",
+          "explanation": "تحت النهر الجليدي ماء مالح مليء بالحديد، وفي الهواء يصدأ فورًا.",
+          "fact": "بقي ذلك الماء محبوسًا ملايين السنين وهو مع ذلك مليء بالحياة."
+        }
+      }
+    }
+  ]
+}
