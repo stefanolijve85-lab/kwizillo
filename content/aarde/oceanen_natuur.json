@@ -1,0 +1,2607 @@
+{
+  "world": "aarde",
+  "topic": "oceanen_natuur",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "aarde-oceanen_natuur-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vulkanisme",
+      "artBrief": "Een berg met een rokende top en gloeiende stroompjes langs de helling.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een vulkaan?",
+          "answer": "Een berg die kan uitbarsten",
+          "wrong": [
+            "Een diep meer",
+            "Een grote rivier",
+            "Een stuk ijs"
+          ],
+          "hint": "Er komt soms rook uit de top.",
+          "explanation": "Een vulkaan is een berg waar gesmolten gesteente naar buiten kan komen.",
+          "fact": "Er zijn op aarde ongeveer vijftienhonderd actieve vulkanen."
+        },
+        "en": {
+          "prompt": "What is a volcano?",
+          "answer": "A mountain that can erupt",
+          "wrong": [
+            "A deep lake",
+            "A big river",
+            "A piece of ice"
+          ],
+          "hint": "Smoke sometimes rises from the top.",
+          "explanation": "A volcano is a mountain where molten rock can come out.",
+          "fact": "There are about fifteen hundred active volcanoes on earth."
+        },
+        "de": {
+          "prompt": "Was ist ein Vulkan?",
+          "answer": "Ein Berg, der ausbricht",
+          "wrong": [
+            "Ein tiefer See",
+            "Ein großer Fluss",
+            "Ein Stück Eis"
+          ],
+          "hint": "Manchmal steigt Rauch aus dem Gipfel.",
+          "explanation": "Ein Vulkan ist ein Berg, aus dem geschmolzenes Gestein kommen kann.",
+          "fact": "Auf der Erde gibt es rund fünfzehnhundert aktive Vulkane."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un volcan ?",
+          "answer": "Une montagne qui explose",
+          "wrong": [
+            "Un lac profond",
+            "Un grand fleuve",
+            "Un bloc de glace"
+          ],
+          "hint": "De la fumée sort parfois du sommet.",
+          "explanation": "Un volcan est une montagne d'où peut sortir de la roche fondue.",
+          "fact": "Il y a environ mille cinq cents volcans actifs sur Terre."
+        },
+        "es": {
+          "prompt": "¿Qué es un volcán?",
+          "answer": "Una montaña que estalla",
+          "wrong": [
+            "Un lago profundo",
+            "Un río grande",
+            "Un bloque de hielo"
+          ],
+          "hint": "A veces sale humo por la cima.",
+          "explanation": "Un volcán es una montaña por la que puede salir roca fundida.",
+          "fact": "En la Tierra hay unos mil quinientos volcanes activos."
+        },
+        "it": {
+          "prompt": "Che cos'è un vulcano?",
+          "answer": "Una montagna che erutta",
+          "wrong": [
+            "Un lago profondo",
+            "Un grande fiume",
+            "Un blocco di ghiaccio"
+          ],
+          "hint": "A volte esce fumo dalla cima.",
+          "explanation": "Un vulcano è una montagna da cui può uscire roccia fusa.",
+          "fact": "Sulla Terra ci sono circa millecinquecento vulcani attivi."
+        },
+        "pt": {
+          "prompt": "O que é um vulcão?",
+          "answer": "Uma montanha que explode",
+          "wrong": [
+            "Um lago fundo",
+            "Um rio grande",
+            "Um bloco de gelo"
+          ],
+          "hint": "Às vezes sai fumo do cimo.",
+          "explanation": "Um vulcão é uma montanha por onde pode sair rocha derretida.",
+          "fact": "Na Terra há cerca de mil e quinhentos vulcões ativos."
+        },
+        "da": {
+          "prompt": "Hvad er en vulkan?",
+          "answer": "Et bjerg, der kan bryde ud",
+          "wrong": [
+            "En dyb sø",
+            "En stor flod",
+            "Et stykke is"
+          ],
+          "hint": "Nogle gange stiger der røg op fra toppen.",
+          "explanation": "En vulkan er et bjerg, hvor smeltet sten kan komme ud.",
+          "fact": "På Jorden er der cirka femten hundrede aktive vulkaner."
+        },
+        "ru": {
+          "prompt": "Что такое вулкан?",
+          "answer": "Гора, которая извергается",
+          "wrong": [
+            "Глубокое озеро",
+            "Большая река",
+            "Кусок льда"
+          ],
+          "hint": "Иногда из вершины идёт дым.",
+          "explanation": "Вулкан — это гора, из которой может выходить расплавленная порода.",
+          "fact": "На Земле около полутора тысяч действующих вулканов."
+        },
+        "ar": {
+          "prompt": "ما هو البركان؟",
+          "answer": "جبل يمكن أن يثور",
+          "wrong": [
+            "بحيرة عميقة",
+            "نهر كبير",
+            "كتلة جليد"
+          ],
+          "hint": "أحيانًا يتصاعد دخان من قمته.",
+          "explanation": "البركان جبل قد تخرج منه صخور منصهرة.",
+          "fact": "على الأرض نحو ألف وخمسمئة بركان نشط."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Woestijnen",
+      "artBrief": "Een golvende zandduin onder een felblauwe hemel, met sporen in het zand.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar vind je heel veel zand en bijna geen regen?",
+          "answer": "In de woestijn",
+          "wrong": [
+            "In het bos",
+            "In de sneeuw",
+            "In de stad"
+          ],
+          "hint": "Overdag is het er gloeiend heet.",
+          "explanation": "In een woestijn valt bijna geen neerslag.",
+          "fact": "'s Nachts kan het er juist bitter koud worden."
+        },
+        "en": {
+          "prompt": "Where do you find lots of sand and almost no rain?",
+          "answer": "In the desert",
+          "wrong": [
+            "In the forest",
+            "In the snow",
+            "In the city"
+          ],
+          "hint": "By day it is scorching there.",
+          "explanation": "Hardly any rain falls in a desert.",
+          "fact": "At night it can turn bitterly cold instead."
+        },
+        "de": {
+          "prompt": "Wo findet man viel Sand und fast keinen Regen?",
+          "answer": "In der Wüste",
+          "wrong": [
+            "Im Wald",
+            "Im Schnee",
+            "In der Stadt"
+          ],
+          "hint": "Tagsüber ist es dort glühend heiß.",
+          "explanation": "In einer Wüste fällt fast kein Niederschlag.",
+          "fact": "Nachts kann es dort dagegen bitterkalt werden."
+        },
+        "fr": {
+          "prompt": "Où trouve-t-on beaucoup de sable et presque pas de pluie ?",
+          "answer": "Dans le désert",
+          "wrong": [
+            "Dans la forêt",
+            "Dans la neige",
+            "En ville"
+          ],
+          "hint": "Le jour, il y fait brûlant.",
+          "explanation": "Dans un désert, il ne tombe presque aucune pluie.",
+          "fact": "La nuit, il peut au contraire y faire glacial."
+        },
+        "es": {
+          "prompt": "¿Dónde hay mucha arena y casi nada de lluvia?",
+          "answer": "En el desierto",
+          "wrong": [
+            "En el bosque",
+            "En la nieve",
+            "En la ciudad"
+          ],
+          "hint": "De día hace un calor abrasador.",
+          "explanation": "En un desierto casi no cae precipitación.",
+          "fact": "De noche, en cambio, puede hacer un frío helador."
+        },
+        "it": {
+          "prompt": "Dove trovi tanta sabbia e quasi niente pioggia?",
+          "answer": "Nel deserto",
+          "wrong": [
+            "Nel bosco",
+            "Nella neve",
+            "In città"
+          ],
+          "hint": "Di giorno ci si cuoce.",
+          "explanation": "In un deserto non cade quasi nessuna precipitazione.",
+          "fact": "Di notte invece può fare un freddo pungente."
+        },
+        "pt": {
+          "prompt": "Onde há muita areia e quase nada de chuva?",
+          "answer": "No deserto",
+          "wrong": [
+            "Na floresta",
+            "Na neve",
+            "Na cidade"
+          ],
+          "hint": "De dia está um calor escaldante.",
+          "explanation": "Num deserto quase não cai chuva.",
+          "fact": "De noite pode, pelo contrário, fazer um frio de rachar."
+        },
+        "da": {
+          "prompt": "Hvor finder man meget sand og næsten ingen regn?",
+          "answer": "I ørkenen",
+          "wrong": [
+            "I skoven",
+            "I sneen",
+            "I byen"
+          ],
+          "hint": "Om dagen er det glohedt.",
+          "explanation": "I en ørken falder der næsten ingen nedbør.",
+          "fact": "Om natten kan det til gengæld blive bidende koldt."
+        },
+        "ru": {
+          "prompt": "Где много песка и почти не бывает дождя?",
+          "answer": "В пустыне",
+          "wrong": [
+            "В лесу",
+            "В снегу",
+            "В городе"
+          ],
+          "hint": "Днём там палящая жара.",
+          "explanation": "В пустыне почти не выпадает осадков.",
+          "fact": "А ночью там может стать очень холодно."
+        },
+        "ar": {
+          "prompt": "أين تجد رملًا كثيرًا ومطرًا نادرًا؟",
+          "answer": "في الصحراء",
+          "wrong": [
+            "في الغابة",
+            "في الثلج",
+            "في المدينة"
+          ],
+          "hint": "نهارًا يكون الحر شديدًا.",
+          "explanation": "في الصحراء لا تكاد تسقط أمطار.",
+          "fact": "أما ليلًا فقد يشتد البرد كثيرًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Rivieren",
+      "artBrief": "Een rivier die door groen land naar de zee kronkelt, van bovenaf gezien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een rivier?",
+          "answer": "Stromend water naar zee",
+          "wrong": [
+            "Een stilstaand meer",
+            "Een hoge berg",
+            "Een grote wolk"
+          ],
+          "hint": "Hij begint klein in de bergen.",
+          "explanation": "Een rivier voert water van hoog naar laag, meestal tot in zee.",
+          "fact": "Onderweg neemt hij zand en steentjes mee."
+        },
+        "en": {
+          "prompt": "What is a river?",
+          "answer": "Water flowing to the sea",
+          "wrong": [
+            "A still lake",
+            "A high mountain",
+            "A big cloud"
+          ],
+          "hint": "It starts small in the mountains.",
+          "explanation": "A river carries water from high ground down, usually to the sea.",
+          "fact": "On the way it takes sand and pebbles with it."
+        },
+        "de": {
+          "prompt": "Was ist ein Fluss?",
+          "answer": "Wasser, das zum Meer fließt",
+          "wrong": [
+            "Ein stiller See",
+            "Ein hoher Berg",
+            "Eine große Wolke"
+          ],
+          "hint": "Er beginnt klein in den Bergen.",
+          "explanation": "Ein Fluss führt Wasser von oben nach unten, meist bis ins Meer.",
+          "fact": "Unterwegs nimmt er Sand und Steine mit."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un fleuve ?",
+          "answer": "De l'eau qui va vers la mer",
+          "wrong": [
+            "Un lac immobile",
+            "Une haute montagne",
+            "Un gros nuage"
+          ],
+          "hint": "Il commence tout petit en montagne.",
+          "explanation": "Un fleuve emporte l'eau d'en haut vers le bas, jusqu'à la mer.",
+          "fact": "En chemin, il emporte du sable et des cailloux."
+        },
+        "es": {
+          "prompt": "¿Qué es un río?",
+          "answer": "Agua que corre hacia el mar",
+          "wrong": [
+            "Un lago quieto",
+            "Una montaña alta",
+            "Una nube grande"
+          ],
+          "hint": "Empieza pequeño en la montaña.",
+          "explanation": "Un río lleva el agua de lo alto hacia abajo, normalmente hasta el mar.",
+          "fact": "Por el camino arrastra arena y piedrecitas."
+        },
+        "it": {
+          "prompt": "Che cos'è un fiume?",
+          "answer": "Acqua che scorre al mare",
+          "wrong": [
+            "Un lago fermo",
+            "Una montagna alta",
+            "Una grande nuvola"
+          ],
+          "hint": "Comincia piccolo in montagna.",
+          "explanation": "Un fiume porta l'acqua dall'alto verso il basso, fino al mare.",
+          "fact": "Lungo la strada trascina sabbia e sassolini."
+        },
+        "pt": {
+          "prompt": "O que é um rio?",
+          "answer": "Água que corre para o mar",
+          "wrong": [
+            "Um lago parado",
+            "Uma montanha alta",
+            "Uma nuvem grande"
+          ],
+          "hint": "Começa pequenino na montanha.",
+          "explanation": "Um rio leva a água de cima para baixo, normalmente até ao mar.",
+          "fact": "Pelo caminho arrasta areia e pedrinhas."
+        },
+        "da": {
+          "prompt": "Hvad er en flod?",
+          "answer": "Vand, der løber mod havet",
+          "wrong": [
+            "En stille sø",
+            "Et højt bjerg",
+            "En stor sky"
+          ],
+          "hint": "Den begynder lille i bjergene.",
+          "explanation": "En flod fører vand fra højt til lavt, som regel helt ud i havet.",
+          "fact": "Undervejs tager den sand og småsten med."
+        },
+        "ru": {
+          "prompt": "Что такое река?",
+          "answer": "Вода, текущая к морю",
+          "wrong": [
+            "Стоячее озеро",
+            "Высокая гора",
+            "Большое облако"
+          ],
+          "hint": "Она начинается маленьким ручьём в горах.",
+          "explanation": "Река несёт воду сверху вниз, обычно до самого моря.",
+          "fact": "По пути она тащит песок и камешки."
+        },
+        "ar": {
+          "prompt": "ما هو النهر؟",
+          "answer": "ماء يجري نحو البحر",
+          "wrong": [
+            "بحيرة ساكنة",
+            "جبل عال",
+            "سحابة كبيرة"
+          ],
+          "hint": "يبدأ صغيرًا في الجبال.",
+          "explanation": "النهر ينقل الماء من الأعلى إلى الأسفل حتى البحر غالبًا.",
+          "fact": "ويحمل في طريقه الرمل والحصى."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zeebodem",
+      "artBrief": "De bodem van een ondiepe zee met zand, rotsen en wat wier.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat ligt er op de bodem van de zee?",
+          "answer": "Zand en rotsen",
+          "wrong": [
+            "Gras",
+            "Sneeuw",
+            "Beton"
+          ],
+          "hint": "Net als op een strand, maar dan onder water.",
+          "explanation": "De zeebodem bestaat uit zand, slib en rotsen.",
+          "fact": "Op sommige plekken liggen er ook enorme bergketens."
+        },
+        "en": {
+          "prompt": "What lies on the bottom of the sea?",
+          "answer": "Sand and rocks",
+          "wrong": [
+            "Grass",
+            "Snow",
+            "Concrete"
+          ],
+          "hint": "Like a beach, but under water.",
+          "explanation": "The seabed is made of sand, silt and rock.",
+          "fact": "In some places there are huge mountain ranges as well."
+        },
+        "de": {
+          "prompt": "Was liegt auf dem Grund des Meeres?",
+          "answer": "Sand und Felsen",
+          "wrong": [
+            "Gras",
+            "Schnee",
+            "Beton"
+          ],
+          "hint": "Wie an einem Strand, nur unter Wasser.",
+          "explanation": "Der Meeresboden besteht aus Sand, Schlick und Fels.",
+          "fact": "An manchen Stellen liegen dort riesige Gebirgsketten."
+        },
+        "fr": {
+          "prompt": "Qu'y a-t-il au fond de la mer ?",
+          "answer": "Du sable et des rochers",
+          "wrong": [
+            "De l'herbe",
+            "De la neige",
+            "Du béton"
+          ],
+          "hint": "Comme une plage, mais sous l'eau.",
+          "explanation": "Le fond marin est fait de sable, de vase et de roche.",
+          "fact": "Par endroits, il s'y dresse d'immenses chaînes de montagnes."
+        },
+        "es": {
+          "prompt": "¿Qué hay en el fondo del mar?",
+          "answer": "Arena y rocas",
+          "wrong": [
+            "Hierba",
+            "Nieve",
+            "Hormigón"
+          ],
+          "hint": "Como una playa, pero bajo el agua.",
+          "explanation": "El fondo marino es de arena, limo y roca.",
+          "fact": "En algunos sitios hay enormes cordilleras."
+        },
+        "it": {
+          "prompt": "Che cosa c'è sul fondo del mare?",
+          "answer": "Sabbia e rocce",
+          "wrong": [
+            "Erba",
+            "Neve",
+            "Cemento"
+          ],
+          "hint": "Come una spiaggia, ma sott'acqua.",
+          "explanation": "Il fondo del mare è fatto di sabbia, fango e roccia.",
+          "fact": "In certi punti ci sono enormi catene montuose."
+        },
+        "pt": {
+          "prompt": "O que há no fundo do mar?",
+          "answer": "Areia e rochas",
+          "wrong": [
+            "Erva",
+            "Neve",
+            "Betão"
+          ],
+          "hint": "Como uma praia, mas debaixo de água.",
+          "explanation": "O fundo do mar é feito de areia, lodo e rocha.",
+          "fact": "Nalguns sítios há cordilheiras enormes."
+        },
+        "da": {
+          "prompt": "Hvad ligger der på havbunden?",
+          "answer": "Sand og klipper",
+          "wrong": [
+            "Græs",
+            "Sne",
+            "Beton"
+          ],
+          "hint": "Som på en strand, bare under vandet.",
+          "explanation": "Havbunden består af sand, mudder og klippe.",
+          "fact": "Nogle steder ligger der enorme bjergkæder."
+        },
+        "ru": {
+          "prompt": "Что лежит на дне моря?",
+          "answer": "Песок и камни",
+          "wrong": [
+            "Трава",
+            "Снег",
+            "Бетон"
+          ],
+          "hint": "Как на пляже, только под водой.",
+          "explanation": "Морское дно состоит из песка, ила и скал.",
+          "fact": "Кое-где там тянутся огромные горные хребты."
+        },
+        "ar": {
+          "prompt": "ماذا يوجد في قاع البحر؟",
+          "answer": "رمل وصخور",
+          "wrong": [
+            "عشب",
+            "ثلج",
+            "خرسانة"
+          ],
+          "hint": "مثل الشاطئ لكن تحت الماء.",
+          "explanation": "قاع البحر من الرمل والطين والصخر.",
+          "fact": "وفي بعض المواضع تمتد سلاسل جبال هائلة."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zout zeewater is niet drinkbaar",
+      "artBrief": "Een glas zeewater naast een glas helder drinkwater op een strand.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk water kun je niet zomaar drinken?",
+          "answer": "Zeewater",
+          "wrong": [
+            "Regenwater",
+            "Bronwater",
+            "Kraanwater"
+          ],
+          "hint": "Het smaakt naar zout.",
+          "explanation": "Zeewater is zo zout dat je er dorstiger van wordt.",
+          "fact": "Je lichaam heeft juist extra water nodig om het zout kwijt te raken."
+        },
+        "en": {
+          "prompt": "Which water can you not simply drink?",
+          "answer": "Sea water",
+          "wrong": [
+            "Rain water",
+            "Spring water",
+            "Tap water"
+          ],
+          "hint": "It tastes of salt.",
+          "explanation": "Sea water is so salty that it leaves you thirstier.",
+          "fact": "Your body needs extra water to get rid of the salt."
+        },
+        "de": {
+          "prompt": "Welches Wasser kann man nicht einfach trinken?",
+          "answer": "Meerwasser",
+          "wrong": [
+            "Regenwasser",
+            "Quellwasser",
+            "Leitungswasser"
+          ],
+          "hint": "Es schmeckt nach Salz.",
+          "explanation": "Meerwasser ist so salzig, dass man davon noch durstiger wird.",
+          "fact": "Der Körper braucht zusätzliches Wasser, um das Salz loszuwerden."
+        },
+        "fr": {
+          "prompt": "Quelle eau ne peut-on pas simplement boire ?",
+          "answer": "L'eau de mer",
+          "wrong": [
+            "L'eau de pluie",
+            "L'eau de source",
+            "L'eau du robinet"
+          ],
+          "hint": "Elle a un goût de sel.",
+          "explanation": "L'eau de mer est si salée qu'elle donne encore plus soif.",
+          "fact": "Le corps a besoin d'eau en plus pour évacuer ce sel."
+        },
+        "es": {
+          "prompt": "¿Qué agua no se puede beber sin más?",
+          "answer": "El agua del mar",
+          "wrong": [
+            "El agua de lluvia",
+            "El agua de manantial",
+            "El agua del grifo"
+          ],
+          "hint": "Sabe a sal.",
+          "explanation": "El agua del mar es tan salada que da aún más sed.",
+          "fact": "El cuerpo necesita agua extra para eliminar esa sal."
+        },
+        "it": {
+          "prompt": "Quale acqua non si può bere così com'è?",
+          "answer": "L'acqua di mare",
+          "wrong": [
+            "L'acqua piovana",
+            "L'acqua di sorgente",
+            "L'acqua del rubinetto"
+          ],
+          "hint": "Sa di sale.",
+          "explanation": "L'acqua di mare è così salata che fa venire ancora più sete.",
+          "fact": "Il corpo ha bisogno di altra acqua per eliminare quel sale."
+        },
+        "pt": {
+          "prompt": "Que água não se pode beber assim?",
+          "answer": "Água do mar",
+          "wrong": [
+            "Água da chuva",
+            "Água da nascente",
+            "Água da torneira"
+          ],
+          "hint": "Sabe a sal.",
+          "explanation": "A água do mar é tão salgada que dá ainda mais sede.",
+          "fact": "O corpo precisa de mais água para se livrar desse sal."
+        },
+        "da": {
+          "prompt": "Hvilket vand kan man ikke bare drikke?",
+          "answer": "Havvand",
+          "wrong": [
+            "Regnvand",
+            "Kildevand",
+            "Vand fra hanen"
+          ],
+          "hint": "Det smager af salt.",
+          "explanation": "Havvand er så salt, at man bliver endnu mere tørstig af det.",
+          "fact": "Kroppen skal bruge ekstra vand for at komme af med saltet."
+        },
+        "ru": {
+          "prompt": "Какую воду нельзя просто так пить?",
+          "answer": "Морскую",
+          "wrong": [
+            "Дождевую",
+            "Родниковую",
+            "Водопроводную"
+          ],
+          "hint": "Она солёная на вкус.",
+          "explanation": "Морская вода такая солёная, что от неё хочется пить ещё больше.",
+          "fact": "Телу нужна лишняя вода, чтобы вывести эту соль."
+        },
+        "ar": {
+          "prompt": "أي ماء لا يمكن شربه مباشرة؟",
+          "answer": "ماء البحر",
+          "wrong": [
+            "ماء المطر",
+            "ماء الينابيع",
+            "ماء الصنبور"
+          ],
+          "hint": "طعمه مالح.",
+          "explanation": "ماء البحر شديد الملوحة حتى إنه يزيد العطش.",
+          "fact": "ويحتاج الجسم ماء إضافيًا ليتخلص من ذلك الملح."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Karstgrotten ontstaan door oplossing van kalksteen",
+      "artBrief": "Een druipsteengrot met stalactieten en een ondergronds beekje.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe ontstaat een druipsteengrot?",
+          "answer": "Water lost de steen op",
+          "wrong": [
+            "Dieren graven hem uit",
+            "Hij valt uit de lucht",
+            "Hij groeit vanzelf"
+          ],
+          "hint": "Het duurt duizenden jaren.",
+          "explanation": "Regenwater lost kalksteen langzaam op en holt zo een grot uit.",
+          "fact": "De druipstenen groeien ongeveer een centimeter per eeuw."
+        },
+        "en": {
+          "prompt": "How does a dripstone cave form?",
+          "answer": "Water dissolves the rock",
+          "wrong": [
+            "Animals dig it out",
+            "It falls from the sky",
+            "It grows by itself"
+          ],
+          "hint": "It takes thousands of years.",
+          "explanation": "Rainwater slowly dissolves limestone and hollows out a cave.",
+          "fact": "The dripstones grow about a centimetre a century."
+        },
+        "de": {
+          "prompt": "Wie entsteht eine Tropfsteinhöhle?",
+          "answer": "Wasser löst den Stein auf",
+          "wrong": [
+            "Tiere graben sie",
+            "Sie fällt vom Himmel",
+            "Sie wächst von selbst"
+          ],
+          "hint": "Es dauert tausende Jahre.",
+          "explanation": "Regenwasser löst Kalkstein langsam auf und höhlt so eine Höhle aus.",
+          "fact": "Die Tropfsteine wachsen etwa einen Zentimeter pro Jahrhundert."
+        },
+        "fr": {
+          "prompt": "Comment se forme une grotte à concrétions ?",
+          "answer": "L'eau dissout la roche",
+          "wrong": [
+            "Des animaux la creusent",
+            "Elle tombe du ciel",
+            "Elle pousse toute seule"
+          ],
+          "hint": "Cela prend des milliers d'années.",
+          "explanation": "L'eau de pluie dissout lentement le calcaire et creuse une grotte.",
+          "fact": "Les concrétions grandissent d'un centimètre par siècle."
+        },
+        "es": {
+          "prompt": "¿Cómo se forma una cueva con estalactitas?",
+          "answer": "El agua disuelve la roca",
+          "wrong": [
+            "La cavan animales",
+            "Cae del cielo",
+            "Crece sola"
+          ],
+          "hint": "Tarda miles de años.",
+          "explanation": "El agua de lluvia disuelve poco a poco la caliza y abre una cueva.",
+          "fact": "Las estalactitas crecen un centímetro por siglo."
+        },
+        "it": {
+          "prompt": "Come nasce una grotta con le stalattiti?",
+          "answer": "L'acqua scioglie la roccia",
+          "wrong": [
+            "La scavano gli animali",
+            "Cade dal cielo",
+            "Cresce da sola"
+          ],
+          "hint": "Ci vogliono migliaia di anni.",
+          "explanation": "L'acqua piovana scioglie lentamente il calcare e scava una grotta.",
+          "fact": "Le stalattiti crescono un centimetro al secolo."
+        },
+        "pt": {
+          "prompt": "Como se forma uma gruta com estalactites?",
+          "answer": "A água dissolve a rocha",
+          "wrong": [
+            "Os animais cavam-na",
+            "Cai do céu",
+            "Cresce sozinha"
+          ],
+          "hint": "Demora milhares de anos.",
+          "explanation": "A água da chuva dissolve devagar o calcário e abre uma gruta.",
+          "fact": "As estalactites crescem um centímetro por século."
+        },
+        "da": {
+          "prompt": "Hvordan opstår en drypstenshule?",
+          "answer": "Vandet opløser stenen",
+          "wrong": [
+            "Dyr graver den ud",
+            "Den falder ned fra himlen",
+            "Den vokser af sig selv"
+          ],
+          "hint": "Det tager tusinder af år.",
+          "explanation": "Regnvand opløser langsomt kalksten og udhuler en hule.",
+          "fact": "Drypstenene vokser cirka en centimeter pr. århundrede."
+        },
+        "ru": {
+          "prompt": "Как образуется пещера со сталактитами?",
+          "answer": "Вода растворяет камень",
+          "wrong": [
+            "Её роют животные",
+            "Она падает с неба",
+            "Она растёт сама"
+          ],
+          "hint": "На это уходят тысячи лет.",
+          "explanation": "Дождевая вода медленно растворяет известняк и вымывает пещеру.",
+          "fact": "Сталактиты растут примерно на сантиметр за век."
+        },
+        "ar": {
+          "prompt": "كيف يتكون كهف الصواعد والهوابط؟",
+          "answer": "الماء يذيب الصخر",
+          "wrong": [
+            "تحفره الحيوانات",
+            "يسقط من السماء",
+            "ينمو وحده"
+          ],
+          "hint": "يستغرق آلاف السنين.",
+          "explanation": "ماء المطر يذيب الحجر الجيري ببطء فيحفر كهفًا.",
+          "fact": "وتنمو الهوابط نحو سنتيمتر في القرن."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Watervallen",
+      "artBrief": "Een brede waterval die over een rotsrand in een diep bassin stort.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een waterval?",
+          "answer": "Water dat van een rand valt",
+          "wrong": [
+            "Een diep meer",
+            "Een grote golf",
+            "Regen in de bergen"
+          ],
+          "hint": "Je hoort hem van ver.",
+          "explanation": "Een waterval ontstaat waar een rivier over een harde rotsrand stort.",
+          "fact": "De Angelwaterval in Venezuela valt bijna een kilometer omlaag."
+        },
+        "en": {
+          "prompt": "What is a waterfall?",
+          "answer": "Water dropping off a ledge",
+          "wrong": [
+            "A deep lake",
+            "A big wave",
+            "Rain in the mountains"
+          ],
+          "hint": "You hear it from far off.",
+          "explanation": "A waterfall forms where a river pours over a hard rocky ledge.",
+          "fact": "Angel Falls in Venezuela drops almost a kilometre."
+        },
+        "de": {
+          "prompt": "Was ist ein Wasserfall?",
+          "answer": "Wasser, das hinabstürzt",
+          "wrong": [
+            "Ein tiefer See",
+            "Eine große Welle",
+            "Regen in den Bergen"
+          ],
+          "hint": "Man hört ihn von weitem.",
+          "explanation": "Ein Wasserfall entsteht, wo ein Fluss über harte Felskanten stürzt.",
+          "fact": "Der Salto Ángel in Venezuela fällt fast einen Kilometer tief."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une cascade ?",
+          "answer": "De l'eau qui tombe",
+          "wrong": [
+            "Un lac profond",
+            "Une grosse vague",
+            "De la pluie en montagne"
+          ],
+          "hint": "On l'entend de loin.",
+          "explanation": "Une cascade se forme là où une rivière franchit une barre rocheuse.",
+          "fact": "Le Salto Ángel, au Venezuela, tombe de presque un kilomètre."
+        },
+        "es": {
+          "prompt": "¿Qué es una cascada?",
+          "answer": "Agua que cae por un borde",
+          "wrong": [
+            "Un lago profundo",
+            "Una ola grande",
+            "Lluvia en la montaña"
+          ],
+          "hint": "Se oye desde lejos.",
+          "explanation": "Una cascada se forma donde un río salta por un escalón de roca dura.",
+          "fact": "El Salto Ángel, en Venezuela, cae casi un kilómetro."
+        },
+        "it": {
+          "prompt": "Che cos'è una cascata?",
+          "answer": "Acqua che cade da un bordo",
+          "wrong": [
+            "Un lago profondo",
+            "Un'onda grande",
+            "Pioggia in montagna"
+          ],
+          "hint": "La senti da lontano.",
+          "explanation": "Una cascata nasce dove un fiume scavalca un gradino di roccia dura.",
+          "fact": "Il Salto Ángel in Venezuela cade quasi un chilometro."
+        },
+        "pt": {
+          "prompt": "O que é uma queda de água?",
+          "answer": "Água que cai de um degrau",
+          "wrong": [
+            "Um lago fundo",
+            "Uma onda grande",
+            "Chuva na montanha"
+          ],
+          "hint": "Ouve-se de longe.",
+          "explanation": "Uma queda de água forma-se onde um rio passa um degrau de rocha dura.",
+          "fact": "O Salto Ángel, na Venezuela, cai quase um quilómetro."
+        },
+        "da": {
+          "prompt": "Hvad er et vandfald?",
+          "answer": "Vand, der falder ud",
+          "wrong": [
+            "En dyb sø",
+            "En stor bølge",
+            "Regn i bjergene"
+          ],
+          "hint": "Man hører det langt væk.",
+          "explanation": "Et vandfald opstår, hvor en flod styrter ud over en hård klippekant.",
+          "fact": "Angelfaldet i Venezuela falder næsten en kilometer."
+        },
+        "ru": {
+          "prompt": "Что такое водопад?",
+          "answer": "Вода, падающая с уступа",
+          "wrong": [
+            "Глубокое озеро",
+            "Большая волна",
+            "Дождь в горах"
+          ],
+          "hint": "Его слышно издалека.",
+          "explanation": "Водопад возникает там, где река срывается с твёрдого уступа.",
+          "fact": "Водопад Анхель в Венесуэле падает почти на километр."
+        },
+        "ar": {
+          "prompt": "ما هو الشلال؟",
+          "answer": "ماء يسقط من حافة",
+          "wrong": [
+            "بحيرة عميقة",
+            "موجة كبيرة",
+            "مطر في الجبال"
+          ],
+          "hint": "تسمعه من بعيد.",
+          "explanation": "يتكون الشلال حيث يسقط نهر فوق حافة صخرية صلبة.",
+          "fact": "شلال أنخل في فنزويلا يسقط نحو كيلومتر."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Temperatuur daalt met de hoogte",
+      "artBrief": "Een bergtop met sneeuw boven een groen dal vol bloemen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is het boven op een berg kouder?",
+          "answer": "De lucht is er ijler",
+          "wrong": [
+            "Je bent dichter bij de zon",
+            "Er ligt altijd sneeuw",
+            "De wind komt van boven"
+          ],
+          "hint": "Hoe hoger, hoe dunner de lucht.",
+          "explanation": "Hoog in de bergen is de lucht ijl en houdt die de warmte slecht vast.",
+          "fact": "Per duizend meter stijgen zakt de temperatuur zo'n zes graden."
+        },
+        "en": {
+          "prompt": "Why is it colder on top of a mountain?",
+          "answer": "The air is thinner there",
+          "wrong": [
+            "You are closer to the sun",
+            "There is always snow",
+            "The wind comes from above"
+          ],
+          "hint": "The higher you go, the thinner the air.",
+          "explanation": "High up the air is thin and holds heat badly.",
+          "fact": "Every thousand metres up, it gets about six degrees colder."
+        },
+        "de": {
+          "prompt": "Warum ist es oben auf einem Berg kälter?",
+          "answer": "Die Luft ist dort dünner",
+          "wrong": [
+            "Man ist näher an der Sonne",
+            "Dort liegt immer Schnee",
+            "Der Wind kommt von oben"
+          ],
+          "hint": "Je höher, desto dünner die Luft.",
+          "explanation": "Hoch oben ist die Luft dünn und hält die Wärme schlecht.",
+          "fact": "Pro tausend Meter sinkt die Temperatur um etwa sechs Grad."
+        },
+        "fr": {
+          "prompt": "Pourquoi fait-il plus froid en haut d'une montagne ?",
+          "answer": "L'air y est plus mince",
+          "wrong": [
+            "On est plus près du soleil",
+            "Il y a toujours de la neige",
+            "Le vent vient d'en haut"
+          ],
+          "hint": "Plus on monte, plus l'air se raréfie.",
+          "explanation": "En altitude, l'air est rare et retient mal la chaleur.",
+          "fact": "Tous les mille mètres, il fait environ six degrés de moins."
+        },
+        "es": {
+          "prompt": "¿Por qué hace más frío en la cima de una montaña?",
+          "answer": "El aire allí es más fino",
+          "wrong": [
+            "Estás más cerca del sol",
+            "Siempre hay nieve",
+            "El viento viene de arriba"
+          ],
+          "hint": "Cuanto más subes, más fino es el aire.",
+          "explanation": "Arriba el aire es tenue y retiene mal el calor.",
+          "fact": "Cada mil metros la temperatura baja unos seis grados."
+        },
+        "it": {
+          "prompt": "Perché in cima a una montagna fa più freddo?",
+          "answer": "L'aria lassù è più rada",
+          "wrong": [
+            "Sei più vicino al sole",
+            "C'è sempre neve",
+            "Il vento viene dall'alto"
+          ],
+          "hint": "Più sali, più l'aria si assottiglia.",
+          "explanation": "In alto l'aria è rada e trattiene male il calore.",
+          "fact": "Ogni mille metri la temperatura scende di circa sei gradi."
+        },
+        "pt": {
+          "prompt": "Porque faz mais frio no cimo de uma montanha?",
+          "answer": "O ar ali é mais rarefeito",
+          "wrong": [
+            "Estás mais perto do sol",
+            "Há sempre neve",
+            "O vento vem de cima"
+          ],
+          "hint": "Quanto mais sobes, mais fino fica o ar.",
+          "explanation": "Lá em cima o ar é rarefeito e retém mal o calor.",
+          "fact": "Por cada mil metros a temperatura desce uns seis graus."
+        },
+        "da": {
+          "prompt": "Hvorfor er der koldere på toppen af et bjerg?",
+          "answer": "Luften er tyndere deroppe",
+          "wrong": [
+            "Man er tættere på solen",
+            "Der ligger altid sne",
+            "Vinden kommer oppefra"
+          ],
+          "hint": "Jo højere op, jo tyndere luft.",
+          "explanation": "Højt oppe er luften tynd og holder dårligt på varmen.",
+          "fact": "For hver tusind meter falder temperaturen cirka seks grader."
+        },
+        "ru": {
+          "prompt": "Почему на вершине горы холоднее?",
+          "answer": "Там воздух разрежённый",
+          "wrong": [
+            "Ты ближе к солнцу",
+            "Там всегда снег",
+            "Ветер дует сверху"
+          ],
+          "hint": "Чем выше, тем тоньше воздух.",
+          "explanation": "Высоко воздух разрежён и плохо держит тепло.",
+          "fact": "На каждую тысячу метров становится холоднее примерно на шесть градусов."
+        },
+        "ar": {
+          "prompt": "لماذا يكون الجو أبرد على قمة الجبل؟",
+          "answer": "الهواء هناك أرق",
+          "wrong": [
+            "لأنك أقرب للشمس",
+            "لأن الثلج دائم",
+            "لأن الريح تأتي من فوق"
+          ],
+          "hint": "كلما صعدت قل الهواء.",
+          "explanation": "في الأعالي يكون الهواء رقيقًا فلا يحتفظ بالحرارة.",
+          "fact": "كل ألف متر تنخفض الحرارة نحو ست درجات."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Fjorden zijn door gletsjers uitgesleten dalen",
+      "artBrief": "Een diep blauw water tussen steile rotswanden, met een bootje.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een fjord?",
+          "answer": "Een diep dal vol zeewater",
+          "wrong": [
+            "Een hoge waterval",
+            "Een woestijn met ijs",
+            "Een ronde baai"
+          ],
+          "hint": "Ze liggen vooral in Noorwegen.",
+          "explanation": "Een fjord is een gletsjerdal dat later door de zee is gevuld.",
+          "fact": "Sommige fjorden zijn meer dan een kilometer diep."
+        },
+        "en": {
+          "prompt": "What is a fjord?",
+          "answer": "A deep valley full of sea",
+          "wrong": [
+            "A tall waterfall",
+            "An icy desert",
+            "A round bay"
+          ],
+          "hint": "They are found mostly in Norway.",
+          "explanation": "A fjord is a glacier valley that the sea later filled.",
+          "fact": "Some fjords are more than a kilometre deep."
+        },
+        "de": {
+          "prompt": "Was ist ein Fjord?",
+          "answer": "Ein Tal voll Meerwasser",
+          "wrong": [
+            "Ein hoher Wasserfall",
+            "Eine Eiswüste",
+            "Eine runde Bucht"
+          ],
+          "hint": "Sie liegen vor allem in Norwegen.",
+          "explanation": "Ein Fjord ist ein Gletschertal, das später vom Meer gefüllt wurde.",
+          "fact": "Manche Fjorde sind über einen Kilometer tief."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un fjord ?",
+          "answer": "Une vallée remplie de mer",
+          "wrong": [
+            "Une haute cascade",
+            "Un désert de glace",
+            "Une baie ronde"
+          ],
+          "hint": "On en trouve surtout en Norvège.",
+          "explanation": "Un fjord est une vallée glaciaire que la mer a ensuite remplie.",
+          "fact": "Certains fjords font plus d'un kilomètre de profondeur."
+        },
+        "es": {
+          "prompt": "¿Qué es un fiordo?",
+          "answer": "Un valle lleno de mar",
+          "wrong": [
+            "Una cascada alta",
+            "Un desierto de hielo",
+            "Una bahía redonda"
+          ],
+          "hint": "Se encuentran sobre todo en Noruega.",
+          "explanation": "Un fiordo es un valle glaciar que luego llenó el mar.",
+          "fact": "Algunos fiordos tienen más de un kilómetro de profundidad."
+        },
+        "it": {
+          "prompt": "Che cos'è un fiordo?",
+          "answer": "Una valle piena di mare",
+          "wrong": [
+            "Una cascata alta",
+            "Un deserto di ghiaccio",
+            "Una baia rotonda"
+          ],
+          "hint": "Si trovano soprattutto in Norvegia.",
+          "explanation": "Un fiordo è una valle glaciale poi riempita dal mare.",
+          "fact": "Certi fiordi sono profondi più di un chilometro."
+        },
+        "pt": {
+          "prompt": "O que é um fiorde?",
+          "answer": "Um vale cheio de mar",
+          "wrong": [
+            "Uma queda de água alta",
+            "Um deserto de gelo",
+            "Uma baía redonda"
+          ],
+          "hint": "Encontram-se sobretudo na Noruega.",
+          "explanation": "Um fiorde é um vale glaciar que o mar encheu mais tarde.",
+          "fact": "Alguns fiordes têm mais de um quilómetro de fundo."
+        },
+        "da": {
+          "prompt": "Hvad er en fjord?",
+          "answer": "En dyb dal fuld af havvand",
+          "wrong": [
+            "Et højt vandfald",
+            "En isørken",
+            "En rund bugt"
+          ],
+          "hint": "De findes især i Norge.",
+          "explanation": "En fjord er en gletsjerdal, som havet senere har fyldt.",
+          "fact": "Nogle fjorde er over en kilometer dybe."
+        },
+        "ru": {
+          "prompt": "Что такое фьорд?",
+          "answer": "Долина, залитая морем",
+          "wrong": [
+            "Высокий водопад",
+            "Ледяная пустыня",
+            "Круглая бухта"
+          ],
+          "hint": "Их особенно много в Норвегии.",
+          "explanation": "Фьорд — это ледниковая долина, которую позже залило море.",
+          "fact": "Некоторые фьорды глубже километра."
+        },
+        "ar": {
+          "prompt": "ما هو المضيق البحري العميق بين الجبال؟",
+          "answer": "واد مملوء بماء البحر",
+          "wrong": [
+            "شلال عال",
+            "صحراء جليدية",
+            "خليج دائري"
+          ],
+          "hint": "يكثر في النرويج.",
+          "explanation": "الفيورد واد حفره الجليد ثم ملأه البحر.",
+          "fact": "وبعض الفيوردات أعمق من كيلومتر."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De waterkringloop",
+      "artBrief": "Een wolk die regen laat vallen op bergen, met beekjes naar een meer.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar komt bijna al het zoete water vandaan?",
+          "answer": "Uit regen en sneeuw",
+          "wrong": [
+            "Uit de zee",
+            "Uit de zon",
+            "Uit de wind"
+          ],
+          "hint": "Het valt uit de lucht.",
+          "explanation": "Regen en smeltende sneeuw vullen de rivieren, meren en grondwater.",
+          "fact": "Het water in de wolken komt zelf grotendeels uit zee."
+        },
+        "en": {
+          "prompt": "Where does nearly all fresh water come from?",
+          "answer": "From rain and snow",
+          "wrong": [
+            "From the sea",
+            "From the sun",
+            "From the wind"
+          ],
+          "hint": "It falls out of the sky.",
+          "explanation": "Rain and melting snow fill the rivers, lakes and groundwater.",
+          "fact": "The water in the clouds itself comes mostly from the sea."
+        },
+        "de": {
+          "prompt": "Woher kommt fast das ganze Süßwasser?",
+          "answer": "Aus Regen und Schnee",
+          "wrong": [
+            "Aus dem Meer",
+            "Aus der Sonne",
+            "Aus dem Wind"
+          ],
+          "hint": "Es fällt vom Himmel.",
+          "explanation": "Regen und Schmelzwasser füllen Flüsse, Seen und das Grundwasser.",
+          "fact": "Das Wasser in den Wolken stammt selbst meist aus dem Meer."
+        },
+        "fr": {
+          "prompt": "D'où vient presque toute l'eau douce ?",
+          "answer": "De la pluie et de la neige",
+          "wrong": [
+            "De la mer",
+            "Du soleil",
+            "Du vent"
+          ],
+          "hint": "Elle tombe du ciel.",
+          "explanation": "La pluie et la neige fondue remplissent rivières, lacs et nappes.",
+          "fact": "L'eau des nuages vient elle-même surtout de la mer."
+        },
+        "es": {
+          "prompt": "¿De dónde viene casi toda el agua dulce?",
+          "answer": "De la lluvia y la nieve",
+          "wrong": [
+            "Del mar",
+            "Del sol",
+            "Del viento"
+          ],
+          "hint": "Cae del cielo.",
+          "explanation": "La lluvia y la nieve derretida llenan ríos, lagos y aguas subterráneas.",
+          "fact": "El agua de las nubes viene a su vez sobre todo del mar."
+        },
+        "it": {
+          "prompt": "Da dove viene quasi tutta l'acqua dolce?",
+          "answer": "Da pioggia e neve",
+          "wrong": [
+            "Dal mare",
+            "Dal sole",
+            "Dal vento"
+          ],
+          "hint": "Cade dal cielo.",
+          "explanation": "Pioggia e neve sciolta riempiono fiumi, laghi e falde.",
+          "fact": "L'acqua delle nuvole viene a sua volta soprattutto dal mare."
+        },
+        "pt": {
+          "prompt": "De onde vem quase toda a água doce?",
+          "answer": "Da chuva e da neve",
+          "wrong": [
+            "Do mar",
+            "Do sol",
+            "Do vento"
+          ],
+          "hint": "Cai do céu.",
+          "explanation": "A chuva e a neve derretida enchem rios, lagos e lençóis de água.",
+          "fact": "A água das nuvens vem, por sua vez, sobretudo do mar."
+        },
+        "da": {
+          "prompt": "Hvor kommer næsten alt ferskvand fra?",
+          "answer": "Fra regn og sne",
+          "wrong": [
+            "Fra havet",
+            "Fra solen",
+            "Fra vinden"
+          ],
+          "hint": "Det falder ned fra himlen.",
+          "explanation": "Regn og smeltet sne fylder floder, søer og grundvand.",
+          "fact": "Vandet i skyerne stammer selv mest fra havet."
+        },
+        "ru": {
+          "prompt": "Откуда берётся почти вся пресная вода?",
+          "answer": "Из дождя и снега",
+          "wrong": [
+            "Из моря",
+            "Из солнца",
+            "Из ветра"
+          ],
+          "hint": "Она падает с неба.",
+          "explanation": "Дождь и талый снег наполняют реки, озёра и подземные воды.",
+          "fact": "А вода в облаках сама в основном пришла из моря."
+        },
+        "ar": {
+          "prompt": "من أين يأتي معظم الماء العذب؟",
+          "answer": "من المطر والثلج",
+          "wrong": [
+            "من البحر",
+            "من الشمس",
+            "من الريح"
+          ],
+          "hint": "يسقط من السماء.",
+          "explanation": "المطر والثلج الذائب يملآن الأنهار والبحيرات والمياه الجوفية.",
+          "fact": "وماء السحب نفسه يأتي أساسًا من البحر."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Antarctica is de grootste woestijn ter wereld",
+      "artBrief": "Een droge ijsvlakte met kale rotsen en bijna geen sneeuwval.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de grootste woestijn ter wereld?",
+          "answer": "Antarctica",
+          "wrong": [
+            "De Sahara",
+            "De Gobi",
+            "De Kalahari"
+          ],
+          "hint": "Een woestijn hoeft niet warm te zijn.",
+          "explanation": "Antarctica is een koude woestijn: er valt bijna geen neerslag.",
+          "fact": "Op sommige plekken heeft het al miljoenen jaren niet geregend."
+        },
+        "en": {
+          "prompt": "What is the largest desert in the world?",
+          "answer": "Antarctica",
+          "wrong": [
+            "The Sahara",
+            "The Gobi",
+            "The Kalahari"
+          ],
+          "hint": "A desert does not have to be hot.",
+          "explanation": "Antarctica is a cold desert: almost no precipitation falls there.",
+          "fact": "In some spots it has not rained for millions of years."
+        },
+        "de": {
+          "prompt": "Was ist die größte Wüste der Welt?",
+          "answer": "Die Antarktis",
+          "wrong": [
+            "Die Sahara",
+            "Die Gobi",
+            "Die Kalahari"
+          ],
+          "hint": "Eine Wüste muss nicht heiß sein.",
+          "explanation": "Die Antarktis ist eine kalte Wüste: es fällt fast kein Niederschlag.",
+          "fact": "An manchen Stellen hat es seit Millionen Jahren nicht geregnet."
+        },
+        "fr": {
+          "prompt": "Quel est le plus grand désert du monde ?",
+          "answer": "L'Antarctique",
+          "wrong": [
+            "Le Sahara",
+            "Le Gobi",
+            "Le Kalahari"
+          ],
+          "hint": "Un désert n'est pas forcément chaud.",
+          "explanation": "L'Antarctique est un désert froid : il n'y tombe presque rien.",
+          "fact": "À certains endroits, il n'a pas plu depuis des millions d'années."
+        },
+        "es": {
+          "prompt": "¿Cuál es el desierto más grande del mundo?",
+          "answer": "La Antártida",
+          "wrong": [
+            "El Sáhara",
+            "El Gobi",
+            "El Kalahari"
+          ],
+          "hint": "Un desierto no tiene que ser caluroso.",
+          "explanation": "La Antártida es un desierto frío: allí casi no cae precipitación.",
+          "fact": "En algunos puntos no llueve desde hace millones de años."
+        },
+        "it": {
+          "prompt": "Qual è il deserto più grande del mondo?",
+          "answer": "L'Antartide",
+          "wrong": [
+            "Il Sahara",
+            "Il Gobi",
+            "Il Kalahari"
+          ],
+          "hint": "Un deserto non deve essere caldo.",
+          "explanation": "L'Antartide è un deserto freddo: non ci cade quasi nulla.",
+          "fact": "In certi punti non piove da milioni di anni."
+        },
+        "pt": {
+          "prompt": "Qual é o maior deserto do mundo?",
+          "answer": "A Antártida",
+          "wrong": [
+            "O Sara",
+            "O Gobi",
+            "O Kalahari"
+          ],
+          "hint": "Um deserto não tem de ser quente.",
+          "explanation": "A Antártida é um deserto frio: quase não cai precipitação.",
+          "fact": "Nalguns pontos não chove há milhões de anos."
+        },
+        "da": {
+          "prompt": "Hvad er verdens største ørken?",
+          "answer": "Antarktis",
+          "wrong": [
+            "Sahara",
+            "Gobi",
+            "Kalahari"
+          ],
+          "hint": "En ørken behøver ikke være varm.",
+          "explanation": "Antarktis er en kold ørken: der falder næsten ingen nedbør.",
+          "fact": "Nogle steder har det ikke regnet i millioner af år."
+        },
+        "ru": {
+          "prompt": "Какая пустыня самая большая в мире?",
+          "answer": "Антарктида",
+          "wrong": [
+            "Сахара",
+            "Гоби",
+            "Калахари"
+          ],
+          "hint": "Пустыня не обязана быть жаркой.",
+          "explanation": "Антарктида — холодная пустыня: осадков там почти нет.",
+          "fact": "Кое-где там не было дождя миллионы лет."
+        },
+        "ar": {
+          "prompt": "ما أكبر صحراء في العالم؟",
+          "answer": "القارة القطبية الجنوبية",
+          "wrong": [
+            "الصحراء الكبرى",
+            "صحراء غوبي",
+            "كالاهاري"
+          ],
+          "hint": "الصحراء لا يلزم أن تكون حارة.",
+          "explanation": "القطب الجنوبي صحراء باردة: لا تكاد تسقط فيه أمطار.",
+          "fact": "وفي بعض مواضعه لم تمطر منذ ملايين السنين."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Gletsjers slijpen U-vormige dalen uit",
+      "artBrief": "Een gletsjertong die door een breed dal schuift, met keien ervoor.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een gletsjer met het landschap?",
+          "answer": "Hij schuurt dalen uit",
+          "wrong": [
+            "Hij maakt bergen hoger",
+            "Hij vult zeeën op",
+            "Hij verandert niets"
+          ],
+          "hint": "Hij werkt als schuurpapier van ijs.",
+          "explanation": "Een gletsjer schuurt langzaam brede dalen uit het gesteente.",
+          "fact": "De keien die hij meesleept, liggen soms honderden kilometers verderop."
+        },
+        "en": {
+          "prompt": "What does a glacier do to the landscape?",
+          "answer": "It grinds out valleys",
+          "wrong": [
+            "It makes mountains higher",
+            "It fills up seas",
+            "It changes nothing"
+          ],
+          "hint": "It works like sandpaper made of ice.",
+          "explanation": "A glacier slowly grinds broad valleys out of the rock.",
+          "fact": "The boulders it drags along end up hundreds of kilometres away."
+        },
+        "de": {
+          "prompt": "Was macht ein Gletscher mit der Landschaft?",
+          "answer": "Er schleift Täler aus",
+          "wrong": [
+            "Er macht Berge höher",
+            "Er füllt Meere auf",
+            "Er verändert nichts"
+          ],
+          "hint": "Er wirkt wie Schmirgelpapier aus Eis.",
+          "explanation": "Ein Gletscher schleift langsam breite Täler aus dem Gestein.",
+          "fact": "Die Felsblöcke, die er mitschleppt, landen hunderte Kilometer weiter."
+        },
+        "fr": {
+          "prompt": "Que fait un glacier au paysage ?",
+          "answer": "Il creuse des vallées",
+          "wrong": [
+            "Il grandit les montagnes",
+            "Il comble les mers",
+            "Il ne change rien"
+          ],
+          "hint": "Il agit comme du papier de verre en glace.",
+          "explanation": "Un glacier creuse lentement de larges vallées dans la roche.",
+          "fact": "Les blocs qu'il emporte finissent à des centaines de kilomètres."
+        },
+        "es": {
+          "prompt": "¿Qué le hace un glaciar al paisaje?",
+          "answer": "Excava valles anchos",
+          "wrong": [
+            "Hace las montañas más altas",
+            "Rellena los mares",
+            "No cambia nada"
+          ],
+          "hint": "Actúa como papel de lija de hielo.",
+          "explanation": "Un glaciar va excavando valles anchos en la roca.",
+          "fact": "Las rocas que arrastra acaban a cientos de kilómetros."
+        },
+        "it": {
+          "prompt": "Che cosa fa un ghiacciaio al paesaggio?",
+          "answer": "Scava le valli",
+          "wrong": [
+            "Alza le montagne",
+            "Riempie i mari",
+            "Non cambia nulla"
+          ],
+          "hint": "Agisce come carta vetrata di ghiaccio.",
+          "explanation": "Un ghiacciaio scava lentamente valli larghe nella roccia.",
+          "fact": "I massi che trascina finiscono a centinaia di chilometri."
+        },
+        "pt": {
+          "prompt": "O que faz um glaciar à paisagem?",
+          "answer": "Escava vales",
+          "wrong": [
+            "Torna as montanhas maiores",
+            "Enche os mares",
+            "Não muda nada"
+          ],
+          "hint": "Funciona como lixa de gelo.",
+          "explanation": "Um glaciar vai escavando vales largos na rocha.",
+          "fact": "Os blocos que arrasta acabam a centenas de quilómetros."
+        },
+        "da": {
+          "prompt": "Hvad gør en gletsjer ved landskabet?",
+          "answer": "Den sliber dale ud",
+          "wrong": [
+            "Den gør bjerge højere",
+            "Den fylder have op",
+            "Den ændrer intet"
+          ],
+          "hint": "Den virker som sandpapir af is.",
+          "explanation": "En gletsjer sliber langsomt brede dale ud af klippen.",
+          "fact": "De kampesten, den slæber med, ender hundredvis af kilometer væk."
+        },
+        "ru": {
+          "prompt": "Что ледник делает с местностью?",
+          "answer": "Он выпахивает долины",
+          "wrong": [
+            "Делает горы выше",
+            "Засыпает моря",
+            "Ничего не меняет"
+          ],
+          "hint": "Он работает как наждачная бумага изо льда.",
+          "explanation": "Ледник медленно выпахивает в скалах широкие долины.",
+          "fact": "Валуны, которые он тащит, оказываются за сотни километров."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل النهر الجليدي بالأرض؟",
+          "answer": "ينحت الأودية",
+          "wrong": [
+            "يرفع الجبال",
+            "يملأ البحار",
+            "لا يغير شيئًا"
+          ],
+          "hint": "يعمل كورق صنفرة من جليد.",
+          "explanation": "ينحت النهر الجليدي ببطء أودية عريضة في الصخر.",
+          "fact": "والصخور التي يجرها تنتهي على بعد مئات الكيلومترات."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Ongeveer 2,5 procent van al het water is zoet",
+      "artBrief": "Een grote waterdruppel naast een piepklein druppeltje ter vergelijking.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel van al het water op aarde is zoet water?",
+          "answer": "Maar een paar procent",
+          "wrong": [
+            "Ongeveer de helft",
+            "Ongeveer dertig procent",
+            "Bijna alles"
+          ],
+          "hint": "De rest is zout.",
+          "explanation": "Bijna al het water op aarde is zeewater; maar een paar procent is zoet.",
+          "fact": "En het meeste zoete water zit vast in ijskappen."
+        },
+        "en": {
+          "prompt": "How much of all the water on earth is fresh water?",
+          "answer": "Only a few per cent",
+          "wrong": [
+            "About half",
+            "About thirty per cent",
+            "Almost all of it"
+          ],
+          "hint": "The rest is salty.",
+          "explanation": "Nearly all the water on earth is sea water; only a few per cent is fresh.",
+          "fact": "And most of that fresh water is locked up in ice caps."
+        },
+        "de": {
+          "prompt": "Wie viel des Wassers auf der Erde ist Süßwasser?",
+          "answer": "Nur ein paar Prozent",
+          "wrong": [
+            "Etwa die Hälfte",
+            "Etwa dreißig Prozent",
+            "Fast alles"
+          ],
+          "hint": "Der Rest ist salzig.",
+          "explanation": "Fast alles Wasser der Erde ist Meerwasser; nur wenige Prozent sind süß.",
+          "fact": "Und das meiste Süßwasser steckt in den Eiskappen fest."
+        },
+        "fr": {
+          "prompt": "Quelle part de l'eau terrestre est de l'eau douce ?",
+          "answer": "Quelques pour cent",
+          "wrong": [
+            "Environ la moitié",
+            "Environ trente pour cent",
+            "Presque toute"
+          ],
+          "hint": "Le reste est salé.",
+          "explanation": "Presque toute l'eau de la Terre est salée ; l'eau douce est rare.",
+          "fact": "Et la plus grande partie est prise dans les calottes glaciaires."
+        },
+        "es": {
+          "prompt": "¿Cuánta del agua de la Tierra es dulce?",
+          "answer": "Solo un pequeño porcentaje",
+          "wrong": [
+            "Casi la mitad",
+            "Cerca del treinta por ciento",
+            "Casi toda"
+          ],
+          "hint": "El resto es salada.",
+          "explanation": "Casi toda el agua de la Tierra es salada; solo un poco es dulce.",
+          "fact": "Y la mayor parte de esa dulce está atrapada en los hielos."
+        },
+        "it": {
+          "prompt": "Quanta dell'acqua terrestre è acqua dolce?",
+          "answer": "Solo pochi per cento",
+          "wrong": [
+            "Circa la metà",
+            "Circa il trenta per cento",
+            "Quasi tutta"
+          ],
+          "hint": "Il resto è salata.",
+          "explanation": "Quasi tutta l'acqua della Terra è salata; solo poca è dolce.",
+          "fact": "E la maggior parte di quella dolce è chiusa nei ghiacci."
+        },
+        "pt": {
+          "prompt": "Quanta da água da Terra é água doce?",
+          "answer": "Apenas uns poucos por cento",
+          "wrong": [
+            "Cerca de metade",
+            "Cerca de trinta por cento",
+            "Quase toda"
+          ],
+          "hint": "O resto é salgada.",
+          "explanation": "Quase toda a água da Terra é salgada; só uns poucos por cento é doce.",
+          "fact": "E a maior parte dessa água doce está presa nos gelos."
+        },
+        "da": {
+          "prompt": "Hvor meget af Jordens vand er ferskvand?",
+          "answer": "Kun få procent",
+          "wrong": [
+            "Cirka halvdelen",
+            "Cirka tredive procent",
+            "Næsten alt"
+          ],
+          "hint": "Resten er salt.",
+          "explanation": "Næsten alt vand på Jorden er havvand; kun få procent er ferskvand.",
+          "fact": "Og det meste ferskvand sidder fast i iskapperne."
+        },
+        "ru": {
+          "prompt": "Сколько воды на Земле — пресная?",
+          "answer": "Всего несколько процентов",
+          "wrong": [
+            "Примерно половина",
+            "Около тридцати процентов",
+            "Почти вся"
+          ],
+          "hint": "Остальная солёная.",
+          "explanation": "Почти вся вода на Земле солёная; пресной всего несколько процентов.",
+          "fact": "И большая её часть заперта в ледниках."
+        },
+        "ar": {
+          "prompt": "كم من ماء الأرض عذب؟",
+          "answer": "نسبة ضئيلة فقط",
+          "wrong": [
+            "نحو النصف",
+            "نحو ثلاثين بالمئة",
+            "كله تقريبًا"
+          ],
+          "hint": "الباقي مالح.",
+          "explanation": "معظم ماء الأرض مالح، والعذب نسبة ضئيلة.",
+          "fact": "وأغلب العذب محبوس في الغطاءات الجليدية."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Geisers",
+      "artBrief": "Een fontein van kokend water en stoom die uit de grond schiet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een geiser?",
+          "answer": "Een fontein van heet water",
+          "wrong": [
+            "Een koude bron",
+            "Een vulkaan van ijs",
+            "Een diepe put"
+          ],
+          "hint": "Hij spuit met tussenpozen.",
+          "explanation": "Bij een geiser wordt grondwater door aardwarmte omhoog geblazen.",
+          "fact": "IJsland en Yellowstone staan er vol mee."
+        },
+        "en": {
+          "prompt": "What is a geyser?",
+          "answer": "A fountain of hot water",
+          "wrong": [
+            "A cold spring",
+            "A volcano of ice",
+            "A deep well"
+          ],
+          "hint": "It spouts now and then.",
+          "explanation": "In a geyser, groundwater is blown upwards by the earth's heat.",
+          "fact": "Iceland and Yellowstone are full of them."
+        },
+        "de": {
+          "prompt": "Was ist ein Geysir?",
+          "answer": "Eine Fontäne heißen Wassers",
+          "wrong": [
+            "Eine kalte Quelle",
+            "Ein Vulkan aus Eis",
+            "Ein tiefer Brunnen"
+          ],
+          "hint": "Er spritzt in Abständen.",
+          "explanation": "Beim Geysir wird Grundwasser durch Erdwärme nach oben gedrückt.",
+          "fact": "Island und Yellowstone sind voll davon."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un geyser ?",
+          "answer": "Une fontaine d'eau brûlante",
+          "wrong": [
+            "Une source froide",
+            "Un volcan de glace",
+            "Un puits profond"
+          ],
+          "hint": "Il jaillit par intervalles.",
+          "explanation": "Dans un geyser, la chaleur de la Terre projette l'eau souterraine.",
+          "fact": "L'Islande et Yellowstone en sont pleins."
+        },
+        "es": {
+          "prompt": "¿Qué es un géiser?",
+          "answer": "Un chorro de agua hirviendo",
+          "wrong": [
+            "Un manantial frío",
+            "Un volcán de hielo",
+            "Un pozo profundo"
+          ],
+          "hint": "Sale a intervalos.",
+          "explanation": "En un géiser el calor de la Tierra lanza el agua subterránea hacia arriba.",
+          "fact": "Islandia y Yellowstone están llenos de ellos."
+        },
+        "it": {
+          "prompt": "Che cos'è un geyser?",
+          "answer": "Una fontana d'acqua bollente",
+          "wrong": [
+            "Una sorgente fredda",
+            "Un vulcano di ghiaccio",
+            "Un pozzo profondo"
+          ],
+          "hint": "Zampilla a intervalli.",
+          "explanation": "In un geyser il calore della Terra spinge in alto l'acqua sotterranea.",
+          "fact": "Islanda e Yellowstone ne sono pieni."
+        },
+        "pt": {
+          "prompt": "O que é um géiser?",
+          "answer": "Um repuxo de água a ferver",
+          "wrong": [
+            "Uma nascente fria",
+            "Um vulcão de gelo",
+            "Um poço fundo"
+          ],
+          "hint": "Jorra de tempos a tempos.",
+          "explanation": "Num géiser o calor da Terra empurra a água subterrânea para cima.",
+          "fact": "A Islândia e Yellowstone estão cheios deles."
+        },
+        "da": {
+          "prompt": "Hvad er en gejser?",
+          "answer": "En fontæne af kogende vand",
+          "wrong": [
+            "En kold kilde",
+            "En vulkan af is",
+            "En dyb brønd"
+          ],
+          "hint": "Den sprøjter med mellemrum.",
+          "explanation": "I en gejser presser jordvarmen grundvandet op.",
+          "fact": "Island og Yellowstone er fulde af dem."
+        },
+        "ru": {
+          "prompt": "Что такое гейзер?",
+          "answer": "Фонтан кипящей воды",
+          "wrong": [
+            "Холодный родник",
+            "Ледяной вулкан",
+            "Глубокий колодец"
+          ],
+          "hint": "Он бьёт с перерывами.",
+          "explanation": "В гейзере подземное тепло выбрасывает воду вверх.",
+          "fact": "Исландия и Йеллоустон полны ими."
+        },
+        "ar": {
+          "prompt": "ما هو النافورة الحارة من باطن الأرض؟",
+          "answer": "ينبوع ماء يغلي",
+          "wrong": [
+            "ينبوع بارد",
+            "بركان جليدي",
+            "بئر عميقة"
+          ],
+          "hint": "يندفع على فترات.",
+          "explanation": "في الغيزر تدفع حرارة الأرض الماء الجوفي إلى أعلى.",
+          "fact": "وآيسلندا وييلوستون مليئتان بها."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De boomgrens",
+      "artBrief": "Een berghelling waar het bos abrupt ophoudt en alleen nog rotsen liggen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom groeien er hoog in de bergen geen bomen meer?",
+          "answer": "Het is er te koud",
+          "wrong": [
+            "De grond is te nat",
+            "Er is te veel zon",
+            "De bomen willen niet"
+          ],
+          "hint": "Er is een grens waarboven het stopt.",
+          "explanation": "Boven de boomgrens is het te koud en te winderig voor bomen.",
+          "fact": "Die grens ligt in de Alpen rond tweeduizend meter."
+        },
+        "en": {
+          "prompt": "Why do no trees grow high up in the mountains?",
+          "answer": "It is too cold there",
+          "wrong": [
+            "The soil is too wet",
+            "There is too much sun",
+            "The trees refuse"
+          ],
+          "hint": "There is a line above which it stops.",
+          "explanation": "Above the tree line it is too cold and too windy for trees.",
+          "fact": "In the Alps that line sits at about two thousand metres."
+        },
+        "de": {
+          "prompt": "Warum wachsen hoch im Gebirge keine Bäume mehr?",
+          "answer": "Es ist dort zu kalt",
+          "wrong": [
+            "Der Boden ist zu nass",
+            "Es gibt zu viel Sonne",
+            "Die Bäume wollen nicht"
+          ],
+          "hint": "Es gibt eine Grenze, über der Schluss ist.",
+          "explanation": "Oberhalb der Baumgrenze ist es zu kalt und zu windig für Bäume.",
+          "fact": "In den Alpen liegt sie bei etwa zweitausend Metern."
+        },
+        "fr": {
+          "prompt": "Pourquoi les arbres ne poussent-ils plus en haute montagne ?",
+          "answer": "Il y fait trop froid",
+          "wrong": [
+            "Le sol est trop mouillé",
+            "Il y a trop de soleil",
+            "Les arbres refusent"
+          ],
+          "hint": "Il existe une limite au-dessus de laquelle cela s'arrête.",
+          "explanation": "Au-dessus de la limite des arbres, il fait trop froid et trop venteux.",
+          "fact": "Dans les Alpes, cette limite est vers deux mille mètres."
+        },
+        "es": {
+          "prompt": "¿Por qué no crecen árboles muy arriba en la montaña?",
+          "answer": "Hace demasiado frío",
+          "wrong": [
+            "El suelo está muy mojado",
+            "Hay demasiado sol",
+            "Los árboles no quieren"
+          ],
+          "hint": "Hay un límite por encima del cual se acaban.",
+          "explanation": "Por encima del límite del arbolado hace demasiado frío y viento.",
+          "fact": "En los Alpes ese límite está sobre los dos mil metros."
+        },
+        "it": {
+          "prompt": "Perché in alta montagna non crescono più alberi?",
+          "answer": "Fa troppo freddo",
+          "wrong": [
+            "Il terreno è troppo bagnato",
+            "C'è troppo sole",
+            "Gli alberi non vogliono"
+          ],
+          "hint": "C'è un limite oltre il quale finiscono.",
+          "explanation": "Sopra il limite del bosco fa troppo freddo e troppo vento.",
+          "fact": "Sulle Alpi quel limite sta attorno ai duemila metri."
+        },
+        "pt": {
+          "prompt": "Porque deixam de crescer árvores no alto da montanha?",
+          "answer": "Está frio de mais",
+          "wrong": [
+            "O solo está molhado de mais",
+            "Há sol de mais",
+            "As árvores não querem"
+          ],
+          "hint": "Há um limite acima do qual acabam.",
+          "explanation": "Acima do limite das árvores faz frio e vento de mais.",
+          "fact": "Nos Alpes esse limite anda pelos dois mil metros."
+        },
+        "da": {
+          "prompt": "Hvorfor vokser der ikke træer højt oppe i bjergene?",
+          "answer": "Der er for koldt",
+          "wrong": [
+            "Jorden er for våd",
+            "Der er for meget sol",
+            "Træerne vil ikke"
+          ],
+          "hint": "Der er en grænse, hvor det stopper.",
+          "explanation": "Over trægrænsen er der for koldt og for blæsende til træer.",
+          "fact": "I Alperne ligger den grænse omkring to tusind meter."
+        },
+        "ru": {
+          "prompt": "Почему высоко в горах перестают расти деревья?",
+          "answer": "Там слишком холодно",
+          "wrong": [
+            "Почва слишком мокрая",
+            "Слишком много солнца",
+            "Деревья не хотят"
+          ],
+          "hint": "Есть граница, выше которой всё кончается.",
+          "explanation": "Выше границы леса слишком холодно и ветрено для деревьев.",
+          "fact": "В Альпах эта граница проходит около двух тысяч метров."
+        },
+        "ar": {
+          "prompt": "لماذا تتوقف الأشجار عن النمو في أعالي الجبال؟",
+          "answer": "لأن البرد شديد",
+          "wrong": [
+            "التربة مبللة جدًا",
+            "الشمس كثيرة جدًا",
+            "الأشجار لا ترغب"
+          ],
+          "hint": "ثمة حد تتوقف عنده.",
+          "explanation": "فوق حد الأشجار يصبح الجو شديد البرودة والرياح.",
+          "fact": "في جبال الألب يقع هذا الحد قرب ألفي متر."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Zeewater bevat ongeveer 3,5 procent zout",
+      "artBrief": "Een schaaltje zeezout naast een emmer zeewater op een steiger.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel procent van zeewater is zout?",
+          "answer": "Ongeveer 3,5 procent",
+          "wrong": [
+            "Ongeveer 0,5 procent",
+            "Ongeveer 10 procent",
+            "Ongeveer 35 procent"
+          ],
+          "hint": "Ongeveer een lepel per glas.",
+          "explanation": "In elke liter zeewater zit ongeveer vijfendertig gram zout.",
+          "fact": "Uit alle zeeën samen zou je het land dik kunnen bedekken met zout."
+        },
+        "en": {
+          "prompt": "What percentage of sea water is salt?",
+          "answer": "About 3.5 per cent",
+          "wrong": [
+            "About 0.5 per cent",
+            "About 10 per cent",
+            "About 35 per cent"
+          ],
+          "hint": "Roughly a spoonful per glass.",
+          "explanation": "Every litre of sea water holds about thirty-five grams of salt.",
+          "fact": "The salt from all the seas could cover the land in a thick layer."
+        },
+        "de": {
+          "prompt": "Wie viel Prozent des Meerwassers ist Salz?",
+          "answer": "Etwa 3,5 Prozent",
+          "wrong": [
+            "Etwa 0,5 Prozent",
+            "Etwa 10 Prozent",
+            "Etwa 35 Prozent"
+          ],
+          "hint": "Ungefähr ein Löffel pro Glas.",
+          "explanation": "In jedem Liter Meerwasser stecken etwa fünfunddreißig Gramm Salz.",
+          "fact": "Das Salz aller Meere könnte das Land dick bedecken."
+        },
+        "fr": {
+          "prompt": "Quel pourcentage de l'eau de mer est du sel ?",
+          "answer": "Environ 3,5 pour cent",
+          "wrong": [
+            "Environ 0,5 pour cent",
+            "Environ 10 pour cent",
+            "Environ 35 pour cent"
+          ],
+          "hint": "À peu près une cuillère par verre.",
+          "explanation": "Chaque litre d'eau de mer contient environ trente-cinq grammes de sel.",
+          "fact": "Le sel de toutes les mers couvrirait les terres d'une couche épaisse."
+        },
+        "es": {
+          "prompt": "¿Qué porcentaje del agua del mar es sal?",
+          "answer": "Cerca del 3,5 por ciento",
+          "wrong": [
+            "El 0,5 por ciento",
+            "El 10 por ciento",
+            "El 35 por ciento"
+          ],
+          "hint": "Más o menos una cucharada por vaso.",
+          "explanation": "Cada litro de agua de mar lleva unos treinta y cinco gramos de sal.",
+          "fact": "La sal de todos los mares cubriría la tierra con una capa gruesa."
+        },
+        "it": {
+          "prompt": "Quanta parte dell'acqua di mare è sale?",
+          "answer": "Circa il 3,5 per cento",
+          "wrong": [
+            "Circa lo 0,5 per cento",
+            "Circa il 10 per cento",
+            "Circa il 35 per cento"
+          ],
+          "hint": "Più o meno un cucchiaio per bicchiere.",
+          "explanation": "Ogni litro d'acqua di mare contiene circa trentacinque grammi di sale.",
+          "fact": "Il sale di tutti i mari coprirebbe le terre con uno strato spesso."
+        },
+        "pt": {
+          "prompt": "Que percentagem da água do mar é sal?",
+          "answer": "Cerca de 3,5 por cento",
+          "wrong": [
+            "Cerca de 0,5 por cento",
+            "Cerca de 10 por cento",
+            "Cerca de 35 por cento"
+          ],
+          "hint": "Mais ou menos uma colher por copo.",
+          "explanation": "Cada litro de água do mar tem cerca de trinta e cinco gramas de sal.",
+          "fact": "O sal de todos os mares cobriria a terra com uma camada grossa."
+        },
+        "da": {
+          "prompt": "Hvor mange procent af havvand er salt?",
+          "answer": "Cirka 3,5 procent",
+          "wrong": [
+            "Cirka 0,5 procent",
+            "Cirka 10 procent",
+            "Cirka 35 procent"
+          ],
+          "hint": "Cirka en skefuld pr. glas.",
+          "explanation": "I hver liter havvand er der cirka femogtredive gram salt.",
+          "fact": "Saltet fra alle have kunne dække landjorden i et tykt lag."
+        },
+        "ru": {
+          "prompt": "Сколько процентов морской воды — соль?",
+          "answer": "Около 3,5 процента",
+          "wrong": [
+            "Около 0,5 процента",
+            "Около 10 процентов",
+            "Около 35 процентов"
+          ],
+          "hint": "Примерно ложка на стакан.",
+          "explanation": "В каждом литре морской воды около тридцати пяти граммов соли.",
+          "fact": "Соли всех морей хватило бы, чтобы покрыть сушу толстым слоем."
+        },
+        "ar": {
+          "prompt": "كم نسبة الملح في ماء البحر؟",
+          "answer": "نحو 3.5 بالمئة",
+          "wrong": [
+            "نحو 0.5 بالمئة",
+            "نحو 10 بالمئة",
+            "نحو 35 بالمئة"
+          ],
+          "hint": "نحو ملعقة في كل كوب.",
+          "explanation": "في كل لتر من ماء البحر نحو خمسة وثلاثين غرامًا من الملح.",
+          "fact": "ملح البحار كلها يكفي لتغطية اليابسة بطبقة سميكة."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Baikalmeer, 1642 meter diep",
+      "artBrief": "Een helder blauw meer tussen bergen, met doorzicht tot diep onder water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is het diepste meer ter wereld?",
+          "answer": "Het Baikalmeer",
+          "wrong": [
+            "Het Michiganmeer",
+            "Het Victoriameer",
+            "De Bodensee"
+          ],
+          "hint": "Het ligt in Siberië.",
+          "explanation": "Het Baikalmeer is ruim zestienhonderd meter diep.",
+          "fact": "Er zit een vijfde van al het vloeibare zoete water ter wereld in."
+        },
+        "en": {
+          "prompt": "What is the deepest lake in the world?",
+          "answer": "Lake Baikal",
+          "wrong": [
+            "Lake Michigan",
+            "Lake Victoria",
+            "Lake Constance"
+          ],
+          "hint": "It lies in Siberia.",
+          "explanation": "Lake Baikal is over sixteen hundred metres deep.",
+          "fact": "It holds a fifth of all the liquid fresh water on earth."
+        },
+        "de": {
+          "prompt": "Was ist der tiefste See der Welt?",
+          "answer": "Der Baikalsee",
+          "wrong": [
+            "Der Michigansee",
+            "Der Viktoriasee",
+            "Der Bodensee"
+          ],
+          "hint": "Er liegt in Sibirien.",
+          "explanation": "Der Baikalsee ist über sechzehnhundert Meter tief.",
+          "fact": "In ihm steckt ein Fünftel des flüssigen Süßwassers der Erde."
+        },
+        "fr": {
+          "prompt": "Quel est le lac le plus profond du monde ?",
+          "answer": "Le lac Baïkal",
+          "wrong": [
+            "Le lac Michigan",
+            "Le lac Victoria",
+            "Le lac de Constance"
+          ],
+          "hint": "Il se trouve en Sibérie.",
+          "explanation": "Le lac Baïkal fait plus de mille six cents mètres de profondeur.",
+          "fact": "Il contient un cinquième de l'eau douce liquide de la planète."
+        },
+        "es": {
+          "prompt": "¿Cuál es el lago más profundo del mundo?",
+          "answer": "El lago Baikal",
+          "wrong": [
+            "El lago Michigan",
+            "El lago Victoria",
+            "El lago de Constanza"
+          ],
+          "hint": "Está en Siberia.",
+          "explanation": "El lago Baikal tiene más de mil seiscientos metros de profundidad.",
+          "fact": "Contiene una quinta parte del agua dulce líquida del planeta."
+        },
+        "it": {
+          "prompt": "Qual è il lago più profondo del mondo?",
+          "answer": "Il lago Bajkal",
+          "wrong": [
+            "Il lago Michigan",
+            "Il lago Vittoria",
+            "Il lago di Costanza"
+          ],
+          "hint": "Si trova in Siberia.",
+          "explanation": "Il lago Bajkal è profondo oltre milleseicento metri.",
+          "fact": "Contiene un quinto di tutta l'acqua dolce liquida del pianeta."
+        },
+        "pt": {
+          "prompt": "Qual é o lago mais fundo do mundo?",
+          "answer": "O lago Baikal",
+          "wrong": [
+            "O lago Michigan",
+            "O lago Vitória",
+            "O lago de Constança"
+          ],
+          "hint": "Fica na Sibéria.",
+          "explanation": "O lago Baikal tem mais de mil e seiscentos metros de profundidade.",
+          "fact": "Contém um quinto de toda a água doce líquida do planeta."
+        },
+        "da": {
+          "prompt": "Hvad er verdens dybeste sø?",
+          "answer": "Bajkalsøen",
+          "wrong": [
+            "Michigansøen",
+            "Victoriasøen",
+            "Bodensee"
+          ],
+          "hint": "Den ligger i Sibirien.",
+          "explanation": "Bajkalsøen er over seksten hundrede meter dyb.",
+          "fact": "Den rummer en femtedel af alt flydende ferskvand på Jorden."
+        },
+        "ru": {
+          "prompt": "Какое озеро самое глубокое в мире?",
+          "answer": "Байкал",
+          "wrong": [
+            "Мичиган",
+            "Виктория",
+            "Боденское озеро"
+          ],
+          "hint": "Оно находится в Сибири.",
+          "explanation": "Байкал глубже тысячи шестисот метров.",
+          "fact": "В нём пятая часть всей жидкой пресной воды планеты."
+        },
+        "ar": {
+          "prompt": "ما أعمق بحيرة في العالم؟",
+          "answer": "بحيرة بايكال",
+          "wrong": [
+            "بحيرة ميشيغان",
+            "بحيرة فيكتوريا",
+            "بحيرة كونستانس"
+          ],
+          "hint": "تقع في سيبيريا.",
+          "explanation": "عمق بحيرة بايكال يتجاوز ألفًا وستمئة متر.",
+          "fact": "وفيها خمس المياه العذبة السائلة في العالم."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Erosie van oude gebergten",
+      "artBrief": "Twee bergen naast elkaar: één scherp en jong, één afgesleten en rond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met een bergketen na miljoenen jaren?",
+          "answer": "Hij slijt af tot heuvels",
+          "wrong": [
+            "Hij wordt steeds hoger",
+            "Hij zinkt in de zee",
+            "Hij verandert in zand"
+          ],
+          "hint": "Regen, ijs en wind doen hun werk.",
+          "explanation": "Door erosie worden scherpe bergen langzaam lage, ronde heuvels.",
+          "fact": "De heuvels van Schotland waren ooit zo hoog als de Alpen."
+        },
+        "en": {
+          "prompt": "What happens to a mountain range after millions of years?",
+          "answer": "It wears down to hills",
+          "wrong": [
+            "It keeps growing taller",
+            "It sinks into the sea",
+            "It turns into sand"
+          ],
+          "hint": "Rain, ice and wind do their work.",
+          "explanation": "Erosion slowly turns sharp mountains into low, round hills.",
+          "fact": "The hills of Scotland were once as high as the Alps."
+        },
+        "de": {
+          "prompt": "Was passiert mit einem Gebirge nach Millionen Jahren?",
+          "answer": "Es wird zu Hügeln abgetragen",
+          "wrong": [
+            "Es wird immer höher",
+            "Es versinkt im Meer",
+            "Es wird zu Sand"
+          ],
+          "hint": "Regen, Eis und Wind arbeiten daran.",
+          "explanation": "Erosion macht aus scharfen Bergen langsam niedrige runde Hügel.",
+          "fact": "Schottlands Hügel waren einst so hoch wie die Alpen."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à une chaîne de montagnes en millions d'années ?",
+          "answer": "Elle s'use en collines",
+          "wrong": [
+            "Elle monte de plus en plus",
+            "Elle coule dans la mer",
+            "Elle devient du sable"
+          ],
+          "hint": "La pluie, la glace et le vent y travaillent.",
+          "explanation": "L'érosion transforme lentement des pics aigus en collines arrondies.",
+          "fact": "Les collines d'Écosse furent jadis aussi hautes que les Alpes."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa a una cordillera tras millones de años?",
+          "answer": "Se desgasta hasta colinas",
+          "wrong": [
+            "Crece cada vez más",
+            "Se hunde en el mar",
+            "Se convierte en arena"
+          ],
+          "hint": "La lluvia, el hielo y el viento hacen su trabajo.",
+          "explanation": "La erosión convierte montañas afiladas en colinas bajas y redondas.",
+          "fact": "Las colinas de Escocia fueron un día tan altas como los Alpes."
+        },
+        "it": {
+          "prompt": "Che ne è di una catena montuosa dopo milioni di anni?",
+          "answer": "Si consuma in colline",
+          "wrong": [
+            "Diventa sempre più alta",
+            "Sprofonda nel mare",
+            "Diventa sabbia"
+          ],
+          "hint": "Pioggia, ghiaccio e vento ci lavorano.",
+          "explanation": "L'erosione trasforma cime aguzze in basse colline tondeggianti.",
+          "fact": "Le colline di Scozia furono alte come le Alpi."
+        },
+        "pt": {
+          "prompt": "O que acontece a uma cordilheira ao fim de milhões de anos?",
+          "answer": "Desgasta-se até colinas",
+          "wrong": [
+            "Fica cada vez mais alta",
+            "Afunda-se no mar",
+            "Vira areia"
+          ],
+          "hint": "A chuva, o gelo e o vento tratam disso.",
+          "explanation": "A erosão transforma picos afiados em colinas baixas e redondas.",
+          "fact": "As colinas da Escócia foram um dia tão altas como os Alpes."
+        },
+        "da": {
+          "prompt": "Hvad sker der med en bjergkæde efter millioner af år?",
+          "answer": "Den slides ned til bakker",
+          "wrong": [
+            "Den bliver højere og højere",
+            "Den synker i havet",
+            "Den bliver til sand"
+          ],
+          "hint": "Regn, is og vind arbejder på den.",
+          "explanation": "Erosion gør skarpe bjerge til lave, runde bakker.",
+          "fact": "Skotlands bakker var engang lige så høje som Alperne."
+        },
+        "ru": {
+          "prompt": "Что происходит с горной цепью через миллионы лет?",
+          "answer": "Она стачивается в холмы",
+          "wrong": [
+            "Она растёт всё выше",
+            "Она тонет в море",
+            "Она превращается в песок"
+          ],
+          "hint": "Дождь, лёд и ветер делают своё дело.",
+          "explanation": "Эрозия медленно превращает острые горы в низкие круглые холмы.",
+          "fact": "Холмы Шотландии когда-то были высотой с Альпы."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لسلسلة جبال بعد ملايين السنين؟",
+          "answer": "تتآكل حتى تصير تلالًا",
+          "wrong": [
+            "تزداد ارتفاعًا",
+            "تغرق في البحر",
+            "تتحول إلى رمل"
+          ],
+          "hint": "المطر والجليد والريح تعمل فيها.",
+          "explanation": "التعرية تحول القمم الحادة إلى تلال منخفضة مستديرة.",
+          "fact": "تلال اسكتلندا كانت يومًا بارتفاع جبال الألب."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Fytoplankton levert een groot deel van de zuurstof",
+      "artBrief": "Groen plankton in helder zeewater met zonnestralen erdoorheen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar komt een groot deel van onze zuurstof vandaan?",
+          "answer": "Uit de oceaan",
+          "wrong": [
+            "Uit de woestijn",
+            "Uit vulkanen",
+            "Uit de wind"
+          ],
+          "hint": "Niet alleen uit bossen.",
+          "explanation": "Plankton in zee maakt ongeveer de helft van alle zuurstof.",
+          "fact": "Elke tweede ademhaling heb je dus aan de zee te danken."
+        },
+        "en": {
+          "prompt": "Where does a large share of our oxygen come from?",
+          "answer": "From the ocean",
+          "wrong": [
+            "From the desert",
+            "From volcanoes",
+            "From the wind"
+          ],
+          "hint": "Not only from forests.",
+          "explanation": "Plankton in the sea makes about half of all the oxygen.",
+          "fact": "So every second breath you take you owe to the sea."
+        },
+        "de": {
+          "prompt": "Woher kommt ein großer Teil unseres Sauerstoffs?",
+          "answer": "Aus dem Meer",
+          "wrong": [
+            "Aus der Wüste",
+            "Aus Vulkanen",
+            "Aus dem Wind"
+          ],
+          "hint": "Nicht nur aus Wäldern.",
+          "explanation": "Plankton im Meer erzeugt etwa die Hälfte des Sauerstoffs.",
+          "fact": "Jeden zweiten Atemzug verdankst du also dem Meer."
+        },
+        "fr": {
+          "prompt": "D'où vient une grande partie de notre oxygène ?",
+          "answer": "De l'océan",
+          "wrong": [
+            "Du désert",
+            "Des volcans",
+            "Du vent"
+          ],
+          "hint": "Pas seulement des forêts.",
+          "explanation": "Le plancton marin produit environ la moitié de tout l'oxygène.",
+          "fact": "Une respiration sur deux, tu la dois donc à la mer."
+        },
+        "es": {
+          "prompt": "¿De dónde sale buena parte de nuestro oxígeno?",
+          "answer": "Del océano",
+          "wrong": [
+            "Del desierto",
+            "De los volcanes",
+            "Del viento"
+          ],
+          "hint": "No solo de los bosques.",
+          "explanation": "El plancton del mar produce cerca de la mitad de todo el oxígeno.",
+          "fact": "Así que una de cada dos respiraciones se la debes al mar."
+        },
+        "it": {
+          "prompt": "Da dove viene gran parte del nostro ossigeno?",
+          "answer": "Dall'oceano",
+          "wrong": [
+            "Dal deserto",
+            "Dai vulcani",
+            "Dal vento"
+          ],
+          "hint": "Non solo dalle foreste.",
+          "explanation": "Il plancton marino produce circa metà di tutto l'ossigeno.",
+          "fact": "Un respiro su due lo devi dunque al mare."
+        },
+        "pt": {
+          "prompt": "De onde vem boa parte do nosso oxigénio?",
+          "answer": "Do oceano",
+          "wrong": [
+            "Do deserto",
+            "Dos vulcões",
+            "Do vento"
+          ],
+          "hint": "Não é só das florestas.",
+          "explanation": "O plâncton do mar produz cerca de metade de todo o oxigénio.",
+          "fact": "Uma em cada duas respirações deves ao mar."
+        },
+        "da": {
+          "prompt": "Hvor kommer en stor del af vores ilt fra?",
+          "answer": "Fra havet",
+          "wrong": [
+            "Fra ørkenen",
+            "Fra vulkaner",
+            "Fra vinden"
+          ],
+          "hint": "Ikke kun fra skove.",
+          "explanation": "Plankton i havet laver cirka halvdelen af al ilt.",
+          "fact": "Hvert andet åndedrag skylder du altså havet."
+        },
+        "ru": {
+          "prompt": "Откуда берётся большая часть нашего кислорода?",
+          "answer": "Из океана",
+          "wrong": [
+            "Из пустыни",
+            "Из вулканов",
+            "Из ветра"
+          ],
+          "hint": "Не только из лесов.",
+          "explanation": "Планктон в море производит примерно половину всего кислорода.",
+          "fact": "Значит, каждый второй вдох ты обязан морю."
+        },
+        "ar": {
+          "prompt": "من أين يأتي جزء كبير من الأكسجين؟",
+          "answer": "من المحيط",
+          "wrong": [
+            "من الصحراء",
+            "من البراكين",
+            "من الريح"
+          ],
+          "hint": "ليس من الغابات وحدها.",
+          "explanation": "العوالق في البحر تنتج نحو نصف الأكسجين.",
+          "fact": "فكل نفس ثان تدين به للبحر."
+        }
+      }
+    },
+    {
+      "id": "aarde-oceanen_natuur-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Challenger Deep, bijna 11 kilometer diep",
+      "artBrief": "Een doorsnede van de oceaan met een diepe kloof in de bodem.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe diep is het diepste punt van de oceaan ongeveer?",
+          "answer": "Ongeveer elf kilometer",
+          "wrong": [
+            "Ongeveer één kilometer",
+            "Ongeveer drie kilometer",
+            "Ongeveer vijftig kilometer"
+          ],
+          "hint": "Dieper dan de Mount Everest hoog is.",
+          "explanation": "De diepste plek ligt bijna elf kilometer onder het wateroppervlak.",
+          "fact": "De Mount Everest zou er ruim in passen."
+        },
+        "en": {
+          "prompt": "How deep is the deepest point of the ocean, roughly?",
+          "answer": "About eleven kilometres",
+          "wrong": [
+            "About one kilometre",
+            "About three kilometres",
+            "About fifty kilometres"
+          ],
+          "hint": "Deeper than Mount Everest is tall.",
+          "explanation": "The deepest spot lies almost eleven kilometres below the surface.",
+          "fact": "Mount Everest would fit inside it with room to spare."
+        },
+        "de": {
+          "prompt": "Wie tief ist die tiefste Stelle des Ozeans ungefähr?",
+          "answer": "Etwa elf Kilometer",
+          "wrong": [
+            "Etwa ein Kilometer",
+            "Etwa drei Kilometer",
+            "Etwa fünfzig Kilometer"
+          ],
+          "hint": "Tiefer als der Mount Everest hoch ist.",
+          "explanation": "Die tiefste Stelle liegt fast elf Kilometer unter der Oberfläche.",
+          "fact": "Der Mount Everest hätte darin bequem Platz."
+        },
+        "fr": {
+          "prompt": "Quelle est la profondeur du point le plus profond de l'océan ?",
+          "answer": "Environ onze kilomètres",
+          "wrong": [
+            "Environ un kilomètre",
+            "Environ trois kilomètres",
+            "Environ cinquante kilomètres"
+          ],
+          "hint": "Plus profond que l'Everest n'est haut.",
+          "explanation": "Le point le plus profond est à presque onze kilomètres sous l'eau.",
+          "fact": "L'Everest y tiendrait largement."
+        },
+        "es": {
+          "prompt": "¿Qué profundidad tiene el punto más hondo del océano?",
+          "answer": "Unos once kilómetros",
+          "wrong": [
+            "Un kilómetro",
+            "Tres kilómetros",
+            "Cincuenta kilómetros"
+          ],
+          "hint": "Más hondo de lo que el Everest es alto.",
+          "explanation": "El punto más hondo está a casi once kilómetros bajo la superficie.",
+          "fact": "El Everest cabría dentro de sobra."
+        },
+        "it": {
+          "prompt": "Quanto è profondo il punto più profondo dell'oceano?",
+          "answer": "Circa undici chilometri",
+          "wrong": [
+            "Circa un chilometro",
+            "Circa tre chilometri",
+            "Circa cinquanta chilometri"
+          ],
+          "hint": "Più profondo di quanto l'Everest sia alto.",
+          "explanation": "Il punto più profondo sta quasi undici chilometri sott'acqua.",
+          "fact": "L'Everest ci starebbe dentro con spazio avanzato."
+        },
+        "pt": {
+          "prompt": "Que profundidade tem o ponto mais fundo do oceano?",
+          "answer": "Cerca de onze quilómetros",
+          "wrong": [
+            "Cerca de um quilómetro",
+            "Cerca de três quilómetros",
+            "Cerca de 50 quilómetros"
+          ],
+          "hint": "Mais fundo do que o Evereste é alto.",
+          "explanation": "O ponto mais fundo fica quase onze quilómetros abaixo da superfície.",
+          "fact": "O Evereste cabia lá dentro com folga."
+        },
+        "da": {
+          "prompt": "Hvor dybt er havets dybeste sted cirka?",
+          "answer": "Cirka elleve kilometer",
+          "wrong": [
+            "Cirka en kilometer",
+            "Cirka tre kilometer",
+            "Cirka halvtreds kilometer"
+          ],
+          "hint": "Dybere end Mount Everest er højt.",
+          "explanation": "Det dybeste sted ligger næsten elleve kilometer under overfladen.",
+          "fact": "Mount Everest ville kunne være der med plads til overs."
+        },
+        "ru": {
+          "prompt": "Какова глубина самой глубокой точки океана?",
+          "answer": "Около одиннадцати километров",
+          "wrong": [
+            "Около километра",
+            "Около трёх километров",
+            "Около пятидесяти километров"
+          ],
+          "hint": "Глубже, чем высота Эвереста.",
+          "explanation": "Самая глубокая точка лежит почти в одиннадцати километрах под водой.",
+          "fact": "Эверест поместился бы там с запасом."
+        },
+        "ar": {
+          "prompt": "كم يبلغ عمق أعمق نقطة في المحيط؟",
+          "answer": "نحو أحد عشر كيلومترًا",
+          "wrong": [
+            "نحو كيلومتر",
+            "نحو ثلاثة كيلومترات",
+            "نحو خمسين كيلومترًا"
+          ],
+          "hint": "أعمق من ارتفاع إفرست.",
+          "explanation": "أعمق نقطة تقع على نحو أحد عشر كيلومترًا تحت السطح.",
+          "fact": "وجبل إفرست يتسع فيها وتبقى مساحة."
+        }
+      }
+    }
+  ]
+}
