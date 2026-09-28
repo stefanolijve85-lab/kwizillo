@@ -32,7 +32,7 @@
 @media(max-width:420px){.quiz-card{padding:4% 2.8% 2.8%;gap:1.5%}.quiz-art{flex-basis:29%;min-height:125px}.quiz-card .answer{min-height:72px;padding-inline-start:38px}.answer-letter{inset-inline-start:8px}.quiz-actions .action{padding:11px 8px}}
 
 /* ---- cinematic intro branding (was intro-enhance.css) ---- */
-.motion.kwizillo-cinematic{background:#061937}.motion.kwizillo-cinematic video{filter:saturate(1.1) contrast(1.035);transform:scale(1.006)}.intro-brand{position:absolute;z-index:5;left:50%;top:5.2%;transform:translateX(-50%);display:grid;place-items:center;width:min(84%,465px);pointer-events:none;animation:introBrandJourney 12s cubic-bezier(.2,.75,.18,1) both;animation-play-state:paused}.motion.kwizillo-cinematic.cinematic-playing .intro-brand{animation-play-state:running}.intro-brand-logo{display:block;width:100%;height:auto}.motion.kwizillo-cinematic::after{background:linear-gradient(180deg,rgba(0,24,72,.02),rgba(0,24,72,.08) 64%,rgba(0,24,72,.18));pointer-events:none}@keyframes introBrandJourney{0%{opacity:0;transform:translate(-50%,-16px) scale(.72)}6%{opacity:1;transform:translate(-50%,0) scale(1.08)}13%{transform:translate(-50%,0) scale(1)}22%{opacity:1}30%{opacity:0;transform:translate(-50%,-8px) scale(.95)}76%{opacity:0;transform:translate(-50%,8px) scale(.9)}84%{opacity:1;transform:translate(-50%,0) scale(1.07)}92%{transform:translate(-50%,0) scale(.99)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+.motion.kwizillo-cinematic{background:#061937}.intro-bg{display:none}.motion.kwizillo-cinematic video{filter:saturate(1.1) contrast(1.035);transform:scale(1.006)}.intro-brand{position:absolute;z-index:5;left:50%;top:5.2%;transform:translateX(-50%);display:grid;place-items:center;width:min(84%,465px);pointer-events:none;animation:introBrandJourney 12s cubic-bezier(.2,.75,.18,1) both;animation-play-state:paused}.motion.kwizillo-cinematic.cinematic-playing .intro-brand{animation-play-state:running}.intro-brand-logo{display:block;width:100%;height:auto}.motion.kwizillo-cinematic::after{background:linear-gradient(180deg,rgba(0,24,72,.02),rgba(0,24,72,.08) 64%,rgba(0,24,72,.18));pointer-events:none}@keyframes introBrandJourney{0%{opacity:0;transform:translate(-50%,-16px) scale(.72)}6%{opacity:1;transform:translate(-50%,0) scale(1.08)}13%{transform:translate(-50%,0) scale(1)}22%{opacity:1}30%{opacity:0;transform:translate(-50%,-8px) scale(.95)}76%{opacity:0;transform:translate(-50%,8px) scale(.9)}84%{opacity:1;transform:translate(-50%,0) scale(1.07)}92%{transform:translate(-50%,0) scale(.99)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
 /* ---- Home hub: real DOM over a painted sky, no screenshot layer ---- */
 .home{position:absolute;inset:0;overflow:hidden;background:#0b3f92;color:#fff}
 .home-sky{position:absolute;inset:0;background:
@@ -582,9 +582,9 @@
 .memo-back::before{content:"";position:absolute;inset:6px;border-radius:11px;border:2px dashed rgba(255,255,255,.28)}
 .memo-back .ki{width:38%;height:38%;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
 .memo-front{transform:rotateY(180deg);background:#fff;border:3px solid #fff;box-shadow:0 6px 0 #a8d9f4,0 10px 18px rgba(22,84,149,.18)}
-.memo-front img{width:100%;height:100%;object-fit:cover;display:block}
-.memo-front.word{padding:6px;background:linear-gradient(180deg,#fff,#edf7ff)}
-.memo-front.word b{font-size:clamp(11px,3.2vw,17px);line-height:1.05;color:#10175b;text-align:center;overflow-wrap:normal;hyphens:none;text-wrap:balance}
+.memo-front img{position:absolute;inset:-3px;width:calc(100% + 6px);height:calc(100% + 6px);object-fit:cover;display:block}
+.memo-front.word{padding:6px;background:linear-gradient(160deg,#4f8dff,#2748b8)}
+.memo-front.word b{font-size:clamp(11px,3.2vw,17px);line-height:1.05;color:#fff;text-shadow:0 2px 6px rgba(0,20,60,.5);text-align:center;overflow-wrap:normal;hyphens:none;text-wrap:balance}
 .memo-card.is-open .memo-back,.memo-card.is-matched .memo-back{transform:rotateY(180deg)}
 .memo-card.is-open .memo-front,.memo-card.is-matched .memo-front{transform:rotateY(360deg)}
 .memo-card.is-matched .memo-front{border-color:#55d36b;box-shadow:0 6px 0 #49b95a,0 0 22px rgba(69,217,94,.45);animation:memoPop .45s cubic-bezier(.2,.9,.3,1.4)}

@@ -106,7 +106,14 @@
   // to the character by tools/keyclip.cjs; `pose` is the cut-out the clip
   // starts from. The browser plays a genuinely transparent video: no keying,
   // no canvas, nothing that can differ between browsers.
-  const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
+  // Een opgenomen clip zegt wat er stond toen hij werd gemaakt. Verandert die
+  // tekst daarna, dan klopt het beeld wel maar de stem niet meer; zo'n clip
+  // staat hier tot hij opnieuw is opgenomen (`node tools/guide-talks.js lines`).
+  // De gids valt dan terug op zijn stilstaande pose met de gesproken regel, en
+  // zegt dus nooit iets wat niet meer waar is.
+  // tour.worlds: de opname zegt "de zes werelden"; het zijn er acht.
+  const STALE_CLIPS=new Set(['worlds']);
+  const clipInfo=(key,guide='milo')=>{if(STALE_CLIPS.has(key))return null;const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
   const probe=document.createElement('video');
   const safari=/AppleWebKit/.test(navigator.userAgent)&&!/Chrome|CriOS|Chromium|Android|Edg/.test(navigator.userAgent);
   const canWebm=!!probe.canPlayType('video/webm; codecs="vp9"'),canHevc=!!probe.canPlayType('video/mp4; codecs="hvc1"');

@@ -25,13 +25,20 @@
 
     const wideFilm=wide&&url===K.MOTION?.homeWide;
     const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in${wideFilm?' wide-film':''}">
-      <video muted playsinline autoplay preload="auto" src="${url}"></video>
+      <video class="intro-bg" muted playsinline autoplay preload="auto" aria-hidden="true" src="${url}"></video>
+      <video class="intro-main" muted playsinline autoplay preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
       <div class="intro-sound" id="introSound">🔊 ${K.t('intro.tapForSound')}</div>
     </div>`);
 
     const el=frame.querySelector('.motion');
-    const video=el.querySelector('video');
+    const video=el.querySelector('.intro-main');
+    // Liggend vult een onscherpe kopie van dezelfde film de ruimte naast het
+    // beeld, zodat het scherm vol is zonder de film zelf uit te vergroten. Hij
+    // is stom, speelt automatisch en doet er verder niet toe: lukt het niet,
+    // dan blijft de onscherpe wereldkunst eronder staan.
+    const bg=el.querySelector('.intro-bg');
+    if(bg){const r=bg.play();if(r&&r.catch)r.catch(()=>{})}
     let timers=[],done=false,theme=null,soundOn=false,videoFailed=false,triedFallback=false;
     K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
@@ -58,6 +65,7 @@
       timers.forEach(clearTimeout);
       timers=[];
       try{video.pause()}catch(e){}
+      try{bg&&bg.pause()}catch(e){}
       theme?.stop(.6);
       K.audio.holdMusic=false;
       startMusic();
