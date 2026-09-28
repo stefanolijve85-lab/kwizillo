@@ -395,10 +395,10 @@
         host.moveTo(W()+figW(),to.y,{instant:true});
         await sleep(30);
         host.el.classList.add('walking');host.moveTo(to.x,to.y);
-        await stride('walk',760);host.el.classList.remove('walking');
+        await stride('walk',560);host.el.classList.remove('walking');
       }else{
         host.el.classList.add('hopping');host.moveTo(to.x,to.y);
-        await stride('jump',720);host.el.classList.remove('hopping');
+        await stride('jump',480);host.el.classList.remove('hopping');
       }
       host.pose(to.pose);bubbleAt(to.x,to.side);
     };
@@ -423,7 +423,7 @@
         i++;
       };
       beat();
-      timer=setInterval(beat,1500);
+      timer=setInterval(beat,1200);
       return ()=>{clearInterval(timer);host.el.classList.remove('nudge');host.pose(to.pose)};
     };
 
@@ -436,17 +436,19 @@
         const r=rectOf(stop.sel);showSpot(r);
         const to=spotFor(r);if(stop.pose)to.pose=stop.pose;
         await travel(to,first);first=false;
-        await sleep(160);
+        await sleep(70);
         if(done)break;
         const stopGesture=gesture(to);
         // No lip-synced clip here on purpose: a clip replaces the figure with a
         // video of the guide standing still, and in the tour the guide is a
         // small full-body figure that should be pointing at what it explains.
         // The clips stay where they read best — onboarding, up close.
-        const said=host.say(t(stop.key),{minMs:2600});
+        // Kort vasthouden na de zin: de rondleiding moet vlot voelen, een kind
+        // dat het al snapt tikt door en hoeft niet te wachten.
+        const said=host.say(t(stop.key),{minMs:1400});
         // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
         {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb();const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-(f.bottom-6));if(over>0){to.y+=to.side==='top'?over:-over;host.moveTo(to.x,to.y,{instant:true});}}
-        await Promise.race([said,waitTap(20000)]);
+        await Promise.race([said,waitTap(12000)]);
         stopGesture();
         host.stop();
       }

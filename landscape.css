@@ -51,6 +51,10 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 [data-shape="wide"] .card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 [data-shape="wide"] .stat-tiles,
 [data-shape="wide"] .profile-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+/* Eén kolom van gelijke breedte, gecentreerd. `width:100%` hoort erbij: een
+   grid- of flexkind met `margin-inline:auto` krimpt anders naar zijn inhoud, en
+   dan stond de ouderzone als een rommelige piramide op het scherm — elke kaart
+   even breed als zijn eigen tekst. */
 [data-shape="wide"] .setting-card,
 [data-shape="wide"] .stat-card,
 [data-shape="wide"] .summary-hero,
@@ -58,7 +62,7 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 [data-shape="wide"] .share-3d,
 [data-shape="wide"] .profile-hero,
 [data-shape="wide"] .stats-hero3d,
-[data-shape="wide"] .collection-tabs{max-width:900px;margin-inline:auto}
+[data-shape="wide"] .collection-tabs{width:100%;max-width:900px;margin-inline:auto}
 
 /* ---- cards that float over a screen stay a card, not a banner ---- */
 [data-shape="wide"] .result-v2-card{width:min(640px,80%);margin-inline:auto}

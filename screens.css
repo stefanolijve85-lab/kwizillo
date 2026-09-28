@@ -435,11 +435,15 @@
 .quiz-actions .back .ki{width:16px;height:16px}
 .is-review .answer:disabled{opacity:1}
 .is-review .answer:not(.correct):not(.wrong){filter:saturate(.6);opacity:.75}
-.quiz-timer{position:relative;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  background:conic-gradient(#8dff8d calc(var(--p,100)*1%),rgba(255,255,255,.18) 0);box-shadow:0 0 0 2px rgba(255,255,255,.35)}
-.quiz-timer::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#0b3b8f}
-.quiz-timer b{position:relative;z-index:1;font-size:13px;color:#fff}
-.quiz-timer.urgent{background:conic-gradient(#ff7a5c calc(var(--p,100)*1%),rgba(255,255,255,.18) 0);animation:timerPulse .6s ease-in-out infinite}
+/* De klok bij de vraag. De ring was vier pixels dik met een cijfer van 13px:
+   op een iPad, waar het frame juist groter staat, zag je hem wel maar niet
+   lópen. Nu een dikkere ring en een groter cijfer. De seconden volgen het
+   niveau van de wereld (quiz-core-v2.js LEVELS: 30 → 25 → 20 → 16 → 13 → 10). */
+.quiz-timer{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(#8dff8d calc(var(--p,100)*1%),rgba(255,255,255,.2) 0);box-shadow:0 0 0 2px rgba(255,255,255,.4)}
+.quiz-timer::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#0b3b8f}
+.quiz-timer b{position:relative;z-index:1;font-size:17px;font-weight:1000;color:#fff;font-variant-numeric:tabular-nums}
+.quiz-timer.urgent{background:conic-gradient(#ff7a5c calc(var(--p,100)*1%),rgba(255,255,255,.2) 0);animation:timerPulse .6s ease-in-out infinite}
 @keyframes timerPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
 .quiz-progress{grid-template-columns:auto 1fr auto!important}
 .meta-chip,.hud-chip{cursor:pointer;font:inherit}
@@ -503,7 +507,10 @@
 /* ---- Review: "next" lives under the answers; the row stays Back/Hint/Again. ---- */
 .review-next{margin:8px 0 0;width:100%;min-height:44px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe36b,#ffbd21);color:#1b2a6b;font-weight:1000;font-size:14px;box-shadow:0 4px 0 #d98b12;cursor:pointer}
 .is-review .answer{cursor:pointer}
-.quiz-timer:not(.running){opacity:.55}
+/* Nog niet begonnen: de klok start pas als de vraag is voorgelezen, zodat je
+   geen tijd verliest terwijl de gids praat. Dat mag je zien — hij staat stil
+   en zacht te wachten in plaats van zomaar niet te lopen. */
+.quiz-timer:not(.running){opacity:.6;background:conic-gradient(rgba(255,255,255,.34) 100%,rgba(255,255,255,.34) 0)}
 .result-rule{margin:6px 0 0;font-size:12px;font-weight:900;color:#3566a8}
 .result-unlock{margin:6px 0 0;padding:6px 10px;border-radius:999px;background:#fff2b3;color:#7a4b00;font-size:12px;font-weight:1000}
 .result-unlock.is-gold{background:linear-gradient(180deg,#ffe58a,#ffc64a);color:#6b4500}
