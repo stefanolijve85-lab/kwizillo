@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["Che cosa succede quando mescoli bicarbonato e aceto?","Fa schiuma con anidride carbonica",["Diventa ghiaccio","Si illumina","Non succede niente"],"Si forma un gas.","Bicarbonato e aceto reagiscono e producono anidride carbonica.","Con questa reazione puoi fare un vulcano giocattolo."],
+        ["Quale gas fa la schiuma del vulcano di cucina?","Anidride carbonica",["Ossigeno","Idrogeno","Elio"],"Lo stesso gas delle bibite.","L'aceto reagisce con il bicarbonato, e il gas spinge la schiuma verso l'alto.","Lo stesso gas scava i buchi nella pasta del pane."],
         ["Perché un uovo galleggia nell’acqua salata e affonda in quella normale?","L’acqua salata è più pesante",["L’uovo diventa più leggero","Il sale fa dei buchi","L’uovo diventa più grande"],"È una questione di densità.","Il sale rende l’acqua più densa, così l’uovo viene spinto su.","Nel mar Morto galleggi da solo per via del sale."],
         ["Che cosa dimostra l’esperimento della candela sotto un bicchiere?","Il fuoco ha bisogno di ossigeno",["Il fuoco ha bisogno d’acqua","Il vetro brucia","Le candele si spengono da sole"],"La fiamma si spegne quando l’aria finisce.","Sotto il bicchiere finisce l’ossigeno e la candela si spegne.","Per questo puoi spegnere una fiamma con un coperchio."],
         ["Come fai un arcobaleno con un bicchiere d’acqua?","Lasciando che la luce del Sole si pieghi nell’acqua",["Mescolando velocissimo","Aggiungendo sale","Scaldando l’acqua"],"L’acqua funziona come un prisma.","L’acqua divide la luce bianca in tutti i colori dell’arcobaleno.","Un arcobaleno vero lo fanno milioni di gocce di pioggia."],

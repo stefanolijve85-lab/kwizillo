@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["What happens when you mix baking soda and vinegar?","It fizzes with carbon dioxide",["It turns to ice","It glows","Nothing happens"],"A gas is made.","Baking soda and vinegar react and make carbon dioxide gas.","You can use this reaction to make a model volcano."],
+        ["Which gas makes the foam in a kitchen volcano?","Carbon dioxide",["Oxygen","Hydrogen","Helium"],"The same gas as in fizzy drinks.","Vinegar reacts with baking soda, and the carbon dioxide pushes the foam up.","The same gas blows the holes into bread dough."],
         ["Why does an egg float in salt water but sink in plain water?","Salt water is heavier",["The egg gets lighter","Salt makes holes","The egg gets bigger"],"It is about density.","Salt makes water denser, so the egg is pushed up.","In the Dead Sea you float by yourself because of the salt."],
         ["What does the candle-under-a-glass experiment prove?","Fire needs oxygen",["Fire needs water","Glass burns","Candles go out by themselves"],"The flame goes out when the air is used up.","Under the glass the oxygen runs out and the candle goes out.","That is why you can smother a flame with a lid."],
         ["How do you make a rainbow with a glass of water?","Let sunlight bend through the water",["Stir very fast","Add salt","Heat the water"],"Water works like a prism.","Water splits white light into all the colours of the rainbow.","A real rainbow is made by millions of raindrops."],

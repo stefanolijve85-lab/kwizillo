@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["O que acontece quando você mistura bicarbonato e vinagre?","Borbulha com dióxido de carbono",["Vira gelo","Começa a brilhar","Nada acontece"],"Forma-se um gás.","Bicarbonato e vinagre reagem e produzem gás carbônico.","Com essa reação dá para imitar um vulcão."],
+        ["Que gás faz a espuma de um vulcão de cozinha?","Dióxido de carbono",["Oxigénio","Hidrogénio","Hélio"],"O mesmo gás dos refrigerantes.","O vinagre reage com o bicarbonato, e o gás empurra a espuma para cima.","Esse mesmo gás abre os buracos da massa do pão."],
         ["Por que um ovo flutua na água salgada mas afunda na água comum?","A água salgada é mais pesada",["O ovo fica mais leve","O sal faz furinhos","O ovo fica maior"],"É uma questão de densidade.","O sal deixa a água mais densa, e ela empurra o ovo para cima.","No Mar Morto você flutua sozinho por causa do sal."],
         ["O que prova a experiência da vela embaixo do copo?","O fogo precisa de oxigênio",["O fogo precisa de água","O vidro queima","Velas apagam sozinhas"],"A chama apaga quando o ar acaba.","Embaixo do copo o oxigênio acaba e a vela apaga.","Por isso dá para abafar uma chama com uma tampa."],
         ["Como fazer um arco-íris com um copo d'água?","Deixar a luz do Sol atravessar a água",["Mexer bem rápido","Colocar sal","Esquentar a água"],"A água funciona como um prisma.","A água separa a luz branca em todas as cores do arco-íris.","Um arco-íris de verdade é feito por milhões de gotas de chuva."],

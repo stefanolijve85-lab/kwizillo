@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["Que se passe-t-il quand tu mélanges du bicarbonate et du vinaigre ?","Ça mousse avec du dioxyde de carbone",["Ça devient de la glace","Ça brille","Il ne se passe rien"],"Un gaz se forme.","Le bicarbonate et le vinaigre réagissent et produisent du dioxyde de carbone.","Avec cette réaction tu peux faire un volcan miniature."],
+        ["Quel gaz fait la mousse d'un volcan de cuisine ?","Le dioxyde de carbone",["L'oxygène","L'hydrogène","L'hélium"],"Le même gaz que dans les sodas.","Le vinaigre réagit avec le bicarbonate, et le gaz produit pousse la mousse vers le haut.","C'est ce gaz qui creuse aussi les trous de la pâte à pain."],
         ["Pourquoi un œuf flotte-t-il dans l’eau salée et coule-t-il dans l’eau douce ?","L’eau salée est plus lourde",["L’œuf devient plus léger","Le sel fait des trous","L’œuf grossit"],"C’est une question de densité.","Le sel rend l’eau plus dense, donc l’œuf est poussé vers le haut.","Dans la mer Morte tu flottes tout seul à cause du sel."],
         ["Que prouve l’expérience de la bougie sous un verre ?","Le feu a besoin d’oxygène",["Le feu a besoin d’eau","Le verre brûle","Les bougies s’éteignent seules"],"La flamme s’éteint quand l’air est consommé.","Sous le verre l’oxygène s’épuise et la bougie s’éteint.","C’est pour cela qu’un couvercle étouffe une flamme."],
         ["Comment fais-tu un arc-en-ciel avec un verre d’eau ?","En laissant la lumière du Soleil se courber dans l’eau",["En remuant très vite","En ajoutant du sel","En chauffant l’eau"],"L’eau agit comme un prisme.","L’eau sépare la lumière blanche en toutes les couleurs de l’arc-en-ciel.","Un vrai arc-en-ciel est fait par des millions de gouttes de pluie."],

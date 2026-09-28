@@ -106,7 +106,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ['Wat gebeurt er als je bakpoeder en azijn mengt?','Het gaat bruisen door koolstofdioxide',['Het wordt ijs','Het gaat gloeien','Er gebeurt niets'],'Er ontstaat een gas.','Bakpoeder en azijn reageren en maken koolstofdioxidegas.','Met deze reactie kun je een vulkaan nabootsen.'],
+        ['Welk gas maakt het schuim in een keukenvulkaan?','Koolstofdioxide',['Zuurstof','Waterstof','Helium'],'Hetzelfde gas als in frisdrank.','Azijn reageert met bakpoeder, en het koolstofdioxide dat ontstaat duwt het schuim omhoog.','Datzelfde gas blaast ook de gaatjes in brooddeeg.'],
         ['Waarom drijft een ei in zout water maar zinkt het in gewoon water?','Zout water is zwaarder',['Het ei wordt lichter','Zout maakt gaatjes','Het ei wordt groter'],'Het gaat om dichtheid.','Zout maakt water dichter, waardoor het ei omhoog wordt geduwd.','In de Dode Zee blijf je door het zout vanzelf drijven.'],
         ['Wat bewijst het proefje met een kaars onder een glas?','Vuur heeft zuurstof nodig',['Vuur heeft water nodig','Glas brandt','Kaarsen doven vanzelf'],'De vlam gaat uit als de lucht op is.','Onder het glas raakt de zuurstof op en dooft de kaars.','Daarom kun je een vlam smoren met een deksel.'],
         ['Hoe maak je een regenboog met een glas water?','Laat zonlicht door het water breken',['Roer heel snel','Voeg zout toe','Verwarm het water'],'Water werkt als een prisma.','Water breekt wit licht in alle kleuren van de regenboog.','Een echte regenboog ontstaat door miljoenen regendruppels.'],

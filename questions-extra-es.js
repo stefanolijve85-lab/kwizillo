@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["¿Qué pasa cuando mezclas bicarbonato y vinagre?","Hace espuma con dióxido de carbono",["Se convierte en hielo","Brilla","No pasa nada"],"Se forma un gas.","El bicarbonato y el vinagre reaccionan y producen dióxido de carbono.","Con esta reacción puedes hacer un volcán de juguete."],
+        ["¿Qué gas hace la espuma de un volcán de cocina?","Dióxido de carbono",["Oxígeno","Hidrógeno","Helio"],"El mismo gas que en los refrescos.","El vinagre reacciona con el bicarbonato, y el gas empuja la espuma hacia arriba.","Ese mismo gas abre los agujeros de la masa del pan."],
         ["¿Por qué flota un huevo en agua salada y se hunde en agua normal?","El agua salada es más pesada",["El huevo se vuelve más ligero","La sal hace agujeros","El huevo se hace más grande"],"Es cuestión de densidad.","La sal hace el agua más densa, así que el huevo sube.","En el mar Muerto flotas solo por la sal."],
         ["¿Qué demuestra el experimento de la vela bajo un vaso?","El fuego necesita oxígeno",["El fuego necesita agua","El vidrio arde","Las velas se apagan solas"],"La llama se apaga cuando se acaba el aire.","Bajo el vaso se acaba el oxígeno y la vela se apaga.","Por eso puedes apagar una llama con una tapa."],
         ["¿Cómo haces un arcoíris con un vaso de agua?","Dejando que la luz del Sol se curve en el agua",["Removiendo muy rápido","Añadiendo sal","Calentando el agua"],"El agua funciona como un prisma.","El agua separa la luz blanca en todos los colores del arcoíris.","Un arcoíris de verdad lo hacen millones de gotas de lluvia."],

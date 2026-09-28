@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["Was passiert, wenn du Backpulver und Essig mischst?","Es schäumt mit Kohlendioxid",["Es wird zu Eis","Es leuchtet","Es passiert nichts"],"Es entsteht ein Gas.","Backpulver und Essig reagieren und machen Kohlendioxid.","Mit dieser Reaktion kannst du einen Modellvulkan bauen."],
+        ["Welches Gas macht den Schaum im Küchenvulkan?","Kohlendioxid",["Sauerstoff","Wasserstoff","Helium"],"Dasselbe Gas wie in Limonade.","Essig reagiert mit Backpulver, und das Kohlendioxid drückt den Schaum nach oben.","Dasselbe Gas bläst auch die Löcher in den Brotteig."],
         ["Warum schwimmt ein Ei in Salzwasser, sinkt aber in normalem Wasser?","Salzwasser ist schwerer",["Das Ei wird leichter","Salz macht Löcher","Das Ei wird größer"],"Es geht um die Dichte.","Salz macht Wasser dichter, darum wird das Ei nach oben gedrückt.","Im Toten Meer schwimmst du wegen des Salzes von selbst."],
         ["Was beweist der Versuch mit der Kerze unter einem Glas?","Feuer braucht Sauerstoff",["Feuer braucht Wasser","Glas brennt","Kerzen gehen von selbst aus"],"Die Flamme geht aus, wenn die Luft verbraucht ist.","Unter dem Glas geht der Sauerstoff aus und die Kerze erlischt.","Darum kannst du eine Flamme mit einem Deckel ersticken."],
         ["Wie machst du mit einem Glas Wasser einen Regenbogen?","Sonnenlicht durch das Wasser brechen lassen",["Sehr schnell umrühren","Salz hinzufügen","Das Wasser erhitzen"],"Wasser wirkt wie ein Prisma.","Wasser teilt weißes Licht in alle Farben des Regenbogens.","Ein echter Regenbogen entsteht aus Millionen Regentropfen."],

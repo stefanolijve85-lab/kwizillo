@@ -104,7 +104,7 @@
     },
     wetenschap: {
       slimme_proefjes: [
-        ["Hvad sker der, når du blander natron og eddike?","Det skummer med kuldioxid",["Det bliver til is","Det lyser","Der sker ingenting"],"Der dannes en gas.","Natron og eddike reagerer og danner kuldioxid.","Med den reaktion kan du lave en legetøjsvulkan."],
+        ["Hvilken gas laver skummet i en køkkenvulkan?","Kuldioxid",["Ilt","Brint","Helium"],"Samme gas som i sodavand.","Eddike reagerer med bagepulver, og kuldioxiden skubber skummet op.","Den samme gas blæser hullerne i brøddej."],
         ["Hvorfor flyder et æg i saltvand, men synker i almindeligt vand?","Saltvand er tungere",["Ægget bliver lettere","Salt laver huller","Ægget bliver større"],"Det handler om massefylde.","Salt gør vandet tættere, så ægget bliver skubbet opad.","I Det Døde Hav flyder du helt af dig selv på grund af saltet."],
         ["Hvad viser forsøget med et lys under et glas?","Ild skal bruge ilt",["Ild skal bruge vand","Glas brænder","Lys går ud af sig selv"],"Flammen går ud, når luften er brugt.","Under glasset slipper ilten op, og lyset går ud.","Derfor kan du kvæle en flamme med et låg."],
         ["Hvordan laver du en regnbue med et glas vand?","Ved at lade sollyset bøje gennem vandet",["Ved at røre meget hurtigt","Ved at komme salt i","Ved at varme vandet"],"Vand virker som et prisme.","Vand deler hvidt lys op i alle regnbuens farver.","En rigtig regnbue laves af millioner af regndråber."],

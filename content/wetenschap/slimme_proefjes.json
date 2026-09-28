@@ -1,0 +1,2607 @@
+{
+  "world": "wetenschap",
+  "topic": "slimme_proefjes",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "wetenschap-slimme_proefjes-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Lucht duwt een ballon vooruit",
+      "artBrief": "Een opgeblazen ballon die door een kamer suist met een luchtstreep erachter.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er als je een opgeblazen ballon loslaat?",
+          "answer": "Hij vliegt weg",
+          "wrong": [
+            "Hij wordt zwaarder",
+            "Hij smelt",
+            "Hij blijft hangen"
+          ],
+          "hint": "De lucht moet ergens heen.",
+          "explanation": "De lucht schiet er aan één kant uit en duwt de ballon de andere kant op.",
+          "fact": "Een raket werkt op precies dezelfde manier."
+        },
+        "en": {
+          "prompt": "What happens when you let go of a blown-up balloon?",
+          "answer": "It flies away",
+          "wrong": [
+            "It gets heavier",
+            "It melts",
+            "It hangs still"
+          ],
+          "hint": "The air has to go somewhere.",
+          "explanation": "The air rushes out one side and pushes the balloon the other way.",
+          "fact": "A rocket works in exactly the same way."
+        },
+        "de": {
+          "prompt": "Was passiert, wenn du einen aufgeblasenen Luftballon loslässt?",
+          "answer": "Er fliegt davon",
+          "wrong": [
+            "Er wird schwerer",
+            "Er schmilzt",
+            "Er bleibt hängen"
+          ],
+          "hint": "Die Luft muss irgendwohin.",
+          "explanation": "Die Luft schießt an einer Seite heraus und drückt den Ballon in die andere Richtung.",
+          "fact": "Eine Rakete funktioniert genau so."
+        },
+        "fr": {
+          "prompt": "Que se passe-t-il si tu lâches un ballon gonflé ?",
+          "answer": "Il s'envole",
+          "wrong": [
+            "Il devient lourd",
+            "Il fond",
+            "Il reste en l'air"
+          ],
+          "hint": "L'air doit bien sortir.",
+          "explanation": "L'air fuse d'un côté et pousse le ballon de l'autre.",
+          "fact": "Une fusée fonctionne exactement pareil."
+        },
+        "es": {
+          "prompt": "¿Qué pasa si sueltas un globo hinchado?",
+          "answer": "Sale volando",
+          "wrong": [
+            "Pesa más",
+            "Se derrite",
+            "Se queda quieto"
+          ],
+          "hint": "El aire tiene que salir.",
+          "explanation": "El aire sale disparado por un lado y empuja el globo hacia el otro.",
+          "fact": "Un cohete funciona exactamente igual."
+        },
+        "it": {
+          "prompt": "Che cosa succede se lasci andare un palloncino gonfio?",
+          "answer": "Vola via",
+          "wrong": [
+            "Diventa più pesante",
+            "Si scioglie",
+            "Resta sospeso"
+          ],
+          "hint": "L'aria deve uscire da qualche parte.",
+          "explanation": "L'aria esce da un lato e spinge il palloncino dall'altro.",
+          "fact": "Un razzo funziona esattamente così."
+        },
+        "pt": {
+          "prompt": "O que acontece se largares um balão cheio?",
+          "answer": "Sai a voar",
+          "wrong": [
+            "Fica mais pesado",
+            "Derrete",
+            "Fica parado"
+          ],
+          "hint": "O ar tem de sair.",
+          "explanation": "O ar sai disparado por um lado e empurra o balão para o outro.",
+          "fact": "Um foguetão funciona exatamente assim."
+        },
+        "da": {
+          "prompt": "Hvad sker der, når du slipper en pustet ballon?",
+          "answer": "Den flyver væk",
+          "wrong": [
+            "Den bliver tungere",
+            "Den smelter",
+            "Den bliver hængende"
+          ],
+          "hint": "Luften skal ud et sted.",
+          "explanation": "Luften fyger ud i den ene ende og skubber ballonen den anden vej.",
+          "fact": "En raket virker på nøjagtig samme måde."
+        },
+        "ru": {
+          "prompt": "Что будет, если отпустить надутый шарик?",
+          "answer": "Он улетит",
+          "wrong": [
+            "Он станет тяжелее",
+            "Он растает",
+            "Он повиснет"
+          ],
+          "hint": "Воздуху надо куда-то деться.",
+          "explanation": "Воздух вырывается с одной стороны и толкает шарик в другую.",
+          "fact": "Ракета работает точно так же."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث إذا تركت بالونًا منفوخًا؟",
+          "answer": "يطير بعيدًا",
+          "wrong": [
+            "يصير أثقل",
+            "يذوب",
+            "يبقى معلقًا"
+          ],
+          "hint": "الهواء لا بد أن يخرج.",
+          "explanation": "يندفع الهواء من جهة فيدفع البالون إلى الجهة الأخرى.",
+          "fact": "الصاروخ يعمل بالطريقة نفسها تمامًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Hout drijft",
+      "artBrief": "Een stuk hout dat drijft in een glazen bak water, een steen ernaast op de bodem.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat blijft drijven op water?",
+          "answer": "Een stuk hout",
+          "wrong": [
+            "Een steen",
+            "Een spijker",
+            "Een muntje"
+          ],
+          "hint": "Het komt van een boom.",
+          "explanation": "Hout is lichter dan evenveel water, en daarom blijft het drijven.",
+          "fact": "Sommige tropische houtsoorten zijn zo zwaar dat ze juist zinken."
+        },
+        "en": {
+          "prompt": "What floats on water?",
+          "answer": "A piece of wood",
+          "wrong": [
+            "A stone",
+            "A nail",
+            "A coin"
+          ],
+          "hint": "It comes from a tree.",
+          "explanation": "Wood is lighter than the same amount of water, so it stays on top.",
+          "fact": "Some tropical woods are so heavy that they sink instead."
+        },
+        "de": {
+          "prompt": "Was schwimmt auf Wasser?",
+          "answer": "Ein Stück Holz",
+          "wrong": [
+            "Ein Stein",
+            "Ein Nagel",
+            "Eine Münze"
+          ],
+          "hint": "Es kommt von einem Baum.",
+          "explanation": "Holz ist leichter als die gleiche Menge Wasser, darum bleibt es oben.",
+          "fact": "Manche tropischen Hölzer sind so schwer, dass sie untergehen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui flotte sur l'eau ?",
+          "answer": "Un morceau de bois",
+          "wrong": [
+            "Une pierre",
+            "Un clou",
+            "Une pièce"
+          ],
+          "hint": "Cela vient d'un arbre.",
+          "explanation": "Le bois est plus léger que la même quantité d'eau, il reste donc en surface.",
+          "fact": "Certains bois tropicaux sont si lourds qu'ils coulent."
+        },
+        "es": {
+          "prompt": "¿Qué flota en el agua?",
+          "answer": "Un trozo de madera",
+          "wrong": [
+            "Una piedra",
+            "Un clavo",
+            "Una moneda"
+          ],
+          "hint": "Viene de un árbol.",
+          "explanation": "La madera es más ligera que esa misma cantidad de agua, por eso queda arriba.",
+          "fact": "Algunas maderas tropicales pesan tanto que se hunden."
+        },
+        "it": {
+          "prompt": "Che cosa galleggia sull'acqua?",
+          "answer": "Un pezzo di legno",
+          "wrong": [
+            "Una pietra",
+            "Un chiodo",
+            "Una moneta"
+          ],
+          "hint": "Viene da un albero.",
+          "explanation": "Il legno è più leggero della stessa quantità d'acqua, quindi resta a galla.",
+          "fact": "Certi legni tropicali sono così pesanti che affondano."
+        },
+        "pt": {
+          "prompt": "O que flutua na água?",
+          "answer": "Um pedaço de madeira",
+          "wrong": [
+            "Uma pedra",
+            "Um prego",
+            "Uma moeda"
+          ],
+          "hint": "Vem de uma árvore.",
+          "explanation": "A madeira é mais leve do que a mesma quantidade de água, por isso fica à tona.",
+          "fact": "Algumas madeiras tropicais são tão pesadas que afundam."
+        },
+        "da": {
+          "prompt": "Hvad flyder på vand?",
+          "answer": "Et stykke træ",
+          "wrong": [
+            "En sten",
+            "Et søm",
+            "En mønt"
+          ],
+          "hint": "Det kommer fra et træ.",
+          "explanation": "Træ er lettere end samme mængde vand, derfor bliver det oppe.",
+          "fact": "Nogle tropiske træsorter er så tunge, at de synker."
+        },
+        "ru": {
+          "prompt": "Что плавает на воде?",
+          "answer": "Кусок дерева",
+          "wrong": [
+            "Камень",
+            "Гвоздь",
+            "Монета"
+          ],
+          "hint": "Это взято с дерева.",
+          "explanation": "Дерево легче такого же объёма воды, поэтому остаётся наверху.",
+          "fact": "Некоторые тропические породы так тяжелы, что тонут."
+        },
+        "ar": {
+          "prompt": "ما الذي يطفو على الماء؟",
+          "answer": "قطعة خشب",
+          "wrong": [
+            "حجر",
+            "مسمار",
+            "قطعة نقود"
+          ],
+          "hint": "تأتي من شجرة.",
+          "explanation": "الخشب أخف من قدر مماثل من الماء، لذلك يبقى طافيًا.",
+          "fact": "بعض أنواع الخشب الاستوائي ثقيلة حتى إنها تغرق."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Water wordt ijs",
+      "artBrief": "Een glas water half bevroren in een vriesvak met rijp.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met water in de vriezer?",
+          "answer": "Het wordt ijs",
+          "wrong": [
+            "Het verdwijnt",
+            "Het wordt zout",
+            "Het wordt warm"
+          ],
+          "hint": "Onder nul graden.",
+          "explanation": "Bij nul graden stoppen de waterdeeltjes bijna stil en vormen een vast rooster.",
+          "fact": "Daarom wordt ijs ook nog eens groter dan het water was."
+        },
+        "en": {
+          "prompt": "What happens to water in the freezer?",
+          "answer": "It turns into ice",
+          "wrong": [
+            "It disappears",
+            "It turns salty",
+            "It gets warm"
+          ],
+          "hint": "Below zero degrees.",
+          "explanation": "At zero degrees the water particles almost stop and lock into a solid grid.",
+          "fact": "That grid also makes ice bigger than the water it came from."
+        },
+        "de": {
+          "prompt": "Was passiert mit Wasser im Gefrierfach?",
+          "answer": "Es wird zu Eis",
+          "wrong": [
+            "Es verschwindet",
+            "Es wird salzig",
+            "Es wird warm"
+          ],
+          "hint": "Unter null Grad.",
+          "explanation": "Bei null Grad kommen die Wasserteilchen fast zum Stillstand und bilden ein festes Gitter.",
+          "fact": "Dieses Gitter macht Eis auch größer als das Wasser vorher."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à l'eau au congélateur ?",
+          "answer": "Elle devient de la glace",
+          "wrong": [
+            "Elle disparaît",
+            "Elle devient salée",
+            "Elle se réchauffe"
+          ],
+          "hint": "En dessous de zéro degré.",
+          "explanation": "À zéro degré les particules d'eau s'immobilisent presque et forment un réseau solide.",
+          "fact": "Ce réseau rend la glace plus volumineuse que l'eau de départ."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa al agua en el congelador?",
+          "answer": "Se convierte en hielo",
+          "wrong": [
+            "Desaparece",
+            "Se vuelve salada",
+            "Se calienta"
+          ],
+          "hint": "Por debajo de cero grados.",
+          "explanation": "A cero grados las partículas casi se paran y forman una red sólida.",
+          "fact": "Esa red hace que el hielo ocupe más que el agua de antes."
+        },
+        "it": {
+          "prompt": "Che cosa succede all'acqua nel congelatore?",
+          "answer": "Diventa ghiaccio",
+          "wrong": [
+            "Sparisce",
+            "Diventa salata",
+            "Si scalda"
+          ],
+          "hint": "Sotto zero gradi.",
+          "explanation": "A zero gradi le particelle d'acqua quasi si fermano e formano un reticolo solido.",
+          "fact": "Quel reticolo rende il ghiaccio più voluminoso dell'acqua."
+        },
+        "pt": {
+          "prompt": "O que acontece à água no congelador?",
+          "answer": "Vira gelo",
+          "wrong": [
+            "Desaparece",
+            "Fica salgada",
+            "Aquece"
+          ],
+          "hint": "Abaixo de zero graus.",
+          "explanation": "A zero graus as partículas quase param e formam uma rede sólida.",
+          "fact": "Essa rede faz o gelo ocupar mais espaço do que a água."
+        },
+        "da": {
+          "prompt": "Hvad sker der med vand i fryseren?",
+          "answer": "Det bliver til is",
+          "wrong": [
+            "Det forsvinder",
+            "Det bliver salt",
+            "Det bliver varmt"
+          ],
+          "hint": "Under nul grader.",
+          "explanation": "Ved nul grader står vandets partikler næsten stille og danner et fast gitter.",
+          "fact": "Det gitter gør isen større end vandet var."
+        },
+        "ru": {
+          "prompt": "Что происходит с водой в морозилке?",
+          "answer": "Она становится льдом",
+          "wrong": [
+            "Она исчезает",
+            "Она становится солёной",
+            "Она нагревается"
+          ],
+          "hint": "Ниже нуля градусов.",
+          "explanation": "При нуле частицы воды почти замирают и выстраиваются в твёрдую решётку.",
+          "fact": "Из-за этой решётки лёд занимает больше места, чем вода."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث للماء في المجمّد؟",
+          "answer": "يصير جليدًا",
+          "wrong": [
+            "يختفي",
+            "يصير مالحًا",
+            "يسخن"
+          ],
+          "hint": "تحت الصفر.",
+          "explanation": "عند درجة الصفر تكاد جسيمات الماء تتوقف وتنتظم في شبكة صلبة.",
+          "fact": "تلك الشبكة تجعل الجليد أكبر حجمًا من الماء."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De magneet",
+      "artBrief": "Een staafmagneet die een tros spijkers optilt boven een tafel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarmee pak je spijkers op zonder ze aan te raken?",
+          "answer": "Met een magneet",
+          "wrong": [
+            "Met een spons",
+            "Met papier",
+            "Met een rietje"
+          ],
+          "hint": "IJzer springt eraan vast.",
+          "explanation": "Een magneet trekt ijzer en staal aan, ook door papier of een dun laagje heen.",
+          "fact": "Een magneet werkt niet op koper, goud of aluminium."
+        },
+        "en": {
+          "prompt": "What picks up nails without touching them?",
+          "answer": "A magnet",
+          "wrong": [
+            "A sponge",
+            "Paper",
+            "A straw"
+          ],
+          "hint": "Iron jumps onto it.",
+          "explanation": "A magnet pulls iron and steel, even through paper or a thin layer.",
+          "fact": "A magnet does nothing to copper, gold or aluminium."
+        },
+        "de": {
+          "prompt": "Womit hebst du Nägel auf, ohne sie anzufassen?",
+          "answer": "Mit einem Magneten",
+          "wrong": [
+            "Mit einem Schwamm",
+            "Mit Papier",
+            "Mit einem Strohhalm"
+          ],
+          "hint": "Eisen springt daran.",
+          "explanation": "Ein Magnet zieht Eisen und Stahl an, sogar durch Papier hindurch.",
+          "fact": "Auf Kupfer, Gold oder Aluminium wirkt ein Magnet nicht."
+        },
+        "fr": {
+          "prompt": "Avec quoi ramasses-tu des clous sans les toucher ?",
+          "answer": "Avec un aimant",
+          "wrong": [
+            "Avec une éponge",
+            "Avec du papier",
+            "Avec une paille"
+          ],
+          "hint": "Le fer y saute.",
+          "explanation": "Un aimant attire le fer et l'acier, même à travers du papier.",
+          "fact": "Sur le cuivre, l'or ou l'aluminium, un aimant ne fait rien."
+        },
+        "es": {
+          "prompt": "¿Con qué recoges clavos sin tocarlos?",
+          "answer": "Con un imán",
+          "wrong": [
+            "Con una esponja",
+            "Con papel",
+            "Con una pajita"
+          ],
+          "hint": "El hierro salta hacia él.",
+          "explanation": "Un imán atrae el hierro y el acero, incluso a través del papel.",
+          "fact": "Sobre el cobre, el oro o el aluminio un imán no hace nada."
+        },
+        "it": {
+          "prompt": "Con che cosa raccogli i chiodi senza toccarli?",
+          "answer": "Con una calamita",
+          "wrong": [
+            "Con una spugna",
+            "Con la carta",
+            "Con una cannuccia"
+          ],
+          "hint": "Il ferro ci salta addosso.",
+          "explanation": "Una calamita attira ferro e acciaio, anche attraverso la carta.",
+          "fact": "Su rame, oro o alluminio la calamita non fa nulla."
+        },
+        "pt": {
+          "prompt": "Com que apanhas pregos sem lhes tocar?",
+          "answer": "Com um íman",
+          "wrong": [
+            "Com uma esponja",
+            "Com papel",
+            "Com uma palhinha"
+          ],
+          "hint": "O ferro salta para ele.",
+          "explanation": "Um íman atrai ferro e aço, até através do papel.",
+          "fact": "Sobre o cobre, o ouro ou o alumínio um íman não faz nada."
+        },
+        "da": {
+          "prompt": "Hvad samler søm op, uden at du rører dem?",
+          "answer": "En magnet",
+          "wrong": [
+            "En svamp",
+            "Papir",
+            "Et sugerør"
+          ],
+          "hint": "Jern springer fast på den.",
+          "explanation": "En magnet trækker i jern og stål, selv gennem papir.",
+          "fact": "På kobber, guld eller aluminium virker en magnet ikke."
+        },
+        "ru": {
+          "prompt": "Чем поднять гвозди, не трогая их руками?",
+          "answer": "Магнитом",
+          "wrong": [
+            "Губкой",
+            "Бумагой",
+            "Трубочкой"
+          ],
+          "hint": "Железо само прыгает к нему.",
+          "explanation": "Магнит притягивает железо и сталь даже через бумагу.",
+          "fact": "На медь, золото и алюминий магнит не действует."
+        },
+        "ar": {
+          "prompt": "بماذا تلتقط المسامير دون أن تلمسها؟",
+          "answer": "بمغناطيس",
+          "wrong": [
+            "بإسفنجة",
+            "بورقة",
+            "بمصاصة"
+          ],
+          "hint": "الحديد يقفز إليه.",
+          "explanation": "المغناطيس يجذب الحديد والفولاذ حتى عبر الورق.",
+          "fact": "لا يؤثر المغناطيس في النحاس أو الذهب أو الألومنيوم."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zwart wordt het snelst warm",
+      "artBrief": "Een zwart en een wit lapje naast elkaar in de zon, met een thermometer.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke kleur wordt in de zon het snelst warm?",
+          "answer": "Zwart",
+          "wrong": [
+            "Wit",
+            "Zilver",
+            "Doorzichtig"
+          ],
+          "hint": "Denk aan een donkere jas in de zomer.",
+          "explanation": "Zwart slikt bijna al het licht op en maakt daar warmte van.",
+          "fact": "Wit kaatst het licht juist terug, en daarom blijft het koeler."
+        },
+        "en": {
+          "prompt": "Which colour heats up fastest in the sun?",
+          "answer": "Black",
+          "wrong": [
+            "White",
+            "Silver",
+            "See-through"
+          ],
+          "hint": "Think of a dark coat in summer.",
+          "explanation": "Black swallows nearly all the light and turns it into heat.",
+          "fact": "White bounces the light back, so it stays cooler."
+        },
+        "de": {
+          "prompt": "Welche Farbe wird in der Sonne am schnellsten warm?",
+          "answer": "Schwarz",
+          "wrong": [
+            "Weiß",
+            "Silber",
+            "Durchsichtig"
+          ],
+          "hint": "Denk an eine dunkle Jacke im Sommer.",
+          "explanation": "Schwarz schluckt fast alles Licht und macht daraus Wärme.",
+          "fact": "Weiß wirft das Licht zurück und bleibt darum kühler."
+        },
+        "fr": {
+          "prompt": "Quelle couleur chauffe le plus vite au soleil ?",
+          "answer": "Le noir",
+          "wrong": [
+            "Le blanc",
+            "L'argenté",
+            "Le transparent"
+          ],
+          "hint": "Pense à un manteau foncé en été.",
+          "explanation": "Le noir avale presque toute la lumière et la transforme en chaleur.",
+          "fact": "Le blanc renvoie la lumière et reste donc plus frais."
+        },
+        "es": {
+          "prompt": "¿Qué color se calienta antes al sol?",
+          "answer": "El negro",
+          "wrong": [
+            "El blanco",
+            "El plateado",
+            "El transparente"
+          ],
+          "hint": "Piensa en un abrigo oscuro en verano.",
+          "explanation": "El negro se traga casi toda la luz y la convierte en calor.",
+          "fact": "El blanco devuelve la luz, por eso se mantiene más fresco."
+        },
+        "it": {
+          "prompt": "Quale colore si scalda prima al sole?",
+          "answer": "Il nero",
+          "wrong": [
+            "Il bianco",
+            "L'argento",
+            "Il trasparente"
+          ],
+          "hint": "Pensa a un cappotto scuro d'estate.",
+          "explanation": "Il nero assorbe quasi tutta la luce e la trasforma in calore.",
+          "fact": "Il bianco rimanda indietro la luce e resta più fresco."
+        },
+        "pt": {
+          "prompt": "Que cor aquece mais depressa ao sol?",
+          "answer": "O preto",
+          "wrong": [
+            "O branco",
+            "O prateado",
+            "O transparente"
+          ],
+          "hint": "Pensa num casaco escuro no verão.",
+          "explanation": "O preto engole quase toda a luz e transforma-a em calor.",
+          "fact": "O branco devolve a luz e por isso fica mais fresco."
+        },
+        "da": {
+          "prompt": "Hvilken farve bliver hurtigst varm i solen?",
+          "answer": "Sort",
+          "wrong": [
+            "Hvid",
+            "Sølv",
+            "Gennemsigtig"
+          ],
+          "hint": "Tænk på en mørk jakke om sommeren.",
+          "explanation": "Sort sluger næsten alt lyset og laver varme af det.",
+          "fact": "Hvid kaster lyset tilbage og holder sig køligere."
+        },
+        "ru": {
+          "prompt": "Какой цвет быстрее нагревается на солнце?",
+          "answer": "Чёрный",
+          "wrong": [
+            "Белый",
+            "Серебристый",
+            "Прозрачный"
+          ],
+          "hint": "Вспомни тёмную куртку летом.",
+          "explanation": "Чёрный поглощает почти весь свет и превращает его в тепло.",
+          "fact": "Белый отражает свет и потому остаётся прохладнее."
+        },
+        "ar": {
+          "prompt": "أي لون يسخن أسرع في الشمس؟",
+          "answer": "الأسود",
+          "wrong": [
+            "الأبيض",
+            "الفضي",
+            "الشفاف"
+          ],
+          "hint": "فكّر في معطف داكن في الصيف.",
+          "explanation": "الأسود يبتلع الضوء كله تقريبًا ويحوّله حرارة.",
+          "fact": "الأبيض يعكس الضوء فيبقى أبرد."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Een schip heeft veel lucht",
+      "artBrief": "Een doorsnede van een schip vol lucht naast een zinkende spijker.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zinkt een spijker maar drijft een groot schip?",
+          "answer": "Het schip zit vol lucht",
+          "wrong": [
+            "Het schip is heel licht",
+            "IJzer drijft altijd",
+            "De motor duwt het omhoog"
+          ],
+          "hint": "Kijk naar de vorm, niet het gewicht.",
+          "explanation": "Een schip duwt veel water weg omdat er lucht in zit, en dat houdt het drijvend.",
+          "fact": "Als er water binnenkomt, gaat die lucht weg en zinkt het schip alsnog."
+        },
+        "en": {
+          "prompt": "Why does a nail sink but a big ship float?",
+          "answer": "The ship is full of air",
+          "wrong": [
+            "The ship is very light",
+            "Iron always floats",
+            "The engine holds it up"
+          ],
+          "hint": "Look at the shape, not the weight.",
+          "explanation": "A ship pushes a lot of water aside because it is full of air, and that keeps it up.",
+          "fact": "Once water gets in, the air is gone and the ship sinks after all."
+        },
+        "de": {
+          "prompt": "Warum sinkt ein Nagel, aber ein großes Schiff schwimmt?",
+          "answer": "Das Schiff ist voller Luft",
+          "wrong": [
+            "Das Schiff ist sehr leicht",
+            "Eisen schwimmt immer",
+            "Der Motor hält es oben"
+          ],
+          "hint": "Schau auf die Form, nicht das Gewicht.",
+          "explanation": "Ein Schiff verdrängt viel Wasser, weil Luft darin ist, und das hält es oben.",
+          "fact": "Kommt Wasser hinein, ist die Luft weg und das Schiff sinkt doch."
+        },
+        "fr": {
+          "prompt": "Pourquoi un clou coule-t-il et un grand navire flotte-t-il ?",
+          "answer": "Le navire est plein d'air",
+          "wrong": [
+            "Le navire est très léger",
+            "Le fer flotte toujours",
+            "Le moteur le soutient"
+          ],
+          "hint": "Regarde la forme, pas le poids.",
+          "explanation": "Un navire déplace beaucoup d'eau parce qu'il contient de l'air, et cela le maintient.",
+          "fact": "Si l'eau entre, l'air s'en va et le navire coule quand même."
+        },
+        "es": {
+          "prompt": "¿Por qué se hunde un clavo y flota un barco grande?",
+          "answer": "El barco está lleno de aire",
+          "wrong": [
+            "El barco pesa muy poco",
+            "El hierro siempre flota",
+            "El motor lo sostiene"
+          ],
+          "hint": "Fíjate en la forma, no en el peso.",
+          "explanation": "Un barco aparta mucha agua porque lleva aire dentro, y eso lo mantiene a flote.",
+          "fact": "Si entra agua, el aire se va y el barco se hunde igualmente."
+        },
+        "it": {
+          "prompt": "Perché un chiodo affonda e una grande nave galleggia?",
+          "answer": "La nave è piena d'aria",
+          "wrong": [
+            "La nave è leggerissima",
+            "Il ferro galleggia sempre",
+            "Il motore la tiene su"
+          ],
+          "hint": "Guarda la forma, non il peso.",
+          "explanation": "Una nave sposta molta acqua perché dentro c'è aria, e questo la tiene a galla.",
+          "fact": "Se entra acqua, l'aria se ne va e la nave affonda lo stesso."
+        },
+        "pt": {
+          "prompt": "Porque afunda um prego e flutua um navio grande?",
+          "answer": "O navio está cheio de ar",
+          "wrong": [
+            "O navio pesa muito pouco",
+            "O ferro flutua sempre",
+            "O motor segura-o"
+          ],
+          "hint": "Olha para a forma, não para o peso.",
+          "explanation": "Um navio afasta muita água porque tem ar dentro, e isso mantém-no à tona.",
+          "fact": "Se entrar água, o ar sai e o navio afunda na mesma."
+        },
+        "da": {
+          "prompt": "Hvorfor synker et søm, mens et stort skib flyder?",
+          "answer": "Skibet er fyldt med luft",
+          "wrong": [
+            "Skibet er meget let",
+            "Jern flyder altid",
+            "Motoren holder det oppe"
+          ],
+          "hint": "Se på formen, ikke vægten.",
+          "explanation": "Et skib skubber meget vand væk, fordi der er luft i det, og det holder det oppe.",
+          "fact": "Kommer der vand ind, er luften væk, og skibet synker alligevel."
+        },
+        "ru": {
+          "prompt": "Почему гвоздь тонет, а большой корабль плывёт?",
+          "answer": "Корабль полон воздуха",
+          "wrong": [
+            "Корабль очень лёгкий",
+            "Железо всегда плавает",
+            "Его держит мотор"
+          ],
+          "hint": "Смотри на форму, а не на вес.",
+          "explanation": "Корабль вытесняет много воды, потому что внутри воздух, и это держит его на плаву.",
+          "fact": "Если вода попадёт внутрь, воздух уйдёт и корабль всё-таки утонет."
+        },
+        "ar": {
+          "prompt": "لماذا يغرق المسمار وتطفو سفينة كبيرة؟",
+          "answer": "السفينة مليئة بالهواء",
+          "wrong": [
+            "السفينة خفيفة جدًا",
+            "الحديد يطفو دائمًا",
+            "المحرك يرفعها"
+          ],
+          "hint": "انظر إلى الشكل لا إلى الوزن.",
+          "explanation": "السفينة تزيح ماءً كثيرًا لأن فيها هواء، وهذا يبقيها طافية.",
+          "fact": "وإذا دخل الماء ذهب الهواء وغرقت السفينة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Zeep breekt de oppervlaktespanning",
+      "artBrief": "Peperkorrels op water die naar de rand schieten als er zeep bij komt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er als je zeep bij peper op water doet?",
+          "answer": "De peper schiet weg",
+          "wrong": [
+            "De peper zinkt meteen",
+            "Het water wordt groen",
+            "De peper lost op"
+          ],
+          "hint": "Het gebeurt in één tel.",
+          "explanation": "Zeep verzwakt het vliesje op het water, en dat trekt de peper naar de rand.",
+          "fact": "Datzelfde vliesje laat een paperclip drijven."
+        },
+        "en": {
+          "prompt": "What happens if you add soap to pepper on water?",
+          "answer": "The pepper shoots away",
+          "wrong": [
+            "The pepper sinks at once",
+            "The water turns green",
+            "The pepper dissolves"
+          ],
+          "hint": "It happens in a flash.",
+          "explanation": "Soap weakens the skin on the water, and that pulls the pepper to the edge.",
+          "fact": "That same skin is what lets a paperclip float."
+        },
+        "de": {
+          "prompt": "Was passiert, wenn du Seife zu Pfeffer auf Wasser gibst?",
+          "answer": "Der Pfeffer schießt weg",
+          "wrong": [
+            "Der Pfeffer sinkt sofort",
+            "Das Wasser wird grün",
+            "Der Pfeffer löst sich auf"
+          ],
+          "hint": "Es geht blitzschnell.",
+          "explanation": "Seife schwächt das Häutchen auf dem Wasser, und das zieht den Pfeffer zum Rand.",
+          "fact": "Dasselbe Häutchen lässt eine Büroklammer schwimmen."
+        },
+        "fr": {
+          "prompt": "Que se passe-t-il si tu ajoutes du savon au poivre sur l'eau ?",
+          "answer": "Le poivre file au bord",
+          "wrong": [
+            "Le poivre coule aussitôt",
+            "L'eau devient verte",
+            "Le poivre se dissout"
+          ],
+          "hint": "Cela va en un clin d'œil.",
+          "explanation": "Le savon affaiblit la pellicule sur l'eau, et cela tire le poivre vers le bord.",
+          "fact": "Cette même pellicule fait flotter un trombone."
+        },
+        "es": {
+          "prompt": "¿Qué pasa si echas jabón a la pimienta sobre agua?",
+          "answer": "La pimienta sale disparada",
+          "wrong": [
+            "La pimienta se hunde",
+            "El agua se vuelve verde",
+            "La pimienta se disuelve"
+          ],
+          "hint": "Ocurre en un instante.",
+          "explanation": "El jabón debilita la película del agua, y eso lleva la pimienta al borde.",
+          "fact": "Esa misma película sostiene un clip flotando."
+        },
+        "it": {
+          "prompt": "Che succede se metti sapone sul pepe nell'acqua?",
+          "answer": "Il pepe schizza via",
+          "wrong": [
+            "Il pepe affonda subito",
+            "L'acqua diventa verde",
+            "Il pepe si scioglie"
+          ],
+          "hint": "Succede in un attimo.",
+          "explanation": "Il sapone indebolisce la pellicola sull'acqua, e questa tira il pepe verso il bordo.",
+          "fact": "Quella stessa pellicola fa galleggiare una graffetta."
+        },
+        "pt": {
+          "prompt": "O que acontece se puseres sabão na pimenta sobre água?",
+          "answer": "A pimenta foge",
+          "wrong": [
+            "A pimenta afunda logo",
+            "A água fica verde",
+            "A pimenta dissolve-se"
+          ],
+          "hint": "Acontece num instante.",
+          "explanation": "O sabão enfraquece a película da água, e isso puxa a pimenta para a borda.",
+          "fact": "Essa mesma película faz um clipe flutuar."
+        },
+        "da": {
+          "prompt": "Hvad sker der, hvis du kommer sæbe i peber på vand?",
+          "answer": "Peberet farer til siden",
+          "wrong": [
+            "Peberet synker straks",
+            "Vandet bliver grønt",
+            "Peberet opløses"
+          ],
+          "hint": "Det sker på et øjeblik.",
+          "explanation": "Sæbe svækker hinden på vandet, og den trækker peberet ud til kanten.",
+          "fact": "Den samme hinde får en papirclips til at flyde."
+        },
+        "ru": {
+          "prompt": "Что будет, если капнуть мыло на перец в воде?",
+          "answer": "Перец разбегается",
+          "wrong": [
+            "Перец сразу тонет",
+            "Вода зеленеет",
+            "Перец растворяется"
+          ],
+          "hint": "Это происходит мгновенно.",
+          "explanation": "Мыло ослабляет плёнку на воде, и она утаскивает перец к краю.",
+          "fact": "Эта же плёнка держит на воде скрепку."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث إذا وضعت صابونًا على فلفل فوق الماء؟",
+          "answer": "الفلفل يندفع بعيدًا",
+          "wrong": [
+            "الفلفل يغرق فورًا",
+            "الماء يخضرّ",
+            "الفلفل يذوب"
+          ],
+          "hint": "يحدث في لحظة.",
+          "explanation": "الصابون يضعف الغشاء على سطح الماء، فيسحب الفلفل نحو الحافة.",
+          "fact": "الغشاء نفسه يجعل مشبك الورق يطفو."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Rodekoolsap als indicator",
+      "artBrief": "Drie glazen rodekoolsap in paars, roze en groen naast elkaar.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet rodekoolsap als je er azijn bij doet?",
+          "answer": "De kleur verandert",
+          "wrong": [
+            "Het water bevriest",
+            "Het sap verdwijnt",
+            "Er komt rook vanaf"
+          ],
+          "hint": "Paars wordt roze.",
+          "explanation": "Rodekoolsap is een indicator: in zuur wordt het roze, in zeepwater groen.",
+          "fact": "Zo maak je zelf een pH-test in de keuken."
+        },
+        "en": {
+          "prompt": "What does red cabbage juice do when you add vinegar?",
+          "answer": "The colour changes",
+          "wrong": [
+            "The water freezes",
+            "The juice vanishes",
+            "Smoke comes off it"
+          ],
+          "hint": "Purple turns pink.",
+          "explanation": "Red cabbage juice is an indicator: pink in acid, green in soapy water.",
+          "fact": "That makes a pH test you can do in the kitchen."
+        },
+        "de": {
+          "prompt": "Was macht Rotkohlsaft, wenn du Essig dazugibst?",
+          "answer": "Die Farbe ändert sich",
+          "wrong": [
+            "Das Wasser gefriert",
+            "Der Saft verschwindet",
+            "Es raucht"
+          ],
+          "hint": "Violett wird rosa.",
+          "explanation": "Rotkohlsaft ist ein Indikator: in Säure rosa, in Seifenwasser grün.",
+          "fact": "So hast du einen pH-Test aus der Küche."
+        },
+        "fr": {
+          "prompt": "Que fait le jus de chou rouge si tu ajoutes du vinaigre ?",
+          "answer": "La couleur change",
+          "wrong": [
+            "L'eau gèle",
+            "Le jus disparaît",
+            "Il se met à fumer"
+          ],
+          "hint": "Le violet devient rose.",
+          "explanation": "Le jus de chou rouge est un indicateur : rose dans l'acide, vert dans l'eau savonneuse.",
+          "fact": "Voilà un test de pH fait à la cuisine."
+        },
+        "es": {
+          "prompt": "¿Qué hace el zumo de lombarda si le echas vinagre?",
+          "answer": "Cambia de color",
+          "wrong": [
+            "El agua se congela",
+            "El zumo desaparece",
+            "Empieza a humear"
+          ],
+          "hint": "El morado se vuelve rosa.",
+          "explanation": "El zumo de lombarda es un indicador: rosa en ácido, verde en agua con jabón.",
+          "fact": "Así tienes una prueba de pH hecha en la cocina."
+        },
+        "it": {
+          "prompt": "Che cosa fa il succo di cavolo rosso con l'aceto?",
+          "answer": "Cambia colore",
+          "wrong": [
+            "L'acqua gela",
+            "Il succo sparisce",
+            "Comincia a fumare"
+          ],
+          "hint": "Il viola diventa rosa.",
+          "explanation": "Il succo di cavolo rosso è un indicatore: rosa nell'acido, verde nell'acqua saponata.",
+          "fact": "Così hai un test del pH fatto in cucina."
+        },
+        "pt": {
+          "prompt": "O que faz o sumo de couve roxa com vinagre?",
+          "answer": "Muda de cor",
+          "wrong": [
+            "A água congela",
+            "O sumo desaparece",
+            "Começa a fumegar"
+          ],
+          "hint": "O roxo fica cor-de-rosa.",
+          "explanation": "O sumo de couve roxa é um indicador: rosa no ácido, verde em água com sabão.",
+          "fact": "Assim tens um teste de pH feito na cozinha."
+        },
+        "da": {
+          "prompt": "Hvad gør rødkålssaft, når du hælder eddike i?",
+          "answer": "Farven skifter",
+          "wrong": [
+            "Vandet fryser",
+            "Saften forsvinder",
+            "Det begynder at ryge"
+          ],
+          "hint": "Lilla bliver lyserødt.",
+          "explanation": "Rødkålssaft er en indikator: lyserød i syre, grøn i sæbevand.",
+          "fact": "Sådan har du en pH-test fra køkkenet."
+        },
+        "ru": {
+          "prompt": "Что делает сок краснокочанной капусты с уксусом?",
+          "answer": "Меняет цвет",
+          "wrong": [
+            "Вода замерзает",
+            "Сок исчезает",
+            "Идёт дым"
+          ],
+          "hint": "Фиолетовый становится розовым.",
+          "explanation": "Сок краснокочанной капусты — индикатор: в кислоте розовый, в мыльной воде зелёный.",
+          "fact": "Вот и кухонный тест на кислотность."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل عصير الملفوف الأحمر مع الخل؟",
+          "answer": "يتغير لونه",
+          "wrong": [
+            "الماء يتجمد",
+            "العصير يختفي",
+            "يتصاعد دخان"
+          ],
+          "hint": "البنفسجي يصير ورديًا.",
+          "explanation": "عصير الملفوف الأحمر كاشف: وردي في الحمض، أخضر في ماء الصابون.",
+          "fact": "هكذا يصير عندك اختبار حموضة من المطبخ."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Warme lucht stijgt",
+      "artBrief": "Een ei in een glas azijn met belletjes op de schaal, ernaast een doorzichtig ei zonder schaal.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met een ei dat een dag in azijn ligt?",
+          "answer": "De schaal verdwijnt",
+          "wrong": [
+            "Het ei wordt groen",
+            "Het ei kookt",
+            "Het ei krimpt"
+          ],
+          "hint": "Er komen meteen belletjes.",
+          "explanation": "Het zuur lost de kalkschaal op, en er blijft een stuiterend ei in een vliesje over.",
+          "fact": "Datzelfde zuur tast ook tandglazuur aan."
+        },
+        "en": {
+          "prompt": "What happens to an egg left in vinegar for a day?",
+          "answer": "The shell disappears",
+          "wrong": [
+            "The egg turns green",
+            "The egg cooks",
+            "The egg shrinks"
+          ],
+          "hint": "Bubbles start straight away.",
+          "explanation": "The acid dissolves the chalky shell and leaves a bouncy egg in a thin skin.",
+          "fact": "The same acid attacks tooth enamel too."
+        },
+        "de": {
+          "prompt": "Was passiert mit einem Ei, das einen Tag in Essig liegt?",
+          "answer": "Die Schale verschwindet",
+          "wrong": [
+            "Das Ei wird grün",
+            "Das Ei kocht",
+            "Das Ei schrumpft"
+          ],
+          "hint": "Sofort steigen Bläschen auf.",
+          "explanation": "Die Säure löst die Kalkschale, übrig bleibt ein hüpfendes Ei in einem Häutchen.",
+          "fact": "Dieselbe Säure greift auch Zahnschmelz an."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à un œuf laissé un jour dans du vinaigre ?",
+          "answer": "La coquille disparaît",
+          "wrong": [
+            "L'œuf devient vert",
+            "L'œuf cuit",
+            "L'œuf rétrécit"
+          ],
+          "hint": "Des bulles montent aussitôt.",
+          "explanation": "L'acide dissout la coquille calcaire et laisse un œuf rebondissant dans une peau.",
+          "fact": "Ce même acide attaque aussi l'émail des dents."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa a un huevo que pasa un día en vinagre?",
+          "answer": "La cáscara desaparece",
+          "wrong": [
+            "El huevo se vuelve verde",
+            "El huevo se cuece",
+            "El huevo encoge"
+          ],
+          "hint": "Salen burbujas enseguida.",
+          "explanation": "El ácido disuelve la cáscara de cal y queda un huevo que bota dentro de una piel.",
+          "fact": "Ese mismo ácido ataca también el esmalte dental."
+        },
+        "it": {
+          "prompt": "Che cosa succede a un uovo lasciato un giorno nell'aceto?",
+          "answer": "Il guscio sparisce",
+          "wrong": [
+            "L'uovo diventa verde",
+            "L'uovo cuoce",
+            "L'uovo si restringe"
+          ],
+          "hint": "Subito salgono bollicine.",
+          "explanation": "L'acido scioglie il guscio di calcare e resta un uovo che rimbalza dentro una pellicina.",
+          "fact": "Lo stesso acido intacca anche lo smalto dei denti."
+        },
+        "pt": {
+          "prompt": "O que acontece a um ovo deixado um dia em vinagre?",
+          "answer": "A casca desaparece",
+          "wrong": [
+            "O ovo fica verde",
+            "O ovo coze",
+            "O ovo encolhe"
+          ],
+          "hint": "Saem bolhinhas logo.",
+          "explanation": "O ácido dissolve a casca de cal e fica um ovo aos saltos dentro de uma pele.",
+          "fact": "Esse mesmo ácido ataca também o esmalte dos dentes."
+        },
+        "da": {
+          "prompt": "Hvad sker der med et æg, der ligger et døgn i eddike?",
+          "answer": "Skallen forsvinder",
+          "wrong": [
+            "Ægget bliver grønt",
+            "Ægget koger",
+            "Ægget skrumper"
+          ],
+          "hint": "Der kommer straks bobler.",
+          "explanation": "Syren opløser kalkskallen, og tilbage er et hoppende æg i en tynd hinde.",
+          "fact": "Den samme syre går også ud over tandemaljen."
+        },
+        "ru": {
+          "prompt": "Что будет с яйцом, пролежавшим сутки в уксусе?",
+          "answer": "Скорлупа исчезнет",
+          "wrong": [
+            "Яйцо позеленеет",
+            "Яйцо сварится",
+            "Яйцо сожмётся"
+          ],
+          "hint": "Пузырьки пойдут сразу.",
+          "explanation": "Кислота растворяет известковую скорлупу, и остаётся прыгающее яйцо в тонкой плёнке.",
+          "fact": "Та же кислота разъедает и зубную эмаль."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لبيضة تُترك يومًا في الخل؟",
+          "answer": "تختفي القشرة",
+          "wrong": [
+            "تصير البيضة خضراء",
+            "تُسلق البيضة",
+            "تصغر البيضة"
+          ],
+          "hint": "تظهر الفقاعات فورًا.",
+          "explanation": "الحمض يذيب القشرة الكلسية فتبقى بيضة نطّاطة داخل غشاء رقيق.",
+          "fact": "الحمض نفسه يضر بمينا الأسنان."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Licht breekt in water",
+      "artBrief": "Een rietje in een glas water dat geknikt lijkt op het wateroppervlak.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe ziet een rietje eruit dat schuin in een glas water staat?",
+          "answer": "Het lijkt geknikt",
+          "wrong": [
+            "Het wordt echt krom",
+            "Het lost op",
+            "Het wordt dikker"
+          ],
+          "hint": "Kijk van opzij.",
+          "explanation": "Licht verandert van richting als het van water naar lucht gaat, dus lijkt het rietje te breken.",
+          "fact": "Datzelfde buigen van licht maakt een regenboog."
+        },
+        "en": {
+          "prompt": "How does a straw look standing at an angle in water?",
+          "answer": "It looks bent",
+          "wrong": [
+            "It really bends",
+            "It dissolves",
+            "It gets thicker"
+          ],
+          "hint": "Look from the side.",
+          "explanation": "Light changes direction going from water to air, so the straw seems to break.",
+          "fact": "That same bending of light makes a rainbow."
+        },
+        "de": {
+          "prompt": "Wie sieht ein Strohhalm schräg im Wasserglas aus?",
+          "answer": "Er sieht geknickt aus",
+          "wrong": [
+            "Er wird wirklich krumm",
+            "Er löst sich auf",
+            "Er wird dicker"
+          ],
+          "hint": "Schau von der Seite.",
+          "explanation": "Licht ändert die Richtung beim Übergang von Wasser zu Luft, darum wirkt er gebrochen.",
+          "fact": "Dasselbe Brechen von Licht macht einen Regenbogen."
+        },
+        "fr": {
+          "prompt": "De quoi a l'air une paille penchée dans un verre d'eau ?",
+          "answer": "Elle semble cassée",
+          "wrong": [
+            "Elle se tord vraiment",
+            "Elle se dissout",
+            "Elle s'épaissit"
+          ],
+          "hint": "Regarde de côté.",
+          "explanation": "La lumière change de direction en passant de l'eau à l'air, la paille paraît brisée.",
+          "fact": "Cette même déviation de la lumière fait l'arc-en-ciel."
+        },
+        "es": {
+          "prompt": "¿Cómo se ve una pajita inclinada en un vaso de agua?",
+          "answer": "Parece doblada",
+          "wrong": [
+            "Se dobla de verdad",
+            "Se disuelve",
+            "Se hace más gorda"
+          ],
+          "hint": "Míralo de lado.",
+          "explanation": "La luz cambia de dirección al pasar del agua al aire, y la pajita parece partida.",
+          "fact": "Ese mismo desvío de la luz forma el arcoíris."
+        },
+        "it": {
+          "prompt": "Come appare una cannuccia inclinata in un bicchiere d'acqua?",
+          "answer": "Sembra spezzata",
+          "wrong": [
+            "Si piega davvero",
+            "Si scioglie",
+            "Diventa più spessa"
+          ],
+          "hint": "Guarda di lato.",
+          "explanation": "La luce cambia direzione passando dall'acqua all'aria, così la cannuccia sembra rotta.",
+          "fact": "Quella stessa deviazione della luce crea l'arcobaleno."
+        },
+        "pt": {
+          "prompt": "Como fica uma palhinha inclinada num copo de água?",
+          "answer": "Parece partida",
+          "wrong": [
+            "Dobra mesmo",
+            "Dissolve-se",
+            "Fica mais grossa"
+          ],
+          "hint": "Olha de lado.",
+          "explanation": "A luz muda de direção ao passar da água para o ar, e a palhinha parece quebrada.",
+          "fact": "Esse mesmo desvio da luz faz o arco-íris."
+        },
+        "da": {
+          "prompt": "Hvordan ser et sugerør ud på skrå i et glas vand?",
+          "answer": "Det ser knækket ud",
+          "wrong": [
+            "Det bøjer virkelig",
+            "Det opløses",
+            "Det bliver tykkere"
+          ],
+          "hint": "Se på det fra siden.",
+          "explanation": "Lyset skifter retning fra vand til luft, så sugerøret ser brækket ud.",
+          "fact": "Den samme bøjning af lys laver en regnbue."
+        },
+        "ru": {
+          "prompt": "Как выглядит трубочка, наклонённая в стакане с водой?",
+          "answer": "Кажется переломленной",
+          "wrong": [
+            "Она правда гнётся",
+            "Она растворяется",
+            "Она становится толще"
+          ],
+          "hint": "Посмотри сбоку.",
+          "explanation": "Свет меняет направление на границе воды и воздуха, поэтому трубочка кажется сломанной.",
+          "fact": "Тот же изгиб света рождает радугу."
+        },
+        "ar": {
+          "prompt": "كيف تبدو مصاصة مائلة في كوب ماء؟",
+          "answer": "تبدو مكسورة",
+          "wrong": [
+            "تنثني فعلًا",
+            "تذوب",
+            "تصير أسمك"
+          ],
+          "hint": "انظر من الجانب.",
+          "explanation": "الضوء يغيّر اتجاهه عند انتقاله من الماء إلى الهواء، فتبدو المصاصة مكسورة.",
+          "fact": "انكسار الضوء نفسه يصنع قوس قزح."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Eén ding tegelijk veranderen",
+      "artBrief": "Twee identieke plantjes, één met meer water, met labels zonder tekst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom verander je bij een proef maar één ding tegelijk?",
+          "answer": "Zo weet je wat het deed",
+          "wrong": [
+            "Zo gaat het sneller",
+            "Zo is het netter",
+            "Zo hoef je niet te meten"
+          ],
+          "hint": "Anders heb je twee verdachten.",
+          "explanation": "Verander je twee dingen, dan weet je niet welke van de twee het verschil maakte.",
+          "fact": "Daarom houden wetenschappers alles gelijk behalve die ene variabele."
+        },
+        "en": {
+          "prompt": "Why do you change only one thing at a time in a test?",
+          "answer": "Then you know what did it",
+          "wrong": [
+            "It goes faster",
+            "It looks tidier",
+            "You need not measure"
+          ],
+          "hint": "Otherwise you have two suspects.",
+          "explanation": "Change two things and you cannot tell which of them made the difference.",
+          "fact": "That is why scientists keep everything the same but one variable."
+        },
+        "de": {
+          "prompt": "Warum änderst du bei einem Versuch nur eine Sache?",
+          "answer": "So weißt du, was es war",
+          "wrong": [
+            "So geht es schneller",
+            "So ist es ordentlicher",
+            "So musst du nicht messen"
+          ],
+          "hint": "Sonst hast du zwei Verdächtige.",
+          "explanation": "Änderst du zwei Dinge, weißt du nicht, welches den Unterschied gemacht hat.",
+          "fact": "Darum halten Forscher alles gleich außer dieser einen Größe."
+        },
+        "fr": {
+          "prompt": "Pourquoi ne changer qu'une chose à la fois dans une expérience ?",
+          "answer": "Tu sais alors ce qui a agi",
+          "wrong": [
+            "Cela va plus vite",
+            "C'est plus propre",
+            "On évite de mesurer"
+          ],
+          "hint": "Sinon tu as deux suspects.",
+          "explanation": "Si tu changes deux choses, tu ignores laquelle a fait la différence.",
+          "fact": "D'où la règle : tout garder pareil sauf une seule variable."
+        },
+        "es": {
+          "prompt": "¿Por qué cambias solo una cosa a la vez en un experimento?",
+          "answer": "Así sabes qué lo causó",
+          "wrong": [
+            "Así va más rápido",
+            "Así queda más limpio",
+            "Así no hay que medir"
+          ],
+          "hint": "Si no, tienes dos sospechosos.",
+          "explanation": "Si cambias dos cosas, no sabes cuál marcó la diferencia.",
+          "fact": "Por eso se mantiene todo igual salvo una variable."
+        },
+        "it": {
+          "prompt": "Perché in un esperimento cambi una cosa per volta?",
+          "answer": "Così sai che cosa ha agito",
+          "wrong": [
+            "Così vai più veloce",
+            "Così è più ordinato",
+            "Così non devi misurare"
+          ],
+          "hint": "Altrimenti hai due sospetti.",
+          "explanation": "Se cambi due cose non sai quale ha fatto la differenza.",
+          "fact": "Per questo si tiene tutto uguale tranne una variabile."
+        },
+        "pt": {
+          "prompt": "Porque mudas só uma coisa de cada vez numa experiência?",
+          "answer": "Assim sabes o que fez efeito",
+          "wrong": [
+            "Assim é mais rápido",
+            "Assim fica mais limpo",
+            "Assim não é preciso medir"
+          ],
+          "hint": "Senão ficas com dois suspeitos.",
+          "explanation": "Se mudares duas coisas não sabes qual fez a diferença.",
+          "fact": "Por isso mantém-se tudo igual menos uma variável."
+        },
+        "da": {
+          "prompt": "Hvorfor ændrer du kun én ting ad gangen i et forsøg?",
+          "answer": "Så ved du, hvad der virkede",
+          "wrong": [
+            "Så går det hurtigere",
+            "Så ser det pænere ud",
+            "Så slipper du for at måle"
+          ],
+          "hint": "Ellers har du to mistænkte.",
+          "explanation": "Ændrer du to ting, ved du ikke, hvilken der gjorde forskellen.",
+          "fact": "Derfor holder forskere alt ens på nær én ting."
+        },
+        "ru": {
+          "prompt": "Почему в опыте меняют только одно за раз?",
+          "answer": "Ясно, что подействовало",
+          "wrong": [
+            "Так быстрее",
+            "Так аккуратнее",
+            "Так не надо измерять"
+          ],
+          "hint": "Иначе будет два подозреваемых.",
+          "explanation": "Изменишь две вещи — и не поймёшь, какая дала разницу.",
+          "fact": "Поэтому учёные держат всё прежним, кроме одной величины."
+        },
+        "ar": {
+          "prompt": "لماذا تغيّر شيئًا واحدًا فقط في التجربة؟",
+          "answer": "لتعرف ما الذي أثّر",
+          "wrong": [
+            "ليمضي الأمر أسرع",
+            "ليكون أنظف",
+            "لتتجنب القياس"
+          ],
+          "hint": "وإلا صار عندك مشتبهان.",
+          "explanation": "إذا غيّرت شيئين لن تعرف أيهما صنع الفرق.",
+          "fact": "لذلك يبقي العلماء كل شيء ثابتًا إلا متغيرًا واحدًا."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Oppervlaktespanning draagt een paperclip",
+      "artBrief": "Een paperclip die op het wateroppervlak ligt met een deukje in het water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom drijft een paperclip als je hem voorzichtig neerlegt?",
+          "answer": "Door de oppervlaktespanning",
+          "wrong": [
+            "Doordat staal licht is",
+            "Door de wind",
+            "Door magnetisme"
+          ],
+          "hint": "Het water heeft een vliesje.",
+          "explanation": "Waterdeeltjes trekken aan elkaar en vormen bovenaan een vliesje dat de clip draagt.",
+          "fact": "Schaatsenrijders lopen op datzelfde vliesje over een sloot."
+        },
+        "en": {
+          "prompt": "Why does a paperclip float if you lay it down gently?",
+          "answer": "Because of surface tension",
+          "wrong": [
+            "Because steel is light",
+            "Because of the wind",
+            "Because of magnetism"
+          ],
+          "hint": "The water has a skin.",
+          "explanation": "Water particles pull on each other and form a skin at the top that carries the clip.",
+          "fact": "Pond skaters walk across a ditch on that same skin."
+        },
+        "de": {
+          "prompt": "Warum schwimmt eine Büroklammer, wenn du sie sacht hinlegst?",
+          "answer": "Durch Oberflächenspannung",
+          "wrong": [
+            "Weil Stahl leicht ist",
+            "Wegen des Windes",
+            "Wegen Magnetismus"
+          ],
+          "hint": "Das Wasser hat ein Häutchen.",
+          "explanation": "Wasserteilchen ziehen aneinander und bilden oben ein Häutchen, das die Klammer trägt.",
+          "fact": "Wasserläufer laufen auf genau diesem Häutchen."
+        },
+        "fr": {
+          "prompt": "Pourquoi un trombone flotte-t-il si on le pose doucement ?",
+          "answer": "La tension de surface",
+          "wrong": [
+            "Parce que l'acier est léger",
+            "À cause du vent",
+            "À cause du magnétisme"
+          ],
+          "hint": "L'eau a une pellicule.",
+          "explanation": "Les particules d'eau s'attirent et forment en surface une pellicule qui porte le trombone.",
+          "fact": "Les gerris marchent sur cette même pellicule."
+        },
+        "es": {
+          "prompt": "¿Por qué flota un clip si lo dejas con cuidado?",
+          "answer": "Por la tensión superficial",
+          "wrong": [
+            "Porque el acero pesa poco",
+            "Por el viento",
+            "Por el magnetismo"
+          ],
+          "hint": "El agua tiene una película.",
+          "explanation": "Las partículas de agua tiran entre sí y forman arriba una película que aguanta el clip.",
+          "fact": "Los zapateros caminan por esa misma película."
+        },
+        "it": {
+          "prompt": "Perché una graffetta galleggia se la posi piano?",
+          "answer": "La tensione superficiale",
+          "wrong": [
+            "Perché l'acciaio è leggero",
+            "Per il vento",
+            "Per il magnetismo"
+          ],
+          "hint": "L'acqua ha una pellicola.",
+          "explanation": "Le particelle d'acqua si attirano e formano in superficie una pellicola che regge la graffetta.",
+          "fact": "I gerridi camminano proprio su quella pellicola."
+        },
+        "pt": {
+          "prompt": "Porque flutua um clipe se o pousares devagar?",
+          "answer": "Pela tensão superficial",
+          "wrong": [
+            "Porque o aço é leve",
+            "Pelo vento",
+            "Pelo magnetismo"
+          ],
+          "hint": "A água tem uma película.",
+          "explanation": "As partículas de água puxam umas pelas outras e formam à superfície uma película que segura o clipe.",
+          "fact": "Os alfaiates-da-água andam nessa mesma película."
+        },
+        "da": {
+          "prompt": "Hvorfor flyder en papirclips, hvis du lægger den forsigtigt?",
+          "answer": "På grund af overfladehinden",
+          "wrong": [
+            "Fordi stål er let",
+            "På grund af vinden",
+            "På grund af magnetisme"
+          ],
+          "hint": "Vandet har en hinde.",
+          "explanation": "Vandets partikler trækker i hinanden og danner øverst en hinde, der bærer clipsen.",
+          "fact": "Skøjteløberinsekter går på netop den hinde."
+        },
+        "ru": {
+          "prompt": "Почему скрепка плавает, если положить её аккуратно?",
+          "answer": "Поверхностное натяжение",
+          "wrong": [
+            "Потому что сталь лёгкая",
+            "Из-за ветра",
+            "Из-за магнетизма"
+          ],
+          "hint": "У воды есть плёнка.",
+          "explanation": "Частицы воды тянутся друг к другу и образуют сверху плёнку, которая держит скрепку.",
+          "fact": "Водомерки бегают по этой самой плёнке."
+        },
+        "ar": {
+          "prompt": "لماذا يطفو مشبك الورق إذا وضعته برفق؟",
+          "answer": "بسبب التوتر السطحي",
+          "wrong": [
+            "لأن الفولاذ خفيف",
+            "بسبب الريح",
+            "بسبب المغناطيسية"
+          ],
+          "hint": "للماء غشاء رقيق.",
+          "explanation": "جسيمات الماء تتجاذب فتكوّن في الأعلى غشاء يحمل المشبك.",
+          "fact": "حشرة بَعُوض الماء تمشي على الغشاء نفسه."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Een appel wordt bruin",
+      "artBrief": "Een halve appel die aan de snijkant bruin verkleurt naast een verse helft.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom wordt een doorgesneden appel bruin?",
+          "answer": "Door zuurstof uit de lucht",
+          "wrong": [
+            "Door het licht",
+            "Door het mes",
+            "Door water"
+          ],
+          "hint": "Citroensap helpt ertegen.",
+          "explanation": "Stoffen in de appel reageren met zuurstof en vormen een bruine laag.",
+          "fact": "Citroensap remt die reactie, want het is zuur."
+        },
+        "en": {
+          "prompt": "Why does a cut apple turn brown?",
+          "answer": "Oxygen from the air",
+          "wrong": [
+            "The light",
+            "The knife",
+            "The water"
+          ],
+          "hint": "Lemon juice helps against it.",
+          "explanation": "Substances in the apple react with oxygen and form a brown layer.",
+          "fact": "Lemon juice slows that reaction down, because it is acidic."
+        },
+        "de": {
+          "prompt": "Warum wird ein aufgeschnittener Apfel braun?",
+          "answer": "Durch Sauerstoff der Luft",
+          "wrong": [
+            "Durch das Licht",
+            "Durch das Messer",
+            "Durch Wasser"
+          ],
+          "hint": "Zitronensaft hilft dagegen.",
+          "explanation": "Stoffe im Apfel reagieren mit Sauerstoff und bilden eine braune Schicht.",
+          "fact": "Zitronensaft bremst diese Reaktion, weil er sauer ist."
+        },
+        "fr": {
+          "prompt": "Pourquoi une pomme coupée brunit-elle ?",
+          "answer": "L'oxygène de l'air",
+          "wrong": [
+            "La lumière",
+            "Le couteau",
+            "L'eau"
+          ],
+          "hint": "Le jus de citron aide.",
+          "explanation": "Des substances de la pomme réagissent avec l'oxygène et forment une couche brune.",
+          "fact": "Le jus de citron freine cette réaction, car il est acide."
+        },
+        "es": {
+          "prompt": "¿Por qué se pone marrón una manzana cortada?",
+          "answer": "Por el oxígeno del aire",
+          "wrong": [
+            "Por la luz",
+            "Por el cuchillo",
+            "Por el agua"
+          ],
+          "hint": "El zumo de limón ayuda.",
+          "explanation": "Sustancias de la manzana reaccionan con el oxígeno y forman una capa marrón.",
+          "fact": "El zumo de limón frena esa reacción porque es ácido."
+        },
+        "it": {
+          "prompt": "Perché una mela tagliata diventa marrone?",
+          "answer": "Per l'ossigeno dell'aria",
+          "wrong": [
+            "Per la luce",
+            "Per il coltello",
+            "Per l'acqua"
+          ],
+          "hint": "Il succo di limone aiuta.",
+          "explanation": "Sostanze della mela reagiscono con l'ossigeno e formano uno strato marrone.",
+          "fact": "Il succo di limone frena quella reazione perché è acido."
+        },
+        "pt": {
+          "prompt": "Porque fica castanha uma maçã cortada?",
+          "answer": "Pelo oxigénio do ar",
+          "wrong": [
+            "Pela luz",
+            "Pela faca",
+            "Pela água"
+          ],
+          "hint": "O sumo de limão ajuda.",
+          "explanation": "Substâncias da maçã reagem com o oxigénio e formam uma camada castanha.",
+          "fact": "O sumo de limão trava essa reação porque é ácido."
+        },
+        "da": {
+          "prompt": "Hvorfor bliver et snittet æble brunt?",
+          "answer": "På grund af ilt i luften",
+          "wrong": [
+            "På grund af lyset",
+            "På grund af kniven",
+            "På grund af vand"
+          ],
+          "hint": "Citronsaft hjælper mod det.",
+          "explanation": "Stoffer i æblet reagerer med ilt og danner et brunt lag.",
+          "fact": "Citronsaft bremser den reaktion, fordi den er sur."
+        },
+        "ru": {
+          "prompt": "Почему разрезанное яблоко буреет?",
+          "answer": "Из-за кислорода воздуха",
+          "wrong": [
+            "Из-за света",
+            "Из-за ножа",
+            "Из-за воды"
+          ],
+          "hint": "Лимонный сок помогает.",
+          "explanation": "Вещества яблока реагируют с кислородом и образуют бурый слой.",
+          "fact": "Лимонный сок тормозит эту реакцию, потому что он кислый."
+        },
+        "ar": {
+          "prompt": "لماذا تسودّ التفاحة المقطوعة؟",
+          "answer": "بسبب أكسجين الهواء",
+          "wrong": [
+            "بسبب الضوء",
+            "بسبب السكين",
+            "بسبب الماء"
+          ],
+          "hint": "عصير الليمون يساعد.",
+          "explanation": "مواد في التفاح تتفاعل مع الأكسجين وتكوّن طبقة بنية.",
+          "fact": "عصير الليمون يبطئ ذلك التفاعل لأنه حمضي."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De eiproef",
+      "artBrief": "Twee eieren in een glas water: één op de bodem, één omhoog gekanteld.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe zie je of een ei nog vers is?",
+          "answer": "Een vers ei zinkt",
+          "wrong": [
+            "Een vers ei drijft",
+            "Een vers ei is warm",
+            "Een vers ei rammelt"
+          ],
+          "hint": "Leg het in een glas water.",
+          "explanation": "In een oud ei zit meer lucht, dus dat komt omhoog; een vers ei blijft liggen.",
+          "fact": "Door de schaal verdampt langzaam vocht, en zo groeit de luchtbel."
+        },
+        "en": {
+          "prompt": "How can you tell if an egg is still fresh?",
+          "answer": "A fresh egg sinks",
+          "wrong": [
+            "A fresh egg floats",
+            "A fresh egg is warm",
+            "A fresh egg rattles"
+          ],
+          "hint": "Put it in a glass of water.",
+          "explanation": "An old egg holds more air, so it rises; a fresh one stays on the bottom.",
+          "fact": "Moisture slowly leaves through the shell, and the air bubble grows."
+        },
+        "de": {
+          "prompt": "Wie erkennst du, ob ein Ei noch frisch ist?",
+          "answer": "Ein frisches Ei sinkt",
+          "wrong": [
+            "Ein frisches Ei schwimmt",
+            "Ein frisches Ei ist warm",
+            "Ein frisches Ei klappert"
+          ],
+          "hint": "Leg es in ein Glas Wasser.",
+          "explanation": "In einem alten Ei ist mehr Luft, es steigt auf; ein frisches bleibt liegen.",
+          "fact": "Durch die Schale entweicht langsam Feuchtigkeit, die Luftblase wächst."
+        },
+        "fr": {
+          "prompt": "Comment savoir si un œuf est encore frais ?",
+          "answer": "Un œuf frais coule",
+          "wrong": [
+            "Un œuf frais flotte",
+            "Un œuf frais est chaud",
+            "Un œuf frais cliquette"
+          ],
+          "hint": "Mets-le dans un verre d'eau.",
+          "explanation": "Un vieil œuf contient plus d'air et remonte ; un œuf frais reste au fond.",
+          "fact": "L'humidité s'échappe lentement par la coquille et la bulle d'air grandit."
+        },
+        "es": {
+          "prompt": "¿Cómo sabes si un huevo sigue fresco?",
+          "answer": "Un huevo fresco se hunde",
+          "wrong": [
+            "Un huevo fresco flota",
+            "Un huevo fresco pesa poco",
+            "Un huevo fresco suena"
+          ],
+          "hint": "Ponlo en un vaso de agua.",
+          "explanation": "Un huevo viejo tiene más aire y sube; uno fresco se queda en el fondo.",
+          "fact": "Por la cáscara se escapa humedad despacio y la burbuja de aire crece."
+        },
+        "it": {
+          "prompt": "Come capisci se un uovo è ancora fresco?",
+          "answer": "Un uovo fresco affonda",
+          "wrong": [
+            "Un uovo fresco galleggia",
+            "Un uovo fresco è caldo",
+            "Un uovo fresco suona"
+          ],
+          "hint": "Mettilo in un bicchiere d'acqua.",
+          "explanation": "Un uovo vecchio ha più aria e sale; uno fresco resta sul fondo.",
+          "fact": "Dal guscio esce lentamente umidità e la bolla d'aria cresce."
+        },
+        "pt": {
+          "prompt": "Como vês se um ovo ainda está fresco?",
+          "answer": "Um ovo fresco afunda",
+          "wrong": [
+            "Um ovo fresco flutua",
+            "Um ovo fresco está quente",
+            "Um ovo fresco chocalha"
+          ],
+          "hint": "Põe-no num copo de água.",
+          "explanation": "Um ovo velho tem mais ar e sobe; um fresco fica no fundo.",
+          "fact": "Pela casca sai devagar humidade e a bolha de ar cresce."
+        },
+        "da": {
+          "prompt": "Hvordan ser du, om et æg stadig er friskt?",
+          "answer": "Et frisk æg synker",
+          "wrong": [
+            "Et frisk æg flyder",
+            "Et frisk æg er varmt",
+            "Et frisk æg rasler"
+          ],
+          "hint": "Læg det i et glas vand.",
+          "explanation": "Et gammelt æg har mere luft og stiger op; et frisk bliver liggende.",
+          "fact": "Gennem skallen slipper der langsomt fugt ud, og luftboblen vokser."
+        },
+        "ru": {
+          "prompt": "Как понять, свежее ли яйцо?",
+          "answer": "Свежее яйцо тонет",
+          "wrong": [
+            "Свежее яйцо всплывает",
+            "Свежее яйцо тёплое",
+            "Свежее яйцо гремит"
+          ],
+          "hint": "Опусти его в стакан воды.",
+          "explanation": "В старом яйце больше воздуха, и оно всплывает; свежее лежит на дне.",
+          "fact": "Через скорлупу медленно уходит влага, и пузырь воздуха растёт."
+        },
+        "ar": {
+          "prompt": "كيف تعرف أن البيضة ما زالت طازجة؟",
+          "answer": "البيضة الطازجة تغرق",
+          "wrong": [
+            "البيضة الطازجة تطفو",
+            "البيضة الطازجة دافئة",
+            "البيضة الطازجة تخشخش"
+          ],
+          "hint": "ضعها في كوب ماء.",
+          "explanation": "البيضة القديمة فيها هواء أكثر فترتفع، والطازجة تبقى في القاع.",
+          "fact": "تتسرب الرطوبة ببطء عبر القشرة فتكبر فقاعة الهواء."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Suiker lost sneller op in heet water",
+      "artBrief": "Twee glazen water, één dampend, met suikerkorrels die verdwijnen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet suiker in heet water vergeleken met koud?",
+          "answer": "Hij lost sneller op",
+          "wrong": [
+            "Hij lost langzamer op",
+            "Hij lost niet op",
+            "Hij wordt zout"
+          ],
+          "hint": "Roer maar eens in thee.",
+          "explanation": "In heet water bewegen de deeltjes sneller en trekken de suikerkorrels sneller uit elkaar.",
+          "fact": "In heet water past er ook nog eens veel meer suiker in."
+        },
+        "en": {
+          "prompt": "What does sugar do in hot water compared with cold?",
+          "answer": "It dissolves faster",
+          "wrong": [
+            "It dissolves slower",
+            "It does not dissolve",
+            "It turns salty"
+          ],
+          "hint": "Stir some into tea.",
+          "explanation": "In hot water the particles move faster and pull the sugar grains apart sooner.",
+          "fact": "Hot water also holds far more sugar in total."
+        },
+        "de": {
+          "prompt": "Was macht Zucker in heißem Wasser im Vergleich zu kaltem?",
+          "answer": "Er löst sich schneller",
+          "wrong": [
+            "Er löst sich langsamer",
+            "Er löst sich gar nicht",
+            "Er wird salzig"
+          ],
+          "hint": "Rühr mal im Tee.",
+          "explanation": "In heißem Wasser bewegen sich die Teilchen schneller und reißen die Körner rascher auseinander.",
+          "fact": "In heißem Wasser passt außerdem viel mehr Zucker hinein."
+        },
+        "fr": {
+          "prompt": "Que fait le sucre dans l'eau chaude par rapport à froide ?",
+          "answer": "Il se dissout plus vite",
+          "wrong": [
+            "Il se dissout moins vite",
+            "Il ne se dissout pas",
+            "Il devient salé"
+          ],
+          "hint": "Remue un peu ton thé.",
+          "explanation": "Dans l'eau chaude les particules bougent plus vite et séparent les grains plus tôt.",
+          "fact": "L'eau chaude peut aussi contenir bien plus de sucre."
+        },
+        "es": {
+          "prompt": "¿Qué hace el azúcar en agua caliente frente a fría?",
+          "answer": "Se disuelve más rápido",
+          "wrong": [
+            "Se disuelve más despacio",
+            "No se disuelve",
+            "Se vuelve salado"
+          ],
+          "hint": "Remueve en un té.",
+          "explanation": "En agua caliente las partículas se mueven más deprisa y separan antes los granos.",
+          "fact": "En agua caliente además cabe mucho más azúcar."
+        },
+        "it": {
+          "prompt": "Che fa lo zucchero in acqua calda rispetto alla fredda?",
+          "answer": "Si scioglie più in fretta",
+          "wrong": [
+            "Si scioglie più piano",
+            "Non si scioglie",
+            "Diventa salato"
+          ],
+          "hint": "Prova a girare nel tè.",
+          "explanation": "In acqua calda le particelle si muovono più in fretta e separano prima i granelli.",
+          "fact": "In acqua calda, poi, ci sta molto più zucchero."
+        },
+        "pt": {
+          "prompt": "O que faz o açúcar em água quente comparado com fria?",
+          "answer": "Dissolve-se mais depressa",
+          "wrong": [
+            "Dissolve-se mais devagar",
+            "Não se dissolve",
+            "Fica salgado"
+          ],
+          "hint": "Mexe um chá.",
+          "explanation": "Em água quente as partículas mexem-se mais depressa e separam os grãos mais cedo.",
+          "fact": "Em água quente cabe também muito mais açúcar."
+        },
+        "da": {
+          "prompt": "Hvad gør sukker i varmt vand frem for koldt?",
+          "answer": "Det opløses hurtigere",
+          "wrong": [
+            "Det opløses langsommere",
+            "Det opløses slet ikke",
+            "Det bliver salt"
+          ],
+          "hint": "Rør rundt i en kop te.",
+          "explanation": "I varmt vand bevæger partiklerne sig hurtigere og river kornene fra hinanden før.",
+          "fact": "I varmt vand kan der desuden være langt mere sukker."
+        },
+        "ru": {
+          "prompt": "Что делает сахар в горячей воде по сравнению с холодной?",
+          "answer": "Растворяется быстрее",
+          "wrong": [
+            "Растворяется медленнее",
+            "Совсем не растворяется",
+            "Становится солёным"
+          ],
+          "hint": "Размешай его в чае.",
+          "explanation": "В горячей воде частицы движутся быстрее и растаскивают крупинки скорее.",
+          "fact": "В горячей воде сахара помещается гораздо больше."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل السكر في الماء الساخن مقارنة بالبارد؟",
+          "answer": "يذوب أسرع",
+          "wrong": [
+            "يذوب أبطأ",
+            "لا يذوب",
+            "يصير مالحًا"
+          ],
+          "hint": "حرّكه في كوب شاي.",
+          "explanation": "في الماء الساخن تتحرك الجسيمات أسرع فتفكك حبات السكر أسرع.",
+          "fact": "وفي الماء الساخن يذوب سكر أكثر بكثير."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De controlegroep",
+      "artBrief": "Twee rijen potjes, één rij behandeld en één rij onbehandeld.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een controlegroep in een proef?",
+          "answer": "De groep zonder verandering",
+          "wrong": [
+            "De groep die meet",
+            "De groep die wint",
+            "De groep die opruimt"
+          ],
+          "hint": "Je vergelijkt ermee.",
+          "explanation": "De controlegroep krijgt de verandering niet, zodat je ziet wat er zonder gebeurt.",
+          "fact": "Zonder die groep weet je nooit of jouw ingreep het verschil maakte."
+        },
+        "en": {
+          "prompt": "What is a control group in an experiment?",
+          "answer": "The group with no change",
+          "wrong": [
+            "The group that measures",
+            "The group that wins",
+            "The group that tidies up"
+          ],
+          "hint": "You compare against it.",
+          "explanation": "The control group does not get the change, so you see what happens without it.",
+          "fact": "Without it you never know whether your change made the difference."
+        },
+        "de": {
+          "prompt": "Was ist eine Kontrollgruppe im Versuch?",
+          "answer": "Die Gruppe ohne Änderung",
+          "wrong": [
+            "Die Gruppe, die misst",
+            "Die Gruppe, die gewinnt",
+            "Die Gruppe, die aufräumt"
+          ],
+          "hint": "Mit ihr vergleichst du.",
+          "explanation": "Die Kontrollgruppe bekommt die Änderung nicht, so siehst du, was ohne sie passiert.",
+          "fact": "Ohne sie weißt du nie, ob dein Eingriff den Unterschied machte."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un groupe témoin dans une expérience ?",
+          "answer": "Le groupe sans changement",
+          "wrong": [
+            "Le groupe qui mesure",
+            "Le groupe qui gagne",
+            "Le groupe qui range"
+          ],
+          "hint": "Tu compares avec lui.",
+          "explanation": "Le groupe témoin ne reçoit pas le changement, tu vois donc ce qui se passe sans.",
+          "fact": "Sans lui, tu ne sauras jamais si ton action a fait la différence."
+        },
+        "es": {
+          "prompt": "¿Qué es un grupo de control en un experimento?",
+          "answer": "El grupo sin el cambio",
+          "wrong": [
+            "El grupo que mide",
+            "El grupo que gana",
+            "El grupo que recoge"
+          ],
+          "hint": "Con él comparas.",
+          "explanation": "El grupo de control no recibe el cambio, así ves qué pasa sin él.",
+          "fact": "Sin ese grupo nunca sabes si tu cambio marcó la diferencia."
+        },
+        "it": {
+          "prompt": "Che cos'è un gruppo di controllo?",
+          "answer": "Il gruppo senza la modifica",
+          "wrong": [
+            "Il gruppo che misura",
+            "Il gruppo che vince",
+            "Il gruppo che riordina"
+          ],
+          "hint": "Con lui fai il confronto.",
+          "explanation": "Il gruppo di controllo non riceve la modifica, così vedi che cosa accade senza.",
+          "fact": "Senza di lui non sai mai se è stata la tua modifica a contare."
+        },
+        "pt": {
+          "prompt": "O que é um grupo de controlo numa experiência?",
+          "answer": "O grupo sem a mudança",
+          "wrong": [
+            "O grupo que mede",
+            "O grupo que ganha",
+            "O grupo que arruma"
+          ],
+          "hint": "É com ele que comparas.",
+          "explanation": "O grupo de controlo não recebe a mudança, assim vês o que acontece sem ela.",
+          "fact": "Sem ele nunca sabes se foi a tua mudança que contou."
+        },
+        "da": {
+          "prompt": "Hvad er en kontrolgruppe i et forsøg?",
+          "answer": "Gruppen uden ændringen",
+          "wrong": [
+            "Gruppen, der måler",
+            "Gruppen, der vinder",
+            "Gruppen, der rydder op"
+          ],
+          "hint": "Den sammenligner du med.",
+          "explanation": "Kontrolgruppen får ikke ændringen, så du ser, hvad der sker uden den.",
+          "fact": "Uden den ved du aldrig, om det var din ændring, der gjorde forskellen."
+        },
+        "ru": {
+          "prompt": "Что такое контрольная группа в опыте?",
+          "answer": "Группа без изменения",
+          "wrong": [
+            "Группа, которая измеряет",
+            "Группа, которая победила",
+            "Группа, которая убирает"
+          ],
+          "hint": "С ней ты сравниваешь.",
+          "explanation": "Контрольная группа не получает изменения, и видно, что происходит без него.",
+          "fact": "Без неё никогда не узнать, твоё ли вмешательство дало результат."
+        },
+        "ar": {
+          "prompt": "ما هي المجموعة الضابطة في التجربة؟",
+          "answer": "المجموعة بلا تغيير",
+          "wrong": [
+            "المجموعة التي تقيس",
+            "المجموعة التي تفوز",
+            "المجموعة التي ترتب"
+          ],
+          "hint": "بها تقارن.",
+          "explanation": "المجموعة الضابطة لا يطبَّق عليها التغيير، فترى ما يحدث بدونه.",
+          "fact": "بدونها لن تعرف أبدًا إن كان تدخّلك هو سبب الفرق."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Luchtdruk duwt door een rietje",
+      "artBrief": "Een glas limonade met een rietje en pijltjes die de luchtdruk tonen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom komt limonade omhoog als je door een rietje zuigt?",
+          "answer": "De luchtdruk duwt het omhoog",
+          "wrong": [
+            "Je trekt het water omhoog",
+            "Het water is heel licht",
+            "Het rietje zuigt zelf"
+          ],
+          "hint": "De lucht buiten duwt mee.",
+          "explanation": "Je haalt lucht uit het rietje, en de luchtdruk op het glas duwt de limonade naar boven.",
+          "fact": "Boven ongeveer tien meter lukt zuigen niet meer, hoe hard je ook trekt."
+        },
+        "en": {
+          "prompt": "Why does lemonade rise when you suck on a straw?",
+          "answer": "Air pressure pushes it up",
+          "wrong": [
+            "You pull the water up",
+            "The drink is very light",
+            "The straw sucks by itself"
+          ],
+          "hint": "The air outside helps.",
+          "explanation": "You take air out of the straw, and the air pressing on the glass pushes the drink up.",
+          "fact": "Above about ten metres no amount of sucking works any more."
+        },
+        "de": {
+          "prompt": "Warum steigt Limo hoch, wenn du am Strohhalm saugst?",
+          "answer": "Der Luftdruck drückt mit",
+          "wrong": [
+            "Du ziehst das Wasser hoch",
+            "Die Limo ist sehr leicht",
+            "Der Halm saugt selbst"
+          ],
+          "hint": "Die Luft draußen drückt mit.",
+          "explanation": "Du holst Luft aus dem Halm, und der Luftdruck auf das Glas drückt die Limo nach oben.",
+          "fact": "Über etwa zehn Meter klappt Saugen nicht mehr, egal wie stark."
+        },
+        "fr": {
+          "prompt": "Pourquoi la limonade monte-t-elle quand tu aspires ?",
+          "answer": "La pression de l'air pousse",
+          "wrong": [
+            "Tu tires l'eau vers le haut",
+            "La boisson est légère",
+            "La paille aspire seule"
+          ],
+          "hint": "L'air du dehors pousse aussi.",
+          "explanation": "Tu enlèves de l'air de la paille, et la pression sur le verre pousse la boisson vers le haut.",
+          "fact": "Au-delà d'environ dix mètres, aspirer ne marche plus du tout."
+        },
+        "es": {
+          "prompt": "¿Por qué sube la limonada al sorber con una pajita?",
+          "answer": "La presión del aire empuja",
+          "wrong": [
+            "Tiras del agua hacia arriba",
+            "La bebida pesa poco",
+            "La pajita sorbe sola"
+          ],
+          "hint": "El aire de fuera empuja.",
+          "explanation": "Sacas aire de la pajita, y la presión sobre el vaso empuja la bebida hacia arriba.",
+          "fact": "Por encima de unos diez metros sorber ya no funciona."
+        },
+        "it": {
+          "prompt": "Perché la bibita sale quando succhi dalla cannuccia?",
+          "answer": "La pressione dell'aria",
+          "wrong": [
+            "Tiri su l'acqua",
+            "La bibita è leggera",
+            "La cannuccia succhia da sola"
+          ],
+          "hint": "L'aria fuori spinge con te.",
+          "explanation": "Togli aria dalla cannuccia e la pressione sul bicchiere spinge la bibita verso l'alto.",
+          "fact": "Oltre una decina di metri succhiare non funziona più."
+        },
+        "pt": {
+          "prompt": "Porque sobe a limonada quando sopras ao contrário na palhinha?",
+          "answer": "A pressão do ar empurra",
+          "wrong": [
+            "Puxas a água para cima",
+            "A bebida é muito leve",
+            "A palhinha suga sozinha"
+          ],
+          "hint": "O ar de fora empurra também.",
+          "explanation": "Tiras ar da palhinha, e a pressão sobre o copo empurra a bebida para cima.",
+          "fact": "Acima de uns dez metros sugar deixa de funcionar."
+        },
+        "da": {
+          "prompt": "Hvorfor stiger saften, når du suger i et sugerør?",
+          "answer": "Lufttrykket skubber den op",
+          "wrong": [
+            "Du trækker vandet op",
+            "Saften er meget let",
+            "Sugerøret suger selv"
+          ],
+          "hint": "Luften udenfor skubber med.",
+          "explanation": "Du fjerner luft fra sugerøret, og lufttrykket på glasset skubber saften opad.",
+          "fact": "Over cirka ti meter virker det slet ikke at suge."
+        },
+        "ru": {
+          "prompt": "Почему лимонад поднимается, когда тянешь через трубочку?",
+          "answer": "Его толкает давление воздуха",
+          "wrong": [
+            "Ты тянешь воду вверх",
+            "Напиток очень лёгкий",
+            "Трубочка сосёт сама"
+          ],
+          "hint": "Наружный воздух помогает.",
+          "explanation": "Ты убираешь воздух из трубочки, и давление воздуха на стакан толкает напиток вверх.",
+          "fact": "Выше примерно десяти метров всасывание уже не работает."
+        },
+        "ar": {
+          "prompt": "لماذا يصعد الشراب حين تمص من المصاصة؟",
+          "answer": "ضغط الهواء يدفعه",
+          "wrong": [
+            "أنت تسحب الماء",
+            "الشراب خفيف جدًا",
+            "المصاصة تمص وحدها"
+          ],
+          "hint": "هواء الخارج يدفع معك.",
+          "explanation": "تسحب الهواء من المصاصة، فيدفع ضغط الهواء على الكوب الشراب إلى أعلى.",
+          "fact": "فوق نحو عشرة أمتار لا ينفع المص مهما حاولت."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Damp wordt druppeltjes",
+      "artBrief": "Een dampende kop thee met kleine condensdruppels in de lucht erboven.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de witte damp boven een kop thee?",
+          "answer": "Damp wordt waterdruppels",
+          "wrong": [
+            "Het is rook",
+            "Het is warme lucht",
+            "Het is stof"
+          ],
+          "hint": "Je ziet het pas in de koude lucht.",
+          "explanation": "Onzichtbare waterdamp koelt af en vormt heel kleine druppeltjes, en die zie je.",
+          "fact": "Een wolk aan de hemel bestaat uit precies zulke druppeltjes."
+        },
+        "en": {
+          "prompt": "What is the white steam above a cup of tea?",
+          "answer": "Vapour turning into drops",
+          "wrong": [
+            "It is smoke",
+            "It is warm air",
+            "It is dust"
+          ],
+          "hint": "You only see it in cool air.",
+          "explanation": "Invisible water vapour cools down into very small droplets, and those you can see.",
+          "fact": "A cloud in the sky is made of exactly such droplets."
+        },
+        "de": {
+          "prompt": "Was ist der weiße Dampf über einer Tasse Tee?",
+          "answer": "Dampf wird zu Tröpfchen",
+          "wrong": [
+            "Es ist Rauch",
+            "Es ist warme Luft",
+            "Es ist Staub"
+          ],
+          "hint": "Du siehst ihn erst in kühler Luft.",
+          "explanation": "Unsichtbarer Wasserdampf kühlt ab und bildet winzige Tröpfchen, und die siehst du.",
+          "fact": "Eine Wolke am Himmel besteht aus genau solchen Tröpfchen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que la vapeur blanche au-dessus d'un thé ?",
+          "answer": "De la vapeur devenue gouttes",
+          "wrong": [
+            "C'est de la fumée",
+            "C'est de l'air chaud",
+            "C'est de la poussière"
+          ],
+          "hint": "On la voit dans l'air frais.",
+          "explanation": "La vapeur d'eau invisible refroidit et forme de minuscules gouttes, que l'on voit.",
+          "fact": "Un nuage dans le ciel est fait exactement de ces gouttes."
+        },
+        "es": {
+          "prompt": "¿Qué es el vapor blanco sobre una taza de té?",
+          "answer": "Vapor vuelto gotitas",
+          "wrong": [
+            "Es humo",
+            "Es aire caliente",
+            "Es polvo"
+          ],
+          "hint": "Solo se ve en aire frío.",
+          "explanation": "El vapor de agua invisible se enfría y forma gotitas muy pequeñas, y esas sí se ven.",
+          "fact": "Una nube del cielo está hecha justo de esas gotitas."
+        },
+        "it": {
+          "prompt": "Che cos'è il vapore bianco sopra una tazza di tè?",
+          "answer": "Vapore diventato gocce",
+          "wrong": [
+            "È fumo",
+            "È aria calda",
+            "È polvere"
+          ],
+          "hint": "Lo vedi solo nell'aria fresca.",
+          "explanation": "Il vapore acqueo invisibile si raffredda e forma goccioline piccolissime, e quelle si vedono.",
+          "fact": "Una nuvola in cielo è fatta proprio di gocce così."
+        },
+        "pt": {
+          "prompt": "O que é o vapor branco sobre uma chávena de chá?",
+          "answer": "Vapor tornado gotinhas",
+          "wrong": [
+            "É fumo",
+            "É ar quente",
+            "É pó"
+          ],
+          "hint": "Só se vê no ar frio.",
+          "explanation": "O vapor de água invisível arrefece e forma gotinhas muito pequenas, e essas vês.",
+          "fact": "Uma nuvem no céu é feita exatamente dessas gotinhas."
+        },
+        "da": {
+          "prompt": "Hvad er den hvide damp over en kop te?",
+          "answer": "Damp blevet til dråber",
+          "wrong": [
+            "Det er røg",
+            "Det er varm luft",
+            "Det er støv"
+          ],
+          "hint": "Du ser den først i kølig luft.",
+          "explanation": "Usynlig vanddamp køler af og danner meget små dråber, og dem kan du se.",
+          "fact": "En sky på himlen består af præcis sådanne dråber."
+        },
+        "ru": {
+          "prompt": "Что за белый пар над чашкой чая?",
+          "answer": "Пар, ставший капельками",
+          "wrong": [
+            "Это дым",
+            "Это тёплый воздух",
+            "Это пыль"
+          ],
+          "hint": "Его видно только в прохладном воздухе.",
+          "explanation": "Невидимый водяной пар остывает и превращается в крошечные капли, и их видно.",
+          "fact": "Облако в небе состоит ровно из таких капель."
+        },
+        "ar": {
+          "prompt": "ما البخار الأبيض فوق كوب الشاي؟",
+          "answer": "بخار صار قطرات",
+          "wrong": [
+            "إنه دخان",
+            "إنه هواء ساخن",
+            "إنه غبار"
+          ],
+          "hint": "لا تراه إلا في هواء بارد.",
+          "explanation": "بخار الماء غير المرئي يبرد فيصير قطرات صغيرة جدًا، وهذه تراها.",
+          "fact": "والغيمة في السماء مكونة من قطرات كهذه."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Lakmoespapier",
+      "artBrief": "Strookjes indicatorpapier die rood en blauw kleuren naast twee bekers.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een lakmoespapiertje?",
+          "answer": "Het meet of iets zuur is",
+          "wrong": [
+            "Het meet de temperatuur",
+            "Het meet het gewicht",
+            "Het meet de snelheid"
+          ],
+          "hint": "Het verkleurt meteen.",
+          "explanation": "Lakmoes wordt rood in zuur en blauw in een loog, zodat je het verschil ziet.",
+          "fact": "Rodekoolsap werkt net zo, maar met paars, roze en groen."
+        },
+        "en": {
+          "prompt": "What does a strip of litmus paper do?",
+          "answer": "It tests for acid",
+          "wrong": [
+            "It measures temperature",
+            "It measures weight",
+            "It measures speed"
+          ],
+          "hint": "It changes colour at once.",
+          "explanation": "Litmus goes red in acid and blue in a base, so you can see the difference.",
+          "fact": "Red cabbage juice does the same, but in purple, pink and green."
+        },
+        "de": {
+          "prompt": "Was macht ein Lackmuspapier?",
+          "answer": "Es prüft, ob etwas sauer ist",
+          "wrong": [
+            "Es misst die Temperatur",
+            "Es misst das Gewicht",
+            "Es misst die Geschwindigkeit"
+          ],
+          "hint": "Es färbt sich sofort.",
+          "explanation": "Lackmus wird in Säure rot und in Lauge blau, so siehst du den Unterschied.",
+          "fact": "Rotkohlsaft macht dasselbe, nur in Violett, Rosa und Grün."
+        },
+        "fr": {
+          "prompt": "À quoi sert un papier de tournesol ?",
+          "answer": "Il teste si c'est acide",
+          "wrong": [
+            "Il mesure la température",
+            "Il mesure le poids",
+            "Il mesure la vitesse"
+          ],
+          "hint": "Il change de couleur aussitôt.",
+          "explanation": "Le tournesol devient rouge dans un acide et bleu dans une base, la différence se voit.",
+          "fact": "Le jus de chou rouge fait pareil, en violet, rose et vert."
+        },
+        "es": {
+          "prompt": "¿Para qué sirve un papel de tornasol?",
+          "answer": "Mide si algo es ácido",
+          "wrong": [
+            "Mide la temperatura",
+            "Mide el peso",
+            "Mide la velocidad"
+          ],
+          "hint": "Cambia de color al momento.",
+          "explanation": "El tornasol se vuelve rojo en ácido y azul en una base, y así ves la diferencia.",
+          "fact": "El zumo de lombarda hace lo mismo en morado, rosa y verde."
+        },
+        "it": {
+          "prompt": "A che serve una cartina al tornasole?",
+          "answer": "Prova se una cosa è acida",
+          "wrong": [
+            "Misura la temperatura",
+            "Misura il peso",
+            "Misura la velocità"
+          ],
+          "hint": "Cambia colore subito.",
+          "explanation": "Il tornasole diventa rosso nell'acido e blu in una base, così vedi la differenza.",
+          "fact": "Il succo di cavolo rosso fa lo stesso con viola, rosa e verde."
+        },
+        "pt": {
+          "prompt": "Para que serve um papel de tornassol?",
+          "answer": "Testa se algo é ácido",
+          "wrong": [
+            "Mede a temperatura",
+            "Mede o peso",
+            "Mede a velocidade"
+          ],
+          "hint": "Muda de cor logo.",
+          "explanation": "O tornassol fica vermelho no ácido e azul numa base, e assim vês a diferença.",
+          "fact": "O sumo de couve roxa faz o mesmo em roxo, rosa e verde."
+        },
+        "da": {
+          "prompt": "Hvad gør et stykke lakmuspapir?",
+          "answer": "Det tester, om noget er surt",
+          "wrong": [
+            "Det måler temperatur",
+            "Det måler vægt",
+            "Det måler fart"
+          ],
+          "hint": "Det skifter farve med det samme.",
+          "explanation": "Lakmus bliver rød i syre og blå i base, så du kan se forskel.",
+          "fact": "Rødkålssaft gør det samme, bare i lilla, lyserød og grøn."
+        },
+        "ru": {
+          "prompt": "Что делает лакмусовая бумажка?",
+          "answer": "Проверяет, кислое ли это",
+          "wrong": [
+            "Измеряет температуру",
+            "Измеряет вес",
+            "Измеряет скорость"
+          ],
+          "hint": "Она сразу меняет цвет.",
+          "explanation": "Лакмус краснеет в кислоте и синеет в щёлочи, так видна разница.",
+          "fact": "Сок краснокочанной капусты делает то же самое."
+        },
+        "ar": {
+          "prompt": "ما فائدة ورقة عباد الشمس؟",
+          "answer": "تختبر إن كان الشيء حمضيًا",
+          "wrong": [
+            "تقيس الحرارة",
+            "تقيس الوزن",
+            "تقيس السرعة"
+          ],
+          "hint": "تتغير ألوانها فورًا.",
+          "explanation": "تحمرّ في الحمض وتزرقّ في القلوي، فترى الفرق.",
+          "fact": "عصير الملفوف الأحمر يفعل الشيء نفسه."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-slimme_proefjes-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De snelkookpan",
+      "artBrief": "Een snelkookpan met gesloten deksel en stoom bij het ventiel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom koken aardappels sneller in een snelkookpan?",
+          "answer": "De druk maakt water heter",
+          "wrong": [
+            "Het vuur is heter",
+            "Er zit meer zout in",
+            "De pan is van koper"
+          ],
+          "hint": "De stoom kan er niet uit.",
+          "explanation": "Onder hoge druk kookt water pas boven honderd graden, en heter water gaart sneller.",
+          "fact": "Hoog in de bergen is het juist andersom: daar kookt water al bij negentig graden."
+        },
+        "en": {
+          "prompt": "Why do potatoes cook faster in a pressure cooker?",
+          "answer": "Pressure makes water hotter",
+          "wrong": [
+            "The flame is hotter",
+            "There is more salt",
+            "The pan is copper"
+          ],
+          "hint": "The steam cannot get out.",
+          "explanation": "Under high pressure water only boils above a hundred degrees, and hotter water cooks faster.",
+          "fact": "High in the mountains it is the other way round: water boils at ninety degrees."
+        },
+        "de": {
+          "prompt": "Warum garen Kartoffeln im Schnellkochtopf schneller?",
+          "answer": "Druck macht Wasser heißer",
+          "wrong": [
+            "Die Flamme ist heißer",
+            "Es ist mehr Salz drin",
+            "Der Topf ist aus Kupfer"
+          ],
+          "hint": "Der Dampf kann nicht raus.",
+          "explanation": "Unter hohem Druck kocht Wasser erst über hundert Grad, und heißeres Wasser gart schneller.",
+          "fact": "Hoch in den Bergen ist es umgekehrt: Dort kocht Wasser schon bei neunzig Grad."
+        },
+        "fr": {
+          "prompt": "Pourquoi les pommes de terre cuisent-elles vite en cocotte-minute ?",
+          "answer": "La pression chauffe l'eau",
+          "wrong": [
+            "La flamme est plus chaude",
+            "Il y a plus de sel",
+            "La casserole est en cuivre"
+          ],
+          "hint": "La vapeur ne peut pas sortir.",
+          "explanation": "Sous forte pression, l'eau ne bout qu'au-dessus de cent degrés, et l'eau plus chaude cuit plus vite.",
+          "fact": "En haute montagne c'est l'inverse : l'eau bout déjà à quatre-vingt-dix degrés."
+        },
+        "es": {
+          "prompt": "¿Por qué las patatas cuecen antes en una olla a presión?",
+          "answer": "La presión calienta más",
+          "wrong": [
+            "La llama es más fuerte",
+            "Lleva más sal",
+            "La olla es de cobre"
+          ],
+          "hint": "El vapor no puede salir.",
+          "explanation": "Con mucha presión el agua hierve por encima de cien grados, y el agua más caliente cuece antes.",
+          "fact": "En la alta montaña pasa al revés: el agua hierve ya a noventa grados."
+        },
+        "it": {
+          "prompt": "Perché le patate cuociono prima in pentola a pressione?",
+          "answer": "La pressione scalda di più",
+          "wrong": [
+            "La fiamma è più forte",
+            "C'è più sale",
+            "La pentola è di rame"
+          ],
+          "hint": "Il vapore non può uscire.",
+          "explanation": "Ad alta pressione l'acqua bolle solo sopra i cento gradi, e l'acqua più calda cuoce prima.",
+          "fact": "In alta montagna è il contrario: l'acqua bolle già a novanta gradi."
+        },
+        "pt": {
+          "prompt": "Porque cozem as batatas mais depressa na panela de pressão?",
+          "answer": "A pressão aquece mais a água",
+          "wrong": [
+            "A chama é mais forte",
+            "Tem mais sal",
+            "A panela é de cobre"
+          ],
+          "hint": "O vapor não pode sair.",
+          "explanation": "Sob alta pressão a água só ferve acima dos cem graus, e água mais quente coze mais depressa.",
+          "fact": "Na alta montanha é ao contrário: a água ferve já aos noventa graus."
+        },
+        "da": {
+          "prompt": "Hvorfor koger kartofler hurtigere i en trykkoger?",
+          "answer": "Trykket gør vandet varmere",
+          "wrong": [
+            "Flammen er varmere",
+            "Der er mere salt i",
+            "Gryden er af kobber"
+          ],
+          "hint": "Dampen kan ikke slippe ud.",
+          "explanation": "Under højt tryk koger vand først over hundrede grader, og varmere vand koger hurtigere.",
+          "fact": "Højt oppe i bjergene er det omvendt: der koger vand allerede ved halvfems grader."
+        },
+        "ru": {
+          "prompt": "Почему картошка варится быстрее в скороварке?",
+          "answer": "Давление делает воду горячее",
+          "wrong": [
+            "Огонь сильнее",
+            "Там больше соли",
+            "Кастрюля медная"
+          ],
+          "hint": "Пар не может выйти.",
+          "explanation": "Под высоким давлением вода кипит только выше ста градусов, а горячая вода варит быстрее.",
+          "fact": "Высоко в горах наоборот: вода кипит уже при девяноста градусах."
+        },
+        "ar": {
+          "prompt": "لماذا تنضج البطاطا أسرع في قدر الضغط؟",
+          "answer": "الضغط يجعل الماء أسخن",
+          "wrong": [
+            "اللهب أقوى",
+            "الملح أكثر",
+            "القدر من نحاس"
+          ],
+          "hint": "البخار لا يستطيع الخروج.",
+          "explanation": "تحت الضغط العالي لا يغلي الماء إلا فوق مئة درجة، والماء الأسخن ينضج أسرع.",
+          "fact": "وفي الجبال العكس: يغلي الماء عند تسعين درجة."
+        }
+      }
+    }
+  ]
+}
