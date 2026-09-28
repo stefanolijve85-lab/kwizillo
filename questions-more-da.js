@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_DA = {
+    aarde: {
+      continenten_landen: [
+        ['Hvor mange verdensdele er der?','Syv',['Tre','Fem','Tolv'],'Tænk på Europa, Asien, Afrika og fire mere.','Jorden deles som regel i syv verdensdele.','Antarktis er en af dem, selv om ingen bor der fast.',1],
+        ['Hvad er Nederlandenes hovedstad?','Amsterdam',['Rotterdam','Haag','Utrecht'],'Det er kanalernes by.','Ifølge grundloven er Amsterdam hovedstaden.','Regeringen sidder til gengæld i Haag.',1],
+        ['Hvilket land er kendt for tulipaner og vindmøller?','Nederlandene',['Spanien','Norge','Egypten'],'Det er fladt og ligger ved Nordsøen.','Nederlandene er berømt for tulipanmarker og vindmøller.','Møllerne pumpede før i tiden vand væk fra landet.',1],
+        ['Hvilken verdensdel er den koldeste?','Antarktis',['Europa','Afrika','Asien'],'Den ligger helt nede på kloden.','Antarktis er Jordens koldeste verdensdel.','Der blev engang målt minus niogfirs grader.',1],
+        ['I hvilket land står Eiffeltårnet?','Frankrig',['Italien','Spanien','Tyskland'],'Det står i landets hovedstad.','Eiffeltårnet står i Paris i Frankrig.','Det blev bygget til verdensudstillingen i 1889.',1],
+        ['Hvilken flod løber gennem Paris?','Seinen',['Rhinen','Donau','Themsen'],'Dusinvis af broer går over den.','Seinen løber tværs gennem Paris.','Midt i den ligger øen, hvor byen begyndte.',2],
+        ['Hvilket land ligger lige syd for Nederlandene?','Belgien',['Danmark','Polen','Sverige'],'Der tales også nederlandsk.','Belgien er Nederlandenes sydlige nabo.','Grænsen er over fire hundrede kilometer lang.',2],
+        ['Hvad er Afrikas længste flod?','Nilen',['Congofloden','Zambezi','Niger'],'Den løber mod nord.','Med over seks tusind kilometer er Nilen Afrikas længste flod.','Den løber gennem elleve lande, før den når havet.',2],
+        ['Hvilket hav ligger mellem Europa og Afrika?','Middelhavet',['Nordsøen','Sortehavet','Østersøen'],'Øer som Sicilien ligger i det.','Middelhavet adskiller Europa fra Afrika.','Ved Gibraltar er passagen kun fjorten kilometer bred.',2],
+        ['Hvor mange lande er der cirka i Europa?','Omkring halvtreds',['Omkring ti','Omkring hundrede','Omkring tusind'],'Flere end fyrre, færre end tres.','Europa har omkring halvtreds lande.','Nogle af dem er mindre end en stor by.',2],
+        ['Hvor mange tidszoner har Rusland?','Elleve',['To','Fem','Fireogtyve'],'Flere end ti.','Rusland er så bredt, at det har elleve tidszoner.','Når Moskva spiser morgenmad, er det allerede aften mod øst.',3],
+        ['Hvilken storby ligger i to verdensdele?','Istanbul',['Moskva','Kairo','Athen'],'Et stræde går tværs igennem den.','Istanbul ligger dels i Europa, dels i Asien.','Med båd sejler man fra den ene verdensdel til den anden.',3],
+        ['Hvad er Afrikas højeste bjerg?','Kilimanjaro',['Mount Kenya','Atlas','Taffelbjerget'],'Der ligger sne, helt tæt på ækvator.','Kilimanjaro er næsten seks tusind meter højt.','Ved foden er der varmt, og på toppen ligger is.',3],
+        ['Hvilket land består af over sytten tusind øer?','Indonesien',['Japan','Grækenland','Filippinerne'],'Det ligger mellem to oceaner.','Indonesien består af mere end sytten tusind øer.','Kun nogle få tusind af dem er beboede.',3],
+        ['I hvilket land ligger Vatikanstaten?','Italien',['Frankrig','Spanien','Grækenland'],'Den ligger inde i en berømt hovedstad.','Vatikanstaten ligger helt inde i byen Rom.','Man kan gå hele vejen rundt om den på en halv time.',3],
+        ['Hvilket land har flest søer i verden?','Canada',['Rusland','Finland','Sverige'],'Det ligger i det nordlige Amerika.','Canada har flere søer end alle andre lande tilsammen.','Mange blev gravet ud af isen i istiden.',4],
+        ['Hvilken hovedstad ligger højest af alle?','La Paz',['Madrid','Mexico City','Nairobi'],'Den ligger i Andesbjergene.','La Paz i Bolivia ligger over tre tusind meter oppe.','Nytilkomne bliver nogle gange svimle af den tynde luft.',4],
+        ['Hvilket stort land har slet ingen floder?','Saudi-Arabien',['Egypten','Marokko','Tyrkiet'],'Det er for det meste ørken.','Ikke en eneste flod i Saudi-Arabien løber hele året.','Drikkevandet kommer mest fra afsaltet havvand.',4],
+        ['Hvilken kanal forbinder Atlanterhavet og Stillehavet?','Panamakanalen',['Suezkanalen','Kielerkanalen','Nordsøkanalen'],'Den ligger i Mellemamerika.','Panamakanalen skærer tværs gennem Mellemamerika.','Sluser løfter skibene seksogtyve meter undervejs.',4],
+        ['Hvor kommer man ud, hvis man graver lige gennem Jorden fra Europa?','Ved New Zealand',['Ved Australien','Ved Japan','Ved Chile'],'På den anden side af kloden.','Lige over for Nederlandene ligger havet ved New Zealand.','Sådan et modsat punkt kaldes en antipode.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['Hvad hedder en unge af en gris?','En pattegris',['Et lam','Et føl','En kylling'],'Den er lyserød og grynter sagte.','En ung gris hedder en pattegris.','En so får nogle gange tolv på én gang.',1],

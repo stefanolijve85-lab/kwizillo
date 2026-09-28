@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_DE = {
+    aarde: {
+      continenten_landen: [
+        ['Wie viele Kontinente gibt es?','Sieben',['Drei','Fünf','Zwölf'],'Denk an Europa, Asien, Afrika und vier weitere.','Die Erde wird meist in sieben Kontinente eingeteilt.','Die Antarktis gehört dazu, obwohl dort niemand fest lebt.',1],
+        ['Was ist die Hauptstadt der Niederlande?','Amsterdam',['Rotterdam','Den Haag','Utrecht'],'Es ist die Stadt der Grachten.','Laut Verfassung ist Amsterdam die Hauptstadt.','Die Regierung sitzt allerdings in Den Haag.',1],
+        ['Welches Land ist für Tulpen und Windmühlen bekannt?','Die Niederlande',['Spanien','Norwegen','Ägypten'],'Es ist flach und liegt an der Nordsee.','Die Niederlande sind berühmt für Tulpenfelder und Windmühlen.','Mühlen pumpten früher Wasser aus dem Land.',1],
+        ['Welcher Kontinent ist der kälteste?','Die Antarktis',['Europa','Afrika','Asien'],'Er liegt ganz unten auf dem Globus.','Die Antarktis ist der kälteste Kontinent der Erde.','Dort wurden einmal minus neunundachtzig Grad gemessen.',1],
+        ['In welchem Land steht der Eiffelturm?','Frankreich',['Italien','Spanien','Deutschland'],'Er steht in der Hauptstadt dieses Landes.','Der Eiffelturm steht in Paris, in Frankreich.','Er wurde für die Weltausstellung 1889 gebaut.',1],
+        ['Welcher Fluss fließt durch Paris?','Die Seine',['Der Rhein','Die Donau','Die Themse'],'Dutzende Brücken führen darüber.','Die Seine fließt mitten durch Paris.','In ihrer Mitte liegt die Insel, auf der die Stadt begann.',2],
+        ['Welches Land liegt direkt südlich der Niederlande?','Belgien',['Dänemark','Polen','Schweden'],'Dort wird auch Niederländisch gesprochen.','Belgien ist der südliche Nachbar der Niederlande.','Die Grenze ist über vierhundert Kilometer lang.',2],
+        ['Was ist der längste Fluss Afrikas?','Der Nil',['Der Kongo','Der Sambesi','Der Niger'],'Er fließt nach Norden.','Mit über sechstausend Kilometern ist der Nil Afrikas längster Fluss.','Er durchquert elf Länder, bevor er das Meer erreicht.',2],
+        ['Welches Meer liegt zwischen Europa und Afrika?','Das Mittelmeer',['Die Nordsee','Das Schwarze Meer','Die Ostsee'],'Inseln wie Sizilien liegen darin.','Das Mittelmeer trennt Europa von Afrika.','Bei Gibraltar ist die Durchfahrt nur vierzehn Kilometer breit.',2],
+        ['Wie viele Länder gibt es ungefähr in Europa?','Etwa fünfzig',['Etwa zehn','Etwa hundert','Etwa tausend'],'Mehr als vierzig, weniger als sechzig.','Europa zählt etwa fünfzig Länder.','Manche davon sind kleiner als eine große Stadt.',2],
+        ['Wie viele Zeitzonen hat Russland?','Elf',['Zwei','Fünf','Vierundzwanzig'],'Mehr als zehn.','Russland ist so breit, dass es elf Zeitzonen umfasst.','Wenn Moskau frühstückt, ist es im Osten schon Abend.',3],
+        ['Welche große Stadt liegt in zwei Kontinenten?','Istanbul',['Moskau','Kairo','Athen'],'Eine Meerenge verläuft mitten hindurch.','Istanbul liegt teils in Europa und teils in Asien.','Mit dem Boot fährt man von einem Kontinent zum anderen.',3],
+        ['Was ist der höchste Berg Afrikas?','Der Kilimandscharo',['Der Mount Kenya','Der Atlas','Der Tafelberg'],'Dort liegt Schnee, ganz nah am Äquator.','Der Kilimandscharo ist fast sechstausend Meter hoch.','Am Fuß ist es warm, auf dem Gipfel liegt Eis.',3],
+        ['Welches Land besteht aus über siebzehntausend Inseln?','Indonesien',['Japan','Griechenland','Die Philippinen'],'Es liegt zwischen zwei Ozeanen.','Indonesien besteht aus mehr als siebzehntausend Inseln.','Nur auf ein paar tausend davon leben Menschen.',3],
+        ['In welchem Land liegt die Vatikanstadt?','Italien',['Frankreich','Spanien','Griechenland'],'Sie liegt mitten in einer berühmten Hauptstadt.','Die Vatikanstadt liegt vollständig innerhalb Roms.','In einer halben Stunde geht man einmal außen herum.',3],
+        ['Welches Land hat die meisten Seen der Welt?','Kanada',['Russland','Finnland','Schweden'],'Es liegt im Norden Amerikas.','In Kanada gibt es mehr Seen als in allen anderen Ländern zusammen.','Viele wurden in der Eiszeit vom Eis ausgeschürft.',4],
+        ['Welche Hauptstadt liegt am höchsten?','La Paz',['Madrid','Mexiko-Stadt','Nairobi'],'Sie liegt in den Anden.','La Paz in Bolivien liegt über dreitausend Meter hoch.','Neuankömmlingen wird von der dünnen Luft manchmal schwindelig.',4],
+        ['Welches große Land hat gar keine Flüsse?','Saudi-Arabien',['Ägypten','Marokko','Die Türkei'],'Es besteht größtenteils aus Wüste.','In Saudi-Arabien fließt kein einziger Fluss ganzjährig.','Das Trinkwasser stammt vor allem aus entsalztem Meerwasser.',4],
+        ['Welcher Kanal verbindet Atlantik und Pazifik?','Der Panamakanal',['Der Suezkanal','Der Nord-Ostsee-Kanal','Der Nordseekanal'],'Er liegt in Mittelamerika.','Der Panamakanal schneidet quer durch Mittelamerika.','Schleusen heben die Schiffe unterwegs sechsundzwanzig Meter an.',4],
+        ['Wo kommst du heraus, wenn du von Europa durch die Erde gräbst?','Bei Neuseeland',['Bei Australien','Bei Japan','Bei Chile'],'Auf der anderen Seite des Globus.','Genau gegenüber den Niederlanden liegt das Meer bei Neuseeland.','So ein gegenüberliegender Punkt heißt Antipode.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['Wie heißt ein junges Schwein?','Ein Ferkel',['Ein Lamm','Ein Fohlen','Ein Küken'],'Es ist rosa und grunzt leise.','Ein junges Schwein heißt Ferkel.','Eine Sau bekommt manchmal zwölf auf einmal.',1],

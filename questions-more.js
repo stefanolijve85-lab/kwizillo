@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_NL = {
+    aarde: {
+      continenten_landen: [
+        ['Hoeveel werelddelen zijn er?','Zeven',['Drie','Vijf','Twaalf'],'Denk aan Europa, Azië, Afrika en nog vier.','De aarde wordt meestal in zeven werelddelen verdeeld.','Antarctica is er één van, al woont er niemand vast.',1],
+        ['Wat is de hoofdstad van Nederland?','Amsterdam',['Rotterdam','Den Haag','Utrecht'],'Het is de stad van de grachten.','Amsterdam is volgens de grondwet de hoofdstad.','De regering zit juist in Den Haag.',1],
+        ['Welk land staat bekend om tulpen en molens?','Nederland',['Spanje','Noorwegen','Egypte'],'Het is plat en ligt aan de Noordzee.','Nederland is beroemd om zijn tulpenvelden en molens.','Molens hielpen vroeger water uit het land te pompen.',1],
+        ['Welk werelddeel is het koudst?','Antarctica',['Europa','Afrika','Azië'],'Het ligt helemaal onderaan de wereldbol.','Antarctica is het koudste werelddeel van de aarde.','Daar werd ooit min negenentachtig graden gemeten.',1],
+        ['In welk land staat de Eiffeltoren?','Frankrijk',['Italië','Spanje','Duitsland'],'Hij staat in de hoofdstad van dat land.','De Eiffeltoren staat in Parijs, in Frankrijk.','Hij werd gebouwd voor de wereldtentoonstelling van 1889.',1],
+        ['Welke rivier stroomt door Parijs?','De Seine',['De Rijn','De Donau','De Theems'],'Er liggen tientallen bruggen overheen.','De Seine stroomt dwars door Parijs.','Midden in de rivier ligt het eiland waar de stad ooit begon.',2],
+        ['Welk land ligt direct ten zuiden van Nederland?','België',['Denemarken','Polen','Zweden'],'Daar wordt ook Nederlands gesproken.','België is de zuiderbuur van Nederland.','De grens tussen beide landen is ruim vierhonderd kilometer lang.',2],
+        ['Wat is de langste rivier van Afrika?','De Nijl',['De Congo','De Zambezi','De Niger'],'Hij stroomt naar het noorden.','De Nijl is met ruim zesduizend kilometer de langste rivier van Afrika.','Hij stroomt door elf landen voordat hij de zee bereikt.',2],
+        ['Welke zee ligt tussen Europa en Afrika?','De Middellandse Zee',['De Noordzee','De Zwarte Zee','De Oostzee'],'Er liggen eilanden als Sicilië in.','De Middellandse Zee scheidt Europa van Afrika.','Bij Gibraltar is de doorgang maar veertien kilometer breed.',2],
+        ['Hoeveel landen liggen er ongeveer in Europa?','Ongeveer vijftig',['Ongeveer tien','Ongeveer honderd','Ongeveer duizend'],'Meer dan veertig, minder dan zestig.','Europa telt ongeveer vijftig landen.','Sommige daarvan zijn kleiner dan een grote stad.',2],
+        ['Hoeveel tijdzones heeft Rusland?','Elf',['Twee','Vijf','Vierentwintig'],'Meer dan tien.','Rusland is zo breed dat het elf tijdzones telt.','Als het in Moskou ontbijt is, is het in het oosten al avond.',3],
+        ['Welke grote stad ligt in twee werelddelen?','Istanbul',['Moskou','Caïro','Athene'],'Er loopt een zeestraat dwars doorheen.','Istanbul ligt deels in Europa en deels in Azië.','Je kunt er met de boot van het ene werelddeel naar het andere.',3],
+        ['Wat is de hoogste berg van Afrika?','De Kilimanjaro',['De Mount Kenya','De Atlas','De Tafelberg'],'Er ligt sneeuw, vlak bij de evenaar.','De Kilimanjaro is bijna zesduizend meter hoog.','Aan de voet is het warm, op de top ligt ijs.',3],
+        ['Welk land bestaat uit meer dan zeventienduizend eilanden?','Indonesië',['Japan','Griekenland','De Filipijnen'],'Het ligt tussen twee oceanen.','Indonesië bestaat uit ruim zeventienduizend eilanden.','Op maar een paar duizend daarvan wonen mensen.',3],
+        ['In welk land ligt Vaticaanstad?','Italië',['Frankrijk','Spanje','Griekenland'],'Het ligt midden in een beroemde hoofdstad.','Vaticaanstad ligt helemaal binnen de stad Rome.','Je kunt er in een half uur omheen lopen.',3],
+        ['Welk land heeft de meeste meren ter wereld?','Canada',['Rusland','Finland','Zweden'],'Het ligt in het noorden van Amerika.','In Canada liggen meer meren dan in alle andere landen samen.','Veel ervan zijn uitgesleten door ijs uit de ijstijd.',4],
+        ['Welke hoofdstad ligt het hoogst van allemaal?','La Paz',['Madrid','Mexico-Stad','Nairobi'],'Hij ligt in de Andes.','La Paz in Bolivia ligt op ruim drieduizend meter hoogte.','Nieuwkomers worden er soms duizelig van de dunne lucht.',4],
+        ['Welk groot land heeft helemaal geen rivieren?','Saoedi-Arabië',['Egypte','Marokko','Turkije'],'Het bestaat grotendeels uit woestijn.','In Saoedi-Arabië stroomt geen enkele rivier het hele jaar door.','Het drinkwater komt er vooral uit ontzilt zeewater.',4],
+        ['Welk kanaal verbindt de Atlantische en de Stille Oceaan?','Het Panamakanaal',['Het Suezkanaal','Het Kielkanaal','Het Noordzeekanaal'],'Het ligt in Midden-Amerika.','Het Panamakanaal snijdt dwars door Midden-Amerika.','Schepen worden er met sluizen zesentwintig meter omhoog getild.',4],
+        ['Waar kom je uit als je vanuit Nederland dwars door de aarde graaft?','Bij Nieuw-Zeeland',['Bij Australië','Bij Japan','Bij Chili'],'Aan de andere kant van de wereldbol.','Recht tegenover Nederland ligt de zee bij Nieuw-Zeeland.','Zo\'n tegenovergelegen punt heet een antipode.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['Hoe heet een jong varken?','Een big',['Een lam','Een veulen','Een kuiken'],'Hij is roze en knort zachtjes.','Een jong varken heet een big.','Een zeug krijgt er soms wel twaalf tegelijk.',1],

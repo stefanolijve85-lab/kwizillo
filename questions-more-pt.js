@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_PT = {
+    aarde: {
+      continenten_landen: [
+        ['Quantos continentes existem?','Sete',['Três','Cinco','Doze'],'Pensa na Europa, Ásia, África e mais quatro.','A Terra costuma dividir-se em sete continentes.','A Antártida é um deles, embora ninguém viva lá de forma fixa.',1],
+        ['Qual é a capital dos Países Baixos?','Amesterdão',['Roterdão','Haia','Utrecht'],'É a cidade dos canais.','Segundo a constituição, a capital é Amesterdão.','O governo, porém, fica em Haia.',1],
+        ['Que país é conhecido pelas tulipas e pelos moinhos?','Os Países Baixos',['A Espanha','A Noruega','O Egito'],'É plano e dá para o mar do Norte.','Os Países Baixos são famosos pelos campos de tulipas e pelos moinhos.','Antigamente os moinhos bombeavam a água das terras.',1],
+        ['Que continente é o mais frio?','A Antártida',['A Europa','A África','A Ásia'],'Fica mesmo em baixo no globo.','A Antártida é o continente mais frio da Terra.','Ali mediram uma vez oitenta e nove graus negativos.',1],
+        ['Em que país fica a torre Eiffel?','França',['Itália','Espanha','Alemanha'],'Fica na capital desse país.','A torre Eiffel fica em Paris, em França.','Foi construída para a exposição universal de 1889.',1],
+        ['Que rio passa por Paris?','O Sena',['O Reno','O Danúbio','O Tamisa'],'Dezenas de pontes atravessam-no.','O Sena atravessa Paris de lado a lado.','No meio fica a ilha onde a cidade começou.',2],
+        ['Que país fica logo a sul dos Países Baixos?','A Bélgica',['A Dinamarca','A Polónia','A Suécia'],'Ali também se fala neerlandês.','A Bélgica é o vizinho do sul dos Países Baixos.','A fronteira tem mais de quatrocentos quilómetros.',2],
+        ['Qual é o rio mais longo de África?','O Nilo',['O Congo','O Zambeze','O Níger'],'Corre para norte.','Com mais de seis mil quilómetros, o Nilo é o mais longo de África.','Atravessa onze países antes de chegar ao mar.',2],
+        ['Que mar fica entre a Europa e a África?','O Mediterrâneo',['O mar do Norte','O mar Negro','O mar Báltico'],'Tem ilhas como a Sicília.','O Mediterrâneo separa a Europa de África.','Em Gibraltar a passagem tem só catorze quilómetros.',2],
+        ['Quantos países há mais ou menos na Europa?','Cerca de cinquenta',['Cerca de dez','Cerca de cem','Cerca de mil'],'Mais de quarenta e menos de sessenta.','A Europa tem cerca de cinquenta países.','Alguns são mais pequenos do que uma cidade grande.',2],
+        ['Quantos fusos horários tem a Rússia?','Onze',['Dois','Cinco','Vinte e quatro'],'Mais de dez.','A Rússia é tão larga que tem onze fusos horários.','Quando Moscovo toma o pequeno-almoço, a leste já é noite.',3],
+        ['Que grande cidade fica em dois continentes?','Istambul',['Moscovo','Cairo','Atenas'],'Um estreito passa pelo meio dela.','Istambul fica em parte na Europa e em parte na Ásia.','De barco passa-se de um continente para o outro.',3],
+        ['Qual é a montanha mais alta de África?','O Kilimanjaro',['O monte Quénia','O Atlas','A Montanha da Mesa'],'Tem neve, mesmo ao pé do equador.','O Kilimanjaro tem quase seis mil metros.','Ao fundo faz calor e no cimo há gelo.',3],
+        ['Que país é feito de mais de dezassete mil ilhas?','A Indonésia',['O Japão','A Grécia','As Filipinas'],'Fica entre dois oceanos.','A Indonésia é feita de mais de dezassete mil ilhas.','Só uns poucos milhares têm gente a viver.',3],
+        ['Em que país fica a Cidade do Vaticano?','Itália',['França','Espanha','Grécia'],'Fica dentro de uma capital famosa.','A Cidade do Vaticano fica toda dentro de Roma.','Dá para lhe dar a volta a pé em meia hora.',3],
+        ['Que país tem mais lagos do mundo?','O Canadá',['A Rússia','A Finlândia','A Suécia'],'Fica no norte da América.','O Canadá tem mais lagos do que todos os outros países juntos.','Muitos foram escavados pelo gelo na idade do gelo.',4],
+        ['Que capital fica mais alta de todas?','La Paz',['Madrid','Cidade do México','Nairobi'],'Fica nos Andes.','La Paz, na Bolívia, fica a mais de três mil metros.','Quem chega de novo às vezes fica tonto com o ar rarefeito.',4],
+        ['Que país grande não tem rios nenhuns?','A Arábia Saudita',['O Egito','Marrocos','A Turquia'],'É quase todo deserto.','Na Arábia Saudita não corre nenhum rio todo o ano.','A água potável vem sobretudo do mar dessalinizado.',4],
+        ['Que canal liga o Atlântico ao Pacífico?','O canal do Panamá',['O canal do Suez','O canal de Kiel','O canal do Mar do Norte'],'Fica na América Central.','O canal do Panamá corta a América Central de lado a lado.','As eclusas levantam os navios vinte e seis metros.',4],
+        ['Onde sais se cavares a direito através da Terra desde a Europa?','Perto da Nova Zelândia',['Perto da Austrália','Perto do Japão','Perto do Chile'],'Do outro lado do globo.','Mesmo em frente aos Países Baixos fica o mar perto da Nova Zelândia.','A esse ponto oposto chama-se antípoda.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['Como se chama um porco pequeno?','Um leitão',['Um cordeiro','Um potro','Um pinto'],'É cor-de-rosa e grunhe baixinho.','Um porco pequeno chama-se leitão.','Uma porca tem às vezes doze de uma vez.',1],

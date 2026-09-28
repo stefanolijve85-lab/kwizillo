@@ -1,0 +1,2607 @@
+{
+  "world": "aarde",
+  "topic": "continenten_landen",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "aarde-continenten_landen-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zeven werelddelen (gangbare indeling)",
+      "artBrief": "Een wereldkaart waarop de zeven werelddelen elk een eigen heldere kleur hebben.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel werelddelen zijn er?",
+          "answer": "Zeven",
+          "wrong": [
+            "Drie",
+            "Vijf",
+            "Twaalf"
+          ],
+          "hint": "Denk aan Europa, Azië, Afrika en nog vier.",
+          "explanation": "De aarde wordt meestal in zeven werelddelen verdeeld.",
+          "fact": "Antarctica is er één van, al woont er niemand vast."
+        },
+        "en": {
+          "prompt": "How many continents are there?",
+          "answer": "Seven",
+          "wrong": [
+            "Three",
+            "Five",
+            "Twelve"
+          ],
+          "hint": "Think of Europe, Asia, Africa and four more.",
+          "explanation": "The earth is usually divided into seven continents.",
+          "fact": "Antarctica is one of them, although nobody lives there for good."
+        },
+        "de": {
+          "prompt": "Wie viele Kontinente gibt es?",
+          "answer": "Sieben",
+          "wrong": [
+            "Drei",
+            "Fünf",
+            "Zwölf"
+          ],
+          "hint": "Denk an Europa, Asien, Afrika und vier weitere.",
+          "explanation": "Die Erde wird meist in sieben Kontinente eingeteilt.",
+          "fact": "Die Antarktis gehört dazu, obwohl dort niemand fest lebt."
+        },
+        "fr": {
+          "prompt": "Combien y a-t-il de continents ?",
+          "answer": "Sept",
+          "wrong": [
+            "Trois",
+            "Cinq",
+            "Douze"
+          ],
+          "hint": "Pense à l'Europe, l'Asie, l'Afrique et quatre autres.",
+          "explanation": "On divise en général la Terre en sept continents.",
+          "fact": "L'Antarctique en fait partie, même si personne n'y vit vraiment."
+        },
+        "es": {
+          "prompt": "¿Cuántos continentes hay?",
+          "answer": "Siete",
+          "wrong": [
+            "Tres",
+            "Cinco",
+            "Doce"
+          ],
+          "hint": "Piensa en Europa, Asia, África y cuatro más.",
+          "explanation": "La Tierra suele dividirse en siete continentes.",
+          "fact": "La Antártida es uno, aunque nadie vive allí de forma fija."
+        },
+        "it": {
+          "prompt": "Quanti continenti ci sono?",
+          "answer": "Sette",
+          "wrong": [
+            "Tre",
+            "Cinque",
+            "Dodici"
+          ],
+          "hint": "Pensa a Europa, Asia, Africa e altri quattro.",
+          "explanation": "La Terra viene di solito divisa in sette continenti.",
+          "fact": "L'Antartide è uno di questi, anche se nessuno ci vive stabilmente."
+        },
+        "pt": {
+          "prompt": "Quantos continentes existem?",
+          "answer": "Sete",
+          "wrong": [
+            "Três",
+            "Cinco",
+            "Doze"
+          ],
+          "hint": "Pensa na Europa, Ásia, África e mais quatro.",
+          "explanation": "A Terra costuma dividir-se em sete continentes.",
+          "fact": "A Antártida é um deles, embora ninguém viva lá de forma fixa."
+        },
+        "da": {
+          "prompt": "Hvor mange verdensdele er der?",
+          "answer": "Syv",
+          "wrong": [
+            "Tre",
+            "Fem",
+            "Tolv"
+          ],
+          "hint": "Tænk på Europa, Asien, Afrika og fire mere.",
+          "explanation": "Jorden deles som regel i syv verdensdele.",
+          "fact": "Antarktis er en af dem, selv om ingen bor der fast."
+        },
+        "ru": {
+          "prompt": "Сколько на Земле континентов?",
+          "answer": "Семь",
+          "wrong": [
+            "Три",
+            "Пять",
+            "Двенадцать"
+          ],
+          "hint": "Вспомни Европу, Азию, Африку и ещё четыре.",
+          "explanation": "Обычно Землю делят на семь континентов.",
+          "fact": "Антарктида — один из них, хотя постоянно там никто не живёт."
+        },
+        "ar": {
+          "prompt": "كم عدد القارات؟",
+          "answer": "سبع",
+          "wrong": [
+            "ثلاث",
+            "خمس",
+            "اثنتا عشرة"
+          ],
+          "hint": "تذكر أوروبا وآسيا وأفريقيا وأربعًا أخرى.",
+          "explanation": "تُقسم الأرض عادة إلى سبع قارات.",
+          "fact": "القارة القطبية الجنوبية إحداها رغم أن أحدًا لا يقيم فيها دائمًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Grondwet: Amsterdam is de hoofdstad van Nederland",
+      "artBrief": "Grachtenpanden langs een gracht met een brug en fietsen, in ochtendlicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de hoofdstad van Nederland?",
+          "answer": "Amsterdam",
+          "wrong": [
+            "Rotterdam",
+            "Den Haag",
+            "Utrecht"
+          ],
+          "hint": "Het is de stad van de grachten.",
+          "explanation": "Amsterdam is volgens de grondwet de hoofdstad.",
+          "fact": "De regering zit juist in Den Haag."
+        },
+        "en": {
+          "prompt": "What is the capital of the Netherlands?",
+          "answer": "Amsterdam",
+          "wrong": [
+            "Rotterdam",
+            "The Hague",
+            "Utrecht"
+          ],
+          "hint": "It is the city of the canals.",
+          "explanation": "By the constitution, Amsterdam is the capital.",
+          "fact": "The government, however, sits in The Hague."
+        },
+        "de": {
+          "prompt": "Was ist die Hauptstadt der Niederlande?",
+          "answer": "Amsterdam",
+          "wrong": [
+            "Rotterdam",
+            "Den Haag",
+            "Utrecht"
+          ],
+          "hint": "Es ist die Stadt der Grachten.",
+          "explanation": "Laut Verfassung ist Amsterdam die Hauptstadt.",
+          "fact": "Die Regierung sitzt allerdings in Den Haag."
+        },
+        "fr": {
+          "prompt": "Quelle est la capitale des Pays-Bas ?",
+          "answer": "Amsterdam",
+          "wrong": [
+            "Rotterdam",
+            "La Haye",
+            "Utrecht"
+          ],
+          "hint": "C'est la ville des canaux.",
+          "explanation": "Selon la constitution, Amsterdam est la capitale.",
+          "fact": "Le gouvernement siège pourtant à La Haye."
+        },
+        "es": {
+          "prompt": "¿Cuál es la capital de los Países Bajos?",
+          "answer": "Ámsterdam",
+          "wrong": [
+            "Róterdam",
+            "La Haya",
+            "Utrecht"
+          ],
+          "hint": "Es la ciudad de los canales.",
+          "explanation": "Según la constitución, Ámsterdam es la capital.",
+          "fact": "El gobierno, en cambio, está en La Haya."
+        },
+        "it": {
+          "prompt": "Qual è la capitale dei Paesi Bassi?",
+          "answer": "Amsterdam",
+          "wrong": [
+            "Rotterdam",
+            "L'Aia",
+            "Utrecht"
+          ],
+          "hint": "È la città dei canali.",
+          "explanation": "Secondo la costituzione la capitale è Amsterdam.",
+          "fact": "Il governo però ha sede all'Aia."
+        },
+        "pt": {
+          "prompt": "Qual é a capital dos Países Baixos?",
+          "answer": "Amesterdão",
+          "wrong": [
+            "Roterdão",
+            "Haia",
+            "Utrecht"
+          ],
+          "hint": "É a cidade dos canais.",
+          "explanation": "Segundo a constituição, a capital é Amesterdão.",
+          "fact": "O governo, porém, fica em Haia."
+        },
+        "da": {
+          "prompt": "Hvad er Nederlandenes hovedstad?",
+          "answer": "Amsterdam",
+          "wrong": [
+            "Rotterdam",
+            "Haag",
+            "Utrecht"
+          ],
+          "hint": "Det er kanalernes by.",
+          "explanation": "Ifølge grundloven er Amsterdam hovedstaden.",
+          "fact": "Regeringen sidder til gengæld i Haag."
+        },
+        "ru": {
+          "prompt": "Какая столица у Нидерландов?",
+          "answer": "Амстердам",
+          "wrong": [
+            "Роттердам",
+            "Гаага",
+            "Утрехт"
+          ],
+          "hint": "Это город каналов.",
+          "explanation": "По конституции столица — Амстердам.",
+          "fact": "А правительство при этом сидит в Гааге."
+        },
+        "ar": {
+          "prompt": "ما عاصمة هولندا؟",
+          "answer": "أمستردام",
+          "wrong": [
+            "روتردام",
+            "لاهاي",
+            "أوتريخت"
+          ],
+          "hint": "هي مدينة القنوات.",
+          "explanation": "بحسب الدستور، أمستردام هي العاصمة.",
+          "fact": "أما الحكومة فمقرها لاهاي."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Nederlandse iconen: tulpen en molens",
+      "artBrief": "Een veld met kleurige tulpen en een molen op de achtergrond onder een wolkenlucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk land staat bekend om tulpen en molens?",
+          "answer": "Nederland",
+          "wrong": [
+            "Spanje",
+            "Noorwegen",
+            "Egypte"
+          ],
+          "hint": "Het is plat en ligt aan de Noordzee.",
+          "explanation": "Nederland is beroemd om zijn tulpenvelden en molens.",
+          "fact": "Molens hielpen vroeger water uit het land te pompen."
+        },
+        "en": {
+          "prompt": "Which country is known for tulips and windmills?",
+          "answer": "The Netherlands",
+          "wrong": [
+            "Spain",
+            "Norway",
+            "Egypt"
+          ],
+          "hint": "It is flat and lies on the North Sea.",
+          "explanation": "The Netherlands is famous for its tulip fields and windmills.",
+          "fact": "Windmills used to pump water off the land."
+        },
+        "de": {
+          "prompt": "Welches Land ist für Tulpen und Windmühlen bekannt?",
+          "answer": "Die Niederlande",
+          "wrong": [
+            "Spanien",
+            "Norwegen",
+            "Ägypten"
+          ],
+          "hint": "Es ist flach und liegt an der Nordsee.",
+          "explanation": "Die Niederlande sind berühmt für Tulpenfelder und Windmühlen.",
+          "fact": "Mühlen pumpten früher Wasser aus dem Land."
+        },
+        "fr": {
+          "prompt": "Quel pays est connu pour ses tulipes et ses moulins ?",
+          "answer": "Les Pays-Bas",
+          "wrong": [
+            "L'Espagne",
+            "La Norvège",
+            "L'Égypte"
+          ],
+          "hint": "Il est plat et donne sur la mer du Nord.",
+          "explanation": "Les Pays-Bas sont célèbres pour leurs champs de tulipes et leurs moulins.",
+          "fact": "Les moulins servaient autrefois à pomper l'eau des terres."
+        },
+        "es": {
+          "prompt": "¿Qué país es famoso por sus tulipanes y molinos?",
+          "answer": "Los Países Bajos",
+          "wrong": [
+            "España",
+            "Noruega",
+            "Egipto"
+          ],
+          "hint": "Es llano y da al mar del Norte.",
+          "explanation": "Los Países Bajos son famosos por sus campos de tulipanes y molinos.",
+          "fact": "Los molinos servían para sacar el agua de las tierras."
+        },
+        "it": {
+          "prompt": "Quale paese è noto per tulipani e mulini a vento?",
+          "answer": "I Paesi Bassi",
+          "wrong": [
+            "La Spagna",
+            "La Norvegia",
+            "L'Egitto"
+          ],
+          "hint": "È piatto e affaccia sul Mare del Nord.",
+          "explanation": "I Paesi Bassi sono famosi per i campi di tulipani e i mulini.",
+          "fact": "Un tempo i mulini pompavano l'acqua fuori dalle terre."
+        },
+        "pt": {
+          "prompt": "Que país é conhecido pelas tulipas e pelos moinhos?",
+          "answer": "Os Países Baixos",
+          "wrong": [
+            "A Espanha",
+            "A Noruega",
+            "O Egito"
+          ],
+          "hint": "É plano e dá para o mar do Norte.",
+          "explanation": "Os Países Baixos são famosos pelos campos de tulipas e pelos moinhos.",
+          "fact": "Antigamente os moinhos bombeavam a água das terras."
+        },
+        "da": {
+          "prompt": "Hvilket land er kendt for tulipaner og vindmøller?",
+          "answer": "Nederlandene",
+          "wrong": [
+            "Spanien",
+            "Norge",
+            "Egypten"
+          ],
+          "hint": "Det er fladt og ligger ved Nordsøen.",
+          "explanation": "Nederlandene er berømt for tulipanmarker og vindmøller.",
+          "fact": "Møllerne pumpede før i tiden vand væk fra landet."
+        },
+        "ru": {
+          "prompt": "Какая страна известна тюльпанами и мельницами?",
+          "answer": "Нидерланды",
+          "wrong": [
+            "Испания",
+            "Норвегия",
+            "Египет"
+          ],
+          "hint": "Она плоская и выходит к Северному морю.",
+          "explanation": "Нидерланды славятся тюльпановыми полями и мельницами.",
+          "fact": "Раньше мельницы откачивали воду с земель."
+        },
+        "ar": {
+          "prompt": "أي بلد يشتهر بالخزامى وطواحين الهواء؟",
+          "answer": "هولندا",
+          "wrong": [
+            "إسبانيا",
+            "النرويج",
+            "مصر"
+          ],
+          "hint": "أرضها مسطحة وتطل على بحر الشمال.",
+          "explanation": "تشتهر هولندا بحقول الخزامى وطواحين الهواء.",
+          "fact": "كانت الطواحين قديمًا تضخ الماء بعيدًا عن الأرض."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Antarctica: laagste gemeten temperatuur op aarde",
+      "artBrief": "Een eindeloze ijsvlakte met pinguïns en een blauwe ijsberg in de verte.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk werelddeel is het koudst?",
+          "answer": "Antarctica",
+          "wrong": [
+            "Europa",
+            "Afrika",
+            "Azië"
+          ],
+          "hint": "Het ligt helemaal onderaan de wereldbol.",
+          "explanation": "Antarctica is het koudste werelddeel van de aarde.",
+          "fact": "Daar werd ooit min negenentachtig graden gemeten."
+        },
+        "en": {
+          "prompt": "Which continent is the coldest?",
+          "answer": "Antarctica",
+          "wrong": [
+            "Europe",
+            "Africa",
+            "Asia"
+          ],
+          "hint": "It sits right at the bottom of the globe.",
+          "explanation": "Antarctica is the coldest continent on earth.",
+          "fact": "Minus eighty-nine degrees was once measured there."
+        },
+        "de": {
+          "prompt": "Welcher Kontinent ist der kälteste?",
+          "answer": "Die Antarktis",
+          "wrong": [
+            "Europa",
+            "Afrika",
+            "Asien"
+          ],
+          "hint": "Er liegt ganz unten auf dem Globus.",
+          "explanation": "Die Antarktis ist der kälteste Kontinent der Erde.",
+          "fact": "Dort wurden einmal minus neunundachtzig Grad gemessen."
+        },
+        "fr": {
+          "prompt": "Quel continent est le plus froid ?",
+          "answer": "L'Antarctique",
+          "wrong": [
+            "L'Europe",
+            "L'Afrique",
+            "L'Asie"
+          ],
+          "hint": "Il se trouve tout en bas du globe.",
+          "explanation": "L'Antarctique est le continent le plus froid de la Terre.",
+          "fact": "On y a relevé une fois moins quatre-vingt-neuf degrés."
+        },
+        "es": {
+          "prompt": "¿Qué continente es el más frío?",
+          "answer": "La Antártida",
+          "wrong": [
+            "Europa",
+            "África",
+            "Asia"
+          ],
+          "hint": "Está justo abajo en el globo.",
+          "explanation": "La Antártida es el continente más frío de la Tierra.",
+          "fact": "Allí se midieron una vez ochenta y nueve grados bajo cero."
+        },
+        "it": {
+          "prompt": "Quale continente è il più freddo?",
+          "answer": "L'Antartide",
+          "wrong": [
+            "L'Europa",
+            "L'Africa",
+            "L'Asia"
+          ],
+          "hint": "Sta proprio in fondo al mappamondo.",
+          "explanation": "L'Antartide è il continente più freddo della Terra.",
+          "fact": "Là fu misurata una volta una temperatura di meno ottantanove gradi."
+        },
+        "pt": {
+          "prompt": "Que continente é o mais frio?",
+          "answer": "A Antártida",
+          "wrong": [
+            "A Europa",
+            "A África",
+            "A Ásia"
+          ],
+          "hint": "Fica mesmo em baixo no globo.",
+          "explanation": "A Antártida é o continente mais frio da Terra.",
+          "fact": "Ali mediram uma vez oitenta e nove graus negativos."
+        },
+        "da": {
+          "prompt": "Hvilken verdensdel er den koldeste?",
+          "answer": "Antarktis",
+          "wrong": [
+            "Europa",
+            "Afrika",
+            "Asien"
+          ],
+          "hint": "Den ligger helt nede på kloden.",
+          "explanation": "Antarktis er Jordens koldeste verdensdel.",
+          "fact": "Der blev engang målt minus niogfirs grader."
+        },
+        "ru": {
+          "prompt": "Какой континент самый холодный?",
+          "answer": "Антарктида",
+          "wrong": [
+            "Европа",
+            "Африка",
+            "Азия"
+          ],
+          "hint": "Он находится в самом низу глобуса.",
+          "explanation": "Антарктида — самый холодный континент Земли.",
+          "fact": "Там однажды измерили минус восемьдесят девять градусов."
+        },
+        "ar": {
+          "prompt": "أي قارة هي الأبرد؟",
+          "answer": "القارة القطبية الجنوبية",
+          "wrong": [
+            "أوروبا",
+            "أفريقيا",
+            "آسيا"
+          ],
+          "hint": "تقع في أسفل الكرة الأرضية.",
+          "explanation": "القارة القطبية الجنوبية أبرد قارات الأرض.",
+          "fact": "سُجلت فيها يومًا درجة تسع وثمانين تحت الصفر."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Eiffeltoren, Parijs, 1889",
+      "artBrief": "De Eiffeltoren van onderaf gezien tegen een blauwe lucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "In welk land staat de Eiffeltoren?",
+          "answer": "Frankrijk",
+          "wrong": [
+            "Italië",
+            "Spanje",
+            "Duitsland"
+          ],
+          "hint": "Hij staat in de hoofdstad van dat land.",
+          "explanation": "De Eiffeltoren staat in Parijs, in Frankrijk.",
+          "fact": "Hij werd gebouwd voor de wereldtentoonstelling van 1889."
+        },
+        "en": {
+          "prompt": "In which country is the Eiffel Tower?",
+          "answer": "France",
+          "wrong": [
+            "Italy",
+            "Spain",
+            "Germany"
+          ],
+          "hint": "It stands in that country's capital.",
+          "explanation": "The Eiffel Tower stands in Paris, in France.",
+          "fact": "It was built for the world fair of 1889."
+        },
+        "de": {
+          "prompt": "In welchem Land steht der Eiffelturm?",
+          "answer": "Frankreich",
+          "wrong": [
+            "Italien",
+            "Spanien",
+            "Deutschland"
+          ],
+          "hint": "Er steht in der Hauptstadt dieses Landes.",
+          "explanation": "Der Eiffelturm steht in Paris, in Frankreich.",
+          "fact": "Er wurde für die Weltausstellung 1889 gebaut."
+        },
+        "fr": {
+          "prompt": "Dans quel pays se trouve la tour Eiffel ?",
+          "answer": "La France",
+          "wrong": [
+            "L'Italie",
+            "L'Espagne",
+            "L'Allemagne"
+          ],
+          "hint": "Elle est dans la capitale de ce pays.",
+          "explanation": "La tour Eiffel se dresse à Paris, en France.",
+          "fact": "Elle a été construite pour l'exposition universelle de 1889."
+        },
+        "es": {
+          "prompt": "¿En qué país está la torre Eiffel?",
+          "answer": "Francia",
+          "wrong": [
+            "Italia",
+            "España",
+            "Alemania"
+          ],
+          "hint": "Está en la capital de ese país.",
+          "explanation": "La torre Eiffel está en París, en Francia.",
+          "fact": "Se construyó para la exposición universal de 1889."
+        },
+        "it": {
+          "prompt": "In quale paese si trova la torre Eiffel?",
+          "answer": "La Francia",
+          "wrong": [
+            "L'Italia",
+            "La Spagna",
+            "La Germania"
+          ],
+          "hint": "Sta nella capitale di quel paese.",
+          "explanation": "La torre Eiffel si trova a Parigi, in Francia.",
+          "fact": "Fu costruita per l'esposizione universale del 1889."
+        },
+        "pt": {
+          "prompt": "Em que país fica a torre Eiffel?",
+          "answer": "França",
+          "wrong": [
+            "Itália",
+            "Espanha",
+            "Alemanha"
+          ],
+          "hint": "Fica na capital desse país.",
+          "explanation": "A torre Eiffel fica em Paris, em França.",
+          "fact": "Foi construída para a exposição universal de 1889."
+        },
+        "da": {
+          "prompt": "I hvilket land står Eiffeltårnet?",
+          "answer": "Frankrig",
+          "wrong": [
+            "Italien",
+            "Spanien",
+            "Tyskland"
+          ],
+          "hint": "Det står i landets hovedstad.",
+          "explanation": "Eiffeltårnet står i Paris i Frankrig.",
+          "fact": "Det blev bygget til verdensudstillingen i 1889."
+        },
+        "ru": {
+          "prompt": "В какой стране находится Эйфелева башня?",
+          "answer": "Франция",
+          "wrong": [
+            "Италия",
+            "Испания",
+            "Германия"
+          ],
+          "hint": "Она стоит в столице этой страны.",
+          "explanation": "Эйфелева башня стоит в Париже, во Франции.",
+          "fact": "Её построили к всемирной выставке 1889 года."
+        },
+        "ar": {
+          "prompt": "في أي بلد يقع برج إيفل؟",
+          "answer": "فرنسا",
+          "wrong": [
+            "إيطاليا",
+            "إسبانيا",
+            "ألمانيا"
+          ],
+          "hint": "يقف في عاصمة ذلك البلد.",
+          "explanation": "برج إيفل يقع في باريس في فرنسا.",
+          "fact": "بُني من أجل المعرض العالمي عام 1889."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De Seine stroomt door Parijs",
+      "artBrief": "Een rivier die door een stad met oude bruggen stroomt, een toren op de achtergrond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke rivier stroomt door Parijs?",
+          "answer": "De Seine",
+          "wrong": [
+            "De Rijn",
+            "De Donau",
+            "De Theems"
+          ],
+          "hint": "Er liggen tientallen bruggen overheen.",
+          "explanation": "De Seine stroomt dwars door Parijs.",
+          "fact": "Midden in de rivier ligt het eiland waar de stad ooit begon."
+        },
+        "en": {
+          "prompt": "Which river runs through Paris?",
+          "answer": "The Seine",
+          "wrong": [
+            "The Rhine",
+            "The Danube",
+            "The Thames"
+          ],
+          "hint": "Dozens of bridges cross it.",
+          "explanation": "The Seine runs right through Paris.",
+          "fact": "In the middle of it lies the island where the city began."
+        },
+        "de": {
+          "prompt": "Welcher Fluss fließt durch Paris?",
+          "answer": "Die Seine",
+          "wrong": [
+            "Der Rhein",
+            "Die Donau",
+            "Die Themse"
+          ],
+          "hint": "Dutzende Brücken führen darüber.",
+          "explanation": "Die Seine fließt mitten durch Paris.",
+          "fact": "In ihrer Mitte liegt die Insel, auf der die Stadt begann."
+        },
+        "fr": {
+          "prompt": "Quel fleuve traverse Paris ?",
+          "answer": "La Seine",
+          "wrong": [
+            "Le Rhin",
+            "Le Danube",
+            "La Tamise"
+          ],
+          "hint": "Des dizaines de ponts l'enjambent.",
+          "explanation": "La Seine traverse Paris de part en part.",
+          "fact": "En son milieu se trouve l'île où la ville a commencé."
+        },
+        "es": {
+          "prompt": "¿Qué río pasa por París?",
+          "answer": "El Sena",
+          "wrong": [
+            "El Rin",
+            "El Danubio",
+            "El Támesis"
+          ],
+          "hint": "Decenas de puentes lo cruzan.",
+          "explanation": "El Sena atraviesa París de lado a lado.",
+          "fact": "En medio está la isla donde nació la ciudad."
+        },
+        "it": {
+          "prompt": "Quale fiume attraversa Parigi?",
+          "answer": "La Senna",
+          "wrong": [
+            "Il Reno",
+            "Il Danubio",
+            "Il Tamigi"
+          ],
+          "hint": "Decine di ponti la attraversano.",
+          "explanation": "La Senna attraversa Parigi da parte a parte.",
+          "fact": "Al centro c'è l'isola dove la città ebbe inizio."
+        },
+        "pt": {
+          "prompt": "Que rio passa por Paris?",
+          "answer": "O Sena",
+          "wrong": [
+            "O Reno",
+            "O Danúbio",
+            "O Tamisa"
+          ],
+          "hint": "Dezenas de pontes atravessam-no.",
+          "explanation": "O Sena atravessa Paris de lado a lado.",
+          "fact": "No meio fica a ilha onde a cidade começou."
+        },
+        "da": {
+          "prompt": "Hvilken flod løber gennem Paris?",
+          "answer": "Seinen",
+          "wrong": [
+            "Rhinen",
+            "Donau",
+            "Themsen"
+          ],
+          "hint": "Dusinvis af broer går over den.",
+          "explanation": "Seinen løber tværs gennem Paris.",
+          "fact": "Midt i den ligger øen, hvor byen begyndte."
+        },
+        "ru": {
+          "prompt": "Какая река течёт через Париж?",
+          "answer": "Сена",
+          "wrong": [
+            "Рейн",
+            "Дунай",
+            "Темза"
+          ],
+          "hint": "Через неё перекинуты десятки мостов.",
+          "explanation": "Сена течёт прямо через Париж.",
+          "fact": "Посреди неё лежит остров, с которого город начался."
+        },
+        "ar": {
+          "prompt": "أي نهر يمر في باريس؟",
+          "answer": "نهر السين",
+          "wrong": [
+            "الراين",
+            "الدانوب",
+            "التايمز"
+          ],
+          "hint": "تعبره عشرات الجسور.",
+          "explanation": "يشق نهر السين باريس من طرف إلى طرف.",
+          "fact": "وفي وسطه الجزيرة التي بدأت منها المدينة."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "België grenst in het zuiden aan Nederland",
+      "artBrief": "Een kaart van de Lage Landen met twee buurlanden in verschillende kleuren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk land ligt direct ten zuiden van Nederland?",
+          "answer": "België",
+          "wrong": [
+            "Denemarken",
+            "Polen",
+            "Zweden"
+          ],
+          "hint": "Daar wordt ook Nederlands gesproken.",
+          "explanation": "België is de zuiderbuur van Nederland.",
+          "fact": "De grens tussen beide landen is ruim vierhonderd kilometer lang."
+        },
+        "en": {
+          "prompt": "Which country lies directly south of the Netherlands?",
+          "answer": "Belgium",
+          "wrong": [
+            "Denmark",
+            "Poland",
+            "Sweden"
+          ],
+          "hint": "Dutch is spoken there too.",
+          "explanation": "Belgium is the Netherlands' southern neighbour.",
+          "fact": "The border between them is over four hundred kilometres long."
+        },
+        "de": {
+          "prompt": "Welches Land liegt direkt südlich der Niederlande?",
+          "answer": "Belgien",
+          "wrong": [
+            "Dänemark",
+            "Polen",
+            "Schweden"
+          ],
+          "hint": "Dort wird auch Niederländisch gesprochen.",
+          "explanation": "Belgien ist der südliche Nachbar der Niederlande.",
+          "fact": "Die Grenze ist über vierhundert Kilometer lang."
+        },
+        "fr": {
+          "prompt": "Quel pays se trouve juste au sud des Pays-Bas ?",
+          "answer": "La Belgique",
+          "wrong": [
+            "Le Danemark",
+            "La Pologne",
+            "La Suède"
+          ],
+          "hint": "On y parle aussi néerlandais.",
+          "explanation": "La Belgique est le voisin du sud des Pays-Bas.",
+          "fact": "La frontière fait plus de quatre cents kilomètres."
+        },
+        "es": {
+          "prompt": "¿Qué país está justo al sur de los Países Bajos?",
+          "answer": "Bélgica",
+          "wrong": [
+            "Dinamarca",
+            "Polonia",
+            "Suecia"
+          ],
+          "hint": "Allí también se habla neerlandés.",
+          "explanation": "Bélgica es el vecino del sur de los Países Bajos.",
+          "fact": "La frontera mide más de cuatrocientos kilómetros."
+        },
+        "it": {
+          "prompt": "Quale paese si trova subito a sud dei Paesi Bassi?",
+          "answer": "Il Belgio",
+          "wrong": [
+            "La Danimarca",
+            "La Polonia",
+            "La Svezia"
+          ],
+          "hint": "Anche lì si parla neerlandese.",
+          "explanation": "Il Belgio è il vicino meridionale dei Paesi Bassi.",
+          "fact": "Il confine è lungo più di quattrocento chilometri."
+        },
+        "pt": {
+          "prompt": "Que país fica logo a sul dos Países Baixos?",
+          "answer": "A Bélgica",
+          "wrong": [
+            "A Dinamarca",
+            "A Polónia",
+            "A Suécia"
+          ],
+          "hint": "Ali também se fala neerlandês.",
+          "explanation": "A Bélgica é o vizinho do sul dos Países Baixos.",
+          "fact": "A fronteira tem mais de quatrocentos quilómetros."
+        },
+        "da": {
+          "prompt": "Hvilket land ligger lige syd for Nederlandene?",
+          "answer": "Belgien",
+          "wrong": [
+            "Danmark",
+            "Polen",
+            "Sverige"
+          ],
+          "hint": "Der tales også nederlandsk.",
+          "explanation": "Belgien er Nederlandenes sydlige nabo.",
+          "fact": "Grænsen er over fire hundrede kilometer lang."
+        },
+        "ru": {
+          "prompt": "Какая страна лежит сразу к югу от Нидерландов?",
+          "answer": "Бельгия",
+          "wrong": [
+            "Дания",
+            "Польша",
+            "Швеция"
+          ],
+          "hint": "Там тоже говорят по-нидерландски.",
+          "explanation": "Бельгия — южный сосед Нидерландов.",
+          "fact": "Граница между ними длиннее четырёхсот километров."
+        },
+        "ar": {
+          "prompt": "أي بلد يقع مباشرة جنوب هولندا؟",
+          "answer": "بلجيكا",
+          "wrong": [
+            "الدنمارك",
+            "بولندا",
+            "السويد"
+          ],
+          "hint": "تُتحدث فيها الهولندية أيضًا.",
+          "explanation": "بلجيكا هي جارة هولندا الجنوبية.",
+          "fact": "طول الحدود بينهما أكثر من أربعمئة كيلومتر."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De Nijl, langste rivier van Afrika",
+      "artBrief": "Een brede rivier die door groene oevers en woestijn slingert, van bovenaf.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de langste rivier van Afrika?",
+          "answer": "De Nijl",
+          "wrong": [
+            "De Congo",
+            "De Zambezi",
+            "De Niger"
+          ],
+          "hint": "Hij stroomt naar het noorden.",
+          "explanation": "De Nijl is met ruim zesduizend kilometer de langste rivier van Afrika.",
+          "fact": "Hij stroomt door elf landen voordat hij de zee bereikt."
+        },
+        "en": {
+          "prompt": "What is the longest river in Africa?",
+          "answer": "The Nile",
+          "wrong": [
+            "The Congo",
+            "The Zambezi",
+            "The Niger"
+          ],
+          "hint": "It flows northwards.",
+          "explanation": "At over six thousand kilometres, the Nile is Africa's longest river.",
+          "fact": "It runs through eleven countries before reaching the sea."
+        },
+        "de": {
+          "prompt": "Was ist der längste Fluss Afrikas?",
+          "answer": "Der Nil",
+          "wrong": [
+            "Der Kongo",
+            "Der Sambesi",
+            "Der Niger"
+          ],
+          "hint": "Er fließt nach Norden.",
+          "explanation": "Mit über sechstausend Kilometern ist der Nil Afrikas längster Fluss.",
+          "fact": "Er durchquert elf Länder, bevor er das Meer erreicht."
+        },
+        "fr": {
+          "prompt": "Quel est le plus long fleuve d'Afrique ?",
+          "answer": "Le Nil",
+          "wrong": [
+            "Le Congo",
+            "Le Zambèze",
+            "Le Niger"
+          ],
+          "hint": "Il coule vers le nord.",
+          "explanation": "Avec plus de six mille kilomètres, le Nil est le plus long d'Afrique.",
+          "fact": "Il traverse onze pays avant d'atteindre la mer."
+        },
+        "es": {
+          "prompt": "¿Cuál es el río más largo de África?",
+          "answer": "El Nilo",
+          "wrong": [
+            "El Congo",
+            "El Zambeze",
+            "El Níger"
+          ],
+          "hint": "Corre hacia el norte.",
+          "explanation": "Con más de seis mil kilómetros, el Nilo es el más largo de África.",
+          "fact": "Atraviesa once países antes de llegar al mar."
+        },
+        "it": {
+          "prompt": "Qual è il fiume più lungo dell'Africa?",
+          "answer": "Il Nilo",
+          "wrong": [
+            "Il Congo",
+            "Lo Zambesi",
+            "Il Niger"
+          ],
+          "hint": "Scorre verso nord.",
+          "explanation": "Con oltre seimila chilometri il Nilo è il più lungo d'Africa.",
+          "fact": "Attraversa undici paesi prima di arrivare al mare."
+        },
+        "pt": {
+          "prompt": "Qual é o rio mais longo de África?",
+          "answer": "O Nilo",
+          "wrong": [
+            "O Congo",
+            "O Zambeze",
+            "O Níger"
+          ],
+          "hint": "Corre para norte.",
+          "explanation": "Com mais de seis mil quilómetros, o Nilo é o mais longo de África.",
+          "fact": "Atravessa onze países antes de chegar ao mar."
+        },
+        "da": {
+          "prompt": "Hvad er Afrikas længste flod?",
+          "answer": "Nilen",
+          "wrong": [
+            "Congofloden",
+            "Zambezi",
+            "Niger"
+          ],
+          "hint": "Den løber mod nord.",
+          "explanation": "Med over seks tusind kilometer er Nilen Afrikas længste flod.",
+          "fact": "Den løber gennem elleve lande, før den når havet."
+        },
+        "ru": {
+          "prompt": "Какая река в Африке самая длинная?",
+          "answer": "Нил",
+          "wrong": [
+            "Конго",
+            "Замбези",
+            "Нигер"
+          ],
+          "hint": "Она течёт на север.",
+          "explanation": "Нил длиной больше шести тысяч километров — самая длинная река Африки.",
+          "fact": "Он проходит через одиннадцать стран, прежде чем достичь моря."
+        },
+        "ar": {
+          "prompt": "ما أطول نهر في أفريقيا؟",
+          "answer": "النيل",
+          "wrong": [
+            "الكونغو",
+            "الزمبيزي",
+            "النيجر"
+          ],
+          "hint": "يجري نحو الشمال.",
+          "explanation": "بطول يتجاوز ستة آلاف كيلومتر، النيل أطول أنهار أفريقيا.",
+          "fact": "يمر بأحد عشر بلدًا قبل أن يصل البحر."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De Middellandse Zee tussen Europa en Afrika",
+      "artBrief": "Een zee tussen twee continenten, met schepen en kustlijnen aan beide kanten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke zee ligt tussen Europa en Afrika?",
+          "answer": "De Middellandse Zee",
+          "wrong": [
+            "De Noordzee",
+            "De Zwarte Zee",
+            "De Oostzee"
+          ],
+          "hint": "Er liggen eilanden als Sicilië in.",
+          "explanation": "De Middellandse Zee scheidt Europa van Afrika.",
+          "fact": "Bij Gibraltar is de doorgang maar veertien kilometer breed."
+        },
+        "en": {
+          "prompt": "Which sea lies between Europe and Africa?",
+          "answer": "The Mediterranean",
+          "wrong": [
+            "The North Sea",
+            "The Black Sea",
+            "The Baltic Sea"
+          ],
+          "hint": "Islands such as Sicily lie in it.",
+          "explanation": "The Mediterranean separates Europe from Africa.",
+          "fact": "At Gibraltar the gap is only fourteen kilometres wide."
+        },
+        "de": {
+          "prompt": "Welches Meer liegt zwischen Europa und Afrika?",
+          "answer": "Das Mittelmeer",
+          "wrong": [
+            "Die Nordsee",
+            "Das Schwarze Meer",
+            "Die Ostsee"
+          ],
+          "hint": "Inseln wie Sizilien liegen darin.",
+          "explanation": "Das Mittelmeer trennt Europa von Afrika.",
+          "fact": "Bei Gibraltar ist die Durchfahrt nur vierzehn Kilometer breit."
+        },
+        "fr": {
+          "prompt": "Quelle mer se trouve entre l'Europe et l'Afrique ?",
+          "answer": "La Méditerranée",
+          "wrong": [
+            "La mer du Nord",
+            "La mer Noire",
+            "La mer Baltique"
+          ],
+          "hint": "Des îles comme la Sicile s'y trouvent.",
+          "explanation": "La Méditerranée sépare l'Europe de l'Afrique.",
+          "fact": "À Gibraltar, le passage ne fait que quatorze kilomètres."
+        },
+        "es": {
+          "prompt": "¿Qué mar está entre Europa y África?",
+          "answer": "El Mediterráneo",
+          "wrong": [
+            "El mar del Norte",
+            "El mar Negro",
+            "El mar Báltico"
+          ],
+          "hint": "En él hay islas como Sicilia.",
+          "explanation": "El Mediterráneo separa Europa de África.",
+          "fact": "En Gibraltar el paso mide solo catorce kilómetros."
+        },
+        "it": {
+          "prompt": "Quale mare si trova fra Europa e Africa?",
+          "answer": "Il Mediterraneo",
+          "wrong": [
+            "Il Mare del Nord",
+            "Il Mar Nero",
+            "Il Mar Baltico"
+          ],
+          "hint": "Dentro ci sono isole come la Sicilia.",
+          "explanation": "Il Mediterraneo separa l'Europa dall'Africa.",
+          "fact": "A Gibilterra il passaggio è largo solo quattordici chilometri."
+        },
+        "pt": {
+          "prompt": "Que mar fica entre a Europa e a África?",
+          "answer": "O Mediterrâneo",
+          "wrong": [
+            "O mar do Norte",
+            "O mar Negro",
+            "O mar Báltico"
+          ],
+          "hint": "Tem ilhas como a Sicília.",
+          "explanation": "O Mediterrâneo separa a Europa de África.",
+          "fact": "Em Gibraltar a passagem tem só catorze quilómetros."
+        },
+        "da": {
+          "prompt": "Hvilket hav ligger mellem Europa og Afrika?",
+          "answer": "Middelhavet",
+          "wrong": [
+            "Nordsøen",
+            "Sortehavet",
+            "Østersøen"
+          ],
+          "hint": "Øer som Sicilien ligger i det.",
+          "explanation": "Middelhavet adskiller Europa fra Afrika.",
+          "fact": "Ved Gibraltar er passagen kun fjorten kilometer bred."
+        },
+        "ru": {
+          "prompt": "Какое море лежит между Европой и Африкой?",
+          "answer": "Средиземное море",
+          "wrong": [
+            "Северное море",
+            "Чёрное море",
+            "Балтийское море"
+          ],
+          "hint": "В нём есть острова вроде Сицилии.",
+          "explanation": "Средиземное море отделяет Европу от Африки.",
+          "fact": "У Гибралтара пролив всего четырнадцать километров шириной."
+        },
+        "ar": {
+          "prompt": "أي بحر يقع بين أوروبا وأفريقيا؟",
+          "answer": "البحر المتوسط",
+          "wrong": [
+            "بحر الشمال",
+            "البحر الأسود",
+            "بحر البلطيق"
+          ],
+          "hint": "فيه جزر مثل صقلية.",
+          "explanation": "البحر المتوسط يفصل أوروبا عن أفريقيا.",
+          "fact": "عند جبل طارق يضيق الممر إلى أربعة عشر كيلومترًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Europa telt ongeveer vijftig landen",
+      "artBrief": "Een kaart van Europa met tientallen landen in verschillende kleuren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel landen liggen er ongeveer in Europa?",
+          "answer": "Ongeveer vijftig",
+          "wrong": [
+            "Ongeveer tien",
+            "Ongeveer honderd",
+            "Ongeveer duizend"
+          ],
+          "hint": "Meer dan veertig, minder dan zestig.",
+          "explanation": "Europa telt ongeveer vijftig landen.",
+          "fact": "Sommige daarvan zijn kleiner dan een grote stad."
+        },
+        "en": {
+          "prompt": "About how many countries are there in Europe?",
+          "answer": "About fifty",
+          "wrong": [
+            "About ten",
+            "About a hundred",
+            "About a thousand"
+          ],
+          "hint": "More than forty, fewer than sixty.",
+          "explanation": "Europe has about fifty countries.",
+          "fact": "Some of them are smaller than a large city."
+        },
+        "de": {
+          "prompt": "Wie viele Länder gibt es ungefähr in Europa?",
+          "answer": "Etwa fünfzig",
+          "wrong": [
+            "Etwa zehn",
+            "Etwa hundert",
+            "Etwa tausend"
+          ],
+          "hint": "Mehr als vierzig, weniger als sechzig.",
+          "explanation": "Europa zählt etwa fünfzig Länder.",
+          "fact": "Manche davon sind kleiner als eine große Stadt."
+        },
+        "fr": {
+          "prompt": "Combien de pays compte à peu près l'Europe ?",
+          "answer": "Environ cinquante",
+          "wrong": [
+            "Environ dix",
+            "Environ cent",
+            "Environ mille"
+          ],
+          "hint": "Plus de quarante, moins de soixante.",
+          "explanation": "L'Europe compte une cinquantaine de pays.",
+          "fact": "Certains sont plus petits qu'une grande ville."
+        },
+        "es": {
+          "prompt": "¿Cuántos países hay más o menos en Europa?",
+          "answer": "Unos cincuenta",
+          "wrong": [
+            "Unos diez",
+            "Unos cien",
+            "Unos mil"
+          ],
+          "hint": "Más de cuarenta y menos de sesenta.",
+          "explanation": "Europa tiene alrededor de cincuenta países.",
+          "fact": "Algunos son más pequeños que una ciudad grande."
+        },
+        "it": {
+          "prompt": "Quanti paesi ci sono più o meno in Europa?",
+          "answer": "Circa cinquanta",
+          "wrong": [
+            "Circa dieci",
+            "Circa cento",
+            "Circa mille"
+          ],
+          "hint": "Più di quaranta, meno di sessanta.",
+          "explanation": "L'Europa conta all'incirca cinquanta paesi.",
+          "fact": "Alcuni sono più piccoli di una grande città."
+        },
+        "pt": {
+          "prompt": "Quantos países há mais ou menos na Europa?",
+          "answer": "Cerca de cinquenta",
+          "wrong": [
+            "Cerca de dez",
+            "Cerca de cem",
+            "Cerca de mil"
+          ],
+          "hint": "Mais de quarenta e menos de sessenta.",
+          "explanation": "A Europa tem cerca de cinquenta países.",
+          "fact": "Alguns são mais pequenos do que uma cidade grande."
+        },
+        "da": {
+          "prompt": "Hvor mange lande er der cirka i Europa?",
+          "answer": "Omkring halvtreds",
+          "wrong": [
+            "Omkring ti",
+            "Omkring hundrede",
+            "Omkring tusind"
+          ],
+          "hint": "Flere end fyrre, færre end tres.",
+          "explanation": "Europa har omkring halvtreds lande.",
+          "fact": "Nogle af dem er mindre end en stor by."
+        },
+        "ru": {
+          "prompt": "Сколько примерно стран в Европе?",
+          "answer": "Около пятидесяти",
+          "wrong": [
+            "Около десяти",
+            "Около ста",
+            "Около тысячи"
+          ],
+          "hint": "Больше сорока и меньше шестидесяти.",
+          "explanation": "В Европе около пятидесяти стран.",
+          "fact": "Некоторые из них меньше большого города."
+        },
+        "ar": {
+          "prompt": "كم دولة في أوروبا تقريبًا؟",
+          "answer": "نحو خمسين",
+          "wrong": [
+            "نحو عشر",
+            "نحو مئة",
+            "نحو ألف"
+          ],
+          "hint": "أكثر من أربعين وأقل من ستين.",
+          "explanation": "في أوروبا نحو خمسين دولة.",
+          "fact": "بعضها أصغر من مدينة كبيرة."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Rusland heeft elf tijdzones",
+      "artBrief": "Een kaart van een enorm land met verticale banen en klokjes die verschillen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel tijdzones heeft Rusland?",
+          "answer": "Elf",
+          "wrong": [
+            "Twee",
+            "Vijf",
+            "Vierentwintig"
+          ],
+          "hint": "Meer dan tien.",
+          "explanation": "Rusland is zo breed dat het elf tijdzones telt.",
+          "fact": "Als het in Moskou ontbijt is, is het in het oosten al avond."
+        },
+        "en": {
+          "prompt": "How many time zones does Russia have?",
+          "answer": "Eleven",
+          "wrong": [
+            "Two",
+            "Five",
+            "Twenty-four"
+          ],
+          "hint": "More than ten.",
+          "explanation": "Russia is so wide that it spans eleven time zones.",
+          "fact": "When Moscow is having breakfast, the east is already at evening."
+        },
+        "de": {
+          "prompt": "Wie viele Zeitzonen hat Russland?",
+          "answer": "Elf",
+          "wrong": [
+            "Zwei",
+            "Fünf",
+            "Vierundzwanzig"
+          ],
+          "hint": "Mehr als zehn.",
+          "explanation": "Russland ist so breit, dass es elf Zeitzonen umfasst.",
+          "fact": "Wenn Moskau frühstückt, ist es im Osten schon Abend."
+        },
+        "fr": {
+          "prompt": "Combien de fuseaux horaires a la Russie ?",
+          "answer": "Onze",
+          "wrong": [
+            "Deux",
+            "Cinq",
+            "Vingt-quatre"
+          ],
+          "hint": "Plus de dix.",
+          "explanation": "La Russie est si large qu'elle couvre onze fuseaux horaires.",
+          "fact": "Quand Moscou déjeune, c'est déjà le soir à l'est."
+        },
+        "es": {
+          "prompt": "¿Cuántas zonas horarias tiene Rusia?",
+          "answer": "Once",
+          "wrong": [
+            "Dos",
+            "Cinco",
+            "Veinticuatro"
+          ],
+          "hint": "Más de diez.",
+          "explanation": "Rusia es tan ancha que abarca once zonas horarias.",
+          "fact": "Cuando en Moscú desayunan, en el este ya es de noche."
+        },
+        "it": {
+          "prompt": "Quanti fusi orari ha la Russia?",
+          "answer": "Undici",
+          "wrong": [
+            "Due",
+            "Cinque",
+            "Ventiquattro"
+          ],
+          "hint": "Più di dieci.",
+          "explanation": "La Russia è così larga da avere undici fusi orari.",
+          "fact": "Quando a Mosca si fa colazione, a est è già sera."
+        },
+        "pt": {
+          "prompt": "Quantos fusos horários tem a Rússia?",
+          "answer": "Onze",
+          "wrong": [
+            "Dois",
+            "Cinco",
+            "Vinte e quatro"
+          ],
+          "hint": "Mais de dez.",
+          "explanation": "A Rússia é tão larga que tem onze fusos horários.",
+          "fact": "Quando Moscovo toma o pequeno-almoço, a leste já é noite."
+        },
+        "da": {
+          "prompt": "Hvor mange tidszoner har Rusland?",
+          "answer": "Elleve",
+          "wrong": [
+            "To",
+            "Fem",
+            "Fireogtyve"
+          ],
+          "hint": "Flere end ti.",
+          "explanation": "Rusland er så bredt, at det har elleve tidszoner.",
+          "fact": "Når Moskva spiser morgenmad, er det allerede aften mod øst."
+        },
+        "ru": {
+          "prompt": "Сколько часовых поясов в России?",
+          "answer": "Одиннадцать",
+          "wrong": [
+            "Два",
+            "Пять",
+            "Двадцать четыре"
+          ],
+          "hint": "Больше десяти.",
+          "explanation": "Россия так широка, что охватывает одиннадцать часовых поясов.",
+          "fact": "Когда в Москве завтракают, на востоке уже вечер."
+        },
+        "ar": {
+          "prompt": "كم منطقة زمنية في روسيا؟",
+          "answer": "إحدى عشرة",
+          "wrong": [
+            "اثنتان",
+            "خمس",
+            "أربع وعشرون"
+          ],
+          "hint": "أكثر من عشر.",
+          "explanation": "روسيا واسعة حتى إنها تضم إحدى عشرة منطقة زمنية.",
+          "fact": "حين تتناول موسكو الفطور يكون المساء قد حل شرقًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Istanbul ligt in Europa en Azië",
+      "artBrief": "Een stad met een brede zeestraat erdoorheen en een brug die twee oevers verbindt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke grote stad ligt in twee werelddelen?",
+          "answer": "Istanbul",
+          "wrong": [
+            "Moskou",
+            "Caïro",
+            "Athene"
+          ],
+          "hint": "Er loopt een zeestraat dwars doorheen.",
+          "explanation": "Istanbul ligt deels in Europa en deels in Azië.",
+          "fact": "Je kunt er met de boot van het ene werelddeel naar het andere."
+        },
+        "en": {
+          "prompt": "Which big city lies in two continents?",
+          "answer": "Istanbul",
+          "wrong": [
+            "Moscow",
+            "Cairo",
+            "Athens"
+          ],
+          "hint": "A sea strait runs right through it.",
+          "explanation": "Istanbul lies partly in Europe and partly in Asia.",
+          "fact": "You can take a boat from one continent to the other."
+        },
+        "de": {
+          "prompt": "Welche große Stadt liegt in zwei Kontinenten?",
+          "answer": "Istanbul",
+          "wrong": [
+            "Moskau",
+            "Kairo",
+            "Athen"
+          ],
+          "hint": "Eine Meerenge verläuft mitten hindurch.",
+          "explanation": "Istanbul liegt teils in Europa und teils in Asien.",
+          "fact": "Mit dem Boot fährt man von einem Kontinent zum anderen."
+        },
+        "fr": {
+          "prompt": "Quelle grande ville se trouve sur deux continents ?",
+          "answer": "Istanbul",
+          "wrong": [
+            "Moscou",
+            "Le Caire",
+            "Athènes"
+          ],
+          "hint": "Un détroit la traverse.",
+          "explanation": "Istanbul est en partie en Europe et en partie en Asie.",
+          "fact": "On passe d'un continent à l'autre en bateau."
+        },
+        "es": {
+          "prompt": "¿Qué gran ciudad está en dos continentes?",
+          "answer": "Estambul",
+          "wrong": [
+            "Moscú",
+            "El Cairo",
+            "Atenas"
+          ],
+          "hint": "Un estrecho la parte por la mitad.",
+          "explanation": "Estambul está en parte en Europa y en parte en Asia.",
+          "fact": "Se puede pasar de un continente a otro en barco."
+        },
+        "it": {
+          "prompt": "Quale grande città si trova in due continenti?",
+          "answer": "Istanbul",
+          "wrong": [
+            "Mosca",
+            "Il Cairo",
+            "Atene"
+          ],
+          "hint": "Uno stretto la taglia in due.",
+          "explanation": "Istanbul si trova in parte in Europa e in parte in Asia.",
+          "fact": "In barca si passa da un continente all'altro."
+        },
+        "pt": {
+          "prompt": "Que grande cidade fica em dois continentes?",
+          "answer": "Istambul",
+          "wrong": [
+            "Moscovo",
+            "Cairo",
+            "Atenas"
+          ],
+          "hint": "Um estreito passa pelo meio dela.",
+          "explanation": "Istambul fica em parte na Europa e em parte na Ásia.",
+          "fact": "De barco passa-se de um continente para o outro."
+        },
+        "da": {
+          "prompt": "Hvilken storby ligger i to verdensdele?",
+          "answer": "Istanbul",
+          "wrong": [
+            "Moskva",
+            "Kairo",
+            "Athen"
+          ],
+          "hint": "Et stræde går tværs igennem den.",
+          "explanation": "Istanbul ligger dels i Europa, dels i Asien.",
+          "fact": "Med båd sejler man fra den ene verdensdel til den anden."
+        },
+        "ru": {
+          "prompt": "Какой большой город лежит в двух частях света?",
+          "answer": "Стамбул",
+          "wrong": [
+            "Москва",
+            "Каир",
+            "Афины"
+          ],
+          "hint": "Его разрезает пролив.",
+          "explanation": "Стамбул находится частью в Европе, частью в Азии.",
+          "fact": "На пароме можно переехать из одной части света в другую."
+        },
+        "ar": {
+          "prompt": "أي مدينة كبيرة تقع في قارتين؟",
+          "answer": "إسطنبول",
+          "wrong": [
+            "موسكو",
+            "القاهرة",
+            "أثينا"
+          ],
+          "hint": "يشقها مضيق بحري.",
+          "explanation": "تقع إسطنبول جزئيًا في أوروبا وجزئيًا في آسيا.",
+          "fact": "بالقارب تنتقل من قارة إلى أخرى."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Kilimanjaro, 5895 m, hoogste berg van Afrika",
+      "artBrief": "Een besneeuwde bergtop boven een savanne met acacia's en zebra's.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de hoogste berg van Afrika?",
+          "answer": "De Kilimanjaro",
+          "wrong": [
+            "De Mount Kenya",
+            "De Atlas",
+            "De Tafelberg"
+          ],
+          "hint": "Er ligt sneeuw, vlak bij de evenaar.",
+          "explanation": "De Kilimanjaro is bijna zesduizend meter hoog.",
+          "fact": "Aan de voet is het warm, op de top ligt ijs."
+        },
+        "en": {
+          "prompt": "What is the highest mountain in Africa?",
+          "answer": "Kilimanjaro",
+          "wrong": [
+            "Mount Kenya",
+            "The Atlas",
+            "Table Mountain"
+          ],
+          "hint": "There is snow on it, close to the equator.",
+          "explanation": "Kilimanjaro is nearly six thousand metres high.",
+          "fact": "It is warm at its foot and icy at the top."
+        },
+        "de": {
+          "prompt": "Was ist der höchste Berg Afrikas?",
+          "answer": "Der Kilimandscharo",
+          "wrong": [
+            "Der Mount Kenya",
+            "Der Atlas",
+            "Der Tafelberg"
+          ],
+          "hint": "Dort liegt Schnee, ganz nah am Äquator.",
+          "explanation": "Der Kilimandscharo ist fast sechstausend Meter hoch.",
+          "fact": "Am Fuß ist es warm, auf dem Gipfel liegt Eis."
+        },
+        "fr": {
+          "prompt": "Quelle est la plus haute montagne d'Afrique ?",
+          "answer": "Le Kilimandjaro",
+          "wrong": [
+            "Le mont Kenya",
+            "L'Atlas",
+            "La montagne de la Table"
+          ],
+          "hint": "Il y a de la neige, tout près de l'équateur.",
+          "explanation": "Le Kilimandjaro fait presque six mille mètres.",
+          "fact": "Il fait chaud à son pied et il y a de la glace au sommet."
+        },
+        "es": {
+          "prompt": "¿Cuál es la montaña más alta de África?",
+          "answer": "El Kilimanjaro",
+          "wrong": [
+            "El monte Kenia",
+            "El Atlas",
+            "La Montaña de la Mesa"
+          ],
+          "hint": "Tiene nieve, cerquísima del ecuador.",
+          "explanation": "El Kilimanjaro mide casi seis mil metros.",
+          "fact": "Al pie hace calor y en la cima hay hielo."
+        },
+        "it": {
+          "prompt": "Qual è la montagna più alta dell'Africa?",
+          "answer": "Il Kilimangiaro",
+          "wrong": [
+            "Il monte Kenya",
+            "L'Atlante",
+            "La Montagna della Tavola"
+          ],
+          "hint": "C'è neve, vicinissimo all'equatore.",
+          "explanation": "Il Kilimangiaro è alto quasi seimila metri.",
+          "fact": "Ai piedi fa caldo e in cima c'è ghiaccio."
+        },
+        "pt": {
+          "prompt": "Qual é a montanha mais alta de África?",
+          "answer": "O Kilimanjaro",
+          "wrong": [
+            "O monte Quénia",
+            "O Atlas",
+            "A Montanha da Mesa"
+          ],
+          "hint": "Tem neve, mesmo ao pé do equador.",
+          "explanation": "O Kilimanjaro tem quase seis mil metros.",
+          "fact": "Ao fundo faz calor e no cimo há gelo."
+        },
+        "da": {
+          "prompt": "Hvad er Afrikas højeste bjerg?",
+          "answer": "Kilimanjaro",
+          "wrong": [
+            "Mount Kenya",
+            "Atlas",
+            "Taffelbjerget"
+          ],
+          "hint": "Der ligger sne, helt tæt på ækvator.",
+          "explanation": "Kilimanjaro er næsten seks tusind meter højt.",
+          "fact": "Ved foden er der varmt, og på toppen ligger is."
+        },
+        "ru": {
+          "prompt": "Какая гора в Африке самая высокая?",
+          "answer": "Килиманджаро",
+          "wrong": [
+            "Гора Кения",
+            "Атлас",
+            "Столовая гора"
+          ],
+          "hint": "На ней лежит снег совсем рядом с экватором.",
+          "explanation": "Килиманджаро почти шесть тысяч метров высотой.",
+          "fact": "У подножия жарко, а на вершине лежит лёд."
+        },
+        "ar": {
+          "prompt": "ما أعلى جبل في أفريقيا؟",
+          "answer": "كليمنجارو",
+          "wrong": [
+            "جبل كينيا",
+            "الأطلس",
+            "جبل الطاولة"
+          ],
+          "hint": "عليه ثلج رغم قربه من خط الاستواء.",
+          "explanation": "يبلغ ارتفاع كليمنجارو نحو ستة آلاف متر.",
+          "fact": "عند سفحه حر وعلى قمته جليد."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Indonesië telt meer dan 17.000 eilanden",
+      "artBrief": "Een zee vol groene eilandjes van bovenaf, met witte stranden.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk land bestaat uit meer dan zeventienduizend eilanden?",
+          "answer": "Indonesië",
+          "wrong": [
+            "Japan",
+            "Griekenland",
+            "De Filipijnen"
+          ],
+          "hint": "Het ligt tussen twee oceanen.",
+          "explanation": "Indonesië bestaat uit ruim zeventienduizend eilanden.",
+          "fact": "Op maar een paar duizend daarvan wonen mensen."
+        },
+        "en": {
+          "prompt": "Which country is made up of over seventeen thousand islands?",
+          "answer": "Indonesia",
+          "wrong": [
+            "Japan",
+            "Greece",
+            "The Philippines"
+          ],
+          "hint": "It lies between two oceans.",
+          "explanation": "Indonesia consists of more than seventeen thousand islands.",
+          "fact": "Only a few thousand of them have people living on them."
+        },
+        "de": {
+          "prompt": "Welches Land besteht aus über siebzehntausend Inseln?",
+          "answer": "Indonesien",
+          "wrong": [
+            "Japan",
+            "Griechenland",
+            "Die Philippinen"
+          ],
+          "hint": "Es liegt zwischen zwei Ozeanen.",
+          "explanation": "Indonesien besteht aus mehr als siebzehntausend Inseln.",
+          "fact": "Nur auf ein paar tausend davon leben Menschen."
+        },
+        "fr": {
+          "prompt": "Quel pays est fait de plus de dix-sept mille îles ?",
+          "answer": "L'Indonésie",
+          "wrong": [
+            "Le Japon",
+            "La Grèce",
+            "Les Philippines"
+          ],
+          "hint": "Il se trouve entre deux océans.",
+          "explanation": "L'Indonésie compte plus de dix-sept mille îles.",
+          "fact": "Quelques milliers seulement sont habitées."
+        },
+        "es": {
+          "prompt": "¿Qué país está formado por más de diecisiete mil islas?",
+          "answer": "Indonesia",
+          "wrong": [
+            "Japón",
+            "Grecia",
+            "Filipinas"
+          ],
+          "hint": "Está entre dos océanos.",
+          "explanation": "Indonesia está formada por más de diecisiete mil islas.",
+          "fact": "Solo unos pocos miles están habitadas."
+        },
+        "it": {
+          "prompt": "Quale paese è fatto di oltre diciassettemila isole?",
+          "answer": "L'Indonesia",
+          "wrong": [
+            "Il Giappone",
+            "La Grecia",
+            "Le Filippine"
+          ],
+          "hint": "Si trova fra due oceani.",
+          "explanation": "L'Indonesia è formata da più di diciassettemila isole.",
+          "fact": "Solo poche migliaia sono abitate."
+        },
+        "pt": {
+          "prompt": "Que país é feito de mais de dezassete mil ilhas?",
+          "answer": "A Indonésia",
+          "wrong": [
+            "O Japão",
+            "A Grécia",
+            "As Filipinas"
+          ],
+          "hint": "Fica entre dois oceanos.",
+          "explanation": "A Indonésia é feita de mais de dezassete mil ilhas.",
+          "fact": "Só uns poucos milhares têm gente a viver."
+        },
+        "da": {
+          "prompt": "Hvilket land består af over sytten tusind øer?",
+          "answer": "Indonesien",
+          "wrong": [
+            "Japan",
+            "Grækenland",
+            "Filippinerne"
+          ],
+          "hint": "Det ligger mellem to oceaner.",
+          "explanation": "Indonesien består af mere end sytten tusind øer.",
+          "fact": "Kun nogle få tusind af dem er beboede."
+        },
+        "ru": {
+          "prompt": "Какая страна состоит более чем из семнадцати тысяч островов?",
+          "answer": "Индонезия",
+          "wrong": [
+            "Япония",
+            "Греция",
+            "Филиппины"
+          ],
+          "hint": "Она лежит между двумя океанами.",
+          "explanation": "Индонезия состоит более чем из семнадцати тысяч островов.",
+          "fact": "Люди живут лишь на нескольких тысячах из них."
+        },
+        "ar": {
+          "prompt": "أي بلد يتكون من أكثر من سبعة عشر ألف جزيرة؟",
+          "answer": "إندونيسيا",
+          "wrong": [
+            "اليابان",
+            "اليونان",
+            "الفلبين"
+          ],
+          "hint": "تقع بين محيطين.",
+          "explanation": "تتكون إندونيسيا من أكثر من سبعة عشر ألف جزيرة.",
+          "fact": "وبضعة آلاف منها فقط مأهولة."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Vaticaanstad ligt binnen Rome",
+      "artBrief": "Een kleine ommuurde stadstaat met een koepel, midden in een grote stad.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "In welk land ligt Vaticaanstad?",
+          "answer": "Italië",
+          "wrong": [
+            "Frankrijk",
+            "Spanje",
+            "Griekenland"
+          ],
+          "hint": "Het ligt midden in een beroemde hoofdstad.",
+          "explanation": "Vaticaanstad ligt helemaal binnen de stad Rome.",
+          "fact": "Je kunt er in een half uur omheen lopen."
+        },
+        "en": {
+          "prompt": "In which country is Vatican City?",
+          "answer": "Italy",
+          "wrong": [
+            "France",
+            "Spain",
+            "Greece"
+          ],
+          "hint": "It sits inside a famous capital.",
+          "explanation": "Vatican City lies entirely within the city of Rome.",
+          "fact": "You can walk all the way round it in half an hour."
+        },
+        "de": {
+          "prompt": "In welchem Land liegt die Vatikanstadt?",
+          "answer": "Italien",
+          "wrong": [
+            "Frankreich",
+            "Spanien",
+            "Griechenland"
+          ],
+          "hint": "Sie liegt mitten in einer berühmten Hauptstadt.",
+          "explanation": "Die Vatikanstadt liegt vollständig innerhalb Roms.",
+          "fact": "In einer halben Stunde geht man einmal außen herum."
+        },
+        "fr": {
+          "prompt": "Dans quel pays se trouve la Cité du Vatican ?",
+          "answer": "L'Italie",
+          "wrong": [
+            "La France",
+            "L'Espagne",
+            "La Grèce"
+          ],
+          "hint": "Elle est au cœur d'une capitale célèbre.",
+          "explanation": "La Cité du Vatican est entièrement à l'intérieur de Rome.",
+          "fact": "On en fait le tour à pied en une demi-heure."
+        },
+        "es": {
+          "prompt": "¿En qué país está la Ciudad del Vaticano?",
+          "answer": "Italia",
+          "wrong": [
+            "Francia",
+            "España",
+            "Grecia"
+          ],
+          "hint": "Está dentro de una capital famosa.",
+          "explanation": "La Ciudad del Vaticano está entera dentro de Roma.",
+          "fact": "Se puede rodear a pie en media hora."
+        },
+        "it": {
+          "prompt": "In quale paese si trova la Città del Vaticano?",
+          "answer": "L'Italia",
+          "wrong": [
+            "La Francia",
+            "La Spagna",
+            "La Grecia"
+          ],
+          "hint": "È dentro una capitale famosa.",
+          "explanation": "La Città del Vaticano si trova interamente dentro Roma.",
+          "fact": "La si gira tutta a piedi in mezz'ora."
+        },
+        "pt": {
+          "prompt": "Em que país fica a Cidade do Vaticano?",
+          "answer": "Itália",
+          "wrong": [
+            "França",
+            "Espanha",
+            "Grécia"
+          ],
+          "hint": "Fica dentro de uma capital famosa.",
+          "explanation": "A Cidade do Vaticano fica toda dentro de Roma.",
+          "fact": "Dá para lhe dar a volta a pé em meia hora."
+        },
+        "da": {
+          "prompt": "I hvilket land ligger Vatikanstaten?",
+          "answer": "Italien",
+          "wrong": [
+            "Frankrig",
+            "Spanien",
+            "Grækenland"
+          ],
+          "hint": "Den ligger inde i en berømt hovedstad.",
+          "explanation": "Vatikanstaten ligger helt inde i byen Rom.",
+          "fact": "Man kan gå hele vejen rundt om den på en halv time."
+        },
+        "ru": {
+          "prompt": "В какой стране находится Ватикан?",
+          "answer": "Италия",
+          "wrong": [
+            "Франция",
+            "Испания",
+            "Греция"
+          ],
+          "hint": "Он внутри знаменитой столицы.",
+          "explanation": "Ватикан целиком находится внутри Рима.",
+          "fact": "Обойти его пешком можно за полчаса."
+        },
+        "ar": {
+          "prompt": "في أي بلد تقع مدينة الفاتيكان؟",
+          "answer": "إيطاليا",
+          "wrong": [
+            "فرنسا",
+            "إسبانيا",
+            "اليونان"
+          ],
+          "hint": "تقع داخل عاصمة مشهورة.",
+          "explanation": "مدينة الفاتيكان تقع بالكامل داخل مدينة روما.",
+          "fact": "يمكن الدوران حولها مشيًا في نصف ساعة."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Canada heeft de meeste meren ter wereld",
+      "artBrief": "Een luchtfoto van een bosgebied met ontelbare blauwe meren.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk land heeft de meeste meren ter wereld?",
+          "answer": "Canada",
+          "wrong": [
+            "Rusland",
+            "Finland",
+            "Zweden"
+          ],
+          "hint": "Het ligt in het noorden van Amerika.",
+          "explanation": "In Canada liggen meer meren dan in alle andere landen samen.",
+          "fact": "Veel ervan zijn uitgesleten door ijs uit de ijstijd."
+        },
+        "en": {
+          "prompt": "Which country has the most lakes in the world?",
+          "answer": "Canada",
+          "wrong": [
+            "Russia",
+            "Finland",
+            "Sweden"
+          ],
+          "hint": "It lies in the north of America.",
+          "explanation": "Canada has more lakes than all other countries put together.",
+          "fact": "Many were carved out by ice during the ice age."
+        },
+        "de": {
+          "prompt": "Welches Land hat die meisten Seen der Welt?",
+          "answer": "Kanada",
+          "wrong": [
+            "Russland",
+            "Finnland",
+            "Schweden"
+          ],
+          "hint": "Es liegt im Norden Amerikas.",
+          "explanation": "In Kanada gibt es mehr Seen als in allen anderen Ländern zusammen.",
+          "fact": "Viele wurden in der Eiszeit vom Eis ausgeschürft."
+        },
+        "fr": {
+          "prompt": "Quel pays a le plus de lacs au monde ?",
+          "answer": "Le Canada",
+          "wrong": [
+            "La Russie",
+            "La Finlande",
+            "La Suède"
+          ],
+          "hint": "Il est au nord de l'Amérique.",
+          "explanation": "Le Canada a plus de lacs que tous les autres pays réunis.",
+          "fact": "Beaucoup ont été creusés par la glace de l'ère glaciaire."
+        },
+        "es": {
+          "prompt": "¿Qué país tiene más lagos del mundo?",
+          "answer": "Canadá",
+          "wrong": [
+            "Rusia",
+            "Finlandia",
+            "Suecia"
+          ],
+          "hint": "Está en el norte de América.",
+          "explanation": "Canadá tiene más lagos que todos los demás países juntos.",
+          "fact": "Muchos los excavó el hielo en la edad de hielo."
+        },
+        "it": {
+          "prompt": "Quale paese ha il maggior numero di laghi al mondo?",
+          "answer": "Il Canada",
+          "wrong": [
+            "La Russia",
+            "La Finlandia",
+            "La Svezia"
+          ],
+          "hint": "Si trova a nord dell'America.",
+          "explanation": "In Canada ci sono più laghi che in tutti gli altri paesi insieme.",
+          "fact": "Molti furono scavati dai ghiacci dell'era glaciale."
+        },
+        "pt": {
+          "prompt": "Que país tem mais lagos do mundo?",
+          "answer": "O Canadá",
+          "wrong": [
+            "A Rússia",
+            "A Finlândia",
+            "A Suécia"
+          ],
+          "hint": "Fica no norte da América.",
+          "explanation": "O Canadá tem mais lagos do que todos os outros países juntos.",
+          "fact": "Muitos foram escavados pelo gelo na idade do gelo."
+        },
+        "da": {
+          "prompt": "Hvilket land har flest søer i verden?",
+          "answer": "Canada",
+          "wrong": [
+            "Rusland",
+            "Finland",
+            "Sverige"
+          ],
+          "hint": "Det ligger i det nordlige Amerika.",
+          "explanation": "Canada har flere søer end alle andre lande tilsammen.",
+          "fact": "Mange blev gravet ud af isen i istiden."
+        },
+        "ru": {
+          "prompt": "В какой стране больше всего озёр в мире?",
+          "answer": "Канада",
+          "wrong": [
+            "Россия",
+            "Финляндия",
+            "Швеция"
+          ],
+          "hint": "Она на севере Америки.",
+          "explanation": "В Канаде озёр больше, чем во всех остальных странах вместе.",
+          "fact": "Многие из них выпахал лёд в ледниковый период."
+        },
+        "ar": {
+          "prompt": "أي بلد فيه أكثر بحيرات في العالم؟",
+          "answer": "كندا",
+          "wrong": [
+            "روسيا",
+            "فنلندا",
+            "السويد"
+          ],
+          "hint": "تقع في شمال أمريكا.",
+          "explanation": "في كندا بحيرات أكثر من كل الدول الأخرى مجتمعة.",
+          "fact": "حفر كثيرًا منها الجليد في العصر الجليدي."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "La Paz, regeringszetel op 3.640 meter",
+      "artBrief": "Een stad die tegen steile berghellingen op is gebouwd, met kabelbanen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke hoofdstad ligt het hoogst van allemaal?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Mexico-Stad",
+            "Nairobi"
+          ],
+          "hint": "Hij ligt in de Andes.",
+          "explanation": "La Paz in Bolivia ligt op ruim drieduizend meter hoogte.",
+          "fact": "Nieuwkomers worden er soms duizelig van de dunne lucht."
+        },
+        "en": {
+          "prompt": "Which capital city lies the highest of all?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Mexico City",
+            "Nairobi"
+          ],
+          "hint": "It sits in the Andes.",
+          "explanation": "La Paz in Bolivia lies over three thousand metres up.",
+          "fact": "Newcomers sometimes feel dizzy in the thin air."
+        },
+        "de": {
+          "prompt": "Welche Hauptstadt liegt am höchsten?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Mexiko-Stadt",
+            "Nairobi"
+          ],
+          "hint": "Sie liegt in den Anden.",
+          "explanation": "La Paz in Bolivien liegt über dreitausend Meter hoch.",
+          "fact": "Neuankömmlingen wird von der dünnen Luft manchmal schwindelig."
+        },
+        "fr": {
+          "prompt": "Quelle capitale est la plus haute du monde ?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Mexico",
+            "Nairobi"
+          ],
+          "hint": "Elle est dans les Andes.",
+          "explanation": "La Paz, en Bolivie, est à plus de trois mille mètres.",
+          "fact": "Les nouveaux venus ont parfois le vertige à cause de l'air."
+        },
+        "es": {
+          "prompt": "¿Qué capital está más alta de todas?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Ciudad de México",
+            "Nairobi"
+          ],
+          "hint": "Está en los Andes.",
+          "explanation": "La Paz, en Bolivia, está a más de tres mil metros.",
+          "fact": "A los recién llegados a veces les marea el aire fino."
+        },
+        "it": {
+          "prompt": "Quale capitale si trova più in alto di tutte?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Città del Messico",
+            "Nairobi"
+          ],
+          "hint": "Si trova sulle Ande.",
+          "explanation": "La Paz, in Bolivia, sta a oltre tremila metri di quota.",
+          "fact": "Ai nuovi arrivati l'aria sottile a volte dà le vertigini."
+        },
+        "pt": {
+          "prompt": "Que capital fica mais alta de todas?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Cidade do México",
+            "Nairobi"
+          ],
+          "hint": "Fica nos Andes.",
+          "explanation": "La Paz, na Bolívia, fica a mais de três mil metros.",
+          "fact": "Quem chega de novo às vezes fica tonto com o ar rarefeito."
+        },
+        "da": {
+          "prompt": "Hvilken hovedstad ligger højest af alle?",
+          "answer": "La Paz",
+          "wrong": [
+            "Madrid",
+            "Mexico City",
+            "Nairobi"
+          ],
+          "hint": "Den ligger i Andesbjergene.",
+          "explanation": "La Paz i Bolivia ligger over tre tusind meter oppe.",
+          "fact": "Nytilkomne bliver nogle gange svimle af den tynde luft."
+        },
+        "ru": {
+          "prompt": "Какая столица расположена выше всех?",
+          "answer": "Ла-Пас",
+          "wrong": [
+            "Мадрид",
+            "Мехико",
+            "Найроби"
+          ],
+          "hint": "Она в Андах.",
+          "explanation": "Ла-Пас в Боливии лежит выше трёх тысяч метров.",
+          "fact": "У приезжих иногда кружится голова от разреженного воздуха."
+        },
+        "ar": {
+          "prompt": "أي عاصمة هي الأعلى ارتفاعًا؟",
+          "answer": "لاباز",
+          "wrong": [
+            "مدريد",
+            "مكسيكو سيتي",
+            "نيروبي"
+          ],
+          "hint": "تقع في جبال الأنديز.",
+          "explanation": "تقع لاباز في بوليفيا على ارتفاع يتجاوز ثلاثة آلاف متر.",
+          "fact": "القادمون الجدد يصيبهم الدوار أحيانًا من الهواء الخفيف."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Saoedi-Arabië heeft geen permanente rivieren",
+      "artBrief": "Een droge woestijnvallei met een opgedroogde rivierbedding.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk groot land heeft helemaal geen rivieren?",
+          "answer": "Saoedi-Arabië",
+          "wrong": [
+            "Egypte",
+            "Marokko",
+            "Turkije"
+          ],
+          "hint": "Het bestaat grotendeels uit woestijn.",
+          "explanation": "In Saoedi-Arabië stroomt geen enkele rivier het hele jaar door.",
+          "fact": "Het drinkwater komt er vooral uit ontzilt zeewater."
+        },
+        "en": {
+          "prompt": "Which large country has no rivers at all?",
+          "answer": "Saudi Arabia",
+          "wrong": [
+            "Egypt",
+            "Morocco",
+            "Turkey"
+          ],
+          "hint": "It is mostly desert.",
+          "explanation": "Not one river in Saudi Arabia flows all year round.",
+          "fact": "Its drinking water comes mainly from desalted sea water."
+        },
+        "de": {
+          "prompt": "Welches große Land hat gar keine Flüsse?",
+          "answer": "Saudi-Arabien",
+          "wrong": [
+            "Ägypten",
+            "Marokko",
+            "Die Türkei"
+          ],
+          "hint": "Es besteht größtenteils aus Wüste.",
+          "explanation": "In Saudi-Arabien fließt kein einziger Fluss ganzjährig.",
+          "fact": "Das Trinkwasser stammt vor allem aus entsalztem Meerwasser."
+        },
+        "fr": {
+          "prompt": "Quel grand pays n'a aucun fleuve ?",
+          "answer": "L'Arabie saoudite",
+          "wrong": [
+            "L'Égypte",
+            "Le Maroc",
+            "La Turquie"
+          ],
+          "hint": "C'est surtout du désert.",
+          "explanation": "Aucun cours d'eau d'Arabie saoudite ne coule toute l'année.",
+          "fact": "L'eau potable y vient surtout de la mer dessalée."
+        },
+        "es": {
+          "prompt": "¿Qué país grande no tiene ningún río?",
+          "answer": "Arabia Saudí",
+          "wrong": [
+            "Egipto",
+            "Marruecos",
+            "Turquía"
+          ],
+          "hint": "Es sobre todo desierto.",
+          "explanation": "En Arabia Saudí no corre ningún río todo el año.",
+          "fact": "El agua potable sale sobre todo del mar desalado."
+        },
+        "it": {
+          "prompt": "Quale grande paese non ha nessun fiume?",
+          "answer": "L'Arabia Saudita",
+          "wrong": [
+            "L'Egitto",
+            "Il Marocco",
+            "La Turchia"
+          ],
+          "hint": "È per lo più deserto.",
+          "explanation": "In Arabia Saudita nessun fiume scorre tutto l'anno.",
+          "fact": "L'acqua potabile viene soprattutto dal mare dissalato."
+        },
+        "pt": {
+          "prompt": "Que país grande não tem rios nenhuns?",
+          "answer": "A Arábia Saudita",
+          "wrong": [
+            "O Egito",
+            "Marrocos",
+            "A Turquia"
+          ],
+          "hint": "É quase todo deserto.",
+          "explanation": "Na Arábia Saudita não corre nenhum rio todo o ano.",
+          "fact": "A água potável vem sobretudo do mar dessalinizado."
+        },
+        "da": {
+          "prompt": "Hvilket stort land har slet ingen floder?",
+          "answer": "Saudi-Arabien",
+          "wrong": [
+            "Egypten",
+            "Marokko",
+            "Tyrkiet"
+          ],
+          "hint": "Det er for det meste ørken.",
+          "explanation": "Ikke en eneste flod i Saudi-Arabien løber hele året.",
+          "fact": "Drikkevandet kommer mest fra afsaltet havvand."
+        },
+        "ru": {
+          "prompt": "В какой большой стране вообще нет рек?",
+          "answer": "Саудовская Аравия",
+          "wrong": [
+            "Египет",
+            "Марокко",
+            "Турция"
+          ],
+          "hint": "Она почти целиком пустыня.",
+          "explanation": "В Саудовской Аравии ни одна река не течёт круглый год.",
+          "fact": "Питьевую воду там получают в основном из опреснённой морской."
+        },
+        "ar": {
+          "prompt": "أي بلد كبير لا أنهار فيه إطلاقًا؟",
+          "answer": "السعودية",
+          "wrong": [
+            "مصر",
+            "المغرب",
+            "تركيا"
+          ],
+          "hint": "معظمها صحراء.",
+          "explanation": "لا يجري في السعودية أي نهر طوال العام.",
+          "fact": "ومياه الشرب تأتي أساسًا من تحلية ماء البحر."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Panamakanaal, geopend in 1914",
+      "artBrief": "Een groot schip in een sluis tussen twee oceanen, met groene heuvels.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk kanaal verbindt de Atlantische en de Stille Oceaan?",
+          "answer": "Het Panamakanaal",
+          "wrong": [
+            "Het Suezkanaal",
+            "Het Kielkanaal",
+            "Het Noordzeekanaal"
+          ],
+          "hint": "Het ligt in Midden-Amerika.",
+          "explanation": "Het Panamakanaal snijdt dwars door Midden-Amerika.",
+          "fact": "Schepen worden er met sluizen zesentwintig meter omhoog getild."
+        },
+        "en": {
+          "prompt": "Which canal joins the Atlantic and the Pacific?",
+          "answer": "The Panama Canal",
+          "wrong": [
+            "The Suez Canal",
+            "The Kiel Canal",
+            "The North Sea Canal"
+          ],
+          "hint": "It lies in Central America.",
+          "explanation": "The Panama Canal cuts straight through Central America.",
+          "fact": "Locks lift ships twenty-six metres up along the way."
+        },
+        "de": {
+          "prompt": "Welcher Kanal verbindet Atlantik und Pazifik?",
+          "answer": "Der Panamakanal",
+          "wrong": [
+            "Der Suezkanal",
+            "Der Nord-Ostsee-Kanal",
+            "Der Nordseekanal"
+          ],
+          "hint": "Er liegt in Mittelamerika.",
+          "explanation": "Der Panamakanal schneidet quer durch Mittelamerika.",
+          "fact": "Schleusen heben die Schiffe unterwegs sechsundzwanzig Meter an."
+        },
+        "fr": {
+          "prompt": "Quel canal relie l'Atlantique au Pacifique ?",
+          "answer": "Le canal de Panama",
+          "wrong": [
+            "Le canal de Suez",
+            "Le canal de Kiel",
+            "Le canal de la mer du Nord"
+          ],
+          "hint": "Il est en Amérique centrale.",
+          "explanation": "Le canal de Panama coupe l'Amérique centrale de part en part.",
+          "fact": "Des écluses soulèvent les navires de vingt-six mètres."
+        },
+        "es": {
+          "prompt": "¿Qué canal une el Atlántico con el Pacífico?",
+          "answer": "El canal de Panamá",
+          "wrong": [
+            "El canal de Suez",
+            "El canal de Kiel",
+            "El canal del Mar del Norte"
+          ],
+          "hint": "Está en América Central.",
+          "explanation": "El canal de Panamá corta América Central de lado a lado.",
+          "fact": "Unas esclusas suben los barcos veintiséis metros."
+        },
+        "it": {
+          "prompt": "Quale canale unisce l'Atlantico e il Pacifico?",
+          "answer": "Il canale di Panama",
+          "wrong": [
+            "Il canale di Suez",
+            "Il canale di Kiel",
+            "Il canale del Mare del Nord"
+          ],
+          "hint": "Si trova in America centrale.",
+          "explanation": "Il canale di Panama taglia l'America centrale da parte a parte.",
+          "fact": "Le chiuse sollevano le navi di ventisei metri."
+        },
+        "pt": {
+          "prompt": "Que canal liga o Atlântico ao Pacífico?",
+          "answer": "O canal do Panamá",
+          "wrong": [
+            "O canal do Suez",
+            "O canal de Kiel",
+            "O canal do Mar do Norte"
+          ],
+          "hint": "Fica na América Central.",
+          "explanation": "O canal do Panamá corta a América Central de lado a lado.",
+          "fact": "As eclusas levantam os navios vinte e seis metros."
+        },
+        "da": {
+          "prompt": "Hvilken kanal forbinder Atlanterhavet og Stillehavet?",
+          "answer": "Panamakanalen",
+          "wrong": [
+            "Suezkanalen",
+            "Kielerkanalen",
+            "Nordsøkanalen"
+          ],
+          "hint": "Den ligger i Mellemamerika.",
+          "explanation": "Panamakanalen skærer tværs gennem Mellemamerika.",
+          "fact": "Sluser løfter skibene seksogtyve meter undervejs."
+        },
+        "ru": {
+          "prompt": "Какой канал соединяет Атлантический и Тихий океаны?",
+          "answer": "Панамский канал",
+          "wrong": [
+            "Суэцкий канал",
+            "Кильский канал",
+            "Северноморский канал"
+          ],
+          "hint": "Он в Центральной Америке.",
+          "explanation": "Панамский канал прорезает Центральную Америку насквозь.",
+          "fact": "Шлюзы поднимают суда на двадцать шесть метров."
+        },
+        "ar": {
+          "prompt": "أي قناة تصل المحيط الأطلسي بالمحيط الهادئ؟",
+          "answer": "قناة بنما",
+          "wrong": [
+            "قناة السويس",
+            "قناة كيل",
+            "قناة بحر الشمال"
+          ],
+          "hint": "تقع في أمريكا الوسطى.",
+          "explanation": "تشق قناة بنما أمريكا الوسطى من طرف إلى طرف.",
+          "fact": "وترفع الأهوسة السفن ستة وعشرين مترًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-continenten_landen-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Antipode van Nederland ligt bij Nieuw-Zeeland",
+      "artBrief": "Een wereldbol met een lijn dwars door het midden van de aarde naar de andere kant.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar kom je uit als je vanuit Nederland dwars door de aarde graaft?",
+          "answer": "Bij Nieuw-Zeeland",
+          "wrong": [
+            "Bij Australië",
+            "Bij Japan",
+            "Bij Chili"
+          ],
+          "hint": "Aan de andere kant van de wereldbol.",
+          "explanation": "Recht tegenover Nederland ligt de zee bij Nieuw-Zeeland.",
+          "fact": "Zo'n tegenovergelegen punt heet een antipode."
+        },
+        "en": {
+          "prompt": "Where would you come out digging straight through the earth from the Netherlands?",
+          "answer": "Near New Zealand",
+          "wrong": [
+            "Near Australia",
+            "Near Japan",
+            "Near Chile"
+          ],
+          "hint": "On the other side of the globe.",
+          "explanation": "Directly opposite the Netherlands lies the sea near New Zealand.",
+          "fact": "Such an opposite point is called an antipode."
+        },
+        "de": {
+          "prompt": "Wo kommst du heraus, wenn du von Europa durch die Erde gräbst?",
+          "answer": "Bei Neuseeland",
+          "wrong": [
+            "Bei Australien",
+            "Bei Japan",
+            "Bei Chile"
+          ],
+          "hint": "Auf der anderen Seite des Globus.",
+          "explanation": "Genau gegenüber den Niederlanden liegt das Meer bei Neuseeland.",
+          "fact": "So ein gegenüberliegender Punkt heißt Antipode."
+        },
+        "fr": {
+          "prompt": "Où sort-on en creusant droit à travers la Terre depuis l'Europe ?",
+          "answer": "Près de la Nouvelle-Zélande",
+          "wrong": [
+            "Près de l'Australie",
+            "Près du Japon",
+            "Près du Chili"
+          ],
+          "hint": "De l'autre côté du globe.",
+          "explanation": "Juste en face des Pays-Bas se trouve la mer près de la Nouvelle-Zélande.",
+          "fact": "Un tel point opposé s'appelle un antipode."
+        },
+        "es": {
+          "prompt": "¿Dónde saldrías cavando recto a través de la Tierra desde Europa?",
+          "answer": "Cerca de Nueva Zelanda",
+          "wrong": [
+            "Cerca de Australia",
+            "Cerca de Japón",
+            "Cerca de Chile"
+          ],
+          "hint": "Al otro lado del globo.",
+          "explanation": "Justo enfrente de los Países Bajos está el mar de Nueva Zelanda.",
+          "fact": "A ese punto opuesto se le llama antípoda."
+        },
+        "it": {
+          "prompt": "Dove si esce scavando dritto attraverso la Terra dall'Europa?",
+          "answer": "Vicino alla Nuova Zelanda",
+          "wrong": [
+            "Vicino all'Australia",
+            "Vicino al Giappone",
+            "Vicino al Cile"
+          ],
+          "hint": "Dall'altra parte del mappamondo.",
+          "explanation": "Proprio di fronte ai Paesi Bassi c'è il mare vicino alla Nuova Zelanda.",
+          "fact": "Un punto opposto così si chiama antipode."
+        },
+        "pt": {
+          "prompt": "Onde sais se cavares a direito através da Terra desde a Europa?",
+          "answer": "Perto da Nova Zelândia",
+          "wrong": [
+            "Perto da Austrália",
+            "Perto do Japão",
+            "Perto do Chile"
+          ],
+          "hint": "Do outro lado do globo.",
+          "explanation": "Mesmo em frente aos Países Baixos fica o mar perto da Nova Zelândia.",
+          "fact": "A esse ponto oposto chama-se antípoda."
+        },
+        "da": {
+          "prompt": "Hvor kommer man ud, hvis man graver lige gennem Jorden fra Europa?",
+          "answer": "Ved New Zealand",
+          "wrong": [
+            "Ved Australien",
+            "Ved Japan",
+            "Ved Chile"
+          ],
+          "hint": "På den anden side af kloden.",
+          "explanation": "Lige over for Nederlandene ligger havet ved New Zealand.",
+          "fact": "Sådan et modsat punkt kaldes en antipode."
+        },
+        "ru": {
+          "prompt": "Куда попадёшь, если копать сквозь Землю из Европы?",
+          "answer": "К Новой Зеландии",
+          "wrong": [
+            "К Австралии",
+            "К Японии",
+            "К Чили"
+          ],
+          "hint": "На другую сторону земного шара.",
+          "explanation": "Прямо напротив Нидерландов лежит море у Новой Зеландии.",
+          "fact": "Такую противоположную точку называют антиподом."
+        },
+        "ar": {
+          "prompt": "أين تخرج لو حفرت من أوروبا عبر الأرض مستقيمًا؟",
+          "answer": "قرب نيوزيلندا",
+          "wrong": [
+            "قرب أستراليا",
+            "قرب اليابان",
+            "قرب تشيلي"
+          ],
+          "hint": "في الجهة المقابلة من الكرة الأرضية.",
+          "explanation": "في مقابل هولندا تمامًا يقع البحر قرب نيوزيلندا.",
+          "fact": "وتسمى هذه النقطة المقابلة نقطة التضاد."
+        }
+      }
+    }
+  ]
+}

@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_EN = {
+    aarde: {
+      continenten_landen: [
+        ['How many continents are there?','Seven',['Three','Five','Twelve'],'Think of Europe, Asia, Africa and four more.','The earth is usually divided into seven continents.','Antarctica is one of them, although nobody lives there for good.',1],
+        ['What is the capital of the Netherlands?','Amsterdam',['Rotterdam','The Hague','Utrecht'],'It is the city of the canals.','By the constitution, Amsterdam is the capital.','The government, however, sits in The Hague.',1],
+        ['Which country is known for tulips and windmills?','The Netherlands',['Spain','Norway','Egypt'],'It is flat and lies on the North Sea.','The Netherlands is famous for its tulip fields and windmills.','Windmills used to pump water off the land.',1],
+        ['Which continent is the coldest?','Antarctica',['Europe','Africa','Asia'],'It sits right at the bottom of the globe.','Antarctica is the coldest continent on earth.','Minus eighty-nine degrees was once measured there.',1],
+        ['In which country is the Eiffel Tower?','France',['Italy','Spain','Germany'],'It stands in that country\'s capital.','The Eiffel Tower stands in Paris, in France.','It was built for the world fair of 1889.',1],
+        ['Which river runs through Paris?','The Seine',['The Rhine','The Danube','The Thames'],'Dozens of bridges cross it.','The Seine runs right through Paris.','In the middle of it lies the island where the city began.',2],
+        ['Which country lies directly south of the Netherlands?','Belgium',['Denmark','Poland','Sweden'],'Dutch is spoken there too.','Belgium is the Netherlands\' southern neighbour.','The border between them is over four hundred kilometres long.',2],
+        ['What is the longest river in Africa?','The Nile',['The Congo','The Zambezi','The Niger'],'It flows northwards.','At over six thousand kilometres, the Nile is Africa\'s longest river.','It runs through eleven countries before reaching the sea.',2],
+        ['Which sea lies between Europe and Africa?','The Mediterranean',['The North Sea','The Black Sea','The Baltic Sea'],'Islands such as Sicily lie in it.','The Mediterranean separates Europe from Africa.','At Gibraltar the gap is only fourteen kilometres wide.',2],
+        ['About how many countries are there in Europe?','About fifty',['About ten','About a hundred','About a thousand'],'More than forty, fewer than sixty.','Europe has about fifty countries.','Some of them are smaller than a large city.',2],
+        ['How many time zones does Russia have?','Eleven',['Two','Five','Twenty-four'],'More than ten.','Russia is so wide that it spans eleven time zones.','When Moscow is having breakfast, the east is already at evening.',3],
+        ['Which big city lies in two continents?','Istanbul',['Moscow','Cairo','Athens'],'A sea strait runs right through it.','Istanbul lies partly in Europe and partly in Asia.','You can take a boat from one continent to the other.',3],
+        ['What is the highest mountain in Africa?','Kilimanjaro',['Mount Kenya','The Atlas','Table Mountain'],'There is snow on it, close to the equator.','Kilimanjaro is nearly six thousand metres high.','It is warm at its foot and icy at the top.',3],
+        ['Which country is made up of over seventeen thousand islands?','Indonesia',['Japan','Greece','The Philippines'],'It lies between two oceans.','Indonesia consists of more than seventeen thousand islands.','Only a few thousand of them have people living on them.',3],
+        ['In which country is Vatican City?','Italy',['France','Spain','Greece'],'It sits inside a famous capital.','Vatican City lies entirely within the city of Rome.','You can walk all the way round it in half an hour.',3],
+        ['Which country has the most lakes in the world?','Canada',['Russia','Finland','Sweden'],'It lies in the north of America.','Canada has more lakes than all other countries put together.','Many were carved out by ice during the ice age.',4],
+        ['Which capital city lies the highest of all?','La Paz',['Madrid','Mexico City','Nairobi'],'It sits in the Andes.','La Paz in Bolivia lies over three thousand metres up.','Newcomers sometimes feel dizzy in the thin air.',4],
+        ['Which large country has no rivers at all?','Saudi Arabia',['Egypt','Morocco','Turkey'],'It is mostly desert.','Not one river in Saudi Arabia flows all year round.','Its drinking water comes mainly from desalted sea water.',4],
+        ['Which canal joins the Atlantic and the Pacific?','The Panama Canal',['The Suez Canal','The Kiel Canal','The North Sea Canal'],'It lies in Central America.','The Panama Canal cuts straight through Central America.','Locks lift ships twenty-six metres up along the way.',4],
+        ['Where would you come out digging straight through the earth from the Netherlands?','Near New Zealand',['Near Australia','Near Japan','Near Chile'],'On the other side of the globe.','Directly opposite the Netherlands lies the sea near New Zealand.','Such an opposite point is called an antipode.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['What is a young pig called?','A piglet',['A lamb','A foal','A chick'],'It is pink and grunts softly.','A young pig is called a piglet.','A sow sometimes has twelve at once.',1],

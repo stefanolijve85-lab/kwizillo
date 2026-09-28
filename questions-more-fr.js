@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_FR = {
+    aarde: {
+      continenten_landen: [
+        ['Combien y a-t-il de continents ?','Sept',['Trois','Cinq','Douze'],'Pense à l\'Europe, l\'Asie, l\'Afrique et quatre autres.','On divise en général la Terre en sept continents.','L\'Antarctique en fait partie, même si personne n\'y vit vraiment.',1],
+        ['Quelle est la capitale des Pays-Bas ?','Amsterdam',['Rotterdam','La Haye','Utrecht'],'C\'est la ville des canaux.','Selon la constitution, Amsterdam est la capitale.','Le gouvernement siège pourtant à La Haye.',1],
+        ['Quel pays est connu pour ses tulipes et ses moulins ?','Les Pays-Bas',['L\'Espagne','La Norvège','L\'Égypte'],'Il est plat et donne sur la mer du Nord.','Les Pays-Bas sont célèbres pour leurs champs de tulipes et leurs moulins.','Les moulins servaient autrefois à pomper l\'eau des terres.',1],
+        ['Quel continent est le plus froid ?','L\'Antarctique',['L\'Europe','L\'Afrique','L\'Asie'],'Il se trouve tout en bas du globe.','L\'Antarctique est le continent le plus froid de la Terre.','On y a relevé une fois moins quatre-vingt-neuf degrés.',1],
+        ['Dans quel pays se trouve la tour Eiffel ?','La France',['L\'Italie','L\'Espagne','L\'Allemagne'],'Elle est dans la capitale de ce pays.','La tour Eiffel se dresse à Paris, en France.','Elle a été construite pour l\'exposition universelle de 1889.',1],
+        ['Quel fleuve traverse Paris ?','La Seine',['Le Rhin','Le Danube','La Tamise'],'Des dizaines de ponts l\'enjambent.','La Seine traverse Paris de part en part.','En son milieu se trouve l\'île où la ville a commencé.',2],
+        ['Quel pays se trouve juste au sud des Pays-Bas ?','La Belgique',['Le Danemark','La Pologne','La Suède'],'On y parle aussi néerlandais.','La Belgique est le voisin du sud des Pays-Bas.','La frontière fait plus de quatre cents kilomètres.',2],
+        ['Quel est le plus long fleuve d\'Afrique ?','Le Nil',['Le Congo','Le Zambèze','Le Niger'],'Il coule vers le nord.','Avec plus de six mille kilomètres, le Nil est le plus long d\'Afrique.','Il traverse onze pays avant d\'atteindre la mer.',2],
+        ['Quelle mer se trouve entre l\'Europe et l\'Afrique ?','La Méditerranée',['La mer du Nord','La mer Noire','La mer Baltique'],'Des îles comme la Sicile s\'y trouvent.','La Méditerranée sépare l\'Europe de l\'Afrique.','À Gibraltar, le passage ne fait que quatorze kilomètres.',2],
+        ['Combien de pays compte à peu près l\'Europe ?','Environ cinquante',['Environ dix','Environ cent','Environ mille'],'Plus de quarante, moins de soixante.','L\'Europe compte une cinquantaine de pays.','Certains sont plus petits qu\'une grande ville.',2],
+        ['Combien de fuseaux horaires a la Russie ?','Onze',['Deux','Cinq','Vingt-quatre'],'Plus de dix.','La Russie est si large qu\'elle couvre onze fuseaux horaires.','Quand Moscou déjeune, c\'est déjà le soir à l\'est.',3],
+        ['Quelle grande ville se trouve sur deux continents ?','Istanbul',['Moscou','Le Caire','Athènes'],'Un détroit la traverse.','Istanbul est en partie en Europe et en partie en Asie.','On passe d\'un continent à l\'autre en bateau.',3],
+        ['Quelle est la plus haute montagne d\'Afrique ?','Le Kilimandjaro',['Le mont Kenya','L\'Atlas','La montagne de la Table'],'Il y a de la neige, tout près de l\'équateur.','Le Kilimandjaro fait presque six mille mètres.','Il fait chaud à son pied et il y a de la glace au sommet.',3],
+        ['Quel pays est fait de plus de dix-sept mille îles ?','L\'Indonésie',['Le Japon','La Grèce','Les Philippines'],'Il se trouve entre deux océans.','L\'Indonésie compte plus de dix-sept mille îles.','Quelques milliers seulement sont habitées.',3],
+        ['Dans quel pays se trouve la Cité du Vatican ?','L\'Italie',['La France','L\'Espagne','La Grèce'],'Elle est au cœur d\'une capitale célèbre.','La Cité du Vatican est entièrement à l\'intérieur de Rome.','On en fait le tour à pied en une demi-heure.',3],
+        ['Quel pays a le plus de lacs au monde ?','Le Canada',['La Russie','La Finlande','La Suède'],'Il est au nord de l\'Amérique.','Le Canada a plus de lacs que tous les autres pays réunis.','Beaucoup ont été creusés par la glace de l\'ère glaciaire.',4],
+        ['Quelle capitale est la plus haute du monde ?','La Paz',['Madrid','Mexico','Nairobi'],'Elle est dans les Andes.','La Paz, en Bolivie, est à plus de trois mille mètres.','Les nouveaux venus ont parfois le vertige à cause de l\'air.',4],
+        ['Quel grand pays n\'a aucun fleuve ?','L\'Arabie saoudite',['L\'Égypte','Le Maroc','La Turquie'],'C\'est surtout du désert.','Aucun cours d\'eau d\'Arabie saoudite ne coule toute l\'année.','L\'eau potable y vient surtout de la mer dessalée.',4],
+        ['Quel canal relie l\'Atlantique au Pacifique ?','Le canal de Panama',['Le canal de Suez','Le canal de Kiel','Le canal de la mer du Nord'],'Il est en Amérique centrale.','Le canal de Panama coupe l\'Amérique centrale de part en part.','Des écluses soulèvent les navires de vingt-six mètres.',4],
+        ['Où sort-on en creusant droit à travers la Terre depuis l\'Europe ?','Près de la Nouvelle-Zélande',['Près de l\'Australie','Près du Japon','Près du Chili'],'De l\'autre côté du globe.','Juste en face des Pays-Bas se trouve la mer près de la Nouvelle-Zélande.','Un tel point opposé s\'appelle un antipode.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['Comment s\'appelle un jeune cochon ?','Un porcelet',['Un agneau','Un poulain','Un poussin'],'Il est rose et grogne doucement.','Un jeune cochon s\'appelle un porcelet.','Une truie en a parfois douze d\'un coup.',1],

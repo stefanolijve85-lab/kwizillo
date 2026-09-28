@@ -4,6 +4,30 @@
   // Rows continue after the twenty a topic already has, and each one states its
   // own difficulty in the seventh field.
   window.KWIZILLO_MORE_IT = {
+    aarde: {
+      continenten_landen: [
+        ['Quanti continenti ci sono?','Sette',['Tre','Cinque','Dodici'],'Pensa a Europa, Asia, Africa e altri quattro.','La Terra viene di solito divisa in sette continenti.','L\'Antartide è uno di questi, anche se nessuno ci vive stabilmente.',1],
+        ['Qual è la capitale dei Paesi Bassi?','Amsterdam',['Rotterdam','L\'Aia','Utrecht'],'È la città dei canali.','Secondo la costituzione la capitale è Amsterdam.','Il governo però ha sede all\'Aia.',1],
+        ['Quale paese è noto per tulipani e mulini a vento?','I Paesi Bassi',['La Spagna','La Norvegia','L\'Egitto'],'È piatto e affaccia sul Mare del Nord.','I Paesi Bassi sono famosi per i campi di tulipani e i mulini.','Un tempo i mulini pompavano l\'acqua fuori dalle terre.',1],
+        ['Quale continente è il più freddo?','L\'Antartide',['L\'Europa','L\'Africa','L\'Asia'],'Sta proprio in fondo al mappamondo.','L\'Antartide è il continente più freddo della Terra.','Là fu misurata una volta una temperatura di meno ottantanove gradi.',1],
+        ['In quale paese si trova la torre Eiffel?','La Francia',['L\'Italia','La Spagna','La Germania'],'Sta nella capitale di quel paese.','La torre Eiffel si trova a Parigi, in Francia.','Fu costruita per l\'esposizione universale del 1889.',1],
+        ['Quale fiume attraversa Parigi?','La Senna',['Il Reno','Il Danubio','Il Tamigi'],'Decine di ponti la attraversano.','La Senna attraversa Parigi da parte a parte.','Al centro c\'è l\'isola dove la città ebbe inizio.',2],
+        ['Quale paese si trova subito a sud dei Paesi Bassi?','Il Belgio',['La Danimarca','La Polonia','La Svezia'],'Anche lì si parla neerlandese.','Il Belgio è il vicino meridionale dei Paesi Bassi.','Il confine è lungo più di quattrocento chilometri.',2],
+        ['Qual è il fiume più lungo dell\'Africa?','Il Nilo',['Il Congo','Lo Zambesi','Il Niger'],'Scorre verso nord.','Con oltre seimila chilometri il Nilo è il più lungo d\'Africa.','Attraversa undici paesi prima di arrivare al mare.',2],
+        ['Quale mare si trova fra Europa e Africa?','Il Mediterraneo',['Il Mare del Nord','Il Mar Nero','Il Mar Baltico'],'Dentro ci sono isole come la Sicilia.','Il Mediterraneo separa l\'Europa dall\'Africa.','A Gibilterra il passaggio è largo solo quattordici chilometri.',2],
+        ['Quanti paesi ci sono più o meno in Europa?','Circa cinquanta',['Circa dieci','Circa cento','Circa mille'],'Più di quaranta, meno di sessanta.','L\'Europa conta all\'incirca cinquanta paesi.','Alcuni sono più piccoli di una grande città.',2],
+        ['Quanti fusi orari ha la Russia?','Undici',['Due','Cinque','Ventiquattro'],'Più di dieci.','La Russia è così larga da avere undici fusi orari.','Quando a Mosca si fa colazione, a est è già sera.',3],
+        ['Quale grande città si trova in due continenti?','Istanbul',['Mosca','Il Cairo','Atene'],'Uno stretto la taglia in due.','Istanbul si trova in parte in Europa e in parte in Asia.','In barca si passa da un continente all\'altro.',3],
+        ['Qual è la montagna più alta dell\'Africa?','Il Kilimangiaro',['Il monte Kenya','L\'Atlante','La Montagna della Tavola'],'C\'è neve, vicinissimo all\'equatore.','Il Kilimangiaro è alto quasi seimila metri.','Ai piedi fa caldo e in cima c\'è ghiaccio.',3],
+        ['Quale paese è fatto di oltre diciassettemila isole?','L\'Indonesia',['Il Giappone','La Grecia','Le Filippine'],'Si trova fra due oceani.','L\'Indonesia è formata da più di diciassettemila isole.','Solo poche migliaia sono abitate.',3],
+        ['In quale paese si trova la Città del Vaticano?','L\'Italia',['La Francia','La Spagna','La Grecia'],'È dentro una capitale famosa.','La Città del Vaticano si trova interamente dentro Roma.','La si gira tutta a piedi in mezz\'ora.',3],
+        ['Quale paese ha il maggior numero di laghi al mondo?','Il Canada',['La Russia','La Finlandia','La Svezia'],'Si trova a nord dell\'America.','In Canada ci sono più laghi che in tutti gli altri paesi insieme.','Molti furono scavati dai ghiacci dell\'era glaciale.',4],
+        ['Quale capitale si trova più in alto di tutte?','La Paz',['Madrid','Città del Messico','Nairobi'],'Si trova sulle Ande.','La Paz, in Bolivia, sta a oltre tremila metri di quota.','Ai nuovi arrivati l\'aria sottile a volte dà le vertigini.',4],
+        ['Quale grande paese non ha nessun fiume?','L\'Arabia Saudita',['L\'Egitto','Il Marocco','La Turchia'],'È per lo più deserto.','In Arabia Saudita nessun fiume scorre tutto l\'anno.','L\'acqua potabile viene soprattutto dal mare dissalato.',4],
+        ['Quale canale unisce l\'Atlantico e il Pacifico?','Il canale di Panama',['Il canale di Suez','Il canale di Kiel','Il canale del Mare del Nord'],'Si trova in America centrale.','Il canale di Panama taglia l\'America centrale da parte a parte.','Le chiuse sollevano le navi di ventisei metri.',4],
+        ['Dove si esce scavando dritto attraverso la Terra dall\'Europa?','Vicino alla Nuova Zelanda',['Vicino all\'Australia','Vicino al Giappone','Vicino al Cile'],'Dall\'altra parte del mappamondo.','Proprio di fronte ai Paesi Bassi c\'è il mare vicino alla Nuova Zelanda.','Un punto opposto così si chiama antipode.',4]
+      ]
+    },
     dieren: {
       baby_dieren: [
         ['Come si chiama un maialino piccolo?','Un porcellino',['Un agnello','Un puledro','Un pulcino'],'È rosa e grugnisce piano.','Un maiale piccolo si chiama porcellino.','Una scrofa a volte ne fa dodici in una volta.',1],
