@@ -1,0 +1,2607 @@
+{
+  "world": "wetenschap",
+  "topic": "natuur_energie",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "wetenschap-natuur_energie-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Zonnepanelen vangen licht",
+      "artBrief": "Blauwe zonnepanelen op een dak in fel zonlicht, met de zon erboven.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat zetten zonnepanelen om in stroom?",
+          "answer": "Zonlicht",
+          "wrong": [
+            "Regen",
+            "Wind",
+            "Sneeuw"
+          ],
+          "hint": "Het komt van heel ver weg.",
+          "explanation": "In een zonnepaneel maken lichtdeeltjes elektriciteit los uit een plaatje silicium.",
+          "fact": "Ook op een koude dag werken panelen prima, als er maar licht is."
+        },
+        "en": {
+          "prompt": "What do solar panels turn into electricity?",
+          "answer": "Sunlight",
+          "wrong": [
+            "Rain",
+            "Wind",
+            "Snow"
+          ],
+          "hint": "It comes from very far away.",
+          "explanation": "In a solar panel, particles of light knock electricity out of a silicon layer.",
+          "fact": "Panels work fine on a cold day too, as long as there is light."
+        },
+        "de": {
+          "prompt": "Was wandeln Solarzellen in Strom um?",
+          "answer": "Sonnenlicht",
+          "wrong": [
+            "Regen",
+            "Wind",
+            "Schnee"
+          ],
+          "hint": "Es kommt von sehr weit her.",
+          "explanation": "In einer Solarzelle schlagen Lichtteilchen Strom aus einer Siliziumschicht heraus.",
+          "fact": "Auch an einem kalten Tag arbeiten Module gut, wenn nur Licht da ist."
+        },
+        "fr": {
+          "prompt": "Que transforment les panneaux solaires en électricité ?",
+          "answer": "La lumière du soleil",
+          "wrong": [
+            "La pluie",
+            "Le vent",
+            "La neige"
+          ],
+          "hint": "Cela vient de très loin.",
+          "explanation": "Dans un panneau, des grains de lumière arrachent de l'électricité à une couche de silicium.",
+          "fact": "Même par temps froid les panneaux marchent bien, s'il y a de la lumière."
+        },
+        "es": {
+          "prompt": "¿Qué convierten en electricidad los paneles solares?",
+          "answer": "La luz del sol",
+          "wrong": [
+            "La lluvia",
+            "El viento",
+            "La nieve"
+          ],
+          "hint": "Viene de muy lejos.",
+          "explanation": "En un panel, las partículas de luz arrancan electricidad de una capa de silicio.",
+          "fact": "Incluso en un día frío los paneles funcionan, si hay luz."
+        },
+        "it": {
+          "prompt": "Che cosa trasformano in elettricità i pannelli solari?",
+          "answer": "La luce del sole",
+          "wrong": [
+            "La pioggia",
+            "Il vento",
+            "La neve"
+          ],
+          "hint": "Viene da molto lontano.",
+          "explanation": "In un pannello le particelle di luce strappano elettricità a uno strato di silicio.",
+          "fact": "Anche in una giornata fredda i pannelli funzionano, basta la luce."
+        },
+        "pt": {
+          "prompt": "O que os painéis solares transformam em eletricidade?",
+          "answer": "A luz do sol",
+          "wrong": [
+            "A chuva",
+            "O vento",
+            "A neve"
+          ],
+          "hint": "Vem de muito longe.",
+          "explanation": "Num painel, as partículas de luz arrancam eletricidade a uma camada de silício.",
+          "fact": "Mesmo num dia frio os painéis funcionam, desde que haja luz."
+        },
+        "da": {
+          "prompt": "Hvad laver solceller om til strøm?",
+          "answer": "Sollys",
+          "wrong": [
+            "Regn",
+            "Vind",
+            "Sne"
+          ],
+          "hint": "Det kommer meget langvejs fra.",
+          "explanation": "I en solcelle slår lyspartikler strøm løs fra et lag silicium.",
+          "fact": "Også på en kold dag virker paneler fint, bare der er lys."
+        },
+        "ru": {
+          "prompt": "Что солнечные панели превращают в электричество?",
+          "answer": "Солнечный свет",
+          "wrong": [
+            "Дождь",
+            "Ветер",
+            "Снег"
+          ],
+          "hint": "Он приходит издалека.",
+          "explanation": "В панели частицы света выбивают электричество из слоя кремния.",
+          "fact": "Панели работают и в холодный день, лишь бы был свет."
+        },
+        "ar": {
+          "prompt": "ماذا تحوّل الألواح الشمسية إلى كهرباء؟",
+          "answer": "ضوء الشمس",
+          "wrong": [
+            "المطر",
+            "الريح",
+            "الثلج"
+          ],
+          "hint": "يأتي من مسافة بعيدة جدًا.",
+          "explanation": "في اللوح تقتلع جسيمات الضوء الكهرباء من طبقة من السيليكون.",
+          "fact": "تعمل الألواح حتى في يوم بارد ما دام هناك ضوء."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Licht uitdoen bespaart energie",
+      "artBrief": "Een hand die een lichtschakelaar omlaag doet in een lege kamer.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat kun je thuis doen om energie te besparen?",
+          "answer": "Het licht uitdoen",
+          "wrong": [
+            "Alle lampen aanzetten",
+            "De deur openlaten",
+            "De kraan laten lopen"
+          ],
+          "hint": "Denk aan een lege kamer.",
+          "explanation": "Elk apparaat dat uit staat, gebruikt geen stroom.",
+          "fact": "Apparaten op stand-by gebruiken samen best veel stroom."
+        },
+        "en": {
+          "prompt": "What can you do at home to save energy?",
+          "answer": "Switch the light off",
+          "wrong": [
+            "Turn on every lamp",
+            "Leave the door open",
+            "Let the tap run"
+          ],
+          "hint": "Think of an empty room.",
+          "explanation": "Anything that is switched off uses no electricity at all.",
+          "fact": "Devices left on standby together use a surprising amount."
+        },
+        "de": {
+          "prompt": "Was kannst du zu Hause tun, um Energie zu sparen?",
+          "answer": "Das Licht ausmachen",
+          "wrong": [
+            "Alle Lampen anmachen",
+            "Die Tür offen lassen",
+            "Den Hahn laufen lassen"
+          ],
+          "hint": "Denk an ein leeres Zimmer.",
+          "explanation": "Was ausgeschaltet ist, verbraucht überhaupt keinen Strom.",
+          "fact": "Geräte im Stand-by verbrauchen zusammen ganz schön viel."
+        },
+        "fr": {
+          "prompt": "Que peux-tu faire chez toi pour économiser l'énergie ?",
+          "answer": "Éteindre la lumière",
+          "wrong": [
+            "Allumer toutes les lampes",
+            "Laisser la porte ouverte",
+            "Laisser couler le robinet"
+          ],
+          "hint": "Pense à une pièce vide.",
+          "explanation": "Ce qui est éteint ne consomme rien du tout.",
+          "fact": "Les appareils en veille consomment ensemble pas mal d'électricité."
+        },
+        "es": {
+          "prompt": "¿Qué puedes hacer en casa para ahorrar energía?",
+          "answer": "Apagar la luz",
+          "wrong": [
+            "Encender todas las lámparas",
+            "Dejar la puerta abierta",
+            "Dejar correr el grifo"
+          ],
+          "hint": "Piensa en una sala vacía.",
+          "explanation": "Lo que está apagado no gasta nada de electricidad.",
+          "fact": "Los aparatos en espera gastan juntos bastante."
+        },
+        "it": {
+          "prompt": "Che cosa puoi fare in casa per risparmiare energia?",
+          "answer": "Spegnere la luce",
+          "wrong": [
+            "Accendere tutte le lampade",
+            "Lasciare la porta aperta",
+            "Lasciare il rubinetto aperto"
+          ],
+          "hint": "Pensa a una stanza vuota.",
+          "explanation": "Ciò che è spento non consuma nulla.",
+          "fact": "Gli apparecchi in stand-by insieme consumano parecchio."
+        },
+        "pt": {
+          "prompt": "O que podes fazer em casa para poupar energia?",
+          "answer": "Apagar a luz",
+          "wrong": [
+            "Acender todas as lâmpadas",
+            "Deixar a porta aberta",
+            "Deixar a torneira a correr"
+          ],
+          "hint": "Pensa numa sala vazia.",
+          "explanation": "O que está desligado não gasta nada de eletricidade.",
+          "fact": "Os aparelhos em espera juntos gastam bastante."
+        },
+        "da": {
+          "prompt": "Hvad kan du gøre derhjemme for at spare energi?",
+          "answer": "Slukke lyset",
+          "wrong": [
+            "Tænde alle lamper",
+            "Lade døren stå åben",
+            "Lade vandhanen løbe"
+          ],
+          "hint": "Tænk på et tomt rum.",
+          "explanation": "Alt, der er slukket, bruger slet ingen strøm.",
+          "fact": "Apparater på standby bruger tilsammen en hel del."
+        },
+        "ru": {
+          "prompt": "Что можно сделать дома, чтобы сберечь энергию?",
+          "answer": "Выключить свет",
+          "wrong": [
+            "Включить все лампы",
+            "Оставить дверь открытой",
+            "Оставить кран открытым"
+          ],
+          "hint": "Подумай о пустой комнате.",
+          "explanation": "То, что выключено, не тратит электричество совсем.",
+          "fact": "Приборы в режиме ожидания вместе тратят немало."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل في البيت لتوفير الطاقة؟",
+          "answer": "تطفئ الضوء",
+          "wrong": [
+            "تشعل كل المصابيح",
+            "تترك الباب مفتوحًا",
+            "تترك الصنبور يجري"
+          ],
+          "hint": "فكّر في غرفة فارغة.",
+          "explanation": "ما هو مطفأ لا يستهلك كهرباء أبدًا.",
+          "fact": "الأجهزة في وضع الانتظار تستهلك معًا قدرًا لا بأس به."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Benzine in een gewone auto",
+      "artBrief": "Een tankpistool in de tankopening van een auto bij een pomp.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke brandstof gaat er in een gewone auto?",
+          "answer": "Benzine",
+          "wrong": [
+            "Melk",
+            "Water",
+            "Zand"
+          ],
+          "hint": "Je tankt het bij een pomp.",
+          "explanation": "Benzine en diesel komen uit aardolie en verbranden in de motor.",
+          "fact": "Van een volle tank wordt maar ongeveer een derde echt beweging."
+        },
+        "en": {
+          "prompt": "Which fuel goes into an ordinary car?",
+          "answer": "Petrol",
+          "wrong": [
+            "Milk",
+            "Water",
+            "Sand"
+          ],
+          "hint": "You fill up at a pump.",
+          "explanation": "Petrol and diesel come from crude oil and burn inside the engine.",
+          "fact": "Only about a third of a tankful really becomes movement."
+        },
+        "de": {
+          "prompt": "Welcher Kraftstoff kommt in ein normales Auto?",
+          "answer": "Benzin",
+          "wrong": [
+            "Milch",
+            "Wasser",
+            "Sand"
+          ],
+          "hint": "Man tankt es an der Säule.",
+          "explanation": "Benzin und Diesel stammen aus Erdöl und verbrennen im Motor.",
+          "fact": "Von einer vollen Tankfüllung wird nur etwa ein Drittel wirklich Bewegung."
+        },
+        "fr": {
+          "prompt": "Quel carburant met-on dans une voiture ordinaire ?",
+          "answer": "De l'essence",
+          "wrong": [
+            "Du lait",
+            "De l'eau",
+            "Du sable"
+          ],
+          "hint": "On fait le plein à la pompe.",
+          "explanation": "L'essence et le gazole viennent du pétrole et brûlent dans le moteur.",
+          "fact": "D'un plein, un tiers seulement devient vraiment du mouvement."
+        },
+        "es": {
+          "prompt": "¿Qué combustible lleva un coche normal?",
+          "answer": "Gasolina",
+          "wrong": [
+            "Leche",
+            "Agua",
+            "Arena"
+          ],
+          "hint": "Se llena en el surtidor.",
+          "explanation": "La gasolina y el gasóleo vienen del petróleo y arden en el motor.",
+          "fact": "De un depósito lleno solo un tercio se vuelve movimiento de verdad."
+        },
+        "it": {
+          "prompt": "Quale carburante va in un'auto normale?",
+          "answer": "La benzina",
+          "wrong": [
+            "Il latte",
+            "L'acqua",
+            "La sabbia"
+          ],
+          "hint": "Si fa il pieno alla pompa.",
+          "explanation": "Benzina e gasolio vengono dal petrolio e bruciano nel motore.",
+          "fact": "Di un pieno solo un terzo diventa davvero movimento."
+        },
+        "pt": {
+          "prompt": "Que combustível vai num carro normal?",
+          "answer": "Gasolina",
+          "wrong": [
+            "Leite",
+            "Água",
+            "Areia"
+          ],
+          "hint": "Enche-se na bomba.",
+          "explanation": "A gasolina e o gasóleo vêm do petróleo e ardem no motor.",
+          "fact": "De um depósito cheio só um terço vira mesmo movimento."
+        },
+        "da": {
+          "prompt": "Hvilket brændstof kommer i en almindelig bil?",
+          "answer": "Benzin",
+          "wrong": [
+            "Mælk",
+            "Vand",
+            "Sand"
+          ],
+          "hint": "Man tanker det ved en stander.",
+          "explanation": "Benzin og diesel kommer fra råolie og brænder i motoren.",
+          "fact": "Af en fuld tank bliver kun cirka en tredjedel til bevægelse."
+        },
+        "ru": {
+          "prompt": "Какое топливо заливают в обычную машину?",
+          "answer": "Бензин",
+          "wrong": [
+            "Молоко",
+            "Воду",
+            "Песок"
+          ],
+          "hint": "Его заливают на заправке.",
+          "explanation": "Бензин и дизель получают из нефти, и они сгорают в моторе.",
+          "fact": "Из полного бака в движение превращается лишь около трети."
+        },
+        "ar": {
+          "prompt": "أي وقود يوضع في سيارة عادية؟",
+          "answer": "البنزين",
+          "wrong": [
+            "الحليب",
+            "الماء",
+            "الرمل"
+          ],
+          "hint": "تملؤه عند المضخة.",
+          "explanation": "البنزين والديزل يأتيان من النفط ويحترقان في المحرك.",
+          "fact": "من خزان ممتلئ يتحول نحو الثلث فقط إلى حركة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Stroom uit het stopcontact",
+      "artBrief": "Een stekker die in een stopcontact gaat, met een klein vonkje licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat komt er uit een stopcontact?",
+          "answer": "Stroom",
+          "wrong": [
+            "Lucht",
+            "Water",
+            "Zand"
+          ],
+          "hint": "Je ziet het niet, maar het werkt.",
+          "explanation": "Uit het stopcontact komt elektrische stroom, aangevoerd door kabels.",
+          "fact": "Steek er nooit iets anders in dan een stekker."
+        },
+        "en": {
+          "prompt": "What comes out of a wall socket?",
+          "answer": "Electricity",
+          "wrong": [
+            "Air",
+            "Water",
+            "Sand"
+          ],
+          "hint": "You cannot see it, but it works.",
+          "explanation": "A socket delivers electric current, brought in along cables.",
+          "fact": "Never put anything but a plug into one."
+        },
+        "de": {
+          "prompt": "Was kommt aus einer Steckdose?",
+          "answer": "Strom",
+          "wrong": [
+            "Luft",
+            "Wasser",
+            "Sand"
+          ],
+          "hint": "Man sieht ihn nicht, aber er wirkt.",
+          "explanation": "Aus der Steckdose kommt elektrischer Strom, der über Kabel geliefert wird.",
+          "fact": "Steck dort nie etwas anderes hinein als einen Stecker."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui sort d'une prise de courant ?",
+          "answer": "Du courant",
+          "wrong": [
+            "De l'air",
+            "De l'eau",
+            "Du sable"
+          ],
+          "hint": "On ne le voit pas, mais il agit.",
+          "explanation": "La prise délivre du courant électrique, amené par des câbles.",
+          "fact": "N'y mets jamais autre chose qu'une fiche."
+        },
+        "es": {
+          "prompt": "¿Qué sale de un enchufe?",
+          "answer": "Corriente",
+          "wrong": [
+            "Aire",
+            "Agua",
+            "Arena"
+          ],
+          "hint": "No se ve, pero funciona.",
+          "explanation": "Del enchufe sale corriente eléctrica, traída por cables.",
+          "fact": "Nunca metas ahí otra cosa que una clavija."
+        },
+        "it": {
+          "prompt": "Che cosa esce da una presa di corrente?",
+          "answer": "La corrente",
+          "wrong": [
+            "Aria",
+            "Acqua",
+            "Sabbia"
+          ],
+          "hint": "Non si vede, ma funziona.",
+          "explanation": "Dalla presa esce corrente elettrica, portata dai cavi.",
+          "fact": "Non infilarci mai nulla che non sia una spina."
+        },
+        "pt": {
+          "prompt": "O que sai de uma tomada?",
+          "answer": "Corrente",
+          "wrong": [
+            "Ar",
+            "Água",
+            "Areia"
+          ],
+          "hint": "Não se vê, mas funciona.",
+          "explanation": "Da tomada sai corrente elétrica, trazida por cabos.",
+          "fact": "Nunca metas lá nada a não ser uma ficha."
+        },
+        "da": {
+          "prompt": "Hvad kommer der ud af en stikkontakt?",
+          "answer": "Strøm",
+          "wrong": [
+            "Luft",
+            "Vand",
+            "Sand"
+          ],
+          "hint": "Man kan ikke se den, men den virker.",
+          "explanation": "Fra stikkontakten kommer elektrisk strøm, ført frem gennem kabler.",
+          "fact": "Stik aldrig andet end et stik derind."
+        },
+        "ru": {
+          "prompt": "Что выходит из розетки?",
+          "answer": "Электрический ток",
+          "wrong": [
+            "Воздух",
+            "Вода",
+            "Песок"
+          ],
+          "hint": "Его не видно, но он работает.",
+          "explanation": "Из розетки идёт электрический ток, поданный по кабелям.",
+          "fact": "Никогда не вставляй туда ничего, кроме вилки."
+        },
+        "ar": {
+          "prompt": "ماذا يخرج من مقبس الكهرباء؟",
+          "answer": "التيار الكهربائي",
+          "wrong": [
+            "هواء",
+            "ماء",
+            "رمل"
+          ],
+          "hint": "لا تراه لكنه يعمل.",
+          "explanation": "من المقبس يخرج تيار كهربائي تنقله الكابلات.",
+          "fact": "لا تدخل فيه أبدًا شيئًا غير القابس."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Elektrisch rijden zonder uitlaat",
+      "artBrief": "Een elektrische auto aan een laadpaal in een groene straat.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke auto rijdt zonder uitlaatgassen?",
+          "answer": "Een elektrische auto",
+          "wrong": [
+            "Een dieselauto",
+            "Een brommer",
+            "Een straaljager"
+          ],
+          "hint": "Hij wordt opgeladen.",
+          "explanation": "Een elektrische auto heeft geen uitlaat; de stroom komt uit een accu.",
+          "fact": "Hoe schoon hij echt is, hangt af van hoe die stroom is gemaakt."
+        },
+        "en": {
+          "prompt": "Which car drives without exhaust fumes?",
+          "answer": "An electric car",
+          "wrong": [
+            "A diesel car",
+            "A moped",
+            "A fighter jet"
+          ],
+          "hint": "You charge it up.",
+          "explanation": "An electric car has no exhaust; its power comes from a battery.",
+          "fact": "How clean it really is depends on how that electricity was made."
+        },
+        "de": {
+          "prompt": "Welches Auto fährt ohne Abgase?",
+          "answer": "Ein Elektroauto",
+          "wrong": [
+            "Ein Dieselauto",
+            "Ein Moped",
+            "Ein Düsenjet"
+          ],
+          "hint": "Es wird aufgeladen.",
+          "explanation": "Ein Elektroauto hat keinen Auspuff; der Strom kommt aus einem Akku.",
+          "fact": "Wie sauber es wirklich ist, hängt davon ab, wie der Strom gemacht wurde."
+        },
+        "fr": {
+          "prompt": "Quelle voiture roule sans gaz d'échappement ?",
+          "answer": "Une voiture électrique",
+          "wrong": [
+            "Une voiture diesel",
+            "Un cyclomoteur",
+            "Un avion de chasse"
+          ],
+          "hint": "On la recharge.",
+          "explanation": "Une voiture électrique n'a pas d'échappement ; son énergie vient d'une batterie.",
+          "fact": "Sa vraie propreté dépend de la façon dont l'électricité a été produite."
+        },
+        "es": {
+          "prompt": "¿Qué coche circula sin gases de escape?",
+          "answer": "Un coche eléctrico",
+          "wrong": [
+            "Un coche diésel",
+            "Un ciclomotor",
+            "Un caza"
+          ],
+          "hint": "Se carga con un cable.",
+          "explanation": "Un coche eléctrico no tiene tubo de escape; su energía viene de una batería.",
+          "fact": "Lo limpio que sea depende de cómo se hizo esa electricidad."
+        },
+        "it": {
+          "prompt": "Quale auto va senza gas di scarico?",
+          "answer": "Un'auto elettrica",
+          "wrong": [
+            "Un'auto diesel",
+            "Un motorino",
+            "Un caccia"
+          ],
+          "hint": "Si ricarica.",
+          "explanation": "Un'auto elettrica non ha marmitta; l'energia viene da una batteria.",
+          "fact": "Quanto è pulita dipende da come è stata prodotta quella corrente."
+        },
+        "pt": {
+          "prompt": "Que carro anda sem gases de escape?",
+          "answer": "Um carro elétrico",
+          "wrong": [
+            "Um carro a gasóleo",
+            "Uma motorizada",
+            "Um caça"
+          ],
+          "hint": "Carrega-se com um cabo.",
+          "explanation": "Um carro elétrico não tem escape; a energia vem de uma bateria.",
+          "fact": "Quão limpo é depende de como se fez essa eletricidade."
+        },
+        "da": {
+          "prompt": "Hvilken bil kører uden udstødning?",
+          "answer": "En elbil",
+          "wrong": [
+            "En dieselbil",
+            "En knallert",
+            "Et jagerfly"
+          ],
+          "hint": "Den lades op.",
+          "explanation": "En elbil har ingen udstødning; strømmen kommer fra et batteri.",
+          "fact": "Hvor ren den er, afhænger af, hvordan strømmen blev lavet."
+        },
+        "ru": {
+          "prompt": "Какая машина ездит без выхлопных газов?",
+          "answer": "Электромобиль",
+          "wrong": [
+            "Дизельная машина",
+            "Мопед",
+            "Истребитель"
+          ],
+          "hint": "Его заряжают.",
+          "explanation": "У электромобиля нет выхлопной трубы, энергия идёт из батареи.",
+          "fact": "Насколько он чист, зависит от того, как получили это электричество."
+        },
+        "ar": {
+          "prompt": "أي سيارة تسير بلا عوادم؟",
+          "answer": "سيارة كهربائية",
+          "wrong": [
+            "سيارة ديزل",
+            "دراجة نارية",
+            "طائرة مقاتلة"
+          ],
+          "hint": "تُشحن بالكهرباء.",
+          "explanation": "السيارة الكهربائية بلا عادم، وطاقتها من بطارية.",
+          "fact": "نظافتها الحقيقية تعتمد على كيفية توليد تلك الكهرباء."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Op zee waait het harder",
+      "artBrief": "Een rij windmolens in zee met schuimende golven eronder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zetten we windmolens op zee?",
+          "answer": "Daar waait het harder",
+          "wrong": [
+            "Daar is het warmer",
+            "Daar regent het minder",
+            "Daar is het stiller"
+          ],
+          "hint": "Geen huizen of bomen in de weg.",
+          "explanation": "Op zee staat bijna altijd wind, en niets remt hem af.",
+          "fact": "Één grote zeewindmolen levert stroom voor duizenden huizen."
+        },
+        "en": {
+          "prompt": "Why do we put wind turbines out at sea?",
+          "answer": "The wind is stronger there",
+          "wrong": [
+            "It is warmer there",
+            "It rains less there",
+            "It is quieter there"
+          ],
+          "hint": "No houses or trees in the way.",
+          "explanation": "At sea there is almost always wind, and nothing slows it down.",
+          "fact": "One big offshore turbine powers thousands of homes."
+        },
+        "de": {
+          "prompt": "Warum stellt man Windräder aufs Meer?",
+          "answer": "Dort weht es kräftiger",
+          "wrong": [
+            "Dort ist es wärmer",
+            "Dort regnet es weniger",
+            "Dort ist es leiser"
+          ],
+          "hint": "Keine Häuser oder Bäume im Weg.",
+          "explanation": "Auf dem Meer weht fast immer Wind, und nichts bremst ihn ab.",
+          "fact": "Ein großes Windrad auf See versorgt Tausende Haushalte."
+        },
+        "fr": {
+          "prompt": "Pourquoi installe-t-on des éoliennes en mer ?",
+          "answer": "Le vent y souffle plus fort",
+          "wrong": [
+            "Il y fait plus chaud",
+            "Il y pleut moins",
+            "C'est plus calme"
+          ],
+          "hint": "Ni maisons ni arbres devant.",
+          "explanation": "En mer le vent souffle presque toujours, et rien ne le freine.",
+          "fact": "Une grande éolienne en mer alimente des milliers de foyers."
+        },
+        "es": {
+          "prompt": "¿Por qué se ponen molinos de viento en el mar?",
+          "answer": "Allí sopla más fuerte",
+          "wrong": [
+            "Allí hace más calor",
+            "Allí llueve menos",
+            "Allí hay más silencio"
+          ],
+          "hint": "Ni casas ni árboles delante.",
+          "explanation": "En el mar casi siempre hay viento y nada lo frena.",
+          "fact": "Un gran molino marino da luz a miles de hogares."
+        },
+        "it": {
+          "prompt": "Perché si mettono le pale eoliche in mare?",
+          "answer": "Lì il vento è più forte",
+          "wrong": [
+            "Lì fa più caldo",
+            "Lì piove meno",
+            "Lì c'è più silenzio"
+          ],
+          "hint": "Niente case o alberi davanti.",
+          "explanation": "In mare il vento soffia quasi sempre e nulla lo frena.",
+          "fact": "Una grande pala in mare dà corrente a migliaia di case."
+        },
+        "pt": {
+          "prompt": "Porque se põem os aerogeradores no mar?",
+          "answer": "Lá o vento é mais forte",
+          "wrong": [
+            "Lá é mais quente",
+            "Lá chove menos",
+            "Lá é mais sossegado"
+          ],
+          "hint": "Nem casas nem árvores à frente.",
+          "explanation": "No mar há vento quase sempre e nada o trava.",
+          "fact": "Um grande aerogerador no mar dá luz a milhares de casas."
+        },
+        "da": {
+          "prompt": "Hvorfor sætter man vindmøller på havet?",
+          "answer": "Der blæser det kraftigere",
+          "wrong": [
+            "Der er varmere",
+            "Der regner mindre",
+            "Der er mere stille"
+          ],
+          "hint": "Ingen huse eller træer i vejen.",
+          "explanation": "På havet blæser det næsten altid, og intet bremser vinden.",
+          "fact": "En stor havmølle giver strøm til tusindvis af hjem."
+        },
+        "ru": {
+          "prompt": "Почему ветряки ставят в море?",
+          "answer": "Там ветер сильнее",
+          "wrong": [
+            "Там теплее",
+            "Там меньше дождя",
+            "Там тише"
+          ],
+          "hint": "Ни домов, ни деревьев на пути.",
+          "explanation": "В море ветер дует почти всегда, и ничто его не тормозит.",
+          "fact": "Один большой морской ветряк питает тысячи домов."
+        },
+        "ar": {
+          "prompt": "لماذا تُنصب عنفات الرياح في البحر؟",
+          "answer": "الريح هناك أقوى",
+          "wrong": [
+            "الجو هناك أدفأ",
+            "المطر هناك أقل",
+            "المكان هناك أهدأ"
+          ],
+          "hint": "لا بيوت ولا أشجار تعترض.",
+          "explanation": "في البحر تهب الريح دائمًا تقريبًا ولا شيء يبطئها.",
+          "fact": "عنفة بحرية كبيرة تكفي آلاف البيوت."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Een gloeilamp wordt heet",
+      "artBrief": "Een gloeilamp met gloeiende draad naast een koele ledlamp.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er met een gloeilamp die brandt?",
+          "answer": "Hij wordt heet",
+          "wrong": [
+            "Hij wordt koud",
+            "Hij wordt zwaar",
+            "Hij wordt nat"
+          ],
+          "hint": "Raak hem maar niet aan.",
+          "explanation": "Het grootste deel van de energie wordt warmte in plaats van licht.",
+          "fact": "Daarom is een ledlamp veel zuiniger: die blijft bijna koel."
+        },
+        "en": {
+          "prompt": "What happens to a light bulb that is burning?",
+          "answer": "It gets hot",
+          "wrong": [
+            "It gets cold",
+            "It gets heavy",
+            "It gets wet"
+          ],
+          "hint": "Better not touch it.",
+          "explanation": "Most of the energy turns into heat instead of light.",
+          "fact": "That is why an LED is far cheaper to run: it stays almost cool."
+        },
+        "de": {
+          "prompt": "Was passiert mit einer brennenden Glühlampe?",
+          "answer": "Sie wird heiß",
+          "wrong": [
+            "Sie wird kalt",
+            "Sie wird schwer",
+            "Sie wird nass"
+          ],
+          "hint": "Fass sie lieber nicht an.",
+          "explanation": "Der größte Teil der Energie wird Wärme statt Licht.",
+          "fact": "Darum ist eine LED viel sparsamer: Sie bleibt fast kühl."
+        },
+        "fr": {
+          "prompt": "Qu'arrive-t-il à une ampoule allumée ?",
+          "answer": "Elle devient brûlante",
+          "wrong": [
+            "Elle devient froide",
+            "Elle devient lourde",
+            "Elle devient mouillée"
+          ],
+          "hint": "Mieux vaut ne pas y toucher.",
+          "explanation": "La plus grande part de l'énergie devient de la chaleur, pas de la lumière.",
+          "fact": "C'est pourquoi une LED coûte bien moins cher : elle reste presque froide."
+        },
+        "es": {
+          "prompt": "¿Qué le pasa a una bombilla encendida?",
+          "answer": "Se pone muy caliente",
+          "wrong": [
+            "Se enfría",
+            "Pesa más",
+            "Se moja"
+          ],
+          "hint": "Mejor no la toques.",
+          "explanation": "La mayor parte de la energía se vuelve calor en vez de luz.",
+          "fact": "Por eso un led gasta mucho menos: se queda casi frío."
+        },
+        "it": {
+          "prompt": "Che cosa succede a una lampadina accesa?",
+          "answer": "Diventa bollente",
+          "wrong": [
+            "Diventa fredda",
+            "Diventa pesante",
+            "Diventa bagnata"
+          ],
+          "hint": "Meglio non toccarla.",
+          "explanation": "La maggior parte dell'energia diventa calore invece che luce.",
+          "fact": "Per questo un led consuma molto meno: resta quasi freddo."
+        },
+        "pt": {
+          "prompt": "O que acontece a uma lâmpada acesa?",
+          "answer": "Fica muito quente",
+          "wrong": [
+            "Fica fria",
+            "Fica pesada",
+            "Fica molhada"
+          ],
+          "hint": "É melhor não lhe tocares.",
+          "explanation": "A maior parte da energia vira calor em vez de luz.",
+          "fact": "Por isso um led gasta muito menos: fica quase frio."
+        },
+        "da": {
+          "prompt": "Hvad sker der med en tændt glødepære?",
+          "answer": "Den bliver brændende varm",
+          "wrong": [
+            "Den bliver kold",
+            "Den bliver tung",
+            "Den bliver våd"
+          ],
+          "hint": "Rør den hellere ikke.",
+          "explanation": "Det meste af energien bliver til varme i stedet for lys.",
+          "fact": "Derfor er en LED langt billigere i drift: den holder sig næsten kold."
+        },
+        "ru": {
+          "prompt": "Что происходит с горящей лампой накаливания?",
+          "answer": "Она становится горячей",
+          "wrong": [
+            "Она становится холодной",
+            "Она становится тяжёлой",
+            "Она становится мокрой"
+          ],
+          "hint": "Лучше её не трогать.",
+          "explanation": "Большая часть энергии уходит в тепло, а не в свет.",
+          "fact": "Поэтому светодиод намного экономнее: он почти не греется."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث لمصباح متوهج مضاء؟",
+          "answer": "يصير ساخنًا جدًا",
+          "wrong": [
+            "يصير باردًا",
+            "يصير ثقيلًا",
+            "يصير مبتلًا"
+          ],
+          "hint": "من الأفضل ألا تلمسه.",
+          "explanation": "معظم الطاقة تتحول إلى حرارة بدل الضوء.",
+          "fact": "لذلك مصباح الليد أوفر بكثير: يبقى شبه بارد."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Dubbel glas houdt warmte binnen",
+      "artBrief": "Een doorsnede van een raam met twee glasplaten en lucht ertussen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet dubbel glas in een raam?",
+          "answer": "Het houdt warmte binnen",
+          "wrong": [
+            "Het maakt licht feller",
+            "Het kleurt het licht",
+            "Het maakt het raam lichter"
+          ],
+          "hint": "Er zit lucht tussen twee ruiten.",
+          "explanation": "De laag lucht of gas tussen de ruiten laat warmte veel moeilijker door.",
+          "fact": "In de winter blijft de binnenruit daardoor warm genoeg om niet te beslaan."
+        },
+        "en": {
+          "prompt": "What does double glazing do in a window?",
+          "answer": "It keeps warmth inside",
+          "wrong": [
+            "It makes light brighter",
+            "It colours the light",
+            "It makes the window lighter"
+          ],
+          "hint": "There is air between two panes.",
+          "explanation": "The layer of air or gas between the panes lets heat through far less easily.",
+          "fact": "In winter the inner pane stays warm enough not to steam up."
+        },
+        "de": {
+          "prompt": "Was bewirkt Doppelglas im Fenster?",
+          "answer": "Es hält Wärme drinnen",
+          "wrong": [
+            "Es macht Licht heller",
+            "Es färbt das Licht",
+            "Es macht das Glas dünner"
+          ],
+          "hint": "Zwischen zwei Scheiben ist Luft.",
+          "explanation": "Die Luft- oder Gasschicht zwischen den Scheiben lässt Wärme viel schlechter durch.",
+          "fact": "Im Winter bleibt die innere Scheibe dadurch warm genug und beschlägt nicht."
+        },
+        "fr": {
+          "prompt": "À quoi sert le double vitrage d'une fenêtre ?",
+          "answer": "Il garde la chaleur dedans",
+          "wrong": [
+            "Il rend la lumière plus vive",
+            "Il colore la lumière",
+            "Il allège la fenêtre"
+          ],
+          "hint": "Il y a de l'air entre deux vitres.",
+          "explanation": "La couche d'air ou de gaz entre les vitres laisse bien moins passer la chaleur.",
+          "fact": "En hiver, la vitre intérieure reste assez chaude pour ne pas s'embuer."
+        },
+        "es": {
+          "prompt": "¿Qué hace el doble cristal de una ventana?",
+          "answer": "Retiene el calor dentro",
+          "wrong": [
+            "Hace la luz más viva",
+            "Colorea la luz",
+            "Aligera la ventana"
+          ],
+          "hint": "Hay aire entre dos cristales.",
+          "explanation": "La capa de aire o gas entre los cristales deja pasar mucho menos calor.",
+          "fact": "En invierno el cristal interior se mantiene templado y no se empaña."
+        },
+        "it": {
+          "prompt": "A che serve il doppio vetro di una finestra?",
+          "answer": "Tiene dentro il calore",
+          "wrong": [
+            "Rende la luce più viva",
+            "Colora la luce",
+            "Rende il vetro più sottile"
+          ],
+          "hint": "Tra due vetri c'è aria.",
+          "explanation": "Lo strato d'aria o gas tra i vetri lascia passare molto meno calore.",
+          "fact": "D'inverno il vetro interno resta tiepido e non si appanna."
+        },
+        "pt": {
+          "prompt": "Para que serve o vidro duplo numa janela?",
+          "answer": "Segura o calor dentro",
+          "wrong": [
+            "Torna a luz mais viva",
+            "Colore a luz",
+            "Torna o vidro mais fino"
+          ],
+          "hint": "Há ar entre dois vidros.",
+          "explanation": "A camada de ar ou gás entre os vidros deixa passar muito menos calor.",
+          "fact": "No inverno o vidro de dentro fica morno e não embacia."
+        },
+        "da": {
+          "prompt": "Hvad gør termoruder i et vindue?",
+          "answer": "De holder på varmen",
+          "wrong": [
+            "De gør lyset skarpere",
+            "De farver lyset",
+            "De gør glasset tyndere"
+          ],
+          "hint": "Der er luft mellem to lag glas.",
+          "explanation": "Laget af luft eller gas mellem ruderne lukker meget mindre varme igennem.",
+          "fact": "Om vinteren bliver den inderste rude varm nok til ikke at dugge."
+        },
+        "ru": {
+          "prompt": "Что делает двойное стекло в окне?",
+          "answer": "Держит тепло внутри",
+          "wrong": [
+            "Делает свет ярче",
+            "Красит свет",
+            "Делает стекло тоньше"
+          ],
+          "hint": "Между стёклами воздух.",
+          "explanation": "Слой воздуха или газа между стёклами пропускает тепло гораздо хуже.",
+          "fact": "Зимой внутреннее стекло остаётся тёплым и не запотевает."
+        },
+        "ar": {
+          "prompt": "ما فائدة الزجاج المزدوج في النافذة؟",
+          "answer": "يحبس الدفء في الداخل",
+          "wrong": [
+            "يجعل الضوء أقوى",
+            "يلوّن الضوء",
+            "يجعل الزجاج أرق"
+          ],
+          "hint": "بين اللوحين هواء.",
+          "explanation": "طبقة الهواء أو الغاز بين اللوحين تمرر الحرارة بصعوبة أكبر.",
+          "fact": "في الشتاء يبقى اللوح الداخلي دافئًا فلا يتضبب."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Aardgas komt diep uit de bodem",
+      "artBrief": "Een boortoren met een doorsnede van gesteentelagen en een gasbel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar komt aardgas vandaan?",
+          "answer": "Diep uit de bodem",
+          "wrong": [
+            "Uit de wolken",
+            "Uit zeewater",
+            "Uit bomen"
+          ],
+          "hint": "Er wordt naar geboord.",
+          "explanation": "Aardgas zit in poriën in gesteente, kilometers onder de grond.",
+          "fact": "Het ontstond uit resten van planten en diertjes van miljoenen jaren geleden."
+        },
+        "en": {
+          "prompt": "Where does natural gas come from?",
+          "answer": "Deep underground",
+          "wrong": [
+            "From the clouds",
+            "From sea water",
+            "From trees"
+          ],
+          "hint": "People drill for it.",
+          "explanation": "Natural gas sits in tiny holes in rock, kilometres below the surface.",
+          "fact": "It formed from the remains of plants and tiny animals millions of years ago."
+        },
+        "de": {
+          "prompt": "Woher kommt Erdgas?",
+          "answer": "Tief aus dem Boden",
+          "wrong": [
+            "Aus den Wolken",
+            "Aus Meerwasser",
+            "Aus Bäumen"
+          ],
+          "hint": "Man bohrt danach.",
+          "explanation": "Erdgas steckt in winzigen Poren im Gestein, Kilometer unter der Oberfläche.",
+          "fact": "Es entstand aus Resten von Pflanzen und Tierchen vor Millionen Jahren."
+        },
+        "fr": {
+          "prompt": "D'où vient le gaz naturel ?",
+          "answer": "De très loin sous terre",
+          "wrong": [
+            "Des nuages",
+            "De l'eau de mer",
+            "Des arbres"
+          ],
+          "hint": "On fore pour aller le chercher.",
+          "explanation": "Le gaz est logé dans les pores de la roche, à des kilomètres de profondeur.",
+          "fact": "Il vient de restes de plantes et de petits animaux d'il y a des millions d'années."
+        },
+        "es": {
+          "prompt": "¿De dónde sale el gas natural?",
+          "answer": "De muy hondo bajo tierra",
+          "wrong": [
+            "De las nubes",
+            "Del agua del mar",
+            "De los árboles"
+          ],
+          "hint": "Hay que perforar para sacarlo.",
+          "explanation": "El gas está en los poros de la roca, a kilómetros de profundidad.",
+          "fact": "Se formó con restos de plantas y animalitos de hace millones de años."
+        },
+        "it": {
+          "prompt": "Da dove viene il gas naturale?",
+          "answer": "Dal profondo del suolo",
+          "wrong": [
+            "Dalle nuvole",
+            "Dall'acqua di mare",
+            "Dagli alberi"
+          ],
+          "hint": "Si perfora per prenderlo.",
+          "explanation": "Il gas sta nei pori della roccia, a chilometri di profondità.",
+          "fact": "Nasce da resti di piante e animaletti di milioni di anni fa."
+        },
+        "pt": {
+          "prompt": "De onde vem o gás natural?",
+          "answer": "Do fundo do subsolo",
+          "wrong": [
+            "Das nuvens",
+            "Da água do mar",
+            "Das árvores"
+          ],
+          "hint": "É preciso furar para o tirar.",
+          "explanation": "O gás está nos poros da rocha, a quilómetros de profundidade.",
+          "fact": "Formou-se de restos de plantas e bichinhos de há milhões de anos."
+        },
+        "da": {
+          "prompt": "Hvor kommer naturgas fra?",
+          "answer": "Dybt nede i undergrunden",
+          "wrong": [
+            "Fra skyerne",
+            "Fra havvand",
+            "Fra træer"
+          ],
+          "hint": "Man borer efter den.",
+          "explanation": "Gassen sidder i små porer i klippen, kilometer under overfladen.",
+          "fact": "Den blev dannet af rester af planter og små dyr for millioner af år siden."
+        },
+        "ru": {
+          "prompt": "Откуда берут природный газ?",
+          "answer": "Из глубины земли",
+          "wrong": [
+            "Из облаков",
+            "Из морской воды",
+            "Из деревьев"
+          ],
+          "hint": "За ним бурят скважину.",
+          "explanation": "Газ сидит в порах горной породы, в километрах под поверхностью.",
+          "fact": "Он возник из остатков растений и животных миллионы лет назад."
+        },
+        "ar": {
+          "prompt": "من أين يأتي الغاز الطبيعي؟",
+          "answer": "من عمق باطن الأرض",
+          "wrong": [
+            "من الغيوم",
+            "من ماء البحر",
+            "من الأشجار"
+          ],
+          "hint": "يُحفر للوصول إليه.",
+          "explanation": "الغاز محبوس في مسام الصخر على عمق كيلومترات.",
+          "fact": "تكوّن من بقايا نباتات وكائنات صغيرة قبل ملايين السنين."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De fietsdynamo",
+      "artBrief": "Een dynamo tegen een draaiend fietswiel, met het voorlicht aan.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een dynamo op een fiets?",
+          "answer": "Hij maakt stroom",
+          "wrong": [
+            "Hij remt het wiel af",
+            "Hij pompt je band op",
+            "Hij meet je snelheid"
+          ],
+          "hint": "Je moet ervoor trappen.",
+          "explanation": "Het draaiende wiel laat een magneet ronddraaien, en dat wekt stroom op.",
+          "fact": "Daarom trapt een fiets met dynamo net iets zwaarder."
+        },
+        "en": {
+          "prompt": "What does a dynamo on a bike do?",
+          "answer": "It makes electricity",
+          "wrong": [
+            "It brakes the wheel",
+            "It pumps up your tyre",
+            "It measures your speed"
+          ],
+          "hint": "You have to pedal for it.",
+          "explanation": "The turning wheel spins a magnet, and that generates current.",
+          "fact": "That is why a bike with a dynamo pedals a little harder."
+        },
+        "de": {
+          "prompt": "Was macht ein Dynamo am Fahrrad?",
+          "answer": "Er erzeugt Strom",
+          "wrong": [
+            "Er bremst das Rad",
+            "Er pumpt den Reifen auf",
+            "Er misst die Geschwindigkeit"
+          ],
+          "hint": "Du musst dafür treten.",
+          "explanation": "Das drehende Rad dreht einen Magneten, und das erzeugt Strom.",
+          "fact": "Darum tritt sich ein Rad mit Dynamo etwas schwerer."
+        },
+        "fr": {
+          "prompt": "Que fait une dynamo sur un vélo ?",
+          "answer": "Elle produit du courant",
+          "wrong": [
+            "Elle freine la roue",
+            "Elle gonfle le pneu",
+            "Elle mesure la vitesse"
+          ],
+          "hint": "Il faut pédaler pour ça.",
+          "explanation": "La roue qui tourne fait tourner un aimant, et cela produit du courant.",
+          "fact": "C'est pour ça qu'un vélo à dynamo pédale un peu plus dur."
+        },
+        "es": {
+          "prompt": "¿Qué hace una dinamo en una bicicleta?",
+          "answer": "Genera corriente",
+          "wrong": [
+            "Frena la rueda",
+            "Infla la rueda",
+            "Mide la velocidad"
+          ],
+          "hint": "Hay que pedalear para eso.",
+          "explanation": "La rueda al girar mueve un imán, y eso genera corriente.",
+          "fact": "Por eso una bici con dinamo cuesta un poco más de pedalear."
+        },
+        "it": {
+          "prompt": "Che cosa fa una dinamo sulla bicicletta?",
+          "answer": "Produce corrente",
+          "wrong": [
+            "Frena la ruota",
+            "Gonfia la gomma",
+            "Misura la velocità"
+          ],
+          "hint": "Devi pedalare per quello.",
+          "explanation": "La ruota che gira fa girare un magnete, e questo produce corrente.",
+          "fact": "Per questo una bici con dinamo è un po' più dura da pedalare."
+        },
+        "pt": {
+          "prompt": "O que faz um dínamo numa bicicleta?",
+          "answer": "Produz corrente",
+          "wrong": [
+            "Trava a roda",
+            "Enche o pneu",
+            "Mede a velocidade"
+          ],
+          "hint": "Tens de pedalar para isso.",
+          "explanation": "A roda a girar faz girar um íman, e isso gera corrente.",
+          "fact": "Por isso uma bicicleta com dínamo pedala um pouco mais duro."
+        },
+        "da": {
+          "prompt": "Hvad gør en dynamo på en cykel?",
+          "answer": "Den laver strøm",
+          "wrong": [
+            "Den bremser hjulet",
+            "Den pumper dækket",
+            "Den måler farten"
+          ],
+          "hint": "Du skal træde for den.",
+          "explanation": "Det roterende hjul drejer en magnet, og det danner strøm.",
+          "fact": "Derfor trækker en cykel med dynamo en anelse tungere."
+        },
+        "ru": {
+          "prompt": "Что делает динамо на велосипеде?",
+          "answer": "Вырабатывает ток",
+          "wrong": [
+            "Тормозит колесо",
+            "Накачивает шину",
+            "Измеряет скорость"
+          ],
+          "hint": "Для этого надо крутить педали.",
+          "explanation": "Крутящееся колесо вращает магнит, и это даёт ток.",
+          "fact": "Поэтому с динамо крутить педали чуть тяжелее."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل الدينامو على الدراجة؟",
+          "answer": "يولّد تيارًا كهربائيًا",
+          "wrong": [
+            "يكبح العجلة",
+            "ينفخ الإطار",
+            "يقيس السرعة"
+          ],
+          "hint": "عليك أن تدوس لذلك.",
+          "explanation": "العجلة الدائرة تدير مغناطيسًا، وهذا يولّد التيار.",
+          "fact": "لهذا تكون الدراجة بالدينامو أثقل قليلًا في الدوس."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Te weinig of te veel wind",
+      "artBrief": "Een windmolen met stilstaande wieken tijdens een storm.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom staan windmolens soms stil?",
+          "answer": "Te weinig of te veel wind",
+          "wrong": [
+            "Ze zijn dan aan het laden",
+            "Ze rusten 's nachts uit",
+            "Ze zitten dan vol"
+          ],
+          "hint": "Ook storm is een probleem.",
+          "explanation": "Bij te weinig wind komen ze niet op gang, bij storm worden ze uit de wind gedraaid.",
+          "fact": "Zo beschermen ze hun eigen wieken tegen schade."
+        },
+        "en": {
+          "prompt": "Why do wind turbines sometimes stand still?",
+          "answer": "Too little or too much wind",
+          "wrong": [
+            "They are charging up",
+            "They rest at night",
+            "They are full"
+          ],
+          "hint": "A storm is a problem too.",
+          "explanation": "With too little wind they will not start; in a storm they are turned out of the wind.",
+          "fact": "That protects their own blades from damage."
+        },
+        "de": {
+          "prompt": "Warum stehen Windräder manchmal still?",
+          "answer": "Zu wenig oder zu viel Wind",
+          "wrong": [
+            "Sie laden gerade auf",
+            "Sie ruhen nachts",
+            "Sie sind dann voll"
+          ],
+          "hint": "Auch Sturm ist ein Problem.",
+          "explanation": "Bei zu wenig Wind kommen sie nicht in Gang, bei Sturm dreht man sie aus dem Wind.",
+          "fact": "So schützen sie ihre eigenen Flügel vor Schäden."
+        },
+        "fr": {
+          "prompt": "Pourquoi les éoliennes s'arrêtent-elles parfois ?",
+          "answer": "Trop peu ou trop de vent",
+          "wrong": [
+            "Elles se rechargent",
+            "Elles se reposent la nuit",
+            "Elles sont pleines"
+          ],
+          "hint": "La tempête aussi pose problème.",
+          "explanation": "Sans assez de vent elles ne démarrent pas ; en tempête on les met hors du vent.",
+          "fact": "Cela protège leurs propres pales."
+        },
+        "es": {
+          "prompt": "¿Por qué a veces los molinos están parados?",
+          "answer": "Muy poco o mucho viento",
+          "wrong": [
+            "Se están cargando",
+            "Descansan de noche",
+            "Están llenos"
+          ],
+          "hint": "La tormenta también es un problema.",
+          "explanation": "Con poco viento no arrancan; con tormenta se giran fuera del viento.",
+          "fact": "Así protegen sus propias aspas."
+        },
+        "it": {
+          "prompt": "Perché a volte le pale eoliche sono ferme?",
+          "answer": "Vento troppo poco o troppo",
+          "wrong": [
+            "Si stanno ricaricando",
+            "Di notte riposano",
+            "Sono piene"
+          ],
+          "hint": "Anche la tempesta è un problema.",
+          "explanation": "Con poco vento non partono; con la tempesta le girano fuori vento.",
+          "fact": "Così proteggono le proprie pale."
+        },
+        "pt": {
+          "prompt": "Porque estão às vezes os aerogeradores parados?",
+          "answer": "Vento a menos ou a mais",
+          "wrong": [
+            "Estão a carregar",
+            "Descansam de noite",
+            "Estão cheios"
+          ],
+          "hint": "A tempestade também é um problema.",
+          "explanation": "Com pouco vento não arrancam; com tempestade viram-nos para fora do vento.",
+          "fact": "Assim protegem as próprias pás."
+        },
+        "da": {
+          "prompt": "Hvorfor står vindmøller nogle gange stille?",
+          "answer": "For lidt eller for meget",
+          "wrong": [
+            "De lader op",
+            "De hviler om natten",
+            "De er fyldt op"
+          ],
+          "hint": "Storm er også et problem.",
+          "explanation": "Med for lidt vind starter de ikke; i storm drejes de ud af vinden.",
+          "fact": "Sådan beskytter de deres egne vinger."
+        },
+        "ru": {
+          "prompt": "Почему ветряки иногда стоят?",
+          "answer": "Ветра мало или слишком много",
+          "wrong": [
+            "Они заряжаются",
+            "Ночью они отдыхают",
+            "Они переполнены"
+          ],
+          "hint": "Буря тоже помеха.",
+          "explanation": "При слабом ветре они не заводятся, а в бурю их разворачивают от ветра.",
+          "fact": "Так они берегут собственные лопасти."
+        },
+        "ar": {
+          "prompt": "لماذا تقف عنفات الرياح أحيانًا؟",
+          "answer": "ريح قليلة جدًا أو كثيرة",
+          "wrong": [
+            "تكون تشحن",
+            "ترتاح ليلًا",
+            "تكون ممتلئة"
+          ],
+          "hint": "العاصفة أيضًا مشكلة.",
+          "explanation": "مع ريح ضعيفة لا تدور، ومع العاصفة تُدار بعيدًا عن الريح.",
+          "fact": "هكذا تحمي شفراتها من التلف."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De kilowattuur",
+      "artBrief": "Een slimme meter met een oplopend cijferdisplay in een meterkast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat meet een kilowattuur?",
+          "answer": "Hoeveel stroom je gebruikt",
+          "wrong": [
+            "Hoe warm het buiten is",
+            "Hoe hard het waait",
+            "Hoeveel water je gebruikt"
+          ],
+          "hint": "Het staat op de energierekening.",
+          "explanation": "Een kilowattuur is een uur lang duizend watt gebruiken.",
+          "fact": "Een ledlamp brandt daar ruim honderd uur op."
+        },
+        "en": {
+          "prompt": "What does a kilowatt hour measure?",
+          "answer": "How much power you use",
+          "wrong": [
+            "How warm it is outside",
+            "How hard the wind blows",
+            "How much water you use"
+          ],
+          "hint": "It is on the energy bill.",
+          "explanation": "A kilowatt hour means using a thousand watts for one hour.",
+          "fact": "An LED lamp burns for well over a hundred hours on that."
+        },
+        "de": {
+          "prompt": "Was misst eine Kilowattstunde?",
+          "answer": "Wie viel Strom du brauchst",
+          "wrong": [
+            "Wie warm es draußen ist",
+            "Wie stark der Wind weht",
+            "Wie viel Wasser du brauchst"
+          ],
+          "hint": "Sie steht auf der Stromrechnung.",
+          "explanation": "Eine Kilowattstunde heißt: eine Stunde lang tausend Watt verbrauchen.",
+          "fact": "Eine LED-Lampe brennt damit gut hundert Stunden."
+        },
+        "fr": {
+          "prompt": "Que mesure un kilowattheure ?",
+          "answer": "L'électricité consommée",
+          "wrong": [
+            "La chaleur dehors",
+            "La force du vent",
+            "L'eau consommée"
+          ],
+          "hint": "C'est sur la facture d'énergie.",
+          "explanation": "Un kilowattheure, c'est utiliser mille watts pendant une heure.",
+          "fact": "Une lampe LED brûle plus de cent heures avec cela."
+        },
+        "es": {
+          "prompt": "¿Qué mide un kilovatio hora?",
+          "answer": "La electricidad que gastas",
+          "wrong": [
+            "El calor que hace fuera",
+            "La fuerza del viento",
+            "El agua que gastas"
+          ],
+          "hint": "Aparece en la factura.",
+          "explanation": "Un kilovatio hora es usar mil vatios durante una hora.",
+          "fact": "Una lámpara led luce más de cien horas con eso."
+        },
+        "it": {
+          "prompt": "Che cosa misura un chilowattora?",
+          "answer": "Quanta corrente consumi",
+          "wrong": [
+            "Quanto caldo fa fuori",
+            "Quanto forte tira il vento",
+            "Quanta acqua consumi"
+          ],
+          "hint": "Sta sulla bolletta.",
+          "explanation": "Un chilowattora è usare mille watt per un'ora.",
+          "fact": "Una lampada a led resta accesa oltre cento ore con quello."
+        },
+        "pt": {
+          "prompt": "O que mede um quilowatt-hora?",
+          "answer": "A eletricidade que gastas",
+          "wrong": [
+            "O calor lá fora",
+            "A força do vento",
+            "A água que gastas"
+          ],
+          "hint": "Está na fatura da energia.",
+          "explanation": "Um quilowatt-hora é usar mil watts durante uma hora.",
+          "fact": "Uma lâmpada led fica acesa mais de cem horas com isso."
+        },
+        "da": {
+          "prompt": "Hvad måler en kilowatt-time?",
+          "answer": "Hvor meget strøm du bruger",
+          "wrong": [
+            "Hvor varmt det er ude",
+            "Hvor hårdt det blæser",
+            "Hvor meget vand du bruger"
+          ],
+          "hint": "Den står på elregningen.",
+          "explanation": "En kilowatt-time er at bruge tusind watt i en time.",
+          "fact": "En LED-pære lyser godt hundrede timer på det."
+        },
+        "ru": {
+          "prompt": "Что измеряет киловатт-час?",
+          "answer": "Сколько тока ты тратишь",
+          "wrong": [
+            "Как тепло на улице",
+            "Как силён ветер",
+            "Сколько воды ты тратишь"
+          ],
+          "hint": "Он стоит в счёте за свет.",
+          "explanation": "Киловатт-час — это тысяча ватт в течение часа.",
+          "fact": "Светодиодная лампа горит на этом больше ста часов."
+        },
+        "ar": {
+          "prompt": "ماذا تقيس الكيلوواط ساعة؟",
+          "answer": "كمية الكهرباء المستهلكة",
+          "wrong": [
+            "حرارة الجو في الخارج",
+            "قوة الريح",
+            "كمية الماء المستهلكة"
+          ],
+          "hint": "تجدها في فاتورة الكهرباء.",
+          "explanation": "كيلوواط ساعة تعني استعمال ألف واط لمدة ساعة.",
+          "fact": "مصباح ليد يضيء بها أكثر من مئة ساعة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Hout groeit weer aan",
+      "artBrief": "Jonge boompjes naast een stapel gezaagd haardhout.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom heet hout een hernieuwbare brandstof?",
+          "answer": "Er groeien nieuwe bomen",
+          "wrong": [
+            "Het brandt niet",
+            "Het is heel oud",
+            "Het komt uit een mijn"
+          ],
+          "hint": "Je kunt het opnieuw laten groeien.",
+          "explanation": "Nieuwe bomen nemen weer koolstofdioxide op, dus het kan opnieuw aangroeien.",
+          "fact": "Alleen als er net zoveel wordt bijgeplant als gekapt, klopt dat verhaal."
+        },
+        "en": {
+          "prompt": "Why is wood called a renewable fuel?",
+          "answer": "New trees grow back",
+          "wrong": [
+            "It does not burn",
+            "It is very old",
+            "It comes from a mine"
+          ],
+          "hint": "You can grow it again.",
+          "explanation": "New trees take carbon dioxide back in, so the fuel can grow again.",
+          "fact": "That only holds if as much is replanted as is cut down."
+        },
+        "de": {
+          "prompt": "Warum heißt Holz ein erneuerbarer Brennstoff?",
+          "answer": "Es wachsen neue Bäume",
+          "wrong": [
+            "Es brennt nicht",
+            "Es ist sehr alt",
+            "Es kommt aus dem Bergwerk"
+          ],
+          "hint": "Man kann es neu wachsen lassen.",
+          "explanation": "Neue Bäume nehmen wieder Kohlendioxid auf, der Brennstoff wächst also nach.",
+          "fact": "Das stimmt nur, wenn so viel nachgepflanzt wie gefällt wird."
+        },
+        "fr": {
+          "prompt": "Pourquoi le bois est-il un combustible renouvelable ?",
+          "answer": "De nouveaux arbres poussent",
+          "wrong": [
+            "Il ne brûle pas",
+            "Il est très vieux",
+            "Il sort d'une mine"
+          ],
+          "hint": "On peut le faire repousser.",
+          "explanation": "Les nouveaux arbres reprennent du dioxyde de carbone, donc le combustible repousse.",
+          "fact": "Cela n'est vrai que si l'on replante autant que l'on coupe."
+        },
+        "es": {
+          "prompt": "¿Por qué la leña es un combustible renovable?",
+          "answer": "Crecen árboles nuevos",
+          "wrong": [
+            "No arde",
+            "Es muy antigua",
+            "Sale de una mina"
+          ],
+          "hint": "Se puede volver a cultivar.",
+          "explanation": "Los árboles nuevos vuelven a absorber dióxido de carbono, así que el combustible crece otra vez.",
+          "fact": "Solo vale si se replanta tanto como se corta."
+        },
+        "it": {
+          "prompt": "Perché la legna è un combustibile rinnovabile?",
+          "answer": "Ricrescono alberi nuovi",
+          "wrong": [
+            "Non brucia",
+            "È molto antica",
+            "Viene da una miniera"
+          ],
+          "hint": "Si può far ricrescere.",
+          "explanation": "I nuovi alberi riassorbono anidride carbonica, quindi il combustibile ricresce.",
+          "fact": "Vale solo se si ripianta quanto si taglia."
+        },
+        "pt": {
+          "prompt": "Porque é a lenha um combustível renovável?",
+          "answer": "Nascem árvores novas",
+          "wrong": [
+            "Não arde",
+            "É muito antiga",
+            "Vem de uma mina"
+          ],
+          "hint": "Pode voltar a crescer.",
+          "explanation": "As árvores novas voltam a absorver dióxido de carbono, por isso o combustível cresce de novo.",
+          "fact": "Só é verdade se se replantar tanto como se corta."
+        },
+        "da": {
+          "prompt": "Hvorfor kaldes træ et vedvarende brændsel?",
+          "answer": "Der vokser nye træer",
+          "wrong": [
+            "Det brænder ikke",
+            "Det er meget gammelt",
+            "Det kommer fra en mine"
+          ],
+          "hint": "Man kan lade det vokse igen.",
+          "explanation": "Nye træer optager kuldioxid igen, så brændslet kan vokse op på ny.",
+          "fact": "Det holder kun, hvis der plantes lige så meget, som der fældes."
+        },
+        "ru": {
+          "prompt": "Почему дрова называют возобновляемым топливом?",
+          "answer": "Вырастают новые деревья",
+          "wrong": [
+            "Они не горят",
+            "Они очень старые",
+            "Их добывают в шахте"
+          ],
+          "hint": "Их можно вырастить заново.",
+          "explanation": "Новые деревья снова поглощают углекислый газ, значит топливо отрастает.",
+          "fact": "Это верно, только если сажают столько же, сколько срубают."
+        },
+        "ar": {
+          "prompt": "لماذا يُعدّ الحطب وقودًا متجددًا؟",
+          "answer": "تنمو أشجار جديدة",
+          "wrong": [
+            "لأنه لا يحترق",
+            "لأنه قديم جدًا",
+            "لأنه من منجم"
+          ],
+          "hint": "يمكن إنباته من جديد.",
+          "explanation": "الأشجار الجديدة تمتص ثاني أكسيد الكربون، فينمو الوقود من جديد.",
+          "fact": "وهذا صحيح فقط إذا زُرع بقدر ما يُقطع."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Kernsplijting",
+      "artBrief": "Een gestileerd atoom dat in twee stukken uiteenvalt met een lichtflits.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er in een kerncentrale?",
+          "answer": "Atomen worden gesplitst",
+          "wrong": [
+            "Kolen worden verbrand",
+            "Water wordt gesplitst",
+            "Wind wordt opgeslagen"
+          ],
+          "hint": "Er komt heel veel warmte vrij.",
+          "explanation": "Bij splijting van uranium komt warmte vrij, die water in stoom verandert.",
+          "fact": "Die stoom drijft een turbine aan, net als in een gewone centrale."
+        },
+        "en": {
+          "prompt": "What happens inside a nuclear power station?",
+          "answer": "Atoms are split",
+          "wrong": [
+            "Coal is burned",
+            "Water is split",
+            "Wind is stored"
+          ],
+          "hint": "A great deal of heat is released.",
+          "explanation": "Splitting uranium releases heat, which turns water into steam.",
+          "fact": "That steam drives a turbine, just as in an ordinary power station."
+        },
+        "de": {
+          "prompt": "Was geschieht in einem Kernkraftwerk?",
+          "answer": "Atome werden gespalten",
+          "wrong": [
+            "Kohle wird verbrannt",
+            "Wasser wird gespalten",
+            "Wind wird gespeichert"
+          ],
+          "hint": "Dabei wird sehr viel Wärme frei.",
+          "explanation": "Beim Spalten von Uran wird Wärme frei, die Wasser zu Dampf macht.",
+          "fact": "Dieser Dampf treibt eine Turbine an, wie in jedem Kraftwerk."
+        },
+        "fr": {
+          "prompt": "Que se passe-t-il dans une centrale nucléaire ?",
+          "answer": "On casse des atomes",
+          "wrong": [
+            "On brûle du charbon",
+            "On casse de l'eau",
+            "On stocke du vent"
+          ],
+          "hint": "Il s'en dégage énormément de chaleur.",
+          "explanation": "La fission de l'uranium libère de la chaleur, qui transforme l'eau en vapeur.",
+          "fact": "Cette vapeur fait tourner une turbine, comme ailleurs."
+        },
+        "es": {
+          "prompt": "¿Qué pasa dentro de una central nuclear?",
+          "answer": "Se parten átomos",
+          "wrong": [
+            "Se quema carbón",
+            "Se parte el agua",
+            "Se guarda el viento"
+          ],
+          "hint": "Se libera muchísimo calor.",
+          "explanation": "Al partir uranio se libera calor, que convierte el agua en vapor.",
+          "fact": "Ese vapor mueve una turbina, igual que en otras centrales."
+        },
+        "it": {
+          "prompt": "Che cosa succede in una centrale nucleare?",
+          "answer": "Si spezzano gli atomi",
+          "wrong": [
+            "Si brucia carbone",
+            "Si spezza l'acqua",
+            "Si immagazzina il vento"
+          ],
+          "hint": "Si libera tantissimo calore.",
+          "explanation": "Spezzando l'uranio si libera calore, che trasforma l'acqua in vapore.",
+          "fact": "Quel vapore fa girare una turbina, come in ogni centrale."
+        },
+        "pt": {
+          "prompt": "O que acontece numa central nuclear?",
+          "answer": "Partem-se átomos",
+          "wrong": [
+            "Queima-se carvão",
+            "Parte-se a água",
+            "Guarda-se o vento"
+          ],
+          "hint": "Liberta-se imenso calor.",
+          "explanation": "Ao partir urânio liberta-se calor, que transforma a água em vapor.",
+          "fact": "Esse vapor move uma turbina, como em qualquer central."
+        },
+        "da": {
+          "prompt": "Hvad sker der i et atomkraftværk?",
+          "answer": "Atomer bliver spaltet",
+          "wrong": [
+            "Kul bliver brændt",
+            "Vand bliver spaltet",
+            "Vind bliver gemt"
+          ],
+          "hint": "Der frigives meget varme.",
+          "explanation": "Når uran spaltes, frigives varme, som laver vand om til damp.",
+          "fact": "Den damp driver en turbine, ligesom i et almindeligt værk."
+        },
+        "ru": {
+          "prompt": "Что происходит на атомной станции?",
+          "answer": "Атомы расщепляют",
+          "wrong": [
+            "Сжигают уголь",
+            "Расщепляют воду",
+            "Запасают ветер"
+          ],
+          "hint": "Выделяется очень много тепла.",
+          "explanation": "При расщеплении урана выделяется тепло, которое превращает воду в пар.",
+          "fact": "Этот пар вращает турбину, как на обычной станции."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث في محطة نووية؟",
+          "answer": "تُشطر الذرات",
+          "wrong": [
+            "يُحرق الفحم",
+            "يُشطر الماء",
+            "تُخزن الريح"
+          ],
+          "hint": "تتحرر حرارة هائلة.",
+          "explanation": "شطر اليورانيوم يحرر حرارة تحوّل الماء إلى بخار.",
+          "fact": "والبخار يدير التوربين كما في أي محطة."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Zonnepanelen op het zuiden",
+      "artBrief": "Een dak met panelen en de baan van de zon als boog erboven.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom liggen zonnepanelen vaak op het zuiden?",
+          "answer": "Daar staat de zon het langst",
+          "wrong": [
+            "Daar is de lucht schoner",
+            "Daar waait het minder",
+            "Daar is het dak sterker"
+          ],
+          "hint": "Volg de baan van de zon.",
+          "explanation": "Op het noordelijk halfrond schijnt de zon het grootste deel van de dag uit het zuiden.",
+          "fact": "Panelen op oost en west leveren minder op een dag, maar wel gelijkmatiger."
+        },
+        "en": {
+          "prompt": "Why do solar panels often face south?",
+          "answer": "The sun is there longest",
+          "wrong": [
+            "The air is cleaner there",
+            "There is less wind there",
+            "The roof is stronger there"
+          ],
+          "hint": "Follow the path of the sun.",
+          "explanation": "North of the equator the sun stands in the south for most of the day.",
+          "fact": "East and west panels give less in a day, but more evenly."
+        },
+        "de": {
+          "prompt": "Warum zeigen Solarmodule oft nach Süden?",
+          "answer": "Dort steht die Sonne lang",
+          "wrong": [
+            "Dort ist die Luft sauberer",
+            "Dort weht es weniger",
+            "Dort ist das Dach stärker"
+          ],
+          "hint": "Folge der Bahn der Sonne.",
+          "explanation": "Nördlich des Äquators steht die Sonne den größten Teil des Tages im Süden.",
+          "fact": "Module nach Ost und West liefern am Tag weniger, aber gleichmäßiger."
+        },
+        "fr": {
+          "prompt": "Pourquoi les panneaux solaires regardent-ils au sud ?",
+          "answer": "Le soleil y reste longtemps",
+          "wrong": [
+            "L'air y est plus pur",
+            "Le vent y est faible",
+            "Le toit y est solide"
+          ],
+          "hint": "Suis la course du soleil.",
+          "explanation": "Au nord de l'équateur, le soleil est au sud la plus grande partie du jour.",
+          "fact": "Vers l'est et l'ouest, on produit moins par jour mais plus régulièrement."
+        },
+        "es": {
+          "prompt": "¿Por qué los paneles solares miran al sur?",
+          "answer": "Allí el sol dura más",
+          "wrong": [
+            "Allí el aire es más limpio",
+            "Allí hay menos viento",
+            "Allí el tejado aguanta más"
+          ],
+          "hint": "Sigue el recorrido del sol.",
+          "explanation": "Al norte del ecuador el sol está al sur casi todo el día.",
+          "fact": "Mirando al este y al oeste se produce menos al día, pero más parejo."
+        },
+        "it": {
+          "prompt": "Perché i pannelli solari guardano a sud?",
+          "answer": "Lì il sole resta più a lungo",
+          "wrong": [
+            "Lì l'aria è più pulita",
+            "Lì tira meno vento",
+            "Lì il tetto è più solido"
+          ],
+          "hint": "Segui il percorso del sole.",
+          "explanation": "A nord dell'equatore il sole sta a sud per gran parte del giorno.",
+          "fact": "A est e a ovest si produce meno al giorno, ma in modo più costante."
+        },
+        "pt": {
+          "prompt": "Porque olham os painéis solares para sul?",
+          "answer": "Lá o sol dura mais tempo",
+          "wrong": [
+            "Lá o ar é mais limpo",
+            "Lá há menos vento",
+            "Lá o telhado aguenta mais"
+          ],
+          "hint": "Segue o percurso do sol.",
+          "explanation": "A norte do equador o sol está a sul quase todo o dia.",
+          "fact": "Virados a este e a oeste produzem menos por dia, mas de forma mais regular."
+        },
+        "da": {
+          "prompt": "Hvorfor vender solceller ofte mod syd?",
+          "answer": "Der står solen længst",
+          "wrong": [
+            "Der er luften renere",
+            "Der blæser det mindre",
+            "Der er taget stærkere"
+          ],
+          "hint": "Følg solens bane.",
+          "explanation": "Nord for ækvator står solen i syd det meste af dagen.",
+          "fact": "Mod øst og vest giver de mindre på en dag, men mere jævnt."
+        },
+        "ru": {
+          "prompt": "Почему солнечные панели часто смотрят на юг?",
+          "answer": "Там солнце дольше всего",
+          "wrong": [
+            "Там воздух чище",
+            "Там меньше ветра",
+            "Там крыша прочнее"
+          ],
+          "hint": "Проследи путь солнца.",
+          "explanation": "К северу от экватора солнце большую часть дня стоит на юге.",
+          "fact": "На восток и запад за день выходит меньше, зато ровнее."
+        },
+        "ar": {
+          "prompt": "لماذا تتجه الألواح الشمسية نحو الجنوب؟",
+          "answer": "الشمس تبقى هناك أطول",
+          "wrong": [
+            "الهواء هناك أنظف",
+            "الريح هناك أقل",
+            "السطح هناك أقوى"
+          ],
+          "hint": "تتبّع مسار الشمس.",
+          "explanation": "شمال خط الاستواء تكون الشمس في الجنوب معظم النهار.",
+          "fact": "الاتجاه شرقًا وغربًا يعطي أقل في اليوم لكن بانتظام أكبر."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Een gloeilamp geeft vooral warmte",
+      "artBrief": "Een warmtebeeld van een gloeiende lamp met rode en gele gloed.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel van de energie van een gloeilamp wordt licht?",
+          "answer": "Ongeveer vijf procent",
+          "wrong": [
+            "Ongeveer de helft",
+            "Bijna alles",
+            "Ongeveer tachtig procent"
+          ],
+          "hint": "De rest voel je als warmte.",
+          "explanation": "Van een gloeilamp wordt maar een klein deel licht, de rest is warmte.",
+          "fact": "Een ledlamp haalt uit dezelfde stroom wel tien keer zoveel licht."
+        },
+        "en": {
+          "prompt": "How much of a light bulb's energy becomes light?",
+          "answer": "About five per cent",
+          "wrong": [
+            "About half",
+            "Almost all of it",
+            "About eighty per cent"
+          ],
+          "hint": "You feel the rest as heat.",
+          "explanation": "Only a small part of a bulb's energy becomes light; the rest is heat.",
+          "fact": "An LED gets about ten times as much light from the same power."
+        },
+        "de": {
+          "prompt": "Wie viel Energie einer Glühlampe wird Licht?",
+          "answer": "Etwa fünf Prozent",
+          "wrong": [
+            "Etwa die Hälfte",
+            "Fast alles",
+            "Etwa achtzig Prozent"
+          ],
+          "hint": "Den Rest spürst du als Wärme.",
+          "explanation": "Von einer Glühlampe wird nur ein kleiner Teil Licht, der Rest ist Wärme.",
+          "fact": "Eine LED holt aus demselben Strom etwa zehnmal so viel Licht."
+        },
+        "fr": {
+          "prompt": "Quelle part de l'énergie d'une ampoule devient lumière ?",
+          "answer": "Environ cinq pour cent",
+          "wrong": [
+            "Environ la moitié",
+            "Presque tout",
+            "Environ un tiers"
+          ],
+          "hint": "Le reste, tu le sens en chaleur.",
+          "explanation": "Dans une ampoule à filament, une petite part devient lumière, le reste chauffe.",
+          "fact": "Une LED tire de la même électricité dix fois plus de lumière."
+        },
+        "es": {
+          "prompt": "¿Cuánta energía de una bombilla se vuelve luz?",
+          "answer": "Cerca del cinco por ciento",
+          "wrong": [
+            "Cerca de la mitad",
+            "Casi toda",
+            "Cerca del ochenta por ciento"
+          ],
+          "hint": "El resto lo notas como calor.",
+          "explanation": "En una bombilla de filamento solo una parte pequeña es luz; el resto es calor.",
+          "fact": "Un led saca de la misma corriente diez veces más luz."
+        },
+        "it": {
+          "prompt": "Quanta energia di una lampadina diventa luce?",
+          "answer": "Circa il cinque per cento",
+          "wrong": [
+            "Circa la metà",
+            "Quasi tutta",
+            "Circa un terzo"
+          ],
+          "hint": "Il resto lo senti come calore.",
+          "explanation": "In una lampadina a filamento solo una piccola parte diventa luce, il resto scalda.",
+          "fact": "Un led ricava dalla stessa corrente dieci volte più luce."
+        },
+        "pt": {
+          "prompt": "Quanta energia de uma lâmpada vira luz?",
+          "answer": "Cerca de cinco por cento",
+          "wrong": [
+            "Cerca de metade",
+            "Quase toda",
+            "Cerca de um terço"
+          ],
+          "hint": "O resto sentes como calor.",
+          "explanation": "Numa lâmpada de filamento só uma pequena parte vira luz; o resto aquece.",
+          "fact": "Um led tira da mesma corrente dez vezes mais luz."
+        },
+        "da": {
+          "prompt": "Hvor meget af en glødepæres energi bliver til lys?",
+          "answer": "Omkring fem procent",
+          "wrong": [
+            "Omkring halvdelen",
+            "Næsten det hele",
+            "Omkring en tredjedel"
+          ],
+          "hint": "Resten mærker du som varme.",
+          "explanation": "I en glødepære bliver kun en lille del til lys, resten er varme.",
+          "fact": "En LED får ti gange så meget lys ud af den samme strøm."
+        },
+        "ru": {
+          "prompt": "Сколько энергии лампы накаливания становится светом?",
+          "answer": "Около пяти процентов",
+          "wrong": [
+            "Около половины",
+            "Почти вся",
+            "Около трети"
+          ],
+          "hint": "Остальное ты чувствуешь как тепло.",
+          "explanation": "В лампе накаливания светом становится лишь малая часть, остальное — тепло.",
+          "fact": "Светодиод из того же тока даёт вдесятеро больше света."
+        },
+        "ar": {
+          "prompt": "كم من طاقة المصباح المتوهج تصير ضوءًا؟",
+          "answer": "نحو خمسة في المئة",
+          "wrong": [
+            "نحو النصف",
+            "كلها تقريبًا",
+            "نحو الثلث"
+          ],
+          "hint": "الباقي تشعر به حرارة.",
+          "explanation": "في المصباح المتوهج يصير جزء صغير ضوءًا والباقي حرارة.",
+          "fact": "الليد يعطي من التيار نفسه ضوءًا أكثر بعشر مرات."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De warmtepomp",
+      "artBrief": "Een warmtepomp buiten aan een huis, met koude en warme luchtstromen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een warmtepomp?",
+          "answer": "Haalt warmte uit de lucht",
+          "wrong": [
+            "Maakt warmte uit kolen",
+            "Pompt heet water op",
+            "Verbrandt gas heel zuinig"
+          ],
+          "hint": "Als een omgekeerde koelkast.",
+          "explanation": "Een warmtepomp verplaatst warmte van buiten naar binnen in plaats van die te maken.",
+          "fact": "Zelfs bij vriesweer zit er nog genoeg warmte in de buitenlucht."
+        },
+        "en": {
+          "prompt": "What does a heat pump do?",
+          "answer": "It takes heat from the air",
+          "wrong": [
+            "It makes heat from coal",
+            "It pumps up hot water",
+            "It burns gas very cleanly"
+          ],
+          "hint": "Like a fridge in reverse.",
+          "explanation": "A heat pump moves heat from outside to inside instead of making it.",
+          "fact": "Even in freezing weather there is still heat in the outside air."
+        },
+        "de": {
+          "prompt": "Was macht eine Wärmepumpe?",
+          "answer": "Sie holt Wärme aus der Luft",
+          "wrong": [
+            "Sie macht Wärme aus Kohle",
+            "Sie pumpt heißes Wasser",
+            "Sie verbrennt Gas sparsam"
+          ],
+          "hint": "Wie ein umgekehrter Kühlschrank.",
+          "explanation": "Eine Wärmepumpe bringt Wärme von draußen nach drinnen, statt sie zu erzeugen.",
+          "fact": "Selbst bei Frost steckt in der Außenluft noch genug Wärme."
+        },
+        "fr": {
+          "prompt": "Que fait une pompe à chaleur ?",
+          "answer": "Elle puise la chaleur dehors",
+          "wrong": [
+            "Elle chauffe avec du charbon",
+            "Elle pompe de l'eau chaude",
+            "Elle brûle du gaz"
+          ],
+          "hint": "Comme un frigo à l'envers.",
+          "explanation": "Une pompe à chaleur déplace la chaleur du dehors vers le dedans au lieu de la créer.",
+          "fact": "Même par temps de gel, l'air extérieur contient encore de la chaleur."
+        },
+        "es": {
+          "prompt": "¿Qué hace una bomba de calor?",
+          "answer": "Saca calor del aire",
+          "wrong": [
+            "Hace calor con carbón",
+            "Bombea agua caliente",
+            "Quema gas muy limpio"
+          ],
+          "hint": "Como un frigorífico al revés.",
+          "explanation": "Una bomba de calor traslada calor de fuera a dentro en vez de fabricarlo.",
+          "fact": "Incluso helando queda calor suficiente en el aire de fuera."
+        },
+        "it": {
+          "prompt": "Che cosa fa una pompa di calore?",
+          "answer": "Prende calore dall'aria",
+          "wrong": [
+            "Fa calore con il carbone",
+            "Pompa acqua calda",
+            "Brucia gas in modo pulito"
+          ],
+          "hint": "Come un frigorifero al contrario.",
+          "explanation": "Una pompa di calore sposta il calore da fuori a dentro invece di produrlo.",
+          "fact": "Anche col gelo nell'aria esterna resta abbastanza calore."
+        },
+        "pt": {
+          "prompt": "O que faz uma bomba de calor?",
+          "answer": "Tira calor do ar",
+          "wrong": [
+            "Faz calor com carvão",
+            "Bombeia água quente",
+            "Queima gás sem fumo"
+          ],
+          "hint": "Como um frigorífico ao contrário.",
+          "explanation": "Uma bomba de calor leva o calor de fora para dentro em vez de o criar.",
+          "fact": "Mesmo a gelar ainda há calor suficiente no ar lá fora."
+        },
+        "da": {
+          "prompt": "Hvad gør en varmepumpe?",
+          "answer": "Den henter varme i luften",
+          "wrong": [
+            "Den laver varme af kul",
+            "Den pumper varmt vand",
+            "Den brænder gas rent"
+          ],
+          "hint": "Som et omvendt køleskab.",
+          "explanation": "En varmepumpe flytter varme udefra og ind i stedet for at lave den.",
+          "fact": "Selv i frostvejr er der stadig varme nok i luften udenfor."
+        },
+        "ru": {
+          "prompt": "Что делает тепловой насос?",
+          "answer": "Берёт тепло из воздуха",
+          "wrong": [
+            "Делает тепло из угля",
+            "Качает горячую воду",
+            "Экономно сжигает газ"
+          ],
+          "hint": "Как холодильник наоборот.",
+          "explanation": "Тепловой насос переносит тепло снаружи внутрь, а не создаёт его.",
+          "fact": "Даже в мороз в наружном воздухе ещё достаточно тепла."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل المضخة الحرارية؟",
+          "answer": "تأخذ الحرارة من الهواء",
+          "wrong": [
+            "تصنع حرارة من الفحم",
+            "تضخ ماء ساخنًا",
+            "تحرق الغاز بنظافة"
+          ],
+          "hint": "كثلاجة بالمقلوب.",
+          "explanation": "المضخة الحرارية تنقل الحرارة من الخارج إلى الداخل بدل صنعها.",
+          "fact": "حتى في الصقيع يبقى في هواء الخارج حرارة كافية."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Zonnepanelen bij bewolking",
+      "artBrief": "Zonnepanelen onder een bewolkte lucht met diffuus licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom werkt een zonnepaneel ook bij bewolking?",
+          "answer": "Er komt nog licht doorheen",
+          "wrong": [
+            "Het werkt op regen",
+            "Het slaat wolken op",
+            "Het draait dan sneller"
+          ],
+          "hint": "Het is buiten nog steeds licht.",
+          "explanation": "Wolken houden veel licht tegen, maar niet alles, dus het paneel levert minder.",
+          "fact": "Op een grijze dag haalt een paneel vaak nog een kwart van zijn vermogen."
+        },
+        "en": {
+          "prompt": "Why does a solar panel still work under clouds?",
+          "answer": "Light still gets through",
+          "wrong": [
+            "It runs on rain",
+            "It stores clouds",
+            "It spins faster then"
+          ],
+          "hint": "It is still daylight outside.",
+          "explanation": "Clouds block a lot of light but not all of it, so the panel gives less.",
+          "fact": "On a grey day a panel often still reaches a quarter of its power."
+        },
+        "de": {
+          "prompt": "Warum arbeitet ein Solarmodul auch bei Wolken?",
+          "answer": "Es kommt noch Licht durch",
+          "wrong": [
+            "Es läuft mit Regen",
+            "Es speichert Wolken",
+            "Es dreht dann schneller"
+          ],
+          "hint": "Draußen ist es immer noch hell.",
+          "explanation": "Wolken halten viel Licht zurück, aber nicht alles, also liefert das Modul weniger.",
+          "fact": "An einem grauen Tag schafft ein Modul oft noch ein Viertel seiner Leistung."
+        },
+        "fr": {
+          "prompt": "Pourquoi un panneau solaire marche-t-il sous les nuages ?",
+          "answer": "De la lumière passe encore",
+          "wrong": [
+            "Il marche à la pluie",
+            "Il stocke les nuages",
+            "Il tourne plus vite"
+          ],
+          "hint": "Dehors il fait toujours jour.",
+          "explanation": "Les nuages retiennent beaucoup de lumière, mais pas toute, donc il produit moins.",
+          "fact": "Par temps gris, un panneau atteint souvent encore un quart de sa puissance."
+        },
+        "es": {
+          "prompt": "¿Por qué funciona un panel solar con nubes?",
+          "answer": "Aún pasa algo de luz",
+          "wrong": [
+            "Funciona con lluvia",
+            "Almacena nubes",
+            "Gira más rápido"
+          ],
+          "hint": "Fuera sigue siendo de día.",
+          "explanation": "Las nubes frenan mucha luz, pero no toda, así que el panel da menos.",
+          "fact": "En un día gris un panel aún alcanza un cuarto de su potencia."
+        },
+        "it": {
+          "prompt": "Perché un pannello solare funziona anche con le nuvole?",
+          "answer": "Un po' di luce passa ancora",
+          "wrong": [
+            "Funziona con la pioggia",
+            "Immagazzina le nuvole",
+            "Gira più in fretta"
+          ],
+          "hint": "Fuori è ancora giorno.",
+          "explanation": "Le nuvole fermano molta luce ma non tutta, quindi il pannello rende meno.",
+          "fact": "In una giornata grigia un pannello arriva spesso a un quarto della potenza."
+        },
+        "pt": {
+          "prompt": "Porque funciona um painel solar com nuvens?",
+          "answer": "Ainda passa alguma luz",
+          "wrong": [
+            "Funciona com chuva",
+            "Guarda as nuvens",
+            "Gira mais depressa"
+          ],
+          "hint": "Lá fora ainda é de dia.",
+          "explanation": "As nuvens travam muita luz mas não toda, por isso o painel rende menos.",
+          "fact": "Num dia cinzento um painel chega muitas vezes a um quarto da potência."
+        },
+        "da": {
+          "prompt": "Hvorfor virker en solcelle også i skyet vejr?",
+          "answer": "Der kommer stadig lys ind",
+          "wrong": [
+            "Den kører på regn",
+            "Den gemmer skyer",
+            "Den drejer hurtigere"
+          ],
+          "hint": "Det er stadig lyst udenfor.",
+          "explanation": "Skyer holder meget lys tilbage, men ikke alt, så cellen giver mindre.",
+          "fact": "På en grå dag når et panel ofte stadig en fjerdedel af sin ydelse."
+        },
+        "ru": {
+          "prompt": "Почему солнечная панель работает и в облачность?",
+          "answer": "Часть света всё же проходит",
+          "wrong": [
+            "Она работает на дожде",
+            "Она копит облака",
+            "Она крутится быстрее"
+          ],
+          "hint": "На улице всё ещё светло.",
+          "explanation": "Облака задерживают много света, но не весь, поэтому панель даёт меньше.",
+          "fact": "В серый день панель часто выдаёт ещё четверть мощности."
+        },
+        "ar": {
+          "prompt": "لماذا يعمل اللوح الشمسي مع الغيوم؟",
+          "answer": "بعض الضوء ما زال ينفذ",
+          "wrong": [
+            "يعمل بالمطر",
+            "يخزن الغيوم",
+            "يدور أسرع"
+          ],
+          "hint": "الجو في الخارج ما زال نهارًا.",
+          "explanation": "الغيوم تحجب ضوءًا كثيرًا لا كله، فيعطي اللوح أقل.",
+          "fact": "في يوم رمادي يبلغ اللوح غالبًا ربع قدرته."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Hoogspanning verliest minder",
+      "artBrief": "Hoogspanningsmasten met kabels die door een landschap lopen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom gaat stroom met hoge spanning door het land?",
+          "answer": "Zo gaat minder verloren",
+          "wrong": [
+            "Zo gaat het sneller",
+            "Zo is het goedkoper",
+            "Zo blijft de kabel dun"
+          ],
+          "hint": "Anders wordt de kabel heet.",
+          "explanation": "Bij hoge spanning loopt minder stroom door de kabel, en dus gaat er minder warmte verloren.",
+          "fact": "Vlak bij je huis wordt de spanning weer omlaag gebracht."
+        },
+        "en": {
+          "prompt": "Why is electricity sent across country at high voltage?",
+          "answer": "Less of it is lost",
+          "wrong": [
+            "It travels faster",
+            "It is cheaper to make",
+            "The cable stays thin"
+          ],
+          "hint": "Otherwise the cable gets hot.",
+          "explanation": "At high voltage less current flows through the cable, so less is lost as heat.",
+          "fact": "Near your house the voltage is brought back down."
+        },
+        "de": {
+          "prompt": "Warum fließt Strom mit hoher Spannung übers Land?",
+          "answer": "So geht weniger verloren",
+          "wrong": [
+            "So fließt er schneller",
+            "So ist er billiger",
+            "So bleibt das Kabel dünn"
+          ],
+          "hint": "Sonst wird das Kabel heiß.",
+          "explanation": "Bei hoher Spannung fließt weniger Strom im Kabel, also geht weniger als Wärme verloren.",
+          "fact": "In der Nähe deines Hauses wird die Spannung wieder gesenkt."
+        },
+        "fr": {
+          "prompt": "Pourquoi transporte-t-on le courant en haute tension ?",
+          "answer": "On en perd moins",
+          "wrong": [
+            "Il va plus vite",
+            "Il coûte moins cher",
+            "Le câble reste fin"
+          ],
+          "hint": "Sinon le câble chauffe.",
+          "explanation": "En haute tension, moins de courant passe dans le câble, donc moins de perte en chaleur.",
+          "fact": "Près de chez toi, on rabaisse la tension."
+        },
+        "es": {
+          "prompt": "¿Por qué la electricidad viaja en alta tensión?",
+          "answer": "Así se pierde menos",
+          "wrong": [
+            "Así va más rápida",
+            "Así es más barata",
+            "Así el cable queda fino"
+          ],
+          "hint": "Si no, el cable se calienta.",
+          "explanation": "Con alta tensión circula menos corriente por el cable, y se pierde menos calor.",
+          "fact": "Cerca de tu casa la tensión se vuelve a bajar."
+        },
+        "it": {
+          "prompt": "Perché la corrente viaggia ad alta tensione?",
+          "answer": "Così se ne perde meno",
+          "wrong": [
+            "Così va più veloce",
+            "Così costa meno",
+            "Così il cavo resta sottile"
+          ],
+          "hint": "Altrimenti il cavo si scalda.",
+          "explanation": "Ad alta tensione passa meno corrente nel cavo, quindi si perde meno calore.",
+          "fact": "Vicino a casa tua la tensione viene riabbassata."
+        },
+        "pt": {
+          "prompt": "Porque viaja a eletricidade em alta tensão?",
+          "answer": "Assim perde-se menos",
+          "wrong": [
+            "Assim vai mais depressa",
+            "Assim é mais barata",
+            "Assim o cabo fica fino"
+          ],
+          "hint": "Senão o cabo aquece.",
+          "explanation": "Com alta tensão passa menos corrente no cabo, por isso perde-se menos calor.",
+          "fact": "Perto da tua casa a tensão volta a baixar."
+        },
+        "da": {
+          "prompt": "Hvorfor sendes strøm ud i landet med høj spænding?",
+          "answer": "Så går mindre tabt",
+          "wrong": [
+            "Så går det hurtigere",
+            "Så er det billigere",
+            "Så forbliver kablet tyndt"
+          ],
+          "hint": "Ellers bliver kablet varmt.",
+          "explanation": "Ved høj spænding løber der mindre strøm i kablet, så mindre går tabt som varme.",
+          "fact": "Tæt på dit hus sættes spændingen ned igen."
+        },
+        "ru": {
+          "prompt": "Почему ток идёт по стране под высоким напряжением?",
+          "answer": "Так теряется меньше",
+          "wrong": [
+            "Так он идёт быстрее",
+            "Так он дешевле",
+            "Так провод тоньше"
+          ],
+          "hint": "Иначе провод нагреется.",
+          "explanation": "При высоком напряжении по проводу течёт меньше тока, и меньше уходит в тепло.",
+          "fact": "Рядом с домом напряжение снова понижают."
+        },
+        "ar": {
+          "prompt": "لماذا تُنقل الكهرباء بجهد عالٍ؟",
+          "answer": "هكذا يضيع منها أقل",
+          "wrong": [
+            "هكذا تسير أسرع",
+            "هكذا تكون أرخص",
+            "هكذا يبقى السلك رفيعًا"
+          ],
+          "hint": "وإلا سخن السلك.",
+          "explanation": "مع الجهد العالي يمر تيار أقل في السلك فيضيع أقل على شكل حرارة.",
+          "fact": "وقرب بيتك يُخفض الجهد من جديد."
+        }
+      }
+    },
+    {
+      "id": "wetenschap-natuur_energie-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het stroomnet kan overbelast raken",
+      "artBrief": "Een verdeelstation met veel kabels en een oplichtende meter.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebeurt er als iedereen tegelijk veel stroom gebruikt?",
+          "answer": "Het net raakt overbelast",
+          "wrong": [
+            "De stroom wordt warmer",
+            "De zon schijnt harder",
+            "De kabels worden langer"
+          ],
+          "hint": "Denk aan een te drukke weg.",
+          "explanation": "Het net kan maar een bepaalde hoeveelheid tegelijk aan; daarna moet er bijgeschakeld worden.",
+          "fact": "Daarom is het slim om de wasmachine op een rustig moment aan te zetten."
+        },
+        "en": {
+          "prompt": "What happens if everyone uses a lot of power at once?",
+          "answer": "The grid gets overloaded",
+          "wrong": [
+            "The current gets warmer",
+            "The sun shines harder",
+            "The cables get longer"
+          ],
+          "hint": "Think of a road with too much traffic.",
+          "explanation": "The grid can only carry so much at a time before more has to be switched in.",
+          "fact": "That is why running the washing machine at a quiet hour helps."
+        },
+        "de": {
+          "prompt": "Was passiert, wenn alle gleichzeitig viel Strom brauchen?",
+          "answer": "Das Netz wird überlastet",
+          "wrong": [
+            "Der Strom wird wärmer",
+            "Die Sonne scheint stärker",
+            "Die Kabel werden länger"
+          ],
+          "hint": "Denk an eine zu volle Straße.",
+          "explanation": "Das Netz trägt nur eine bestimmte Menge, danach muss mehr zugeschaltet werden.",
+          "fact": "Darum hilft es, die Waschmaschine zu einer ruhigen Zeit laufen zu lassen."
+        },
+        "fr": {
+          "prompt": "Que se passe-t-il si tout le monde consomme beaucoup en même temps ?",
+          "answer": "Le réseau est surchargé",
+          "wrong": [
+            "Le courant se réchauffe",
+            "Le soleil brille plus fort",
+            "Les câbles s'allongent"
+          ],
+          "hint": "Pense à une route trop chargée.",
+          "explanation": "Le réseau ne porte qu'une certaine quantité à la fois, ensuite il faut ajouter des sources.",
+          "fact": "C'est pourquoi lancer la machine à une heure creuse aide."
+        },
+        "es": {
+          "prompt": "¿Qué pasa si todos gastan mucha luz a la vez?",
+          "answer": "La red se sobrecarga",
+          "wrong": [
+            "La corriente se calienta",
+            "El sol brilla más",
+            "Los cables se alargan"
+          ],
+          "hint": "Piensa en una carretera llena.",
+          "explanation": "La red solo aguanta cierta cantidad a la vez; después hay que conectar más fuentes.",
+          "fact": "Por eso ayuda poner la lavadora en una hora tranquila."
+        },
+        "it": {
+          "prompt": "Che succede se tutti consumano molto insieme?",
+          "answer": "La rete va in sovraccarico",
+          "wrong": [
+            "La corrente si scalda",
+            "Il sole splende di più",
+            "I cavi si allungano"
+          ],
+          "hint": "Pensa a una strada intasata.",
+          "explanation": "La rete regge solo una certa quantità per volta, poi servono altre fonti.",
+          "fact": "Per questo conviene far partire la lavatrice in un'ora tranquilla."
+        },
+        "pt": {
+          "prompt": "O que acontece se todos gastarem muito ao mesmo tempo?",
+          "answer": "A rede fica sobrecarregada",
+          "wrong": [
+            "A corrente aquece",
+            "O sol brilha mais",
+            "Os cabos esticam"
+          ],
+          "hint": "Pensa numa estrada cheia.",
+          "explanation": "A rede só aguenta certa quantidade de cada vez; depois é preciso ligar mais fontes.",
+          "fact": "Por isso ajuda pôr a máquina a lavar numa hora calma."
+        },
+        "da": {
+          "prompt": "Hvad sker der, hvis alle bruger meget strøm på én gang?",
+          "answer": "Nettet bliver overbelastet",
+          "wrong": [
+            "Strømmen bliver varmere",
+            "Solen skinner stærkere",
+            "Kablerne bliver længere"
+          ],
+          "hint": "Tænk på en alt for fyldt vej.",
+          "explanation": "Nettet kan kun bære en vis mængde ad gangen, derefter må der kobles mere til.",
+          "fact": "Derfor hjælper det at sætte vaskemaskinen i gang på et roligt tidspunkt."
+        },
+        "ru": {
+          "prompt": "Что будет, если все разом включат много приборов?",
+          "answer": "Сеть перегрузится",
+          "wrong": [
+            "Ток станет теплее",
+            "Солнце засветит ярче",
+            "Провода удлинятся"
+          ],
+          "hint": "Представь переполненную дорогу.",
+          "explanation": "Сеть выдерживает лишь определённую мощность, дальше нужно подключать ещё.",
+          "fact": "Поэтому стирку лучше запускать в спокойный час."
+        },
+        "ar": {
+          "prompt": "ماذا يحدث إذا استهلك الجميع كثيرًا في وقت واحد؟",
+          "answer": "تُحمَّل الشبكة فوق طاقتها",
+          "wrong": [
+            "يسخن التيار",
+            "تشرق الشمس أقوى",
+            "تطول الكابلات"
+          ],
+          "hint": "فكّر في طريق مزدحم جدًا.",
+          "explanation": "الشبكة تحتمل قدرًا معينًا فقط، وبعده يجب تشغيل مصادر إضافية.",
+          "fact": "لهذا يفيد تشغيل الغسالة في ساعة هادئة."
+        }
+      }
+    }
+  ]
+}
