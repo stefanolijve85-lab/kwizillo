@@ -1,0 +1,2607 @@
+{
+  "world": "geschiedenis",
+  "topic": "egyptenaren",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "geschiedenis-egyptenaren-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Piramiden van Gizeh",
+      "artBrief": "Drie grote piramiden in de woestijn met kamelen en palmen op de voorgrond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar staan de grootste piramides van Egypte?",
+          "answer": "Bij Gizeh",
+          "wrong": [
+            "Bij Rome",
+            "Bij Athene",
+            "Bij Parijs"
+          ],
+          "hint": "Vlak bij de hoofdstad Caïro.",
+          "explanation": "De drie grootste piramides staan op het plateau van Gizeh.",
+          "fact": "Ze zijn nog altijd te zien vanaf de rand van de stad."
+        },
+        "en": {
+          "prompt": "Where do Egypt's largest pyramids stand?",
+          "answer": "At Giza",
+          "wrong": [
+            "At Rome",
+            "At Athens",
+            "At Paris"
+          ],
+          "hint": "Right beside the capital, Cairo.",
+          "explanation": "The three largest pyramids stand on the plateau of Giza.",
+          "fact": "They can still be seen from the edge of the city."
+        },
+        "de": {
+          "prompt": "Wo stehen Ägyptens größte Pyramiden?",
+          "answer": "Bei Gizeh",
+          "wrong": [
+            "Bei Rom",
+            "Bei Athen",
+            "Bei Paris"
+          ],
+          "hint": "Direkt neben der Hauptstadt Kairo.",
+          "explanation": "Die drei größten Pyramiden stehen auf dem Plateau von Gizeh.",
+          "fact": "Vom Stadtrand aus sind sie noch immer zu sehen."
+        },
+        "fr": {
+          "prompt": "Où se dressent les plus grandes pyramides d'Égypte ?",
+          "answer": "À Gizeh",
+          "wrong": [
+            "À Rome",
+            "À Athènes",
+            "À Paris"
+          ],
+          "hint": "Juste à côté de la capitale, Le Caire.",
+          "explanation": "Les trois plus grandes pyramides sont sur le plateau de Gizeh.",
+          "fact": "On les voit encore depuis le bord de la ville."
+        },
+        "es": {
+          "prompt": "¿Dónde están las pirámides más grandes de Egipto?",
+          "answer": "En Guiza",
+          "wrong": [
+            "En Roma",
+            "En Atenas",
+            "En París"
+          ],
+          "hint": "Justo al lado de la capital, El Cairo.",
+          "explanation": "Las tres mayores pirámides están en la meseta de Guiza.",
+          "fact": "Todavía se ven desde el borde de la ciudad."
+        },
+        "it": {
+          "prompt": "Dove si trovano le piramidi più grandi d'Egitto?",
+          "answer": "A Giza",
+          "wrong": [
+            "A Roma",
+            "Ad Atene",
+            "A Parigi"
+          ],
+          "hint": "Proprio accanto alla capitale, Il Cairo.",
+          "explanation": "Le tre piramidi più grandi stanno sull'altopiano di Giza.",
+          "fact": "Si vedono ancora dal bordo della città."
+        },
+        "pt": {
+          "prompt": "Onde ficam as maiores pirâmides do Egito?",
+          "answer": "Em Gizé",
+          "wrong": [
+            "Em Roma",
+            "Em Atenas",
+            "Em Paris"
+          ],
+          "hint": "Mesmo ao lado da capital, o Cairo.",
+          "explanation": "As três maiores pirâmides ficam no planalto de Gizé.",
+          "fact": "Ainda se veem da beira da cidade."
+        },
+        "da": {
+          "prompt": "Hvor står Egyptens største pyramider?",
+          "answer": "Ved Giza",
+          "wrong": [
+            "Ved Rom",
+            "Ved Athen",
+            "Ved Paris"
+          ],
+          "hint": "Lige ved hovedstaden Kairo.",
+          "explanation": "De tre største pyramider står på Giza-plateauet.",
+          "fact": "De kan stadig ses fra byens udkant."
+        },
+        "ru": {
+          "prompt": "Где стоят самые большие пирамиды Египта?",
+          "answer": "В Гизе",
+          "wrong": [
+            "В Риме",
+            "В Афинах",
+            "В Париже"
+          ],
+          "hint": "Прямо рядом со столицей, Каиром.",
+          "explanation": "Три самые большие пирамиды стоят на плато Гиза.",
+          "fact": "Их и сегодня видно с окраины города."
+        },
+        "ar": {
+          "prompt": "أين تقع أكبر أهرامات مصر؟",
+          "answer": "في الجيزة",
+          "wrong": [
+            "في روما",
+            "في أثينا",
+            "في باريس"
+          ],
+          "hint": "بجوار العاصمة القاهرة.",
+          "explanation": "تقف الأهرامات الثلاثة الكبرى على هضبة الجيزة.",
+          "fact": "وما زالت تُرى من أطراف المدينة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Farao's en hun kroon",
+      "artBrief": "Een gouden farao-masker met de dubbele kroon van Boven- en Beneden-Egypte.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat droeg een farao op zijn hoofd?",
+          "answer": "Een kroon",
+          "wrong": [
+            "Een pet",
+            "Een helm",
+            "Een mand"
+          ],
+          "hint": "Vaak in twee kleuren.",
+          "explanation": "De farao droeg een dubbele kroon voor Boven- en Beneden-Egypte.",
+          "fact": "De witte en de rode helft stonden voor zijn twee rijken."
+        },
+        "en": {
+          "prompt": "What did a pharaoh wear on his head?",
+          "answer": "A crown",
+          "wrong": [
+            "A cap",
+            "A helmet",
+            "A basket"
+          ],
+          "hint": "Often in two colours.",
+          "explanation": "The pharaoh wore a double crown for Upper and Lower Egypt.",
+          "fact": "The white and red halves stood for his two kingdoms."
+        },
+        "de": {
+          "prompt": "Was trug ein Pharao auf dem Kopf?",
+          "answer": "Eine Krone",
+          "wrong": [
+            "Eine Kappe",
+            "Einen Helm",
+            "Einen Korb"
+          ],
+          "hint": "Oft in zwei Farben.",
+          "explanation": "Der Pharao trug eine Doppelkrone für Ober- und Unterägypten.",
+          "fact": "Die weiße und die rote Hälfte standen für seine zwei Reiche."
+        },
+        "fr": {
+          "prompt": "Que portait un pharaon sur la tête ?",
+          "answer": "Une couronne",
+          "wrong": [
+            "Une casquette",
+            "Un casque",
+            "Un panier"
+          ],
+          "hint": "Souvent en deux couleurs.",
+          "explanation": "Le pharaon portait une double couronne pour la Haute et la Basse-Égypte.",
+          "fact": "Les moitiés blanche et rouge représentaient ses deux royaumes."
+        },
+        "es": {
+          "prompt": "¿Qué llevaba un faraón en la cabeza?",
+          "answer": "Una corona",
+          "wrong": [
+            "Una gorra",
+            "Un casco",
+            "Una cesta"
+          ],
+          "hint": "Muchas veces de dos colores.",
+          "explanation": "El faraón llevaba una corona doble por el Alto y el Bajo Egipto.",
+          "fact": "Las mitades blanca y roja representaban sus dos reinos."
+        },
+        "it": {
+          "prompt": "Che cosa portava un faraone in testa?",
+          "answer": "Una corona",
+          "wrong": [
+            "Un berretto",
+            "Un elmo",
+            "Un cesto"
+          ],
+          "hint": "Spesso di due colori.",
+          "explanation": "Il faraone portava una doppia corona per l'Alto e il Basso Egitto.",
+          "fact": "Le metà bianca e rossa stavano per i suoi due regni."
+        },
+        "pt": {
+          "prompt": "O que levava um faraó na cabeça?",
+          "answer": "Uma coroa",
+          "wrong": [
+            "Um boné",
+            "Um capacete",
+            "Um cesto"
+          ],
+          "hint": "Muitas vezes de duas cores.",
+          "explanation": "O faraó usava uma coroa dupla pelo Alto e pelo Baixo Egito.",
+          "fact": "As metades branca e vermelha representavam os seus dois reinos."
+        },
+        "da": {
+          "prompt": "Hvad havde en farao på hovedet?",
+          "answer": "En krone",
+          "wrong": [
+            "En kasket",
+            "En hjelm",
+            "En kurv"
+          ],
+          "hint": "Ofte i to farver.",
+          "explanation": "Faraoen bar en dobbeltkrone for Øvre og Nedre Egypten.",
+          "fact": "Den hvide og den røde halvdel stod for hans to riger."
+        },
+        "ru": {
+          "prompt": "Что носил фараон на голове?",
+          "answer": "Корону",
+          "wrong": [
+            "Кепку",
+            "Шлем",
+            "Корзину"
+          ],
+          "hint": "Часто двухцветную.",
+          "explanation": "Фараон носил двойную корону Верхнего и Нижнего Египта.",
+          "fact": "Белая и красная половины означали два его царства."
+        },
+        "ar": {
+          "prompt": "ماذا كان يضع الفرعون على رأسه؟",
+          "answer": "تاجًا",
+          "wrong": [
+            "قبعة",
+            "خوذة",
+            "سلة"
+          ],
+          "hint": "غالبًا بلونين.",
+          "explanation": "كان الفرعون يلبس تاجًا مزدوجًا لمصر العليا والسفلى.",
+          "fact": "النصف الأبيض والنصف الأحمر يرمزان لمملكتيه."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Ossen in de Egyptische landbouw",
+      "artBrief": "Twee ossen die een houten ploeg trekken door een akker bij een rivier.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk dier hielp bij het werk op het land in Egypte?",
+          "answer": "De os",
+          "wrong": [
+            "De leeuw",
+            "De krokodil",
+            "De kat"
+          ],
+          "hint": "Hij trok de ploeg.",
+          "explanation": "Ossen trokken de ploegen door de vruchtbare grond langs de Nijl.",
+          "fact": "Op muurschilderingen zie je ze nog aan het werk."
+        },
+        "en": {
+          "prompt": "Which animal helped with the field work in Egypt?",
+          "answer": "The ox",
+          "wrong": [
+            "The lion",
+            "The crocodile",
+            "The cat"
+          ],
+          "hint": "It pulled the plough.",
+          "explanation": "Oxen dragged the ploughs through the fertile soil along the Nile.",
+          "fact": "You can still see them at work in wall paintings."
+        },
+        "de": {
+          "prompt": "Welches Tier half bei der Feldarbeit in Ägypten?",
+          "answer": "Das Rind",
+          "wrong": [
+            "Der Löwe",
+            "Das Krokodil",
+            "Die Katze"
+          ],
+          "hint": "Es zog den Pflug.",
+          "explanation": "Ochsen zogen die Pflüge durch die fruchtbare Erde am Nil.",
+          "fact": "Auf Wandbildern sieht man sie noch bei der Arbeit."
+        },
+        "fr": {
+          "prompt": "Quel animal aidait aux travaux des champs en Égypte ?",
+          "answer": "Le bœuf",
+          "wrong": [
+            "Le lion",
+            "Le crocodile",
+            "Le chat"
+          ],
+          "hint": "Il tirait la charrue.",
+          "explanation": "Les bœufs tiraient les charrues dans la terre fertile du Nil.",
+          "fact": "On les voit encore au travail sur les peintures murales."
+        },
+        "es": {
+          "prompt": "¿Qué animal ayudaba en las faenas del campo en Egipto?",
+          "answer": "El buey",
+          "wrong": [
+            "El león",
+            "El cocodrilo",
+            "El gato"
+          ],
+          "hint": "Tiraba del arado.",
+          "explanation": "Los bueyes tiraban de los arados por la tierra fértil del Nilo.",
+          "fact": "Se les ve trabajando aún en las pinturas murales."
+        },
+        "it": {
+          "prompt": "Quale animale aiutava nei campi in Egitto?",
+          "answer": "Il bue",
+          "wrong": [
+            "Il leone",
+            "Il coccodrillo",
+            "Il gatto"
+          ],
+          "hint": "Tirava l'aratro.",
+          "explanation": "I buoi tiravano gli aratri nella terra fertile del Nilo.",
+          "fact": "Nei dipinti murali si vedono ancora al lavoro."
+        },
+        "pt": {
+          "prompt": "Que animal ajudava no trabalho do campo no Egito?",
+          "answer": "O boi",
+          "wrong": [
+            "O leão",
+            "O crocodilo",
+            "O gato"
+          ],
+          "hint": "Puxava o arado.",
+          "explanation": "Os bois puxavam os arados pela terra fértil do Nilo.",
+          "fact": "Ainda se veem a trabalhar nas pinturas das paredes."
+        },
+        "da": {
+          "prompt": "Hvilket dyr hjalp med markarbejdet i Egypten?",
+          "answer": "Oksen",
+          "wrong": [
+            "Løven",
+            "Krokodillen",
+            "Katten"
+          ],
+          "hint": "Den trak ploven.",
+          "explanation": "Okser trak plovene gennem den frugtbare jord langs Nilen.",
+          "fact": "På vægmalerier ses de stadig i arbejde."
+        },
+        "ru": {
+          "prompt": "Какое животное помогало в поле в Египте?",
+          "answer": "Бык",
+          "wrong": [
+            "Лев",
+            "Крокодил",
+            "Кошка"
+          ],
+          "hint": "Он тянул плуг.",
+          "explanation": "Быки тянули плуги по плодородной земле вдоль Нила.",
+          "fact": "На настенных росписях их видно за работой до сих пор."
+        },
+        "ar": {
+          "prompt": "أي حيوان كان يساعد في العمل الزراعي في مصر؟",
+          "answer": "الثور",
+          "wrong": [
+            "الأسد",
+            "التمساح",
+            "القط"
+          ],
+          "hint": "كان يجر المحراث.",
+          "explanation": "كانت الثيران تجر المحاريث في تربة النيل الخصبة.",
+          "fact": "وما زلنا نراها تعمل في الرسوم الجدارية."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vorm van een piramide",
+      "artBrief": "Een piramide van opzij met duidelijke schuine zijden en een punt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vorm heeft een piramide?",
+          "answer": "Puntig met vier zijden",
+          "wrong": [
+            "Helemaal rond",
+            "Plat als een pannenkoek",
+            "Als een ster"
+          ],
+          "hint": "Hij loopt naar boven toe smaller.",
+          "explanation": "Een piramide heeft vier driehoekige zijden die samenkomen in een punt.",
+          "fact": "De zijden waren vroeger glad en glansden in de zon."
+        },
+        "en": {
+          "prompt": "What shape is a pyramid?",
+          "answer": "Pointed with four sides",
+          "wrong": [
+            "Completely round",
+            "Flat as a pancake",
+            "Shaped like a star"
+          ],
+          "hint": "It narrows towards the top.",
+          "explanation": "A pyramid has four triangular sides that meet in a point.",
+          "fact": "The sides were once smooth and gleamed in the sun."
+        },
+        "de": {
+          "prompt": "Welche Form hat eine Pyramide?",
+          "answer": "Spitz mit vier Seiten",
+          "wrong": [
+            "Ganz rund",
+            "Flach wie ein Pfannkuchen",
+            "Wie ein Stern"
+          ],
+          "hint": "Nach oben wird sie schmaler.",
+          "explanation": "Eine Pyramide hat vier dreieckige Seiten, die in einer Spitze zusammenlaufen.",
+          "fact": "Früher waren die Seiten glatt und glänzten in der Sonne."
+        },
+        "fr": {
+          "prompt": "Quelle forme a une pyramide ?",
+          "answer": "Pointue à quatre côtés",
+          "wrong": [
+            "Toute ronde",
+            "Plate comme une crêpe",
+            "En forme d'étoile"
+          ],
+          "hint": "Elle se rétrécit vers le haut.",
+          "explanation": "Une pyramide a quatre faces triangulaires qui se rejoignent en pointe.",
+          "fact": "Autrefois ses faces étaient lisses et brillaient au soleil."
+        },
+        "es": {
+          "prompt": "¿Qué forma tiene una pirámide?",
+          "answer": "Puntiaguda y de cuatro lados",
+          "wrong": [
+            "Completamente redonda",
+            "Plana como una tortita",
+            "Con forma de estrella"
+          ],
+          "hint": "Se estrecha hacia arriba.",
+          "explanation": "Una pirámide tiene cuatro caras triangulares que se juntan en punta.",
+          "fact": "Antes sus caras eran lisas y brillaban al sol."
+        },
+        "it": {
+          "prompt": "Che forma ha una piramide?",
+          "answer": "Appuntita con quattro lati",
+          "wrong": [
+            "Tutta rotonda",
+            "Piatta come una frittella",
+            "A forma di stella"
+          ],
+          "hint": "Si restringe verso l'alto.",
+          "explanation": "Una piramide ha quattro lati triangolari che si uniscono in punta.",
+          "fact": "Un tempo i lati erano lisci e brillavano al sole."
+        },
+        "pt": {
+          "prompt": "Que forma tem uma pirâmide?",
+          "answer": "Bicuda e com quatro lados",
+          "wrong": [
+            "Toda redonda",
+            "Chata como uma panqueca",
+            "Em forma de estrela"
+          ],
+          "hint": "Vai ficando estreita para cima.",
+          "explanation": "Uma pirâmide tem quatro lados triangulares que se juntam num bico.",
+          "fact": "Dantes os lados eram lisos e brilhavam ao sol."
+        },
+        "da": {
+          "prompt": "Hvilken form har en pyramide?",
+          "answer": "Spids med fire sider",
+          "wrong": [
+            "Helt rund",
+            "Flad som en pandekage",
+            "Formet som en stjerne"
+          ],
+          "hint": "Den bliver smallere opad.",
+          "explanation": "En pyramide har fire trekantede sider, der mødes i en spids.",
+          "fact": "Før i tiden var siderne glatte og skinnede i solen."
+        },
+        "ru": {
+          "prompt": "Какой формы пирамида?",
+          "answer": "Остроконечная, четыре грани",
+          "wrong": [
+            "Совсем круглая",
+            "Плоская как блин",
+            "В форме звезды"
+          ],
+          "hint": "Кверху она сужается.",
+          "explanation": "У пирамиды четыре треугольные грани, сходящиеся в вершине.",
+          "fact": "Раньше грани были гладкими и блестели на солнце."
+        },
+        "ar": {
+          "prompt": "ما شكل الهرم؟",
+          "answer": "مدبب بأربعة جوانب",
+          "wrong": [
+            "مستدير تمامًا",
+            "مسطح كالفطيرة",
+            "على شكل نجمة"
+          ],
+          "hint": "يضيق كلما ارتفع.",
+          "explanation": "للهرم أربعة جوانب مثلثة تلتقي عند قمة واحدة.",
+          "fact": "وكانت جوانبه ملساء تلمع في الشمس."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Bewoning langs de Nijl",
+      "artBrief": "Een groene strook met huisjes en velden langs een rivier, met woestijn erachter.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar woonden bijna alle Egyptenaren?",
+          "answer": "Dicht bij de Nijl",
+          "wrong": [
+            "Midden in de woestijn",
+            "Hoog in de bergen",
+            "Op zee"
+          ],
+          "hint": "Daar was het groen.",
+          "explanation": "Alleen langs de Nijl was genoeg water om te leven en te boeren.",
+          "fact": "Buiten die smalle strook begint meteen de woestijn."
+        },
+        "en": {
+          "prompt": "Where did nearly all Egyptians live?",
+          "answer": "Close to the Nile",
+          "wrong": [
+            "In the middle of the desert",
+            "High in the mountains",
+            "At sea"
+          ],
+          "hint": "That was where it was green.",
+          "explanation": "Only along the Nile was there enough water to live and farm.",
+          "fact": "Outside that narrow strip the desert begins at once."
+        },
+        "de": {
+          "prompt": "Wo lebten fast alle Ägypter?",
+          "answer": "Dicht am Nil",
+          "wrong": [
+            "Mitten in der Wüste",
+            "Hoch in den Bergen",
+            "Auf dem Meer"
+          ],
+          "hint": "Dort war es grün.",
+          "explanation": "Nur am Nil gab es genug Wasser zum Leben und für Felder.",
+          "fact": "Außerhalb dieses schmalen Streifens beginnt sofort die Wüste."
+        },
+        "fr": {
+          "prompt": "Où vivaient presque tous les Égyptiens ?",
+          "answer": "Tout près du Nil",
+          "wrong": [
+            "En plein désert",
+            "Haut dans les montagnes",
+            "En mer"
+          ],
+          "hint": "C'est là que c'était vert.",
+          "explanation": "Seul le bord du Nil offrait assez d'eau pour vivre et cultiver.",
+          "fact": "Hors de cette bande étroite, le désert commence aussitôt."
+        },
+        "es": {
+          "prompt": "¿Dónde vivían casi todos los egipcios?",
+          "answer": "Muy cerca del Nilo",
+          "wrong": [
+            "En medio del desierto",
+            "En lo alto de las montañas",
+            "En el mar"
+          ],
+          "hint": "Allí era donde había verde.",
+          "explanation": "Solo junto al Nilo había agua suficiente para vivir y cultivar.",
+          "fact": "Fuera de esa franja estrecha empieza el desierto."
+        },
+        "it": {
+          "prompt": "Dove vivevano quasi tutti gli egizi?",
+          "answer": "Vicinissimo al Nilo",
+          "wrong": [
+            "In mezzo al deserto",
+            "In alta montagna",
+            "In mare"
+          ],
+          "hint": "Lì c'era il verde.",
+          "explanation": "Solo lungo il Nilo c'era acqua a sufficienza per vivere e coltivare.",
+          "fact": "Fuori da quella striscia comincia subito il deserto."
+        },
+        "pt": {
+          "prompt": "Onde viviam quase todos os egípcios?",
+          "answer": "Muito perto do Nilo",
+          "wrong": [
+            "No meio do deserto",
+            "No alto das montanhas",
+            "No mar"
+          ],
+          "hint": "Era ali que havia verde.",
+          "explanation": "Só junto ao Nilo havia água suficiente para viver e cultivar.",
+          "fact": "Fora dessa faixa estreita começa logo o deserto."
+        },
+        "da": {
+          "prompt": "Hvor boede næsten alle egyptere?",
+          "answer": "Tæt ved Nilen",
+          "wrong": [
+            "Midt i ørkenen",
+            "Højt oppe i bjergene",
+            "På havet"
+          ],
+          "hint": "Der var det grønt.",
+          "explanation": "Kun langs Nilen var der vand nok til at leve og dyrke jorden.",
+          "fact": "Uden for den smalle stribe begynder ørkenen med det samme."
+        },
+        "ru": {
+          "prompt": "Где жили почти все египтяне?",
+          "answer": "У самого Нила",
+          "wrong": [
+            "Посреди пустыни",
+            "Высоко в горах",
+            "На море"
+          ],
+          "hint": "Там было зелено.",
+          "explanation": "Только у Нила хватало воды, чтобы жить и возделывать поля.",
+          "fact": "За этой узкой полосой сразу начинается пустыня."
+        },
+        "ar": {
+          "prompt": "أين عاش المصريون جميعًا تقريبًا؟",
+          "answer": "قرب النيل",
+          "wrong": [
+            "وسط الصحراء",
+            "في أعالي الجبال",
+            "في البحر"
+          ],
+          "hint": "هناك كان الخضار.",
+          "explanation": "فقط على ضفاف النيل وُجد ماء يكفي للعيش والزراعة.",
+          "fact": "وخارج هذا الشريط الضيق تبدأ الصحراء فورًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De Grote Piramide, ongeveer 2560 v.Chr.",
+      "artBrief": "Arbeiders die enorme stenen blokken over een helling omhoog slepen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang geleden werd de Grote Piramide gebouwd?",
+          "answer": "Ongeveer 4.500 jaar",
+          "wrong": [
+            "Ongeveer 500 jaar",
+            "Ongeveer 1.000 jaar",
+            "Ongeveer 50.000 jaar"
+          ],
+          "hint": "Ouder dan bijna alles wat nog overeind staat.",
+          "explanation": "De Grote Piramide werd zo'n vijfenveertighonderd jaar geleden gebouwd.",
+          "fact": "Cleopatra leefde dichter bij onze tijd dan bij die van de bouwers."
+        },
+        "en": {
+          "prompt": "How long ago was the Great Pyramid built?",
+          "answer": "About 4,500 years",
+          "wrong": [
+            "About 500 years",
+            "About 1,000 years",
+            "About 50,000 years"
+          ],
+          "hint": "Older than almost anything still standing.",
+          "explanation": "The Great Pyramid was built some four and a half thousand years ago.",
+          "fact": "Cleopatra lived closer to our time than to the builders'."
+        },
+        "de": {
+          "prompt": "Wie lange ist der Bau der Großen Pyramide her?",
+          "answer": "Etwa 4.500 Jahre",
+          "wrong": [
+            "Etwa 500 Jahre",
+            "Etwa 1.000 Jahre",
+            "Etwa 50.000 Jahre"
+          ],
+          "hint": "Älter als fast alles, was noch steht.",
+          "explanation": "Die Große Pyramide entstand vor rund viereinhalbtausend Jahren.",
+          "fact": "Kleopatra lebte unserer Zeit näher als der ihrer Erbauer."
+        },
+        "fr": {
+          "prompt": "Il y a combien de temps la Grande Pyramide a-t-elle été bâtie ?",
+          "answer": "Environ 4 500 ans",
+          "wrong": [
+            "Environ 500 ans",
+            "Environ 1 000 ans",
+            "Environ 50 000 ans"
+          ],
+          "hint": "Plus vieille que presque tout ce qui tient debout.",
+          "explanation": "La Grande Pyramide a été bâtie il y a environ quatre mille cinq cents ans.",
+          "fact": "Cléopâtre vivait plus près de nous que de ses bâtisseurs."
+        },
+        "es": {
+          "prompt": "¿Hace cuánto se construyó la Gran Pirámide?",
+          "answer": "Unos 4.500 años",
+          "wrong": [
+            "Unos 500 años",
+            "Unos 1.000 años",
+            "Unos 50.000 años"
+          ],
+          "hint": "Más antigua que casi todo lo que sigue en pie.",
+          "explanation": "La Gran Pirámide se levantó hace unos cuatro mil quinientos años.",
+          "fact": "Cleopatra vivió más cerca de nuestro tiempo que del de sus constructores."
+        },
+        "it": {
+          "prompt": "Quanto tempo fa fu costruita la Grande Piramide?",
+          "answer": "Circa 4.500 anni fa",
+          "wrong": [
+            "Circa 500 anni fa",
+            "Circa 1.000 anni fa",
+            "Circa 50.000 anni fa"
+          ],
+          "hint": "Più vecchia di quasi tutto ciò che è in piedi.",
+          "explanation": "La Grande Piramide fu costruita circa quattromilacinquecento anni fa.",
+          "fact": "Cleopatra visse più vicina a noi che ai suoi costruttori."
+        },
+        "pt": {
+          "prompt": "Há quanto tempo foi construída a Grande Pirâmide?",
+          "answer": "Há cerca de 4.500 anos",
+          "wrong": [
+            "Há cerca de 500 anos",
+            "Há cerca de 1.000 anos",
+            "Há cerca de 50.000 anos"
+          ],
+          "hint": "Mais velha do que quase tudo o que está de pé.",
+          "explanation": "A Grande Pirâmide foi construída há uns quatro mil e quinhentos anos.",
+          "fact": "Cleópatra viveu mais perto do nosso tempo do que dos construtores."
+        },
+        "da": {
+          "prompt": "Hvor længe siden blev Den Store Pyramide bygget?",
+          "answer": "Cirka 4.500 år siden",
+          "wrong": [
+            "Cirka 500 år siden",
+            "Cirka 1.000 år siden",
+            "Cirka 50.000 år siden"
+          ],
+          "hint": "Ældre end næsten alt, der stadig står.",
+          "explanation": "Den Store Pyramide blev bygget for omkring fire et halvt tusind år siden.",
+          "fact": "Kleopatra levede tættere på vores tid end på bygmestrenes."
+        },
+        "ru": {
+          "prompt": "Сколько лет назад построили Великую пирамиду?",
+          "answer": "Около 4500 лет назад",
+          "wrong": [
+            "Около 500 лет назад",
+            "Около 1000 лет назад",
+            "Около 50 000 лет назад"
+          ],
+          "hint": "Старше почти всего, что ещё стоит.",
+          "explanation": "Великую пирамиду построили примерно четыре с половиной тысячи лет назад.",
+          "fact": "Клеопатра жила ближе к нашему времени, чем к её строителям."
+        },
+        "ar": {
+          "prompt": "منذ متى بُني الهرم الأكبر؟",
+          "answer": "منذ نحو 4500 سنة",
+          "wrong": [
+            "منذ نحو 500 سنة",
+            "منذ نحو 1000 سنة",
+            "منذ نحو 50000 سنة"
+          ],
+          "hint": "أقدم من معظم ما بقي قائمًا.",
+          "explanation": "بُني الهرم الأكبر قبل نحو أربعة آلاف وخمسمئة سنة.",
+          "fact": "وكليوباترا أقرب إلى زماننا من زمن بنائه."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Canopische vazen",
+      "artBrief": "Vier gedecoreerde potten met dierenkoppen naast een sarcofaag.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat deden Egyptenaren met de organen van een mummie?",
+          "answer": "Ze bewaarden ze in potten",
+          "wrong": [
+            "Ze gooiden ze weg",
+            "Ze aten ze op",
+            "Ze lieten ze zitten"
+          ],
+          "hint": "Vier potten met dierenkoppen.",
+          "explanation": "De organen gingen in canopische vazen naast de kist.",
+          "fact": "Alleen het hart bleef in het lichaam zitten."
+        },
+        "en": {
+          "prompt": "What did Egyptians do with a mummy's organs?",
+          "answer": "They kept them in jars",
+          "wrong": [
+            "They threw them away",
+            "They ate them",
+            "They left them in place"
+          ],
+          "hint": "Four jars with animal heads.",
+          "explanation": "The organs went into canopic jars beside the coffin.",
+          "fact": "Only the heart was left inside the body."
+        },
+        "de": {
+          "prompt": "Was machten Ägypter mit den Organen einer Mumie?",
+          "answer": "Sie bewahrten sie in Krügen",
+          "wrong": [
+            "Sie warfen sie weg",
+            "Sie aßen sie",
+            "Sie ließen sie drin"
+          ],
+          "hint": "Vier Krüge mit Tierköpfen.",
+          "explanation": "Die Organe kamen in Kanopen neben den Sarg.",
+          "fact": "Nur das Herz blieb im Körper."
+        },
+        "fr": {
+          "prompt": "Que faisaient les Égyptiens des organes d'une momie ?",
+          "answer": "Ils les gardaient en vases",
+          "wrong": [
+            "Ils les jetaient",
+            "Ils les mangeaient",
+            "Ils les laissaient dedans"
+          ],
+          "hint": "Quatre vases à têtes d'animaux.",
+          "explanation": "Les organes allaient dans des vases canopes près du cercueil.",
+          "fact": "Seul le cœur restait dans le corps."
+        },
+        "es": {
+          "prompt": "¿Qué hacían los egipcios con los órganos de una momia?",
+          "answer": "Los guardaban en vasijas",
+          "wrong": [
+            "Los tiraban",
+            "Se los comían",
+            "Los dejaban dentro"
+          ],
+          "hint": "Cuatro vasijas con cabezas de animales.",
+          "explanation": "Los órganos iban en vasos canopos junto al ataúd.",
+          "fact": "Solo el corazón se quedaba dentro del cuerpo."
+        },
+        "it": {
+          "prompt": "Che cosa facevano gli egizi degli organi di una mummia?",
+          "answer": "Li tenevano in vasi",
+          "wrong": [
+            "Li buttavano",
+            "Li mangiavano",
+            "Li lasciavano dentro"
+          ],
+          "hint": "Quattro vasi con teste di animali.",
+          "explanation": "Gli organi finivano in vasi canopi accanto alla bara.",
+          "fact": "Solo il cuore restava nel corpo."
+        },
+        "pt": {
+          "prompt": "O que faziam os egípcios aos órgãos de uma múmia?",
+          "answer": "Guardavam-nos em vasos",
+          "wrong": [
+            "Deitavam-nos fora",
+            "Comiam-nos",
+            "Deixavam-nos lá dentro"
+          ],
+          "hint": "Quatro vasos com cabeças de animais.",
+          "explanation": "Os órgãos iam para vasos canopos ao lado do caixão.",
+          "fact": "Só o coração ficava dentro do corpo."
+        },
+        "da": {
+          "prompt": "Hvad gjorde egypterne ved en mumies organer?",
+          "answer": "De gemte dem i krukker",
+          "wrong": [
+            "De smed dem væk",
+            "De spiste dem",
+            "De lod dem blive"
+          ],
+          "hint": "Fire krukker med dyrehoveder.",
+          "explanation": "Organerne kom i kanopekrukker ved siden af kisten.",
+          "fact": "Kun hjertet blev i kroppen."
+        },
+        "ru": {
+          "prompt": "Что египтяне делали с органами мумии?",
+          "answer": "Хранили их в сосудах",
+          "wrong": [
+            "Выбрасывали",
+            "Съедали",
+            "Оставляли на месте"
+          ],
+          "hint": "Четыре сосуда с головами животных.",
+          "explanation": "Органы клали в канопы рядом с саркофагом.",
+          "fact": "Только сердце оставляли в теле."
+        },
+        "ar": {
+          "prompt": "ماذا كان المصريون يفعلون بأعضاء المومياء؟",
+          "answer": "يحفظونها في جرار",
+          "wrong": [
+            "يرمونها",
+            "يأكلونها",
+            "يتركونها مكانها"
+          ],
+          "hint": "أربع جرار برؤوس حيوانات.",
+          "explanation": "كانت الأعضاء توضع في الأواني الكانوبية بجوار التابوت.",
+          "fact": "أما القلب فكان يبقى داخل الجسد."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Ra, de zonnegod",
+      "artBrief": "Een god met een valkenkop en een zonneschijf boven zijn hoofd.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie was bij de Egyptenaren de god van de zon?",
+          "answer": "Ra",
+          "wrong": [
+            "Anubis",
+            "Osiris",
+            "Horus"
+          ],
+          "hint": "Zijn naam is heel kort.",
+          "explanation": "Ra was de zonnegod en voer elke dag met een boot langs de hemel.",
+          "fact": "'s Nachts voer hij volgens het verhaal door de onderwereld."
+        },
+        "en": {
+          "prompt": "Who was the Egyptians' god of the sun?",
+          "answer": "Ra",
+          "wrong": [
+            "Anubis",
+            "Osiris",
+            "Horus"
+          ],
+          "hint": "His name is very short.",
+          "explanation": "Ra was the sun god and sailed across the sky in a boat each day.",
+          "fact": "At night, the story went, he sailed through the underworld."
+        },
+        "de": {
+          "prompt": "Wer war bei den Ägyptern der Sonnengott?",
+          "answer": "Ra",
+          "wrong": [
+            "Anubis",
+            "Osiris",
+            "Horus"
+          ],
+          "hint": "Sein Name ist sehr kurz.",
+          "explanation": "Ra war der Sonnengott und fuhr täglich mit einem Boot über den Himmel.",
+          "fact": "Nachts fuhr er der Erzählung nach durch die Unterwelt."
+        },
+        "fr": {
+          "prompt": "Qui était le dieu du soleil chez les Égyptiens ?",
+          "answer": "Rê",
+          "wrong": [
+            "Anubis",
+            "Osiris",
+            "Horus"
+          ],
+          "hint": "Son nom est très court.",
+          "explanation": "Rê était le dieu du soleil et traversait le ciel en barque chaque jour.",
+          "fact": "La nuit, selon le récit, il naviguait dans le monde d'en bas."
+        },
+        "es": {
+          "prompt": "¿Quién era el dios del sol para los egipcios?",
+          "answer": "Ra",
+          "wrong": [
+            "Anubis",
+            "Osiris",
+            "Horus"
+          ],
+          "hint": "Su nombre es muy corto.",
+          "explanation": "Ra era el dios del sol y cruzaba el cielo en barca cada día.",
+          "fact": "De noche, según el relato, navegaba por el inframundo."
+        },
+        "it": {
+          "prompt": "Chi era per gli egizi il dio del sole?",
+          "answer": "Ra",
+          "wrong": [
+            "Anubi",
+            "Osiride",
+            "Horus"
+          ],
+          "hint": "Il suo nome è brevissimo.",
+          "explanation": "Ra era il dio del sole e attraversava il cielo in barca ogni giorno.",
+          "fact": "Di notte, si diceva, navigava nel mondo sotterraneo."
+        },
+        "pt": {
+          "prompt": "Quem era o deus do sol para os egípcios?",
+          "answer": "Rá",
+          "wrong": [
+            "Anúbis",
+            "Osíris",
+            "Hórus"
+          ],
+          "hint": "O nome dele é curtíssimo.",
+          "explanation": "Rá era o deus do sol e atravessava o céu de barco todos os dias.",
+          "fact": "À noite, contava-se, navegava pelo mundo dos mortos."
+        },
+        "da": {
+          "prompt": "Hvem var egypternes solgud?",
+          "answer": "Ra",
+          "wrong": [
+            "Anubis",
+            "Osiris",
+            "Horus"
+          ],
+          "hint": "Hans navn er meget kort.",
+          "explanation": "Ra var solguden og sejlede hver dag over himlen i en båd.",
+          "fact": "Om natten sejlede han ifølge fortællingen gennem underverdenen."
+        },
+        "ru": {
+          "prompt": "Кто был у египтян богом солнца?",
+          "answer": "Ра",
+          "wrong": [
+            "Анубис",
+            "Осирис",
+            "Гор"
+          ],
+          "hint": "Его имя совсем короткое.",
+          "explanation": "Ра был богом солнца и каждый день плыл по небу в лодке.",
+          "fact": "А ночью, по преданию, плыл через загробный мир."
+        },
+        "ar": {
+          "prompt": "من كان إله الشمس عند المصريين؟",
+          "answer": "رع",
+          "wrong": [
+            "أنوبيس",
+            "أوزيريس",
+            "حورس"
+          ],
+          "hint": "اسمه قصير جدًا.",
+          "explanation": "رع إله الشمس وكان يعبر السماء كل يوم في قارب.",
+          "fact": "وفي الليل يبحر حسب الحكاية في العالم السفلي."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Per-aa betekent groot huis",
+      "artBrief": "Een groot paleis met zuilen en een troon, in warm licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat betekent het woord farao eigenlijk?",
+          "answer": "Groot huis",
+          "wrong": [
+            "Grote koning",
+            "Zoon van de zon",
+            "Heer van het water"
+          ],
+          "hint": "Het gaat over een gebouw.",
+          "explanation": "Farao komt van per-aa, wat groot huis of paleis betekent.",
+          "fact": "Later werd het de naam voor de heerser zelf."
+        },
+        "en": {
+          "prompt": "What does the word pharaoh actually mean?",
+          "answer": "Great house",
+          "wrong": [
+            "Great king",
+            "Son of the sun",
+            "Lord of the water"
+          ],
+          "hint": "It is about a building.",
+          "explanation": "Pharaoh comes from per-aa, which means great house or palace.",
+          "fact": "Later it became the name for the ruler himself."
+        },
+        "de": {
+          "prompt": "Was bedeutet das Wort Pharao eigentlich?",
+          "answer": "Großes Haus",
+          "wrong": [
+            "Großer König",
+            "Sohn der Sonne",
+            "Herr des Wassers"
+          ],
+          "hint": "Es geht um ein Gebäude.",
+          "explanation": "Pharao kommt von per-aa, was großes Haus oder Palast bedeutet.",
+          "fact": "Später wurde es der Name für den Herrscher selbst."
+        },
+        "fr": {
+          "prompt": "Que veut dire le mot pharaon à l'origine ?",
+          "answer": "Grande maison",
+          "wrong": [
+            "Grand roi",
+            "Fils du soleil",
+            "Maître de l'eau"
+          ],
+          "hint": "Il s'agit d'un bâtiment.",
+          "explanation": "Pharaon vient de per-aa, qui signifie grande maison ou palais.",
+          "fact": "Plus tard, ce fut le nom du souverain lui-même."
+        },
+        "es": {
+          "prompt": "¿Qué significa en realidad la palabra faraón?",
+          "answer": "Casa grande",
+          "wrong": [
+            "Gran rey",
+            "Hijo del sol",
+            "Señor del agua"
+          ],
+          "hint": "Habla de un edificio.",
+          "explanation": "Faraón viene de per-aa, que significa casa grande o palacio.",
+          "fact": "Más tarde pasó a ser el nombre del propio gobernante."
+        },
+        "it": {
+          "prompt": "Che cosa significa davvero la parola faraone?",
+          "answer": "Grande casa",
+          "wrong": [
+            "Grande re",
+            "Figlio del sole",
+            "Signore dell'acqua"
+          ],
+          "hint": "Parla di un edificio.",
+          "explanation": "Faraone viene da per-aa, che significa grande casa o palazzo.",
+          "fact": "Più tardi divenne il nome del sovrano stesso."
+        },
+        "pt": {
+          "prompt": "O que quer dizer afinal a palavra faraó?",
+          "answer": "Casa grande",
+          "wrong": [
+            "Grande rei",
+            "Filho do sol",
+            "Senhor da água"
+          ],
+          "hint": "Fala de um edifício.",
+          "explanation": "Faraó vem de per-aa, que quer dizer casa grande ou palácio.",
+          "fact": "Mais tarde passou a ser o nome do próprio governante."
+        },
+        "da": {
+          "prompt": "Hvad betyder ordet farao egentlig?",
+          "answer": "Stort hus",
+          "wrong": [
+            "Stor konge",
+            "Solens søn",
+            "Vandets herre"
+          ],
+          "hint": "Det handler om en bygning.",
+          "explanation": "Farao kommer af per-aa, som betyder stort hus eller palads.",
+          "fact": "Senere blev det navnet på herskeren selv."
+        },
+        "ru": {
+          "prompt": "Что на самом деле означает слово «фараон»?",
+          "answer": "Большой дом",
+          "wrong": [
+            "Великий царь",
+            "Сын солнца",
+            "Владыка воды"
+          ],
+          "hint": "Речь о здании.",
+          "explanation": "Слово происходит от пер-аа — «большой дом», то есть дворец.",
+          "fact": "Позже так стали называть самого правителя."
+        },
+        "ar": {
+          "prompt": "ما معنى كلمة فرعون في الأصل؟",
+          "answer": "البيت الكبير",
+          "wrong": [
+            "الملك العظيم",
+            "ابن الشمس",
+            "سيد الماء"
+          ],
+          "hint": "الكلمة تتحدث عن مبنى.",
+          "explanation": "تأتي من بر-عا، أي البيت الكبير أو القصر.",
+          "fact": "ثم صارت لاحقًا اسمًا للحاكم نفسه."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Dodenstad aan de westoever",
+      "artBrief": "De zon die ondergaat achter piramiden aan de westkant van een rivier.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom bouwden Egyptenaren graven op de westoever?",
+          "answer": "Daar gaat de zon onder",
+          "wrong": [
+            "Daar was meer water",
+            "Daar was het koeler",
+            "Daar woonden meer mensen"
+          ],
+          "hint": "Denk aan het einde van de dag.",
+          "explanation": "De westkant hoorde bij de dood, want daar verdween de zon.",
+          "fact": "Aan de oostkant, waar de zon opkwam, stonden de steden."
+        },
+        "en": {
+          "prompt": "Why did Egyptians build tombs on the west bank?",
+          "answer": "That is where the sun sets",
+          "wrong": [
+            "There was more water",
+            "It was cooler there",
+            "More people lived there"
+          ],
+          "hint": "Think of the end of the day.",
+          "explanation": "The west belonged to death, because the sun vanished there.",
+          "fact": "The towns stood on the east bank, where the sun rose."
+        },
+        "de": {
+          "prompt": "Warum bauten Ägypter Gräber am Westufer?",
+          "answer": "Dort geht die Sonne unter",
+          "wrong": [
+            "Dort gab es mehr Wasser",
+            "Dort war es kühler",
+            "Dort wohnten mehr Leute"
+          ],
+          "hint": "Denk an das Ende des Tages.",
+          "explanation": "Der Westen gehörte zum Tod, denn dort verschwand die Sonne.",
+          "fact": "Die Städte lagen im Osten, wo die Sonne aufging."
+        },
+        "fr": {
+          "prompt": "Pourquoi bâtir les tombes sur la rive ouest ?",
+          "answer": "Le soleil s'y couche",
+          "wrong": [
+            "Il y avait plus d'eau",
+            "Il y faisait plus frais",
+            "Il y avait plus d'habitants"
+          ],
+          "hint": "Pense à la fin du jour.",
+          "explanation": "L'ouest appartenait à la mort, car le soleil y disparaissait.",
+          "fact": "Les villes se trouvaient à l'est, du côté du lever."
+        },
+        "es": {
+          "prompt": "¿Por qué construían las tumbas en la orilla oeste?",
+          "answer": "Allí se pone el sol",
+          "wrong": [
+            "Había más agua",
+            "Hacía más fresco",
+            "Vivía más gente"
+          ],
+          "hint": "Piensa en el final del día.",
+          "explanation": "El oeste pertenecía a la muerte, porque allí desaparecía el sol.",
+          "fact": "Las ciudades estaban al este, por donde salía el sol."
+        },
+        "it": {
+          "prompt": "Perché costruivano le tombe sulla riva ovest?",
+          "answer": "Lì tramonta il sole",
+          "wrong": [
+            "C'era più acqua",
+            "Faceva più fresco",
+            "Viveva più gente"
+          ],
+          "hint": "Pensa alla fine del giorno.",
+          "explanation": "L'ovest apparteneva alla morte, perché lì spariva il sole.",
+          "fact": "Le città stavano a est, dove il sole sorgeva."
+        },
+        "pt": {
+          "prompt": "Porque construíam os túmulos na margem oeste?",
+          "answer": "É onde o sol se põe",
+          "wrong": [
+            "Havia mais água",
+            "Era mais fresco",
+            "Vivia mais gente"
+          ],
+          "hint": "Pensa no fim do dia.",
+          "explanation": "O oeste pertencia à morte, porque era ali que o sol desaparecia.",
+          "fact": "As cidades ficavam a leste, onde o sol nascia."
+        },
+        "da": {
+          "prompt": "Hvorfor byggede egypterne grave på vestbredden?",
+          "answer": "Der går solen ned",
+          "wrong": [
+            "Der var mere vand",
+            "Der var køligere",
+            "Der boede flere"
+          ],
+          "hint": "Tænk på dagens slutning.",
+          "explanation": "Vesten hørte til døden, for dér forsvandt solen.",
+          "fact": "Byerne lå mod øst, hvor solen stod op."
+        },
+        "ru": {
+          "prompt": "Почему гробницы строили на западном берегу?",
+          "answer": "Там заходит солнце",
+          "wrong": [
+            "Там было больше воды",
+            "Там было прохладнее",
+            "Там жило больше людей"
+          ],
+          "hint": "Вспомни конец дня.",
+          "explanation": "Запад принадлежал смерти, ведь там исчезало солнце.",
+          "fact": "А города стояли на востоке, где солнце вставало."
+        },
+        "ar": {
+          "prompt": "لماذا بُنيت المقابر على الضفة الغربية؟",
+          "answer": "هناك تغرب الشمس",
+          "wrong": [
+            "الماء أكثر هناك",
+            "الجو أبرد هناك",
+            "السكان أكثر هناك"
+          ],
+          "hint": "فكر في نهاية النهار.",
+          "explanation": "كان الغرب للموت لأن الشمس تختفي فيه.",
+          "fact": "أما المدن فكانت شرقًا حيث تشرق الشمس."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Drieduizend jaar faraonisch Egypte",
+      "artBrief": "Een lange tijdlijn met Egyptische beelden van begin tot eind.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang bestond het Egypte van de farao's ongeveer?",
+          "answer": "Ongeveer 3.000 jaar",
+          "wrong": [
+            "Ongeveer 100 jaar",
+            "Ongeveer 500 jaar",
+            "Ongeveer 30.000 jaar"
+          ],
+          "hint": "Langer dan de tijd sinds de Romeinen.",
+          "explanation": "Egypte werd ruim drieduizend jaar door farao's geregeerd.",
+          "fact": "In die tijd volgden meer dan dertig dynastieën elkaar op."
+        },
+        "en": {
+          "prompt": "Roughly how long did the Egypt of the pharaohs last?",
+          "answer": "About 3,000 years",
+          "wrong": [
+            "About 100 years",
+            "About 500 years",
+            "About 30,000 years"
+          ],
+          "hint": "Longer than the time since the Romans.",
+          "explanation": "Egypt was ruled by pharaohs for over three thousand years.",
+          "fact": "In that time more than thirty dynasties followed one another."
+        },
+        "de": {
+          "prompt": "Wie lange bestand das Ägypten der Pharaonen ungefähr?",
+          "answer": "Etwa 3.000 Jahre",
+          "wrong": [
+            "Etwa 100 Jahre",
+            "Etwa 500 Jahre",
+            "Etwa 30.000 Jahre"
+          ],
+          "hint": "Länger als die Zeit seit den Römern.",
+          "explanation": "Ägypten wurde über dreitausend Jahre von Pharaonen regiert.",
+          "fact": "In dieser Zeit lösten sich mehr als dreißig Dynastien ab."
+        },
+        "fr": {
+          "prompt": "Combien de temps a duré l'Égypte des pharaons ?",
+          "answer": "Environ 3 000 ans",
+          "wrong": [
+            "Environ 100 ans",
+            "Environ 500 ans",
+            "Environ 30 000 ans"
+          ],
+          "hint": "Plus long que le temps depuis les Romains.",
+          "explanation": "L'Égypte fut gouvernée par des pharaons pendant plus de trois mille ans.",
+          "fact": "Plus de trente dynasties s'y sont succédé."
+        },
+        "es": {
+          "prompt": "¿Cuánto duró más o menos el Egipto de los faraones?",
+          "answer": "Unos 3.000 años",
+          "wrong": [
+            "Unos 100 años",
+            "Unos 500 años",
+            "Unos 30.000 años"
+          ],
+          "hint": "Más que el tiempo transcurrido desde los romanos.",
+          "explanation": "Egipto estuvo gobernado por faraones más de tres mil años.",
+          "fact": "En ese tiempo se sucedieron más de treinta dinastías."
+        },
+        "it": {
+          "prompt": "Quanto durò all'incirca l'Egitto dei faraoni?",
+          "answer": "Circa 3.000 anni",
+          "wrong": [
+            "Circa 100 anni",
+            "Circa 500 anni",
+            "Circa 30.000 anni"
+          ],
+          "hint": "Più del tempo passato dai romani.",
+          "explanation": "L'Egitto fu governato dai faraoni per oltre tremila anni.",
+          "fact": "In quel periodo si succedettero più di trenta dinastie."
+        },
+        "pt": {
+          "prompt": "Quanto tempo durou o Egito dos faraós?",
+          "answer": "Cerca de 3.000 anos",
+          "wrong": [
+            "Cerca de 100 anos",
+            "Cerca de 500 anos",
+            "Cerca de 30.000 anos"
+          ],
+          "hint": "Mais do que o tempo desde os romanos.",
+          "explanation": "O Egito foi governado por faraós durante mais de três mil anos.",
+          "fact": "Nesse tempo sucederam-se mais de trinta dinastias."
+        },
+        "da": {
+          "prompt": "Hvor længe bestod faraonernes Egypten cirka?",
+          "answer": "Cirka 3.000 år",
+          "wrong": [
+            "Cirka 100 år",
+            "Cirka 500 år",
+            "Cirka 30.000 år"
+          ],
+          "hint": "Længere end tiden siden romerne.",
+          "explanation": "Egypten blev regeret af faraoner i over tre tusind år.",
+          "fact": "I den tid afløste mere end tredive dynastier hinanden."
+        },
+        "ru": {
+          "prompt": "Сколько примерно просуществовал Египет фараонов?",
+          "answer": "Около 3000 лет",
+          "wrong": [
+            "Около 100 лет",
+            "Около 500 лет",
+            "Около 30 000 лет"
+          ],
+          "hint": "Дольше, чем прошло со времён римлян.",
+          "explanation": "Фараоны правили Египтом больше трёх тысяч лет.",
+          "fact": "За это время сменилось более тридцати династий."
+        },
+        "ar": {
+          "prompt": "كم دامت مصر الفرعونية تقريبًا؟",
+          "answer": "نحو 3000 سنة",
+          "wrong": [
+            "نحو 100 سنة",
+            "نحو 500 سنة",
+            "نحو 30000 سنة"
+          ],
+          "hint": "أطول من المدة منذ الرومان.",
+          "explanation": "حكم الفراعنة مصر أكثر من ثلاثة آلاف سنة.",
+          "fact": "وتعاقبت فيها أكثر من ثلاثين أسرة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Hatsjepsoet, farao rond 1470 v.Chr.",
+      "artBrief": "Een vrouwelijke farao met ceremoniële baard voor haar tempel met terrassen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke vrouwelijke farao liet zich met baard afbeelden?",
+          "answer": "Hatsjepsoet",
+          "wrong": [
+            "Cleopatra",
+            "Nefertiti",
+            "Isis"
+          ],
+          "hint": "Ze regeerde lang voor Cleopatra.",
+          "explanation": "Hatsjepsoet liet zich als farao afbeelden, met de valse baard van het ambt.",
+          "fact": "Haar tempel met terrassen staat er nog steeds."
+        },
+        "en": {
+          "prompt": "Which female pharaoh had herself shown with a beard?",
+          "answer": "Hatshepsut",
+          "wrong": [
+            "Cleopatra",
+            "Nefertiti",
+            "Isis"
+          ],
+          "hint": "She ruled long before Cleopatra.",
+          "explanation": "Hatshepsut had herself shown as pharaoh, with the false beard of office.",
+          "fact": "Her temple with its terraces still stands."
+        },
+        "de": {
+          "prompt": "Welche Pharaonin ließ sich mit Bart darstellen?",
+          "answer": "Hatschepsut",
+          "wrong": [
+            "Kleopatra",
+            "Nofretete",
+            "Isis"
+          ],
+          "hint": "Sie regierte lange vor Kleopatra.",
+          "explanation": "Hatschepsut ließ sich als Pharao zeigen, mit dem falschen Amtsbart.",
+          "fact": "Ihr Terrassentempel steht bis heute."
+        },
+        "fr": {
+          "prompt": "Quelle femme pharaon se fit représenter avec une barbe ?",
+          "answer": "Hatchepsout",
+          "wrong": [
+            "Cléopâtre",
+            "Néfertiti",
+            "Isis"
+          ],
+          "hint": "Elle régna bien avant Cléopâtre.",
+          "explanation": "Hatchepsout se fit représenter en pharaon, avec la fausse barbe de la fonction.",
+          "fact": "Son temple à terrasses est toujours debout."
+        },
+        "es": {
+          "prompt": "¿Qué mujer faraón se hizo representar con barba?",
+          "answer": "Hatshepsut",
+          "wrong": [
+            "Cleopatra",
+            "Nefertiti",
+            "Isis"
+          ],
+          "hint": "Reinó mucho antes que Cleopatra.",
+          "explanation": "Hatshepsut se hizo representar como faraón, con la barba postiza del cargo.",
+          "fact": "Su templo de terrazas sigue en pie."
+        },
+        "it": {
+          "prompt": "Quale donna faraone si fece raffigurare con la barba?",
+          "answer": "Hatshepsut",
+          "wrong": [
+            "Cleopatra",
+            "Nefertiti",
+            "Iside"
+          ],
+          "hint": "Regnò molto prima di Cleopatra.",
+          "explanation": "Hatshepsut si fece raffigurare da faraone, con la barba finta della carica.",
+          "fact": "Il suo tempio a terrazze è ancora in piedi."
+        },
+        "pt": {
+          "prompt": "Que mulher faraó se fez representar com barba?",
+          "answer": "Hatchepsut",
+          "wrong": [
+            "Cleópatra",
+            "Nefertiti",
+            "Ísis"
+          ],
+          "hint": "Reinou muito antes de Cleópatra.",
+          "explanation": "Hatchepsut fez-se representar como faraó, com a barba falsa do cargo.",
+          "fact": "O seu templo de terraços ainda está de pé."
+        },
+        "da": {
+          "prompt": "Hvilken kvindelig farao lod sig afbilde med skæg?",
+          "answer": "Hatshepsut",
+          "wrong": [
+            "Kleopatra",
+            "Nefertiti",
+            "Isis"
+          ],
+          "hint": "Hun regerede længe før Kleopatra.",
+          "explanation": "Hatshepsut lod sig afbilde som farao med embedets falske skæg.",
+          "fact": "Hendes terrassetempel står den dag i dag."
+        },
+        "ru": {
+          "prompt": "Какая женщина-фараон изображалась с бородой?",
+          "answer": "Хатшепсут",
+          "wrong": [
+            "Клеопатра",
+            "Нефертити",
+            "Исида"
+          ],
+          "hint": "Она правила задолго до Клеопатры.",
+          "explanation": "Хатшепсут изображали как фараона, с накладной бородой сана.",
+          "fact": "Её храм с террасами стоит до сих пор."
+        },
+        "ar": {
+          "prompt": "أي ملكة حكمت كفرعون وصُورت بلحية؟",
+          "answer": "حتشبسوت",
+          "wrong": [
+            "كليوباترا",
+            "نفرتيتي",
+            "إيزيس"
+          ],
+          "hint": "حكمت قبل كليوباترا بزمن طويل.",
+          "explanation": "صُورت حتشبسوت فرعونًا بلحية المنصب المستعارة.",
+          "fact": "ومعبدها المدرج ما زال قائمًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het wegen van het hart tegen de veer van Maät",
+      "artBrief": "Een weegschaal met een hart aan de ene kant en een veer aan de andere.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat woog de god Anubis na iemands dood?",
+          "answer": "Het hart tegen een veer",
+          "wrong": [
+            "Het hoofd tegen goud",
+            "De voeten tegen steen",
+            "De ogen tegen water"
+          ],
+          "hint": "Licht zijn was goed.",
+          "explanation": "Een hart dat lichter was dan de veer van Maät mocht door.",
+          "fact": "Daarom lieten Egyptenaren het hart juist in de mummie zitten."
+        },
+        "en": {
+          "prompt": "What did the god Anubis weigh after someone died?",
+          "answer": "The heart against a feather",
+          "wrong": [
+            "The head against gold",
+            "The feet against stone",
+            "The eyes against water"
+          ],
+          "hint": "Being light was good.",
+          "explanation": "A heart lighter than the feather of Maat was allowed to pass.",
+          "fact": "That is why Egyptians left the heart inside the mummy."
+        },
+        "de": {
+          "prompt": "Was wog der Gott Anubis nach dem Tod eines Menschen?",
+          "answer": "Das Herz gegen eine Feder",
+          "wrong": [
+            "Den Kopf gegen Gold",
+            "Die Füße gegen Stein",
+            "Die Augen gegen Wasser"
+          ],
+          "hint": "Leicht zu sein war gut.",
+          "explanation": "Ein Herz, das leichter war als die Feder der Maat, durfte weiter.",
+          "fact": "Darum ließ man das Herz in der Mumie."
+        },
+        "fr": {
+          "prompt": "Que pesait le dieu Anubis après la mort d'une personne ?",
+          "answer": "Le cœur contre une plume",
+          "wrong": [
+            "La tête contre de l'or",
+            "Les pieds contre la pierre",
+            "Les yeux contre de l'eau"
+          ],
+          "hint": "Être léger, c'était bien.",
+          "explanation": "Un cœur plus léger que la plume de Maât pouvait passer.",
+          "fact": "C'est pourquoi on laissait le cœur dans la momie."
+        },
+        "es": {
+          "prompt": "¿Qué pesaba el dios Anubis tras la muerte de alguien?",
+          "answer": "El corazón contra una pluma",
+          "wrong": [
+            "La cabeza contra oro",
+            "Los pies contra piedra",
+            "Los ojos contra agua"
+          ],
+          "hint": "Ser ligero era bueno.",
+          "explanation": "Un corazón más ligero que la pluma de Maat podía seguir adelante.",
+          "fact": "Por eso el corazón se dejaba dentro de la momia."
+        },
+        "it": {
+          "prompt": "Che cosa pesava il dio Anubi dopo la morte di una persona?",
+          "answer": "Il cuore contro una piuma",
+          "wrong": [
+            "La testa contro l'oro",
+            "I piedi contro la pietra",
+            "Gli occhi contro l'acqua"
+          ],
+          "hint": "Essere leggeri era un bene.",
+          "explanation": "Un cuore più leggero della piuma di Maat poteva passare.",
+          "fact": "Per questo il cuore restava nella mummia."
+        },
+        "pt": {
+          "prompt": "O que pesava o deus Anúbis depois de alguém morrer?",
+          "answer": "O coração contra uma pena",
+          "wrong": [
+            "A cabeça contra ouro",
+            "Os pés contra pedra",
+            "Os olhos contra água"
+          ],
+          "hint": "Ser leve era bom.",
+          "explanation": "Um coração mais leve do que a pena de Maat podia seguir.",
+          "fact": "Por isso o coração ficava dentro da múmia."
+        },
+        "da": {
+          "prompt": "Hvad vejede guden Anubis efter et menneskes død?",
+          "answer": "Hjertet mod en fjer",
+          "wrong": [
+            "Hovedet mod guld",
+            "Fødderne mod sten",
+            "Øjnene mod vand"
+          ],
+          "hint": "At være let var godt.",
+          "explanation": "Et hjerte lettere end Maats fjer måtte komme videre.",
+          "fact": "Derfor lod man hjertet blive i mumien."
+        },
+        "ru": {
+          "prompt": "Что бог Анубис взвешивал после смерти человека?",
+          "answer": "Сердце против пера",
+          "wrong": [
+            "Голову против золота",
+            "Ноги против камня",
+            "Глаза против воды"
+          ],
+          "hint": "Быть лёгким — хорошо.",
+          "explanation": "Сердце легче пера Маат могло идти дальше.",
+          "fact": "Поэтому сердце оставляли внутри мумии."
+        },
+        "ar": {
+          "prompt": "ماذا كان الإله أنوبيس يزن بعد موت الإنسان؟",
+          "answer": "القلب مقابل ريشة",
+          "wrong": [
+            "الرأس مقابل ذهب",
+            "القدمين مقابل حجر",
+            "العينين مقابل ماء"
+          ],
+          "hint": "الخفة كانت أمرًا حسنًا.",
+          "explanation": "القلب الأخف من ريشة ماعت كان يُسمح له بالعبور.",
+          "fact": "لذلك كان القلب يُترك في المومياء."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Egyptische inkt van roet en gom",
+      "artBrief": "Een schrijver met rietpen en een palet met zwarte en rode inkt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvan maakten de Egyptenaren zwarte inkt?",
+          "answer": "Van roet en water",
+          "wrong": [
+            "Van bloed",
+            "Van melk",
+            "Van zand"
+          ],
+          "hint": "Uit de rand van het vuur.",
+          "explanation": "Roet uit de haard werd met water en gom tot inkt gemengd.",
+          "fact": "Voor rood gebruikten ze fijngemalen oker."
+        },
+        "en": {
+          "prompt": "What did the Egyptians make black ink from?",
+          "answer": "From soot and water",
+          "wrong": [
+            "From blood",
+            "From milk",
+            "From sand"
+          ],
+          "hint": "From the edge of the fire.",
+          "explanation": "Soot from the hearth was mixed with water and gum into ink.",
+          "fact": "For red they used finely ground ochre."
+        },
+        "de": {
+          "prompt": "Woraus machten die Ägypter schwarze Tinte?",
+          "answer": "Aus Ruß und Wasser",
+          "wrong": [
+            "Aus Blut",
+            "Aus Milch",
+            "Aus Sand"
+          ],
+          "hint": "Vom Rand des Feuers.",
+          "explanation": "Ruß aus der Feuerstelle wurde mit Wasser und Gummi zu Tinte gemischt.",
+          "fact": "Für Rot nahmen sie fein gemahlenen Ocker."
+        },
+        "fr": {
+          "prompt": "Avec quoi les Égyptiens faisaient-ils l'encre noire ?",
+          "answer": "Avec de la suie et de l'eau",
+          "wrong": [
+            "Avec du sang",
+            "Avec du lait",
+            "Avec du sable"
+          ],
+          "hint": "Cela vient du bord du feu.",
+          "explanation": "La suie du foyer était mélangée à de l'eau et de la gomme.",
+          "fact": "Pour le rouge, ils broyaient de l'ocre."
+        },
+        "es": {
+          "prompt": "¿De qué hacían los egipcios la tinta negra?",
+          "answer": "De hollín y agua",
+          "wrong": [
+            "De sangre",
+            "De leche",
+            "De arena"
+          ],
+          "hint": "Sale del borde del fuego.",
+          "explanation": "El hollín del hogar se mezclaba con agua y goma para hacer tinta.",
+          "fact": "Para el rojo usaban ocre bien molido."
+        },
+        "it": {
+          "prompt": "Con che cosa facevano gli egizi l'inchiostro nero?",
+          "answer": "Con fuliggine e acqua",
+          "wrong": [
+            "Con il sangue",
+            "Con il latte",
+            "Con la sabbia"
+          ],
+          "hint": "Viene dal bordo del fuoco.",
+          "explanation": "La fuliggine del focolare veniva mescolata ad acqua e gomma.",
+          "fact": "Per il rosso usavano ocra finemente macinata."
+        },
+        "pt": {
+          "prompt": "De que faziam os egípcios a tinta preta?",
+          "answer": "De fuligem e água",
+          "wrong": [
+            "De sangue",
+            "De leite",
+            "De areia"
+          ],
+          "hint": "Vem da beira do fogo.",
+          "explanation": "A fuligem da lareira era misturada com água e goma.",
+          "fact": "Para o vermelho usavam ocre bem moído."
+        },
+        "da": {
+          "prompt": "Hvad lavede egypterne sort blæk af?",
+          "answer": "Af sod og vand",
+          "wrong": [
+            "Af blod",
+            "Af mælk",
+            "Af sand"
+          ],
+          "hint": "Det kommer fra kanten af ilden.",
+          "explanation": "Sod fra ildstedet blev rørt sammen med vand og gummi til blæk.",
+          "fact": "Til rødt brugte de fintmalet okker."
+        },
+        "ru": {
+          "prompt": "Из чего египтяне делали чёрные чернила?",
+          "answer": "Из сажи и воды",
+          "wrong": [
+            "Из крови",
+            "Из молока",
+            "Из песка"
+          ],
+          "hint": "Это берут у края огня.",
+          "explanation": "Сажу из очага смешивали с водой и камедью.",
+          "fact": "Для красного брали мелко растёртую охру."
+        },
+        "ar": {
+          "prompt": "مم صنع المصريون الحبر الأسود؟",
+          "answer": "من السخام والماء",
+          "wrong": [
+            "من الدم",
+            "من الحليب",
+            "من الرمل"
+          ],
+          "hint": "يؤخذ من حافة النار.",
+          "explanation": "كان سخام الموقد يخلط بالماء والصمغ ليصير حبرًا.",
+          "fact": "وللأحمر استعملوا المغرة المطحونة."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De Vallei der Koningen",
+      "artBrief": "Een droge vallei met rotswanden en donkere graftoegangen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet de vallei met de graven van veel farao's?",
+          "answer": "De Vallei der Koningen",
+          "wrong": [
+            "De Vallei van de Nijl",
+            "Het Dal der Sfinxen",
+            "De Gouden Vallei"
+          ],
+          "hint": "Hij ligt bij Luxor.",
+          "explanation": "In de Vallei der Koningen liggen meer dan zestig rotsgraven.",
+          "fact": "Ze werden uitgehakt om grafrovers te slim af te zijn."
+        },
+        "en": {
+          "prompt": "What is the valley with many pharaohs' tombs called?",
+          "answer": "The Valley of the Kings",
+          "wrong": [
+            "The Valley of the Nile",
+            "The Vale of Sphinxes",
+            "The Golden Valley"
+          ],
+          "hint": "It lies near Luxor.",
+          "explanation": "The Valley of the Kings holds more than sixty rock-cut tombs.",
+          "fact": "They were carved out to outwit tomb robbers."
+        },
+        "de": {
+          "prompt": "Wie heißt das Tal mit vielen Pharaonengräbern?",
+          "answer": "Das Tal der Könige",
+          "wrong": [
+            "Das Tal des Nils",
+            "Das Tal der Sphinxe",
+            "Das Goldene Tal"
+          ],
+          "hint": "Es liegt bei Luxor.",
+          "explanation": "Im Tal der Könige liegen über sechzig Felsengräber.",
+          "fact": "Man schlug sie aus, um Grabräuber zu überlisten."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle la vallée des tombes de pharaons ?",
+          "answer": "La Vallée des Rois",
+          "wrong": [
+            "La Vallée du Nil",
+            "Le Val des Sphinx",
+            "La Vallée d'Or"
+          ],
+          "hint": "Elle se trouve près de Louxor.",
+          "explanation": "La Vallée des Rois compte plus de soixante tombes creusées dans la roche.",
+          "fact": "On les taillait pour déjouer les pilleurs."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama el valle con muchas tumbas de faraones?",
+          "answer": "El Valle de los Reyes",
+          "wrong": [
+            "El Valle del Nilo",
+            "El Valle de las Esfinges",
+            "El Valle Dorado"
+          ],
+          "hint": "Está cerca de Luxor.",
+          "explanation": "El Valle de los Reyes tiene más de sesenta tumbas excavadas en la roca.",
+          "fact": "Se excavaron así para burlar a los saqueadores."
+        },
+        "it": {
+          "prompt": "Come si chiama la valle con molte tombe di faraoni?",
+          "answer": "La Valle dei Re",
+          "wrong": [
+            "La Valle del Nilo",
+            "La Valle delle Sfingi",
+            "La Valle d'Oro"
+          ],
+          "hint": "Si trova vicino a Luxor.",
+          "explanation": "Nella Valle dei Re ci sono più di sessanta tombe scavate nella roccia.",
+          "fact": "Furono scavate per sfuggire ai ladri di tombe."
+        },
+        "pt": {
+          "prompt": "Como se chama o vale com muitos túmulos de faraós?",
+          "answer": "O Vale dos Reis",
+          "wrong": [
+            "O Vale do Nilo",
+            "O Vale das Esfinges",
+            "O Vale Dourado"
+          ],
+          "hint": "Fica perto de Luxor.",
+          "explanation": "O Vale dos Reis tem mais de sessenta túmulos escavados na rocha.",
+          "fact": "Foram escavados assim para enganar os saqueadores."
+        },
+        "da": {
+          "prompt": "Hvad hedder dalen med mange faraograve?",
+          "answer": "Kongernes Dal",
+          "wrong": [
+            "Nilens Dal",
+            "Sfinksernes Dal",
+            "Den Gyldne Dal"
+          ],
+          "hint": "Den ligger ved Luxor.",
+          "explanation": "I Kongernes Dal ligger over tres grave hugget ind i klippen.",
+          "fact": "De blev hugget ud for at narre gravrøvere."
+        },
+        "ru": {
+          "prompt": "Как называется долина со множеством гробниц фараонов?",
+          "answer": "Долина царей",
+          "wrong": [
+            "Долина Нила",
+            "Долина сфинксов",
+            "Золотая долина"
+          ],
+          "hint": "Она находится у Луксора.",
+          "explanation": "В Долине царей больше шестидесяти вырубленных в скале гробниц.",
+          "fact": "Их прятали в скалах, чтобы перехитрить грабителей."
+        },
+        "ar": {
+          "prompt": "ما اسم الوادي الذي فيه مقابر كثير من الفراعنة؟",
+          "answer": "وادي الملوك",
+          "wrong": [
+            "وادي النيل",
+            "وادي أبو الهول",
+            "الوادي الذهبي"
+          ],
+          "hint": "يقع قرب الأقصر.",
+          "explanation": "في وادي الملوك أكثر من ستين مقبرة منحوتة في الصخر.",
+          "fact": "نُحتت هكذا لخداع لصوص المقابر."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Ongeveer 2,3 miljoen blokken in de Grote Piramide",
+      "artBrief": "Een doorsnede van een piramide met ontelbare steenlagen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel steenblokken zitten er in de Grote Piramide?",
+          "answer": "Ruim twee miljoen",
+          "wrong": [
+            "Ongeveer duizend",
+            "Ongeveer tienduizend",
+            "Ruim twee miljard"
+          ],
+          "hint": "Meer dan een miljoen.",
+          "explanation": "De Grote Piramide bestaat uit ongeveer 2,3 miljoen blokken.",
+          "fact": "Twintig jaar lang moest er elke paar minuten een blok op zijn plek."
+        },
+        "en": {
+          "prompt": "How many stone blocks are in the Great Pyramid?",
+          "answer": "Over two million",
+          "wrong": [
+            "About a thousand",
+            "About ten thousand",
+            "Over two billion"
+          ],
+          "hint": "More than a million.",
+          "explanation": "The Great Pyramid is made of about 2.3 million blocks.",
+          "fact": "For twenty years a block had to be placed every few minutes."
+        },
+        "de": {
+          "prompt": "Wie viele Steinblöcke stecken in der Großen Pyramide?",
+          "answer": "Über zwei Millionen",
+          "wrong": [
+            "Etwa tausend",
+            "Etwa zehntausend",
+            "Über zwei Milliarden"
+          ],
+          "hint": "Mehr als eine Million.",
+          "explanation": "Die Große Pyramide besteht aus rund 2,3 Millionen Blöcken.",
+          "fact": "Zwanzig Jahre lang musste alle paar Minuten ein Block sitzen."
+        },
+        "fr": {
+          "prompt": "Combien de blocs compte la Grande Pyramide ?",
+          "answer": "Plus de deux millions",
+          "wrong": [
+            "Environ mille",
+            "Environ dix mille",
+            "Plus de deux milliards"
+          ],
+          "hint": "Plus d'un million.",
+          "explanation": "La Grande Pyramide est faite d'environ 2,3 millions de blocs.",
+          "fact": "Pendant vingt ans, il fallait poser un bloc toutes les quelques minutes."
+        },
+        "es": {
+          "prompt": "¿Cuántos bloques de piedra tiene la Gran Pirámide?",
+          "answer": "Más de dos millones",
+          "wrong": [
+            "Unos mil",
+            "Unos diez mil",
+            "Más de dos mil millones"
+          ],
+          "hint": "Más de un millón.",
+          "explanation": "La Gran Pirámide se compone de unos 2,3 millones de bloques.",
+          "fact": "Durante veinte años hubo que colocar un bloque cada pocos minutos."
+        },
+        "it": {
+          "prompt": "Quanti blocchi di pietra ha la Grande Piramide?",
+          "answer": "Oltre due milioni",
+          "wrong": [
+            "Circa mille",
+            "Circa diecimila",
+            "Oltre due miliardi"
+          ],
+          "hint": "Più di un milione.",
+          "explanation": "La Grande Piramide è fatta di circa 2,3 milioni di blocchi.",
+          "fact": "Per vent'anni bisognò posarne uno ogni pochi minuti."
+        },
+        "pt": {
+          "prompt": "Quantos blocos de pedra tem a Grande Pirâmide?",
+          "answer": "Mais de dois milhões",
+          "wrong": [
+            "Cerca de mil",
+            "Cerca de dez mil",
+            "Mais de dois mil milhões"
+          ],
+          "hint": "Mais de um milhão.",
+          "explanation": "A Grande Pirâmide é feita de cerca de 2,3 milhões de blocos.",
+          "fact": "Durante vinte anos foi preciso pôr um bloco de poucos em poucos minutos."
+        },
+        "da": {
+          "prompt": "Hvor mange stenblokke er der i Den Store Pyramide?",
+          "answer": "Over to millioner",
+          "wrong": [
+            "Omkring tusind",
+            "Omkring ti tusind",
+            "Over to milliarder"
+          ],
+          "hint": "Mere end en million.",
+          "explanation": "Den Store Pyramide består af cirka 2,3 millioner blokke.",
+          "fact": "I tyve år skulle der lægges en blok hvert par minutter."
+        },
+        "ru": {
+          "prompt": "Сколько каменных блоков в Великой пирамиде?",
+          "answer": "Больше двух миллионов",
+          "wrong": [
+            "Около тысячи",
+            "Около десяти тысяч",
+            "Больше двух миллиардов"
+          ],
+          "hint": "Больше миллиона.",
+          "explanation": "Великая пирамида сложена примерно из 2,3 миллиона блоков.",
+          "fact": "Двадцать лет подряд блок нужно было укладывать каждые несколько минут."
+        },
+        "ar": {
+          "prompt": "كم كتلة حجرية في الهرم الأكبر؟",
+          "answer": "أكثر من مليونين",
+          "wrong": [
+            "نحو ألف",
+            "نحو عشرة آلاف",
+            "أكثر من ملياري"
+          ],
+          "hint": "أكثر من مليون.",
+          "explanation": "يتكون الهرم الأكبر من نحو 2.3 مليون كتلة.",
+          "fact": "ولعشرين عامًا كان يجب وضع كتلة كل بضع دقائق."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Champollion ontcijferde de hiërogliefen in 1822",
+      "artBrief": "Een geleerde aan een bureau met de steen van Rosetta en aantekeningen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie ontcijferde als eerste de hiërogliefen?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleon",
+            "Cleopatra"
+          ],
+          "hint": "Hij was een Franse taalkundige.",
+          "explanation": "Jean-François Champollion kraakte het schrift in 1822.",
+          "fact": "Hij gebruikte daarvoor de steen van Rosetta."
+        },
+        "en": {
+          "prompt": "Who was the first to decipher the hieroglyphs?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleon",
+            "Cleopatra"
+          ],
+          "hint": "He was a French scholar of languages.",
+          "explanation": "Jean-François Champollion cracked the script in 1822.",
+          "fact": "He used the Rosetta Stone to do it."
+        },
+        "de": {
+          "prompt": "Wer entzifferte als Erster die Hieroglyphen?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleon",
+            "Kleopatra"
+          ],
+          "hint": "Er war ein französischer Sprachforscher.",
+          "explanation": "Jean-François Champollion knackte die Schrift im Jahr 1822.",
+          "fact": "Dafür nutzte er den Stein von Rosetta."
+        },
+        "fr": {
+          "prompt": "Qui a déchiffré le premier les hiéroglyphes ?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoléon",
+            "Cléopâtre"
+          ],
+          "hint": "C'était un linguiste français.",
+          "explanation": "Jean-François Champollion perça l'écriture en 1822.",
+          "fact": "Il s'est servi pour cela de la pierre de Rosette."
+        },
+        "es": {
+          "prompt": "¿Quién descifró primero los jeroglíficos?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleón",
+            "Cleopatra"
+          ],
+          "hint": "Era un lingüista francés.",
+          "explanation": "Jean-François Champollion descifró la escritura en 1822.",
+          "fact": "Para ello usó la piedra de Rosetta."
+        },
+        "it": {
+          "prompt": "Chi decifrò per primo i geroglifici?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleone",
+            "Cleopatra"
+          ],
+          "hint": "Era un linguista francese.",
+          "explanation": "Jean-François Champollion decifrò la scrittura nel 1822.",
+          "fact": "Si servì della stele di Rosetta."
+        },
+        "pt": {
+          "prompt": "Quem decifrou primeiro os hieróglifos?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleão",
+            "Cleópatra"
+          ],
+          "hint": "Era um linguista francês.",
+          "explanation": "Jean-François Champollion decifrou a escrita em 1822.",
+          "fact": "Para isso usou a pedra de Roseta."
+        },
+        "da": {
+          "prompt": "Hvem tydede først hieroglyfferne?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleon",
+            "Kleopatra"
+          ],
+          "hint": "Han var en fransk sprogforsker.",
+          "explanation": "Jean-François Champollion knækkede skriften i 1822.",
+          "fact": "Han brugte Rosettestenen til det."
+        },
+        "ru": {
+          "prompt": "Кто первым расшифровал иероглифы?",
+          "answer": "Шампольон",
+          "wrong": [
+            "Говард Картер",
+            "Наполеон",
+            "Клеопатра"
+          ],
+          "hint": "Он был французским языковедом.",
+          "explanation": "Жан-Франсуа Шампольон разгадал письмо в 1822 году.",
+          "fact": "Ему помог Розеттский камень."
+        },
+        "ar": {
+          "prompt": "من فك رموز الهيروغليفية أولًا؟",
+          "answer": "شامبليون",
+          "wrong": [
+            "هوارد كارتر",
+            "نابليون",
+            "كليوباترا"
+          ],
+          "hint": "كان عالم لغات فرنسيًا.",
+          "explanation": "فك جان فرانسوا شامبليون رموز الكتابة عام 1822.",
+          "fact": "واستعان بحجر رشيد."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Howard Carter opende het graf in 1922",
+      "artBrief": "Een archeoloog die met een kaars door een gat in een muur tuurt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wie vond in 1922 het graf van Toetanchamon?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleon",
+            "Marco Polo"
+          ],
+          "hint": "Hij was een Engelse archeoloog.",
+          "explanation": "Howard Carter vond het bijna onaangeroerde graf in 1922.",
+          "fact": "Door een gaatje in de muur zag hij overal goud glinsteren."
+        },
+        "en": {
+          "prompt": "Who found Tutankhamun's tomb in 1922?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleon",
+            "Marco Polo"
+          ],
+          "hint": "He was an English archaeologist.",
+          "explanation": "Howard Carter found the almost untouched tomb in 1922.",
+          "fact": "Through a hole in the wall he saw gold glittering everywhere."
+        },
+        "de": {
+          "prompt": "Wer fand 1922 das Grab des Tutanchamun?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleon",
+            "Marco Polo"
+          ],
+          "hint": "Er war ein englischer Archäologe.",
+          "explanation": "Howard Carter fand das fast unberührte Grab im Jahr 1922.",
+          "fact": "Durch ein Loch in der Wand sah er überall Gold glitzern."
+        },
+        "fr": {
+          "prompt": "Qui a découvert la tombe de Toutankhamon en 1922 ?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoléon",
+            "Marco Polo"
+          ],
+          "hint": "C'était un archéologue anglais.",
+          "explanation": "Howard Carter a trouvé la tombe presque intacte en 1922.",
+          "fact": "Par un trou dans le mur, il a vu de l'or briller partout."
+        },
+        "es": {
+          "prompt": "¿Quién halló en 1922 la tumba de Tutankamón?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleón",
+            "Marco Polo"
+          ],
+          "hint": "Era un arqueólogo inglés.",
+          "explanation": "Howard Carter encontró la tumba casi intacta en 1922.",
+          "fact": "Por un agujero en la pared vio brillar oro por todas partes."
+        },
+        "it": {
+          "prompt": "Chi trovò nel 1922 la tomba di Tutankhamon?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleone",
+            "Marco Polo"
+          ],
+          "hint": "Era un archeologo inglese.",
+          "explanation": "Howard Carter trovò la tomba quasi intatta nel 1922.",
+          "fact": "Da un foro nel muro vide brillare oro dappertutto."
+        },
+        "pt": {
+          "prompt": "Quem encontrou em 1922 o túmulo de Tutankamon?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleão",
+            "Marco Polo"
+          ],
+          "hint": "Era um arqueólogo inglês.",
+          "explanation": "Howard Carter encontrou o túmulo quase intacto em 1922.",
+          "fact": "Por um buraco na parede viu ouro a brilhar por todo o lado."
+        },
+        "da": {
+          "prompt": "Hvem fandt i 1922 Tutankhamons grav?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleon",
+            "Marco Polo"
+          ],
+          "hint": "Han var en engelsk arkæolog.",
+          "explanation": "Howard Carter fandt den næsten urørte grav i 1922.",
+          "fact": "Gennem et hul i muren så han guld glimte overalt."
+        },
+        "ru": {
+          "prompt": "Кто нашёл в 1922 году гробницу Тутанхамона?",
+          "answer": "Говард Картер",
+          "wrong": [
+            "Шампольон",
+            "Наполеон",
+            "Марко Поло"
+          ],
+          "hint": "Он был английским археологом.",
+          "explanation": "Говард Картер нашёл почти нетронутую гробницу в 1922 году.",
+          "fact": "Через дырку в стене он увидел, как всюду блестит золото."
+        },
+        "ar": {
+          "prompt": "من اكتشف مقبرة توت عنخ آمون عام 1922؟",
+          "answer": "هوارد كارتر",
+          "wrong": [
+            "شامبليون",
+            "نابليون",
+            "ماركو بولو"
+          ],
+          "hint": "كان عالم آثار إنجليزيًا.",
+          "explanation": "عثر هوارد كارتر على المقبرة شبه السليمة عام 1922.",
+          "fact": "ومن ثقب في الجدار رأى الذهب يلمع في كل مكان."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Droge woestijnlucht bewaart materiaal",
+      "artBrief": "Een droge grafkamer met goed bewaarde schilderingen en houten voorwerpen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom is er in Egypte zo veel bewaard gebleven?",
+          "answer": "Het is er kurkdroog",
+          "wrong": [
+            "Het is er heel koud",
+            "Alles zat onder water",
+            "De stenen zijn magisch"
+          ],
+          "hint": "Vocht laat dingen vergaan.",
+          "explanation": "In de droge woestijnlucht blijven hout, stof en verf duizenden jaren goed.",
+          "fact": "In een vochtig land zou er bijna niets over zijn."
+        },
+        "en": {
+          "prompt": "Why has so much survived in Egypt?",
+          "answer": "It is bone dry there",
+          "wrong": [
+            "It is very cold there",
+            "Everything was under water",
+            "The stones are magic"
+          ],
+          "hint": "Damp makes things rot.",
+          "explanation": "In dry desert air, wood, cloth and paint last for thousands of years.",
+          "fact": "In a damp country almost nothing would be left."
+        },
+        "de": {
+          "prompt": "Warum ist in Ägypten so viel erhalten geblieben?",
+          "answer": "Es ist dort knochentrocken",
+          "wrong": [
+            "Es ist dort sehr kalt",
+            "Alles lag unter Wasser",
+            "Die Steine sind magisch"
+          ],
+          "hint": "Feuchtigkeit lässt Dinge verrotten.",
+          "explanation": "In trockener Wüstenluft halten Holz, Stoff und Farbe jahrtausendelang.",
+          "fact": "In einem feuchten Land wäre fast nichts übrig."
+        },
+        "fr": {
+          "prompt": "Pourquoi tant de choses se sont-elles conservées en Égypte ?",
+          "answer": "Il y fait extrêmement sec",
+          "wrong": [
+            "Il y fait très froid",
+            "Tout était sous l'eau",
+            "Les pierres sont magiques"
+          ],
+          "hint": "L'humidité fait pourrir.",
+          "explanation": "Dans l'air sec du désert, bois, tissu et peinture durent des millénaires.",
+          "fact": "Dans un pays humide, il ne resterait presque rien."
+        },
+        "es": {
+          "prompt": "¿Por qué se ha conservado tanto en Egipto?",
+          "answer": "Allí está todo sequísimo",
+          "wrong": [
+            "Allí hace muchísimo frío",
+            "Todo estuvo bajo el agua",
+            "Las piedras son mágicas"
+          ],
+          "hint": "La humedad pudre las cosas.",
+          "explanation": "En el aire seco del desierto, madera, tela y pintura duran milenios.",
+          "fact": "En un país húmedo no quedaría casi nada."
+        },
+        "it": {
+          "prompt": "Perché in Egitto si è conservato così tanto?",
+          "answer": "Lì è tutto secchissimo",
+          "wrong": [
+            "Lì fa molto freddo",
+            "Era tutto sott'acqua",
+            "Le pietre sono magiche"
+          ],
+          "hint": "L'umidità fa marcire le cose.",
+          "explanation": "Nell'aria secca del deserto legno, stoffa e colore durano millenni.",
+          "fact": "In un paese umido non resterebbe quasi nulla."
+        },
+        "pt": {
+          "prompt": "Porque se conservou tanta coisa no Egito?",
+          "answer": "Ali está tudo sequíssimo",
+          "wrong": [
+            "Ali faz muito frio",
+            "Esteve tudo debaixo de água",
+            "As pedras são mágicas"
+          ],
+          "hint": "A humidade apodrece as coisas.",
+          "explanation": "No ar seco do deserto, madeira, tecido e tinta duram milénios.",
+          "fact": "Num país húmido não restaria quase nada."
+        },
+        "da": {
+          "prompt": "Hvorfor er så meget bevaret i Egypten?",
+          "answer": "Der er knastørt",
+          "wrong": [
+            "Der er meget koldt",
+            "Alt lå under vand",
+            "Stenene er magiske"
+          ],
+          "hint": "Fugt får ting til at rådne.",
+          "explanation": "I tør ørkenluft holder træ, stof og maling i årtusinder.",
+          "fact": "I et fugtigt land ville næsten intet være tilbage."
+        },
+        "ru": {
+          "prompt": "Почему в Египте так много сохранилось?",
+          "answer": "Там очень сухо",
+          "wrong": [
+            "Там очень холодно",
+            "Всё было под водой",
+            "Камни волшебные"
+          ],
+          "hint": "От сырости вещи гниют.",
+          "explanation": "В сухом воздухе пустыни дерево, ткань и краска держатся тысячи лет.",
+          "fact": "Во влажной стране почти ничего бы не осталось."
+        },
+        "ar": {
+          "prompt": "لماذا بقي الكثير محفوظًا في مصر؟",
+          "answer": "لأن الجو شديد الجفاف",
+          "wrong": [
+            "لأن الجو شديد البرودة",
+            "لأن كل شيء كان تحت الماء",
+            "لأن الحجارة سحرية"
+          ],
+          "hint": "الرطوبة تفسد الأشياء.",
+          "explanation": "في هواء الصحراء الجاف يبقى الخشب والقماش واللون آلاف السنين.",
+          "fact": "وفي بلد رطب لما بقي شيء تقريبًا."
+        }
+      }
+    },
+    {
+      "id": "geschiedenis-egyptenaren-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Gemiddeld blok van ongeveer 2,5 ton",
+      "artBrief": "Een enorm steenblok naast een mens, om het formaat te tonen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel weegt een gemiddeld blok van de Grote Piramide?",
+          "answer": "Ongeveer 2.500 kilo",
+          "wrong": [
+            "Ongeveer 25 kilo",
+            "Ongeveer 250 kilo",
+            "Ongeveer 25.000 kilo"
+          ],
+          "hint": "Zwaarder dan een auto.",
+          "explanation": "Een gemiddeld blok weegt ongeveer tweeënhalve ton.",
+          "fact": "De zwaarste blokken binnenin wegen wel vijftig ton."
+        },
+        "en": {
+          "prompt": "How much does an average block of the Great Pyramid weigh?",
+          "answer": "About 2,500 kilos",
+          "wrong": [
+            "About 25 kilos",
+            "About 250 kilos",
+            "About 25,000 kilos"
+          ],
+          "hint": "Heavier than a car.",
+          "explanation": "An average block weighs about two and a half tonnes.",
+          "fact": "The heaviest blocks inside weigh as much as fifty tonnes."
+        },
+        "de": {
+          "prompt": "Wie schwer ist ein durchschnittlicher Pyramidenblock?",
+          "answer": "Etwa 2.500 Kilo",
+          "wrong": [
+            "Etwa 25 Kilo",
+            "Etwa 250 Kilo",
+            "Etwa 25.000 Kilo"
+          ],
+          "hint": "Schwerer als ein Auto.",
+          "explanation": "Ein durchschnittlicher Block wiegt etwa zweieinhalb Tonnen.",
+          "fact": "Die schwersten Blöcke im Inneren wiegen bis zu fünfzig Tonnen."
+        },
+        "fr": {
+          "prompt": "Combien pèse un bloc moyen de la Grande Pyramide ?",
+          "answer": "Environ 2 500 kilos",
+          "wrong": [
+            "Environ 25 kilos",
+            "Environ 250 kilos",
+            "Environ 25 000 kilos"
+          ],
+          "hint": "Plus lourd qu'une voiture.",
+          "explanation": "Un bloc moyen pèse environ deux tonnes et demie.",
+          "fact": "Les plus lourds, à l'intérieur, atteignent cinquante tonnes."
+        },
+        "es": {
+          "prompt": "¿Cuánto pesa un bloque medio de la Gran Pirámide?",
+          "answer": "Unos 2.500 kilos",
+          "wrong": [
+            "Unos 25 kilos",
+            "Unos 250 kilos",
+            "Unos 25.000 kilos"
+          ],
+          "hint": "Más que un coche.",
+          "explanation": "Un bloque medio pesa unas dos toneladas y media.",
+          "fact": "Los más pesados del interior llegan a cincuenta toneladas."
+        },
+        "it": {
+          "prompt": "Quanto pesa un blocco medio della Grande Piramide?",
+          "answer": "Circa 2.500 chili",
+          "wrong": [
+            "Circa 25 chili",
+            "Circa 250 chili",
+            "Circa 25.000 chili"
+          ],
+          "hint": "Più di un'automobile.",
+          "explanation": "Un blocco medio pesa circa due tonnellate e mezzo.",
+          "fact": "I più pesanti all'interno arrivano a cinquanta tonnellate."
+        },
+        "pt": {
+          "prompt": "Quanto pesa um bloco médio da Grande Pirâmide?",
+          "answer": "Cerca de 2.500 quilos",
+          "wrong": [
+            "Cerca de 25 quilos",
+            "Cerca de 250 quilos",
+            "Cerca de 25.000 quilos"
+          ],
+          "hint": "Mais do que um carro.",
+          "explanation": "Um bloco médio pesa cerca de duas toneladas e meia.",
+          "fact": "Os mais pesados lá dentro chegam às cinquenta toneladas."
+        },
+        "da": {
+          "prompt": "Hvor meget vejer en gennemsnitlig pyramideblok?",
+          "answer": "Cirka 2.500 kilo",
+          "wrong": [
+            "Cirka 25 kilo",
+            "Cirka 250 kilo",
+            "Cirka 25.000 kilo"
+          ],
+          "hint": "Tungere end en bil.",
+          "explanation": "En gennemsnitlig blok vejer cirka to et halvt ton.",
+          "fact": "De tungeste inde i pyramiden vejer op mod halvtreds ton."
+        },
+        "ru": {
+          "prompt": "Сколько весит средний блок Великой пирамиды?",
+          "answer": "Около 2500 килограммов",
+          "wrong": [
+            "Около 25 килограммов",
+            "Около 250 килограммов",
+            "Около 25 000 килограммов"
+          ],
+          "hint": "Тяжелее автомобиля.",
+          "explanation": "Средний блок весит примерно две с половиной тонны.",
+          "fact": "Самые тяжёлые внутри достигают пятидесяти тонн."
+        },
+        "ar": {
+          "prompt": "كم تزن الكتلة المتوسطة في الهرم الأكبر؟",
+          "answer": "نحو 2500 كيلوغرام",
+          "wrong": [
+            "نحو 25 كيلوغرامًا",
+            "نحو 250 كيلوغرامًا",
+            "نحو 25000 كيلوغرام"
+          ],
+          "hint": "أثقل من سيارة.",
+          "explanation": "تزن الكتلة المتوسطة نحو طنين ونصف.",
+          "fact": "وأثقل الكتل في الداخل تبلغ خمسين طنًا."
+        }
+      }
+    }
+  ]
+}

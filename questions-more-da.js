@@ -184,6 +184,30 @@
         ['Hvor længe kan en kaskelot blive under vandet?','Over en time',['Cirka et minut','Cirka fem minutter','En hel dag'],'Længere end en skoletime.','En kaskelot kan blive nede i tres til halvfems minutter.','Bagefter ånder den cirka ti minutter ved overfladen.',4]
       ]
     },
+    geschiedenis: {
+      egyptenaren: [
+        ['Hvor står Egyptens største pyramider?','Ved Giza',['Ved Rom','Ved Athen','Ved Paris'],'Lige ved hovedstaden Kairo.','De tre største pyramider står på Giza-plateauet.','De kan stadig ses fra byens udkant.',1],
+        ['Hvad havde en farao på hovedet?','En krone',['En kasket','En hjelm','En kurv'],'Ofte i to farver.','Faraoen bar en dobbeltkrone for Øvre og Nedre Egypten.','Den hvide og den røde halvdel stod for hans to riger.',1],
+        ['Hvilket dyr hjalp med markarbejdet i Egypten?','Oksen',['Løven','Krokodillen','Katten'],'Den trak ploven.','Okser trak plovene gennem den frugtbare jord langs Nilen.','På vægmalerier ses de stadig i arbejde.',1],
+        ['Hvilken form har en pyramide?','Spids med fire sider',['Helt rund','Flad som en pandekage','Formet som en stjerne'],'Den bliver smallere opad.','En pyramide har fire trekantede sider, der mødes i en spids.','Før i tiden var siderne glatte og skinnede i solen.',1],
+        ['Hvor boede næsten alle egyptere?','Tæt ved Nilen',['Midt i ørkenen','Højt oppe i bjergene','På havet'],'Der var det grønt.','Kun langs Nilen var der vand nok til at leve og dyrke jorden.','Uden for den smalle stribe begynder ørkenen med det samme.',1],
+        ['Hvor længe siden blev Den Store Pyramide bygget?','Cirka 4.500 år siden',['Cirka 500 år siden','Cirka 1.000 år siden','Cirka 50.000 år siden'],'Ældre end næsten alt, der stadig står.','Den Store Pyramide blev bygget for omkring fire et halvt tusind år siden.','Kleopatra levede tættere på vores tid end på bygmestrenes.',2],
+        ['Hvad gjorde egypterne ved en mumies organer?','De gemte dem i krukker',['De smed dem væk','De spiste dem','De lod dem blive'],'Fire krukker med dyrehoveder.','Organerne kom i kanopekrukker ved siden af kisten.','Kun hjertet blev i kroppen.',2],
+        ['Hvem var egypternes solgud?','Ra',['Anubis','Osiris','Horus'],'Hans navn er meget kort.','Ra var solguden og sejlede hver dag over himlen i en båd.','Om natten sejlede han ifølge fortællingen gennem underverdenen.',2],
+        ['Hvad betyder ordet farao egentlig?','Stort hus',['Stor konge','Solens søn','Vandets herre'],'Det handler om en bygning.','Farao kommer af per-aa, som betyder stort hus eller palads.','Senere blev det navnet på herskeren selv.',2],
+        ['Hvorfor byggede egypterne grave på vestbredden?','Der går solen ned',['Der var mere vand','Der var køligere','Der boede flere'],'Tænk på dagens slutning.','Vesten hørte til døden, for dér forsvandt solen.','Byerne lå mod øst, hvor solen stod op.',2],
+        ['Hvor længe bestod faraonernes Egypten cirka?','Cirka 3.000 år',['Cirka 100 år','Cirka 500 år','Cirka 30.000 år'],'Længere end tiden siden romerne.','Egypten blev regeret af faraoner i over tre tusind år.','I den tid afløste mere end tredive dynastier hinanden.',3],
+        ['Hvilken kvindelig farao lod sig afbilde med skæg?','Hatshepsut',['Kleopatra','Nefertiti','Isis'],'Hun regerede længe før Kleopatra.','Hatshepsut lod sig afbilde som farao med embedets falske skæg.','Hendes terrassetempel står den dag i dag.',3],
+        ['Hvad vejede guden Anubis efter et menneskes død?','Hjertet mod en fjer',['Hovedet mod guld','Fødderne mod sten','Øjnene mod vand'],'At være let var godt.','Et hjerte lettere end Maats fjer måtte komme videre.','Derfor lod man hjertet blive i mumien.',3],
+        ['Hvad lavede egypterne sort blæk af?','Af sod og vand',['Af blod','Af mælk','Af sand'],'Det kommer fra kanten af ilden.','Sod fra ildstedet blev rørt sammen med vand og gummi til blæk.','Til rødt brugte de fintmalet okker.',3],
+        ['Hvad hedder dalen med mange faraograve?','Kongernes Dal',['Nilens Dal','Sfinksernes Dal','Den Gyldne Dal'],'Den ligger ved Luxor.','I Kongernes Dal ligger over tres grave hugget ind i klippen.','De blev hugget ud for at narre gravrøvere.',3],
+        ['Hvor mange stenblokke er der i Den Store Pyramide?','Over to millioner',['Omkring tusind','Omkring ti tusind','Over to milliarder'],'Mere end en million.','Den Store Pyramide består af cirka 2,3 millioner blokke.','I tyve år skulle der lægges en blok hvert par minutter.',4],
+        ['Hvem tydede først hieroglyfferne?','Champollion',['Howard Carter','Napoleon','Kleopatra'],'Han var en fransk sprogforsker.','Jean-François Champollion knækkede skriften i 1822.','Han brugte Rosettestenen til det.',4],
+        ['Hvem fandt i 1922 Tutankhamons grav?','Howard Carter',['Champollion','Napoleon','Marco Polo'],'Han var en engelsk arkæolog.','Howard Carter fandt den næsten urørte grav i 1922.','Gennem et hul i muren så han guld glimte overalt.',4],
+        ['Hvorfor er så meget bevaret i Egypten?','Der er knastørt',['Der er meget koldt','Alt lå under vand','Stenene er magiske'],'Fugt får ting til at rådne.','I tør ørkenluft holder træ, stof og maling i årtusinder.','I et fugtigt land ville næsten intet være tilbage.',4],
+        ['Hvor meget vejer en gennemsnitlig pyramideblok?','Cirka 2.500 kilo',['Cirka 25 kilo','Cirka 250 kilo','Cirka 25.000 kilo'],'Tungere end en bil.','En gennemsnitlig blok vejer cirka to et halvt ton.','De tungeste inde i pyramiden vejer op mod halvtreds ton.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['Hvordan kommer man ud i rummet?','Med en raket',['Med et fly','Med en båd','Med en elevator'],'Der skal vildt meget kraft til.','Kun en raket kommer højt og hurtigt nok til at nå rummet.','En raket når næsten 28.000 kilometer i timen.',1],

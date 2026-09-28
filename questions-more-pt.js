@@ -184,6 +184,30 @@
         ['Quanto tempo aguenta um cachalote debaixo de água?','Mais de uma hora',['Cerca de um minuto','Cerca de cinco minutos','Um dia inteiro'],'Mais do que uma aula na escola.','Um cachalote fica lá em baixo sessenta a noventa minutos.','Depois respira uns dez minutos à superfície.',4]
       ]
     },
+    geschiedenis: {
+      egyptenaren: [
+        ['Onde ficam as maiores pirâmides do Egito?','Em Gizé',['Em Roma','Em Atenas','Em Paris'],'Mesmo ao lado da capital, o Cairo.','As três maiores pirâmides ficam no planalto de Gizé.','Ainda se veem da beira da cidade.',1],
+        ['O que levava um faraó na cabeça?','Uma coroa',['Um boné','Um capacete','Um cesto'],'Muitas vezes de duas cores.','O faraó usava uma coroa dupla pelo Alto e pelo Baixo Egito.','As metades branca e vermelha representavam os seus dois reinos.',1],
+        ['Que animal ajudava no trabalho do campo no Egito?','O boi',['O leão','O crocodilo','O gato'],'Puxava o arado.','Os bois puxavam os arados pela terra fértil do Nilo.','Ainda se veem a trabalhar nas pinturas das paredes.',1],
+        ['Que forma tem uma pirâmide?','Bicuda e com quatro lados',['Toda redonda','Chata como uma panqueca','Em forma de estrela'],'Vai ficando estreita para cima.','Uma pirâmide tem quatro lados triangulares que se juntam num bico.','Dantes os lados eram lisos e brilhavam ao sol.',1],
+        ['Onde viviam quase todos os egípcios?','Muito perto do Nilo',['No meio do deserto','No alto das montanhas','No mar'],'Era ali que havia verde.','Só junto ao Nilo havia água suficiente para viver e cultivar.','Fora dessa faixa estreita começa logo o deserto.',1],
+        ['Há quanto tempo foi construída a Grande Pirâmide?','Há cerca de 4.500 anos',['Há cerca de 500 anos','Há cerca de 1.000 anos','Há cerca de 50.000 anos'],'Mais velha do que quase tudo o que está de pé.','A Grande Pirâmide foi construída há uns quatro mil e quinhentos anos.','Cleópatra viveu mais perto do nosso tempo do que dos construtores.',2],
+        ['O que faziam os egípcios aos órgãos de uma múmia?','Guardavam-nos em vasos',['Deitavam-nos fora','Comiam-nos','Deixavam-nos lá dentro'],'Quatro vasos com cabeças de animais.','Os órgãos iam para vasos canopos ao lado do caixão.','Só o coração ficava dentro do corpo.',2],
+        ['Quem era o deus do sol para os egípcios?','Rá',['Anúbis','Osíris','Hórus'],'O nome dele é curtíssimo.','Rá era o deus do sol e atravessava o céu de barco todos os dias.','À noite, contava-se, navegava pelo mundo dos mortos.',2],
+        ['O que quer dizer afinal a palavra faraó?','Casa grande',['Grande rei','Filho do sol','Senhor da água'],'Fala de um edifício.','Faraó vem de per-aa, que quer dizer casa grande ou palácio.','Mais tarde passou a ser o nome do próprio governante.',2],
+        ['Porque construíam os túmulos na margem oeste?','É onde o sol se põe',['Havia mais água','Era mais fresco','Vivia mais gente'],'Pensa no fim do dia.','O oeste pertencia à morte, porque era ali que o sol desaparecia.','As cidades ficavam a leste, onde o sol nascia.',2],
+        ['Quanto tempo durou o Egito dos faraós?','Cerca de 3.000 anos',['Cerca de 100 anos','Cerca de 500 anos','Cerca de 30.000 anos'],'Mais do que o tempo desde os romanos.','O Egito foi governado por faraós durante mais de três mil anos.','Nesse tempo sucederam-se mais de trinta dinastias.',3],
+        ['Que mulher faraó se fez representar com barba?','Hatchepsut',['Cleópatra','Nefertiti','Ísis'],'Reinou muito antes de Cleópatra.','Hatchepsut fez-se representar como faraó, com a barba falsa do cargo.','O seu templo de terraços ainda está de pé.',3],
+        ['O que pesava o deus Anúbis depois de alguém morrer?','O coração contra uma pena',['A cabeça contra ouro','Os pés contra pedra','Os olhos contra água'],'Ser leve era bom.','Um coração mais leve do que a pena de Maat podia seguir.','Por isso o coração ficava dentro da múmia.',3],
+        ['De que faziam os egípcios a tinta preta?','De fuligem e água',['De sangue','De leite','De areia'],'Vem da beira do fogo.','A fuligem da lareira era misturada com água e goma.','Para o vermelho usavam ocre bem moído.',3],
+        ['Como se chama o vale com muitos túmulos de faraós?','O Vale dos Reis',['O Vale do Nilo','O Vale das Esfinges','O Vale Dourado'],'Fica perto de Luxor.','O Vale dos Reis tem mais de sessenta túmulos escavados na rocha.','Foram escavados assim para enganar os saqueadores.',3],
+        ['Quantos blocos de pedra tem a Grande Pirâmide?','Mais de dois milhões',['Cerca de mil','Cerca de dez mil','Mais de dois mil milhões'],'Mais de um milhão.','A Grande Pirâmide é feita de cerca de 2,3 milhões de blocos.','Durante vinte anos foi preciso pôr um bloco de poucos em poucos minutos.',4],
+        ['Quem decifrou primeiro os hieróglifos?','Champollion',['Howard Carter','Napoleão','Cleópatra'],'Era um linguista francês.','Jean-François Champollion decifrou a escrita em 1822.','Para isso usou a pedra de Roseta.',4],
+        ['Quem encontrou em 1922 o túmulo de Tutankamon?','Howard Carter',['Champollion','Napoleão','Marco Polo'],'Era um arqueólogo inglês.','Howard Carter encontrou o túmulo quase intacto em 1922.','Por um buraco na parede viu ouro a brilhar por todo o lado.',4],
+        ['Porque se conservou tanta coisa no Egito?','Ali está tudo sequíssimo',['Ali faz muito frio','Esteve tudo debaixo de água','As pedras são mágicas'],'A humidade apodrece as coisas.','No ar seco do deserto, madeira, tecido e tinta duram milénios.','Num país húmido não restaria quase nada.',4],
+        ['Quanto pesa um bloco médio da Grande Pirâmide?','Cerca de 2.500 quilos',['Cerca de 25 quilos','Cerca de 250 quilos','Cerca de 25.000 quilos'],'Mais do que um carro.','Um bloco médio pesa cerca de duas toneladas e meia.','Os mais pesados lá dentro chegam às cinquenta toneladas.',4]
+      ]
+    },
     ruimte: {
       astronauten: [
         ['Como se vai para o espaço?','Num foguetão',['Num avião','Num barco','Num elevador'],'É preciso um empurrão enorme.','Só um foguetão sobe alto e depressa o suficiente para chegar ao espaço.','Um foguetão chega a quase 28.000 quilómetros por hora.',1],
