@@ -1,0 +1,2607 @@
+{
+  "world": "mysterie",
+  "topic": "verborgen_schatten",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "mysterie-verborgen_schatten-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Goud en juwelen",
+      "artBrief": "Een open kist vol glinsterende gouden munten en edelstenen in fakkellicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een schat meestal in oude verhalen?",
+          "answer": "Goud en juwelen",
+          "wrong": [
+            "Oude sokken",
+            "Gewone stenen",
+            "Zand"
+          ],
+          "hint": "Het glinstert.",
+          "explanation": "In verhalen bestaat een schat bijna altijd uit goud, munten en edelstenen.",
+          "fact": "Echte archeologen zijn vaak blijer met een scherf dan met goud."
+        },
+        "en": {
+          "prompt": "What is a treasure usually made of in old stories?",
+          "answer": "Gold and jewels",
+          "wrong": [
+            "Old socks",
+            "Ordinary stones",
+            "Sand"
+          ],
+          "hint": "It glitters.",
+          "explanation": "In stories a treasure is nearly always gold, coins and precious stones.",
+          "fact": "Real archaeologists are often happier with a potsherd than with gold."
+        },
+        "de": {
+          "prompt": "Woraus besteht ein Schatz in alten Geschichten meistens?",
+          "answer": "Aus Gold und Juwelen",
+          "wrong": [
+            "Aus alten Socken",
+            "Aus Steinen",
+            "Aus Sand"
+          ],
+          "hint": "Es funkelt.",
+          "explanation": "In Geschichten besteht ein Schatz fast immer aus Gold, Münzen und Edelsteinen.",
+          "fact": "Echte Archäologen freuen sich oft mehr über eine Scherbe als über Gold."
+        },
+        "fr": {
+          "prompt": "De quoi est fait un trésor dans les vieilles histoires ?",
+          "answer": "D'or et de joyaux",
+          "wrong": [
+            "De vieilles chaussettes",
+            "De cailloux",
+            "De sable"
+          ],
+          "hint": "Cela scintille.",
+          "explanation": "Dans les récits, un trésor est presque toujours or, pièces et pierres précieuses.",
+          "fact": "Les vrais archéologues préfèrent souvent un tesson à de l'or."
+        },
+        "es": {
+          "prompt": "¿De qué está hecho un tesoro en los cuentos antiguos?",
+          "answer": "De oro y joyas",
+          "wrong": [
+            "De calcetines viejos",
+            "De piedras normales",
+            "De arena"
+          ],
+          "hint": "Brilla mucho.",
+          "explanation": "En los relatos un tesoro es casi siempre oro, monedas y piedras preciosas.",
+          "fact": "Los arqueólogos de verdad se alegran más con un trozo de cerámica."
+        },
+        "it": {
+          "prompt": "Di che cosa è fatto un tesoro nelle vecchie storie?",
+          "answer": "Di oro e gioielli",
+          "wrong": [
+            "Di calzini vecchi",
+            "Di sassi comuni",
+            "Di sabbia"
+          ],
+          "hint": "Luccica.",
+          "explanation": "Nei racconti un tesoro è quasi sempre oro, monete e pietre preziose.",
+          "fact": "I veri archeologi spesso preferiscono un coccio all'oro."
+        },
+        "pt": {
+          "prompt": "De que é feito um tesouro nas histórias antigas?",
+          "answer": "De ouro e joias",
+          "wrong": [
+            "De meias velhas",
+            "De pedras comuns",
+            "De areia"
+          ],
+          "hint": "Brilha muito.",
+          "explanation": "Nas histórias um tesouro é quase sempre ouro, moedas e pedras preciosas.",
+          "fact": "Os arqueólogos a sério muitas vezes preferem um caco a ouro."
+        },
+        "da": {
+          "prompt": "Hvad består en skat af i gamle fortællinger?",
+          "answer": "Guld og juveler",
+          "wrong": [
+            "Gamle sokker",
+            "Almindelige sten",
+            "Sand"
+          ],
+          "hint": "Det funkler.",
+          "explanation": "I fortællinger er en skat næsten altid guld, mønter og ædelsten.",
+          "fact": "Rigtige arkæologer glæder sig tit mere over et potteskår end over guld."
+        },
+        "ru": {
+          "prompt": "Из чего обычно состоит клад в старых сказках?",
+          "answer": "Из золота и самоцветов",
+          "wrong": [
+            "Из старых носков",
+            "Из простых камней",
+            "Из песка"
+          ],
+          "hint": "Он сверкает.",
+          "explanation": "В рассказах клад почти всегда золото, монеты и драгоценные камни.",
+          "fact": "Настоящие археологи часто радуются черепку больше, чем золоту."
+        },
+        "ar": {
+          "prompt": "مِمَّ يتكوّن الكنز عادة في الحكايات القديمة؟",
+          "answer": "من ذهب وجواهر",
+          "wrong": [
+            "من جوارب قديمة",
+            "من حجارة عادية",
+            "من رمل"
+          ],
+          "hint": "إنه يلمع.",
+          "explanation": "في الحكايات يكون الكنز غالبًا ذهبًا وعملات وأحجارًا كريمة.",
+          "fact": "علماء الآثار الحقيقيون يفرحون بكسرة فخار أكثر من الذهب."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De schatkist",
+      "artBrief": "Een houten kist met ijzeren banden en een zwaar slot op een strand.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarin bewaren piraten in verhalen hun schat?",
+          "answer": "In een kist",
+          "wrong": [
+            "In een ballon",
+            "In een schoen",
+            "In een pan"
+          ],
+          "hint": "Met een zwaar slot erop.",
+          "explanation": "De houten kist met ijzeren banden hoort bij elk piratenverhaal.",
+          "fact": "Echte piraten begroeven hun buit bijna nooit; ze gaven die meteen uit."
+        },
+        "en": {
+          "prompt": "What do story pirates keep their treasure in?",
+          "answer": "A chest",
+          "wrong": [
+            "A balloon",
+            "A shoe",
+            "A pan"
+          ],
+          "hint": "With a heavy lock on it.",
+          "explanation": "The wooden chest with iron bands belongs to every pirate tale.",
+          "fact": "Real pirates hardly ever buried their loot; they spent it at once."
+        },
+        "de": {
+          "prompt": "Worin bewahren Piraten in Geschichten ihren Schatz auf?",
+          "answer": "In einer Truhe",
+          "wrong": [
+            "In einem Ballon",
+            "In einem Schuh",
+            "In einer Pfanne"
+          ],
+          "hint": "Mit einem schweren Schloss.",
+          "explanation": "Die Holztruhe mit Eisenbändern gehört zu jeder Piratengeschichte.",
+          "fact": "Echte Piraten vergruben ihre Beute kaum je, sie gaben sie sofort aus."
+        },
+        "fr": {
+          "prompt": "Dans quoi les pirates des récits gardent-ils leur trésor ?",
+          "answer": "Dans un coffre",
+          "wrong": [
+            "Dans un ballon",
+            "Dans une chaussure",
+            "Dans une casserole"
+          ],
+          "hint": "Avec une lourde serrure.",
+          "explanation": "Le coffre de bois cerclé de fer appartient à toutes les histoires de pirates.",
+          "fact": "Les vrais pirates n'enterraient presque jamais leur butin : ils le dépensaient."
+        },
+        "es": {
+          "prompt": "¿Dónde guardan su tesoro los piratas de los cuentos?",
+          "answer": "En un cofre",
+          "wrong": [
+            "En un globo",
+            "En un zapato",
+            "En una sartén"
+          ],
+          "hint": "Con un candado pesado.",
+          "explanation": "El cofre de madera con flejes de hierro sale en toda historia de piratas.",
+          "fact": "Los piratas reales casi nunca enterraban el botín: lo gastaban enseguida."
+        },
+        "it": {
+          "prompt": "Dove tengono il tesoro i pirati delle storie?",
+          "answer": "In un baule",
+          "wrong": [
+            "In un palloncino",
+            "In una scarpa",
+            "In una padella"
+          ],
+          "hint": "Con un lucchetto pesante.",
+          "explanation": "Il baule di legno con fasce di ferro compare in ogni storia di pirati.",
+          "fact": "I pirati veri quasi mai sotterravano il bottino: lo spendevano subito."
+        },
+        "pt": {
+          "prompt": "Onde guardam o tesouro os piratas das histórias?",
+          "answer": "Numa arca",
+          "wrong": [
+            "Num balão",
+            "Num sapato",
+            "Numa frigideira"
+          ],
+          "hint": "Com um cadeado pesado.",
+          "explanation": "A arca de madeira com bandas de ferro aparece em todas as histórias de piratas.",
+          "fact": "Os piratas verdadeiros quase nunca enterravam o saque: gastavam-no logo."
+        },
+        "da": {
+          "prompt": "Hvad gemmer pirater i fortællinger deres skat i?",
+          "answer": "I en kiste",
+          "wrong": [
+            "I en ballon",
+            "I en sko",
+            "I en gryde"
+          ],
+          "hint": "Med en tung hængelås.",
+          "explanation": "Trækisten med jernbånd hører til enhver piratfortælling.",
+          "fact": "Rigtige pirater gravede næsten aldrig byttet ned; de brugte det straks."
+        },
+        "ru": {
+          "prompt": "В чём пираты в историях хранят клад?",
+          "answer": "В сундуке",
+          "wrong": [
+            "В шарике",
+            "В ботинке",
+            "В сковороде"
+          ],
+          "hint": "С тяжёлым замком.",
+          "explanation": "Деревянный сундук с железными полосами есть в любой пиратской истории.",
+          "fact": "Настоящие пираты почти никогда не закапывали добычу — тратили сразу."
+        },
+        "ar": {
+          "prompt": "أين يحفظ القراصنة كنزهم في الحكايات؟",
+          "answer": "في صندوق",
+          "wrong": [
+            "في بالون",
+            "في حذاء",
+            "في مقلاة"
+          ],
+          "hint": "وعليه قفل ثقيل.",
+          "explanation": "الصندوق الخشبي بأطواق حديدية موجود في كل حكاية قراصنة.",
+          "fact": "القراصنة الحقيقيون نادرًا ما دفنوا الغنيمة، بل أنفقوها فورًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De schep",
+      "artBrief": "Een schep die rechtop in verse aarde staat naast een kuil.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebruik je om een schat op te graven?",
+          "answer": "Een schep",
+          "wrong": [
+            "Een kam",
+            "Een bezem",
+            "Een vork"
+          ],
+          "hint": "Je zet er je voet op.",
+          "explanation": "Met een schep haal je de aarde weg tot je bij de vondst komt.",
+          "fact": "Vlak bij de vondst ruilt een archeoloog de schep voor een troffel."
+        },
+        "en": {
+          "prompt": "What do you use to dig a treasure up?",
+          "answer": "A spade",
+          "wrong": [
+            "A comb",
+            "A broom",
+            "A fork"
+          ],
+          "hint": "You put your foot on it.",
+          "explanation": "With a spade you clear the soil until you reach the find.",
+          "fact": "Close to the find an archaeologist swaps the spade for a trowel."
+        },
+        "de": {
+          "prompt": "Womit gräbst du einen Schatz aus?",
+          "answer": "Mit einem Spaten",
+          "wrong": [
+            "Mit einem Kamm",
+            "Mit einem Besen",
+            "Mit einer Gabel"
+          ],
+          "hint": "Du stellst den Fuß darauf.",
+          "explanation": "Mit dem Spaten räumst du Erde weg, bis du auf den Fund stößt.",
+          "fact": "Nah am Fund tauscht ein Archäologe den Spaten gegen eine Kelle."
+        },
+        "fr": {
+          "prompt": "Avec quoi déterre-t-on un trésor ?",
+          "answer": "Avec une bêche",
+          "wrong": [
+            "Avec un peigne",
+            "Avec un balai",
+            "Avec une fourchette"
+          ],
+          "hint": "Tu poses le pied dessus.",
+          "explanation": "Avec une bêche on enlève la terre jusqu'à atteindre l'objet.",
+          "fact": "Tout près de la trouvaille, l'archéologue passe à la truelle."
+        },
+        "es": {
+          "prompt": "¿Con qué se desentierra un tesoro?",
+          "answer": "Con una pala",
+          "wrong": [
+            "Con un peine",
+            "Con una escoba",
+            "Con un tenedor"
+          ],
+          "hint": "Pisas encima con el pie.",
+          "explanation": "Con una pala apartas la tierra hasta llegar al hallazgo.",
+          "fact": "Cerca del hallazgo el arqueólogo cambia la pala por una paleta."
+        },
+        "it": {
+          "prompt": "Con che cosa si dissotterra un tesoro?",
+          "answer": "Con una vanga",
+          "wrong": [
+            "Con un pettine",
+            "Con una scopa",
+            "Con una forchetta"
+          ],
+          "hint": "Ci appoggi sopra il piede.",
+          "explanation": "Con la vanga togli la terra finché arrivi al reperto.",
+          "fact": "Vicino al reperto l'archeologo passa alla cazzuola."
+        },
+        "pt": {
+          "prompt": "Com que se desenterra um tesouro?",
+          "answer": "Com uma pá",
+          "wrong": [
+            "Com um pente",
+            "Com uma vassoura",
+            "Com um garfo"
+          ],
+          "hint": "Pisas-lhe em cima.",
+          "explanation": "Com uma pá tiras a terra até chegares ao achado.",
+          "fact": "Perto do achado o arqueólogo troca a pá pela colher de pedreiro."
+        },
+        "da": {
+          "prompt": "Hvad bruger du til at grave en skat op?",
+          "answer": "En spade",
+          "wrong": [
+            "En kam",
+            "En kost",
+            "En gaffel"
+          ],
+          "hint": "Du sætter foden på den.",
+          "explanation": "Med en spade fjerner du jorden, til du når fundet.",
+          "fact": "Tæt på fundet bytter arkæologen spaden ud med en murske."
+        },
+        "ru": {
+          "prompt": "Чем выкапывают клад?",
+          "answer": "Лопатой",
+          "wrong": [
+            "Расчёской",
+            "Метлой",
+            "Вилкой"
+          ],
+          "hint": "На неё нажимают ногой.",
+          "explanation": "Лопатой снимают землю, пока не доберутся до находки.",
+          "fact": "Возле находки археолог меняет лопату на мастерок."
+        },
+        "ar": {
+          "prompt": "بماذا يُستخرج الكنز من الأرض؟",
+          "answer": "بمجرفة",
+          "wrong": [
+            "بمشط",
+            "بمكنسة",
+            "بشوكة"
+          ],
+          "hint": "تضغط عليها بقدمك.",
+          "explanation": "بالمجرفة تزيح التراب حتى تصل إلى اللقية.",
+          "fact": "وقرب اللقية يستبدل عالم الآثار المجرفة بمسطرين صغير."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "De metaaldetector",
+      "artBrief": "Iemand die met een metaaldetector over een akker loopt bij laag licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk apparaat piept bij metaal in de grond?",
+          "answer": "Een metaaldetector",
+          "wrong": [
+            "Een föhn",
+            "Een wekker",
+            "Een fluit"
+          ],
+          "hint": "Je zwaait hem over de grond.",
+          "explanation": "De detector maakt een magnetisch veld en merkt metaal eronder op.",
+          "fact": "Veel grote muntschatten zijn gevonden door hobbyzoekers met zo'n apparaat."
+        },
+        "en": {
+          "prompt": "Which device beeps at metal in the ground?",
+          "answer": "A metal detector",
+          "wrong": [
+            "A hairdryer",
+            "An alarm clock",
+            "A whistle"
+          ],
+          "hint": "You sweep it over the ground.",
+          "explanation": "The detector makes a magnetic field and notices metal underneath.",
+          "fact": "Many great coin hoards were found by hobby searchers with one."
+        },
+        "de": {
+          "prompt": "Welches Gerät piept bei Metall im Boden?",
+          "answer": "Ein Metalldetektor",
+          "wrong": [
+            "Ein Föhn",
+            "Ein Wecker",
+            "Eine Flöte"
+          ],
+          "hint": "Du schwenkst ihn über den Boden.",
+          "explanation": "Der Detektor erzeugt ein Magnetfeld und bemerkt Metall darunter.",
+          "fact": "Viele große Münzschätze fanden Hobbysucher mit so einem Gerät."
+        },
+        "fr": {
+          "prompt": "Quel appareil sonne quand il y a du métal dans le sol ?",
+          "answer": "Un détecteur de métaux",
+          "wrong": [
+            "Un sèche-cheveux",
+            "Un réveil",
+            "Une flûte"
+          ],
+          "hint": "On le balance au-dessus du sol.",
+          "explanation": "Le détecteur crée un champ magnétique et repère le métal en dessous.",
+          "fact": "Beaucoup de grands trésors de pièces ont été trouvés ainsi par des amateurs."
+        },
+        "es": {
+          "prompt": "¿Qué aparato pita cuando hay metal en el suelo?",
+          "answer": "Un detector de metales",
+          "wrong": [
+            "Un secador",
+            "Un despertador",
+            "Una flauta"
+          ],
+          "hint": "Lo mueves sobre el suelo.",
+          "explanation": "El detector crea un campo magnético y nota el metal que hay debajo.",
+          "fact": "Muchos grandes tesoros de monedas los hallaron aficionados con uno."
+        },
+        "it": {
+          "prompt": "Quale apparecchio suona se c'è metallo nel terreno?",
+          "answer": "Un metal detector",
+          "wrong": [
+            "Un asciugacapelli",
+            "Una sveglia",
+            "Un flauto"
+          ],
+          "hint": "Lo passi sopra il terreno.",
+          "explanation": "Il rilevatore crea un campo magnetico e nota il metallo sotto.",
+          "fact": "Molti grandi tesori di monete li hanno trovati appassionati con uno di questi."
+        },
+        "pt": {
+          "prompt": "Que aparelho apita quando há metal no chão?",
+          "answer": "Um detetor de metais",
+          "wrong": [
+            "Um secador",
+            "Um despertador",
+            "Uma flauta"
+          ],
+          "hint": "Passa-se por cima do chão.",
+          "explanation": "O detetor cria um campo magnético e nota o metal por baixo.",
+          "fact": "Muitos grandes tesouros de moedas foram achados por amadores com um deles."
+        },
+        "da": {
+          "prompt": "Hvilket apparat bipper ved metal i jorden?",
+          "answer": "En metaldetektor",
+          "wrong": [
+            "En hårtørrer",
+            "Et vækkeur",
+            "En fløjte"
+          ],
+          "hint": "Du svinger den hen over jorden.",
+          "explanation": "Detektoren laver et magnetfelt og mærker metal nedenunder.",
+          "fact": "Mange store møntskatte er fundet af amatører med sådan en."
+        },
+        "ru": {
+          "prompt": "Какой прибор пищит на металл в земле?",
+          "answer": "Металлоискатель",
+          "wrong": [
+            "Фен",
+            "Будильник",
+            "Флейта"
+          ],
+          "hint": "Им водят над землёй.",
+          "explanation": "Прибор создаёт магнитное поле и замечает металл под ним.",
+          "fact": "Много больших монетных кладов нашли любители именно с ним."
+        },
+        "ar": {
+          "prompt": "أي جهاز يصفر عند وجود معدن في الأرض؟",
+          "answer": "كاشف المعادن",
+          "wrong": [
+            "مجفف الشعر",
+            "المنبه",
+            "الناي"
+          ],
+          "hint": "تمرره فوق الأرض.",
+          "explanation": "الجهاز يولّد مجالًا مغناطيسيًا ويلتقط المعدن تحته.",
+          "fact": "كثير من كنوز العملات الكبيرة وجدها هواة بهذا الجهاز."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Duiken naar wrakken",
+      "artBrief": "Een duiker met lamp bij een begroeid scheepswrak in blauw water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar zoeken duikers naar verborgen schatten?",
+          "answer": "In gezonken schepen",
+          "wrong": [
+            "In de woestijn",
+            "Op de maan",
+            "In de sneeuw"
+          ],
+          "hint": "Diep onder water.",
+          "explanation": "In een wrak liggen soms nog de lading en de spullen van de bemanning.",
+          "fact": "Zout water beschermt hout slecht, maar modder juist heel goed."
+        },
+        "en": {
+          "prompt": "Where do divers look for hidden treasure?",
+          "answer": "In sunken ships",
+          "wrong": [
+            "In the desert",
+            "On the moon",
+            "In the snow"
+          ],
+          "hint": "Deep under water.",
+          "explanation": "A wreck may still hold the cargo and the crew's belongings.",
+          "fact": "Salt water preserves wood badly, but mud preserves it very well."
+        },
+        "de": {
+          "prompt": "Wo suchen Taucher nach verborgenen Schätzen?",
+          "answer": "In gesunkenen Schiffen",
+          "wrong": [
+            "In der Wüste",
+            "Auf dem Mond",
+            "Im Schnee"
+          ],
+          "hint": "Tief unter Wasser.",
+          "explanation": "In einem Wrack liegen manchmal noch die Ladung und die Sachen der Mannschaft.",
+          "fact": "Salzwasser schützt Holz schlecht, Schlamm dagegen sehr gut."
+        },
+        "fr": {
+          "prompt": "Où les plongeurs cherchent-ils des trésors cachés ?",
+          "answer": "Dans des navires coulés",
+          "wrong": [
+            "Dans le désert",
+            "Sur la Lune",
+            "Dans la neige"
+          ],
+          "hint": "Loin sous l'eau.",
+          "explanation": "Dans une épave se trouvent parfois encore la cargaison et les affaires de l'équipage.",
+          "fact": "L'eau salée conserve mal le bois, mais la vase le conserve très bien."
+        },
+        "es": {
+          "prompt": "¿Dónde buscan tesoros los buceadores?",
+          "answer": "En barcos hundidos",
+          "wrong": [
+            "En el desierto",
+            "En la Luna",
+            "En la nieve"
+          ],
+          "hint": "Muy por debajo del agua.",
+          "explanation": "En un pecio pueden seguir estando la carga y las cosas de la tripulación.",
+          "fact": "El agua salada conserva mal la madera, pero el fango la conserva muy bien."
+        },
+        "it": {
+          "prompt": "Dove cercano tesori i subacquei?",
+          "answer": "Nelle navi affondate",
+          "wrong": [
+            "Nel deserto",
+            "Sulla Luna",
+            "Nella neve"
+          ],
+          "hint": "In fondo all'acqua.",
+          "explanation": "In un relitto possono esserci ancora il carico e le cose dell'equipaggio.",
+          "fact": "L'acqua salata conserva male il legno, il fango invece benissimo."
+        },
+        "pt": {
+          "prompt": "Onde procuram tesouros os mergulhadores?",
+          "answer": "Em navios afundados",
+          "wrong": [
+            "No deserto",
+            "Na Lua",
+            "Na neve"
+          ],
+          "hint": "Bem lá no fundo.",
+          "explanation": "Num destroço podem ainda estar a carga e os pertences da tripulação.",
+          "fact": "A água salgada conserva mal a madeira, mas a lama conserva-a muito bem."
+        },
+        "da": {
+          "prompt": "Hvor leder dykkere efter skjulte skatte?",
+          "answer": "I sunkne skibe",
+          "wrong": [
+            "I ørkenen",
+            "På Månen",
+            "I sneen"
+          ],
+          "hint": "Dybt under vandet.",
+          "explanation": "I et vrag kan lasten og besætningens ting stadig ligge.",
+          "fact": "Saltvand bevarer træ dårligt, men mudder bevarer det rigtig godt."
+        },
+        "ru": {
+          "prompt": "Где водолазы ищут спрятанные сокровища?",
+          "answer": "В затонувших кораблях",
+          "wrong": [
+            "В пустыне",
+            "На Луне",
+            "В снегу"
+          ],
+          "hint": "Глубоко под водой.",
+          "explanation": "В затонувшем судне порой остаются груз и вещи команды.",
+          "fact": "Солёная вода плохо хранит дерево, а вот ил — отлично."
+        },
+        "ar": {
+          "prompt": "أين يبحث الغواصون عن الكنوز؟",
+          "answer": "في السفن الغارقة",
+          "wrong": [
+            "في الصحراء",
+            "على القمر",
+            "في الثلج"
+          ],
+          "hint": "في أعماق الماء.",
+          "explanation": "في الحطام قد تبقى الحمولة وأغراض البحّارة.",
+          "fact": "الماء المالح يحفظ الخشب بسوء، أما الطين فيحفظه جيدًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Vondsten zijn beschermd",
+      "artBrief": "Een afgezet opgravingsvak met touwtjes en genummerde paaltjes.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom mag je niet zomaar overal graven?",
+          "answer": "Vondsten zijn beschermd",
+          "wrong": [
+            "Graven is te zwaar",
+            "De grond is te hard",
+            "Er zit nooit iets in"
+          ],
+          "hint": "De grond is van iemand.",
+          "explanation": "Oude vondsten horen bij de geschiedenis van iedereen, dus gelden er regels.",
+          "fact": "Wie zomaar graaft, vernielt de laagjes waar archeologen uit aflezen."
+        },
+        "en": {
+          "prompt": "Why may you not simply dig anywhere?",
+          "answer": "Finds are protected",
+          "wrong": [
+            "Digging is too hard",
+            "The ground is too hard",
+            "There is never anything"
+          ],
+          "hint": "The ground belongs to someone.",
+          "explanation": "Old finds are part of everyone's history, so there are rules about them.",
+          "fact": "Digging carelessly destroys the layers archaeologists read."
+        },
+        "de": {
+          "prompt": "Warum darf man nicht überall einfach graben?",
+          "answer": "Funde sind geschützt",
+          "wrong": [
+            "Graben ist zu schwer",
+            "Der Boden ist zu hart",
+            "Da ist nie etwas drin"
+          ],
+          "hint": "Der Boden gehört jemandem.",
+          "explanation": "Alte Funde gehören zur Geschichte aller, darum gelten Regeln.",
+          "fact": "Wer wild gräbt, zerstört die Schichten, die Archäologen lesen."
+        },
+        "fr": {
+          "prompt": "Pourquoi ne peut-on pas creuser n'importe où ?",
+          "answer": "Les vestiges sont protégés",
+          "wrong": [
+            "Creuser est trop dur",
+            "Le sol est trop dur",
+            "Il n'y a jamais rien"
+          ],
+          "hint": "Le terrain appartient à quelqu'un.",
+          "explanation": "Les vestiges font partie de l'histoire de tous, il existe donc des règles.",
+          "fact": "Creuser n'importe comment détruit les couches que lisent les archéologues."
+        },
+        "es": {
+          "prompt": "¿Por qué no se puede cavar en cualquier sitio?",
+          "answer": "Los restos están protegidos",
+          "wrong": [
+            "Cavar cansa mucho",
+            "La tierra está dura",
+            "Nunca hay nada"
+          ],
+          "hint": "El terreno es de alguien.",
+          "explanation": "Los restos antiguos son historia de todos, por eso hay normas.",
+          "fact": "Cavar de cualquier manera destruye las capas que leen los arqueólogos."
+        },
+        "it": {
+          "prompt": "Perché non si può scavare ovunque?",
+          "answer": "I reperti sono protetti",
+          "wrong": [
+            "Scavare è faticoso",
+            "Il terreno è duro",
+            "Non c'è mai nulla"
+          ],
+          "hint": "Il terreno è di qualcuno.",
+          "explanation": "I reperti antichi appartengono alla storia di tutti, perciò ci sono regole.",
+          "fact": "Scavare alla cieca distrugge gli strati che gli archeologi leggono."
+        },
+        "pt": {
+          "prompt": "Porque não se pode escavar em qualquer sítio?",
+          "answer": "Os achados são protegidos",
+          "wrong": [
+            "Escavar cansa demais",
+            "A terra é dura",
+            "Nunca há nada"
+          ],
+          "hint": "O terreno é de alguém.",
+          "explanation": "Os achados antigos são história de todos, por isso há regras.",
+          "fact": "Escavar às cegas destrói as camadas que os arqueólogos leem."
+        },
+        "da": {
+          "prompt": "Hvorfor må man ikke bare grave hvor som helst?",
+          "answer": "Fund er beskyttede",
+          "wrong": [
+            "At grave er for hårdt",
+            "Jorden er for hård",
+            "Der er aldrig noget"
+          ],
+          "hint": "Jorden tilhører nogen.",
+          "explanation": "Gamle fund er alles historie, derfor gælder der regler.",
+          "fact": "Graver man vildt, ødelægger man de lag, arkæologer læser."
+        },
+        "ru": {
+          "prompt": "Почему нельзя копать где угодно?",
+          "answer": "Находки под охраной",
+          "wrong": [
+            "Копать слишком тяжело",
+            "Земля слишком твёрдая",
+            "Там никогда ничего нет"
+          ],
+          "hint": "Земля кому-то принадлежит.",
+          "explanation": "Старинные находки — история всех, поэтому есть правила.",
+          "fact": "Кто копает как попало, разрушает слои, по которым читают археологи."
+        },
+        "ar": {
+          "prompt": "لماذا لا يجوز الحفر في أي مكان؟",
+          "answer": "اللقى محمية بالقانون",
+          "wrong": [
+            "الحفر متعب جدًا",
+            "الأرض صلبة جدًا",
+            "لا يوجد شيء أبدًا"
+          ],
+          "hint": "الأرض ملك لأحد.",
+          "explanation": "اللقى القديمة جزء من تاريخ الجميع، ولذلك توجد قواعد.",
+          "fact": "والحفر العشوائي يدمّر الطبقات التي يقرأها علماء الآثار."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Melden bij een museum",
+      "artBrief": "Een museumtafel met een klein oud voorwerp op een doek en witte handschoenen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doe je als je iets heel ouds in de tuin vindt?",
+          "answer": "Melden bij een museum",
+          "wrong": [
+            "Meteen verkopen",
+            "Weggooien",
+            "Goed verstoppen"
+          ],
+          "hint": "Anderen willen het ook weten.",
+          "explanation": "Deskundigen kunnen vertellen wat het is en hoe oud het ongeveer is.",
+          "fact": "Soms blijkt een 'oude knoop' een Romeinse munt te zijn."
+        },
+        "en": {
+          "prompt": "What do you do if you find something very old in the garden?",
+          "answer": "Report it to a museum",
+          "wrong": [
+            "Sell it at once",
+            "Throw it away",
+            "Hide it well"
+          ],
+          "hint": "Others want to know too.",
+          "explanation": "Experts can tell you what it is and roughly how old.",
+          "fact": "Sometimes an 'old button' turns out to be a Roman coin."
+        },
+        "de": {
+          "prompt": "Was tust du, wenn du etwas sehr Altes im Garten findest?",
+          "answer": "Einem Museum melden",
+          "wrong": [
+            "Sofort verkaufen",
+            "Wegwerfen",
+            "Gut verstecken"
+          ],
+          "hint": "Andere wollen es auch wissen.",
+          "explanation": "Fachleute können sagen, was es ist und wie alt es ungefähr ist.",
+          "fact": "Manchmal entpuppt sich ein alter Knopf als römische Münze."
+        },
+        "fr": {
+          "prompt": "Que fais-tu si tu trouves un objet très ancien au jardin ?",
+          "answer": "Le signaler à un musée",
+          "wrong": [
+            "Le vendre aussitôt",
+            "Le jeter",
+            "Bien le cacher"
+          ],
+          "hint": "D'autres veulent le savoir aussi.",
+          "explanation": "Des spécialistes peuvent dire ce que c'est et de quand cela date.",
+          "fact": "Parfois un vieux bouton se révèle être une pièce romaine."
+        },
+        "es": {
+          "prompt": "¿Qué haces si encuentras algo muy antiguo en el jardín?",
+          "answer": "Avisar a un museo",
+          "wrong": [
+            "Venderlo enseguida",
+            "Tirarlo",
+            "Esconderlo bien"
+          ],
+          "hint": "Los demás también quieren saberlo.",
+          "explanation": "Los expertos pueden decirte qué es y de qué época viene.",
+          "fact": "A veces un botón viejo resulta ser una moneda romana."
+        },
+        "it": {
+          "prompt": "Che fai se trovi qualcosa di molto antico in giardino?",
+          "answer": "Avvisare un museo",
+          "wrong": [
+            "Venderlo subito",
+            "Buttarlo",
+            "Nasconderlo bene"
+          ],
+          "hint": "Anche gli altri vogliono saperlo.",
+          "explanation": "Gli esperti sanno dire che cos'è e di quale epoca è.",
+          "fact": "A volte un vecchio bottone si rivela una moneta romana."
+        },
+        "pt": {
+          "prompt": "O que fazes se encontrares algo muito antigo no jardim?",
+          "answer": "Avisar um museu",
+          "wrong": [
+            "Vender logo",
+            "Deitar fora",
+            "Esconder bem"
+          ],
+          "hint": "Os outros também querem saber.",
+          "explanation": "Os especialistas podem dizer o que é e de que época vem.",
+          "fact": "Às vezes um botão velho é afinal uma moeda romana."
+        },
+        "da": {
+          "prompt": "Hvad gør du, hvis du finder noget meget gammelt i haven?",
+          "answer": "Melde det til et museum",
+          "wrong": [
+            "Sælge det straks",
+            "Smide det ud",
+            "Gemme det godt"
+          ],
+          "hint": "Andre vil også vide det.",
+          "explanation": "Fagfolk kan sige, hvad det er, og hvor gammelt det omtrent er.",
+          "fact": "Nogle gange viser en gammel knap sig at være en romersk mønt."
+        },
+        "ru": {
+          "prompt": "Что делать, если нашёл в саду что-то очень старое?",
+          "answer": "Сообщить в музей",
+          "wrong": [
+            "Сразу продать",
+            "Выбросить",
+            "Хорошо спрятать"
+          ],
+          "hint": "Другим тоже интересно.",
+          "explanation": "Специалисты скажут, что это и примерно какого века.",
+          "fact": "Иногда «старая пуговица» оказывается римской монетой."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل إن وجدت شيئًا قديمًا جدًا في الحديقة؟",
+          "answer": "تبلّغ متحفًا",
+          "wrong": [
+            "تبيعه فورًا",
+            "ترميه",
+            "تخبئه جيدًا"
+          ],
+          "hint": "غيرك يريد أن يعرف أيضًا.",
+          "explanation": "المختصون يعرفون ما هو ومن أي عصر تقريبًا.",
+          "fact": "أحيانًا يتبين أن «زرًا قديمًا» عملة رومانية."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "De archeoloog",
+      "artBrief": "Een archeoloog die met een kwastje aarde van een pot veegt in een opgravingsput.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een archeoloog?",
+          "answer": "Opgravingen doen",
+          "wrong": [
+            "Munten maken",
+            "Schatkaarten tekenen",
+            "Piraten vangen"
+          ],
+          "hint": "Met kwastje en troffel.",
+          "explanation": "Een archeoloog graaft laagje voor laagje en noteert precies wat waar lag.",
+          "fact": "Waar iets lag is voor hem belangrijker dan wat het waard is."
+        },
+        "en": {
+          "prompt": "What does an archaeologist do?",
+          "answer": "Carry out excavations",
+          "wrong": [
+            "Make coins",
+            "Draw treasure maps",
+            "Catch pirates"
+          ],
+          "hint": "With brush and trowel.",
+          "explanation": "An archaeologist digs layer by layer and records exactly what lay where.",
+          "fact": "Where something lay matters more than what it is worth."
+        },
+        "de": {
+          "prompt": "Was macht ein Archäologe?",
+          "answer": "Ausgrabungen durchführen",
+          "wrong": [
+            "Münzen prägen",
+            "Schatzkarten zeichnen",
+            "Piraten fangen"
+          ],
+          "hint": "Mit Pinsel und Kelle.",
+          "explanation": "Ein Archäologe gräbt Schicht für Schicht und hält genau fest, was wo lag.",
+          "fact": "Wo etwas lag, ist ihm wichtiger als sein Wert."
+        },
+        "fr": {
+          "prompt": "Que fait un archéologue ?",
+          "answer": "Il mène des fouilles",
+          "wrong": [
+            "Il frappe des pièces",
+            "Il dessine des cartes",
+            "Il attrape des pirates"
+          ],
+          "hint": "Avec pinceau et truelle.",
+          "explanation": "Un archéologue creuse couche par couche et note exactement ce qui se trouvait où.",
+          "fact": "L'endroit où gisait un objet compte plus que sa valeur."
+        },
+        "es": {
+          "prompt": "¿Qué hace un arqueólogo?",
+          "answer": "Llevar a cabo excavaciones",
+          "wrong": [
+            "Acuñar monedas",
+            "Dibujar mapas del tesoro",
+            "Cazar piratas"
+          ],
+          "hint": "Con pincel y paleta.",
+          "explanation": "Un arqueólogo excava capa por capa y anota exactamente qué había en cada sitio.",
+          "fact": "Dónde estaba algo le importa más que cuánto vale."
+        },
+        "it": {
+          "prompt": "Che cosa fa un archeologo?",
+          "answer": "Conduce scavi",
+          "wrong": [
+            "Conia monete",
+            "Disegna mappe del tesoro",
+            "Cattura pirati"
+          ],
+          "hint": "Con pennello e cazzuola.",
+          "explanation": "L'archeologo scava strato per strato e annota esattamente che cosa stava dove.",
+          "fact": "Dove stava un oggetto conta più di quanto vale."
+        },
+        "pt": {
+          "prompt": "O que faz um arqueólogo?",
+          "answer": "Conduz escavações",
+          "wrong": [
+            "Cunha moedas",
+            "Desenha mapas do tesouro",
+            "Apanha piratas"
+          ],
+          "hint": "Com pincel e colher.",
+          "explanation": "Um arqueólogo escava camada a camada e anota exatamente o que estava onde.",
+          "fact": "Onde estava algo importa-lhe mais do que o seu valor."
+        },
+        "da": {
+          "prompt": "Hvad laver en arkæolog?",
+          "answer": "Foretager udgravninger",
+          "wrong": [
+            "Præger mønter",
+            "Tegner skattekort",
+            "Fanger pirater"
+          ],
+          "hint": "Med pensel og murske.",
+          "explanation": "En arkæolog graver lag for lag og noterer præcis, hvad der lå hvor.",
+          "fact": "Hvor noget lå, betyder mere end hvad det er værd."
+        },
+        "ru": {
+          "prompt": "Чем занимается археолог?",
+          "answer": "Ведёт раскопки",
+          "wrong": [
+            "Чеканит монеты",
+            "Рисует карты кладов",
+            "Ловит пиратов"
+          ],
+          "hint": "С кисточкой и мастерком.",
+          "explanation": "Археолог копает слой за слоем и точно записывает, что где лежало.",
+          "fact": "Где лежала вещь, для него важнее, чем сколько она стоит."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل عالم الآثار؟",
+          "answer": "يقوم بالتنقيب",
+          "wrong": [
+            "يسكّ العملات",
+            "يرسم خرائط الكنوز",
+            "يطارد القراصنة"
+          ],
+          "hint": "بفرشاة ومسطرين.",
+          "explanation": "ينقّب طبقة بعد طبقة ويسجّل بدقة ما كان في كل موضع.",
+          "fact": "وموضع الشيء عنده أهم من ثمنه."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Laag op laag",
+      "artBrief": "Een dwarsdoorsnede van de bodem met muurresten in verschillende lagen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom liggen oude steden onder de grond?",
+          "answer": "Er kwam laag op laag aarde",
+          "wrong": [
+            "Ze zonken door hun gewicht",
+            "Iemand begroef ze expres",
+            "Ze waren altijd ondergronds"
+          ],
+          "hint": "Puin, stof en nieuw bouwen.",
+          "explanation": "Mensen bouwden telkens op het puin van de vorige stad, en zo steeg de grond.",
+          "fact": "Sommige oude steden liggen daardoor tien meter onder het straatniveau."
+        },
+        "en": {
+          "prompt": "Why do old cities lie underground?",
+          "answer": "Earth built up in layers",
+          "wrong": [
+            "They sank by their weight",
+            "Someone buried them",
+            "They were always below"
+          ],
+          "hint": "Rubble, dust and rebuilding.",
+          "explanation": "People kept building on the rubble of the old town, so the ground rose.",
+          "fact": "Some ancient cities now lie ten metres below street level."
+        },
+        "de": {
+          "prompt": "Warum liegen alte Städte unter der Erde?",
+          "answer": "Erde kam Schicht für Schicht",
+          "wrong": [
+            "Sie sanken durch ihr Gewicht",
+            "Jemand vergrub sie",
+            "Sie lagen immer unten"
+          ],
+          "hint": "Schutt, Staub und Neubau.",
+          "explanation": "Man baute immer wieder auf dem Schutt der alten Stadt, und so stieg der Boden.",
+          "fact": "Manche alten Städte liegen darum zehn Meter unter dem Straßenniveau."
+        },
+        "fr": {
+          "prompt": "Pourquoi les villes anciennes sont-elles sous terre ?",
+          "answer": "La terre s'est accumulée",
+          "wrong": [
+            "Elles ont coulé",
+            "Quelqu'un les a enterrées",
+            "Elles étaient déjà dessous"
+          ],
+          "hint": "Gravats, poussière et reconstruction.",
+          "explanation": "On rebâtissait sur les gravats de la ville d'avant, et le sol montait ainsi.",
+          "fact": "Certaines cités antiques sont dix mètres sous le niveau de la rue."
+        },
+        "es": {
+          "prompt": "¿Por qué están bajo tierra las ciudades antiguas?",
+          "answer": "Se fue acumulando tierra",
+          "wrong": [
+            "Se hundieron por su peso",
+            "Alguien las enterró",
+            "Siempre estuvieron debajo"
+          ],
+          "hint": "Escombro, polvo y obra nueva.",
+          "explanation": "La gente volvía a construir sobre los escombros y así subía el nivel del suelo.",
+          "fact": "Algunas ciudades antiguas quedan diez metros bajo la calle de hoy."
+        },
+        "it": {
+          "prompt": "Perché le città antiche stanno sottoterra?",
+          "answer": "La terra si è accumulata",
+          "wrong": [
+            "Sono sprofondate",
+            "Qualcuno le ha sepolte",
+            "Erano sempre sotto"
+          ],
+          "hint": "Macerie, polvere e nuove case.",
+          "explanation": "Si ricostruiva sulle macerie della città precedente e così il suolo saliva.",
+          "fact": "Certe città antiche stanno dieci metri sotto il livello della strada."
+        },
+        "pt": {
+          "prompt": "Porque estão as cidades antigas debaixo de terra?",
+          "answer": "A terra foi acumulando",
+          "wrong": [
+            "Afundaram com o peso",
+            "Alguém as enterrou",
+            "Sempre estiveram por baixo"
+          ],
+          "hint": "Entulho, pó e obra nova.",
+          "explanation": "Construía-se sobre os escombros da cidade anterior e assim o solo subia.",
+          "fact": "Algumas cidades antigas ficam dez metros abaixo da rua de hoje."
+        },
+        "da": {
+          "prompt": "Hvorfor ligger gamle byer under jorden?",
+          "answer": "Jorden voksede lag på lag",
+          "wrong": [
+            "De sank af deres vægt",
+            "Nogen begravede dem",
+            "De lå altid nedenunder"
+          ],
+          "hint": "Murbrokker, støv og nybyggeri.",
+          "explanation": "Man byggede igen på den gamle bys murbrokker, og sådan steg jorden.",
+          "fact": "Nogle oldtidsbyer ligger derfor ti meter under gadeniveau."
+        },
+        "ru": {
+          "prompt": "Почему древние города оказались под землёй?",
+          "answer": "Земля росла слой за слоем",
+          "wrong": [
+            "Они утонули под весом",
+            "Кто-то их закопал",
+            "Они всегда были внизу"
+          ],
+          "hint": "Щебень, пыль и новые дома.",
+          "explanation": "Люди строили на обломках прежнего города, и уровень земли поднимался.",
+          "fact": "Некоторые древние города лежат на десять метров ниже улицы."
+        },
+        "ar": {
+          "prompt": "لماذا تقع المدن القديمة تحت الأرض؟",
+          "answer": "تراكم التراب طبقة فوق طبقة",
+          "wrong": [
+            "غاصت بثقلها",
+            "دفنها أحدهم",
+            "كانت دائمًا تحت"
+          ],
+          "hint": "أنقاض وغبار وبناء جديد.",
+          "explanation": "كان الناس يبنون فوق أنقاض المدينة السابقة فيرتفع سطح الأرض.",
+          "fact": "لذلك تقع بعض المدن القديمة عشرة أمتار تحت مستوى الشارع."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Goud roest niet",
+      "artBrief": "Een gouden munt die glanst naast een verroest stuk ijzer.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat maakt goud zo bijzonder voor schatten?",
+          "answer": "Het roest nooit",
+          "wrong": [
+            "Het is heel licht",
+            "Het smelt in de zon",
+            "Het lost op in water"
+          ],
+          "hint": "Na duizend jaar nog glanzend.",
+          "explanation": "Goud reageert bijna nergens mee, dus het blijft eeuwen mooi.",
+          "fact": "Een gouden masker uit een graf ziet er nog net zo uit als toen."
+        },
+        "en": {
+          "prompt": "What makes gold so special for treasure?",
+          "answer": "It never rusts",
+          "wrong": [
+            "It is very light",
+            "It melts in the sun",
+            "It dissolves in water"
+          ],
+          "hint": "Still shining after a thousand years.",
+          "explanation": "Gold reacts with almost nothing, so it stays beautiful for centuries.",
+          "fact": "A golden mask from a tomb looks just as it did back then."
+        },
+        "de": {
+          "prompt": "Was macht Gold für Schätze so besonders?",
+          "answer": "Es rostet nie",
+          "wrong": [
+            "Es ist sehr leicht",
+            "Es schmilzt in der Sonne",
+            "Es löst sich in Wasser"
+          ],
+          "hint": "Nach tausend Jahren noch blank.",
+          "explanation": "Gold reagiert fast mit nichts und bleibt darum jahrhundertelang schön.",
+          "fact": "Eine goldene Maske aus einem Grab sieht aus wie damals."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui rend l'or si précieux pour les trésors ?",
+          "answer": "Il ne rouille jamais",
+          "wrong": [
+            "Il est très léger",
+            "Il fond au soleil",
+            "Il se dissout dans l'eau"
+          ],
+          "hint": "Encore brillant après mille ans.",
+          "explanation": "L'or ne réagit presque avec rien, il reste donc beau des siècles.",
+          "fact": "Un masque d'or sorti d'une tombe paraît comme au premier jour."
+        },
+        "es": {
+          "prompt": "¿Qué hace al oro tan especial para los tesoros?",
+          "answer": "No se oxida nunca",
+          "wrong": [
+            "Es muy ligero",
+            "Se derrite al sol",
+            "Se disuelve en agua"
+          ],
+          "hint": "Sigue brillando tras mil años.",
+          "explanation": "El oro casi no reacciona con nada, así que sigue hermoso durante siglos.",
+          "fact": "Una máscara de oro de una tumba se ve como el primer día."
+        },
+        "it": {
+          "prompt": "Che cosa rende l'oro così speciale per i tesori?",
+          "answer": "Non arrugginisce mai",
+          "wrong": [
+            "È leggerissimo",
+            "Fonde al sole",
+            "Si scioglie in acqua"
+          ],
+          "hint": "Brilla ancora dopo mille anni.",
+          "explanation": "L'oro non reagisce quasi con nulla, quindi resta bello per secoli.",
+          "fact": "Una maschera d'oro da una tomba sembra ancora nuova."
+        },
+        "pt": {
+          "prompt": "O que torna o ouro tão especial para tesouros?",
+          "answer": "Nunca enferruja",
+          "wrong": [
+            "É muito leve",
+            "Derrete ao sol",
+            "Dissolve-se na água"
+          ],
+          "hint": "Ainda brilha ao fim de mil anos.",
+          "explanation": "O ouro quase não reage com nada, por isso fica bonito durante séculos.",
+          "fact": "Uma máscara de ouro de um túmulo parece nova."
+        },
+        "da": {
+          "prompt": "Hvad gør guld så særligt for skatte?",
+          "answer": "Det ruster aldrig",
+          "wrong": [
+            "Det er meget let",
+            "Det smelter i solen",
+            "Det opløses i vand"
+          ],
+          "hint": "Stadig blankt efter tusind år.",
+          "explanation": "Guld reagerer næsten ikke med noget og forbliver smukt i århundreder.",
+          "fact": "En guldmaske fra en grav ser ud, som den gjorde dengang."
+        },
+        "ru": {
+          "prompt": "Чем золото так хорошо для кладов?",
+          "answer": "Оно никогда не ржавеет",
+          "wrong": [
+            "Оно очень лёгкое",
+            "Оно тает на солнце",
+            "Оно растворяется в воде"
+          ],
+          "hint": "Через тысячу лет всё так же блестит.",
+          "explanation": "Золото почти ни с чем не вступает в реакцию и остаётся красивым веками.",
+          "fact": "Золотая маска из гробницы выглядит как в день изготовления."
+        },
+        "ar": {
+          "prompt": "ما الذي يجعل الذهب مميزًا في الكنوز؟",
+          "answer": "لا يصدأ أبدًا",
+          "wrong": [
+            "إنه خفيف جدًا",
+            "يذوب في الشمس",
+            "يذوب في الماء"
+          ],
+          "hint": "يظل لامعًا بعد ألف عام.",
+          "explanation": "الذهب لا يتفاعل تقريبًا مع شيء فيبقى جميلًا قرونًا.",
+          "fact": "قناع ذهبي من قبر يبدو كما كان يوم صُنع."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De grafheuvel",
+      "artBrief": "Een groene ronde heuvel in een heidelandschap bij zonsopkomst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een grafheuvel?",
+          "answer": "Een heuvel met een oud graf",
+          "wrong": [
+            "Een berg vol goud",
+            "Een gewone zandhoop",
+            "Een oude vulkaan"
+          ],
+          "hint": "Van ver al te zien.",
+          "explanation": "Duizenden jaren geleden bedekten mensen een graf met een heuvel van zand en plaggen.",
+          "fact": "Op de Veluwe liggen er honderden, vaak vlak langs een wandelpad."
+        },
+        "en": {
+          "prompt": "What is a burial mound?",
+          "answer": "A hill with an old grave",
+          "wrong": [
+            "A mountain full of gold",
+            "A heap of sand",
+            "An old volcano"
+          ],
+          "hint": "You can see it from afar.",
+          "explanation": "Thousands of years ago people covered a grave with a mound of sand and turf.",
+          "fact": "Hundreds of them stand in the Dutch heathland, often beside a footpath."
+        },
+        "de": {
+          "prompt": "Was ist ein Grabhügel?",
+          "answer": "Ein Hügel mit altem Grab",
+          "wrong": [
+            "Ein Berg voller Gold",
+            "Ein Sandhaufen",
+            "Ein alter Vulkan"
+          ],
+          "hint": "Von weitem zu sehen.",
+          "explanation": "Vor Jahrtausenden deckten Menschen ein Grab mit einem Hügel aus Sand und Soden ab.",
+          "fact": "In der Heide liegen hunderte davon, oft direkt am Wanderweg."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un tumulus ?",
+          "answer": "Une butte avec une tombe",
+          "wrong": [
+            "Une montagne pleine d'or",
+            "Un tas de sable",
+            "Un vieux volcan"
+          ],
+          "hint": "On le voit de loin.",
+          "explanation": "Il y a des millénaires, on couvrait une tombe d'un monticule de sable et de mottes.",
+          "fact": "Il en reste des centaines dans les landes, souvent au bord d'un sentier."
+        },
+        "es": {
+          "prompt": "¿Qué es un túmulo?",
+          "answer": "Un montículo con una tumba",
+          "wrong": [
+            "Un monte lleno de oro",
+            "Un montón de arena",
+            "Un volcán antiguo"
+          ],
+          "hint": "Se ve desde lejos.",
+          "explanation": "Hace milenios se cubría una tumba con un montículo de arena y tepes.",
+          "fact": "En los brezales quedan cientos, muchas veces junto a un sendero."
+        },
+        "it": {
+          "prompt": "Che cos'è un tumulo funerario?",
+          "answer": "Una collina con una tomba",
+          "wrong": [
+            "Un monte pieno d'oro",
+            "Un mucchio di sabbia",
+            "Un vecchio vulcano"
+          ],
+          "hint": "Si vede da lontano.",
+          "explanation": "Millenni fa si copriva una tomba con un cumulo di sabbia e zolle.",
+          "fact": "Nelle brughiere ce ne sono centinaia, spesso lungo un sentiero."
+        },
+        "pt": {
+          "prompt": "O que é uma mamoa ou túmulo de terra?",
+          "answer": "Um outeiro com uma sepultura",
+          "wrong": [
+            "Um monte cheio de ouro",
+            "Um monte de areia",
+            "Um vulcão antigo"
+          ],
+          "hint": "Vê-se de longe.",
+          "explanation": "Há milénios cobria-se uma sepultura com um outeiro de areia e torrões.",
+          "fact": "Nas charnecas há centenas, muitas vezes ao lado de um trilho."
+        },
+        "da": {
+          "prompt": "Hvad er en gravhøj?",
+          "answer": "En høj med en gammel grav",
+          "wrong": [
+            "Et bjerg fuldt af guld",
+            "En bunke sand",
+            "En gammel vulkan"
+          ],
+          "hint": "Den ses langvejs fra.",
+          "explanation": "For årtusinder siden dækkede man en grav med en høj af sand og tørv.",
+          "fact": "På heden ligger der hundredvis, tit lige ved en vandresti."
+        },
+        "ru": {
+          "prompt": "Что такое курган?",
+          "answer": "Холм над древней могилой",
+          "wrong": [
+            "Гора, полная золота",
+            "Куча песка",
+            "Старый вулкан"
+          ],
+          "hint": "Его видно издалека.",
+          "explanation": "Тысячи лет назад могилу накрывали насыпью из песка и дёрна.",
+          "fact": "В вересковых пустошах их сотни, часто у самой тропы."
+        },
+        "ar": {
+          "prompt": "ما هو التل الجنائزي؟",
+          "answer": "تل فوق قبر قديم",
+          "wrong": [
+            "جبل مليء بالذهب",
+            "كومة رمل",
+            "بركان قديم"
+          ],
+          "hint": "يُرى من بعيد.",
+          "explanation": "قبل آلاف السنين كانوا يغطون القبر بتل من الرمل والأعشاب.",
+          "fact": "في السهول الخالية مئات منها، غالبًا قرب ممر للمشاة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Munten verraden de tijd",
+      "artBrief": "Oude munten op een tafel met een vergrootglas erboven.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zijn munten zo handig voor archeologen?",
+          "answer": "Ze verraden de tijd",
+          "wrong": [
+            "Ze zijn van goud",
+            "Ze zijn zwaar",
+            "Ze roesten snel"
+          ],
+          "hint": "Er staat een gezicht op.",
+          "explanation": "Aan de afbeelding van een heerser zie je uit welke periode de laag stamt.",
+          "fact": "Eén munt kan zo een hele opgraving dateren."
+        },
+        "en": {
+          "prompt": "Why are coins so useful to archaeologists?",
+          "answer": "They give away the time",
+          "wrong": [
+            "They are made of gold",
+            "They are heavy",
+            "They rust quickly"
+          ],
+          "hint": "There is a face on them.",
+          "explanation": "The ruler pictured on a coin shows which period the layer comes from.",
+          "fact": "One coin can date a whole excavation."
+        },
+        "de": {
+          "prompt": "Warum sind Münzen für Archäologen so nützlich?",
+          "answer": "Sie verraten die Zeit",
+          "wrong": [
+            "Sie sind aus Gold",
+            "Sie sind schwer",
+            "Sie rosten schnell"
+          ],
+          "hint": "Ein Gesicht ist darauf.",
+          "explanation": "Am abgebildeten Herrscher erkennt man, aus welcher Zeit die Schicht stammt.",
+          "fact": "Eine einzige Münze kann eine ganze Grabung datieren."
+        },
+        "fr": {
+          "prompt": "Pourquoi les pièces sont-elles si utiles aux archéologues ?",
+          "answer": "Elles trahissent l'époque",
+          "wrong": [
+            "Elles sont en or",
+            "Elles sont lourdes",
+            "Elles rouillent vite"
+          ],
+          "hint": "Il y a un visage dessus.",
+          "explanation": "Le souverain représenté indique de quelle période vient la couche.",
+          "fact": "Une seule pièce peut dater toute une fouille."
+        },
+        "es": {
+          "prompt": "¿Por qué son tan útiles las monedas para los arqueólogos?",
+          "answer": "Delatan la época",
+          "wrong": [
+            "Son de oro",
+            "Pesan mucho",
+            "Se oxidan rápido"
+          ],
+          "hint": "Llevan una cara.",
+          "explanation": "El gobernante retratado indica de qué periodo es la capa.",
+          "fact": "Una sola moneda puede fechar una excavación entera."
+        },
+        "it": {
+          "prompt": "Perché le monete sono utili agli archeologi?",
+          "answer": "Tradiscono l'epoca",
+          "wrong": [
+            "Sono d'oro",
+            "Sono pesanti",
+            "Arrugginiscono in fretta"
+          ],
+          "hint": "C'è sopra un volto.",
+          "explanation": "Il sovrano raffigurato dice da quale periodo viene lo strato.",
+          "fact": "Una sola moneta può datare uno scavo intero."
+        },
+        "pt": {
+          "prompt": "Porque são as moedas tão úteis aos arqueólogos?",
+          "answer": "Denunciam a época",
+          "wrong": [
+            "São de ouro",
+            "São pesadas",
+            "Enferrujam depressa"
+          ],
+          "hint": "Têm um rosto gravado.",
+          "explanation": "O governante retratado diz de que período é a camada.",
+          "fact": "Uma só moeda pode datar uma escavação inteira."
+        },
+        "da": {
+          "prompt": "Hvorfor er mønter så nyttige for arkæologer?",
+          "answer": "De røber tiden",
+          "wrong": [
+            "De er af guld",
+            "De er tunge",
+            "De ruster hurtigt"
+          ],
+          "hint": "Der er et ansigt på dem.",
+          "explanation": "Herskeren på mønten viser, hvilken periode laget stammer fra.",
+          "fact": "En enkelt mønt kan datere en hel udgravning."
+        },
+        "ru": {
+          "prompt": "Почему монеты так полезны археологам?",
+          "answer": "Они выдают время",
+          "wrong": [
+            "Они золотые",
+            "Они тяжёлые",
+            "Они быстро ржавеют"
+          ],
+          "hint": "На них чьё-то лицо.",
+          "explanation": "По изображённому правителю видно, из какого времени слой.",
+          "fact": "Одна монета способна датировать целые раскопки."
+        },
+        "ar": {
+          "prompt": "لماذا العملات مفيدة جدًا لعلماء الآثار؟",
+          "answer": "تكشف زمن الطبقة",
+          "wrong": [
+            "لأنها ذهبية",
+            "لأنها ثقيلة",
+            "لأنها تصدأ بسرعة"
+          ],
+          "hint": "عليها وجه حاكم.",
+          "explanation": "صورة الحاكم تدل على العصر الذي تعود إليه الطبقة.",
+          "fact": "عملة واحدة قد تؤرّخ تنقيبًا كاملًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De Dode Zeerollen",
+      "artBrief": "Kleikruiken in een grotopening boven een kale woestijnvallei.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke oude rollen werden gevonden in grotten bij de Dode Zee?",
+          "answer": "De Dode Zeerollen",
+          "wrong": [
+            "De Magna Carta",
+            "De Rosetta-steen",
+            "Het scheepsjournaal"
+          ],
+          "hint": "Ze lagen in kruiken.",
+          "explanation": "In 1947 vond een herder kruiken met handschriften van ruim tweeduizend jaar oud.",
+          "fact": "Ze lagen zo droog dat het perkament al die tijd heel bleef."
+        },
+        "en": {
+          "prompt": "Which ancient scrolls were found in caves by the Dead Sea?",
+          "answer": "The Dead Sea Scrolls",
+          "wrong": [
+            "Magna Carta",
+            "The Rosetta Stone",
+            "A ship's log"
+          ],
+          "hint": "They lay inside jars.",
+          "explanation": "In 1947 a shepherd found jars holding manuscripts over two thousand years old.",
+          "fact": "It was so dry there that the parchment survived all that time."
+        },
+        "de": {
+          "prompt": "Welche alten Rollen fand man in Höhlen am Toten Meer?",
+          "answer": "Die Rollen vom Toten Meer",
+          "wrong": [
+            "Die Magna Carta",
+            "Den Stein von Rosetta",
+            "Ein Logbuch"
+          ],
+          "hint": "Sie lagen in Krügen.",
+          "explanation": "1947 fand ein Hirte Krüge mit Handschriften von über zweitausend Jahren.",
+          "fact": "Dort war es so trocken, dass das Pergament die ganze Zeit heil blieb."
+        },
+        "fr": {
+          "prompt": "Quels rouleaux anciens a-t-on trouvés près de la mer Morte ?",
+          "answer": "Les manuscrits de Qumrân",
+          "wrong": [
+            "La Magna Carta",
+            "La pierre de Rosette",
+            "Un journal de bord"
+          ],
+          "hint": "Ils étaient dans des jarres.",
+          "explanation": "En 1947, un berger trouva des jarres contenant des manuscrits vieux de plus de deux mille ans.",
+          "fact": "L'endroit était si sec que le parchemin est resté intact."
+        },
+        "es": {
+          "prompt": "¿Qué rollos antiguos aparecieron en cuevas del mar Muerto?",
+          "answer": "Los rollos del mar Muerto",
+          "wrong": [
+            "La Carta Magna",
+            "La piedra de Rosetta",
+            "Un cuaderno de bitácora"
+          ],
+          "hint": "Estaban dentro de tinajas.",
+          "explanation": "En 1947 un pastor halló tinajas con manuscritos de más de dos mil años.",
+          "fact": "Allí estaba tan seco que el pergamino aguantó todo ese tiempo."
+        },
+        "it": {
+          "prompt": "Quali rotoli antichi furono trovati presso il Mar Morto?",
+          "answer": "I rotoli del Mar Morto",
+          "wrong": [
+            "La Magna Carta",
+            "La stele di Rosetta",
+            "Un diario di bordo"
+          ],
+          "hint": "Stavano dentro giare.",
+          "explanation": "Nel 1947 un pastore trovò giare con manoscritti di oltre duemila anni.",
+          "fact": "Il luogo era così secco che la pergamena è rimasta intatta."
+        },
+        "pt": {
+          "prompt": "Que rolos antigos apareceram em grutas junto ao mar Morto?",
+          "answer": "Os rolos do mar Morto",
+          "wrong": [
+            "A Magna Carta",
+            "A pedra de Roseta",
+            "Um diário de bordo"
+          ],
+          "hint": "Estavam dentro de bilhas.",
+          "explanation": "Em 1947 um pastor achou bilhas com manuscritos de mais de dois mil anos.",
+          "fact": "O sítio era tão seco que o pergaminho aguentou todo esse tempo."
+        },
+        "da": {
+          "prompt": "Hvilke gamle skriftruller blev fundet ved Det Døde Hav?",
+          "answer": "Dødehavsrullerne",
+          "wrong": [
+            "Magna Carta",
+            "Rosettestenen",
+            "En skibsjournal"
+          ],
+          "hint": "De lå i krukker.",
+          "explanation": "I 1947 fandt en hyrde krukker med håndskrifter på over to tusind år.",
+          "fact": "Der var så tørt, at pergamentet holdt hele den tid."
+        },
+        "ru": {
+          "prompt": "Какие древние свитки нашли в пещерах у Мёртвого моря?",
+          "answer": "Свитки Мёртвого моря",
+          "wrong": [
+            "Великую хартию",
+            "Розеттский камень",
+            "Судовой журнал"
+          ],
+          "hint": "Они лежали в кувшинах.",
+          "explanation": "В 1947 году пастух нашёл кувшины с рукописями старше двух тысяч лет.",
+          "fact": "Там было так сухо, что пергамент уцелел за всё это время."
+        },
+        "ar": {
+          "prompt": "أي مخطوطات قديمة وُجدت في كهوف قرب البحر الميت؟",
+          "answer": "مخطوطات البحر الميت",
+          "wrong": [
+            "الماغنا كارتا",
+            "حجر رشيد",
+            "سجل سفينة"
+          ],
+          "hint": "كانت داخل جرار.",
+          "explanation": "سنة 1947 وجد راعٍ جرارًا فيها مخطوطات عمرها أكثر من ألفي سنة.",
+          "fact": "كان المكان جافًا جدًا فبقي الرق سليمًا كل تلك المدة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "De Rosetta-steen",
+      "artBrief": "Een donkere steen met ingekraste tekens in een museumvitrine.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de Rosetta-steen?",
+          "answer": "De sleutel tot hiërogliefen",
+          "wrong": [
+            "Een gouden munt",
+            "Een schatkaart",
+            "Een grafsteen"
+          ],
+          "hint": "Dezelfde tekst in drie schriften.",
+          "explanation": "Omdat dezelfde tekst er ook in het Grieks op stond, konden geleerden hiërogliefen lezen.",
+          "fact": "Daarvoor kon niemand ze meer lezen, bijna vijftienhonderd jaar lang."
+        },
+        "en": {
+          "prompt": "What is the Rosetta Stone?",
+          "answer": "The key to hieroglyphs",
+          "wrong": [
+            "A gold coin",
+            "A treasure map",
+            "A gravestone"
+          ],
+          "hint": "The same text in three scripts.",
+          "explanation": "Because the same text also stood there in Greek, scholars could read hieroglyphs.",
+          "fact": "Before that nobody had read them for almost fifteen hundred years."
+        },
+        "de": {
+          "prompt": "Was ist der Stein von Rosetta?",
+          "answer": "Der Schlüssel zur Schrift",
+          "wrong": [
+            "Eine Goldmünze",
+            "Eine Schatzkarte",
+            "Ein Grabstein"
+          ],
+          "hint": "Derselbe Text in drei Schriften.",
+          "explanation": "Weil derselbe Text auch auf Griechisch daraufstand, konnten Gelehrte Hieroglyphen lesen.",
+          "fact": "Davor konnte sie fast fünfzehnhundert Jahre lang niemand mehr lesen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que la pierre de Rosette ?",
+          "answer": "La clé des hiéroglyphes",
+          "wrong": [
+            "Une pièce d'or",
+            "Une carte au trésor",
+            "Une pierre tombale"
+          ],
+          "hint": "Le même texte en trois écritures.",
+          "explanation": "Comme le même texte y figurait aussi en grec, les savants ont pu lire les hiéroglyphes.",
+          "fact": "Avant cela, plus personne ne les lisait depuis quinze siècles."
+        },
+        "es": {
+          "prompt": "¿Qué es la piedra de Rosetta?",
+          "answer": "La clave de los jeroglíficos",
+          "wrong": [
+            "Una moneda de oro",
+            "Un mapa del tesoro",
+            "Una lápida"
+          ],
+          "hint": "El mismo texto en tres escrituras.",
+          "explanation": "Como el mismo texto estaba también en griego, los sabios pudieron leer los jeroglíficos.",
+          "fact": "Antes de eso nadie los leía desde hacía casi quince siglos."
+        },
+        "it": {
+          "prompt": "Che cos'è la stele di Rosetta?",
+          "answer": "La chiave dei geroglifici",
+          "wrong": [
+            "Una moneta d'oro",
+            "Una mappa del tesoro",
+            "Una lapide"
+          ],
+          "hint": "Lo stesso testo in tre scritture.",
+          "explanation": "Poiché lo stesso testo c'era anche in greco, gli studiosi poterono leggere i geroglifici.",
+          "fact": "Prima nessuno li leggeva più da quasi millecinquecento anni."
+        },
+        "pt": {
+          "prompt": "O que é a pedra de Roseta?",
+          "answer": "A chave dos hieróglifos",
+          "wrong": [
+            "Uma moeda de ouro",
+            "Um mapa do tesouro",
+            "Uma lápide"
+          ],
+          "hint": "O mesmo texto em três escritas.",
+          "explanation": "Como o mesmo texto lá estava em grego, os sábios puderam ler os hieróglifos.",
+          "fact": "Antes disso ninguém os lia há quase quinze séculos."
+        },
+        "da": {
+          "prompt": "Hvad er Rosettestenen?",
+          "answer": "Nøglen til hieroglyffer",
+          "wrong": [
+            "En guldmønt",
+            "Et skattekort",
+            "En gravsten"
+          ],
+          "hint": "Samme tekst i tre skriftsystemer.",
+          "explanation": "Fordi den samme tekst også stod på græsk, kunne lærde læse hieroglyffer.",
+          "fact": "Før det havde ingen læst dem i næsten femten hundrede år."
+        },
+        "ru": {
+          "prompt": "Что такое Розеттский камень?",
+          "answer": "Ключ к иероглифам",
+          "wrong": [
+            "Золотая монета",
+            "Карта клада",
+            "Надгробие"
+          ],
+          "hint": "Один текст тремя письменностями.",
+          "explanation": "Тот же текст был там и по-гречески, и учёные смогли прочесть иероглифы.",
+          "fact": "До этого их почти полторы тысячи лет никто не читал."
+        },
+        "ar": {
+          "prompt": "ما هو حجر رشيد؟",
+          "answer": "مفتاح الهيروغليفية",
+          "wrong": [
+            "عملة ذهبية",
+            "خريطة كنز",
+            "شاهد قبر"
+          ],
+          "hint": "النص نفسه بثلاث كتابات.",
+          "explanation": "لأن النص نفسه كُتب باليونانية أيضًا استطاع العلماء قراءة الهيروغليفية.",
+          "fact": "قبل ذلك لم يقرأها أحد نحو ألف وخمس مئة سنة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Schatten achter glas",
+      "artBrief": "Een verlichte museumvitrine met een gouden voorwerp erin.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom staan schatten in een museum achter glas?",
+          "answer": "Lucht en handen beschadigen",
+          "wrong": [
+            "Anders vindt niemand ze mooi",
+            "Het staat netjes",
+            "Glas maakt goud glanzender"
+          ],
+          "hint": "Niet aanraken dus.",
+          "explanation": "Vocht, vingervet en zuurstof tasten oude voorwerpen langzaam aan.",
+          "fact": "In sommige vitrines zit speciale lucht zonder zuurstof."
+        },
+        "en": {
+          "prompt": "Why are museum treasures kept behind glass?",
+          "answer": "Air and hands damage them",
+          "wrong": [
+            "Nobody would like them",
+            "It looks tidy",
+            "Glass makes gold shinier"
+          ],
+          "hint": "So no touching.",
+          "explanation": "Damp, finger grease and oxygen slowly attack old objects.",
+          "fact": "Some display cases are filled with special air without oxygen."
+        },
+        "de": {
+          "prompt": "Warum stehen Museumsschätze hinter Glas?",
+          "answer": "Luft und Hände schaden",
+          "wrong": [
+            "Sonst gefallen sie keinem",
+            "Es sieht ordentlich aus",
+            "Glas lässt Gold glänzen"
+          ],
+          "hint": "Also nicht anfassen.",
+          "explanation": "Feuchtigkeit, Fingerfett und Sauerstoff greifen alte Stücke langsam an.",
+          "fact": "In manchen Vitrinen ist besondere Luft ganz ohne Sauerstoff."
+        },
+        "fr": {
+          "prompt": "Pourquoi les trésors d'un musée sont-ils sous vitrine ?",
+          "answer": "L'air et les mains abîment",
+          "wrong": [
+            "Sinon ils déplairaient",
+            "Cela fait propre",
+            "Le verre fait briller l'or"
+          ],
+          "hint": "Donc on ne touche pas.",
+          "explanation": "L'humidité, le gras des doigts et l'oxygène attaquent lentement les objets anciens.",
+          "fact": "Certaines vitrines contiennent un air spécial sans oxygène."
+        },
+        "es": {
+          "prompt": "¿Por qué están tras cristal los tesoros de un museo?",
+          "answer": "El aire y las manos dañan",
+          "wrong": [
+            "Si no, no gustarían",
+            "Queda más ordenado",
+            "El cristal da brillo al oro"
+          ],
+          "hint": "Así que no se tocan.",
+          "explanation": "La humedad, la grasa de los dedos y el oxígeno atacan poco a poco lo antiguo.",
+          "fact": "Algunas vitrinas llevan un aire especial sin oxígeno."
+        },
+        "it": {
+          "prompt": "Perché i tesori dei musei stanno dietro il vetro?",
+          "answer": "Aria e mani rovinano",
+          "wrong": [
+            "Altrimenti non piacerebbero",
+            "Fa più ordine",
+            "Il vetro lucida l'oro"
+          ],
+          "hint": "Quindi non si tocca.",
+          "explanation": "Umidità, grasso delle dita e ossigeno intaccano lentamente gli oggetti antichi.",
+          "fact": "In certe vetrine c'è un'aria speciale senza ossigeno."
+        },
+        "pt": {
+          "prompt": "Porque estão os tesouros do museu atrás de vidro?",
+          "answer": "O ar e as mãos estragam",
+          "wrong": [
+            "Senão não agradavam",
+            "Fica mais arrumado",
+            "O vidro dá brilho ao ouro"
+          ],
+          "hint": "Por isso não se toca.",
+          "explanation": "A humidade, a gordura dos dedos e o oxigénio atacam devagar o que é antigo.",
+          "fact": "Algumas vitrinas têm um ar especial sem oxigénio."
+        },
+        "da": {
+          "prompt": "Hvorfor står museers skatte bag glas?",
+          "answer": "Luft og hænder skader",
+          "wrong": [
+            "Ellers kunne ingen lide dem",
+            "Det ser pænt ud",
+            "Glas får guld til at skinne"
+          ],
+          "hint": "Så ingen berøring.",
+          "explanation": "Fugt, fedt fra fingre og ilt tærer langsomt på gamle genstande.",
+          "fact": "I nogle montrer er der særlig luft helt uden ilt."
+        },
+        "ru": {
+          "prompt": "Почему музейные сокровища стоят за стеклом?",
+          "answer": "Воздух и руки вредят",
+          "wrong": [
+            "Иначе они не понравятся",
+            "Так аккуратнее",
+            "Стекло добавляет блеска"
+          ],
+          "hint": "Значит, не трогать.",
+          "explanation": "Влага, жир с пальцев и кислород медленно разрушают старинные вещи.",
+          "fact": "В некоторых витринах воздух особый, совсем без кислорода."
+        },
+        "ar": {
+          "prompt": "لماذا توضع كنوز المتحف خلف الزجاج؟",
+          "answer": "الهواء والأيدي تتلفها",
+          "wrong": [
+            "وإلا لما أعجبت أحدًا",
+            "المنظر أنظف",
+            "الزجاج يلمّع الذهب"
+          ],
+          "hint": "إذن ممنوع اللمس.",
+          "explanation": "الرطوبة ودهن الأصابع والأكسجين تتلف الأشياء القديمة ببطء.",
+          "fact": "في بعض الواجهات هواء خاص بلا أكسجين."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het wrak van de Vasa",
+      "artBrief": "Een enorm houten oorlogsschip uit de zeventiende eeuw in een museumhal.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de Vasa, die in 1961 werd opgetakeld?",
+          "answer": "Een Zweeds schip uit 1628",
+          "wrong": [
+            "Een Romeinse galei",
+            "Een piratenschip",
+            "Een onderzeeër"
+          ],
+          "hint": "Het zonk op de eerste reis.",
+          "explanation": "Het oorlogsschip kapseisde na een paar honderd meter en lag ruim driehonderd jaar op de bodem.",
+          "fact": "Het koude, zoute water hield het hout bijna helemaal heel."
+        },
+        "en": {
+          "prompt": "What is the Vasa, raised in 1961?",
+          "answer": "A Swedish ship from 1628",
+          "wrong": [
+            "A Roman galley",
+            "A pirate ship",
+            "A submarine"
+          ],
+          "hint": "It sank on its first voyage.",
+          "explanation": "The warship keeled over after a few hundred metres and lay on the bottom for over three hundred years.",
+          "fact": "The cold, salty water kept the timber almost entirely intact."
+        },
+        "de": {
+          "prompt": "Was ist die Vasa, die 1961 gehoben wurde?",
+          "answer": "Ein Schwedenschiff von 1628",
+          "wrong": [
+            "Eine römische Galeere",
+            "Ein Piratenschiff",
+            "Ein U-Boot"
+          ],
+          "hint": "Es sank auf der ersten Fahrt.",
+          "explanation": "Das Kriegsschiff kippte nach wenigen hundert Metern und lag über dreihundert Jahre am Grund.",
+          "fact": "Das kalte, salzige Wasser hielt das Holz fast vollständig heil."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que le Vasa, renfloué en 1961 ?",
+          "answer": "Un navire suédois de 1628",
+          "wrong": [
+            "Une galère romaine",
+            "Un bateau pirate",
+            "Un sous-marin"
+          ],
+          "hint": "Il a coulé dès son premier voyage.",
+          "explanation": "Le navire de guerre a chaviré après quelques centaines de mètres et est resté trois siècles au fond.",
+          "fact": "L'eau froide et salée a gardé le bois presque intact."
+        },
+        "es": {
+          "prompt": "¿Qué es el Vasa, rescatado en 1961?",
+          "answer": "Un barco sueco de 1628",
+          "wrong": [
+            "Una galera romana",
+            "Un barco pirata",
+            "Un submarino"
+          ],
+          "hint": "Se hundió en su primer viaje.",
+          "explanation": "El buque de guerra volcó a los pocos cientos de metros y pasó más de tres siglos en el fondo.",
+          "fact": "El agua fría y salada mantuvo la madera casi entera."
+        },
+        "it": {
+          "prompt": "Che cos'è la Vasa, recuperata nel 1961?",
+          "answer": "Una nave svedese del 1628",
+          "wrong": [
+            "Una galea romana",
+            "Una nave pirata",
+            "Un sottomarino"
+          ],
+          "hint": "Affondò al primo viaggio.",
+          "explanation": "La nave da guerra si rovesciò dopo poche centinaia di metri e restò sul fondo oltre tre secoli.",
+          "fact": "L'acqua fredda e salata ha tenuto il legno quasi intatto."
+        },
+        "pt": {
+          "prompt": "O que é o Vasa, içado em 1961?",
+          "answer": "Um navio sueco de 1628",
+          "wrong": [
+            "Uma galé romana",
+            "Um navio pirata",
+            "Um submarino"
+          ],
+          "hint": "Afundou na primeira viagem.",
+          "explanation": "O navio de guerra tombou ao fim de umas centenas de metros e ficou três séculos no fundo.",
+          "fact": "A água fria e salgada manteve a madeira quase inteira."
+        },
+        "da": {
+          "prompt": "Hvad er Vasa, der blev hævet i 1961?",
+          "answer": "Et svensk skib fra 1628",
+          "wrong": [
+            "En romersk galej",
+            "Et piratskib",
+            "En ubåd"
+          ],
+          "hint": "Det sank på sin første rejse.",
+          "explanation": "Krigsskibet kæntrede efter et par hundrede meter og lå over tre hundrede år på bunden.",
+          "fact": "Det kolde, salte vand holdt tømmeret næsten helt intakt."
+        },
+        "ru": {
+          "prompt": "Что такое «Васа», поднятая в 1961 году?",
+          "answer": "Шведский корабль 1628 года",
+          "wrong": [
+            "Римская галера",
+            "Пиратский корабль",
+            "Подводная лодка"
+          ],
+          "hint": "Он затонул в первом плавании.",
+          "explanation": "Военный корабль опрокинулся через несколько сотен метров и пролежал на дне больше трёхсот лет.",
+          "fact": "Холодная солёная вода сохранила дерево почти целиком."
+        },
+        "ar": {
+          "prompt": "ما هي السفينة فاسا التي انتُشلت سنة 1961؟",
+          "answer": "سفينة سويدية من 1628",
+          "wrong": [
+            "سفينة رومانية",
+            "سفينة قراصنة",
+            "غواصة"
+          ],
+          "hint": "غرقت في رحلتها الأولى.",
+          "explanation": "انقلبت السفينة الحربية بعد مئات الأمتار وبقيت في القاع أكثر من ثلاثة قرون.",
+          "fact": "الماء البارد المالح حفظ خشبها كاملًا تقريبًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Bewaard in het veen",
+      "artBrief": "Een donker veenlandschap met een houten voorwerp half in de turf.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom blijven voorwerpen in veen zo goed bewaard?",
+          "answer": "Er komt geen zuurstof bij",
+          "wrong": [
+            "Veen is heel koud",
+            "Veen is van zout",
+            "Veen is heel hard"
+          ],
+          "hint": "Zonder lucht rot niets.",
+          "explanation": "In nat veen zit bijna geen zuurstof, dus bacteriën kunnen hun werk niet doen.",
+          "fact": "Zo werden zelfs schoenen, kleding en broden van duizenden jaren oud gevonden."
+        },
+        "en": {
+          "prompt": "Why do objects survive so well in peat?",
+          "answer": "No oxygen gets to them",
+          "wrong": [
+            "Peat is very cold",
+            "Peat is made of salt",
+            "Peat is very hard"
+          ],
+          "hint": "Without air nothing rots.",
+          "explanation": "Wet peat holds almost no oxygen, so bacteria cannot do their work.",
+          "fact": "Shoes, clothes and even loaves thousands of years old have been found that way."
+        },
+        "de": {
+          "prompt": "Warum bleiben Dinge im Moor so gut erhalten?",
+          "answer": "Es kommt kein Sauerstoff hin",
+          "wrong": [
+            "Moor ist sehr kalt",
+            "Moor besteht aus Salz",
+            "Moor ist sehr hart"
+          ],
+          "hint": "Ohne Luft verrottet nichts.",
+          "explanation": "In nassem Moor steckt kaum Sauerstoff, also können Bakterien nicht arbeiten.",
+          "fact": "So fand man Schuhe, Kleidung und sogar Brote von vor Jahrtausenden."
+        },
+        "fr": {
+          "prompt": "Pourquoi les objets se conservent-ils si bien dans la tourbe ?",
+          "answer": "L'oxygène n'y arrive pas",
+          "wrong": [
+            "La tourbe est très froide",
+            "La tourbe est du sel",
+            "La tourbe est très dure"
+          ],
+          "hint": "Sans air, rien ne pourrit.",
+          "explanation": "La tourbe humide ne contient presque pas d'oxygène, les bactéries n'y travaillent pas.",
+          "fact": "On y a retrouvé des chaussures, des habits et même des pains millénaires."
+        },
+        "es": {
+          "prompt": "¿Por qué se conservan tan bien las cosas en la turba?",
+          "answer": "No les llega oxígeno",
+          "wrong": [
+            "La turba es muy fría",
+            "La turba es de sal",
+            "La turba es muy dura"
+          ],
+          "hint": "Sin aire no se pudre nada.",
+          "explanation": "La turba húmeda apenas tiene oxígeno, así que las bacterias no pueden trabajar.",
+          "fact": "Así aparecieron zapatos, ropa y hasta panes de hace miles de años."
+        },
+        "it": {
+          "prompt": "Perché nella torba le cose si conservano così bene?",
+          "answer": "Non arriva ossigeno",
+          "wrong": [
+            "La torba è freddissima",
+            "La torba è di sale",
+            "La torba è durissima"
+          ],
+          "hint": "Senza aria nulla marcisce.",
+          "explanation": "Nella torba bagnata non c'è quasi ossigeno, quindi i batteri non lavorano.",
+          "fact": "Così sono emersi scarpe, vestiti e perfino pani di millenni fa."
+        },
+        "pt": {
+          "prompt": "Porque se conservam tão bem as coisas na turfa?",
+          "answer": "Não lhes chega oxigénio",
+          "wrong": [
+            "A turfa é muito fria",
+            "A turfa é de sal",
+            "A turfa é muito dura"
+          ],
+          "hint": "Sem ar nada apodrece.",
+          "explanation": "A turfa húmida quase não tem oxigénio, por isso as bactérias não trabalham.",
+          "fact": "Assim apareceram sapatos, roupas e até pães de há milhares de anos."
+        },
+        "da": {
+          "prompt": "Hvorfor bevares ting så godt i tørvemose?",
+          "answer": "Der kommer ingen ilt til",
+          "wrong": [
+            "Mose er meget kold",
+            "Mose er af salt",
+            "Mose er meget hård"
+          ],
+          "hint": "Uden luft rådner intet.",
+          "explanation": "I våd mose er der næsten ingen ilt, så bakterier kan ikke arbejde.",
+          "fact": "Sådan er der fundet sko, tøj og endda brød fra årtusinder siden."
+        },
+        "ru": {
+          "prompt": "Почему вещи так хорошо сохраняются в торфе?",
+          "answer": "К ним не попадает кислород",
+          "wrong": [
+            "Торф очень холодный",
+            "Торф из соли",
+            "Торф очень твёрдый"
+          ],
+          "hint": "Без воздуха ничто не гниёт.",
+          "explanation": "В мокром торфе почти нет кислорода, и бактерии не могут работать.",
+          "fact": "Так нашли обувь, одежду и даже хлеб возрастом в тысячи лет."
+        },
+        "ar": {
+          "prompt": "لماذا تُحفظ الأشياء جيدًا في مستنقع الخث؟",
+          "answer": "لا يصلها الأكسجين",
+          "wrong": [
+            "الخث بارد جدًا",
+            "الخث من ملح",
+            "الخث صلب جدًا"
+          ],
+          "hint": "بلا هواء لا يتعفن شيء.",
+          "explanation": "في الخث الرطب لا يكاد يوجد أكسجين فلا تعمل البكتيريا.",
+          "fact": "هكذا وُجدت أحذية وثياب بل وأرغفة عمرها آلاف السنين."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De Barnsteenkamer",
+      "artBrief": "Een zaal met wanden van warm oranje barnsteen en kaarslicht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke beroemde kamer van barnsteen verdween in de oorlog?",
+          "answer": "De Barnsteenkamer",
+          "wrong": [
+            "De Gouden Zaal",
+            "De Ridderzaal",
+            "De Spiegelzaal"
+          ],
+          "hint": "Wanden van oranje hars.",
+          "explanation": "De kamer werd in 1941 uit Rusland weggehaald en is daarna nooit meer gezien.",
+          "fact": "In 2003 werd er in Sint-Petersburg een volledige kopie van gemaakt."
+        },
+        "en": {
+          "prompt": "Which famous room of amber vanished during the war?",
+          "answer": "The Amber Room",
+          "wrong": [
+            "The Golden Hall",
+            "The Knights' Hall",
+            "The Hall of Mirrors"
+          ],
+          "hint": "Walls of orange resin.",
+          "explanation": "The room was taken out of Russia in 1941 and has never been seen since.",
+          "fact": "In 2003 a complete copy of it was finished in St Petersburg."
+        },
+        "de": {
+          "prompt": "Welches berühmte Zimmer aus Bernstein verschwand im Krieg?",
+          "answer": "Das Bernsteinzimmer",
+          "wrong": [
+            "Der Goldene Saal",
+            "Der Rittersaal",
+            "Der Spiegelsaal"
+          ],
+          "hint": "Wände aus orangem Harz.",
+          "explanation": "Das Zimmer wurde 1941 aus Russland fortgebracht und danach nie wieder gesehen.",
+          "fact": "2003 wurde in Sankt Petersburg eine vollständige Kopie fertig."
+        },
+        "fr": {
+          "prompt": "Quelle célèbre chambre d'ambre a disparu pendant la guerre ?",
+          "answer": "La chambre d'ambre",
+          "wrong": [
+            "La salle dorée",
+            "La salle des chevaliers",
+            "La galerie des glaces"
+          ],
+          "hint": "Des murs de résine orange.",
+          "explanation": "La chambre fut emportée de Russie en 1941 et n'a plus jamais été revue.",
+          "fact": "En 2003, une copie complète a été achevée à Saint-Pétersbourg."
+        },
+        "es": {
+          "prompt": "¿Qué famosa sala de ámbar desapareció en la guerra?",
+          "answer": "La Sala de Ámbar",
+          "wrong": [
+            "La Sala Dorada",
+            "La Sala de los Caballeros",
+            "La Galería de los Espejos"
+          ],
+          "hint": "Paredes de resina anaranjada.",
+          "explanation": "La sala salió de Rusia en 1941 y nunca se volvió a ver.",
+          "fact": "En 2003 se terminó una copia completa en San Petersburgo."
+        },
+        "it": {
+          "prompt": "Quale famosa stanza d'ambra sparì durante la guerra?",
+          "answer": "La Camera d'Ambra",
+          "wrong": [
+            "La Sala d'Oro",
+            "La Sala dei Cavalieri",
+            "La Galleria degli Specchi"
+          ],
+          "hint": "Pareti di resina arancione.",
+          "explanation": "La stanza fu portata via dalla Russia nel 1941 e non è mai più ricomparsa.",
+          "fact": "Nel 2003 a San Pietroburgo fu completata una copia identica."
+        },
+        "pt": {
+          "prompt": "Que famosa sala de âmbar desapareceu na guerra?",
+          "answer": "A Sala de Âmbar",
+          "wrong": [
+            "A Sala Dourada",
+            "A Sala dos Cavaleiros",
+            "A Galeria dos Espelhos"
+          ],
+          "hint": "Paredes de resina alaranjada.",
+          "explanation": "A sala saiu da Rússia em 1941 e nunca mais foi vista.",
+          "fact": "Em 2003 ficou pronta uma cópia completa em São Petersburgo."
+        },
+        "da": {
+          "prompt": "Hvilket berømte rav-værelse forsvandt under krigen?",
+          "answer": "Ravkammeret",
+          "wrong": [
+            "Den Gyldne Sal",
+            "Riddersalen",
+            "Spejlsalen"
+          ],
+          "hint": "Vægge af orange harpiks.",
+          "explanation": "Værelset blev ført bort fra Rusland i 1941 og er aldrig set siden.",
+          "fact": "I 2003 stod en fuldstændig kopi færdig i Sankt Petersborg."
+        },
+        "ru": {
+          "prompt": "Какая знаменитая комната из окаменелой смолы исчезла в войну?",
+          "answer": "Янтарная комната",
+          "wrong": [
+            "Золотой зал",
+            "Рыцарский зал",
+            "Зеркальный зал"
+          ],
+          "hint": "Стены из оранжевой смолы.",
+          "explanation": "Комнату вывезли из России в 1941 году, и больше её никто не видел.",
+          "fact": "В 2003 году в Петербурге закончили полную копию."
+        },
+        "ar": {
+          "prompt": "أي غرفة شهيرة من الكهرمان اختفت في الحرب؟",
+          "answer": "غرفة الكهرمان",
+          "wrong": [
+            "القاعة الذهبية",
+            "قاعة الفرسان",
+            "قاعة المرايا"
+          ],
+          "hint": "جدران من راتنج برتقالي.",
+          "explanation": "نُقلت الغرفة من روسيا سنة 1941 ولم تُرَ بعدها أبدًا.",
+          "fact": "وفي 2003 اكتملت نسخة كاملة منها في سانت بطرسبرغ."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De muntschat",
+      "artBrief": "Een aarden pot op zijn kant waaruit zilveren munten rollen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een muntschat in de grond?",
+          "answer": "Geld dat iemand verstopte",
+          "wrong": [
+            "Een oude spaarpot",
+            "Een museum vol munten",
+            "Een muntfabriek"
+          ],
+          "hint": "Vaak in een pot of doek.",
+          "explanation": "Bij gevaar verstopten mensen hun geld in de grond, en soms haalden ze het nooit op.",
+          "fact": "Juist die vergeten potten vertellen ons wanneer er oorlog dreigde."
+        },
+        "en": {
+          "prompt": "What is a coin hoard in the ground?",
+          "answer": "Money somebody hid",
+          "wrong": [
+            "An old piggy bank",
+            "A museum of coins",
+            "A coin factory"
+          ],
+          "hint": "Often in a pot or a cloth.",
+          "explanation": "In times of danger people hid their money in the ground and sometimes never came back.",
+          "fact": "Those forgotten pots tell us exactly when war threatened."
+        },
+        "de": {
+          "prompt": "Was ist ein Münzschatz in der Erde?",
+          "answer": "Geld, das jemand versteckte",
+          "wrong": [
+            "Eine alte Spardose",
+            "Ein Münzmuseum",
+            "Eine Münzfabrik"
+          ],
+          "hint": "Oft in einem Topf oder Tuch.",
+          "explanation": "Bei Gefahr vergruben Menschen ihr Geld und holten es manchmal nie mehr.",
+          "fact": "Gerade diese vergessenen Töpfe verraten uns, wann Krieg drohte."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un trésor de pièces enfoui ?",
+          "answer": "De l'argent que l'on a caché",
+          "wrong": [
+            "Une vieille tirelire",
+            "Un musée de pièces",
+            "Un atelier monétaire"
+          ],
+          "hint": "Souvent dans un pot ou un linge.",
+          "explanation": "En cas de danger, on cachait son argent en terre et parfois on ne revenait jamais.",
+          "fact": "Ces pots oubliés nous disent justement quand la guerre menaçait."
+        },
+        "es": {
+          "prompt": "¿Qué es un tesoro de monedas enterrado?",
+          "answer": "Dinero que alguien escondió",
+          "wrong": [
+            "Una hucha vieja",
+            "Un museo de monedas",
+            "Una fábrica de monedas"
+          ],
+          "hint": "A menudo en una olla o un paño.",
+          "explanation": "Ante el peligro la gente escondía su dinero en la tierra y a veces no volvía por él.",
+          "fact": "Esas ollas olvidadas nos dicen justo cuándo amenazaba la guerra."
+        },
+        "it": {
+          "prompt": "Che cos'è un tesoretto di monete sepolto?",
+          "answer": "Denaro che qualcuno nascose",
+          "wrong": [
+            "Un vecchio salvadanaio",
+            "Un museo di monete",
+            "Una zecca"
+          ],
+          "hint": "Spesso in un vaso o in un panno.",
+          "explanation": "In tempi di pericolo si nascondeva il denaro sottoterra e a volte non si tornava a prenderlo.",
+          "fact": "Proprio quei vasi dimenticati ci dicono quando minacciava la guerra."
+        },
+        "pt": {
+          "prompt": "O que é um tesouro de moedas enterrado?",
+          "answer": "Dinheiro que alguém escondeu",
+          "wrong": [
+            "Um mealheiro velho",
+            "Um museu de moedas",
+            "Uma casa da moeda"
+          ],
+          "hint": "Muitas vezes num pote ou num pano.",
+          "explanation": "Em tempo de perigo escondia-se o dinheiro na terra e às vezes ninguém voltava.",
+          "fact": "São esses potes esquecidos que nos dizem quando havia guerra à porta."
+        },
+        "da": {
+          "prompt": "Hvad er en nedgravet møntskat?",
+          "answer": "Penge, som nogen gemte",
+          "wrong": [
+            "En gammel sparegris",
+            "Et møntmuseum",
+            "En møntfabrik"
+          ],
+          "hint": "Tit i en krukke eller et klæde.",
+          "explanation": "I farlige tider gravede folk deres penge ned og hentede dem nogle gange aldrig.",
+          "fact": "Netop de glemte krukker fortæller os, hvornår krig truede."
+        },
+        "ru": {
+          "prompt": "Что такое монетный клад в земле?",
+          "answer": "Деньги, которые спрятали",
+          "wrong": [
+            "Старая копилка",
+            "Музей монет",
+            "Монетный двор"
+          ],
+          "hint": "Часто в горшке или в тряпице.",
+          "explanation": "В опасные времена люди прятали деньги в землю и порой уже не возвращались.",
+          "fact": "Именно эти забытые горшки говорят нам, когда надвигалась война."
+        },
+        "ar": {
+          "prompt": "ما هو كنز العملات المدفون؟",
+          "answer": "مال خبّأه أحدهم",
+          "wrong": [
+            "حصالة قديمة",
+            "متحف عملات",
+            "مصنع نقود"
+          ],
+          "hint": "غالبًا في جرة أو قطعة قماش.",
+          "explanation": "عند الخطر كان الناس يخبئون مالهم في الأرض وربما لم يعودوا إليه.",
+          "fact": "وتلك الجرار المنسية تخبرنا متى كانت الحرب تقترب."
+        }
+      }
+    },
+    {
+      "id": "mysterie-verborgen_schatten-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Een vondst melden",
+      "artBrief": "Een vinder die een voorwerp overhandigt aan iemand met een formulier.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat moet je in Nederland doen met een oude vondst?",
+          "answer": "Je moet hem melden",
+          "wrong": [
+            "Je mag hem gewoon houden",
+            "Je moet hem weer begraven",
+            "Je krijgt meteen een boete"
+          ],
+          "hint": "Binnen een paar dagen.",
+          "explanation": "Een archeologische vondst meld je, zodat die onderzocht en bewaard kan worden.",
+          "fact": "De vinder en de eigenaar van de grond delen daarna vaak de waarde."
+        },
+        "en": {
+          "prompt": "What must you do with an old find in most countries?",
+          "answer": "Report it",
+          "wrong": [
+            "Simply keep it",
+            "Bury it again",
+            "Pay a fine at once"
+          ],
+          "hint": "Within a few days.",
+          "explanation": "An archaeological find must be reported so it can be studied and kept.",
+          "fact": "Finder and landowner then often share what it is worth."
+        },
+        "de": {
+          "prompt": "Was musst du in den meisten Ländern mit einem alten Fund tun?",
+          "answer": "Ihn melden",
+          "wrong": [
+            "Ihn einfach behalten",
+            "Ihn wieder vergraben",
+            "Sofort Strafe zahlen"
+          ],
+          "hint": "Innerhalb weniger Tage.",
+          "explanation": "Ein archäologischer Fund wird gemeldet, damit man ihn untersuchen und bewahren kann.",
+          "fact": "Finder und Grundbesitzer teilen sich danach oft den Wert."
+        },
+        "fr": {
+          "prompt": "Que faut-il faire d'une trouvaille ancienne dans la plupart des pays ?",
+          "answer": "La déclarer",
+          "wrong": [
+            "La garder simplement",
+            "La renterrer",
+            "Payer une amende"
+          ],
+          "hint": "En quelques jours.",
+          "explanation": "Une trouvaille archéologique se déclare pour qu'on puisse l'étudier et la conserver.",
+          "fact": "L'inventeur et le propriétaire du terrain se partagent souvent la valeur."
+        },
+        "es": {
+          "prompt": "¿Qué hay que hacer con un hallazgo antiguo en casi todos los países?",
+          "answer": "Declararlo",
+          "wrong": [
+            "Quedárselo sin más",
+            "Volver a enterrarlo",
+            "Pagar una multa"
+          ],
+          "hint": "En pocos días.",
+          "explanation": "Un hallazgo arqueológico se declara para que se pueda estudiar y conservar.",
+          "fact": "Quien lo halla y el dueño del terreno suelen repartirse el valor."
+        },
+        "it": {
+          "prompt": "Che cosa si deve fare con un reperto antico in quasi tutti i paesi?",
+          "answer": "Denunciarlo",
+          "wrong": [
+            "Tenerlo e basta",
+            "Riseppellirlo",
+            "Pagare una multa"
+          ],
+          "hint": "Entro pochi giorni.",
+          "explanation": "Un reperto archeologico va segnalato perché possa essere studiato e conservato.",
+          "fact": "Chi lo trova e il proprietario del terreno spesso ne dividono il valore."
+        },
+        "pt": {
+          "prompt": "O que se deve fazer com um achado antigo na maioria dos países?",
+          "answer": "Comunicá-lo",
+          "wrong": [
+            "Ficar com ele",
+            "Voltar a enterrá-lo",
+            "Pagar uma multa"
+          ],
+          "hint": "Em poucos dias.",
+          "explanation": "Um achado arqueológico comunica-se para poder ser estudado e guardado.",
+          "fact": "Quem o acha e o dono do terreno repartem depois muitas vezes o valor."
+        },
+        "da": {
+          "prompt": "Hvad skal man gøre med et gammelt fund i de fleste lande?",
+          "answer": "Melde det",
+          "wrong": [
+            "Bare beholde det",
+            "Grave det ned igen",
+            "Betale en bøde"
+          ],
+          "hint": "Inden for få dage.",
+          "explanation": "Et arkæologisk fund skal meldes, så det kan undersøges og bevares.",
+          "fact": "Finderen og lodsejeren deler bagefter ofte værdien."
+        },
+        "ru": {
+          "prompt": "Что нужно сделать со старинной находкой в большинстве стран?",
+          "answer": "Сообщить о ней",
+          "wrong": [
+            "Просто оставить себе",
+            "Закопать обратно",
+            "Заплатить штраф"
+          ],
+          "hint": "В течение нескольких дней.",
+          "explanation": "О находке сообщают, чтобы её изучили и сохранили.",
+          "fact": "Нашедший и владелец земли потом часто делят стоимость."
+        },
+        "ar": {
+          "prompt": "ماذا يجب أن تفعل بلقية قديمة في معظم البلدان؟",
+          "answer": "تبلّغ عنها",
+          "wrong": [
+            "تحتفظ بها ببساطة",
+            "تدفنها ثانية",
+            "تدفع غرامة"
+          ],
+          "hint": "خلال أيام قليلة.",
+          "explanation": "يُبلَّغ عن اللقية الأثرية لتُدرس وتُحفظ.",
+          "fact": "وغالبًا يتقاسم الواجد وصاحب الأرض قيمتها بعد ذلك."
+        }
+      }
+    }
+  ]
+}
