@@ -353,3 +353,67 @@ tien tijdelijke platen gerenderd met Playwright in plaats van AI-credits
    illustraties. `facts-ui.js` verbergt een wereld zonder weetjes, dus het is
    niet stuk — het is er alleen nog niet.
 4. Punt 1 en 2 zijn geblokkeerd door hetzelfde ElevenLabs-tegoed als in §7.
+
+---
+
+## 9. De doorlichting: alle 1280 vragen en alle 540 platen nagelopen
+
+Op 28 september 2026 is de hele bank vraag voor vraag nagelezen (Nederlands,
+met steekproeven in de andere talen) en is elke vraagplaat naast zijn vraag
+gelegd via contactvellen van twaalf platen tegelijk.
+
+### Machinaal gevonden en opgelost
+
+| wat | waar | oplossing |
+|---|---|---|
+| Onzinnige afleider "… altijd", in tien talen meevertaald | `jungle-07` ("Slang altijd"), `romeinen-10` ("Een gladiator altijd") | afleider rechtgezet in alle talen |
+| Afleider met uitleg erin | `oceanen_natuur-03` ("Magma ondergronds") | "Magma" |
+| Meervoud als antwoord op een enkelvoudsvraag | `baby_dieren-07` ("Welpen") | "Welp", ook als afleider elders |
+| Hint die het antwoord verklapt | `sterren_planeten-06`, `waterdieren-05`, `romeinen-19` | nieuwe hints in tien talen |
+| Vraag die haar eigen antwoord noemt (alleen in het Portugees) | `baby_dieren-01`, `baby_dieren-07` | vraag herschreven naar "o bebé do cão/leão" |
+| Dezelfde vraag twee keer in één onderwerp | jaguar (`jungle-05`/`18`), hiërogliefen (`egyptenaren-04`/`11`), heilige kat (`egyptenaren-09`/`19`), onweerswolk (`weer_klimaat-08`/`15`), schildknaap (`ridders_kastelen-09`/`11`), slotgracht (`ridders_kastelen-03`/`13`), jachtluipaard (`snelle_dieren-01`/`02`) | zeven vragen vervangen door nieuwe: tapir, de ankh, kalksteen, cirruswolk, de page, hoeveel mensen er in een kasteel woonden, de snelst zwemmende vogel |
+| Dezelfde vraag in twee werelden | hattrick (`balsporten-19`/`records_helden-16`), marathonafstand (`olympische_spelen-15`/`records_helden-12`) | `records_helden` kreeg de grandslams van Serena Williams en het polsstokrecord |
+
+### Fouten in de inhoud
+
+- **`continenten_landen-17`** vroeg welk land de meeste buurlanden heeft, met
+  China goed en Rusland fout — maar allebei hebben er veertien. De vraag is nu:
+  hoeveel buurlanden heeft China.
+- **`ridders_kastelen-12`** noemde het lansgevecht een toernooi, terwijl het
+  weetje zelf zei dat het een steekspel heet. Nu heet het antwoord steekspel.
+- **`verborgen_schatten-15`** (Piet Hein) schreef de zilvervloot aan de VOC toe;
+  dat was de WIC.
+- **`raket_avontuur-14`** zei dat de Saturnus V hoger was dan de Dom van Utrecht
+  (110,6 tegen 112,3 meter). Nu staat er, net als in de negen andere talen, het
+  Vrijheidsbeeld.
+- **`speurtocht-31`** gaf als anagram van "raadsel" het niet-bestaande woord
+  "sladeer"; nu "noten" en "tonen". Het Deense voorbeeld was uit het Duits
+  overgenomen en is vervangen door "lampe" en "palme".
+- Bewust gelaten: `snelle_dieren-05` ("paard of schildpad?") noemt het antwoord
+  in de vraag. Dat is voor de jongste spelers een keuzevraag, geen fout.
+
+### Wat de platen betreft
+
+Alle 540 vraagplaten bestaan, staan in het manifest en horen bij een bestaande
+vraag; geen dode verwijzing, geen weespaat. De platen die bij de nieuwe vragen
+uit `content/` zijn gemaakt, passen stuk voor stuk. In de oudere reeks (ids 01
+tot 10) staan de platen die het onderwerp wel tonen maar de vraag niet:
+
+`zonnestelsel-11` (manen van Saturnus, maar Jupiter in beeld), `egyptenaren-07`
+(sfinx gevraagd, piramide getoond), `snelle_dieren-01` (jachtluipaard, zebra's
+in beeld), `snelle_dieren-03`, `waterdieren-02` (octopus, lege grot),
+`waterdieren-06` (zeeschildpad, leeg strand), `jungle-01`, `jungle-03`,
+`jungle-05` (jaguar, alleen rivier), `jungle-07` (kameleon, groene slang),
+`speurtocht-03` (vergrootglas, egel), `ridders_kastelen-01` en `-02`,
+`lichaam-01`, `-03` en `-07` (beeldspraak in plaats van het orgaan),
+`slimme_proefjes-05` en `-06`, en `uitvindingen-14` (Marie Curie, een jongen in
+beeld).
+
+Daar komen de vragen bij die in deze ronde zijn herschreven en dus een nieuwe
+plaat nodig hebben: `jungle-18` (tapir), `egyptenaren-11` (ankh),
+`egyptenaren-19` (kalksteengroeve), `weer_klimaat-15` (cirrus),
+`snelle_dieren-02` (pinguïn onder water) en `ridders_kastelen-11` (page).
+
+Samen met de tien tijdelijke platen van de nieuwe werelden en de 740 vragen die
+nog op de onderwerpplaat staan, is dat de hele beeldschuld. Alles wacht op
+tegoed bij de beeldgenerator.

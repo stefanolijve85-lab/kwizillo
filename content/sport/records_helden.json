@@ -1437,129 +1437,129 @@
       "id": "sport-records_helden-12",
       "difficulty": 2,
       "status": "translated",
-      "source": "Een marathon is 42,195 km",
-      "artBrief": "Een startbord van een marathon met de afstand erop.",
+      "source": "Polsstokrecord: ruim zes meter",
+      "artBrief": "Een polsstokhoogspringer zweeft over een lat hoog boven de mat.",
       "art": "todo",
       "text": {
         "nl": {
-          "prompt": "Hoe lang is een marathon?",
-          "answer": "Tweeënveertig kilometer",
+          "prompt": "Hoe hoog springt de wereldrecordhouder polsstokhoogspringen?",
+          "answer": "Ruim zes meter",
           "wrong": [
-            "Tien kilometer",
-            "Vier kilometer",
-            "Honderd kilometer"
+            "Ruim twee meter",
+            "Ruim tien meter",
+            "Ruim twintig meter"
           ],
-          "hint": "En dan nog een klein stukje erbij.",
-          "explanation": "Een marathon is tweeënveertig kilometer en honderdvijfennegentig meter lang.",
-          "fact": "Die vreemde afstand komt van de Spelen van 1908 in Londen."
+          "hint": "Hoger dan een huis van twee verdiepingen.",
+          "explanation": "Armand Duplantis sprong met de polsstok over zes meter en achtentwintig centimeter.",
+          "fact": "Hij verbetert zijn eigen record telkens met één centimeter."
         },
         "en": {
-          "prompt": "How long is a marathon?",
-          "answer": "Forty-two kilometres",
+          "prompt": "How high does the pole vault world record holder jump?",
+          "answer": "Over six metres",
           "wrong": [
-            "Ten kilometres",
-            "Four kilometres",
-            "A hundred kilometres"
+            "Over two metres",
+            "Over ten metres",
+            "Over twenty metres"
           ],
-          "hint": "And then a small extra bit.",
-          "explanation": "A marathon is forty-two kilometres and one hundred and ninety-five metres long.",
-          "fact": "That odd distance comes from the 1908 Games in London."
+          "hint": "Higher than a two-storey house.",
+          "explanation": "Armand Duplantis cleared six metres and twenty-eight centimetres with the pole.",
+          "fact": "He keeps beating his own record by one centimetre at a time."
         },
         "de": {
-          "prompt": "Wie lang ist ein Marathon?",
-          "answer": "Zweiundvierzig Kilometer",
+          "prompt": "Wie hoch springt der Weltrekordhalter im Stabhochsprung?",
+          "answer": "Über sechs Meter",
           "wrong": [
-            "Zehn Kilometer",
-            "Vier Kilometer",
-            "Hundert Kilometer"
+            "Über zwei Meter",
+            "Über zehn Meter",
+            "Über zwanzig Meter"
           ],
-          "hint": "Und dann noch ein kleines Stück.",
-          "explanation": "Ein Marathon ist zweiundvierzig Kilometer und hundertfünfundneunzig Meter lang.",
-          "fact": "Diese seltsame Distanz kommt von den Spielen 1908 in London."
+          "hint": "Höher als ein Haus mit zwei Stockwerken.",
+          "explanation": "Armand Duplantis übersprang mit dem Stab sechs Meter achtundzwanzig.",
+          "fact": "Er verbessert seinen eigenen Rekord immer um einen Zentimeter."
         },
         "fr": {
-          "prompt": "Quelle est la longueur d'un marathon?",
-          "answer": "Quarante-deux kilomètres",
+          "prompt": "À quelle hauteur saute le recordman du saut à la perche ?",
+          "answer": "Plus de six mètres",
           "wrong": [
-            "Dix kilomètres",
-            "Quatre kilomètres",
-            "Cent kilomètres"
+            "Plus de deux mètres",
+            "Plus de dix mètres",
+            "Plus de vingt mètres"
           ],
-          "hint": "Et encore un petit bout en plus.",
-          "explanation": "Un marathon fait quarante-deux kilomètres et cent quatre-vingt-quinze mètres.",
-          "fact": "Cette distance bizarre vient des Jeux de 1908 à Londres."
+          "hint": "Plus haut qu’une maison à deux étages.",
+          "explanation": "Armand Duplantis a franchi six mètres vingt-huit à la perche.",
+          "fact": "Il bat son propre record centimètre par centimètre."
         },
         "es": {
-          "prompt": "¿Cuánto mide un maratón?",
-          "answer": "Cuarenta y dos kilómetros",
+          "prompt": "¿Cuánto salta el plusmarquista mundial de salto con pértiga?",
+          "answer": "Más de seis metros",
           "wrong": [
-            "Diez kilómetros",
-            "Cuatro kilómetros",
-            "Cien kilómetros"
+            "Más de dos metros",
+            "Más de diez metros",
+            "Más de veinte metros"
           ],
-          "hint": "Y aún un trocito más.",
-          "explanation": "Un maratón mide cuarenta y dos kilómetros y ciento noventa y cinco metros.",
-          "fact": "Esa distancia tan rara viene de los Juegos de 1908 en Londres."
+          "hint": "Más alto que una casa de dos pisos.",
+          "explanation": "Armand Duplantis pasó seis metros con veintiocho centímetros con la pértiga.",
+          "fact": "Bate su propio récord de centímetro en centímetro."
         },
         "it": {
-          "prompt": "Quanto è lunga una maratona?",
-          "answer": "Quarantadue chilometri",
+          "prompt": "Quanto salta il primatista mondiale del salto con l’asta?",
+          "answer": "Oltre sei metri",
           "wrong": [
-            "Dieci chilometri",
-            "Quattro chilometri",
-            "Cento chilometri"
+            "Oltre due metri",
+            "Oltre dieci metri",
+            "Oltre venti metri"
           ],
-          "hint": "E poi ancora un piccolo pezzo.",
-          "explanation": "Una maratona è lunga quarantadue chilometri e centonovantacinque metri.",
-          "fact": "Quella distanza strana viene dai Giochi del 1908 a Londra."
+          "hint": "Più alto di una casa di due piani.",
+          "explanation": "Armand Duplantis ha superato sei metri e ventotto con l’asta.",
+          "fact": "Migliora il proprio record un centimetro alla volta."
         },
         "pt": {
-          "prompt": "Qual é a distância de uma maratona?",
-          "answer": "Quarenta e dois quilómetros",
+          "prompt": "A que altura salta o recordista mundial do salto com vara?",
+          "answer": "Mais de seis metros",
           "wrong": [
-            "Dez quilómetros",
-            "Quatro quilómetros",
-            "Cem quilómetros"
+            "Mais de dois metros",
+            "Mais de dez metros",
+            "Mais de vinte metros"
           ],
-          "hint": "E ainda um pedacinho mais.",
-          "explanation": "Uma maratona tem quarenta e dois quilómetros e cento e noventa e cinco metros.",
-          "fact": "Essa distância estranha vem dos Jogos de 1908 em Londres."
+          "hint": "Mais alto do que uma casa de dois andares.",
+          "explanation": "Armand Duplantis passou seis metros e vinte e oito centímetros com a vara.",
+          "fact": "Bate o próprio recorde um centímetro de cada vez."
         },
         "da": {
-          "prompt": "Hvor langt er et maraton?",
-          "answer": "Toogfyrre kilometer",
+          "prompt": "Hvor højt springer verdensrekordholderen i stangspring?",
+          "answer": "Over seks meter",
           "wrong": [
-            "Ti kilometer",
-            "Fire kilometer",
-            "Hundrede kilometer"
+            "Over to meter",
+            "Over ti meter",
+            "Over tyve meter"
           ],
-          "hint": "Og så et lille stykke mere.",
-          "explanation": "Et maraton er toogfyrre kilometer og hundrede og femoghalvfems meter langt.",
-          "fact": "Den skæve distance stammer fra legene i London i 1908."
+          "hint": "Højere end et hus i to etager.",
+          "explanation": "Armand Duplantis kom over seks meter og otteogtyve med stangen.",
+          "fact": "Han forbedrer sin egen rekord en centimeter ad gangen."
         },
         "ru": {
-          "prompt": "Какой длины марафон?",
-          "answer": "Сорок два километра",
+          "prompt": "На какую высоту прыгает рекордсмен мира в прыжке с шестом?",
+          "answer": "Больше шести метров",
           "wrong": [
-            "Десять километров",
-            "Четыре километра",
-            "Сто километров"
+            "Больше двух метров",
+            "Больше десяти метров",
+            "Больше двадцати метров"
           ],
-          "hint": "И ещё небольшой кусочек.",
-          "explanation": "Марафон — это сорок два километра и сто девяносто пять метров.",
-          "fact": "Эта странная длина пришла с Игр 1908 года в Лондоне."
+          "hint": "Выше двухэтажного дома.",
+          "explanation": "Арман Дюплантис взял с шестом шесть метров двадцать восемь сантиметров.",
+          "fact": "Свой же рекорд он улучшает по одному сантиметру."
         },
         "ar": {
-          "prompt": "ما طول سباق الماراثون؟",
-          "answer": "اثنان وأربعون كيلومترًا",
+          "prompt": "إلى أي ارتفاع يقفز صاحب الرقم العالمي في القفز بالزانة؟",
+          "answer": "أكثر من ستة أمتار",
           "wrong": [
-            "عشرة كيلومترات",
-            "أربعة كيلومترات",
-            "مئة كيلومتر"
+            "أكثر من مترين",
+            "أكثر من عشرة أمتار",
+            "أكثر من عشرين مترًا"
           ],
-          "hint": "ثم قطعة صغيرة إضافية.",
-          "explanation": "الماراثون اثنان وأربعون كيلومترًا ومئة وخمسة وتسعون مترًا.",
-          "fact": "وهذه المسافة الغريبة جاءت من ألعاب لندن سنة 1908."
+          "hint": "أعلى من بيت من طابقين.",
+          "explanation": "تجاوز أرماند دوبلانتيس ستة أمتار وثمانية وعشرين سنتيمترًا بالزانة.",
+          "fact": "ويحسّن رقمه سنتيمترًا واحدًا في كل مرة."
         }
       }
     },
@@ -1957,129 +1957,129 @@
       "id": "sport-records_helden-16",
       "difficulty": 2,
       "status": "translated",
-      "source": "Hattrick: drie goals",
-      "artBrief": "Drie ballen in het net van één doel.",
+      "source": "Serena won drieëntwintig grandslams",
+      "artBrief": "Een tennisster houdt een grote zilveren schaal omhoog op het gravel.",
       "art": "todo",
       "text": {
         "nl": {
-          "prompt": "Wat is een hattrick?",
-          "answer": "Drie goals in één duel",
+          "prompt": "Hoeveel grandslamtoernooien won Serena Williams?",
+          "answer": "Drieëntwintig",
           "wrong": [
-            "Drie gele kaarten",
-            "Drie wissels",
-            "Drie wedstrijden"
+            "Twee",
+            "Acht",
+            "Honderd"
           ],
-          "hint": "Eén speler, drie keer scoren.",
-          "explanation": "Een speler die in dezelfde wedstrijd drie keer scoort, maakt een hattrick.",
-          "fact": "De naam komt uit cricket: wie drie keer op rij iemand uitgooide, kreeg een hoed."
+          "hint": "Meer dan twintig.",
+          "explanation": "Serena Williams won drieëntwintig grandslamtoernooien, meer dan wie ook in deze eeuw.",
+          "fact": "Haar laatste titel won ze terwijl ze zwanger was."
         },
         "en": {
-          "prompt": "What is a hat-trick?",
-          "answer": "Three goals in one match",
+          "prompt": "How many grand slam titles did Serena Williams win?",
+          "answer": "Twenty-three",
           "wrong": [
-            "Three yellow cards",
-            "Three substitutions",
-            "Three matches"
+            "Two",
+            "Eight",
+            "A hundred"
           ],
-          "hint": "One player scoring three times.",
-          "explanation": "A player who scores three times in the same match has made a hat-trick.",
-          "fact": "The name comes from cricket: taking three wickets in a row earned you a hat."
+          "hint": "More than twenty.",
+          "explanation": "Serena Williams won twenty-three grand slam titles, more than anyone else this century.",
+          "fact": "She won her last one while she was pregnant."
         },
         "de": {
-          "prompt": "Was ist ein Hattrick?",
-          "answer": "Drei Tore in einem Spiel",
+          "prompt": "Wie viele Grand-Slam-Turniere gewann Serena Williams?",
+          "answer": "Dreiundzwanzig",
           "wrong": [
-            "Drei gelbe Karten",
-            "Drei Wechsel",
-            "Drei Spiele"
+            "Zwei",
+            "Acht",
+            "Hundert"
           ],
-          "hint": "Ein Spieler trifft dreimal.",
-          "explanation": "Wer im selben Spiel dreimal trifft, macht einen Hattrick.",
-          "fact": "Der Name kommt aus dem Cricket: für drei Gegner in Folge gab es einen Hut."
+          "hint": "Mehr als zwanzig.",
+          "explanation": "Serena Williams gewann dreiundzwanzig Grand-Slam-Titel, mehr als alle anderen in diesem Jahrhundert.",
+          "fact": "Ihren letzten gewann sie, während sie schwanger war."
         },
         "fr": {
-          "prompt": "Qu'est-ce qu'un coup du chapeau?",
-          "answer": "Trois buts dans un match",
+          "prompt": "Combien de tournois du Grand Chelem Serena Williams a-t-elle gagnés ?",
+          "answer": "Vingt-trois",
           "wrong": [
-            "Trois cartons jaunes",
-            "Trois remplacements",
-            "Trois matchs"
+            "Deux",
+            "Huit",
+            "Cent"
           ],
-          "hint": "Un seul joueur marque trois fois.",
-          "explanation": "Un joueur qui marque trois fois dans le même match réalise un coup du chapeau.",
-          "fact": "Le nom vient du cricket: trois adversaires d'affilée valaient un chapeau."
+          "hint": "Plus de vingt.",
+          "explanation": "Serena Williams a gagné vingt-trois titres du Grand Chelem, plus que quiconque ce siècle.",
+          "fact": "Elle a gagné le dernier alors qu’elle était enceinte."
         },
         "es": {
-          "prompt": "¿Qué es un triplete?",
-          "answer": "Tres goles en un partido",
+          "prompt": "¿Cuántos torneos de Grand Slam ganó Serena Williams?",
+          "answer": "Veintitrés",
           "wrong": [
-            "Tres tarjetas amarillas",
-            "Tres cambios",
-            "Tres partidos"
+            "Dos",
+            "Ocho",
+            "Cien"
           ],
-          "hint": "Un solo jugador marca tres veces.",
-          "explanation": "Un jugador que marca tres veces en el mismo partido hace un triplete.",
-          "fact": "El nombre inglés viene del críquet: tres rivales seguidos valían un sombrero."
+          "hint": "Más de veinte.",
+          "explanation": "Serena Williams ganó veintitrés títulos de Grand Slam, más que nadie en este siglo.",
+          "fact": "El último lo ganó estando embarazada."
         },
         "it": {
-          "prompt": "Che cos'è una tripletta?",
-          "answer": "Tre gol in una partita",
+          "prompt": "Quanti tornei del Grande Slam ha vinto Serena Williams?",
+          "answer": "Ventitré",
           "wrong": [
-            "Tre cartellini gialli",
-            "Tre cambi",
-            "Tre partite"
+            "Due",
+            "Otto",
+            "Cento"
           ],
-          "hint": "Un solo giocatore segna tre volte.",
-          "explanation": "Un giocatore che segna tre volte nella stessa partita fa una tripletta.",
-          "fact": "Il nome inglese viene dal cricket: tre avversari di fila valevano un cappello."
+          "hint": "Più di venti.",
+          "explanation": "Serena Williams ha vinto ventitré titoli dello Slam, più di chiunque altro in questo secolo.",
+          "fact": "L’ultimo lo ha vinto mentre era incinta."
         },
         "pt": {
-          "prompt": "O que é um hat-trick?",
-          "answer": "Três golos num jogo",
+          "prompt": "Quantos torneios do Grand Slam ganhou Serena Williams?",
+          "answer": "Vinte e três",
           "wrong": [
-            "Três cartões amarelos",
-            "Três substituições",
-            "Três jogos"
+            "Dois",
+            "Oito",
+            "Cem"
           ],
-          "hint": "Um só jogador marca três vezes.",
-          "explanation": "Um jogador que marca três vezes no mesmo jogo faz um hat-trick.",
-          "fact": "O nome vem do críquete: três adversários seguidos valiam um chapéu."
+          "hint": "Mais de vinte.",
+          "explanation": "Serena Williams ganhou vinte e três títulos do Grand Slam, mais do que qualquer outra neste século.",
+          "fact": "O último ganhou-o estando grávida."
         },
         "da": {
-          "prompt": "Hvad er et hattrick?",
-          "answer": "Tre mål i én kamp",
+          "prompt": "Hvor mange Grand Slam-turneringer vandt Serena Williams?",
+          "answer": "Treogtyve",
           "wrong": [
-            "Tre gule kort",
-            "Tre udskiftninger",
-            "Tre kampe"
+            "To",
+            "Otte",
+            "Hundrede"
           ],
-          "hint": "Én spiller scorer tre gange.",
-          "explanation": "En spiller, der scorer tre gange i samme kamp, laver et hattrick.",
-          "fact": "Navnet kommer fra cricket: tre modstandere i træk gav en hat."
+          "hint": "Mere end tyve.",
+          "explanation": "Serena Williams vandt treogtyve Grand Slam-titler, flere end nogen anden i dette århundrede.",
+          "fact": "Den sidste vandt hun, mens hun var gravid."
         },
         "ru": {
-          "prompt": "Что такое хет-трик?",
-          "answer": "Три гола в одном матче",
+          "prompt": "Сколько турниров Большого шлема выиграла Серена Уильямс?",
+          "answer": "Двадцать три",
           "wrong": [
-            "Три жёлтые карточки",
-            "Три замены",
-            "Три матча"
+            "Два",
+            "Восемь",
+            "Сто"
           ],
-          "hint": "Один игрок забивает трижды.",
-          "explanation": "Игрок, забивший три мяча в одном матче, делает хет-трик.",
-          "fact": "Название пришло из крикета: три соперника подряд приносили шляпу."
+          "hint": "Больше двадцати.",
+          "explanation": "Серена Уильямс выиграла двадцать три титула Большого шлема — больше всех в этом веке.",
+          "fact": "Последний она взяла, будучи беременной."
         },
         "ar": {
-          "prompt": "ما هي الثلاثية في كرة القدم؟",
-          "answer": "ثلاثة أهداف في مباراة",
+          "prompt": "كم بطولة كبرى فازت بها سيرينا ويليامز؟",
+          "answer": "ثلاثًا وعشرين",
           "wrong": [
-            "ثلاث بطاقات صفراء",
-            "ثلاثة تبديلات",
-            "ثلاث مباريات"
+            "بطولتين",
+            "ثماني بطولات",
+            "مئة بطولة"
           ],
-          "hint": "لاعب واحد يسجّل ثلاث مرات.",
-          "explanation": "اللاعب الذي يسجّل ثلاثة أهداف في المباراة نفسها يحقق ثلاثية.",
-          "fact": "والاسم الإنجليزي من الكريكيت: ثلاثة خصوم متتابعون كانوا يمنحون قبعة."
+          "hint": "أكثر من عشرين.",
+          "explanation": "فازت سيرينا ويليامز بثلاث وعشرين بطولة كبرى، أكثر من أي لاعبة في هذا القرن.",
+          "fact": "ونالت آخرها وهي حامل."
         }
       }
     },

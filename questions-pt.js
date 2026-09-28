@@ -22,7 +22,7 @@
         ["O que é uma galáxia?","Um grupo enorme de estrelas",["Um planeta","Um telescópio","Uma nuvem na Terra"],"A Via Láctea é uma.","Uma galáxia contém muitíssimas estrelas.","A Via Láctea tem centenas de bilhões de estrelas."],
         ["Como se chama a nossa galáxia?","Via Láctea",["Andrômeda","Órion","Saturno"],"Às vezes você vê uma faixa clara no céu escuro.","Nosso sistema solar fica dentro da Via Láctea.","A Via Láctea é uma galáxia espiral."],
         ["O que é uma supernova?","Uma explosão gigante de estrela",["Uma lua nova","O lançamento de um foguete","Uma chuva"],"Acontece no fim da vida de algumas estrelas.","Uma supernova é uma explosão enorme de uma estrela.","Essa explosão pode ficar extremamente brilhante por um tempo."],
-        ["Qual cor as estrelas mais quentes costumam ter?","Azul",["Vermelha","Marrom","Verde"],"A luz azul combina com temperaturas muito altas.","Estrelas muito quentes costumam parecer azuladas.","Estrelas vermelhas geralmente são mais frias que as azuis."],
+        ["Qual cor as estrelas mais quentes costumam ter?","Azul",["Vermelha","Marrom","Verde"],"Pensa na chama mais quente de um fogão a gás.","Estrelas muito quentes costumam parecer azuladas.","Estrelas vermelhas geralmente são mais frias que as azuis."],
         ["O que é um exoplaneta?","Um planeta em volta de outra estrela",["Uma lua da Terra","Um cometa","Um satélite"],"Ele não gira em volta do nosso Sol.","Um exoplaneta orbita uma estrela que não é o Sol.","Milhares de exoplanetas já foram encontrados."],
         ["O que é um buraco negro?","Uma região com gravidade extremamente forte",["Um planeta escuro","Uma nuvem","Um motor de foguete"],"Nem a luz consegue escapar dele com facilidade.","Um buraco negro tem gravidade extremamente forte.","Muitos buracos negros se formam a partir de estrelas gigantes."],
         ["Qual estrela fica mais perto da Terra?","O Sol",["Sirius","Estrela Polar","Betelgeuse"],"Você a vê todo dia.","O Sol é a nossa estrela mais próxima.","A próxima estrela mais perto fica muito mais longe."],
@@ -88,7 +88,7 @@
         ["O que um soldado romano costumava usar?","Elmo e escudo",["Traje espacial","Chapéu de caubói","Roupa de mergulho"],"Ele precisava se proteger na batalha.","Soldados romanos usavam elmos, escudos e armas.","O equipamento mudou ao longo dos séculos."],
         ["O que significa “Império Romano”?","Uma grande área governada a partir de Roma",["A cidade de Roma","Uma pirâmide","Uma ordem de cavaleiros"],"Ele se estendia por grande parte da Europa.","O Império Romano era muito extenso.","No auge, cobria terras em volta do Mediterrâneo."],
         ["O que os romanos usavam para longas distâncias por terra?","Uma grande rede de estradas",["Rios","Balões de ar quente","Trens"],"Muitas estradas eram bem construídas.","Os romanos construíram uma grande rede de estradas.","Algumas estradas modernas seguem rotas romanas antigas."],
-        ["O que era um senador em Roma?","Um funcionário importante",["Sempre um gladiador","Um faraó","Um cavaleiro"],"Ele tinha um papel político.","Os senadores tinham influência no governo.","O Senado romano durou séculos."]
+        ["O que era um senador em Roma?","Um funcionário importante",["Um gladiador","Um faraó","Um cavaleiro"],"Ele tinha um papel político.","Os senadores tinham influência no governo.","O Senado romano durou séculos."]
       ],
       ontdekkingsreizigers: [
         ["O que um explorador fazia?","Explorava novas regiões",["Construía planetas","Inventava a eletricidade","Vigiava pirâmides"],"Pense em viagens longas.","Exploradores viajavam para regiões desconhecidas.","As viagens deles mudaram os mapas e o comércio."],
@@ -206,7 +206,7 @@
     dieren: {
       snelle_dieren: [
         ["Qual animal terrestre é o mais rápido?","Guepardo",["Elefante","Panda","Hipopótamo"],"É um felino magro e pintado.","O guepardo é o animal terrestre mais rápido.","Num sprint curto ele passa dos 90 km/h."],
-        ["Qual animal é feito para corridas curtas e rápidas?","Guepardo",["Bicho-preguiça","Tartaruga","Panda"],"Pernas longas e corpo leve ajudam.","Os guepardos são verdadeiros velocistas.","Eles só mantêm a velocidade máxima por pouco tempo."],
+        ["Que ave nada mais depressa?", "O pinguim", ["O cisne", "O pato", "A gaivota"], "Não sabe voar, mas nada muito bem.", "Um pinguim-gentoo passa dos trinta quilómetros por hora debaixo de água.", "As penas sobrepõem-se como telhas, por isso a água não passa."],
         ["Qual ave é famosa por mergulhos muito rápidos?","Falcão-peregrino",["Pinguim","Galinha","Avestruz"],"Ela caça a partir do ar.","O falcão-peregrino é um dos animais mais rápidos.","No mergulho ele passa dos 300 km/h."],
         ["Por que um peixe rápido tem corpo aerodinâmico?","Para ter menos resistência",["Para ser mais pesado","Para cantar mais alto","Para pegar mais ar"],"Uma forma lisa corta a água com mais facilidade.","A forma aerodinâmica reduz a resistência da água.","Os golfinhos também têm forma aerodinâmica."],
         ["Quem corre mais rápido: um cavalo ou uma tartaruga?","Cavalo",["Tartaruga","Os dois iguais","Nenhum dos dois"],"Ele tem pernas longas e fortes.","O cavalo é muito mais rápido que a tartaruga.","No galope, cavalos alcançam grandes velocidades."],
@@ -217,13 +217,13 @@
         ["Por que a velocidade é útil para os predadores?","Para pegar a presa",["Para regar plantas","Para colorir penas","Para fazer ninhos"],"A caçada costuma ser bem curta.","A velocidade ajuda na perseguição.","Nem todo predador usa velocidade; alguns usam emboscada."]
       ],
       baby_dieren: [
-        ["Como se chama o filhote de cachorro?","Filhote de cachorro",["Bezerro","Potro","Pintinho"],"É um cachorrinho bem novo.","Um cão jovem é um filhote de cachorro.","Filhotes nascem cegos e surdos."],
+        ["Como se chama o bebé do cão?", "Um cachorrinho", ["Um bezerro", "Um potro", "Um pintainho"], "É um cão acabado de nascer.", "Um cão jovem chama-se cachorrinho.", "Nascem cegos e surdos."],
         ["Como se chama o filhote de gato?","Gatinho",["Potro","Cordeiro","Bezerro"],"É um gato bem novo.","Um gato jovem é chamado de gatinho.","Gatinhos dormem muito."],
         ["Como se chama o filhote de cavalo?","Potro",["Filhote de cachorro","Pintinho","Filhote de leão"],"Ele consegue ficar de pé rapidinho.","Um cavalo jovem é chamado de potro.","Potros tentam ficar de pé logo depois de nascer."],
         ["Como se chama o filhote de ovelha?","Cordeiro",["Bezerro","Filhote de cachorro","Gatinho"],"Você os vê muito na primavera.","Uma ovelha jovem é chamada de cordeiro.","Cordeiros mamam na mãe."],
         ["Como se chama o filhote de vaca?","Bezerro",["Potro","Cordeiro","Pintinho"],"O filhote de elefante tem outro nome.","Uma vaca jovem é chamada de bezerro.","Bezerros bebem leite no começo."],
         ["Como se chama o filhote de galinha?","Pintinho",["Filhote de leão","Filhote de cachorro","Cordeiro"],"Ele sai de um ovo.","Um frango jovem é chamado de pintinho.","Pintinhos já piam antes de sair do ovo."],
-        ["Como se chama o filhote de leão?","Filhote de leão",["Potro","Bezerro","Gatinho"],"Também é chamado de leãozinho.","Um leão jovem é um filhote de leão.","Os filhotes ficam muito tempo com o grupo."],
+        ["Como se chama o bebé do leão?", "Um leãozinho", ["Um potro", "Um bezerro", "Um gatinho"], "Fica muito tempo junto do bando.", "Um leão jovem chama-se leãozinho.", "Os mais novos ficam muito tempo com o grupo."],
         ["O que muitos filhotes de mamíferos bebem primeiro?","Leite",["Água salgada","Gasolina","Refrigerante"],"A mãe produz.","Mamíferos alimentam os filhotes com leite.","Essa é uma característica importante dos mamíferos."],
         ["Por que muitos filhotes ficam perto da mãe?","Por proteção e comida",["Para voar mais rápido","Para subir em árvores","Para fazer frio"],"Eles ainda têm muito a aprender.","Os pais protegem e cuidam dos filhotes.","O tempo de cuidado varia muito entre as espécies."],
         ["Qual filhote sai de um ovo?","Pintinho",["Filhote de cachorro","Bezerro","Potro"],"Pense numa galinha.","O pintinho sai de um ovo.","Répteis, peixes e muitos outros animais também botam ovos."]
@@ -233,7 +233,7 @@
         ["Qual animal tem oito braços?","Polvo",["Tubarão","Golfinho","Caranguejo"],"Ele se esconde muito bem.","O polvo tem oito braços.","Polvos são moluscos muito inteligentes."],
         ["Qual animal marinho é o maior animal da Terra?","Baleia-azul",["Tubarão-branco","Golfinho","Orca"],"É uma baleia enorme.","A baleia-azul é o maior animal conhecido.","Ela pode passar de 25 metros de comprimento."],
         ["Como a maioria dos peixes respira?","Com brânquias",["Com pulmões","Pela pele","Com penas"],"Eles tiram o oxigênio da água.","As brânquias captam o oxigênio da água.","A água passa pelos filamentos das brânquias."],
-        ["O que ajuda os peixes a virar e nadar?","Nadadeiras",["Asas","Pernas","Pelos"],"Eles têm várias nadadeiras diferentes.","As nadadeiras ajudam no movimento e no equilíbrio.","A nadadeira caudal dá muito impulso."],
+        ["O que ajuda os peixes a virar e nadar?","Nadadeiras",["Asas","Pernas","Pelos"],"Ficam nas costas, na barriga e na cauda.","As nadadeiras ajudam no movimento e no equilíbrio.","A nadadeira caudal dá muito impulso."],
         ["Qual animal vive tanto no mar quanto na terra?","Tartaruga-marinha",["Atum","Água-viva","Cavalo-marinho"],"Ela vai à praia para botar ovos.","Tartarugas-marinhas vivem no mar, mas botam ovos na terra.","As fêmeas costumam voltar à praia onde nasceram."],
         ["O que é o coral na verdade?","Uma colônia de animais pequenos",["Uma planta","Uma pedra","Um peixe"],"Ele forma recifes.","Corais são formados por muitíssimos pólipos pequenos.","Recifes de coral são habitats importantes."],
         ["Por que as baleias sobem à superfície?","Para respirar",["Para lavar as brânquias","Para dormir na praia","Para cozinhar"],"Elas são mamíferos.","Baleias respiram ar com pulmões.","Elas respiram por um orifício na cabeça."],
@@ -247,7 +247,7 @@
         ["Por que muitos animais da selva têm camuflagem?","Para chamar menos atenção",["Para cantar mais alto","Para fazer mais chuva","Para crescer mais rápido"],"Os padrões combinam com folhas e sombras.","A camuflagem ajuda a caçar ou a se esconder.","Muitas onças têm pintas que imitam sombras."],
         ["Qual felino grande vive nas selvas das Américas?","Onça-pintada",["Leão","Leopardo-das-neves","Lince"],"Ela tem rosetas no pelo.","Onças vivem em partes da América Central e do Sul.","Elas nadam muito bem."],
         ["Por que as árvores da floresta tropical são tão importantes?","Elas dão comida e moradia",["Elas não fazem oxigênio","Elas param toda a chuva","Elas são só enfeite"],"Muitos animais vivem em diferentes andares das árvores.","As árvores da floresta formam habitats complexos.","Alguns animais quase nunca descem até o chão."],
-        ["Qual réptil consegue mudar de cor?","Camaleão",["Tartaruga","Crocodilo","Sempre uma cobra"],"Ele também usa a cor para se comunicar.","Camaleões ajustam seu padrão de cores.","A mudança de cor ajuda na temperatura e nos sinais."],
+        ["Qual réptil consegue mudar de cor?","Camaleão",["Tartaruga","Crocodilo","A cobra"],"Ele também usa a cor para se comunicar.","Camaleões ajustam seu padrão de cores.","A mudança de cor ajuda na temperatura e nos sinais."],
         ["O que é uma floresta tropical?","Uma floresta quente com muita chuva",["Um deserto congelado","Um campo sem árvores","Um mar"],"Ela é riquíssima em espécies.","Florestas tropicais recebem muitíssima chuva.","Estão entre os ecossistemas com mais biodiversidade."],
         ["Por que os bugios gritam tão alto?","Para se comunicar com o grupo",["Para fazer chuva","Para derrubar árvores","Para nadar"],"O grito deles vai longe pela floresta.","Bugios usam sons altos para se comunicar.","Uma estrutura na garganta amplifica o grito."],
         ["Qual animal pega insetos com uma língua comprida?","Camaleão",["Elefante","Gorila","Tucano"],"A língua dispara para a frente rapidinho.","Camaleões pegam a presa com a língua comprida.","A língua acelera extremamente rápido."]
@@ -281,7 +281,7 @@
       oceanen_natuur: [
         ["O que cobre a maior parte da Terra?","Água",["Deserto","Floresta","Gelo"],"Os oceanos ocupam um espaço enorme.","Cerca de 71% da Terra é coberta por água.","A maior parte dessa água é salgada."],
         ["Qual oceano é o maior?","Oceano Pacífico",["Oceano Atlântico","Oceano Índico","Oceano Ártico"],"Fica entre a Ásia e a América.","O Pacífico é o maior oceano.","Ele cobre cerca de um terço da superfície da Terra."],
-        ["Como se chama a rocha derretida que sai de um vulcão?","Lava",["Magma no subsolo","Argila","Areia"],"Fora da Terra chamamos assim.","Na superfície, a rocha derretida se chama lava.","No subsolo chamamos de magma."],
+        ["Como se chama a rocha derretida que sai de um vulcão?","Lava",["Magma","Argila","Areia"],"Fora da Terra chamamos assim.","Na superfície, a rocha derretida se chama lava.","No subsolo chamamos de magma."],
         ["O que é uma ilha?","Terra totalmente cercada de água",["Uma nuvem alta","Um rio","Um deserto"],"Você precisa cruzar a água para chegar lá.","Uma ilha é cercada de água por todos os lados.","A Groenlândia é a maior ilha que não é um continente."],
         ["O que é uma cordilheira?","Uma série de montanhas",["Um rio largo","Um mar","Um grupo de ilhas"],"Os Andes são uma.","Uma cordilheira é feita de montanhas ligadas.","O Himalaia tem as montanhas mais altas da Terra."],
         ["O que é a foz de um rio?","O lugar onde o rio termina",["A nascente do rio","O topo de uma montanha","Um deserto"],"O rio costuma desaguar num mar ou lago.","A foz é o fim de um rio.","Alguns rios formam um delta na foz."],

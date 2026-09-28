@@ -22,7 +22,7 @@
         ["Hvad er en galakse?","En kæmpe gruppe af stjerner",["En planet","Et teleskop","En sky på Jorden"],"Mælkevejen er en af dem.","En galakse indeholder utrolig mange stjerner.","Mælkevejen har hundredvis af milliarder stjerner."],
         ["Hvad hedder vores galakse?","Mælkevejen",["Andromeda","Orion","Saturn"],"Nogle gange ser du et blegt bånd på en mørk himmel.","Vores solsystem ligger i Mælkevejen.","Mælkevejen er en spiralgalakse."],
         ["Hvad er en supernova?","En kæmpe stjerneeksplosion",["En nymåne","En raketopsendelse","En regnbyge"],"Det sker ved slutningen af nogle stjerners liv.","En supernova er en kæmpe eksplosion af en stjerne.","Sådan en eksplosion kan lyse ekstremt kraftigt et kort stykke tid."],
-        ["Hvilken farve har de varmeste stjerner som regel?","Blå",["Røde","Brune","Grønne"],"Blåt lys hører til meget høje temperaturer.","Meget varme stjerner ser tit blålige ud.","Røde stjerner er som regel køligere end blå."],
+        ["Hvilken farve har de varmeste stjerner som regel?","Blå",["Røde","Brune","Grønne"],"Tænk på den varmeste flamme på et gaskomfur.","Meget varme stjerner ser tit blålige ud.","Røde stjerner er som regel køligere end blå."],
         ["Hvad er en exoplanet?","En planet ved en anden stjerne",["En måne om Jorden","En komet","En satellit"],"Den drejer ikke om vores Sol.","En exoplanet drejer om en anden stjerne end Solen.","Der er nu fundet tusindvis af exoplaneter."],
         ["Hvad er et sort hul?","Et område med ekstremt stærk tyngdekraft",["En mørk planet","En sky","En raketmotor"],"Selv lys slipper ikke nemt ud.","Et sort hul har ekstremt stærk tyngdekraft.","Mange sorte huller opstår af meget tunge stjerner."],
         ["Hvilken stjerne er tættest på Jorden?","Solen",["Sirius","Nordstjernen","Betelgeuse"],"Du ser den hver dag.","Solen er vores nærmeste stjerne.","Den næste stjerne er meget længere væk."],
@@ -88,7 +88,7 @@
         ["Hvad havde en romersk soldat tit på?","En hjelm og et skjold",["En rumdragt","En cowboyhat","En dykkerdragt"],"Han skulle beskytte sig i kamp.","Romerske soldater brugte hjelme, skjolde og våben.","Deres udstyr ændrede sig gennem århundrederne."],
         ["Hvad betyder „Romerriget“?","Et stort område, der blev styret fra Rom",["Byen Rom","En pyramide","En ridderorden"],"Det strakte sig over store dele af Europa.","Romerriget var meget stort.","På sit højeste omkransede det hele Middelhavet."],
         ["Hvad brugte romerne til lange ture over land?","Et stort vejnet",["Floder","Luftballoner","Tog"],"Mange veje var meget solidt bygget.","Romerne byggede et stort vejnet.","Nogle af nutidens veje følger gamle romerveje."],
-        ["Hvad var en senator i Rom?","En vigtig embedsmand",["Altid en gladiator","En farao","En ridder"],"Han havde en politisk rolle.","Senatorer havde indflydelse på styret.","Det romerske senat bestod i århundreder."]
+        ["Hvad var en senator i Rom?","En vigtig embedsmand",["En gladiator","En farao","En ridder"],"Han havde en politisk rolle.","Senatorer havde indflydelse på styret.","Det romerske senat bestod i århundreder."]
       ],
       ontdekkingsreizigers: [
         ["Hvad lavede en opdagelsesrejsende?","Udforskede nye områder",["Byggede planeter","Opfandt elektricitet","Vogtede pyramider"],"Tænk på lange rejser.","Opdagelsesrejsende rejste til ukendte egne.","Deres rejser ændrede kort og handel."],
@@ -206,7 +206,7 @@
     dieren: {
       snelle_dieren: [
         ["Hvilket landdyr er det hurtigste?","Geparden",["Elefanten","Pandaen","Flodhesten"],"Det er en slank, plettet kat.","Geparden er det hurtigste landdyr.","På en kort spurt kan den komme over 90 km/h."],
-        ["Hvilket dyr er bygget til hurtige spurter?","Geparden",["Dovendyret","Skildpadden","Pandaen"],"Lange ben og en let krop hjælper.","Geparder er rigtige spurtere.","De holder kun tophastigheden i kort tid."],
+        ["Hvilken fugl svømmer hurtigst?", "Pingvinen", ["Svanen", "Anden", "Mågen"], "Den kan ikke flyve, men svømme så meget desto bedre.", "En æselpingvin når over tredive kilometer i timen under vandet.", "Fjerene ligger som tagsten, så der ikke kommer vand igennem."],
         ["Hvilken fugl er berømt for ekstremt hurtige styrtdyk?","Vandrefalken",["Pingvinen","Hønen","Strudsen"],"Den jager fra luften.","Vandrefalken er et af de hurtigste dyr.","I styrtdyk kan den komme over 300 km/h."],
         ["Hvorfor har en hurtig fisk en strømlinet krop?","For at have mindre modstand",["For at veje mere","For at synge højere","For at fange mere luft"],"En glat form skærer lettere gennem vandet.","Strømlinet form mindsker vandmodstanden.","Delfiner har også en strømlinet form."],
         ["Hvem løber hurtigst: en hest eller en skildpadde?","Hesten",["Skildpadden","Lige hurtigt","Ingen af dem"],"Den har lange, stærke ben.","En hest er meget hurtigere end en skildpadde.","I galop kommer heste op på høj fart."],
@@ -233,7 +233,7 @@
         ["Hvilket dyr har otte arme?","Blæksprutten",["Hajen","Delfinen","Krabben"],"Den kan gemme sig rigtig godt.","En blæksprutte har otte arme.","Blæksprutter er meget kloge bløddyr."],
         ["Hvilket havdyr er det største dyr på Jorden?","Blåhvalen",["Den hvide haj","Delfinen","Spækhuggeren"],"Det er en kæmpestor hval.","Blåhvalen er det største kendte dyr.","Den kan blive mere end 25 meter lang."],
         ["Hvordan trækker de fleste fisk vejret?","Med gæller",["Med lunger","Gennem huden","Med fjer"],"De henter ilten fra vandet.","Gæller optager ilt fra vandet.","Vandet strømmer forbi gællebladene."],
-        ["Hvad hjælper fisk med at styre og svømme?","Finnerne",["Vingerne","Benene","Hårene"],"De har flere forskellige finner.","Finner hjælper med bevægelse og balance.","Halefinnen giver tit meget fremdrift."],
+        ["Hvad hjælper fisk med at styre og svømme?","Finnerne",["Vingerne","Benene","Hårene"],"De sidder på ryggen, bugen og halen.","Finner hjælper med bevægelse og balance.","Halefinnen giver tit meget fremdrift."],
         ["Hvilket dyr kan leve både i havet og på land?","Havskildpadden",["Tunfisken","Vandmanden","Søhesten"],"Den går på land for at lægge æg.","Havskildpadder lever i havet, men lægger æg på land.","Hunnerne vender tit tilbage til den strand, hvor de selv blev klækket."],
         ["Hvad er koraller egentlig?","En koloni af små dyr",["En plante","En sten","En fisk"],"De danner rev.","Koraller består af rigtig mange små polypper.","Koralrev er vigtige levesteder."],
         ["Hvorfor kommer hvaler op til overfladen?","For at trække vejret",["For at vaske gællerne","For at sove på stranden","For at lave mad"],"De er pattedyr.","Hvaler trækker vejret i luft med lunger.","De ånder gennem deres blåsthuller."],
@@ -247,7 +247,7 @@
         ["Hvorfor har mange jungledyr camouflage?","For at falde mindre i øjnene",["For at synge højere","For at lave mere regn","For at vokse hurtigere"],"Mønstrene ligner blade og skygger.","Camouflage hjælper dyr med at jage eller gemme sig.","Mange jaguarers pletter ligner skygger."],
         ["Hvilken stor kat lever i junglen i Amerika?","Jaguaren",["Løven","Sneleoparden","Los"],"Den har rosetter i pelsen.","Jaguarer lever i dele af Mellem- og Sydamerika.","De svømmer overraskende godt."],
         ["Hvorfor er regnskovens træer så vigtige?","De giver mad og levesteder",["De laver ingen ilt","De stopper al regnen","De er kun pynt"],"Mange dyr lever i forskellige lag af træerne.","Regnskovens træer danner rige levesteder.","Nogle dyr kommer næsten aldrig ned på skovbunden."],
-        ["Hvilket krybdyr kan skifte farve?","Kamæleonen",["Skildpadden","Krokodillen","Altid en slange"],"Den bruger også farven til at kommunikere.","Kamæleoner kan ændre deres farvemønster.","Farveskiftet hjælper med temperatur og signaler."],
+        ["Hvilket krybdyr kan skifte farve?","Kamæleonen",["Skildpadden","Krokodillen","Slangen"],"Den bruger også farven til at kommunikere.","Kamæleoner kan ændre deres farvemønster.","Farveskiftet hjælper med temperatur og signaler."],
         ["Hvad er en regnskov?","En varm skov med rigtig meget regn",["En frossen ørken","En græsslette uden træer","Et hav"],"Den har utrolig mange arter.","Tropiske regnskove får rigtig meget regn.","De er blandt de mest artsrige steder på Jorden."],
         ["Hvorfor råber brøleaber så højt?","For at kommunikere med deres flok",["For at lave regn","For at skubbe træer","For at svømme"],"Deres råb bærer langt gennem skoven.","Brøleaber kommunikerer med meget høje råb.","En forstørret struktur i halsen forstærker råbet."],
         ["Hvilket dyr kan fange insekter med en lang tunge?","Kamæleonen",["Elefanten","Gorillaen","Tukanen"],"Tungen skyder lynhurtigt frem.","Kamæleoner fanger byttet med deres lange tunge.","Tungen kan sætte farten op ekstremt hurtigt."]
@@ -281,7 +281,7 @@
       oceanen_natuur: [
         ["Hvad dækker det meste af Jorden?","Vand",["Ørken","Skov","Is"],"Oceanerne fylder enormt meget.","Cirka 71% af Jorden er dækket af vand.","Det meste af det er salt havvand."],
         ["Hvilket ocean er det største?","Stillehavet",["Atlanterhavet","Det Indiske Ocean","Ishavet"],"Det ligger mellem Asien og Amerika.","Stillehavet er det største ocean.","Det dækker cirka en tredjedel af Jordens overflade."],
-        ["Hvad hedder den smeltede sten, der kommer ud af en vulkan?","Lava",["Magma under jorden","Ler","Sand"],"Uden for Jorden kalder vi det sådan.","På overfladen hedder smeltet sten lava.","Under jorden kalder vi det magma."],
+        ["Hvad hedder den smeltede sten, der kommer ud af en vulkan?","Lava",["Magma","Ler","Sand"],"Uden for Jorden kalder vi det sådan.","På overfladen hedder smeltet sten lava.","Under jorden kalder vi det magma."],
         ["Hvad er en ø?","Land, der er helt omgivet af vand",["En høj sky","En flod","En ørken"],"Du skal over vand for at komme derhen.","En ø er omgivet af vand på alle sider.","Grønland er den største ø, der ikke er en verdensdel."],
         ["Hvad er en bjergkæde?","En række af bjerge",["En bred flod","Et hav","En øgruppe"],"Alperne er en af dem.","En bjergkæde består af bjerge, der hænger sammen.","I Himalaya står Jordens højeste bjerge."],
         ["Hvad er en flods udmunding?","Det sted, hvor floden ender",["Flodens kilde","En bjergtop","En ørken"],"Floden løber tit ud i et hav eller en sø.","Udmundingen er enden på en flod.","Nogle floder danner et delta ved udmundingen."],

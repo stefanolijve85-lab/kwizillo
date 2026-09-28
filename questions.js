@@ -19,7 +19,7 @@
         ['Wat is een sterrenstelsel?','Een enorme groep sterren',['Eén planeet','Een telescoop','Een wolk op aarde'],'De Melkweg is er één.','Een sterrenstelsel bevat heel veel sterren.','De Melkweg bevat honderden miljarden sterren.'],
         ['Hoe heet ons sterrenstelsel?','De Melkweg',['Andromeda','Orion','Saturnus'],'Je ziet soms een lichte band aan een donkere hemel.','Ons zonnestelsel ligt in de Melkweg.','De Melkweg is een spiraalstelsel.'],
         ['Wat is een supernova?','Een enorme sterexplosie',['Een nieuwe maan','Een raketlancering','Een regenbui'],'Het gebeurt aan het einde van het leven van sommige sterren.','Een supernova is een enorme explosie van een ster.','Zo’n explosie kan tijdelijk extreem helder zijn.'],
-        ['Welke kleur hebben de heetste sterren meestal?','Blauw',['Rood','Bruin','Groen'],'Blauw licht hoort bij zeer hoge temperaturen.','Zeer hete sterren zien vaak blauwachtig uit.','Rode sterren zijn doorgaans koeler dan blauwe.'],
+        ['Welke kleur hebben de heetste sterren meestal?','Blauw',['Rood','Bruin','Groen'],'Denk aan de heetste vlam van een gasfornuis.','Zeer hete sterren zien vaak blauwachtig uit.','Rode sterren zijn doorgaans koeler dan blauwe.'],
         ['Wat is een exoplaneet?','Een planeet bij een andere ster',['Een maan van de aarde','Een komeet','Een satelliet'],'Hij draait niet om onze zon.','Een exoplaneet draait om een andere ster dan de zon.','Er zijn inmiddels duizenden exoplaneten ontdekt.'],
         ['Wat is een zwart gat?','Een gebied met extreem sterke zwaartekracht',['Een donkere planeet','Een wolk','Een raketmotor'],'Zelfs licht kan er niet makkelijk uit ontsnappen.','Een zwart gat heeft extreem sterke zwaartekracht.','Veel zwarte gaten ontstaan uit zware sterren.'],
         ['Welke ster staat het dichtst bij de aarde?','De zon',['Sirius','Polaris','Betelgeuze'],'Je ziet hem iedere dag.','De zon is onze dichtstbijzijnde ster.','De volgende dichtstbijzijnde ster is veel verder weg.'],
@@ -85,7 +85,7 @@
         ['Wat droeg een Romeinse soldaat vaak?','Een helm en schild',['Een ruimtepak','Een cowboyhoed','Een duikpak'],'Hij moest zich beschermen in gevechten.','Romeinse soldaten gebruikten helmen, schilden en wapens.','Hun uitrusting veranderde door de eeuwen heen.'],
         ['Wat betekent “Romeinse Rijk”?','Een groot gebied bestuurd vanuit Rome',['De stad Rome','Een piramide','Een ridderorde'],'Het strekte zich over grote delen van Europa uit.','Het Romeinse Rijk was zeer uitgestrekt.','Op zijn hoogtepunt omvatte het gebieden rond de Middellandse Zee.'],
         ['Wat gebruikten Romeinen voor lange afstanden over land?','Uitgebreide wegen',['Rivieren','Luchtballonnen','Treinen'],'Veel wegen waren stevig aangelegd.','Romeinen bouwden een groot wegennet.','Sommige moderne wegen volgen oude Romeinse routes.'],
-        ['Wat was een senator in Rome?','Een belangrijk bestuurder',['Een gladiator altijd','Een farao','Een ridder'],'Hij had een politieke rol.','Senatoren hadden invloed op het bestuur.','De Romeinse Senaat bestond eeuwenlang.']
+        ['Wat was een senator in Rome?','Een belangrijk bestuurder',['Een gladiator','Een farao','Een ridder'],'Hij had een politieke rol.','Senatoren hadden invloed op het bestuur.','De Romeinse Senaat bestond eeuwenlang.']
       ],
       ontdekkingsreizigers: [
         ['Wat deed een ontdekkingsreiziger?','Nieuwe gebieden verkennen',['Planeten bouwen','Elektriciteit uitvinden','Piramides bewaken'],'Denk aan verre reizen.','Ontdekkingsreizigers trokken naar onbekende gebieden.','Hun reizen veranderden kaarten en handel.'],
@@ -203,7 +203,7 @@
     dieren: {
       snelle_dieren: [
         ['Welk landdier is het snelst?','Jachtluipaard',['Olifant','Panda','Nijlpaard'],'Het is een slanke gevlekte kat.','Het jachtluipaard is het snelste landdier.','Bij een korte sprint kan het boven 90 km/u komen.'],
-        ['Welk dier is gebouwd voor snelle sprintjes?','Jachtluipaard',['Luiaard','Schildpad','Panda'],'Lange poten en een lichte bouw helpen.','Jachtluipaarden zijn echte sprinters.','Ze houden topsnelheid maar kort vol.'],
+        ["Welke vogel zwemt het snelst?", "De pinguïn", ["De zwaan", "De eend", "De meeuw"], "Vliegen kan hij niet, zwemmen des te beter.", "Een ezelspinguïn haalt onder water ruim dertig kilometer per uur.", "Zijn veren liggen als dakpannen, zodat er geen water tussen komt."],
         ['Welke vogel is beroemd om extreem snelle duikvluchten?','Slechtvalk',['Pinguïn','Kip','Struisvogel'],'Hij jaagt vanuit de lucht.','De slechtvalk is een van de snelste dieren.','Tijdens een duik kan hij boven 300 km/u komen.'],
         ['Waarom heeft een snelle vis een gestroomlijnd lichaam?','Om minder weerstand te hebben',['Om zwaarder te zijn','Om harder te zingen','Om meer lucht te vangen'],'Een gladde vorm snijdt makkelijker door water.','Stroomlijning vermindert waterweerstand.','Ook dolfijnen hebben een gestroomlijnde vorm.'],
         ['Welk dier rent sneller: een paard of een schildpad?','Paard',['Schildpad','Even snel','Geen van beide'],'Het heeft lange krachtige benen.','Een paard is veel sneller dan een schildpad.','Paarden kunnen in galop hoge snelheden halen.'],
@@ -216,11 +216,11 @@
       baby_dieren: [
         ['Hoe heet een babyhond?','Pup',['Kalf','Veulen','Kuiken'],'Het woord begint met een p.','Een jonge hond heet een pup.','Pups worden blind en doof geboren.'],
         ['Hoe heet een babykat?','Kitten',['Veulen','Lam','Kalf'],'Het is een jong poesje.','Een jonge kat heet een kitten.','Kittens slapen heel veel.'],
-        ['Hoe heet een jong paard?','Veulen',['Pup','Kuiken','Welpen'],'Het kan al snel staan.','Een jong paard heet een veulen.','Veulens proberen kort na de geboorte te staan.'],
+        ['Hoe heet een jong paard?','Veulen',['Pup','Kuiken','Welp'],'Het kan al snel staan.','Een jong paard heet een veulen.','Veulens proberen kort na de geboorte te staan.'],
         ['Hoe heet een jong schaap?','Lam',['Kalf','Pup','Kitten'],'Je ziet ze vaak in het voorjaar.','Een jong schaap heet een lam.','Lammeren drinken melk bij hun moeder.'],
         ['Hoe heet een babykoe?','Kalf',['Veulen','Lam','Kuiken'],'Ook een jonge olifant heet zo.','Een jonge koe heet een kalf.','Kalveren drinken in het begin melk.'],
-        ['Hoe heet een jonge kip?','Kuiken',['Welpen','Pup','Lam'],'Hij komt uit een ei.','Een jonge kip heet een kuiken.','Kuikens communiceren al voor het uitkomen met piepjes.'],
-        ['Hoe heet een jonge leeuw?','Welpen',['Veulen','Kalf','Kitten'],'Ook wolvenjongen worden zo genoemd.','Een jonge leeuw is een welp.','Leeuwenwelpen blijven lang bij de groep.'],
+        ['Hoe heet een jonge kip?','Kuiken',['Welp','Pup','Lam'],'Hij komt uit een ei.','Een jonge kip heet een kuiken.','Kuikens communiceren al voor het uitkomen met piepjes.'],
+        ['Hoe heet een jonge leeuw?','Welp',['Veulen','Kalf','Kitten'],'Ook wolvenjongen worden zo genoemd.','Een jonge leeuw is een welp.','Leeuwenwelpen blijven lang bij de groep.'],
         ['Wat drinken veel zoogdierbaby’s eerst?','Melk',['Zout water','Benzine','Limonade'],'Hun moeder maakt het.','Zoogdieren voeden hun jongen met melk.','Dit is een belangrijk kenmerk van zoogdieren.'],
         ['Waarom blijven veel jonge dieren dicht bij hun moeder?','Voor bescherming en voedsel',['Om sneller te vliegen','Om bomen te beklimmen','Om kou te maken'],'Ze moeten nog veel leren.','Ouders beschermen en verzorgen vaak hun jongen.','De duur van ouderzorg verschilt sterk per diersoort.'],
         ['Welk baby-dier komt uit een ei?','Kuiken',['Pup','Kalf','Veulen'],'Denk aan een kip.','Een kuiken komt uit een ei.','Ook reptielen, vissen en veel andere dieren leggen eieren.']
@@ -230,7 +230,7 @@
         ['Welk dier heeft acht armen?','Octopus',['Haai','Dolfijn','Krab'],'Hij kan zich goed verstoppen.','Een octopus heeft acht armen.','Octopussen zijn zeer intelligente weekdieren.'],
         ['Welk zeedier is het grootste dier op aarde?','Blauwe vinvis',['Witte haai','Dolfijn','Orka'],'Het is een enorme walvis.','De blauwe vinvis is het grootste bekende dier.','Hij kan meer dan 25 meter lang worden.'],
         ['Hoe ademen de meeste vissen?','Met kieuwen',['Met longen','Door hun huid','Met veren'],'Ze halen zuurstof uit water.','Kieuwen nemen zuurstof uit water op.','Water stroomt langs de kieuwlamellen.'],
-        ['Wat helpt vissen sturen en zwemmen?','Vinnen',['Vleugels','Poten','Haar'],'Ze hebben verschillende vinnen.','Vinnen helpen bij voortbeweging en balans.','De staartvin levert vaak veel stuwkracht.'],
+        ['Wat helpt vissen sturen en zwemmen?','Vinnen',['Vleugels','Poten','Haar'],'Ze zitten op de rug, de buik en de staart.','Vinnen helpen bij voortbeweging en balans.','De staartvin levert vaak veel stuwkracht.'],
         ['Welk dier kan zowel in zee als op land leven?','Zeeschildpad',['Tonijn','Kwal','Zeepaardje'],'Hij komt aan land om eieren te leggen.','Zeeschildpadden leven in zee maar leggen eieren op land.','Vrouwtjes keren vaak terug naar stranden om te nestelen.'],
         ['Wat is koraal eigenlijk?','Een kolonie kleine dieren',['Een plant','Een steen','Een vis'],'Het vormt riffen.','Koralen bestaan uit heel veel kleine poliepen.','Koraalriffen zijn belangrijke leefgebieden.'],
         ['Waarom komen walvissen boven water?','Om adem te halen',['Om hun kieuwen te wassen','Om te slapen op het strand','Om voedsel te koken'],'Ze zijn zoogdieren.','Walvissen ademen lucht met longen.','Ze ademen via blaasgaten.'],
@@ -244,7 +244,7 @@
         ['Waarom hebben veel jungledieren camouflage?','Om minder op te vallen',['Om harder te zingen','Om meer regen te maken','Om sneller te groeien'],'Patronen passen bij bladeren en schaduw.','Camouflage helpt dieren jagen of schuilen.','Veel jaguars hebben vlekken die schaduwen nabootsen.'],
         ['Welke grote kat leeft in de jungle van Amerika?','Jaguar',['Leeuw','Sneeuwpanter','Lynx'],'Hij heeft rozetten op zijn vacht.','Jaguars leven in delen van Midden- en Zuid-Amerika.','Ze zwemmen opvallend goed.'],
         ['Waarom zijn bomen in het regenwoud zo belangrijk?','Ze bieden voedsel en leefruimte',['Ze maken geen zuurstof','Ze stoppen alle regen','Ze zijn alleen decoratie'],'Veel dieren leven in verschillende boomlagen.','Regenwoudbomen vormen complexe leefgebieden.','Sommige dieren komen bijna nooit op de bosbodem.'],
-        ['Welk reptiel kan van kleur veranderen?','Kameleon',['Schildpad','Krokodil','Slang altijd'],'Hij gebruikt kleur ook voor communicatie.','Kameleons kunnen hun kleurpatroon aanpassen.','Kleurverandering helpt bij temperatuur en signalen.'],
+        ['Welk reptiel kan van kleur veranderen?','Kameleon',['Schildpad','Krokodil','Slang'],'Hij gebruikt kleur ook voor communicatie.','Kameleons kunnen hun kleurpatroon aanpassen.','Kleurverandering helpt bij temperatuur en signalen.'],
         ['Wat is een regenwoud?','Een warm bos met veel neerslag',['Een bevroren woestijn','Een grasveld zonder bomen','Een zee'],'Het is zeer rijk aan soorten.','Tropische regenwouden krijgen veel regen.','Ze behoren tot de meest biodiverse ecosystemen.'],
         ['Waarom roepen brulapen zo hard?','Om met groepen te communiceren',['Om regen te maken','Om bomen om te duwen','Om te zwemmen'],'Hun roep draagt ver door het bos.','Brulapen gebruiken luide geluiden voor communicatie.','Hun vergrote keelstructuur versterkt de roep.'],
         ['Welk dier kan met een lange tong insecten pakken?','Kameleon',['Olifant','Gorilla','Toekan'],'De tong schiet snel naar voren.','Kameleons vangen prooi met hun lange tong.','De tong kan zeer snel versnellen.']
@@ -278,7 +278,7 @@
       oceanen_natuur: [
         ['Wat bedekt het grootste deel van de aarde?','Water',['Woestijn','Bos','IJs'],'Oceanen nemen enorm veel ruimte in.','Ongeveer 71% van de aarde is bedekt met water.','Het meeste water is zout zeewater.'],
         ['Welke oceaan is de grootste?','Stille Oceaan',['Atlantische Oceaan','Indische Oceaan','Noordelijke IJszee'],'Hij ligt tussen Azië en Amerika.','De Stille Oceaan is de grootste oceaan.','Hij beslaat ongeveer een derde van het aardoppervlak.'],
-        ['Hoe heet gesmolten gesteente dat uit een vulkaan komt?','Lava',['Magma ondergronds','Klei','Zand'],'Buiten de aarde noemen we het zo.','Aan het oppervlak heet gesmolten gesteente lava.','Onder de grond noemen we het magma.'],
+        ['Hoe heet gesmolten gesteente dat uit een vulkaan komt?','Lava',['Magma','Klei','Zand'],'Buiten de aarde noemen we het zo.','Aan het oppervlak heet gesmolten gesteente lava.','Onder de grond noemen we het magma.'],
         ['Wat is een eiland?','Land volledig omgeven door water',['Een hoge wolk','Een rivier','Een woestijn'],'Je moet water oversteken om er te komen.','Een eiland is aan alle kanten door water omringd.','Groenland is het grootste eiland dat geen continent is.'],
         ['Wat is een bergketen?','Een reeks bergen',['Een brede rivier','Een zee','Een groep eilanden'],'De Alpen zijn er één.','Een bergketen bestaat uit verbonden bergen.','De Himalaya bevat de hoogste bergen op aarde.'],
         ['Wat is een riviermonding?','De plek waar een rivier uitkomt',['De bron van een rivier','Een bergtop','Een woestijn'],'Vaak komt de rivier uit in zee of een meer.','Een riviermonding is het einde van een rivier.','Sommige rivieren vormen een delta bij de monding.'],

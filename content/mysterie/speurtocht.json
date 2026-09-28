@@ -1321,7 +1321,7 @@
           ],
           "hint": "Schud de letters door elkaar.",
           "explanation": "Bij een anagram maak je een nieuw woord van precies dezelfde letters.",
-          "fact": "Van het woord 'raadsel' maak je zo bijvoorbeeld 'sladeer'."
+          "fact": "Van het woord 'noten' maak je zo 'tonen'."
         },
         "en": {
           "prompt": "What is an anagram?",
@@ -1405,7 +1405,7 @@
           ],
           "hint": "Bland bogstaverne.",
           "explanation": "I et anagram laver du et nyt ord af præcis de samme bogstaver.",
-          "fact": "Af 'lager' bliver på den måde 'regal'."
+          "fact": "Af 'lampe' bliver på den måde 'palme'."
         },
         "ru": {
           "prompt": "Что такое анаграмма?",

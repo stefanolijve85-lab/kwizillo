@@ -21,7 +21,7 @@
         ["What is a galaxy?","A huge group of stars",["One planet","A telescope","A cloud on Earth"],"The Milky Way is one.","A galaxy contains a great many stars.","The Milky Way holds hundreds of billions of stars."],
         ["What is our galaxy called?","The Milky Way",["Andromeda","Orion","Saturn"],"You sometimes see a pale band in a dark sky.","Our solar system sits inside the Milky Way.","The Milky Way is a spiral galaxy."],
         ["What is a supernova?","A huge star explosion",["A new moon","A rocket launch","A rain shower"],"It happens at the end of the life of some stars.","A supernova is an enormous explosion of a star.","Such an explosion can briefly be extremely bright."],
-        ["What colour are the hottest stars usually?","Blue",["Red","Brown","Green"],"Blue light goes with very high temperatures.","Very hot stars often look bluish.","Red stars are generally cooler than blue ones."],
+        ["What colour are the hottest stars usually?","Blue",["Red","Brown","Green"],"Think of the hottest flame on a gas hob.","Very hot stars often look bluish.","Red stars are generally cooler than blue ones."],
         ["What is an exoplanet?","A planet around another star",["A moon of Earth","A comet","A satellite"],"It does not orbit our sun.","An exoplanet orbits a star other than the sun.","Thousands of exoplanets have been found by now."],
         ["What is a black hole?","A region with extremely strong gravity",["A dark planet","A cloud","A rocket engine"],"Even light cannot easily escape from it.","A black hole has extremely strong gravity.","Many black holes form from massive stars."],
         ["Which star is closest to Earth?","The sun",["Sirius","Polaris","Betelgeuse"],"You see it every day.","The sun is our nearest star.","The next nearest star is much farther away."],
@@ -87,7 +87,7 @@
         ["What did a Roman soldier often wear?","A helmet and shield",["A spacesuit","A cowboy hat","A wetsuit"],"He had to protect himself in battle.","Roman soldiers used helmets, shields and weapons.","Their equipment changed over the centuries."],
         ["What does “Roman Empire” mean?","A large area governed from Rome",["The city of Rome","A pyramid","An order of knights"],"It stretched across large parts of Europe.","The Roman Empire was very extensive.","At its height it covered lands around the Mediterranean."],
         ["What did Romans use for long distances over land?","An extensive road network",["Rivers","Hot air balloons","Trains"],"Many roads were solidly built.","The Romans built a large road network.","Some modern roads follow old Roman routes."],
-        ["What was a senator in Rome?","An important official",["Always a gladiator","A pharaoh","A knight"],"He had a political role.","Senators had influence on government.","The Roman Senate lasted for centuries."]
+        ["What was a senator in Rome?","An important official",["A gladiator","A pharaoh","A knight"],"He had a political role.","Senators had influence on government.","The Roman Senate lasted for centuries."]
       ],
       ontdekkingsreizigers: [
         ["What did an explorer do?","Explore new areas",["Build planets","Invent electricity","Guard pyramids"],"Think of long journeys.","Explorers travelled to unknown regions.","Their voyages changed maps and trade."],
@@ -205,7 +205,7 @@
     dieren: {
       snelle_dieren: [
         ["Which land animal is the fastest?","Cheetah",["Elephant","Panda","Hippo"],"It is a slender spotted cat.","The cheetah is the fastest land animal.","In a short sprint it can pass 90 km/h."],
-        ["Which animal is built for fast sprints?","Cheetah",["Sloth","Tortoise","Panda"],"Long legs and a light build help.","Cheetahs are true sprinters.","They only keep up top speed for a short time."],
+        ["Which bird is the fastest swimmer?", "The penguin", ["The swan", "The duck", "The seagull"], "It cannot fly, but it swims all the better.", "A gentoo penguin reaches over thirty kilometres an hour under water.", "Its feathers overlap like roof tiles, so no water gets through."],
         ["Which bird is famous for extremely fast dives?","Peregrine falcon",["Penguin","Chicken","Ostrich"],"It hunts from the air.","The peregrine falcon is one of the fastest animals.","In a dive it can exceed 300 km/h."],
         ["Why does a fast fish have a streamlined body?","To have less resistance",["To be heavier","To sing louder","To catch more air"],"A smooth shape cuts through water more easily.","Streamlining reduces water resistance.","Dolphins have a streamlined shape too."],
         ["Which one runs faster: a horse or a tortoise?","Horse",["Tortoise","Equally fast","Neither of them"],"It has long powerful legs.","A horse is much faster than a tortoise.","Horses can reach high speeds at a gallop."],
@@ -232,7 +232,7 @@
         ["Which animal has eight arms?","Octopus",["Shark","Dolphin","Crab"],"It can hide very well.","An octopus has eight arms.","Octopuses are highly intelligent molluscs."],
         ["Which sea animal is the largest animal on Earth?","Blue whale",["Great white shark","Dolphin","Orca"],"It is an enormous whale.","The blue whale is the largest known animal.","It can grow more than 25 metres long."],
         ["How do most fish breathe?","With gills",["With lungs","Through their skin","With feathers"],"They take oxygen from the water.","Gills take up oxygen from water.","Water flows past the gill filaments."],
-        ["What helps fish steer and swim?","Fins",["Wings","Legs","Hair"],"They have several different fins.","Fins help with movement and balance.","The tail fin often provides a lot of thrust."],
+        ["What helps fish steer and swim?","Fins",["Wings","Legs","Hair"],"They sit on the back, the belly and the tail.","Fins help with movement and balance.","The tail fin often provides a lot of thrust."],
         ["Which animal can live both in the sea and on land?","Sea turtle",["Tuna","Jellyfish","Seahorse"],"It comes ashore to lay eggs.","Sea turtles live in the sea but lay eggs on land.","Females often return to the beach where they hatched."],
         ["What is coral actually?","A colony of small animals",["A plant","A stone","A fish"],"It forms reefs.","Corals consist of very many small polyps.","Coral reefs are important habitats."],
         ["Why do whales come to the surface?","To breathe",["To wash their gills","To sleep on the beach","To cook food"],"They are mammals.","Whales breathe air with lungs.","They breathe through blowholes."],
@@ -246,7 +246,7 @@
         ["Why do many jungle animals have camouflage?","To stand out less",["To sing louder","To make more rain","To grow faster"],"Patterns match leaves and shadow.","Camouflage helps animals hunt or hide.","Many jaguars have spots that mimic shadows."],
         ["Which big cat lives in the jungles of the Americas?","Jaguar",["Lion","Snow leopard","Lynx"],"It has rosettes on its coat.","Jaguars live in parts of Central and South America.","They swim remarkably well."],
         ["Why are rainforest trees so important?","They provide food and living space",["They make no oxygen","They stop all the rain","They are only decoration"],"Many animals live in different tree layers.","Rainforest trees form complex habitats.","Some animals almost never come down to the forest floor."],
-        ["Which reptile can change colour?","Chameleon",["Tortoise","Crocodile","Always a snake"],"It also uses colour to communicate.","Chameleons can adjust their colour pattern.","Colour change helps with temperature and signals."],
+        ["Which reptile can change colour?","Chameleon",["Tortoise","Crocodile","A snake"],"It also uses colour to communicate.","Chameleons can adjust their colour pattern.","Colour change helps with temperature and signals."],
         ["What is a rainforest?","A warm forest with a lot of rainfall",["A frozen desert","A grassland without trees","A sea"],"It is very rich in species.","Tropical rainforests get a great deal of rain.","They are among the most biodiverse ecosystems."],
         ["Why do howler monkeys call so loudly?","To communicate with their group",["To make rain","To push trees over","To swim"],"Their call carries far through the forest.","Howler monkeys use loud sounds to communicate.","An enlarged throat structure amplifies the call."],
         ["Which animal can catch insects with a long tongue?","Chameleon",["Elephant","Gorilla","Toucan"],"The tongue shoots forward very quickly.","Chameleons catch prey with their long tongue.","The tongue can accelerate extremely fast."]
@@ -280,7 +280,7 @@
       oceanen_natuur: [
         ["What covers most of the Earth?","Water",["Desert","Forest","Ice"],"Oceans take up an enormous amount of space.","About 71% of the Earth is covered by water.","Most of that water is salty sea water."],
         ["Which ocean is the largest?","Pacific Ocean",["Atlantic Ocean","Indian Ocean","Arctic Ocean"],"It lies between Asia and America.","The Pacific is the largest ocean.","It covers about a third of the surface of the Earth."],
-        ["What is melted rock that comes out of a volcano called?","Lava",["Magma underground","Clay","Sand"],"Outside the Earth we call it this.","At the surface melted rock is called lava.","Underground we call it magma."],
+        ["What is melted rock that comes out of a volcano called?","Lava",["Magma","Clay","Sand"],"Outside the Earth we call it this.","At the surface melted rock is called lava.","Underground we call it magma."],
         ["What is an island?","Land completely surrounded by water",["A high cloud","A river","A desert"],"You have to cross water to get there.","An island is surrounded by water on all sides.","Greenland is the largest island that is not a continent."],
         ["What is a mountain range?","A series of mountains",["A wide river","A sea","A group of islands"],"The Alps are one.","A mountain range is made of connected mountains.","The Himalayas contain the highest mountains on Earth."],
         ["What is a river mouth?","The place where a river ends",["The source of a river","A mountain top","A desert"],"The river often flows into a sea or a lake.","A river mouth is the end of a river.","Some rivers form a delta at the mouth."],
