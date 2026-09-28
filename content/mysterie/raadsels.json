@@ -1,0 +1,2607 @@
+{
+  "world": "mysterie",
+  "topic": "raadsels",
+  "note": "Twintig nieuwe raadsels, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "mysterie-raadsels-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Bladeren die geen boom zijn",
+      "artBrief": "Een oude houten tafel met een leeslampje en een gesloten koffer, mysterieus licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik heb bladeren, maar ben geen boom. Wat ben ik?",
+          "answer": "Een boek",
+          "wrong": [
+            "Een steen",
+            "Een wolk",
+            "Een schoen"
+          ],
+          "hint": "Je slaat me om.",
+          "explanation": "De bladzijden van een boek heten ook bladeren.",
+          "fact": "In oude boeken telde men bladen, niet pagina's."
+        },
+        "en": {
+          "prompt": "I have leaves but I am not a tree. What am I?",
+          "answer": "A book",
+          "wrong": [
+            "A stone",
+            "A cloud",
+            "A shoe"
+          ],
+          "hint": "You turn me over.",
+          "explanation": "The pages of a book are also called leaves.",
+          "fact": "In old books people counted leaves, not pages."
+        },
+        "de": {
+          "prompt": "Ich habe Blätter, bin aber kein Baum. Was bin ich?",
+          "answer": "Ein Buch",
+          "wrong": [
+            "Ein Stein",
+            "Eine Wolke",
+            "Ein Schuh"
+          ],
+          "hint": "Du schlägst mich um.",
+          "explanation": "Die Seiten eines Buches heißen auch Blätter.",
+          "fact": "In alten Büchern zählte man Blätter, nicht Seiten."
+        },
+        "fr": {
+          "prompt": "J'ai des feuilles mais je ne suis pas un arbre. Qui suis-je ?",
+          "answer": "Un livre",
+          "wrong": [
+            "Une pierre",
+            "Un nuage",
+            "Une chaussure"
+          ],
+          "hint": "On me tourne.",
+          "explanation": "Les pages d'un livre s'appellent aussi des feuilles.",
+          "fact": "Dans les vieux livres on comptait les feuilles, pas les pages."
+        },
+        "es": {
+          "prompt": "Tengo hojas pero no soy un árbol. ¿Qué soy?",
+          "answer": "Un libro",
+          "wrong": [
+            "Una piedra",
+            "Una nube",
+            "Un zapato"
+          ],
+          "hint": "Me pasas una a una.",
+          "explanation": "Las páginas de un libro también se llaman hojas.",
+          "fact": "En los libros antiguos se contaban hojas, no páginas."
+        },
+        "it": {
+          "prompt": "Ho delle foglie ma non sono un albero. Che cosa sono?",
+          "answer": "Un libro",
+          "wrong": [
+            "Una pietra",
+            "Una nuvola",
+            "Una scarpa"
+          ],
+          "hint": "Mi giri una a una.",
+          "explanation": "Le pagine di un libro si chiamano anche fogli.",
+          "fact": "Nei libri antichi si contavano i fogli, non le pagine."
+        },
+        "pt": {
+          "prompt": "Tenho folhas mas não sou uma árvore. O que sou?",
+          "answer": "Um livro",
+          "wrong": [
+            "Uma pedra",
+            "Uma nuvem",
+            "Um sapato"
+          ],
+          "hint": "Viras-me uma a uma.",
+          "explanation": "As páginas de um livro também se chamam folhas.",
+          "fact": "Nos livros antigos contavam-se folhas, não páginas."
+        },
+        "da": {
+          "prompt": "Jeg har blade, men er ikke et træ. Hvad er jeg?",
+          "answer": "En bog",
+          "wrong": [
+            "En sten",
+            "En sky",
+            "En sko"
+          ],
+          "hint": "Du vender mig.",
+          "explanation": "En bogs sider kaldes også blade.",
+          "fact": "I gamle bøger talte man blade, ikke sider."
+        },
+        "ru": {
+          "prompt": "У меня есть листы, но я не дерево. Что я такое?",
+          "answer": "Книга",
+          "wrong": [
+            "Камень",
+            "Облако",
+            "Ботинок"
+          ],
+          "hint": "Меня перелистывают.",
+          "explanation": "Страницы книги тоже называют листами.",
+          "fact": "В старых книгах считали листы, а не страницы."
+        },
+        "ar": {
+          "prompt": "لي أوراق ولست شجرة. ما أنا؟",
+          "answer": "كتاب",
+          "wrong": [
+            "حجر",
+            "سحابة",
+            "حذاء"
+          ],
+          "hint": "تقلّبني ورقة ورقة.",
+          "explanation": "صفحات الكتاب تسمى أيضًا أوراقًا.",
+          "fact": "في الكتب القديمة كانوا يعدّون الأوراق لا الصفحات."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Een staart zonder dier",
+      "artBrief": "Een lentehemel met wolken en een lang lint dat in de wind danst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik heb een staart, maar ben geen dier. Wat ben ik?",
+          "answer": "Een vlieger",
+          "wrong": [
+            "Een stoel",
+            "Een berg",
+            "Een lamp"
+          ],
+          "hint": "Ik hou van wind.",
+          "explanation": "De staart van een vlieger houdt hem recht in de lucht.",
+          "fact": "Zonder staart gaat een vlieger tollen en duikt hij omlaag."
+        },
+        "en": {
+          "prompt": "I have a tail but I am not an animal. What am I?",
+          "answer": "A kite",
+          "wrong": [
+            "A chair",
+            "A mountain",
+            "A lamp"
+          ],
+          "hint": "I love the wind.",
+          "explanation": "A kite's tail keeps it steady in the air.",
+          "fact": "Without a tail a kite spins round and dives down."
+        },
+        "de": {
+          "prompt": "Ich habe einen Schwanz, bin aber kein Tier. Was bin ich?",
+          "answer": "Ein Drachen",
+          "wrong": [
+            "Ein Stuhl",
+            "Ein Berg",
+            "Eine Lampe"
+          ],
+          "hint": "Ich mag Wind.",
+          "explanation": "Der Schwanz eines Drachens hält ihn ruhig in der Luft.",
+          "fact": "Ohne Schwanz dreht sich ein Drachen und stürzt ab."
+        },
+        "fr": {
+          "prompt": "J'ai une queue mais je ne suis pas un animal. Qui suis-je ?",
+          "answer": "Un cerf-volant",
+          "wrong": [
+            "Une chaise",
+            "Une montagne",
+            "Une lampe"
+          ],
+          "hint": "J'aime le vent.",
+          "explanation": "La queue d'un cerf-volant le tient droit dans l'air.",
+          "fact": "Sans queue, il tourne sur lui-même et pique vers le sol."
+        },
+        "es": {
+          "prompt": "Tengo cola pero no soy un animal. ¿Qué soy?",
+          "answer": "Una cometa",
+          "wrong": [
+            "Una silla",
+            "Una montaña",
+            "Una lámpara"
+          ],
+          "hint": "Me gusta el viento.",
+          "explanation": "La cola de una cometa la mantiene firme en el aire.",
+          "fact": "Sin cola la cometa gira y cae en picado."
+        },
+        "it": {
+          "prompt": "Ho una coda ma non sono un animale. Che cosa sono?",
+          "answer": "Un aquilone",
+          "wrong": [
+            "Una sedia",
+            "Una montagna",
+            "Una lampada"
+          ],
+          "hint": "Amo il vento.",
+          "explanation": "La coda di un aquilone lo tiene dritto in aria.",
+          "fact": "Senza coda l'aquilone gira su se stesso e precipita."
+        },
+        "pt": {
+          "prompt": "Tenho cauda mas não sou um animal. O que sou?",
+          "answer": "Um papagaio de papel",
+          "wrong": [
+            "Uma cadeira",
+            "Uma montanha",
+            "Um candeeiro"
+          ],
+          "hint": "Gosto de vento.",
+          "explanation": "A cauda mantém o papagaio direito no ar.",
+          "fact": "Sem cauda ele roda sobre si e mergulha."
+        },
+        "da": {
+          "prompt": "Jeg har en hale, men er ikke et dyr. Hvad er jeg?",
+          "answer": "En drage",
+          "wrong": [
+            "En stol",
+            "Et bjerg",
+            "En lampe"
+          ],
+          "hint": "Jeg elsker vind.",
+          "explanation": "Dragens hale holder den rolig i luften.",
+          "fact": "Uden hale snurrer en drage rundt og styrter ned."
+        },
+        "ru": {
+          "prompt": "У меня есть хвост, но я не животное. Что я такое?",
+          "answer": "Воздушный змей",
+          "wrong": [
+            "Стул",
+            "Гора",
+            "Лампа"
+          ],
+          "hint": "Я люблю ветер.",
+          "explanation": "Хвост держит воздушного змея ровно в воздухе.",
+          "fact": "Без хвоста змей начинает вертеться и падает."
+        },
+        "ar": {
+          "prompt": "لي ذيل ولست حيوانًا. ما أنا؟",
+          "answer": "طائرة ورقية",
+          "wrong": [
+            "كرسي",
+            "جبل",
+            "مصباح"
+          ],
+          "hint": "أحب الريح.",
+          "explanation": "ذيل الطائرة الورقية يبقيها ثابتة في الهواء.",
+          "fact": "بلا ذيل تدور حول نفسها وتهوي."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Een hoed zonder hoofd",
+      "artBrief": "Een mistig bos met mos, varens en gefilterd zonlicht op de bosgrond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik heb een hoed, maar geen hoofd. Wat ben ik?",
+          "answer": "Een paddenstoel",
+          "wrong": [
+            "Een schoen",
+            "Een bord",
+            "Een stoel"
+          ],
+          "hint": "Ik groei in het bos.",
+          "explanation": "De bovenkant van een paddenstoel heet de hoed.",
+          "fact": "Onder die hoed zitten plaatjes vol sporen."
+        },
+        "en": {
+          "prompt": "I have a cap but no head. What am I?",
+          "answer": "A mushroom",
+          "wrong": [
+            "A shoe",
+            "A plate",
+            "A chair"
+          ],
+          "hint": "I grow in the woods.",
+          "explanation": "The top of a mushroom is called the cap.",
+          "fact": "Under that cap sit gills full of spores."
+        },
+        "de": {
+          "prompt": "Ich habe einen Hut, aber keinen Kopf. Was bin ich?",
+          "answer": "Ein Pilz",
+          "wrong": [
+            "Ein Schuh",
+            "Ein Teller",
+            "Ein Stuhl"
+          ],
+          "hint": "Ich wachse im Wald.",
+          "explanation": "Die Oberseite eines Pilzes heißt Hut.",
+          "fact": "Unter dem Hut sitzen Lamellen voller Sporen."
+        },
+        "fr": {
+          "prompt": "J'ai un chapeau mais pas de tête. Qui suis-je ?",
+          "answer": "Un champignon",
+          "wrong": [
+            "Une chaussure",
+            "Une assiette",
+            "Une chaise"
+          ],
+          "hint": "Je pousse en forêt.",
+          "explanation": "Le dessus d'un champignon s'appelle le chapeau.",
+          "fact": "Sous ce chapeau se cachent des lames pleines de spores."
+        },
+        "es": {
+          "prompt": "Tengo sombrero pero no cabeza. ¿Qué soy?",
+          "answer": "Una seta",
+          "wrong": [
+            "Un zapato",
+            "Un plato",
+            "Una silla"
+          ],
+          "hint": "Crezco en el bosque.",
+          "explanation": "La parte de arriba de una seta se llama sombrero.",
+          "fact": "Bajo ese sombrero hay láminas llenas de esporas."
+        },
+        "it": {
+          "prompt": "Ho un cappello ma non ho testa. Che cosa sono?",
+          "answer": "Un fungo",
+          "wrong": [
+            "Una scarpa",
+            "Un piatto",
+            "Una sedia"
+          ],
+          "hint": "Cresco nel bosco.",
+          "explanation": "La parte superiore di un fungo si chiama cappello.",
+          "fact": "Sotto il cappello ci sono lamelle piene di spore."
+        },
+        "pt": {
+          "prompt": "Tenho chapéu mas não tenho cabeça. O que sou?",
+          "answer": "Um cogumelo",
+          "wrong": [
+            "Um sapato",
+            "Um prato",
+            "Uma cadeira"
+          ],
+          "hint": "Cresço no bosque.",
+          "explanation": "A parte de cima de um cogumelo chama-se chapéu.",
+          "fact": "Sob esse chapéu há lâminas cheias de esporos."
+        },
+        "da": {
+          "prompt": "Jeg har en hat, men intet hoved. Hvad er jeg?",
+          "answer": "En svamp",
+          "wrong": [
+            "En sko",
+            "En tallerken",
+            "En stol"
+          ],
+          "hint": "Jeg vokser i skoven.",
+          "explanation": "Oversiden af en svamp kaldes hatten.",
+          "fact": "Under hatten sidder lameller fulde af sporer."
+        },
+        "ru": {
+          "prompt": "У меня есть шляпка, но нет головы. Что я такое?",
+          "answer": "Гриб",
+          "wrong": [
+            "Ботинок",
+            "Тарелка",
+            "Стул"
+          ],
+          "hint": "Я расту в лесу.",
+          "explanation": "Верхняя часть гриба так и называется — шляпка.",
+          "fact": "Под шляпкой прячутся пластинки со спорами."
+        },
+        "ar": {
+          "prompt": "لي قبعة وليس لي رأس. ما أنا؟",
+          "answer": "فطر",
+          "wrong": [
+            "حذاء",
+            "صحن",
+            "كرسي"
+          ],
+          "hint": "أنمو في الغابة.",
+          "explanation": "الجزء العلوي من الفطر يسمى القبعة.",
+          "fact": "تحت القبعة صفائح مليئة بالأبواغ."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vol gaten en toch vol water",
+      "artBrief": "Een glanzend aanrecht met schuim en waterdruppels in het licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik zit vol gaten en houd toch water vast. Wat ben ik?",
+          "answer": "Een spons",
+          "wrong": [
+            "Een emmer",
+            "Een steen",
+            "Een blad"
+          ],
+          "hint": "Je knijpt me uit.",
+          "explanation": "In de gaatjes van een spons blijft water hangen door aantrekking.",
+          "fact": "Een natuurlijke spons is eigenlijk het skelet van een zeedier."
+        },
+        "en": {
+          "prompt": "I am full of holes and still hold water. What am I?",
+          "answer": "A sponge",
+          "wrong": [
+            "A bucket",
+            "A stone",
+            "A leaf"
+          ],
+          "hint": "You squeeze me out.",
+          "explanation": "Water clings inside the tiny holes of a sponge.",
+          "fact": "A natural sponge is really the skeleton of a sea animal."
+        },
+        "de": {
+          "prompt": "Ich bin voller Löcher und halte doch Wasser. Was bin ich?",
+          "answer": "Ein Schwamm",
+          "wrong": [
+            "Ein Eimer",
+            "Ein Stein",
+            "Ein Blatt"
+          ],
+          "hint": "Du drückst mich aus.",
+          "explanation": "In den winzigen Löchern eines Schwamms bleibt Wasser hängen.",
+          "fact": "Ein Naturschwamm ist eigentlich das Skelett eines Meerestiers."
+        },
+        "fr": {
+          "prompt": "Je suis plein de trous et je retiens l'eau. Qui suis-je ?",
+          "answer": "Une éponge",
+          "wrong": [
+            "Un seau",
+            "Une pierre",
+            "Une feuille"
+          ],
+          "hint": "On me presse.",
+          "explanation": "L'eau s'accroche dans les minuscules trous de l'éponge.",
+          "fact": "Une éponge naturelle est en fait le squelette d'un animal marin."
+        },
+        "es": {
+          "prompt": "Estoy lleno de agujeros y aun así retengo agua. ¿Qué soy?",
+          "answer": "Una esponja",
+          "wrong": [
+            "Un cubo",
+            "Una piedra",
+            "Una hoja"
+          ],
+          "hint": "Me escurres.",
+          "explanation": "El agua se queda agarrada en los huequitos de la esponja.",
+          "fact": "Una esponja natural es en realidad el esqueleto de un animal marino."
+        },
+        "it": {
+          "prompt": "Sono pieno di buchi eppure trattengo l'acqua. Che cosa sono?",
+          "answer": "Una spugna",
+          "wrong": [
+            "Un secchio",
+            "Una pietra",
+            "Una foglia"
+          ],
+          "hint": "Mi strizzi.",
+          "explanation": "L'acqua resta aggrappata nei minuscoli fori della spugna.",
+          "fact": "Una spugna naturale è in realtà lo scheletro di un animale marino."
+        },
+        "pt": {
+          "prompt": "Estou cheio de buracos e ainda assim seguro água. O que sou?",
+          "answer": "Uma esponja",
+          "wrong": [
+            "Um balde",
+            "Uma pedra",
+            "Uma folha"
+          ],
+          "hint": "Espremes-me.",
+          "explanation": "A água fica presa nos buraquinhos da esponja.",
+          "fact": "Uma esponja natural é na verdade o esqueleto de um animal marinho."
+        },
+        "da": {
+          "prompt": "Jeg er fuld af huller og holder alligevel på vand. Hvad er jeg?",
+          "answer": "En svamp til opvask",
+          "wrong": [
+            "En spand",
+            "En sten",
+            "Et blad"
+          ],
+          "hint": "Du klemmer mig.",
+          "explanation": "Vandet klæber fast i de bittesmå huller.",
+          "fact": "En naturlig havsvamp er faktisk skelettet af et havdyr."
+        },
+        "ru": {
+          "prompt": "Я весь в дырках и всё же держу воду. Что я такое?",
+          "answer": "Губка",
+          "wrong": [
+            "Ведро",
+            "Камень",
+            "Лист"
+          ],
+          "hint": "Меня выжимают.",
+          "explanation": "Вода цепляется в крошечных отверстиях губки.",
+          "fact": "Природная губка — это на самом деле скелет морского животного."
+        },
+        "ar": {
+          "prompt": "أنا مليء بالثقوب ومع ذلك أحفظ الماء. ما أنا؟",
+          "answer": "إسفنجة",
+          "wrong": [
+            "دلو",
+            "حجر",
+            "ورقة"
+          ],
+          "hint": "تعصرني.",
+          "explanation": "الماء يعلق في ثقوب الإسفنجة الصغيرة.",
+          "fact": "الإسفنج الطبيعي هو في الحقيقة هيكل حيوان بحري."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Het volgt je altijd",
+      "artBrief": "Een zonnig plein met lange donkere strepen over de stenen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik volg je overal, maar raak je nooit aan. Wat ben ik?",
+          "answer": "Je schaduw",
+          "wrong": [
+            "Je schoen",
+            "Je stoel",
+            "Je jas"
+          ],
+          "hint": "Zonder licht ben ik weg.",
+          "explanation": "Je lichaam houdt licht tegen, en op de grond blijft een donkere vorm over.",
+          "fact": "Midden op de dag is die vorm het kortst."
+        },
+        "en": {
+          "prompt": "I follow you everywhere but never touch you. What am I?",
+          "answer": "Your shadow",
+          "wrong": [
+            "Your shoe",
+            "Your chair",
+            "Your coat"
+          ],
+          "hint": "Without light I am gone.",
+          "explanation": "Your body blocks the light and a dark shape is left on the ground.",
+          "fact": "At midday that shape is at its shortest."
+        },
+        "de": {
+          "prompt": "Ich folge dir überall, berühre dich aber nie. Was bin ich?",
+          "answer": "Dein Schatten",
+          "wrong": [
+            "Dein Schuh",
+            "Dein Stuhl",
+            "Deine Jacke"
+          ],
+          "hint": "Ohne Licht bin ich weg.",
+          "explanation": "Dein Körper hält Licht auf, und am Boden bleibt eine dunkle Form.",
+          "fact": "Mittags ist diese Form am kürzesten."
+        },
+        "fr": {
+          "prompt": "Je te suis partout mais je ne te touche jamais. Qui suis-je ?",
+          "answer": "Ton ombre",
+          "wrong": [
+            "Ta chaussure",
+            "Ta chaise",
+            "Ton manteau"
+          ],
+          "hint": "Sans lumière, je disparais.",
+          "explanation": "Ton corps arrête la lumière et il reste une forme sombre au sol.",
+          "fact": "À midi, cette forme est la plus courte."
+        },
+        "es": {
+          "prompt": "Te sigo a todas partes pero nunca te toco. ¿Qué soy?",
+          "answer": "Tu sombra",
+          "wrong": [
+            "Tu zapato",
+            "Tu silla",
+            "Tu abrigo"
+          ],
+          "hint": "Sin luz desaparezco.",
+          "explanation": "Tu cuerpo frena la luz y en el suelo queda una forma oscura.",
+          "fact": "Al mediodía esa forma es la más corta."
+        },
+        "it": {
+          "prompt": "Ti seguo ovunque ma non ti tocco mai. Che cosa sono?",
+          "answer": "La tua ombra",
+          "wrong": [
+            "La tua scarpa",
+            "La tua sedia",
+            "Il tuo cappotto"
+          ],
+          "hint": "Senza luce sparisco.",
+          "explanation": "Il tuo corpo ferma la luce e a terra resta una forma scura.",
+          "fact": "A mezzogiorno quella forma è la più corta."
+        },
+        "pt": {
+          "prompt": "Sigo-te por todo o lado mas nunca te toco. O que sou?",
+          "answer": "A tua sombra",
+          "wrong": [
+            "O teu sapato",
+            "A tua cadeira",
+            "O teu casaco"
+          ],
+          "hint": "Sem luz desapareço.",
+          "explanation": "O teu corpo trava a luz e no chão fica uma forma escura.",
+          "fact": "Ao meio-dia essa forma é a mais curta."
+        },
+        "da": {
+          "prompt": "Jeg følger dig overalt, men rører dig aldrig. Hvad er jeg?",
+          "answer": "Din skygge",
+          "wrong": [
+            "Din sko",
+            "Din stol",
+            "Din jakke"
+          ],
+          "hint": "Uden lys er jeg væk.",
+          "explanation": "Din krop stopper lyset, og på jorden bliver en mørk form tilbage.",
+          "fact": "Midt på dagen er den form kortest."
+        },
+        "ru": {
+          "prompt": "Я хожу за тобой всюду, но никогда не касаюсь. Что я?",
+          "answer": "Твоя тень",
+          "wrong": [
+            "Твой ботинок",
+            "Твой стул",
+            "Твоя куртка"
+          ],
+          "hint": "Без света меня нет.",
+          "explanation": "Твоё тело задерживает свет, и на земле остаётся тёмное пятно.",
+          "fact": "В полдень это пятно самое короткое."
+        },
+        "ar": {
+          "prompt": "أتبعك في كل مكان ولا ألمسك أبدًا. ما أنا؟",
+          "answer": "ظلّك",
+          "wrong": [
+            "حذاؤك",
+            "كرسيك",
+            "معطفك"
+          ],
+          "hint": "بلا ضوء أختفي.",
+          "explanation": "جسمك يحجب الضوء فيبقى على الأرض شكل داكن.",
+          "fact": "في منتصف النهار يكون هذا الشكل أقصر ما يكون."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Hoe meer je neemt, hoe meer je achterlaat",
+      "artBrief": "Een leeg zandstrand bij zonsopkomst met een spoor dat de verte in loopt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe meer je ervan neemt, hoe meer je achterlaat. Wat is het?",
+          "answer": "Voetstappen",
+          "wrong": [
+            "Appels",
+            "Munten",
+            "Bladeren"
+          ],
+          "hint": "Denk aan een strand.",
+          "explanation": "Elke stap die je zet, laat je achter je liggen.",
+          "fact": "In natte modder blijven stappen soms miljoenen jaren bewaard."
+        },
+        "en": {
+          "prompt": "The more you take of them, the more you leave behind. What are they?",
+          "answer": "Footsteps",
+          "wrong": [
+            "Apples",
+            "Coins",
+            "Leaves"
+          ],
+          "hint": "Think of a beach.",
+          "explanation": "Every step you take stays behind you.",
+          "fact": "In wet mud footprints sometimes survive for millions of years."
+        },
+        "de": {
+          "prompt": "Je mehr man davon nimmt, desto mehr lässt man zurück. Was ist es?",
+          "answer": "Fußspuren",
+          "wrong": [
+            "Äpfel",
+            "Münzen",
+            "Blätter"
+          ],
+          "hint": "Denk an einen Strand.",
+          "explanation": "Jeden Schritt, den du machst, lässt du hinter dir liegen.",
+          "fact": "In nassem Schlamm bleiben Spuren manchmal Millionen Jahre erhalten."
+        },
+        "fr": {
+          "prompt": "Plus on en prend, plus on en laisse derrière soi. Qu'est-ce que c'est ?",
+          "answer": "Des pas",
+          "wrong": [
+            "Des pommes",
+            "Des pièces",
+            "Des feuilles"
+          ],
+          "hint": "Pense à une plage.",
+          "explanation": "Chaque pas que tu fais reste derrière toi.",
+          "fact": "Dans la boue séchée, des pas se conservent parfois des millions d'années."
+        },
+        "es": {
+          "prompt": "Cuantos más tomas, más dejas atrás. ¿Qué son?",
+          "answer": "Las pisadas",
+          "wrong": [
+            "Manzanas",
+            "Monedas",
+            "Hojas"
+          ],
+          "hint": "Piensa en una playa.",
+          "explanation": "Cada paso que das se queda detrás de ti.",
+          "fact": "En el barro seco algunas pisadas duran millones de años."
+        },
+        "it": {
+          "prompt": "Più ne prendi, più ne lasci dietro di te. Che cosa sono?",
+          "answer": "Le impronte",
+          "wrong": [
+            "Mele",
+            "Monete",
+            "Foglie"
+          ],
+          "hint": "Pensa a una spiaggia.",
+          "explanation": "Ogni passo che fai resta dietro di te.",
+          "fact": "Nel fango secco certe impronte durano milioni di anni."
+        },
+        "pt": {
+          "prompt": "Quanto mais levas, mais deixas para trás. O que são?",
+          "answer": "As pegadas",
+          "wrong": [
+            "Maçãs",
+            "Moedas",
+            "Folhas"
+          ],
+          "hint": "Pensa numa praia.",
+          "explanation": "Cada passo que dás fica atrás de ti.",
+          "fact": "Na lama seca algumas pegadas duram milhões de anos."
+        },
+        "da": {
+          "prompt": "Jo flere du tager, jo flere efterlader du. Hvad er det?",
+          "answer": "Fodspor",
+          "wrong": [
+            "Æbler",
+            "Mønter",
+            "Blade"
+          ],
+          "hint": "Tænk på en strand.",
+          "explanation": "Hvert skridt, du tager, bliver liggende bag dig.",
+          "fact": "I tørret mudder holder spor sig nogle gange i millioner af år."
+        },
+        "ru": {
+          "prompt": "Чем больше берёшь, тем больше оставляешь. Что это?",
+          "answer": "Следы",
+          "wrong": [
+            "Яблоки",
+            "Монеты",
+            "Листья"
+          ],
+          "hint": "Вспомни про пляж.",
+          "explanation": "Каждый твой шаг остаётся позади тебя.",
+          "fact": "В засохшей глине следы порой сохраняются миллионы лет."
+        },
+        "ar": {
+          "prompt": "كلما أخذت منها أكثر تركت خلفك أكثر. ما هي؟",
+          "answer": "آثار الأقدام",
+          "wrong": [
+            "تفاح",
+            "نقود",
+            "أوراق"
+          ],
+          "hint": "فكّر في الشاطئ.",
+          "explanation": "كل خطوة تخطوها تبقى خلفك.",
+          "fact": "في الطين اليابس تبقى بعض الآثار ملايين السنين."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Korter als het werkt",
+      "artBrief": "Een donkere kamer met een warme gloed op een tafelkleed.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik word korter terwijl ik werk en ik geef licht. Wat ben ik?",
+          "answer": "Een kaars",
+          "wrong": [
+            "Een raam",
+            "Een ster",
+            "Een gloeilamp"
+          ],
+          "hint": "Een vlammetje bovenop.",
+          "explanation": "Terwijl de was verbrandt, wordt de kaars steeds korter.",
+          "fact": "De vlam verbrandt eigenlijk damp van gesmolten was, niet de was zelf."
+        },
+        "en": {
+          "prompt": "I grow shorter as I work, and I give light. What am I?",
+          "answer": "A candle",
+          "wrong": [
+            "A window",
+            "A star",
+            "A light bulb"
+          ],
+          "hint": "A little flame on top.",
+          "explanation": "As the wax burns, the candle gets shorter and shorter.",
+          "fact": "The flame really burns vapour from melted wax, not the wax itself."
+        },
+        "de": {
+          "prompt": "Ich werde kürzer, während ich arbeite, und ich gebe Licht. Was bin ich?",
+          "answer": "Eine Kerze",
+          "wrong": [
+            "Ein Fenster",
+            "Ein Stern",
+            "Eine Glühlampe"
+          ],
+          "hint": "Oben ein Flämmchen.",
+          "explanation": "Während das Wachs verbrennt, wird die Kerze immer kürzer.",
+          "fact": "Die Flamme verbrennt eigentlich Dampf aus geschmolzenem Wachs."
+        },
+        "fr": {
+          "prompt": "Je raccourcis en travaillant et je donne de la lumière. Qui suis-je ?",
+          "answer": "Une bougie",
+          "wrong": [
+            "Une fenêtre",
+            "Une étoile",
+            "Une ampoule"
+          ],
+          "hint": "Une petite flamme au sommet.",
+          "explanation": "À mesure que la cire brûle, la bougie raccourcit.",
+          "fact": "La flamme brûle en réalité la vapeur de cire fondue."
+        },
+        "es": {
+          "prompt": "Me hago más corta mientras trabajo y doy luz. ¿Qué soy?",
+          "answer": "Una vela",
+          "wrong": [
+            "Una ventana",
+            "Una estrella",
+            "Una bombilla"
+          ],
+          "hint": "Con una llamita arriba.",
+          "explanation": "Mientras la cera arde, la vela se va acortando.",
+          "fact": "La llama quema en realidad el vapor de la cera derretida."
+        },
+        "it": {
+          "prompt": "Mi accorcio mentre lavoro e faccio luce. Che cosa sono?",
+          "answer": "Una candela",
+          "wrong": [
+            "Una finestra",
+            "Una stella",
+            "Una lampadina"
+          ],
+          "hint": "Una fiammella in cima.",
+          "explanation": "Mentre la cera brucia, la candela si accorcia sempre di più.",
+          "fact": "La fiamma in realtà brucia il vapore della cera fusa."
+        },
+        "pt": {
+          "prompt": "Fico mais curta enquanto trabalho e dou luz. O que sou?",
+          "answer": "Uma vela",
+          "wrong": [
+            "Uma janela",
+            "Uma estrela",
+            "Uma lâmpada"
+          ],
+          "hint": "Com uma chama no cimo.",
+          "explanation": "Enquanto a cera arde, a vela vai ficando mais curta.",
+          "fact": "A chama queima na verdade o vapor da cera derretida."
+        },
+        "da": {
+          "prompt": "Jeg bliver kortere, mens jeg arbejder, og jeg giver lys. Hvad er jeg?",
+          "answer": "Et stearinlys",
+          "wrong": [
+            "Et vindue",
+            "En stjerne",
+            "En pære"
+          ],
+          "hint": "En lille flamme øverst.",
+          "explanation": "Mens vokset brænder, bliver lyset kortere og kortere.",
+          "fact": "Flammen brænder faktisk damp fra smeltet voks."
+        },
+        "ru": {
+          "prompt": "Я становлюсь короче, когда работаю, и даю свет. Что я?",
+          "answer": "Свеча",
+          "wrong": [
+            "Окно",
+            "Звезда",
+            "Лампочка"
+          ],
+          "hint": "Сверху огонёк.",
+          "explanation": "Пока воск горит, свеча становится всё короче.",
+          "fact": "Пламя на самом деле сжигает пар растопленного воска."
+        },
+        "ar": {
+          "prompt": "أقصر كلما عملت وأعطي ضوءًا. ما أنا؟",
+          "answer": "شمعة",
+          "wrong": [
+            "نافذة",
+            "نجمة",
+            "مصباح كهربائي"
+          ],
+          "hint": "في أعلاي لهب صغير.",
+          "explanation": "بينما يحترق الشمع تقصر الشمعة أكثر فأكثر.",
+          "fact": "اللهب يحرق في الحقيقة بخار الشمع الذائب."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Een bed zonder slaper",
+      "artBrief": "Een rivierdal van boven gezien, met bochten tussen groene oevers.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik heb een bed, maar slaap nooit. Wat ben ik?",
+          "answer": "Een rivier",
+          "wrong": [
+            "Een hotel",
+            "Een stoel",
+            "Een kussen"
+          ],
+          "hint": "Ik stroom naar zee.",
+          "explanation": "De bodem waarover een rivier stroomt heet de rivierbedding.",
+          "fact": "Bij een overstroming zoekt een rivier soms een heel nieuw bed."
+        },
+        "en": {
+          "prompt": "I have a bed but never sleep. What am I?",
+          "answer": "A river",
+          "wrong": [
+            "A hotel",
+            "A chair",
+            "A pillow"
+          ],
+          "hint": "I flow to the sea.",
+          "explanation": "The ground a river flows over is called the riverbed.",
+          "fact": "In a flood a river sometimes carves itself a whole new bed."
+        },
+        "de": {
+          "prompt": "Ich habe ein Bett, schlafe aber nie. Was bin ich?",
+          "answer": "Ein Fluss",
+          "wrong": [
+            "Ein Hotel",
+            "Ein Stuhl",
+            "Ein Kissen"
+          ],
+          "hint": "Ich fließe zum Meer.",
+          "explanation": "Der Boden, über den ein Fluss fließt, heißt Flussbett.",
+          "fact": "Bei Hochwasser sucht sich ein Fluss manchmal ein ganz neues Bett."
+        },
+        "fr": {
+          "prompt": "J'ai un lit mais je ne dors jamais. Qui suis-je ?",
+          "answer": "Une rivière",
+          "wrong": [
+            "Un hôtel",
+            "Une chaise",
+            "Un oreiller"
+          ],
+          "hint": "Je coule vers la mer.",
+          "explanation": "Le fond sur lequel coule une rivière s'appelle son lit.",
+          "fact": "Lors d'une crue, une rivière se creuse parfois un tout nouveau lit."
+        },
+        "es": {
+          "prompt": "Tengo cama pero nunca duermo. ¿Qué soy?",
+          "answer": "Un río",
+          "wrong": [
+            "Un hotel",
+            "Una silla",
+            "Una almohada"
+          ],
+          "hint": "Voy hacia el mar.",
+          "explanation": "El fondo por el que corre un río se llama su lecho o cama.",
+          "fact": "En una crecida el río se abre a veces un lecho nuevo."
+        },
+        "it": {
+          "prompt": "Ho un letto ma non dormo mai. Che cosa sono?",
+          "answer": "Un fiume",
+          "wrong": [
+            "Un albergo",
+            "Una sedia",
+            "Un cuscino"
+          ],
+          "hint": "Scorro verso il mare.",
+          "explanation": "Il fondo su cui scorre un fiume si chiama letto.",
+          "fact": "In piena un fiume si scava a volte un letto del tutto nuovo."
+        },
+        "pt": {
+          "prompt": "Tenho leito mas nunca durmo. O que sou?",
+          "answer": "Um rio",
+          "wrong": [
+            "Um hotel",
+            "Uma cadeira",
+            "Uma almofada"
+          ],
+          "hint": "Corro para o mar.",
+          "explanation": "O fundo por onde corre um rio chama-se leito.",
+          "fact": "Numa cheia o rio abre às vezes um leito totalmente novo."
+        },
+        "da": {
+          "prompt": "Jeg har en seng, men sover aldrig. Hvad er jeg?",
+          "answer": "En flod",
+          "wrong": [
+            "Et hotel",
+            "En stol",
+            "En pude"
+          ],
+          "hint": "Jeg løber mod havet.",
+          "explanation": "Bunden, som en flod løber hen over, kaldes flodlejet.",
+          "fact": "Ved oversvømmelse graver en flod sig nogle gange et helt nyt leje."
+        },
+        "ru": {
+          "prompt": "Я всегда бегу и никогда не устаю. Что я такое?",
+          "answer": "Река",
+          "wrong": [
+            "Гора",
+            "Камень",
+            "Дерево"
+          ],
+          "hint": "Я спешу к морю.",
+          "explanation": "Река течёт день и ночь и никогда не останавливается.",
+          "fact": "Дно, по которому течёт река, называют руслом."
+        },
+        "ar": {
+          "prompt": "أجري دائمًا ولا أتعب أبدًا. ما أنا؟",
+          "answer": "النهر",
+          "wrong": [
+            "الجبل",
+            "الحجر",
+            "الشجرة"
+          ],
+          "hint": "أمضي نحو البحر.",
+          "explanation": "النهر يجري ليلًا ونهارًا ولا يتوقف.",
+          "fact": "القاع الذي يجري فوقه النهر يسمى المجرى."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Omhoog en omlaag zonder te bewegen",
+      "artBrief": "Een stenen trappenhuis in een oud gebouw, van onderaf gezien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik ga omhoog en omlaag, maar beweeg zelf niet. Wat ben ik?",
+          "answer": "Een trap",
+          "wrong": [
+            "Een deur",
+            "Een raam",
+            "Een muur"
+          ],
+          "hint": "Jij doet het werk.",
+          "explanation": "Een trap brengt je naar boven en beneden, terwijl hij stil blijft staan.",
+          "fact": "De hoogte van een trede is bijna overal ongeveer even groot."
+        },
+        "en": {
+          "prompt": "I go up and down but never move myself. What am I?",
+          "answer": "A staircase",
+          "wrong": [
+            "A door",
+            "A window",
+            "A wall"
+          ],
+          "hint": "You do the work.",
+          "explanation": "Stairs take you up and down while standing perfectly still.",
+          "fact": "The height of a step is almost the same everywhere in the world."
+        },
+        "de": {
+          "prompt": "Ich gehe hinauf und hinunter und bewege mich doch nie. Was bin ich?",
+          "answer": "Eine Treppe",
+          "wrong": [
+            "Eine Tür",
+            "Ein Fenster",
+            "Eine Mauer"
+          ],
+          "hint": "Du machst die Arbeit.",
+          "explanation": "Eine Treppe bringt dich hoch und runter und steht dabei völlig still.",
+          "fact": "Die Höhe einer Stufe ist fast überall auf der Welt gleich."
+        },
+        "fr": {
+          "prompt": "Je monte et je descends sans jamais bouger. Qui suis-je ?",
+          "answer": "Un escalier",
+          "wrong": [
+            "Une porte",
+            "Une fenêtre",
+            "Un mur"
+          ],
+          "hint": "C'est toi qui fais l'effort.",
+          "explanation": "Un escalier te mène en haut et en bas en restant parfaitement immobile.",
+          "fact": "La hauteur d'une marche est presque la même partout dans le monde."
+        },
+        "es": {
+          "prompt": "Subo y bajo pero nunca me muevo. ¿Qué soy?",
+          "answer": "Una escalera",
+          "wrong": [
+            "Una puerta",
+            "Una ventana",
+            "Una pared"
+          ],
+          "hint": "El esfuerzo lo pones tú.",
+          "explanation": "Una escalera te lleva arriba y abajo mientras se queda quieta.",
+          "fact": "La altura de un escalón es casi igual en todo el mundo."
+        },
+        "it": {
+          "prompt": "Salgo e scendo ma non mi muovo mai. Che cosa sono?",
+          "answer": "Una scala",
+          "wrong": [
+            "Una porta",
+            "Una finestra",
+            "Un muro"
+          ],
+          "hint": "La fatica la fai tu.",
+          "explanation": "Una scala ti porta su e giù restando perfettamente ferma.",
+          "fact": "L'altezza di un gradino è quasi uguale in tutto il mondo."
+        },
+        "pt": {
+          "prompt": "Subo e desço mas nunca me mexo. O que sou?",
+          "answer": "Uma escada",
+          "wrong": [
+            "Uma porta",
+            "Uma janela",
+            "Uma parede"
+          ],
+          "hint": "O esforço é teu.",
+          "explanation": "Uma escada leva-te acima e abaixo enquanto fica parada.",
+          "fact": "A altura de um degrau é quase igual no mundo inteiro."
+        },
+        "da": {
+          "prompt": "Jeg går op og ned, men flytter mig aldrig. Hvad er jeg?",
+          "answer": "En trappe",
+          "wrong": [
+            "En dør",
+            "Et vindue",
+            "En mur"
+          ],
+          "hint": "Du gør arbejdet.",
+          "explanation": "En trappe fører dig op og ned, mens den står helt stille.",
+          "fact": "Højden på et trin er næsten ens over hele verden."
+        },
+        "ru": {
+          "prompt": "Я иду вверх и вниз, но сама никогда не двигаюсь. Что я?",
+          "answer": "Лестница",
+          "wrong": [
+            "Дверь",
+            "Окно",
+            "Стена"
+          ],
+          "hint": "Работаешь ты.",
+          "explanation": "Лестница ведёт тебя вверх и вниз, оставаясь совершенно неподвижной.",
+          "fact": "Высота ступеньки почти одинакова во всём мире."
+        },
+        "ar": {
+          "prompt": "أصعد وأنزل ولا أتحرك أبدًا. ما أنا؟",
+          "answer": "السلّم",
+          "wrong": [
+            "الباب",
+            "النافذة",
+            "الجدار"
+          ],
+          "hint": "الجهد جهدك أنت.",
+          "explanation": "السلم يوصلك صعودًا ونزولًا وهو واقف تمامًا.",
+          "fact": "ارتفاع الدرجة متقارب في كل أنحاء العالم."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Een kop die niet drinkt",
+      "artBrief": "Een werkbank met houtkrullen, een hamer en een pot met ijzerwerk.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik heb een kop, maar drink nooit. Wat ben ik?",
+          "answer": "Een spijker",
+          "wrong": [
+            "Een beker",
+            "Een hond",
+            "Een boom"
+          ],
+          "hint": "De hamer raakt mij.",
+          "explanation": "De platte bovenkant van een spijker heet de kop.",
+          "fact": "Door die kop blijft het hout op zijn plaats zitten."
+        },
+        "en": {
+          "prompt": "I have a head but never drink. What am I?",
+          "answer": "A nail",
+          "wrong": [
+            "A cup",
+            "A dog",
+            "A tree"
+          ],
+          "hint": "The hammer hits me.",
+          "explanation": "The flat top of a nail is called its head.",
+          "fact": "That head is what holds the wood in place."
+        },
+        "de": {
+          "prompt": "Ich habe einen Kopf, trinke aber nie. Was bin ich?",
+          "answer": "Ein Nagel",
+          "wrong": [
+            "Eine Tasse",
+            "Ein Hund",
+            "Ein Baum"
+          ],
+          "hint": "Der Hammer trifft mich.",
+          "explanation": "Die flache Oberseite eines Nagels heißt Kopf.",
+          "fact": "Genau dieser Kopf hält das Holz an seinem Platz."
+        },
+        "fr": {
+          "prompt": "J'ai une tête mais je ne bois jamais. Qui suis-je ?",
+          "answer": "Un clou",
+          "wrong": [
+            "Une tasse",
+            "Un chien",
+            "Un arbre"
+          ],
+          "hint": "Le marteau me frappe.",
+          "explanation": "Le dessus plat d'un clou s'appelle la tête.",
+          "fact": "C'est cette tête qui maintient le bois en place."
+        },
+        "es": {
+          "prompt": "Tengo cabeza pero nunca bebo. ¿Qué soy?",
+          "answer": "Un clavo",
+          "wrong": [
+            "Una taza",
+            "Un perro",
+            "Un árbol"
+          ],
+          "hint": "El martillo me golpea.",
+          "explanation": "La parte plana de arriba de un clavo se llama cabeza.",
+          "fact": "Esa cabeza es la que sujeta la madera en su sitio."
+        },
+        "it": {
+          "prompt": "Ho una testa ma non bevo mai. Che cosa sono?",
+          "answer": "Un chiodo",
+          "wrong": [
+            "Una tazza",
+            "Un cane",
+            "Un albero"
+          ],
+          "hint": "Il martello mi colpisce.",
+          "explanation": "La parte piatta in cima a un chiodo si chiama testa.",
+          "fact": "È proprio quella testa a tenere fermo il legno."
+        },
+        "pt": {
+          "prompt": "Tenho cabeça mas nunca bebo. O que sou?",
+          "answer": "Um prego",
+          "wrong": [
+            "Uma chávena",
+            "Um cão",
+            "Uma árvore"
+          ],
+          "hint": "O martelo bate-me.",
+          "explanation": "A parte plana de cima de um prego chama-se cabeça.",
+          "fact": "É essa cabeça que segura a madeira no lugar."
+        },
+        "da": {
+          "prompt": "Jeg har et hoved, men drikker aldrig. Hvad er jeg?",
+          "answer": "Et søm",
+          "wrong": [
+            "En kop",
+            "En hund",
+            "Et træ"
+          ],
+          "hint": "Hammeren rammer mig.",
+          "explanation": "Den flade top på et søm kaldes hovedet.",
+          "fact": "Netop det hoved holder træet på plads."
+        },
+        "ru": {
+          "prompt": "У меня есть шляпка, но я не гриб. Что я такое?",
+          "answer": "Гвоздь",
+          "wrong": [
+            "Ложка",
+            "Камень",
+            "Книга"
+          ],
+          "hint": "По мне бьют молотком.",
+          "explanation": "Плоский верх гвоздя тоже называют шляпкой.",
+          "fact": "Именно она и держит доску на месте."
+        },
+        "ar": {
+          "prompt": "لي رأس ولا أشرب أبدًا. ما أنا؟",
+          "answer": "مسمار",
+          "wrong": [
+            "كوب",
+            "كلب",
+            "شجرة"
+          ],
+          "hint": "المطرقة تضربني.",
+          "explanation": "أعلى المسمار المسطح يسمى الرأس.",
+          "fact": "وهذا الرأس هو الذي يثبّت الخشب في مكانه."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Links wel, rechts nooit",
+      "artBrief": "Twee open handen naar elkaar toe boven een tafel, in zacht licht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat kun je in je linkerhand houden, maar nooit in je rechter?",
+          "answer": "Je rechterelleboog",
+          "wrong": [
+            "Een appel",
+            "Een sleutel",
+            "Een pen"
+          ],
+          "hint": "Probeer het maar eens.",
+          "explanation": "Je rechterhand kan onmogelijk de elleboog van diezelfde arm vastpakken.",
+          "fact": "Met de linkerhand lukt het meteen wel."
+        },
+        "en": {
+          "prompt": "What can you hold in your left hand but never in your right?",
+          "answer": "Your right elbow",
+          "wrong": [
+            "An apple",
+            "A key",
+            "A pen"
+          ],
+          "hint": "Go on, try it.",
+          "explanation": "Your right hand simply cannot grab the elbow of its own arm.",
+          "fact": "With the left hand it works straight away."
+        },
+        "de": {
+          "prompt": "Was kannst du in der linken Hand halten, nie aber in der rechten?",
+          "answer": "Deinen rechten Ellbogen",
+          "wrong": [
+            "Einen Apfel",
+            "Einen Schlüssel",
+            "Einen Stift"
+          ],
+          "hint": "Probier es ruhig aus.",
+          "explanation": "Die rechte Hand kann den Ellbogen ihres eigenen Arms nicht greifen.",
+          "fact": "Mit der linken Hand klappt es sofort."
+        },
+        "fr": {
+          "prompt": "Que peux-tu tenir dans la main gauche mais jamais dans la droite ?",
+          "answer": "Ton coude droit",
+          "wrong": [
+            "Une pomme",
+            "Une clé",
+            "Un stylo"
+          ],
+          "hint": "Essaie donc.",
+          "explanation": "La main droite ne peut pas attraper le coude de son propre bras.",
+          "fact": "Avec la main gauche, cela marche tout de suite."
+        },
+        "es": {
+          "prompt": "¿Qué puedes sostener con la mano izquierda pero nunca con la derecha?",
+          "answer": "Tu codo derecho",
+          "wrong": [
+            "Una manzana",
+            "Una llave",
+            "Un bolígrafo"
+          ],
+          "hint": "Pruébalo.",
+          "explanation": "La mano derecha no puede agarrar el codo de su propio brazo.",
+          "fact": "Con la izquierda sale a la primera."
+        },
+        "it": {
+          "prompt": "Che cosa puoi tenere con la mano sinistra ma mai con la destra?",
+          "answer": "Il tuo gomito destro",
+          "wrong": [
+            "Una mela",
+            "Una chiave",
+            "Una penna"
+          ],
+          "hint": "Provaci pure.",
+          "explanation": "La mano destra non può afferrare il gomito del proprio braccio.",
+          "fact": "Con la sinistra riesce subito."
+        },
+        "pt": {
+          "prompt": "O que podes segurar com a mão esquerda mas nunca com a direita?",
+          "answer": "O teu cotovelo direito",
+          "wrong": [
+            "Uma maçã",
+            "Uma chave",
+            "Uma caneta"
+          ],
+          "hint": "Experimenta.",
+          "explanation": "A mão direita não consegue agarrar o cotovelo do próprio braço.",
+          "fact": "Com a esquerda resulta logo."
+        },
+        "da": {
+          "prompt": "Hvad kan du holde i venstre hånd, men aldrig i højre?",
+          "answer": "Din højre albue",
+          "wrong": [
+            "Et æble",
+            "En nøgle",
+            "En kuglepen"
+          ],
+          "hint": "Prøv bare.",
+          "explanation": "Højre hånd kan umuligt gribe sin egen arms albue.",
+          "fact": "Med venstre hånd går det med det samme."
+        },
+        "ru": {
+          "prompt": "Что можно держать в левой руке, но никогда в правой?",
+          "answer": "Свой правый локоть",
+          "wrong": [
+            "Яблоко",
+            "Ключ",
+            "Ручку"
+          ],
+          "hint": "Попробуй сам.",
+          "explanation": "Правая рука не может схватить локоть собственной руки.",
+          "fact": "Левой рукой это получается сразу."
+        },
+        "ar": {
+          "prompt": "ما الذي تمسكه بيدك اليسرى ولا تمسكه أبدًا باليمنى؟",
+          "answer": "مرفقك الأيمن",
+          "wrong": [
+            "تفاحة",
+            "مفتاحًا",
+            "قلمًا"
+          ],
+          "hint": "جرّب بنفسك.",
+          "explanation": "اليد اليمنى لا تستطيع الإمساك بمرفق ذراعها نفسها.",
+          "fact": "أما باليسرى فينجح الأمر فورًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Altijd vooruit en toch onzichtbaar",
+      "artBrief": "Een lange weg die in de ochtendmist verdwijnt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik ben altijd voor je, maar je kunt me nooit zien. Wat ben ik?",
+          "answer": "De toekomst",
+          "wrong": [
+            "Je neus",
+            "De muur",
+            "De deur"
+          ],
+          "hint": "Morgen kom ik dichterbij.",
+          "explanation": "Wat nog moet komen ligt voor je, maar blijft onzichtbaar.",
+          "fact": "Zodra je de toekomst bereikt, heet het heden."
+        },
+        "en": {
+          "prompt": "I am always ahead of you but you can never see me. What am I?",
+          "answer": "The future",
+          "wrong": [
+            "Your nose",
+            "The wall",
+            "The door"
+          ],
+          "hint": "Tomorrow I come closer.",
+          "explanation": "What is still to come lies ahead of you and stays invisible.",
+          "fact": "The moment you reach the future, it is called the present."
+        },
+        "de": {
+          "prompt": "Ich bin immer vor dir, du kannst mich aber nie sehen. Was bin ich?",
+          "answer": "Die Zukunft",
+          "wrong": [
+            "Deine Nase",
+            "Die Wand",
+            "Die Tür"
+          ],
+          "hint": "Morgen komme ich näher.",
+          "explanation": "Was noch kommt, liegt vor dir und bleibt unsichtbar.",
+          "fact": "Sobald du die Zukunft erreichst, heißt sie Gegenwart."
+        },
+        "fr": {
+          "prompt": "Je suis toujours devant toi mais tu ne me vois jamais. Qui suis-je ?",
+          "answer": "L'avenir",
+          "wrong": [
+            "Ton nez",
+            "Le mur",
+            "La porte"
+          ],
+          "hint": "Demain, je me rapproche.",
+          "explanation": "Ce qui doit venir est devant toi et reste invisible.",
+          "fact": "Dès que tu atteins l'avenir, on l'appelle le présent."
+        },
+        "es": {
+          "prompt": "Siempre estoy delante de ti pero nunca me ves. ¿Qué soy?",
+          "answer": "El futuro",
+          "wrong": [
+            "Tu nariz",
+            "La pared",
+            "La puerta"
+          ],
+          "hint": "Mañana estaré más cerca.",
+          "explanation": "Lo que está por venir va delante de ti y sigue invisible.",
+          "fact": "En cuanto llegas al futuro, se llama presente."
+        },
+        "it": {
+          "prompt": "Sono sempre davanti a te ma non mi vedi mai. Che cosa sono?",
+          "answer": "Il futuro",
+          "wrong": [
+            "Il tuo naso",
+            "Il muro",
+            "La porta"
+          ],
+          "hint": "Domani mi avvicino.",
+          "explanation": "Ciò che deve ancora venire sta davanti a te e resta invisibile.",
+          "fact": "Appena raggiungi il futuro, si chiama presente."
+        },
+        "pt": {
+          "prompt": "Estou sempre à tua frente mas nunca me vês. O que sou?",
+          "answer": "O futuro",
+          "wrong": [
+            "O teu nariz",
+            "A parede",
+            "A porta"
+          ],
+          "hint": "Amanhã chego mais perto.",
+          "explanation": "O que está por vir fica à tua frente e continua invisível.",
+          "fact": "Assim que alcanças o futuro, chama-se presente."
+        },
+        "da": {
+          "prompt": "Jeg er altid foran dig, men du ser mig aldrig. Hvad er jeg?",
+          "answer": "Fremtiden",
+          "wrong": [
+            "Din næse",
+            "Væggen",
+            "Døren"
+          ],
+          "hint": "I morgen kommer jeg nærmere.",
+          "explanation": "Det, der endnu skal komme, ligger foran dig og forbliver usynligt.",
+          "fact": "Så snart du når fremtiden, hedder den nutid."
+        },
+        "ru": {
+          "prompt": "Я всегда впереди тебя, но увидеть меня нельзя. Что я?",
+          "answer": "Будущее",
+          "wrong": [
+            "Твой нос",
+            "Стена",
+            "Дверь"
+          ],
+          "hint": "Завтра я ближе.",
+          "explanation": "То, что ещё впереди, остаётся невидимым.",
+          "fact": "Как только ты достигаешь будущего, оно становится настоящим."
+        },
+        "ar": {
+          "prompt": "أنا دائمًا أمامك ولا تراني أبدًا. ما أنا؟",
+          "answer": "المستقبل",
+          "wrong": [
+            "أنفك",
+            "الجدار",
+            "الباب"
+          ],
+          "hint": "غدًا أقترب.",
+          "explanation": "ما لم يأتِ بعد يقع أمامك ويبقى غير مرئي.",
+          "fact": "وما إن تبلغ المستقبل حتى يصير حاضرًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Breekt zodra je het noemt",
+      "artBrief": "Een lege bibliotheekzaal met stofdeeltjes in een lichtstraal.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik breek zodra je mijn naam uitspreekt. Wat ben ik?",
+          "answer": "De stilte",
+          "wrong": [
+            "Een glas",
+            "Een tak",
+            "Een bot"
+          ],
+          "hint": "Zeg het maar zachtjes.",
+          "explanation": "Op het moment dat je het woord zegt, is de stilte voorbij.",
+          "fact": "Echt volledige stilte bestaat bijna nergens op aarde."
+        },
+        "en": {
+          "prompt": "I break the moment you say my name. What am I?",
+          "answer": "Silence",
+          "wrong": [
+            "A glass",
+            "A branch",
+            "A bone"
+          ],
+          "hint": "Say it softly.",
+          "explanation": "The instant you speak the word, the silence is over.",
+          "fact": "Truly complete silence hardly exists anywhere on earth."
+        },
+        "de": {
+          "prompt": "Ich zerbreche, sobald du meinen Namen sagst. Was bin ich?",
+          "answer": "Die Stille",
+          "wrong": [
+            "Ein Glas",
+            "Ein Ast",
+            "Ein Knochen"
+          ],
+          "hint": "Sag es leise.",
+          "explanation": "In dem Moment, in dem du das Wort sagst, ist die Stille vorbei.",
+          "fact": "Wirklich vollkommene Stille gibt es fast nirgends auf der Erde."
+        },
+        "fr": {
+          "prompt": "Je me brise dès que tu prononces mon nom. Qui suis-je ?",
+          "answer": "Le silence",
+          "wrong": [
+            "Un verre",
+            "Une branche",
+            "Un os"
+          ],
+          "hint": "Dis-le tout bas.",
+          "explanation": "À l'instant où tu prononces le mot, le silence est fini.",
+          "fact": "Le silence vraiment total n'existe presque nulle part sur Terre."
+        },
+        "es": {
+          "prompt": "Me rompo en cuanto dices mi nombre. ¿Qué soy?",
+          "answer": "El silencio",
+          "wrong": [
+            "Un vaso",
+            "Una rama",
+            "Un hueso"
+          ],
+          "hint": "Dilo bajito.",
+          "explanation": "En el instante en que pronuncias la palabra, el silencio se acaba.",
+          "fact": "El silencio absoluto casi no existe en ningún sitio de la Tierra."
+        },
+        "it": {
+          "prompt": "Mi rompo appena pronunci il mio nome. Che cosa sono?",
+          "answer": "Il silenzio",
+          "wrong": [
+            "Un bicchiere",
+            "Un ramo",
+            "Un osso"
+          ],
+          "hint": "Dillo piano.",
+          "explanation": "Nell'istante in cui dici la parola, il silenzio è finito.",
+          "fact": "Il silenzio davvero totale quasi non esiste sulla Terra."
+        },
+        "pt": {
+          "prompt": "Parto-me assim que dizes o meu nome. O que sou?",
+          "answer": "O silêncio",
+          "wrong": [
+            "Um copo",
+            "Um ramo",
+            "Um osso"
+          ],
+          "hint": "Diz baixinho.",
+          "explanation": "No instante em que dizes a palavra, o silêncio acabou.",
+          "fact": "Silêncio mesmo total quase não existe em parte alguma."
+        },
+        "da": {
+          "prompt": "Jeg går i stykker, så snart du siger mit navn. Hvad er jeg?",
+          "answer": "Stilheden",
+          "wrong": [
+            "Et glas",
+            "En gren",
+            "En knogle"
+          ],
+          "hint": "Sig det sagte.",
+          "explanation": "I samme øjeblik du siger ordet, er stilheden forbi.",
+          "fact": "Helt fuldkommen stilhed findes næsten ingen steder på Jorden."
+        },
+        "ru": {
+          "prompt": "Я исчезаю, как только ты произносишь моё имя. Что я?",
+          "answer": "Тишина",
+          "wrong": [
+            "Стакан",
+            "Ветка",
+            "Кость"
+          ],
+          "hint": "Скажи это тихо.",
+          "explanation": "В тот миг, когда ты говоришь слово, тишины уже нет.",
+          "fact": "Полной тишины почти нигде на Земле не бывает."
+        },
+        "ar": {
+          "prompt": "أنكسر حالما تنطق اسمي. ما أنا؟",
+          "answer": "الصمت",
+          "wrong": [
+            "كوب",
+            "غصن",
+            "عظمة"
+          ],
+          "hint": "قلها بهدوء.",
+          "explanation": "في اللحظة التي تنطق فيها الكلمة ينتهي الصمت.",
+          "fact": "الصمت التام لا يكاد يوجد في أي مكان على الأرض."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Zeventien schapen",
+      "artBrief": "Een donkere kamer met een warme oranje gloed op de muren en wat rook in de lucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Ik ben altijd hongerig en ga dood als ik drink. Wat ben ik?",
+          "answer": "Het vuur",
+          "wrong": [
+            "Een vis",
+            "Een plant",
+            "Een steen"
+          ],
+          "hint": "Ik eet hout en papier.",
+          "explanation": "Vuur heeft brandstof nodig om te blijven branden, en water dooft het meteen.",
+          "fact": "Vuur is geen ding maar een reactie: brandstof plus zuurstof plus warmte."
+        },
+        "en": {
+          "prompt": "I am always hungry and I die when I drink. What am I?",
+          "answer": "Fire",
+          "wrong": [
+            "A fish",
+            "A plant",
+            "A stone"
+          ],
+          "hint": "I eat wood and paper.",
+          "explanation": "Fire needs fuel to keep burning, and water puts it out at once.",
+          "fact": "Fire is not a thing but a reaction: fuel plus oxygen plus heat."
+        },
+        "de": {
+          "prompt": "Ich bin immer hungrig und sterbe, wenn ich trinke. Was bin ich?",
+          "answer": "Das Feuer",
+          "wrong": [
+            "Ein Fisch",
+            "Eine Pflanze",
+            "Ein Stein"
+          ],
+          "hint": "Ich esse Holz und Papier.",
+          "explanation": "Feuer braucht Brennstoff, und Wasser löscht es sofort.",
+          "fact": "Feuer ist kein Ding, sondern eine Reaktion: Brennstoff, Sauerstoff und Wärme."
+        },
+        "fr": {
+          "prompt": "J'ai toujours faim et je meurs si je bois. Qui suis-je ?",
+          "answer": "Le feu",
+          "wrong": [
+            "Un poisson",
+            "Une plante",
+            "Une pierre"
+          ],
+          "hint": "Je mange du bois et du papier.",
+          "explanation": "Le feu a besoin de combustible, et l'eau l'éteint aussitôt.",
+          "fact": "Le feu n'est pas une chose mais une réaction : combustible, oxygène et chaleur."
+        },
+        "es": {
+          "prompt": "Siempre tengo hambre y muero si bebo. ¿Qué soy?",
+          "answer": "El fuego",
+          "wrong": [
+            "Un pez",
+            "Una planta",
+            "Una piedra"
+          ],
+          "hint": "Como madera y papel.",
+          "explanation": "El fuego necesita combustible, y el agua lo apaga al instante.",
+          "fact": "El fuego no es una cosa sino una reacción: combustible, oxígeno y calor."
+        },
+        "it": {
+          "prompt": "Ho sempre fame e muoio se bevo. Che cosa sono?",
+          "answer": "Il fuoco",
+          "wrong": [
+            "Un pesce",
+            "Una pianta",
+            "Una pietra"
+          ],
+          "hint": "Mangio legna e carta.",
+          "explanation": "Il fuoco ha bisogno di combustibile, e l'acqua lo spegne subito.",
+          "fact": "Il fuoco non è una cosa ma una reazione: combustibile, ossigeno e calore."
+        },
+        "pt": {
+          "prompt": "Tenho sempre fome e morro se bebo. O que sou?",
+          "answer": "O fogo",
+          "wrong": [
+            "Um peixe",
+            "Uma planta",
+            "Uma pedra"
+          ],
+          "hint": "Como madeira e papel.",
+          "explanation": "O fogo precisa de combustível, e a água apaga-o logo.",
+          "fact": "O fogo não é uma coisa mas uma reação: combustível, oxigénio e calor."
+        },
+        "da": {
+          "prompt": "Jeg er altid sulten og dør, hvis jeg drikker. Hvad er jeg?",
+          "answer": "Ilden",
+          "wrong": [
+            "En fisk",
+            "En plante",
+            "En sten"
+          ],
+          "hint": "Jeg spiser træ og papir.",
+          "explanation": "Ild skal have brændsel, og vand slukker den med det samme.",
+          "fact": "Ild er ikke en ting, men en reaktion: brændsel, ilt og varme."
+        },
+        "ru": {
+          "prompt": "Я вечно голоден и умираю, когда пью. Что я такое?",
+          "answer": "Огонь",
+          "wrong": [
+            "Рыба",
+            "Растение",
+            "Камень"
+          ],
+          "hint": "Я ем дрова и бумагу.",
+          "explanation": "Огню нужно топливо, а вода гасит его сразу.",
+          "fact": "Огонь — не вещь, а реакция: топливо, кислород и тепло."
+        },
+        "ar": {
+          "prompt": "أنا جائع دائمًا وأموت إذا شربت. ما أنا؟",
+          "answer": "النار",
+          "wrong": [
+            "سمكة",
+            "نبتة",
+            "حجر"
+          ],
+          "hint": "آكل الخشب والورق.",
+          "explanation": "النار تحتاج وقودًا، والماء يطفئها فورًا.",
+          "fact": "النار ليست شيئًا بل تفاعل: وقود وأكسجين وحرارة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Een kilo tegen een kilo",
+      "artBrief": "Een ouderwetse balansweegschaal met twee gesloten zakken.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat weegt meer: een kilo veren of een kilo steen?",
+          "answer": "Ze wegen evenveel",
+          "wrong": [
+            "De veren",
+            "De steen",
+            "Dat kan niemand weten"
+          ],
+          "hint": "Lees wat er staat.",
+          "explanation": "Een kilo is altijd een kilo, hoe licht of zwaar het spul ook lijkt.",
+          "fact": "Een kilo veren neemt wel veel meer ruimte in."
+        },
+        "en": {
+          "prompt": "Which weighs more: a kilo of feathers or a kilo of stone?",
+          "answer": "They weigh the same",
+          "wrong": [
+            "The feathers",
+            "The stone",
+            "Nobody can tell"
+          ],
+          "hint": "Read what it says.",
+          "explanation": "A kilo is always a kilo, however light or heavy the stuff looks.",
+          "fact": "A kilo of feathers does take up far more room."
+        },
+        "de": {
+          "prompt": "Was wiegt mehr: ein Kilo Federn oder ein Kilo Steine?",
+          "answer": "Sie wiegen gleich viel",
+          "wrong": [
+            "Die Federn",
+            "Die Steine",
+            "Das weiß niemand"
+          ],
+          "hint": "Lies, was dasteht.",
+          "explanation": "Ein Kilo ist immer ein Kilo, wie leicht oder schwer es auch aussieht.",
+          "fact": "Ein Kilo Federn braucht allerdings viel mehr Platz."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui pèse le plus : un kilo de plumes ou un kilo de pierre ?",
+          "answer": "Ils pèsent pareil",
+          "wrong": [
+            "Les plumes",
+            "La pierre",
+            "Personne ne peut le dire"
+          ],
+          "hint": "Lis ce qui est écrit.",
+          "explanation": "Un kilo reste un kilo, si léger ou lourd que cela paraisse.",
+          "fact": "Un kilo de plumes occupe pourtant bien plus de place."
+        },
+        "es": {
+          "prompt": "¿Qué pesa más: un kilo de plumas o un kilo de piedra?",
+          "answer": "Pesan lo mismo",
+          "wrong": [
+            "Las plumas",
+            "La piedra",
+            "Nadie puede saberlo"
+          ],
+          "hint": "Lee lo que dice.",
+          "explanation": "Un kilo siempre es un kilo, por ligero o pesado que parezca.",
+          "fact": "Eso sí, un kilo de plumas ocupa mucho más sitio."
+        },
+        "it": {
+          "prompt": "Che cosa pesa di più: un chilo di piume o un chilo di pietra?",
+          "answer": "Pesano uguale",
+          "wrong": [
+            "Le piume",
+            "La pietra",
+            "Nessuno può saperlo"
+          ],
+          "hint": "Leggi bene la domanda.",
+          "explanation": "Un chilo resta un chilo, per quanto leggero o pesante sembri.",
+          "fact": "Un chilo di piume occupa però molto più spazio."
+        },
+        "pt": {
+          "prompt": "O que pesa mais: um quilo de penas ou um quilo de pedra?",
+          "answer": "Pesam o mesmo",
+          "wrong": [
+            "As penas",
+            "A pedra",
+            "Ninguém pode saber"
+          ],
+          "hint": "Lê o que está escrito.",
+          "explanation": "Um quilo é sempre um quilo, por mais leve ou pesado que pareça.",
+          "fact": "Um quilo de penas ocupa é muito mais espaço."
+        },
+        "da": {
+          "prompt": "Hvad vejer mest: et kilo fjer eller et kilo sten?",
+          "answer": "De vejer lige meget",
+          "wrong": [
+            "Fjerene",
+            "Stenen",
+            "Det kan ingen vide"
+          ],
+          "hint": "Læs, hvad der står.",
+          "explanation": "Et kilo er altid et kilo, uanset hvor let eller tungt det ser ud.",
+          "fact": "Et kilo fjer fylder til gengæld meget mere."
+        },
+        "ru": {
+          "prompt": "Что тяжелее: килограмм пуха или килограмм камня?",
+          "answer": "Весят одинаково",
+          "wrong": [
+            "Пух",
+            "Камень",
+            "Никто не знает"
+          ],
+          "hint": "Прочти внимательно.",
+          "explanation": "Килограмм всегда килограмм, каким бы лёгким он ни казался.",
+          "fact": "Хотя килограмм пуха занимает куда больше места."
+        },
+        "ar": {
+          "prompt": "أيهما أثقل: كيلو ريش أم كيلو حجر؟",
+          "answer": "وزنهما واحد",
+          "wrong": [
+            "الريش",
+            "الحجر",
+            "لا أحد يعرف"
+          ],
+          "hint": "اقرأ السؤال جيدًا.",
+          "explanation": "الكيلو يبقى كيلو مهما بدا خفيفًا أو ثقيلًا.",
+          "fact": "غير أن كيلو الريش يشغل حيزًا أكبر بكثير."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Drie vissers, drie vissen",
+      "artBrief": "Drie hengels op een steiger bij zonsopkomst boven stil water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Twee vaders en twee zonen vangen elk één vis, samen drie. Hoe kan dat?",
+          "answer": "Het zijn opa, vader en zoon",
+          "wrong": [
+            "Eén vis ontsnapte",
+            "Ze delen een vis",
+            "Er waren vier mensen"
+          ],
+          "hint": "Iemand is twee dingen tegelijk.",
+          "explanation": "De vader in het midden is tegelijk zoon van opa en vader van de jongen.",
+          "fact": "Dus zijn het drie mensen met vier rollen."
+        },
+        "en": {
+          "prompt": "Two fathers and two sons each catch one fish, three in all. How?",
+          "answer": "Grandad, dad and son",
+          "wrong": [
+            "One fish escaped",
+            "They share a fish",
+            "There were four people"
+          ],
+          "hint": "Someone is two things at once.",
+          "explanation": "The man in the middle is son to grandad and father to the boy.",
+          "fact": "So three people fill four roles."
+        },
+        "de": {
+          "prompt": "Zwei Väter und zwei Söhne fangen je einen Fisch, zusammen drei. Wie?",
+          "answer": "Es sind Opa, Vater und Sohn",
+          "wrong": [
+            "Ein Fisch entkam",
+            "Sie teilen einen",
+            "Es waren vier Leute"
+          ],
+          "hint": "Jemand ist zweierlei zugleich.",
+          "explanation": "Der Mann in der Mitte ist Sohn des Opas und Vater des Jungen.",
+          "fact": "Drei Menschen füllen also vier Rollen aus."
+        },
+        "fr": {
+          "prompt": "Deux pères et deux fils pêchent un poisson chacun, trois en tout. Comment ?",
+          "answer": "Grand-père, père et fils",
+          "wrong": [
+            "Un poisson s'est enfui",
+            "Ils partagent un poisson",
+            "Ils étaient quatre"
+          ],
+          "hint": "Quelqu'un est deux choses à la fois.",
+          "explanation": "L'homme du milieu est le fils du grand-père et le père du garçon.",
+          "fact": "Trois personnes remplissent donc quatre rôles."
+        },
+        "es": {
+          "prompt": "Dos padres y dos hijos pescan un pez cada uno, tres en total. ¿Cómo?",
+          "answer": "Son abuelo, padre e hijo",
+          "wrong": [
+            "Un pez escapó",
+            "Comparten un pez",
+            "Eran cuatro personas"
+          ],
+          "hint": "Alguien es dos cosas a la vez.",
+          "explanation": "El hombre del medio es hijo del abuelo y padre del niño.",
+          "fact": "Tres personas cubren así cuatro papeles."
+        },
+        "it": {
+          "prompt": "Due padri e due figli pescano un pesce ciascuno, tre in tutto. Come?",
+          "answer": "Nonno, padre e figlio",
+          "wrong": [
+            "Un pesce è scappato",
+            "Ne dividono uno",
+            "Erano quattro persone"
+          ],
+          "hint": "Qualcuno è due cose insieme.",
+          "explanation": "L'uomo di mezzo è figlio del nonno e padre del ragazzo.",
+          "fact": "Tre persone coprono così quattro ruoli."
+        },
+        "pt": {
+          "prompt": "Dois pais e dois filhos pescam um peixe cada um, três ao todo. Como?",
+          "answer": "Avô, pai e filho",
+          "wrong": [
+            "Um peixe fugiu",
+            "Partilham um peixe",
+            "Eram quatro pessoas"
+          ],
+          "hint": "Alguém é duas coisas ao mesmo tempo.",
+          "explanation": "O homem do meio é filho do avô e pai do rapaz.",
+          "fact": "Três pessoas cumprem assim quatro papéis."
+        },
+        "da": {
+          "prompt": "To fædre og to sønner fanger én fisk hver, tre i alt. Hvordan?",
+          "answer": "Farfar, far og søn",
+          "wrong": [
+            "En fisk slap væk",
+            "De deler en fisk",
+            "De var fire"
+          ],
+          "hint": "Nogen er to ting på én gang.",
+          "explanation": "Manden i midten er søn af farfar og far til drengen.",
+          "fact": "Tre mennesker udfylder altså fire roller."
+        },
+        "ru": {
+          "prompt": "Два отца и два сына поймали по рыбе, всего три. Как?",
+          "answer": "Дед, отец и сын",
+          "wrong": [
+            "Одна рыба сбежала",
+            "Одну поделили",
+            "Их было четверо"
+          ],
+          "hint": "Кто-то сразу в двух ролях.",
+          "explanation": "Средний мужчина — сын деда и отец мальчика.",
+          "fact": "Три человека заняли четыре роли."
+        },
+        "ar": {
+          "prompt": "أبوان وابنان اصطاد كل منهم سمكة، والمجموع ثلاث. كيف؟",
+          "answer": "جد وأب وابن",
+          "wrong": [
+            "هربت سمكة",
+            "تقاسموا واحدة",
+            "كانوا أربعة"
+          ],
+          "hint": "أحدهم اثنان في الوقت نفسه.",
+          "explanation": "الرجل الأوسط ابن للجد وأب للصبي.",
+          "fact": "فثلاثة أشخاص يملؤون أربعة أدوار."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Drie van de vijf",
+      "artBrief": "Kinderen op een schoolplein die naar elkaar roepen, van achteren gezien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Het is van jou, maar anderen gebruiken het veel vaker dan jij. Wat is het?",
+          "answer": "Je naam",
+          "wrong": [
+            "Je fiets",
+            "Je tas",
+            "Je bed"
+          ],
+          "hint": "Je hoort het de hele dag.",
+          "explanation": "Andere mensen zeggen jouw naam veel vaker dan jij hem zelf uitspreekt.",
+          "fact": "Je hoort je eigen naam zelfs in een rumoerige zaal er meteen uit."
+        },
+        "en": {
+          "prompt": "It belongs to you, yet others use it far more than you do. What is it?",
+          "answer": "Your name",
+          "wrong": [
+            "Your bike",
+            "Your bag",
+            "Your bed"
+          ],
+          "hint": "You hear it all day long.",
+          "explanation": "Other people say your name far more often than you say it yourself.",
+          "fact": "You pick your own name out of a noisy room straight away."
+        },
+        "de": {
+          "prompt": "Es gehört dir, doch andere benutzen es viel öfter als du. Was ist es?",
+          "answer": "Dein Name",
+          "wrong": [
+            "Dein Rad",
+            "Deine Tasche",
+            "Dein Bett"
+          ],
+          "hint": "Du hörst ihn den ganzen Tag.",
+          "explanation": "Andere sagen deinen Namen viel öfter, als du ihn selbst aussprichst.",
+          "fact": "Sogar in einem lauten Saal hörst du deinen Namen sofort heraus."
+        },
+        "fr": {
+          "prompt": "C'est à toi, mais les autres s'en servent bien plus que toi. Qu'est-ce ?",
+          "answer": "Ton prénom",
+          "wrong": [
+            "Ton vélo",
+            "Ton sac",
+            "Ton lit"
+          ],
+          "hint": "Tu l'entends toute la journée.",
+          "explanation": "Les autres disent ton prénom bien plus souvent que toi.",
+          "fact": "Même dans une salle bruyante, tu le repères tout de suite."
+        },
+        "es": {
+          "prompt": "Es tuyo, pero los demás lo usan mucho más que tú. ¿Qué es?",
+          "answer": "Tu nombre",
+          "wrong": [
+            "Tu bici",
+            "Tu bolsa",
+            "Tu cama"
+          ],
+          "hint": "Lo oyes todo el día.",
+          "explanation": "Los demás dicen tu nombre mucho más a menudo que tú mismo.",
+          "fact": "Incluso en una sala ruidosa lo reconoces al instante."
+        },
+        "it": {
+          "prompt": "È tuo, ma gli altri lo usano molto più di te. Che cos'è?",
+          "answer": "Il tuo nome",
+          "wrong": [
+            "La tua bici",
+            "La tua borsa",
+            "Il tuo letto"
+          ],
+          "hint": "Lo senti tutto il giorno.",
+          "explanation": "Gli altri dicono il tuo nome molto più spesso di quanto lo dica tu.",
+          "fact": "Anche in una sala rumorosa lo riconosci subito."
+        },
+        "pt": {
+          "prompt": "É teu, mas os outros usam-no muito mais do que tu. O que é?",
+          "answer": "O teu nome",
+          "wrong": [
+            "A tua bicicleta",
+            "A tua mochila",
+            "A tua cama"
+          ],
+          "hint": "Ouve-lo o dia inteiro.",
+          "explanation": "Os outros dizem o teu nome muito mais vezes do que tu.",
+          "fact": "Mesmo numa sala barulhenta reconhece-lo logo."
+        },
+        "da": {
+          "prompt": "Det er dit, men andre bruger det langt mere end du. Hvad er det?",
+          "answer": "Dit navn",
+          "wrong": [
+            "Din cykel",
+            "Din taske",
+            "Din seng"
+          ],
+          "hint": "Du hører det hele dagen.",
+          "explanation": "Andre siger dit navn langt oftere, end du selv gør.",
+          "fact": "Selv i en larmende sal opfanger du dit eget navn med det samme."
+        },
+        "ru": {
+          "prompt": "Это твоё, но другие пользуются им чаще, чем ты. Что это?",
+          "answer": "Твоё имя",
+          "wrong": [
+            "Твой велосипед",
+            "Твоя сумка",
+            "Твоя кровать"
+          ],
+          "hint": "Ты слышишь это весь день.",
+          "explanation": "Другие произносят твоё имя гораздо чаще, чем ты сам.",
+          "fact": "Даже в шумном зале ты сразу выхватываешь своё имя."
+        },
+        "ar": {
+          "prompt": "هو لك، لكن غيرك يستعمله أكثر منك بكثير. ما هو؟",
+          "answer": "اسمك",
+          "wrong": [
+            "دراجتك",
+            "حقيبتك",
+            "سريرك"
+          ],
+          "hint": "تسمعه طوال اليوم.",
+          "explanation": "الناس ينادون اسمك أكثر بكثير مما تنطقه أنت.",
+          "fact": "حتى في قاعة صاخبة تلتقط اسمك فورًا."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "De slak en de put",
+      "artBrief": "Een oude stenen put met mos en een touw dat in het donker verdwijnt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Een slak klimt drie meter per dag en zakt 's nachts twee. Hoeveel dagen tot tien meter?",
+          "answer": "Acht dagen",
+          "wrong": [
+            "Tien dagen",
+            "Vijf dagen",
+            "Twaalf dagen"
+          ],
+          "hint": "Op de laatste dag zakt hij niet meer terug.",
+          "explanation": "Na zeven dagen zit hij op zeven meter, en op dag acht klimt hij er in één keer uit.",
+          "fact": "Vergeet je die laatste dag, dan reken je er twee te veel."
+        },
+        "en": {
+          "prompt": "A snail climbs three metres by day and slips two at night. How many days for ten metres?",
+          "answer": "Eight days",
+          "wrong": [
+            "Ten days",
+            "Five days",
+            "Twelve days"
+          ],
+          "hint": "On the last day it does not slip back.",
+          "explanation": "After seven days it sits at seven metres, and on day eight it climbs straight out.",
+          "fact": "Forget that last day and you count two days too many."
+        },
+        "de": {
+          "prompt": "Eine Schnecke steigt am Tag drei Meter und rutscht nachts zwei. Wie viele Tage bis zehn?",
+          "answer": "Acht Tage",
+          "wrong": [
+            "Zehn Tage",
+            "Fünf Tage",
+            "Zwölf Tage"
+          ],
+          "hint": "Am letzten Tag rutscht sie nicht zurück.",
+          "explanation": "Nach sieben Tagen ist sie bei sieben Metern, und am achten klettert sie hinaus.",
+          "fact": "Vergisst man diesen letzten Tag, zählt man zwei zu viel."
+        },
+        "fr": {
+          "prompt": "Un escargot monte de trois mètres le jour et glisse de deux la nuit. Combien de jours ?",
+          "answer": "Huit jours",
+          "wrong": [
+            "Dix jours",
+            "Cinq jours",
+            "Douze jours"
+          ],
+          "hint": "Le dernier jour, il ne glisse plus.",
+          "explanation": "Après sept jours il est à sept mètres, et le huitième il sort d'un coup.",
+          "fact": "Si on oublie ce dernier jour, on compte deux jours de trop."
+        },
+        "es": {
+          "prompt": "Un caracol sube tres metros de día y baja dos de noche. ¿Cuántos días para diez metros?",
+          "answer": "Ocho días",
+          "wrong": [
+            "Diez días",
+            "Cinco días",
+            "Doce días"
+          ],
+          "hint": "El último día ya no resbala.",
+          "explanation": "Tras siete días está a siete metros, y el octavo sale de una vez.",
+          "fact": "Si olvidas ese último día, cuentas dos de más."
+        },
+        "it": {
+          "prompt": "Una lumaca sale tre metri al giorno e scende due di notte. Quanti giorni per dieci metri?",
+          "answer": "Otto giorni",
+          "wrong": [
+            "Dieci giorni",
+            "Cinque giorni",
+            "Dodici giorni"
+          ],
+          "hint": "L'ultimo giorno non scivola più.",
+          "explanation": "Dopo sette giorni è a sette metri, e l'ottavo esce in una volta sola.",
+          "fact": "Se dimentichi quel giorno, ne conti due di troppo."
+        },
+        "pt": {
+          "prompt": "Um caracol sobe três metros por dia e desce dois à noite. Quantos dias até dez metros?",
+          "answer": "Oito dias",
+          "wrong": [
+            "Dez dias",
+            "Cinco dias",
+            "Doze dias"
+          ],
+          "hint": "No último dia já não escorrega.",
+          "explanation": "Ao fim de sete dias está a sete metros e no oitavo sai de uma vez.",
+          "fact": "Se esqueceres esse dia, contas dois a mais."
+        },
+        "da": {
+          "prompt": "En snegl kravler tre meter om dagen og glider to ned om natten. Hvor mange dage til ti?",
+          "answer": "Otte dage",
+          "wrong": [
+            "Ti dage",
+            "Fem dage",
+            "Tolv dage"
+          ],
+          "hint": "Den sidste dag glider den ikke ned.",
+          "explanation": "Efter syv dage er den i syv meter, og på ottendedagen kravler den helt ud.",
+          "fact": "Glemmer man den dag, tæller man to for mange."
+        },
+        "ru": {
+          "prompt": "Улитка за день поднимается на три метра, за ночь сползает на два. Когда будет десять?",
+          "answer": "На восьмой день",
+          "wrong": [
+            "На десятый день",
+            "На пятый день",
+            "На двенадцатый день"
+          ],
+          "hint": "В последний день она уже не сползает.",
+          "explanation": "За семь дней она на семи метрах, а на восьмой сразу выбирается.",
+          "fact": "Забудешь про этот день — насчитаешь на два больше."
+        },
+        "ar": {
+          "prompt": "حلزون يصعد ثلاثة أمتار نهارًا وينزل مترين ليلًا. كم يومًا حتى عشرة أمتار؟",
+          "answer": "ثمانية أيام",
+          "wrong": [
+            "عشرة أيام",
+            "خمسة أيام",
+            "اثنا عشر يومًا"
+          ],
+          "hint": "في اليوم الأخير لا ينزلق.",
+          "explanation": "بعد سبعة أيام يكون عند سبعة أمتار، وفي الثامن يخرج دفعة واحدة.",
+          "fact": "وإن نسيت ذلك اليوم عددت يومين زيادة."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Vier, twee en drie poten",
+      "artBrief": "Een zandpad bij zonsopkomst met een lange schaduwstreep en een wandelstok tegen een steen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat loopt 's ochtends op vier poten, 's middags op twee en 's avonds op drie?",
+          "answer": "De mens",
+          "wrong": [
+            "Een hond",
+            "Een tafel",
+            "Een spin"
+          ],
+          "hint": "Een leven in één dag.",
+          "explanation": "Een baby kruipt, een volwassene loopt, en een oude mens gebruikt een stok.",
+          "fact": "Dit raadsel is duizenden jaren oud en komt uit Griekenland."
+        },
+        "en": {
+          "prompt": "What walks on four legs in the morning, two at noon and three in the evening?",
+          "answer": "A human being",
+          "wrong": [
+            "A dog",
+            "A table",
+            "A spider"
+          ],
+          "hint": "A whole life in one day.",
+          "explanation": "A baby crawls, a grown-up walks, and an old person uses a stick.",
+          "fact": "This riddle is thousands of years old and comes from Greece."
+        },
+        "de": {
+          "prompt": "Was geht morgens auf vier Beinen, mittags auf zweien und abends auf dreien?",
+          "answer": "Der Mensch",
+          "wrong": [
+            "Ein Hund",
+            "Ein Tisch",
+            "Eine Spinne"
+          ],
+          "hint": "Ein ganzes Leben an einem Tag.",
+          "explanation": "Ein Baby krabbelt, ein Erwachsener geht, ein alter Mensch nimmt einen Stock.",
+          "fact": "Dieses Rätsel ist tausende Jahre alt und stammt aus Griechenland."
+        },
+        "fr": {
+          "prompt": "Qui marche à quatre pattes le matin, deux à midi et trois le soir ?",
+          "answer": "L'être humain",
+          "wrong": [
+            "Un chien",
+            "Une table",
+            "Une araignée"
+          ],
+          "hint": "Toute une vie en une journée.",
+          "explanation": "Un bébé rampe, un adulte marche, une personne âgée prend une canne.",
+          "fact": "Cette devinette a des milliers d'années et vient de Grèce."
+        },
+        "es": {
+          "prompt": "¿Quién anda a cuatro patas por la mañana, a dos al mediodía y a tres al atardecer?",
+          "answer": "El ser humano",
+          "wrong": [
+            "Un perro",
+            "Una mesa",
+            "Una araña"
+          ],
+          "hint": "Una vida entera en un día.",
+          "explanation": "Un bebé gatea, un adulto camina y un anciano usa bastón.",
+          "fact": "Esta adivinanza tiene miles de años y viene de Grecia."
+        },
+        "it": {
+          "prompt": "Chi cammina su quattro zampe al mattino, due a mezzogiorno e tre la sera?",
+          "answer": "L'essere umano",
+          "wrong": [
+            "Un cane",
+            "Un tavolo",
+            "Un ragno"
+          ],
+          "hint": "Una vita intera in un giorno.",
+          "explanation": "Un neonato gattona, un adulto cammina, un anziano usa il bastone.",
+          "fact": "Questo indovinello ha migliaia di anni e viene dalla Grecia."
+        },
+        "pt": {
+          "prompt": "Quem anda de manhã em quatro pernas, ao meio-dia em duas e à tarde em três?",
+          "answer": "O ser humano",
+          "wrong": [
+            "Um cão",
+            "Uma mesa",
+            "Uma aranha"
+          ],
+          "hint": "Uma vida inteira num dia.",
+          "explanation": "Um bebé gatinha, um adulto caminha e um idoso usa bengala.",
+          "fact": "Este enigma tem milhares de anos e vem da Grécia."
+        },
+        "da": {
+          "prompt": "Hvem går om morgenen på fire ben, ved middag på to og om aftenen på tre?",
+          "answer": "Mennesket",
+          "wrong": [
+            "En hund",
+            "Et bord",
+            "En edderkop"
+          ],
+          "hint": "Et helt liv på én dag.",
+          "explanation": "En baby kravler, en voksen går, og en gammel bruger stok.",
+          "fact": "Denne gåde er tusinder af år gammel og kommer fra Grækenland."
+        },
+        "ru": {
+          "prompt": "Кто утром ходит на четырёх ногах, днём на двух, а вечером на трёх?",
+          "answer": "Человек",
+          "wrong": [
+            "Собака",
+            "Стол",
+            "Паук"
+          ],
+          "hint": "Целая жизнь за один день.",
+          "explanation": "Младенец ползает, взрослый ходит, старик опирается на палку.",
+          "fact": "Этой загадке тысячи лет, и пришла она из Греции."
+        },
+        "ar": {
+          "prompt": "من يمشي صباحًا على أربع وظهرًا على اثنتين ومساءً على ثلاث؟",
+          "answer": "الإنسان",
+          "wrong": [
+            "الكلب",
+            "الطاولة",
+            "العنكبوت"
+          ],
+          "hint": "حياة كاملة في يوم واحد.",
+          "explanation": "الرضيع يحبو، والبالغ يمشي، والمسن يتكئ على عصا.",
+          "fact": "هذا اللغز عمره آلاف السنين وجاء من اليونان."
+        }
+      }
+    },
+    {
+      "id": "mysterie-raadsels-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Hoe meer ervan, hoe minder je ziet",
+      "artBrief": "Een kamer waarin een kaars net is gedoofd, met rook in de lucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe meer er van mij is, hoe minder je ziet. Wat ben ik?",
+          "answer": "Het donker",
+          "wrong": [
+            "Het licht",
+            "Het water",
+            "Het geluid"
+          ],
+          "hint": "Doe je ogen maar dicht.",
+          "explanation": "Zonder licht kunnen je ogen niets onderscheiden.",
+          "fact": "Na twintig minuten in het donker zien je ogen wel tien keer scherper."
+        },
+        "en": {
+          "prompt": "The more of me there is, the less you see. What am I?",
+          "answer": "Darkness",
+          "wrong": [
+            "Light",
+            "Water",
+            "Sound"
+          ],
+          "hint": "Just close your eyes.",
+          "explanation": "Without light your eyes cannot make anything out.",
+          "fact": "After twenty minutes in the dark your eyes see about ten times better."
+        },
+        "de": {
+          "prompt": "Je mehr es von mir gibt, desto weniger siehst du. Was bin ich?",
+          "answer": "Die Dunkelheit",
+          "wrong": [
+            "Das Licht",
+            "Das Wasser",
+            "Der Schall"
+          ],
+          "hint": "Mach die Augen zu.",
+          "explanation": "Ohne Licht können deine Augen nichts unterscheiden.",
+          "fact": "Nach zwanzig Minuten im Dunkeln sehen deine Augen zehnmal besser."
+        },
+        "fr": {
+          "prompt": "Plus il y en a, moins tu vois. Qu'est-ce que c'est ?",
+          "answer": "L'obscurité",
+          "wrong": [
+            "La lumière",
+            "L'eau",
+            "Le son"
+          ],
+          "hint": "Ferme donc les yeux.",
+          "explanation": "Sans lumière, tes yeux ne distinguent plus rien.",
+          "fact": "Après vingt minutes dans le noir, tes yeux voient dix fois mieux."
+        },
+        "es": {
+          "prompt": "Cuanto más hay de mí, menos ves. ¿Qué soy?",
+          "answer": "La oscuridad",
+          "wrong": [
+            "La luz",
+            "El agua",
+            "El sonido"
+          ],
+          "hint": "Cierra los ojos.",
+          "explanation": "Sin luz tus ojos no distinguen nada.",
+          "fact": "Tras veinte minutos a oscuras tus ojos ven diez veces mejor."
+        },
+        "it": {
+          "prompt": "Più ce n'è, meno vedi. Che cosa sono?",
+          "answer": "Il buio",
+          "wrong": [
+            "La luce",
+            "L'acqua",
+            "Il suono"
+          ],
+          "hint": "Chiudi gli occhi.",
+          "explanation": "Senza luce i tuoi occhi non distinguono nulla.",
+          "fact": "Dopo venti minuti al buio i tuoi occhi vedono dieci volte meglio."
+        },
+        "pt": {
+          "prompt": "Quanto mais de mim houver, menos vês. O que sou?",
+          "answer": "A escuridão",
+          "wrong": [
+            "A luz",
+            "A água",
+            "O som"
+          ],
+          "hint": "Fecha os olhos.",
+          "explanation": "Sem luz os teus olhos não distinguem nada.",
+          "fact": "Após vinte minutos no escuro os teus olhos veem dez vezes melhor."
+        },
+        "da": {
+          "prompt": "Jo mere der er af mig, jo mindre ser du. Hvad er jeg?",
+          "answer": "Mørket",
+          "wrong": [
+            "Lyset",
+            "Vandet",
+            "Lyden"
+          ],
+          "hint": "Luk bare øjnene.",
+          "explanation": "Uden lys kan dine øjne ikke skelne noget.",
+          "fact": "Efter tyve minutter i mørke ser dine øjne ti gange bedre."
+        },
+        "ru": {
+          "prompt": "Чем больше меня, тем меньше ты видишь. Что я?",
+          "answer": "Темнота",
+          "wrong": [
+            "Свет",
+            "Вода",
+            "Звук"
+          ],
+          "hint": "Просто закрой глаза.",
+          "explanation": "Без света глаза ничего не различают.",
+          "fact": "После двадцати минут в темноте глаза видят раз в десять лучше."
+        },
+        "ar": {
+          "prompt": "كلما زدت قلّ ما ترى. ما أنا؟",
+          "answer": "الظلام",
+          "wrong": [
+            "الضوء",
+            "الماء",
+            "الصوت"
+          ],
+          "hint": "أغمض عينيك.",
+          "explanation": "بلا ضوء لا تميّز عيناك شيئًا.",
+          "fact": "بعد عشرين دقيقة في الظلام ترى عيناك أفضل بعشر مرات."
+        }
+      }
+    }
+  ]
+}
