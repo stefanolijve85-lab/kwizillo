@@ -1,0 +1,2607 @@
+{
+  "world": "aarde",
+  "topic": "kaarten_navigatie",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "aarde-kaarten_navigatie-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Kaartgebruik",
+      "artBrief": "Twee kinderen met een opengevouwen stadsplattegrond op een plein.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat gebruik je om de weg te vinden in een vreemde stad?",
+          "answer": "Een kaart",
+          "wrong": [
+            "Een pan",
+            "Een bezem",
+            "Een wekker"
+          ],
+          "hint": "Je vouwt hem open of opent een app.",
+          "explanation": "Met een kaart zie je in één oogopslag waar alles ligt.",
+          "fact": "De oudste bewaarde kaarten zijn duizenden jaren oud."
+        },
+        "en": {
+          "prompt": "What do you use to find your way in a strange city?",
+          "answer": "A map",
+          "wrong": [
+            "A pan",
+            "A broom",
+            "An alarm clock"
+          ],
+          "hint": "You unfold it or open an app.",
+          "explanation": "A map shows you at a glance where everything is.",
+          "fact": "The oldest maps we still have are thousands of years old."
+        },
+        "de": {
+          "prompt": "Was nimmst du, um dich in einer fremden Stadt zurechtzufinden?",
+          "answer": "Eine Karte",
+          "wrong": [
+            "Einen Topf",
+            "Einen Besen",
+            "Einen Wecker"
+          ],
+          "hint": "Du faltest sie auf oder öffnest eine App.",
+          "explanation": "Auf einer Karte siehst du auf einen Blick, wo alles liegt.",
+          "fact": "Die ältesten erhaltenen Karten sind tausende Jahre alt."
+        },
+        "fr": {
+          "prompt": "Que prends-tu pour trouver ton chemin dans une ville inconnue ?",
+          "answer": "Une carte",
+          "wrong": [
+            "Une casserole",
+            "Un balai",
+            "Un réveil"
+          ],
+          "hint": "On la déplie ou on ouvre une appli.",
+          "explanation": "Une carte montre d'un coup d'œil où se trouve tout.",
+          "fact": "Les plus vieilles cartes conservées ont des milliers d'années."
+        },
+        "es": {
+          "prompt": "¿Qué usas para orientarte en una ciudad desconocida?",
+          "answer": "Un mapa",
+          "wrong": [
+            "Una sartén",
+            "Una escoba",
+            "Un despertador"
+          ],
+          "hint": "Lo despliegas o abres una aplicación.",
+          "explanation": "Con un mapa ves de un vistazo dónde está todo.",
+          "fact": "Los mapas más antiguos que se conservan tienen miles de años."
+        },
+        "it": {
+          "prompt": "Che cosa usi per orientarti in una città sconosciuta?",
+          "answer": "Una mappa",
+          "wrong": [
+            "Una pentola",
+            "Una scopa",
+            "Una sveglia"
+          ],
+          "hint": "La apri o apri un'app.",
+          "explanation": "Con una mappa vedi al volo dove si trova tutto.",
+          "fact": "Le mappe più antiche conservate hanno migliaia di anni."
+        },
+        "pt": {
+          "prompt": "O que usas para te orientares numa cidade desconhecida?",
+          "answer": "Um mapa",
+          "wrong": [
+            "Uma panela",
+            "Uma vassoura",
+            "Um despertador"
+          ],
+          "hint": "Abre-se ou abre-se uma aplicação.",
+          "explanation": "Com um mapa vês num relance onde fica tudo.",
+          "fact": "Os mapas mais antigos que se conservam têm milhares de anos."
+        },
+        "da": {
+          "prompt": "Hvad bruger du for at finde vej i en fremmed by?",
+          "answer": "Et kort",
+          "wrong": [
+            "En gryde",
+            "En kost",
+            "Et vækkeur"
+          ],
+          "hint": "Man folder det ud eller åbner en app.",
+          "explanation": "Med et kort ser du med det samme, hvor alting ligger.",
+          "fact": "De ældste bevarede kort er tusinder af år gamle."
+        },
+        "ru": {
+          "prompt": "Чем пользуются, чтобы найти дорогу в незнакомом городе?",
+          "answer": "Картой",
+          "wrong": [
+            "Кастрюлей",
+            "Метлой",
+            "Будильником"
+          ],
+          "hint": "Её разворачивают или открывают приложение.",
+          "explanation": "По карте сразу видно, где что находится.",
+          "fact": "Самым старым сохранившимся картам тысячи лет."
+        },
+        "ar": {
+          "prompt": "بماذا تهتدي في مدينة غريبة؟",
+          "answer": "بخريطة",
+          "wrong": [
+            "بقدر",
+            "بمكنسة",
+            "بمنبه"
+          ],
+          "hint": "تفتحها أو تفتح تطبيقًا.",
+          "explanation": "بالخريطة ترى بلمحة أين يقع كل شيء.",
+          "fact": "أقدم الخرائط المحفوظة عمرها آلاف السنين."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Kaartconventies: water is blauw",
+      "artBrief": "Een kleurige kaart met blauwe rivieren en meren tussen groen land.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welke kleur heeft water meestal op een kaart?",
+          "answer": "Blauw",
+          "wrong": [
+            "Rood",
+            "Bruin",
+            "Zwart"
+          ],
+          "hint": "Dezelfde kleur als de zee lijkt.",
+          "explanation": "Water wordt op bijna elke kaart blauw getekend.",
+          "fact": "Bergen krijgen vaak bruin en bossen groen."
+        },
+        "en": {
+          "prompt": "What colour is water usually on a map?",
+          "answer": "Blue",
+          "wrong": [
+            "Red",
+            "Brown",
+            "Black"
+          ],
+          "hint": "The same colour the sea seems to be.",
+          "explanation": "Water is drawn blue on almost every map.",
+          "fact": "Mountains often get brown and forests green."
+        },
+        "de": {
+          "prompt": "Welche Farbe hat Wasser auf einer Karte meistens?",
+          "answer": "Blau",
+          "wrong": [
+            "Rot",
+            "Braun",
+            "Schwarz"
+          ],
+          "hint": "Dieselbe Farbe, die das Meer zu haben scheint.",
+          "explanation": "Wasser wird auf fast jeder Karte blau gezeichnet.",
+          "fact": "Berge bekommen oft Braun und Wälder Grün."
+        },
+        "fr": {
+          "prompt": "De quelle couleur est l'eau sur une carte, en général ?",
+          "answer": "Bleue",
+          "wrong": [
+            "Rouge",
+            "Brune",
+            "Noire"
+          ],
+          "hint": "La couleur que la mer semble avoir.",
+          "explanation": "L'eau est dessinée en bleu sur presque toutes les cartes.",
+          "fact": "Les montagnes sont souvent brunes et les forêts vertes."
+        },
+        "es": {
+          "prompt": "¿De qué color suele ser el agua en un mapa?",
+          "answer": "Azul",
+          "wrong": [
+            "Rojo",
+            "Marrón",
+            "Negro"
+          ],
+          "hint": "El color que parece tener el mar.",
+          "explanation": "El agua se dibuja en azul en casi todos los mapas.",
+          "fact": "Las montañas suelen ir en marrón y los bosques en verde."
+        },
+        "it": {
+          "prompt": "Di che colore è di solito l'acqua su una mappa?",
+          "answer": "Blu",
+          "wrong": [
+            "Rosso",
+            "Marrone",
+            "Nero"
+          ],
+          "hint": "Il colore che sembra avere il mare.",
+          "explanation": "L'acqua è disegnata in blu su quasi tutte le mappe.",
+          "fact": "Le montagne spesso sono marroni e i boschi verdi."
+        },
+        "pt": {
+          "prompt": "De que cor costuma ser a água num mapa?",
+          "answer": "Azul",
+          "wrong": [
+            "Vermelha",
+            "Castanha",
+            "Preta"
+          ],
+          "hint": "A cor que o mar parece ter.",
+          "explanation": "A água é desenhada a azul em quase todos os mapas.",
+          "fact": "As montanhas ficam muitas vezes castanhas e as florestas verdes."
+        },
+        "da": {
+          "prompt": "Hvilken farve har vand som regel på et kort?",
+          "answer": "Blå",
+          "wrong": [
+            "Rød",
+            "Brun",
+            "Sort"
+          ],
+          "hint": "Samme farve som havet ser ud til at have.",
+          "explanation": "Vand tegnes blåt på næsten alle kort.",
+          "fact": "Bjerge får tit brun, og skove grøn."
+        },
+        "ru": {
+          "prompt": "Каким цветом на карте обычно показывают воду?",
+          "answer": "Синим",
+          "wrong": [
+            "Красным",
+            "Коричневым",
+            "Чёрным"
+          ],
+          "hint": "Тем же, каким кажется море.",
+          "explanation": "Воду почти на всех картах рисуют синим.",
+          "fact": "Горы часто коричневые, а леса зелёные."
+        },
+        "ar": {
+          "prompt": "ما لون الماء عادة على الخريطة؟",
+          "answer": "أزرق",
+          "wrong": [
+            "أحمر",
+            "بني",
+            "أسود"
+          ],
+          "hint": "اللون الذي يبدو عليه البحر.",
+          "explanation": "يُرسم الماء بالأزرق في معظم الخرائط.",
+          "fact": "والجبال غالبًا بنية والغابات خضراء."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Vier hoofdwindrichtingen",
+      "artBrief": "Een kompasroos met vier duidelijke pijlen naar de hoofdrichtingen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel hoofdrichtingen heeft een kompas?",
+          "answer": "Vier",
+          "wrong": [
+            "Twee",
+            "Zes",
+            "Tien"
+          ],
+          "hint": "Noord, oost, zuid en nog één.",
+          "explanation": "Een kompas heeft vier hoofdrichtingen: noord, oost, zuid en west.",
+          "fact": "Daartussen liggen nog richtingen als noordoost."
+        },
+        "en": {
+          "prompt": "How many main directions does a compass have?",
+          "answer": "Four",
+          "wrong": [
+            "Two",
+            "Six",
+            "Ten"
+          ],
+          "hint": "North, east, south and one more.",
+          "explanation": "A compass has four main directions: north, east, south and west.",
+          "fact": "Between them lie others, such as north-east."
+        },
+        "de": {
+          "prompt": "Wie viele Haupthimmelsrichtungen hat ein Kompass?",
+          "answer": "Vier",
+          "wrong": [
+            "Zwei",
+            "Sechs",
+            "Zehn"
+          ],
+          "hint": "Norden, Osten, Süden und noch eine.",
+          "explanation": "Ein Kompass hat vier Hauptrichtungen: Nord, Ost, Süd und West.",
+          "fact": "Dazwischen liegen Richtungen wie Nordost."
+        },
+        "fr": {
+          "prompt": "Combien de directions principales a une boussole ?",
+          "answer": "Quatre",
+          "wrong": [
+            "Deux",
+            "Six",
+            "Dix"
+          ],
+          "hint": "Nord, est, sud et encore une.",
+          "explanation": "Une boussole a quatre directions principales : nord, est, sud et ouest.",
+          "fact": "Entre elles se trouvent des directions comme le nord-est."
+        },
+        "es": {
+          "prompt": "¿Cuántas direcciones principales tiene una brújula?",
+          "answer": "Cuatro",
+          "wrong": [
+            "Dos",
+            "Seis",
+            "Diez"
+          ],
+          "hint": "Norte, este, sur y una más.",
+          "explanation": "Una brújula tiene cuatro direcciones principales: norte, este, sur y oeste.",
+          "fact": "Entre ellas hay otras, como el noreste."
+        },
+        "it": {
+          "prompt": "Quante direzioni principali ha una bussola?",
+          "answer": "Quattro",
+          "wrong": [
+            "Due",
+            "Sei",
+            "Dieci"
+          ],
+          "hint": "Nord, est, sud e un'altra ancora.",
+          "explanation": "Una bussola ha quattro direzioni principali: nord, est, sud e ovest.",
+          "fact": "Fra queste ce ne sono altre, come nordest."
+        },
+        "pt": {
+          "prompt": "Quantas direções principais tem uma bússola?",
+          "answer": "Quatro",
+          "wrong": [
+            "Duas",
+            "Seis",
+            "Dez"
+          ],
+          "hint": "Norte, este, sul e mais uma.",
+          "explanation": "Uma bússola tem quatro direções principais: norte, este, sul e oeste.",
+          "fact": "Entre elas há outras, como nordeste."
+        },
+        "da": {
+          "prompt": "Hvor mange hovedretninger har et kompas?",
+          "answer": "Fire",
+          "wrong": [
+            "To",
+            "Seks",
+            "Ti"
+          ],
+          "hint": "Nord, øst, syd og en til.",
+          "explanation": "Et kompas har fire hovedretninger: nord, øst, syd og vest.",
+          "fact": "Mellem dem ligger retninger som nordøst."
+        },
+        "ru": {
+          "prompt": "Сколько главных направлений у компаса?",
+          "answer": "Четыре",
+          "wrong": [
+            "Два",
+            "Шесть",
+            "Десять"
+          ],
+          "hint": "Север, восток, юг и ещё одно.",
+          "explanation": "У компаса четыре главных направления: север, восток, юг и запад.",
+          "fact": "Между ними есть и другие, например северо-восток."
+        },
+        "ar": {
+          "prompt": "كم اتجاهًا رئيسيًا في البوصلة؟",
+          "answer": "أربعة",
+          "wrong": [
+            "اثنان",
+            "ستة",
+            "عشرة"
+          ],
+          "hint": "شمال وشرق وجنوب وواحد آخر.",
+          "explanation": "للبوصلة أربعة اتجاهات رئيسية: شمال وشرق وجنوب وغرب.",
+          "fact": "وبينها اتجاهات أخرى مثل الشمال الشرقي."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Wegenkaarten",
+      "artBrief": "Een wegenkaart met lijnen, plaatsjes en een auto ernaast.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat zie je op een wegenkaart?",
+          "answer": "Wegen en plaatsen",
+          "wrong": [
+            "Sterren",
+            "Recepten",
+            "Dieren"
+          ],
+          "hint": "Handig voor een autorit.",
+          "explanation": "Een wegenkaart laat zien hoe je van plaats naar plaats rijdt.",
+          "fact": "Dikke lijnen zijn snelwegen, dunne zijn kleine weggetjes."
+        },
+        "en": {
+          "prompt": "What do you see on a road map?",
+          "answer": "Roads and places",
+          "wrong": [
+            "Stars",
+            "Recipes",
+            "Animals"
+          ],
+          "hint": "Handy for a drive.",
+          "explanation": "A road map shows how to get from one place to another.",
+          "fact": "Thick lines are motorways, thin ones are little roads."
+        },
+        "de": {
+          "prompt": "Was siehst du auf einer Straßenkarte?",
+          "answer": "Straßen und Orte",
+          "wrong": [
+            "Sterne",
+            "Rezepte",
+            "Tiere"
+          ],
+          "hint": "Praktisch für eine Autofahrt.",
+          "explanation": "Eine Straßenkarte zeigt, wie man von Ort zu Ort fährt.",
+          "fact": "Dicke Linien sind Autobahnen, dünne kleine Wege."
+        },
+        "fr": {
+          "prompt": "Que vois-tu sur une carte routière ?",
+          "answer": "Des routes et des villes",
+          "wrong": [
+            "Des étoiles",
+            "Des recettes",
+            "Des animaux"
+          ],
+          "hint": "Pratique pour un trajet en voiture.",
+          "explanation": "Une carte routière montre comment aller d'un endroit à l'autre.",
+          "fact": "Les traits épais sont des autoroutes, les fins de petites routes."
+        },
+        "es": {
+          "prompt": "¿Qué ves en un mapa de carreteras?",
+          "answer": "Carreteras y pueblos",
+          "wrong": [
+            "Estrellas",
+            "Recetas",
+            "Animales"
+          ],
+          "hint": "Práctico para un viaje en coche.",
+          "explanation": "Un mapa de carreteras enseña cómo ir de un sitio a otro.",
+          "fact": "Las líneas gruesas son autopistas y las finas caminos pequeños."
+        },
+        "it": {
+          "prompt": "Che cosa vedi su una carta stradale?",
+          "answer": "Strade e paesi",
+          "wrong": [
+            "Stelle",
+            "Ricette",
+            "Animali"
+          ],
+          "hint": "Comoda per un viaggio in auto.",
+          "explanation": "Una carta stradale mostra come andare da un posto all'altro.",
+          "fact": "Le linee spesse sono autostrade, quelle sottili stradine."
+        },
+        "pt": {
+          "prompt": "O que vês num mapa de estradas?",
+          "answer": "Estradas e localidades",
+          "wrong": [
+            "Estrelas",
+            "Receitas",
+            "Animais"
+          ],
+          "hint": "Prático para uma viagem de carro.",
+          "explanation": "Um mapa de estradas mostra como ir de um sítio para outro.",
+          "fact": "As linhas grossas são autoestradas e as finas estradinhas."
+        },
+        "da": {
+          "prompt": "Hvad ser du på et vejkort?",
+          "answer": "Veje og byer",
+          "wrong": [
+            "Stjerner",
+            "Opskrifter",
+            "Dyr"
+          ],
+          "hint": "Praktisk til en biltur.",
+          "explanation": "Et vejkort viser, hvordan man kører fra sted til sted.",
+          "fact": "Tykke streger er motorveje, tynde er små veje."
+        },
+        "ru": {
+          "prompt": "Что можно увидеть на автомобильной карте?",
+          "answer": "Дороги и населённые пункты",
+          "wrong": [
+            "Звёзды",
+            "Рецепты",
+            "Животных"
+          ],
+          "hint": "Удобно в поездке на машине.",
+          "explanation": "Дорожная карта показывает, как проехать из одного места в другое.",
+          "fact": "Толстые линии — это шоссе, тонкие — просёлки."
+        },
+        "ar": {
+          "prompt": "ماذا ترى على خريطة الطرق؟",
+          "answer": "طرقًا ومدنًا",
+          "wrong": [
+            "نجومًا",
+            "وصفات طبخ",
+            "حيوانات"
+          ],
+          "hint": "مفيدة في رحلة بالسيارة.",
+          "explanation": "خريطة الطرق تبين كيف تنتقل من مكان إلى آخر.",
+          "fact": "الخطوط الغليظة طرق سريعة والرفيعة طرق صغيرة."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "Kompasletters",
+      "artBrief": "Een kompas van dichtbij met de naald die naar de bovenste letter wijst.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waar staat de N op een kompas voor?",
+          "answer": "Het noorden",
+          "wrong": [
+            "De nacht",
+            "Het nulpunt",
+            "Het nieuwe"
+          ],
+          "hint": "Het is een windrichting.",
+          "explanation": "De N op een kompas staat voor noord.",
+          "fact": "Op Engelse kompassen staat er ook een N, van north."
+        },
+        "en": {
+          "prompt": "What does the N on a compass stand for?",
+          "answer": "North",
+          "wrong": [
+            "Night",
+            "Nought",
+            "New"
+          ],
+          "hint": "It is a direction of the wind.",
+          "explanation": "The N on a compass stands for north.",
+          "fact": "Dutch compasses have an N too, for noord."
+        },
+        "de": {
+          "prompt": "Wofür steht das N auf einem Kompass?",
+          "answer": "Für Norden",
+          "wrong": [
+            "Für die Nacht",
+            "Für den Nullpunkt",
+            "Für das Neue"
+          ],
+          "hint": "Es ist eine Himmelsrichtung.",
+          "explanation": "Das N auf dem Kompass steht für Norden.",
+          "fact": "Auf englischen Kompassen steht ebenfalls ein N, für north."
+        },
+        "fr": {
+          "prompt": "Que veut dire le N sur une boussole ?",
+          "answer": "Le nord",
+          "wrong": [
+            "La nuit",
+            "Le zéro",
+            "Le neuf"
+          ],
+          "hint": "C'est un point cardinal.",
+          "explanation": "Le N d'une boussole veut dire nord.",
+          "fact": "Sur les boussoles anglaises il y a aussi un N, pour north."
+        },
+        "es": {
+          "prompt": "¿Qué significa la N de una brújula?",
+          "answer": "El norte",
+          "wrong": [
+            "La noche",
+            "El cero",
+            "Lo nuevo"
+          ],
+          "hint": "Es un punto cardinal.",
+          "explanation": "La N de la brújula significa norte.",
+          "fact": "En las brújulas inglesas también hay una N, de north."
+        },
+        "it": {
+          "prompt": "Che cosa significa la N su una bussola?",
+          "answer": "Il nord",
+          "wrong": [
+            "La notte",
+            "Lo zero",
+            "Il nuovo"
+          ],
+          "hint": "È un punto cardinale.",
+          "explanation": "La N della bussola sta per nord.",
+          "fact": "Anche sulle bussole inglesi c'è una N, per north."
+        },
+        "pt": {
+          "prompt": "O que quer dizer o N numa bússola?",
+          "answer": "O norte",
+          "wrong": [
+            "A noite",
+            "O zero",
+            "O novo"
+          ],
+          "hint": "É um ponto cardeal.",
+          "explanation": "O N da bússola quer dizer norte.",
+          "fact": "Nas bússolas inglesas também há um N, de north."
+        },
+        "da": {
+          "prompt": "Hvad står N for på et kompas?",
+          "answer": "Nord",
+          "wrong": [
+            "Natten",
+            "Nulpunktet",
+            "Det nye"
+          ],
+          "hint": "Det er en verdenshjørne.",
+          "explanation": "N på et kompas står for nord.",
+          "fact": "På engelske kompasser står der også N, for north."
+        },
+        "ru": {
+          "prompt": "Что означает буква N на компасе?",
+          "answer": "Север",
+          "wrong": [
+            "Ночь",
+            "Ноль",
+            "Новое"
+          ],
+          "hint": "Это сторона света.",
+          "explanation": "Буква N на компасе означает север.",
+          "fact": "На русских компасах в том же месте стоит буква С."
+        },
+        "ar": {
+          "prompt": "ماذا يعني الحرف N على البوصلة؟",
+          "answer": "الشمال",
+          "wrong": [
+            "الليل",
+            "الصفر",
+            "الجديد"
+          ],
+          "hint": "إنه أحد الاتجاهات.",
+          "explanation": "حرف N على البوصلة يعني الشمال.",
+          "fact": "وعلى البوصلات العربية يوضع بدله حرف ش."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Hoogtelijnen dicht bijeen betekent steil",
+      "artBrief": "Een kaartfragment met dicht opeen liggende hoogtelijnen naast een steile helling.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat betekenen lijnen die dicht bij elkaar liggen op een kaart?",
+          "answer": "Daar is het steil",
+          "wrong": [
+            "Daar is het vlak",
+            "Daar is het nat",
+            "Daar is het warm"
+          ],
+          "hint": "Denk aan een berghelling.",
+          "explanation": "Hoe dichter de hoogtelijnen, hoe steiler de helling.",
+          "fact": "Ver uit elkaar betekent juist een vlak stuk land."
+        },
+        "en": {
+          "prompt": "What do lines close together on a map mean?",
+          "answer": "It is steep there",
+          "wrong": [
+            "It is flat there",
+            "It is wet there",
+            "It is warm there"
+          ],
+          "hint": "Think of a mountainside.",
+          "explanation": "The closer the contour lines, the steeper the slope.",
+          "fact": "Far apart means a flat stretch of land."
+        },
+        "de": {
+          "prompt": "Was bedeuten eng beieinanderliegende Linien auf einer Karte?",
+          "answer": "Dort ist es steil",
+          "wrong": [
+            "Dort ist es flach",
+            "Dort ist es nass",
+            "Dort ist es warm"
+          ],
+          "hint": "Denk an einen Berghang.",
+          "explanation": "Je enger die Höhenlinien, desto steiler der Hang.",
+          "fact": "Weit auseinander heißt flaches Gelände."
+        },
+        "fr": {
+          "prompt": "Que signifient des lignes très rapprochées sur une carte ?",
+          "answer": "C'est raide à cet endroit",
+          "wrong": [
+            "C'est plat",
+            "C'est mouillé",
+            "Il y fait chaud"
+          ],
+          "hint": "Pense à un flanc de montagne.",
+          "explanation": "Plus les courbes de niveau sont serrées, plus la pente est raide.",
+          "fact": "Très espacées, elles indiquent un terrain plat."
+        },
+        "es": {
+          "prompt": "¿Qué significan unas líneas muy juntas en un mapa?",
+          "answer": "Allí hay mucha pendiente",
+          "wrong": [
+            "Allí es llano",
+            "Allí hay agua",
+            "Allí hace calor"
+          ],
+          "hint": "Piensa en la ladera de una montaña.",
+          "explanation": "Cuanto más juntas van las curvas de nivel, más empinada es la cuesta.",
+          "fact": "Muy separadas indican terreno llano."
+        },
+        "it": {
+          "prompt": "Che cosa vogliono dire linee molto vicine su una mappa?",
+          "answer": "Lì è ripido",
+          "wrong": [
+            "Lì è pianeggiante",
+            "Lì è bagnato",
+            "Lì fa caldo"
+          ],
+          "hint": "Pensa al fianco di una montagna.",
+          "explanation": "Più le curve di livello sono fitte, più il pendio è ripido.",
+          "fact": "Molto distanziate indicano terreno piatto."
+        },
+        "pt": {
+          "prompt": "O que querem dizer linhas muito juntas num mapa?",
+          "answer": "Ali é íngreme",
+          "wrong": [
+            "Ali é plano",
+            "Ali há água",
+            "Ali faz calor"
+          ],
+          "hint": "Pensa na encosta de uma montanha.",
+          "explanation": "Quanto mais juntas as curvas de nível, mais íngreme é a encosta.",
+          "fact": "Muito afastadas indicam terreno plano."
+        },
+        "da": {
+          "prompt": "Hvad betyder linjer tæt på hinanden på et kort?",
+          "answer": "Der er det stejlt",
+          "wrong": [
+            "Der er det fladt",
+            "Der er det vådt",
+            "Der er det varmt"
+          ],
+          "hint": "Tænk på en bjergside.",
+          "explanation": "Jo tættere højdekurverne ligger, jo stejlere er skråningen.",
+          "fact": "Langt fra hinanden betyder fladt terræn."
+        },
+        "ru": {
+          "prompt": "Что значат близко идущие линии на карте?",
+          "answer": "Там крутой склон",
+          "wrong": [
+            "Там ровно",
+            "Там сыро",
+            "Там жарко"
+          ],
+          "hint": "Вспомни склон горы.",
+          "explanation": "Чем ближе горизонтали друг к другу, тем круче склон.",
+          "fact": "Далеко друг от друга — значит ровная местность."
+        },
+        "ar": {
+          "prompt": "ماذا تعني خطوط متقاربة جدًا على الخريطة؟",
+          "answer": "المكان شديد الانحدار",
+          "wrong": [
+            "المكان مستو",
+            "المكان مبلل",
+            "المكان حار"
+          ],
+          "hint": "تخيل سفح جبل.",
+          "explanation": "كلما تقاربت خطوط الارتفاع زاد انحدار المنحدر.",
+          "fact": "وتباعدها يعني أرضًا مستوية."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Satellietbeelden",
+      "artBrief": "Een foto van een landschap recht van boven, zoals een satelliet die maakt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een satellietkaart?",
+          "answer": "Een foto van bovenaf",
+          "wrong": [
+            "Een tekening met de hand",
+            "Een kaart uit de oudheid",
+            "Een kaart van de sterren"
+          ],
+          "hint": "Hij wordt vanuit de ruimte gemaakt.",
+          "explanation": "Een satellietkaart bestaat uit foto's die vanuit de ruimte zijn genomen.",
+          "fact": "Daarop zie je zelfs je eigen dak liggen."
+        },
+        "en": {
+          "prompt": "What is a satellite map?",
+          "answer": "A photo from above",
+          "wrong": [
+            "A hand-drawn sketch",
+            "A map from ancient times",
+            "A map of the stars"
+          ],
+          "hint": "It is made from space.",
+          "explanation": "A satellite map is made of photographs taken from space.",
+          "fact": "On one you can even pick out your own roof."
+        },
+        "de": {
+          "prompt": "Was ist eine Satellitenkarte?",
+          "answer": "Ein Foto von oben",
+          "wrong": [
+            "Eine Handzeichnung",
+            "Eine Karte aus der Antike",
+            "Eine Sternenkarte"
+          ],
+          "hint": "Sie entsteht aus dem Weltall.",
+          "explanation": "Eine Satellitenkarte besteht aus Fotos aus dem All.",
+          "fact": "Darauf erkennt man sogar das eigene Dach."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'une carte satellite ?",
+          "answer": "Une photo prise d'en haut",
+          "wrong": [
+            "Un dessin à la main",
+            "Une carte de l'Antiquité",
+            "Une carte du ciel"
+          ],
+          "hint": "Elle est faite depuis l'espace.",
+          "explanation": "Une carte satellite est faite de photos prises depuis l'espace.",
+          "fact": "On y reconnaît même le toit de sa maison."
+        },
+        "es": {
+          "prompt": "¿Qué es un mapa de satélite?",
+          "answer": "Una foto desde arriba",
+          "wrong": [
+            "Un dibujo a mano",
+            "Un mapa de la antigüedad",
+            "Un mapa del cielo"
+          ],
+          "hint": "Se hace desde el espacio.",
+          "explanation": "Un mapa de satélite está hecho de fotos tomadas desde el espacio.",
+          "fact": "En él se distingue hasta el tejado de tu casa."
+        },
+        "it": {
+          "prompt": "Che cos'è una mappa satellitare?",
+          "answer": "Una foto dall'alto",
+          "wrong": [
+            "Un disegno a mano",
+            "Una mappa antica",
+            "Una mappa del cielo"
+          ],
+          "hint": "Viene fatta dallo spazio.",
+          "explanation": "Una mappa satellitare è fatta di foto scattate dallo spazio.",
+          "fact": "Ci si riconosce perfino il tetto di casa."
+        },
+        "pt": {
+          "prompt": "O que é um mapa de satélite?",
+          "answer": "Uma foto de cima",
+          "wrong": [
+            "Um desenho à mão",
+            "Um mapa da antiguidade",
+            "Um mapa do céu"
+          ],
+          "hint": "É feito a partir do espaço.",
+          "explanation": "Um mapa de satélite é feito de fotos tiradas do espaço.",
+          "fact": "Nele até se reconhece o telhado da tua casa."
+        },
+        "da": {
+          "prompt": "Hvad er et satellitkort?",
+          "answer": "Et foto oppefra",
+          "wrong": [
+            "En håndtegning",
+            "Et kort fra oldtiden",
+            "Et stjernekort"
+          ],
+          "hint": "Det laves fra rummet.",
+          "explanation": "Et satellitkort består af fotos taget fra rummet.",
+          "fact": "På det kan man endda se sit eget tag."
+        },
+        "ru": {
+          "prompt": "Что такое спутниковая карта?",
+          "answer": "Снимок сверху",
+          "wrong": [
+            "Рисунок от руки",
+            "Карта из древности",
+            "Карта звёздного неба"
+          ],
+          "hint": "Её делают из космоса.",
+          "explanation": "Спутниковая карта состоит из снимков, сделанных из космоса.",
+          "fact": "На ней видно даже крышу своего дома."
+        },
+        "ar": {
+          "prompt": "ما هي الخريطة الفضائية؟",
+          "answer": "صورة من أعلى",
+          "wrong": [
+            "رسم باليد",
+            "خريطة قديمة",
+            "خريطة للسماء"
+          ],
+          "hint": "تُلتقط من الفضاء.",
+          "explanation": "الخريطة الفضائية مكونة من صور التُقطت من الفضاء.",
+          "fact": "وفيها قد تميز سطح بيتك."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Navigatiesystemen",
+      "artBrief": "Een schermpje in een auto met een blauwe route en een pijl.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een navigatiesysteem in een auto?",
+          "answer": "Het wijst de route",
+          "wrong": [
+            "Het rijdt zelf",
+            "Het tankt",
+            "Het poetst de ruiten"
+          ],
+          "hint": "Het praat soms tegen je.",
+          "explanation": "Een navigatiesysteem berekent de weg en zegt wanneer je moet afslaan.",
+          "fact": "Het weet met gps precies waar de auto is."
+        },
+        "en": {
+          "prompt": "What does a car's navigation system do?",
+          "answer": "It shows the route",
+          "wrong": [
+            "It drives by itself",
+            "It refuels",
+            "It cleans the windows"
+          ],
+          "hint": "It sometimes talks to you.",
+          "explanation": "A navigation system works out the way and says when to turn.",
+          "fact": "With GPS it knows exactly where the car is."
+        },
+        "de": {
+          "prompt": "Was macht ein Navi im Auto?",
+          "answer": "Es zeigt die Route",
+          "wrong": [
+            "Es fährt selbst",
+            "Es tankt",
+            "Es putzt die Scheiben"
+          ],
+          "hint": "Manchmal spricht es mit dir.",
+          "explanation": "Ein Navi berechnet den Weg und sagt, wann man abbiegen muss.",
+          "fact": "Mit GPS weiß es genau, wo das Auto ist."
+        },
+        "fr": {
+          "prompt": "Que fait un GPS dans une voiture ?",
+          "answer": "Il indique la route",
+          "wrong": [
+            "Il conduit tout seul",
+            "Il fait le plein",
+            "Il lave les vitres"
+          ],
+          "hint": "Parfois il te parle.",
+          "explanation": "Un GPS calcule le trajet et dit quand tourner.",
+          "fact": "Grâce aux satellites, il sait exactement où est la voiture."
+        },
+        "es": {
+          "prompt": "¿Qué hace un navegador en el coche?",
+          "answer": "Indica la ruta",
+          "wrong": [
+            "Conduce solo",
+            "Echa gasolina",
+            "Limpia los cristales"
+          ],
+          "hint": "A veces te habla.",
+          "explanation": "Un navegador calcula el camino y avisa de cuándo girar.",
+          "fact": "Con el GPS sabe exactamente dónde está el coche."
+        },
+        "it": {
+          "prompt": "Che cosa fa un navigatore in auto?",
+          "answer": "Indica il percorso",
+          "wrong": [
+            "Guida da solo",
+            "Fa benzina",
+            "Pulisce i vetri"
+          ],
+          "hint": "A volte ti parla.",
+          "explanation": "Un navigatore calcola la strada e dice quando svoltare.",
+          "fact": "Con il GPS sa esattamente dov'è l'auto."
+        },
+        "pt": {
+          "prompt": "O que faz um navegador no carro?",
+          "answer": "Indica o caminho",
+          "wrong": [
+            "Conduz sozinho",
+            "Mete combustível",
+            "Limpa os vidros"
+          ],
+          "hint": "Às vezes fala contigo.",
+          "explanation": "Um navegador calcula o caminho e avisa quando virar.",
+          "fact": "Com o GPS sabe exatamente onde está o carro."
+        },
+        "da": {
+          "prompt": "Hvad gør en gps i en bil?",
+          "answer": "Den viser ruten",
+          "wrong": [
+            "Den kører selv",
+            "Den tanker",
+            "Den pudser ruderne"
+          ],
+          "hint": "Nogle gange taler den til dig.",
+          "explanation": "En gps beregner vejen og siger, hvornår man skal dreje.",
+          "fact": "Med satellitter ved den præcis, hvor bilen er."
+        },
+        "ru": {
+          "prompt": "Что делает навигатор в машине?",
+          "answer": "Показывает маршрут",
+          "wrong": [
+            "Ведёт машину сам",
+            "Заправляет её",
+            "Моет стёкла"
+          ],
+          "hint": "Иногда он с тобой разговаривает.",
+          "explanation": "Навигатор рассчитывает путь и подсказывает, где повернуть.",
+          "fact": "По спутникам он точно знает, где машина."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل جهاز الملاحة في السيارة؟",
+          "answer": "يدل على الطريق",
+          "wrong": [
+            "يقود وحده",
+            "يعبئ الوقود",
+            "ينظف الزجاج"
+          ],
+          "hint": "أحيانًا يتحدث إليك.",
+          "explanation": "يحسب الجهاز الطريق ويقول متى تنعطف.",
+          "fact": "وبالأقمار الصناعية يعرف موضع السيارة بدقة."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Zeekaarten en dieptecijfers",
+      "artBrief": "Een zeekaart met dieptecijfers en een schip dat langs de kust vaart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvoor gebruikt een schipper een zeekaart?",
+          "answer": "Om veilig te varen",
+          "wrong": [
+            "Om te vissen",
+            "Om te koken",
+            "Om te vliegen"
+          ],
+          "hint": "Er staat op hoe diep het water is.",
+          "explanation": "Op een zeekaart staan diepten, zandbanken en vaarroutes.",
+          "fact": "Zonder die kaart loopt een schip zo op een zandbank."
+        },
+        "en": {
+          "prompt": "What does a skipper use a sea chart for?",
+          "answer": "To sail safely",
+          "wrong": [
+            "To fish",
+            "To cook",
+            "To fly"
+          ],
+          "hint": "It shows how deep the water is.",
+          "explanation": "A sea chart shows depths, sandbanks and shipping routes.",
+          "fact": "Without one a ship runs aground in no time."
+        },
+        "de": {
+          "prompt": "Wozu benutzt ein Kapitän eine Seekarte?",
+          "answer": "Um sicher zu fahren",
+          "wrong": [
+            "Zum Angeln",
+            "Zum Kochen",
+            "Zum Fliegen"
+          ],
+          "hint": "Darauf steht, wie tief das Wasser ist.",
+          "explanation": "Eine Seekarte zeigt Tiefen, Sandbänke und Fahrrinnen.",
+          "fact": "Ohne sie läuft ein Schiff schnell auf Grund."
+        },
+        "fr": {
+          "prompt": "À quoi sert une carte marine à un capitaine ?",
+          "answer": "À naviguer en sécurité",
+          "wrong": [
+            "À pêcher",
+            "À cuisiner",
+            "À voler"
+          ],
+          "hint": "Elle indique la profondeur de l'eau.",
+          "explanation": "Une carte marine montre profondeurs, bancs de sable et chenaux.",
+          "fact": "Sans elle, un navire s'échoue vite."
+        },
+        "es": {
+          "prompt": "¿Para qué usa una carta náutica un patrón de barco?",
+          "answer": "Para navegar seguro",
+          "wrong": [
+            "Para pescar",
+            "Para cocinar",
+            "Para volar"
+          ],
+          "hint": "Indica la profundidad del agua.",
+          "explanation": "Una carta náutica muestra profundidades, bancos de arena y canales.",
+          "fact": "Sin ella un barco encalla enseguida."
+        },
+        "it": {
+          "prompt": "A che serve una carta nautica a un comandante?",
+          "answer": "A navigare in sicurezza",
+          "wrong": [
+            "A pescare",
+            "A cucinare",
+            "A volare"
+          ],
+          "hint": "Dice quanto è profonda l'acqua.",
+          "explanation": "Una carta nautica mostra profondità, banchi di sabbia e rotte.",
+          "fact": "Senza di essa una nave si incaglia in fretta."
+        },
+        "pt": {
+          "prompt": "Para que serve uma carta náutica a um comandante?",
+          "answer": "Para navegar em segurança",
+          "wrong": [
+            "Para pescar",
+            "Para cozinhar",
+            "Para voar"
+          ],
+          "hint": "Diz a profundidade da água.",
+          "explanation": "Uma carta náutica mostra profundidades, bancos de areia e canais.",
+          "fact": "Sem ela um navio encalha depressa."
+        },
+        "da": {
+          "prompt": "Hvad bruger en skipper et søkort til?",
+          "answer": "At sejle sikkert",
+          "wrong": [
+            "At fiske",
+            "At lave mad",
+            "At flyve"
+          ],
+          "hint": "Det viser, hvor dybt vandet er.",
+          "explanation": "Et søkort viser dybder, sandbanker og sejlruter.",
+          "fact": "Uden det går et skib hurtigt på grund."
+        },
+        "ru": {
+          "prompt": "Зачем капитану морская карта?",
+          "answer": "Чтобы плыть безопасно",
+          "wrong": [
+            "Чтобы ловить рыбу",
+            "Чтобы готовить",
+            "Чтобы летать"
+          ],
+          "hint": "На ней указана глубина.",
+          "explanation": "На морской карте есть глубины, мели и судоходные пути.",
+          "fact": "Без неё судно быстро сядет на мель."
+        },
+        "ar": {
+          "prompt": "لماذا يستعمل الربان خريطة بحرية؟",
+          "answer": "ليبحر بأمان",
+          "wrong": [
+            "ليصطاد",
+            "ليطبخ",
+            "ليطير"
+          ],
+          "hint": "تبين عمق الماء.",
+          "explanation": "الخريطة البحرية تبين الأعماق والضفاف الرملية والممرات.",
+          "fact": "وبدونها تجنح السفينة سريعًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Magnetoreceptie bij trekvogels",
+      "artBrief": "Een zwerm trekvogels boven een landschap met zachte veldlijnen in de lucht.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vinden trekvogels de weg over duizenden kilometers?",
+          "answer": "Met het aardmagneetveld",
+          "wrong": [
+            "Met wegwijzers",
+            "Met een kaart",
+            "Ze vragen het"
+          ],
+          "hint": "Ze voelen iets wat wij niet voelen.",
+          "explanation": "Trekvogels voelen het magneetveld van de aarde als een kompas.",
+          "fact": "Ze gebruiken daarnaast de zon, de sterren en herkenningspunten."
+        },
+        "en": {
+          "prompt": "How do migrating birds find their way over thousands of kilometres?",
+          "answer": "By the magnetic field",
+          "wrong": [
+            "By road signs",
+            "By a map",
+            "They ask"
+          ],
+          "hint": "They feel something we cannot.",
+          "explanation": "Migrating birds sense the earth's magnetic field like a compass.",
+          "fact": "They also use the sun, the stars and landmarks."
+        },
+        "de": {
+          "prompt": "Wie finden Zugvögel über tausende Kilometer den Weg?",
+          "answer": "Über das Erdmagnetfeld",
+          "wrong": [
+            "Über Wegweiser",
+            "Über eine Karte",
+            "Sie fragen"
+          ],
+          "hint": "Sie spüren etwas, das wir nicht spüren.",
+          "explanation": "Zugvögel nehmen das Magnetfeld der Erde wie einen Kompass wahr.",
+          "fact": "Außerdem nutzen sie Sonne, Sterne und Landmarken."
+        },
+        "fr": {
+          "prompt": "Comment les oiseaux migrateurs trouvent-ils leur route ?",
+          "answer": "Grâce au champ magnétique",
+          "wrong": [
+            "Grâce aux panneaux",
+            "Grâce à une carte",
+            "Ils demandent"
+          ],
+          "hint": "Ils sentent ce que nous ne sentons pas.",
+          "explanation": "Les migrateurs perçoivent le champ magnétique terrestre comme une boussole.",
+          "fact": "Ils se servent aussi du soleil, des étoiles et des repères."
+        },
+        "es": {
+          "prompt": "¿Cómo encuentran el camino las aves migratorias?",
+          "answer": "Con el campo magnético",
+          "wrong": [
+            "Con señales de tráfico",
+            "Con un mapa",
+            "Preguntando"
+          ],
+          "hint": "Sienten algo que nosotros no sentimos.",
+          "explanation": "Las aves migratorias perciben el campo magnético como una brújula.",
+          "fact": "También usan el sol, las estrellas y puntos conocidos."
+        },
+        "it": {
+          "prompt": "Come trovano la rotta gli uccelli migratori?",
+          "answer": "Con il campo magnetico",
+          "wrong": [
+            "Con i cartelli",
+            "Con una mappa",
+            "Lo chiedono"
+          ],
+          "hint": "Sentono qualcosa che noi non sentiamo.",
+          "explanation": "Gli uccelli migratori percepiscono il campo magnetico come una bussola.",
+          "fact": "Usano anche il sole, le stelle e i punti di riferimento."
+        },
+        "pt": {
+          "prompt": "Como encontram o caminho as aves migratórias?",
+          "answer": "Com o campo magnético",
+          "wrong": [
+            "Com sinais de trânsito",
+            "Com um mapa",
+            "Perguntam"
+          ],
+          "hint": "Sentem algo que nós não sentimos.",
+          "explanation": "As aves migratórias sentem o campo magnético como uma bússola.",
+          "fact": "Também usam o sol, as estrelas e pontos conhecidos."
+        },
+        "da": {
+          "prompt": "Hvordan finder trækfugle vej over tusinder af kilometer?",
+          "answer": "Med jordens magnetfelt",
+          "wrong": [
+            "Med vejskilte",
+            "Med et kort",
+            "De spørger"
+          ],
+          "hint": "De mærker noget, vi ikke mærker.",
+          "explanation": "Trækfugle fornemmer jordens magnetfelt som et kompas.",
+          "fact": "De bruger også solen, stjernerne og kendemærker."
+        },
+        "ru": {
+          "prompt": "Как перелётные птицы находят дорогу за тысячи километров?",
+          "answer": "По магнитному полю",
+          "wrong": [
+            "По дорожным знакам",
+            "По карте",
+            "Они спрашивают"
+          ],
+          "hint": "Они чувствуют то, чего не чувствуем мы.",
+          "explanation": "Перелётные птицы ощущают магнитное поле Земли как компас.",
+          "fact": "Ещё они пользуются солнцем, звёздами и приметами на земле."
+        },
+        "ar": {
+          "prompt": "كيف تجد الطيور المهاجرة طريقها آلاف الكيلومترات؟",
+          "answer": "بالمجال المغناطيسي",
+          "wrong": [
+            "بلافتات الطريق",
+            "بخريطة",
+            "تسأل غيرها"
+          ],
+          "hint": "تشعر بما لا نشعر به.",
+          "explanation": "تستشعر الطيور المهاجرة مجال الأرض المغناطيسي كأنه بوصلة.",
+          "fact": "وتستعين أيضًا بالشمس والنجوم والمعالم."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Breedtegraad = afstand tot de evenaar",
+      "artBrief": "Een wereldbol met horizontale cirkels en de evenaar dik aangezet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat geeft de breedtegraad aan?",
+          "answer": "De afstand tot de evenaar",
+          "wrong": [
+            "De afstand tot Parijs",
+            "De hoogte van het land",
+            "De breedte van een weg"
+          ],
+          "hint": "Hij loopt van nul tot negentig.",
+          "explanation": "De breedtegraad zegt hoe ver noordelijk of zuidelijk je zit.",
+          "fact": "Op de evenaar is hij nul, op de polen negentig."
+        },
+        "en": {
+          "prompt": "What does latitude tell you?",
+          "answer": "The distance to the equator",
+          "wrong": [
+            "The distance to Paris",
+            "The height of the land",
+            "The width of a road"
+          ],
+          "hint": "It runs from zero to ninety.",
+          "explanation": "Latitude says how far north or south you are.",
+          "fact": "At the equator it is zero, at the poles ninety."
+        },
+        "de": {
+          "prompt": "Was gibt der Breitengrad an?",
+          "answer": "Den Abstand zum Äquator",
+          "wrong": [
+            "Den Abstand zu Paris",
+            "Die Höhe des Landes",
+            "Die Breite einer Straße"
+          ],
+          "hint": "Er reicht von null bis neunzig.",
+          "explanation": "Der Breitengrad sagt, wie weit nördlich oder südlich man ist.",
+          "fact": "Am Äquator ist er null, an den Polen neunzig."
+        },
+        "fr": {
+          "prompt": "Qu'indique la latitude ?",
+          "answer": "La distance à l'équateur",
+          "wrong": [
+            "La distance à Paris",
+            "L'altitude du terrain",
+            "La largeur d'une route"
+          ],
+          "hint": "Elle va de zéro à quatre-vingt-dix.",
+          "explanation": "La latitude dit à quelle distance au nord ou au sud on se trouve.",
+          "fact": "À l'équateur elle vaut zéro, aux pôles quatre-vingt-dix."
+        },
+        "es": {
+          "prompt": "¿Qué indica la latitud?",
+          "answer": "La distancia al ecuador",
+          "wrong": [
+            "La distancia a París",
+            "La altura del terreno",
+            "El ancho de una calle"
+          ],
+          "hint": "Va de cero a noventa.",
+          "explanation": "La latitud dice a qué distancia al norte o al sur estás.",
+          "fact": "En el ecuador es cero y en los polos noventa."
+        },
+        "it": {
+          "prompt": "Che cosa indica la latitudine?",
+          "answer": "La distanza dall'equatore",
+          "wrong": [
+            "La distanza da Parigi",
+            "L'altezza del terreno",
+            "La larghezza di una strada"
+          ],
+          "hint": "Va da zero a novanta.",
+          "explanation": "La latitudine dice quanto si è a nord o a sud.",
+          "fact": "All'equatore è zero, ai poli novanta."
+        },
+        "pt": {
+          "prompt": "O que indica a latitude?",
+          "answer": "A distância ao equador",
+          "wrong": [
+            "A distância a Paris",
+            "A altura do terreno",
+            "A largura de uma rua"
+          ],
+          "hint": "Vai de zero a noventa.",
+          "explanation": "A latitude diz a que distância a norte ou a sul estás.",
+          "fact": "No equador é zero e nos polos noventa."
+        },
+        "da": {
+          "prompt": "Hvad angiver breddegraden?",
+          "answer": "Afstanden til ækvator",
+          "wrong": [
+            "Afstanden til Paris",
+            "Landets højde",
+            "En vejs bredde"
+          ],
+          "hint": "Den går fra nul til halvfems.",
+          "explanation": "Breddegraden siger, hvor langt mod nord eller syd man er.",
+          "fact": "Ved ækvator er den nul, ved polerne halvfems."
+        },
+        "ru": {
+          "prompt": "Что показывает широта?",
+          "answer": "Расстояние до экватора",
+          "wrong": [
+            "Расстояние до Парижа",
+            "Высоту местности",
+            "Ширину дороги"
+          ],
+          "hint": "Она идёт от нуля до девяноста.",
+          "explanation": "Широта говорит, насколько далеко к северу или югу ты находишься.",
+          "fact": "На экваторе она равна нулю, на полюсах — девяноста."
+        },
+        "ar": {
+          "prompt": "ماذا يدل عليه خط العرض؟",
+          "answer": "البعد عن خط الاستواء",
+          "wrong": [
+            "البعد عن باريس",
+            "ارتفاع الأرض",
+            "عرض الطريق"
+          ],
+          "hint": "يمتد من صفر إلى تسعين.",
+          "explanation": "خط العرض يبين كم تبعد شمالًا أو جنوبًا.",
+          "fact": "عند الاستواء صفر وعند القطبين تسعون."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Navigatie op sterren",
+      "artBrief": "Een zeilschip 's nachts onder een sterrenhemel met de Poolster helder.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe navigeerden zeelieden vroeger 's nachts?",
+          "answer": "Op de sterren",
+          "wrong": [
+            "Op de wolken",
+            "Op de vissen",
+            "Op het geluid"
+          ],
+          "hint": "Eén ster staat altijd op dezelfde plek.",
+          "explanation": "Met de stand van de sterren wisten zeelieden welke kant ze op voeren.",
+          "fact": "De Poolster wees hun altijd het noorden."
+        },
+        "en": {
+          "prompt": "How did sailors navigate at night long ago?",
+          "answer": "By the stars",
+          "wrong": [
+            "By the clouds",
+            "By the fish",
+            "By the sound"
+          ],
+          "hint": "One star always stays in the same place.",
+          "explanation": "From the stars' positions sailors knew which way they were heading.",
+          "fact": "The North Star always showed them north."
+        },
+        "de": {
+          "prompt": "Wie navigierten Seeleute früher nachts?",
+          "answer": "Nach den Sternen",
+          "wrong": [
+            "Nach den Wolken",
+            "Nach den Fischen",
+            "Nach dem Geräusch"
+          ],
+          "hint": "Ein Stern bleibt immer an derselben Stelle.",
+          "explanation": "Am Stand der Sterne erkannten Seeleute ihre Richtung.",
+          "fact": "Der Polarstern zeigte ihnen stets den Norden."
+        },
+        "fr": {
+          "prompt": "Comment les marins naviguaient-ils autrefois la nuit ?",
+          "answer": "Grâce aux étoiles",
+          "wrong": [
+            "Grâce aux nuages",
+            "Grâce aux poissons",
+            "Grâce au bruit"
+          ],
+          "hint": "Une étoile reste toujours à la même place.",
+          "explanation": "La position des étoiles indiquait aux marins leur direction.",
+          "fact": "L'étoile polaire leur montrait toujours le nord."
+        },
+        "es": {
+          "prompt": "¿Cómo navegaban de noche los marineros de antes?",
+          "answer": "Por las estrellas",
+          "wrong": [
+            "Por las nubes",
+            "Por los peces",
+            "Por el sonido"
+          ],
+          "hint": "Una estrella siempre está en el mismo sitio.",
+          "explanation": "Por la posición de las estrellas sabían hacia dónde iban.",
+          "fact": "La estrella polar les señalaba siempre el norte."
+        },
+        "it": {
+          "prompt": "Come navigavano di notte i marinai di una volta?",
+          "answer": "Con le stelle",
+          "wrong": [
+            "Con le nuvole",
+            "Con i pesci",
+            "Con il rumore"
+          ],
+          "hint": "Una stella resta sempre allo stesso posto.",
+          "explanation": "Dalla posizione delle stelle capivano in che direzione andavano.",
+          "fact": "La stella polare indicava loro sempre il nord."
+        },
+        "pt": {
+          "prompt": "Como navegavam de noite os marinheiros de antigamente?",
+          "answer": "Pelas estrelas",
+          "wrong": [
+            "Pelas nuvens",
+            "Pelos peixes",
+            "Pelo som"
+          ],
+          "hint": "Uma estrela fica sempre no mesmo sítio.",
+          "explanation": "Pela posição das estrelas sabiam para onde iam.",
+          "fact": "A estrela polar mostrava-lhes sempre o norte."
+        },
+        "da": {
+          "prompt": "Hvordan navigerede søfolk før i tiden om natten?",
+          "answer": "Efter stjernerne",
+          "wrong": [
+            "Efter skyerne",
+            "Efter fiskene",
+            "Efter lyden"
+          ],
+          "hint": "Én stjerne bliver altid på samme sted.",
+          "explanation": "Ud fra stjernernes stilling vidste de, hvilken vej de sejlede.",
+          "fact": "Nordstjernen viste dem altid nord."
+        },
+        "ru": {
+          "prompt": "Как моряки в прошлом ориентировались ночью?",
+          "answer": "По звёздам",
+          "wrong": [
+            "По облакам",
+            "По рыбам",
+            "По звуку"
+          ],
+          "hint": "Одна звезда всегда стоит на месте.",
+          "explanation": "По положению звёзд моряки понимали, куда плывут.",
+          "fact": "Полярная звезда всегда указывала им север."
+        },
+        "ar": {
+          "prompt": "كيف كان البحارة قديمًا يهتدون ليلًا؟",
+          "answer": "بالنجوم",
+          "wrong": [
+            "بالغيوم",
+            "بالأسماك",
+            "بالأصوات"
+          ],
+          "hint": "نجم واحد يبقى في مكانه دائمًا.",
+          "explanation": "من مواضع النجوم كانوا يعرفون اتجاه سيرهم.",
+          "fact": "ونجم الشمال كان يدلهم دائمًا على الشمال."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Een cirkel telt 360 graden",
+      "artBrief": "Een kompasroos met een schaalverdeling rondom.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel graden telt een hele cirkel op een kompas?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1.000"
+          ],
+          "hint": "Een kwart ervan is negentig.",
+          "explanation": "Een volledige cirkel is driehonderdzestig graden.",
+          "fact": "Precies naar het oosten is negentig graden."
+        },
+        "en": {
+          "prompt": "How many degrees make a full circle on a compass?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1,000"
+          ],
+          "hint": "A quarter of it is ninety.",
+          "explanation": "A full circle is three hundred and sixty degrees.",
+          "fact": "Due east is ninety degrees."
+        },
+        "de": {
+          "prompt": "Wie viele Grad hat ein voller Kreis auf dem Kompass?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1.000"
+          ],
+          "hint": "Ein Viertel davon sind neunzig.",
+          "explanation": "Ein voller Kreis hat dreihundertsechzig Grad.",
+          "fact": "Genau Osten sind neunzig Grad."
+        },
+        "fr": {
+          "prompt": "Combien de degrés fait un cercle complet sur une boussole ?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1 000"
+          ],
+          "hint": "Le quart en fait quatre-vingt-dix.",
+          "explanation": "Un cercle complet fait trois cent soixante degrés.",
+          "fact": "Plein est correspond à quatre-vingt-dix degrés."
+        },
+        "es": {
+          "prompt": "¿Cuántos grados tiene un círculo completo en una brújula?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1.000"
+          ],
+          "hint": "La cuarta parte son noventa.",
+          "explanation": "Un círculo completo tiene trescientos sesenta grados.",
+          "fact": "Justo al este son noventa grados."
+        },
+        "it": {
+          "prompt": "Quanti gradi ha un cerchio intero sulla bussola?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1.000"
+          ],
+          "hint": "Un quarto fa novanta.",
+          "explanation": "Un cerchio intero ha trecentosessanta gradi.",
+          "fact": "Esattamente a est sono novanta gradi."
+        },
+        "pt": {
+          "prompt": "Quantos graus tem um círculo completo numa bússola?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1.000"
+          ],
+          "hint": "Um quarto são noventa.",
+          "explanation": "Um círculo completo tem trezentos e sessenta graus.",
+          "fact": "Mesmo a este são noventa graus."
+        },
+        "da": {
+          "prompt": "Hvor mange grader har en hel cirkel på et kompas?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1.000"
+          ],
+          "hint": "En fjerdedel er halvfems.",
+          "explanation": "En hel cirkel har tre hundrede og tres grader.",
+          "fact": "Lige mod øst er halvfems grader."
+        },
+        "ru": {
+          "prompt": "Сколько градусов в полном круге компаса?",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1000"
+          ],
+          "hint": "Четверть от него — девяносто.",
+          "explanation": "Полный круг — триста шестьдесят градусов.",
+          "fact": "Точно на восток — девяносто градусов."
+        },
+        "ar": {
+          "prompt": "كم درجة في الدائرة الكاملة على البوصلة؟",
+          "answer": "360",
+          "wrong": [
+            "90",
+            "180",
+            "1000"
+          ],
+          "hint": "ربعها تسعون.",
+          "explanation": "الدائرة الكاملة ثلاثمئة وستون درجة.",
+          "fact": "وتمامًا نحو الشرق تسعون درجة."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Het lengtegraadprobleem en de scheepschronometer",
+      "artBrief": "Een oude scheepsklok in een houten kist naast een zeekaart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe wisten schepen vroeger hoe ver ze naar het oosten waren?",
+          "answer": "Met een nauwkeurige klok",
+          "wrong": [
+            "Met de sterren",
+            "Met een kompas",
+            "Met een touw"
+          ],
+          "hint": "Tijdverschil is afstand.",
+          "explanation": "Door de tijd aan boord met die van thuis te vergelijken, wist men de lengtegraad.",
+          "fact": "Daarvoor moest eerst een klok worden uitgevonden die op zee gelijk liep."
+        },
+        "en": {
+          "prompt": "How did ships once know how far east they were?",
+          "answer": "With an accurate clock",
+          "wrong": [
+            "With the stars",
+            "With a compass",
+            "With a rope"
+          ],
+          "hint": "A time difference is a distance.",
+          "explanation": "Comparing the time on board with the time at home gave the longitude.",
+          "fact": "First a clock had to be invented that kept time at sea."
+        },
+        "de": {
+          "prompt": "Wie wussten Schiffe früher, wie weit östlich sie waren?",
+          "answer": "Mit einer genauen Uhr",
+          "wrong": [
+            "Mit den Sternen",
+            "Mit einem Kompass",
+            "Mit einem Seil"
+          ],
+          "hint": "Ein Zeitunterschied ist eine Entfernung.",
+          "explanation": "Der Vergleich der Bordzeit mit der Heimatzeit ergab den Längengrad.",
+          "fact": "Dafür musste erst eine Uhr erfunden werden, die auf See genau ging."
+        },
+        "fr": {
+          "prompt": "Comment les navires savaient-ils autrefois leur position est ?",
+          "answer": "Avec une horloge précise",
+          "wrong": [
+            "Avec les étoiles",
+            "Avec une boussole",
+            "Avec une corde"
+          ],
+          "hint": "Une différence d'heure est une distance.",
+          "explanation": "Comparer l'heure du bord à celle du port donnait la longitude.",
+          "fact": "Il a d'abord fallu inventer une horloge juste en pleine mer."
+        },
+        "es": {
+          "prompt": "¿Cómo sabían antes los barcos cuánto habían ido al este?",
+          "answer": "Con un reloj preciso",
+          "wrong": [
+            "Con las estrellas",
+            "Con una brújula",
+            "Con una cuerda"
+          ],
+          "hint": "Una diferencia de hora es una distancia.",
+          "explanation": "Comparar la hora de a bordo con la de casa daba la longitud.",
+          "fact": "Antes hubo que inventar un reloj que fuera exacto en el mar."
+        },
+        "it": {
+          "prompt": "Come sapevano le navi di un tempo quanto erano andate a est?",
+          "answer": "Con un orologio preciso",
+          "wrong": [
+            "Con le stelle",
+            "Con la bussola",
+            "Con una corda"
+          ],
+          "hint": "Una differenza di ore è una distanza.",
+          "explanation": "Confrontare l'ora di bordo con quella di casa dava la longitudine.",
+          "fact": "Prima si dovette inventare un orologio esatto anche in mare."
+        },
+        "pt": {
+          "prompt": "Como sabiam os navios de antes quanto tinham ido para leste?",
+          "answer": "Com um relógio preciso",
+          "wrong": [
+            "Com as estrelas",
+            "Com uma bússola",
+            "Com uma corda"
+          ],
+          "hint": "Uma diferença de horas é uma distância.",
+          "explanation": "Comparar a hora de bordo com a de casa dava a longitude.",
+          "fact": "Primeiro teve de se inventar um relógio certo no mar."
+        },
+        "da": {
+          "prompt": "Hvordan vidste skibe før, hvor langt mod øst de var?",
+          "answer": "Med et nøjagtigt ur",
+          "wrong": [
+            "Med stjernerne",
+            "Med et kompas",
+            "Med et reb"
+          ],
+          "hint": "En tidsforskel er en afstand.",
+          "explanation": "Ved at sammenligne tiden om bord med hjemme fik man længdegraden.",
+          "fact": "Først skulle der opfindes et ur, der gik rigtigt til søs."
+        },
+        "ru": {
+          "prompt": "Как корабли раньше узнавали, далеко ли ушли на восток?",
+          "answer": "По точным часам",
+          "wrong": [
+            "По звёздам",
+            "По компасу",
+            "По верёвке"
+          ],
+          "hint": "Разница во времени — это расстояние.",
+          "explanation": "Сравнение времени на борту и дома давало долготу.",
+          "fact": "Сначала пришлось изобрести часы, точные в открытом море."
+        },
+        "ar": {
+          "prompt": "كيف عرفت السفن قديمًا كم ابتعدت شرقًا؟",
+          "answer": "بساعة دقيقة",
+          "wrong": [
+            "بالنجوم",
+            "بالبوصلة",
+            "بحبل"
+          ],
+          "hint": "فارق الوقت هو مسافة.",
+          "explanation": "بمقارنة وقت السفينة بوقت الميناء يُعرف خط الطول.",
+          "fact": "ولذلك كان لا بد أولًا من ساعة تضبط في عرض البحر."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Atlassen",
+      "artBrief": "Een dik opengeslagen kaartenboek op een tafel.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is een atlas?",
+          "answer": "Een boek vol kaarten",
+          "wrong": [
+            "Een soort kompas",
+            "Een hoge berg",
+            "Een zeekaart"
+          ],
+          "hint": "Je slaat hem open op school.",
+          "explanation": "Een atlas is een boek met kaarten van de hele wereld.",
+          "fact": "De naam komt van een reus uit de Griekse verhalen."
+        },
+        "en": {
+          "prompt": "What is an atlas?",
+          "answer": "A book full of maps",
+          "wrong": [
+            "A kind of compass",
+            "A tall mountain",
+            "A sea chart"
+          ],
+          "hint": "You open it at school.",
+          "explanation": "An atlas is a book of maps of the whole world.",
+          "fact": "The name comes from a giant in the Greek stories."
+        },
+        "de": {
+          "prompt": "Was ist ein Atlas?",
+          "answer": "Ein Buch voller Karten",
+          "wrong": [
+            "Eine Art Kompass",
+            "Ein hoher Berg",
+            "Eine Seekarte"
+          ],
+          "hint": "In der Schule schlägt man ihn auf.",
+          "explanation": "Ein Atlas ist ein Buch mit Karten der ganzen Welt.",
+          "fact": "Der Name stammt von einem Riesen aus den griechischen Sagen."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qu'un atlas ?",
+          "answer": "Un livre plein de cartes",
+          "wrong": [
+            "Une sorte de boussole",
+            "Une haute montagne",
+            "Une carte marine"
+          ],
+          "hint": "On l'ouvre à l'école.",
+          "explanation": "Un atlas est un livre de cartes du monde entier.",
+          "fact": "Le nom vient d'un géant des récits grecs."
+        },
+        "es": {
+          "prompt": "¿Qué es un atlas?",
+          "answer": "Un libro lleno de mapas",
+          "wrong": [
+            "Una especie de brújula",
+            "Una montaña alta",
+            "Una carta náutica"
+          ],
+          "hint": "Lo abres en el colegio.",
+          "explanation": "Un atlas es un libro con mapas de todo el mundo.",
+          "fact": "El nombre viene de un gigante de los relatos griegos."
+        },
+        "it": {
+          "prompt": "Che cos'è un atlante?",
+          "answer": "Un libro pieno di carte",
+          "wrong": [
+            "Un tipo di bussola",
+            "Una montagna alta",
+            "Una carta nautica"
+          ],
+          "hint": "A scuola lo apri sul banco.",
+          "explanation": "Un atlante è un libro con le carte di tutto il mondo.",
+          "fact": "Il nome viene da un gigante dei racconti greci."
+        },
+        "pt": {
+          "prompt": "O que é um atlas?",
+          "answer": "Um livro cheio de mapas",
+          "wrong": [
+            "Um tipo de bússola",
+            "Uma montanha alta",
+            "Uma carta náutica"
+          ],
+          "hint": "Abre-se na escola.",
+          "explanation": "Um atlas é um livro com mapas do mundo inteiro.",
+          "fact": "O nome vem de um gigante das histórias gregas."
+        },
+        "da": {
+          "prompt": "Hvad er et atlas?",
+          "answer": "En bog fuld af kort",
+          "wrong": [
+            "En slags kompas",
+            "Et højt bjerg",
+            "Et søkort"
+          ],
+          "hint": "Man slår det op i skolen.",
+          "explanation": "Et atlas er en bog med kort over hele verden.",
+          "fact": "Navnet kommer fra en kæmpe i de græske fortællinger."
+        },
+        "ru": {
+          "prompt": "Что такое атлас?",
+          "answer": "Книга с картами",
+          "wrong": [
+            "Вид компаса",
+            "Высокая гора",
+            "Морская карта"
+          ],
+          "hint": "Его открывают в школе.",
+          "explanation": "Атлас — это книга с картами всего мира.",
+          "fact": "Название пришло от великана из греческих рассказов."
+        },
+        "ar": {
+          "prompt": "ما هو الأطلس؟",
+          "answer": "كتاب مليء بالخرائط",
+          "wrong": [
+            "نوع من البوصلات",
+            "جبل عال",
+            "خريطة بحرية"
+          ],
+          "hint": "تفتحه في المدرسة.",
+          "explanation": "الأطلس كتاب فيه خرائط للعالم كله.",
+          "fact": "والاسم من عملاق في الحكايات اليونانية."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Het gradennet van meridianen en parallellen",
+      "artBrief": "Een doorzichtige wereldbol met een raster van lijnen eromheen.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe heet het denkbeeldige raster van lijnen op de aarde?",
+          "answer": "Het gradennet",
+          "wrong": [
+            "Het wegennet",
+            "Het spoornet",
+            "Het visnet"
+          ],
+          "hint": "Het bestaat uit lengte- en breedtelijnen.",
+          "explanation": "Het gradennet is het raster waarmee je elke plek kunt aanwijzen.",
+          "fact": "Met twee getallen vind je zo elk punt op aarde terug."
+        },
+        "en": {
+          "prompt": "What is the imaginary grid of lines on the earth called?",
+          "answer": "The graticule",
+          "wrong": [
+            "The road network",
+            "The rail network",
+            "The fishing net"
+          ],
+          "hint": "It is made of lines of longitude and latitude.",
+          "explanation": "The graticule is the grid that lets you point to any place.",
+          "fact": "Two numbers are enough to find any point on earth."
+        },
+        "de": {
+          "prompt": "Wie heißt das gedachte Liniennetz auf der Erde?",
+          "answer": "Das Gradnetz",
+          "wrong": [
+            "Das Straßennetz",
+            "Das Schienennetz",
+            "Das Fischernetz"
+          ],
+          "hint": "Es besteht aus Längen- und Breitenkreisen.",
+          "explanation": "Mit dem Gradnetz lässt sich jeder Ort genau angeben.",
+          "fact": "Zwei Zahlen genügen, um jeden Punkt der Erde zu finden."
+        },
+        "fr": {
+          "prompt": "Comment s'appelle le quadrillage imaginaire de la Terre ?",
+          "answer": "Le réseau de coordonnées",
+          "wrong": [
+            "Le réseau routier",
+            "Le réseau ferré",
+            "Le filet de pêche"
+          ],
+          "hint": "Il est fait de méridiens et de parallèles.",
+          "explanation": "Ce quadrillage permet de désigner n'importe quel endroit.",
+          "fact": "Deux nombres suffisent à retrouver tout point sur Terre."
+        },
+        "es": {
+          "prompt": "¿Cómo se llama la red imaginaria de líneas de la Tierra?",
+          "answer": "La red de coordenadas",
+          "wrong": [
+            "La red de carreteras",
+            "La red de trenes",
+            "La red de pesca"
+          ],
+          "hint": "Está hecha de meridianos y paralelos.",
+          "explanation": "Con esa red se puede señalar cualquier lugar del planeta.",
+          "fact": "Bastan dos números para encontrar cualquier punto."
+        },
+        "it": {
+          "prompt": "Come si chiama il reticolo immaginario sulla Terra?",
+          "answer": "Il reticolo geografico",
+          "wrong": [
+            "La rete stradale",
+            "La rete ferroviaria",
+            "La rete da pesca"
+          ],
+          "hint": "È fatto di meridiani e paralleli.",
+          "explanation": "Con quel reticolo si può indicare qualsiasi luogo.",
+          "fact": "Bastano due numeri per ritrovare ogni punto della Terra."
+        },
+        "pt": {
+          "prompt": "Como se chama a rede imaginária de linhas da Terra?",
+          "answer": "A rede de coordenadas",
+          "wrong": [
+            "A rede de estradas",
+            "A rede ferroviária",
+            "A rede de pesca"
+          ],
+          "hint": "É feita de meridianos e paralelos.",
+          "explanation": "Com essa rede consegue-se apontar qualquer lugar.",
+          "fact": "Bastam dois números para encontrar qualquer ponto da Terra."
+        },
+        "da": {
+          "prompt": "Hvad hedder det tænkte netværk af linjer på Jorden?",
+          "answer": "Gradnettet",
+          "wrong": [
+            "Vejnettet",
+            "Jernbanenettet",
+            "Fiskenettet"
+          ],
+          "hint": "Det består af længde- og breddelinjer.",
+          "explanation": "Med gradnettet kan man udpege ethvert sted på Jorden.",
+          "fact": "To tal er nok til at finde et hvilket som helst punkt."
+        },
+        "ru": {
+          "prompt": "Как называется воображаемая сетка линий на Земле?",
+          "answer": "Градусная сетка",
+          "wrong": [
+            "Дорожная сеть",
+            "Железнодорожная сеть",
+            "Рыболовная сеть"
+          ],
+          "hint": "Она состоит из меридианов и параллелей.",
+          "explanation": "По градусной сетке можно указать любое место на планете.",
+          "fact": "Двух чисел достаточно, чтобы найти любую точку."
+        },
+        "ar": {
+          "prompt": "ما اسم الشبكة الوهمية من الخطوط على الأرض؟",
+          "answer": "شبكة الإحداثيات",
+          "wrong": [
+            "شبكة الطرق",
+            "شبكة السكك",
+            "شبكة الصيد"
+          ],
+          "hint": "تتكون من خطوط الطول والعرض.",
+          "explanation": "بهذه الشبكة يمكن تحديد أي مكان على الأرض.",
+          "fact": "ورقمان يكفيان لإيجاد أي نقطة."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Middeleeuwse kaarten met het oosten boven",
+      "artBrief": "Een oude perkamentkaart met versieringen, met het oosten bovenaan.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom staat op oude kaarten soms het oosten bovenaan?",
+          "answer": "Daar komt de zon op",
+          "wrong": [
+            "Het stond mooier",
+            "Het was verplicht",
+            "Om ruimte te sparen"
+          ],
+          "hint": "Het woord oriënteren komt ervandaan.",
+          "explanation": "Vroeger legden kaartmakers het oosten boven, de kant van de zonsopgang.",
+          "fact": "Ons woord oriënteren betekent letterlijk naar het oosten richten."
+        },
+        "en": {
+          "prompt": "Why is east at the top of some old maps?",
+          "answer": "That is where the sun rises",
+          "wrong": [
+            "It looked nicer",
+            "It was compulsory",
+            "To save space"
+          ],
+          "hint": "The word orientation comes from it.",
+          "explanation": "Old mapmakers put east at the top, the side of the sunrise.",
+          "fact": "To orient once meant literally to turn towards the east."
+        },
+        "de": {
+          "prompt": "Warum steht auf alten Karten manchmal der Osten oben?",
+          "answer": "Dort geht die Sonne auf",
+          "wrong": [
+            "Es sah schöner aus",
+            "Es war Vorschrift",
+            "Um Platz zu sparen"
+          ],
+          "hint": "Das Wort orientieren kommt daher.",
+          "explanation": "Frühere Kartenmacher legten den Osten nach oben, zur aufgehenden Sonne.",
+          "fact": "Orientieren hieß einmal wörtlich sich nach Osten wenden."
+        },
+        "fr": {
+          "prompt": "Pourquoi l'est est-il en haut de certaines vieilles cartes ?",
+          "answer": "Le soleil s'y lève",
+          "wrong": [
+            "C'était plus joli",
+            "C'était obligatoire",
+            "Pour gagner de la place"
+          ],
+          "hint": "Le mot orientation vient de là.",
+          "explanation": "Les anciens cartographes mettaient l'est en haut, côté lever du soleil.",
+          "fact": "S'orienter voulait dire littéralement se tourner vers l'est."
+        },
+        "es": {
+          "prompt": "¿Por qué en mapas antiguos el este está arriba?",
+          "answer": "Por donde sale el sol",
+          "wrong": [
+            "Quedaba más bonito",
+            "Era obligatorio",
+            "Para ahorrar espacio"
+          ],
+          "hint": "De ahí viene la palabra orientarse.",
+          "explanation": "Los cartógrafos antiguos ponían arriba el este, el lado del amanecer.",
+          "fact": "Orientarse significaba literalmente volverse hacia el este."
+        },
+        "it": {
+          "prompt": "Perché su certe mappe antiche l'est sta in alto?",
+          "answer": "Lì sorge il sole",
+          "wrong": [
+            "Era più bello",
+            "Era obbligatorio",
+            "Per risparmiare spazio"
+          ],
+          "hint": "Da lì viene la parola orientarsi.",
+          "explanation": "I cartografi antichi mettevano in alto l'est, il lato dell'alba.",
+          "fact": "Orientarsi voleva dire letteralmente volgersi a oriente."
+        },
+        "pt": {
+          "prompt": "Porque está o este em cima nalguns mapas antigos?",
+          "answer": "É por onde nasce o sol",
+          "wrong": [
+            "Ficava mais bonito",
+            "Era obrigatório",
+            "Para poupar espaço"
+          ],
+          "hint": "Daí vem a palavra orientar.",
+          "explanation": "Os cartógrafos antigos punham o este em cima, o lado do nascer do sol.",
+          "fact": "Orientar-se queria dizer literalmente virar-se para oriente."
+        },
+        "da": {
+          "prompt": "Hvorfor er øst øverst på nogle gamle kort?",
+          "answer": "Der står solen op",
+          "wrong": [
+            "Det så pænere ud",
+            "Det var påbudt",
+            "For at spare plads"
+          ],
+          "hint": "Ordet orientere kommer derfra.",
+          "explanation": "Gamle kortmagere lagde øst øverst, mod den opgående sol.",
+          "fact": "At orientere sig betød bogstaveligt at vende sig mod øst."
+        },
+        "ru": {
+          "prompt": "Почему на некоторых старых картах восток вверху?",
+          "answer": "Там восходит солнце",
+          "wrong": [
+            "Так было красивее",
+            "Так было положено",
+            "Чтобы сэкономить место"
+          ],
+          "hint": "Отсюда и слово «ориентироваться».",
+          "explanation": "Старые картографы ставили вверху восток, сторону восхода.",
+          "fact": "Ориентироваться буквально значило повернуться к востоку."
+        },
+        "ar": {
+          "prompt": "لماذا يكون الشرق أعلى بعض الخرائط القديمة؟",
+          "answer": "لأن الشمس تشرق منه",
+          "wrong": [
+            "كان أجمل",
+            "كان إلزاميًا",
+            "لتوفير المساحة"
+          ],
+          "hint": "من هنا جاءت كلمة التوجيه.",
+          "explanation": "كان رسامو الخرائط يضعون الشرق أعلى، جهة الشروق.",
+          "fact": "وكان التوجه يعني حرفيًا الالتفات نحو الشرق."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "GPS op een telefoon: enkele meters nauwkeurig",
+      "artBrief": "Een telefoon met een blauwe stip en een cirkel van onzekerheid op een kaart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe nauwkeurig is gps op een telefoon ongeveer?",
+          "answer": "Op een paar meter",
+          "wrong": [
+            "Op een kilometer",
+            "Op een centimeter",
+            "Op honderd meter"
+          ],
+          "hint": "Nauwkeurig genoeg om je huis te vinden.",
+          "explanation": "Een telefoon weet je plek meestal tot op enkele meters.",
+          "fact": "Tussen hoge gebouwen wordt dat een stuk minder nauwkeurig."
+        },
+        "en": {
+          "prompt": "How accurate is GPS on a phone, roughly?",
+          "answer": "To a few metres",
+          "wrong": [
+            "To a kilometre",
+            "To a centimetre",
+            "To a hundred metres"
+          ],
+          "hint": "Accurate enough to find your house.",
+          "explanation": "A phone usually knows where you are to within a few metres.",
+          "fact": "Between tall buildings it gets a good deal less exact."
+        },
+        "de": {
+          "prompt": "Wie genau ist GPS auf einem Handy ungefähr?",
+          "answer": "Auf ein paar Meter",
+          "wrong": [
+            "Auf einen Kilometer",
+            "Auf einen Zentimeter",
+            "Auf hundert Meter"
+          ],
+          "hint": "Genau genug, um dein Haus zu finden.",
+          "explanation": "Ein Handy kennt deinen Ort meist bis auf wenige Meter.",
+          "fact": "Zwischen hohen Häusern wird es deutlich ungenauer."
+        },
+        "fr": {
+          "prompt": "Quelle est la précision du GPS d'un téléphone ?",
+          "answer": "Quelques mètres",
+          "wrong": [
+            "Un kilomètre",
+            "Un centimètre",
+            "Cent mètres"
+          ],
+          "hint": "Assez précis pour trouver ta maison.",
+          "explanation": "Un téléphone connaît ta position à quelques mètres près.",
+          "fact": "Entre de hauts immeubles, c'est beaucoup moins précis."
+        },
+        "es": {
+          "prompt": "¿Con qué precisión funciona el GPS de un móvil?",
+          "answer": "Con unos pocos metros",
+          "wrong": [
+            "Con un kilómetro",
+            "Con un centímetro",
+            "Con cien metros"
+          ],
+          "hint": "Suficiente para encontrar tu casa.",
+          "explanation": "Un móvil suele saber dónde estás con unos metros de margen.",
+          "fact": "Entre edificios altos se vuelve bastante menos preciso."
+        },
+        "it": {
+          "prompt": "Quanto è preciso il GPS di un telefono?",
+          "answer": "Qualche metro",
+          "wrong": [
+            "Un chilometro",
+            "Un centimetro",
+            "Cento metri"
+          ],
+          "hint": "Abbastanza per trovare casa tua.",
+          "explanation": "Un telefono di solito conosce la tua posizione a pochi metri.",
+          "fact": "Fra palazzi alti diventa molto meno preciso."
+        },
+        "pt": {
+          "prompt": "Com que precisão funciona o GPS de um telemóvel?",
+          "answer": "Com uns poucos metros",
+          "wrong": [
+            "Com um quilómetro",
+            "Com um centímetro",
+            "Com cem metros"
+          ],
+          "hint": "Chega para encontrar a tua casa.",
+          "explanation": "Um telemóvel sabe onde estás normalmente com poucos metros de erro.",
+          "fact": "Entre prédios altos fica bastante menos preciso."
+        },
+        "da": {
+          "prompt": "Hvor præcis er gps på en telefon cirka?",
+          "answer": "På et par meter",
+          "wrong": [
+            "På en kilometer",
+            "På en centimeter",
+            "På hundrede meter"
+          ],
+          "hint": "Præcist nok til at finde dit hus.",
+          "explanation": "En telefon kender som regel din plads inden for få meter.",
+          "fact": "Mellem høje huse bliver det noget mindre præcist."
+        },
+        "ru": {
+          "prompt": "Насколько точен GPS в телефоне?",
+          "answer": "До нескольких метров",
+          "wrong": [
+            "До километра",
+            "До сантиметра",
+            "До ста метров"
+          ],
+          "hint": "Достаточно, чтобы найти твой дом.",
+          "explanation": "Телефон обычно определяет место с точностью до нескольких метров.",
+          "fact": "Между высокими домами точность заметно падает."
+        },
+        "ar": {
+          "prompt": "ما دقة نظام تحديد المواقع في الهاتف تقريبًا؟",
+          "answer": "أمتار قليلة",
+          "wrong": [
+            "كيلومتر",
+            "سنتيمتر",
+            "مئة متر"
+          ],
+          "hint": "دقة تكفي للعثور على بيتك.",
+          "explanation": "يعرف الهاتف موضعك عادة في حدود أمتار قليلة.",
+          "fact": "وبين الأبنية العالية تقل الدقة كثيرًا."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Kaartprojecties",
+      "artBrief": "Een sinaasappelschil die plat wordt gedrukt naast een wereldkaart.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een kaartprojectie?",
+          "answer": "Een bol plat maken",
+          "wrong": [
+            "Een kaart vergroten",
+            "Een kaart kleuren",
+            "Een kaart vouwen"
+          ],
+          "hint": "Denk aan een sinaasappelschil.",
+          "explanation": "Een projectie zet het gebogen aardoppervlak op een plat vel.",
+          "fact": "Dat lukt nooit zonder iets uit te rekken of te knijpen."
+        },
+        "en": {
+          "prompt": "What does a map projection do?",
+          "answer": "It flattens a globe",
+          "wrong": [
+            "It enlarges a map",
+            "It colours a map",
+            "It folds a map"
+          ],
+          "hint": "Think of an orange peel.",
+          "explanation": "A projection puts the curved surface of the earth onto a flat sheet.",
+          "fact": "That never works without stretching or squeezing something."
+        },
+        "de": {
+          "prompt": "Was macht eine Kartenprojektion?",
+          "answer": "Sie macht die Kugel flach",
+          "wrong": [
+            "Sie vergrößert eine Karte",
+            "Sie färbt eine Karte",
+            "Sie faltet eine Karte"
+          ],
+          "hint": "Denk an eine Orangenschale.",
+          "explanation": "Eine Projektion bringt die gewölbte Erdoberfläche auf ein flaches Blatt.",
+          "fact": "Das geht nie, ohne etwas zu dehnen oder zu stauchen."
+        },
+        "fr": {
+          "prompt": "Que fait une projection cartographique ?",
+          "answer": "Elle met la sphère à plat",
+          "wrong": [
+            "Elle agrandit une carte",
+            "Elle colore une carte",
+            "Elle plie une carte"
+          ],
+          "hint": "Pense à une peau d'orange.",
+          "explanation": "Une projection pose la surface courbe de la Terre sur une feuille plate.",
+          "fact": "Cela n'arrive jamais sans étirer ou comprimer quelque chose."
+        },
+        "es": {
+          "prompt": "¿Qué hace una proyección cartográfica?",
+          "answer": "Aplana una esfera",
+          "wrong": [
+            "Agranda un mapa",
+            "Colorea un mapa",
+            "Dobla un mapa"
+          ],
+          "hint": "Piensa en la piel de una naranja.",
+          "explanation": "Una proyección pasa la superficie curva de la Tierra a una hoja plana.",
+          "fact": "Eso nunca sale sin estirar o encoger algo."
+        },
+        "it": {
+          "prompt": "Che cosa fa una proiezione cartografica?",
+          "answer": "Appiattisce una sfera",
+          "wrong": [
+            "Ingrandisce una carta",
+            "Colora una carta",
+            "Piega una carta"
+          ],
+          "hint": "Pensa a una buccia d'arancia.",
+          "explanation": "Una proiezione porta la superficie curva della Terra su un foglio piatto.",
+          "fact": "Non riesce mai senza stirare o schiacciare qualcosa."
+        },
+        "pt": {
+          "prompt": "O que faz uma projeção cartográfica?",
+          "answer": "Achata uma esfera",
+          "wrong": [
+            "Amplia um mapa",
+            "Pinta um mapa",
+            "Dobra um mapa"
+          ],
+          "hint": "Pensa na casca de uma laranja.",
+          "explanation": "Uma projeção passa a superfície curva da Terra para uma folha plana.",
+          "fact": "Isso nunca sai sem esticar ou encolher alguma coisa."
+        },
+        "da": {
+          "prompt": "Hvad gør en kortprojektion?",
+          "answer": "Den gør en kugle flad",
+          "wrong": [
+            "Den forstørrer et kort",
+            "Den farver et kort",
+            "Den folder et kort"
+          ],
+          "hint": "Tænk på en appelsinskræl.",
+          "explanation": "En projektion lægger Jordens buede overflade på et fladt ark.",
+          "fact": "Det går aldrig uden at strække eller klemme noget."
+        },
+        "ru": {
+          "prompt": "Что делает картографическая проекция?",
+          "answer": "Расправляет шар в плоскость",
+          "wrong": [
+            "Увеличивает карту",
+            "Раскрашивает карту",
+            "Складывает карту"
+          ],
+          "hint": "Вспомни апельсиновую корку.",
+          "explanation": "Проекция переносит изогнутую поверхность Земли на плоский лист.",
+          "fact": "Без растяжений и сжатий это никогда не выходит."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل الإسقاط الخرائطي؟",
+          "answer": "يبسط الكرة إلى سطح",
+          "wrong": [
+            "يكبر الخريطة",
+            "يلون الخريطة",
+            "يطوي الخريطة"
+          ],
+          "hint": "تخيل قشرة برتقالة.",
+          "explanation": "الإسقاط ينقل سطح الأرض المنحني إلى ورقة مسطحة.",
+          "fact": "ولا يتم ذلك أبدًا دون شد أو ضغط لشيء ما."
+        }
+      }
+    },
+    {
+      "id": "aarde-kaarten_navigatie-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Breedtebepaling met een sextant",
+      "artBrief": "Een zeeman die met een sextant de zon opmeet aan dek.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe bepaalde men vroeger de breedtegraad op zee?",
+          "answer": "Met de hoogte van de zon",
+          "wrong": [
+            "Met de diepte van het water",
+            "Met de kleur van de lucht",
+            "Met de vaart van het schip"
+          ],
+          "hint": "Je meet een hoek met een instrument.",
+          "explanation": "Met een sextant mat men hoe hoog de zon of de Poolster stond.",
+          "fact": "Hoe verder naar het noorden, hoe hoger de Poolster staat."
+        },
+        "en": {
+          "prompt": "How did people once find their latitude at sea?",
+          "answer": "By the height of the sun",
+          "wrong": [
+            "By the depth of the water",
+            "By the colour of the sky",
+            "By the speed of the ship"
+          ],
+          "hint": "You measure an angle with an instrument.",
+          "explanation": "With a sextant they measured how high the sun or North Star stood.",
+          "fact": "The further north you go, the higher the North Star sits."
+        },
+        "de": {
+          "prompt": "Wie bestimmte man früher den Breitengrad auf See?",
+          "answer": "Mit dem Sonnenstand",
+          "wrong": [
+            "Mit der Wassertiefe",
+            "Mit der Farbe des Himmels",
+            "Mit dem Tempo des Schiffs"
+          ],
+          "hint": "Man misst mit einem Gerät einen Winkel.",
+          "explanation": "Mit einem Sextanten maß man, wie hoch Sonne oder Polarstern standen.",
+          "fact": "Je weiter nördlich, desto höher steht der Polarstern."
+        },
+        "fr": {
+          "prompt": "Comment déterminait-on autrefois la latitude en mer ?",
+          "answer": "Par la hauteur du soleil",
+          "wrong": [
+            "Par la profondeur de l'eau",
+            "Par la couleur du ciel",
+            "Par la vitesse du navire"
+          ],
+          "hint": "On mesure un angle avec un instrument.",
+          "explanation": "Au sextant, on mesurait la hauteur du soleil ou de l'étoile polaire.",
+          "fact": "Plus on va au nord, plus l'étoile polaire est haute."
+        },
+        "es": {
+          "prompt": "¿Cómo se hallaba antes la latitud en el mar?",
+          "answer": "Por la altura del sol",
+          "wrong": [
+            "Por la profundidad del agua",
+            "Por el color del cielo",
+            "Por la velocidad del barco"
+          ],
+          "hint": "Se mide un ángulo con un instrumento.",
+          "explanation": "Con un sextante medían la altura del sol o de la estrella polar.",
+          "fact": "Cuanto más al norte, más alta se ve la estrella polar."
+        },
+        "it": {
+          "prompt": "Come si trovava un tempo la latitudine in mare?",
+          "answer": "Dall'altezza del sole",
+          "wrong": [
+            "Dalla profondità dell'acqua",
+            "Dal colore del cielo",
+            "Dalla velocità della nave"
+          ],
+          "hint": "Si misura un angolo con uno strumento.",
+          "explanation": "Con il sestante si misurava quanto erano alti sole o stella polare.",
+          "fact": "Più si va a nord, più la stella polare è alta."
+        },
+        "pt": {
+          "prompt": "Como se determinava antes a latitude no mar?",
+          "answer": "Pela altura do sol",
+          "wrong": [
+            "Pela profundidade da água",
+            "Pela cor do céu",
+            "Pela velocidade do navio"
+          ],
+          "hint": "Mede-se um ângulo com um instrumento.",
+          "explanation": "Com um sextante mediam a altura do sol ou da estrela polar.",
+          "fact": "Quanto mais a norte, mais alta está a estrela polar."
+        },
+        "da": {
+          "prompt": "Hvordan fandt man før i tiden breddegraden til søs?",
+          "answer": "Ved solens højde",
+          "wrong": [
+            "Ved vandets dybde",
+            "Ved himlens farve",
+            "Ved skibets fart"
+          ],
+          "hint": "Man måler en vinkel med et instrument.",
+          "explanation": "Med en sekstant målte man, hvor højt solen eller Nordstjernen stod.",
+          "fact": "Jo længere mod nord, jo højere står Nordstjernen."
+        },
+        "ru": {
+          "prompt": "Как раньше определяли широту в море?",
+          "answer": "По высоте солнца",
+          "wrong": [
+            "По глубине воды",
+            "По цвету неба",
+            "По скорости судна"
+          ],
+          "hint": "Угол измеряют прибором.",
+          "explanation": "Секстантом измеряли, высоко ли стоят солнце или Полярная звезда.",
+          "fact": "Чем дальше на север, тем выше Полярная звезда."
+        },
+        "ar": {
+          "prompt": "كيف كان يُعرف خط العرض في البحر قديمًا؟",
+          "answer": "بارتفاع الشمس",
+          "wrong": [
+            "بعمق الماء",
+            "بلون السماء",
+            "بسرعة السفينة"
+          ],
+          "hint": "تُقاس زاوية بأداة.",
+          "explanation": "بالسدس كانوا يقيسون ارتفاع الشمس أو نجم الشمال.",
+          "fact": "وكلما اتجهت شمالًا ارتفع نجم الشمال أكثر."
+        }
+      }
+    }
+  ]
+}
