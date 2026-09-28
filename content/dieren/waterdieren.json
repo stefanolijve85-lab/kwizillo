@@ -1,0 +1,2607 @@
+{
+  "world": "dieren",
+  "topic": "waterdieren",
+  "note": "Twintig nieuwe vragen, vijf per moeilijkheid.",
+  "questions": [
+    {
+      "id": "dieren-waterdieren-21",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NOAA — sharks",
+      "artBrief": "Een haai die rustig door helder blauw water glijdt, met zijn rugvin in beeld.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk zeedier heeft een vin op zijn rug en scherpe tanden?",
+          "answer": "De haai",
+          "wrong": [
+            "De zeehond",
+            "De kwal",
+            "De krab"
+          ],
+          "hint": "Je ziet zijn vin soms boven water.",
+          "explanation": "Haaien zijn vissen met scherpe tanden en een vin op hun rug.",
+          "fact": "Een haai verliest zijn leven lang steeds tanden en krijgt nieuwe."
+        },
+        "en": {
+          "prompt": "Which sea animal has a fin on its back and sharp teeth?",
+          "answer": "The shark",
+          "wrong": [
+            "The seal",
+            "The jellyfish",
+            "The crab"
+          ],
+          "hint": "You sometimes see its fin above the water.",
+          "explanation": "Sharks are fish with sharp teeth and a fin on their back.",
+          "fact": "A shark keeps losing teeth and growing new ones all its life."
+        },
+        "de": {
+          "prompt": "Welches Meerestier hat eine Rückenflosse und scharfe Zähne?",
+          "answer": "Der Hai",
+          "wrong": [
+            "Die Robbe",
+            "Die Qualle",
+            "Die Krabbe"
+          ],
+          "hint": "Man sieht seine Flosse manchmal über Wasser.",
+          "explanation": "Haie sind Fische mit scharfen Zähnen und einer Rückenflosse.",
+          "fact": "Ein Hai verliert sein Leben lang Zähne und bekommt neue."
+        },
+        "fr": {
+          "prompt": "Quel animal marin a une nageoire sur le dos et des dents pointues ?",
+          "answer": "Le requin",
+          "wrong": [
+            "Le phoque",
+            "La méduse",
+            "Le crabe"
+          ],
+          "hint": "On voit parfois sa nageoire hors de l'eau.",
+          "explanation": "Les requins sont des poissons à dents pointues avec une nageoire dorsale.",
+          "fact": "Un requin perd des dents toute sa vie et en refait sans cesse."
+        },
+        "es": {
+          "prompt": "¿Qué animal marino tiene aleta en el lomo y dientes afilados?",
+          "answer": "El tiburón",
+          "wrong": [
+            "La foca",
+            "La medusa",
+            "El cangrejo"
+          ],
+          "hint": "A veces se ve su aleta fuera del agua.",
+          "explanation": "Los tiburones son peces con dientes afilados y aleta dorsal.",
+          "fact": "Un tiburón pierde dientes toda su vida y le salen nuevos."
+        },
+        "it": {
+          "prompt": "Quale animale marino ha una pinna sul dorso e denti aguzzi?",
+          "answer": "Lo squalo",
+          "wrong": [
+            "La foca",
+            "La medusa",
+            "Il granchio"
+          ],
+          "hint": "A volte se ne vede la pinna fuori dall'acqua.",
+          "explanation": "Gli squali sono pesci con denti aguzzi e una pinna sul dorso.",
+          "fact": "Uno squalo perde denti per tutta la vita e ne rifà di nuovi."
+        },
+        "pt": {
+          "prompt": "Que animal marinho tem barbatana no dorso e dentes afiados?",
+          "answer": "O tubarão",
+          "wrong": [
+            "A foca",
+            "A alforreca",
+            "O caranguejo"
+          ],
+          "hint": "Às vezes vê-se a barbatana fora de água.",
+          "explanation": "Os tubarões são peixes com dentes afiados e barbatana dorsal.",
+          "fact": "Um tubarão perde dentes toda a vida e cria outros."
+        },
+        "da": {
+          "prompt": "Hvilket havdyr har en finne på ryggen og skarpe tænder?",
+          "answer": "Hajen",
+          "wrong": [
+            "Sælen",
+            "Vandmanden",
+            "Krabben"
+          ],
+          "hint": "Man ser nogle gange finnen over vandet.",
+          "explanation": "Hajer er fisk med skarpe tænder og en rygfinne.",
+          "fact": "En haj taber tænder hele livet og får nye."
+        },
+        "ru": {
+          "prompt": "У какого морского животного плавник на спине и острые зубы?",
+          "answer": "Акула",
+          "wrong": [
+            "Тюлень",
+            "Медуза",
+            "Краб"
+          ],
+          "hint": "Иногда её плавник виден над водой.",
+          "explanation": "Акулы — рыбы с острыми зубами и плавником на спине.",
+          "fact": "Акула всю жизнь теряет зубы и отращивает новые."
+        },
+        "ar": {
+          "prompt": "أي كائن بحري له زعنفة على ظهره وأسنان حادة؟",
+          "answer": "سمك القرش",
+          "wrong": [
+            "الفقمة",
+            "قنديل البحر",
+            "السلطعون"
+          ],
+          "hint": "أحيانًا ترى زعنفته فوق الماء.",
+          "explanation": "القروش أسماك لها أسنان حادة وزعنفة على الظهر.",
+          "fact": "يفقد القرش أسنانه طوال حياته وتنبت له أخرى."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-22",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NOAA — jellyfish",
+      "artBrief": "Een doorzichtige kwal met lange slierten die zacht door het water zweeft.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat drijft doorzichtig in zee en kan prikken?",
+          "answer": "De kwal",
+          "wrong": [
+            "De zeester",
+            "De schelp",
+            "Het zeewier"
+          ],
+          "hint": "Hij heeft lange slierten.",
+          "explanation": "Een kwal prikt met zijn slierten om prooi te vangen.",
+          "fact": "Een kwal bestaat voor bijna helemaal uit water."
+        },
+        "en": {
+          "prompt": "What floats see-through in the sea and can sting?",
+          "answer": "The jellyfish",
+          "wrong": [
+            "The starfish",
+            "The shell",
+            "The seaweed"
+          ],
+          "hint": "It has long trailing threads.",
+          "explanation": "A jellyfish stings with its threads to catch prey.",
+          "fact": "A jellyfish is almost entirely made of water."
+        },
+        "de": {
+          "prompt": "Was treibt durchsichtig im Meer und kann brennen?",
+          "answer": "Die Qualle",
+          "wrong": [
+            "Der Seestern",
+            "Die Muschel",
+            "Der Seetang"
+          ],
+          "hint": "Sie hat lange Fäden.",
+          "explanation": "Eine Qualle nesselt mit ihren Fäden, um Beute zu fangen.",
+          "fact": "Eine Qualle besteht fast vollständig aus Wasser."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui flotte, transparent, et peut piquer ?",
+          "answer": "La méduse",
+          "wrong": [
+            "L'étoile de mer",
+            "Le coquillage",
+            "L'algue"
+          ],
+          "hint": "Elle a de longs filaments.",
+          "explanation": "Une méduse pique avec ses filaments pour attraper ses proies.",
+          "fact": "Une méduse est presque entièrement faite d'eau."
+        },
+        "es": {
+          "prompt": "¿Qué flota transparente en el mar y puede picar?",
+          "answer": "La medusa",
+          "wrong": [
+            "La estrella de mar",
+            "La concha",
+            "El alga"
+          ],
+          "hint": "Tiene filamentos largos.",
+          "explanation": "La medusa pica con sus filamentos para cazar.",
+          "fact": "Una medusa es casi toda agua."
+        },
+        "it": {
+          "prompt": "Che cosa galleggia trasparente nel mare e può pungere?",
+          "answer": "La medusa",
+          "wrong": [
+            "La stella marina",
+            "La conchiglia",
+            "L'alga"
+          ],
+          "hint": "Ha lunghi filamenti.",
+          "explanation": "La medusa punge con i filamenti per catturare le prede.",
+          "fact": "Una medusa è fatta quasi tutta d'acqua."
+        },
+        "pt": {
+          "prompt": "O que flutua transparente no mar e pode picar?",
+          "answer": "A alforreca",
+          "wrong": [
+            "A estrela-do-mar",
+            "A concha",
+            "A alga"
+          ],
+          "hint": "Tem fios compridos.",
+          "explanation": "A alforreca pica com os fios para apanhar presas.",
+          "fact": "Uma alforreca é quase toda feita de água."
+        },
+        "da": {
+          "prompt": "Hvad flyder gennemsigtigt i havet og kan brænde?",
+          "answer": "Vandmanden",
+          "wrong": [
+            "Søstjernen",
+            "Muslingen",
+            "Tangen"
+          ],
+          "hint": "Den har lange tråde.",
+          "explanation": "En vandmand brænder med trådene for at fange bytte.",
+          "fact": "En vandmand består næsten helt af vand."
+        },
+        "ru": {
+          "prompt": "Что плавает в море прозрачным и может обжечь?",
+          "answer": "Медуза",
+          "wrong": [
+            "Морская звезда",
+            "Раковина",
+            "Водоросль"
+          ],
+          "hint": "У неё длинные нити.",
+          "explanation": "Медуза жалит нитями, чтобы поймать добычу.",
+          "fact": "Медуза почти целиком состоит из воды."
+        },
+        "ar": {
+          "prompt": "ما الذي يطفو شفافًا في البحر ويمكن أن يلسع؟",
+          "answer": "قنديل البحر",
+          "wrong": [
+            "نجم البحر",
+            "الصدفة",
+            "الأعشاب البحرية"
+          ],
+          "hint": "له خيوط طويلة.",
+          "explanation": "يلسع القنديل بخيوطه ليصطاد فريسته.",
+          "fact": "القنديل يكاد يكون كله ماء."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-23",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NOAA — sea stars have five arms",
+      "artBrief": "Een oranje zeester op een rots onder water, van bovenaf gezien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoeveel armen heeft een zeester meestal?",
+          "answer": "Vijf",
+          "wrong": [
+            "Twee",
+            "Acht",
+            "Twintig"
+          ],
+          "hint": "Tel de punten van de ster.",
+          "explanation": "De meeste zeesterren hebben vijf armen.",
+          "fact": "Sommige soorten hebben er wel twintig."
+        },
+        "en": {
+          "prompt": "How many arms does a starfish usually have?",
+          "answer": "Five",
+          "wrong": [
+            "Two",
+            "Eight",
+            "Twenty"
+          ],
+          "hint": "Count the points of the star.",
+          "explanation": "Most starfish have five arms.",
+          "fact": "Some kinds have as many as twenty."
+        },
+        "de": {
+          "prompt": "Wie viele Arme hat ein Seestern meistens?",
+          "answer": "Fünf",
+          "wrong": [
+            "Zwei",
+            "Acht",
+            "Zwanzig"
+          ],
+          "hint": "Zähl die Zacken des Sterns.",
+          "explanation": "Die meisten Seesterne haben fünf Arme.",
+          "fact": "Manche Arten haben sogar zwanzig."
+        },
+        "fr": {
+          "prompt": "Combien de bras a en général une étoile de mer ?",
+          "answer": "Cinq",
+          "wrong": [
+            "Deux",
+            "Huit",
+            "Vingt"
+          ],
+          "hint": "Compte les pointes de l'étoile.",
+          "explanation": "La plupart des étoiles de mer ont cinq bras.",
+          "fact": "Certaines espèces en ont jusqu'à vingt."
+        },
+        "es": {
+          "prompt": "¿Cuántos brazos suele tener una estrella de mar?",
+          "answer": "Cinco",
+          "wrong": [
+            "Dos",
+            "Ocho",
+            "Veinte"
+          ],
+          "hint": "Cuenta las puntas de la estrella.",
+          "explanation": "La mayoría de las estrellas de mar tienen cinco brazos.",
+          "fact": "Algunas especies llegan a veinte."
+        },
+        "it": {
+          "prompt": "Quante braccia ha di solito una stella marina?",
+          "answer": "Cinque",
+          "wrong": [
+            "Due",
+            "Otto",
+            "Venti"
+          ],
+          "hint": "Conta le punte della stella.",
+          "explanation": "Quasi tutte le stelle marine hanno cinque braccia.",
+          "fact": "Alcune specie ne hanno persino venti."
+        },
+        "pt": {
+          "prompt": "Quantos braços tem normalmente uma estrela-do-mar?",
+          "answer": "Cinco",
+          "wrong": [
+            "Dois",
+            "Oito",
+            "Vinte"
+          ],
+          "hint": "Conta as pontas da estrela.",
+          "explanation": "A maioria das estrelas-do-mar tem cinco braços.",
+          "fact": "Algumas espécies chegam a vinte."
+        },
+        "da": {
+          "prompt": "Hvor mange arme har en søstjerne som regel?",
+          "answer": "Fem",
+          "wrong": [
+            "To",
+            "Otte",
+            "Tyve"
+          ],
+          "hint": "Tæl stjernens spidser.",
+          "explanation": "De fleste søstjerner har fem arme.",
+          "fact": "Nogle arter har helt op til tyve."
+        },
+        "ru": {
+          "prompt": "Сколько лучей обычно у морской звезды?",
+          "answer": "Пять",
+          "wrong": [
+            "Два",
+            "Восемь",
+            "Двадцать"
+          ],
+          "hint": "Сосчитай кончики звезды.",
+          "explanation": "У большинства морских звёзд пять лучей.",
+          "fact": "У некоторых видов их бывает и двадцать."
+        },
+        "ar": {
+          "prompt": "كم ذراعًا لنجم البحر عادة؟",
+          "answer": "خمس",
+          "wrong": [
+            "اثنتان",
+            "ثماني",
+            "عشرون"
+          ],
+          "hint": "عد أطراف النجمة.",
+          "explanation": "لمعظم نجوم البحر خمس أذرع.",
+          "fact": "وبعض الأنواع لها عشرون."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-24",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NOAA — seahorses",
+      "artBrief": "Een klein zeepaardje dat met zijn staart om een plantje gekruld zit.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk zeedier lijkt op een klein paardje?",
+          "answer": "Het zeepaardje",
+          "wrong": [
+            "De zeehond",
+            "De zeester",
+            "De zeeleeuw"
+          ],
+          "hint": "Het houdt zich vast met zijn staart.",
+          "explanation": "Een zeepaardje zwemt rechtop en klemt zich vast aan planten.",
+          "fact": "Het zwemt zo langzaam dat het bijna stilstaat."
+        },
+        "en": {
+          "prompt": "Which sea animal looks like a tiny horse?",
+          "answer": "The seahorse",
+          "wrong": [
+            "The seal",
+            "The starfish",
+            "The sea lion"
+          ],
+          "hint": "It holds on with its tail.",
+          "explanation": "A seahorse swims upright and grips plants with its tail.",
+          "fact": "It swims so slowly that it almost seems still."
+        },
+        "de": {
+          "prompt": "Welches Meerestier sieht aus wie ein kleines Pferd?",
+          "answer": "Das Seepferdchen",
+          "wrong": [
+            "Die Robbe",
+            "Der Seestern",
+            "Der Seelöwe"
+          ],
+          "hint": "Es hält sich mit dem Schwanz fest.",
+          "explanation": "Ein Seepferdchen schwimmt aufrecht und klammert sich an Pflanzen.",
+          "fact": "Es schwimmt so langsam, dass es fast still steht."
+        },
+        "fr": {
+          "prompt": "Quel animal marin ressemble à un petit cheval ?",
+          "answer": "L'hippocampe",
+          "wrong": [
+            "Le phoque",
+            "L'étoile de mer",
+            "L'otarie"
+          ],
+          "hint": "Il s'accroche avec sa queue.",
+          "explanation": "L'hippocampe nage debout et s'agrippe aux plantes avec sa queue.",
+          "fact": "Il nage si lentement qu'il semble immobile."
+        },
+        "es": {
+          "prompt": "¿Qué animal marino parece un caballito?",
+          "answer": "El caballito de mar",
+          "wrong": [
+            "La foca",
+            "La estrella de mar",
+            "El león marino"
+          ],
+          "hint": "Se agarra con la cola.",
+          "explanation": "El caballito de mar nada de pie y se agarra a las plantas.",
+          "fact": "Nada tan despacio que casi parece quieto."
+        },
+        "it": {
+          "prompt": "Quale animale marino sembra un cavallino?",
+          "answer": "Il cavalluccio marino",
+          "wrong": [
+            "La foca",
+            "La stella marina",
+            "Il leone marino"
+          ],
+          "hint": "Si tiene con la coda.",
+          "explanation": "Il cavalluccio nuota dritto e si aggrappa alle piante con la coda.",
+          "fact": "Nuota così piano da sembrare fermo."
+        },
+        "pt": {
+          "prompt": "Que animal marinho parece um cavalinho?",
+          "answer": "O cavalo-marinho",
+          "wrong": [
+            "A foca",
+            "A estrela-do-mar",
+            "O leão-marinho"
+          ],
+          "hint": "Segura-se com a cauda.",
+          "explanation": "O cavalo-marinho nada direito e agarra-se às plantas com a cauda.",
+          "fact": "Nada tão devagar que quase parece parado."
+        },
+        "da": {
+          "prompt": "Hvilket havdyr ligner en lille hest?",
+          "answer": "Søhesten",
+          "wrong": [
+            "Sælen",
+            "Søstjernen",
+            "Søløven"
+          ],
+          "hint": "Den holder fast med halen.",
+          "explanation": "En søhest svømmer oprejst og holder fast i planter med halen.",
+          "fact": "Den svømmer så langsomt, at den næsten står stille."
+        },
+        "ru": {
+          "prompt": "Какое морское животное похоже на лошадку?",
+          "answer": "Морской конёк",
+          "wrong": [
+            "Тюлень",
+            "Морская звезда",
+            "Морской лев"
+          ],
+          "hint": "Он держится хвостом.",
+          "explanation": "Морской конёк плавает стоя и цепляется хвостом за растения.",
+          "fact": "Плывёт он так медленно, что кажется неподвижным."
+        },
+        "ar": {
+          "prompt": "أي كائن بحري يشبه حصانًا صغيرًا؟",
+          "answer": "حصان البحر",
+          "wrong": [
+            "الفقمة",
+            "نجم البحر",
+            "أسد البحر"
+          ],
+          "hint": "يتمسك بذيله.",
+          "explanation": "يسبح حصان البحر منتصبًا ويلتف بذيله حول النباتات.",
+          "fact": "يسبح ببطء شديد حتى يبدو ساكنًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-25",
+      "difficulty": 1,
+      "status": "translated",
+      "source": "NOAA — baleen whales feed on krill",
+      "artBrief": "Een grote walvis met open bek die door een wolk kleine garnaaltjes zwemt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat eet een grote walvis vooral?",
+          "answer": "Kleine diertjes uit zee",
+          "wrong": [
+            "Grote vissen",
+            "Zeewier",
+            "Schelpen"
+          ],
+          "hint": "Hij zeeft ze uit het water.",
+          "explanation": "Veel walvissen eten miljarden piepkleine garnaaltjes.",
+          "fact": "Zo'n walvis eet per dag wel vier ton krill."
+        },
+        "en": {
+          "prompt": "What does a big whale mostly eat?",
+          "answer": "Tiny sea creatures",
+          "wrong": [
+            "Large fish",
+            "Seaweed",
+            "Shells"
+          ],
+          "hint": "It sieves them out of the water.",
+          "explanation": "Many whales eat billions of tiny shrimp-like creatures.",
+          "fact": "Such a whale can eat four tonnes of krill a day."
+        },
+        "de": {
+          "prompt": "Was frisst ein großer Wal vor allem?",
+          "answer": "Winzige Meerestiere",
+          "wrong": [
+            "Große Fische",
+            "Seetang",
+            "Muscheln"
+          ],
+          "hint": "Er siebt sie aus dem Wasser.",
+          "explanation": "Viele Wale fressen Milliarden winziger Krebschen.",
+          "fact": "So ein Wal frisst täglich bis zu vier Tonnen Krill."
+        },
+        "fr": {
+          "prompt": "Que mange surtout une grande baleine ?",
+          "answer": "De minuscules animaux",
+          "wrong": [
+            "De gros poissons",
+            "Des algues",
+            "Des coquillages"
+          ],
+          "hint": "Elle les filtre dans l'eau.",
+          "explanation": "Beaucoup de baleines mangent des milliards de petites crevettes.",
+          "fact": "Une telle baleine avale quatre tonnes de krill par jour."
+        },
+        "es": {
+          "prompt": "¿Qué come sobre todo una ballena grande?",
+          "answer": "Animalitos diminutos",
+          "wrong": [
+            "Peces grandes",
+            "Algas",
+            "Conchas"
+          ],
+          "hint": "Los filtra del agua.",
+          "explanation": "Muchas ballenas comen miles de millones de camaroncitos.",
+          "fact": "Una ballena así come cuatro toneladas de kril al día."
+        },
+        "it": {
+          "prompt": "Che cosa mangia soprattutto una grande balena?",
+          "answer": "Animaletti minuscoli",
+          "wrong": [
+            "Pesci grandi",
+            "Alghe",
+            "Conchiglie"
+          ],
+          "hint": "Li filtra dall'acqua.",
+          "explanation": "Molte balene mangiano miliardi di piccoli gamberetti.",
+          "fact": "Una balena così mangia quattro tonnellate di krill al giorno."
+        },
+        "pt": {
+          "prompt": "O que come sobretudo uma baleia grande?",
+          "answer": "Animaizinhos minúsculos",
+          "wrong": [
+            "Peixes grandes",
+            "Algas",
+            "Conchas"
+          ],
+          "hint": "Filtra-os da água.",
+          "explanation": "Muitas baleias comem milhares de milhões de camarõezinhos.",
+          "fact": "Uma baleia dessas come quatro toneladas de krill por dia."
+        },
+        "da": {
+          "prompt": "Hvad spiser en stor hval mest?",
+          "answer": "Bittesmå havdyr",
+          "wrong": [
+            "Store fisk",
+            "Tang",
+            "Muslinger"
+          ],
+          "hint": "Den sier dem fra vandet.",
+          "explanation": "Mange hvaler spiser milliarder af små krebsdyr.",
+          "fact": "Sådan en hval spiser fire tons krill om dagen."
+        },
+        "ru": {
+          "prompt": "Чем в основном питается большой кит?",
+          "answer": "Крошечными рачками",
+          "wrong": [
+            "Крупной рыбой",
+            "Водорослями",
+            "Ракушками"
+          ],
+          "hint": "Он процеживает их из воды.",
+          "explanation": "Многие киты едят миллиарды крошечных рачков.",
+          "fact": "Такой кит съедает до четырёх тонн криля в день."
+        },
+        "ar": {
+          "prompt": "ماذا يأكل الحوت الكبير غالبًا؟",
+          "answer": "كائنات بحرية دقيقة",
+          "wrong": [
+            "أسماكًا كبيرة",
+            "أعشابًا بحرية",
+            "أصدافًا"
+          ],
+          "hint": "يصفيها من الماء.",
+          "explanation": "تأكل حيتان كثيرة مليارات من القريدس الصغير.",
+          "fact": "يأكل الحوت منها أربعة أطنان يوميًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-26",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "NOAA — cetacean blowholes",
+      "artBrief": "Een dolfijn die net boven water komt, met een fontein uit het gat op zijn kop.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe ademt een dolfijn?",
+          "answer": "Door een gat op zijn kop",
+          "wrong": [
+            "Met kieuwen",
+            "Door zijn bek",
+            "Door zijn huid"
+          ],
+          "hint": "Hij moet er even voor boven komen.",
+          "explanation": "Een dolfijn ademt door een blaasgat boven op zijn kop.",
+          "fact": "Hij moet er bewust aan denken, ook in zijn slaap."
+        },
+        "en": {
+          "prompt": "How does a dolphin breathe?",
+          "answer": "Through a hole on its head",
+          "wrong": [
+            "With gills",
+            "Through its mouth",
+            "Through its skin"
+          ],
+          "hint": "It has to surface for a moment.",
+          "explanation": "A dolphin breathes through a blowhole on top of its head.",
+          "fact": "It has to think about each breath, even while asleep."
+        },
+        "de": {
+          "prompt": "Wie atmet ein Delfin?",
+          "answer": "Durch ein Loch am Kopf",
+          "wrong": [
+            "Mit Kiemen",
+            "Durch das Maul",
+            "Durch die Haut"
+          ],
+          "hint": "Dafür muss er kurz auftauchen.",
+          "explanation": "Ein Delfin atmet durch ein Blasloch oben auf dem Kopf.",
+          "fact": "Er muss an jeden Atemzug denken, sogar im Schlaf."
+        },
+        "fr": {
+          "prompt": "Comment respire un dauphin ?",
+          "answer": "Par un trou sur la tête",
+          "wrong": [
+            "Avec des branchies",
+            "Par la bouche",
+            "Par la peau"
+          ],
+          "hint": "Il doit remonter un instant.",
+          "explanation": "Le dauphin respire par un évent sur le dessus de la tête.",
+          "fact": "Il doit penser à chaque inspiration, même en dormant."
+        },
+        "es": {
+          "prompt": "¿Cómo respira un delfín?",
+          "answer": "Por un agujero en la cabeza",
+          "wrong": [
+            "Con branquias",
+            "Por la boca",
+            "Por la piel"
+          ],
+          "hint": "Tiene que subir un momento.",
+          "explanation": "El delfín respira por un espiráculo en lo alto de la cabeza.",
+          "fact": "Debe pensar en cada respiración, incluso dormido."
+        },
+        "it": {
+          "prompt": "Come respira un delfino?",
+          "answer": "Da un foro sulla testa",
+          "wrong": [
+            "Con le branchie",
+            "Con la bocca",
+            "Con la pelle"
+          ],
+          "hint": "Deve risalire un attimo.",
+          "explanation": "Il delfino respira da uno sfiatatoio sulla sommità del capo.",
+          "fact": "Deve pensare a ogni respiro, anche mentre dorme."
+        },
+        "pt": {
+          "prompt": "Como respira um golfinho?",
+          "answer": "Por um buraco na cabeça",
+          "wrong": [
+            "Com guelras",
+            "Pela boca",
+            "Pela pele"
+          ],
+          "hint": "Tem de subir um instante.",
+          "explanation": "O golfinho respira por um espiráculo no cimo da cabeça.",
+          "fact": "Tem de pensar em cada respiração, mesmo a dormir."
+        },
+        "da": {
+          "prompt": "Hvordan ånder en delfin?",
+          "answer": "Gennem et hul på hovedet",
+          "wrong": [
+            "Med gæller",
+            "Gennem munden",
+            "Gennem huden"
+          ],
+          "hint": "Den må op et øjeblik.",
+          "explanation": "En delfin ånder gennem et blæsehul øverst på hovedet.",
+          "fact": "Den skal tænke på hvert åndedrag, også i søvne."
+        },
+        "ru": {
+          "prompt": "Как дышит дельфин?",
+          "answer": "Через отверстие на голове",
+          "wrong": [
+            "Жабрами",
+            "Ртом",
+            "Кожей"
+          ],
+          "hint": "Для этого он ненадолго всплывает.",
+          "explanation": "Дельфин дышит через дыхало на макушке.",
+          "fact": "О каждом вдохе он помнит даже во сне."
+        },
+        "ar": {
+          "prompt": "كيف يتنفس الدلفين؟",
+          "answer": "من فتحة في رأسه",
+          "wrong": [
+            "بالخياشيم",
+            "من فمه",
+            "من جلده"
+          ],
+          "hint": "عليه أن يصعد لحظة.",
+          "explanation": "يتنفس الدلفين من فتحة أعلى رأسه.",
+          "fact": "ويجب أن ينتبه لكل نفس حتى وهو نائم."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-27",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Cephalopod ink defence",
+      "artBrief": "Een octopus die een wolk donkere inkt achterlaat en wegschiet.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een octopus als hij schrikt?",
+          "answer": "Hij spuit inkt",
+          "wrong": [
+            "Hij wordt groter",
+            "Hij gaat slapen",
+            "Hij roept om hulp"
+          ],
+          "hint": "Daarna is hij ineens weg.",
+          "explanation": "De inktwolk verwart de aanvaller terwijl de octopus wegschiet.",
+          "fact": "Hij kan ook door een gat zo groot als zijn oog kruipen."
+        },
+        "en": {
+          "prompt": "What does an octopus do when startled?",
+          "answer": "It squirts ink",
+          "wrong": [
+            "It grows bigger",
+            "It goes to sleep",
+            "It calls for help"
+          ],
+          "hint": "Then it is suddenly gone.",
+          "explanation": "The ink cloud confuses the attacker while the octopus shoots away.",
+          "fact": "It can also squeeze through a hole the size of its eye."
+        },
+        "de": {
+          "prompt": "Was macht ein Oktopus, wenn er erschrickt?",
+          "answer": "Er spritzt Tinte",
+          "wrong": [
+            "Er wird größer",
+            "Er schläft ein",
+            "Er ruft um Hilfe"
+          ],
+          "hint": "Danach ist er plötzlich weg.",
+          "explanation": "Die Tintenwolke verwirrt den Angreifer, während er davonschießt.",
+          "fact": "Er passt auch durch ein Loch so groß wie sein Auge."
+        },
+        "fr": {
+          "prompt": "Que fait une pieuvre quand elle a peur ?",
+          "answer": "Elle crache de l'encre",
+          "wrong": [
+            "Elle grossit",
+            "Elle s'endort",
+            "Elle appelle à l'aide"
+          ],
+          "hint": "Ensuite elle a disparu.",
+          "explanation": "Le nuage d'encre trouble l'assaillant pendant qu'elle file.",
+          "fact": "Elle peut aussi passer par un trou de la taille de son œil."
+        },
+        "es": {
+          "prompt": "¿Qué hace un pulpo cuando se asusta?",
+          "answer": "Suelta tinta",
+          "wrong": [
+            "Se hace más grande",
+            "Se duerme",
+            "Pide ayuda"
+          ],
+          "hint": "Después desaparece de golpe.",
+          "explanation": "La nube de tinta confunde al atacante mientras el pulpo huye.",
+          "fact": "También pasa por un agujero del tamaño de su ojo."
+        },
+        "it": {
+          "prompt": "Che cosa fa un polpo quando si spaventa?",
+          "answer": "Spruzza inchiostro",
+          "wrong": [
+            "Diventa più grande",
+            "Si addormenta",
+            "Chiede aiuto"
+          ],
+          "hint": "Poi sparisce di colpo.",
+          "explanation": "La nuvola d'inchiostro confonde l'attaccante mentre lui scappa.",
+          "fact": "Può anche passare da un buco grande come il suo occhio."
+        },
+        "pt": {
+          "prompt": "O que faz um polvo quando se assusta?",
+          "answer": "Lança tinta",
+          "wrong": [
+            "Fica maior",
+            "Adormece",
+            "Pede ajuda"
+          ],
+          "hint": "Depois desaparece de repente.",
+          "explanation": "A nuvem de tinta confunde o atacante enquanto ele foge.",
+          "fact": "Também passa por um buraco do tamanho do olho dele."
+        },
+        "da": {
+          "prompt": "Hvad gør en blæksprutte, når den bliver forskrækket?",
+          "answer": "Den sprøjter blæk",
+          "wrong": [
+            "Den bliver større",
+            "Den falder i søvn",
+            "Den råber om hjælp"
+          ],
+          "hint": "Bagefter er den pludselig væk.",
+          "explanation": "Blækskyen forvirrer angriberen, mens blæksprutten stikker af.",
+          "fact": "Den kan også klemme sig gennem et hul på størrelse med sit øje."
+        },
+        "ru": {
+          "prompt": "Что делает осьминог, когда пугается?",
+          "answer": "Выпускает чернила",
+          "wrong": [
+            "Становится больше",
+            "Засыпает",
+            "Зовёт на помощь"
+          ],
+          "hint": "А потом его вдруг нет.",
+          "explanation": "Чернильное облако сбивает врага с толку, пока осьминог удирает.",
+          "fact": "Он пролезает в отверстие размером со свой глаз."
+        },
+        "ar": {
+          "prompt": "ماذا يفعل الأخطبوط حين يفزع؟",
+          "answer": "ينفث حبرًا",
+          "wrong": [
+            "يكبر حجمه",
+            "ينام",
+            "يستنجد"
+          ],
+          "hint": "ثم يختفي فجأة.",
+          "explanation": "سحابة الحبر تربك المهاجم بينما ينطلق الأخطبوط هاربًا.",
+          "fact": "ويمر من ثقب بحجم عينه."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-28",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Salmon home by smell (olfactory imprinting)",
+      "artBrief": "Een zalm die tegen de stroom een riviertje in zwemt, met bergen op de achtergrond.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vindt een zalm de rivier waar hij geboren is?",
+          "answer": "Aan de geur",
+          "wrong": [
+            "Aan de kleur",
+            "Aan het geluid",
+            "Hij zoekt maar wat"
+          ],
+          "hint": "Water uit elk beekje ruikt anders.",
+          "explanation": "Een zalm onthoudt de geur van zijn geboorterivier.",
+          "fact": "Daarvoor zwemt hij soms duizenden kilometers terug."
+        },
+        "en": {
+          "prompt": "How does a salmon find the river it was born in?",
+          "answer": "By its smell",
+          "wrong": [
+            "By its colour",
+            "By its sound",
+            "It just guesses"
+          ],
+          "hint": "Water from every stream smells different.",
+          "explanation": "A salmon remembers the smell of its home river.",
+          "fact": "To reach it, it sometimes swims thousands of kilometres back."
+        },
+        "de": {
+          "prompt": "Wie findet ein Lachs den Fluss seiner Geburt?",
+          "answer": "Am Geruch",
+          "wrong": [
+            "An der Farbe",
+            "Am Geräusch",
+            "Er rät einfach"
+          ],
+          "hint": "Wasser aus jedem Bach riecht anders.",
+          "explanation": "Ein Lachs merkt sich den Geruch seines Heimatflusses.",
+          "fact": "Dafür schwimmt er manchmal tausende Kilometer zurück."
+        },
+        "fr": {
+          "prompt": "Comment un saumon retrouve-t-il sa rivière natale ?",
+          "answer": "À l'odeur",
+          "wrong": [
+            "À la couleur",
+            "Au bruit",
+            "Il devine au hasard"
+          ],
+          "hint": "L'eau de chaque ruisseau sent différemment.",
+          "explanation": "Un saumon retient l'odeur de sa rivière d'origine.",
+          "fact": "Pour y revenir, il nage parfois des milliers de kilomètres."
+        },
+        "es": {
+          "prompt": "¿Cómo encuentra un salmón el río donde nació?",
+          "answer": "Por el olor",
+          "wrong": [
+            "Por el color",
+            "Por el sonido",
+            "Va al azar"
+          ],
+          "hint": "El agua de cada arroyo huele distinto.",
+          "explanation": "El salmón recuerda el olor de su río natal.",
+          "fact": "Para volver nada a veces miles de kilómetros."
+        },
+        "it": {
+          "prompt": "Come ritrova un salmone il fiume in cui è nato?",
+          "answer": "Dall'odore",
+          "wrong": [
+            "Dal colore",
+            "Dal rumore",
+            "Va a caso"
+          ],
+          "hint": "L'acqua di ogni ruscello odora in modo diverso.",
+          "explanation": "Il salmone ricorda l'odore del fiume dove è nato.",
+          "fact": "Per tornarci nuota anche migliaia di chilometri."
+        },
+        "pt": {
+          "prompt": "Como encontra um salmão o rio onde nasceu?",
+          "answer": "Pelo cheiro",
+          "wrong": [
+            "Pela cor",
+            "Pelo som",
+            "Vai ao acaso"
+          ],
+          "hint": "A água de cada ribeiro cheira de maneira diferente.",
+          "explanation": "O salmão lembra-se do cheiro do rio onde nasceu.",
+          "fact": "Para lá voltar nada às vezes milhares de quilómetros."
+        },
+        "da": {
+          "prompt": "Hvordan finder en laks den flod, den blev født i?",
+          "answer": "På lugten",
+          "wrong": [
+            "På farven",
+            "På lyden",
+            "Den gætter"
+          ],
+          "hint": "Vand fra hver bæk lugter forskelligt.",
+          "explanation": "En laks husker lugten af sin fødeflod.",
+          "fact": "For at nå den svømmer den nogle gange tusinder af kilometer."
+        },
+        "ru": {
+          "prompt": "Как лосось находит реку, где родился?",
+          "answer": "По запаху",
+          "wrong": [
+            "По цвету",
+            "По звуку",
+            "Наугад"
+          ],
+          "hint": "Вода каждого ручья пахнет по-своему.",
+          "explanation": "Лосось запоминает запах родной реки.",
+          "fact": "Ради этого он проплывает тысячи километров обратно."
+        },
+        "ar": {
+          "prompt": "كيف يجد السلمون النهر الذي وُلد فيه؟",
+          "answer": "بالرائحة",
+          "wrong": [
+            "باللون",
+            "بالصوت",
+            "يخمن عشوائيًا"
+          ],
+          "hint": "ماء كل جدول له رائحة مختلفة.",
+          "explanation": "يحفظ السلمون رائحة نهره الأصلي.",
+          "fact": "ويسبح للعودة إليه آلاف الكيلومترات أحيانًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-29",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Whale shark — largest fish, up to 18 m",
+      "artBrief": "Een enorme gevlekte haai met open bek naast een kleine duiker.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is de grootste vis ter wereld?",
+          "answer": "De walvishaai",
+          "wrong": [
+            "De blauwe vinvis",
+            "De zwaardvis",
+            "De zaagvis"
+          ],
+          "hint": "Een walvis is geen vis.",
+          "explanation": "De walvishaai wordt wel achttien meter lang.",
+          "fact": "Hij eet alleen plankton en kleine visjes."
+        },
+        "en": {
+          "prompt": "What is the largest fish in the world?",
+          "answer": "The whale shark",
+          "wrong": [
+            "The blue whale",
+            "The swordfish",
+            "The sawfish"
+          ],
+          "hint": "A whale is not a fish.",
+          "explanation": "The whale shark grows up to eighteen metres long.",
+          "fact": "It eats only plankton and small fish."
+        },
+        "de": {
+          "prompt": "Was ist der größte Fisch der Welt?",
+          "answer": "Der Walhai",
+          "wrong": [
+            "Der Blauwal",
+            "Der Schwertfisch",
+            "Der Sägefisch"
+          ],
+          "hint": "Ein Wal ist kein Fisch.",
+          "explanation": "Der Walhai wird bis zu achtzehn Meter lang.",
+          "fact": "Er frisst nur Plankton und kleine Fische."
+        },
+        "fr": {
+          "prompt": "Quel est le plus grand poisson du monde ?",
+          "answer": "Le requin-baleine",
+          "wrong": [
+            "La baleine bleue",
+            "L'espadon",
+            "Le poisson-scie"
+          ],
+          "hint": "Une baleine n'est pas un poisson.",
+          "explanation": "Le requin-baleine atteint dix-huit mètres de long.",
+          "fact": "Il ne mange que du plancton et de petits poissons."
+        },
+        "es": {
+          "prompt": "¿Cuál es el pez más grande del mundo?",
+          "answer": "El tiburón ballena",
+          "wrong": [
+            "La ballena azul",
+            "El pez espada",
+            "El pez sierra"
+          ],
+          "hint": "Una ballena no es un pez.",
+          "explanation": "El tiburón ballena llega a los dieciocho metros.",
+          "fact": "Solo come plancton y peces pequeños."
+        },
+        "it": {
+          "prompt": "Qual è il pesce più grande del mondo?",
+          "answer": "Lo squalo balena",
+          "wrong": [
+            "La balenottera azzurra",
+            "Il pesce spada",
+            "Il pesce sega"
+          ],
+          "hint": "Una balena non è un pesce.",
+          "explanation": "Lo squalo balena arriva a diciotto metri di lunghezza.",
+          "fact": "Mangia soltanto plancton e pesciolini."
+        },
+        "pt": {
+          "prompt": "Qual é o maior peixe do mundo?",
+          "answer": "O tubarão-baleia",
+          "wrong": [
+            "A baleia-azul",
+            "O espadarte",
+            "O peixe-serra"
+          ],
+          "hint": "Uma baleia não é um peixe.",
+          "explanation": "O tubarão-baleia chega aos dezoito metros de comprimento.",
+          "fact": "Come apenas plâncton e peixinhos."
+        },
+        "da": {
+          "prompt": "Hvad er verdens største fisk?",
+          "answer": "Hvalhajen",
+          "wrong": [
+            "Blåhvalen",
+            "Sværdfisken",
+            "Savfisken"
+          ],
+          "hint": "En hval er ikke en fisk.",
+          "explanation": "Hvalhajen bliver op til atten meter lang.",
+          "fact": "Den spiser kun plankton og små fisk."
+        },
+        "ru": {
+          "prompt": "Какая рыба самая большая в мире?",
+          "answer": "Китовая акула",
+          "wrong": [
+            "Синий кит",
+            "Меч-рыба",
+            "Рыба-пила"
+          ],
+          "hint": "Кит — не рыба.",
+          "explanation": "Китовая акула вырастает до восемнадцати метров.",
+          "fact": "Питается она только планктоном и мелкой рыбой."
+        },
+        "ar": {
+          "prompt": "ما أكبر سمكة في العالم؟",
+          "answer": "القرش الحوتي",
+          "wrong": [
+            "الحوت الأزرق",
+            "سمكة أبو سيف",
+            "سمكة المنشار"
+          ],
+          "hint": "الحوت ليس سمكة.",
+          "explanation": "يبلغ طول القرش الحوتي ثمانية عشر مترًا.",
+          "fact": "ولا يأكل سوى العوالق والأسماك الصغيرة."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-30",
+      "difficulty": 2,
+      "status": "translated",
+      "source": "Swim bladder in bony fish",
+      "artBrief": "Een doorsnede van een vis waarin een luchtblaasje zichtbaar is.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarvoor heeft een vis een zwemblaas?",
+          "answer": "Om te blijven zweven",
+          "wrong": [
+            "Om te ademen",
+            "Om te eten",
+            "Om geluid te maken"
+          ],
+          "hint": "Een soort zwembandje vanbinnen.",
+          "explanation": "Met een zwemblaas vol lucht blijft een vis moeiteloos hangen.",
+          "fact": "Haaien hebben er geen en moeten daarom blijven zwemmen."
+        },
+        "en": {
+          "prompt": "What does a fish have a swim bladder for?",
+          "answer": "To stay floating",
+          "wrong": [
+            "To breathe",
+            "To eat",
+            "To make sounds"
+          ],
+          "hint": "A kind of armband on the inside.",
+          "explanation": "With a bladder full of air a fish hangs in the water without effort.",
+          "fact": "Sharks have none, which is why they must keep swimming."
+        },
+        "de": {
+          "prompt": "Wofür hat ein Fisch eine Schwimmblase?",
+          "answer": "Um zu schweben",
+          "wrong": [
+            "Zum Atmen",
+            "Zum Fressen",
+            "Für Geräusche"
+          ],
+          "hint": "Eine Art Schwimmflügel von innen.",
+          "explanation": "Mit einer Blase voll Luft hängt ein Fisch mühelos im Wasser.",
+          "fact": "Haie haben keine und müssen deshalb immer schwimmen."
+        },
+        "fr": {
+          "prompt": "À quoi sert la vessie natatoire d'un poisson ?",
+          "answer": "À rester entre deux eaux",
+          "wrong": [
+            "À respirer",
+            "À manger",
+            "À faire du bruit"
+          ],
+          "hint": "Une sorte de brassard intérieur.",
+          "explanation": "Avec une vessie pleine d'air, un poisson flotte sans effort.",
+          "fact": "Les requins n'en ont pas et doivent nager sans cesse."
+        },
+        "es": {
+          "prompt": "¿Para qué tiene un pez la vejiga natatoria?",
+          "answer": "Para quedarse flotando",
+          "wrong": [
+            "Para respirar",
+            "Para comer",
+            "Para hacer ruido"
+          ],
+          "hint": "Una especie de flotador interior.",
+          "explanation": "Con una vejiga llena de aire el pez se sostiene sin esfuerzo.",
+          "fact": "Los tiburones no la tienen y por eso nadan sin parar."
+        },
+        "it": {
+          "prompt": "A che serve la vescica natatoria di un pesce?",
+          "answer": "A restare a mezz'acqua",
+          "wrong": [
+            "A respirare",
+            "A mangiare",
+            "A fare rumore"
+          ],
+          "hint": "Una specie di braccioli interni.",
+          "explanation": "Con una vescica piena d'aria il pesce resta sospeso senza sforzo.",
+          "fact": "Gli squali non ce l'hanno e devono nuotare sempre."
+        },
+        "pt": {
+          "prompt": "Para que serve a bexiga natatória de um peixe?",
+          "answer": "Para ficar a flutuar",
+          "wrong": [
+            "Para respirar",
+            "Para comer",
+            "Para fazer barulho"
+          ],
+          "hint": "Uma espécie de braçadeira por dentro.",
+          "explanation": "Com a bexiga cheia de ar o peixe fica suspenso sem esforço.",
+          "fact": "Os tubarões não a têm e por isso nadam sempre."
+        },
+        "da": {
+          "prompt": "Hvad bruger en fisk en svømmeblære til?",
+          "answer": "At svæve i vandet",
+          "wrong": [
+            "At ånde",
+            "At spise",
+            "At lave lyd"
+          ],
+          "hint": "En slags badevinger indeni.",
+          "explanation": "Med en blære fuld af luft hænger fisken uden anstrengelse.",
+          "fact": "Hajer har ingen og må derfor blive ved med at svømme."
+        },
+        "ru": {
+          "prompt": "Для чего рыбе плавательный пузырь?",
+          "answer": "Чтобы висеть в воде",
+          "wrong": [
+            "Чтобы дышать",
+            "Чтобы есть",
+            "Чтобы шуметь"
+          ],
+          "hint": "Такой внутренний нарукавник.",
+          "explanation": "С пузырём, полным воздуха, рыба держится без усилий.",
+          "fact": "У акул его нет, поэтому они должны всё время плыть."
+        },
+        "ar": {
+          "prompt": "لماذا للسمكة مثانة عوم؟",
+          "answer": "لتبقى معلقة في الماء",
+          "wrong": [
+            "لتتنفس",
+            "لتأكل",
+            "لتصدر صوتًا"
+          ],
+          "hint": "أشبه بطوق نجاة داخلي.",
+          "explanation": "بمثانة مليئة بالهواء تبقى السمكة معلقة بلا جهد.",
+          "fact": "القروش لا تملكها ولذلك تسبح دائمًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-31",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Humpback whale song / odontocete clicks",
+      "artBrief": "Twee walvissen in diep blauw water met geluidsgolven tussen hen in.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe praten walvissen met elkaar?",
+          "answer": "Met zang en klikjes",
+          "wrong": [
+            "Met hun vinnen",
+            "Met kleuren",
+            "Ze praten niet"
+          ],
+          "hint": "Geluid reist ver onder water.",
+          "explanation": "Walvissen zingen en klikken om te praten en de weg te vinden.",
+          "fact": "Sommige liederen zijn honderden kilometers ver te horen."
+        },
+        "en": {
+          "prompt": "How do whales talk to each other?",
+          "answer": "With song and clicks",
+          "wrong": [
+            "With their fins",
+            "With colours",
+            "They do not talk"
+          ],
+          "hint": "Sound travels far under water.",
+          "explanation": "Whales sing and click to talk and to find their way.",
+          "fact": "Some songs carry for hundreds of kilometres."
+        },
+        "de": {
+          "prompt": "Wie reden Wale miteinander?",
+          "answer": "Mit Gesang und Klicken",
+          "wrong": [
+            "Mit den Flossen",
+            "Mit Farben",
+            "Sie reden nicht"
+          ],
+          "hint": "Schall reist unter Wasser weit.",
+          "explanation": "Wale singen und klicken, um zu reden und sich zurechtzufinden.",
+          "fact": "Manche Gesänge sind hunderte Kilometer weit zu hören."
+        },
+        "fr": {
+          "prompt": "Comment les baleines se parlent-elles ?",
+          "answer": "Par chants et par clics",
+          "wrong": [
+            "Avec leurs nageoires",
+            "Avec des couleurs",
+            "Elles ne parlent pas"
+          ],
+          "hint": "Le son va loin sous l'eau.",
+          "explanation": "Les baleines chantent et cliquent pour parler et se repérer.",
+          "fact": "Certains chants s'entendent à des centaines de kilomètres."
+        },
+        "es": {
+          "prompt": "¿Cómo hablan las ballenas entre ellas?",
+          "answer": "Con cantos y chasquidos",
+          "wrong": [
+            "Con las aletas",
+            "Con colores",
+            "No hablan"
+          ],
+          "hint": "El sonido viaja lejos bajo el agua.",
+          "explanation": "Las ballenas cantan y chasquean para hablar y orientarse.",
+          "fact": "Algunos cantos se oyen a cientos de kilómetros."
+        },
+        "it": {
+          "prompt": "Come parlano fra loro le balene?",
+          "answer": "Con canti e clic",
+          "wrong": [
+            "Con le pinne",
+            "Con i colori",
+            "Non parlano"
+          ],
+          "hint": "Il suono va lontano sott'acqua.",
+          "explanation": "Le balene cantano e fanno clic per parlare e orientarsi.",
+          "fact": "Certi canti si sentono a centinaia di chilometri."
+        },
+        "pt": {
+          "prompt": "Como falam as baleias umas com as outras?",
+          "answer": "Com cantos e estalidos",
+          "wrong": [
+            "Com as barbatanas",
+            "Com cores",
+            "Não falam"
+          ],
+          "hint": "O som viaja longe debaixo de água.",
+          "explanation": "As baleias cantam e dão estalidos para falar e se orientarem.",
+          "fact": "Alguns cantos ouvem-se a centenas de quilómetros."
+        },
+        "da": {
+          "prompt": "Hvordan taler hvaler sammen?",
+          "answer": "Med sang og klik",
+          "wrong": [
+            "Med finnerne",
+            "Med farver",
+            "De taler ikke"
+          ],
+          "hint": "Lyd rejser langt under vandet.",
+          "explanation": "Hvaler synger og klikker for at tale og finde vej.",
+          "fact": "Nogle sange kan høres hundredvis af kilometer væk."
+        },
+        "ru": {
+          "prompt": "Как киты разговаривают друг с другом?",
+          "answer": "Песнями и щелчками",
+          "wrong": [
+            "Плавниками",
+            "Цветом",
+            "Они не разговаривают"
+          ],
+          "hint": "Звук под водой уходит далеко.",
+          "explanation": "Киты поют и щёлкают, чтобы общаться и находить дорогу.",
+          "fact": "Некоторые песни слышно за сотни километров."
+        },
+        "ar": {
+          "prompt": "كيف تتحدث الحيتان فيما بينها؟",
+          "answer": "بالغناء والنقرات",
+          "wrong": [
+            "بزعانفها",
+            "بالألوان",
+            "لا تتحدث"
+          ],
+          "hint": "الصوت ينتقل بعيدًا تحت الماء.",
+          "explanation": "تغني الحيتان وتنقر لتتواصل ولتجد طريقها.",
+          "fact": "بعض الأغاني تُسمع على بعد مئات الكيلومترات."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-32",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Clownfish and anemone mutualism",
+      "artBrief": "Een oranje clownvis tussen de zachte tentakels van een zeeanemoon.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat doet een clownvis in een zeeanemoon?",
+          "answer": "Hij schuilt ertussen",
+          "wrong": [
+            "Hij eet hem op",
+            "Hij legt er zand in",
+            "Hij duwt hem weg"
+          ],
+          "hint": "De netelcellen deren hem niet.",
+          "explanation": "Een laagje slijm beschermt de clownvis tegen de brandende tentakels.",
+          "fact": "In ruil houdt hij de anemoon schoon."
+        },
+        "en": {
+          "prompt": "What does a clownfish do in a sea anemone?",
+          "answer": "It shelters among it",
+          "wrong": [
+            "It eats it",
+            "It fills it with sand",
+            "It pushes it away"
+          ],
+          "hint": "The stinging cells do not hurt it.",
+          "explanation": "A layer of slime protects the clownfish from the burning tentacles.",
+          "fact": "In return it keeps the anemone clean."
+        },
+        "de": {
+          "prompt": "Was macht ein Clownfisch in einer Seeanemone?",
+          "answer": "Er versteckt sich darin",
+          "wrong": [
+            "Er frisst sie",
+            "Er füllt sie mit Sand",
+            "Er schiebt sie weg"
+          ],
+          "hint": "Die Nesselzellen tun ihm nichts.",
+          "explanation": "Eine Schleimschicht schützt ihn vor den brennenden Tentakeln.",
+          "fact": "Dafür hält er die Anemone sauber."
+        },
+        "fr": {
+          "prompt": "Que fait un poisson-clown dans une anémone de mer ?",
+          "answer": "Il s'y abrite",
+          "wrong": [
+            "Il la mange",
+            "Il la remplit de sable",
+            "Il la pousse"
+          ],
+          "hint": "Les cellules urticantes ne lui font rien.",
+          "explanation": "Une couche de mucus le protège des tentacules brûlants.",
+          "fact": "En échange, il garde l'anémone propre."
+        },
+        "es": {
+          "prompt": "¿Qué hace un pez payaso en una anémona?",
+          "answer": "Se refugia entre ella",
+          "wrong": [
+            "Se la come",
+            "La llena de arena",
+            "La empuja"
+          ],
+          "hint": "Las células urticantes no le hacen nada.",
+          "explanation": "Una capa de moco lo protege de los tentáculos que queman.",
+          "fact": "A cambio mantiene limpia la anémona."
+        },
+        "it": {
+          "prompt": "Che cosa fa un pesce pagliaccio in un anemone di mare?",
+          "answer": "Si rifugia dentro",
+          "wrong": [
+            "Se lo mangia",
+            "Lo riempie di sabbia",
+            "Lo spinge via"
+          ],
+          "hint": "Le cellule urticanti non gli fanno nulla.",
+          "explanation": "Uno strato di muco lo protegge dai tentacoli urticanti.",
+          "fact": "In cambio tiene pulito l'anemone."
+        },
+        "pt": {
+          "prompt": "O que faz um peixe-palhaço numa anémona?",
+          "answer": "Abriga-se entre ela",
+          "wrong": [
+            "Come-a",
+            "Enche-a de areia",
+            "Empurra-a"
+          ],
+          "hint": "As células urticantes não lhe fazem nada.",
+          "explanation": "Uma camada de muco protege-o dos tentáculos que queimam.",
+          "fact": "Em troca mantém a anémona limpa."
+        },
+        "da": {
+          "prompt": "Hvad gør en klovnfisk i en søanemone?",
+          "answer": "Den søger ly i den",
+          "wrong": [
+            "Den spiser den",
+            "Den fylder den med sand",
+            "Den skubber den væk"
+          ],
+          "hint": "Nældecellerne gør den ikke noget.",
+          "explanation": "Et lag slim beskytter klovnfisken mod de brændende fangarme.",
+          "fact": "Til gengæld holder den anemonen ren."
+        },
+        "ru": {
+          "prompt": "Что делает рыба-клоун в актинии?",
+          "answer": "Прячется среди щупалец",
+          "wrong": [
+            "Съедает её",
+            "Засыпает её песком",
+            "Отталкивает её"
+          ],
+          "hint": "Стрекательные клетки ей не вредят.",
+          "explanation": "Слой слизи защищает рыбку от жгучих щупалец.",
+          "fact": "А она взамен чистит актинию."
+        },
+        "ar": {
+          "prompt": "ماذا تفعل سمكة المهرج داخل شقائق النعمان؟",
+          "answer": "تحتمي بينها",
+          "wrong": [
+            "تأكلها",
+            "تملؤها رملًا",
+            "تدفعها بعيدًا"
+          ],
+          "hint": "الخلايا اللاسعة لا تؤذيها.",
+          "explanation": "طبقة من المخاط تحميها من اللوامس الحارقة.",
+          "fact": "وفي المقابل تنظف الشقائق."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-33",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Deep-sea pigmentation: red is invisible at depth",
+      "artBrief": "Een rode diepzeevis in bijna zwart water, nauwelijks te zien.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Waarom zijn veel diepzeevissen rood of zwart?",
+          "answer": "Zo vallen ze niet op",
+          "wrong": [
+            "Omdat het daar warm is",
+            "Om te kunnen zwemmen",
+            "Om elkaar te zien"
+          ],
+          "hint": "Rood licht komt daar niet.",
+          "explanation": "Diep in zee is rood licht weg, dus een rode vis lijkt zwart.",
+          "fact": "Zo zijn ze bijna onzichtbaar voor jagers."
+        },
+        "en": {
+          "prompt": "Why are many deep-sea fish red or black?",
+          "answer": "So they do not stand out",
+          "wrong": [
+            "Because it is warm there",
+            "To be able to swim",
+            "To see each other"
+          ],
+          "hint": "Red light does not reach down there.",
+          "explanation": "Deep down there is no red light, so a red fish looks black.",
+          "fact": "That makes them almost invisible to hunters."
+        },
+        "de": {
+          "prompt": "Warum sind viele Tiefseefische rot oder schwarz?",
+          "answer": "So fallen sie nicht auf",
+          "wrong": [
+            "Weil es dort warm ist",
+            "Um schwimmen zu können",
+            "Um sich zu sehen"
+          ],
+          "hint": "Rotes Licht kommt dort nicht an.",
+          "explanation": "In der Tiefe fehlt rotes Licht, also wirkt ein roter Fisch schwarz.",
+          "fact": "So sind sie für Jäger fast unsichtbar."
+        },
+        "fr": {
+          "prompt": "Pourquoi beaucoup de poissons abyssaux sont-ils rouges ?",
+          "answer": "Ainsi ils passent inaperçus",
+          "wrong": [
+            "Parce qu'il y fait chaud",
+            "Pour pouvoir nager",
+            "Pour se voir entre eux"
+          ],
+          "hint": "La lumière rouge n'arrive pas là.",
+          "explanation": "En profondeur, il n'y a plus de rouge, donc un poisson rouge paraît noir.",
+          "fact": "Ils sont ainsi presque invisibles pour les chasseurs."
+        },
+        "es": {
+          "prompt": "¿Por qué muchos peces abisales son rojos o negros?",
+          "answer": "Así no se les ve",
+          "wrong": [
+            "Porque allí hace calor",
+            "Para poder nadar",
+            "Para verse entre ellos"
+          ],
+          "hint": "La luz roja no llega allí.",
+          "explanation": "En el fondo no hay luz roja, así que un pez rojo parece negro.",
+          "fact": "Así son casi invisibles para los cazadores."
+        },
+        "it": {
+          "prompt": "Perché molti pesci abissali sono rossi o neri?",
+          "answer": "Così non si notano",
+          "wrong": [
+            "Perché lì fa caldo",
+            "Per poter nuotare",
+            "Per vedersi tra loro"
+          ],
+          "hint": "La luce rossa laggiù non arriva.",
+          "explanation": "In profondità manca il rosso, quindi un pesce rosso sembra nero.",
+          "fact": "Così diventano quasi invisibili ai cacciatori."
+        },
+        "pt": {
+          "prompt": "Porque são muitos peixes abissais vermelhos ou pretos?",
+          "answer": "Assim não dão nas vistas",
+          "wrong": [
+            "Porque ali é quente",
+            "Para poderem nadar",
+            "Para se verem"
+          ],
+          "hint": "A luz vermelha não chega lá.",
+          "explanation": "Nas profundezas não há vermelho, por isso um peixe vermelho parece preto.",
+          "fact": "Assim ficam quase invisíveis para os caçadores."
+        },
+        "da": {
+          "prompt": "Hvorfor er mange dybhavsfisk røde eller sorte?",
+          "answer": "Så falder de ikke i øjnene",
+          "wrong": [
+            "Fordi der er varmt",
+            "For at kunne svømme",
+            "For at se hinanden"
+          ],
+          "hint": "Rødt lys når ikke derned.",
+          "explanation": "Dybt nede findes rødt lys ikke, så en rød fisk ser sort ud.",
+          "fact": "Derfor er de næsten usynlige for jægere."
+        },
+        "ru": {
+          "prompt": "Почему многие глубоководные рыбы красные или чёрные?",
+          "answer": "Так они незаметны",
+          "wrong": [
+            "Потому что там тепло",
+            "Чтобы уметь плавать",
+            "Чтобы видеть друг друга"
+          ],
+          "hint": "Красный свет туда не доходит.",
+          "explanation": "На глубине красного света нет, и красная рыба кажется чёрной.",
+          "fact": "Так они почти невидимы для охотников."
+        },
+        "ar": {
+          "prompt": "لماذا كثير من أسماك الأعماق حمراء أو سوداء؟",
+          "answer": "حتى لا تُرى",
+          "wrong": [
+            "لأن الجو دافئ",
+            "لتستطيع السباحة",
+            "ليرى بعضها بعضًا"
+          ],
+          "hint": "الضوء الأحمر لا يصل إلى هناك.",
+          "explanation": "في العمق لا وجود للأحمر، فتبدو السمكة الحمراء سوداء.",
+          "fact": "فتصير شبه خفية على المفترسات."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-34",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Sea star regeneration",
+      "artBrief": "Een zeester met vier gewone armen en een die duidelijk nog klein is.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk zeedier laat een verloren arm weer aangroeien?",
+          "answer": "De zeester",
+          "wrong": [
+            "De haai",
+            "De dolfijn",
+            "De zeehond"
+          ],
+          "hint": "Hij heeft er toch meerdere.",
+          "explanation": "Een zeester laat een afgebroken arm gewoon weer aangroeien.",
+          "fact": "Bij sommige soorten groeit uit die arm een hele nieuwe zeester."
+        },
+        "en": {
+          "prompt": "Which sea animal grows a lost arm back?",
+          "answer": "The starfish",
+          "wrong": [
+            "The shark",
+            "The dolphin",
+            "The seal"
+          ],
+          "hint": "It has several to spare.",
+          "explanation": "A starfish simply grows a broken-off arm back again.",
+          "fact": "In some kinds that arm grows into a whole new starfish."
+        },
+        "de": {
+          "prompt": "Welches Meerestier lässt einen verlorenen Arm nachwachsen?",
+          "answer": "Der Seestern",
+          "wrong": [
+            "Der Hai",
+            "Der Delfin",
+            "Die Robbe"
+          ],
+          "hint": "Er hat ohnehin mehrere.",
+          "explanation": "Ein Seestern lässt einen abgebrochenen Arm einfach nachwachsen.",
+          "fact": "Bei manchen Arten wird aus dem Arm ein ganzer neuer Seestern."
+        },
+        "fr": {
+          "prompt": "Quel animal marin fait repousser un bras perdu ?",
+          "answer": "L'étoile de mer",
+          "wrong": [
+            "Le requin",
+            "Le dauphin",
+            "Le phoque"
+          ],
+          "hint": "Elle en a plusieurs de toute façon.",
+          "explanation": "Une étoile de mer fait tout simplement repousser un bras cassé.",
+          "fact": "Chez certaines espèces, ce bras devient une étoile entière."
+        },
+        "es": {
+          "prompt": "¿Qué animal marino regenera un brazo perdido?",
+          "answer": "La estrella de mar",
+          "wrong": [
+            "El tiburón",
+            "El delfín",
+            "La foca"
+          ],
+          "hint": "De todos modos tiene varios.",
+          "explanation": "Una estrella de mar vuelve a hacer crecer un brazo roto.",
+          "fact": "En algunas especies ese brazo forma una estrella entera."
+        },
+        "it": {
+          "prompt": "Quale animale marino rifà crescere un braccio perduto?",
+          "answer": "La stella marina",
+          "wrong": [
+            "Lo squalo",
+            "Il delfino",
+            "La foca"
+          ],
+          "hint": "Tanto ne ha diversi.",
+          "explanation": "Una stella marina rifà crescere semplicemente il braccio staccato.",
+          "fact": "In certe specie da quel braccio nasce una stella intera."
+        },
+        "pt": {
+          "prompt": "Que animal marinho faz crescer de novo um braço perdido?",
+          "answer": "A estrela-do-mar",
+          "wrong": [
+            "O tubarão",
+            "O golfinho",
+            "A foca"
+          ],
+          "hint": "De qualquer forma tem vários.",
+          "explanation": "Uma estrela-do-mar faz simplesmente crescer o braço partido.",
+          "fact": "Nalgumas espécies esse braço dá uma estrela inteira."
+        },
+        "da": {
+          "prompt": "Hvilket havdyr får en tabt arm til at vokse ud igen?",
+          "answer": "Søstjernen",
+          "wrong": [
+            "Hajen",
+            "Delfinen",
+            "Sælen"
+          ],
+          "hint": "Den har jo flere.",
+          "explanation": "En søstjerne lader simpelthen en afbrækket arm vokse ud igen.",
+          "fact": "Hos nogle arter bliver armen til en helt ny søstjerne."
+        },
+        "ru": {
+          "prompt": "У какого морского животного отрастает потерянный луч?",
+          "answer": "У морской звезды",
+          "wrong": [
+            "У акулы",
+            "У дельфина",
+            "У тюленя"
+          ],
+          "hint": "У неё их и так несколько.",
+          "explanation": "Морская звезда просто отращивает оторванный луч заново.",
+          "fact": "У некоторых видов из него вырастает целая новая звезда."
+        },
+        "ar": {
+          "prompt": "أي كائن بحري ينمو له ذراع بديلة؟",
+          "answer": "نجم البحر",
+          "wrong": [
+            "القرش",
+            "الدلفين",
+            "الفقمة"
+          ],
+          "hint": "لديه أذرع عدة أصلًا.",
+          "explanation": "ينمو لنجم البحر ذراع جديدة مكان المقطوعة.",
+          "fact": "وفي بعض الأنواع تصير تلك الذراع نجمًا كاملًا."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-35",
+      "difficulty": 3,
+      "status": "translated",
+      "source": "Penguins fly through water with their wings",
+      "artBrief": "Een pinguïn die als een torpedo onder water zwemt met vleugels als peddels.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat maakt een pinguïn onder water zo snel?",
+          "answer": "Zijn vleugels als peddels",
+          "wrong": [
+            "Zijn snavel",
+            "Zijn veren",
+            "Zijn staart"
+          ],
+          "hint": "Hij vliegt eigenlijk door het water.",
+          "explanation": "Een pinguïn gebruikt zijn stijve vleugels als peddels.",
+          "fact": "Sommige soorten halen onder water dertig kilometer per uur."
+        },
+        "en": {
+          "prompt": "What makes a penguin so fast under water?",
+          "answer": "Its wings as paddles",
+          "wrong": [
+            "Its beak",
+            "Its feathers",
+            "Its tail"
+          ],
+          "hint": "It really flies through the water.",
+          "explanation": "A penguin uses its stiff wings as paddles.",
+          "fact": "Some kinds reach thirty kilometres an hour under water."
+        },
+        "de": {
+          "prompt": "Was macht einen Pinguin unter Wasser so schnell?",
+          "answer": "Flügel wie Paddel",
+          "wrong": [
+            "Sein Schnabel",
+            "Seine Federn",
+            "Sein Schwanz"
+          ],
+          "hint": "Er fliegt eigentlich durchs Wasser.",
+          "explanation": "Ein Pinguin benutzt seine steifen Flügel wie Paddel.",
+          "fact": "Manche Arten schaffen unter Wasser dreißig Kilometer pro Stunde."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce qui rend un manchot si rapide sous l'eau ?",
+          "answer": "Ses ailes en rames",
+          "wrong": [
+            "Son bec",
+            "Ses plumes",
+            "Sa queue"
+          ],
+          "hint": "Il vole en réalité dans l'eau.",
+          "explanation": "Un manchot se sert de ses ailes rigides comme de rames.",
+          "fact": "Certaines espèces atteignent trente kilomètres à l'heure."
+        },
+        "es": {
+          "prompt": "¿Qué hace tan rápido a un pingüino bajo el agua?",
+          "answer": "Sus alas como remos",
+          "wrong": [
+            "Su pico",
+            "Sus plumas",
+            "Su cola"
+          ],
+          "hint": "En realidad vuela dentro del agua.",
+          "explanation": "El pingüino usa sus alas rígidas como remos.",
+          "fact": "Algunas especies llegan a treinta kilómetros por hora."
+        },
+        "it": {
+          "prompt": "Che cosa rende un pinguino così veloce sott'acqua?",
+          "answer": "Le ali come pagaie",
+          "wrong": [
+            "Il becco",
+            "Le piume",
+            "La coda"
+          ],
+          "hint": "In realtà vola nell'acqua.",
+          "explanation": "Il pinguino usa le ali rigide come pagaie.",
+          "fact": "Certe specie sott'acqua toccano trenta chilometri orari."
+        },
+        "pt": {
+          "prompt": "O que torna um pinguim tão rápido debaixo de água?",
+          "answer": "As asas como remos",
+          "wrong": [
+            "O bico",
+            "As penas",
+            "A cauda"
+          ],
+          "hint": "Na verdade voa dentro de água.",
+          "explanation": "O pinguim usa as asas rígidas como remos.",
+          "fact": "Algumas espécies chegam aos trinta quilómetros por hora."
+        },
+        "da": {
+          "prompt": "Hvad gør en pingvin så hurtig under vandet?",
+          "answer": "Vingerne som årer",
+          "wrong": [
+            "Næbbet",
+            "Fjerene",
+            "Halen"
+          ],
+          "hint": "Den flyver faktisk gennem vandet.",
+          "explanation": "En pingvin bruger sine stive vinger som årer.",
+          "fact": "Nogle arter når tredive kilometer i timen under vandet."
+        },
+        "ru": {
+          "prompt": "Что делает пингвина таким быстрым под водой?",
+          "answer": "Крылья как вёсла",
+          "wrong": [
+            "Клюв",
+            "Перья",
+            "Хвост"
+          ],
+          "hint": "Он буквально летит в воде.",
+          "explanation": "Пингвин работает жёсткими крыльями как вёслами.",
+          "fact": "Некоторые виды под водой развивают тридцать километров в час."
+        },
+        "ar": {
+          "prompt": "ما الذي يجعل البطريق سريعًا تحت الماء؟",
+          "answer": "جناحاه كالمجدافين",
+          "wrong": [
+            "منقاره",
+            "ريشه",
+            "ذيله"
+          ],
+          "hint": "إنه يطير في الماء فعلًا.",
+          "explanation": "يستعمل البطريق جناحيه الصلبين كمجدافين.",
+          "fact": "وبعض الأنواع تبلغ ثلاثين كيلومترًا في الساعة."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-36",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Greenland shark lifespan estimated 250-400 years",
+      "artBrief": "Een grijze haai die langzaam door ijskoud, donker water zwemt.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe oud kan een Groenlandse haai worden?",
+          "answer": "Meer dan 300 jaar",
+          "wrong": [
+            "Ongeveer 20 jaar",
+            "Ongeveer 80 jaar",
+            "Meer dan 1.000 jaar"
+          ],
+          "hint": "Ouder dan welk ander gewerveld dier ook.",
+          "explanation": "De Groenlandse haai leeft waarschijnlijk drie- tot vierhonderd jaar.",
+          "fact": "Hij is pas op zijn honderdvijftigste volwassen."
+        },
+        "en": {
+          "prompt": "How old can a Greenland shark get?",
+          "answer": "More than 300 years",
+          "wrong": [
+            "About 20 years",
+            "About 80 years",
+            "More than 1,000 years"
+          ],
+          "hint": "Older than any other animal with a backbone.",
+          "explanation": "The Greenland shark probably lives three to four hundred years.",
+          "fact": "It is not grown up until it is a hundred and fifty."
+        },
+        "de": {
+          "prompt": "Wie alt kann ein Grönlandhai werden?",
+          "answer": "Mehr als 300 Jahre",
+          "wrong": [
+            "Etwa 20 Jahre",
+            "Etwa 80 Jahre",
+            "Mehr als 1.000 Jahre"
+          ],
+          "hint": "Älter als jedes andere Wirbeltier.",
+          "explanation": "Der Grönlandhai lebt wohl drei- bis vierhundert Jahre.",
+          "fact": "Erwachsen ist er erst mit hundertfünfzig."
+        },
+        "fr": {
+          "prompt": "Quel âge peut atteindre un requin du Groenland ?",
+          "answer": "Plus de 300 ans",
+          "wrong": [
+            "Environ 20 ans",
+            "Environ 80 ans",
+            "Plus de 1 000 ans"
+          ],
+          "hint": "Plus vieux que tout autre vertébré.",
+          "explanation": "Le requin du Groenland vit sans doute trois à quatre cents ans.",
+          "fact": "Il n'est adulte qu'à cent cinquante ans."
+        },
+        "es": {
+          "prompt": "¿Cuántos años puede vivir un tiburón de Groenlandia?",
+          "answer": "Más de 300 años",
+          "wrong": [
+            "Unos 20 años",
+            "Unos 80 años",
+            "Más de 1.000 años"
+          ],
+          "hint": "Más que cualquier otro animal con columna.",
+          "explanation": "El tiburón de Groenlandia vive quizá tres o cuatro siglos.",
+          "fact": "No es adulto hasta los ciento cincuenta."
+        },
+        "it": {
+          "prompt": "Quanti anni può vivere uno squalo della Groenlandia?",
+          "answer": "Più di 300 anni",
+          "wrong": [
+            "Circa 20 anni",
+            "Circa 80 anni",
+            "Più di 1.000 anni"
+          ],
+          "hint": "Più di qualsiasi altro vertebrato.",
+          "explanation": "Lo squalo della Groenlandia vive forse tre o quattro secoli.",
+          "fact": "Diventa adulto solo a centocinquant'anni."
+        },
+        "pt": {
+          "prompt": "Que idade pode atingir um tubarão-da-gronelândia?",
+          "answer": "Mais de 300 anos",
+          "wrong": [
+            "Cerca de 20 anos",
+            "Cerca de 80 anos",
+            "Mais de 1.000 anos"
+          ],
+          "hint": "Mais do que qualquer outro vertebrado.",
+          "explanation": "O tubarão-da-gronelândia vive talvez três ou quatro séculos.",
+          "fact": "Só é adulto aos cento e cinquenta."
+        },
+        "da": {
+          "prompt": "Hvor gammel kan en grønlandshaj blive?",
+          "answer": "Mere end 300 år",
+          "wrong": [
+            "Cirka 20 år",
+            "Cirka 80 år",
+            "Mere end 1.000 år"
+          ],
+          "hint": "Ældre end noget andet hvirveldyr.",
+          "explanation": "Grønlandshajen lever sandsynligvis tre til fire hundrede år.",
+          "fact": "Den bliver først voksen som hundrede og halvtreds årig."
+        },
+        "ru": {
+          "prompt": "Сколько может прожить гренландская акула?",
+          "answer": "Больше 300 лет",
+          "wrong": [
+            "Около 20 лет",
+            "Около 80 лет",
+            "Больше 1000 лет"
+          ],
+          "hint": "Дольше любого другого позвоночного.",
+          "explanation": "Гренландская акула живёт, вероятно, три-четыре сотни лет.",
+          "fact": "Взрослой она становится только к ста пятидесяти годам."
+        },
+        "ar": {
+          "prompt": "كم يمكن أن يعيش قرش غرينلاند؟",
+          "answer": "أكثر من 300 سنة",
+          "wrong": [
+            "نحو 20 سنة",
+            "نحو 80 سنة",
+            "أكثر من 1000 سنة"
+          ],
+          "hint": "أطول من أي فقاري آخر.",
+          "explanation": "يعيش قرش غرينلاند على الأرجح ثلاثة إلى أربعة قرون.",
+          "fact": "ولا يبلغ سن الرشد إلا عند المئة والخمسين."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-37",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Haemocyanin makes octopus blood blue",
+      "artBrief": "Een octopus in close-up met een blauwige gloed over zijn huid.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Welk zeedier heeft blauw bloed?",
+          "answer": "De octopus",
+          "wrong": [
+            "De haai",
+            "De dolfijn",
+            "De zalm"
+          ],
+          "hint": "Hij heeft ook drie harten.",
+          "explanation": "In het bloed van een octopus zit koper in plaats van ijzer.",
+          "fact": "Daardoor is het blauw en werkt het beter in koud water."
+        },
+        "en": {
+          "prompt": "Which sea animal has blue blood?",
+          "answer": "The octopus",
+          "wrong": [
+            "The shark",
+            "The dolphin",
+            "The salmon"
+          ],
+          "hint": "It also has three hearts.",
+          "explanation": "An octopus has copper in its blood instead of iron.",
+          "fact": "That makes it blue and better suited to cold water."
+        },
+        "de": {
+          "prompt": "Welches Meerestier hat blaues Blut?",
+          "answer": "Der Oktopus",
+          "wrong": [
+            "Der Hai",
+            "Der Delfin",
+            "Der Lachs"
+          ],
+          "hint": "Er hat auch drei Herzen.",
+          "explanation": "Im Blut eines Oktopus steckt Kupfer statt Eisen.",
+          "fact": "Darum ist es blau und funktioniert in kaltem Wasser besser."
+        },
+        "fr": {
+          "prompt": "Quel animal marin a le sang bleu ?",
+          "answer": "La pieuvre",
+          "wrong": [
+            "Le requin",
+            "Le dauphin",
+            "Le saumon"
+          ],
+          "hint": "Elle a aussi trois cœurs.",
+          "explanation": "Le sang de la pieuvre contient du cuivre au lieu du fer.",
+          "fact": "Il est donc bleu et fonctionne mieux en eau froide."
+        },
+        "es": {
+          "prompt": "¿Qué animal marino tiene la sangre azul?",
+          "answer": "El pulpo",
+          "wrong": [
+            "El tiburón",
+            "El delfín",
+            "El salmón"
+          ],
+          "hint": "También tiene tres corazones.",
+          "explanation": "La sangre del pulpo lleva cobre en lugar de hierro.",
+          "fact": "Por eso es azul y funciona mejor en agua fría."
+        },
+        "it": {
+          "prompt": "Quale animale marino ha il sangue blu?",
+          "answer": "Il polpo",
+          "wrong": [
+            "Lo squalo",
+            "Il delfino",
+            "Il salmone"
+          ],
+          "hint": "Ha anche tre cuori.",
+          "explanation": "Nel sangue del polpo c'è rame al posto del ferro.",
+          "fact": "Per questo è blu e funziona meglio in acqua fredda."
+        },
+        "pt": {
+          "prompt": "Que animal marinho tem sangue azul?",
+          "answer": "O polvo",
+          "wrong": [
+            "O tubarão",
+            "O golfinho",
+            "O salmão"
+          ],
+          "hint": "Também tem três corações.",
+          "explanation": "O sangue do polvo tem cobre em vez de ferro.",
+          "fact": "Por isso é azul e funciona melhor em água fria."
+        },
+        "da": {
+          "prompt": "Hvilket havdyr har blåt blod?",
+          "answer": "Blæksprutten",
+          "wrong": [
+            "Hajen",
+            "Delfinen",
+            "Laksen"
+          ],
+          "hint": "Den har også tre hjerter.",
+          "explanation": "I blæksprutteblod er der kobber i stedet for jern.",
+          "fact": "Derfor er det blåt og virker bedre i koldt vand."
+        },
+        "ru": {
+          "prompt": "У какого морского животного голубая кровь?",
+          "answer": "У осьминога",
+          "wrong": [
+            "У акулы",
+            "У дельфина",
+            "У лосося"
+          ],
+          "hint": "У него ещё и три сердца.",
+          "explanation": "В крови осьминога вместо железа содержится медь.",
+          "fact": "Поэтому она голубая и лучше работает в холодной воде."
+        },
+        "ar": {
+          "prompt": "أي كائن بحري دمه أزرق؟",
+          "answer": "الأخطبوط",
+          "wrong": [
+            "القرش",
+            "الدلفين",
+            "السلمون"
+          ],
+          "hint": "وله أيضًا ثلاثة قلوب.",
+          "explanation": "في دم الأخطبوط نحاس بدل الحديد.",
+          "fact": "لذلك لونه أزرق ويعمل أفضل في الماء البارد."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-38",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Ampullae of Lorenzini detect electric fields",
+      "artBrief": "Een haai boven de zandbodem met fijne stippellijnen rond zijn snuit.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe vindt een haai prooi in troebel water?",
+          "answer": "Hij voelt elektrische velden",
+          "wrong": [
+            "Hij hoort het water",
+            "Hij ziet in het donker",
+            "Hij proeft het zand"
+          ],
+          "hint": "Elk levend dier maakt een zwak veld.",
+          "explanation": "Met poriën in zijn snuit voelt een haai spiertrillingen van prooi.",
+          "fact": "Zo vindt hij zelfs een vis die zich in het zand verstopt."
+        },
+        "en": {
+          "prompt": "How does a shark find prey in murky water?",
+          "answer": "It feels electric fields",
+          "wrong": [
+            "It hears the water",
+            "It sees in the dark",
+            "It tastes the sand"
+          ],
+          "hint": "Every living animal makes a faint field.",
+          "explanation": "Pores in its snout let a shark feel the muscle twitches of prey.",
+          "fact": "It can even find a fish hidden in the sand."
+        },
+        "de": {
+          "prompt": "Wie findet ein Hai Beute im trüben Wasser?",
+          "answer": "Er spürt elektrische Felder",
+          "wrong": [
+            "Er hört das Wasser",
+            "Er sieht im Dunkeln",
+            "Er schmeckt den Sand"
+          ],
+          "hint": "Jedes lebende Tier erzeugt ein schwaches Feld.",
+          "explanation": "Poren in der Schnauze lassen ihn Muskelzucken der Beute spüren.",
+          "fact": "So findet er sogar einen Fisch, der sich im Sand versteckt."
+        },
+        "fr": {
+          "prompt": "Comment un requin trouve-t-il sa proie en eau trouble ?",
+          "answer": "Il sent les champs",
+          "wrong": [
+            "Il entend l'eau",
+            "Il voit dans le noir",
+            "Il goûte le sable"
+          ],
+          "hint": "Tout animal vivant produit un champ faible.",
+          "explanation": "Des pores dans son museau lui font sentir les muscles d'une proie.",
+          "fact": "Il trouve même un poisson caché dans le sable."
+        },
+        "es": {
+          "prompt": "¿Cómo encuentra un tiburón presas en agua turbia?",
+          "answer": "Nota campos eléctricos",
+          "wrong": [
+            "Oye el agua",
+            "Ve en la oscuridad",
+            "Prueba la arena"
+          ],
+          "hint": "Todo animal vivo genera un campo débil.",
+          "explanation": "Unos poros del hocico le dejan notar los músculos de la presa.",
+          "fact": "Así encuentra hasta un pez escondido en la arena."
+        },
+        "it": {
+          "prompt": "Come trova la preda uno squalo in acqua torbida?",
+          "answer": "Sente i campi elettrici",
+          "wrong": [
+            "Sente l'acqua",
+            "Vede al buio",
+            "Assaggia la sabbia"
+          ],
+          "hint": "Ogni animale vivo crea un campo debole.",
+          "explanation": "Pori sul muso gli fanno sentire i muscoli della preda.",
+          "fact": "Trova perfino un pesce nascosto nella sabbia."
+        },
+        "pt": {
+          "prompt": "Como encontra um tubarão presas em água turva?",
+          "answer": "Sente campos elétricos",
+          "wrong": [
+            "Ouve a água",
+            "Vê no escuro",
+            "Prova a areia"
+          ],
+          "hint": "Todo o animal vivo cria um campo fraco.",
+          "explanation": "Poros no focinho deixam-no sentir os músculos da presa.",
+          "fact": "Encontra até um peixe escondido na areia."
+        },
+        "da": {
+          "prompt": "Hvordan finder en haj bytte i uklart vand?",
+          "answer": "Den mærker elektriske felter",
+          "wrong": [
+            "Den hører vandet",
+            "Den ser i mørke",
+            "Den smager sandet"
+          ],
+          "hint": "Alle levende dyr laver et svagt felt.",
+          "explanation": "Porer i snuden lader hajen mærke byttets muskeltrækninger.",
+          "fact": "Sådan finder den selv en fisk, der gemmer sig i sandet."
+        },
+        "ru": {
+          "prompt": "Как акула находит добычу в мутной воде?",
+          "answer": "Чувствует электрические поля",
+          "wrong": [
+            "Слышит воду",
+            "Видит в темноте",
+            "Пробует песок"
+          ],
+          "hint": "Любое живое существо создаёт слабое поле.",
+          "explanation": "Поры на морде позволяют акуле чувствовать работу мышц добычи.",
+          "fact": "Так она находит даже рыбу, зарывшуюся в песок."
+        },
+        "ar": {
+          "prompt": "كيف يجد القرش فريسته في ماء عكر؟",
+          "answer": "يستشعر الحقول الكهربائية",
+          "wrong": [
+            "يسمع الماء",
+            "يرى في الظلام",
+            "يتذوق الرمل"
+          ],
+          "hint": "كل كائن حي يولد حقلًا ضعيفًا.",
+          "explanation": "مسام في خطمه تجعله يحس بحركة عضلات الفريسة.",
+          "fact": "حتى السمكة المختبئة في الرمل يجدها."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-39",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Bioluminescence in the deep sea",
+      "artBrief": "Een pikdonkere diepzee met kleine dieren die zelf blauwgroen oplichten.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Wat is het licht dat diepzeedieren zelf maken?",
+          "answer": "Levend licht",
+          "wrong": [
+            "Zonlicht van boven",
+            "Weerkaatsing",
+            "Licht van lampen"
+          ],
+          "hint": "Er komt geen zonlicht meer.",
+          "explanation": "Veel diepzeedieren maken met een chemische reactie hun eigen licht.",
+          "fact": "Sommige vissen lokken er prooi mee, als een hengel."
+        },
+        "en": {
+          "prompt": "What is the light that deep-sea animals make themselves?",
+          "answer": "Living light",
+          "wrong": [
+            "Sunlight from above",
+            "A reflection",
+            "Light from lamps"
+          ],
+          "hint": "No sunlight gets down there.",
+          "explanation": "Many deep-sea animals make their own light with a chemical reaction.",
+          "fact": "Some fish use it as a lure, like a fishing rod."
+        },
+        "de": {
+          "prompt": "Was ist das Licht, das Tiefseetiere selbst machen?",
+          "answer": "Lebendes Licht",
+          "wrong": [
+            "Sonnenlicht von oben",
+            "Eine Spiegelung",
+            "Licht von Lampen"
+          ],
+          "hint": "Dort unten kommt kein Sonnenlicht an.",
+          "explanation": "Viele Tiefseetiere erzeugen ihr Licht durch eine chemische Reaktion.",
+          "fact": "Manche Fische locken damit Beute an wie mit einer Angel."
+        },
+        "fr": {
+          "prompt": "Qu'est-ce que la lumière fabriquée par les animaux abyssaux ?",
+          "answer": "De la lumière vivante",
+          "wrong": [
+            "Le soleil d'en haut",
+            "Un reflet",
+            "La lumière de lampes"
+          ],
+          "hint": "Aucun rayon de soleil n'arrive là.",
+          "explanation": "Beaucoup d'animaux des abysses créent leur lumière par une réaction.",
+          "fact": "Certains poissons s'en servent comme d'une canne à pêche."
+        },
+        "es": {
+          "prompt": "¿Qué es la luz que fabrican los animales abisales?",
+          "answer": "Luz viva",
+          "wrong": [
+            "Luz del sol de arriba",
+            "Un reflejo",
+            "Luz de lámparas"
+          ],
+          "hint": "Allí abajo no llega el sol.",
+          "explanation": "Muchos animales del fondo crean su luz con una reacción química.",
+          "fact": "Algunos peces la usan de cebo, como una caña de pescar."
+        },
+        "it": {
+          "prompt": "Che cos'è la luce che gli animali abissali producono?",
+          "answer": "Luce vivente",
+          "wrong": [
+            "Il sole dall'alto",
+            "Un riflesso",
+            "Luce di lampade"
+          ],
+          "hint": "Laggiù non arriva il sole.",
+          "explanation": "Molti animali degli abissi creano luce con una reazione chimica.",
+          "fact": "Alcuni pesci la usano come esca, come una canna da pesca."
+        },
+        "pt": {
+          "prompt": "O que é a luz que os animais abissais fazem?",
+          "answer": "Luz viva",
+          "wrong": [
+            "Sol vindo de cima",
+            "Um reflexo",
+            "Luz de lâmpadas"
+          ],
+          "hint": "Lá em baixo não chega sol.",
+          "explanation": "Muitos animais do fundo criam luz com uma reação química.",
+          "fact": "Alguns peixes usam-na como isco, tipo cana de pesca."
+        },
+        "da": {
+          "prompt": "Hvad er det lys, dybhavsdyr selv laver?",
+          "answer": "Levende lys",
+          "wrong": [
+            "Sollys ovenfra",
+            "Et spejlbillede",
+            "Lys fra lamper"
+          ],
+          "hint": "Dernede når sollyset ikke ned.",
+          "explanation": "Mange dybhavsdyr laver lys med en kemisk reaktion.",
+          "fact": "Nogle fisk lokker bytte med det som med en fiskestang."
+        },
+        "ru": {
+          "prompt": "Что за свет создают глубоководные животные?",
+          "answer": "Живой свет",
+          "wrong": [
+            "Солнце сверху",
+            "Отражение",
+            "Свет ламп"
+          ],
+          "hint": "Солнечный свет туда не доходит.",
+          "explanation": "Многие глубоководные животные светятся благодаря химической реакции.",
+          "fact": "Некоторые рыбы приманивают им добычу, как удочкой."
+        },
+        "ar": {
+          "prompt": "ما هو الضوء الذي تصنعه كائنات الأعماق؟",
+          "answer": "ضوء حي",
+          "wrong": [
+            "ضوء الشمس من فوق",
+            "انعكاس",
+            "ضوء مصابيح"
+          ],
+          "hint": "لا يصل ضوء الشمس إلى هناك.",
+          "explanation": "كثير من كائنات الأعماق تصنع ضوءها بتفاعل كيميائي.",
+          "fact": "وبعض الأسماك تستدرج به الفريسة كأنه صنارة."
+        }
+      }
+    },
+    {
+      "id": "dieren-waterdieren-40",
+      "difficulty": 4,
+      "status": "translated",
+      "source": "Sperm whales dive for 60-90 minutes",
+      "artBrief": "Een potvis die kaarsrecht omlaag duikt in het donkere diepe water.",
+      "art": "todo",
+      "text": {
+        "nl": {
+          "prompt": "Hoe lang kan een potvis onder water blijven?",
+          "answer": "Ruim een uur",
+          "wrong": [
+            "Ongeveer een minuut",
+            "Ongeveer vijf minuten",
+            "Een hele dag"
+          ],
+          "hint": "Langer dan een schooluur duurt.",
+          "explanation": "Een potvis kan zestig tot negentig minuten onder blijven.",
+          "fact": "Daarna komt hij tien minuten ademhalen aan de oppervlakte."
+        },
+        "en": {
+          "prompt": "How long can a sperm whale stay under water?",
+          "answer": "Over an hour",
+          "wrong": [
+            "About a minute",
+            "About five minutes",
+            "A whole day"
+          ],
+          "hint": "Longer than a school lesson.",
+          "explanation": "A sperm whale can stay down for sixty to ninety minutes.",
+          "fact": "Then it breathes at the surface for about ten minutes."
+        },
+        "de": {
+          "prompt": "Wie lange kann ein Pottwal unter Wasser bleiben?",
+          "answer": "Über eine Stunde",
+          "wrong": [
+            "Etwa eine Minute",
+            "Etwa fünf Minuten",
+            "Einen ganzen Tag"
+          ],
+          "hint": "Länger als eine Schulstunde.",
+          "explanation": "Ein Pottwal bleibt sechzig bis neunzig Minuten unten.",
+          "fact": "Danach atmet er etwa zehn Minuten an der Oberfläche."
+        },
+        "fr": {
+          "prompt": "Combien de temps un cachalot reste-t-il sous l'eau ?",
+          "answer": "Plus d'une heure",
+          "wrong": [
+            "Environ une minute",
+            "Environ cinq minutes",
+            "Une journée entière"
+          ],
+          "hint": "Plus longtemps qu'un cours à l'école.",
+          "explanation": "Un cachalot reste en plongée soixante à quatre-vingt-dix minutes.",
+          "fact": "Ensuite il respire une dizaine de minutes en surface."
+        },
+        "es": {
+          "prompt": "¿Cuánto puede estar un cachalote bajo el agua?",
+          "answer": "Más de una hora",
+          "wrong": [
+            "Un minuto",
+            "Cinco minutos",
+            "Un día entero"
+          ],
+          "hint": "Más que una clase del colegio.",
+          "explanation": "Un cachalote aguanta de sesenta a noventa minutos abajo.",
+          "fact": "Luego respira unos diez minutos en la superficie."
+        },
+        "it": {
+          "prompt": "Quanto può restare sott'acqua un capodoglio?",
+          "answer": "Più di un'ora",
+          "wrong": [
+            "Circa un minuto",
+            "Circa cinque minuti",
+            "Un giorno intero"
+          ],
+          "hint": "Più a lungo di una lezione a scuola.",
+          "explanation": "Un capodoglio resta giù dai sessanta ai novanta minuti.",
+          "fact": "Poi respira una decina di minuti in superficie."
+        },
+        "pt": {
+          "prompt": "Quanto tempo aguenta um cachalote debaixo de água?",
+          "answer": "Mais de uma hora",
+          "wrong": [
+            "Cerca de um minuto",
+            "Cerca de cinco minutos",
+            "Um dia inteiro"
+          ],
+          "hint": "Mais do que uma aula na escola.",
+          "explanation": "Um cachalote fica lá em baixo sessenta a noventa minutos.",
+          "fact": "Depois respira uns dez minutos à superfície."
+        },
+        "da": {
+          "prompt": "Hvor længe kan en kaskelot blive under vandet?",
+          "answer": "Over en time",
+          "wrong": [
+            "Cirka et minut",
+            "Cirka fem minutter",
+            "En hel dag"
+          ],
+          "hint": "Længere end en skoletime.",
+          "explanation": "En kaskelot kan blive nede i tres til halvfems minutter.",
+          "fact": "Bagefter ånder den cirka ti minutter ved overfladen."
+        },
+        "ru": {
+          "prompt": "Сколько кашалот может пробыть под водой?",
+          "answer": "Больше часа",
+          "wrong": [
+            "Около минуты",
+            "Около пяти минут",
+            "Целые сутки"
+          ],
+          "hint": "Дольше школьного урока.",
+          "explanation": "Кашалот остаётся под водой от шестидесяти до девяноста минут.",
+          "fact": "Потом он дышит у поверхности около десяти минут."
+        },
+        "ar": {
+          "prompt": "كم يبقى حوت العنبر تحت الماء؟",
+          "answer": "أكثر من ساعة",
+          "wrong": [
+            "نحو دقيقة",
+            "نحو خمس دقائق",
+            "يومًا كاملًا"
+          ],
+          "hint": "أطول من حصة دراسية.",
+          "explanation": "يبقى حوت العنبر في الأعماق ستين إلى تسعين دقيقة.",
+          "fact": "ثم يتنفس نحو عشر دقائق على السطح."
+        }
+      }
+    }
+  ]
+}
