@@ -302,3 +302,54 @@ er hoefde dus geen plaat opnieuw:
    de browser je oordelen; bij openen als bestand kan dat niet).
 4. **De twee nieuwe werelden** (Kunstwereld, Sportwereld) zijn nog appwerk:
    wereldselectie, muziek, collectie en illustraties, daarna 8 × 4 × 40 = 1280.
+
+---
+
+## 8. De twee nieuwe werelden staan
+
+Op 28 september 2026 zijn Kunstwereld en Sportwereld er als volwaardige
+werelden bij gekomen — eerst het appwerk, daarna acht keer veertig vragen.
+
+| | voor | na |
+|---|---|---|
+| Werelden | 6 | **8** |
+| Onderwerpen | 24 | **32** |
+| Vragen per taal | 960 | **1280** |
+| Vragen in tien talen | 9600 | **12.800** |
+
+### Het appwerk
+
+De wereldlijst stond op vijf plaatsen los in de code. Die is nu één registratie
+in `m1-runtime.js` (`K.WORLDS` + `K.TOPIC_KEYS`), met `K.playableWorlds()`
+ernaast: die toont alleen werelden waarvan alle vier de onderwerpen vragen
+hebben. `m1-ui.js`, `games-memo.js`, `games-whoami.js` en `facts-ui.js` lezen
+die lijst nu uit in plaats van hun eigen kopie. Zo kon een wereld al in de code
+staan terwijl de vragen nog geschreven werden, zonder een kapot scherm.
+
+Verder: veertien nieuwe tekstsleutels per taal (titels, ondertitels, acht
+onderwerpnamen), muziek gekoppeld aan bestaande tracks (geen nieuwe audio),
+tien tijdelijke platen gerenderd met Playwright in plaats van AI-credits
+(`tools/placeholder-art.cjs`, bijgehouden in `assets/placeholder-art.json`), en
+`questions.js` die nu ook werelden bouwt die alleen uit `content/` komen.
+
+### Wat de lint en de tests tegenhielden
+
+- **Kerkorgel werd een orgaan.** De vraag over het orgel in `kunst/muziek`
+  kreeg de anatomieplaat, omdat `orgaan`/`organ` in de regexlijst van
+  `SUBJECT_ART` stond. Die woorden zijn eruit; een kerkorgel is geen lichaamsdeel.
+- **"1.00" op het scorebord.** `tests/core.test.js` vond cijfers die in de
+  spraaktekst bleven staan, in het weetje over de eerste tien van Comaneci.
+  In tien talen herschreven naar woorden.
+- **Lengtes, opnieuw.** Enkele tientallen antwoorden boven de 28 tekens,
+  vrijwel allemaal in de/fr/es/it/pt/ru/ar. Allemaal ingekort vóór de build.
+
+### Wat er nog ligt voor deze twee werelden
+
+1. **Tien tijdelijke platen** (twee wereldhelden, acht onderwerpkaarten) wachten
+   op echte illustraties. `npm test` noemt het aantal bij elke run.
+2. **320 vraagplaten** staan als `"art": "todo"` — samen met de oude achterstand
+   nu 740 vragen op de onderwerpplaat.
+3. **Weetjes** (`facts`) voor kunst en sport: 16 per wereld × 10 talen, plus 32
+   illustraties. `facts-ui.js` verbergt een wereld zonder weetjes, dus het is
+   niet stuk — het is er alleen nog niet.
+4. Punt 1 en 2 zijn geblokkeerd door hetzelfde ElevenLabs-tegoed als in §7.
