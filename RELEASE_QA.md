@@ -80,6 +80,22 @@ Gemeten na de wijziging: iPad Pro 12,9" liggend 1350 × 938 in 1366 × 1024,
 iPad 11" 1178 × 818, iPad 10,2" 1064 × 740, iPad mini 1048 × 728. Staand en
 telefoon precies als daarvoor (760 × 1350 en 393 × 852).
 
+### Wat er bij het testen op een echte iPad uit kwam (28 september)
+
+- **De openingsfilm stond ingezoomd en zacht.** Hij is staand (720 × 1280) en
+  werd met `cover` in het brede frame anderhalf keer uitvergroot. In liggende
+  stand wordt hij nu heel getoond, scherp, met de wereldkunst onscherp erachter.
+  Komt er een liggende film, zet die dan neer als `assets/brand/intro-wide.mp4`
+  en vul het pad in bij `K.MOTION.homeWide` (world-assets.js); de intro pakt hem
+  dan alleen liggend, en valt terug op de staande film als hij ontbreekt.
+- **De gids liep het scherm uit.** De rondleiding mat het scherm met
+  `getBoundingClientRect()` — schermpixels — en zette de gids neer in de pixels
+  van het frame zelf. Zodra `--fit` niet 1 was klopte dat niet: op elke iPad,
+  staand én liggend, kwam de gids buiten beeld. De maten worden nu omgerekend
+  (milo.js). Gemeten na de fix: gids binnen het frame in beide standen.
+- De rondleiding zei nog "de zes werelden"; dat is in tien talen "de werelden"
+  geworden.
+
 Nog open: de wereldhelden zijn staande platen (752 × 1344). In landschap wordt
 daar een horizontale band uit gesneden en opgeschaald, wat zacht oogt. Een
 liggende render per wereld zou dat oplossen.

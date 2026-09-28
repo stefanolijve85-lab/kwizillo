@@ -152,7 +152,7 @@
     'onboarding.age.years':'{n} år',
     'onboarding.group.title':'Hvilken klasse går du i?',
     'onboarding.group.sub':'Så jeg kan vælge spørgsmål, der passer til dig.',
-    'tour.worlds':'Det her er de seks verdener. Tryk på en verden og spil en quiz!',
+    'tour.worlds':'Det her er verdenerne. Tryk på en verden og spil en quiz!',
     'tour.games':'Og her er seks spil. Memo: find parrene. Regning: løs stykkerne. Hvad er jeg: gæt ud fra spor. Foto Zoom: gæt det indzoomede billede. Sjove fakta: sjove ting at vide. Og Runner: løb, hop og flyv!',
     'tour.facts':'Og det her er Sjove fakta: hundredvis af sjove ting at opdage!',
     'tour.hud':'Øverst ser du dit niveau, dine mønter og din stime. Tandhjulet er til dine forældre.',

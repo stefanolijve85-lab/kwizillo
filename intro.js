@@ -14,10 +14,17 @@
   }
 
   K.playIntro=onDone=>{
-    const url=K.MOTION?.home||K.config?.introVideoUrl||'';
+    // De staande film is 720 bij 1280. In het brede frame (tablet op zijn kant)
+    // zou "cover" daar een smalle band uit snijden en die anderhalf keer
+    // uitvergroten: ingezoomd en zacht. Er is dus een liggende film als die er
+    // staat, en anders wordt de staande film heel getoond (landscape.css) met
+    // de wereldkunst onscherp erachter.
+    const wide=document.documentElement.dataset.shape==='wide';
+    const url=(wide&&K.MOTION?.homeWide)||K.MOTION?.home||K.config?.introVideoUrl||'';
     if(!url) return onDone();
 
-    const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in">
+    const wideFilm=wide&&url===K.MOTION?.homeWide;
+    const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in${wideFilm?' wide-film':''}">
       <video muted playsinline autoplay preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
       <div class="intro-sound" id="introSound">🔊 ${K.t('intro.tapForSound')}</div>
@@ -25,7 +32,7 @@
 
     const el=frame.querySelector('.motion');
     const video=el.querySelector('video');
-    let timers=[],done=false,theme=null,soundOn=false,videoFailed=false;
+    let timers=[],done=false,theme=null,soundOn=false,videoFailed=false,triedFallback=false;
     K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
     const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
     const log=(...a)=>{try{K.debugLog?.('intro',...a)}catch(e){}};
@@ -75,6 +82,15 @@
     video.addEventListener('ended',finish,{once:true});
     for(const ev of ['loadedmetadata','canplay','playing','stalled','suspend','abort']) video.addEventListener(ev,()=>log(ev,'readyState',video.readyState),{once:true});
     video.addEventListener('error',()=>{
+      // De liggende film is optioneel. Staat hij er niet, dan valt de intro
+      // terug op de staande film in plaats van op een zwart scherm.
+      const fallback=K.MOTION?.home||'';
+      if(url!==fallback&&fallback&&!triedFallback){
+        triedFallback=true;log('wide intro ontbreekt, val terug op',fallback);
+        el.classList.remove('wide-film');
+        video.src=fallback;video.load();const r=video.play();if(r&&r.catch)r.catch(()=>{});
+        return;
+      }
       videoFailed=true;
       const err=video.error;
       console.warn('Kwizillo intro: video failed to load',err?.code,err?.message||'');
@@ -84,7 +100,7 @@
       el.classList.add('poster-only');
       timers.forEach(clearTimeout);timers=[];
       schedule(finish,soundOn?12500:SAFETY_MS);
-    },{once:true});
+    });
     schedule(finish,SAFETY_MS);
     const p=video.play();
     if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);el.querySelector('#introSound').textContent='▶ '+K.t('intro.tapToStart')});

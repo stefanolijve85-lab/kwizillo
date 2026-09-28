@@ -152,7 +152,7 @@
     'onboarding.age.years':'{n} Jahre',
     'onboarding.group.title':'In welcher Klasse bist du?',
     'onboarding.group.sub':'Damit ich Fragen wähle, die zu dir passen.',
-    'tour.worlds':'Das sind die sechs Welten. Tippe auf eine Welt und spiele ein Quiz!',
+    'tour.worlds':'Das sind die Welten. Tippe auf eine Welt und spiele ein Quiz!',
     'tour.games':'Und hier sind sechs Spiele. Memo: finde die Paare. Rechnen: löse Aufgaben. Was bin ich: rate nach Hinweisen. Fotozoom: errate das herangezoomte Foto. Wissenswertes: lustige Dinge zum Wissen. Und der Runner: rennen, springen und fliegen!',
     'tour.facts':'Und das ist das Wissenswerte: Hunderte spannende Dinge zum Entdecken!',
     'tour.hud':'Oben siehst du dein Level, deine Münzen und deine Serie. Das Zahnrad ist für deine Eltern.',

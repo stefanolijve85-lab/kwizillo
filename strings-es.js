@@ -153,7 +153,7 @@
     'onboarding.age.years':'{n} años',
     'onboarding.group.title':'¿En qué curso estás?',
     'onboarding.group.sub':'Para elegir preguntas que te vayan bien.',
-    'tour.worlds':'Estos son los seis mundos. ¡Toca un mundo y juega un quiz!',
+    'tour.worlds':'Estos son los mundos. ¡Toca un mundo y juega un quiz!',
     'tour.games':'Y aquí hay seis juegos. Memo: encuentra las parejas. Cálculo: resuelve operaciones. ¿Qué soy?: adivina con pistas. Foto Zoom: adivina la foto ampliada. Curiosidades: cosas divertidas que saber. ¡Y el Runner: corre, salta y vuela!',
     'tour.facts':'Y estas son las Curiosidades: ¡cientos de cosas divertidas por descubrir!',
     'tour.hud':'Arriba ves tu nivel, tus monedas y tu racha. La rueda dentada es para tus padres.',

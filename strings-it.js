@@ -153,7 +153,7 @@
     'onboarding.age.years':'{n} anni',
     'onboarding.group.title':'In che classe sei?',
     'onboarding.group.sub':'Così scelgo domande adatte a te.',
-    'tour.worlds':'Questi sono i sei mondi. Tocca un mondo e gioca un quiz!',
+    'tour.worlds':'Questi sono i mondi. Tocca un mondo e gioca un quiz!',
     'tour.games':'E qui ci sono sei giochi. Memo: trova le coppie. Calcolo: risolvi le operazioni. Chi sono: indovina dagli indizi. Foto Zoom: indovina la foto ingrandita. Curiosità: cose divertenti da sapere. E il Runner: corri, salta e vola!',
     'tour.facts':'E queste sono le Curiosità: centinaia di cose divertenti da scoprire!',
     'tour.hud':'In alto vedi il tuo livello, le tue monete e la tua serie. L’ingranaggio è per i tuoi genitori.',

@@ -97,7 +97,16 @@
 
   // Opening cinematic only. Entering a world is immediate, by design.
   // intro.mp4 is H.264 720p with the moov atom in front (fast start), 4.4 MB.
-  K.MOTION={home:'assets/brand/intro.mp4'};
+  // De openingsfilm. `homeWide` is de liggende versie (16:9) voor een tablet op
+  // zijn kant; staat die er niet, dan toont landscape.css de staande film heel,
+  // met onscherpe wereldkunst eromheen. Zet het bestand neer als
+  // assets/brand/intro-wide.mp4 en het wordt vanzelf gebruikt.
+  // De openingsfilm. `home` is de staande film (720 × 1280). Komt er een
+  // liggende versie voor de tablet op zijn kant, zet die dan neer als
+  // assets/brand/intro-wide.mp4 en vul het pad hieronder in; de intro pakt
+  // hem dan alleen in liggende stand. Leeg laten betekent: de staande film
+  // wordt liggend heel getoond (landscape.css), zonder mislukte download.
+  K.MOTION={home:'assets/brand/intro.mp4',homeWide:''};
   // The intro theme: a 12 s sting built by tools/intro-audio.js + intro-mix.cjs,
   // children call "Kwizillo!" as the logo lands (about 10 s in).
   K.INTRO_THEME='assets/audio/intro_theme.wav';

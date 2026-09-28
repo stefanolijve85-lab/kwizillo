@@ -332,8 +332,13 @@
     layer.appendChild(host.el);
     home.appendChild(layer);
     home.classList.add('touring');
+    // Op alles groter dan een telefoon staat het frame op transform:scale(--fit),
+    // dus een rect van de browser is in schermpixels terwijl alles wat we zetten
+    // (left, top, --bw) in de pixels van het frame zelf is. Zonder deze omrekening
+    // loopt de gids het scherm uit zodra --fit niet 1 is — op elke iPad dus.
     const hb=()=>home.getBoundingClientRect();
-    const W=()=>hb().width,H=()=>hb().height;
+    const scale=()=>{const w=home.offsetWidth;const b=hb();return w?(b.width/w)||1:1};
+    const W=()=>home.offsetWidth||hb().width,H=()=>home.offsetHeight||hb().height;
     // The figure is laid out by height; its width follows the pose.
     const figH=Math.min(220,Math.round(H()*.27));
     host.el.style.setProperty('--milo-h',figH+'px');
@@ -345,7 +350,7 @@
     const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     const waitTap=ms=>new Promise(r=>{let to=setTimeout(()=>{advance=null;r()},ms);advance=()=>{clearTimeout(to);advance=null;r()}});
     // A stop may spotlight several elements at once (their union).
-    const rectOf=sel=>{const ns=sel?[...home.querySelectorAll(sel)]:[];if(!ns.length)return null;const b=hb();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of ns){const r=n.getBoundingClientRect();x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom)}return {x:x0-b.left,y:y0-b.top,w:x1-x0,h:y1-y0}};
+    const rectOf=sel=>{const ns=sel?[...home.querySelectorAll(sel)]:[];if(!ns.length)return null;const b=hb(),s=scale();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of ns){const r=n.getBoundingClientRect();x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom)}return {x:(x0-b.left)/s,y:(y0-b.top)/s,w:(x1-x0)/s,h:(y1-y0)/s}};
     // Cycles walk or jump frames while the figure travels, then lands in `pose`.
     const stride=(kind,ms)=>{clearInterval(frames);let k=0;const seq=kind==='walk'?['walkA','walkB']:['jumpA','jumpB','jumpB'];host.pose(seq[0]);frames=setInterval(()=>{k++;host.pose(seq[k%seq.length])},kind==='walk'?150:190);return sleep(ms).then(()=>{clearInterval(frames);frames=0})};
     // The bubble hangs above or below the figure, centred on it but kept

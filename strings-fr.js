@@ -153,7 +153,7 @@
     'onboarding.age.years':'{n} ans',
     'onboarding.group.title':'Tu es dans quelle classe ?',
     'onboarding.group.sub':'Pour que je choisisse des questions qui te vont.',
-    'tour.worlds':'Voici les six mondes. Touche un monde et joue un quiz !',
+    'tour.worlds':'Voici les mondes. Touche un monde et joue un quiz !',
     'tour.games':'Et voici six jeux. Mémo : trouve les paires. Calcul : résous des opérations. Qui suis-je : devine avec des indices. Photo Zoom : devine la photo zoomée. Infos rigolotes : des choses amusantes à savoir. Et le Runner : cours, saute et vole !',
     'tour.facts':'Et voici les Infos rigolotes : des centaines de choses amusantes à découvrir !',
     'tour.hud':'En haut tu vois ton niveau, tes pièces et ta série. La roue dentée est pour tes parents.',

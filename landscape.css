@@ -91,3 +91,18 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 /* The panel header (collectie, prestaties, statistieken) keeps its shape but
    gives the list more room on a screen that is wider than it is tall. */
 [data-shape="wide"] .panel-head{padding-block:1.4% 1%}
+
+/* ---- intro ----
+   De openingsfilm is staand (720 × 1280). Staat er een liggende versie
+   (assets/brand/intro-wide.mp4), dan speelt die en vult hij het frame. Is die
+   er niet, dan wordt de staande film hier heel getoond in plaats van
+   uitvergroot bijgesneden — scherp, met de wereldkunst onscherp erachter zodat
+   de randen bij het spel horen. */
+[data-shape="wide"] .motion.kwizillo-cinematic::before{
+  content:"";position:absolute;inset:-5%;z-index:0;
+  background-image:var(--stage-art);background-size:cover;background-position:center;
+  filter:blur(28px) brightness(.4) saturate(1.1)}
+[data-shape="wide"] .motion.kwizillo-cinematic video{position:relative;z-index:1;object-fit:contain}
+/* Een liggende film vult het frame wel: dan mag hij weer bijsnijden. */
+[data-shape="wide"] .motion.kwizillo-cinematic.wide-film video{object-fit:cover}
+[data-shape="wide"] .motion.kwizillo-cinematic.wide-film::before{display:none}
