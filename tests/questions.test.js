@@ -148,14 +148,24 @@ if (emptyTopics.length) console.log(`Kwizillo question banks: ${unfinished.lengt
   const K = { MASTER: {}, QUESTION_ART: {}, TOPIC_ART: {} };
   vm.runInNewContext(worldAssets, { window: { KWIZILLO_M1: K } });
 
+  // De paden dragen een versiemerk (?v20) tegen oude browsercache; op schijf
+  // heet het bestand zonder dat merk.
+  const artPath = src => src.split('?')[0];
+
   assert.deepStrictEqual(Object.keys(K.TOPIC_ART).sort(), [...TOPICS].sort(),
     'every registered topic needs exactly one illustration');
   for (const [topic, src] of Object.entries(K.TOPIC_ART)) {
-    assert.ok(fs.existsSync(path.join(ROOT, src)), `${topic}: missing art file ${src}`);
+    assert.ok(fs.existsSync(path.join(ROOT, artPath(src))), `${topic}: missing art file ${src}`);
     assert.ok(!/^https?:/.test(src), `${topic}: art must be local, got ${src}`);
   }
   for (const [kind, src] of Object.entries(K.QUESTION_ART)) {
-    assert.ok(fs.existsSync(path.join(ROOT, src)), `${kind}: missing art file ${src}`);
+    assert.ok(fs.existsSync(path.join(ROOT, artPath(src))), `${kind}: missing art file ${src}`);
+  }
+  // Elke wereldplaat moet er ook echt staan: dit ving de kapotte kunst- en
+  // sportplaat niet, omdat alleen onderwerpen werden nagelopen.
+  for (const [world, src] of Object.entries(K.MASTER)) {
+    assert.ok(fs.existsSync(path.join(ROOT, artPath(src))), `${world}: missing world art ${src}`);
+    assert.ok(/\?v\d+$/.test(src), `${world}: world art needs a cache-busting mark, got ${src}`);
   }
 
   const core = require('../quiz-core-v2.js');

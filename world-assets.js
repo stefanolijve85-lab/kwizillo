@@ -1,6 +1,16 @@
 (()=>{
   const K=window.KWIZILLO_M1=window.KWIZILLO_M1||{};
 
+  // Plaatjes worden een dag lang door de browser bewaard (server.js stuurt
+  // max-age=86400). Wordt een bestand onder dezelfde naam opnieuw getekend, dan
+  // blijft een iPad die het gisteren ophaalde de oude versie tonen. Daarom
+  // hangt achter elk pad een versiemerk. Bump dit nummer zodra er kunst wordt
+  // vervangen; alle kaarten hieronder worden er in één keer mee gestempeld
+  // (zie `stamp`, onderaan), zodat geen enkel gebruik het kan vergeten.
+  K.ASSET_V='v20';
+  // Idempotent: een pad dat al een merk draagt krijgt er geen tweede bij.
+  K.assetUrl=p=>p&&!p.includes('?')?`${p}?${K.ASSET_V}`:p;
+
   // All artwork ships with the app. Nothing here reaches out to a CDN, so the
   // game works offline and an App Review reviewer never sees an empty screen.
   // These assets contain no baked-in UI, logo, labels or buttons.
@@ -11,9 +21,6 @@
     geschiedenis:'assets/worlds/geschiedenis.jpg',
     wetenschap:'assets/worlds/wetenschap.jpg',
     mysterie:'assets/worlds/mysterie.jpg',
-    // De twee nieuwste werelden hebben nog geen geschilderde plaat; deze twee
-    // zijn tijdelijk gemaakt door tools/placeholder-art.cjs (zie
-    // assets/placeholder-art.json) zodat er nooit een kapotte afbeelding staat.
     kunst:'assets/worlds/kunst.jpg',
     sport:'assets/worlds/sport.jpg'
   };
@@ -119,10 +126,6 @@
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:
   // Home HUD, voice pickers, onboarding, feedback and result cards.
-  // Assets are cached for a day by the browser; a redrawn file under the same
-  // name would show stale. Bump this when a guide image is replaced.
-  K.ASSET_V='v19';
-  K.assetUrl=p=>`${p}?${K.ASSET_V}`;
   K.MASCOT_ART={
     milo:K.assetUrl('assets/mascots/milo.jpg'),luna:K.assetUrl('assets/mascots/luna.jpg'),
     comet:'assets/mascots/comet.jpg',pootje:'assets/mascots/pootje.jpg',terra:'assets/mascots/terra.jpg',
@@ -139,4 +142,14 @@
   K.MASCOT_TILE={};
   for(const id of Object.keys(K.MASCOT_ART)) K.MASCOT_TILE[id]=K.assetUrl(`assets/mascots/tile/${id}.png`);
   K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
+
+  // Eén plek waar het versiemerk op alle kunst wordt gezet. De kaarten
+  // hierboven staan met kale paden in het bestand, zodat ze leesbaar blijven en
+  // het gereedschap ze kan vinden; hier krijgen ze allemaal hun merk.
+  const stamp=o=>{for(const k of Object.keys(o)) if(typeof o[k]==='string') o[k]=K.assetUrl(o[k])};
+  for(const map of [K.MASTER,K.GOLD_ART,K.QUESTION_ART,K.TOPIC_ART,K.GAME_ART,K.MASCOT_ART,K.MASCOT_TILE,K.MOTION]) stamp(map);
+  for(const c of K.RUNNER_CARDS) c.art=K.assetUrl(c.art);
+  K.INTRO_THEME=K.assetUrl(K.INTRO_THEME);
+  K.BRAND_LOGO=K.assetUrl(K.BRAND_LOGO);
+  K.BRAND_LOGO_SHADOW=K.assetUrl(K.BRAND_LOGO_SHADOW);
 })();

@@ -294,13 +294,10 @@
 .result-stars i.on{color:#ffc72d;text-shadow:0 3px 0 #e0930b}
 
 /* Home world tiles are wide and the paintings are tall: aim each tile at its
-   island instead of the sky above it (same focal points as the world hero). */
-.home-world[data-world="ruimte"] .home-world-art{object-position:center 30%}
-.home-world[data-world="dieren"] .home-world-art{object-position:center 38%}
-.home-world[data-world="aarde"] .home-world-art{object-position:center 60%}
-.home-world[data-world="geschiedenis"] .home-world-art{object-position:center 64%}
-.home-world[data-world="wetenschap"] .home-world-art{object-position:center 52%}
-.home-world[data-world="mysterie"] .home-world-art{object-position:center 24%}
+   island instead of the sky above it. Waar dat punt ligt staat in één kaart,
+   K.WORLD_FOCUS (icons.js); m1-ui.js zet het per tegel op de img. Hier stonden
+   dezelfde percentages nog een tweede keer, en de twee nieuwste werelden
+   ontbraken erin — dan viel de tegel terug op 32% en stond het eiland te laag. */
 
 /* ---- Feedback card v3: the verdict, the right answer and the explanation are
    three clearly separated blocks; "next" only unlocks once the voice is done

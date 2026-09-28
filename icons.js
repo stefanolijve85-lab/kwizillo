@@ -32,8 +32,12 @@
   K.ICONS=ICONS;
 
   // A round world badge: the world's own painting, cropped to its island.
-  // Where each world painting's island sits: shared by every cropped tile.
-  const FOCUS={ruimte:'center 30%',dieren:'center 38%',aarde:'center 60%',geschiedenis:'center 64%',wetenschap:'center 52%',mysterie:'center 24%',kunst:'center 45%',sport:'center 45%'};
+  // Waar het eiland in elke wereldplaat zit. Eén kaart voor élke bijgesneden
+  // tegel: Home, het wereldscherm, de memo-keuze, de statistiekkaarten en de
+  // ronde badge. De percentages zijn gekozen op een contactvel (elke plaat bij
+  // 20/30/40/50/60%) zodat het onderwerp heel in beeld staat en er onderin
+  // ruimte overblijft voor de titel.
+  const FOCUS={ruimte:'center 30%',dieren:'center 32%',aarde:'center 48%',geschiedenis:'center 50%',wetenschap:'center 48%',mysterie:'center 25%',kunst:'center 38%',sport:'center 36%'};
   K.WORLD_FOCUS=FOCUS;
   K.worldBadge=(w,cls='')=>K.MASTER?.[w]?`<img class="world-badge ${cls}" src="${K.MASTER[w]}" alt="" style="object-position:${FOCUS[w]||'center'}">`:'';
 })();

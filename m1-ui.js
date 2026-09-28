@@ -172,7 +172,7 @@
       // nothing about how far the world had come — two right answers filled it.
       const wp=K.worldProgress(w);
       return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))} · ${esc(t('settings.level'))} ${lv.level} · ${esc(t('world.worldProgress',{done:wp.done,total:wp.total}))}">
-        <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async">
+        <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 32%'}">
         <span class="home-world-veil"></span>
         <span class="home-world-level">${esc(t('settings.level'))} ${lv.level}${lv.passed?` · ${lv.passed}/${lv.total}`:''}</span>
         <span class="home-world-copy">
