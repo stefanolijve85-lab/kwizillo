@@ -40,9 +40,49 @@ zaken staan er expliciet in; er is niets weggelaten omdat het slecht uitkwam.
 - Niveau per wereld (1–6), gouden wereldkaart bij alle zes niveaus gehaald.
 - Premium (StoreKit 2) met paywall, ouderpoort en herstel; de testschakelaar die
   alles opende is verwijderd.
-- iPad-versie: één ontwerp dat meeschaalt, portret en landschap.
+- iPad-versie: twee frames in plaats van één. Rechtop speelt de iPad het tall
+  frame (430 × 764) meegeschaald; in landschap schakelt hij naar het wide
+  frame (1180 × 820) dat het scherm vult, met de schermen in twee kolommen
+  (`landscape.css`, zie §2b).
 - Spraak: streaming proxy en `eleven_flash_v2_5` — eerste geluid in 0,13–0,18 s
   in plaats van 0,6–1,0 s.
+
+---
+
+## 2b. De twee frames (28 september)
+
+Op een iPad in landschap stond het spel eerst als een staande kaart in het
+midden, met onscherpe wereldkunst eromheen. Dat is nu een eigen indeling.
+
+`m1-runtime.js` kiest het frame en zet `html[data-shape]`:
+
+| scherm | shape | frame | voorbeeld |
+|---|---|---|---|
+| telefoon (≤ 580 px) | `phone` | het scherm zelf | iPhone 15: 393 × 852 |
+| smaller dan breed of te smal | `tall` | 430 × 764, meegeschaald | iPad Pro staand: 760 × 1350 |
+| minstens 860 px breed én breder dan hoog | `wide` | 1180 × 820, meegeschaald | iPad Pro liggend: 1350 × 938 |
+
+`landscape.css` geldt alleen bij `data-shape="wide"`; de telefoon- en
+staande-indeling zijn niet aangeraakt. Wat er in die stand verandert:
+
+- **Home** — acht werelden in vier kolommen, de zes spellen in één rij.
+- **Wereld** — de vier onderwerpen naast elkaar, gemengde quiz eronder.
+- **Quiz** — vraag linksboven, plaat (16:9) eronder, knoppen onder de plaat,
+  de vier antwoorden vullen de hele rechterkolom.
+- **Rekenen / Wat ben ik?** — som, respectievelijk Milo met zijn aanwijzingen,
+  links; de keuzes rechts.
+- **Collectie, prestaties, statistieken, profiel** — lijsten in drie of vier
+  kolommen, kaarten gecentreerd tot maximaal 900 px.
+- **Kaarten die over een scherm zweven** (uitslag, feedback, hint, geluid)
+  blijven een kaart in het midden, geen banier over de hele breedte.
+
+Gemeten na de wijziging: iPad Pro 12,9" liggend 1350 × 938 in 1366 × 1024,
+iPad 11" 1178 × 818, iPad 10,2" 1064 × 740, iPad mini 1048 × 728. Staand en
+telefoon precies als daarvoor (760 × 1350 en 393 × 852).
+
+Nog open: de wereldhelden zijn staande platen (752 × 1344). In landschap wordt
+daar een horizontale band uit gesneden en opgeschaald, wat zacht oogt. Een
+liggende render per wereld zou dat oplossen.
 
 ---
 

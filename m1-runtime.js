@@ -373,15 +373,22 @@
       let guard=0;while(el.scrollWidth>el.clientWidth+1&&size>floor&&guard++<14){size=Math.max(floor,size-.75);el.style.fontSize=size+'px'}
     });
   };
-  // The frame is one design — 430 by 764 — and on anything wider than a phone
-  // (an iPad, a browser window) it is scaled to fit rather than laid out again:
-  // the same game, bigger, in portrait and in landscape. A phone keeps the
-  // full-bleed layout it always had, where the frame is the screen.
-  const FRAME_W=430,FRAME_H=764;
+  // The game has two frames, not one layout that stretches. A phone and a
+  // tablet held upright play the tall frame (430 by 764) scaled to fit. A
+  // tablet turned on its side gets the wide frame (1180 by 820), which fills
+  // the screen instead of leaving a portrait card in the middle: landscape.css
+  // lays the screens out in two columns for it. html[data-shape] says which
+  // one is on, so the CSS never has to guess.
+  const FRAME={tall:[430,764],wide:[1180,820]};
+  // Wide enough and wider than tall: an iPad in landscape, a desktop window.
+  const WIDE='(min-width:860px) and (min-aspect-ratio:5/4)';
   function fitFrame(){
     const phone=window.matchMedia('(max-width:580px)').matches;
+    const wide=!phone&&window.matchMedia(WIDE).matches;
+    document.documentElement.dataset.shape=phone?'phone':(wide?'wide':'tall');
+    const [W,H]=FRAME[wide?'wide':'tall'];
     // window, not visualViewport: an open keyboard must not shrink the game.
-    const fit=phone?1:Math.max(.6,Math.min(3,Math.min((window.innerWidth-16)/FRAME_W,(window.innerHeight-16)/FRAME_H)));
+    const fit=phone?1:Math.max(.6,Math.min(3,Math.min((window.innerWidth-16)/W,(window.innerHeight-16)/H)));
     document.documentElement.style.setProperty('--fit',String(Math.round(fit*1000)/1000));
   }
   K.fitFrame=fitFrame;
