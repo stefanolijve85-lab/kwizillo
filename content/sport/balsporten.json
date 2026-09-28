@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Voetbal speel je met je voeten",
       "artBrief": "Een voetbal vlak voor de schoen van een kind op een grasveld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Met welk lichaamsdeel speel je bij voetbal vooral?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Elf spelers per team",
       "artBrief": "Een voetbalveld van bovenaf met twee teams opgesteld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel spelers staan er bij voetbal per team op het veld?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "De basket",
       "artBrief": "Een basketbalring met net tegen een blauwe lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar moet de bal in bij basketbal?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "De tafeltennisbal is het kleinst",
       "artBrief": "Een tafeltennisbal naast een voetbal en een basketbal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke bal van deze vier is het kleinst?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Het tennisracket",
       "artBrief": "Een tennisracket met een gele bal ernaast op gravel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee sla je de bal bij tennis?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Eén punt per doelpunt",
       "artBrief": "Een bal die net helemaal over de witte doellijn rolt, van opzij gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gebeurt er als de bal helemaal over de doellijn gaat?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De scheidsrechter",
       "artBrief": "Een scheidsrechter met fluit en kaarten op een veld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie let er tijdens een wedstrijd op de regels?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De rode kaart",
       "artBrief": "Een hand die een rode kaart omhoog houdt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke kaart krijg je bij een heel zware overtreding?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Volleybal over het net",
       "artBrief": "Twee spelers bij het net, de bal hoog in de lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je bij volleybal met de bal over het net?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De hockeystick",
       "artBrief": "Een hockeystick bij een klein hard balletje op kunstgras.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee speel je hockey?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "Negentig minuten",
       "artBrief": "Een stadionklok die de tijd van een wedstrijd toont.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe lang duurt een voetbalwedstrijd zonder verlenging?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "Vijf basketballers per team",
       "artBrief": "Een basketbalveld met tien spelers in twee kleuren.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel basketballers van één team staan er op het veld?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Buitenspel",
       "artBrief": "Een lijn verdedigers met één aanvaller erachter, gezien van opzij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is buitenspel bij voetbal ongeveer?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "De naam basketbal komt van de mand",
       "artBrief": "Een oude perzikenmand aan een houten paal in een gymzaal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar komt de naam basketbal vandaan?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Drie punten van ver",
       "artBrief": "Een speler die van achter de driepuntslijn werpt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel punten krijg je voor een worp van ver bij basketbal?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "De keeper",
       "artBrief": "Een doelman die duikt naar de bal in de hoek van het doel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet de keeper bij voetbal?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "Golf",
       "artBrief": "Een golfclub die een balletje op een green slaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sport speel je met clubs en een klein hard balletje?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "Drie keer raken bij volleybal",
       "artBrief": "Drie spelers die de bal achter elkaar aanraken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak mag een volleybalteam de bal achter elkaar raken?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "De hattrick",
       "artBrief": "Drie ballen in het net van hetzelfde doel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een hattrick bij voetbal?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Rugby met een ovale bal",
       "artBrief": "Een ovale bal onder de arm van een rennende speler.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welke sport draag je een ovale bal in je handen?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Het WK is om de vier jaar",
       "artBrief": "Een gouden wereldbekertrofee op een groen veld met confetti.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Om de hoeveel jaar is er een WK voetbal?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "Uruguay won het eerste WK in 1930",
       "artBrief": "Een oud stadion vol mensen in zwart-witachtige sfeer met een bal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk land won in 1930 het eerste WK voetbal?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "Brazilië werd vijf keer wereldkampioen",
       "artBrief": "Vijf gouden sterren boven een geel voetbalshirt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe vaak werd Brazilië wereldkampioen voetbal?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "Basketbal komt uit de Verenigde Staten",
       "artBrief": "Een oude gymzaal met houten vloer en een bal in de lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk land werd basketbal bedacht?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "De golfbal heeft kuiltjes",
       "artBrief": "Een golfbal van heel dichtbij, met duidelijke kuiltjes.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke bal heeft kuiltjes in zijn huid?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "Het vilt op een tennisbal",
       "artBrief": "Een gele tennisbal van dichtbij, met pluizig oppervlak.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zit er vilt om een tennisbal?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "De strafschop",
       "artBrief": "Een bal op de stip met de keeper op de lijn.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een strafschop bij voetbal?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Zes volleyballers per team",
       "artBrief": "Een volleybalveld met twee teams van zes en een net ertussen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel volleyballers staan er per team op het veld?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "Soccer is voetbal",
       "artBrief": "Een Amerikaans veld met voetbaldoelen en een bal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke sport heet in Amerika soccer?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Maradona en 1986",
       "artBrief": "Een speler met rugnummer tien die met de bal langs verdedigers gaat.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Argentijn met rugnummer tien won het WK van 1986?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Pelé, de koning van het voetbal",
       "artBrief": "Een juichende speler in een geel shirt, omringd door supporters.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Braziliaan wordt de koning van het voetbal genoemd?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Een voetbal weegt ruim 400 gram",
       "artBrief": "Een voetbal op een weegschaal in een kleedkamer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe zwaar is een voetbal ongeveer?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "Lucht onder druk laat een bal stuiteren",
       "artBrief": "Een basketbal die halverwege een stuiter zichtbaar indeukt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom stuitert een basketbal zo goed?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "Het doel is ruim zeven meter breed",
       "artBrief": "Een leeg voetbaldoel met een meetlint langs de doellijn.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe breed is een voetbaldoel?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "De draai van Cruijff",
       "artBrief": "Een speler die zijn lichaam draait en de bal achter zijn standbeen langs speelt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Nederlander bedacht een beroemde schijnbeweging?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "De slam dunk",
       "artBrief": "Een speler die hoog boven de ring de bal erin duwt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een slam dunk bij basketbal?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Love betekent nul in tennis",
       "artBrief": "Een tennisscorebord met een nul erop, op gravel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent love in het tennis?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "De rugbybal was ooit een blaas",
       "artBrief": "Een oude leren ovale bal op een houten bankje.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is een rugbybal ovaal?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "Zeven handballers per team",
       "artBrief": "Een handbalveld in een zaal met twee teams en een klein doel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel handballers staan er per team op het veld?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "De Maya's speelden met rubber",
       "artBrief": "Een stenen balspelveld met ringen hoog in de muur, in de jungle.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvan maakten de Maya's hun ballen?",

@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Bakstenen",
       "artBrief": "Een stapel rode bakstenen naast een half gemetselde muur.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvan zijn veel huizen gebouwd?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Muren dragen het dak",
       "artBrief": "Een huis in aanbouw met muren en daarop de dakspanten.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat houdt het dak van een huis omhoog?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Ramen laten licht binnen",
       "artBrief": "Zonlicht dat door een groot raam op een houten vloer valt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waardoor komt daglicht een huis binnen?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "De architect",
       "artBrief": "Een tekentafel met een bouwtekening, liniaal en potlood.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie tekent een gebouw voordat het gebouwd wordt?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Specie tussen de stenen",
       "artBrief": "Een troffel die specie uitstrijkt op een rij bakstenen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee plakt een metselaar stenen op elkaar?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "De kerktoren",
       "artBrief": "Een dorpskerk met een hoge spitse toren tegen een blauwe lucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat staat er bovenop veel kerken?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "De trap",
       "artBrief": "Een houten trap die naar de bovenverdieping van een huis leidt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe kom je in een huis naar de volgende verdieping?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De brug",
       "artBrief": "Een stenen brug over een rivier in de ochtendzon.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een brug?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "Wonen op een verdieping",
       "artBrief": "Een flatgebouw van opzij met balkons boven elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar woon je in een flatgebouw?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "Glas in het raam",
       "artBrief": "Een raamkozijn met helder glas en regendruppels erop.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvan is een gewoon raam gemaakt?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "De fundering",
       "artBrief": "Een doorsnede van de bodem met betonnen funderingsbalken onder een huis.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor dient de fundering van een gebouw?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "De dakgoot",
       "artBrief": "Een goot langs een dakrand waar regenwater in stroomt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een dakgoot?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "Het schuine dak",
       "artBrief": "Een schuin pannendak in de regen, met water dat afloopt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom heeft een dak vaak een schuine kant?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "De bouwtekening",
       "artBrief": "Een uitgerolde bouwtekening met plattegrond en lijnen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een bouwtekening?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "De driehoek is sterk",
       "artBrief": "Een dakspant van balken die een driehoek vormen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vorm is het sterkst in een bouwwerk?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "De bouwkraan",
       "artBrief": "Een hoge torenkraan die een betonnen element hijst.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een kraan op de bouwplaats?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De koepel",
       "artBrief": "Een ronde koepel van binnenuit gezien met licht in het midden.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een koepel?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De pilaar",
       "artBrief": "Een rij stenen zuilen die een zware balk dragen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor dient een pilaar?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Dikkere muren onderaan",
       "artBrief": "Een doorsnede van een oude muur, breed onderin en smal bovenin.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zijn oude muren onderaan vaak dikker?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "Beton",
       "artBrief": "Een betonmolen met zand, grind en cement ernaast.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvan is beton gemaakt?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "De scheve toren van Pisa",
       "artBrief": "Een ronde witte toren die duidelijk scheef staat op een grasveld.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke beroemde toren in Italië staat scheef?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "De Eiffeltoren, 1889",
       "artBrief": "Een ijzeren toren van onderaf gezien tegen een avondlucht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke ijzeren toren staat in Parijs?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "De Romeinse boog",
       "artBrief": "Een stenen rondboog in een oude poort, met wigvormige stenen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke vorm gebruikten de Romeinen voor sterke poorten?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "De gotische kathedraal",
       "artBrief": "Een kerkinterieur met hoge spitsbogen en licht van boven.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een gotische kathedraal?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "Gaudí en de Sagrada Família",
       "artBrief": "Een kerk met golvende torens en kleurrijke ramen in Barcelona.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie ontwierp de Sagrada Família in Barcelona?",
@@ -3259,7 +3259,7 @@
       "status": "translated",
       "source": "Staal en de lift maakten hoogbouw mogelijk",
       "artBrief": "Een stalen skelet van een wolkenkrabber in aanbouw.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat maakte hoge wolkenkrabbers mogelijk?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "De luchtboog",
       "artBrief": "Schuine stenen steunbogen tegen de buitenmuur van een kathedraal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een luchtboog aan een kathedraal?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "Het Pantheon met zijn oculus",
       "artBrief": "Een lichtbundel die door een rond gat in een koepel valt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk gebouw in Rome heeft een groot gat in zijn koepel?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "De iglo",
       "artBrief": "Een koepel van sneeuwblokken in een wit landschap bij blauw avondlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvan is een iglo gebouwd?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "Bouwen in aardbevingsgebied",
       "artBrief": "Een hoog gebouw met zichtbare schokdempers in de constructie.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom mogen gebouwen in aardbevingsgebied meebewegen?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Het hoogste gebouw ter wereld",
       "artBrief": "Een enorme wolkenkrabber die boven de wolken uitsteekt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe hoog is het hoogste gebouw ter wereld ongeveer?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "De hijsbalk aan het grachtenpand",
       "artBrief": "Een smal grachtenpand met een hijsbalk en haak aan de gevel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor zit er een balk met haak boven oude grachtenpanden?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "De pagode",
       "artBrief": "Een houten toren met meerdere gebogen daken boven elkaar.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een pagode?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "De Taj Mahal als graftombe",
       "artBrief": "Een witmarmeren koepelgebouw dat spiegelt in een lange vijver.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarvoor is de Taj Mahal gebouwd?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Mies van der Rohe: minder is meer",
       "artBrief": "Een strak glazen paviljoen met rechte lijnen en open ruimte.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke architect maakte 'minder is meer' beroemd?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Het glas-in-loodraam",
       "artBrief": "Een groot rond kerkraam van gekleurd glas met lood ertussen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet een kerkraam van gekleurd glas in lood?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "Griekse zuilen met entasis",
       "artBrief": "Rijen marmeren zuilen van een Griekse tempel in fel zonlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom zijn Griekse zuilen in het midden iets dikker?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "Incamuren zonder cement",
       "artBrief": "Een muur van grote stenen die perfect in elkaar passen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe bouwden de Inca's muren zonder cement?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "Het operagebouw van Sydney",
       "artBrief": "Een gebouw met witte schaalvormige daken aan het water.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welk gebouw in Sydney lijkt op grote witte zeilen?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "Open ijzerwerk vangt minder wind",
       "artBrief": "Het ijzeren vlechtwerk van een hoge toren van dichtbij.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is de Eiffeltoren van open ijzerwerk?",

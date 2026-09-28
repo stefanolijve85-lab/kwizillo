@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "De schilder",
       "artBrief": "Een kunstenaar met palet voor een half afgemaakt doek.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet iemand die schilderijen maakt?",

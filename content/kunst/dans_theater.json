@@ -9,7 +9,7 @@
       "status": "translated",
       "source": "Dansen op de maat",
       "artBrief": "Kinderen die dansen in een lichtbundel op een houten vloer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doe je op de maat van muziek met je lichaam?",
@@ -139,7 +139,7 @@
       "status": "translated",
       "source": "Het toneel",
       "artBrief": "Een leeg verlicht toneel met houten vloer en zwarte achterwand.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar staan acteurs als ze een stuk spelen?",
@@ -269,7 +269,7 @@
       "status": "translated",
       "source": "Het doek gaat open",
       "artBrief": "Een zwaar rood theatergordijn dat opzij schuift.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat gaat open als de voorstelling begint?",
@@ -399,7 +399,7 @@
       "status": "translated",
       "source": "Applaus",
       "artBrief": "Handen van een publiek in het halfdonker die klappen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet het publiek na een mooie voorstelling?",
@@ -529,7 +529,7 @@
       "status": "translated",
       "source": "Het kostuum",
       "artBrief": "Een rek met kleurige theaterkostuums in een kleedkamer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarmee verandert een acteur in iemand anders?",
@@ -659,7 +659,7 @@
       "status": "translated",
       "source": "Spitzen",
       "artBrief": "Roze balletschoenen met linten op een houten vloer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke schoenen draagt een balletdanseres op haar tenen?",
@@ -789,7 +789,7 @@
       "status": "translated",
       "source": "Het toneelstuk",
       "artBrief": "Twee spelers midden op een toneel in een lichtbundel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een toneelstuk?",
@@ -919,7 +919,7 @@
       "status": "translated",
       "source": "De regisseur",
       "artBrief": "Iemand in de zaal die met een schrift naar het toneel kijkt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie vertelt de acteurs hoe ze moeten spelen?",
@@ -1049,7 +1049,7 @@
       "status": "translated",
       "source": "De zaal",
       "artBrief": "Rijen rode theaterstoelen vanaf het toneel gezien.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waar zit het publiek in een theater?",
@@ -1179,7 +1179,7 @@
       "status": "translated",
       "source": "De clown",
       "artBrief": "Een clown met rode neus en grote schoenen in een circustent.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat draagt een clown vaak op zijn neus?",
@@ -1309,7 +1309,7 @@
       "status": "translated",
       "source": "De musical",
       "artBrief": "Een groep zingende en dansende spelers in fel podiumlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een musical?",
@@ -1439,7 +1439,7 @@
       "status": "translated",
       "source": "De souffleur",
       "artBrief": "Een klein luik vooraan op het toneel met een lichtje erin.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet de souffleur in een theater?",
@@ -1569,7 +1569,7 @@
       "status": "translated",
       "source": "De repetitie",
       "artBrief": "Spelers in gewone kleren die oefenen op een kaal toneel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een repetitie?",
@@ -1699,7 +1699,7 @@
       "status": "translated",
       "source": "Ballet",
       "artBrief": "Een ballerina in arabesque op een groot toneel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is ballet?",
@@ -1829,7 +1829,7 @@
       "status": "translated",
       "source": "Schmink op het toneel",
       "artBrief": "Een acteur voor een spiegel met lampjes die zich opmaakt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom schminken acteurs zich zwaar op?",
@@ -1959,7 +1959,7 @@
       "status": "translated",
       "source": "Het decor",
       "artBrief": "Een geschilderd achterdoek met een straat erop achter het toneel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een decor?",
@@ -2089,7 +2089,7 @@
       "status": "translated",
       "source": "De tango",
       "artBrief": "Twee dansers in strakke houding onder een lantaarn.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Uit welk land komt de tango?",
@@ -2219,7 +2219,7 @@
       "status": "translated",
       "source": "De belichter",
       "artBrief": "Een lichttafel met schuiven en spots die op het toneel schijnen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet de belichter bij een voorstelling?",
@@ -2349,7 +2349,7 @@
       "status": "translated",
       "source": "Mime",
       "artBrief": "Een mimespeler in zwart-wit die tegen een onzichtbare muur duwt.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is mime?",
@@ -2479,7 +2479,7 @@
       "status": "translated",
       "source": "De kleedkamer",
       "artBrief": "Een kleedkamer met spiegel, lampjes en kostuums aan haken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de ruimte waar acteurs zich omkleden?",
@@ -2609,7 +2609,7 @@
       "status": "translated",
       "source": "Het theater begon in Griekenland",
       "artBrief": "Een stenen openluchttheater met halfronde rijen zitplaatsen in de zon.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "In welk land ontstond het theater ruim tweeduizend jaar geleden?",
@@ -2739,7 +2739,7 @@
       "status": "translated",
       "source": "De twee maskers van het theater",
       "artBrief": "Een blij en een verdrietig masker naast elkaar aan een muur.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke twee maskers horen bij het theater?",
@@ -2869,7 +2869,7 @@
       "status": "translated",
       "source": "Shakespeare schreef Romeo en Julia",
       "artBrief": "Een oud theater van hout met een balkon en kaarslicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wie schreef het toneelstuk Romeo en Julia?",
@@ -2999,7 +2999,7 @@
       "status": "translated",
       "source": "De pirouette",
       "artBrief": "Een danseres midden in een draai op één punt, rok in beweging.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet het als een danser op één been ronddraait?",
@@ -3129,7 +3129,7 @@
       "status": "translated",
       "source": "Improviseren",
       "artBrief": "Twee spelers die elkaar aankijken op een leeg toneel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat betekent improviseren op het toneel?",
@@ -3389,7 +3389,7 @@
       "status": "translated",
       "source": "Kabuki uit Japan",
       "artBrief": "Een speler met wit geschminkt gezicht en kleurig gewaad op een houten toneel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Japanse toneelvorm heeft wit geschminkte gezichten?",
@@ -3519,7 +3519,7 @@
       "status": "translated",
       "source": "De polonaise",
       "artBrief": "Een lange rij mensen achter elkaar door een zaal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoe heet de dans waarbij iedereen in een lange rij loopt?",
@@ -3649,7 +3649,7 @@
       "status": "translated",
       "source": "Het circus",
       "artBrief": "Een circuspiste met acrobaten in de lucht en rode tentdoeken.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Bij welke voorstelling zie je acrobaten en clowns?",
@@ -3779,7 +3779,7 @@
       "status": "translated",
       "source": "De choreograaf",
       "artBrief": "Iemand die voor een spiegelwand een dansgroep passen voordoet.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat doet een choreograaf?",
@@ -3909,7 +3909,7 @@
       "status": "translated",
       "source": "Grieks theater in een helling",
       "artBrief": "Halfronde stenen tribunes tegen een heuvel met uitzicht op een vallei.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom bouwden de Grieken hun theaters tegen een helling?",
@@ -4039,7 +4039,7 @@
       "status": "translated",
       "source": "Vijftienduizend toeschouwers",
       "artBrief": "Een enorm antiek theater van bovenaf gezien, vol trappen en rijen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Hoeveel toeschouwers pasten er in een groot Grieks theater?",
@@ -4169,7 +4169,7 @@
       "status": "translated",
       "source": "De generale repetitie",
       "artBrief": "Spelers in vol kostuum op een leeg toneel met alleen werklicht in de zaal.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een generale repetitie?",
@@ -4299,7 +4299,7 @@
       "status": "translated",
       "source": "De moonwalk",
       "artBrief": "Silhouet van een danser die achteruit glijdt in een lichtbundel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke zanger maakte de moonwalk wereldberoemd?",
@@ -4429,7 +4429,7 @@
       "status": "translated",
       "source": "Nijinsky sprong ongelofelijk hoog",
       "artBrief": "Een danser midden in een sprong, hoog boven de toneelvloer.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke Russische danser sprong zo hoog dat men zei dat hij zweefde?",
@@ -4559,7 +4559,7 @@
       "status": "translated",
       "source": "Spotten bij de pirouette",
       "artBrief": "Een dansershoofd dat als laatste meedraait, met bewegingsstrepen.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom draait een danser zijn hoofd snel rond bij een pirouette?",
@@ -4689,7 +4689,7 @@
       "status": "translated",
       "source": "De coulissen",
       "artBrief": "De donkere zijkant van een toneel met gordijnen en wachtende spelers.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat zijn de coulissen in een theater?",
@@ -4819,7 +4819,7 @@
       "status": "translated",
       "source": "De samba",
       "artBrief": "Dansers met veren en trommels in een optocht bij zonlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Welke dans hoort bij het carnaval in Brazilië?",
@@ -4949,7 +4949,7 @@
       "status": "translated",
       "source": "Donker in de zaal",
       "artBrief": "Een donkere theaterzaal met alleen het toneel verlicht.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Waarom is het donker in de zaal tijdens een voorstelling?",
@@ -5079,7 +5079,7 @@
       "status": "translated",
       "source": "De staande ovatie",
       "artBrief": "Een publiek dat opstaat en klapt richting het toneel.",
-      "art": "todo",
+      "art": "own",
       "text": {
         "nl": {
           "prompt": "Wat is een staande ovatie?",
