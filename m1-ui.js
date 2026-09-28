@@ -3,10 +3,14 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const t=(k,p)=>K.t(k,p);
 
-  const WORLD_ORDER=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
-  const WORLD_ICON={ruimte:'🚀',dieren:'🐾',aarde:'🌍',geschiedenis:'🏛️',wetenschap:'🧪',mysterie:'🔎'};
+  // The worlds come from the registration in m1-runtime.js; the ones the child
+  // sees are those whose questions are in the bank (K.playableWorlds).
+  const shown=()=>K.playableWorlds();
+  const WORLD_ICON={ruimte:'🚀',dieren:'🐾',aarde:'🌍',geschiedenis:'🏛️',wetenschap:'🧪',mysterie:'🔎',kunst:'🎨',sport:'🏅'};
   // CLAUDE.md section 7: each world gets its own soundtrack, crossfaded on entry.
-  const WORLD_MUSIC={ruimte:'space',dieren:'jungle',aarde:'earth',geschiedenis:'history',wetenschap:'science',mysterie:'mystery'};
+  // Art plays on the hub theme (soft, magical) and Sport on the mini-game loop
+  // (upbeat); no new music had to be written for the two newcomers.
+  const WORLD_MUSIC={ruimte:'space',dieren:'jungle',aarde:'earth',geschiedenis:'history',wetenschap:'science',mysterie:'mystery',kunst:'home',sport:'play'};
   const MASCOTS=[
     {id:'milo',icon:'🤖',need:0},
     {id:'comet',icon:'🌠',need:5},
@@ -56,7 +60,7 @@
     const done=keys.filter(k=>Object.values(P).some(level=>level&&level[`${world}:${k}`]));
     return {passed:done.length,total:keys.length||4,points:done.length*POINTS_PER_QUIZ,max:(keys.length||4)*POINTS_PER_QUIZ};
   };
-  K.totalPoints=()=>WORLD_ORDER.reduce((a,w)=>{const p=K.worldPoints(w);a.points+=p.points;a.max+=p.max;return a},{points:0,max:0});
+  K.totalPoints=()=>shown().reduce((a,w)=>{const p=K.worldPoints(w);a.points+=p.points;a.max+=p.max;return a},{points:0,max:0});
   const totalCorrect=()=>Number(K.state.correct||0);
   // A buddy is earned by answering, or bought with coins in the shop; both
   // paths end in the same unlocked tile.
@@ -155,9 +159,9 @@
     const name=String(K.state.name||'').trim();
     const greeting=name?t('home.greeting',{name}):t('home.greetingAnon');
     const lvl=K.level(),into=K.xpIntoLevel();
-    const last=K.state.lastWorld&&WORLD_ORDER.includes(K.state.lastWorld)?K.state.lastWorld:'ruimte';
+    const last=K.state.lastWorld&&shown().includes(K.state.lastWorld)?K.state.lastWorld:'ruimte';
 
-    const worldCards=WORLD_ORDER.map(w=>{
+    const worldCards=shown().map(w=>{
       // Just the name, big and centred: a child reads it in one glance. The
       // bar underneath shows how the world is going once it has been played.
       // Every world carries its own level, and the tile says which: four passed
@@ -227,7 +231,7 @@
     bindNav(f);
     // The six world names are warmed on Home so the guide calls one out the
     // moment a world opens; the hello of each guide too, ahead of the profile's voice pick.
-    K.prefetchSpeech(WORLD_ORDER.map(w=>t('world.speech.enter',{title:worldTitle(w)})));
+    K.prefetchSpeech(shown().map(w=>t('world.speech.enter',{title:worldTitle(w)})));
     // The first two Weetjes are picked and warmed here, so the screen talks the moment it opens.
     const ahead=K.warmFacts?.(K.state.factsWorld||'all')||[];
     if(ahead[0]) K.prefetchSpeech([`${t('facts.kicker')} ${ahead[0].t}`]);   // the first one opens with the facts kicker
@@ -238,7 +242,7 @@
   /* ---------------- World ---------------- */
 
   K.enterWorld=world=>{
-    if(!WORLD_ORDER.includes(world)) return K.showHome();
+    if(!shown().includes(world)) return K.showHome();
     K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('fanfare');
     K.audio.setTrack(WORLD_MUSIC[world]||'home').catch(()=>{});
     K.showWorld(world);
@@ -314,7 +318,7 @@
   K.showAchievements=()=>{
     K.stopSpeech();K.lastView='achievements';
     const cards=K.cardCount();
-    const playedWorlds=WORLD_ORDER.filter(w=>worldStat(w).answered>0).length;
+    const playedWorlds=shown().filter(w=>worldStat(w).answered>0).length;
     const defs=[
       {icon:'🎯',key:'achievement.firstQuiz',now:Math.min(1,K.state.quizzesPlayed||0),goal:1},
       {icon:'⭐',key:'achievement.correct10',now:Math.min(10,totalCorrect()),goal:10},
@@ -406,7 +410,7 @@
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
-        <div class="memo-pick-grid">${WORLD_ORDER.map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${shown().map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
       </div>
       ${K.bottomNav('home')}
     </section>`);
@@ -444,7 +448,7 @@
     if(tab==='worlds'){
       const all=K.totalPoints(),allPct=all.max?Math.round(all.points/all.max*100):0;
       content=`<div class="progress-overall"><b>${esc(t('progress.overall',{points:all.points,max:all.max}))}</b><span class="wide-track"><i style="width:${allPct}%"></i></span><small>${esc(t('progress.overallSub'))}</small></div>
-        <div class="world-progress-grid">${WORLD_ORDER.map(w=>{const p=K.worldPoints(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${K.worldBadge(w)}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))}</small><span class="wide-track"><i style="width:${p.max?Math.round(p.points/p.max*100):0}%"></i></span></span><em>${p.points}</em></button>`}).join('')}</div>`;
+        <div class="world-progress-grid">${shown().map(w=>{const p=K.worldPoints(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${K.worldBadge(w)}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))}</small><span class="wide-track"><i style="width:${p.max?Math.round(p.points/p.max*100):0}%"></i></span></span><em>${p.points}</em></button>`}).join('')}</div>`;
     }
     // Knowledge cards: a collectable trading card per correctly answered
     // question, with that question's own illustration. Rarity follows the
@@ -523,7 +527,7 @@
                ${short?`<small class="shop-short">${esc(t('shop.need',{n:short}))}</small>`:''}`}
         </article>`;
       };
-      const golds=WORLD_ORDER.map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,goldArt(w),'is-gold',K.goldFallback(w)));
+      const golds=shown().map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,goldArt(w),'is-gold',K.goldFallback(w)));
       const buddies=MASCOTS.filter(m=>totalCorrect()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
       const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
       content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
@@ -613,7 +617,7 @@
     </section>`;
     // Per world: the level it stands at, its best quiz, its points — the old
     // separate medal board said the same thing twice.
-    const worlds=`<div class="world-stat-list v3">${WORLD_ORDER.map(w=>{
+    const worlds=`<div class="world-stat-list v3">${shown().map(w=>{
       const st=worldStat(w),p=K.worldPoints(w),wp=p.max?Math.round(p.points/p.max*100):0;
       const b=Number((K.state.bestScores||{})[w]||0),m=medal(b);
       return`<article class="${m}"><img class="world-stat-art" src="${K.MASTER[w]}" alt="" loading="lazy" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center'}">
@@ -742,7 +746,7 @@
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitPerWorld'))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
-      <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${WORLD_ORDER.map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
+      <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
       
       <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">${K.activeGuide()==='luna'?'🎧':'🤖'}</div><div><b>${esc(t('tour.again',{guide:K.guideName()}))}</b><small>${esc(t('tour.againSub',{guide:K.guideName()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>

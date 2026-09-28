@@ -12,8 +12,17 @@ const path = require('path');
 const vm = require('vm');
 
 const { ROOT, loadBanks, LANGS, i18n } = require('./langs.js');
+
+// The worlds and their topics as the app registers them (m1-runtime.js). The
+// counts used to be written out here; they are read now, so adding a world is a
+// change in one place.
+const { TOPIC_KEYS } = require('./levels.js');
+const WORLDS = Object.keys(TOPIC_KEYS);
+const TOPICS = Object.values(TOPIC_KEYS).flat();
 const { ctx, banks: BANKS } = loadBanks();
-const WORLDS = ['ruimte', 'geschiedenis', 'wetenschap', 'mysterie', 'dieren', 'aarde'];
+const countBy = (bank, key) => bank.reduce((m, q) => (m[q[key]] = (m[q[key]] || 0) + 1, m), {});
+const nlWorlds = countBy(BANKS.nl, 'world');
+const nlTopics = BANKS.nl.reduce((m, q) => (m[`${q.world}/${q.topic}`] = true, m), {});
 
 for (const [lang, bank] of Object.entries(BANKS)) {
   assert.ok(Array.isArray(bank), `${lang}: bank missing`);
@@ -38,19 +47,23 @@ for (const [lang, bank] of Object.entries(BANKS)) {
     byTopic[`${q.world}/${q.topic}`] = (byTopic[`${q.world}/${q.topic}`] || 0) + 1;
   }
 
-  assert.strictEqual(Object.keys(byWorld).length, 6, `${lang}: expected 6 worlds`);
+  assert.deepStrictEqual(Object.keys(byWorld).sort(), Object.keys(nlWorlds).sort(), `${lang}: other worlds than Dutch`);
+  for (const world of Object.keys(byWorld)) assert.ok(WORLDS.includes(world), `${lang}: ${world} is not registered in m1-runtime.js`);
   for (const [world, n] of Object.entries(byWorld)) {
     assert.ok(n >= 80, `${lang}: ${world} must have at least 80 questions, got ${n}`);
   }
   const topics = Object.keys(byTopic);
-  assert.strictEqual(topics.length, 24, `${lang}: expected 24 topics, got ${topics.length}`);
+  assert.deepStrictEqual(topics.sort(), Object.keys(nlTopics).sort(), `${lang}: other topics than Dutch`);
+  for (const key of topics) assert.ok(TOPICS.includes(key.split('/')[1]), `${lang}: ${key} is not registered in m1-runtime.js`);
   for (const [topic, n] of Object.entries(byTopic)) {
     assert.ok(n >= 20, `${lang}: ${topic} must have at least 20 questions, got ${n}`);
   }
 
-  // A mixed world quiz must be able to serve eight unique batches of ten.
-  for (const world of WORLDS) {
-    assert.ok(bank.filter(q => q.world === world).length >= 80,
+  // A mixed world quiz must be able to serve eight unique batches of ten. A
+  // world that is registered but still being written has no questions at all
+  // and is hidden from the child (K.playableWorlds), so it is skipped here.
+  for (const world of Object.keys(byWorld)) {
+    assert.ok(byWorld[world] >= 80,
       `${lang}: ${world} cannot supply eight unique batches of ten`);
   }
   // The base set is difficulty 1-2, the advanced set (ids 11-20) 3-4. Anything
@@ -97,12 +110,17 @@ for (const lang of LANGS.filter(l => l !== 'nl')) {
 // Every topic key used by the banks must have a label in every language.
 const S = i18n().strings;
 const topicKeys = [...new Set(BANKS.nl.map(q => q.topic))];
-assert.strictEqual(topicKeys.length, 24, 'expected 24 distinct topic keys');
+// A registered world whose questions are still being written is hidden by
+// K.playableWorlds, so it is work in progress and not a failure — but the run
+// says how much of it is still missing.
+const emptyWorlds = WORLDS.filter(w => !BANKS.nl.some(q => q.world === w));
+const emptyTopics = TOPICS.filter(t => !topicKeys.includes(t));
 for (const key of topicKeys) {
   for (const lang of LANGS) assert.ok(S[lang][`topic.${key}`], `topic.${key} has no ${lang} label`);
 }
 
-console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].length}`).join(', ')}, 24 topics, ids in parity)`);
+console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].length}`).join(', ')}, ${WORLDS.length - emptyWorlds.length}/${WORLDS.length} worlds, ${topicKeys.length}/${TOPICS.length} topics, ids in parity)`);
+if (emptyTopics.length) console.log(`Kwizillo question banks: ${emptyTopics.length} registered topic(s) still without questions: ${emptyTopics.join(', ')}`);
 
 // Every question must resolve to a subject or topic illustration. Falling back to
 // the world background was AUDIT.md finding 4.11: the card showed the same picture
@@ -112,7 +130,8 @@ console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].leng
   const K = { MASTER: {}, QUESTION_ART: {}, TOPIC_ART: {} };
   vm.runInNewContext(worldAssets, { window: { KWIZILLO_M1: K } });
 
-  assert.strictEqual(Object.keys(K.TOPIC_ART).length, 24, 'every topic needs an illustration');
+  assert.deepStrictEqual(Object.keys(K.TOPIC_ART).sort(), [...TOPICS].sort(),
+    'every registered topic needs exactly one illustration');
   for (const [topic, src] of Object.entries(K.TOPIC_ART)) {
     assert.ok(fs.existsSync(path.join(ROOT, src)), `${topic}: missing art file ${src}`);
     assert.ok(!/^https?:/.test(src), `${topic}: art must be local, got ${src}`);
@@ -172,5 +191,16 @@ console.log(`Kwizillo question banks: OK (${LANGS.map(l => `${l} ${BANKS[l].leng
     const size = fs.statSync(path.join(ROOT, K.questionArtFor(id))).size;
     assert.ok(size > 5000 && size < 400000, `${id}: illustration is ${size} bytes`);
   }
-  console.log(`Kwizillo question art: OK (${K.QUESTION_ART_IDS.size} per-question illustrations, 24 topic illustrations, 0 subject mismatches)`);
+  // Pictures that tools/placeholder-art.cjs made because the real render does
+  // not exist yet. They are valid files, so nothing breaks; the count is here so
+  // that a run always says how much art is still owed.
+  {
+    const listFile = path.join(ROOT, 'assets', 'placeholder-art.json');
+    if (fs.existsSync(listFile)) {
+      const { files } = JSON.parse(fs.readFileSync(listFile, 'utf8'));
+      for (const f of files) assert.ok(fs.existsSync(path.join(ROOT, f)), `placeholder art missing: ${f}`);
+      if (files.length) console.log(`Kwizillo art: ${files.length} temporary picture(s) waiting to be repainted (assets/placeholder-art.json)`);
+    }
+  }
+  console.log(`Kwizillo question art: OK (${K.QUESTION_ART_IDS.size} per-question illustrations, ${TOPICS.length} topic illustrations, 0 subject mismatches)`);
 }

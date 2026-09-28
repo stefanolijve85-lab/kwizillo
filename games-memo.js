@@ -43,7 +43,7 @@
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();stopTimer();
     const mode=memoMode();
-    const worlds=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
+    const worlds=K.playableWorlds();
     const f=K.frame(`<section class="native-panel-screen memo-picker fade-in">
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('memo.title'))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('memo.pickSub',{n:K.state.niveau||1}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>

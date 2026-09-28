@@ -18,7 +18,6 @@
   let timer=null;
   const stopTimer=()=>{if(timer){clearInterval(timer.id);timer=null}};
   const secondsFor=()=>K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1);
-  const WORLDS=['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie'];
 
   // A question qualifies when its answer is a thing (one or two words, no digits)
   // and it has its own picture — the picture is the answer tile.

@@ -317,8 +317,14 @@
   // is what they always did.
   window.KWIZILLO_BUILD_BANK = (source,extra={},more={}) => {
     const out=[];
-    Object.entries(source).forEach(([world,topics])=>{
-      Object.entries(topics).forEach(([topic,items])=>{
+    // A world or topic may live in any of the three layers. The two newest
+    // worlds were written straight into content/ and so arrive through `more`
+    // alone; walking the union means they need no empty stub in this file.
+    const union=(...objs)=>[...new Set(objs.flatMap(o=>Object.keys(o||{})))];
+    union(source,extra,more).forEach(world=>{
+      const topics=source[world]||{};
+      union(topics,extra[world],more[world]).forEach(topic=>{
+        const items=topics[topic]||[];
         [...items,...((extra[world]||{})[topic]||[]),...((more[world]||{})[topic]||[])].forEach((row,i)=>{
           const [prompt,answer,wrongs,hint,explanation,fact,stated]=row;
           const advanced=i>=10;

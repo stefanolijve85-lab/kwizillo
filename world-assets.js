@@ -10,7 +10,12 @@
     aarde:'assets/worlds/aarde.jpg',
     geschiedenis:'assets/worlds/geschiedenis.jpg',
     wetenschap:'assets/worlds/wetenschap.jpg',
-    mysterie:'assets/worlds/mysterie.jpg'
+    mysterie:'assets/worlds/mysterie.jpg',
+    // De twee nieuwste werelden hebben nog geen geschilderde plaat; deze twee
+    // zijn tijdelijk gemaakt door tools/placeholder-art.cjs (zie
+    // assets/placeholder-art.json) zodat er nooit een kapotte afbeelding staat.
+    kunst:'assets/worlds/kunst.jpg',
+    sport:'assets/worlds/sport.jpg'
   };
 
   // The golden world cards: one painting per world, earned by finishing that
@@ -45,7 +50,7 @@
     castle:'assets/questions/castle.jpg'
   };
 
-  // 2. Topic art, one illustration per topic, covering all 24. Every question
+  // 2. Topic art, one illustration per topic, covering all 32. Every question
   //    therefore gets a relevant picture; the world background is never reused
   //    as the question illustration.
   K.TOPIC_ART={
@@ -77,7 +82,17 @@
     continenten_landen:'assets/topics/continenten_landen.jpg',
     weer_klimaat:'assets/topics/weer_klimaat.jpg',
     oceanen_natuur:'assets/topics/oceanen_natuur.jpg',
-    kaarten_navigatie:'assets/topics/kaarten_navigatie.jpg'
+    kaarten_navigatie:'assets/topics/kaarten_navigatie.jpg',
+
+    schilderkunst:'assets/topics/schilderkunst.jpg',
+    muziek:'assets/topics/muziek.jpg',
+    bouwkunst:'assets/topics/bouwkunst.jpg',
+    dans_theater:'assets/topics/dans_theater.jpg',
+
+    balsporten:'assets/topics/balsporten.jpg',
+    olympische_spelen:'assets/topics/olympische_spelen.jpg',
+    water_wintersport:'assets/topics/water_wintersport.jpg',
+    records_helden:'assets/topics/records_helden.jpg'
   };
 
   // Opening cinematic only. Entering a world is immediate, by design.
