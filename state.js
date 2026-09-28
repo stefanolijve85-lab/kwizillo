@@ -140,6 +140,20 @@
     try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY) }catch(e){}
   };
 
+  // De gids kiezen. Milo en Luna zijn niet alleen een stem maar ook een gezicht:
+  // ze staan op Home, in het profiel, bij de uitleg en in de vieringen. Wie voor
+  // Luna koos en overal Milo bleef zien, koos dus maar half. Daarom verhuist de
+  // gekozen buddy mee — tenzij het kind in de collectie zelf een ándere buddy
+  // heeft uitgezocht; dat is een eigen keuze en die blijft staan.
+  const GUIDE_BUDDY={Milo:'milo',Luna:'luna'};
+  K.setVoice=id=>{
+    K.state.voice=id;
+    const buddy=GUIDE_BUDDY[id];
+    if(buddy&&(!K.state.selectedMascot||GUIDE_BUDDY.Milo===K.state.selectedMascot||GUIDE_BUDDY.Luna===K.state.selectedMascot))
+      K.state.selectedMascot=buddy;
+    K.save();
+  };
+
   /* ---------------- Meer dan één speler op één toestel ---------------- */
 
   // Broertjes, zusjes, een vriendje op bezoek: op één tablet spelen er meer.

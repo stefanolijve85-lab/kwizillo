@@ -177,7 +177,7 @@
 .setting-card.lang-card{grid-template-columns:48px 1fr;row-gap:9px}
 .setting-card.profile-row.lang-card{grid-template-columns:1fr}
 .setting-card.lang-card .lang-toggle{grid-column:1/-1;flex-wrap:wrap}
-.lang-toggle button{min-height:38px;padding:0 11px;border:2px solid #d1e5f7;border-radius:13px;background:#fff;color:#2f6098;
+.lang-toggle button{min-height:44px;padding:0 11px;border:2px solid #d1e5f7;border-radius:13px;background:#fff;color:#2f6098;
   font-size:12px;font-weight:1000;cursor:pointer}
 .lang-toggle button.active{border-color:#267cff;background:#eaf4ff;color:#1257b8;box-shadow:0 0 0 2px rgba(38,124,255,.14)}
 
@@ -980,7 +980,7 @@
 .fact-card{position:relative;overflow:hidden;border-radius:28px;border:3px solid #fff;background:#10306e;box-shadow:0 14px 0 rgba(10,48,116,.28),0 22px 40px rgba(0,26,80,.32);display:grid;min-height:0}
 .fact-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(1.05)}
 .fact-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,22,66,.08) 0%,rgba(2,20,62,.5) 42%,rgba(2,18,58,.92) 100%)}
-.fact-body{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:14px 16px 18px;color:#fff;min-height:100%;text-align:start}
+.fact-body{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;padding:14px 16px 18px;color:#fff;min-height:100%;text-align:center}
 .fact-top{display:flex;justify-content:space-between;align-items:center;gap:8px;position:absolute;left:12px;right:12px;top:12px}
 .fact-world{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);font-size:11px;font-weight:1000;backdrop-filter:blur(6px)}
 .fact-new{padding:5px 10px;border-radius:999px;background:linear-gradient(180deg,#ffe762,#ffb61b);color:#17245e;font-size:11px;font-weight:1000;box-shadow:0 3px 0 #d9860d;animation:fact-new-pop .5s cubic-bezier(.2,1.5,.4,1) both}
@@ -988,7 +988,11 @@
 .fact-emoji{font-size:clamp(44px,13vw,64px);line-height:1;filter:drop-shadow(0 8px 12px rgba(0,20,70,.5));animation:fact-emoji-in .6s cubic-bezier(.2,1.4,.4,1) both}
 @keyframes fact-emoji-in{from{transform:translateY(18px) scale(.6);opacity:0}to{transform:none;opacity:1}}
 .fact-kicker{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:1000;color:#ffe36b}
-.fact-text{margin:0;font-size:clamp(16px,4.6vw,21px);line-height:1.3;font-weight:900;text-shadow:0 2px 10px rgba(0,18,56,.6)}
+/* Gecentreerd en met volle regels. `text-wrap: balance` verdeelt de woorden
+   over de regels in plaats van er één of twee op de laatste regel te laten
+   staan; `pretty` is de terugval voor browsers die balance niet kennen. */
+.fact-text{margin:0;max-width:34ch;font-size:clamp(16px,4.6vw,21px);line-height:1.3;font-weight:900;
+  text-align:center;text-wrap:pretty;text-wrap:balance;text-shadow:0 2px 10px rgba(0,18,56,.6)}
 .fact-actions{display:grid;grid-template-columns:1fr 54px;gap:8px;flex:0 0 auto}
 .fact-next{min-height:54px;border:0;border-radius:999px;padding:0 18px;font-size:clamp(15px,4vw,18px);cursor:pointer;background:linear-gradient(180deg,#ffe868,#ffbd21);color:#17235d;font-weight:1000;box-shadow:0 6px 0 #dc8c12,0 12px 22px rgba(0,26,80,.25)}
 .fact-next:active{transform:translateY(3px);box-shadow:0 3px 0 #dc8c12}
@@ -1043,7 +1047,9 @@
 /* The guide pops up from behind the top edge of the card on a correct answer, cheers, and ducks away. */
 .feedback-float .feedback-card{z-index:1}
 .feedback-peek{position:absolute;z-index:0;height:auto;pointer-events:none;transform-origin:50% 100%;filter:drop-shadow(0 6px 8px rgba(0,20,70,.35));animation:feedback-peek 2.3s cubic-bezier(.3,1.25,.4,1) both;clip-path:inset(0 0 0 0)}
-@keyframes feedback-peek{0%{transform:translateY(105%) rotate(-8deg);opacity:0}16%{transform:translateY(0) rotate(4deg);opacity:1}30%{transform:translateY(-6px) rotate(-4deg)}44%{transform:translateY(0) rotate(3deg)}58%{transform:translateY(-4px) rotate(-2deg)}80%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105%) rotate(6deg);opacity:0}}
+/* Alleen op en neer, niet kantelen: een gids die scheef blijft hangen ziet er
+   niet uit. Het wippen geeft het leven, de draaiing gaf alleen scheefstand. */
+@keyframes feedback-peek{0%{transform:translateY(105%) scale(.92);opacity:0}16%{transform:translateY(0) scale(1);opacity:1}30%{transform:translateY(-7px)}44%{transform:translateY(0)}58%{transform:translateY(-4px)}80%{transform:translateY(0);opacity:1}100%{transform:translateY(105%) scale(.95);opacity:0}}
 @media(max-height:700px){.feedback-card{padding:13px 13px 13px}.feedback-explain{font-size:14px}.feedback-answer b{font-size:20px}}
 
 /* ---------------- Premium ---------------- */
@@ -1113,7 +1119,12 @@
 .whoami-actions{grid-template-columns:1fr 1fr!important;gap:10px!important}
 .whoami-actions .action{width:100%;min-height:48px}
 .whoami .quiz-v2-head{position:relative}
-.whoami-timer{position:absolute;right:0;top:100%;margin-top:6px;z-index:3}
+/* De klok van Wat ben ik? en Fotozoom hangt onder de kopregel. Die kopregel
+   was geen positioned ancestor, dus `right:0; top:100%` rekende tegen het hele
+   scherm: de klok stond buiten beeld, onder de onderrand. Je hoorde hem wel
+   aftikken maar zag hem nooit. */
+.quiz-v2-head{position:relative}
+.whoami-timer{position:absolute;inset-inline-end:0;top:100%;margin-top:6px;z-index:3}
 .whoami-card{margin-top:8px}
 .whoami-verdict .simple-modal-card h2{font-size:clamp(18px,5vw,24px)}
 .whoami-tile.spoken-active{transform:translateY(-4px) scale(1.03);border-color:#75a8ff;box-shadow:0 8px 0 #9fcdf3,0 16px 26px rgba(40,103,189,.25),0 0 0 4px rgba(91,137,255,.18)}
@@ -1328,19 +1339,49 @@
 /* ---- De gids die achter een popup vandaan piept (celebrate.js, K.peekGuide) ----
    Bij een goed antwoord, niet elke keer en telkens uit een andere hoek. Hij
    staat áchter de kaart (z-index 0 tegen de kaart z-index 1), zodat hij nooit
-   de tekst bedekt. */
-.cheer-peek{position:absolute;z-index:0;width:min(30%,132px);aspect-ratio:1;object-fit:cover;border-radius:50%;
-  border:4px solid #fff;box-shadow:0 12px 26px rgba(0,22,70,.35);pointer-events:none}
-.cheer-peek.peek-tl{top:8%;inset-inline-start:6%;animation:peekTL .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-tr{top:8%;inset-inline-end:6%;animation:peekTR .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-bl{bottom:10%;inset-inline-start:6%;animation:peekBL .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-br{bottom:10%;inset-inline-end:6%;animation:peekBR .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-ml{top:38%;inset-inline-start:3%;animation:peekML .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-mr{top:38%;inset-inline-end:3%;animation:peekMR .55s cubic-bezier(.2,.9,.25,1.4) both}
-@keyframes peekTL{from{transform:translate(-40%,-60%) scale(.6) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekTR{from{transform:translate(40%,-60%) scale(.6) rotate(14deg);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekBL{from{transform:translate(-40%,60%) scale(.6) rotate(14deg);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekBR{from{transform:translate(40%,60%) scale(.6) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekML{from{transform:translate(-70%,0) scale(.7) rotate(-10deg);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekMR{from{transform:translate(70%,0) scale(.7) rotate(10deg);opacity:0}to{transform:none;opacity:1}}
+   de tekst bedekt — maar wel ver genoeg ernaast dat je hem heel ziet. Praat de
+   gids mee, dan is dit hetzelfde pratende portret als elders in de app: de mond
+   gaat open op de luidheid van de stem die op dat moment de uitleg voorleest.
+   Geen scheve stand: een gids die half gekanteld blijft hangen ziet er niet uit,
+   dus de animatie schuift en schaalt alleen. */
+.cheer-peek{position:absolute;z-index:0;width:min(34%,164px);aspect-ratio:1;border-radius:50%;overflow:hidden;
+  border:4px solid #fff;box-shadow:0 12px 26px rgba(0,22,70,.35);pointer-events:none;background:#1d2f88}
+.cheer-peek .milo-still-face{display:block;width:100%;height:100%;object-fit:cover;object-position:center 26%}
+.cheer-peek.peek-tl{top:-4%;inset-inline-start:-3%;animation:peekTL .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-tr{top:-4%;inset-inline-end:-3%;animation:peekTR .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-bl{bottom:-3%;inset-inline-start:-3%;animation:peekBL .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-br{bottom:-3%;inset-inline-end:-3%;animation:peekBR .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-ml{top:30%;inset-inline-start:-6%;animation:peekML .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-mr{top:30%;inset-inline-end:-6%;animation:peekMR .55s cubic-bezier(.2,.9,.25,1.4) both}
+@keyframes peekTL{from{transform:translate(30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekTR{from{transform:translate(-30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekBL{from{transform:translate(30%,-55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekBR{from{transform:translate(-30%,-55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekML{from{transform:translate(60%,0) scale(.6);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekMR{from{transform:translate(-60%,0) scale(.6);opacity:0}to{transform:none;opacity:1}}
 @media(prefers-reduced-motion:reduce){.cheer-peek{animation:none}}
+
+/* ---- Aanraakvlakken ----
+   Apple houdt 44 pt aan als kleinste knop waar een vinger nog goed op mikt, en
+   CLAUDE.md volgt dat. Deze knoppen waren tussen de 28 en 38 pixels hoog: de
+   munt- en vlamtellers op Home en in een spel, de wereldknopjes bij de weetjes,
+   de stemrondjes en de niveaucijfers in de ouderzone, en de plus/min van de
+   schoolgroep. Ze houden hun uiterlijk; alleen het raakvlak groeit. */
+.hud-chip,.quiz-meta .meta-chip{min-height:44px}
+.fact-chip{min-height:44px}
+.profile-link{min-height:44px}
+.quick-pill,.profile-voice .quick-pill{min-width:48px;min-height:48px}
+.level-toggle button{min-width:42px;min-height:44px}
+.stepper button{width:44px;height:44px}
+.simple-close{width:44px;height:44px}
+/* De schakelaar houdt zijn maat — een schakelaar hoort er zo uit te zien — maar
+   krijgt een onzichtbaar raakvlak eromheen dat wél 44 pt haalt. */
+.native-switch{position:relative}
+.native-switch::before{content:"";position:absolute;inset:-8px -6px}
+.lang-toggle button{min-width:44px}
+/* De zes niveauknoppen stonden in de smalle rechterkolom van de kaart en werden
+   daar tot 30 px platgeknepen. Ze krijgen nu een eigen regel over de volle
+   breedte, net als de taalknoppen, zodat er zes van 44 pt naast elkaar passen. */
+.setting-card.level-card{grid-template-columns:48px 1fr;row-gap:9px}
+.setting-card.level-card .level-toggle{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.setting-card.level-card .level-toggle button{flex:1 0 44px;min-width:44px}

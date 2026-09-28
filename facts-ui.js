@@ -11,7 +11,10 @@
   // set has been seen they simply come round again.
   // Only the worlds that have fact cards; a world whose weetjes are still
   // being written keeps its chip out of the row instead of showing an empty set.
+  // De werelden waarvoor weetjes geschreven zijn. De kiezer op Home leest deze
+  // ook, zodat er nooit een wereld aangeboden wordt die niets te tonen heeft.
   const WORLDS=()=>K.WORLDS.filter(w=>(bank()[w]||[]).length);
+  K.factWorlds=WORLDS;
   const WORLD_EMOJI={ruimte:'🚀',dieren:'🦁',aarde:'🌍',geschiedenis:'🏰',wetenschap:'🔬',mysterie:'🔮'};
   const bank=()=>window.KWIZILLO_FACTS?.[K.state.language]||window.KWIZILLO_FACTS?.nl||{};
   const seenMap=()=>{const P=K.progress();P.factsSeen||={};return P.factsSeen};
@@ -78,6 +81,9 @@
 
   // `open` shows that fact first (the result screen's bonus fact, in full).
   K.showFacts=(world='all',{open}={})=>{
+    // Een wereld zonder weetjes (kunst en sport zijn nog niet geschreven) gaf
+    // een leeg scherm. Dan maar alle weetjes: er valt altijd iets te ontdekken.
+    if(world!=='all'&&!WORLDS().includes(world)) world='all';
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();K.lastView='facts';
     K.state.factsWorld=world;K.save();
@@ -107,6 +113,9 @@
       const fresh=!seenMap()[next.id]||next.id===open;
       current=next;
       stage.innerHTML=card(next,{fresh});
+      // Geen los woord op de laatste regel: dat doet `text-wrap: balance` op
+      // .fact-text (screens.css). Bewust niet met een harde no-break spatie in
+      // de tekst zelf — die tekst wordt ook uitgesproken en vergeleken.
       K.markFactSeen(next);
       const seen=K.factsSeenCount(world);
       sub.textContent=seen>=total&&fresh?t('facts.allSeen'):t('facts.sub',{seen,total});

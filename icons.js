@@ -37,7 +37,7 @@
   // ronde badge. De percentages zijn gekozen op een contactvel (elke plaat bij
   // 20/30/40/50/60%) zodat het onderwerp heel in beeld staat en er onderin
   // ruimte overblijft voor de titel.
-  const FOCUS={ruimte:'center 30%',dieren:'center 32%',aarde:'center 48%',geschiedenis:'center 50%',wetenschap:'center 48%',mysterie:'center 25%',kunst:'center 30%',sport:'center 30%'};
+  const FOCUS={ruimte:'center 30%',dieren:'center 32%',aarde:'center 48%',geschiedenis:'center 50%',wetenschap:'center 48%',mysterie:'center 33%',kunst:'center 30%',sport:'center 30%'};
   K.WORLD_FOCUS=FOCUS;
   K.worldBadge=(w,cls='')=>K.MASTER?.[w]?`<img class="world-badge ${cls}" src="${K.MASTER[w]}" alt="" style="object-position:${FOCUS[w]||'center'}">`:'';
 })();

@@ -136,7 +136,11 @@
     const m=K.memo;
     const shape=boardShape(m.cards.length);
     const f=K.frame(`<section class="memo quiz-v2 quiz-world-${m.bgWorld} fade-in">
-      <img class="quiz-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
+            <!-- Eén lucht voor alle minispellen: elk spel staat op zijn eigen eiland
+           (assets/games/*-island.jpg), en die zijn onder dezelfde hemel getekend.
+           Hiervoor stond hier de wereldplaat, en dan had rekenen in de kunstwereld
+           een andere lucht dan memo in de ruimte. -->
+<img class="quiz-v2-bg" src="${K.GAME_ART.memo}" alt="">
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui memo-ui">
         <header class="quiz-v2-head">
@@ -236,7 +240,7 @@
     K.touchStreak();K.save();
 
     const f=K.frame(`<section class="result-v2 fade-in ${won?'is-pass':'is-fail'}">
-      <img class="result-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
+      <img class="result-v2-bg" src="${K.GAME_ART.memo}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage ${won?'':'open'}">
@@ -281,7 +285,7 @@
     K.touchStreak();K.save();
     const title=tie?t('memo.duelTie'):t('memo.duelWin',{name:playerName(winner)});
     const f=K.frame(`<section class="result-v2 fade-in is-pass">
-      <img class="result-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
+      <img class="result-v2-bg" src="${K.GAME_ART.memo}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage">

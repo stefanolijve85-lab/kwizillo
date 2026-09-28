@@ -96,7 +96,11 @@
     const done=m.answers[m.index]||null;           // an answered sum shows its verdict again
     const seconds=done?0:secondsFor();
     const f=K.frame(`<section class="math quiz-v2 quiz-world-${m.world} fade-in">
-      <img class="quiz-v2-bg" src="${K.MASTER[m.world]}" alt="">
+            <!-- Eén lucht voor alle minispellen: elk spel staat op zijn eigen eiland
+           (assets/games/*-island.jpg), en die zijn onder dezelfde hemel getekend.
+           Hiervoor stond hier de wereldplaat, en dan had rekenen in de kunstwereld
+           een andere lucht dan memo in de ruimte. -->
+<img class="quiz-v2-bg" src="${K.GAME_ART.math}" alt="">
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
@@ -187,7 +191,7 @@
     K.awardPoints(bonus);K.awardCoins(passed?stars*3:0);K.touchStreak();K.save();
     const allowed=K.core.maxWrong(niveau),wrong=total-score;
     const f=K.frame(`<section class="result-v2 fade-in ${passed?'is-pass':'is-fail'}">
-      <img class="result-v2-bg" src="${K.MASTER[m.world]}" alt="">
+      <img class="result-v2-bg" src="${K.GAME_ART.math}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage ${passed?'':'open'}">

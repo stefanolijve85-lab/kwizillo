@@ -85,7 +85,7 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);
   await expect(tour.locator('.milo-tour-skip')).toHaveText('Overslaan');
   const bubble = tour.locator('.milo-bubble');
-  await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('zes werelden'))), { timeout: 15000 }).toBe(true);
+  await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('de werelden'))), { timeout: 15000 }).toBe(true);
   await expect(tour.locator('.milo-host')).not.toHaveClass(/walking/);
   // In the tour the figure stays and gestures: a lip-synced clip would replace
   // it with a video of the guide standing still, and here it has things to
@@ -99,14 +99,14 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   expect(Math.abs(s1.y - worlds.y)).toBeLessThan(12);
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(tour.locator('.milo-host')).toHaveClass(/hopping/);   // hops to the next stop
-  await expect(bubble).toContainText('Memo', { timeout: 5000 });
+  await expect(bubble).toContainText('zes spelletjes', { timeout: 5000 });
   const games = await spot.boundingBox(), memo = await page.locator('#homeMemo').boundingBox(), math = await page.locator('#homeMath').boundingBox(), facts = await page.locator('#homeFacts').boundingBox();
   expect(games.x).toBeLessThan(memo.x + 8); expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // all six game tiles at once…
   expect(games.y + games.height).toBeGreaterThan(facts.y + facts.height - 8); // …including the Weetjes tile on the next row
   // every bubble of the tour stays inside the frame
   { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
   // No lonely last word: the last two words are tied together.
-  expect(await bubble.innerText()).toMatch(/en\u00a0vlieg!$/);
+  expect(await bubble.innerText()).toMatch(/probeer\u00a0het!$/);
   await tour.click({ position: { x: 10, y: 300 } });
   await expect(bubble).toContainText('munten', { timeout: 5000 });
   await tour.click({ position: { x: 10, y: 300 } });
@@ -156,7 +156,7 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   await page.locator('[data-guide="Luna"]').click();
   await expect(page.locator('.onboarding .milo-host:not(.leave)')).toHaveAttribute('data-guide', 'luna');
   // Her tour lines are already loading, two screens before the tour.
-  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /zes werelden/.test(r.text)), { timeout: 8000 }).toBe(true);
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /de werelden/.test(r.text)), { timeout: 8000 }).toBe(true);
   // The welcome and the tour are hers.
   await page.locator('#obNext').click();
   await expect(page.locator('.onboarding .milo-host')).toHaveAttribute('data-guide', 'luna');
@@ -166,9 +166,9 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   const tour = page.locator('.home .milo-tour');
   await expect(tour).toBeVisible({ timeout: 5000 });
   await expect(tour.locator('.milo-host')).toHaveAttribute('data-guide', 'luna');
-  await expect(tour.locator('.milo-bubble')).toContainText('zes werelden', { timeout: 5000 });
+  await expect(tour.locator('.milo-bubble')).toContainText('de werelden', { timeout: 5000 });
   // The tour lines are hers alone (lines warmed earlier for Milo may still drain from the queue).
-  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /zes werelden/.test(r.text))).toBe(true);
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /de werelden/.test(r.text))).toBe(true);
   expect(spoken.filter(r => r.voice === 'Milo' && /werelden|Memo|munten|collectie|plezier/.test(r.text))).toEqual([]);
   for (const r of spoken.slice(before)) expect(JSON.stringify(r)).not.toContain('Sam');
   await page.locator('.milo-tour-skip').click();

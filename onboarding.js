@@ -159,7 +159,7 @@
     };
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
-      K.state.voice=b.dataset.guide; K.save();
+      K.setVoice(b.dataset.guide);
       f.querySelectorAll('[data-guide]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b))});
       K.stopSpeech();
       if(K.state.voice==='Stil'){host.pose('talk');host.bubble(bubbleHtml(title,esc(K.t('voice.silent.desc'))));return}

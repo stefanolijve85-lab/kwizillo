@@ -44,11 +44,17 @@
     if(pool.length<4){K.toast(t('memo.none'));K.showHome();return}
     const rounds=pool.slice(0,ROUNDS).map(q=>{
       // Four different pictures on the tiles: no two options may share one.
+      // Vier verschillende platen én vier verschillende antwoorden: twee tegels
+      // met hetzelfde woord eronder is geen keuze maar een strikvraag. De
+      // antwoorden werden alleen tegen het juiste antwoord vergeleken, niet
+      // tegen elkaar, dus konden er twee gelijk zijn.
       const arts=new Set([K.answerArtFor(q)]);
-      const fresh=o=>o.id!==q.id&&o.answer!==q.answer&&!arts.has(K.answerArtFor(o));
+      const words=new Set([String(q.answer).toLowerCase()]);
+      const fresh=o=>o.id!==q.id&&!words.has(String(o.answer).toLowerCase())&&!arts.has(K.answerArtFor(o));
+      const take=o=>{others.push(o);arts.add(K.answerArtFor(o));words.add(String(o.answer).toLowerCase())};
       const others=[];
-      for(const o of shuffle(pool.filter(o=>fresh(o)&&o.world===q.world))){if(others.length>=3)break;others.push(o);arts.add(K.answerArtFor(o))}
-      for(const o of pool){if(others.length>=3)break;if(fresh(o)&&!others.includes(o)){others.push(o);arts.add(K.answerArtFor(o))}}
+      for(const o of shuffle(pool.filter(o=>fresh(o)&&o.world===q.world))){if(others.length>=3)break;take(o)}
+      for(const o of pool){if(others.length>=3)break;if(fresh(o))take(o)}
       return {q,clues:cluesFor(q),options:shuffle([q,...others])};
     });
     K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
@@ -65,7 +71,11 @@
     let shown=1,locked=false;
     const bgWorld=q.world;
     const f=K.frame(`<section class="quiz-v2 whoami whoami-${bgWorld} fade-in">
-      <img class="quiz-v2-bg" src="${K.MASTER[bgWorld]}" alt="">
+            <!-- Eén lucht voor alle minispellen: elk spel staat op zijn eigen eiland
+           (assets/games/*-island.jpg), en die zijn onder dezelfde hemel getekend.
+           Hiervoor stond hier de wereldplaat, en dan had rekenen in de kunstwereld
+           een andere lucht dan memo in de ruimte. -->
+<img class="quiz-v2-bg" src="${K.GAME_ART.whoami}" alt="">
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
@@ -143,7 +153,7 @@
     K.touchStreak();K.save();
     const bg=g.world==='mix'?'mysterie':g.world;
     const f=K.frame(`<section class="result-v2 fade-in is-pass">
-      <img class="result-v2-bg" src="${K.MASTER[bg]}" alt="">
+      <img class="result-v2-bg" src="${K.GAME_ART.whoami}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage"><button class="result-gift" id="resultGift" aria-label="🎁">🎁</button><div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div></div>

@@ -53,7 +53,11 @@
     let level=0,locked=false;
     const bgWorld=q.world;
     const f=K.frame(`<section class="quiz-v2 fotozoom fotozoom-${bgWorld} fade-in">
-      <img class="quiz-v2-bg" src="${K.MASTER[bgWorld]}" alt="">
+            <!-- Eén lucht voor alle minispellen: elk spel staat op zijn eigen eiland
+           (assets/games/*-island.jpg), en die zijn onder dezelfde hemel getekend.
+           Hiervoor stond hier de wereldplaat, en dan had rekenen in de kunstwereld
+           een andere lucht dan memo in de ruimte. -->
+<img class="quiz-v2-bg" src="${K.GAME_ART.fotozoom}" alt="">
       <div class="quiz-v2-dim"></div>
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
@@ -136,7 +140,7 @@
     K.touchStreak();K.save();
     const bg=g.world==='mix'?'aarde':g.world;
     const f=K.frame(`<section class="result-v2 fade-in is-pass">
-      <img class="result-v2-bg" src="${K.MASTER[bg]}" alt="">
+      <img class="result-v2-bg" src="${K.GAME_ART.fotozoom}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage"><button class="result-gift" id="resultGift" aria-label="🎁">🎁</button><div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div></div>

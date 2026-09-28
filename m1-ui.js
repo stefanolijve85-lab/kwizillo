@@ -392,7 +392,7 @@
     f.querySelector('#profileName').onsubmit=e=>{e.preventDefault();const v=f.querySelector('#profileInput').value.trim();if(!v)return;K.state.name=v;K.save();K.sfx('good');K.toast(t('profile.saved'))};
     f.querySelector('#profileBuddy').onclick=()=>{K.sfx('tap');K.showCollection('mascots')};
     f.querySelector('[data-stats]').onclick=()=>{K.sfx('tap');K.showStats()};
-    f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.voice=b.dataset.voice;K.save();K.showProfile()});
+    f.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.setVoice(b.dataset.voice);K.showProfile()});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showProfile()}});
   };
 
@@ -401,10 +401,15 @@
   // Wat ben ik?, Fotozoom and Weetjes are played in one world or in all of them
   // at once — the same choice Memo has always had. One picker serves all three:
   // the mix first, then the six worlds, each behind its own painting.
+  // `worlds` zegt welke werelden een spel aankan. Weetjes is er nog maar voor
+  // zes: kunst en sport hebben nog geen weetjes geschreven. Die stonden wel in
+  // de kiezer en leverden dan een leeg scherm op — een knop die nergens heen
+  // gaat is erger dan een knop die er niet is. Zodra de weetjes er zijn komen
+  // ze vanzelf terug, want dit leest de bank zelf uit.
   const GAME_PICKERS={
     whoami:{kicker:'whoami.title',art:()=>K.GAME_ART.whoami,mix:'mix',start:w=>K.startWhoAmI(w),locked:w=>!K.premium.can('memo',w)},
     fotozoom:{kicker:'fotozoom.title',art:()=>K.GAME_ART.fotozoom,mix:'mix',start:w=>K.startFotozoom(w),locked:w=>!K.premium.can('memo',w)},
-    facts:{kicker:'facts.title',art:()=>K.GAME_ART.facts,mix:'all',start:w=>K.showFacts(w),locked:()=>false}
+    facts:{kicker:'facts.title',art:()=>K.GAME_ART.facts,mix:'all',start:w=>K.showFacts(w),locked:()=>false,worlds:()=>K.factWorlds?.()||shown()}
   };
   K.showGamePicker=game=>{
     const P=GAME_PICKERS[game];if(!P)return;
@@ -416,7 +421,7 @@
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
-        <div class="memo-pick-grid">${shown().map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
       </div>
       ${K.bottomNav('home')}
     </section>`);
@@ -808,7 +813,7 @@
     o.querySelector('[data-test="voice"]').onclick=()=>{K.stopSpeech();K.speak(t(K.state.voice==='Luna'?'voice.luna.hello':'voice.milo.hello'))};
     o.querySelectorAll('[data-track]').forEach(b=>b.onclick=async()=>{await K.audio.setTrack(b.dataset.track);redraw()});
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
-    o.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{K.state.voice=b.dataset.guide;K.save();K.stopSpeech();redraw();if(K.state.voice!=='Stil')K.speak(t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'))});
+    o.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{K.setVoice(b.dataset.guide);K.stopSpeech();redraw();if(K.state.voice!=='Stil')K.speak(t(K.state.voice==='Milo'?'voice.milo.hello':'voice.luna.hello'))});
   };
 
   window.addEventListener('keydown',e=>{if(e.key==='Escape'){K.stopSpeech();K.showHome()}});

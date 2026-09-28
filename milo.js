@@ -423,7 +423,10 @@
         i++;
       };
       beat();
-      timer=setInterval(beat,1200);
+      // De zin staat korter stil dan vroeger (de rondleiding moest vlotter),
+      // dus moeten de standen elkaar ook sneller afwisselen — anders staat de
+      // gids de hele stop te wijzen en komt hij nooit aan praten toe.
+      timer=setInterval(beat,900);
       return ()=>{clearInterval(timer);host.el.classList.remove('nudge');host.pose(to.pose)};
     };
 

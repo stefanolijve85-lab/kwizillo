@@ -95,14 +95,47 @@
   K.peekGuide=(host,{chance=.45}={})=>{
     try{
       if(!host||Math.random()>chance) return null;
-      // Afwisselend de gids en de gekozen buddy, zodat het niet altijd Milo is.
-      const art=(Math.random()<.35&&K.MASCOT_ART?.[K.state.selectedMascot])||K.guideArt?.(K.state.voice);
-      if(!art) return null;
-      const img=document.createElement('img');
-      img.className='cheer-peek peek-'+SPOTS[Math.floor(Math.random()*SPOTS.length)];
-      img.alt=''; img.decoding='async'; img.src=art;
-      host.insertBefore(img,host.firstChild);
-      return img;
+      // De gids die het kind gekozen heeft. Wie Luna koos hoort Luna en ziet
+      // Luna — ook hier. Met stem uit valt de gekozen buddy in.
+      const guide=K.state.voice==='Luna'?'luna':'milo';
+      const G=K.GUIDES?.[guide];
+      const spot=SPOTS[Math.floor(Math.random()*SPOTS.length)];
+      const wrap=document.createElement('div');
+      wrap.className='cheer-peek peek-'+spot;
+      wrap.setAttribute('aria-hidden','true');
+
+      // Praat hij mee? Dan het portret met de mond die opengaat, precies zoals
+      // de gids dat elders doet (milo.js). De uitleg wordt op dat moment al
+      // uitgesproken door het spel zelf, dus hier wordt niets extra gezegd —
+      // de mond volgt alleen de luidheid van die stem (K.voiceLevel).
+      const talking=K.state.voice!=='Stil'&&G?.base;
+      if(talking){
+        const m=G.mouth||{x:.5,y:.5,w:.2,h:.07};
+        wrap.classList.add('cheer-peek-talk','milo-still','mouth-'+(G.mouthStyle||'jaw'));
+        for(const [k,v] of Object.entries(m)) wrap.style.setProperty(`--m${k}`,String(v));
+        wrap.innerHTML=`<img class="milo-still-face" src="${G.base}" alt="" draggable="false"><span class="milo-mouth-hole"></span><span class="milo-still-chin"><img src="${G.base}" alt="" draggable="false"></span>`;
+      }else{
+        const art=K.MASCOT_ART?.[K.state.selectedMascot]||K.guideArt?.('Milo');
+        if(!art) return null;
+        wrap.innerHTML=`<img class="milo-still-face" src="${art}" alt="" draggable="false">`;
+      }
+      host.insertBefore(wrap,host.firstChild);
+
+      if(talking){
+        // Dezelfde envelope als de gids in de rondleiding: snel open, iets
+        // trager dicht, zodat medeklinkers nog flitsen. Stopt vanzelf als de
+        // stem klaar is of als de kaart weggaat.
+        let open=0,idle=0;
+        const id=setInterval(()=>{
+          if(!wrap.isConnected){clearInterval(id);return}
+          const level=(K.voiceLevel?.()||0)*.85;
+          open=level>open?open*.35+level*.65:open*.7+level*.3;
+          wrap.style.setProperty('--open',open.toFixed(3));
+          idle=level>.02?0:idle+1;
+          if(idle>50){clearInterval(id);wrap.style.setProperty('--open','0')}   // ~1,5 s stil: klaar
+        },30);
+      }
+      return wrap;
     }catch(e){ return null }
   };
 
