@@ -115,7 +115,10 @@
       </div>
     </section>`);
     const buttons=[...f.querySelectorAll('.answer')];
-    f.querySelector('#mathBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showWorld(m.world)};
+    // Rekenen wordt vanaf Home gestart ("Speel ook"), niet vanuit een wereld:
+    // terug hoort dus naar Home te gaan. Het ging naar het wereldscherm van de
+    // wereld waar de sommen vandaan kwamen, en dat is niet waar je vandaan kwam.
+    f.querySelector('#mathBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showHome()};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>render()})});
     // The hint shows the counting dots (or the reversed operation) for a moment.
     f.querySelector('#mathHint').onclick=()=>{K.sfx('hint');const h=f.querySelector('#mathFeedback');h.hidden=false;h.className='math-feedback is-hint';h.textContent=hintFor(s);K.speak(h.textContent);setTimeout(()=>{if(h.classList.contains('is-hint'))h.hidden=true},2600)};
@@ -198,7 +201,7 @@
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${score*10+bonus}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <div class="result-native">
           <button id="againBtn">${esc(t(passed?'math.again':'result.retryNow'))}</button>
-          <button id="worldBtn" class="secondary">${esc(t('memo.toWorld'))}</button>
+          <button id="worldBtn" class="secondary">${esc(t('world.backHome'))}</button>
           <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
@@ -209,7 +212,7 @@
       gift.onclick=open;setTimeout(open,1000);K.speak(t('math.speech.done'));
     }else{K.sfx('bad');K.speak(t('math.speech.fail'))}
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMath(m.world)};
-    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showWorld(m.world)};
+    f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
   }
 })();

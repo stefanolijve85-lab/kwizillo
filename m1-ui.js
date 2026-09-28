@@ -265,7 +265,7 @@
   K.showWorld=world=>{
     K.stopSpeech();K.lastView='world';K.currentWorld=world;
     const keys=K.TOPIC_KEYS[world]||[];
-    const level=K.worldLevel(world);
+    const level=K.playLevel(world);
     const passedAt=K.progress().passed?.[level]||{};
     // Wat het kind hier al gedaan heeft: gehaald op dit niveau, of hoeveel
     // quizzen er gespeeld zijn en hoe het ging.
@@ -282,14 +282,14 @@
     const mixFree=K.premium.can('quiz',world,null,mixRun.quizNumber+1);
 
     const f=K.frame(`<section class="native-world world-${world} fade-in">
-      <img class="native-world-bg" src="${K.MASTER[world]}" alt="">
+      <img class="native-world-bg" src="${K.MASTER[world]}" alt="" style="object-position:${K.WORLD_FOCUS?.[world]||'center 38%'}">
       <div class="native-world-hero"><img src="${K.MASTER[world]}" alt="${esc(worldTitle(world))}"></div>
       <div class="native-world-shade"></div>
       <div class="native-world-ui">
         <header class="native-world-head">
           <button id="worldBack" class="world-round" aria-label="${esc(t('world.backHome'))}">${K.icon('back')}</button>
           <div class="world-title-wrap">
-            <div class="world-kicker">${K.worldBadge(world,'tiny')} ${esc(t('world.kicker'))} · ${esc(t('settings.level'))} ${K.worldLevel(world)}</div>
+            <div class="world-kicker">${K.worldBadge(world,'tiny')} ${esc(t('world.kicker'))} · ${esc(t('settings.level'))} ${K.playLevel(world)}</div>
             <h1 class="${worldTitle(world).length>14?'long':''}">${esc(worldTitle(world))}</h1>
             <p>${esc(worldSub(world))}</p>
             <p class="world-progress-line">${esc(t('world.progressLine',{passed:topics.filter(x=>x.passed).length,total:topics.length||4}))}</p>

@@ -118,8 +118,12 @@
       if(ok){K.sfx('good');g.score+=earned;g.correct++;K.recordAnswerProgress?.(q,true)}else{K.sfx('bad');b?.classList.add('wrong');K.recordAnswerProgress?.(q,false)}
       // The verdict, then the explanation with the answer in it — a miss teaches too.
       const card=document.createElement('div');card.className='simple-modal whoami-verdict';
-      card.innerHTML=`<div class="simple-modal-card"><div class="simple-icon">${ok?'🎉':b?'💡':'⏰'}</div><h2>${esc(ok?t('whoami.yes',{answer:q.answer,points:earned}):t(b?'whoami.almost':'whoami.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="whoNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'whoami.next'))}</button></div>`;
+      // Goed: confetti in plaats van een toeter-emoji, en soms piept de gids
+      // ergens achter de kaart vandaan (celebrate.js, K.cheer). Fout of tijd om:
+      // een rustig teken, want daar valt niets te vieren.
+      card.innerHTML=`<div class="simple-modal-card">${ok?'':`<div class="simple-icon">${b?'💡':'⏰'}</div>`}<h2>${esc(ok?t('whoami.yes',{answer:q.answer,points:earned}):t(b?'whoami.almost':'whoami.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="whoNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'whoami.next'))}</button></div>`;
       f.appendChild(card);
+      if(ok)K.cheer?.(card);
       K.speak((ok?t('whoami.speech.yes',{answer:q.answer}):t('whoami.speech.almost',{answer:q.answer}))+' '+q.explanation);
       card.querySelector('#whoNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
     };

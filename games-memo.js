@@ -19,6 +19,16 @@
     {cols:4,rows:7,words:false,secPerPair:9}
   ];
   const rule=()=>RULES[Math.max(1,Math.min(6,Number(K.state.niveau||1)))-1];
+  // Waar het bord groeit. Op een telefoon (staand) komt er per niveau een rij
+  // onder: vier kaarten breed, dat is wat er past. Op een tablet op zijn kant
+  // groeit het de andere kant op — vier rijen hoog, en er komt per niveau een
+  // kolom naast. Zo houden de kaarten de grootte die ze op niveau 1 hebben in
+  // plaats van steeds platter te worden, en vult het bord het brede scherm.
+  // De vorm wordt bij elke tekening opnieuw bepaald, zodat draaien meteen klopt.
+  const boardShape=cards=>{
+    const wide=document.documentElement.dataset.shape==='wide';
+    return wide?{cols:Math.ceil(cards/4),rows:4}:{cols:4,rows:Math.ceil(cards/4)};
+  };
   const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 
   // Short, concrete answers make good word cards ("Mercurius", "De Nijl");
@@ -124,6 +134,7 @@
 
   function render(){
     const m=K.memo;
+    const shape=boardShape(m.cards.length);
     const f=K.frame(`<section class="memo quiz-v2 quiz-world-${m.bgWorld} fade-in">
       <img class="quiz-v2-bg" src="${K.MASTER[m.bgWorld]}" alt="">
       <div class="quiz-v2-dim"></div>
@@ -135,7 +146,7 @@
         </header>
         ${m.duel?`<div class="memo-duel" id="memoDuel">${[0,1].map(i=>`<span class="memo-player ${i===m.turn?'active':''}" data-player="${i}"><b>${esc(playerName(i))}</b><em>${m.scores[i]}</em></span>`).join('')}</div>`:''}
         <div class="quiz-progress memo-progress"><strong id="memoPairs">${esc(t('memo.pairs',{found:0,total:m.pairs}))}</strong><div><i id="memoBar" style="width:0%"></i></div>${m.seconds?`<span class="quiz-timer running" id="memoTimer" style="--p:100"><b>${m.seconds}</b></span>`:`<span id="memoMoves">${esc(t('memo.moves',{n:0}))}</span>`}</div>
-        <main class="memo-board" style="--cols:${m.cols};--rows:${m.rows}" role="grid" aria-label="Memo">
+        <main class="memo-board" style="--cols:${shape.cols};--rows:${shape.rows}" role="grid" aria-label="Memo">
           ${m.cards.map(c=>`<button class="memo-card" data-card="${c.id}" aria-label="${esc(t('memo.card'))}">
             <span class="memo-face memo-back">${K.icon('star')}</span>
             <span class="memo-face memo-front ${c.kind}">${c.kind==='art'?`<img src="${K.answerArtFor(c.q)}" alt="" decoding="async">`:`<b>${esc(c.q.answer)}</b>`}</span>

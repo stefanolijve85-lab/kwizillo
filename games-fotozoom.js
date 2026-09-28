@@ -10,7 +10,7 @@
   // scores 100, one zoom-out later 75, at the third view 50 — a miss or a
   // run-out zooms all the way out and explains. Pictures and names come from
   // the question bank, so every world plays in every language.
-  const ROUNDS=5, POINTS=[100,75,50], ZOOMS=[2.8,1.9,1.3];
+  const ROUNDS=5, POINTS=[100,75,50], ZOOMS=[4.2,2.4,1.4];   // eerst flink ingezoomd: je ziet één stukje
   let timer=null;
   const stopTimer=()=>{if(timer){clearInterval(timer.id);timer=null}};
   const secondsFor=()=>K.state.timeLimitOn===false?0:K.core.questionSeconds(K.state.niveau||1);
@@ -113,8 +113,9 @@
       setTimeout(()=>{
         if(!f.isConnected)return;
         const card=document.createElement('div');card.className='simple-modal whoami-verdict fotozoom-verdict';
-        card.innerHTML=`<div class="simple-modal-card"><img class="fotozoom-reveal" src="${K.answerArtFor(q)}" alt=""><div class="simple-icon">${ok?'🎉':b?'💡':'⏰'}</div><h2>${esc(ok?t('fotozoom.yes',{answer:q.answer,points:earned}):t(b?'fotozoom.almost':'fotozoom.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="fzNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'fotozoom.next'))}</button></div>`;
+        card.innerHTML=`<div class="simple-modal-card"><img class="fotozoom-reveal" src="${K.answerArtFor(q)}" alt="">${ok?'':`<div class="simple-icon">${b?'💡':'⏰'}</div>`}<h2>${esc(ok?t('fotozoom.yes',{answer:q.answer,points:earned}):t(b?'fotozoom.almost':'fotozoom.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="fzNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'fotozoom.next'))}</button></div>`;
         f.appendChild(card);
+        if(ok)K.cheer?.(card);
         K.speak((ok?t('fotozoom.speech.yes',{answer:q.answer}):t('fotozoom.speech.almost',{answer:q.answer}))+' '+q.explanation);
         card.querySelector('#fzNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
       },ok?650:900);

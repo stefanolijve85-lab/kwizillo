@@ -269,6 +269,19 @@
     while(level<top&&keys.every(k=>P[level]?.[`${world}:${k}`]))level++;
     return level;
   };
+  // Het niveau waarop er nú gespeeld wordt. Een wereld klimt vanzelf door
+  // quizzen te halen (K.worldLevel), maar in de ouderzone staat ook een keuze:
+  // een kind dat het te makkelijk vindt hoeft niet eerst vier quizzen te halen
+  // om meer uitdaging te krijgen. Het hoogste van de twee telt, zodat die keuze
+  // nooit verdiende voortgang terugdraait. De voortgangsrekening hieronder
+  // blijft het verdiende niveau gebruiken — anders zou een keuze punten geven
+  // die niet gespeeld zijn.
+  K.playLevel=world=>{
+    const top=K.core?.LEVELS?.length||6;
+    const chosen=Math.max(1,Math.min(top,Number(K.state.niveau)||1));
+    return Math.max(K.worldLevel(world),chosen);
+  };
+
   // How far this world is as a whole: its four topic quizzes at each of the six
   // levels, twenty-four in all. Every level below the current one is passed by
   // definition — that is how a world climbs — so what is left to count is the

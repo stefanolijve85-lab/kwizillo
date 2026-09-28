@@ -66,6 +66,14 @@
         const o={x:cr.left-fr.left+cr.width/2,y:cr.top-fr.top+cr.height/2};
         burst(frame,{count:150,origin:o,spread:Math.PI*1.4,power:13,gravity:.28,life:2600,z:40});
         setTimeout(()=>{if(frame.isConnected)burst(frame,{count:60,origin:o,spread:Math.PI*1.2,power:10,gravity:.3,life:2000,z:40})},260);
+      }else if(kind==='pop'){
+        // De korte pop boven een popup: een handvol confetti vanaf de bovenrand
+        // van de kaart. Kort, want dit gebeurt bij elk goed antwoord.
+        const frame=K.app.querySelector('.game-frame');
+        const card=host?.querySelector?.('.simple-modal-card')||host;
+        if(!frame||!card) return;
+        const fr=frame.getBoundingClientRect(), cr=card.getBoundingClientRect();
+        burst(frame,{count:44,origin:{x:cr.left-fr.left+cr.width/2,y:cr.top-fr.top+14},spread:Math.PI*1.1,power:8,life:1200,z:40});
       }else if(kind==='gold'){
         // A whole world finished: three waves from the middle of the card,
         // wide and slow, so the golden card is showered rather than sprinkled.
@@ -78,4 +86,26 @@
       }
     }catch(e){}
   };
+
+  // Een gids die achter de popup vandaan piept. Niet elke keer en niet steeds op
+  // dezelfde plek: wie tien sommen achter elkaar maakt, ziet hem uit een andere
+  // hoek komen. Alle spellen gebruiken dit, zodat een goed antwoord overal
+  // hetzelfde aanvoelt.
+  const SPOTS=['tl','tr','bl','br','ml','mr'];
+  K.peekGuide=(host,{chance=.45}={})=>{
+    try{
+      if(!host||Math.random()>chance) return null;
+      // Afwisselend de gids en de gekozen buddy, zodat het niet altijd Milo is.
+      const art=(Math.random()<.35&&K.MASCOT_ART?.[K.state.selectedMascot])||K.guideArt?.(K.state.voice);
+      if(!art) return null;
+      const img=document.createElement('img');
+      img.className='cheer-peek peek-'+SPOTS[Math.floor(Math.random()*SPOTS.length)];
+      img.alt=''; img.decoding='async'; img.src=art;
+      host.insertBefore(img,host.firstChild);
+      return img;
+    }catch(e){ return null }
+  };
+
+  // Wat er gebeurt als een antwoord goed is: confetti én soms de gids.
+  K.cheer=(host,opts)=>{K.celebrate('pop',host);K.peekGuide(host,opts)};
 })();

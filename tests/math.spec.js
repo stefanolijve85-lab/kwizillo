@@ -27,8 +27,10 @@ test('Maths opens from Home and a world; level 1 shows small sums with four opti
   const sum = await page.evaluate(() => window.KWIZILLO_M1.math.sums.map(s => s));
   expect(sum.length).toBe(10);
   for (const s of sum) { expect(['+', '-']).toContain(s.op); expect(s.a).toBeGreaterThan(0); expect(s.b).toBeGreaterThan(0); expect(s.answer).toBeGreaterThanOrEqual(0); expect(s.answer).toBeLessThanOrEqual(10); expect(new Set(s.options).size).toBe(4); expect(s.options).toContain(s.answer); }
+  // Rekenen wordt vanaf Home gestart, dus terug gaat naar Home — niet naar het
+  // wereldscherm van de wereld waar de sommen vandaan kwamen.
   await page.locator('#mathBack').click();
-  await expect(page.locator('.native-world')).toBeVisible();
+  await expect(page.locator('.home')).toBeVisible();
   await expect(page.locator('#worldMath')).toHaveCount(0);   // games live on Home, not on the world page
   expect(errors).toEqual([]);
 });

@@ -448,7 +448,7 @@
         const said=host.say(t(stop.key),{minMs:1400});
         // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
         {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb();const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-(f.bottom-6));if(over>0){to.y+=to.side==='top'?over:-over;host.moveTo(to.x,to.y,{instant:true});}}
-        await Promise.race([said,waitTap(12000)]);
+        await Promise.race([said,waitTap(20000)]);
         stopGesture();
         host.stop();
       }

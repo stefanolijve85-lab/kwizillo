@@ -24,6 +24,10 @@ const W = 752, H = 1344, QUALITY = 88;
 const argv = process.argv.slice(2);
 const [src, world] = argv.filter(a => !a.startsWith('--') && !/^\d+$/.test(a));
 const yArg = (() => { const i = argv.indexOf('--y'); return i >= 0 ? Number(argv[i + 1]) : 46 })();
+// --scale zoomt uit: de plaat wordt kleiner in het vlak gezet en eromheen staat
+// dezelfde plaat onscherp en formaatvullend. Zo krijgt een render die tot aan de
+// rand is volgetekend net zoveel lucht om het eiland als de andere werelden.
+const scaleArg = (() => { const i = argv.indexOf('--scale'); return i >= 0 ? Number(argv[i + 1]) : 0 })();
 
 if (!src || !world) {
   console.error('Gebruik: node tools/world-art.cjs <bronbestand> <wereld> [--y 46]');
@@ -62,12 +66,31 @@ if (!s) { console.error('Kan de maat van de bron niet lezen (PNG of JPEG verwach
 const coverScale = Math.max(W / s.w, H / s.h);
 const sideCrop = (s.w * coverScale - W) / (s.w * coverScale);   // deel dat links+rechts wegvalt
 // --mirror dwingt de gespiegelde variant af, ook als bijsnijden zou kunnen.
-const MODE = argv.includes('--mirror') ? 'mirror' : (sideCrop <= 0.3 ? 'cover' : 'mirror');
+const MODE = scaleArg > 0 ? 'zoomout' : argv.includes('--mirror') ? 'mirror' : (sideCrop <= 0.3 ? 'cover' : 'mirror');
 const artH = Math.round(W * s.h / s.w);                       // de plaat op volle breedte
 const top = Math.max(0, Math.round((H - artH) * (yArg / 100)));// ruimte erboven
 const bottom = Math.max(0, H - artH - top);
 
-const page = file => MODE === 'cover' ? `<!doctype html><meta charset="utf-8"><style>
+const zoomPage = file => `<!doctype html><meta charset="utf-8"><style>
+  html,body{margin:0;background:#0a2049}
+  .canvas{position:relative;width:${W}px;height:${H}px;overflow:hidden}
+  /* Dezelfde plaat, onscherp en formaatvullend: de lucht en de kleuren lopen
+     door tot aan de rand zonder dat er een tweede beeld ontstaat. */
+  .halo{position:absolute;inset:-6%;background:url("${file}") center ${yArg}%/cover no-repeat;filter:blur(26px) saturate(1.05) brightness(.96)}
+  /* De plaat vloeit aan alle vier de randen uit in de onscherpe kopie eronder.
+     Dat is dezelfde afbeelding, dus de kleuren sluiten precies aan en er is
+     geen naad te zien — zonder de veer stond er een scherpe rechthoek op een
+     wazige ondergrond geplakt. */
+  .art{position:absolute;left:50%;top:${yArg}%;transform:translate(-50%,-50%);width:${Math.round(W * scaleArg)}px;display:block;
+       -webkit-mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),
+                          linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+       -webkit-mask-composite:source-in;mask-composite:intersect;
+       mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),
+                  linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%)}
+  .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,30,72,.30),rgba(9,30,72,0) 26%,rgba(9,30,72,0) 74%,rgba(9,30,72,.34))}
+</style><div class="canvas"><div class="halo"></div><img class="art" src="${file}"><div class="veil"></div></div>`;
+
+const page = file => MODE === 'zoomout' ? zoomPage(file) : MODE === 'cover' ? `<!doctype html><meta charset="utf-8"><style>
   html,body{margin:0;background:#0a2049}
   .canvas{position:relative;width:${W}px;height:${H}px;overflow:hidden}
   .art{position:absolute;inset:0;background:url("${file}") center ${yArg}%/cover no-repeat}
@@ -106,6 +129,9 @@ const page = file => MODE === 'cover' ? `<!doctype html><meta charset="utf-8"><s
   await browser.close();
   fs.unlinkSync(tmp);
   const kb = Math.round(fs.statSync(out).size / 1024);
-  console.log(`${out.replace(ROOT + '/', '')}: ${W}×${H}, ${kb} kB — bron ${s.w}×${s.h}, ${MODE === 'cover' ? `formaatvullend (${Math.round(sideCrop * 100)}% van de breedte valt weg)` : `heel in beeld op ${top}..${top + artH}, lucht gespiegeld`}`);
+  const how = MODE === 'zoomout' ? `uitgezoomd naar ${Math.round(scaleArg * 100)}% breedte, onscherpe halo eromheen`
+  : MODE === 'cover' ? `formaatvullend (${Math.round(sideCrop * 100)}% van de breedte valt weg)`
+  : `heel in beeld op ${top}..${top + artH}, lucht gespiegeld`;
+console.log(`${out.replace(ROOT + '/', '')}: ${W}×${H}, ${kb} kB — bron ${s.w}×${s.h}, ${how}`);
   console.log('Daarna: node tools/art-adopt.cjs assets/worlds/' + world + '.jpg');
 })();

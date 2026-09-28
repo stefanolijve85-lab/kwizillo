@@ -17,7 +17,11 @@
    The transform/filter on .native-world-bg, the whole .native-world-shade rule
    and the whole .world-topic rule were fully superseded by the moodboard pass
    below and have been dropped. */
-.native-world-bg{object-position:center center}.world-title-wrap{padding:5px 12px 9px;border-radius:22px;background:linear-gradient(180deg,rgba(4,31,91,.25),rgba(4,31,92,.05));backdrop-filter:blur(2.5px);text-shadow:0 4px 16px rgba(0,20,60,.45)}.world-title-wrap h1,.world-title-wrap p,.world-kicker{position:relative;z-index:1}.world-topic-grid,.world-mix,.native-bottom-nav{position:relative;z-index:3}.world-mix{box-shadow:0 7px 0 #d9850b,0 14px 30px rgba(0,27,80,.24)}
+/* Het wereldscherm: waar het eiland in de plaat zit verschilt per wereld, dus
+   m1-ui.js zet er dezelfde kaart op als de tegels gebruiken (K.WORLD_FOCUS).
+   `center center` legde voor elke wereld de middenband in beeld, en dan zakte
+   het eiland achter de onderwerpknoppen. Dit hier is alleen de terugval. */
+.native-world-bg{object-position:center 38%}.world-title-wrap{padding:5px 12px 9px;border-radius:22px;background:linear-gradient(180deg,rgba(4,31,91,.25),rgba(4,31,92,.05));backdrop-filter:blur(2.5px);text-shadow:0 4px 16px rgba(0,20,60,.45)}.world-title-wrap h1,.world-title-wrap p,.world-kicker{position:relative;z-index:1}.world-topic-grid,.world-mix,.native-bottom-nav{position:relative;z-index:3}.world-mix{box-shadow:0 7px 0 #d9850b,0 14px 30px rgba(0,27,80,.24)}
 /* ---- moodboard pass: world polish + quiz/hint/result (was moodboard-polish.css); the answer card lives in its own block below ---- */
 .native-world-bg{filter:saturate(1.12) brightness(.82)!important;transform:scale(1.015)!important}.native-world-shade{background:linear-gradient(180deg,rgba(2,28,75,.08),rgba(2,28,75,.12) 38%,rgba(3,22,61,.52) 100%)!important}.native-world-ui{gap:1.65%!important}.native-world-head{grid-template-columns:48px 1fr 48px!important}.world-title-wrap h1{font-size:clamp(29px,7.8vw,50px)!important;text-shadow:0 4px 16px rgba(0,26,83,.38)!important}.world-title-wrap p{font-size:clamp(11px,2.7vw,15px)!important;color:#fff!important;text-shadow:0 3px 9px rgba(0,26,83,.4)}.world-topic-grid{gap:10px!important}.world-topic{min-height:104px!important;border-radius:22px!important;background:linear-gradient(180deg,rgba(255,255,255,.985),rgba(239,249,255,.965))!important;box-shadow:0 7px 0 rgba(113,191,232,.82),0 16px 26px rgba(0,33,91,.2)!important}.world-mix{min-height:68px!important}.native-bottom-nav{background:rgba(250,253,255,.985)!important}
 
@@ -1129,7 +1133,10 @@
 
 /* ==== Fotozoom ==== */
 .fotozoom-card{gap:8px}
-.fotozoom-stage{position:relative;flex:1 1 auto;min-height:150px;max-height:56%;border-radius:22px;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 18px rgba(20,80,145,.17);background:#0b2f5c}
+/* Het uitsnedevlak is vierkant: je kijkt door een loep, en een loep is rond of
+   vierkant — niet een brede band. Vierkant blijft er bij het inzoomen ook meer
+   van het onderwerp over om naar te raden. */
+.fotozoom-stage{position:relative;flex:0 1 auto;aspect-ratio:1;width:auto;height:auto;max-height:52%;max-width:min(100%,52vh);margin-inline:auto;border-radius:22px;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 18px rgba(20,80,145,.17);background:#0b2f5c}
 .fotozoom-stage img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1);will-change:transform}
 .fotozoom-lens{position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;font-size:18px;box-shadow:0 3px 8px rgba(0,26,80,.25)}
 .fotozoom-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px}
@@ -1317,3 +1324,23 @@
   background:linear-gradient(180deg,#5aa6ff,#2664c9);border:2px solid rgba(255,255,255,.42)}
 .wb-player b{display:block;font-size:clamp(14px,3.6vw,18px);font-weight:1000}
 .wb-player small{display:block;font-size:10px;font-weight:800;color:#bfdcff}
+
+/* ---- De gids die achter een popup vandaan piept (celebrate.js, K.peekGuide) ----
+   Bij een goed antwoord, niet elke keer en telkens uit een andere hoek. Hij
+   staat áchter de kaart (z-index 0 tegen de kaart z-index 1), zodat hij nooit
+   de tekst bedekt. */
+.cheer-peek{position:absolute;z-index:0;width:min(30%,132px);aspect-ratio:1;object-fit:cover;border-radius:50%;
+  border:4px solid #fff;box-shadow:0 12px 26px rgba(0,22,70,.35);pointer-events:none}
+.cheer-peek.peek-tl{top:8%;inset-inline-start:6%;animation:peekTL .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-tr{top:8%;inset-inline-end:6%;animation:peekTR .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-bl{bottom:10%;inset-inline-start:6%;animation:peekBL .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-br{bottom:10%;inset-inline-end:6%;animation:peekBR .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-ml{top:38%;inset-inline-start:3%;animation:peekML .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-mr{top:38%;inset-inline-end:3%;animation:peekMR .55s cubic-bezier(.2,.9,.25,1.4) both}
+@keyframes peekTL{from{transform:translate(-40%,-60%) scale(.6) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekTR{from{transform:translate(40%,-60%) scale(.6) rotate(14deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekBL{from{transform:translate(-40%,60%) scale(.6) rotate(14deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekBR{from{transform:translate(40%,60%) scale(.6) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekML{from{transform:translate(-70%,0) scale(.7) rotate(-10deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes peekMR{from{transform:translate(70%,0) scale(.7) rotate(10deg);opacity:0}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.cheer-peek{animation:none}}

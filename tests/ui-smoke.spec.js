@@ -745,7 +745,7 @@ test('the timer can be switched off; the six levels set seconds, allowed mistake
   await page.locator('#worldGear').click();
   await expect(page.locator('[data-level]')).toHaveCount(6);
   await page.locator('[data-level="3"]').click();
-  await expect(page.locator('.level-card b')).toContainText('Rekenen: niveau 3');   // the dial is the sums game's level; worlds climb on their own
+  await expect(page.locator('.level-card b')).toContainText('Spelniveau 3');   // the dial is the sums game's level; worlds climb on their own
   await expect(page.locator('.level-card small')).toContainText('20 s per vraag · max. 4 fouten');
 });
 

@@ -84,7 +84,7 @@ export class Renderer{
  shoulder(){const L=LEVELS[this.level],key=L.shoulder+(this.isNight?'-night':'');return this.tiles[key]??=tile(L.shoulder,this.isNight);}
  // Trees, plants and obstacles get a moonlit copy for the evening scene (made once).
  night(name){if(!/^(scenery|obstacle)-/.test(name))return this.images[name];this.nightImages??={};if(this.nightImages[name])return this.nightImages[name];const im=this.images[name],c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.fillStyle='#0a2740';g.globalAlpha=.5;g.fillRect(0,0,c.width,c.height);return this.nightImages[name]=c;}
- image(name,x,y,w,angle=0,alpha=1,flip=false){const im=this.isNight?this.night(name):this.images[name];if(!im)return;const g=this.g,h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.translate(x,y);g.rotate(angle);if(flip)g.scale(-1,1);g.drawImage(im,-w/2,-h,w,h);g.restore();}
+ image(name,x,y,w,angle=0,alpha=1,flip=false,sx=1){const im=this.isNight?this.night(name):this.images[name];if(!im)return;const g=this.g,h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.translate(x,y);g.rotate(angle);if(flip)g.scale(-1,1);if(sx!==1)g.scale(sx,1);g.drawImage(im,-w/2,-h,w,h);g.restore();}
  // The first opaque row of a painting (cached): where the fists are on the hanging and reaching poses.
  topOf(name){this.tops??={};if(this.tops[name]!==undefined)return this.tops[name];const im=this.images[name];const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,im.width,im.height).data;let top=0;outer:for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x+=2)if(d[(y*im.width+x)*4+3]>40){top=y;break outer;}return this.tops[name]=top/im.height;}
  flip(x,bottom,width,remaining,alpha,twice=false){const g=this.g,im=this.images[`hero-${this.hero}-flip`];const p=1-Math.max(0,Math.min(.92,remaining))/.92;const frame=twice?Math.min(7,Math.floor(((p*2)%1)*8)):flipFrame(remaining),cw=im.width/4,ch=im.height/2;const h=width*ch/cw*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.drawImage(im,(frame%4)*cw,Math.floor(frame/4)*ch,cw,ch,x-width/2,bottom-h,width,h);g.restore();}
@@ -241,7 +241,19 @@ export class Renderer{
    g.restore();continue;}
   if(['magnet','shield','gold','double','speed'].includes(o.kind)){badge(g,o.kind,p.x,p.y-p.scale*.2,p.scale*.45,s.time);continue;}
   const width=p.scale*(o.kind==='coin'?.30:o.kind==='card'?.42:.73);const name=o.kind==='coin'?'collectible-coin':o.kind==='card'?L.card:L.obstacles[o.kind];const lift=o.kind==='coin'?p.scale*.24:0;
-  if(o.kind==='coin'||o.kind==='card'){g.save();g.shadowColor=o.kind==='coin'?'#ffe590':'#b988ff';g.shadowBlur=this.reduced?0:12;this.image(name,p.x,p.y-lift,width,this.reduced?0:Math.sin(s.time*2+o.z)*.05);g.restore();if(o.kind==='coin'&&!this.reduced&&((s.time*1.6+o.z*7)%1)<.18){const r=width*.55,cx=p.x+width*.28,cy=p.y-lift-width*.95;g.fillStyle='#ffffffd9';g.beginPath();g.moveTo(cx,cy-r);g.quadraticCurveTo(cx,cy,cx+r,cy);g.quadraticCurveTo(cx,cy,cx,cy+r);g.quadraticCurveTo(cx,cy,cx-r,cy);g.quadraticCurveTo(cx,cy,cx,cy-r);g.fill();}}
+  if(o.kind==='coin'||o.kind==='card'){g.save();g.shadowColor=o.kind==='coin'?'#ffe590':'#b988ff';g.shadowBlur=this.reduced?0:12;
+   // De munt draait om zijn as: de plaat wordt smaller en breder, en zodra hij
+   // bijna op zijn kant staat zie je de dikte als een donkerder gouden rand.
+   // Zo is het een muntstuk in plaats van een platte schijf — de obstakels om
+   // hem heen zijn allemaal echte 3D-platen.
+   if(o.kind==='coin'&&!this.reduced){
+    const spin=Math.cos(s.time*3.4+o.z*6.2),sx=Math.max(.14,Math.abs(spin));
+    if(sx<.44){const edge=1-(sx-.14)/.30,ew=Math.max(1.5,width*.17*(1-sx*.55)),eh=width*.9,ex=p.x-ew/2,ey=p.y-lift-eh;
+     g.fillStyle=`rgba(191,127,17,${(.5+edge*.4).toFixed(3)})`;g.beginPath();
+     if(g.roundRect)g.roundRect(ex,ey,ew,eh,ew*.5);else g.rect(ex,ey,ew,eh);g.fill();}
+    this.image(name,p.x,p.y-lift,width,0,1,false,sx);
+   }else this.image(name,p.x,p.y-lift,width,this.reduced?0:Math.sin(s.time*2+o.z)*.05);
+   g.restore();if(o.kind==='coin'&&!this.reduced&&((s.time*1.6+o.z*7)%1)<.18){const r=width*.55,cx=p.x+width*.28,cy=p.y-lift-width*.95;g.fillStyle='#ffffffd9';g.beginPath();g.moveTo(cx,cy-r);g.quadraticCurveTo(cx,cy,cx+r,cy);g.quadraticCurveTo(cx,cy,cx,cy+r);g.quadraticCurveTo(cx,cy,cx-r,cy);g.quadraticCurveTo(cx,cy,cx,cy-r);g.fill();}}
   else{if(!flies){g.fillStyle='#1f200b40';g.beginPath();g.ellipse(p.x,p.y,width*.43,width*.09,0,0,7);g.fill();}const bob=flies&&!this.reduced?Math.sin(s.time*6+o.lane)*p.scale*.03:0;this.image(name,p.x,p.y+bob,width,flies&&o.kind==='log'?Math.sin(s.time*9)*.06:0);}}
  if(!drawn)player();
  // turbo: speed streaks racing in from the edges and a warm glow

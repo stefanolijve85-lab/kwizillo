@@ -35,7 +35,7 @@
     const batch=K.core.selectQuizBatch({
       questions:K.questions,world,topicKey:key,
       grade:Number(K.state.group||5),limit:10,usedIds:run.usedIds,
-      band:K.core.difficultyBand({niveau:K.worldLevel(world)})
+      band:K.core.difficultyBand({niveau:K.playLevel(world)})
     });
     if(!batch.questions.length){K.toast(t('quiz.none'));K.showWorld(world);return}
     run.usedIds=batch.usedIds;
@@ -65,7 +65,10 @@
   function stopTimer(){if(timer){clearInterval(timer.id);timer=null}}
   // The level of the world being played, not a setting: every world climbs on
   // its own (state.js, K.worldLevel).
-  const level=()=>K.worldLevel(K.quiz?.world||K.currentWorld);
+  // Het niveau waarop gespeeld wordt: het verdiende niveau van de wereld, of
+  // hoger als dat in de ouderzone is gekozen (state.js, K.playLevel). Hieraan
+  // hangen de seconden per vraag, het aantal fouten dat mag en de hints.
+  const level=()=>K.playLevel(K.quiz?.world||K.currentWorld);
   function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(level())}
 
   function render(q){
@@ -260,7 +263,13 @@
         const card=x.querySelector('.feedback-card'),fr=f.getBoundingClientRect(),cr=card.getBoundingClientRect();
         const peek=document.createElement('img');peek.className='feedback-peek';peek.src=cheer;peek.alt='';peek.setAttribute('aria-hidden','true');
         const w=Math.min(96,Math.round(cr.width*.3));
-        peek.style.width=w+'px';peek.style.left=Math.round(cr.right-fr.left-w-18)+'px';peek.style.top=Math.round(cr.top-fr.top-w*1.05)+'px';
+        // Niet altijd dezelfde hoek: links, rechts of midden boven de kaart, en
+        // soms een eindje omlaag langs de zijkant. Tien goede antwoorden achter
+        // elkaar zien er dan niet tien keer hetzelfde uit.
+        const side=Math.floor(Math.random()*3);
+        const left=side===0?cr.left-fr.left+18:side===1?cr.right-fr.left-w-18:cr.left-fr.left+(cr.width-w)/2;
+        const top=cr.top-fr.top-w*(side===2?1.02:.92)+(Math.random()*w*.18);
+        peek.style.width=w+'px';peek.style.left=Math.round(left)+'px';peek.style.top=Math.round(top)+'px';
         x.appendChild(peek);
         peek.addEventListener('animationend',()=>peek.remove());
       }

@@ -29,7 +29,7 @@ test('Memo opens from Home and from a world, lays out a level-1 board of 8 pictu
   await page.locator('#homeMemo').click();
   // A picker first: all worlds or one of the six.
   await expect(page.locator('.memo-picker')).toBeVisible();
-  await expect(page.locator('[data-memo]')).toHaveCount(7);
+  await expect(page.locator('[data-memo]')).toHaveCount(9);   // gemengd + acht werelden
   await page.locator('[data-memo="mix"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   await expect(page.locator('.memo-card')).toHaveCount(16);

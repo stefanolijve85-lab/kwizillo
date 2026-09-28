@@ -45,10 +45,12 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 [data-shape="wide"] .panel-scroll{padding-inline:3%}
 [data-shape="wide"] .world-progress-grid,
 [data-shape="wide"] .achievement-grid,
-[data-shape="wide"] .mascot-grid,
 [data-shape="wide"] .world-stat-list,
-[data-shape="wide"] .game-stat-list,
-[data-shape="wide"] .card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+[data-shape="wide"] .game-stat-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Kaarten zijn plaatjes, geen regels tekst: op een breed scherm passen er vier
+   naast elkaar zonder dat ze klein worden om te bekijken. */
+[data-shape="wide"] .mascot-grid,
+[data-shape="wide"] .card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 [data-shape="wide"] .stat-tiles,
 [data-shape="wide"] .profile-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
 /* Eén kolom van gelijke breedte, gecentreerd. `width:100%` hoort erbij: een
@@ -69,6 +71,9 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 [data-shape="wide"] .feedback-card{width:min(660px,84%);margin-inline:auto}
 [data-shape="wide"] .hint-card{width:min(700px,84%);margin-inline:auto}
 [data-shape="wide"] .sound-settings-card{width:min(780px,90%);margin-inline:auto}
+/* De korte popups van de spellen (goed/fout, uitleg) blijven een kaart en
+   worden geen balk over de volle breedte van een tablet. */
+[data-shape="wide"] .simple-modal-card{width:min(560px,80%);margin-inline:auto}
 [data-shape="wide"] .onboarding-inner{max-width:760px;margin-inline:auto}
 
 /* ---- mini-games ---- */
@@ -83,10 +88,21 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 [data-shape="wide"] .math-card .math-sum{grid-area:1/1/3/2;align-self:center;justify-self:center;font-size:clamp(40px,4.4vw,72px)}
 [data-shape="wide"] .math-card .math-feedback{grid-area:3/1/4/2;align-self:start;justify-self:center}
 [data-shape="wide"] .math-card .quiz-actions{grid-area:3/1/4/2;align-self:end}
-[data-shape="wide"] .whoami-card .whoami-guide{grid-area:1/1/3/2;align-self:center}
-[data-shape="wide"] .whoami-card .whoami-points{grid-area:3/1/4/2;align-self:start;justify-self:center}
+/* Drie dingen onder elkaar in de linkerkolom: de punten, de gids met zijn tips,
+   en de knoppen. De punten stonden in dezelfde cel als de knoppenrij, en dan
+   piepte de gele pil tussen "Een tip" en "Nog eens" door. */
+[data-shape="wide"] .whoami-card .whoami-points{grid-area:1/1/2/2;align-self:start;justify-self:center}
+[data-shape="wide"] .whoami-card .whoami-guide{grid-area:2/1/3/2;align-self:center}
 [data-shape="wide"] .whoami-card .whoami-grid{grid-area:1/2/4/3;margin:0;align-content:stretch}
 [data-shape="wide"] .whoami-card .quiz-actions{grid-area:3/1/4/2;align-self:end}
+/* Fotozoom: de vierkante uitsnede vult de linkerkolom, de vier keuzes staan
+   rechts. Zonder deze regels kreeg de foto alleen de hoogte die de staande
+   opmaak hem gaf en bleef er links een half leeg vlak over. */
+[data-shape="wide"] .fotozoom-card .fotozoom-stage{grid-area:1/1/3/2;align-self:center;justify-self:center;
+  width:auto;height:100%;max-width:100%;max-height:100%;aspect-ratio:1;flex:none}
+[data-shape="wide"] .fotozoom-card .fotozoom-row{grid-area:3/1/4/2;align-self:start;justify-self:center}
+[data-shape="wide"] .fotozoom-card .fotozoom-answers{grid-area:1/2/4/3;margin:0;align-content:stretch}
+[data-shape="wide"] .fotozoom-card .quiz-actions{grid-area:3/1/4/2;align-self:end}
 
 /* Memo: a board as wide as the frame makes playing-card-shaped cards very flat,
    so the board keeps a width where the cards stay roughly square. */

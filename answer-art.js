@@ -240,12 +240,30 @@
     }
     safe.set(q.id,url);return url;
   };
+  // De kaart hierboven is met de hand samengesteld over de 480 platen die er
+  // toen waren. Kunst en sport kwamen later en staan er met geen enkele vraag
+  // in; Memo, Wat ben ik? en Fotozoom vonden daar dus niets en stuurden het
+  // kind terug naar Home. Inmiddels heeft élke vraag zijn eigen plaat, getekend
+  // uit de artBrief, en die plaat toont het onderwerp van de vraag. Voor een
+  // wereld die niet in de kaart staat geldt daarom: is het antwoord een
+  // concreet ding (dezelfde toets als artRevealsAnswer) en heeft de vraag een
+  // eigen plaat, dan is dat de antwoordplaat.
+  const curatedWorlds=new Set(Object.keys(A).map(id=>id.split('-')[0]));
+  const question=id=>{
+    for(const bank of Object.values(K.banks||{})){const q=(bank||[]).find(x=>x.id===id);if(q)return q}
+    return null;
+  };
   // URL of the picture that shows a question's answer, or null when there is
   // none. Takes a question or its id.
   K.answerArtFor=q=>{
     const id=typeof q==='string'?q:q?.id;
     const v=A[id];
-    if(!v)return null;
+    if(!v){
+      const world=String(id||'').split('-')[0];
+      if(!world||curatedWorlds.has(world))return null;
+      const full=typeof q==='object'&&q?q:question(id);
+      return full&&concrete(full.answer)?K.questionArtFor(id):null;
+    }
     if(v===1)return K.questionArtFor(id);
     return v.startsWith('a/')?'assets/questions/'+v+'.jpg':K.questionArtFor(v);
   };

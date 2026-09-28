@@ -148,7 +148,7 @@ if (emptyTopics.length) console.log(`Kwizillo question banks: ${unfinished.lengt
   const K = { MASTER: {}, QUESTION_ART: {}, TOPIC_ART: {} };
   vm.runInNewContext(worldAssets, { window: { KWIZILLO_M1: K } });
 
-  // De paden dragen een versiemerk (?v20) tegen oude browsercache; op schijf
+  // De paden dragen een versiemerk (?v21) tegen oude browsercache; op schijf
   // heet het bestand zonder dat merk.
   const artPath = src => src.split('?')[0];
 
