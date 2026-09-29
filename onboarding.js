@@ -159,6 +159,9 @@
     };
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{
       K.sfx('tap');
+      // Tapping the guide that is already chosen (Milo is, from the start) is
+      // "yes, this one": on to the next step, the same as "Verder".
+      if(b.classList.contains('selected')){K.stopSpeech();stepWelcome();return}
       K.setVoice(b.dataset.guide);
       f.querySelectorAll('[data-guide]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b))});
       K.stopSpeech();

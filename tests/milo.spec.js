@@ -157,8 +157,9 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   await expect(page.locator('.onboarding .milo-host:not(.leave)')).toHaveAttribute('data-guide', 'luna');
   // Her tour lines are already loading, two screens before the tour.
   await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /de werelden/.test(r.text)), { timeout: 8000 }).toBe(true);
-  // The welcome and the tour are hers.
-  await page.locator('#obNext').click();
+  // The welcome and the tour are hers. Tapping the guide that is already chosen
+  // goes on to the welcome, the same as "Verder".
+  await page.locator('[data-guide="Luna"]').click();
   await expect(page.locator('.onboarding .milo-host')).toHaveAttribute('data-guide', 'luna');
   await expect(page.locator('.milo-bubble h1')).toHaveText('Welkom, Sam!');
   const before = spoken.length;
