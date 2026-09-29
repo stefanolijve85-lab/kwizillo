@@ -121,7 +121,7 @@ function envelope(wav) {
           const refAt = (x, y) => { const xx = Math.round(ref.box.x0 + (x - best.x0) * rsx); const yy = Math.round(y <= best.y1 ? ref.box.y0 + (y - best.y0) * rsy : ref.box.y1 + (y - best.y1) * rsy); if (xx < 0 || xx >= W || yy < 0 || yy >= H) return null; return 4 * (yy * W + xx); };
           const lumOf = k => src[k] * .3 + src[k + 1] * .59 + src[k + 2] * .11, satOf = k => Math.max(src[k], src[k + 1], src[k + 2]) - Math.min(src[k], src[k + 1], src[k + 2]);
           const rlum = k => ref.d[k] * .3 + ref.d[k + 1] * .59 + ref.d[k + 2] * .11, rsat = k => Math.max(ref.d[k], ref.d[k + 1], ref.d[k + 2]) - Math.min(ref.d[k], ref.d[k + 1], ref.d[k + 2]);
-          const toRef = (k, kr, w) => { for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.d[kr + i] - src[k + i]) * w; if (w > .5) d[k + 3] = 255; };
+          const toRef = (k, kr, w) => { for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.d[kr + i] - src[k + i]) * w; d[k + 3] = Math.round(src[k + 3] + (ref.d[kr + 3] - src[k + 3]) * w); };   // alpha too: copying the reference's empty background as opaque black left dark notches under the helmet
           const eyes = { lx: best.x0 + ref.eyeL.fx * sw, ly: best.y0 + ref.eyeL.fy * sh, rx: best.x0 + ref.eyeR.fx * sw, ry: best.y0 + ref.eyeR.fy * sh };
           const ed = ref.edF * sw, tilt = 0;
           cx = best.x0 + ref.mouth.fx * sw; cy = best.y0 + ref.mouth.fy * sh;
@@ -161,22 +161,30 @@ function envelope(wav) {
             const g2 = Math.min(1, dist[y * W + x] / ringGap);   // a smooth gap around the rings, never a hard line
             // right beside a ring the reference may not line up pixel-perfectly, so
             // there a lit-up halo is simply pulled down to the glass's dark colour
-            if (g2 < 1 && below > -.1) { const k0 = 4 * (y * W + x), l0 = lumOf(k0); if (l0 < 75) { const w = Math.max(0, Math.min(1, (l0 - 22) / 25)) * (1 - g2); if (w > 0) { for (let i = 0; i < 3; i++) d[k0 + i] = src[k0 + i] + (ref.dark[i] - src[k0 + i]) * w; } } }
+            // only down in the mouth zone: at eye height this cut notches into the rings' own glow
+            if (g2 < 1 && below > .12) { const k0 = 4 * (y * W + x), l0 = lumOf(k0); if (l0 < 75) { const w = Math.max(0, Math.min(1, (l0 - 22) / 25)) * (1 - g2); if (w > 0) { for (let i = 0; i < 3; i++) d[k0 + i] = src[k0 + i] + (ref.dark[i] - src[k0 + i]) * w; } } }
             if (!g2) continue;
             const gate = g2 * g2 * (3 - 2 * g2);
             if (below > .12) {
+              const fade = Math.min(1, (below - .12) / .14);   // eases in over a band instead of a hard line
               if (y <= best.y1 && !inGlass(x, y)) continue;                             // the glass's rounded corners / the rim beside it: untouched
               if (y > best.y1 && lumOf(k) >= 200) continue;                           // below the glass: never over the rim
-              if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate);                    // inside the glass: everything, teeth included
-              else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
-            } else if (kr !== null) { const w = Math.max(0, Math.min(1, (lumOf(k) - rlum(kr) - 1) / 6)) * gate; if (w > 0) toRef(k, kr, w); }
+              if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate * fade);             // inside the glass: everything, teeth included
+              else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * fade * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
+            }
+            // At eye height nothing is repainted any more. That band used to pull
+            // whatever was brighter than frame 1 back to frame 1, but as soon as the
+            // head turns a little the two sets of rings do not line up, and it cut a
+            // shifted ring into the eye (a halo) and left a seam across the glass.
+            // The model draws its mouth below the eyes, which the branch above covers.
           }
           // 2. the rim under the screen: whatever differs from the reference there
           //    (teeth, a lip line, an orange open mouth) is the reference again
-          for (let y = best.y1 + 1; y <= Math.min(H - 1, Math.round(best.y1 + sh * .4)); y++) for (let x = Math.round(ex - sw * .45); x <= Math.round(ex + sw * .45); x++) {
+          for (let y = Math.round(best.y1 + sh * .05); y <= Math.min(H - 1, Math.round(best.y1 + sh * .4)); y++) for (let x = Math.round(ex - sw * .24); x <= Math.round(ex + sw * .24); x++) {   // a strip under the mouth only, clear of the glass's own lower edge: wider, it redrew the rim from frame 1 wherever the head had moved (a dark line, a sheared edge)
             const k = 4 * (y * W + x), kr = refAt(x, y); if (kr === null) continue;
-            const off = src[k + 3] < 250 ? 1 : Math.max((Math.abs(lumOf(k) - rlum(kr)) - 10) / 20, (Math.abs(satOf(k) - rsat(kr)) - 14) / 20);
-            const hx = Math.min(1, (sw * .45 - Math.abs(x - ex)) / (sw * .08)), vy = Math.min(1, (best.y1 + sh * .4 - y) / (sh * .08));
+            if (src[k + 3] < 250) continue;   // the silhouette's edge and the background stay the model's own: frame 1's rim sits elsewhere once the head moves (ghost edge, black notches)
+            const off = Math.max((Math.abs(lumOf(k) - rlum(kr)) - 10) / 20, (Math.abs(satOf(k) - rsat(kr)) - 14) / 20);
+            const hx = Math.min(1, (sw * .24 - Math.abs(x - ex)) / (sw * .06)), vy = Math.min(1, (best.y1 + sh * .4 - y) / (sh * .08), (y - best.y1 - sh * .05) / (sh * .05));
             const w = Math.max(0, Math.min(1, Math.min(off, hx, vy))); if (w > 0) toRef(k, kr, w);
           }
           if (debug) console.log('glass', best.x0, best.y0, sw, sh, 'mouth', Math.round(cx), Math.round(cy));

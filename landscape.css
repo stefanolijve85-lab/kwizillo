@@ -21,11 +21,10 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 [data-shape="wide"] .native-world-ui{gap:2%}
 [data-shape="wide"] .world-topic-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 [data-shape="wide"] .native-world-head{padding-inline:4%}
-/* Mysterie liggend: over de volle breedte toonde de staande plaat alleen lucht,
-   want het eiland zit tussen 13 en 55% van zijn hoogte. Een smallere plaat in het
-   midden laat het hele eiland zien; de zijkanten lopen over in de vervaagde kopie. */
-[data-shape="wide"] .world-mysterie .native-world-hero img{position:absolute;left:50%;width:54%;transform:translateX(-50%);object-position:center 10%;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
+/* Mysterie liggend: de plaat vult het kader zoals bij de andere werelden. Het
+   eiland zit lager in deze plaat (13-55% van de hoogte), dus de uitsnede schuift
+   omlaag tot het portaal onder de titel in beeld staat. */
+[data-shape="wide"] .world-mysterie .native-world-hero img{object-position:center 17%}
 [data-shape="wide"] .world-mix{margin-inline:auto;width:min(760px,100%)}
 
 /* ---- quiz: question across the top, picture on the left, answers on the right ---- */
