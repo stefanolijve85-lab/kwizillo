@@ -1358,6 +1358,19 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .cheer-peek.peek-br{bottom:-3%;inset-inline-end:-3%;animation:peekBR .55s cubic-bezier(.2,.9,.25,1.4) both}
 .cheer-peek.peek-ml{top:30%;inset-inline-start:-6%;animation:peekML .55s cubic-bezier(.2,.9,.25,1.4) both}
 .cheer-peek.peek-mr{top:30%;inset-inline-end:-6%;animation:peekMR .55s cubic-bezier(.2,.9,.25,1.4) both}
+/* Aan een popup (de ballon in Wat ben ik? en Fotozoom): de gids hing aan de
+   donkere laag over het hele scherm en stond dus in de schermhoek, half buiten
+   beeld. celebrate.js geeft hem de plek van de ballon zelf mee (--cl/--ct/--cw/
+   --ch); hij staat erachter en komt in de bovenhoeken met bijna zijn hele hoofd
+   boven de rand uit. */
+.simple-modal>.simple-modal-card{position:relative;z-index:1}
+.cheer-peek.peek-on-card{--s:min(calc(var(--cw) * .34),164px);width:var(--s);inset:auto;margin:0}
+.cheer-peek.peek-on-card.peek-tl{left:calc(var(--cl) + var(--cw) * .04);top:calc(var(--ct) - var(--s) * .74)}
+.cheer-peek.peek-on-card.peek-tr{left:calc(var(--cl) + var(--cw) * .96 - var(--s));top:calc(var(--ct) - var(--s) * .74)}
+.cheer-peek.peek-on-card.peek-bl{left:calc(var(--cl) - var(--s) * .3);top:calc(var(--ct) + var(--ch) - var(--s) * .55)}
+.cheer-peek.peek-on-card.peek-br{left:calc(var(--cl) + var(--cw) - var(--s) * .7);top:calc(var(--ct) + var(--ch) - var(--s) * .55)}
+.cheer-peek.peek-on-card.peek-ml{left:calc(var(--cl) - var(--s) * .62);top:calc(var(--ct) + var(--ch) * .3)}
+.cheer-peek.peek-on-card.peek-mr{left:calc(var(--cl) + var(--cw) - var(--s) * .38);top:calc(var(--ct) + var(--ch) * .3)}
 @keyframes peekTL{from{transform:translate(30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
 @keyframes peekTR{from{transform:translate(-30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
 @keyframes peekBL{from{transform:translate(30%,-55%) scale(.55);opacity:0}to{transform:none;opacity:1}}

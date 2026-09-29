@@ -99,7 +99,7 @@
       // Luna — ook hier. Met stem uit valt de gekozen buddy in.
       const guide=K.state.voice==='Luna'?'luna':'milo';
       const G=K.GUIDES?.[guide];
-      const spot=SPOTS[Math.floor(Math.random()*SPOTS.length)];
+      let spot=SPOTS[Math.floor(Math.random()*SPOTS.length)];
       const wrap=document.createElement('div');
       wrap.className='cheer-peek peek-'+spot;
       wrap.setAttribute('aria-hidden','true');
@@ -118,6 +118,18 @@
         const art=K.MASCOT_ART?.[K.state.selectedMascot]||K.guideArt?.('Milo');
         if(!art) return null;
         wrap.innerHTML=`<img class="milo-still-face" src="${art}" alt="" draggable="false">`;
+      }
+      // A popup: the overlay covers the whole screen, so the corners must be the
+      // card's, not the screen's (the guide stood half off-screen, far from it).
+      const card=host.querySelector?.(':scope>.simple-modal-card');
+      if(card){
+        const hr=host.getBoundingClientRect(),cr=card.getBoundingClientRect();
+        wrap.classList.add('peek-on-card');
+        // Beside the card only when there is room there (on a phone the card
+        // nearly fills the width); otherwise the top corner on that side.
+        const size=Math.min(cr.width*.34,164),room=Math.min(cr.left-hr.left,hr.right-cr.right);
+        if((spot==='ml'||spot==='mr')&&room<size*.6){wrap.classList.remove('peek-'+spot);spot=spot==='ml'?'tl':'tr';wrap.classList.add('peek-'+spot)}
+        for(const [k,v] of [['cl',cr.left-hr.left],['ct',cr.top-hr.top],['cw',cr.width],['ch',cr.height]]) wrap.style.setProperty('--'+k,v.toFixed(1)+'px');
       }
       host.insertBefore(wrap,host.firstChild);
 
