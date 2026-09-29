@@ -126,7 +126,12 @@
   // praathouding, dus ze sluiten naadloos op elkaar en op de uitsnede aan.
   // Gemaakt met Higgsfield (MiniMax H3 Max, begin- en eindbeeld vast) en
   // doorzichtig gemaakt met tools/keyclip.cjs (KEYCLIP_SMILE=1).
-  const MOTION={milo:{idle:{loop:true},wave:{loop:false},walk:{loop:true}}};
+  const MOTION={milo:{idle:{loop:true,base:'talk'},wave:{loop:false,base:'talk'},walk:{loop:true,base:'walkA'}}};
+  // Whether a guide has motion clips (onboarding starts him in the pose they start from).
+  K.guideHasMotion=guide=>!!MOTION[guideOf(guide)];
+  // A cut-out's figure outline (fractions of the image), measured once per picture.
+  const cutBoxes=new Map();
+  const cutBox=src=>{if(!cutBoxes.has(src))cutBoxes.set(src,new Promise(res=>{const i=new Image();i.onload=()=>{try{const c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const x=c.getContext('2d');x.drawImage(i,0,0);const d=x.getImageData(0,0,c.width,c.height).data;let x0=1e9,y0=1e9,x1=0,y1=0;for(let y=0;y<c.height;y++)for(let xx=0;xx<c.width;xx++)if(d[(y*c.width+xx)*4+3]>40){if(xx<x0)x0=xx;if(xx>x1)x1=xx;if(y<y0)y0=y;if(y>y1)y1=y}res([x0/c.width,x1/c.width,y0/c.height,y1/c.height])}catch(e){res(null)}};i.onerror=()=>res(null);i.src=src}));return cutBoxes.get(src)};
   const motionSrc=(guide,name)=>{if(!MOTION[guide]?.[name])return null;const b=`assets/${guide}/motion/${name}`;return K.assetUrl((safari&&canHevc)?`${b}.mp4`:canWebm?`${b}.webm`:`${b}.mp4`)};
   const clipPool=new Map();
   function clipVideo(src){
@@ -250,56 +255,76 @@
     // clip, a line spoken live (the drawn mouth sits on the cut-out).
     let motionEl=null,motionName=null;
     const useMotion=figure&&motion&&!!MOTION[guide];
-    // The live mouth rides on the video: every frame it is put where the clip's
-    // face is at that moment (assets/<guide>/motion/<name>.json, written by
-    // keyclip), sized from the eye distance the way the cut-out's mouth is.
+    // Per clip (assets/<guide>/motion/<name>.json, written by keyclip): where the
+    // mouth is in every frame, and the figure's outline in frame 1.
     const tracks=new Map();
     const trackFor=src=>{const u=src.replace(/\.(webm|mp4)(\?|$)/,'.json$2');if(!tracks.has(u))tracks.set(u,fetch(u).then(r=>r.ok?r.json():null).catch(()=>null));return tracks.get(u)};
+    // The clip lies exactly over the cut-out it starts from: scaled and shifted
+    // so the two figures' outlines match. Without that the figure jumped a few
+    // pixels at every swap, and before it was placed at all it stood beside the
+    // cut-out (two Milos).
+    const place=(v,t,cb)=>{
+      if(!t?.fig||!cb)return false;
+      const W=img.offsetWidth,H=img.offsetHeight;if(!W||!H)return false;
+      const x0=char.offsetLeft+img.offsetLeft,y0=char.offsetTop+img.offsetTop;
+      const [fx0,fx1,fy0,fy1]=t.fig;
+      const vh=H*(cb[3]-cb[2])/(fy1-fy0),vw=vh*(t.w/t.h);
+      v.style.height=vh.toFixed(1)+'px';v.style.width=vw.toFixed(1)+'px';
+      v.style.left=(x0+W*(cb[0]+cb[1])/2-vw*(fx0+fx1)/2).toFixed(1)+'px';
+      v.style.top=(y0+H*cb[2]-vh*fy0).toFixed(1)+'px';
+      return true;
+    };
     let trackRaf=0;
-    const followTrack=(v,t)=>{
+    const follow=(v,t,cb)=>{
       cancelAnimationFrame(trackRaf);
-      if(!t||!t.track?.length){figMouth.hidden=true;return}
-      if(figMouth.parentNode!==wrap)wrap.appendChild(figMouth);
-      figMouth.hidden=false;figMouth.className=`milo-mouth mouth-${g.mouthStyle||'robot'}`;
+      const mouthOk=!!t?.track?.length;
+      if(mouthOk){if(figMouth.parentNode!==wrap)wrap.appendChild(figMouth);figMouth.hidden=false;figMouth.className=`milo-mouth mouth-${g.mouthStyle||'robot'}`}else figMouth.hidden=true;
       const step=()=>{
         if(motionEl!==v||!v.isConnected)return;
-        const m=t.track[Math.min(t.track.length-1,Math.floor((v.currentTime||0)*t.fps))]||t.track[0];
-        const W=v.offsetWidth,H=v.offsetHeight;
-        if(m&&W&&H){
-          figMouth.style.left=(v.offsetLeft+m[0]*W).toFixed(1)+'px';figMouth.style.top=(v.offsetTop+m[1]*H).toFixed(1)+'px';
-          figMouth.style.setProperty('--mw',Math.max(6,Math.round(m[2]*H*.43))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m[2]*H*.174))+'px');
+        place(v,t,cb);
+        const m=mouthOk&&(t.track[Math.min(t.track.length-1,Math.floor((v.currentTime||0)*t.fps))]||t.track[0]);
+        const VW=v.offsetWidth,VH=v.offsetHeight;
+        if(m&&VW&&VH){
+          figMouth.style.left=(v.offsetLeft+m[0]*VW).toFixed(1)+'px';figMouth.style.top=(v.offsetTop+m[1]*VH).toFixed(1)+'px';
+          figMouth.style.setProperty('--mw',Math.max(6,Math.round(m[2]*VH*.43))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m[2]*VH*.174))+'px');
         }
         trackRaf=requestAnimationFrame(step);
       };
       step();
     };
-    const stopMotion=()=>{if(!motionEl)return;cancelAnimationFrame(trackRaf);motionEl.pause?.();motionEl.remove();motionEl=null;motionName=null;el.classList.remove('motion-playing');if(!clipEl){img.classList.remove('behind-clip');if(figMouth.parentNode!==char)char.appendChild(figMouth);placeMouth()}};
+    const stopMotion=()=>{if(!motionEl)return;cancelAnimationFrame(trackRaf);motionEl.pause?.();motionEl.classList.remove('on');motionEl.remove();motionEl=null;motionName=null;el.classList.remove('motion-playing');img.classList.remove('under-motion');if(!clipEl){if(figMouth.parentNode!==char)char.appendChild(figMouth);placeMouth()}};
     const playMotion=name=>{
       const src=useMotion&&motionSrc(guide,name);if(!src)return Promise.resolve(false);
       if(motionName===name&&motionEl)return Promise.resolve(true);
-      // The clip that is playing stays on screen until the next one shows its
-      // first frame: swapping through the cut-out was a visible flash.
+      // The clip that is playing stays on screen until the next one has drawn
+      // its first frame: swapping through the cut-out was a visible flash.
       const prev=motionEl;if(prev){cancelAnimationFrame(trackRaf);prev.onended=prev.onerror=null}
-      const v=clipVideo(src);v.muted=true;v.loop=!!MOTION[guide][name].loop;v.classList.add('milo-motion');
+      const v=clipVideo(src);v.muted=true;v.loop=!!MOTION[guide][name].loop;v.classList.add('milo-motion');v.classList.remove('on');
       motionEl=v;motionName=name;
-      // The video takes the cut-out's height, so the character keeps its size.
-      // That height is only known once the cut-out has loaded.
-      const size=()=>{const h=img.getBoundingClientRect().height||(prev&&prev.isConnected?prev.getBoundingClientRect().height:0);if(h>40)v.style.height=Math.round(h)+'px';return h>40};   // while the previous clip still shows, the cut-out is hidden: take that clip's height
-      if(!size())img.addEventListener('load',()=>{if(motionEl===v)size()},{once:true});
-      if(v.parentNode!==wrap)wrap.insertBefore(v,char);
+      if(v.parentNode!==wrap)wrap.appendChild(v);
       if(v.readyState>=1){try{v.currentTime=0}catch(e){}}
+      const base=poseSrc(guide,MOTION[guide][name].base||'talk').src;
       return new Promise(resolve=>{
         let shown=false;
-        // The cut-out stays until the video really shows a frame, so a slow
-        // or refused video never leaves an empty spot.
-        const show=()=>{if(shown||motionEl!==v)return;if(!v.style.height||parseFloat(v.style.height)<40){if(!size()){setTimeout(show,60);return}}shown=true;if(prev&&prev!==v){prev.pause?.();prev.remove()}img.classList.add('behind-clip');el.classList.add('motion-playing');trackFor(src).then(t=>{if(motionEl===v)followTrack(v,t)})};
-        v.addEventListener('playing',show,{once:true});
+        const dropPrev=()=>{if(prev&&prev!==v){prev.pause?.();prev.classList.remove('on');prev.remove()}};
+        // Visible only once a frame is really on screen (requestVideoFrameCallback
+        // where there is one; a moving clock otherwise), laid over the cut-out;
+        // then the cut-out (or the previous clip) goes in the same frame.
+        const show=async()=>{
+          if(shown||motionEl!==v)return;
+          const [t,cb]=await Promise.all([trackFor(src),cutBox(base)]);
+          if(motionEl!==v)return;
+          if(!place(v,t,cb)){setTimeout(show,60);return}
+          shown=true;v.classList.add('on');dropPrev();img.classList.add('under-motion');el.classList.add('motion-playing');
+          follow(v,t,cb);
+        };
+        const frameReady=()=>{if(v.requestVideoFrameCallback)v.requestVideoFrameCallback(()=>show());else{const tu=()=>{if(v.currentTime>0){v.removeEventListener('timeupdate',tu);show()}};v.addEventListener('timeupdate',tu)}};
+        frameReady();
         v.__done=false;
-        if(!v.loop&&MOTION[guide].idle){const i=motionSrc(guide,'idle');if(i)clipVideo(i)}   // the loop that follows is ready in time
+        if(!v.loop&&MOTION[guide].idle){const i=motionSrc(guide,'idle');if(i){clipVideo(i);trackFor(i)}}   // the loop that follows is ready in time
         v.onended=()=>{if(motionEl===v){v.__done=true;resolve(true)}};
         // A one-shot clip carries keyclip's settle tail (a dissolve); it hands over as that begins.
         if(!v.loop){const watch=()=>{if(motionEl!==v)return;if(v.duration&&isFinite(v.duration)&&v.currentTime>=v.duration-SETTLE_S){v.__done=true;resolve(true);return}requestAnimationFrame(watch)};requestAnimationFrame(watch)}
-        const dropPrev=()=>{if(prev&&prev!==v){prev.pause?.();prev.remove()}};
         v.onerror=()=>{dropPrev();if(motionEl===v)stopMotion();resolve(false)};
         const p=v.play();if(p&&p.catch)p.catch(()=>{dropPrev();if(motionEl===v)stopMotion();resolve(false)});
         if(v.loop)setTimeout(()=>resolve(shown),400);

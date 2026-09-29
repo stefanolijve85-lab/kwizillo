@@ -865,6 +865,11 @@
 /* A talking clip is a transparent video that takes the figure's place (same height, the still leaves the flow). */
 .milo-clip{display:block;height:auto;width:auto;max-width:none;background:transparent}   /* no filter on a transparent video: WebKit rasterises that wrongly on iOS */
 .milo-figure.behind-clip{display:none}
+/* Tekenfilmbeweging: the clip lies exactly over the cut-out (milo.js places it)
+   and only shows once a frame is drawn; the cut-out keeps its place underneath. */
+.milo-clip.milo-motion{position:absolute;left:0;top:0;z-index:1;max-width:none;opacity:0;pointer-events:none}
+.milo-clip.milo-motion.on{opacity:1}
+.milo-figure.under-motion{visibility:hidden}
 .milo-host.clip-playing .milo-mouth{display:none}
 /* The mouth on the figure: placed per pose by milo.js, opened by --open. */
 .milo-fig-wrap{position:relative;display:block}

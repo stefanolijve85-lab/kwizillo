@@ -255,7 +255,13 @@ function envelope(wav) {
   // 5. settle tail: the model's last pose dissolves back into frame 1 (the still) over SETTLE s with the mouth closed —
   // the clip ends where it began, and the voice, which runs to the last frame, is never cut off
   const SETTLE = Number(process.env.KEYCLIP_SETTLE ?? .7), tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
-  if (noMouth) { for (let k = 1; k <= tailN; k++) track.push(track[track.length - 1]); fs.writeFileSync(`${out}.json`, JSON.stringify({ fps: FPS, w: outW, h: OUT_H, track })); }
+  if (noMouth) {
+    for (let k = 1; k <= tailN; k++) track.push(track[track.length - 1]);
+    // The figure's outline in frame 1 (fractions of the frame), so the app can lay
+    // the clip exactly over the cut-out it starts from: no size jump at the swap.
+    const f1 = await p.evaluate(async b64 => { const i = new Image(); i.src = 'data:image/png;base64,' + b64; await i.decode(); const c = document.createElement('canvas'); c.width = i.width; c.height = i.height; const g = c.getContext('2d'); g.drawImage(i, 0, 0); const d = g.getImageData(0, 0, c.width, c.height).data; let x0 = 1e9, y0 = 1e9, x1 = 0, y1 = 0; for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) if (d[(y * c.width + x) * 4 + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } return [x0 / c.width, x1 / c.width, y0 / c.height, y1 / c.height].map(v => +v.toFixed(4)); }, fs.readFileSync(path.join(outDir, 'f0001.png')).toString('base64'));
+    fs.writeFileSync(`${out}.json`, JSON.stringify({ fps: FPS, w: outW, h: OUT_H, fig: f1, track }));
+  }
   for (let k = 1; k <= tailN; k++) {
     const t = k / tailN, e = t * t * (3 - 2 * t);
     const png = await p.evaluate(async ([a, b, e]) => { const A = new Image(); A.src = 'data:image/png;base64,' + a; const B = new Image(); B.src = 'data:image/png;base64,' + b; await A.decode(); await B.decode();

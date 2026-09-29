@@ -29,8 +29,9 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   const host = page.locator('.onboarding .milo-host');
-  await expect(host).toHaveAttribute('data-pose', 'wave');
-  await expect(host.locator('.milo-figure')).toHaveAttribute('src', /milo\/wave\.png/);
+  // He waves on video (tekenfilmbeweging): the cut-out under it is the pose the clip starts from.
+  await expect(host).toHaveAttribute('data-pose', 'talk');
+  await expect(host.locator('video.milo-motion')).toHaveAttribute('src', /milo\/motion\/wave\./);
   await expect(host.locator('.milo-bubble h1')).toHaveText('Kies je taal');
   await page.getByRole('button', { name: /Nederlands/ }).click();
   // A step with a talking clip stands in the clip's base pose; without one, in the step's own pose.
