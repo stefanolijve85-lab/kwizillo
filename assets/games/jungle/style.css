@@ -110,3 +110,11 @@ nav .jump{font-size:20px;letter-spacing:1px}
 .start .hint{margin-bottom:0}
 .start .heroes.level-stad button{background-size:auto 320%;background-position:center 71%}
 .start .heroes.level-lucht button{background-size:auto 260%;background-position:center 67%}
+
+/* Liggende tablet: de heldenkaarten zijn daar veel breder dan hoog. De inzoom
+   hierboven ("auto 150%" enz.) is gemaakt voor staande kaarten; op een brede
+   kaart was het plaatje smaller dan de kaart en werd het drie keer naast elkaar
+   herhaald. Hier vult het de hele kaart, met de grond ter hoogte van de voeten. */
+@media (min-aspect-ratio: 5/4) {
+  .start .heroes button,.start .heroes.level-stad button,.start .heroes.level-lucht button{background-size:cover;background-repeat:no-repeat;background-position:center 64%}
+}
