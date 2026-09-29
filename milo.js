@@ -111,8 +111,8 @@
   // staat hieronder tot hij opnieuw is opgenomen (`node tools/guide-talks.js
   // lines`): hij speelt dan zonder geluid, zodat de gids gewoon beweegt en
   // praat, en de regel wordt er los bij uitgesproken — die is wél bij.
-  // tour.worlds: de opname zegt "de zes werelden"; het zijn er acht.
-  const STALE_CLIPS=new Set(['worlds']);
+  // Leeg: tour.worlds is op 29 september opnieuw opgenomen voor acht werelden.
+  const STALE_CLIPS=new Set([]);
   const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
   const probe=document.createElement('video');
   const safari=/AppleWebKit/.test(navigator.userAgent)&&!/Chrome|CriOS|Chromium|Android|Edg/.test(navigator.userAgent);

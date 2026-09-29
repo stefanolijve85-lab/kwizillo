@@ -131,7 +131,10 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
    tien talen, 32 platen (ElevenLabs-flow “Kwizillo weetjes kunst en sport”).
 2. **Spraak in de andere acht talen** — niet vooruit betaald; de cache vult zich
    tijdens het spelen.
-3. **Milo's `worlds`-clip** opnieuw inspreken.
+3. ~~**Milo's `worlds`-clip** opnieuw inspreken~~ — gedaan op 29 september (tekst
+   en timing gecontroleerd met `clipcheck`). Let op: de rondleiding speelt bewust
+   géén clips (`milo.js`, stop-lus), dus deze clip is nu nergens te zien. `K.warmTour`
+   laadt de tourclips wel vooraf (±3 MB per clip) — dat kan eruit.
 
 ### Techniek
 4. **`tests/ipad.spec.js`**: drie tests over de liggende stand verwachten nog de
