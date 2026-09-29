@@ -7,7 +7,7 @@
   // hangt achter elk pad een versiemerk. Bump dit nummer zodra er kunst wordt
   // vervangen; alle kaarten hieronder worden er in één keer mee gestempeld
   // (zie `stamp`, onderaan), zodat geen enkel gebruik het kan vergeten.
-  K.ASSET_V='v24';
+  K.ASSET_V='v25';
   // Idempotent: een pad dat al een merk draagt krijgt er geen tweede bij.
   K.assetUrl=p=>p&&!p.includes('?')?`${p}?${K.ASSET_V}`:p;
 
@@ -143,11 +143,20 @@
   for(const id of Object.keys(K.MASCOT_ART)) K.MASCOT_TILE[id]=K.assetUrl(`assets/mascots/tile/${id}.png`);
   K.guideArt=voice=>voice==='Luna'?K.MASCOT_ART.luna:K.MASCOT_ART.milo;
 
+  // De wereldtegels (Home, de spelkiezers). Meestal de wereldplaat zelf, maar in
+  // de mysterieplaat beslaat het eiland de hele breedte, zodat hij als enige van
+  // dichtbij in zijn tegel stond. Die tegel heeft een uitgezoomde versie van
+  // dezelfde plaat: het eiland zwevend in de lucht, zoals bij de andere.
+  K.TILE_ART={mysterie:'assets/worlds/mysterie-tile.jpg'};
+  K.tileArt=w=>K.TILE_ART[w]||K.MASTER[w];
+  // Een tegelplaat is al op het eiland gecentreerd; alleen de wereldplaten hebben een uitsnede nodig.
+  K.tileFocus=w=>K.TILE_ART[w]?'center':(K.WORLD_FOCUS?.[w]||'center 32%');
+
   // Eén plek waar het versiemerk op alle kunst wordt gezet. De kaarten
   // hierboven staan met kale paden in het bestand, zodat ze leesbaar blijven en
   // het gereedschap ze kan vinden; hier krijgen ze allemaal hun merk.
   const stamp=o=>{for(const k of Object.keys(o)) if(typeof o[k]==='string') o[k]=K.assetUrl(o[k])};
-  for(const map of [K.MASTER,K.GOLD_ART,K.QUESTION_ART,K.TOPIC_ART,K.GAME_ART,K.MASCOT_ART,K.MASCOT_TILE,K.MOTION]) stamp(map);
+  for(const map of [K.MASTER,K.TILE_ART,K.GOLD_ART,K.QUESTION_ART,K.TOPIC_ART,K.GAME_ART,K.MASCOT_ART,K.MASCOT_TILE,K.MOTION]) stamp(map);
   for(const c of K.RUNNER_CARDS) c.art=K.assetUrl(c.art);
   K.INTRO_THEME=K.assetUrl(K.INTRO_THEME);
   K.BRAND_LOGO=K.assetUrl(K.BRAND_LOGO);

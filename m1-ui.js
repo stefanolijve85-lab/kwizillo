@@ -178,7 +178,7 @@
       // nothing about how far the world had come — two right answers filled it.
       const wp=K.worldProgress(w);
       return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))} · ${esc(t('settings.level'))} ${lv.level} · ${esc(t('world.worldProgress',{done:wp.done,total:wp.total}))}">
-        <img class="home-world-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 32%'}">
+        <img class="home-world-art" src="${K.tileArt(w)}" alt="" decoding="async" style="object-position:${K.tileFocus(w)}">
         <span class="home-world-veil"></span>
         <span class="home-world-level">${esc(t('settings.level'))} ${lv.level}${lv.passed?` · ${lv.passed}/${lv.total}`:''}</span>
         <span class="home-world-copy">
@@ -419,7 +419,7 @@
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
-        <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="object-position:${K.tileFocus(w)}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
       </div>
       ${K.bottomNav('home')}
     </section>`);

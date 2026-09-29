@@ -64,7 +64,7 @@
         <label class="memo-p2" ${mode==='duel'?'':'hidden'}><span>${esc(t('memo.p2Label'))}</span><input id="memoP2" type="text" maxlength="14" autocomplete="off" placeholder="${esc(t('memo.player2'))}" value="${esc(K.state.memoPlayer2||'')}" aria-label="${esc(t('memo.p2Label'))}"></label>
         </div>
         <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
-        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.MASTER[w]}" alt="" decoding="async" style="object-position:${K.WORLD_FOCUS?.[w]||'center 45%'}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="object-position:${K.tileFocus(w)}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
       </div>
     </section>`);
     f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
