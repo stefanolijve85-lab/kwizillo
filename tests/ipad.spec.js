@@ -1,6 +1,7 @@
 // Kwizillo on an iPad. The game is one design — 430 by 764 — and on anything
 // wider than a phone it is scaled to fit instead of laid out again, so an iPad
-// shows the same game, bigger, in portrait and in landscape. These tests hold
+// shows the same game, bigger; turned on its side it gets the wide frame
+// (1180 by 820, landscape.css) instead of a narrow strip. These tests hold
 // that: the frame really fills the screen, nothing hangs off it, the phone
 // layout is untouched, and the world stands blurred behind the frame.
 const { test, expect } = require('@playwright/test');
@@ -53,8 +54,10 @@ for (const size of IPADS) {
     // is bounded by the height, in portrait by the width.
     const fills = Math.max(box.width / size.width, box.height / size.height);
     expect(fills, 'the frame takes the screen it is given').toBeGreaterThan(0.94);
-    // The design is not stretched: the frame keeps 430:764 whatever the screen.
-    expect(box.width / box.height).toBeCloseTo(430 / 764, 2);
+    // The design is not stretched: the frame keeps its own proportions — the tall
+    // design (430:764) upright, the wide one (1180:820) on its side.
+    const [dw, dh] = size.width > size.height ? [1180, 820] : [430, 764];
+    expect(box.width / box.height).toBeCloseTo(dw / dh, 2);
     // Nothing scrolls sideways.
     const doc = await page.evaluate(() => ({ scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth }));
     expect(doc.scroll).toBeLessThanOrEqual(doc.client + 1);
@@ -99,7 +102,9 @@ test('turning the iPad keeps the game whole, and the world stands behind it', as
   await expect.poll(async () => (await frameBox(page)).height, { timeout: 8000 }).toBeLessThanOrEqual(834);
   const landscape = await frameBox(page);
   expect(landscape.height).toBeLessThanOrEqual(834);
-  expect(landscape.width / landscape.height).toBeCloseTo(portrait.width / portrait.height, 2);
+  // Turned on its side the iPad gets the wide frame, in its own proportions.
+  expect(portrait.width / portrait.height).toBeCloseTo(430 / 764, 2);
+  expect(landscape.width / landscape.height).toBeCloseTo(1180 / 820, 2);
   await expect(page.locator('.native-world')).toBeVisible();          // the screen survives the turn
   await expect(page.locator('.world-topic')).toHaveCount(4);
 
