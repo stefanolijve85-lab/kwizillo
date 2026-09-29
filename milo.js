@@ -326,7 +326,9 @@
   // Warms the tour's five lines for a guide (voice and clips) well before the
   // tour starts — a guide without clips would otherwise start every stop with a
   // round trip to the speech service.
-  K.warmTour=(guide=K.activeGuide())=>{guide=guideOf(guide);K.guidePrefetch(TOUR_KEYS.map(k=>K.t(k)),guide);K.guideWarmClips(TOUR_KEYS.map(k=>k.replace('tour.','')),guide)};
+  // Only the lines: the tour plays no clips (see the stop loop below), so
+  // fetching them was megabytes nobody saw. The app build leaves them out.
+  K.warmTour=(guide=K.activeGuide())=>{guide=guideOf(guide);K.guidePrefetch(TOUR_KEYS.map(k=>K.t(k)),guide)};
 
   // The chosen guide walks onto Home, hops from element to element and explains
   // each part in one sentence, mouth moving with the voice on the figure itself.

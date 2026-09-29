@@ -15,10 +15,10 @@
   --shadow:0 28px 80px rgba(4,35,91,.34);
   /* index.html uses viewport-fit=cover, so every screen that draws to the edges
      has to keep its controls clear of the notch, Dynamic Island and home indicator. */
-  --sat:env(safe-area-inset-top,0px);
-  --sab:env(safe-area-inset-bottom,0px);
-  --sal:env(safe-area-inset-left,0px);
-  --sar:env(safe-area-inset-right,0px);
+  --sat:var(--safe-area-inset-top,env(safe-area-inset-top,0px));
+  --sab:var(--safe-area-inset-bottom,env(safe-area-inset-bottom,0px));
+  --sal:var(--safe-area-inset-left,env(safe-area-inset-left,0px));
+  --sar:var(--safe-area-inset-right,env(safe-area-inset-right,0px));
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:#071632;font-family:ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",Inter,system-ui,-apple-system,sans-serif;overflow-x:hidden}

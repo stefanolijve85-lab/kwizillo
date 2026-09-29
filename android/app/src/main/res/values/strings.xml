@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kwizillo</string>
+    <string name="title_activity_main">Kwizillo</string>
+    <string name="package_name">nl.kwizillo.app</string>
+    <string name="custom_url_scheme">nl.kwizillo.app</string>
+</resources>

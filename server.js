@@ -76,7 +76,7 @@ function clientAddress(req){
   return req.socket.remoteAddress || 'unknown';
 }
 
-// ALLOWED_ORIGINS="https://app.kwizillo.nl,capacitor://localhost" restricts
+// ALLOWED_ORIGINS="https://app.kwizillo.nl,capacitor://localhost,https://localhost" restricts
 // speech to requests that carry one of those Origin headers. Empty (the
 // default for local development) allows any origin. This keeps casual reuse of
 // the proxy out; the rate limit and the daily budget below cover the rest.

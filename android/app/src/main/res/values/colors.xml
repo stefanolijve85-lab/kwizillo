@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1d5fa8</color>
+    <color name="colorPrimaryDark">#0b3470</color>
+    <color name="colorAccent">#ffc21f</color>
+    <!-- The sky behind the game, the system bars and the launch screen. -->
+    <color name="kwizilloSky">#1d5fa8</color>
+</resources>

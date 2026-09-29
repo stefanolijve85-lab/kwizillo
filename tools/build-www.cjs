@@ -54,7 +54,10 @@ const FF = fs.existsSync(path.join(__dirname, 'bin', 'ffmpeg')) ? path.join(__di
 const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
 const files = walk(path.join(OUT, 'assets'));
 // app-icon-1024.png is the master for the Xcode asset catalog, not a game asset.
-for (const f of files) if (/(\.DS_Store|\.md|\.keep|app-icon-1024\.png)$/.test(f)) fs.rmSync(f);
+// The tour clips (worlds, hud, nav, done) are never played: the Home tour speaks
+// with the drawn mouth on purpose (milo.js). About 16 MB the store limits need.
+const UNUSED = /(\.DS_Store|\.md|\.keep|app-icon-1024\.png|\/talk\/[a-z]{2}\/(worlds|hud|nav|done|games)\.(mp4|webm))$/;
+for (const f of files) if (UNUSED.test(f)) fs.rmSync(f);
 const jpgs = files.filter(f => /\.jpe?g$/i.test(f) && fs.existsSync(f));
 const recompress = f => new Promise(res => {
   const tmp = f + '.q5.jpg';

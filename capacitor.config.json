@@ -18,6 +18,16 @@
       "launchFadeOutDuration": 250,
       "backgroundColor": "#1d5fa8",
       "showSpinner": false
+    },
+    "SystemBars": {
+      "insetsHandling": "css",
+      "style": "DARK"
     }
+  },
+  "android": {
+    "backgroundColor": "#1d5fa8",
+    "allowMixedContent": false,
+    "captureInput": false,
+    "webContentsDebuggingEnabled": false
   }
 }
