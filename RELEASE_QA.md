@@ -140,8 +140,9 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
 4. **`tests/ipad.spec.js`**: drie tests over de liggende stand verwachten nog de
    staande verhouding 430 : 764, terwijl het brede frame 1180 × 820 is. Bestaande
    achterstand, geen fout in de app.
-5. **De liggende openingsfilm** (`assets/brand/intro-wide.mp4`): Higgsfield heeft
-   geen tegoed meer. Tot die tijd toont het brede frame de staande film heel.
+5. ~~**De liggende openingsfilm**~~ — gedaan op 29 september: `intro-wide.mp4`
+   (4:3), met Higgsfield reframe uit de staande verbreed; zelfde beelden op
+   dezelfde tijden, dus het introgeluid klopt.
 6. **`tools/eleven-balance.cjs`** krijgt HTTP 401 `missing permission user_read`;
    het saldo is niet af te lezen. Rechteninstelling op de sleutel.
 
