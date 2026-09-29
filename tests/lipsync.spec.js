@@ -198,8 +198,6 @@ for (const guide of ['milo', 'luna']) {
     await page.evaluate(g => { window.KWIZILLO_M1.startTour({ guide: g }) }, guide);   // the tour's promise only settles when it ends
     await expect(page.locator('.milo-tour .milo-figure')).toBeVisible();
     await page.waitForFunction(() => { const i = document.querySelector('.milo-tour .milo-figure'); return i && i.getBoundingClientRect().x > 10 });
-    // Measured on the cut-out: not while the guide walks in on video (tekenfilmbeweging).
-    await page.waitForFunction(() => !document.querySelector('.milo-tour .milo-host.motion-playing'));
     const seen = await page.evaluate(() => {
       const img = document.querySelector('.milo-tour .milo-figure'), mouth = document.querySelector('.milo-tour .milo-mouth');
       const f = img.getBoundingClientRect(), m = mouth.getBoundingClientRect(), box = img.parentElement.getBoundingClientRect();

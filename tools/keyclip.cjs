@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 // Green-screen talking clip → transparent clips for the app:
-//   node tools/keyclip.cjs <green.mp4> <out-basename> [--screen-mouth]   (KEYCLIP_KEEP=1 keeps the frames, KEYCLIP_DEBUG=1 draws the erase ellipses,
-//   KEYCLIP_SETTLE=0 skips the settle tail — for looping motion clips; KEYCLIP_SMILE=1 keeps the
-//   drawn mouth at the smile for clips without a voice; KEYCLIP_NOMOUTH=1 paints none and writes
-//   <out>.json with the mouth spot per frame, for the app's live mouth)
+//   node tools/keyclip.cjs <green.mp4> <out-basename> [--screen-mouth]   (KEYCLIP_KEEP=1 keeps the frames, KEYCLIP_DEBUG=1 draws the erase ellipses)
 // writes <out>.webm (VP9 + alpha, Chrome/Android/Firefox) and <out>.mp4 (HEVC +
 // alpha, Safari/iOS, made by Apple's own encoder so Safari honours the alpha).
 //
@@ -69,11 +66,6 @@ function envelope(wav) {
   // the canvas is padded to a multiple of 16 (transparent), so no encoder pads it
   // itself and the HEVC alpha layer lines up with the colour on iOS
   const scale = OUT_H / box.h, drawW = Math.round(box.w * scale), outW = Math.ceil(drawW / 16) * 16, padX = (outW - drawW) >> 1;
-  // KEYCLIP_NOMOUTH=1: no mouth is painted into the clip; instead <out>.json
-  // gets the mouth spot of every frame (x, y and eye distance, as fractions of
-  // the output height; x of the width) so the app draws its live mouth there.
-  const noMouth = !!process.env.KEYCLIP_NOMOUTH, track = [], eyesTrack = [];
-  if (noMouth) await p.evaluate(() => { window.__noMouth = true });
   for (let i = 0; i < frames.length; i++) {
     const png = await p.evaluate(async ([b64, box, outW, outH, open, mouth, debug, drawW, padX]) => {
       const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
@@ -88,12 +80,6 @@ function envelope(wav) {
         for (let i = 0; i < limit; i++) { if (lab[i] || !ok(i)) continue; n++; const q = [i]; lab[i] = n; let x0 = W, y0 = H, x1 = 0, y1 = 0, cnt = 0;
           while (q.length) { const j = q.pop(); cnt++; const x = j % W, y = (j / W) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; for (const k of [j - 1, j + 1, j - W, j + W]) { if (k < 0 || k >= limit || lab[k] || !ok(k)) continue; if ((k === j - 1 && x === 0) || (k === j + 1 && x === W - 1)) continue; lab[k] = n; q.push(k); } }
           if (!best || cnt > best.cnt) best = { x0, y0, x1, y1, cnt, lab: n }; }
-        // A blink or a squint the model paints across the whole screen can break
-        // the navy glass into pieces; then the "largest dark blob" is a sliver
-        // and the mouth lands anywhere. Such a frame keeps the glass box of the
-        // frame before it, scaled to nothing: the screen does not change size.
-        if (best && window.__lastBox && (best.x1 - best.x0) < (window.__lastBox.x1 - window.__lastBox.x0) * .75) best = { ...window.__lastBox, lab: best.lab, partial: true };
-        if (best && !best.partial) window.__lastBox = { x0: best.x0, y0: best.y0, x1: best.x1, y1: best.y1, cnt: best.cnt };
         if (best) {
           const bestLab = best.lab;
           const sw = best.x1 - best.x0, sh = best.y1 - best.y0; let cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
@@ -154,30 +140,14 @@ function envelope(wav) {
             if (ref.ring && bl.length >= 2 && bl[0].h >= ref.ring.h * .8 && bl[1].h >= ref.ring.h * .8 && bl[1].n >= ref.ring.n * .6 && Math.abs(bl[0].x - bl[1].x) > ed * .6) {
               eyesOpen = true; const mid = (bl[0].x + bl[1].x) / 2; window.__dx = mid - (best.x0 + ref.mouth.fx * sw); eyes.lx = Math.min(bl[0].x, bl[1].x); eyes.rx = Math.max(bl[0].x, bl[1].x); eyes.ly = eyes.ry = (bl[0].y + bl[1].y) / 2;
             }
-            // Eyes squinted into arcs (a happy wave) are thin but still two clear
-            // shapes side by side: their midpoint is where the mouth belongs.
-            var eyeMid = null;
-            if (bl.length >= 2 && bl[1].n >= (ref.ring ? ref.ring.n * .15 : 20) && Math.abs(bl[0].x - bl[1].x) > ed * .6 && Math.abs(bl[0].x - bl[1].x) < ed * 1.5) { eyeMid = (bl[0].x + bl[1].x) / 2; window.__eyes = [eyeMid, (bl[0].y + bl[1].y) / 2, Math.abs(bl[0].x - bl[1].x)]; }
             }
           { const row = Math.round(cy); if (glassL[row] >= 0) cx = (glassL[row] + glassR[row]) / 2 + ref.mouthShift; }
-          // The glass's centre line is the face's centre only when he looks straight
-          // ahead; with the head turned the eyes say where the middle of the face is.
-          if (eyeMid !== null) cx = eyeMid;
-          // The mouth never jumps: a head moves a little per frame, so a big step
-          // means this frame's measurement is off (a blink broke the glass apart).
-          // Measured inside the glass box, so the mouth goes wherever the head goes.
-          { const fx = (cx - best.x0) / sw, fy = (cy - best.y0) / sh, L = window.__lastMouth;
-            if (L && (best.partial || Math.abs(fx - L.fx) > .06 || Math.abs(fy - L.fy) > .06)) { cx = best.x0 + L.fx * sw; cy = best.y0 + L.fy * sh }
-            else window.__lastMouth = { fx, fy }; }
           const eyeY = (eyes.ly + eyes.ry) / 2;
           // the eyes' own glow (bright, near where the rings are) is never touched
           const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
           for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && lumOf(k) > 95 && Math.min(Math.hypot(x - eyes.lx, y - eyes.ly), Math.hypot(x - eyes.rx, y - eyes.ry)) < ed * .36) dist[y * W + x] = 0; }
           for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const i = y * W + x; let v = dist[i]; if (x) v = Math.min(v, dist[i - 1] + 1); if (y) { v = Math.min(v, dist[i - W] + 1); if (x) v = Math.min(v, dist[i - W - 1] + 1.4); if (x < W - 1) v = Math.min(v, dist[i - W + 1] + 1.4); } dist[i] = v; }
           for (let y = H - 1; y >= 0; y--) for (let x = W - 1; x >= 0; x--) { const i = y * W + x; let v = dist[i]; if (x < W - 1) v = Math.min(v, dist[i + 1] + 1); if (y < H - 1) { v = Math.min(v, dist[i + W] + 1); if (x < W - 1) v = Math.min(v, dist[i + W + 1] + 1.4); if (x) v = Math.min(v, dist[i + W - 1] + 1.4); } dist[i] = v; }
-          // Without a painted mouth (motion clips: the model drew none) nothing on the
-          // screen is repainted; frame 1's glass copied under a squint left ghost rings.
-          if (!window.__noMouth) {
           const ringGap = ed * .12;
           // 1. the glass under the eyes becomes the reference outright (flat dark
           //    glass, mapped through the glass box); between the eyes only what the
@@ -199,8 +169,7 @@ function envelope(wav) {
               const fade = Math.min(1, (below - .12) / .14);   // eases in over a band instead of a hard line
               if (y <= best.y1 && !inGlass(x, y)) continue;                             // the glass's rounded corners / the rim beside it: untouched
               if (y > best.y1 && lumOf(k) >= 200) continue;                           // below the glass: never over the rim
-              // only frame 1's truly dark glass: its dim ring glow (lum 30-70) under a squint was a ghost ring
-              if (kr !== null && rlum(kr) < 30) toRef(k, kr, gate * fade);             // inside the glass: everything, teeth included
+              if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate * fade);             // inside the glass: everything, teeth included
               else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * fade * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
             }
             // At eye height nothing is repainted any more. That band used to pull
@@ -218,15 +187,12 @@ function envelope(wav) {
             const hx = Math.min(1, (sw * .24 - Math.abs(x - ex)) / (sw * .06)), vy = Math.min(1, (best.y1 + sh * .4 - y) / (sh * .08), (y - best.y1 - sh * .05) / (sh * .05));
             const w = Math.max(0, Math.min(1, Math.min(off, hx, vy))); if (w > 0) toRef(k, kr, w);
           }
-          }
           if (debug) console.log('glass', best.x0, best.y0, sw, sh, 'mouth', Math.round(cx), Math.round(cy));
           g.putImageData(new ImageData(d, W, H), 0, 0);
           // the robot mouth: an arc when quiet that fills into an "O" when loud
           if (debug === 2) open = -1;
           // The mouth in the eyes' own look: a glowing cyan ring — a smile arc when
           // quiet, a full ring (with a faint fill) when the voice is loud.
-          window.__m = [cx, cy, ed];
-          if (window.__noMouth) open = -1;
           const glow = '#62dcff', r = ed * .19, o = Math.max(0, Math.min(1, open));
           g.save(); g.translate(cx, cy);
           g.lineCap = 'round'; g.strokeStyle = glow; g.lineWidth = ed * .075;
@@ -248,48 +214,12 @@ function envelope(wav) {
       }
       const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, padX, 0, drawW, outH);
       return o.toDataURL('image/png').split(',')[1];
-    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, process.env.KEYCLIP_SMILE ? 0 : (env[i] ?? 0), screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
+    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, env[i] ?? 0, screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
     fs.writeFileSync(path.join(outDir, `f${String(i + 1).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
-    if (noMouth) {
-      const [m, e] = await p.evaluate(() => { const v = [window.__m, window.__eyes]; window.__m = null; window.__eyes = null; return v });
-      const k = OUT_H / box.h, fx = x => (padX + x * k) / outW, fy = y => y * k / OUT_H;
-      track.push(m ? [fx(m[0]), fy(m[1]), m[2] * k / OUT_H] : (track[track.length - 1] || null));
-      eyesTrack.push(e ? [fx(e[0]), fy(e[1]), e[2] * k / OUT_H] : null);
-    }
   }
   // 5. settle tail: the model's last pose dissolves back into frame 1 (the still) over SETTLE s with the mouth closed —
   // the clip ends where it began, and the voice, which runs to the last frame, is never cut off
-  const SETTLE = Number(process.env.KEYCLIP_SETTLE ?? .7), tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
-  if (noMouth) {
-    // Steadier than the glass outline (which shimmers with gloss and blinks):
-    // the mouth sits a fixed distance under the midpoint of the two eyes. The
-    // distance is taken from the frames where both were found; frames without
-    // eyes (a blink) take the neighbours' value; then the path is smoothed over
-    // five frames — around the seam as well when the clip loops.
-    {
-      const n = track.length, loop = SETTLE === 0;
-      const good = [...Array(n).keys()].filter(i => eyesTrack[i] && track[i]);
-      if (good.length >= 3) {
-        const med = a => { const b = [...a].sort((x, y) => x - y); return b[b.length >> 1] };
-        const kx = med(good.map(i => (track[i][0] - eyesTrack[i][0]) / eyesTrack[i][2]));
-        const ky = med(good.map(i => (track[i][1] - eyesTrack[i][1]) / eyesTrack[i][2]));
-        const edRatio = med(good.map(i => track[i][2] / eyesTrack[i][2]));
-        let raw = eyesTrack.map(e => e ? [e[0] + kx * e[2], e[1] + ky * e[2], e[2] * edRatio] : null);
-        for (let i = 0; i < n; i++) if (!raw[i]) {          // fill gaps from the nearest frames on both sides
-          let a = i - 1, b = i + 1; while (a >= 0 && !raw[a]) a--; while (b < n && !raw[b]) b++;
-          const A = a >= 0 ? raw[a] : null, B = b < n ? raw[b] : null;
-          raw[i] = A && B ? A.map((v, j) => v + (B[j] - v) * (i - a) / (b - a)) : (A || B || track[i]);
-        }
-        const at = i => loop ? raw[(i + n) % n] : raw[Math.max(0, Math.min(n - 1, i))];
-        for (let i = 0; i < n; i++) { const w = [-2, -1, 0, 1, 2].map(d => at(i + d)); track[i] = [0, 1, 2].map(j => +(w.reduce((s, v) => s + v[j], 0) / 5).toFixed(4)); }
-      }
-    }
-    for (let k = 1; k <= tailN; k++) track.push(track[track.length - 1]);
-    // The figure's outline in frame 1 (fractions of the frame), so the app can lay
-    // the clip exactly over the cut-out it starts from: no size jump at the swap.
-    const f1 = await p.evaluate(async b64 => { const i = new Image(); i.src = 'data:image/png;base64,' + b64; await i.decode(); const c = document.createElement('canvas'); c.width = i.width; c.height = i.height; const g = c.getContext('2d'); g.drawImage(i, 0, 0); const d = g.getImageData(0, 0, c.width, c.height).data; let x0 = 1e9, y0 = 1e9, x1 = 0, y1 = 0; for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) if (d[(y * c.width + x) * 4 + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } return [x0 / c.width, x1 / c.width, y0 / c.height, y1 / c.height].map(v => +v.toFixed(4)); }, fs.readFileSync(path.join(outDir, 'f0001.png')).toString('base64'));
-    fs.writeFileSync(`${out}.json`, JSON.stringify({ fps: FPS, w: outW, h: OUT_H, fig: f1, track }));
-  }
+  const SETTLE = .7, tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
   for (let k = 1; k <= tailN; k++) {
     const t = k / tailN, e = t * t * (3 - 2 * t);
     const png = await p.evaluate(async ([a, b, e]) => { const A = new Image(); A.src = 'data:image/png;base64,' + a; const B = new Image(); B.src = 'data:image/png;base64,' + b; await A.decode(); await B.decode();

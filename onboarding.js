@@ -29,12 +29,8 @@
       </div>
     </section>`);
     K.warmGuide(guide);
-    // Tekenfilmbeweging: a guide with motion clips starts in the pose they start
-    // from (talk), so the swap to the clip is invisible; he waves on video.
-    const waves=pose==='wave'&&K.guideHasMotion(guide);
-    const host=K.guideHost({guide,pose:waves?'talk':pose,size:'ob',bubble:'side',figure:true,motion:true});
+    const host=K.guideHost({guide,pose,size:'ob',bubble:'side',figure:true});
     f.querySelector('.onboarding-stage').appendChild(host.el);
-    if(waves)host.playMotion('wave').then(()=>host.idle());else host.idle();
     host.say(speech,{html:bubbleHtml(title,sub),clip});
     return {f,host};
   }
@@ -151,16 +147,14 @@
     // the new one arrives, says hello and hosts everything from here on.
     const takeOver=guide=>{
       const hello=K.t(`voice.${guide}.hello`);
-      if(host.guide===guide){if(K.guideHasMotion(guide)){host.pose('talk');host.playMotion('wave').then(()=>host.idle())}else host.pose('wave');host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});return}
+      if(host.guide===guide){host.pose('wave');host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});return}
       const stage=f.querySelector('.onboarding-stage');
       const old=host;
       old.stop();old.el.classList.add('leave');setTimeout(()=>old.remove(),360);
       K.warmGuide(guide);
-      const waves=K.guideHasMotion(guide);
-      host=K.guideHost({guide,pose:waves?'talk':'wave',size:'ob',bubble:'side',figure:true,motion:true});
+      host=K.guideHost({guide,pose:'wave',size:'ob',bubble:'side',figure:true});
       host.el.classList.add('enter');
       stage.appendChild(host.el);
-      if(waves)host.playMotion('wave').then(()=>host.idle());
       host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});
     };
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{

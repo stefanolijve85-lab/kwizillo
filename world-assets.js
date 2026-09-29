@@ -7,7 +7,7 @@
   // hangt achter elk pad een versiemerk. Bump dit nummer zodra er kunst wordt
   // vervangen; alle kaarten hieronder worden er in één keer mee gestempeld
   // (zie `stamp`, onderaan), zodat geen enkel gebruik het kan vergeten.
-  K.ASSET_V='v33';
+  K.ASSET_V='v34';
   // Idempotent: een pad dat al een merk draagt krijgt er geen tweede bij.
   K.assetUrl=p=>p&&!p.includes('?')?`${p}?${K.ASSET_V}`:p;
 

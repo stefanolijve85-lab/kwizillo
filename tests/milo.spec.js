@@ -29,9 +29,8 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.onboarding')).toBeVisible({ timeout: 8000 });
   const host = page.locator('.onboarding .milo-host');
-  // He waves on video (tekenfilmbeweging): the cut-out under it is the pose the clip starts from.
-  await expect(host).toHaveAttribute('data-pose', 'talk');
-  await expect(host.locator('video.milo-motion')).toHaveAttribute('src', /milo\/motion\/wave\./);
+  await expect(host).toHaveAttribute('data-pose', 'wave');
+  await expect(host.locator('.milo-figure')).toHaveAttribute('src', /milo\/wave\.png/);
   await expect(host.locator('.milo-bubble h1')).toHaveText('Kies je taal');
   await page.getByRole('button', { name: /Nederlands/ }).click();
   // A step with a talking clip stands in the clip's base pose; without one, in the step's own pose.
@@ -208,13 +207,12 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   // Once the voice is done the clip hands over to the cut-out (the last frames are
   // keyclip's settle dissolve: a ghost arm and frame 1's open mouth). The figure
   // is back with the drawn mouth at rest, a smile.
-  // (Where Milo has motion clips, the breathing loop may take over from the
-  // cut-out; the live mouth then rides on that video.)
-  await expect(host.locator('video.milo-clip:not(.milo-motion)')).toHaveCount(0, { timeout: 10000 });
+  await expect(clip).toHaveCount(0, { timeout: 10000 });
+  await expect(host.locator('.milo-figure')).not.toHaveClass(/behind-clip/);
   await expect(host.locator('.milo-mouth')).toHaveCount(1);
   // The next step has no clip either: the voice is asked live.
   await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
-  await expect(page.locator('.onboarding .milo-host video.milo-clip:not(.milo-motion)')).toHaveCount(0);
+  await expect(page.locator('.onboarding .milo-host video.milo-clip')).toHaveCount(0);
   await expect(page.locator('.onboarding .milo-host .milo-mouth')).toHaveCount(1);
   await expect.poll(() => tts.some(t => /hoe oud/i.test(t))).toBe(true);
 });
