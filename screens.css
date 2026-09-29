@@ -870,6 +870,16 @@
 .milo-clip.milo-motion{position:absolute;left:0;top:0;z-index:1;max-width:none;opacity:0;pointer-events:none}
 .milo-clip.milo-motion.on{opacity:1}
 .milo-figure.under-motion{visibility:hidden}
+/* The motion clips carry Milo's own mouth (his design has one since the clips
+   were made from it). The live mouth only joins while a line is spoken live,
+   on a patch of screen colour that covers the clip's mouth underneath. */
+.milo-host.motion-playing:not(.talking) .milo-mouth{visibility:hidden}
+.milo-mouth-mask{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,#08183f 70%,rgba(8,24,63,0) 100%);display:none}
+.milo-host.motion-playing.talking .milo-mouth-mask{display:block}
+.milo-host.motion-playing .milo-mouth{z-index:3}
+/* The wider mouth keeps the eye rings' line weight. */
+.milo-host.motion-playing .milo-mouth.mouth-robot{border-width:calc(var(--mw) * .075)}
+.milo-host.motion-playing .milo-mouth.mouth-robot::after{border-bottom-width:calc(var(--mw) * .075);top:0;height:70%}
 .milo-host.clip-playing .milo-mouth{display:none}
 /* The mouth on the figure: placed per pose by milo.js, opened by --open. */
 .milo-fig-wrap{position:relative;display:block}

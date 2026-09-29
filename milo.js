@@ -275,6 +275,7 @@
       return true;
     };
     let trackRaf=0;
+    const mask=document.createElement('span');mask.className='milo-mouth-mask';mask.setAttribute('aria-hidden','true');
     const follow=(v,t,cb)=>{
       cancelAnimationFrame(trackRaf);
       const mouthOk=!!t?.track?.length;
@@ -285,14 +286,21 @@
         const m=mouthOk&&(t.track[Math.min(t.track.length-1,Math.floor((v.currentTime||0)*t.fps))]||t.track[0]);
         const VW=v.offsetWidth,VH=v.offsetHeight;
         if(m&&VW&&VH){
-          figMouth.style.left=(v.offsetLeft+m[0]*VW).toFixed(1)+'px';figMouth.style.top=(v.offsetTop+m[1]*VH).toFixed(1)+'px';
-          figMouth.style.setProperty('--mw',Math.max(6,Math.round(m[2]*VH*.43))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(m[2]*VH*.174))+'px');
+          // Milo's own smile (in the clips) is as wide as the distance between his
+          // eyes and sits a little lower than the old drawn mouth: the live mouth
+          // takes that size and place, over a patch that hides the clip's smile.
+          const ed=m[2]*VH;
+          const mx=v.offsetLeft+m[0]*VW,my=v.offsetTop+m[1]*VH;
+          figMouth.style.left=mx.toFixed(1)+'px';figMouth.style.top=my.toFixed(1)+'px';
+          if(mask.parentNode!==wrap)wrap.appendChild(mask);
+          mask.style.left=mx.toFixed(1)+'px';mask.style.top=my.toFixed(1)+'px';mask.style.width=(ed*1.35).toFixed(1)+'px';mask.style.height=(ed*.62).toFixed(1)+'px';
+          figMouth.style.setProperty('--mw',Math.max(6,Math.round(ed*1.0))+'px');figMouth.style.setProperty('--mh',Math.max(3,Math.round(ed*.27))+'px');
         }
         trackRaf=requestAnimationFrame(step);
       };
       step();
     };
-    const stopMotion=()=>{if(!motionEl)return;cancelAnimationFrame(trackRaf);motionEl.pause?.();motionEl.classList.remove('on');motionEl.remove();motionEl=null;motionName=null;el.classList.remove('motion-playing');img.classList.remove('under-motion');if(!clipEl){if(figMouth.parentNode!==char)char.appendChild(figMouth);placeMouth()}};
+    const stopMotion=()=>{if(!motionEl)return;cancelAnimationFrame(trackRaf);mask.remove();motionEl.pause?.();motionEl.classList.remove('on');motionEl.remove();motionEl=null;motionName=null;el.classList.remove('motion-playing');img.classList.remove('under-motion');if(!clipEl){if(figMouth.parentNode!==char)char.appendChild(figMouth);placeMouth()}};
     const playMotion=name=>{
       const src=useMotion&&motionSrc(guide,name);if(!src)return Promise.resolve(false);
       if(motionName===name&&motionEl)return Promise.resolve(true);
