@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 // Green-screen talking clip → transparent clips for the app:
-//   node tools/keyclip.cjs <green.mp4> <out-basename> [--screen-mouth]   (KEYCLIP_KEEP=1 keeps the frames, KEYCLIP_DEBUG=1 draws the erase ellipses)
+//   node tools/keyclip.cjs <green.mp4> <out-basename> [--screen-mouth]   (KEYCLIP_KEEP=1 keeps the frames, KEYCLIP_DEBUG=1 draws the erase ellipses,
+//   KEYCLIP_SETTLE=0 skips the settle tail — for looping motion clips; KEYCLIP_SMILE=1 keeps the
+//   drawn mouth at the smile for clips without a voice; KEYCLIP_NOMOUTH=1 paints none and writes
+//   <out>.json with the mouth spot per frame, for the app's live mouth)
 // writes <out>.webm (VP9 + alpha, Chrome/Android/Firefox) and <out>.mp4 (HEVC +
 // alpha, Safari/iOS, made by Apple's own encoder so Safari honours the alpha).
 //
@@ -66,6 +69,11 @@ function envelope(wav) {
   // the canvas is padded to a multiple of 16 (transparent), so no encoder pads it
   // itself and the HEVC alpha layer lines up with the colour on iOS
   const scale = OUT_H / box.h, drawW = Math.round(box.w * scale), outW = Math.ceil(drawW / 16) * 16, padX = (outW - drawW) >> 1;
+  // KEYCLIP_NOMOUTH=1: no mouth is painted into the clip; instead <out>.json
+  // gets the mouth spot of every frame (x, y and eye distance, as fractions of
+  // the output height; x of the width) so the app draws its live mouth there.
+  const noMouth = !!process.env.KEYCLIP_NOMOUTH, track = [];
+  if (noMouth) await p.evaluate(() => { window.__noMouth = true });
   for (let i = 0; i < frames.length; i++) {
     const png = await p.evaluate(async ([b64, box, outW, outH, open, mouth, debug, drawW, padX]) => {
       const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
@@ -80,6 +88,12 @@ function envelope(wav) {
         for (let i = 0; i < limit; i++) { if (lab[i] || !ok(i)) continue; n++; const q = [i]; lab[i] = n; let x0 = W, y0 = H, x1 = 0, y1 = 0, cnt = 0;
           while (q.length) { const j = q.pop(); cnt++; const x = j % W, y = (j / W) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; for (const k of [j - 1, j + 1, j - W, j + W]) { if (k < 0 || k >= limit || lab[k] || !ok(k)) continue; if ((k === j - 1 && x === 0) || (k === j + 1 && x === W - 1)) continue; lab[k] = n; q.push(k); } }
           if (!best || cnt > best.cnt) best = { x0, y0, x1, y1, cnt, lab: n }; }
+        // A blink or a squint the model paints across the whole screen can break
+        // the navy glass into pieces; then the "largest dark blob" is a sliver
+        // and the mouth lands anywhere. Such a frame keeps the glass box of the
+        // frame before it, scaled to nothing: the screen does not change size.
+        if (best && window.__lastBox && (best.x1 - best.x0) < (window.__lastBox.x1 - window.__lastBox.x0) * .75) best = { ...window.__lastBox, lab: best.lab, partial: true };
+        if (best && !best.partial) window.__lastBox = { x0: best.x0, y0: best.y0, x1: best.x1, y1: best.y1, cnt: best.cnt };
         if (best) {
           const bestLab = best.lab;
           const sw = best.x1 - best.x0, sh = best.y1 - best.y0; let cx = best.x0 + sw * .5, cy = best.y0 + sh * .76;
@@ -142,6 +156,12 @@ function envelope(wav) {
             }
             }
           { const row = Math.round(cy); if (glassL[row] >= 0) cx = (glassL[row] + glassR[row]) / 2 + ref.mouthShift; }
+          // The mouth never jumps: a head moves a little per frame, so a big step
+          // means this frame's measurement is off (a blink broke the glass apart).
+          // Measured inside the glass box, so the mouth goes wherever the head goes.
+          { const fx = (cx - best.x0) / sw, fy = (cy - best.y0) / sh, L = window.__lastMouth;
+            if (L && (best.partial || Math.abs(fx - L.fx) > .06 || Math.abs(fy - L.fy) > .06)) { cx = best.x0 + L.fx * sw; cy = best.y0 + L.fy * sh }
+            else window.__lastMouth = { fx, fy }; }
           const eyeY = (eyes.ly + eyes.ry) / 2;
           // the eyes' own glow (bright, near where the rings are) is never touched
           const FAR = 1e4, dist = new Float32Array(W * H).fill(FAR);
@@ -193,6 +213,8 @@ function envelope(wav) {
           if (debug === 2) open = -1;
           // The mouth in the eyes' own look: a glowing cyan ring — a smile arc when
           // quiet, a full ring (with a faint fill) when the voice is loud.
+          window.__m = [cx, cy, ed];
+          if (window.__noMouth) open = -1;
           const glow = '#62dcff', r = ed * .19, o = Math.max(0, Math.min(1, open));
           g.save(); g.translate(cx, cy);
           g.lineCap = 'round'; g.strokeStyle = glow; g.lineWidth = ed * .075;
@@ -214,12 +236,14 @@ function envelope(wav) {
       }
       const o = document.createElement('canvas'); o.width = outW; o.height = outH; const og = o.getContext('2d'); og.imageSmoothingQuality = 'high'; og.drawImage(c, padX, 0, drawW, outH);
       return o.toDataURL('image/png').split(',')[1];
-    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, env[i] ?? 0, screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
+    }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, process.env.KEYCLIP_SMILE ? 0 : (env[i] ?? 0), screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
     fs.writeFileSync(path.join(outDir, `f${String(i + 1).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
+    if (noMouth) { const m = await p.evaluate(() => { const v = window.__m; window.__m = null; return v }); const k = OUT_H / box.h; track.push(m ? [+((padX + m[0] * k) / outW).toFixed(4), +(m[1] * k / OUT_H).toFixed(4), +(m[2] * k / OUT_H).toFixed(4)] : (track[track.length - 1] || null)); }
   }
   // 5. settle tail: the model's last pose dissolves back into frame 1 (the still) over SETTLE s with the mouth closed —
   // the clip ends where it began, and the voice, which runs to the last frame, is never cut off
-  const SETTLE = .7, tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
+  const SETTLE = Number(process.env.KEYCLIP_SETTLE ?? .7), tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
+  if (noMouth) { for (let k = 1; k <= tailN; k++) track.push(track[track.length - 1]); fs.writeFileSync(`${out}.json`, JSON.stringify({ fps: FPS, w: outW, h: OUT_H, track })); }
   for (let k = 1; k <= tailN; k++) {
     const t = k / tailN, e = t * t * (3 - 2 * t);
     const png = await p.evaluate(async ([a, b, e]) => { const A = new Image(); A.src = 'data:image/png;base64,' + a; const B = new Image(); B.src = 'data:image/png;base64,' + b; await A.decode(); await B.decode();

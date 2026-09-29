@@ -207,12 +207,13 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   // Once the voice is done the clip hands over to the cut-out (the last frames are
   // keyclip's settle dissolve: a ghost arm and frame 1's open mouth). The figure
   // is back with the drawn mouth at rest, a smile.
-  await expect(clip).toHaveCount(0, { timeout: 10000 });
-  await expect(host.locator('.milo-figure')).not.toHaveClass(/behind-clip/);
+  // (Where Milo has motion clips, the breathing loop may take over from the
+  // cut-out; the live mouth then rides on that video.)
+  await expect(host.locator('video.milo-clip:not(.milo-motion)')).toHaveCount(0, { timeout: 10000 });
   await expect(host.locator('.milo-mouth')).toHaveCount(1);
   // The next step has no clip either: the voice is asked live.
   await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
-  await expect(page.locator('.onboarding .milo-host video.milo-clip')).toHaveCount(0);
+  await expect(page.locator('.onboarding .milo-host video.milo-clip:not(.milo-motion)')).toHaveCount(0);
   await expect(page.locator('.onboarding .milo-host .milo-mouth')).toHaveCount(1);
   await expect.poll(() => tts.some(t => /hoe oud/i.test(t))).toBe(true);
 });

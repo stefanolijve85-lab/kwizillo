@@ -29,8 +29,10 @@
       </div>
     </section>`);
     K.warmGuide(guide);
-    const host=K.guideHost({guide,pose,size:'ob',bubble:'side',figure:true});
+    const host=K.guideHost({guide,pose,size:'ob',bubble:'side',figure:true,motion:true});
     f.querySelector('.onboarding-stage').appendChild(host.el);
+    // Tekenfilmbeweging: a wave to start with, then breathing on the spot.
+    if(pose==='wave')host.playMotion('wave').then(()=>host.idle());else host.idle();
     host.say(speech,{html:bubbleHtml(title,sub),clip});
     return {f,host};
   }
@@ -152,9 +154,10 @@
       const old=host;
       old.stop();old.el.classList.add('leave');setTimeout(()=>old.remove(),360);
       K.warmGuide(guide);
-      host=K.guideHost({guide,pose:'wave',size:'ob',bubble:'side',figure:true});
+      host=K.guideHost({guide,pose:'wave',size:'ob',bubble:'side',figure:true,motion:true});
       host.el.classList.add('enter');
       stage.appendChild(host.el);
+      host.playMotion('wave').then(()=>host.idle());
       host.say(hello,{html:bubbleHtml(title,esc(hello)),clip:'hello'});
     };
     f.querySelectorAll('[data-guide]').forEach(b=>b.onclick=()=>{
