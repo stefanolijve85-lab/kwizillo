@@ -74,7 +74,6 @@
       <span class="fact-veil"></span>
       <div class="fact-body">
         <div class="fact-top"><span class="fact-world">${WORLD_EMOJI[fact.world]} ${esc(t(`world.${fact.world}.title`))}</span>${fresh?`<span class="fact-new">${esc(t('facts.new'))}</span>`:''}</div>
-        <div class="fact-emoji" aria-hidden="true">${fact.e}</div>
         <div class="fact-kicker">${esc(t('facts.kicker'))}</div>
         <p class="fact-text">${esc(fact.t)}</p>
       </div>

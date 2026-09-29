@@ -993,8 +993,6 @@
 .fact-world{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);font-size:11px;font-weight:1000;backdrop-filter:blur(6px)}
 .fact-new{padding:5px 10px;border-radius:999px;background:linear-gradient(180deg,#ffe762,#ffb61b);color:#17245e;font-size:11px;font-weight:1000;box-shadow:0 3px 0 #d9860d;animation:fact-new-pop .5s cubic-bezier(.2,1.5,.4,1) both}
 @keyframes fact-new-pop{from{transform:scale(.4) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
-.fact-emoji{font-size:clamp(44px,13vw,64px);line-height:1;filter:drop-shadow(0 8px 12px rgba(0,20,70,.5));animation:fact-emoji-in .6s cubic-bezier(.2,1.4,.4,1) both}
-@keyframes fact-emoji-in{from{transform:translateY(18px) scale(.6);opacity:0}to{transform:none;opacity:1}}
 .fact-kicker{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:1000;color:#ffe36b}
 /* Gecentreerd en met volle regels. `text-wrap: balance` verdeelt de woorden
    over de regels in plaats van er één of twee op de laatste regel te laten
