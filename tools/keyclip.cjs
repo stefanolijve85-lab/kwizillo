@@ -72,7 +72,7 @@ function envelope(wav) {
   // KEYCLIP_NOMOUTH=1: no mouth is painted into the clip; instead <out>.json
   // gets the mouth spot of every frame (x, y and eye distance, as fractions of
   // the output height; x of the width) so the app draws its live mouth there.
-  const noMouth = !!process.env.KEYCLIP_NOMOUTH, track = [];
+  const noMouth = !!process.env.KEYCLIP_NOMOUTH, track = [], eyesTrack = [];
   if (noMouth) await p.evaluate(() => { window.__noMouth = true });
   for (let i = 0; i < frames.length; i++) {
     const png = await p.evaluate(async ([b64, box, outW, outH, open, mouth, debug, drawW, padX]) => {
@@ -157,7 +157,7 @@ function envelope(wav) {
             // Eyes squinted into arcs (a happy wave) are thin but still two clear
             // shapes side by side: their midpoint is where the mouth belongs.
             var eyeMid = null;
-            if (bl.length >= 2 && bl[1].n >= (ref.ring ? ref.ring.n * .15 : 20) && Math.abs(bl[0].x - bl[1].x) > ed * .6 && Math.abs(bl[0].x - bl[1].x) < ed * 1.5) eyeMid = (bl[0].x + bl[1].x) / 2;
+            if (bl.length >= 2 && bl[1].n >= (ref.ring ? ref.ring.n * .15 : 20) && Math.abs(bl[0].x - bl[1].x) > ed * .6 && Math.abs(bl[0].x - bl[1].x) < ed * 1.5) { eyeMid = (bl[0].x + bl[1].x) / 2; window.__eyes = [eyeMid, (bl[0].y + bl[1].y) / 2, Math.abs(bl[0].x - bl[1].x)]; }
             }
           { const row = Math.round(cy); if (glassL[row] >= 0) cx = (glassL[row] + glassR[row]) / 2 + ref.mouthShift; }
           // The glass's centre line is the face's centre only when he looks straight
@@ -250,12 +250,40 @@ function envelope(wav) {
       return o.toDataURL('image/png').split(',')[1];
     }, [fs.readFileSync(frames[i]).toString('base64'), box, outW, OUT_H, process.env.KEYCLIP_SMILE ? 0 : (env[i] ?? 0), screenMouth, +(process.env.KEYCLIP_DEBUG||0), drawW, padX]);
     fs.writeFileSync(path.join(outDir, `f${String(i + 1).padStart(4, '0')}.png`), Buffer.from(png, 'base64'));
-    if (noMouth) { const m = await p.evaluate(() => { const v = window.__m; window.__m = null; return v }); const k = OUT_H / box.h; track.push(m ? [+((padX + m[0] * k) / outW).toFixed(4), +(m[1] * k / OUT_H).toFixed(4), +(m[2] * k / OUT_H).toFixed(4)] : (track[track.length - 1] || null)); }
+    if (noMouth) {
+      const [m, e] = await p.evaluate(() => { const v = [window.__m, window.__eyes]; window.__m = null; window.__eyes = null; return v });
+      const k = OUT_H / box.h, fx = x => (padX + x * k) / outW, fy = y => y * k / OUT_H;
+      track.push(m ? [fx(m[0]), fy(m[1]), m[2] * k / OUT_H] : (track[track.length - 1] || null));
+      eyesTrack.push(e ? [fx(e[0]), fy(e[1]), e[2] * k / OUT_H] : null);
+    }
   }
   // 5. settle tail: the model's last pose dissolves back into frame 1 (the still) over SETTLE s with the mouth closed —
   // the clip ends where it began, and the voice, which runs to the last frame, is never cut off
   const SETTLE = Number(process.env.KEYCLIP_SETTLE ?? .7), tailN = Math.round(FPS * SETTLE), lastPng = path.join(outDir, `f${String(frames.length).padStart(4, '0')}.png`), firstPng = path.join(outDir, 'f0001.png');
   if (noMouth) {
+    // Steadier than the glass outline (which shimmers with gloss and blinks):
+    // the mouth sits a fixed distance under the midpoint of the two eyes. The
+    // distance is taken from the frames where both were found; frames without
+    // eyes (a blink) take the neighbours' value; then the path is smoothed over
+    // five frames — around the seam as well when the clip loops.
+    {
+      const n = track.length, loop = SETTLE === 0;
+      const good = [...Array(n).keys()].filter(i => eyesTrack[i] && track[i]);
+      if (good.length >= 3) {
+        const med = a => { const b = [...a].sort((x, y) => x - y); return b[b.length >> 1] };
+        const kx = med(good.map(i => (track[i][0] - eyesTrack[i][0]) / eyesTrack[i][2]));
+        const ky = med(good.map(i => (track[i][1] - eyesTrack[i][1]) / eyesTrack[i][2]));
+        const edRatio = med(good.map(i => track[i][2] / eyesTrack[i][2]));
+        let raw = eyesTrack.map(e => e ? [e[0] + kx * e[2], e[1] + ky * e[2], e[2] * edRatio] : null);
+        for (let i = 0; i < n; i++) if (!raw[i]) {          // fill gaps from the nearest frames on both sides
+          let a = i - 1, b = i + 1; while (a >= 0 && !raw[a]) a--; while (b < n && !raw[b]) b++;
+          const A = a >= 0 ? raw[a] : null, B = b < n ? raw[b] : null;
+          raw[i] = A && B ? A.map((v, j) => v + (B[j] - v) * (i - a) / (b - a)) : (A || B || track[i]);
+        }
+        const at = i => loop ? raw[(i + n) % n] : raw[Math.max(0, Math.min(n - 1, i))];
+        for (let i = 0; i < n; i++) { const w = [-2, -1, 0, 1, 2].map(d => at(i + d)); track[i] = [0, 1, 2].map(j => +(w.reduce((s, v) => s + v[j], 0) / 5).toFixed(4)); }
+      }
+    }
     for (let k = 1; k <= tailN; k++) track.push(track[track.length - 1]);
     // The figure's outline in frame 1 (fractions of the frame), so the app can lay
     // the clip exactly over the cut-out it starts from: no size jump at the swap.
