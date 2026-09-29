@@ -154,8 +154,15 @@ function envelope(wav) {
             if (ref.ring && bl.length >= 2 && bl[0].h >= ref.ring.h * .8 && bl[1].h >= ref.ring.h * .8 && bl[1].n >= ref.ring.n * .6 && Math.abs(bl[0].x - bl[1].x) > ed * .6) {
               eyesOpen = true; const mid = (bl[0].x + bl[1].x) / 2; window.__dx = mid - (best.x0 + ref.mouth.fx * sw); eyes.lx = Math.min(bl[0].x, bl[1].x); eyes.rx = Math.max(bl[0].x, bl[1].x); eyes.ly = eyes.ry = (bl[0].y + bl[1].y) / 2;
             }
+            // Eyes squinted into arcs (a happy wave) are thin but still two clear
+            // shapes side by side: their midpoint is where the mouth belongs.
+            var eyeMid = null;
+            if (bl.length >= 2 && bl[1].n >= (ref.ring ? ref.ring.n * .15 : 20) && Math.abs(bl[0].x - bl[1].x) > ed * .6 && Math.abs(bl[0].x - bl[1].x) < ed * 1.5) eyeMid = (bl[0].x + bl[1].x) / 2;
             }
           { const row = Math.round(cy); if (glassL[row] >= 0) cx = (glassL[row] + glassR[row]) / 2 + ref.mouthShift; }
+          // The glass's centre line is the face's centre only when he looks straight
+          // ahead; with the head turned the eyes say where the middle of the face is.
+          if (eyeMid !== null) cx = eyeMid;
           // The mouth never jumps: a head moves a little per frame, so a big step
           // means this frame's measurement is off (a blink broke the glass apart).
           // Measured inside the glass box, so the mouth goes wherever the head goes.
@@ -168,6 +175,9 @@ function envelope(wav) {
           for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const k = 4 * (y * W + x); if (src[k + 3] >= 250 && lumOf(k) > 95 && Math.min(Math.hypot(x - eyes.lx, y - eyes.ly), Math.hypot(x - eyes.rx, y - eyes.ry)) < ed * .36) dist[y * W + x] = 0; }
           for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const i = y * W + x; let v = dist[i]; if (x) v = Math.min(v, dist[i - 1] + 1); if (y) { v = Math.min(v, dist[i - W] + 1); if (x) v = Math.min(v, dist[i - W - 1] + 1.4); if (x < W - 1) v = Math.min(v, dist[i - W + 1] + 1.4); } dist[i] = v; }
           for (let y = H - 1; y >= 0; y--) for (let x = W - 1; x >= 0; x--) { const i = y * W + x; let v = dist[i]; if (x < W - 1) v = Math.min(v, dist[i + 1] + 1); if (y < H - 1) { v = Math.min(v, dist[i + W] + 1); if (x < W - 1) v = Math.min(v, dist[i + W + 1] + 1.4); if (x) v = Math.min(v, dist[i + W - 1] + 1.4); } dist[i] = v; }
+          // Without a painted mouth (motion clips: the model drew none) nothing on the
+          // screen is repainted; frame 1's glass copied under a squint left ghost rings.
+          if (!window.__noMouth) {
           const ringGap = ed * .12;
           // 1. the glass under the eyes becomes the reference outright (flat dark
           //    glass, mapped through the glass box); between the eyes only what the
@@ -189,7 +199,8 @@ function envelope(wav) {
               const fade = Math.min(1, (below - .12) / .14);   // eases in over a band instead of a hard line
               if (y <= best.y1 && !inGlass(x, y)) continue;                             // the glass's rounded corners / the rim beside it: untouched
               if (y > best.y1 && lumOf(k) >= 200) continue;                           // below the glass: never over the rim
-              if (kr !== null && rlum(kr) < 70) toRef(k, kr, gate * fade);             // inside the glass: everything, teeth included
+              // only frame 1's truly dark glass: its dim ring glow (lum 30-70) under a squint was a ghost ring
+              if (kr !== null && rlum(kr) < 30) toRef(k, kr, gate * fade);             // inside the glass: everything, teeth included
               else if (y <= best.y1 && lumOf(k) > 30) { const w = gate * fade * Math.min(1, (lumOf(k) - 30) / 15); for (let i = 0; i < 3; i++) d[k + i] = src[k + i] + (ref.dark[i] - src[k + i]) * w; d[k + 3] = 255; }
             }
             // At eye height nothing is repainted any more. That band used to pull
@@ -206,6 +217,7 @@ function envelope(wav) {
             const off = Math.max((Math.abs(lumOf(k) - rlum(kr)) - 10) / 20, (Math.abs(satOf(k) - rsat(kr)) - 14) / 20);
             const hx = Math.min(1, (sw * .24 - Math.abs(x - ex)) / (sw * .06)), vy = Math.min(1, (best.y1 + sh * .4 - y) / (sh * .08), (y - best.y1 - sh * .05) / (sh * .05));
             const w = Math.max(0, Math.min(1, Math.min(off, hx, vy))); if (w > 0) toRef(k, kr, w);
+          }
           }
           if (debug) console.log('glass', best.x0, best.y0, sw, sh, 'mouth', Math.round(cx), Math.round(cy));
           g.putImageData(new ImageData(d, W, H), 0, 0);

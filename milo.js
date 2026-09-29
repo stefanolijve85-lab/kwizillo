@@ -277,12 +277,14 @@
     const playMotion=name=>{
       const src=useMotion&&motionSrc(guide,name);if(!src)return Promise.resolve(false);
       if(motionName===name&&motionEl)return Promise.resolve(true);
-      stopMotion();
+      // The clip that is playing stays on screen until the next one shows its
+      // first frame: swapping through the cut-out was a visible flash.
+      const prev=motionEl;if(prev){cancelAnimationFrame(trackRaf);prev.onended=prev.onerror=null}
       const v=clipVideo(src);v.muted=true;v.loop=!!MOTION[guide][name].loop;v.classList.add('milo-motion');
       motionEl=v;motionName=name;
       // The video takes the cut-out's height, so the character keeps its size.
       // That height is only known once the cut-out has loaded.
-      const size=()=>{const h=img.getBoundingClientRect().height;if(h>40)v.style.height=Math.round(h)+'px';return h>40};
+      const size=()=>{const h=img.getBoundingClientRect().height||(prev&&prev.isConnected?prev.getBoundingClientRect().height:0);if(h>40)v.style.height=Math.round(h)+'px';return h>40};   // while the previous clip still shows, the cut-out is hidden: take that clip's height
       if(!size())img.addEventListener('load',()=>{if(motionEl===v)size()},{once:true});
       if(v.parentNode!==wrap)wrap.insertBefore(v,char);
       if(v.readyState>=1){try{v.currentTime=0}catch(e){}}
@@ -290,14 +292,16 @@
         let shown=false;
         // The cut-out stays until the video really shows a frame, so a slow
         // or refused video never leaves an empty spot.
-        const show=()=>{if(shown||motionEl!==v)return;if(!v.style.height||parseFloat(v.style.height)<40){if(!size()){setTimeout(show,60);return}}shown=true;img.classList.add('behind-clip');el.classList.add('motion-playing');trackFor(src).then(t=>{if(motionEl===v)followTrack(v,t)})};
+        const show=()=>{if(shown||motionEl!==v)return;if(!v.style.height||parseFloat(v.style.height)<40){if(!size()){setTimeout(show,60);return}}shown=true;if(prev&&prev!==v){prev.pause?.();prev.remove()}img.classList.add('behind-clip');el.classList.add('motion-playing');trackFor(src).then(t=>{if(motionEl===v)followTrack(v,t)})};
         v.addEventListener('playing',show,{once:true});
         v.__done=false;
+        if(!v.loop&&MOTION[guide].idle){const i=motionSrc(guide,'idle');if(i)clipVideo(i)}   // the loop that follows is ready in time
         v.onended=()=>{if(motionEl===v){v.__done=true;resolve(true)}};
         // A one-shot clip carries keyclip's settle tail (a dissolve); it hands over as that begins.
         if(!v.loop){const watch=()=>{if(motionEl!==v)return;if(v.duration&&isFinite(v.duration)&&v.currentTime>=v.duration-SETTLE_S){v.__done=true;resolve(true);return}requestAnimationFrame(watch)};requestAnimationFrame(watch)}
-        v.onerror=()=>{if(motionEl===v)stopMotion();resolve(false)};
-        const p=v.play();if(p&&p.catch)p.catch(()=>{if(motionEl===v)stopMotion();resolve(false)});
+        const dropPrev=()=>{if(prev&&prev!==v){prev.pause?.();prev.remove()}};
+        v.onerror=()=>{dropPrev();if(motionEl===v)stopMotion();resolve(false)};
+        const p=v.play();if(p&&p.catch)p.catch(()=>{dropPrev();if(motionEl===v)stopMotion();resolve(false)});
         if(v.loop)setTimeout(()=>resolve(shown),400);
       });
     };
