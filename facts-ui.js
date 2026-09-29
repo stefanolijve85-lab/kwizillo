@@ -65,7 +65,8 @@
   // Every fact has its own portrait illustration (assets/facts/<id>.jpg, made
   // from tools/fact-art-prompts.json); the world's hero art stands in should
   // one ever be missing.
-  K.factArt=fact=>`assets/facts/${fact.id}.jpg`;
+  // With the version stamp: a replaced picture keeps its file name, and art is cached for a day.
+  K.factArt=fact=>K.assetUrl(`assets/facts/${fact.id}.jpg`);
   const nextFact=(world,current)=>{const q=queueFor(world);let f=q.shift();while(f&&current&&f.id===current.id)f=q.shift();return f||K.pickFact(world,current?.id)};
 
   const card=(fact,{fresh})=>`<article class="fact-card fact-${fact.world} fade-in" data-fact="${fact.id}">
