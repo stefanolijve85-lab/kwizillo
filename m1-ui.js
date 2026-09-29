@@ -643,6 +643,8 @@
       ${game('🧠',t('memo.title'),t('stats.memoLine',{played:Number(G.memo?.played||0),won:Number(G.memo?.won||0)}),memoBest.length?t('stats.memoBest',{n:Math.min(...memoBest)}):'')}
       ${game('🔢',t('math.title'),t('stats.mathLine',{played:Number(G.math?.played||0),won:Number(G.math?.won||0)}),mathBest.length?`${Math.max(...mathBest)}/10`:'')}
       ${game('🏃',t('jungle.title'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}
+      ${game('❓',t('whoami.title'),t('stats.playedLine',{played:Number(G.whoami?.played||0)}),G.whoami?.best?`${G.whoami.best} ⭐`:'')}
+      ${game('🔍',t('fotozoom.title'),t('stats.playedLine',{played:Number(G.fotozoom?.played||0)}),G.fotozoom?.best?`${G.fotozoom.best} ⭐`:'')}
     </div>`;
     const body=`${hero}${chips}
       <h2 class="section-title">${esc(t('score.title'))}</h2>${records}

@@ -420,6 +420,7 @@
     'stats.cards':'Kort',
     'stats.perWorld':'Pr. verden',
     'stats.games':'Spil',
+    'stats.playedLine':'spillet {played} gange',
     'stats.runnerLine':'{played} ture · {coins} mønter samlet',
     'stats.memoBest':'{n} ture',
     'stats.memoLine':'{played} memospil spillet · {won} vundet',

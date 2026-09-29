@@ -420,6 +420,7 @@
     'stats.cards':'Карточки',
     'stats.perWorld':'По мирам',
     'stats.games':'Игры',
+    'stats.playedLine':'сыграно раз: {played}',
     'stats.runnerLine':'{played} забегов · собрано монет: {coins}',
     'stats.memoBest':'{n} ходов',
     'stats.memoLine':'Сыграно игр мемо: {played} · выиграно: {won}',

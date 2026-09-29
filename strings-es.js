@@ -421,6 +421,7 @@
     'stats.cards':'Cartas',
     'stats.perWorld':'Por mundo',
     'stats.games':'Juegos',
+    'stats.playedLine':'{played} partidas jugadas',
     'stats.runnerLine':'{played} carreras · {coins} monedas reunidas',
     'stats.memoBest':'{n} turnos',
     'stats.memoLine':'{played} juegos de memo jugados · {won} ganados',

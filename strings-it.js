@@ -421,6 +421,7 @@
     'stats.cards':'Carte',
     'stats.perWorld':'Per mondo',
     'stats.games':'Giochi',
+    'stats.playedLine':'{played} partite giocate',
     'stats.runnerLine':'{played} corse · {coins} monete raccolte',
     'stats.memoBest':'{n} mosse',
     'stats.memoLine':'{played} partite di memo giocate · {won} vinte',

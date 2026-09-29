@@ -420,6 +420,7 @@
     'stats.cards':'Karten',
     'stats.perWorld':'Pro Welt',
     'stats.games':'Spiele',
+    'stats.playedLine':'{played}-mal gespielt',
     'stats.runnerLine':'{played} Läufe · {coins} Münzen gesammelt',
     'stats.memoBest':'{n} Züge',
     'stats.memoLine':'{played} Memo-Spiele gespielt · {won} gewonnen',

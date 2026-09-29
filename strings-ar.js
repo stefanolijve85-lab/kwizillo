@@ -591,6 +591,7 @@
     'stats.cards':'بطاقات',
     'stats.perWorld':'لكل عالم',
     'stats.games':'الألعاب',
+    'stats.playedLine':'لُعبت {played} مرة',
     'stats.runnerLine':'{played} جولات · جمعت {coins} عملة',
     'stats.memoBest':'{n} محاولة',
     'stats.memoLine':'{played} مباريات ذاكرة · {won} رابحة',
