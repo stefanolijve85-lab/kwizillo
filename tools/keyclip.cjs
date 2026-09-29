@@ -193,11 +193,11 @@ function envelope(wav) {
           if (debug === 2) open = -1;
           // The mouth in the eyes' own look: a glowing cyan ring — a smile arc when
           // quiet, a full ring (with a faint fill) when the voice is loud.
-          const glow = '#62dcff', r = ed * .19, o = Math.max(0, Math.min(1, open));
+          const glow = '#62dcff', r = ed * .145, o = Math.max(0, Math.min(1, open));   // the size of the app's live mouth (.milo-mouth.mouth-robot), so a clip and a live line look alike
           g.save(); g.translate(cx, cy);
-          g.lineCap = 'round'; g.strokeStyle = glow; g.lineWidth = ed * .075;
+          g.lineCap = 'round'; g.strokeStyle = glow; g.lineWidth = ed * .055;
           // the same glow in every clip: a wide soft halo, a tighter one, then the crisp line
-          const stroke = path => { g.shadowColor = 'rgba(70,190,255,.95)'; g.shadowBlur = ed * .4; path(); g.stroke(); g.shadowBlur = ed * .16; path(); g.stroke(); g.shadowBlur = ed * .05; path(); g.stroke(); };
+          const stroke = path => { g.shadowColor = 'rgba(80,200,255,1)'; g.shadowBlur = ed * .07; path(); g.stroke(); g.shadowBlur = ed * .025; path(); g.stroke(); };   // the same tight glow as the live mouth (drop-shadow 4px): the old wide halo made the clip mouth look bigger
           // The mouth opens with the voice, continuously: the smile arc when quiet,
           // a flat "o" for a soft sound, a tall "O" for a loud one — the two
           // shapes cross-fade around the threshold so the mouth never pops.
