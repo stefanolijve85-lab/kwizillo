@@ -53,7 +53,8 @@ const { execFile } = require('child_process');
 const FF = fs.existsSync(path.join(__dirname, 'bin', 'ffmpeg')) ? path.join(__dirname, 'bin', 'ffmpeg') : 'ffmpeg';
 const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
 const files = walk(path.join(OUT, 'assets'));
-for (const f of files) if (/(\.DS_Store|\.md|\.keep)$/.test(f)) fs.rmSync(f);
+// app-icon-1024.png is the master for the Xcode asset catalog, not a game asset.
+for (const f of files) if (/(\.DS_Store|\.md|\.keep|app-icon-1024\.png)$/.test(f)) fs.rmSync(f);
 const jpgs = files.filter(f => /\.jpe?g$/i.test(f) && fs.existsSync(f));
 const recompress = f => new Promise(res => {
   const tmp = f + '.q5.jpg';

@@ -405,5 +405,12 @@
     const art=K.MASTER?.[world||K.currentWorld||K.state.lastWorld||'ruimte']||K.MASTER?.ruimte;
     if(art)document.documentElement.style.setProperty('--stage-art',`url("${K.assetUrl?K.assetUrl(art):art}")`);
   };
-  K.frame=html=>{K.stageArt();K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
+  // In the iOS app the launch screen (the intro's first frame) stays up until
+  // the game has something to show: the intro once its film really plays, any
+  // other screen once it is painted. The timer is the safety net, so a failed
+  // start can never leave the child looking at a still picture.
+  let splashDown=false;
+  K.hideSplash=()=>{if(splashDown)return;splashDown=true;try{window.Capacitor?.Plugins?.SplashScreen?.hide?.({fadeOutDuration:250})?.catch?.(()=>{})}catch(e){}};
+  setTimeout(K.hideSplash,4000);
+  K.frame=html=>{K.stageArt();K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));if(!f.querySelector('.kwizillo-cinematic'))requestAnimationFrame(()=>requestAnimationFrame(K.hideSplash));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
 })();

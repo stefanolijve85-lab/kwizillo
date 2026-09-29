@@ -60,7 +60,8 @@ Every change to the web app needs `build-www` + `cap sync` before the next Xcode
 | Capacitor iOS project, SPM | CODE COMPLETE |
 | StoreKit 2 plugin (products, purchase, verify, finish, current entitlements, updates, restore via `AppStore.sync`, manage sheet, trial eligibility) | CODE COMPLETE |
 | JS bridge + entitlement validity tied to the native store | CODE COMPLETE |
-| Light status bar, no-encryption declaration, icon + launch screen (first versions) | CODE COMPLETE |
+| Light status bar, no-encryption declaration | CODE COMPLETE |
+| App icon (Milo waving against the game's sky, no text; master `assets/brand/app-icon-1024.png`) and launch screen (the intro's opening clouds, held by `@capacitor/splash-screen` until the film plays, 4 s safety net) | DONE 30 SEPT, checked in the iPhone 16 Pro Max simulator |
 | iPad: universal target, portrait and landscape, layout scaled to fit | CODE COMPLETE, RUNS IN THE SIMULATOR |
 | Simulator build | BUILD SUCCEEDED (Xcode 26.4.1); runs on the iPhone 16 Pro Max and the iPad Pro 11" (M4) simulators, plugin registered and reachable |
 | Signing, StoreKit config in the scheme, device run | REQUIRES PHYSICAL IPHONE / OWNER ACTION |
@@ -93,8 +94,6 @@ lacked was a layout and the orientations.
 
 ## Before App Review (later)
 
-- Final app icon and launch screen from the brand (the current ones are generated
-  from `assets/brand/logo.png` and Milo's cut-out).
 - Kids category questionnaire; privacy labels "Data Not Collected".
 - Public Privacy Policy and Terms of Use URLs.
 - `ALLOWED_ORIGINS` on the speech server must include `capacitor://localhost`

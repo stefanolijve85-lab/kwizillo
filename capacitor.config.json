@@ -4,12 +4,20 @@
   "webDir": "www",
   "ios": {
     "contentInset": "never",
-    "backgroundColor": "#0d58bd",
+    "backgroundColor": "#1d5fa8",
     "preferredContentMode": "mobile",
     "allowsLinkPreview": false,
     "scrollEnabled": false
   },
   "server": {
     "iosScheme": "capacitor"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false,
+      "launchFadeOutDuration": 250,
+      "backgroundColor": "#1d5fa8",
+      "showSpinner": false
+    }
   }
 }

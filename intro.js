@@ -42,6 +42,7 @@
     // is stom, speelt automatisch en doet er verder niet toe: lukt het niet,
     // dan blijft de onscherpe wereldkunst eronder staan.
     const bg=el.querySelector('.intro-bg');
+    video.addEventListener('playing',()=>K.hideSplash?.(),{once:true});
     if(bg){const r=bg.play();if(r&&r.catch)r.catch(()=>{})}
     let timers=[],done=false,theme=null,soundOn=false,videoFailed=false,triedFallback=false;
     K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
