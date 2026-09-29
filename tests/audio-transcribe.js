@@ -21,8 +21,8 @@ if (!KEY) { console.log('No ELEVENLABS_API_KEY.'); process.exit(1); }
 
 const core = require('../quiz-core-v2.js');
 const ctx = { window: {} }; vm.createContext(ctx);
-for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions.js', 'questions-en.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
-const BANKS = { nl: ctx.window.KWIZILLO_QUESTIONS_NL, en: ctx.window.KWIZILLO_QUESTIONS_EN };
+// The whole bank (all eight worlds), as tests/audio-qa.js samples it.
+const { banks: BANKS } = require('./langs.js').loadBanks();
 const byId = { nl: new Map(BANKS.nl.map(q => [q.id, q])), en: new Map(BANKS.en.map(q => [q.id, q])) };
 
 const norm = s => String(s).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();

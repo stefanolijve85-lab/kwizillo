@@ -21,12 +21,8 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const N = Number(process.argv.includes('--n') ? process.argv[process.argv.indexOf('--n') + 1] : 20);
 
 const core = require('../quiz-core-v2.js');
-const ctx = { window: {} };
-vm.createContext(ctx);
-for (const f of ['questions-extra.js', 'questions-extra-en.js', 'questions.js', 'questions-en.js']) {
-  vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
-}
-const BANKS = { nl: ctx.window.KWIZILLO_QUESTIONS_NL, en: ctx.window.KWIZILLO_QUESTIONS_EN };
+// The whole bank (1280 per language, all eight worlds), loaded the way the other tests load it.
+const { banks: BANKS } = require('./langs.js').loadBanks();
 
 // Terms CLAUDE.md section 9 calls out for a pronunciation audit.
 // Questions whose text carries abbreviations or numbers CLAUDE.md section 9 wants audited.
@@ -105,9 +101,14 @@ async function speak(text, voice, lang) {
       // Take every question that carries a watched term first, then spread the rest.
       const watched = bank.filter(q => PRONUNCIATION_WATCH.test(q.prompt + ' ' + q.options.join(' ')));
       const rest = bank.filter(q => !watched.includes(q));
-      const step = Math.max(1, Math.floor(rest.length / Math.max(1, N - Math.min(N, watched.length))));
-      const picks = [...watched.slice(0, Math.min(N, watched.length)),
-        ...Array.from({ length: Math.max(0, N - Math.min(N, watched.length)) }, (_, i) => rest[i * step])].filter(Boolean);
+      // Half the sample carries a watched term (spread over the bank, not the first
+      // few of one world), the other half is spread over every world.
+      const half = Math.ceil(N / 2);
+      const spread = (list, n) => Array.from({ length: Math.min(n, list.length) }, (_, i) => list[Math.floor(i * list.length / Math.min(n, list.length))]);
+      const worlds = [...new Set(rest.map(q => q.world))];
+      const perWorld = worlds.map(w => rest.filter(q => q.world === w));
+      const plain = Array.from({ length: N - Math.min(half, watched.length) }, (_, i) => perWorld[i % worlds.length][Math.floor(i / worlds.length) * 7 % perWorld[i % worlds.length].length]);
+      const picks = [...spread(watched, half), ...plain].filter(Boolean);
       const dir = path.join(OUT, lang);
       fs.mkdirSync(dir, { recursive: true });
 

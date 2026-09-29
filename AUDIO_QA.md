@@ -276,3 +276,35 @@ Een clip die al onderweg is wordt gedeeld (geen dubbele aanvraag); cache 48
 clips per taal/stem. Playwright-test: op Home twee hello-aanvragen, in de quiz
 zijn hint en volgende vraag al binnen vóór ze nodig zijn, en het openen van de
 hint of de volgende vraag veroorzaakt geen nieuwe aanvraag.
+
+---
+
+## 13. Ronde 30 september (volledige bank, 1280 vragen)
+
+`tests/audio-qa.js` en `tests/audio-transcribe.js` lazen nog de oude vragenbank
+(`questions.js`, 240 vragen) en crashten op het nieuwe formaat. Ze laden nu de
+volledige bank via `tests/langs.js` (`loadBanks()`), en de steekproef is half
+"let-op"-vragen (GPS, ISS, DNA, getallen, °C …) verspreid over de hele bank en half
+verspreid over alle acht werelden.
+
+| | nl | en |
+|---|---|---|
+| Stem | Milo / Luna nl-NL | Milo / Luna en-US |
+| In de juiste taal gehoord | 20/20 | 20/20 |
+| Letters A–D als letter gehoord | ja | ja |
+| Let-op-termen herkend | 10/10 | 10/10 |
+
+**Gevonden en opgelost:** nl `aarde-kaarten_navigatie-08` "Wat is GPS?" (Milo) werd
+gehoord als "Wat is GP". De clip in `.tts-cache` duurde 0,84 s en stopte zonder stilte
+aan het eind; de S was er afgeknipt (een slechte take van ElevenLabs, geen
+uitspraakfout). Andere takes van dezelfde zin duren 1,15–1,2 s en worden goed
+gehoord. De slechte clip is uit de cache gehaald en opnieuw gemaakt: nu "Wat is GPS?",
+nl 100 %. Een uitspraakregel voor GPS is niet nodig.
+
+**Let op voor productie:** `.tts-cache` staat niet in git; de productieserver maakt
+zijn eigen takes. Zo'n afgeknipte take kan daar ook ontstaan. Twee opties: de cache
+van deze machine meenemen bij de eerste uitrol (alle nl/en-vragen zijn hier al
+gecontroleerd), of na de uitrol `npm run test:audio` tegen de productieserver draaien.
+
+Blijft als luistertip: bij zinnen van drie woorden geeft de taaldetectie "eng" terwijl
+alle woorden kloppen. Dat komt door de lengte, niet door het accent.

@@ -137,9 +137,8 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
    laadt de tourclips wel vooraf (±3 MB per clip) — dat kan eruit.
 
 ### Techniek
-4. **`tests/ipad.spec.js`**: drie tests over de liggende stand verwachten nog de
-   staande verhouding 430 : 764, terwijl het brede frame 1180 × 820 is. Bestaande
-   achterstand, geen fout in de app.
+4. ~~**`tests/ipad.spec.js`**~~ — gedaan op 30 september: liggend verwacht nu het
+   brede frame 1180 × 820.
 5. ~~**De liggende openingsfilm**~~ — gedaan op 29 september: `intro-wide.mp4`
    (4:3), met Higgsfield reframe uit de staande verbreed; zelfde beelden op
    dezelfde tijden, dus het introgeluid klopt.
@@ -147,8 +146,12 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
    het saldo is niet af te lezen. Rechteninstelling op de sleutel.
 
 ### Voor de release
-7. Audio-QA: twintig vragen nl en twintig en beluisteren (`AUDIO_QA.md`).
-8. Foutsituaties: geen internet, trage verbinding, ElevenLabs-time-out, snel
-   tikken, taal wisselen tijdens een quiz, app naar de achtergrond.
+7. ~~Audio-QA~~ — gedaan op 30 september: 20 nl + 20 en uit de volledige bank, alles
+   in de juiste taal; één afgeknipte take ("Wat is GPS?") vervangen
+   (`AUDIO_QA.md` §13). Nog doen door een mens: even luisteren op de iPhone.
+8. ~~Foutsituaties~~ — gedaan op 30 september: `tests/resilience.spec.js` (geen
+   internet, kapotte/trage/hangende stem, dubbel tikken, weggaan midden in een zin,
+   taalwissel, achtergrond). De app-grootte ging van 285 naar 187 MB (JPEG-kwaliteit 5
+   in `tools/build-www.cjs`).
 9. iOS: Capacitor-build, pictogram, opstartscherm, TestFlight
    (`IOS_RELEASE_CHECKLIST.md`).
