@@ -6,7 +6,7 @@ const assert = require('assert'); const fs = require('fs'); const path = require
 const ctx = { window: {} }; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'facts.js'), 'utf8'), ctx);
 const F = ctx.window.KWIZILLO_FACTS;
-const WORLDS = ['ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie'];
+const WORLDS = ['ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie', 'kunst', 'sport'];
 const { LANGS } = require('./langs.js');
 let total = 0;
 for (const lang of LANGS) {

@@ -152,7 +152,7 @@ test('Free math plays at level 3 at most while the parent setting is kept; memo 
   await expect(page.locator('.math')).toBeVisible();
   expect(await page.evaluate(() => [window.KWIZILLO_M1.math.niveau, window.KWIZILLO_M1.state.niveau])).toEqual([3, 6]);
   await page.evaluate(() => window.KWIZILLO_M1.showMemoPicker());
-  await expect(page.locator('.memo-pick.locked')).toHaveCount(5);   // every world but the starter; "all worlds" stays free
+  await expect(page.locator('.memo-pick.locked')).toHaveCount(7);   // all eight worlds but the starter; "all worlds" stays free
   await expect(page.locator('.memo-pick.mix')).not.toHaveClass(/locked/);
   await page.evaluate(() => window.KWIZILLO_M1.showFacts('dieren'));
   await expect(page.locator('#factPremium')).toContainText('Nog 12 weetjes met Premium');

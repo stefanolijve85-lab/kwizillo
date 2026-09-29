@@ -28,7 +28,7 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   const screen = page.locator('.facts-screen');
   await expect(screen).toBeVisible();
   await expect(screen.locator('h1')).toHaveText('Weetjes');
-  await expect(screen.locator('#factsSub')).toHaveText('1 van 96 ontdekt');
+  await expect(screen.locator('#factsSub')).toHaveText('1 van 128 ontdekt');
   const card = screen.locator('.fact-card');
   await expect(card).toBeVisible();
   await expect(card.locator('.fact-new')).toHaveText('Nieuw!');
@@ -39,7 +39,7 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   expect(spoken.map(r => JSON.stringify(r)).join('')).not.toContain('Mike');
   // Next fact: another one, counter up, both remembered.
   await screen.locator('#factNext').click();
-  await expect(screen.locator('#factsSub')).toHaveText('2 van 96 ontdekt');
+  await expect(screen.locator('#factsSub')).toHaveText('2 van 128 ontdekt');
   const second = await screen.locator('.fact-card').getAttribute('data-fact');
   expect(second).not.toBe(first);
   const secondText = await screen.locator('.fact-text').textContent();
@@ -48,7 +48,7 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   expect(seen.sort()).toEqual([first, second].sort());
   // Every chip is in view without sideways scrolling.
   const chips = await screen.locator('.fact-chip').all();
-  expect(chips.length).toBe(7);
+  expect(chips.length).toBe(9);   // alles + acht werelden
   const vw = page.viewportSize().width;
   for (const c of chips) { const b = await c.boundingBox(); expect(b.x).toBeGreaterThanOrEqual(0); expect(b.x + b.width).toBeLessThanOrEqual(vw); }
   expect(await screen.locator('.fact-chips').evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
@@ -130,7 +130,7 @@ test('the bank is the same size in every language and switching language keeps d
     for (const lang of ['nl', 'en', 'pt']) { K.setLanguage(lang); out[lang] = { total: K.facts('all').length, seen: K.factsSeenCount('all'), first: K.facts('ruimte')[0].t }; }
     return out;
   });
-  expect(r.nl.total).toBe(96); expect(r.en.total).toBe(96); expect(r.pt.total).toBe(96);
+  expect(r.nl.total).toBe(128); expect(r.en.total).toBe(128); expect(r.pt.total).toBe(128);
   expect(r.nl.seen).toBe(2); expect(r.en.seen).toBe(2); expect(r.pt.seen).toBe(2);
   expect(r.en.first).toMatch(/Sun/); expect(r.pt.first).toMatch(/Sol/);
 });

@@ -15,7 +15,7 @@
   // ook, zodat er nooit een wereld aangeboden wordt die niets te tonen heeft.
   const WORLDS=()=>K.WORLDS.filter(w=>(bank()[w]||[]).length);
   K.factWorlds=WORLDS;
-  const WORLD_EMOJI={ruimte:'🚀',dieren:'🦁',aarde:'🌍',geschiedenis:'🏰',wetenschap:'🔬',mysterie:'🔮'};
+  const WORLD_EMOJI={ruimte:'🚀',dieren:'🦁',aarde:'🌍',geschiedenis:'🏰',wetenschap:'🔬',mysterie:'🔮',kunst:'🎨',sport:'🏅'};
   const bank=()=>window.KWIZILLO_FACTS?.[K.state.language]||window.KWIZILLO_FACTS?.nl||{};
   const seenMap=()=>{const P=K.progress();P.factsSeen||={};return P.factsSeen};
   // Every fact of a world (or all), and the ones this player may read: Free gets
@@ -81,8 +81,8 @@
 
   // `open` shows that fact first (the result screen's bonus fact, in full).
   K.showFacts=(world='all',{open}={})=>{
-    // Een wereld zonder weetjes (kunst en sport zijn nog niet geschreven) gaf
-    // een leeg scherm. Dan maar alle weetjes: er valt altijd iets te ontdekken.
+    // Een wereld zonder weetjes gaf ooit een leeg scherm (kunst en sport kwamen
+    // later). Dan maar alle weetjes: er valt altijd iets te ontdekken.
     if(world!=='all'&&!WORLDS().includes(world)) world='all';
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();K.lastView='facts';

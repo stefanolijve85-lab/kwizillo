@@ -720,7 +720,8 @@
    frees up, so the screen is filled instead of ending halfway. */
 .game-picker .panel-scroll{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px}
 .game-picker .memo-pick.mix{aspect-ratio:16/7;height:auto}
-.game-picker .memo-pick-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));max-height:none}
+/* Zoveel rijen als er werelden zijn; ze delen de hoogte, zodat de laatste rij nooit onder de rand verdwijnt. */
+.game-picker .memo-pick-grid{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(0,1fr);max-height:none}
 .game-picker .memo-pick b{font-size:clamp(13px,3.6vw,16px)}
 /* A small phone: flatter tiles so all six stay fully in view. */
 @media(max-height:700px){.memo-picker .memo-mode-btn{min-height:72px}.memo-picker .memo-mode-faces{height:34px}.memo-picker .memo-mode-faces .mascot-face{width:32px;height:32px}.memo-picker .memo-mode-faces.two .mascot-face{width:30px;height:30px}}

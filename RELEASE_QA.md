@@ -16,7 +16,7 @@ Het vervangt geen testrapport per scherm — dat staat in de doorloop hieronder.
 | Vraag-only platen | 162 (voor vragen waarvan de eigen plaat het antwoord verraadt) |
 | Onderwerpplaten | 32 van 32 |
 | Wereldplaten | 8 van 8 |
-| Weetjes | 96 (zes werelden × 16) — **kunst en sport ontbreken nog** |
+| Weetjes | 128 (acht werelden × 16), elk met een eigen plaat |
 | Buddy's | 13, allemaal vierkant en heel in beeld |
 | Talen | nl, en, de, fr, es, it, pt, da, ru, ar — 692 sleutels, in pariteit |
 | Minispellen | Memo, Rekenen, Wat ben ik?, Fotozoom, Weetjes, Runner |
@@ -127,9 +127,8 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
 ## 5 · Wat er nog ligt
 
 ### Inhoud
-1. **32 weetjes voor kunst en sport** (16 per wereld), in tien talen, plus 32
-   platen. Tot die tijd biedt de kiezer die twee werelden niet aan. Kosten van
-   de platen: ongeveer $1,10.
+1. ~~**32 weetjes voor kunst en sport**~~ — gedaan op 29 september: 16 per wereld,
+   tien talen, 32 platen (ElevenLabs-flow “Kwizillo weetjes kunst en sport”).
 2. **Spraak in de andere acht talen** — niet vooruit betaald; de cache vult zich
    tijdens het spelen.
 3. **Milo's `worlds`-clip** opnieuw inspreken.

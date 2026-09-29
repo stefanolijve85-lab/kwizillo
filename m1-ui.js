@@ -401,11 +401,9 @@
   // Wat ben ik?, Fotozoom and Weetjes are played in one world or in all of them
   // at once — the same choice Memo has always had. One picker serves all three:
   // the mix first, then the six worlds, each behind its own painting.
-  // `worlds` zegt welke werelden een spel aankan. Weetjes is er nog maar voor
-  // zes: kunst en sport hebben nog geen weetjes geschreven. Die stonden wel in
-  // de kiezer en leverden dan een leeg scherm op — een knop die nergens heen
-  // gaat is erger dan een knop die er niet is. Zodra de weetjes er zijn komen
-  // ze vanzelf terug, want dit leest de bank zelf uit.
+  // `worlds` zegt welke werelden een spel aankan. Weetjes leest dat uit de
+  // bank zelf: een wereld zonder weetjes staat niet in de kiezer, want een knop
+  // die op een leeg scherm uitkomt is erger dan een knop die er niet is.
   const GAME_PICKERS={
     whoami:{kicker:'whoami.title',art:()=>K.GAME_ART.whoami,mix:'mix',start:w=>K.startWhoAmI(w),locked:w=>!K.premium.can('memo',w)},
     fotozoom:{kicker:'fotozoom.title',art:()=>K.GAME_ART.fotozoom,mix:'mix',start:w=>K.startFotozoom(w),locked:w=>!K.premium.can('memo',w)},
