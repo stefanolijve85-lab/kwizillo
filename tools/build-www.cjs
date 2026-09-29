@@ -42,5 +42,37 @@ for (const need of [`connect-src 'self' ${API_HOST}`, `media-src 'self' data: bl
 }
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 
+// Pictures for the app: the JPEGs in assets/ are kept in the repository at a high
+// quality (they are the masters every picture is regenerated from). The app gets
+// them re-encoded at JPEG quality q:v 5 — on 800x450 question art that is about
+// half the size with no difference to see (SSIM ≈ .975, checked side by side at
+// 2x). A file is only replaced when the result is smaller. Needs ffmpeg
+// (tools/bin/ffmpeg or on the PATH); without it the masters ship as they are.
+// Loose development files never ship.
+const { execFile } = require('child_process');
+const FF = fs.existsSync(path.join(__dirname, 'bin', 'ffmpeg')) ? path.join(__dirname, 'bin', 'ffmpeg') : 'ffmpeg';
+const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
+const files = walk(path.join(OUT, 'assets'));
+for (const f of files) if (/(\.DS_Store|\.md|\.keep)$/.test(f)) fs.rmSync(f);
+const jpgs = files.filter(f => /\.jpe?g$/i.test(f) && fs.existsSync(f));
+const recompress = f => new Promise(res => {
+  const tmp = f + '.q5.jpg';
+  execFile(FF, ['-y', '-loglevel', 'error', '-i', f, '-q:v', '5', tmp], err => {
+    if (err) { try { fs.rmSync(tmp, { force: true }) } catch {} return res(err.code === 'ENOENT' ? 'noffmpeg' : 0) }
+    const a = fs.statSync(f).size, b = fs.statSync(tmp).size;
+    if (b < a) { fs.renameSync(tmp, f); res(a - b) } else { fs.rmSync(tmp); res(0) }
+  });
+});
+
 const size = dir => fs.readdirSync(dir, { withFileTypes: true }).reduce((n, e) => n + (e.isDirectory() ? size(path.join(dir, e.name)) : fs.statSync(path.join(dir, e.name)).size), 0);
-console.log(`www/: ${fs.readdirSync(OUT).length} entries, ${(size(OUT) / 1048576).toFixed(0)} MB, speech via ${API_HOST}`);
+(async () => {
+  let saved = 0, noFF = false;
+  for (let i = 0; i < jpgs.length; i += 8) {
+    const r = await Promise.all(jpgs.slice(i, i + 8).map(recompress));
+    for (const x of r) { if (x === 'noffmpeg') noFF = true; else saved += x }
+    if (noFF) break;
+  }
+  if (noFF) console.warn('ffmpeg not found: pictures ship at their master quality');
+  else console.log(`pictures: ${jpgs.length} JPEGs re-encoded, ${(saved / 1048576).toFixed(0)} MB saved`);
+  console.log(`www/: ${fs.readdirSync(OUT).length} entries, ${(size(OUT) / 1048576).toFixed(0)} MB, speech via ${API_HOST}`);
+})();
