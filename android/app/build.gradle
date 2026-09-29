@@ -24,8 +24,22 @@ android {
     buildFeatures {
         buildConfig = true
     }
+    // The upload key for Google Play. It never goes in the repository: point to
+    // it from ~/.gradle/gradle.properties (see ANDROID_RELEASE_CHECKLIST.md).
+    // Without it the release bundle is built unsigned.
+    signingConfigs {
+        release {
+            if (project.hasProperty('KWIZILLO_UPLOAD_STORE_FILE')) {
+                storeFile file(KWIZILLO_UPLOAD_STORE_FILE)
+                storePassword KWIZILLO_UPLOAD_STORE_PASSWORD
+                keyAlias KWIZILLO_UPLOAD_KEY_ALIAS
+                keyPassword KWIZILLO_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
     buildTypes {
         release {
+            if (project.hasProperty('KWIZILLO_UPLOAD_STORE_FILE')) signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

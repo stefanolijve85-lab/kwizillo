@@ -133,8 +133,9 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
    tijdens het spelen.
 3. ~~**Milo's `worlds`-clip** opnieuw inspreken~~ — gedaan op 29 september (tekst
    en timing gecontroleerd met `clipcheck`). Let op: de rondleiding speelt bewust
-   géén clips (`milo.js`, stop-lus), dus deze clip is nu nergens te zien. `K.warmTour`
-   laadt de tourclips wel vooraf (±3 MB per clip) — dat kan eruit.
+   géén clips (`milo.js`, stop-lus), dus deze clip is nu nergens te zien. Sinds 30
+   september laadt `K.warmTour` de tourclips niet meer en gaan ze niet mee in de
+   app-build (16 MB kleiner).
 
 ### Techniek
 4. ~~**`tests/ipad.spec.js`**~~ — gedaan op 30 september: liggend verwacht nu het
@@ -153,5 +154,18 @@ plaats van 800 punten, zeven memo-werelden in plaats van negen).
    internet, kapotte/trage/hangende stem, dubbel tikken, weggaan midden in een zin,
    taalwissel, achtergrond). De app-grootte ging van 285 naar 187 MB (JPEG-kwaliteit 5
    in `tools/build-www.cjs`).
-9. iOS: Capacitor-build, pictogram, opstartscherm, TestFlight
-   (`IOS_RELEASE_CHECKLIST.md`).
+9. iOS: ~~pictogram en opstartscherm~~ gedaan op 30 september (Milo tegen de
+   spellucht; het opstartscherm is het eerste beeld van de intro en blijft staan
+   tot de film speelt). Nog: ondertekening, TestFlight (`IOS_RELEASE_CHECKLIST.md`).
+10. ~~Store-screenshots~~ — gedaan op 30 september: `node tools/store-shots.cjs`
+    maakt acht schermen per taal (nl, en) voor iPhone 6.9" (1320 × 2868) en iPad
+    13" (2064 × 2752) in `store/screenshots/` (niet in git). Daarbij gevonden en
+    opgelost: op lange telefoons (iPhone 12 en nieuwer) werden de antwoordkaarten
+    160–180 pt hoog; nu krijgt de plaat die ruimte (4:3) en blijven de kaarten 116 pt.
+11. ~~Android~~ — gedaan op 30 september: Capacitor-project, icoon, opstartscherm,
+    terugknop, Google Play Billing, winkelteksten met Google Play; getest in de
+    emulator en met Playwright. Release-bundel 184 MB, per toestel max. 180,6 MB
+    download (grens 200 MB). Eigenaarstappen: `ANDROID_RELEASE_CHECKLIST.md`.
+12. **Losse test**: `tests/whoami.spec.js` (voorlezen van de tegels) faalt soms
+    alleen onder de belasting van de volledige suite; los slaagt hij steeds. Timing
+    in de test, geen fout in het spel.
