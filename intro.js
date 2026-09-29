@@ -24,8 +24,12 @@
     if(!url) return onDone();
 
     const wideFilm=wide&&url===K.MOTION?.homeWide;
+    // The blurred copy behind the film is only for a portrait film on a wide
+    // screen. Anywhere else it was a second decoder on the same 10 MB file: on
+    // an iPhone the theme played while the visible film stood still.
+    const needsBg=wide&&!wideFilm;
     const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in${wideFilm?' wide-film':''}">
-      <video class="intro-bg" muted playsinline autoplay preload="auto" aria-hidden="true" src="${url}"></video>
+      ${needsBg?`<video class="intro-bg" muted playsinline autoplay preload="auto" aria-hidden="true" src="${url}"></video>`:''}
       <video class="intro-main" muted playsinline autoplay preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
       <div class="intro-sound" id="introSound">🔊 ${K.t('intro.tapForSound')}</div>
@@ -65,7 +69,7 @@
       timers.forEach(clearTimeout);
       timers=[];
       try{video.pause()}catch(e){}
-      try{bg&&bg.pause()}catch(e){}
+      try{el.querySelector('.intro-bg')?.pause()}catch(e){}
       theme?.stop(.6);
       K.audio.holdMusic=false;
       startMusic();
@@ -96,6 +100,8 @@
       if(url!==fallback&&fallback&&!triedFallback){
         triedFallback=true;log('wide intro ontbreekt, val terug op',fallback);
         el.classList.remove('wide-film');
+        // the portrait film on a wide screen after all: now it wants its blurred copy
+        if(!el.querySelector('.intro-bg')){const b=document.createElement('video');b.className='intro-bg';b.muted=true;b.playsInline=true;b.autoplay=true;b.setAttribute('aria-hidden','true');b.src=fallback;el.insertBefore(b,video);const r2=b.play();if(r2&&r2.catch)r2.catch(()=>{})}
         video.src=fallback;video.load();const r=video.play();if(r&&r.catch)r.catch(()=>{});
         return;
       }
