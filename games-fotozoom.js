@@ -67,8 +67,8 @@
           ${secondsFor()?`<span class="quiz-timer whoami-timer" id="fzTimer" style="--p:100"><b>${secondsFor()}</b></span>`:''}
         </header>
         <main class="quiz-card fotozoom-card">
-          <div class="fotozoom-stage" id="fzStage"><img src="${K.answerArtFor(q)}" alt="" decoding="async" style="transform-origin:${r.fx}% ${r.fy}%;transform:scale(${ZOOMS[0]})"><span class="fotozoom-lens" aria-hidden="true">🔍</span></div>
           <div class="fotozoom-row"><h1>${esc(t('fotozoom.ask'))}</h1><span class="fotozoom-points" id="fzPoints">${esc(t('fotozoom.points',{n:POINTS[0]}))}</span></div>
+          <div class="fotozoom-stage" id="fzStage"><img src="${K.answerArtFor(q)}" alt="" decoding="async" style="transform-origin:${r.fx}% ${r.fy}%;transform:scale(${ZOOMS[0]})"><span class="fotozoom-lens" aria-hidden="true">🔍</span></div>
           <div class="answers fotozoom-answers">${r.options.map((o,i)=>`<button class="answer ${answerSize(o.answer)}" data-i="${i}" aria-label="${esc(o.answer)}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o.answer)}</span></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions"><button class="action hint" id="fzOut">🔍 ${esc(t('fotozoom.out'))}</button><button class="action repeat" id="fzRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
         </main>

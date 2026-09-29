@@ -79,7 +79,7 @@
     'whoami.doneKicker':'КТО Я?','whoami.doneTitle':'Угадано {n} из {total}!','whoami.summary':'{score} очков из {max}. Чем раньше угадаешь, тем больше очков.',
     'whoami.speech.great':'Ух ты, как быстро ты угадываешь! Молодец.','whoami.speech.done':'Хорошая игра! В следующий раз угадаешь ещё больше.',
     'jungle.title':'Раннер','jungle.tileSub':'Беги, прыгай и лети через три уровня','jungle.loadError':'Джунгли не загрузились. Попробуй позже.',
-    'fotozoom.title':'Фотозум','fotozoom.round':'Раунд {n} из {total}','fotozoom.points':'Уже {n} очков','fotozoom.ask':'Что это может быть?','fotozoom.out':'Отдалить','fotozoom.next':'Дальше','fotozoom.timeUp':'Время вышло! Это был {answer}.',
+    'fotozoom.title':'Фотозум','fotozoom.round':'Раунд {n} из {total}','fotozoom.points':'Уже {n} очков','fotozoom.ask':'Что это?','fotozoom.out':'Отдалить','fotozoom.next':'Дальше','fotozoom.timeUp':'Время вышло! Это был {answer}.',
     'fotozoom.yes':'Да, {answer}! +{points}','fotozoom.almost':'Почти! Это был {answer}.',
     'fotozoom.speech.yes':'Да, это {answer}!','fotozoom.speech.almost':'Почти! Это был {answer}.',
     'fotozoom.doneKicker':'ФОТОЗУМ','fotozoom.doneTitle':'Узнано {n} из {total}!','fotozoom.summary':'{score} очков из {max}. Чем меньше отдаляешь, тем больше очков.',

@@ -288,6 +288,10 @@
 /* Each painting has its island at a different height; keep it in the band
    between the header and the topic cards. */
 .world-ruimte .native-world-hero img,.world-mysterie .native-world-hero img{object-position:center 0%}
+/* Mysterie: de kristallen boven op het eiland vielen achter de titel. De plaat
+   zakt wat en is iets uitgezoomd; het randje dat bovenin vrijkomt is de vervaagde
+   kopie van dezelfde plaat en valt weg in de kop. */
+.world-mysterie .native-world-hero img{transform-origin:50% 0;transform:translateY(7%) scale(.9)}
 .world-dieren .native-world-hero img{object-position:center 6%}
 .world-wetenschap .native-world-hero img{object-position:center 30%}
 .world-aarde .native-world-hero img{object-position:center 48%}
@@ -961,8 +965,10 @@
 /* A robot's mouth is a light: it glows wider instead of dropping a chin. */
 .milo-still.mouth-glow .milo-still-chin,.milo-still.mouth-robot .milo-still-chin{display:none}
 .milo-still.mouth-glow .milo-mouth-hole,.milo-still.mouth-robot .milo-mouth-hole{height:calc(var(--mh) * 100% * (0.6 + var(--open) * 2.2));width:calc(var(--mw) * 100% * (0.9 + var(--open) * .3));transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(20,60,140,.55) 0 30%,#bff4ff 44%,#5fd0ff 56%,rgba(46,166,255,.7) 66%,rgba(46,166,255,0) 78%);opacity:calc(var(--open) * 1.4);filter:blur(.3px)}
-/* Pointing down: the pointing pose leans over so the finger aims at the element below. */
-.milo-host[data-pose="pointDown"] .milo-fig-wrap{transform:rotate(38deg);transform-origin:50% 60%}
+/* Pointing down: dezelfde wijzende houding, rechtop. De figuur hing eerst 38°
+   voorover zodat de vinger naar beneden wees, maar een gids die scheef hangt
+   ziet eruit alsof hij omvalt. De plek (boven het element) wijst al genoeg. */
+.milo-host[data-pose="pointDown"] .milo-fig-wrap{transform:none}
 .milo-host.video-mode.talking .milo-still{animation:milo-still-nod 1.6s ease-in-out infinite}
 @keyframes milo-still-nod{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-1deg) translateY(-2px)}70%{transform:rotate(1.2deg) translateY(-1px)}}
 .onboarding-stage .milo-host.video-mode{--milo-w:clamp(124px,36vw,168px)}
@@ -1152,7 +1158,9 @@
 .fotozoom-stage img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1);will-change:transform}
 .fotozoom-lens{position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;font-size:18px;box-shadow:0 3px 8px rgba(0,26,80,.25)}
 .fotozoom-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px}
-.fotozoom-row h1{text-align:start;font-size:clamp(17px,4.6vw,26px)}
+/* De vraag staat boven de foto, op de hoogte van de ronde klok: die krijgt zijn eigen plek. */
+html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{padding-inline-end:44px}
+.fotozoom-row h1{text-align:start;font-size:clamp(17px,4.6vw,26px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .fotozoom-points{background:linear-gradient(180deg,#ffe969,#ffbd23);color:#17235e;border-radius:999px;padding:5px 11px;font-size:clamp(11px,2.8vw,13px);font-weight:1000;white-space:nowrap;box-shadow:0 3px 0 #dc8c12}
 .quiz-card .fotozoom-answers{flex:0 0 auto;grid-auto-rows:minmax(64px,100px);gap:8px}
 .fotozoom-card .quiz-actions{margin-top:auto}

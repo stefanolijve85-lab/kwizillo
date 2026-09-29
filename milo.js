@@ -15,7 +15,7 @@
   // Each pose carries where the mouth sits on it (fractions of the image), so
   // the mouth can talk on the figure itself; the walk and jump frames are only
   // shown while the guide moves. Pointing left mirrors the pointing pose,
-  // pointing down leans it over (CSS on data-pose).
+  // pointing down is the same pose, upright (CSS on data-pose).
   const u=p=>K.assetUrl?K.assetUrl(p):p;
   // A mouth box may carry its own `style`. Milo's renders have no mouth at
   // all: a `robot` mouth is drawn on his screen (a smile that fills into an

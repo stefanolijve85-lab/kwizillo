@@ -79,7 +79,7 @@
     'whoami.doneKicker':'HVAD ER JEG?','whoami.doneTitle':'{n} af {total} gættet!','whoami.summary':'{score} af {max} point. Jo hurtigere du gætter, jo flere point.',
     'whoami.speech.great':'Wow, du gætter hurtigt! Godt gået.','whoami.speech.done':'Flot spillet! Næste gang gætter du endnu flere.',
     'jungle.title':'Runner','jungle.tileSub':'Løb, hop og flyv gennem tre baner','jungle.loadError':'Junglen kunne ikke indlæses. Prøv igen senere.',
-    'fotozoom.title':'Foto Zoom','fotozoom.round':'Runde {n} af {total}','fotozoom.points':'Nu {n} point','fotozoom.ask':'Hvad kan det her være?','fotozoom.out':'Zoom ud','fotozoom.next':'Videre','fotozoom.timeUp':'Tiden er gået! Det var {answer}.',
+    'fotozoom.title':'Foto Zoom','fotozoom.round':'Runde {n} af {total}','fotozoom.points':'Nu {n} point','fotozoom.ask':'Hvad er det?','fotozoom.out':'Zoom ud','fotozoom.next':'Videre','fotozoom.timeUp':'Tiden er gået! Det var {answer}.',
     'fotozoom.yes':'Ja, {answer}! +{points}','fotozoom.almost':'Næsten! Det var {answer}.',
     'fotozoom.speech.yes':'Ja, det er {answer}!','fotozoom.speech.almost':'Næsten! Det var {answer}.',
     'fotozoom.doneKicker':'FOTO ZOOM','fotozoom.doneTitle':'{n} af {total} genkendt!','fotozoom.summary':'{score} af {max} point. Jo mindre du zoomer ud, jo flere point.',

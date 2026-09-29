@@ -58,7 +58,8 @@ test('the cinematic is built exactly once per launch', async ({ page }) => {
   await boot(page);
   const inserted = await page.evaluate(() => window.__introProbe.motionsInserted);
   expect(inserted).toBe(1);
-  await expect(page.locator('video')).toHaveCount(1);
+  // One film; the second <video> is its blurred copy behind it (intro.js, intro-bg).
+  await expect(page.locator('video.intro-main')).toHaveCount(1);
 });
 
 test('window.setTimeout is never reassigned', async ({ page }) => {
@@ -87,7 +88,10 @@ test('the cinematic runs at once; the first tap turns sound on, the second conti
   await expect(page.locator('#introSound')).toHaveCount(0);
   await expect(page.locator('.motion')).toBeVisible();
   await page.locator('.motion').click();
-  await expect(page.locator('.home')).toBeVisible({ timeout: 5000 });
+  // Na de intro komt eerst het terugkeerscherm ("Hoi Mike, verder spelen?").
+  await expect(page.locator('.welcome-back')).toBeVisible({ timeout: 5000 });
+  await page.locator('#wbGo').click();
+  await expect(page.locator('.home')).toBeVisible();
   await expect(page.locator('.motion')).toHaveCount(0);
 });
 
@@ -96,7 +100,10 @@ test('tapping anywhere on the running cinematic continues to Home immediately', 
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
   // Must be a direct response to the tap, not the video eventually giving up.
-  await expect(page.locator('.home')).toBeVisible({ timeout: 2000 });
+  // Na de intro komt eerst het terugkeerscherm ("Hoi Mike, verder spelen?").
+  await expect(page.locator('.welcome-back')).toBeVisible({ timeout: 2000 });
+  await page.locator('#wbGo').click();
+  await expect(page.locator('.home')).toBeVisible();
   await expect(page.locator('.motion')).toHaveCount(0);
 });
 
@@ -104,6 +111,9 @@ test('skipping the cinematic clears its pending sound-design timers', async ({ p
   await boot(page);
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
   await page.locator('.motion').click({ position: { x: 40, y: 300 } });
+  // Na de intro komt eerst het terugkeerscherm ("Hoi Mike, verder spelen?").
+  await expect(page.locator('.welcome-back')).toBeVisible();
+  await page.locator('#wbGo').click();
   await expect(page.locator('.home')).toBeVisible();
 
   await page.locator('[data-world="wetenschap"]').click();

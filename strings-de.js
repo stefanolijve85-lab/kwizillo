@@ -79,7 +79,7 @@
     'whoami.doneKicker':'WAS BIN ICH?','whoami.doneTitle':'{n} von {total} erraten!','whoami.summary':'{score} von {max} Punkten. Je früher du rätst, desto mehr Punkte.',
     'whoami.speech.great':'Wow, du rätst schnell! Gut gemacht.','whoami.speech.done':'Schön gespielt! Nächstes Mal errätst du noch mehr.',
     'jungle.title':'Runner','jungle.tileSub':'Renne, springe und fliege durch drei Level','jungle.loadError':'Der Dschungel konnte nicht laden. Versuche es später noch einmal.',
-    'fotozoom.title':'Fotozoom','fotozoom.round':'Runde {n} von {total}','fotozoom.points':'Jetzt {n} Punkte','fotozoom.ask':'Was könnte das sein?','fotozoom.out':'Herauszoomen','fotozoom.next':'Weiter','fotozoom.timeUp':'Die Zeit ist um! Es war {answer}.',
+    'fotozoom.title':'Fotozoom','fotozoom.round':'Runde {n} von {total}','fotozoom.points':'Jetzt {n} Punkte','fotozoom.ask':'Was ist das?','fotozoom.out':'Herauszoomen','fotozoom.next':'Weiter','fotozoom.timeUp':'Die Zeit ist um! Es war {answer}.',
     'fotozoom.yes':'Ja, {answer}! +{points}','fotozoom.almost':'Fast! Es war {answer}.',
     'fotozoom.speech.yes':'Ja, es ist {answer}!','fotozoom.speech.almost':'Fast! Es war {answer}.',
     'fotozoom.doneKicker':'FOTOZOOM','fotozoom.doneTitle':'{n} von {total} erkannt!','fotozoom.summary':'{score} von {max} Punkten. Je weniger du herauszoomst, desto mehr Punkte.',

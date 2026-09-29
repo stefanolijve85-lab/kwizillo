@@ -30,7 +30,10 @@ test('plays in step with the video, alone, and yields to the Home loop', async (
 
   // A tap ends the intro; the loop then takes over.
   await page.locator('.motion').click();
-  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  // Na de intro komt eerst het terugkeerscherm ("Hoi Mike, verder spelen?").
+  await expect(page.locator('.welcome-back')).toBeVisible({ timeout: 8000 });
+  await page.locator('#wbGo').click();
+  await expect(page.locator('.home')).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.currentId), { timeout: 5000 }).toBe('home');
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.stingLive), { timeout: 3000 }).toBe(false);
   expect(errors).toEqual([]);
@@ -49,7 +52,10 @@ test('with game music switched off, "tap for sound" still plays the intro theme 
   await expect.poll(() => themeRequests.length, { timeout: 8000 }).toBeGreaterThanOrEqual(1);
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.stingLive), { timeout: 5000 }).toBe(true);
   await page.locator('.motion').click();
-  await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
+  // Na de intro komt eerst het terugkeerscherm ("Hoi Mike, verder spelen?").
+  await expect(page.locator('.welcome-back')).toBeVisible({ timeout: 8000 });
+  await page.locator('#wbGo').click();
+  await expect(page.locator('.home')).toBeVisible();
   await page.waitForTimeout(800);
   expect(await page.evaluate(() => window.KWIZILLO_M1.audio.currentId)).toBeNull();   // music stays off in the game
 });

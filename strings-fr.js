@@ -80,7 +80,7 @@
     'whoami.doneKicker':'QUI SUIS-JE ?','whoami.doneTitle':'{n} sur {total} devinés !','whoami.summary':'{score} points sur {max}. Plus tu devines tôt, plus tu gagnes de points.',
     'whoami.speech.great':'Waouh, tu devines vite ! Bravo.','whoami.speech.done':'Bien joué ! La prochaine fois tu en trouveras encore plus.',
     'jungle.title':'Runner','jungle.tileSub':'Cours, saute et vole à travers trois niveaux','jungle.loadError':'La jungle n’a pas pu se charger. Réessaie plus tard.',
-    'fotozoom.title':'Photo Zoom','fotozoom.round':'Manche {n} sur {total}','fotozoom.points':'Déjà {n} points','fotozoom.ask':'Qu’est-ce que ça pourrait être ?','fotozoom.out':'Dézoomer','fotozoom.next':'Suivant','fotozoom.timeUp':'Le temps est écoulé ! C’était {answer}.',
+    'fotozoom.title':'Photo Zoom','fotozoom.round':'Manche {n} sur {total}','fotozoom.points':'Déjà {n} points','fotozoom.ask':'Qu’est-ce que c’est ?','fotozoom.out':'Dézoomer','fotozoom.next':'Suivant','fotozoom.timeUp':'Le temps est écoulé ! C’était {answer}.',
     'fotozoom.yes':'Oui, {answer} ! +{points}','fotozoom.almost':'Presque ! C’était {answer}.',
     'fotozoom.speech.yes':'Oui, c’est {answer} !','fotozoom.speech.almost':'Presque ! C’était {answer}.',
     'fotozoom.doneKicker':'PHOTO ZOOM','fotozoom.doneTitle':'{n} sur {total} reconnus !','fotozoom.summary':'{score} points sur {max}. Moins tu dézoomes, plus tu gagnes de points.',

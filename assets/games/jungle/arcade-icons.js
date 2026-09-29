@@ -9,9 +9,9 @@ const fill=g.createRadialGradient(-r*.35,-r*.4,r*.1,0,0,r);fill.addColorStop(0,c
 const rim=g.createRadialGradient(0,0,r*.82,0,0,r);rim.addColorStop(0,'#ffffff00');rim.addColorStop(1,'#ffffff55');g.fillStyle=rim;g.beginPath();g.arc(0,0,r,0,Math.PI*2);g.fill();
 g.fillStyle='#ffffffaa';g.beginPath();g.ellipse(-r*.32,-r*.45,r*.26,r*.16,-.6,0,Math.PI*2);g.fill();
 g.strokeStyle='#fff';g.fillStyle='#fff';g.lineWidth=size*.12;g.lineCap='round';g.lineJoin='round';g.shadowColor='#00000055';g.shadowBlur=size*.06;g.shadowOffsetY=size*.03;
-if(kind==='magnet'){g.beginPath();g.moveTo(-r*.4,-r*.35);g.lineTo(-r*.4,r*.1);g.arc(0,r*.1,r*.4,Math.PI,0,true);g.lineTo(r*.4,-r*.35);g.stroke();g.shadowBlur=0;g.strokeStyle='#ff6b6b';g.lineWidth=size*.12;for(const sign of[-1,1]){g.beginPath();g.moveTo(sign*r*.4,-r*.36);g.lineTo(sign*r*.4,-r*.16);g.stroke();}}
+if(kind==='magnet'){g.shadowColor='transparent';magnet3d(g,r);}
 else if(kind==='shield'){g.beginPath();g.moveTo(0,-r*.58);g.lineTo(r*.48,-r*.33);g.lineTo(r*.39,r*.26);g.quadraticCurveTo(r*.2,r*.52,0,r*.65);g.quadraticCurveTo(-r*.2,r*.52,-r*.39,r*.26);g.lineTo(-r*.48,-r*.33);g.closePath();g.fill();g.shadowBlur=0;g.strokeStyle='#1575c9';g.lineWidth=size*.055;g.beginPath();g.moveTo(-r*.2,0);g.lineTo(-r*.03,r*.17);g.lineTo(r*.25,-r*.19);g.stroke();}
-else if(kind==='speed'){g.fillStyle='#fff';g.beginPath();g.moveTo(r*.12,-r*.62);g.lineTo(-r*.34,r*.06);g.lineTo(-r*.02,r*.06);g.lineTo(-r*.14,r*.62);g.lineTo(r*.36,-r*.1);g.lineTo(r*.04,-r*.1);g.closePath();g.fill();}
+else if(kind==='speed'){g.shadowColor='transparent';bolt3d(g,r);}
 else{g.shadowBlur=0;g.fillStyle='#7a4a08';g.font=`1000 ${size*.4}px system-ui`;g.textAlign='center';g.textBaseline='middle';g.fillText(kind==='double'?'×2':'+5',0,r*.02);}
 g.restore();}
 
@@ -28,3 +28,29 @@ const halo=g.createRadialGradient(0,0,ry*.3,0,0,ry);halo.addColorStop(0,'#ff8ff0
 g.fillStyle=halo;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
 g.globalCompositeOperation='lighter';const hi=g.createRadialGradient(rx*.3,-ry*.4,2,rx*.3,-ry*.4,rx*.5);hi.addColorStop(0,'#ffffff66');hi.addColorStop(1,'#ffffff00');g.fillStyle=hi;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
 g.restore();}
+
+// Symbols with body: the magnet and the lightning bolt used to be flat white
+// strokes on the sphere. Each is now drawn as a solid object — a darker side
+// stacked a few pixels down-right for thickness, a lit face with a gradient
+// on top, and a thin highlight along the upper edge.
+const DEPTH=[.035,.07,.1];
+function magnetPath(g,r){g.beginPath();g.moveTo(-r*.38,-r*.4);g.lineTo(-r*.38,r*.06);g.arc(0,r*.06,r*.38,Math.PI,0,true);g.lineTo(r*.38,-r*.4);}
+function magnet3d(g,r){g.lineCap='butt';g.lineJoin='round';const w=r*.3;
+ for(const d of DEPTH){g.save();g.translate(r*d,r*d);g.strokeStyle='#6d0f1f';g.lineWidth=w;magnetPath(g,r);g.stroke();g.restore();}
+ const body=g.createLinearGradient(0,-r*.45,0,r*.5);body.addColorStop(0,'#ff8f97');body.addColorStop(.45,'#f0303f');body.addColorStop(1,'#a8121f');
+ g.strokeStyle=body;g.lineWidth=w;magnetPath(g,r);g.stroke();
+ // silver poles, with their own side
+ for(const sx of[-1,1]){const x=sx*r*.38-w/2,y=-r*.52,h=r*.2;
+  for(const d of DEPTH){g.fillStyle='#4b5566';g.fillRect(x+r*d,y+r*d,w,h);}
+  const m=g.createLinearGradient(x,0,x+w,0);m.addColorStop(0,'#ffffff');m.addColorStop(.5,'#d6dde6');m.addColorStop(1,'#8e9aab');g.fillStyle=m;g.fillRect(x,y,w,h);
+  g.fillStyle='#ffffffcc';g.fillRect(x,y,w,h*.22);}
+ // shine down the lit left arm
+ g.strokeStyle='#ffffffb0';g.lineWidth=w*.18;g.lineCap='round';g.beginPath();g.moveTo(-r*.38-w*.26,-r*.3);g.lineTo(-r*.38-w*.26,r*.06);g.stroke();}
+function boltPath(g,r){g.beginPath();g.moveTo(r*.16,-r*.74);g.lineTo(-r*.43,r*.09);g.lineTo(-r*.05,r*.09);g.lineTo(-r*.18,r*.74);g.lineTo(r*.45,-r*.13);g.lineTo(r*.07,-r*.13);g.closePath();}
+function bolt3d(g,r){g.lineJoin='round';
+ for(const d of DEPTH){g.save();g.translate(r*d,r*d);g.fillStyle='#8a2c05';boltPath(g,r);g.fill();g.restore();}
+ const face=g.createLinearGradient(-r*.3,-r*.6,r*.3,r*.6);face.addColorStop(0,'#fffbe0');face.addColorStop(.35,'#ffe45a');face.addColorStop(1,'#ff9d0a');
+ g.fillStyle=face;boltPath(g,r);g.fill();
+ g.strokeStyle='#7a2500';g.lineWidth=r*.07;boltPath(g,r);g.stroke();
+ g.fillStyle=face;boltPath(g,r);g.fill();
+ g.strokeStyle='#ffffffd0';g.lineWidth=r*.06;g.lineCap='round';g.beginPath();g.moveTo(r*.11,-r*.58);g.lineTo(-r*.27,r*.02);g.stroke();}

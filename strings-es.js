@@ -80,7 +80,7 @@
     'whoami.doneKicker':'¿QUÉ SOY?','whoami.doneTitle':'¡{n} de {total} adivinados!','whoami.summary':'{score} de {max} puntos. Cuanto antes adivines, más puntos ganas.',
     'whoami.speech.great':'¡Vaya, adivinas rápido! Bien hecho.','whoami.speech.done':'¡Bien jugado! La próxima vez adivinarás aún más.',
     'jungle.title':'Runner','jungle.tileSub':'Corre, salta y vuela por tres niveles','jungle.loadError':'La selva no se ha podido cargar. Inténtalo más tarde.',
-    'fotozoom.title':'Foto Zoom','fotozoom.round':'Ronda {n} de {total}','fotozoom.points':'Ya {n} puntos','fotozoom.ask':'¿Qué podría ser esto?','fotozoom.out':'Alejar','fotozoom.next':'Siguiente','fotozoom.timeUp':'¡Se acabó el tiempo! Era {answer}.',
+    'fotozoom.title':'Foto Zoom','fotozoom.round':'Ronda {n} de {total}','fotozoom.points':'Ya {n} puntos','fotozoom.ask':'¿Qué es esto?','fotozoom.out':'Alejar','fotozoom.next':'Siguiente','fotozoom.timeUp':'¡Se acabó el tiempo! Era {answer}.',
     'fotozoom.yes':'¡Sí, {answer}! +{points}','fotozoom.almost':'¡Casi! Era {answer}.',
     'fotozoom.speech.yes':'¡Sí, es {answer}!','fotozoom.speech.almost':'¡Casi! Era {answer}.',
     'fotozoom.doneKicker':'FOTO ZOOM','fotozoom.doneTitle':'¡{n} de {total} acertados!','fotozoom.summary':'{score} de {max} puntos. Cuanto menos alejes, más puntos ganas.',

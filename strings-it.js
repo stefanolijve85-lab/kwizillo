@@ -80,7 +80,7 @@
     'whoami.doneKicker':'CHI SONO?','whoami.doneTitle':'{n} di {total} indovinati!','whoami.summary':'{score} punti su {max}. Prima indovini, più punti prendi.',
     'whoami.speech.great':'Wow, indovini in fretta! Bravo.','whoami.speech.done':'Ben giocato! La prossima volta ne indovinerai ancora di più.',
     'jungle.title':'Runner','jungle.tileSub':'Corri, salta e vola per tre livelli','jungle.loadError':'La giungla non si è caricata. Riprova più tardi.',
-    'fotozoom.title':'Foto Zoom','fotozoom.round':'Turno {n} di {total}','fotozoom.points':'Già {n} punti','fotozoom.ask':'Che cosa potrebbe essere?','fotozoom.out':'Allontana','fotozoom.next':'Avanti','fotozoom.timeUp':'Tempo scaduto! Era {answer}.',
+    'fotozoom.title':'Foto Zoom','fotozoom.round':'Turno {n} di {total}','fotozoom.points':'Già {n} punti','fotozoom.ask':'Che cos’è?','fotozoom.out':'Allontana','fotozoom.next':'Avanti','fotozoom.timeUp':'Tempo scaduto! Era {answer}.',
     'fotozoom.yes':'Sì, {answer}! +{points}','fotozoom.almost':'Quasi! Era {answer}.',
     'fotozoom.speech.yes':'Sì, è {answer}!','fotozoom.speech.almost':'Quasi! Era {answer}.',
     'fotozoom.doneKicker':'FOTO ZOOM','fotozoom.doneTitle':'{n} di {total} riconosciuti!','fotozoom.summary':'{score} punti su {max}. Meno allontani, più punti prendi.',

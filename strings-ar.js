@@ -100,7 +100,7 @@
     'fotozoom.title':'الصورة المكبّرة',
     'fotozoom.round':'الجولة {n} من {total}',
     'fotozoom.points':'الآن {n} نقطة',
-    'fotozoom.ask':'ما الذي يمكن أن يكون هذا؟',
+    'fotozoom.ask':'ما هذا؟',
     'fotozoom.out':'صغّر الصورة',
     'fotozoom.next':'التالي',
     'fotozoom.timeUp':'انتهى الوقت! كان الجواب {answer}.',
