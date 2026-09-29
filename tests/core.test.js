@@ -291,7 +291,7 @@ assert.deepStrictEqual([1,2,3,4,5,6].map(n=>core.difficultyBand({niveau:n})), [[
 // Hints and reading follow the level: free hints and full read-out on 1-2,
 // a budget from 3, question-only reading from 4, no hints on 6.
 assert.deepStrictEqual([1,2,3,4,5,6].map(core.hintsAllowed), [Infinity,Infinity,3,2,1,0]);
-assert.deepStrictEqual([1,2,3,4,5,6].map(core.readsAnswers), [true,true,true,false,false,false]);
+assert.deepStrictEqual([1,2,3,4,5,6].map(core.readsAnswers), [true,true,true,true,true,true]);   // every level reads the answers
 {
   const q = { prompt: 'Welke planeet is rood?', options: ['Mars','Venus','Aarde','Jupiter'] };
   assert.strictEqual(core.buildQuestionSpeechSegments(q).length, 5, 'question + four answers');

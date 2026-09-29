@@ -906,7 +906,7 @@ test('level 5 gives one hint per quiz; level 6 none; level 1 shows no counter', 
   await expect(page.locator('#hintBtn .hint-count')).toHaveCount(0);
 });
 
-test('from level 4 the voice reads only the question; the parent zone explains each level', async ({ page }) => {
+test('on level 4 the voice still reads the question and the answers; the parent zone explains each level', async ({ page }) => {
   const spoken = [];
   // Routed before boot: Home already warms the world names, and a 503 there would switch speech off for the session.
   await page.route(TTS, route => { spoken.push(ttsPayload(route.request()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
@@ -917,10 +917,10 @@ test('from level 4 the voice reads only the question; the parent zone explains e
   await page.locator('.world-topic').first().click();
   const q = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[0]);
   await expect.poll(() => spoken.includes(q.prompt)).toBe(true);
-  expect(spoken.some(s => s.startsWith('A. ')), 'answers are not read on level 4').toBe(false);
+  await expect.poll(() => spoken.some(s => s.startsWith('A. ')), { message: 'the answers are read on level 4 too' }).toBe(true);
 
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 4; K.save(); K.showParent() });
-  await expect(page.locator('.level-card small')).toHaveText('16 s per vraag · max. 3 fouten · 2 hints · alleen de vraag wordt voorgelezen');
+  await expect(page.locator('.level-card small')).toHaveText('16 s per vraag · max. 3 fouten · 2 hints');
   await page.locator('[data-level="1"]').click();
   await expect(page.locator('.level-card small')).toHaveText('30 s per vraag · max. 6 fouten · hints vrij');
 });

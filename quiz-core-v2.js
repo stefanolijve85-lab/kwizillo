@@ -34,8 +34,8 @@
   // lowers the number of mistakes a ten-question quiz may contain before the
   // topic has to be played again. The question difficulty cap (1-4) follows.
   // `hints` is the number of hints a ten-question quiz may use (Infinity =
-  // free). From level 4 the voice reads only the question: the child reads the
-  // four answers alone, which is the step from listening to reading.
+  // free). The voice reads the question and the four answers on every level
+  // (the clock only starts once it is done); `readAnswers` stays as the switch.
   // `band` is the difficulty window a level draws from first (questions carry
   // difficulty 1-4: the base set is 1-2, the advanced set 3-4). A batch fills
   // up from the nearest difficulties when the window runs dry.
@@ -43,9 +43,9 @@
     {seconds:30,maxWrong:6,cap:1,band:[1,1],hints:Infinity,readAnswers:true},
     {seconds:25,maxWrong:5,cap:2,band:[1,2],hints:Infinity,readAnswers:true},
     {seconds:20,maxWrong:4,cap:2,band:[2,3],hints:3,readAnswers:true},
-    {seconds:16,maxWrong:3,cap:3,band:[3,3],hints:2,readAnswers:false},
-    {seconds:13,maxWrong:2,cap:4,band:[3,4],hints:1,readAnswers:false},
-    {seconds:10,maxWrong:0,cap:4,band:[4,4],hints:0,readAnswers:false}
+    {seconds:16,maxWrong:3,cap:3,band:[3,3],hints:2,readAnswers:true},
+    {seconds:13,maxWrong:2,cap:4,band:[3,4],hints:1,readAnswers:true},
+    {seconds:10,maxWrong:0,cap:4,band:[4,4],hints:0,readAnswers:true}
   ];
   const levelRule=n=>LEVELS[Math.max(1,Math.min(LEVELS.length,Number(n)||1))-1];
   function questionSeconds(niveau=1){return levelRule(niveau).seconds}

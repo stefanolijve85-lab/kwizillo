@@ -155,7 +155,7 @@
       // both feedback lines, the hint, then the next question and its lines,
       // so every voice starts the moment its card appears.
       const nextQ=K.quiz.questions[K.quiz.index+1];
-      // From level 4 only the question is read; the child reads the answers.
+      // The question and the four answers are read on every level (see LEVELS).
       const speech={answers:K.core.readsAnswers(level())};
       const warm=[feedbackSpeech(q,true),feedbackSpeech(q,false),q.hint||t('hint.fallback')];
       if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),feedbackSpeech(nextQ,true),feedbackSpeech(nextQ,false));
