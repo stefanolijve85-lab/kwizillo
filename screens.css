@@ -1403,3 +1403,12 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .setting-card.level-card{grid-template-columns:48px 1fr;row-gap:9px}
 .setting-card.level-card .level-toggle{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
 .setting-card.level-card .level-toggle button{flex:1 0 44px;min-width:44px}
+/* Lange telefoons (iPhone 12 en nieuwer: hoogte > 1,9 x breedte). De plaat bleef
+   op 16:9 staan en alle extra hoogte ging naar de antwoordkaarten, die dan 160 tot
+   180 pt hoog werden met één woord erin. Hier krijgt de plaat de ruimte (4:3,
+   gevuld) en blijven de kaarten compact. */
+@media (max-aspect-ratio:10/19){
+  :root:not([data-shape="wide"]) .quiz-card .quiz-art{aspect-ratio:4/3;max-height:42%}
+  :root:not([data-shape="wide"]) .quiz-art .art-main{object-fit:cover}
+  :root:not([data-shape="wide"]) .quiz-card .answers{grid-template-rows:repeat(2,minmax(82px,116px));align-content:center}
+}

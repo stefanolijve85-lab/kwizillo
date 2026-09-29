@@ -80,7 +80,10 @@ const SHOTS = [
   }],
 ];
 
-(async () => {
+// tools/store-shots.cjs takes the same shots at App Store sizes.
+module.exports = { STATE, SHOTS };
+
+if (require.main === module) (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: SCALE });
@@ -95,6 +98,7 @@ const SHOTS = [
   await page.goto(BASE, { waitUntil: 'domcontentloaded' });
   for (let i = 0; i < 4 && !(await page.locator('.home').count()); i++) {
     await page.locator('.motion').click({ timeout: 4000 }).catch(() => {});
+    await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "welkom terug"
     await page.waitForTimeout(700);
   }
   await page.waitForSelector('.home');

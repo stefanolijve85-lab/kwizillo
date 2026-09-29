@@ -42,6 +42,10 @@ async function answerOne(page) {
   await page.locator('.answer').first().click();
   await expect(page.locator('#feedbackNext')).toBeVisible({ timeout: 8000 });
   await page.locator('#feedbackNext').click();
+  // Enough right answers earn a buddy, introduced before the next question.
+  const unlock = page.locator('.mascot-unlock-ok');
+  if (await unlock.isVisible().catch(() => false)) await unlock.click();
+  else await page.waitForTimeout(150).then(async () => { if (await unlock.isVisible().catch(() => false)) await unlock.click() });
 }
 
 for (const speech of ['down', 'broken', 'error', 'hang', 4000]) {
