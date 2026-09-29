@@ -34,6 +34,8 @@
   // The entitlement lives next to the game state, never inside it: a saved game
   // is not a licence. On iOS a verified StoreKit transaction fills this in; on the
   // web only the development simulator can (and only on a development host).
+  // Which native store this build sells through: 'ios', 'android', or none (web).
+  const nativeStore=()=>{if(!window.Capacitor?.isNativePlatform?.())return null;const p=window.Capacitor.getPlatform?.();return p==='android'?'android':p==='ios'?'ios':null};
   const ENT_KEY='kwizillo-entitlement';
   const read=()=>{try{return JSON.parse(localStorage.getItem(ENT_KEY)||'null')}catch{return null}};
   const write=e=>{try{if(e)localStorage.setItem(ENT_KEY,JSON.stringify(e));else localStorage.removeItem(ENT_KEY)}catch{}};
@@ -41,7 +43,9 @@
   const listeners=new Set();
   const notify=()=>{listeners.forEach(fn=>{try{fn(K.premium.status())}catch(e){}})};
 
-  const valid=e=>!!e&&e.status==='active'&&(!e.expiresAt||Date.parse(e.expiresAt)>Date.now())&&((e.store==='ios'&&!!window.KwizilloStoreKit)||(e.store==='dev'&&isDevHost()));
+  // A store's stamp only counts inside that store's app: an entitlement copied
+  // into a browser (or from iOS to Android) is worthless.
+  const valid=e=>!!e&&e.status==='active'&&(!e.expiresAt||Date.parse(e.expiresAt)>Date.now())&&((e.store===nativeStore()&&!!window.KwizilloStoreKit)||(e.store==='dev'&&isDevHost()));
   const setEntitlement=e=>{ent=e||null;write(ent);notify()};
 
   /* ---------------- Development host ---------------- */
@@ -67,7 +71,9 @@
   // (ios/App/App/KwizilloStoreKitPlugin.swift) is exposed as
   // Capacitor.Plugins.KwizilloStoreKit. This shim is the `window.KwizilloStoreKit`
   // contract on top of it. A web page has neither, and then the provider is absent.
-  const nativePlugin=()=>(window.Capacitor?.isNativePlatform?.()&&window.Capacitor.Plugins?.KwizilloStoreKit)||null;
+  // On Android the Google Play twin (android/…/KwizilloBillingPlugin.java) has
+  // the same five calls and shapes, so one shim serves both stores.
+  const nativePlugin=()=>(window.Capacitor?.isNativePlatform?.()&&(window.Capacitor.Plugins?.KwizilloStoreKit||window.Capacitor.Plugins?.KwizilloBilling))||null;
   if(!window.KwizilloStoreKit&&nativePlugin()){
     const n=nativePlugin();
     window.KwizilloStoreKit={
@@ -80,7 +86,7 @@
     n.addListener?.('entitlementChanged',()=>K.premium?.refresh());
   }
   const storeKitProvider={
-    id:'ios',
+    get id(){return nativeStore()||'ios'},
     available:()=>!!window.KwizilloStoreKit,
     async products(){return window.KwizilloStoreKit.products(Object.values(CONFIG.products).map(p=>p.id))},
     async purchase(id){return window.KwizilloStoreKit.purchase(id)},
@@ -161,7 +167,7 @@
   // comes back to the foreground — a Premium player never restarts into Free.
   async function refresh(){
     const p=pickProvider();
-    if(p&&p.id==='ios'){try{const e=await p.current();setEntitlement(e&&e.status==='active'?{...e,store:'ios'}:null)}catch(e){/* offline: keep the cached verified state */}}
+    if(p&&p===storeKitProvider){try{const e=await p.current();setEntitlement(e&&e.status==='active'?{...e,store:p.id}:null)}catch(e){/* offline: keep the cached verified state */}}
     else if(ent&&!valid(ent)&&ent.store!=='dev'){setEntitlement(null)}   // expired: content locks again, progress stays
     else notify();
   }
