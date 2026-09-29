@@ -7,7 +7,7 @@
   // hangt achter elk pad een versiemerk. Bump dit nummer zodra er kunst wordt
   // vervangen; alle kaarten hieronder worden er in één keer mee gestempeld
   // (zie `stamp`, onderaan), zodat geen enkel gebruik het kan vergeten.
-  K.ASSET_V='v26';
+  K.ASSET_V='v27';
   // Idempotent: een pad dat al een merk draagt krijgt er geen tweede bij.
   K.assetUrl=p=>p&&!p.includes('?')?`${p}?${K.ASSET_V}`:p;
 
@@ -104,9 +104,10 @@
 
   // Opening cinematic only. Entering a world is immediate, by design.
   // De openingsfilm: `home` staand (720 × 1280) voor de telefoon, `homeWide`
-  // liggend (1112 × 834, 4:3) voor de tablet op zijn kant. De liggende is met
-  // Higgsfield reframe uit de staande verbreed: dezelfde beelden op dezelfde
-  // tijden, dus het introgeluid (Kwizillo! op ~10 s) valt op beide goed.
+  // liggend (1920 × 1440, 4:3) voor de tablet op zijn kant. De liggende is met
+  // Higgsfield reframe uit de staande verbreed en daarna naar 2K opgeschaald
+  // (ByteDance, AIGC): dezelfde beelden op dezelfde tijden, dus het introgeluid
+  // (Kwizillo! op ~10 s) valt op beide goed.
   K.MOTION={home:'assets/brand/intro.mp4',homeWide:'assets/brand/intro-wide.mp4'};
   // The intro theme: a 12 s sting built by tools/intro-audio.js + intro-mix.cjs,
   // children call "Kwizillo!" as the logo lands (about 10 s in).
