@@ -172,6 +172,9 @@
     u.searchParams.set('text',K.core.spellNumbers(text,lang));
     u.searchParams.set('voice',voice);
     u.searchParams.set('lang',lang);
+    // The browser keeps these for a year; the asset version lets a re-recorded
+    // line (server cache replaced) reach a device that already heard the old one.
+    if(K.ASSET_V)u.searchParams.set('v',K.ASSET_V);
     return u.toString();
   }
   function canStream(text,voice,lang){

@@ -203,9 +203,13 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   await expect(host).toHaveClass(/clip-playing/);
   await expect(host.locator('.milo-mouth')).toHaveCount(0);           // nothing can draw a second mouth
   await expect(host.locator('.milo-figure')).toHaveClass(/behind-clip/);   // the still is out of the flow
-  await expect.poll(() => page.evaluate(() => document.querySelector('.onboarding video.milo-clip')?.ended), { timeout: 10000 }).toBe(true);
-  await expect(clip).toBeAttached();                                       // the last frame stays…
-  // …until the next step: no clip there, so the figure and the drawn mouth are back and the voice is asked live.
+  // Once the voice is done the clip hands over to the cut-out (the last frames are
+  // keyclip's settle dissolve: a ghost arm and frame 1's open mouth). The figure
+  // is back with the drawn mouth at rest, a smile.
+  await expect(clip).toHaveCount(0, { timeout: 10000 });
+  await expect(host.locator('.milo-figure')).not.toHaveClass(/behind-clip/);
+  await expect(host.locator('.milo-mouth')).toHaveCount(1);
+  // The next step has no clip either: the voice is asked live.
   await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
   await expect(page.locator('.onboarding .milo-host video.milo-clip')).toHaveCount(0);
   await expect(page.locator('.onboarding .milo-host .milo-mouth')).toHaveCount(1);

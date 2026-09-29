@@ -73,6 +73,12 @@
   background:#10306e;box-shadow:0 7px 0 rgba(10,48,116,.5),0 13px 22px rgba(0,26,80,.28);transition:transform .15s ease,filter .15s ease}
 .home-world:active{transform:translateY(4px);box-shadow:0 3px 0 rgba(10,48,116,.5)}
 .home-world-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%}
+/* Mysterie: in zijn plaat beslaat het eiland de hele breedte, dus in een brede
+   tegel stond het er als enige van dichtbij in, zonder lucht eromheen. Hier is de
+   plaat kleiner en loopt hij zacht over in de wolken onderin dezelfde plaat. */
+.home-world[data-world="mysterie"]::before{content:"";position:absolute;inset:-14px;background:url(assets/worlds/mysterie.jpg) center 78%/cover;filter:blur(6px) saturate(1.05) brightness(1.08)}
+.home-world[data-world="mysterie"] .home-world-art{object-position:center 30%;transform:scale(.78);transform-origin:50% 40%;
+  -webkit-mask-image:radial-gradient(ellipse 56% 60% at 50% 45%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 56% 60% at 50% 45%,#000 60%,transparent 100%)}
 .home-world-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,22,66,.06) 38%,rgba(2,20,62,.82) 100%)}
 .home-world-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;gap:1px;padding:8px 8px 12px;text-align:center}
 .home-world-copy b{font-size:clamp(15px,4.4vw,21px);line-height:1.04;letter-spacing:-.01em;color:#fff;text-shadow:0 2px 10px rgba(0,18,56,.8),0 0 18px rgba(0,18,56,.5)}

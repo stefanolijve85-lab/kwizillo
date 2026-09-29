@@ -113,6 +113,8 @@
   // praat, en de regel wordt er los bij uitgesproken — die is wél bij.
   // Leeg: tour.worlds is op 29 september opnieuw opgenomen voor acht werelden.
   const STALE_CLIPS=new Set([]);
+  // Length of the silent settle tail tools/keyclip.cjs puts on every clip (SETTLE there).
+  const SETTLE_S=.7;
   const clipInfo=(key,guide='milo')=>{const lang=K.state.language||'nl';const v=window.KWIZILLO_GUIDE_TALKS?.[guideOf(guide)]?.[lang]?.[key];if(!v)return null;return typeof v==='string'?{mp4:v,pose:null}:v};
   const probe=document.createElement('video');
   const safari=/AppleWebKit/.test(navigator.userAgent)&&!/Chrome|CriOS|Chromium|Android|Edg/.test(navigator.userAgent);
@@ -253,6 +255,10 @@
       const ok=await new Promise(resolve=>{
         let settled=false;const done=r=>{if(settled)return;settled=true;v.onended=v.onerror=null;resolve(r)};
         v.onended=()=>done(true);v.onerror=()=>done(false);
+        // The last SETTLE_S of every clip is keyclip's silent settle tail, a
+        // dissolve of two poses over each other (a ghost second arm). The voice
+        // is over by then, so the clip hands over to the cut-out as it begins.
+        const watch=()=>{if(settled)return;if(v.duration&&isFinite(v.duration)&&v.currentTime>=v.duration-SETTLE_S)return done(true);requestAnimationFrame(watch)};requestAnimationFrame(watch);
         const p=v.play();if(p&&p.catch)p.catch(()=>done(false));
         // A decoder that never starts (no frames within 2.5 s) counts as a failed
         // start: the still and the live voice take over instead of a frozen figure.
@@ -262,7 +268,12 @@
       });
       K.audio.duck(false);
       el.classList.remove('clip-playing');
-      if(!ok)endClip();
+      // Always back to the cut-out when the clip is over. Holding the last video
+      // frame showed what keyclip's settle tail leaves there: the model's last
+      // pose dissolved into the first one (a ghost second arm) and the mouth of
+      // frame 1, open because the voice starts at once. The cut-out is that same
+      // first pose, clean, with the drawn mouth at rest — a smile.
+      endClip();placeMouth();
       return ok;
     }
     // Back to the cut-out (after a failed clip, or on the next pose change).
