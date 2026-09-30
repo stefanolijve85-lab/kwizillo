@@ -21,7 +21,8 @@
     // de wereldkunst onscherp erachter.
     const wide=document.documentElement.dataset.shape==='wide';
     const url=(wide&&K.MOTION?.homeWide)||K.MOTION?.home||K.config?.introVideoUrl||'';
-    if(!url) return onDone();
+    const early=document.getElementById('introEarly');
+    if(!url){early?.remove();return onDone()}
 
     const wideFilm=wide&&url===K.MOTION?.homeWide;
     // The blurred copy behind the film is only for a portrait film on a wide
@@ -36,7 +37,15 @@
     </div>`);
 
     const el=frame.querySelector('.motion');
-    const video=el.querySelector('.intro-main');
+    let video=el.querySelector('.intro-main');
+    // intro-early.js may already be playing this film: take that element over
+    // (moved within one task, so it keeps playing) instead of starting again.
+    if(early){
+      if(early.getAttribute('src')===url.split('?')[0]){
+        early.removeAttribute('id');early.removeAttribute('style');early.className='intro-main';
+        video.replaceWith(early);video=early;
+      }else early.remove();
+    }
     // Liggend vult een onscherpe kopie van dezelfde film de ruimte naast het
     // beeld, zodat het scherm vol is zonder de film zelf uit te vergroten. Hij
     // is stom, speelt automatisch en doet er verder niet toe: lukt het niet,
@@ -130,7 +139,12 @@
       }catch(e){log('sound at once refused',e?.name)}
       el.querySelector('#introSound')?.classList.remove('quiet');   // the tap is still needed
     };
-    if(native){el.querySelector('#introSound')?.classList.add('quiet');video.addEventListener('playing',soundAtOnce,{once:true})}
+    if(native){
+      el.querySelector('#introSound')?.classList.add('quiet');
+      // An adopted film may be playing already, its 'playing' event long gone.
+      if(!video.paused&&video.currentTime>0){K.hideSplash?.();soundAtOnce()}
+      else video.addEventListener('playing',soundAtOnce,{once:true});
+    }
     const p=video.play();
     if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);K.hideSplash?.();const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});   // no waiting behind the launch screen for a film that will not start by itself
   };
