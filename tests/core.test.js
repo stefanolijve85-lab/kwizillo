@@ -105,6 +105,18 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   assert.ok(!/undefined|\{/.test(bare), 'Missing copy must not leak placeholders');
 }
 
+/* ---- feedback as verdict + explanation: the explanation is one shared line ---- */
+{
+  const q = topicBatch.questions[0];
+  const copy = { good: 'Top!', tryAgain: 'Bijna. Het is {answer}.', fact: '{fact}' };
+  const right = core.buildFeedbackSegments(q, true, copy), wrong = core.buildFeedbackSegments(q, false, copy);
+  assert.equal(right[0].text, 'Top!', 'The verdict is its own line');
+  assert.ok(wrong[0].text.includes(q.answer), 'The wrong-answer verdict names the answer');
+  assert.equal(right[1].text, wrong[1].text, 'The explanation is the same line after either verdict, so it is recorded once');
+  assert.ok(right[1].text.includes(q.explanation), 'The explanation is spoken');
+  assert.ok(right.every(s => !/undefined|\{/.test(s.text)), 'No placeholders leak');
+}
+
 /* ---- double submit and cancellation ---- */
 {
   const q = topicBatch.questions[0];

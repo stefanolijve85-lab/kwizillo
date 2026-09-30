@@ -19,6 +19,16 @@
     if(q.fact&&copy.fact) parts.push(copy.fact.replace('{fact}',q.fact));
     return parts.filter(Boolean).join(' ').replace(/\s+/g,' ').trim();
   }
+  // The same feedback as two lines: the short verdict, then the explanation.
+  // The explanation is the long part and it is the same whichever verdict or
+  // praise comes before it, so it is recorded once per question instead of
+  // once per verdict variant (12 of them).
+  function buildFeedbackSegments(q,correct,copy={}){
+    const lead=correct?(copy.good||''):(copy.tryAgain||'').replace('{answer}',q.answer);
+    const body=[q.explanation||(correct?'':q.hint||''),q.fact&&copy.fact?copy.fact.replace('{fact}',q.fact):''];
+    return[{kind:'lead',text:lead},{kind:'speech',text:body.filter(Boolean).join(' ')}]
+      .map(s=>({...s,text:s.text.replace(/\s+/g,' ').trim()})).filter(s=>s.text);
+  }
   function evaluateAnswer(q,value){return{correct:value===q.answer,answer:q.answer,selected:value}}
   function poolFor({questions,world,topicKey=null,grade=5}){
     let pool=(questions||[]).filter(q=>q.world===world&&(!topicKey||q.topic===topicKey));
@@ -314,5 +324,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

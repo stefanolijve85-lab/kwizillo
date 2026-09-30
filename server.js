@@ -600,7 +600,7 @@ const server=http.createServer(async(req,res)=>{
           if(!text)return json(res,400,{error:'Missing text'});
           const out=await tts(text,voice,lang);
           if(out.cached) rateRefund(req);
-          res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang,...corsHeaders(req)});
+          res.writeHead(200,{'Content-Type':'audio/mpeg','Cache-Control':'public, max-age=31536000','X-Kwizillo-Voice':out.meta?.name||voice,'X-Kwizillo-Language':lang,'X-Kwizillo-Cache':out.cached?'hit':'miss',...corsHeaders(req)});
           res.end(out.buf);
         }catch(e){
           // Upstream detail stays in the server log; the client gets a generic message.

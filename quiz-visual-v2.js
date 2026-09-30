@@ -157,8 +157,9 @@
       const nextQ=K.quiz.questions[K.quiz.index+1];
       // The question and the four answers are read on every level (see LEVELS).
       const speech={answers:K.core.readsAnswers(level())};
-      const warm=[feedbackSpeech(q,true),feedbackSpeech(q,false),q.hint||t('hint.fallback')];
-      if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),feedbackSpeech(nextQ,true),feedbackSpeech(nextQ,false));
+      const lines=segs=>segs.map(s=>s.text);
+      const warm=[...lines(feedbackSpeech(q,true)),...lines(feedbackSpeech(q,false)),q.hint||t('hint.fallback')];
+      if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),...lines(feedbackSpeech(nextQ,true)),...lines(feedbackSpeech(nextQ,false)));
       await K.speakSequence(K.core.buildQuestionSpeechSegments(q,speech),{
         onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
         onDone:()=>K.clearSpeechHighlight?.(),
@@ -209,14 +210,17 @@
   // The praise varies from question to question. The pick is fixed per
   // question and quiz (a hash, not Math.random) so the line prefetched while
   // the child is thinking is the line that gets spoken.
-  function variant(q,kind,count){
-    let h=K.quiz?.salt||0;for(const ch of q.id)h=(h*31+ch.charCodeAt(0))>>>0;
+  // Praise varies per quiz (eight short lines, recorded once per language). The
+  // "almost, it is {answer}" line names the answer, so every variant is a new
+  // recording per question: it is fixed per question instead of per quiz.
+  function variant(q,kind,count,salted=true){
+    let h=salted?(K.quiz?.salt||0):0;for(const ch of q.id)h=(h*31+ch.charCodeAt(0))>>>0;
     return t(`feedback.speech.${kind}.${(h%count)+1}`,{answer:q.answer});
   }
   function feedbackSpeech(q,correct){
-    return K.core.buildFeedbackSpeech(q,correct,{
+    return K.core.buildFeedbackSegments(q,correct,{
       good:variant(q,'good',8),
-      tryAgain:variant(q,'try',4),
+      tryAgain:variant(q,'try',4,false),
       fact:t('feedback.speech.fact')
     });
   }
@@ -285,9 +289,17 @@
     let armed=false,raf=0;
     const bar=nextBtn.querySelector('.feedback-bar');
     const arm=()=>{if(armed)return;armed=true;cancelAnimationFrame(raf);x.classList.add('spoken');bar.style.width='100%'};
-    const follow=()=>{if(armed||!x.isConnected)return;const p=K.voiceProgress?.();if(p!==null&&p!==undefined)bar.style.width=(p*100).toFixed(1)+'%';raf=requestAnimationFrame(follow)};
+    let follow=()=>{if(armed||!x.isConnected)return;const p=K.voiceProgress?.();if(p!==null&&p!==undefined)bar.style.width=(p*100).toFixed(1)+'%';raf=requestAnimationFrame(follow)};
     if(silent||K.state.voice==='Stil'||!K.speechAvailable?.()) arm();
-    else{raf=requestAnimationFrame(follow);K.speak(feedbackSpeech(q,correct)).then(arm,arm)}
+    else{
+      // Two lines (verdict, explanation): the bar runs over both as one,
+      // each line taking its share by length.
+      const segs=feedbackSpeech(q,correct),total=segs.reduce((n,s)=>n+s.text.length,0)||1;
+      let from=0,share=1;
+      follow=()=>{if(armed||!x.isConnected)return;const p=K.voiceProgress?.();if(p!==null&&p!==undefined)bar.style.width=((from+p*share)*100).toFixed(1)+'%';raf=requestAnimationFrame(follow)};
+      raf=requestAnimationFrame(follow);
+      K.speakSequence(segs,{onSegment:(s,i)=>{from=segs.slice(0,i).reduce((n,x)=>n+x.text.length,0)/total;share=s.text.length/total}}).then(arm,arm)
+    }
     nextBtn.disabled=false;
     // The cross puts the question back on screen, answered, so the child can
     // look at it again; "Uitleg" reopens this card, "Volgende" moves on.
