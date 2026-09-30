@@ -14,9 +14,22 @@
   // The exact values schema 1 handed to a player who had never answered anything.
   const LEGACY_SEED={coins:245,streak:7,level:5,xp:320};
 
+  // A new player starts in the language of the device when Kwizillo speaks it,
+  // otherwise in English (the widest fallback). Someone who already chose a
+  // language keeps it: this only fills in a state that has none yet.
+  const SUPPORTED=['nl','en','de','fr','es','it','pt','da','ru','ar'];
+  function deviceLanguage(){
+    try{
+      for(const tag of [...(navigator.languages||[]),navigator.language]){
+        const base=String(tag||'').toLowerCase().split(/[-_]/)[0];
+        if(SUPPORTED.includes(base)) return base;
+      }
+    }catch(e){}
+    return 'en';
+  }
   const DEFAULTS={
     schemaVersion:SCHEMA,
-    language:'nl',
+    language:deviceLanguage(),
     name:'',
     onboardingComplete:false,
     voice:'Milo',
