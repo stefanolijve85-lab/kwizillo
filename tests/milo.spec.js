@@ -204,12 +204,17 @@ test('a transparent talking clip takes the figure\'s place (no drawn mouth); a l
   await expect(host).toHaveClass(/clip-playing/);
   await expect(host.locator('.milo-mouth')).toHaveCount(0);           // nothing can draw a second mouth
   await expect(host.locator('.milo-figure')).toHaveClass(/behind-clip/);   // the still is out of the flow
-  // Once the voice is done the clip hands over to the cut-out (the last frames are
-  // keyclip's settle dissolve: a ghost arm and frame 1's open mouth). The figure
-  // is back with the drawn mouth at rest, a smile.
-  await expect(clip).toHaveCount(0, { timeout: 10000 });
-  await expect(host.locator('.milo-figure')).not.toHaveClass(/behind-clip/);
-  await expect(host.locator('.milo-mouth')).toHaveCount(1);
+  // Once the voice is done the figure stays where the clip left it: paused on
+  // the handover frame (the model's own end pose, mouth at rest), before
+  // keyclip's settle dissolve (a ghost arm). Swapping to the cut-out there was
+  // a visible jump, because the clip ends in another pose than it starts in.
+  await expect(clip).toHaveAttribute('data-held', '1', { timeout: 10000 });
+  const at = await clip.evaluate(v => ({ paused: v.paused, t: v.currentTime, d: v.duration }));
+  expect(at.paused).toBe(true);
+  expect(at.d - at.t).toBeGreaterThan(0.45);                          // not in the settle tail
+  await expect(host).not.toHaveClass(/clip-playing/);
+  await expect(host.locator('.milo-mouth')).toHaveCount(0);           // still one mouth: the clip's own
+  await expect(host.locator('.milo-figure')).toHaveClass(/behind-clip/);
   // The next step has no clip either: the voice is asked live.
   await page.locator('#obName').fill('Sam'); await page.locator('#obNext').click();
   await expect(page.locator('.onboarding .milo-host video.milo-clip')).toHaveCount(0);

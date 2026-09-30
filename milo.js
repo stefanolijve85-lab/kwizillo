@@ -238,13 +238,13 @@
     let clipEl=null;
     // Swiped away while a clip plays: iOS pauses the video; play it on again
     // when the app comes back so the line finishes instead of freezing.
-    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&clipEl&&clipEl.isConnected&&clipEl.paused&&!clipEl.ended){const p=clipEl.play();if(p&&p.catch)p.catch(()=>{})}});
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&clipEl&&clipEl.isConnected&&clipEl.paused&&!clipEl.ended&&!clipEl.dataset.held){const p=clipEl.play();if(p&&p.catch)p.catch(()=>{})}});
     async function playClip(src,{silent=false}={}){
       const v=clipVideo(src);
       v.muted=silent||K.state.voice==='Stil';
       v.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
       if(clipEl&&clipEl!==v){clipEl.pause?.();clipEl.remove()}
-      clipEl=v;
+      clipEl=v;delete v.dataset.held;
       const h=img.getBoundingClientRect().height;
       if(h)v.style.height=Math.round(h)+'px';
       if(v.parentNode!==wrap)wrap.insertBefore(v,char);
@@ -258,7 +258,7 @@
         // The last SETTLE_S of every clip is keyclip's silent settle tail, a
         // dissolve of two poses over each other (a ghost second arm). The voice
         // is over by then, so the clip hands over to the cut-out as it begins.
-        const watch=()=>{if(settled)return;if(v.duration&&isFinite(v.duration)&&v.currentTime>=v.duration-SETTLE_S)return done(true);requestAnimationFrame(watch)};requestAnimationFrame(watch);
+        const watch=()=>{if(settled)return;if(v.duration&&isFinite(v.duration)&&v.currentTime>=v.duration-SETTLE_S){v.pause();v.dataset.held='1';return done('held')}requestAnimationFrame(watch)};requestAnimationFrame(watch);
         const p=v.play();if(p&&p.catch)p.catch(()=>done(false));
         // A decoder that never starts (no frames within 2.5 s) counts as a failed
         // start: the still and the live voice take over instead of a frozen figure.
@@ -268,16 +268,19 @@
       });
       K.audio.duck(false);
       el.classList.remove('clip-playing');
-      // Always back to the cut-out when the clip is over. Holding the last video
-      // frame showed what keyclip's settle tail leaves there: the model's last
-      // pose dissolved into the first one (a ghost second arm) and the mouth of
-      // frame 1, open because the voice starts at once. The cut-out is that same
-      // first pose, clean, with the drawn mouth at rest — a smile.
+      // Where the voice ends the figure stays: the clip is paused on that frame
+      // (voice over, drawn mouth at rest — a smile) until the next pose or
+      // screen. Swapping to the cut-out there was a jump, because the model ends
+      // in another pose than the one it started in (arms down after "…wat wat
+      // is"). The frame held is the one before keyclip's settle tail, so the
+      // dissolve back to the first pose (a ghost second arm) is never shown.
+      // A clip that ended any other way goes back to the cut-out as before.
+      if(ok==='held'&&clipEl===v)return true;
       endClip();placeMouth();
       return ok;
     }
     // Back to the cut-out (after a failed clip, or on the next pose change).
-    const endClip=()=>{if(clipEl){clipEl.pause?.();clipEl.remove();clipEl=null}img.classList.remove('behind-clip');if(!figMouth.parentNode)char.appendChild(figMouth)};
+    const endClip=()=>{if(clipEl){clipEl.pause?.();delete clipEl.dataset.held;clipEl.remove();clipEl=null}img.classList.remove('behind-clip');if(!figMouth.parentNode)char.appendChild(figMouth)};
     const api={
       el,guide,
       pose(p){curPose=p;const {src,flip}=poseSrc(guide,p);if(img.getAttribute('src')!==src)img.src=src;el.classList.toggle('flip',!!flip);el.dataset.pose=p;if(!el.classList.contains('clip-playing'))endClip();placeMouth();return api},
