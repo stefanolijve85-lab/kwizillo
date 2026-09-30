@@ -69,12 +69,12 @@
       ridders_kastelen: [
         ["Hvad havde en ridder tit på for at beskytte sig?","En rustning",["En rumdragt","En badekåbe","En dykkerdragt"],"Den var af metal.","Rustningen beskyttede kroppen.","En komplet rustning havde mange enkeltdele."],
         ["Hvor boede en mægtig herre tit?","På en borg",["I en raket","I en pyramide","I en iglo"],"Bygningen havde tykke mure.","Borge var både boliger og forsvarsanlæg.","Mange borge havde tårne og mure."],
-        ["Hvad er en voldgrav?","En vandgrav rundt om en borg",["Et soveværelse","En markedsplads","Et våbenkammer"],"Den gjorde angreb sværere.","En voldgrav hjalp med at forsvare en borg.","Ikke alle voldgrave havde altid vand."],
+        ["Hvad er en voldgrav?","En vandgrav rundt om en borg",["Et soveværelse","En markedsplads","Et bageri"],"Den holdt ubudne gæster på afstand.","En voldgrav gjorde borgen svær at komme ind på.","Ikke alle voldgrave havde altid vand."],
         ["Hvad er en vindebro?","En bro, man kan hejse op",["En hemmelig trappe","Et flag","Et tårn"],"Den var tit ved indgangen.","En vindebro kunne spærre vejen ind.","Den var tit bygget sammen med en port."],
-        ["Hvad skete der ved en ridderturnering?","Riddere dystede i konkurrencer",["Man byggede pyramider","Man sejlede til Amerika","Man byggede teleskoper"],"Tænk på lanseridt.","Turneringer var konkurrencer for riddere.","Lanseridtet var et imponerende skue."],
-        ["Hvad er et skjold?","En beskyttelse mod angreb",["Et musikinstrument","Et kort","Et krus"],"Riddere bar det tit på den ene arm.","Et skjold beskytter mod våben.","På skjolde var der tit symboler eller våbenmærker."],
+        ["Hvad skete der ved en ridderturnering?","Riddere dystede i konkurrencer",["Man byggede pyramider","Man sejlede til Amerika","Man byggede teleskoper"],"Tænk på ridning og behændighed.","Turneringer var konkurrencer for riddere.","Turneringer trak publikum fra nær og fjern, med musik og fest."],
+        ["Hvad er et skjold?","Beskyttelse for en ridder",["Et musikinstrument","Et kort","Et krus"],"Riddere bar det tit på den ene arm.","En ridder holdt sit skjold foran sig for at beskytte sig.","Skjoldene viste ofte familiens farver og tegn."],
         ["Hvem boede som regel ikke fast på en borg?","Alle bønderne fra egnen",["Borgherren","Soldaterne","Tjenestefolkene"],"Mange mennesker boede i landsbyerne omkring.","De fleste bønder boede uden for borgen.","I farlige tider kunne de nogle gange søge ly der."],
-        ["Hvorfor havde borge tykke mure?","For at kunne forsvares",["For at få hurtigere internet","For varmens skyld","Som pynt"],"De skulle kunne modstå angreb.","Tykke stenmure gjorde borge stærkere.","Senere gjorde kanoner mange mure næsten ubrugelige."],
+        ["Hvorfor havde borge tykke mure?","For at kunne forsvares",["For at få hurtigere internet","For varmens skyld","Som pynt"],"De skulle være stærke og solide.","Tykke stenmure gjorde borge stærkere.","Nogle borgmure var mere end fire meter tykke."],
         ["Hvad lavede en væbner tit?","Hjalp en ridder og lærte af ham",["Begravede en farao","Fløj en raket","Byggede et tempel"],"Nogle gange forberedte han sig på at blive ridder.","En væbner hjalp en ridder og lærte håndværket.","Ikke alle væbnere blev riddere."],
         ["Hvad var en fæstning?","Et befæstet sted at bo",["En galakse","Et skib","Et skolefag"],"Ordet bruges tit om borge.","En fæstning var et befæstet sted.","Fæstninger lå tit på strategiske steder."]
       ],
@@ -85,10 +85,10 @@
         ["Hvad var en legion?","En stor gruppe romerske soldater",["Et marked","Et badehus","Et skib"],"Den var en del af hæren.","En legion var en stor hærenhed.","Romerske soldater trænede meget hårdt."],
         ["Hvad var et forum i en romersk by?","En central plads",["Et fængsel","En bondegård","En havn"],"Der kom man for handel og styre.","Forummet var et vigtigt centrum i byen.","Der lå tit templer og offentlige bygninger."],
         ["Hvad blev de romerske badehuse brugt til?","Til at vaske sig og mødes",["Til at bygge raketter","Til at opbevare korn","Til at træne heste"],"Folk mødtes også der for at snakke.","Badeanlæg var vigtige mødesteder.","Nogle havde både varme og kolde bade."],
-        ["Hvad havde en romersk soldat tit på?","En hjelm og et skjold",["En rumdragt","En cowboyhat","En dykkerdragt"],"Han skulle beskytte sig i kamp.","Romerske soldater brugte hjelme, skjolde og våben.","Deres udstyr ændrede sig gennem århundrederne."],
+        ["Hvad havde en romersk soldat tit på?","En hjelm og et skjold",["En rumdragt","En cowboyhat","En dykkerdragt"],"Han skulle beskytte hoved og krop.","Romerske soldater bar hjelm, et stort skjold og solide sandaler.","Deres udstyr ændrede sig gennem århundrederne."],
         ["Hvad betyder „Romerriget“?","Et stort område, der blev styret fra Rom",["Byen Rom","En pyramide","En ridderorden"],"Det strakte sig over store dele af Europa.","Romerriget var meget stort.","På sit højeste omkransede det hele Middelhavet."],
         ["Hvad brugte romerne til lange ture over land?","Et stort vejnet",["Floder","Luftballoner","Tog"],"Mange veje var meget solidt bygget.","Romerne byggede et stort vejnet.","Nogle af nutidens veje følger gamle romerveje."],
-        ["Hvad var en senator i Rom?","En vigtig embedsmand",["En gladiator","En farao","En ridder"],"Han havde en politisk rolle.","Senatorer havde indflydelse på styret.","Det romerske senat bestod i århundreder."]
+        ["Hvad var en senator i Rom?","En vigtig embedsmand",["En bager","En farao","En ridder"],"Han havde en politisk rolle.","Senatorer havde indflydelse på styret.","Det romerske senat bestod i århundreder."]
       ],
       ontdekkingsreizigers: [
         ["Hvad lavede en opdagelsesrejsende?","Udforskede nye områder",["Byggede planeter","Opfandt elektricitet","Vogtede pyramider"],"Tænk på lange rejser.","Opdagelsesrejsende rejste til ukendte egne.","Deres rejser ændrede kort og handel."],

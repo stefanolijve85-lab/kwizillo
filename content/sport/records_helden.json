@@ -4563,123 +4563,123 @@
       "text": {
         "nl": {
           "prompt": "Hoe oud was de oudste olympisch kampioen ooit?",
-          "answer": "Tweeënzeventig jaar",
+          "answer": "Vierenzestig jaar",
           "wrong": [
             "Achttien jaar",
             "Dertig jaar",
             "Honderd jaar"
           ],
-          "hint": "Hij mikte op kleine doelen.",
-          "explanation": "De Zweed Oscar Swahn won in 1912 goud met het geweer toen hij tweeënzeventig was.",
-          "fact": "Acht jaar later haalde hij op zijn tachtigste nog een zilveren medaille."
+          "hint": "Hij was toen al opa.",
+          "explanation": "De Zweed Oscar Swahn won in 1912 Olympisch goud toen hij vierenzestig was.",
+          "fact": "Acht jaar later, op zijn tweeënzeventigste, won hij nog een zilveren medaille."
         },
         "en": {
           "prompt": "How old was the oldest Olympic champion ever?",
-          "answer": "Seventy-two years old",
+          "answer": "Sixty-four years old",
           "wrong": [
             "Eighteen years old",
             "Thirty years old",
             "A hundred years old"
           ],
-          "hint": "He aimed at small targets.",
-          "explanation": "The Swede Oscar Swahn won shooting gold in 1912 when he was seventy-two.",
-          "fact": "Eight years later, aged eighty, he still took a silver medal."
+          "hint": "He was already a grandfather.",
+          "explanation": "The Swede Oscar Swahn won Olympic gold in 1912 when he was sixty-four.",
+          "fact": "Eight years later, aged seventy-two, he still won a silver medal."
         },
         "de": {
           "prompt": "Wie alt war der älteste olympische Sieger aller Zeiten?",
-          "answer": "Zweiundsiebzig Jahre",
+          "answer": "Vierundsechzig Jahre",
           "wrong": [
             "Achtzehn Jahre",
             "Dreißig Jahre",
             "Hundert Jahre"
           ],
-          "hint": "Er zielte auf kleine Scheiben.",
-          "explanation": "Der Schwede Oscar Swahn gewann 1912 Gold mit dem Gewehr, als er zweiundsiebzig war.",
-          "fact": "Acht Jahre später holte er mit achtzig noch eine Silbermedaille."
+          "hint": "Er war damals schon Opa.",
+          "explanation": "Der Schwede Oscar Swahn gewann 1912 mit vierundsechzig Jahren olympisches Gold.",
+          "fact": "Acht Jahre später, mit zweiundsiebzig, gewann er noch eine Silbermedaille."
         },
         "fr": {
           "prompt": "Quel âge avait le plus vieux champion olympique de tous les temps?",
-          "answer": "Soixante-douze ans",
+          "answer": "Soixante-quatre ans",
           "wrong": [
             "Dix-huit ans",
             "Trente ans",
             "Cent ans"
           ],
-          "hint": "Il visait de petites cibles.",
-          "explanation": "Le Suédois Oscar Swahn a gagné l'or au tir en 1912 alors qu'il avait soixante-douze ans.",
-          "fact": "Huit ans plus tard, à quatre-vingts ans, il a encore pris l'argent."
+          "hint": "Il était déjà grand-père.",
+          "explanation": "Le Suédois Oscar Swahn a remporté l'or olympique en 1912, à soixante-quatre ans.",
+          "fact": "Huit ans plus tard, à soixante-douze ans, il a encore gagné une médaille d'argent."
         },
         "es": {
           "prompt": "¿Cuántos años tenía el campeón olímpico más viejo de la historia?",
-          "answer": "Setenta y dos años",
+          "answer": "Sesenta y cuatro años",
           "wrong": [
             "Dieciocho años",
             "Treinta años",
             "Cien años"
           ],
-          "hint": "Apuntaba a dianas pequeñas.",
-          "explanation": "El sueco Oscar Swahn ganó el oro de tiro en 1912 cuando tenía setenta y dos años.",
-          "fact": "Ocho años más tarde, con ochenta, todavía logró una plata."
+          "hint": "Ya era abuelo.",
+          "explanation": "El sueco Oscar Swahn ganó el oro olímpico en 1912 con sesenta y cuatro años.",
+          "fact": "Ocho años después, con setenta y dos años, aún ganó una medalla de plata."
         },
         "it": {
           "prompt": "Quanti anni aveva il più vecchio campione olimpico di sempre?",
-          "answer": "Settantadue anni",
+          "answer": "Sessantaquattro anni",
           "wrong": [
             "Diciotto anni",
             "Trent'anni",
             "Cento anni"
           ],
-          "hint": "Mirava a piccoli bersagli.",
-          "explanation": "Lo svedese Oscar Swahn vinse l'oro nel tiro nel 1912 quando aveva settantadue anni.",
-          "fact": "Otto anni dopo, a ottanta, prese ancora un argento."
+          "hint": "Era già nonno.",
+          "explanation": "Lo svedese Oscar Swahn vinse l'oro olimpico nel 1912 a sessantaquattro anni.",
+          "fact": "Otto anni dopo, a settantadue anni, vinse ancora una medaglia d'argento."
         },
         "pt": {
           "prompt": "Que idade tinha o campeão olímpico mais velho de sempre?",
-          "answer": "Setenta e dois anos",
+          "answer": "Sessenta e quatro anos",
           "wrong": [
             "Dezoito anos",
             "Trinta anos",
             "Cem anos"
           ],
-          "hint": "Apontava a alvos pequenos.",
-          "explanation": "O sueco Oscar Swahn ganhou o ouro do tiro em 1912 quando tinha setenta e dois anos.",
-          "fact": "Oito anos depois, com oitenta, ainda conquistou uma prata."
+          "hint": "Ele já era avô.",
+          "explanation": "O sueco Oscar Swahn ganhou o ouro olímpico em 1912, aos sessenta e quatro anos.",
+          "fact": "Oito anos depois, aos setenta e dois anos, ele ainda ganhou uma medalha de prata."
         },
         "da": {
           "prompt": "Hvor gammel var den ældste olympiske mester nogensinde?",
-          "answer": "Tooghalvfjerds år",
+          "answer": "Fireogtres år",
           "wrong": [
             "Atten år",
             "Tredive år",
             "Hundrede år"
           ],
-          "hint": "Han sigtede på små skiver.",
-          "explanation": "Svenskeren Oscar Swahn vandt guld i skydning i 1912, da han var tooghalvfjerds.",
-          "fact": "Otte år senere, som firsårig, tog han endnu en sølvmedalje."
+          "hint": "Han var allerede bedstefar.",
+          "explanation": "Svenskeren Oscar Swahn vandt olympisk guld i 1912, da han var fireogtres.",
+          "fact": "Otte år senere, som tooghalvfjerdsårig, vandt han stadig en sølvmedalje."
         },
         "ru": {
           "prompt": "Сколько лет было самому старшему олимпийскому чемпиону?",
-          "answer": "Семьдесят два года",
+          "answer": "Шестьдесят четыре года",
           "wrong": [
             "Восемнадцать лет",
             "Тридцать лет",
             "Сто лет"
           ],
-          "hint": "Он целился в маленькие мишени.",
-          "explanation": "Швед Оскар Сван выиграл золото в стрельбе в 1912 году, когда ему было семьдесят два.",
-          "fact": "Через восемь лет, в восемьдесят, он взял ещё и серебро."
+          "hint": "Он тогда уже был дедушкой.",
+          "explanation": "Швед Оскар Сван выиграл олимпийское золото в 1912 году в шестьдесят четыре года.",
+          "fact": "Через восемь лет, в семьдесят два года, он ещё завоевал серебряную медаль."
         },
         "ar": {
           "prompt": "كم كان عمر أكبر بطل أولمبي في التاريخ؟",
-          "answer": "اثنان وسبعون عامًا",
+          "answer": "أربعة وستون عامًا",
           "wrong": [
             "ثمانية عشر عامًا",
             "ثلاثون عامًا",
             "مئة عام"
           ],
-          "hint": "كان يصوّب على أهداف صغيرة.",
-          "explanation": "فاز السويدي أوسكار سفان بذهبية الرماية سنة 1912 وعمره اثنان وسبعون عامًا.",
-          "fact": "وبعد ثماني سنوات، في الثمانين، نال فضية أيضًا."
+          "hint": "كان جدًّا آنذاك.",
+          "explanation": "فاز السويدي أوسكار سوان بالذهبية الأولمبية عام 1912 وهو في الرابعة والستين من عمره.",
+          "fact": "بعد ثماني سنوات، وهو في الثانية والسبعين، فاز أيضًا بميدالية فضية."
         }
       }
     },

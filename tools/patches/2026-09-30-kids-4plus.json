@@ -1,0 +1,2021 @@
+{
+  "_why": "Apple Kids 6-8 with age rating 4+: no weapons and no depicted combat anywhere. Questions about a weapon are replaced; stray weapon words are rewritten; images with weapons get new art (see 'art'). Also corrects the oldest-Olympic-champion question (Oscar Swahn won gold at 64, silver at 72).",
+  "_fields": "p=prompt a=answer w=wrong (all three) h=hint e=explanation f=fact; 'swap' replaces one wrong option, found by its English text",
+  "questions": {
+    "geschiedenis-ridders_kastelen-12": {
+      "replace": true,
+      "art": "a medieval castle great hall with a long wooden feast table full of roast meat, bread, pies and fruit, a big crackling fireplace, colourful banners, cheerful and cosy, no weapons",
+      "nl": {
+        "p": "Wat stond er vaak op tafel bij een feestmaal in het kasteel?",
+        "a": "Gebraden vlees en brood",
+        "w": [
+          "Pizza met kaas",
+          "Friet met mayonaise",
+          "Sushi met rijst"
+        ],
+        "h": "Het werd boven het vuur in de grote zaal gebraden.",
+        "e": "Bij een feestmaal kwamen gebraden vlees, brood, taarten en fruit op tafel.",
+        "f": "Vorken waren er nog nauwelijks: men at met een lepel en met de handen."
+      },
+      "en": {
+        "p": "What was often on the table at a castle feast?",
+        "a": "Roast meat and bread",
+        "w": [
+          "Cheese pizza",
+          "Chips with mayonnaise",
+          "Sushi with rice"
+        ],
+        "h": "It was roasted over the fire in the great hall.",
+        "e": "At a feast the table held roast meat, bread, pies and fruit.",
+        "f": "There were hardly any forks yet: people ate with a spoon and with their hands."
+      },
+      "de": {
+        "p": "Was stand bei einem Festmahl auf der Burg oft auf dem Tisch?",
+        "a": "Braten und Brot",
+        "w": [
+          "Pizza mit Käse",
+          "Pommes mit Mayonnaise",
+          "Sushi mit Reis"
+        ],
+        "h": "Es wurde über dem Feuer im großen Saal gebraten.",
+        "e": "Bei einem Festmahl kamen Braten, Brot, Pasteten und Obst auf den Tisch.",
+        "f": "Gabeln gab es kaum: Man aß mit einem Löffel und mit den Händen."
+      },
+      "fr": {
+        "p": "Qu'y avait-il souvent sur la table lors d'un festin au château ?",
+        "a": "Viande rôtie et pain",
+        "w": [
+          "Une pizza au fromage",
+          "Des frites à la mayonnaise",
+          "Des sushis au riz"
+        ],
+        "h": "On la faisait rôtir au-dessus du feu dans la grande salle.",
+        "e": "Lors d'un festin, on servait de la viande rôtie, du pain, des tourtes et des fruits.",
+        "f": "Les fourchettes étaient encore rares : on mangeait avec une cuillère et avec les mains."
+      },
+      "es": {
+        "p": "¿Qué solía haber en la mesa en un banquete del castillo?",
+        "a": "Carne asada y pan",
+        "w": [
+          "Pizza con queso",
+          "Patatas fritas con mayonesa",
+          "Sushi con arroz"
+        ],
+        "h": "Se asaba sobre el fuego en el gran salón.",
+        "e": "En un banquete se servían carne asada, pan, empanadas y fruta.",
+        "f": "Casi no había tenedores: se comía con una cuchara y con las manos."
+      },
+      "it": {
+        "p": "Che cosa c'era spesso in tavola a un banchetto al castello?",
+        "a": "Carne arrosto e pane",
+        "w": [
+          "Pizza al formaggio",
+          "Patatine con maionese",
+          "Sushi con riso"
+        ],
+        "h": "Veniva arrostita sul fuoco nel grande salone.",
+        "e": "A un banchetto si servivano carne arrosto, pane, torte salate e frutta.",
+        "f": "Le forchette erano ancora rare: si mangiava con un cucchiaio e con le mani."
+      },
+      "pt": {
+        "p": "O que costumava ter na mesa em um banquete no castelo?",
+        "a": "Carne assada e pão",
+        "w": [
+          "Pizza de queijo",
+          "Batata frita com maionese",
+          "Sushi com arroz"
+        ],
+        "h": "Era assada no fogo do grande salão.",
+        "e": "Em um banquete, serviam carne assada, pão, tortas e frutas.",
+        "f": "Quase não havia garfos: as pessoas comiam com uma colher e com as mãos."
+      },
+      "da": {
+        "p": "Hvad stod der ofte på bordet ved et gilde på borgen?",
+        "a": "Stegt kød og brød",
+        "w": [
+          "Pizza med ost",
+          "Pommes frites med mayonnaise",
+          "Sushi med ris"
+        ],
+        "h": "Det blev stegt over ilden i den store sal.",
+        "e": "Ved et gilde kom der stegt kød, brød, tærter og frugt på bordet.",
+        "f": "Gafler fandtes næsten ikke: man spiste med en ske og med hænderne."
+      },
+      "ru": {
+        "p": "Что часто подавали на стол на пиру в замке?",
+        "a": "Жареное мясо и хлеб",
+        "w": [
+          "Пиццу с сыром",
+          "Картошку фри с майонезом",
+          "Суши с рисом"
+        ],
+        "h": "Его жарили на огне в большом зале.",
+        "e": "На пиру подавали жареное мясо, хлеб, пироги и фрукты.",
+        "f": "Вилок почти не было: ели ложкой и руками."
+      },
+      "ar": {
+        "p": "ماذا كان يوضع غالبًا على المائدة في وليمة القلعة؟",
+        "a": "اللحم المشوي والخبز",
+        "w": [
+          "بيتزا بالجبن",
+          "بطاطا مقلية مع المايونيز",
+          "سوشي مع الأرز"
+        ],
+        "h": "كان يُشوى فوق النار في القاعة الكبيرة.",
+        "e": "في الوليمة كانوا يقدّمون اللحم المشوي والخبز والفطائر والفواكه.",
+        "f": "لم تكن الشوك منتشرة بعد: كان الناس يأكلون بالملعقة وبأيديهم."
+      }
+    },
+    "geschiedenis-ridders_kastelen-16": {
+      "replace": true,
+      "art": "a small cosy medieval castle chapel with stone arches, a simple altar with candles and colourful stained-glass windows glowing in the sunlight",
+      "nl": {
+        "p": "Wat was de kapel van een kasteel?",
+        "a": "Een kleine gebedsruimte",
+        "w": [
+          "Een voorraadkelder",
+          "Een paardenstal",
+          "Een uitkijktoren"
+        ],
+        "h": "Hier werd gebeden en gezongen.",
+        "e": "In de kapel bad de familie van de kasteelheer, vaak elke dag.",
+        "f": "Sommige kapellen hadden prachtige ramen van gekleurd glas."
+      },
+      "en": {
+        "p": "What was the chapel of a castle?",
+        "a": "A small room for prayer",
+        "w": [
+          "A storage cellar",
+          "A horse stable",
+          "A lookout tower"
+        ],
+        "h": "People prayed and sang here.",
+        "e": "The lord's family prayed in the chapel, often every day.",
+        "f": "Some chapels had beautiful windows of coloured glass."
+      },
+      "de": {
+        "p": "Was war die Kapelle einer Burg?",
+        "a": "Ein kleiner Gebetsraum",
+        "w": [
+          "Ein Vorratskeller",
+          "Ein Pferdestall",
+          "Ein Aussichtsturm"
+        ],
+        "h": "Hier wurde gebetet und gesungen.",
+        "e": "In der Kapelle betete die Familie des Burgherrn, oft jeden Tag.",
+        "f": "Manche Kapellen hatten wunderschöne Fenster aus buntem Glas."
+      },
+      "fr": {
+        "p": "Qu'était la chapelle d'un château ?",
+        "a": "Une petite salle de prière",
+        "w": [
+          "Une cave à provisions",
+          "Une écurie",
+          "Une tour de guet"
+        ],
+        "h": "On y priait et on y chantait.",
+        "e": "La famille du seigneur priait dans la chapelle, souvent chaque jour.",
+        "f": "Certaines chapelles avaient de magnifiques vitraux colorés."
+      },
+      "es": {
+        "p": "¿Qué era la capilla de un castillo?",
+        "a": "Una pequeña sala para rezar",
+        "w": [
+          "Un sótano de provisiones",
+          "Un establo",
+          "Una torre de vigilancia"
+        ],
+        "h": "Aquí se rezaba y se cantaba.",
+        "e": "La familia del señor rezaba en la capilla, a menudo cada día.",
+        "f": "Algunas capillas tenían preciosas vidrieras de colores."
+      },
+      "it": {
+        "p": "Che cos'era la cappella di un castello?",
+        "a": "Una stanzetta per pregare",
+        "w": [
+          "Una cantina per le provviste",
+          "Una stalla per i cavalli",
+          "Una torre di vedetta"
+        ],
+        "h": "Qui si pregava e si cantava.",
+        "e": "La famiglia del signore pregava nella cappella, spesso ogni giorno.",
+        "f": "Alcune cappelle avevano splendide vetrate colorate."
+      },
+      "pt": {
+        "p": "O que era a capela de um castelo?",
+        "a": "Uma pequena sala de oração",
+        "w": [
+          "Um porão de mantimentos",
+          "Um estábulo",
+          "Uma torre de vigia"
+        ],
+        "h": "Ali se rezava e se cantava.",
+        "e": "A família do senhor rezava na capela, muitas vezes todos os dias.",
+        "f": "Algumas capelas tinham lindos vitrais coloridos."
+      },
+      "da": {
+        "p": "Hvad var en borgs kapel?",
+        "a": "Et lille rum til bøn",
+        "w": [
+          "En forrådskælder",
+          "En hestestald",
+          "Et udkigstårn"
+        ],
+        "h": "Her bad man og sang.",
+        "e": "Borgherrens familie bad i kapellet, ofte hver dag.",
+        "f": "Nogle kapeller havde smukke vinduer af farvet glas."
+      },
+      "ru": {
+        "p": "Что такое часовня в замке?",
+        "a": "Комната для молитвы",
+        "w": [
+          "Кладовая в подвале",
+          "Конюшня",
+          "Сторожевая башня"
+        ],
+        "h": "Здесь молились и пели.",
+        "e": "Семья владельца замка молилась в часовне, часто каждый день.",
+        "f": "В некоторых часовнях были красивые цветные витражи."
+      },
+      "ar": {
+        "p": "ما هي كنيسة القلعة الصغيرة؟",
+        "a": "غرفة صغيرة للصلاة",
+        "w": [
+          "قبو لتخزين الطعام",
+          "إسطبل للخيول",
+          "برج للمراقبة"
+        ],
+        "h": "كان الناس يصلّون ويرتّلون فيها.",
+        "e": "كانت عائلة سيّد القلعة تصلّي فيها، وغالبًا كل يوم.",
+        "f": "كانت لبعضها نوافذ جميلة من الزجاج الملوّن."
+      }
+    },
+    "geschiedenis-ridders_kastelen-17": {
+      "replace": true,
+      "art": "a medieval castle stone corridor in the evening lit by wall torches and candles in iron holders, warm glowing light, cosy and calm, no people",
+      "nl": {
+        "p": "Hoe werd een kasteel 's avonds verlicht?",
+        "a": "Met kaarsen en fakkels",
+        "w": [
+          "Met gloeilampen",
+          "Met zaklampen",
+          "Met neonbuizen"
+        ],
+        "h": "Er was nog geen elektriciteit.",
+        "e": "Kaarsen, olielampen en fakkels gaven licht in de donkere gangen en zalen.",
+        "f": "Kaarsen van bijenwas waren duur; veel mensen gebruikten kaarsen van dierenvet."
+      },
+      "en": {
+        "p": "How was a castle lit in the evening?",
+        "a": "With candles and torches",
+        "w": [
+          "With light bulbs",
+          "With flashlights",
+          "With neon tubes"
+        ],
+        "h": "There was no electricity yet.",
+        "e": "Candles, oil lamps and torches lit the dark corridors and halls.",
+        "f": "Beeswax candles were expensive; many people used candles made of animal fat."
+      },
+      "de": {
+        "p": "Wie wurde eine Burg abends beleuchtet?",
+        "a": "Mit Kerzen und Fackeln",
+        "w": [
+          "Mit Glühbirnen",
+          "Mit Taschenlampen",
+          "Mit Neonröhren"
+        ],
+        "h": "Es gab noch keinen Strom.",
+        "e": "Kerzen, Öllampen und Fackeln erhellten die dunklen Gänge und Säle.",
+        "f": "Kerzen aus Bienenwachs waren teuer; viele nahmen Kerzen aus Tierfett."
+      },
+      "fr": {
+        "p": "Comment éclairait-on un château le soir ?",
+        "a": "Des bougies et des torches",
+        "w": [
+          "Avec des ampoules",
+          "Avec des lampes de poche",
+          "Avec des néons"
+        ],
+        "h": "L'électricité n'existait pas encore.",
+        "e": "Bougies, lampes à huile et torches éclairaient les couloirs et les salles sombres.",
+        "f": "Les bougies en cire d'abeille coûtaient cher ; beaucoup utilisaient des chandelles de suif."
+      },
+      "es": {
+        "p": "¿Cómo se iluminaba un castillo por la noche?",
+        "a": "Con velas y antorchas",
+        "w": [
+          "Con bombillas",
+          "Con linternas de pilas",
+          "Con tubos de neón"
+        ],
+        "h": "Todavía no había electricidad.",
+        "e": "Velas, lámparas de aceite y antorchas iluminaban los pasillos y las salas oscuras.",
+        "f": "Las velas de cera de abeja eran caras; mucha gente usaba velas de grasa animal."
+      },
+      "it": {
+        "p": "Come si illuminava un castello la sera?",
+        "a": "Con candele e fiaccole",
+        "w": [
+          "Con lampadine",
+          "Con lampade a pile",
+          "Con tubi al neon"
+        ],
+        "h": "L'elettricità non c'era ancora.",
+        "e": "Candele, lampade a olio e fiaccole illuminavano i corridoi e le sale buie.",
+        "f": "Le candele di cera d'api erano care; molti usavano candele di grasso animale."
+      },
+      "pt": {
+        "p": "Como um castelo era iluminado à noite?",
+        "a": "Com velas e tochas",
+        "w": [
+          "Com lâmpadas elétricas",
+          "Com lanternas de pilha",
+          "Com luz neon"
+        ],
+        "h": "Ainda não existia eletricidade.",
+        "e": "Velas, lamparinas a óleo e tochas iluminavam os corredores e salões escuros.",
+        "f": "Velas de cera de abelha eram caras; muita gente usava velas de gordura animal."
+      },
+      "da": {
+        "p": "Hvordan blev en borg oplyst om aftenen?",
+        "a": "Med lys og fakler",
+        "w": [
+          "Med elpærer",
+          "Med lommelygter",
+          "Med neonrør"
+        ],
+        "h": "Der var endnu ingen elektricitet.",
+        "e": "Lys, olielamper og fakler lyste de mørke gange og sale op.",
+        "f": "Lys af bivoks var dyre; mange brugte lys af dyrefedt."
+      },
+      "ru": {
+        "p": "Чем освещали замок вечером?",
+        "a": "Свечами и факелами",
+        "w": [
+          "Лампочками",
+          "Карманными фонариками",
+          "Неоновыми лампами"
+        ],
+        "h": "Электричества ещё не было.",
+        "e": "Свечи, масляные лампы и факелы освещали тёмные коридоры и залы.",
+        "f": "Свечи из пчелиного воска были дорогими; многие пользовались свечами из животного жира."
+      },
+      "ar": {
+        "p": "كيف كانت القلعة تُضاء في المساء؟",
+        "a": "بالشموع والمشاعل",
+        "w": [
+          "بالمصابيح الكهربائية",
+          "بالمصابيح اليدوية",
+          "بأنابيب النيون"
+        ],
+        "h": "لم تكن الكهرباء موجودة بعد.",
+        "e": "كانت الشموع ومصابيح الزيت والمشاعل تضيء الممرات والقاعات المظلمة.",
+        "f": "كانت شموع شمع العسل غالية؛ فاستعمل كثيرون شموعًا من دهن الحيوانات."
+      }
+    },
+    "geschiedenis-ridders_kastelen-22": {
+      "replace": true,
+      "art": "a friendly medieval minstrel playing a lute and singing in a sunny castle courtyard while children and castle folk listen happily",
+      "nl": {
+        "p": "Wat was een minstreel?",
+        "a": "Een rondtrekkende muzikant",
+        "w": [
+          "Een kok",
+          "Een smid",
+          "Een boer"
+        ],
+        "h": "Hij zong liedjes en vertelde verhalen.",
+        "e": "Minstrelen trokken van kasteel naar kasteel en brachten muziek en nieuws mee.",
+        "f": "Veel van hun liedjes gingen over verre reizen en dappere helden."
+      },
+      "en": {
+        "p": "What was a minstrel?",
+        "a": "A travelling musician",
+        "w": [
+          "A cook",
+          "A blacksmith",
+          "A farmer"
+        ],
+        "h": "He sang songs and told stories.",
+        "e": "Minstrels travelled from castle to castle, bringing music and news.",
+        "f": "Many of their songs were about faraway journeys and brave heroes."
+      },
+      "de": {
+        "p": "Was war ein Spielmann?",
+        "a": "Ein umherziehender Musiker",
+        "w": [
+          "Ein Koch",
+          "Ein Schmied",
+          "Ein Bauer"
+        ],
+        "h": "Er sang Lieder und erzählte Geschichten.",
+        "e": "Spielleute zogen von Burg zu Burg und brachten Musik und Neuigkeiten mit.",
+        "f": "Viele ihrer Lieder handelten von fernen Reisen und mutigen Helden."
+      },
+      "fr": {
+        "p": "Qu'était un ménestrel ?",
+        "a": "Un musicien itinérant",
+        "w": [
+          "Un cuisinier",
+          "Un forgeron",
+          "Un paysan"
+        ],
+        "h": "Il chantait des chansons et racontait des histoires.",
+        "e": "Les ménestrels allaient de château en château et apportaient musique et nouvelles.",
+        "f": "Beaucoup de leurs chansons parlaient de voyages lointains et de héros courageux."
+      },
+      "es": {
+        "p": "¿Qué era un juglar?",
+        "a": "Un músico ambulante",
+        "w": [
+          "Un cocinero",
+          "Un herrero",
+          "Un campesino"
+        ],
+        "h": "Cantaba canciones y contaba historias.",
+        "e": "Los juglares iban de castillo en castillo y llevaban música y noticias.",
+        "f": "Muchas de sus canciones hablaban de viajes lejanos y héroes valientes."
+      },
+      "it": {
+        "p": "Che cos'era un menestrello?",
+        "a": "Un musicista girovago",
+        "w": [
+          "Un cuoco",
+          "Un fabbro",
+          "Un contadino"
+        ],
+        "h": "Cantava canzoni e raccontava storie.",
+        "e": "I menestrelli andavano di castello in castello portando musica e notizie.",
+        "f": "Molte loro canzoni parlavano di viaggi lontani e di eroi coraggiosi."
+      },
+      "pt": {
+        "p": "O que era um menestrel?",
+        "a": "Um músico viajante",
+        "w": [
+          "Um cozinheiro",
+          "Um ferreiro",
+          "Um camponês"
+        ],
+        "h": "Ele cantava músicas e contava histórias.",
+        "e": "Os menestréis iam de castelo em castelo levando música e notícias.",
+        "f": "Muitas de suas canções falavam de viagens distantes e heróis corajosos."
+      },
+      "da": {
+        "p": "Hvad var en spillemand?",
+        "a": "En omrejsende musiker",
+        "w": [
+          "En kok",
+          "En smed",
+          "En bonde"
+        ],
+        "h": "Han sang sange og fortalte historier.",
+        "e": "Spillemænd rejste fra borg til borg og bragte musik og nyheder med.",
+        "f": "Mange af deres sange handlede om fjerne rejser og modige helte."
+      },
+      "ru": {
+        "p": "Кто такой менестрель?",
+        "a": "Странствующий музыкант",
+        "w": [
+          "Повар",
+          "Кузнец",
+          "Крестьянин"
+        ],
+        "h": "Он пел песни и рассказывал истории.",
+        "e": "Менестрели ходили от замка к замку и приносили музыку и новости.",
+        "f": "Многие их песни были о дальних странствиях и храбрых героях."
+      },
+      "ar": {
+        "p": "من هو المنشد الجوّال؟",
+        "a": "موسيقي جوّال",
+        "w": [
+          "طبّاخ",
+          "حدّاد",
+          "فلّاح"
+        ],
+        "h": "كان يغنّي الأغاني ويحكي القصص.",
+        "e": "كان المنشدون يتنقّلون من قلعة إلى أخرى حاملين الموسيقى والأخبار.",
+        "f": "كانت كثير من أغانيهم عن الرحلات البعيدة والأبطال الشجعان."
+      }
+    },
+    "geschiedenis-ridders_kastelen-27": {
+      "replace": true,
+      "art": "keep",
+      "nl": {
+        "p": "Waarom hadden kasteeltorens vaak een wenteltrap?",
+        "a": "Hij neemt weinig ruimte in",
+        "w": [
+          "Hij brengt geluk",
+          "Hij loopt zachter",
+          "Hij houdt de toren warm"
+        ],
+        "h": "Een toren is rond en smal.",
+        "e": "In een smalle toren draait een wenteltrap om een middenzuil heen, zo past hij erin.",
+        "f": "Na honderden jaren zijn de stenen treden in het midden vaak uitgesleten."
+      },
+      "en": {
+        "p": "Why did castle towers often have a spiral staircase?",
+        "a": "It takes up little space",
+        "w": [
+          "It brings good luck",
+          "It is softer to walk on",
+          "It keeps the tower warm"
+        ],
+        "h": "A tower is round and narrow.",
+        "e": "In a narrow tower a spiral staircase winds around a central pillar, so it fits.",
+        "f": "After hundreds of years the stone steps are often worn down in the middle."
+      },
+      "de": {
+        "p": "Warum hatten Burgtürme oft eine Wendeltreppe?",
+        "a": "Sie braucht wenig Platz",
+        "w": [
+          "Sie bringt Glück",
+          "Man läuft weicher darauf",
+          "Sie hält den Turm warm"
+        ],
+        "h": "Ein Turm ist rund und schmal.",
+        "e": "In einem schmalen Turm windet sich eine Wendeltreppe um eine Mittelsäule, so passt sie hinein.",
+        "f": "Nach Hunderten von Jahren sind die Steinstufen in der Mitte oft ausgetreten."
+      },
+      "fr": {
+        "p": "Pourquoi les tours de château avaient-elles souvent un escalier en colimaçon ?",
+        "a": "Il prend peu de place",
+        "w": [
+          "Il porte bonheur",
+          "Il est plus doux",
+          "Il garde la tour au chaud"
+        ],
+        "h": "Une tour est ronde et étroite.",
+        "e": "Dans une tour étroite, l'escalier en colimaçon tourne autour d'un pilier central : ainsi, il y tient.",
+        "f": "Après des centaines d'années, les marches en pierre sont souvent usées au milieu."
+      },
+      "es": {
+        "p": "¿Por qué las torres de los castillos solían tener una escalera de caracol?",
+        "a": "Ocupa poco espacio",
+        "w": [
+          "Da buena suerte",
+          "Es más blanda al pisar",
+          "Mantiene la torre caliente"
+        ],
+        "h": "Una torre es redonda y estrecha.",
+        "e": "En una torre estrecha, la escalera de caracol gira alrededor de un pilar central, y así cabe.",
+        "f": "Tras cientos de años, los escalones de piedra suelen estar gastados por el centro."
+      },
+      "it": {
+        "p": "Perché le torri dei castelli avevano spesso una scala a chiocciola?",
+        "a": "Occupa poco spazio",
+        "w": [
+          "Porta fortuna",
+          "È più morbida da percorrere",
+          "Tiene calda la torre"
+        ],
+        "h": "Una torre è rotonda e stretta.",
+        "e": "In una torre stretta la scala a chiocciola gira intorno a una colonna centrale, così ci sta.",
+        "f": "Dopo centinaia di anni i gradini di pietra sono spesso consumati al centro."
+      },
+      "pt": {
+        "p": "Por que as torres dos castelos tinham muitas vezes uma escada em caracol?",
+        "a": "Ela ocupa pouco espaço",
+        "w": [
+          "Ela traz sorte",
+          "Ela é mais macia para pisar",
+          "Ela mantém a torre quente"
+        ],
+        "h": "Uma torre é redonda e estreita.",
+        "e": "Em uma torre estreita, a escada em caracol gira em volta de uma coluna central, e assim ela cabe.",
+        "f": "Depois de centenas de anos, os degraus de pedra costumam estar gastos no meio."
+      },
+      "da": {
+        "p": "Hvorfor havde borgtårne ofte en vindeltrappe?",
+        "a": "Den fylder ikke meget",
+        "w": [
+          "Den bringer held",
+          "Den er blødere at gå på",
+          "Den holder tårnet varmt"
+        ],
+        "h": "Et tårn er rundt og smalt.",
+        "e": "I et smalt tårn snor en vindeltrappe sig om en midtersøjle, så den kan være der.",
+        "f": "Efter flere hundrede år er stentrinene ofte slidt i midten."
+      },
+      "ru": {
+        "p": "Почему в башнях замков часто была винтовая лестница?",
+        "a": "Она занимает мало места",
+        "w": [
+          "Она приносит удачу",
+          "По ней мягче ходить",
+          "Она согревает башню"
+        ],
+        "h": "Башня круглая и узкая.",
+        "e": "В узкой башне винтовая лестница вьётся вокруг центрального столба и поэтому помещается.",
+        "f": "За сотни лет каменные ступени часто стёрлись посередине."
+      },
+      "ar": {
+        "p": "لماذا كان في أبراج القلاع غالبًا درج حلزوني؟",
+        "a": "لأنه لا يشغل مساحة كبيرة",
+        "w": [
+          "لأنه يجلب الحظ",
+          "لأن المشي عليه أنعم",
+          "لأنه يدفّئ البرج"
+        ],
+        "h": "البرج دائري وضيّق.",
+        "e": "في البرج الضيّق يلتفّ الدرج الحلزوني حول عمود في الوسط، فيتّسع له المكان.",
+        "f": "بعد مئات السنين تآكلت الدرجات الحجرية غالبًا من الوسط."
+      }
+    },
+    "geschiedenis-ridders_kastelen-33": {
+      "replace": true,
+      "art": "a friendly medieval blacksmith shaping a glowing horseshoe on an anvil at his forge in a castle yard, sparks flying, a horse waiting nearby, horseshoes and tools on the wall, no weapons",
+      "nl": {
+        "p": "Wat maakte de smid van een kasteel vaak?",
+        "a": "Hoefijzers voor de paarden",
+        "w": [
+          "Brood voor het ontbijt",
+          "Kaarsen voor de kapel",
+          "Kleren voor de heer"
+        ],
+        "h": "Hij werkte met vuur, ijzer en een aambeeld.",
+        "e": "De smid smeedde hoefijzers, spijkers, sloten, scharnieren en gereedschap.",
+        "f": "Het geluid van zijn hamer op het aambeeld klonk over het hele kasteelplein."
+      },
+      "en": {
+        "p": "What did a castle's blacksmith often make?",
+        "a": "Horseshoes for the horses",
+        "w": [
+          "Bread for breakfast",
+          "Candles for the chapel",
+          "Clothes for the lord"
+        ],
+        "h": "He worked with fire, iron and an anvil.",
+        "e": "The blacksmith forged horseshoes, nails, locks, hinges and tools.",
+        "f": "The ring of his hammer on the anvil carried across the whole castle yard."
+      },
+      "de": {
+        "p": "Was stellte der Schmied einer Burg oft her?",
+        "a": "Hufeisen für die Pferde",
+        "w": [
+          "Brot zum Frühstück",
+          "Kerzen für die Kapelle",
+          "Kleider für den Burgherrn"
+        ],
+        "h": "Er arbeitete mit Feuer, Eisen und einem Amboss.",
+        "e": "Der Schmied schmiedete Hufeisen, Nägel, Schlösser, Scharniere und Werkzeug.",
+        "f": "Der Klang seines Hammers auf dem Amboss hallte über den ganzen Burghof."
+      },
+      "fr": {
+        "p": "Que fabriquait souvent le forgeron d'un château ?",
+        "a": "Des fers à cheval",
+        "w": [
+          "Du pain pour le matin",
+          "Des bougies pour la chapelle",
+          "Des habits pour le seigneur"
+        ],
+        "h": "Il travaillait avec le feu, le fer et une enclume.",
+        "e": "Le forgeron forgeait des fers à cheval, des clous, des serrures, des charnières et des outils.",
+        "f": "Le son de son marteau sur l'enclume résonnait dans toute la cour du château."
+      },
+      "es": {
+        "p": "¿Qué fabricaba a menudo el herrero de un castillo?",
+        "a": "Herraduras para los caballos",
+        "w": [
+          "Pan para el desayuno",
+          "Velas para la capilla",
+          "Ropa para el señor"
+        ],
+        "h": "Trabajaba con fuego, hierro y un yunque.",
+        "e": "El herrero forjaba herraduras, clavos, cerraduras, bisagras y herramientas.",
+        "f": "El sonido de su martillo sobre el yunque se oía en todo el patio del castillo."
+      },
+      "it": {
+        "p": "Che cosa faceva spesso il fabbro di un castello?",
+        "a": "Ferri di cavallo",
+        "w": [
+          "Pane per la colazione",
+          "Candele per la cappella",
+          "Vestiti per il signore"
+        ],
+        "h": "Lavorava con il fuoco, il ferro e un'incudine.",
+        "e": "Il fabbro forgiava ferri di cavallo, chiodi, serrature, cardini e attrezzi.",
+        "f": "Il suono del suo martello sull'incudine si sentiva in tutto il cortile del castello."
+      },
+      "pt": {
+        "p": "O que o ferreiro de um castelo costumava fazer?",
+        "a": "Ferraduras para os cavalos",
+        "w": [
+          "Pão para o café da manhã",
+          "Velas para a capela",
+          "Roupas para o senhor"
+        ],
+        "h": "Ele trabalhava com fogo, ferro e uma bigorna.",
+        "e": "O ferreiro forjava ferraduras, pregos, fechaduras, dobradiças e ferramentas.",
+        "f": "O som do martelo na bigorna ecoava por todo o pátio do castelo."
+      },
+      "da": {
+        "p": "Hvad lavede en borgs smed ofte?",
+        "a": "Hestesko til hestene",
+        "w": [
+          "Brød til morgenmad",
+          "Lys til kapellet",
+          "Tøj til borgherren"
+        ],
+        "h": "Han arbejdede med ild, jern og en ambolt.",
+        "e": "Smeden smedede hestesko, søm, låse, hængsler og værktøj.",
+        "f": "Lyden af hans hammer mod ambolten kunne høres over hele borggården."
+      },
+      "ru": {
+        "p": "Что часто делал кузнец в замке?",
+        "a": "Подковы для лошадей",
+        "w": [
+          "Хлеб на завтрак",
+          "Свечи для часовни",
+          "Одежду для господина"
+        ],
+        "h": "Он работал с огнём, железом и наковальней.",
+        "e": "Кузнец ковал подковы, гвозди, замки, петли и инструменты.",
+        "f": "Стук его молота по наковальне разносился по всему двору замка."
+      },
+      "ar": {
+        "p": "ماذا كان حدّاد القلعة يصنع غالبًا؟",
+        "a": "حدوات للخيول",
+        "w": [
+          "خبزًا للفطور",
+          "شموعًا للكنيسة",
+          "ملابس للسيّد"
+        ],
+        "h": "كان يعمل بالنار والحديد والسندان.",
+        "e": "كان الحدّاد يصنع الحدوات والمسامير والأقفال والمفصّلات والأدوات.",
+        "f": "كان صوت مطرقته على السندان يُسمع في ساحة القلعة كلها."
+      }
+    },
+    "geschiedenis-ridders_kastelen-34": {
+      "replace": true,
+      "art": "a cool medieval castle storage cellar with a vaulted stone ceiling, wooden barrels, sacks of grain, wheels of cheese and baskets of apples, warm lantern light",
+      "nl": {
+        "p": "Waar bewaarde men het eten in een kasteel?",
+        "a": "In de voorraadkelder",
+        "w": [
+          "Op het dak",
+          "In de slotgracht",
+          "In de toren van de wachter"
+        ],
+        "h": "Onder de grond is het koel.",
+        "e": "In de koele kelder bleven graan, groente, kaas en gezouten vlees lang goed.",
+        "f": "Zonder koelkast was zout het belangrijkste middel om eten te bewaren."
+      },
+      "en": {
+        "p": "Where was the food kept in a castle?",
+        "a": "In the storage cellar",
+        "w": [
+          "On the roof",
+          "In the moat",
+          "In the watchman's tower"
+        ],
+        "h": "Underground it stays cool.",
+        "e": "In the cool cellar, grain, vegetables, cheese and salted meat kept for a long time.",
+        "f": "Without a fridge, salt was the main way to keep food."
+      },
+      "de": {
+        "p": "Wo bewahrte man auf einer Burg das Essen auf?",
+        "a": "Im Vorratskeller",
+        "w": [
+          "Auf dem Dach",
+          "Im Burggraben",
+          "Im Turm des Wächters"
+        ],
+        "h": "Unter der Erde bleibt es kühl.",
+        "e": "Im kühlen Keller hielten sich Getreide, Gemüse, Käse und gepökeltes Fleisch lange.",
+        "f": "Ohne Kühlschrank war Salz das wichtigste Mittel, um Essen haltbar zu machen."
+      },
+      "fr": {
+        "p": "Où conservait-on la nourriture dans un château ?",
+        "a": "Dans le cellier",
+        "w": [
+          "Sur le toit",
+          "Dans les douves",
+          "Dans la tour du guetteur"
+        ],
+        "h": "Sous la terre, il fait frais.",
+        "e": "Dans le cellier frais, le grain, les légumes, le fromage et la viande salée se gardaient longtemps.",
+        "f": "Sans réfrigérateur, le sel était le principal moyen de conserver les aliments."
+      },
+      "es": {
+        "p": "¿Dónde se guardaba la comida en un castillo?",
+        "a": "En la despensa del sótano",
+        "w": [
+          "En el tejado",
+          "En el foso",
+          "En la torre del vigía"
+        ],
+        "h": "Bajo tierra hace fresco.",
+        "e": "En el fresco sótano, el grano, las verduras, el queso y la carne salada duraban mucho.",
+        "f": "Sin nevera, la sal era la forma principal de conservar la comida."
+      },
+      "it": {
+        "p": "Dove si conservava il cibo in un castello?",
+        "a": "Nella dispensa in cantina",
+        "w": [
+          "Sul tetto",
+          "Nel fossato",
+          "Nella torre della sentinella"
+        ],
+        "h": "Sottoterra fa fresco.",
+        "e": "Nella cantina fresca grano, verdure, formaggio e carne salata si conservavano a lungo.",
+        "f": "Senza frigorifero, il sale era il modo principale per conservare il cibo."
+      },
+      "pt": {
+        "p": "Onde se guardava a comida em um castelo?",
+        "a": "No porão de mantimentos",
+        "w": [
+          "No telhado",
+          "No fosso",
+          "Na torre do vigia"
+        ],
+        "h": "Debaixo da terra é fresco.",
+        "e": "No porão fresco, grãos, legumes, queijo e carne salgada duravam muito tempo.",
+        "f": "Sem geladeira, o sal era o principal jeito de conservar os alimentos."
+      },
+      "da": {
+        "p": "Hvor opbevarede man maden på en borg?",
+        "a": "I forrådskælderen",
+        "w": [
+          "På taget",
+          "I voldgraven",
+          "I vægterens tårn"
+        ],
+        "h": "Under jorden er der køligt.",
+        "e": "I den kølige kælder holdt korn, grøntsager, ost og saltet kød sig længe.",
+        "f": "Uden køleskab var salt den vigtigste måde at holde maden frisk på."
+      },
+      "ru": {
+        "p": "Где в замке хранили еду?",
+        "a": "В кладовой в подвале",
+        "w": [
+          "На крыше",
+          "Во рву",
+          "В башне стражника"
+        ],
+        "h": "Под землёй прохладно.",
+        "e": "В прохладном подвале зерно, овощи, сыр и солёное мясо долго не портились.",
+        "f": "Без холодильника соль была главным способом сохранить еду."
+      },
+      "ar": {
+        "p": "أين كان الطعام يُحفظ في القلعة؟",
+        "a": "في قبو المؤونة",
+        "w": [
+          "على السطح",
+          "في الخندق",
+          "في برج الحارس"
+        ],
+        "h": "تحت الأرض يبقى المكان باردًا.",
+        "e": "في القبو البارد كانت الحبوب والخضار والجبن واللحم المملّح تبقى صالحة وقتًا طويلًا.",
+        "f": "من دون ثلاجة كان الملح أهم وسيلة لحفظ الطعام."
+      }
+    },
+    "geschiedenis-ridders_kastelen-38": {
+      "replace": true,
+      "art": "a medieval castle on top of a green hill with a wide view over fields, a village and a winding road, travellers with a horse and cart approaching in the sunshine",
+      "nl": {
+        "p": "Waarom stonden veel kastelen op een heuvel?",
+        "a": "Om ver te kunnen uitkijken",
+        "w": [
+          "Omdat het daar warmer is",
+          "Om bij de sterren te zijn",
+          "Omdat het daar nooit regent"
+        ],
+        "h": "Van bovenaf zie je alles aankomen.",
+        "e": "Vanaf een heuvel zag je bezoekers en reizigers al van ver aankomen.",
+        "f": "Soms werd zo'n heuvel door mensen opgeworpen; dat heet een motte."
+      },
+      "en": {
+        "p": "Why did many castles stand on a hill?",
+        "a": "To see far into the distance",
+        "w": [
+          "Because it is warmer there",
+          "To be closer to the stars",
+          "Because it never rains there"
+        ],
+        "h": "From up high you see everything coming.",
+        "e": "From a hill you could see visitors and travellers coming from far away.",
+        "f": "Sometimes people built such a hill themselves; it is called a motte."
+      },
+      "de": {
+        "p": "Warum standen viele Burgen auf einem Hügel?",
+        "a": "Um weit sehen zu können",
+        "w": [
+          "Weil es dort wärmer ist",
+          "Um den Sternen nah zu sein",
+          "Weil es dort nie regnet"
+        ],
+        "h": "Von oben sieht man alles kommen.",
+        "e": "Von einem Hügel sah man Besucher und Reisende schon von Weitem kommen.",
+        "f": "Manchmal schütteten Menschen so einen Hügel selbst auf; das nennt man Motte."
+      },
+      "fr": {
+        "p": "Pourquoi beaucoup de châteaux se trouvaient-ils sur une colline ?",
+        "a": "Pour voir loin",
+        "w": [
+          "Car il y fait plus chaud",
+          "Pour toucher les étoiles",
+          "Parce qu'il n'y pleut jamais"
+        ],
+        "h": "D'en haut, on voit tout arriver.",
+        "e": "Depuis une colline, on voyait arriver de loin les visiteurs et les voyageurs.",
+        "f": "Parfois, on construisait soi-même une telle colline : on l'appelle une motte."
+      },
+      "es": {
+        "p": "¿Por qué muchos castillos estaban en una colina?",
+        "a": "Para poder ver muy lejos",
+        "w": [
+          "Porque allí hace más calor",
+          "Para tocar las estrellas",
+          "Porque allí nunca llueve"
+        ],
+        "h": "Desde arriba ves llegar todo.",
+        "e": "Desde una colina se veía llegar de lejos a visitantes y viajeros.",
+        "f": "A veces la gente construía la colina ella misma; se llama mota."
+      },
+      "it": {
+        "p": "Perché molti castelli si trovavano su una collina?",
+        "a": "Per vedere lontano",
+        "w": [
+          "Perché lì fa più caldo",
+          "Per toccare le stelle",
+          "Perché lì non piove mai"
+        ],
+        "h": "Dall'alto vedi arrivare tutto.",
+        "e": "Da una collina si vedevano arrivare da lontano visitatori e viaggiatori.",
+        "f": "A volte la collina veniva costruita dalle persone stesse: si chiama motta."
+      },
+      "pt": {
+        "p": "Por que muitos castelos ficavam em uma colina?",
+        "a": "Para enxergar longe",
+        "w": [
+          "Porque lá é mais quente",
+          "Para tocar as estrelas",
+          "Porque lá nunca chove"
+        ],
+        "h": "Lá de cima você vê tudo chegando.",
+        "e": "De uma colina dava para ver visitantes e viajantes chegando de longe.",
+        "f": "Às vezes as próprias pessoas construíam essa colina; ela se chama mota."
+      },
+      "da": {
+        "p": "Hvorfor lå mange borge på en bakke?",
+        "a": "For at kunne se langt",
+        "w": [
+          "Fordi der er varmere",
+          "For at nå stjernerne",
+          "Fordi det aldrig regner der"
+        ],
+        "h": "Oppefra ser man alt komme.",
+        "e": "Fra en bakke kunne man se besøgende og rejsende komme langvejsfra.",
+        "f": "Nogle gange byggede folk selv sådan en bakke; den kaldes en motte."
+      },
+      "ru": {
+        "p": "Почему многие замки стояли на холме?",
+        "a": "Чтобы видеть далеко",
+        "w": [
+          "Потому что там теплее",
+          "Чтобы быть ближе к звёздам",
+          "Там никогда нет дождя"
+        ],
+        "h": "Сверху видно всё, что приближается.",
+        "e": "С холма было видно издалека, как подходят гости и путники.",
+        "f": "Иногда такой холм люди насыпали сами; он называется мотт."
+      },
+      "ar": {
+        "p": "لماذا بُنيت قلاع كثيرة فوق التلال؟",
+        "a": "لرؤية الأماكن البعيدة",
+        "w": [
+          "لأن الجو هناك أدفأ",
+          "لتكون أقرب إلى النجوم",
+          "لأن المطر لا يهطل هناك أبدًا"
+        ],
+        "h": "من الأعلى ترى كل شيء قادمًا.",
+        "e": "من فوق التل كان يمكن رؤية الزوّار والمسافرين قادمين من بعيد.",
+        "f": "أحيانًا كان الناس يصنعون التل بأنفسهم، ويسمّى «موت»."
+      }
+    },
+    "geschiedenis-ridders_kastelen-40": {
+      "replace": true,
+      "art": "an overgrown medieval castle ruin with a few crumbling stone walls and a broken tower on a sunny green hill, a happy family of visitors exploring with a picnic basket",
+      "nl": {
+        "p": "Wat is een kasteelruïne?",
+        "a": "Een vervallen kasteel",
+        "w": [
+          "Een gloednieuw kasteel",
+          "Een kasteel van ijs",
+          "Een speelgoedkasteel"
+        ],
+        "h": "Vaak staan er nog maar een paar muren.",
+        "e": "Toen niemand er meer woonde, raakten veel kastelen in verval; hun stenen werden soms voor huizen gebruikt.",
+        "f": "Tegenwoordig kun je veel ruïnes bezoeken en verkennen."
+      },
+      "en": {
+        "p": "What is a castle ruin?",
+        "a": "A crumbling old castle",
+        "w": [
+          "A brand-new castle",
+          "A castle made of ice",
+          "A toy castle"
+        ],
+        "h": "Often only a few walls are left.",
+        "e": "When nobody lived there any more, many castles fell apart; their stones were sometimes used for houses.",
+        "f": "Today you can visit and explore many ruins."
+      },
+      "de": {
+        "p": "Was ist eine Burgruine?",
+        "a": "Eine verfallene Burg",
+        "w": [
+          "Eine brandneue Burg",
+          "Eine Burg aus Eis",
+          "Eine Spielzeugburg"
+        ],
+        "h": "Oft stehen nur noch ein paar Mauern.",
+        "e": "Als niemand mehr dort wohnte, verfielen viele Burgen; ihre Steine wurden manchmal für Häuser verwendet.",
+        "f": "Heute kann man viele Ruinen besuchen und erkunden."
+      },
+      "fr": {
+        "p": "Qu'est-ce qu'une ruine de château ?",
+        "a": "Un château délabré",
+        "w": [
+          "Un château tout neuf",
+          "Un château de glace",
+          "Un château jouet"
+        ],
+        "h": "Souvent, il ne reste que quelques murs.",
+        "e": "Quand plus personne n'y vivait, beaucoup de châteaux se sont délabrés ; leurs pierres ont servi pour des maisons.",
+        "f": "Aujourd'hui, on peut visiter et explorer beaucoup de ruines."
+      },
+      "es": {
+        "p": "¿Qué es un castillo en ruinas?",
+        "a": "Un castillo derrumbado",
+        "w": [
+          "Un castillo nuevo",
+          "Un castillo de hielo",
+          "Un castillo de juguete"
+        ],
+        "h": "A menudo solo quedan algunos muros.",
+        "e": "Cuando ya nadie vivía en ellos, muchos castillos se fueron derrumbando; sus piedras a veces se usaban para casas.",
+        "f": "Hoy puedes visitar y explorar muchas ruinas."
+      },
+      "it": {
+        "p": "Che cos'è la rovina di un castello?",
+        "a": "Un castello diroccato",
+        "w": [
+          "Un castello nuovissimo",
+          "Un castello di ghiaccio",
+          "Un castello giocattolo"
+        ],
+        "h": "Spesso restano solo alcuni muri.",
+        "e": "Quando nessuno ci abitava più, molti castelli andarono in rovina; le loro pietre a volte servivano per costruire case.",
+        "f": "Oggi puoi visitare ed esplorare molte rovine."
+      },
+      "pt": {
+        "p": "O que é a ruína de um castelo?",
+        "a": "Um castelo desmoronado",
+        "w": [
+          "Um castelo novinho em folha",
+          "Um castelo de gelo",
+          "Um castelo de brinquedo"
+        ],
+        "h": "Muitas vezes restam só algumas paredes.",
+        "e": "Quando ninguém mais morava neles, muitos castelos desmoronaram; às vezes suas pedras viravam casas.",
+        "f": "Hoje dá para visitar e explorar muitas ruínas."
+      },
+      "da": {
+        "p": "Hvad er en borgruin?",
+        "a": "En sammenstyrtet borg",
+        "w": [
+          "En splinterny borg",
+          "En borg af is",
+          "En legetøjsborg"
+        ],
+        "h": "Ofte står der kun nogle få mure tilbage.",
+        "e": "Da ingen boede der mere, forfaldt mange borge; stenene blev nogle gange brugt til huse.",
+        "f": "I dag kan man besøge og udforske mange ruiner."
+      },
+      "ru": {
+        "p": "Что такое развалины замка?",
+        "a": "Разрушенный старый замок",
+        "w": [
+          "Совсем новый замок",
+          "Замок изо льда",
+          "Игрушечный замок"
+        ],
+        "h": "Часто от него остаются лишь несколько стен.",
+        "e": "Когда в замках больше никто не жил, многие из них разрушались; их камни иногда шли на постройку домов.",
+        "f": "Сегодня многие развалины можно посетить и осмотреть."
+      },
+      "ar": {
+        "p": "ما هي أطلال القلعة؟",
+        "a": "قلعة تهدّمت مع مرور الزمن",
+        "w": [
+          "قلعة جديدة تمامًا",
+          "قلعة من الجليد",
+          "قلعة لعبة"
+        ],
+        "h": "غالبًا لا يبقى منها سوى بعض الجدران.",
+        "e": "عندما لم يعد أحد يسكنها، تهدّمت قلاع كثيرة، وأحيانًا استُخدمت حجارتها لبناء البيوت.",
+        "f": "اليوم يمكنك زيارة أطلال كثيرة واستكشافها."
+      }
+    },
+    "geschiedenis-romeinen-26": {
+      "replace": true,
+      "art": "a simple ancient Roman breakfast on a wooden table in a sunny courtyard with columns: round bread, cheese, olives and figs, clay cups and a small oil lamp",
+      "nl": {
+        "p": "Wat aten Romeinen vaak als ontbijt?",
+        "a": "Brood met kaas of olijven",
+        "w": [
+          "Cornflakes met melk",
+          "Pannenkoeken met stroop",
+          "Boterhammen met hagelslag"
+        ],
+        "h": "Klein en eenvoudig, vaak iets zouts.",
+        "e": "Het Romeinse ontbijt was klein: brood, kaas, olijven of wat fruit.",
+        "f": "De grootste maaltijd van de dag was de cena, aan het eind van de middag."
+      },
+      "en": {
+        "p": "What did Romans often eat for breakfast?",
+        "a": "Bread with cheese or olives",
+        "w": [
+          "Cornflakes with milk",
+          "Pancakes with syrup",
+          "Toast with sprinkles"
+        ],
+        "h": "Small and simple, often something salty.",
+        "e": "The Roman breakfast was small: bread, cheese, olives or some fruit.",
+        "f": "The biggest meal of the day was the cena, in the late afternoon."
+      },
+      "de": {
+        "p": "Was aßen die Römer oft zum Frühstück?",
+        "a": "Brot mit Käse oder Oliven",
+        "w": [
+          "Cornflakes mit Milch",
+          "Pfannkuchen mit Sirup",
+          "Toast mit Schokostreuseln"
+        ],
+        "h": "Klein und einfach, oft etwas Salziges.",
+        "e": "Das römische Frühstück war klein: Brot, Käse, Oliven oder etwas Obst.",
+        "f": "Die größte Mahlzeit des Tages war die Cena am späten Nachmittag."
+      },
+      "fr": {
+        "p": "Que mangeaient souvent les Romains au petit-déjeuner ?",
+        "a": "Pain, fromage ou olives",
+        "w": [
+          "Des céréales au lait",
+          "Des crêpes au sirop",
+          "Des tartines au chocolat"
+        ],
+        "h": "Petit et simple, souvent salé.",
+        "e": "Le petit-déjeuner romain était léger : pain, fromage, olives ou un peu de fruits.",
+        "f": "Le repas principal de la journée était la cena, en fin d'après-midi."
+      },
+      "es": {
+        "p": "¿Qué solían desayunar los romanos?",
+        "a": "Pan con queso o aceitunas",
+        "w": [
+          "Cereales con leche",
+          "Tortitas con sirope",
+          "Tostadas con crema de cacao"
+        ],
+        "h": "Pequeño y sencillo, a menudo algo salado.",
+        "e": "El desayuno romano era pequeño: pan, queso, aceitunas o algo de fruta.",
+        "f": "La comida principal del día era la cena, al final de la tarde."
+      },
+      "it": {
+        "p": "Che cosa mangiavano spesso i Romani a colazione?",
+        "a": "Pane con formaggio o olive",
+        "w": [
+          "Cereali con il latte",
+          "Pancake con lo sciroppo",
+          "Pane e crema di nocciole"
+        ],
+        "h": "Piccola e semplice, spesso salata.",
+        "e": "La colazione romana era leggera: pane, formaggio, olive o un po' di frutta.",
+        "f": "Il pasto più importante della giornata era la cena, nel tardo pomeriggio."
+      },
+      "pt": {
+        "p": "O que os romanos costumavam comer no café da manhã?",
+        "a": "Pão com queijo ou azeitonas",
+        "w": [
+          "Cereal com leite",
+          "Panqueca com calda",
+          "Pão com creme de chocolate"
+        ],
+        "h": "Pequeno e simples, muitas vezes salgado.",
+        "e": "O café da manhã romano era pequeno: pão, queijo, azeitonas ou um pouco de fruta.",
+        "f": "A maior refeição do dia era a cena, no fim da tarde."
+      },
+      "da": {
+        "p": "Hvad spiste romerne ofte til morgenmad?",
+        "a": "Brød med ost eller oliven",
+        "w": [
+          "Cornflakes med mælk",
+          "Pandekager med sirup",
+          "Rugbrød med chokoladepålæg"
+        ],
+        "h": "Lille og enkel, ofte noget salt.",
+        "e": "Den romerske morgenmad var lille: brød, ost, oliven eller lidt frugt.",
+        "f": "Dagens største måltid var cena sidst på eftermiddagen."
+      },
+      "ru": {
+        "p": "Что римляне часто ели на завтрак?",
+        "a": "Хлеб с сыром или оливками",
+        "w": [
+          "Кукурузные хлопья с молоком",
+          "Блины с сиропом",
+          "Тосты с шоколадной пастой"
+        ],
+        "h": "Небольшой и простой, часто что-то солёное.",
+        "e": "Римский завтрак был скромным: хлеб, сыр, оливки или немного фруктов.",
+        "f": "Главной трапезой дня был обед в конце дня, который римляне называли «цена»."
+      },
+      "ar": {
+        "p": "ماذا كان الرومان يأكلون غالبًا في الفطور؟",
+        "a": "الخبز مع الجبن أو الزيتون",
+        "w": [
+          "رقائق الذرة مع الحليب",
+          "الفطائر المحلّاة بالشراب",
+          "الخبز المحمّص بالشوكولاتة"
+        ],
+        "h": "فطور صغير وبسيط، وغالبًا مالح.",
+        "e": "كان الفطور الروماني خفيفًا: خبز وجبن وزيتون أو بعض الفاكهة.",
+        "f": "كانت الوجبة الرئيسية في اليوم تسمّى «تشينا» وتؤكل في آخر النهار."
+      }
+    },
+    "sport-water_wintersport-28": {
+      "replace": true,
+      "art": "a cheerful young ski jumper flying high through the air above a snowy ski jump, with a cross-country ski trail winding through a snowy pine forest below, bright winter sky",
+      "nl": {
+        "p": "Welke twee dingen doe je bij de noordse combinatie?",
+        "a": "Schansspringen en langlaufen",
+        "w": [
+          "Schaatsen en zwemmen",
+          "Skiën en golfen",
+          "Surfen en zeilen"
+        ],
+        "h": "Eerst door de lucht, dan door de sneeuw.",
+        "e": "Bij de noordse combinatie spring je eerst van de schans en daarna volgt een langlaufrace.",
+        "f": "Wie het verst sprong, mag bij het langlaufen als eerste vertrekken."
+      },
+      "en": {
+        "p": "Which two things do you do in Nordic combined?",
+        "a": "Ski jump and cross-country",
+        "w": [
+          "Skating and swimming",
+          "Skiing and golf",
+          "Surfing and sailing"
+        ],
+        "h": "First through the air, then through the snow.",
+        "e": "In Nordic combined you first jump off the ski jump, then race cross-country.",
+        "f": "Whoever jumped furthest gets to start the cross-country race first."
+      },
+      "de": {
+        "p": "Welche zwei Dinge macht man in der Nordischen Kombination?",
+        "a": "Skispringen und Langlauf",
+        "w": [
+          "Eislaufen und Schwimmen",
+          "Skifahren und Golf",
+          "Surfen und Segeln"
+        ],
+        "h": "Erst durch die Luft, dann durch den Schnee.",
+        "e": "In der Nordischen Kombination springt man zuerst von der Schanze, danach folgt ein Langlaufrennen.",
+        "f": "Wer am weitesten gesprungen ist, darf beim Langlauf als Erster starten."
+      },
+      "fr": {
+        "p": "Quelles sont les deux épreuves du combiné nordique ?",
+        "a": "Saut à ski et ski de fond",
+        "w": [
+          "Le patinage et la natation",
+          "Le ski et le golf",
+          "Le surf et la voile"
+        ],
+        "h": "D'abord dans les airs, puis dans la neige.",
+        "e": "Au combiné nordique, on saute d'abord du tremplin, puis on fait une course de ski de fond.",
+        "f": "Celui qui a sauté le plus loin part en premier dans la course de fond."
+      },
+      "es": {
+        "p": "¿Qué dos cosas haces en la combinada nórdica?",
+        "a": "Salto y esquí de fondo",
+        "w": [
+          "Patinaje y natación",
+          "Esquí y golf",
+          "Surf y vela"
+        ],
+        "h": "Primero por el aire, luego por la nieve.",
+        "e": "En la combinada nórdica primero saltas desde el trampolín y luego haces una carrera de esquí de fondo.",
+        "f": "Quien saltó más lejos sale primero en la carrera de fondo."
+      },
+      "it": {
+        "p": "Quali due cose fai nella combinata nordica?",
+        "a": "Salto e sci di fondo",
+        "w": [
+          "Pattinaggio e nuoto",
+          "Sci e golf",
+          "Surf e vela"
+        ],
+        "h": "Prima nell'aria, poi sulla neve.",
+        "e": "Nella combinata nordica prima salti dal trampolino, poi fai una gara di sci di fondo.",
+        "f": "Chi ha saltato più lontano parte per primo nella gara di fondo."
+      },
+      "pt": {
+        "p": "Quais são as duas provas da combinada nórdica?",
+        "a": "Salto e esqui cross-country",
+        "w": [
+          "Patinação e natação",
+          "Esqui e golfe",
+          "Surfe e vela"
+        ],
+        "h": "Primeiro pelo ar, depois pela neve.",
+        "e": "Na combinada nórdica você primeiro salta da rampa e depois faz uma corrida de esqui cross-country.",
+        "f": "Quem saltou mais longe larga primeiro na corrida."
+      },
+      "da": {
+        "p": "Hvilke to ting laver man i nordisk kombineret?",
+        "a": "Skihop og langrend",
+        "w": [
+          "Skøjteløb og svømning",
+          "Skiløb og golf",
+          "Surfing og sejlads"
+        ],
+        "h": "Først gennem luften, så gennem sneen.",
+        "e": "I nordisk kombineret springer man først fra hopbakken, og bagefter kommer et langrendsløb.",
+        "f": "Den, der hoppede længst, må starte først i langrendet."
+      },
+      "ru": {
+        "p": "Какие два вида входят в лыжное двоеборье?",
+        "a": "Прыжки и лыжные гонки",
+        "w": [
+          "Коньки и плавание",
+          "Лыжи и гольф",
+          "Сёрфинг и парусный спорт"
+        ],
+        "h": "Сначала по воздуху, потом по снегу.",
+        "e": "В двоеборье сначала прыгают с трамплина, а потом бегут лыжную гонку.",
+        "f": "Кто прыгнул дальше всех, тот первым стартует в гонке."
+      },
+      "ar": {
+        "p": "ما الرياضتان في منافسة التزلّج الشمالي المزدوج؟",
+        "a": "القفز والتزلّج الريفي",
+        "w": [
+          "التزلّج على الجليد والسباحة",
+          "التزلّج والغولف",
+          "ركوب الأمواج والإبحار"
+        ],
+        "h": "أولًا في الهواء، ثم على الثلج.",
+        "e": "في هذه المنافسة تقفز أولًا من منصّة القفز، ثم تخوض سباق تزلّج ريفي.",
+        "f": "من قفز أبعد مسافة ينطلق أولًا في السباق."
+      }
+    },
+    "geschiedenis-ridders_kastelen-03": {
+      "swap": {
+        "from": "An armoury",
+        "nl": "Een bakkerij",
+        "en": "A bakery",
+        "de": "Eine Bäckerei",
+        "fr": "Une boulangerie",
+        "es": "Una panadería",
+        "it": "Un forno",
+        "pt": "Uma padaria",
+        "da": "Et bageri",
+        "ru": "Пекарня",
+        "ar": "مخبز"
+      },
+      "nl": {
+        "h": "Hij hield ongenode gasten op afstand.",
+        "e": "Een slotgracht maakte een kasteel moeilijk bereikbaar."
+      },
+      "en": {
+        "h": "It kept unwanted visitors away.",
+        "e": "A moat made a castle hard to reach."
+      },
+      "de": {
+        "h": "Er hielt ungebetene Gäste fern.",
+        "e": "Ein Burggraben machte eine Burg schwer erreichbar."
+      },
+      "fr": {
+        "h": "Il tenait les visiteurs indésirables à distance.",
+        "e": "Les douves rendaient le château difficile à atteindre."
+      },
+      "es": {
+        "h": "Mantenía alejadas a las visitas no deseadas.",
+        "e": "Un foso hacía que el castillo fuera difícil de alcanzar."
+      },
+      "it": {
+        "h": "Teneva lontani i visitatori indesiderati.",
+        "e": "Il fossato rendeva il castello difficile da raggiungere."
+      },
+      "pt": {
+        "h": "Mantinha longe os visitantes indesejados.",
+        "e": "O fosso deixava o castelo difícil de alcançar."
+      },
+      "da": {
+        "h": "Den holdt ubudne gæster på afstand.",
+        "e": "En voldgrav gjorde borgen svær at komme ind på."
+      },
+      "ru": {
+        "h": "Он не подпускал незваных гостей.",
+        "e": "Ров делал замок труднодоступным."
+      },
+      "ar": {
+        "h": "كان يُبعد الزوّار غير المرغوب فيهم.",
+        "e": "كان الخندق يجعل الوصول إلى القلعة صعبًا."
+      }
+    },
+    "geschiedenis-ridders_kastelen-05": {
+      "nl": {
+        "h": "Denk aan paardrijden en behendigheid.",
+        "f": "Toernooien trokken publiek van heinde en verre, met muziek en feest."
+      },
+      "en": {
+        "h": "Think of horse riding and skill.",
+        "f": "Tournaments drew crowds from far and wide, with music and feasting."
+      },
+      "de": {
+        "h": "Denk an Reiten und Geschicklichkeit.",
+        "f": "Turniere lockten Zuschauer von weit her an, mit Musik und Festen."
+      },
+      "fr": {
+        "h": "Pense à l'équitation et à l'adresse.",
+        "f": "Les tournois attiraient du monde de loin, avec de la musique et des fêtes."
+      },
+      "es": {
+        "h": "Piensa en montar a caballo y en la habilidad.",
+        "f": "Los torneos atraían público de todas partes, con música y fiesta."
+      },
+      "it": {
+        "h": "Pensa all'equitazione e all'abilità.",
+        "f": "I tornei attiravano pubblico da ogni parte, con musica e feste."
+      },
+      "pt": {
+        "h": "Pense em cavalgar e em habilidade.",
+        "f": "Os torneios atraíam gente de longe, com música e festa."
+      },
+      "da": {
+        "h": "Tænk på ridning og behændighed.",
+        "f": "Turneringer trak publikum fra nær og fjern, med musik og fest."
+      },
+      "ru": {
+        "h": "Вспомни о верховой езде и ловкости.",
+        "f": "Турниры собирали зрителей издалека, с музыкой и праздником."
+      },
+      "ar": {
+        "h": "فكّر في ركوب الخيل والمهارة.",
+        "f": "كانت البطولات تجذب الناس من كل مكان، مع الموسيقى والاحتفالات."
+      }
+    },
+    "geschiedenis-ridders_kastelen-06": {
+      "art": "a proud young knight in a blue tunic holding a big colourful heraldic shield with a golden lion emblem in a sunny castle courtyard, no sword, no weapons",
+      "nl": {
+        "a": "Bescherming voor een ridder",
+        "e": "Een ridder hield zijn schild voor zich om zich te beschermen.",
+        "f": "Op schilden stonden vaak de kleuren en tekens van de familie."
+      },
+      "en": {
+        "a": "Protection for a knight",
+        "e": "A knight held his shield in front of him for protection.",
+        "f": "Shields often showed the family's colours and symbols."
+      },
+      "de": {
+        "a": "Ein Schutz für den Ritter",
+        "e": "Ein Ritter hielt seinen Schild vor sich, um sich zu schützen.",
+        "f": "Auf Schilden standen oft die Farben und Zeichen der Familie."
+      },
+      "fr": {
+        "a": "Une protection du chevalier",
+        "e": "Le chevalier tenait son bouclier devant lui pour se protéger.",
+        "f": "Les boucliers portaient souvent les couleurs et les symboles de la famille."
+      },
+      "es": {
+        "a": "Protección del caballero",
+        "e": "El caballero sostenía el escudo delante de él para protegerse.",
+        "f": "Los escudos solían mostrar los colores y símbolos de la familia."
+      },
+      "it": {
+        "a": "Protezione del cavaliere",
+        "e": "Il cavaliere teneva lo scudo davanti a sé per proteggersi.",
+        "f": "Sugli scudi c'erano spesso i colori e i simboli della famiglia."
+      },
+      "pt": {
+        "a": "Proteção do cavaleiro",
+        "e": "O cavaleiro segurava o escudo à frente do corpo para se proteger.",
+        "f": "Os escudos costumavam mostrar as cores e os símbolos da família."
+      },
+      "da": {
+        "a": "Beskyttelse for en ridder",
+        "e": "En ridder holdt sit skjold foran sig for at beskytte sig.",
+        "f": "Skjoldene viste ofte familiens farver og tegn."
+      },
+      "ru": {
+        "a": "Защита для рыцаря",
+        "e": "Рыцарь держал щит перед собой, чтобы защититься.",
+        "f": "На щитах часто изображали цвета и знаки семьи."
+      },
+      "ar": {
+        "a": "وسيلة حماية للفارس",
+        "e": "كان الفارس يمسك درعه أمامه ليحمي نفسه.",
+        "f": "كانت الدروع تحمل غالبًا ألوان العائلة ورموزها."
+      }
+    },
+    "geschiedenis-ridders_kastelen-08": {
+      "nl": {
+        "h": "Ze moesten sterk en stevig zijn.",
+        "f": "Sommige kasteelmuren waren meer dan vier meter dik."
+      },
+      "en": {
+        "h": "They had to be strong and sturdy.",
+        "f": "Some castle walls were more than four metres thick."
+      },
+      "de": {
+        "h": "Sie mussten stark und stabil sein.",
+        "f": "Manche Burgmauern waren mehr als vier Meter dick."
+      },
+      "fr": {
+        "h": "Ils devaient être solides et robustes.",
+        "f": "Certains murs de château faisaient plus de quatre mètres d'épaisseur."
+      },
+      "es": {
+        "h": "Tenían que ser fuertes y resistentes.",
+        "f": "Algunos muros de castillo tenían más de cuatro metros de grosor."
+      },
+      "it": {
+        "h": "Dovevano essere forti e robusti.",
+        "f": "Alcuni muri dei castelli erano spessi più di quattro metri."
+      },
+      "pt": {
+        "h": "Elas tinham que ser fortes e resistentes.",
+        "f": "Algumas muralhas de castelo tinham mais de quatro metros de espessura."
+      },
+      "da": {
+        "h": "De skulle være stærke og solide.",
+        "f": "Nogle borgmure var mere end fire meter tykke."
+      },
+      "ru": {
+        "h": "Они должны были быть крепкими и прочными.",
+        "f": "Толщина некоторых стен замка превышала четыре метра."
+      },
+      "ar": {
+        "h": "كان يجب أن تكون قوية ومتينة.",
+        "f": "كان سُمك بعض جدران القلاع أكثر من أربعة أمتار."
+      }
+    },
+    "geschiedenis-ridders_kastelen-14": {
+      "nl": {
+        "h": "Het was de veiligste plek van het kasteel."
+      },
+      "en": {
+        "h": "It was the safest place in the castle."
+      },
+      "de": {
+        "h": "Er war der sicherste Ort der Burg."
+      },
+      "fr": {
+        "h": "C'était l'endroit le plus sûr du château."
+      },
+      "es": {
+        "h": "Era el lugar más seguro del castillo."
+      },
+      "it": {
+        "h": "Era il luogo più sicuro del castello."
+      },
+      "pt": {
+        "h": "Era o lugar mais seguro do castelo."
+      },
+      "da": {
+        "h": "Det var det sikreste sted på borgen."
+      },
+      "ru": {
+        "h": "Это было самое надёжное место в замке."
+      },
+      "ar": {
+        "h": "كان أكثر الأماكن أمانًا في القلعة."
+      }
+    },
+    "geschiedenis-ridders_kastelen-18": {
+      "swap": {
+        "from": "A sword holder",
+        "nl": "Een soort zadel",
+        "en": "A kind of saddle",
+        "de": "Eine Art Sattel",
+        "fr": "Une sorte de selle",
+        "es": "Una silla de montar",
+        "it": "Una specie di sella",
+        "pt": "Um tipo de sela",
+        "da": "En slags sadel",
+        "ru": "Разновидность седла",
+        "ar": "نوع من السروج"
+      }
+    },
+    "geschiedenis-ridders_kastelen-19": {
+      "art": "a kind young knight in shining armour helping an old woman carry a basket of apples in a sunny medieval village street, polite and friendly, no sword, no weapons"
+    },
+    "geschiedenis-ridders_kastelen-21": {
+      "nl": {
+        "h": "Hij reed ermee naar toernooien.",
+        "e": "Een ridder reed te paard, en zijn paard was kostbaar en goed getraind.",
+        "f": "Een goed ridderpaard kostte soms net zoveel als een klein huis."
+      },
+      "en": {
+        "h": "He rode it to tournaments.",
+        "e": "A knight rode on horseback, and his horse was costly and well trained.",
+        "f": "A good knight's horse sometimes cost as much as a small house."
+      },
+      "de": {
+        "h": "Er ritt damit zu Turnieren.",
+        "e": "Ein Ritter war zu Pferd unterwegs, und sein Pferd war wertvoll und gut ausgebildet.",
+        "f": "Ein gutes Ritterpferd kostete manchmal so viel wie ein kleines Haus."
+      },
+      "fr": {
+        "h": "Il le montait pour aller aux tournois.",
+        "e": "Le chevalier se déplaçait à cheval, et son cheval coûtait cher et était bien dressé.",
+        "f": "Un bon cheval de chevalier coûtait parfois autant qu'une petite maison."
+      },
+      "es": {
+        "h": "Lo montaba para ir a los torneos.",
+        "e": "El caballero iba a caballo, y su caballo era caro y estaba bien entrenado.",
+        "f": "Un buen caballo de caballero costaba a veces tanto como una casa pequeña."
+      },
+      "it": {
+        "h": "Lo cavalcava per andare ai tornei.",
+        "e": "Il cavaliere andava a cavallo, e il suo cavallo era prezioso e ben addestrato.",
+        "f": "Un buon cavallo da cavaliere costava a volte quanto una piccola casa."
+      },
+      "pt": {
+        "h": "Ele o montava para ir aos torneios.",
+        "e": "O cavaleiro andava a cavalo, e seu cavalo era caro e bem treinado.",
+        "f": "Um bom cavalo de cavaleiro às vezes custava tanto quanto uma casa pequena."
+      },
+      "da": {
+        "h": "Han red på den til turneringer.",
+        "e": "En ridder red på hest, og hans hest var dyr og veltrænet.",
+        "f": "En god ridderhest kostede nogle gange lige så meget som et lille hus."
+      },
+      "ru": {
+        "h": "На нём он ездил на турниры.",
+        "e": "Рыцарь ездил верхом, и его конь был дорогим и хорошо обученным.",
+        "f": "Хороший рыцарский конь порой стоил столько же, сколько небольшой дом."
+      },
+      "ar": {
+        "h": "كان يركبه إلى البطولات.",
+        "e": "كان الفارس يتنقّل على ظهر حصانه، وكان حصانه غاليًا ومدرّبًا جيدًا.",
+        "f": "كان حصان الفارس الجيد يكلّف أحيانًا ثمن بيت صغير."
+      }
+    },
+    "geschiedenis-ridders_kastelen-26": {
+      "art": "a full suit of shining plate armour standing on a wooden stand in a bright castle hall, a helmet on a small table beside it, banners on the wall, no swords, no weapons anywhere"
+    },
+    "geschiedenis-ridders_kastelen-28": {
+      "nl": {
+        "e": "Bij gevaar zakte het zware traliehek voor de poortdoorgang.",
+        "f": "Het hek hing aan kettingen die over een groot houten wiel boven de poort liepen."
+      },
+      "en": {
+        "e": "In danger the heavy grille dropped across the gate passage.",
+        "f": "The grille hung on chains that ran over a big wooden wheel above the gate."
+      },
+      "de": {
+        "e": "Bei Gefahr senkte sich das schwere Fallgitter vor den Torweg.",
+        "f": "Das Gitter hing an Ketten, die über ein großes Holzrad über dem Tor liefen."
+      },
+      "fr": {
+        "e": "En cas de danger, la lourde grille descendait devant le passage de la porte.",
+        "f": "La grille était suspendue à des chaînes qui passaient sur une grande roue en bois au-dessus de la porte."
+      },
+      "es": {
+        "e": "En caso de peligro, la pesada reja bajaba ante el paso de la puerta.",
+        "f": "La reja colgaba de cadenas que pasaban por una gran rueda de madera sobre la puerta."
+      },
+      "it": {
+        "e": "In caso di pericolo la pesante grata scendeva davanti al passaggio della porta.",
+        "f": "La grata era appesa a catene che scorrevano su una grande ruota di legno sopra la porta."
+      },
+      "pt": {
+        "e": "Em caso de perigo, a grade pesada descia na passagem do portão.",
+        "f": "A grade ficava presa a correntes que passavam por uma grande roda de madeira acima do portão."
+      },
+      "da": {
+        "e": "Ved fare faldt det tunge gitter ned foran portgangen.",
+        "f": "Gitteret hang i kæder, der løb over et stort træhjul over porten."
+      },
+      "ru": {
+        "e": "В случае опасности тяжёлая решётка опускалась и перекрывала проход ворот.",
+        "f": "Решётка висела на цепях, которые проходили через большое деревянное колесо над воротами."
+      },
+      "ar": {
+        "e": "عند الخطر كانت الشبكة الثقيلة تنزل لتسدّ ممرّ البوابة.",
+        "f": "كانت الشبكة معلّقة بسلاسل تمرّ فوق عجلة خشبية كبيرة أعلى البوابة."
+      }
+    },
+    "geschiedenis-ridders_kastelen-31": {
+      "art": "a young medieval page boy brushing a knight's horse in a sunny castle stable while an older squire polishes a shiny helmet nearby, friendly and calm, no swords, no weapons"
+    },
+    "geschiedenis-ridders_kastelen-32": {
+      "art": "a medieval castle on a green hill with colourful tents and fluttering banners of a waiting camp far below, people cooking and chatting by campfires, calm and peaceful, no weapons, no siege machines, no fighting",
+      "nl": {
+        "f": "Vaak draaide het erom wie het langst genoeg eten had."
+      },
+      "en": {
+        "f": "Often it came down to who had enough food for the longest."
+      },
+      "de": {
+        "f": "Oft ging es darum, wer am längsten genug zu essen hatte."
+      },
+      "fr": {
+        "f": "Souvent, tout dépendait de qui avait assez à manger le plus longtemps."
+      },
+      "es": {
+        "f": "A menudo todo dependía de quién tenía comida suficiente durante más tiempo."
+      },
+      "it": {
+        "f": "Spesso tutto dipendeva da chi aveva cibo a sufficienza più a lungo."
+      },
+      "pt": {
+        "f": "Muitas vezes, tudo dependia de quem tinha comida suficiente por mais tempo."
+      },
+      "da": {
+        "f": "Tit handlede det om, hvem der havde nok mad længst."
+      },
+      "ru": {
+        "f": "Часто всё решало то, у кого дольше хватало еды."
+      },
+      "ar": {
+        "f": "غالبًا كان الأمر يتوقّف على من يملك طعامًا كافيًا لأطول مدة."
+      }
+    },
+    "geschiedenis-ridders_kastelen-39": {
+      "art": "a snowy winter camp of tents and small wooden huts with smoking chimneys in front of a distant castle on a hill, people warming their hands at campfires, calm and cosy, no weapons, no siege machines"
+    },
+    "geschiedenis-romeinen-07": {
+      "nl": {
+        "h": "Hij moest zijn hoofd en lichaam beschermen.",
+        "e": "Romeinse soldaten droegen een helm, een groot schild en stevige sandalen."
+      },
+      "en": {
+        "h": "He had to protect his head and body.",
+        "e": "Roman soldiers wore a helmet, carried a big shield and marched in sturdy sandals."
+      },
+      "de": {
+        "h": "Er musste Kopf und Körper schützen.",
+        "e": "Römische Soldaten trugen einen Helm, einen großen Schild und feste Sandalen."
+      },
+      "fr": {
+        "h": "Il devait protéger sa tête et son corps.",
+        "e": "Les soldats romains portaient un casque, un grand bouclier et de solides sandales."
+      },
+      "es": {
+        "h": "Tenía que proteger la cabeza y el cuerpo.",
+        "e": "Los soldados romanos llevaban casco, un gran escudo y sandalias resistentes."
+      },
+      "it": {
+        "h": "Doveva proteggere la testa e il corpo.",
+        "e": "I soldati romani portavano un elmo, un grande scudo e sandali robusti."
+      },
+      "pt": {
+        "h": "Ele precisava proteger a cabeça e o corpo.",
+        "e": "Os soldados romanos usavam capacete, um grande escudo e sandálias resistentes."
+      },
+      "da": {
+        "h": "Han skulle beskytte hoved og krop.",
+        "e": "Romerske soldater bar hjelm, et stort skjold og solide sandaler."
+      },
+      "ru": {
+        "h": "Ему нужно было защищать голову и тело.",
+        "e": "Римские солдаты носили шлем, большой щит и прочные сандалии."
+      },
+      "ar": {
+        "h": "كان عليه أن يحمي رأسه وجسده.",
+        "e": "كان الجنود الرومان يرتدون خوذة ويحملون درعًا كبيرًا وينتعلون صنادل متينة."
+      }
+    },
+    "geschiedenis-romeinen-10": {
+      "swap": {
+        "from": "A gladiator",
+        "nl": "Een bakker",
+        "en": "A baker",
+        "de": "Ein Bäcker",
+        "fr": "Un boulanger",
+        "es": "Un panadero",
+        "it": "Un fornaio",
+        "pt": "Um padeiro",
+        "da": "En bager",
+        "ru": "Пекарь",
+        "ar": "خبّاز"
+      }
+    },
+    "geschiedenis-romeinen-11": {
+      "nl": {
+        "p": "Welk enorm stadion in Rome bood plaats aan zo'n 50.000 toeschouwers?",
+        "h": "Het is ovaal en deels een ruïne.",
+        "e": "In het Colosseum keken de Romeinen naar grote shows en spelen."
+      },
+      "en": {
+        "p": "Which huge stadium in Rome held about 50,000 spectators?",
+        "h": "It is oval and partly in ruins.",
+        "e": "In the Colosseum the Romans watched big shows and games."
+      },
+      "de": {
+        "p": "Welches riesige Stadion in Rom bot Platz für etwa 50.000 Zuschauer?",
+        "h": "Es ist oval und teilweise eine Ruine.",
+        "e": "Im Kolosseum sahen die Römer große Vorführungen und Spiele."
+      },
+      "fr": {
+        "p": "Quel immense stade de Rome pouvait accueillir environ 50 000 spectateurs ?",
+        "h": "Il est ovale et en partie en ruine.",
+        "e": "Au Colisée, les Romains assistaient à de grands spectacles et jeux."
+      },
+      "es": {
+        "p": "¿Qué enorme estadio de Roma tenía sitio para unos 50.000 espectadores?",
+        "h": "Es ovalado y en parte está en ruinas.",
+        "e": "En el Coliseo los romanos veían grandes espectáculos y juegos."
+      },
+      "it": {
+        "p": "Quale enorme stadio di Roma poteva ospitare circa 50.000 spettatori?",
+        "h": "È ovale e in parte in rovina.",
+        "e": "Nel Colosseo i Romani assistevano a grandi spettacoli e giochi."
+      },
+      "pt": {
+        "p": "Que estádio enorme de Roma recebia cerca de 50 mil espectadores?",
+        "h": "Ele é oval e está em parte em ruínas.",
+        "e": "No Coliseu os romanos assistiam a grandes espetáculos e jogos."
+      },
+      "da": {
+        "p": "Hvilket kæmpe stadion i Rom havde plads til omkring 50.000 tilskuere?",
+        "h": "Det er ovalt og delvist en ruin.",
+        "e": "I Colosseum så romerne store forestillinger og lege."
+      },
+      "ru": {
+        "p": "Какой огромный стадион в Риме вмещал около 50 000 зрителей?",
+        "h": "Он овальный и частично разрушен.",
+        "e": "В Колизее римляне смотрели большие зрелища и игры."
+      },
+      "ar": {
+        "p": "أيّ ملعب ضخم في روما كان يتّسع لنحو 50 ألف متفرّج؟",
+        "h": "شكله بيضاوي وجزء منه أطلال.",
+        "e": "في الكولوسيوم كان الرومان يشاهدون العروض والألعاب الكبيرة."
+      }
+    },
+    "geschiedenis-romeinen-19": {
+      "art": "a long orderly column of friendly Roman soldiers marching along a paved stone road with big red shields and a golden eagle standard, Italian hills and a temple in the background, no spears, no swords, no weapons"
+    },
+    "geschiedenis-romeinen-23": {
+      "swap": {
+        "from": "A sword",
+        "nl": "Een schoen",
+        "en": "A shoe",
+        "de": "Ein Schuh",
+        "fr": "Une chaussure",
+        "es": "Un zapato",
+        "it": "Una scarpa",
+        "pt": "Um sapato",
+        "da": "En sko",
+        "ru": "Обувь",
+        "ar": "حذاء"
+      }
+    },
+    "geschiedenis-romeinen-27": {
+      "swap": {
+        "from": "A weapon",
+        "nl": "Een muziekinstrument",
+        "en": "A musical instrument",
+        "de": "Ein Musikinstrument",
+        "fr": "Un instrument de musique",
+        "es": "Un instrumento musical",
+        "it": "Uno strumento musicale",
+        "pt": "Um instrumento musical",
+        "da": "Et musikinstrument",
+        "ru": "Музыкальный инструмент",
+        "ar": "آلة موسيقية"
+      },
+      "nl": {
+        "f": "Onder veel villa's lagen kelders vol graan en olijfolie."
+      },
+      "en": {
+        "f": "Under many villas lay cellars full of grain and olive oil."
+      },
+      "de": {
+        "f": "Unter vielen Villen lagen Keller voller Getreide und Olivenöl."
+      },
+      "fr": {
+        "f": "Sous beaucoup de villas se trouvaient des caves pleines de céréales et d'huile d'olive."
+      },
+      "es": {
+        "f": "Bajo muchas villas había sótanos llenos de grano y aceite de oliva."
+      },
+      "it": {
+        "f": "Sotto molte ville c'erano cantine piene di grano e olio d'oliva."
+      },
+      "pt": {
+        "f": "Embaixo de muitas vilas havia porões cheios de grãos e azeite."
+      },
+      "da": {
+        "f": "Under mange villaer lå der kældre fulde af korn og olivenolie."
+      },
+      "ru": {
+        "f": "Под многими виллами были подвалы, полные зерна и оливкового масла."
+      },
+      "ar": {
+        "f": "تحت كثير من الفيلات كانت هناك أقبية مليئة بالحبوب وزيت الزيتون."
+      }
+    },
+    "geschiedenis-romeinen-30": {
+      "nl": {
+        "e": "Romeinen vervoerden olie, graan en vissaus over zee in amforen."
+      },
+      "en": {
+        "e": "Romans shipped oil, grain and fish sauce across the sea in amphorae."
+      },
+      "de": {
+        "e": "Die Römer transportierten Öl, Getreide und Fischsoße in Amphoren übers Meer."
+      },
+      "fr": {
+        "e": "Les Romains transportaient de l'huile, des céréales et de la sauce de poisson par la mer dans des amphores."
+      },
+      "es": {
+        "e": "Los romanos transportaban aceite, grano y salsa de pescado por mar en ánforas."
+      },
+      "it": {
+        "e": "I Romani trasportavano olio, grano e salsa di pesce per mare nelle anfore."
+      },
+      "pt": {
+        "e": "Os romanos transportavam azeite, grãos e molho de peixe pelo mar em ânforas."
+      },
+      "da": {
+        "e": "Romerne sejlede olie, korn og fiskesauce over havet i amforaer."
+      },
+      "ru": {
+        "e": "Римляне перевозили по морю масло, зерно и рыбный соус в амфорах."
+      },
+      "ar": {
+        "e": "كان الرومان ينقلون الزيت والحبوب وصلصة السمك عبر البحر في الأمفورات."
+      }
+    },
+    "geschiedenis-romeinen-38": {
+      "art": "a friendly elephant carefully crossing a snowy mountain pass in the Alps followed by a line of travellers in ancient clothing and pack mules, sunny winter mountains, no weapons, no spears"
+    },
+    "mysterie-verborgen_schatten-15": {
+      "art": "Dutch sailing ships of the 1600s sailing home on a sunny sea with wooden chests full of silver coins on deck, happy sailors waving, Dutch flags, no weapons, no fighting"
+    },
+    "sport-records_helden-36": {
+      "art": "a cheerful old man with a white beard in old-fashioned 1912 sports clothing proudly holding up an Olympic gold medal in a sunny stadium, no weapons, no guns",
+      "nl": {
+        "a": "Vierenzestig jaar",
+        "h": "Hij was toen al opa.",
+        "e": "De Zweed Oscar Swahn won in 1912 Olympisch goud toen hij vierenzestig was.",
+        "f": "Acht jaar later, op zijn tweeënzeventigste, won hij nog een zilveren medaille."
+      },
+      "en": {
+        "a": "Sixty-four years old",
+        "h": "He was already a grandfather.",
+        "e": "The Swede Oscar Swahn won Olympic gold in 1912 when he was sixty-four.",
+        "f": "Eight years later, aged seventy-two, he still won a silver medal."
+      },
+      "de": {
+        "a": "Vierundsechzig Jahre",
+        "h": "Er war damals schon Opa.",
+        "e": "Der Schwede Oscar Swahn gewann 1912 mit vierundsechzig Jahren olympisches Gold.",
+        "f": "Acht Jahre später, mit zweiundsiebzig, gewann er noch eine Silbermedaille."
+      },
+      "fr": {
+        "a": "Soixante-quatre ans",
+        "h": "Il était déjà grand-père.",
+        "e": "Le Suédois Oscar Swahn a remporté l'or olympique en 1912, à soixante-quatre ans.",
+        "f": "Huit ans plus tard, à soixante-douze ans, il a encore gagné une médaille d'argent."
+      },
+      "es": {
+        "a": "Sesenta y cuatro años",
+        "h": "Ya era abuelo.",
+        "e": "El sueco Oscar Swahn ganó el oro olímpico en 1912 con sesenta y cuatro años.",
+        "f": "Ocho años después, con setenta y dos años, aún ganó una medalla de plata."
+      },
+      "it": {
+        "a": "Sessantaquattro anni",
+        "h": "Era già nonno.",
+        "e": "Lo svedese Oscar Swahn vinse l'oro olimpico nel 1912 a sessantaquattro anni.",
+        "f": "Otto anni dopo, a settantadue anni, vinse ancora una medaglia d'argento."
+      },
+      "pt": {
+        "a": "Sessenta e quatro anos",
+        "h": "Ele já era avô.",
+        "e": "O sueco Oscar Swahn ganhou o ouro olímpico em 1912, aos sessenta e quatro anos.",
+        "f": "Oito anos depois, aos setenta e dois anos, ele ainda ganhou uma medalha de prata."
+      },
+      "da": {
+        "a": "Fireogtres år",
+        "h": "Han var allerede bedstefar.",
+        "e": "Svenskeren Oscar Swahn vandt olympisk guld i 1912, da han var fireogtres.",
+        "f": "Otte år senere, som tooghalvfjerdsårig, vandt han stadig en sølvmedalje."
+      },
+      "ru": {
+        "a": "Шестьдесят четыре года",
+        "h": "Он тогда уже был дедушкой.",
+        "e": "Швед Оскар Сван выиграл олимпийское золото в 1912 году в шестьдесят четыре года.",
+        "f": "Через восемь лет, в семьдесят два года, он ещё завоевал серебряную медаль."
+      },
+      "ar": {
+        "a": "أربعة وستون عامًا",
+        "h": "كان جدًّا آنذاك.",
+        "e": "فاز السويدي أوسكار سوان بالذهبية الأولمبية عام 1912 وهو في الرابعة والستين من عمره.",
+        "f": "بعد ثماني سنوات، وهو في الثانية والسبعين، فاز أيضًا بميدالية فضية."
+      }
+    }
+  }
+}

@@ -915,8 +915,9 @@ test('on level 4 the voice still reads the question and the answers; the parent 
   // Entering the world calls out its name (after the fanfare's first beat).
   await expect.poll(() => spoken.includes('[excited] Dierenwereld!')).toBe(true);
   await page.locator('.world-topic').first().click();
-  const q = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions[0]);
-  await expect.poll(() => spoken.includes(q.prompt)).toBe(true);
+  // The voice gets numbers written out ("1500" → "vijftienhonderd"), so compare with what is spoken.
+  const said = await page.evaluate(() => { const K = window.KWIZILLO_M1; return K.core.spellNumbers(K.quiz.questions[0].prompt, 'nl'); });
+  await expect.poll(() => spoken.includes(said)).toBe(true);
   await expect.poll(() => spoken.some(s => s.startsWith('A. ')), { message: 'the answers are read on level 4 too' }).toBe(true);
 
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 4; K.save(); K.showParent() });

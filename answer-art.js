@@ -185,7 +185,18 @@
     'aarde-kaarten_navigatie-01':1,                       // Windrichtingen
     'aarde-kaarten_navigatie-16':1,                       // Een globe
     'aarde-kaarten_navigatie-18':1,                       // GIS
-    'aarde-kaarten_navigatie-20':1                        // De evenaar
+    'aarde-kaarten_navigatie-20':1,                       // De evenaar
+    // 30-09-2026, the Kids 4+ replacements: each picture shows its answer
+    'geschiedenis-ridders_kastelen-12':1,
+    'geschiedenis-ridders_kastelen-16':1,
+    'geschiedenis-ridders_kastelen-17':1,
+    'geschiedenis-ridders_kastelen-22':1,
+    'geschiedenis-ridders_kastelen-33':1,
+    'geschiedenis-ridders_kastelen-34':1,
+    'geschiedenis-ridders_kastelen-38':1,
+    'geschiedenis-ridders_kastelen-40':1,
+    'geschiedenis-romeinen-26':1,
+    'sport-water_wintersport-28':1
   };
   K.ANSWER_ART=A;
   // Whether a question's own illustration would give the answer away while the

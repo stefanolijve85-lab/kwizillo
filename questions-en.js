@@ -68,12 +68,12 @@
       ridders_kastelen: [
         ["What did a knight often wear for protection?","Armour",["A spacesuit","A bathrobe","A wetsuit"],"It was made of metal.","Armour protected the body.","A full suit of armour had many separate pieces."],
         ["Where did a powerful lord often live?","In a castle",["In a rocket","In a pyramid","In an igloo"],"The building had thick walls.","Castles were homes and defensive places.","Many castles had towers and walls."],
-        ["What is a moat?","A water ditch around a castle",["A bedroom","A market square","An armoury"],"It made attacks harder.","A moat helped defend a castle.","Not every moat always held water."],
+        ["What is a moat?","A water ditch around a castle",["A bedroom","A market square","A bakery"],"It kept unwanted visitors away.","A moat made a castle hard to reach.","Not every moat always held water."],
         ["What is a drawbridge?","A bridge that can be raised",["A secret staircase","A flag","A tower"],"It was often at the entrance.","A drawbridge could block the way in.","It was often combined with a gate."],
-        ["What happened at a knights tournament?","Knights took part in contests",["People built pyramids","People sailed to America","People made telescopes"],"Think of jousting.","Tournaments were contests for knights.","Jousting was a spectacular event."],
-        ["What is a shield?","Protection against attacks",["A musical instrument","A map","A drinking cup"],"Knights often carried it on one arm.","A shield protects against weapons.","Shields often carried symbols or coats of arms."],
+        ["What happened at a knights tournament?","Knights took part in contests",["People built pyramids","People sailed to America","People made telescopes"],"Think of horse riding and skill.","Tournaments were contests for knights.","Tournaments drew crowds from far and wide, with music and feasting."],
+        ["What is a shield?","Protection for a knight",["A musical instrument","A map","A drinking cup"],"Knights often carried it on one arm.","A knight held his shield in front of him for protection.","Shields often showed the family's colours and symbols."],
         ["Who usually did not live permanently in a medieval castle?","All the farmers from the area",["The lord of the castle","Soldiers","Servants"],"Many people lived in villages around the castle.","Most farmers lived outside the castle.","In times of danger people could sometimes shelter there."],
-        ["Why did castles have thick walls?","For defence",["For faster internet","For warmth","For decoration"],"They had to withstand attacks.","Thick stone walls made castles stronger.","Later, cannons made many walls far less effective."],
+        ["Why did castles have thick walls?","For defence",["For faster internet","For warmth","For decoration"],"They had to be strong and sturdy.","Thick stone walls made castles stronger.","Some castle walls were more than four metres thick."],
         ["What did a squire often do?","Help a knight and learn",["Bury a pharaoh","Fly a rocket","Build a temple"],"He was sometimes preparing for knighthood.","A squire helped a knight and learned skills.","Not every squire eventually became a knight."],
         ["What was a stronghold?","A fortified place to live",["A galaxy","A ship","A school subject"],"The word is often used for castles.","A stronghold was a fortified place.","Strongholds often stood in strategic spots."]
       ],
@@ -84,10 +84,10 @@
         ["What was a legion?","A large group of Roman soldiers",["A market","A bathhouse","A ship"],"It was part of the army.","A legion was a large army unit.","Roman soldiers trained strictly."],
         ["What was a forum in a Roman town?","A central square",["A prison","A farm","A harbour"],"People came there for trade and government.","The forum was an important town centre.","Temples and public buildings often stood there."],
         ["What were Roman bathhouses for?","Washing and meeting",["Building rockets","Storing grain","Training horses"],"People also gathered there socially.","Bath complexes were important meeting places.","Some had hot and cold baths."],
-        ["What did a Roman soldier often wear?","A helmet and shield",["A spacesuit","A cowboy hat","A wetsuit"],"He had to protect himself in battle.","Roman soldiers used helmets, shields and weapons.","Their equipment changed over the centuries."],
+        ["What did a Roman soldier often wear?","A helmet and shield",["A spacesuit","A cowboy hat","A wetsuit"],"He had to protect his head and body.","Roman soldiers wore a helmet, carried a big shield and marched in sturdy sandals.","Their equipment changed over the centuries."],
         ["What does “Roman Empire” mean?","A large area governed from Rome",["The city of Rome","A pyramid","An order of knights"],"It stretched across large parts of Europe.","The Roman Empire was very extensive.","At its height it covered lands around the Mediterranean."],
         ["What did Romans use for long distances over land?","An extensive road network",["Rivers","Hot air balloons","Trains"],"Many roads were solidly built.","The Romans built a large road network.","Some modern roads follow old Roman routes."],
-        ["What was a senator in Rome?","An important official",["A gladiator","A pharaoh","A knight"],"He had a political role.","Senators had influence on government.","The Roman Senate lasted for centuries."]
+        ["What was a senator in Rome?","An important official",["A baker","A pharaoh","A knight"],"He had a political role.","Senators had influence on government.","The Roman Senate lasted for centuries."]
       ],
       ontdekkingsreizigers: [
         ["What did an explorer do?","Explore new areas",["Build planets","Invent electricity","Guard pyramids"],"Think of long journeys.","Explorers travelled to unknown regions.","Their voyages changed maps and trade."],

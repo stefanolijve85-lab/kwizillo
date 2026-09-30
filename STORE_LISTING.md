@@ -136,7 +136,12 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
   Kids-regels blijven voldoen.
 
 **Leeftijdsvragenlijst** (alles "Nee/Geen" tenzij hieronder):
-- Geweld (tekenfilm/fantasie): geen · realistisch geweld: geen
+- Geweld (tekenfilm/fantasie): geen · realistisch geweld: geen · wapens: geen.
+  Sinds 30 september staan er geen wapens of gevechten meer in tekst of beeld:
+  elf vragen over wapens (zwaard, kruisboog, katapult, kanon, steekspel,
+  gladiatoren, biatlon …) zijn vervangen, losse woorden herschreven en twintig
+  afbeeldingen opnieuw gemaakt (`tools/patches/2026-09-30-kids-4plus.json`).
+  Met één enkel wapen zou de uitkomst 9+ worden.
 - Seksuele inhoud, grof taalgebruik, drugs, alcohol, tabak, gokken, horror: geen
 - Medische of welzijnsinformatie: geen
 - Onbeperkte toegang tot internet (browser): nee

@@ -3517,129 +3517,129 @@
       "id": "sport-water_wintersport-28",
       "difficulty": 3,
       "status": "translated",
-      "source": "Biatlon: langlaufen en schieten",
-      "artBrief": "Een biatleet ligt op de sneeuw en mikt op kleine schijfjes.",
+      "source": "Vervangen 30-09-2026 (Kids 4+)",
+      "artBrief": "a cheerful young ski jumper flying high through the air above a snowy ski jump, with a cross-country ski trail winding through a snowy pine forest below, bright winter sky",
       "art": "own",
       "text": {
         "nl": {
-          "prompt": "Welke twee dingen doe je bij een biatlon?",
-          "answer": "Langlaufen en schieten",
+          "prompt": "Welke twee dingen doe je bij de noordse combinatie?",
+          "answer": "Schansspringen en langlaufen",
           "wrong": [
-            "Zwemmen en fietsen",
-            "Skiën en zwemmen",
-            "Schaatsen en skiën"
+            "Schaatsen en zwemmen",
+            "Skiën en golfen",
+            "Surfen en zeilen"
           ],
-          "hint": "Twee heel verschillende dingen na elkaar.",
-          "explanation": "Biatleten langlaufen en moeten daarna heel rustig op kleine schijfjes mikken.",
-          "fact": "Elke misser kost een strafrondje, dus een hijgende biatleet moet zijn hart kalmeren."
+          "hint": "Eerst door de lucht, dan door de sneeuw.",
+          "explanation": "Bij de noordse combinatie spring je eerst van de schans en daarna volgt een langlaufrace.",
+          "fact": "Wie het verst sprong, mag bij het langlaufen als eerste vertrekken."
         },
         "en": {
-          "prompt": "Which two things do you do in a biathlon?",
-          "answer": "Skiing and shooting",
+          "prompt": "Which two things do you do in Nordic combined?",
+          "answer": "Ski jump and cross-country",
           "wrong": [
-            "Swimming and cycling",
-            "Skiing and swimming",
-            "Skating and skiing"
+            "Skating and swimming",
+            "Skiing and golf",
+            "Surfing and sailing"
           ],
-          "hint": "Two very different things, one after the other.",
-          "explanation": "Biathletes ski cross-country and then have to aim calmly at small targets.",
-          "fact": "Every miss costs a penalty lap, so a panting biathlete must calm their heart."
+          "hint": "First through the air, then through the snow.",
+          "explanation": "In Nordic combined you first jump off the ski jump, then race cross-country.",
+          "fact": "Whoever jumped furthest gets to start the cross-country race first."
         },
         "de": {
-          "prompt": "Welche zwei Dinge macht man beim Biathlon?",
-          "answer": "Langlauf und Schießen",
+          "prompt": "Welche zwei Dinge macht man in der Nordischen Kombination?",
+          "answer": "Skispringen und Langlauf",
           "wrong": [
-            "Schwimmen und Rad",
-            "Ski und Schwimmen",
-            "Eislauf und Ski"
+            "Eislaufen und Schwimmen",
+            "Skifahren und Golf",
+            "Surfen und Segeln"
           ],
-          "hint": "Zwei sehr verschiedene Dinge nacheinander.",
-          "explanation": "Biathleten laufen Ski und müssen danach ruhig auf kleine Scheiben zielen.",
-          "fact": "Jeder Fehler kostet eine Strafrunde, also muss ein schnaufender Biathlet sein Herz beruhigen."
+          "hint": "Erst durch die Luft, dann durch den Schnee.",
+          "explanation": "In der Nordischen Kombination springt man zuerst von der Schanze, danach folgt ein Langlaufrennen.",
+          "fact": "Wer am weitesten gesprungen ist, darf beim Langlauf als Erster starten."
         },
         "fr": {
-          "prompt": "Quelles deux choses fait-on au biathlon?",
-          "answer": "Ski de fond et tir",
+          "prompt": "Quelles sont les deux épreuves du combiné nordique ?",
+          "answer": "Saut à ski et ski de fond",
           "wrong": [
-            "Nager et rouler",
-            "Ski et natation",
-            "Patin et ski"
+            "Le patinage et la natation",
+            "Le ski et le golf",
+            "Le surf et la voile"
           ],
-          "hint": "Deux choses très différentes l'une après l'autre.",
-          "explanation": "Les biathlètes skient puis doivent viser calmement de petites cibles.",
-          "fact": "Chaque raté coûte un tour de pénalité, donc un biathlète essoufflé doit calmer son cœur."
+          "hint": "D'abord dans les airs, puis dans la neige.",
+          "explanation": "Au combiné nordique, on saute d'abord du tremplin, puis on fait une course de ski de fond.",
+          "fact": "Celui qui a sauté le plus loin part en premier dans la course de fond."
         },
         "es": {
-          "prompt": "¿Qué dos cosas se hacen en un biatlón?",
-          "answer": "Esquí de fondo y tiro",
+          "prompt": "¿Qué dos cosas haces en la combinada nórdica?",
+          "answer": "Salto y esquí de fondo",
           "wrong": [
-            "Nadar y pedalear",
-            "Esquí y natación",
-            "Patinaje y esquí"
+            "Patinaje y natación",
+            "Esquí y golf",
+            "Surf y vela"
           ],
-          "hint": "Dos cosas muy distintas, una tras otra.",
-          "explanation": "Los biatletas esquían y después tienen que apuntar con calma a dianas pequeñas.",
-          "fact": "Cada fallo cuesta una vuelta de castigo, así que un biatleta jadeante debe calmar el corazón."
+          "hint": "Primero por el aire, luego por la nieve.",
+          "explanation": "En la combinada nórdica primero saltas desde el trampolín y luego haces una carrera de esquí de fondo.",
+          "fact": "Quien saltó más lejos sale primero en la carrera de fondo."
         },
         "it": {
-          "prompt": "Quali due cose si fanno nel biathlon?",
-          "answer": "Fondo e tiro",
+          "prompt": "Quali due cose fai nella combinata nordica?",
+          "answer": "Salto e sci di fondo",
           "wrong": [
-            "Nuoto e bici",
-            "Sci e nuoto",
-            "Pattinaggio e sci"
+            "Pattinaggio e nuoto",
+            "Sci e golf",
+            "Surf e vela"
           ],
-          "hint": "Due cose molto diverse una dopo l'altra.",
-          "explanation": "I biatleti sciano e poi devono mirare con calma a piccoli bersagli.",
-          "fact": "Ogni errore costa un giro di penalità, quindi un biatleta ansimante deve calmare il cuore."
+          "hint": "Prima nell'aria, poi sulla neve.",
+          "explanation": "Nella combinata nordica prima salti dal trampolino, poi fai una gara di sci di fondo.",
+          "fact": "Chi ha saltato più lontano parte per primo nella gara di fondo."
         },
         "pt": {
-          "prompt": "Que duas coisas se fazem num biatlo?",
-          "answer": "Esqui de fundo e tiro",
+          "prompt": "Quais são as duas provas da combinada nórdica?",
+          "answer": "Salto e esqui cross-country",
           "wrong": [
-            "Nadar e pedalar",
-            "Esqui e natação",
-            "Patinagem e esqui"
+            "Patinação e natação",
+            "Esqui e golfe",
+            "Surfe e vela"
           ],
-          "hint": "Duas coisas muito diferentes, uma após a outra.",
-          "explanation": "Os biatletas esquiam e depois têm de apontar com calma a alvos pequenos.",
-          "fact": "Cada falha custa uma volta de castigo, por isso um biatleta ofegante tem de acalmar o coração."
+          "hint": "Primeiro pelo ar, depois pela neve.",
+          "explanation": "Na combinada nórdica você primeiro salta da rampa e depois faz uma corrida de esqui cross-country.",
+          "fact": "Quem saltou mais longe larga primeiro na corrida."
         },
         "da": {
-          "prompt": "Hvilke to ting laver man i en biatlon?",
-          "answer": "Langrend og skydning",
+          "prompt": "Hvilke to ting laver man i nordisk kombineret?",
+          "answer": "Skihop og langrend",
           "wrong": [
-            "Svømning og cykling",
-            "Ski og svømning",
-            "Skøjter og ski"
+            "Skøjteløb og svømning",
+            "Skiløb og golf",
+            "Surfing og sejlads"
           ],
-          "hint": "To meget forskellige ting lige efter hinanden.",
-          "explanation": "Biatleter løber på ski og skal derefter sigte roligt mod små skiver.",
-          "fact": "Hver forbier koster en strafrunde, så en forpustet biatlet må berolige hjertet."
+          "hint": "Først gennem luften, så gennem sneen.",
+          "explanation": "I nordisk kombineret springer man først fra hopbakken, og bagefter kommer et langrendsløb.",
+          "fact": "Den, der hoppede længst, må starte først i langrendet."
         },
         "ru": {
-          "prompt": "Какие два дела соединяет биатлон?",
-          "answer": "Лыжи и стрельба",
+          "prompt": "Какие два вида входят в лыжное двоеборье?",
+          "answer": "Прыжки и лыжные гонки",
           "wrong": [
-            "Плавание и велосипед",
-            "Лыжи и плавание",
-            "Коньки и лыжи"
+            "Коньки и плавание",
+            "Лыжи и гольф",
+            "Сёрфинг и парусный спорт"
           ],
-          "hint": "Две очень разные вещи одна за другой.",
-          "explanation": "Биатлонисты идут на лыжах, а потом должны спокойно попасть в маленькие мишени.",
-          "fact": "Каждый промах стоит штрафного круга, поэтому запыхавшийся биатлонист успокаивает сердце."
+          "hint": "Сначала по воздуху, потом по снегу.",
+          "explanation": "В двоеборье сначала прыгают с трамплина, а потом бегут лыжную гонку.",
+          "fact": "Кто прыгнул дальше всех, тот первым стартует в гонке."
         },
         "ar": {
-          "prompt": "ما الشيئان اللذان يجمعهما البياثلون؟",
-          "answer": "تزلج وإطلاق نار",
+          "prompt": "ما الرياضتان في منافسة التزلّج الشمالي المزدوج؟",
+          "answer": "القفز والتزلّج الريفي",
           "wrong": [
-            "سباحة ودراجة",
-            "تزلج وسباحة",
-            "تزحلق وتزلج"
+            "التزلّج على الجليد والسباحة",
+            "التزلّج والغولف",
+            "ركوب الأمواج والإبحار"
           ],
-          "hint": "شيئان مختلفان جدًا واحدًا بعد الآخر.",
-          "explanation": "يتزلج اللاعبون ثم عليهم أن يصيبوا أهدافًا صغيرة بهدوء.",
-          "fact": "كل خطأ يكلف لفة عقاب، فعلى اللاعب اللاهث أن يهدّئ قلبه."
+          "hint": "أولًا في الهواء، ثم على الثلج.",
+          "explanation": "في هذه المنافسة تقفز أولًا من منصّة القفز، ثم تخوض سباق تزلّج ريفي.",
+          "fact": "من قفز أبعد مسافة ينطلق أولًا في السباق."
         }
       }
     },

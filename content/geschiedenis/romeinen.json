@@ -276,7 +276,7 @@
           "answer": "Een lang gewaad",
           "wrong": [
             "Een helm",
-            "Een zwaard",
+            "Een schoen",
             "Een schip"
           ],
           "hint": "Je slaat hem om je schouder.",
@@ -288,7 +288,7 @@
           "answer": "A long robe",
           "wrong": [
             "A helmet",
-            "A sword",
+            "A shoe",
             "A ship"
           ],
           "hint": "You drape it over your shoulder.",
@@ -300,7 +300,7 @@
           "answer": "Ein langes Gewand",
           "wrong": [
             "Ein Helm",
-            "Ein Schwert",
+            "Ein Schuh",
             "Ein Schiff"
           ],
           "hint": "Man legt sie über die Schulter.",
@@ -312,7 +312,7 @@
           "answer": "Un long vêtement",
           "wrong": [
             "Un casque",
-            "Une épée",
+            "Une chaussure",
             "Un navire"
           ],
           "hint": "On la pose sur l'épaule.",
@@ -324,7 +324,7 @@
           "answer": "Una túnica larga",
           "wrong": [
             "Un casco",
-            "Una espada",
+            "Un zapato",
             "Un barco"
           ],
           "hint": "Se echa sobre el hombro.",
@@ -336,7 +336,7 @@
           "answer": "Una veste lunga",
           "wrong": [
             "Un elmo",
-            "Una spada",
+            "Una scarpa",
             "Una nave"
           ],
           "hint": "Si posa sulla spalla.",
@@ -348,7 +348,7 @@
           "answer": "Uma veste comprida",
           "wrong": [
             "Um elmo",
-            "Uma espada",
+            "Um sapato",
             "Um navio"
           ],
           "hint": "Põe-se sobre o ombro.",
@@ -360,7 +360,7 @@
           "answer": "En lang klædning",
           "wrong": [
             "En hjelm",
-            "Et sværd",
+            "En sko",
             "Et skib"
           ],
           "hint": "Man lægger den over skulderen.",
@@ -372,7 +372,7 @@
           "answer": "Длинное одеяние",
           "wrong": [
             "Шлем",
-            "Меч",
+            "Обувь",
             "Корабль"
           ],
           "hint": "Её перекидывают через плечо.",
@@ -384,7 +384,7 @@
           "answer": "رداء طويل",
           "wrong": [
             "خوذة",
-            "سيف",
+            "حذاء",
             "سفينة"
           ],
           "hint": "تُلقى على الكتف.",
@@ -657,129 +657,129 @@
       "id": "geschiedenis-romeinen-26",
       "difficulty": 2,
       "status": "translated",
-      "source": "Gladiatoren",
-      "artBrief": "Twee gladiatoren met schild en helm in een arena, publiek op de tribunes.",
+      "source": "Vervangen 30-09-2026 (Kids 4+)",
+      "artBrief": "a simple ancient Roman breakfast on a wooden table in a sunny courtyard with columns: round bread, cheese, olives and figs, clay cups and a small oil lamp",
       "art": "own",
       "text": {
         "nl": {
-          "prompt": "Wie waren de gladiatoren?",
-          "answer": "Vechters in de arena",
+          "prompt": "Wat aten Romeinen vaak als ontbijt?",
+          "answer": "Brood met kaas of olijven",
           "wrong": [
-            "Bakkers",
-            "Boeren",
-            "Priesters"
+            "Cornflakes met melk",
+            "Pannenkoeken met stroop",
+            "Boterhammen met hagelslag"
           ],
-          "hint": "Het publiek juichte voor ze.",
-          "explanation": "Gladiatoren vochten voor publiek, vaak met schild, helm en zwaard.",
-          "fact": "De beroemdste gladiatoren werden bekend zoals sterren nu."
+          "hint": "Klein en eenvoudig, vaak iets zouts.",
+          "explanation": "Het Romeinse ontbijt was klein: brood, kaas, olijven of wat fruit.",
+          "fact": "De grootste maaltijd van de dag was de cena, aan het eind van de middag."
         },
         "en": {
-          "prompt": "Who were the gladiators?",
-          "answer": "Fighters in the arena",
+          "prompt": "What did Romans often eat for breakfast?",
+          "answer": "Bread with cheese or olives",
           "wrong": [
-            "Bakers",
-            "Farmers",
-            "Priests"
+            "Cornflakes with milk",
+            "Pancakes with syrup",
+            "Toast with sprinkles"
           ],
-          "hint": "The crowd cheered for them.",
-          "explanation": "Gladiators fought in front of a crowd, often with shield, helmet and sword.",
-          "fact": "The most famous ones were known the way stars are today."
+          "hint": "Small and simple, often something salty.",
+          "explanation": "The Roman breakfast was small: bread, cheese, olives or some fruit.",
+          "fact": "The biggest meal of the day was the cena, in the late afternoon."
         },
         "de": {
-          "prompt": "Wer waren die Gladiatoren?",
-          "answer": "Kämpfer in der Arena",
+          "prompt": "Was aßen die Römer oft zum Frühstück?",
+          "answer": "Brot mit Käse oder Oliven",
           "wrong": [
-            "Bäcker",
-            "Bauern",
-            "Priester"
+            "Cornflakes mit Milch",
+            "Pfannkuchen mit Sirup",
+            "Toast mit Schokostreuseln"
           ],
-          "hint": "Das Publikum jubelte ihnen zu.",
-          "explanation": "Gladiatoren kämpften vor Publikum, oft mit Schild, Helm und Schwert.",
-          "fact": "Die berühmtesten waren bekannt wie heute Stars."
+          "hint": "Klein und einfach, oft etwas Salziges.",
+          "explanation": "Das römische Frühstück war klein: Brot, Käse, Oliven oder etwas Obst.",
+          "fact": "Die größte Mahlzeit des Tages war die Cena am späten Nachmittag."
         },
         "fr": {
-          "prompt": "Qui étaient les gladiateurs ?",
-          "answer": "Des combattants d'arène",
+          "prompt": "Que mangeaient souvent les Romains au petit-déjeuner ?",
+          "answer": "Pain, fromage ou olives",
           "wrong": [
-            "Des boulangers",
-            "Des paysans",
-            "Des prêtres"
+            "Des céréales au lait",
+            "Des crêpes au sirop",
+            "Des tartines au chocolat"
           ],
-          "hint": "La foule les acclamait.",
-          "explanation": "Les gladiateurs combattaient devant le public, souvent avec bouclier et épée.",
-          "fact": "Les plus célèbres étaient connus comme des vedettes."
+          "hint": "Petit et simple, souvent salé.",
+          "explanation": "Le petit-déjeuner romain était léger : pain, fromage, olives ou un peu de fruits.",
+          "fact": "Le repas principal de la journée était la cena, en fin d'après-midi."
         },
         "es": {
-          "prompt": "¿Quiénes eran los gladiadores?",
-          "answer": "Luchadores de la arena",
+          "prompt": "¿Qué solían desayunar los romanos?",
+          "answer": "Pan con queso o aceitunas",
           "wrong": [
-            "Panaderos",
-            "Campesinos",
-            "Sacerdotes"
+            "Cereales con leche",
+            "Tortitas con sirope",
+            "Tostadas con crema de cacao"
           ],
-          "hint": "El público los aclamaba.",
-          "explanation": "Los gladiadores luchaban ante el público, con escudo, casco y espada.",
-          "fact": "Los más famosos eran conocidos como hoy lo son las estrellas."
+          "hint": "Pequeño y sencillo, a menudo algo salado.",
+          "explanation": "El desayuno romano era pequeño: pan, queso, aceitunas o algo de fruta.",
+          "fact": "La comida principal del día era la cena, al final de la tarde."
         },
         "it": {
-          "prompt": "Chi erano i gladiatori?",
-          "answer": "Combattenti dell'arena",
+          "prompt": "Che cosa mangiavano spesso i Romani a colazione?",
+          "answer": "Pane con formaggio o olive",
           "wrong": [
-            "Fornai",
-            "Contadini",
-            "Sacerdoti"
+            "Cereali con il latte",
+            "Pancake con lo sciroppo",
+            "Pane e crema di nocciole"
           ],
-          "hint": "Il pubblico li acclamava.",
-          "explanation": "I gladiatori combattevano davanti al pubblico, con scudo, elmo e spada.",
-          "fact": "I più famosi erano noti come oggi lo sono le star."
+          "hint": "Piccola e semplice, spesso salata.",
+          "explanation": "La colazione romana era leggera: pane, formaggio, olive o un po' di frutta.",
+          "fact": "Il pasto più importante della giornata era la cena, nel tardo pomeriggio."
         },
         "pt": {
-          "prompt": "Quem eram os gladiadores?",
-          "answer": "Lutadores da arena",
+          "prompt": "O que os romanos costumavam comer no café da manhã?",
+          "answer": "Pão com queijo ou azeitonas",
           "wrong": [
-            "Padeiros",
-            "Camponeses",
-            "Sacerdotes"
+            "Cereal com leite",
+            "Panqueca com calda",
+            "Pão com creme de chocolate"
           ],
-          "hint": "O público aclamava-os.",
-          "explanation": "Os gladiadores lutavam perante o público, com escudo, elmo e espada.",
-          "fact": "Os mais famosos eram conhecidos como hoje são as estrelas."
+          "hint": "Pequeno e simples, muitas vezes salgado.",
+          "explanation": "O café da manhã romano era pequeno: pão, queijo, azeitonas ou um pouco de fruta.",
+          "fact": "A maior refeição do dia era a cena, no fim da tarde."
         },
         "da": {
-          "prompt": "Hvem var gladiatorerne?",
-          "answer": "Kæmpere i arenaen",
+          "prompt": "Hvad spiste romerne ofte til morgenmad?",
+          "answer": "Brød med ost eller oliven",
           "wrong": [
-            "Bagere",
-            "Bønder",
-            "Præster"
+            "Cornflakes med mælk",
+            "Pandekager med sirup",
+            "Rugbrød med chokoladepålæg"
           ],
-          "hint": "Publikum jublede over dem.",
-          "explanation": "Gladiatorer kæmpede foran publikum, ofte med skjold, hjelm og sværd.",
-          "fact": "De mest berømte var kendte, som stjerner er i dag."
+          "hint": "Lille og enkel, ofte noget salt.",
+          "explanation": "Den romerske morgenmad var lille: brød, ost, oliven eller lidt frugt.",
+          "fact": "Dagens største måltid var cena sidst på eftermiddagen."
         },
         "ru": {
-          "prompt": "Кем были гладиаторы?",
-          "answer": "Бойцами на арене",
+          "prompt": "Что римляне часто ели на завтрак?",
+          "answer": "Хлеб с сыром или оливками",
           "wrong": [
-            "Пекарями",
-            "Крестьянами",
-            "Жрецами"
+            "Кукурузные хлопья с молоком",
+            "Блины с сиропом",
+            "Тосты с шоколадной пастой"
           ],
-          "hint": "Публика им рукоплескала.",
-          "explanation": "Гладиаторы сражались перед зрителями со щитом, шлемом и мечом.",
-          "fact": "Самых известных знали так же, как сегодня знают звёзд."
+          "hint": "Небольшой и простой, часто что-то солёное.",
+          "explanation": "Римский завтрак был скромным: хлеб, сыр, оливки или немного фруктов.",
+          "fact": "Главной трапезой дня был обед в конце дня, который римляне называли «цена»."
         },
         "ar": {
-          "prompt": "من كان المصارعون الرومان؟",
-          "answer": "مقاتلون في الحلبة",
+          "prompt": "ماذا كان الرومان يأكلون غالبًا في الفطور؟",
+          "answer": "الخبز مع الجبن أو الزيتون",
           "wrong": [
-            "خبازون",
-            "فلاحون",
-            "كهنة"
+            "رقائق الذرة مع الحليب",
+            "الفطائر المحلّاة بالشراب",
+            "الخبز المحمّص بالشوكولاتة"
           ],
-          "hint": "كان الجمهور يهتف لهم.",
-          "explanation": "كان المصارعون يقاتلون أمام الجمهور بالدرع والخوذة والسيف.",
-          "fact": "أشهرهم كانوا معروفين كما تُعرف النجوم اليوم."
+          "hint": "فطور صغير وبسيط، وغالبًا مالح.",
+          "explanation": "كان الفطور الروماني خفيفًا: خبز وجبن وزيتون أو بعض الفاكهة.",
+          "fact": "كانت الوجبة الرئيسية في اليوم تسمّى «تشينا» وتؤكل في آخر النهار."
         }
       }
     },
@@ -797,11 +797,11 @@
           "wrong": [
             "Een kleine boot",
             "Een soort brood",
-            "Een wapen"
+            "Een muziekinstrument"
           ],
           "hint": "Buiten de stad, met een tuin.",
           "explanation": "Rijke Romeinen hadden een villa op het land, met binnentuin en fontein.",
-          "fact": "Onder veel villa's lagen kelders vol wijn en olijfolie."
+          "fact": "Onder veel villa's lagen kelders vol graan en olijfolie."
         },
         "en": {
           "prompt": "What was a Roman villa?",
@@ -809,11 +809,11 @@
           "wrong": [
             "A small boat",
             "A kind of bread",
-            "A weapon"
+            "A musical instrument"
           ],
           "hint": "Outside the city, with a garden.",
           "explanation": "Rich Romans had a villa in the country, with a courtyard and a fountain.",
-          "fact": "Under many villas lay cellars full of wine and olive oil."
+          "fact": "Under many villas lay cellars full of grain and olive oil."
         },
         "de": {
           "prompt": "Was war eine römische Villa?",
@@ -821,11 +821,11 @@
           "wrong": [
             "Ein kleines Boot",
             "Eine Brotsorte",
-            "Eine Waffe"
+            "Ein Musikinstrument"
           ],
           "hint": "Draußen vor der Stadt, mit Garten.",
           "explanation": "Reiche Römer hatten eine Villa auf dem Land, mit Innenhof und Brunnen.",
-          "fact": "Unter vielen Villen lagen Keller voller Wein und Olivenöl."
+          "fact": "Unter vielen Villen lagen Keller voller Getreide und Olivenöl."
         },
         "fr": {
           "prompt": "Qu'était une villa romaine ?",
@@ -833,11 +833,11 @@
           "wrong": [
             "Un petit bateau",
             "Une sorte de pain",
-            "Une arme"
+            "Un instrument de musique"
           ],
           "hint": "Hors de la ville, avec un jardin.",
           "explanation": "Les riches Romains avaient une villa à la campagne, avec cour et fontaine.",
-          "fact": "Sous beaucoup de villas dormaient des caves de vin et d'huile."
+          "fact": "Sous beaucoup de villas se trouvaient des caves pleines de céréales et d'huile d'olive."
         },
         "es": {
           "prompt": "¿Qué era una villa romana?",
@@ -845,11 +845,11 @@
           "wrong": [
             "Un barco pequeño",
             "Un tipo de pan",
-            "Un arma"
+            "Un instrumento musical"
           ],
           "hint": "Fuera de la ciudad, con jardín.",
           "explanation": "Los romanos ricos tenían una villa en el campo, con patio y fuente.",
-          "fact": "Bajo muchas villas había bodegas llenas de vino y aceite."
+          "fact": "Bajo muchas villas había sótanos llenos de grano y aceite de oliva."
         },
         "it": {
           "prompt": "Che cos'era una villa romana?",
@@ -857,11 +857,11 @@
           "wrong": [
             "Una barchetta",
             "Un tipo di pane",
-            "Un'arma"
+            "Uno strumento musicale"
           ],
           "hint": "Fuori città, con giardino.",
           "explanation": "I romani ricchi avevano una villa in campagna, con cortile e fontana.",
-          "fact": "Sotto molte ville c'erano cantine piene di vino e olio."
+          "fact": "Sotto molte ville c'erano cantine piene di grano e olio d'oliva."
         },
         "pt": {
           "prompt": "O que era uma villa romana?",
@@ -869,11 +869,11 @@
           "wrong": [
             "Um barco pequeno",
             "Um tipo de pão",
-            "Uma arma"
+            "Um instrumento musical"
           ],
           "hint": "Fora da cidade, com jardim.",
           "explanation": "Os romanos ricos tinham uma villa no campo, com pátio e fonte.",
-          "fact": "Sob muitas villas havia caves cheias de vinho e azeite."
+          "fact": "Embaixo de muitas vilas havia porões cheios de grãos e azeite."
         },
         "da": {
           "prompt": "Hvad var en romersk villa?",
@@ -881,11 +881,11 @@
           "wrong": [
             "En lille båd",
             "En slags brød",
-            "Et våben"
+            "Et musikinstrument"
           ],
           "hint": "Uden for byen, med have.",
           "explanation": "Rige romere havde en villa på landet med gårdhave og springvand.",
-          "fact": "Under mange villaer lå kældre fulde af vin og olivenolie."
+          "fact": "Under mange villaer lå der kældre fulde af korn og olivenolie."
         },
         "ru": {
           "prompt": "Что такое римская вилла?",
@@ -893,11 +893,11 @@
           "wrong": [
             "Маленькая лодка",
             "Вид хлеба",
-            "Оружие"
+            "Музыкальный инструмент"
           ],
           "hint": "За городом, с садом.",
           "explanation": "У богатых римлян была вилла за городом, с двором и фонтаном.",
-          "fact": "Под многими виллами были погреба с вином и оливковым маслом."
+          "fact": "Под многими виллами были подвалы, полные зерна и оливкового масла."
         },
         "ar": {
           "prompt": "ما هي الفيلا الرومانية؟",
@@ -905,11 +905,11 @@
           "wrong": [
             "قارب صغير",
             "نوع من الخبز",
-            "سلاح"
+            "آلة موسيقية"
           ],
           "hint": "خارج المدينة وفيه حديقة.",
           "explanation": "كان للأثرياء فيلا في الريف بفناء ونافورة.",
-          "fact": "تحت كثير من الفيلات أقبية مليئة بالنبيذ والزيت."
+          "fact": "تحت كثير من الفيلات كانت هناك أقبية مليئة بالحبوب وزيت الزيتون."
         }
       }
     },
@@ -1190,7 +1190,7 @@
             "Een munt"
           ],
           "hint": "Met een punt onderaan.",
-          "explanation": "In amforen vervoerden Romeinen wijn, olie en vissaus over zee.",
+          "explanation": "Romeinen vervoerden olie, graan en vissaus over zee in amforen.",
           "fact": "De punt paste precies in het zand of in een houder aan boord."
         },
         "en": {
@@ -1202,7 +1202,7 @@
             "A coin"
           ],
           "hint": "It had a pointed base.",
-          "explanation": "Romans shipped wine, oil and fish sauce across the sea in amphorae.",
+          "explanation": "Romans shipped oil, grain and fish sauce across the sea in amphorae.",
           "fact": "The point fitted neatly into sand or into a rack on board."
         },
         "de": {
@@ -1214,7 +1214,7 @@
             "Eine Münze"
           ],
           "hint": "Unten lief sie spitz zu.",
-          "explanation": "In Amphoren brachten Römer Wein, Öl und Fischsoße übers Meer.",
+          "explanation": "Die Römer transportierten Öl, Getreide und Fischsoße in Amphoren übers Meer.",
           "fact": "Die Spitze steckte genau im Sand oder in einem Gestell an Bord."
         },
         "fr": {
@@ -1226,7 +1226,7 @@
             "Une pièce de monnaie"
           ],
           "hint": "Elle finissait en pointe.",
-          "explanation": "Dans les amphores, les Romains transportaient vin, huile et sauce de poisson.",
+          "explanation": "Les Romains transportaient de l'huile, des céréales et de la sauce de poisson par la mer dans des amphores.",
           "fact": "La pointe se fichait dans le sable ou dans un casier à bord."
         },
         "es": {
@@ -1238,7 +1238,7 @@
             "Una moneda"
           ],
           "hint": "Terminaba en punta.",
-          "explanation": "En ánforas los romanos llevaban vino, aceite y salsa de pescado por mar.",
+          "explanation": "Los romanos transportaban aceite, grano y salsa de pescado por mar en ánforas.",
           "fact": "La punta encajaba en la arena o en un soporte del barco."
         },
         "it": {
@@ -1250,7 +1250,7 @@
             "Una moneta"
           ],
           "hint": "Finiva a punta.",
-          "explanation": "Nelle anfore i romani portavano vino, olio e salsa di pesce per mare.",
+          "explanation": "I Romani trasportavano olio, grano e salsa di pesce per mare nelle anfore.",
           "fact": "La punta entrava nella sabbia o in un sostegno a bordo."
         },
         "pt": {
@@ -1262,7 +1262,7 @@
             "Uma moeda"
           ],
           "hint": "Acabava em bico.",
-          "explanation": "Em ânforas os romanos levavam vinho, azeite e molho de peixe pelo mar.",
+          "explanation": "Os romanos transportavam azeite, grãos e molho de peixe pelo mar em ânforas.",
           "fact": "O bico encaixava na areia ou num suporte a bordo."
         },
         "da": {
@@ -1274,7 +1274,7 @@
             "En mønt"
           ],
           "hint": "Den var spids forneden.",
-          "explanation": "I amforaer sejlede romerne vin, olie og fiskesauce over havet.",
+          "explanation": "Romerne sejlede olie, korn og fiskesauce over havet i amforaer.",
           "fact": "Spidsen passede i sandet eller i et stativ om bord."
         },
         "ru": {
@@ -1286,7 +1286,7 @@
             "Монета"
           ],
           "hint": "Внизу она заострённая.",
-          "explanation": "В амфорах римляне возили по морю вино, масло и рыбный соус.",
+          "explanation": "Римляне перевозили по морю масло, зерно и рыбный соус в амфорах.",
           "fact": "Острый конец втыкали в песок или ставили в держатель."
         },
         "ar": {
@@ -1298,7 +1298,7 @@
             "عملة"
           ],
           "hint": "قاعها مدبّب.",
-          "explanation": "في الأمفورات نقل الرومان النبيذ والزيت وصلصة السمك بحرًا.",
+          "explanation": "كان الرومان ينقلون الزيت والحبوب وصلصة السمك عبر البحر في الأمفورات.",
           "fact": "كان الطرف المدبب يثبت في الرمل أو في حامل على السفينة."
         }
       }
