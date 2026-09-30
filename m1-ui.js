@@ -678,7 +678,10 @@
   // button that erases the lot. Apple's Kids Category and the COPPA rule both
   // want the retention and deletion lines inside the notice itself, so they live
   // here in the app, in every language, not only on the website.
-  const PRIVACY_UPDATED='2026-09-27';
+  const PRIVACY_UPDATED='2026-09-30';
+  // Who answers for the data (GDPR art. 13, the stores' trader details). A name
+  // and an address read the same in every language.
+  const PUBLISHER='Olijve Holding B.V. · Hunnenoord 20, 7822 BP Emmen · KvK 89749685';
   const contactMail=()=>K.state.language==='nl'?'hallo@kwizillo.nl':'hello@kwizillo.com';
   K.showPrivacy=({back}={})=>{
     K.stopSpeech();K.lastView='privacy';
@@ -697,7 +700,8 @@
       <p class="collection-note">${esc(t('privacy.noAccount'))}</p>
       <section class="setting-card clickable" id="privacyContact"><div class="setting-icon">✉️</div><div><b>${esc(t('privacy.contact'))}</b><small>${esc(t('privacy.contactSub',{email:contactMail()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="eraseOpen"><div class="setting-icon">🗑️</div><div><b>${esc(t('privacy.erase'))}</b><small>${esc(t('privacy.eraseSub'))}</small></div><em>›</em></section>
-      <p class="privacy-updated">${esc(t('privacy.updated',{date:PRIVACY_UPDATED}))}</p>`;
+      <p class="privacy-updated">${esc(t('privacy.updated',{date:PRIVACY_UPDATED}))}</p>
+      <p class="privacy-publisher">${esc(PUBLISHER)}</p>`;
     const f=nativeScreen({cls:'privacy-screen',title:t('settings.privacy'),subtitle:t('privacy.sub'),body,active:'parent',back:back||(()=>K.showParent())});
     // Writing mail leaves the app and erasing cannot be undone: both wait for a grown-up.
     f.querySelector('#privacyContact').onclick=()=>{K.sfx('tap');showParentalGate(()=>{location.href=`mailto:${contactMail()}`})};

@@ -1168,6 +1168,7 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .fotozoom-reveal{display:block;width:calc(100% + 40px);margin:-2px -20px 8px;aspect-ratio:16/8;object-fit:cover}
 
 /* ---- parent zone: the privacy screen (what is stored, what leaves, what is never done) ---- */
+.privacy-publisher{margin:4px 0 0;text-align:center;color:#6b87a4;font-size:10px;font-weight:800}
 .privacy-updated{margin:2px 0 0;text-align:center;color:#6b87a4;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
 .privacy-screen .panel-scroll{display:grid;gap:10px;align-content:start}
 .privacy-block{padding:13px 14px;border-radius:21px;background:#fff;border:1px solid #d6eaf9;box-shadow:0 8px 18px rgba(20,70,128,.08)}

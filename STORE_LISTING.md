@@ -22,7 +22,8 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 | Privacy-URL | `https://kwizillo.nl/privacy.html` (EN: `https://kwizillo.com/en/privacy.html`) — werkt zodra de site online staat |
 | Support-URL | `https://kwizillo.nl` (EN: `https://kwizillo.com`); later de hulppagina |
 | Support-e-mail | hallo@kwizillo.nl |
-| Copyright | © 2026 Kwizillo (of de naam van de uitgever) |
+| Uitgever / verkoper | Olijve Holding B.V., Hunnenoord 20, 7822 BP Emmen, Nederland · KvK 89749685 |
+| Copyright | © 2026 Olijve Holding B.V. |
 
 ---
 
