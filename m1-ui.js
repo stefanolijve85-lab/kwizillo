@@ -344,8 +344,8 @@
   /* ---------------- Sharing ---------------- */
 
   // Sharing goes through the system share sheet (or the clipboard) and is
-  // gated by the parental check, as it leaves the app. There is no server-side
-  // leaderboard in the web build; on iOS this maps to Game Center.
+  // gated by the parental check, as it leaves the app. There is no leaderboard,
+  // no Game Center and no online score: players never compete with each other.
   K.shareText=()=>{
     const best=Object.entries(K.state.bestScores||{}).sort((a,b)=>b[1]-a[1])[0];
     return t('share.text',{
