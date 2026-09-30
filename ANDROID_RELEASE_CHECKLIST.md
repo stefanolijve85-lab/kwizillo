@@ -60,8 +60,9 @@ that needs Play Asset Delivery; the tour clips are already left out
 | Back button, orientation, system bars, safe areas | DONE, tested in the emulator (API 36.1) and Playwright |
 | Play Billing plugin | CODE COMPLETE, compiles; not yet tested against Play (needs the owner steps below) |
 | Debug APK on the emulator: launch, intro, onboarding, back | PASSED |
-| Release bundle (unsigned) | BUILDS, 184 MB AAB, 180.6 MB max per-device download |
-| Upload key, Play Console, internal testing | OWNER ACTION |
+| Release bundle | SIGNED with the upload key (30 Sept), 184 MB AAB, 180.6 MB max per-device download; copy on the Desktop in `Kwizillo-release/` |
+| Upload key | CREATED: `~/.kwizillo/kwizillo-upload.jks`, passwords in `~/.gradle/gradle.properties`; SHA-256 8E:EC:08:A6:…:24:BB:8B |
+| Play Console, internal testing | OWNER ACTION |
 
 ## Owner actions
 

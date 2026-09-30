@@ -19,8 +19,8 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 | Categorie | Onderwijs (primair), Games › Trivia/Educatief (secundair) |
 | Prijs app | Gratis, met abonnement |
 | Abonnementen | `nl.kwizillo.app.premium.monthly` €6,99/maand · `nl.kwizillo.app.premium.yearly` €49,99/jaar met 7 dagen gratis |
-| Privacy-URL | **nog nodig** — `https://kwizillo.nl/privacy` zodra de site online staat |
-| Support-URL | **nog nodig** — `https://kwizillo.nl/hulp` (of de hoofdpagina) |
+| Privacy-URL | `https://kwizillo.nl/privacy.html` (EN: `https://kwizillo.com/privacy.html`) — werkt zodra de site online staat |
+| Support-URL | `https://kwizillo.nl` (EN: `https://kwizillo.com`); later de hulppagina |
 | Support-e-mail | hallo@kwizillo.nl |
 | Copyright | © 2026 Kwizillo (of de naam van de uitgever) |
 
@@ -72,7 +72,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 > Gratis speel je de hele Ruimtewereld en van elk ander spel een stukje. Premium opent alles: €6,99 per maand of €49,99 per jaar, het jaar eerst 7 dagen gratis. Het abonnement loopt via je Apple-account, verlengt automatisch en is altijd op te zeggen in je accountinstellingen.
 >
 > Gebruiksvoorwaarden: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-> Privacybeleid: https://kwizillo.nl/privacy
+> Privacybeleid: https://kwizillo.nl/privacy.html
 
 **Wat is er nieuw** (versie 1.0): `De eerste versie van Kwizillo. Veel plezier!`
 
@@ -120,7 +120,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 > For free, play the whole Space World and a taste of every other game. Premium unlocks everything: €6.99 a month or €49.99 a year, with the first 7 days of the yearly plan free. The subscription is charged to your Apple account, renews automatically and can be cancelled at any time in your account settings.
 >
 > Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-> Privacy Policy: https://kwizillo.nl/privacy
+> Privacy Policy: https://kwizillo.nl/privacy.html
 
 **What's new** (1.0): `The first version of Kwizillo. Have fun!`
 
@@ -223,7 +223,7 @@ ESRB Everyone.
 
 **Nieuws-app, overheid, financiën, gezondheid**: nee.
 
-**Privacybeleid-URL**: verplicht — `https://kwizillo.nl/privacy`.
+**Privacybeleid-URL**: verplicht — `https://kwizillo.nl/privacy.html`.
 
 ---
 
@@ -231,12 +231,12 @@ ESRB Everyone.
 
 | # | Wie | Wat |
 |---|---|---|
-| 1 | eigenaar | Website online met openbare `/privacy` en `/hulp` (beide stores eisen een privacy-URL). Tijdelijk kan ook de privacy-artifact via "Delen › iedereen met de link". |
+| 1 | eigenaar | kwizillo.nl en .com online (komt eraan). Zet eerst de nieuwste site-versies (NL, EN, privacy, hulp) uit de artifacts in `site/`: de map in git is ouder. De privacytekst moet ook Google Play noemen. |
 | 2 | eigenaar | Spraakserver `app.kwizillo.nl` online (`deploy/DEPLOY.md`), met `ALLOWED_ORIGINS` inclusief `capacitor://localhost` en `https://localhost`. Anders heeft de app bij de beoordeling geen stem. |
 | 3 | eigenaar | Xcode › Settings › Accounts: aanmelden met het Apple Developer-account; daarna kan de build ondertekend en geüpload worden. |
 | 4 | eigenaar | App Store Connect: app aanmaken (`nl.kwizillo.app`), abonnementsgroep "Kwizillo Premium" met de twee producten en de proefweek, belasting- en bankgegevens (Paid Apps Agreement). |
-| 5 | eigenaar | Play Console: app aanmaken, uploadsleutel (zie `ANDROID_RELEASE_CHECKLIST.md`), twee abonnementen, licentiesleutel, licentietesters. |
-| 6 | Claude | Na 3: archive + upload naar TestFlight. Na 5: ondertekende AAB naar interne test. |
+| 5 | eigenaar | Play Console: app aanmaken, twee abonnementen, licentiesleutel, licentietesters. Uploadsleutel en ondertekende AAB zijn klaar (30 sept). |
+| 6 | Claude | Na 3: archive + upload naar TestFlight. AAB `~/Desktop/Kwizillo-release/kwizillo-1.0-1.aab` staat klaar voor de interne test. |
 | 7 | samen | TestFlight en interne test op echte toestellen, dan indienen. |
 
 ## Bronnen (gecontroleerd 30-09-2026)
