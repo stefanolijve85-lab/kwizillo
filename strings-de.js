@@ -106,7 +106,7 @@
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'FÜR ELTERN',
     'premium.title':'Öffne die ganze Welt von Kwizillo',
     'premium.subtitle':'Spielen, lernen, sammeln und entdecken ohne Grenzen.',
-    'premium.benefit.worlds':'Alle Welten','premium.benefit.questions':'480+ Wissensfragen','premium.benefit.math':'Rechenspiele','premium.benefit.memo':'Memo-Spiele','premium.benefit.facts':'Wissenswertes','premium.benefit.guides':'Milo & Luna','premium.benefit.collect':'Karten und Maskottchen sammeln','premium.benefit.stats':'Vollständiger Fortschritt und Statistik','premium.benefit.new':'Neue Abenteuer und Inhalte',
+    'premium.benefit.worlds':'Alle Welten','premium.benefit.questions':'1280 Wissensfragen','premium.benefit.math':'Rechenspiele','premium.benefit.memo':'Memo-Spiele','premium.benefit.facts':'Wissenswertes','premium.benefit.guides':'Milo & Luna','premium.benefit.collect':'Karten und Maskottchen sammeln','premium.benefit.stats':'Vollständiger Fortschritt und Statistik','premium.benefit.new':'Neue Abenteuer und Inhalte',
     'premium.monthly':'Monatlich','premium.yearly':'Jährlich','premium.perMonth':'Monat','premium.perYear':'Jahr',
     'premium.best':'Bester Preis','premium.trial':'{days} Tage gratis testen','premium.ctaTrial':'{days} Tage gratis starten','premium.ctaYearly':'Jährlich wählen','premium.ctaMonthly':'Monatlich wählen',
     'premium.perMonthCalc':'Das sind {price} pro Monat',

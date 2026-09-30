@@ -106,7 +106,7 @@
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'ДЛЯ РОДИТЕЛЕЙ',
     'premium.title':'Открой весь мир Kwizillo',
     'premium.subtitle':'Играть, учиться, собирать и открывать без границ.',
-    'premium.benefit.worlds':'Все миры','premium.benefit.questions':'480+ вопросов о мире','premium.benefit.math':'Игры со счётом','premium.benefit.memo':'Игры на память','premium.benefit.facts':'Интересные факты','premium.benefit.guides':'Мило и Луна','premium.benefit.collect':'Собирай карточки и маскотов','premium.benefit.stats':'Полный прогресс и статистика','premium.benefit.new':'Новые приключения и материалы',
+    'premium.benefit.worlds':'Все миры','premium.benefit.questions':'1280 вопросов о мире','premium.benefit.math':'Игры со счётом','premium.benefit.memo':'Игры на память','premium.benefit.facts':'Интересные факты','premium.benefit.guides':'Мило и Луна','premium.benefit.collect':'Собирай карточки и маскотов','premium.benefit.stats':'Полный прогресс и статистика','premium.benefit.new':'Новые приключения и материалы',
     'premium.monthly':'Помесячно','premium.yearly':'На год','premium.perMonth':'месяц','premium.perYear':'год',
     'premium.best':'Лучшая цена','premium.trial':'Попробуй {days} дней бесплатно','premium.ctaTrial':'Начать {days} бесплатных дней','premium.ctaYearly':'Выбрать на год','premium.ctaMonthly':'Выбрать помесячно',
     'premium.perMonthCalc':'Это {price} в месяц',

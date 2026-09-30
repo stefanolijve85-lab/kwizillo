@@ -106,7 +106,7 @@
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'TIL FORÆLDRE',
     'premium.title':'Åbn hele Kwizillos verden',
     'premium.subtitle':'Spil, lær, saml og opdag uden grænser.',
-    'premium.benefit.worlds':'Alle verdener','premium.benefit.questions':'480+ videnspørgsmål','premium.benefit.math':'Regnespil','premium.benefit.memo':'Hukommelsesspil','premium.benefit.facts':'Sjove fakta','premium.benefit.guides':'Milo og Luna','premium.benefit.collect':'Saml kort og maskotter','premium.benefit.stats':'Fuld fremgang og statistik','premium.benefit.new':'Nye eventyr og nyt indhold',
+    'premium.benefit.worlds':'Alle verdener','premium.benefit.questions':'1280 videnspørgsmål','premium.benefit.math':'Regnespil','premium.benefit.memo':'Hukommelsesspil','premium.benefit.facts':'Sjove fakta','premium.benefit.guides':'Milo og Luna','premium.benefit.collect':'Saml kort og maskotter','premium.benefit.stats':'Fuld fremgang og statistik','premium.benefit.new':'Nye eventyr og nyt indhold',
     'premium.monthly':'Månedligt','premium.yearly':'Årligt','premium.perMonth':'måned','premium.perYear':'år',
     'premium.best':'Bedste pris','premium.trial':'Prøv {days} dage gratis','premium.ctaTrial':'Start {days} gratis dage','premium.ctaYearly':'Vælg årligt','premium.ctaMonthly':'Vælg månedligt',
     'premium.perMonthCalc':'Det er {price} om måneden',

@@ -224,7 +224,7 @@
     'premium.title':'افتح عالم كويزيلو كله',
     'premium.subtitle':'العب وتعلّم واجمع واكتشف بلا حدود.',
     'premium.benefit.worlds':'كل العوالم',
-    'premium.benefit.questions':'أكثر من 480 سؤال معرفة',
+    'premium.benefit.questions':'1280 سؤالًا معرفيًا',
     'premium.benefit.math':'ألعاب الحساب',
     'premium.benefit.memo':'ألعاب الذاكرة',
     'premium.benefit.facts':'معلومات طريفة',

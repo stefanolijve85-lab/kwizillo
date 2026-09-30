@@ -51,7 +51,7 @@
   const accuracy=s=>s?.answered?Math.round(s.correct/s.answered*100):0;
   // World points: a world has four quizzes (its four topics); every one the
   // child has passed, at any level, is worth 25 points, so a fully played
-  // world stands at 100 and all six worlds at 600. Statistics and the
+  // world stands at 100 and all eight worlds at 800. Statistics and the
   // collection show this, not the accuracy.
   const POINTS_PER_QUIZ=25;
   K.worldPoints=world=>{
@@ -400,7 +400,7 @@
 
   // Wat ben ik?, Fotozoom and Weetjes are played in one world or in all of them
   // at once — the same choice Memo has always had. One picker serves all three:
-  // the mix first, then the six worlds, each behind its own painting.
+  // the mix first, then the eight worlds, each behind its own painting.
   // `worlds` zegt welke werelden een spel aankan. Weetjes leest dat uit de
   // bank zelf: een wereld zonder weetjes staat niet in de kiezer, want een knop
   // die op een leeg scherm uitkomt is erger dan een knop die er niet is.
