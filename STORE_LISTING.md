@@ -120,7 +120,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 > For free, play the whole Space World and a taste of every other game. Premium unlocks everything: €6.99 a month or €49.99 a year, with the first 7 days of the yearly plan free. The subscription is charged to your Apple account, renews automatically and can be cancelled at any time in your account settings.
 >
 > Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-> Privacy Policy: https://kwizillo.nl/privacy.html
+> Privacy Policy: https://kwizillo.com/privacy.html
 
 **What's new** (1.0): `The first version of Kwizillo. Have fun!`
 
