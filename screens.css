@@ -1408,3 +1408,6 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
      die tot 4:3 werd bijgesneden verloor aan de zijkanten precies wat erop moest. */
   :root:not([data-shape="wide"]) .quiz-card .answers{grid-template-rows:repeat(2,minmax(82px,116px));align-content:center}
 }
+
+/* In the app the theme starts by itself; the hint only shows if that fails. */
+.intro-sound.quiet{visibility:hidden}

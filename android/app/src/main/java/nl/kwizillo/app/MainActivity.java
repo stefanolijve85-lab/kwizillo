@@ -15,5 +15,10 @@ public class MainActivity extends BridgeActivity {
         if (getResources().getConfiguration().smallestScreenWidthDp < 600) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+        // The opening film and its theme start with sound as the app opens; an
+        // app, unlike a web page, may play media without waiting for a tap.
+        if (getBridge() != null && getBridge().getWebView() != null) {
+            getBridge().getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);
+        }
     }
 }

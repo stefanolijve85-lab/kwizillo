@@ -117,8 +117,22 @@
       schedule(finish,soundOn?12500:SAFETY_MS);
     });
     schedule(finish,SAFETY_MS);
+    // In the iOS and Android app media may play without a tap (the web view is
+    // set up for it), so the theme joins the film straight away and there is no
+    // "tap for sound". A browser still needs the tap, and keeps the hint.
+    const native=!!window.Capacitor?.isNativePlatform?.();
+    const soundAtOnce=async()=>{
+      if(!native||soundOn||done) return;
+      try{
+        await K.audio.unlock?.();
+        await startTheme();
+        if(theme){soundOn=true;el.querySelector('#introSound')?.remove();return}
+      }catch(e){log('sound at once refused',e?.name)}
+      el.querySelector('#introSound')?.classList.remove('quiet');   // the tap is still needed
+    };
+    if(native){el.querySelector('#introSound')?.classList.add('quiet');video.addEventListener('playing',soundAtOnce,{once:true})}
     const p=video.play();
-    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);el.querySelector('#introSound').textContent='▶ '+K.t('intro.tapToStart')});
+    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});
   };
 
   // De eerste keer: de onboarding. Daarna: "Hoi Jan, verder spelen?" met wat er
