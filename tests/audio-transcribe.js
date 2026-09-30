@@ -23,7 +23,13 @@ const core = require('../quiz-core-v2.js');
 const ctx = { window: {} }; vm.createContext(ctx);
 // The whole bank (all eight worlds), as tests/audio-qa.js samples it.
 const { banks: BANKS } = require('./langs.js').loadBanks();
-const byId = { nl: new Map(BANKS.nl.map(q => [q.id, q])), en: new Map(BANKS.en.map(q => [q.id, q])) };
+const byId = Object.fromEntries(Object.keys(BANKS).map(l => [l, new Map(BANKS[l].map(q => [q.id, q]))]));
+// What Scribe may answer for each language (ISO 639-1 or -3).
+const LANG_CODES = { nl: /^(nl|nld|dut)$/, en: /^(en|eng)$/, de: /^(de|deu|ger)$/, fr: /^(fr|fra|fre)$/, es: /^(es|spa)$/,
+  it: /^(it|ita)$/, pt: /^(pt|por)$/, da: /^(da|dan)$/, ru: /^(ru|rus)$/, ar: /^(ar|ara)$/ };
+// In Cyrillic and Arabic script the Latin letter is often written out in that
+// script ("Би", "إيه"): not a fault, but worth an ear rather than a verdict.
+const NON_LATIN = new Set(['ru', 'ar']);
 
 const norm = s => String(s).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
 function similarity(a, b) {
@@ -49,9 +55,9 @@ async function transcribe(file, lang) {
   const problems = [];
   const listen = [];
 
-  for (const lang of ['nl', 'en']) {
+  for (const lang of Object.keys(report.timings)) {
     const dir = path.join(OUT, lang);
-    const expectedLang = lang === 'nl' ? /^(nl|nld|dut)$/ : /^(en|eng)$/;
+    const expectedLang = LANG_CODES[lang];
 
     // 1. The full question + A/B/C/D sequence.
     const seqDir = fs.readdirSync(dir).find(d => d.startsWith('sequence-'));
@@ -75,7 +81,7 @@ async function transcribe(file, lang) {
         // The spoken letter must come through as that letter. Scribe often glues
         // it to a following number ("B7"), which is still the right letter.
         const first = norm(t.text).split(' ')[0];
-        if (!first.startsWith(seg.label.toLowerCase())) problems.push(`${lang} ${q.id} ${label}: letter came out as "${first}" — "${t.text}"`);
+        if (!first.startsWith(seg.label.toLowerCase())) (NON_LATIN.has(lang) ? listen : problems).push(`${lang} ${q.id} ${label}: letter came out as "${first}" — "${t.text}"`);
       }
     }
 
@@ -96,7 +102,7 @@ async function transcribe(file, lang) {
       // A language verdict on a clip of only a few words is not evidence; the
       // words came through correctly, so this is a listen item, not a failure.
       if (!langOk && norm(q.prompt).split(' ').length >= 5) problems.push(`${lang} ${w.id}: Scribe heard ${t.language_code}, not ${lang}`);
-      else if (!langOk) listen.push(`${lang} ${w.id} (${w.voice}): "${q.prompt}" — words correct, but check the letters sound ${lang === 'nl' ? 'Dutch' : 'English'} (audio-qa-output/${lang}/${w.id}-${w.voice}.mp3)`);
+      else if (!langOk) listen.push(`${lang} ${w.id} (${w.voice}): "${q.prompt}" — words correct, but check the letters sound right in ${lang} (audio-qa-output/${lang}/${w.id}-${w.voice}.mp3)`);
       if (sim < 0.6) problems.push(`${lang} ${w.id}: only ${(sim * 100).toFixed(0)}% of words recognised — "${t.text}"`);
     }
 

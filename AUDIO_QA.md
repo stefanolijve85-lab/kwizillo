@@ -308,3 +308,41 @@ gecontroleerd), of na de uitrol `npm run test:audio` tegen de productieserver dr
 
 Blijft als luistertip: bij zinnen van drie woorden geeft de taaldetectie "eng" terwijl
 alle woorden kloppen. Dat komt door de lengte, niet door het accent.
+
+---
+
+## 14. Alle tien talen (30 september)
+
+`node tests/audio-qa.js --lang de,fr,es,it,pt,da,ru,ar` en daarna
+`node tests/audio-transcribe.js`: per taal 20 vragen (half met getallen of
+afkortingen, half verspreid over de werelden) plus één volledige vraag met A–D.
+
+| Taal | Stemmen (Milo / Luna) | Juiste taal gehoord | Opmerking |
+|---|---|---|---|
+| de | moedertaal, standaard | 10/10 + alle let-op-zinnen | jaartallen: zie hieronder |
+| fr | moedertaal, standaard | 10/10 | "A" wordt als "À" geschreven: zo klinkt de letter |
+| es | moedertaal, Spanje | 10/10 | — |
+| it | moedertaal, standaard | 10/10 | — |
+| pt | moedertaal, Brazilië | 10/10 | **luisteren:** D werd "The" verstaan |
+| da | moedertaal, standaard | 10/10 (één zin als Noors) | **luisteren:** B werd "Jeg er" verstaan |
+| ru | moedertaal, standaard | 10/10 | letters komen als А/Б/Д: goed |
+| ar | moedertaal, standaardarabisch | 10/10 | letters komen als ب enz.: goed |
+
+**Gevonden en opgelost — jaartallen.** De app schrijft getallen uit voordat de
+stem ze leest, maar jaartallen kwamen eruit als "eintausendneunhundertachtundfünfzig",
+"et tusind og ni hundrede…", "one thousand nine hundred and thirty-seven" en
+"duizend negenhonderdzevenendertig". Zo zegt niemand een jaartal, en Scribe
+verstond er zelfs 1905, 1963 en 1970 in. Nu (`HUNDREDS` in `quiz-core-v2.js`)
+worden 1100–1999 in nl, en, de en da in honderdtallen gezegd:
+"negentienhonderdzevenendertig", "nineteen thirty-seven", "nineteen oh five",
+"neunzehnhundertsiebenunddreißig", "nitten hundrede og syvogtredive". Na de
+wijziging werden alle jaartallen in die vier talen correct verstaan. Frans,
+Spaans, Italiaans en Portugees zeggen jaartallen met "mille/mil" en waren al goed.
+
+**Nog open:** Russisch zegt jaartallen als hoofdtelwoord ("тысяча девятьсот
+тридцать семь"); in een zin als "в 1937 году" hoort een rangtelwoord. Begrijpelijk,
+maar niet netjes. Portugees D en Deens B: door een moedertaalspreker laten
+beluisteren (`audio-qa-output/<taal>/sequence-*`).
+
+De stemmen van de acht nieuwe talen zijn automatisch gekozen en zijn nog niet door
+een mens beluisterd; dat blijft nodig vóór een taal in de winkel wordt aangeboden.

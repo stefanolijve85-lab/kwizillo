@@ -238,6 +238,17 @@
     return word+(r?` و${arNumber(r)}`:'');
   }
   const NUMBER_WORDS={nl:nlNumber,en:enNumber,pt:ptNumber,de:deNumber,es:esNumber,fr:frNumber,it:itNumber,ru:ruNumber,da:daNumber,ar:arNumber};
+  // 1100 to 1999 the way people say years (and "1500 metres") in these four
+  // languages: in hundreds, not thousands. "negentienhonderdzevenendertig",
+  // "nineteen thirty-seven", "neunzehnhundertsiebenunddreißig", "nitten hundrede
+  // og syvogtredive". French, Spanish, Italian and Portuguese say years with
+  // "mille/mil" anyway, so they keep their plain numbers.
+  const HUNDREDS={
+    nl:(hi,lo)=>`${nlNumber(hi)}honderd${lo?nlNumber(lo):''}`,
+    en:(hi,lo)=>`${enNumber(hi)} ${lo===0?'hundred':lo<10?'oh '+enNumber(lo):enNumber(lo)}`,
+    de:(hi,lo)=>`${deNumber(hi)}hundert${lo?deNumber(lo):''}`,
+    da:(hi,lo)=>`${daNumber(hi)} hundrede${lo?' og '+daNumber(lo):''}`
+  };
   const UNITS={
     pt:[[/\s*%/g,' por cento'],[/\bkm\/h\b/g,'quilômetros por hora'],[/\b1 km\b/g,'1 quilômetro'],[/\bkm\b/g,'quilômetros'],[/\s*°\s*C\b/g,' graus Celsius'],[/\b1 cm\b/g,'1 centímetro'],[/\bcm\b/g,'centímetros']],
     nl:[[/\s*%/g,' procent'],[/\bkm\/u\b/g,'kilometer per uur'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' graden Celsius'],[/\bcm\b/g,'centimeter']],
@@ -295,7 +306,7 @@
     // Up to nine digits: a longer run used to be cut after six, which turned
     // 1000000 into "a hundred thousand" followed by a stray zero. A language
     // whose speller does not reach that far returns the digits unchanged.
-    out=out.replace(/(?<![\d.,])\d{1,9}(?![\d.,]\d)/g,m=>toWords(Number(m)));
+    out=out.replace(/(?<![\d.,])\d{1,9}(?![\d.,]\d)/g,m=>{const n=Number(m);return HUNDREDS[lang]&&m.length===4&&n>=1100&&n<=1999?HUNDREDS[lang](Math.floor(n/100),n%100):toWords(n)});
     // Spanish drops the -o of uno before a noun: "veintiún grados", "treinta y un años".
     if(lang==='es') out=out.replace(/\b(veinti)?uno\b(?=\s+\p{L})/gu,(m,p)=>p?'veintiún':'un');
     return out;

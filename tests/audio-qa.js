@@ -19,6 +19,8 @@ const OUT = path.join(ROOT, 'audio-qa-output');
 const PORT = Number(process.env.AUDIO_QA_PORT || 8131);
 const BASE = `http://127.0.0.1:${PORT}`;
 const N = Number(process.argv.includes('--n') ? process.argv[process.argv.indexOf('--n') + 1] : 20);
+// Which languages: `--lang de,fr` (default nl and en, the two the product ships first).
+const LANGS = process.argv.includes('--lang') ? process.argv[process.argv.indexOf('--lang') + 1].split(',') : ['nl', 'en'];
 
 const core = require('../quiz-core-v2.js');
 // The whole bank (1280 per language, all eight worlds), loaded the way the other tests load it.
@@ -74,7 +76,7 @@ async function speak(text, voice, lang) {
 
     /* ---- 1. voice selection per language ---- */
     say('\n=== Voice selection ===');
-    for (const lang of ['nl', 'en']) {
+    for (const lang of LANGS) {
       const r = await fetch(`${BASE}/api/voice-status?lang=${lang}`);
       const s = await r.json();
       if (s.mode !== 'elevenlabs') {
@@ -95,8 +97,8 @@ async function speak(text, voice, lang) {
 
     /* ---- 2. speech segments per question ---- */
     say(`\n=== Generating ${N} questions per language ===`);
-    const timings = { nl: [], en: [] };
-    for (const lang of ['nl', 'en']) {
+    const timings = Object.fromEntries(LANGS.map(l => [l, []]));
+    for (const lang of LANGS) {
       const bank = BANKS[lang];
       // Take every question that carries a watched term first, then spread the rest.
       const watched = bank.filter(q => PRONUNCIATION_WATCH.test(q.prompt + ' ' + q.options.join(' ')));
@@ -147,7 +149,7 @@ async function speak(text, voice, lang) {
 
     /* ---- 3. perceived length and loudness proxy ---- */
     say('\n=== Bytes per character (a rough speech-rate proxy; lower = faster) ===');
-    for (const lang of ['nl', 'en']) {
+    for (const lang of LANGS) {
       for (const voice of ['Milo', 'Luna']) {
         const rows = timings[lang].filter(t => t.voice === voice);
         if (!rows.length) continue;
@@ -183,7 +185,7 @@ async function speak(text, voice, lang) {
     say('  1. Is Dutch Netherlands Dutch, with no Flemish or English colouring?');
     say('  2. Is English a consistent native accent?');
     say('  3. Do A, B, C and D sound like spoken letters, not words?');
-    const watched = [...timings.nl, ...timings.en].filter(t => t.watch).map(t => t.id);
+    const watched = Object.values(timings).flat().filter(t => t.watch).map(t => t.id);
     say(`  4. Abbreviations and letters appear in: ${watched.length ? watched.join(', ') : 'none of this sample'}`);
     say('  5. Do Milo and Luna sound equally loud?');
     say('  6. Is the pacing calm enough for a child?');
