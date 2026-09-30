@@ -73,7 +73,8 @@ company, App Store Connect can transfer an approved app to another account.
 | iPad: universal target, portrait and landscape, layout scaled to fit | CODE COMPLETE, RUNS IN THE SIMULATOR |
 | Simulator build | BUILD SUCCEEDED (Xcode 26.4.1); runs on the iPhone 16 Pro Max and the iPad Pro 11" (M4) simulators, plugin registered and reachable |
 | Release archive for devices (generic iOS, unsigned) | ARCHIVE SUCCEEDED 30 SEPT (194 MB) |
-| Signing, StoreKit config in the scheme, device run | REQUIRES PHYSICAL IPHONE / OWNER ACTION |
+| Signed build 1.0 (1) uploaded to App Store Connect (team 26UQ38LCBQ, automatic signing, `xcodebuild -exportArchive` with destination upload) | UPLOAD SUCCEEDED 30 SEPT 19:15 |
+| TestFlight on a real iPhone, sandbox purchase | NEXT — OWNER |
 | Store texts, age rating, privacy label, review notes | READY — `STORE_LISTING.md` |
 | Sandbox purchase, TestFlight | REQUIRES APP STORE CONNECT / TESTFLIGHT |
 
