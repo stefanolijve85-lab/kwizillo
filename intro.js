@@ -132,7 +132,7 @@
     };
     if(native){el.querySelector('#introSound')?.classList.add('quiet');video.addEventListener('playing',soundAtOnce,{once:true})}
     const p=video.play();
-    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});
+    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);K.hideSplash?.();const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});   // no waiting behind the launch screen for a film that will not start by itself
   };
 
   // De eerste keer: de onboarding. Daarna: "Hoi Jan, verder spelen?" met wat er
