@@ -17,7 +17,7 @@ Environment=NODE_ENV=production
 Environment=PORT=8080
 Environment=HOST=127.0.0.1
 Environment=TRUST_PROXY=1
-Environment=ALLOWED_ORIGINS=https://app.kwizillo.nl,https://app.kwizillo.com,capacitor://localhost
+Environment=ALLOWED_ORIGINS=https://app.kwizillo.nl,https://app.kwizillo.com,capacitor://localhost,https://localhost
 Environment=TTS_DAILY_CHARS=300000
 ExecStart=/usr/bin/node server.js
 Restart=always
