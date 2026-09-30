@@ -22,8 +22,8 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 | Privacy-URL | `https://kwizillo.nl/privacy.html` (EN: `https://kwizillo.com/en/privacy.html`) — werkt zodra de site online staat |
 | Support-URL | `https://kwizillo.nl` (EN: `https://kwizillo.com`); later de hulppagina |
 | Support-e-mail | hallo@kwizillo.nl |
-| Uitgever / verkoper | Olijve Holding B.V., Hunnenoord 20, 7822 BP Emmen, Nederland · KvK 89749685 |
-| Copyright | © 2026 Olijve Holding B.V. |
+| Uitgever / verkoper | Solotech vof, Boslaan 3, 7811 GJ Emmen, Nederland · KvK 94214578 (Apple- en Google-account van Solotech) |
+| Copyright | © 2026 Solotech vof |
 
 ---
 

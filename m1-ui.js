@@ -681,7 +681,7 @@
   const PRIVACY_UPDATED='2026-09-30';
   // Who answers for the data (GDPR art. 13, the stores' trader details). A name
   // and an address read the same in every language.
-  const PUBLISHER='Olijve Holding B.V. · Hunnenoord 20, 7822 BP Emmen · KvK 89749685';
+  const PUBLISHER='Solotech vof · Boslaan 3, 7811 GJ Emmen · KvK 94214578';
   const contactMail=()=>K.state.language==='nl'?'hallo@kwizillo.nl':'hello@kwizillo.com';
   K.showPrivacy=({back}={})=>{
     K.stopSpeech();K.lastView='privacy';

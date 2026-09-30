@@ -25,19 +25,13 @@ xcodebuild -project ios/App/App.xcodeproj -scheme App -sdk iphonesimulator \
 
 Every change to the web app needs `build-www` + `cap sync` before the next Xcode build.
 
-## Publisher: Olijve Holding B.V. — its own Apple Developer account (30 Sept)
+## Publisher: Solotech vof (decided 30 Sept)
 
-The seller on the App Store and the bank account are always those of the developer
-account. The existing account (team 26UQ38LCBQ) belongs to **Solotech vof**, so
-Kwizillo gets its own organisation membership for **Olijve Holding B.V.**
-(KvK 89749685). Until that account exists:
-
-- **Upload no build under team 26UQ38LCBQ.** One uploaded build ties the bundle id
-  `nl.kwizillo.app` to Solotech for good. The team has been taken out of the project.
-- On the Solotech account, remove the Kwizillo app record (App Information › Remove
-  App) and the identifier `nl.kwizillo.app` (Certificates, Identifiers & Profiles)
-  just before creating them on the Olijve account.
-- Testing on a device straight from Xcode is fine meanwhile.
+Kwizillo is published from the existing Apple Developer account of **Solotech vof**
+(team 26UQ38LCBQ, KvK 94214578), which already has an active Paid Apps Agreement.
+The seller on the App Store and the bank account are always those of the account,
+so revenue goes to Solotech's account. Should the app later move to another
+company, App Store Connect can transfer an approved app to another account.
 
 ## In Xcode, once (OWNER ACTION)
 
