@@ -19,7 +19,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 | Categorie | Onderwijs (primair), Games › Trivia/Educatief (secundair) |
 | Prijs app | Gratis, met abonnement |
 | Abonnementen | `nl.kwizillo.app.premium.monthly` €6,99/maand · `nl.kwizillo.app.premium.yearly` €49,99/jaar met 7 dagen gratis |
-| Privacy-URL | `https://kwizillo.nl/privacy.html` (EN: `https://kwizillo.com/privacy.html`) — werkt zodra de site online staat |
+| Privacy-URL | `https://kwizillo.nl/privacy.html` (EN: `https://kwizillo.com/en/privacy.html`) — werkt zodra de site online staat |
 | Support-URL | `https://kwizillo.nl` (EN: `https://kwizillo.com`); later de hulppagina |
 | Support-e-mail | hallo@kwizillo.nl |
 | Copyright | © 2026 Kwizillo (of de naam van de uitgever) |
@@ -120,7 +120,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 > For free, play the whole Space World and a taste of every other game. Premium unlocks everything: €6.99 a month or €49.99 a year, with the first 7 days of the yearly plan free. The subscription is charged to your Apple account, renews automatically and can be cancelled at any time in your account settings.
 >
 > Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-> Privacy Policy: https://kwizillo.com/privacy.html
+> Privacy Policy: https://kwizillo.com/en/privacy.html
 
 **What's new** (1.0): `The first version of Kwizillo. Have fun!`
 
