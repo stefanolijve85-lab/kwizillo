@@ -1026,7 +1026,10 @@
 .is-time .feedback-kicker{background:linear-gradient(180deg,#efeaff,#d9cfff);color:#3b2a8a}
 .feedback-reward{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border-radius:999px;background:#fff2ad;color:#815b0b;font-size:11px;font-weight:1000}
 .feedback-reward .ki{width:14px;height:14px}
-.feedback-art{display:block;width:100%;margin:10px 0 0;aspect-ratio:16/9;max-height:150px;border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 6px 14px rgba(20,80,145,.16);background:#d4efff}.feedback-art img{width:100%;height:100%;object-fit:cover;display:block}
+/* De hele plaat, nooit een uitsnede: 16:9 zoals hij getekend is, hooguit 150 px hoog
+   (dus hooguit 267 px breed, gecentreerd). Met max-height op de volle breedte werd
+   een 16:9-foto platgesneden en viel bij sport het hoofd of de bal eraf. */
+.feedback-art{display:block;width:min(100%,267px);margin:10px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 6px 14px rgba(20,80,145,.16);background:#d4efff}.feedback-art img{width:100%;height:100%;object-fit:cover;display:block}
 .feedback-answer{margin:10px 0 0;padding:12px 14px;border-radius:18px;background:#eef6ff;border:2px solid #cfe5ff;display:grid;gap:2px}
 .feedback-answer small{font-size:10px;font-weight:1000;letter-spacing:.06em;text-transform:uppercase;color:#4f78ad}
 .feedback-answer b{font-size:clamp(20px,5.6vw,27px);color:#10205c;line-height:1.12;letter-spacing:-.02em}
@@ -1354,10 +1357,7 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .cheer-peek .milo-still-face{display:block;width:100%;height:100%;object-fit:cover;object-position:center 26%}
 .cheer-peek.peek-tl{top:-4%;inset-inline-start:-3%;animation:peekTL .55s cubic-bezier(.2,.9,.25,1.4) both}
 .cheer-peek.peek-tr{top:-4%;inset-inline-end:-3%;animation:peekTR .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-bl{bottom:-3%;inset-inline-start:-3%;animation:peekBL .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-br{bottom:-3%;inset-inline-end:-3%;animation:peekBR .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-ml{top:30%;inset-inline-start:-6%;animation:peekML .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-mr{top:30%;inset-inline-end:-6%;animation:peekMR .55s cubic-bezier(.2,.9,.25,1.4) both}
+.cheer-peek.peek-tc{top:-6%;inset-inline-start:calc(50% - min(17%,82px));animation:peekTC .55s cubic-bezier(.2,.9,.25,1.4) both}
 /* Aan een popup (de ballon in Wat ben ik? en Fotozoom): de gids hing aan de
    donkere laag over het hele scherm en stond dus in de schermhoek, half buiten
    beeld. celebrate.js geeft hem de plek van de ballon zelf mee (--cl/--ct/--cw/
@@ -1366,17 +1366,11 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .simple-modal>.simple-modal-card{position:relative;z-index:1}
 .cheer-peek.peek-on-card{--s:min(calc(var(--cw) * .34),164px);width:var(--s);inset:auto;margin:0}
 .cheer-peek.peek-on-card.peek-tl{left:calc(var(--cl) + var(--cw) * .04);top:calc(var(--ct) - var(--s) * .74)}
+.cheer-peek.peek-on-card.peek-tc{left:calc(var(--cl) + (var(--cw) - var(--s)) / 2);top:calc(var(--ct) - var(--s) * .74)}
 .cheer-peek.peek-on-card.peek-tr{left:calc(var(--cl) + var(--cw) * .96 - var(--s));top:calc(var(--ct) - var(--s) * .74)}
-.cheer-peek.peek-on-card.peek-bl{left:calc(var(--cl) - var(--s) * .3);top:calc(var(--ct) + var(--ch) - var(--s) * .55)}
-.cheer-peek.peek-on-card.peek-br{left:calc(var(--cl) + var(--cw) - var(--s) * .7);top:calc(var(--ct) + var(--ch) - var(--s) * .55)}
-.cheer-peek.peek-on-card.peek-ml{left:calc(var(--cl) - var(--s) * .62);top:calc(var(--ct) + var(--ch) * .3)}
-.cheer-peek.peek-on-card.peek-mr{left:calc(var(--cl) + var(--cw) - var(--s) * .38);top:calc(var(--ct) + var(--ch) * .3)}
+@keyframes peekTC{from{transform:translateY(55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
 @keyframes peekTL{from{transform:translate(30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
 @keyframes peekTR{from{transform:translate(-30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekBL{from{transform:translate(30%,-55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekBR{from{transform:translate(-30%,-55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekML{from{transform:translate(60%,0) scale(.6);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekMR{from{transform:translate(-60%,0) scale(.6);opacity:0}to{transform:none;opacity:1}}
 @media(prefers-reduced-motion:reduce){.cheer-peek{animation:none}}
 
 /* ---- Aanraakvlakken ----
@@ -1406,9 +1400,10 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* Lange telefoons (iPhone 12 en nieuwer: hoogte > 1,9 x breedte). De plaat bleef
    op 16:9 staan en alle extra hoogte ging naar de antwoordkaarten, die dan 160 tot
    180 pt hoog werden met één woord erin. Hier krijgt de plaat de ruimte (4:3,
-   gevuld) en blijven de kaarten compact. */
+   de plaat heel met onscherpe vulling) en blijven de kaarten compact. */
 @media (max-aspect-ratio:10/19){
   :root:not([data-shape="wide"]) .quiz-card .quiz-art{aspect-ratio:4/3;max-height:42%}
-  :root:not([data-shape="wide"]) .quiz-art .art-main{object-fit:cover}
+  /* Hele plaat (contain) met de onscherpe kopie erachter als vulling: een foto
+     die tot 4:3 werd bijgesneden verloor aan de zijkanten precies wat erop moest. */
   :root:not([data-shape="wide"]) .quiz-card .answers{grid-template-rows:repeat(2,minmax(82px,116px));align-content:center}
 }

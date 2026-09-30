@@ -263,12 +263,12 @@
         const card=x.querySelector('.feedback-card'),fr=f.getBoundingClientRect(),cr=card.getBoundingClientRect();
         const peek=document.createElement('img');peek.className='feedback-peek';peek.src=cheer;peek.alt='';peek.setAttribute('aria-hidden','true');
         const w=Math.min(96,Math.round(cr.width*.3));
-        // Niet altijd dezelfde hoek: links, rechts of midden boven de kaart, en
-        // soms een eindje omlaag langs de zijkant. Tien goede antwoorden achter
-        // elkaar zien er dan niet tien keer hetzelfde uit.
+        // Niet altijd dezelfde plek, maar altijd boven de kaart: links, midden
+        // of rechts. Tien goede antwoorden achter elkaar zien er dan niet tien
+        // keer hetzelfde uit, en de gids komt nooit naast de tekst te staan.
         const side=Math.floor(Math.random()*3);
         const left=side===0?cr.left-fr.left+18:side===1?cr.right-fr.left-w-18:cr.left-fr.left+(cr.width-w)/2;
-        const top=cr.top-fr.top-w*(side===2?1.02:.92)+(Math.random()*w*.18);
+        const top=cr.top-fr.top-w*.92;
         peek.style.width=w+'px';peek.style.left=Math.round(left)+'px';peek.style.top=Math.round(top)+'px';
         x.appendChild(peek);
         peek.addEventListener('animationend',()=>peek.remove());

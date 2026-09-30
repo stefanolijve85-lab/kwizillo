@@ -88,10 +88,11 @@
   };
 
   // Een gids die achter de popup vandaan piept. Niet elke keer en niet steeds op
-  // dezelfde plek: wie tien sommen achter elkaar maakt, ziet hem uit een andere
-  // hoek komen. Alle spellen gebruiken dit, zodat een goed antwoord overal
+  // dezelfde plek, maar altijd boven de kaart: linksboven, middenboven of
+  // rechtsboven. Naast of onder de kaart stond hij in de weg van de tekst en de
+  // knoppen. Alle spellen gebruiken dit, zodat een goed antwoord overal
   // hetzelfde aanvoelt.
-  const SPOTS=['tl','tr','bl','br','ml','mr'];
+  const SPOTS=['tl','tc','tr'];
   K.peekGuide=(host,{chance=.45}={})=>{
     try{
       if(!host||Math.random()>chance) return null;
@@ -99,7 +100,7 @@
       // Luna — ook hier. Met stem uit valt de gekozen buddy in.
       const guide=K.state.voice==='Luna'?'luna':'milo';
       const G=K.GUIDES?.[guide];
-      let spot=SPOTS[Math.floor(Math.random()*SPOTS.length)];
+      const spot=SPOTS[Math.floor(Math.random()*SPOTS.length)];
       const wrap=document.createElement('div');
       wrap.className='cheer-peek peek-'+spot;
       wrap.setAttribute('aria-hidden','true');
@@ -125,10 +126,6 @@
       if(card){
         const hr=host.getBoundingClientRect(),cr=card.getBoundingClientRect();
         wrap.classList.add('peek-on-card');
-        // Beside the card only when there is room there (on a phone the card
-        // nearly fills the width); otherwise the top corner on that side.
-        const size=Math.min(cr.width*.34,164),room=Math.min(cr.left-hr.left,hr.right-cr.right);
-        if((spot==='ml'||spot==='mr')&&room<size*.6){wrap.classList.remove('peek-'+spot);spot=spot==='ml'?'tl':'tr';wrap.classList.add('peek-'+spot)}
         for(const [k,v] of [['cl',cr.left-hr.left],['ct',cr.top-hr.top],['cw',cr.width],['ch',cr.height]]) wrap.style.setProperty('--'+k,v.toFixed(1)+'px');
       }
       host.insertBefore(wrap,host.firstChild);
