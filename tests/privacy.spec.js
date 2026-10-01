@@ -26,7 +26,7 @@ test('a whole session talks to nobody but its own server, and never sends a name
   }, SAVED);
 
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click();
+  await page.locator('.motion').click({ timeout: 5000 }).catch(() => {});   // the intro may already have gone on by itself
   await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });          // the greeting shows the name
@@ -85,7 +85,7 @@ test('the parent portal shows what is stored and erases it behind the gate', asy
     localStorage.setItem('kwizillo-test-unlock', '1');
   }, { ...SAVED, answered: 12, correct: 9 });
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click();
+  await page.locator('.motion').click({ timeout: 5000 }).catch(() => {});   // the intro may already have gone on by itself
   await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });

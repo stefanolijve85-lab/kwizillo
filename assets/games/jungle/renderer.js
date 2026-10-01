@@ -38,13 +38,20 @@ export const gapTiming=(level,s)=>{const air=LEVELS[level]?.air;if(!air)return {
 // up to 24; the first four always exist). One cycle always covers the same
 // distance, so more frames make the stride smoother, not faster.
 const RUN_NAMES=Array.from({length:24},(_,i)=>'run-'+String(i+1).padStart(2,'0'));
-function runCount(hero){if(!manifest)return 4;let n=0;while(n<24&&manifest.has(`hero-${hero}-${RUN_NAMES[n]}`))n++;return n>=4?n:4;}
+const pad2=i=>String(i+1).padStart(2,'0'),seqName=(base,i)=>`${base}-${pad2(i)}`;
+// Filmed motion (tools: Higgsfield clips keyed to sprites): hop = the jump,
+// hang = swinging on the liana, fly = hanging under the glider, coin-spin.
+const SEQ_MAX=40,SEQS=['hop','hang','fly'];
+function seqCount(base){if(!manifest)return 0;let n=0;while(n<SEQ_MAX&&manifest.has(seqName(base,n)))n++;return n;}
+function runCount(hero){const n=seqCount(`hero-${hero}-run`);return n>=4?n:4;}
 function runImage(hero,distance){const n=runCount(hero);return `hero-${hero}-${RUN_NAMES[Math.floor(distance*27*n/4)%n]}`;}
+// a loop played forth and back, so a clip without a clean loop still has no seam
+const pingPong=(t,n)=>{if(n<2)return 0;const P=2*(n-1),k=((t%P)+P)%P;return k<n?k:P-k;};
 
 // Every painting a level + hero needs, and what stands in for one that is not
 // there yet (the jungle set and the boy always exist).
 const FALLBACK={'city-day':'jungle-tempel','sky-day':'jungle-watervallen','obstacle-barrier':'obstacle-log','obstacle-cone':'obstacle-rock','obstacle-bird':'obstacle-log','obstacle-storm':'obstacle-rock','scenery-lamp':'scenery-tree','scenery-building':'scenery-tree','scenery-tree-city':'scenery-tree','scenery-cloud':'scenery-fern','scenery-balloon':'scenery-tree','scenery-island':'scenery-bridge','collectible-city-card':'collectible-jungle-card','collectible-sky-card':'collectible-jungle-card'};
-export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.flatMap(p=>p.pick||[p.name]),...(L.extras||[])]);for(const f of [...RUN_NAMES,'jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-${hero}-${f}`);names.add('scenery-glider');for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of [...RUN_NAMES,'jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
+export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.flatMap(p=>p.pick||[p.name]),...(L.extras||[])]);for(const f of [...RUN_NAMES,'jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-${hero}-${f}`);for(const q of SEQS)for(let i=0;i<SEQ_MAX;i++){names.add(seqName(`hero-${hero}-${q}`,i));}for(let i=0;i<SEQ_MAX;i++)names.add(seqName('collectible-coin-spin',i));names.add('scenery-glider');for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of [...RUN_NAMES,'jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
 // The painting that stands in for a missing one: a girl frame → the boy's, a level prop → its jungle cousin, a glide pose → the jump pose.
 export function resolveName(name,cache){if(cache[name]||(manifest&&manifest.has(name)))return name;if(FALLBACK[name]&&cache[FALLBACK[name]])return FALLBACK[name];const m=name.match(/^hero-girl-(.+)$/);if(m&&cache['hero-boy-'+m[1]])return 'hero-boy-'+m[1];if(/^hero-.+-(glide|swing)$/.test(name)){const j=name.replace(/glide|swing/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-(swing-back|swing-2)$/.test(name)){const j=name.replace(/swing-(back|2)/,'swing');return cache[j]?j:resolveName(j,cache);}if(/^hero-.+-(grab|reach)$/.test(name)){const j=name.replace(/grab|reach/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-release$/.test(name)){const j=name.replace('release','run-02');return cache[j]?j:'hero-boy-run-02';}if(/^hero-.+-portrait$/.test(name)){const j=name.replace('portrait','run-02');return cache[j]?j:'hero-boy-run-02';}return name;}
 const one=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('Afbeelding kon niet laden: '+src));im.src=src;});
@@ -56,7 +63,7 @@ async function present(base){if(manifest)return manifest;try{const r=await fetch
 export async function loadAssets(base,names,cache={}){
  const have=await present(base);
  await Promise.all(names.map(async name=>{if(cache[name]!==undefined)return;if(have&&!have.has(name)){cache[name]=null;return;}try{cache[name]=await one(versioned(new URL(name+'.png',base).href));}catch{cache[name]=null;}}));
- const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana|scenery-glider|scenery-(house|shop|tower)-\d+|scenery-(bench|postbox|hydrant|busstop|balloon-seller|fountain)|city-evening|obstacle-car-side(-2)?|hero-(boy|girl)-(swing-back|swing-2|grab|release|reach)|hero-(boy|girl)-run-(0[5-9]|1\d|2[0-4]))$/;
+ const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana|scenery-glider|scenery-(house|shop|tower)-\d+|scenery-(bench|postbox|hydrant|busstop|balloon-seller|fountain)|city-evening|obstacle-car-side(-2)?|hero-(boy|girl)-(swing-back|swing-2|grab|release|reach)|hero-(boy|girl)-run-(0[5-9]|1\d|2[0-4])|hero-(boy|girl)-(hop|hang|fly)-\d\d|collectible-coin-spin-\d\d)$/;
  const images={};for(const name of names){const im=cache[resolveName(name,cache)];if(!im&&!optional.test(name))throw new Error('Afbeelding kon niet laden: '+name);if(im)images[name]=im;}
  return images;
 }
@@ -95,8 +102,8 @@ export class Renderer{
  // The first opaque row of a painting (cached): where the fists are on the hanging and reaching poses.
  topOf(name){this.tops??={};if(this.tops[name]!==undefined)return this.tops[name];const im=this.images[name];const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,im.width,im.height).data;let top=0;outer:for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x+=2)if(d[(y*im.width+x)*4+3]>40){top=y;break outer;}return this.tops[name]=top/im.height;}
  flip(x,bottom,width,remaining,alpha,twice=false){const g=this.g,im=this.images[`hero-${this.hero}-flip`];const p=1-Math.max(0,Math.min(.92,remaining))/.92;const frame=twice?Math.min(7,Math.floor(((p*2)%1)*8)):flipFrame(remaining),cw=im.width/4,ch=im.height/2;const h=width*ch/cw*(this.canvas.width/600)/(this.canvas.height/900);g.save();g.globalAlpha=alpha;g.drawImage(im,(frame%4)*cw,Math.floor(frame/4)*ch,cw,ch,x-width/2,bottom-h,width,h);g.restore();}
- event(e){const p=this.point(e.lane??1,1);if(e.type==='hit'){const label=this.labelFor?.(e);if(label)this.labels.push({x:p.x,y:p.y-160,text:label,life:1});if(!this.reduced)for(let i=0;i<10;i++){const a=i*2.1;this.particles.push({x:p.x,y:p.y-30,vx:Math.cos(a)*70,vy:Math.sin(a)*70-40,life:.6,r:4+Math.random()*4,color:'#d8c7a6'});}return;}
-  if(['coin','gold','combo','card','clear','magnet','shield','block','double','speed','doubleflip'].includes(e.type)){const label=this.labelFor?.(e)??({coin:`+${e.value??1}`,gold:`+${e.value??5} GOUD!`,combo:`COMBO +5`,card:'Kaart ontdekt!',clear:'Mooie sprong!',magnet:'MAGNEET!',shield:'SCHILD!',block:'Gered!',double:'DUBBELE MUNTEN!',speed:'TURBO!'})[e.type];this.labels.push({x:p.x,y:p.y-160,text:label,life:1});if(!this.reduced)for(let i=0;i<9;i++){const a=i*2.4;this.particles.push({x:p.x,y:p.y-55,vx:Math.cos(a)*80,vy:Math.sin(a)*85-50,life:.65,color:e.type==='card'?'#a2f7ff':'#ffe58e'});}}}
+ event(e){const p=this.point(e.lane??1,1);if(e.type==='hit'){const label=this.labelFor?.(e);if(label)this.labels.push({x:p.x,y:p.y-160,text:label,life:1,type:'hit'});if(!this.reduced)for(let i=0;i<10;i++){const a=i*2.1;this.particles.push({x:p.x,y:p.y-30,vx:Math.cos(a)*70,vy:Math.sin(a)*70-40,life:.6,r:4+Math.random()*4,color:'#d8c7a6'});}return;}
+  if(['coin','gold','combo','card','clear','magnet','shield','block','double','speed','doubleflip'].includes(e.type)){const label=this.labelFor?.(e)??({coin:`+${e.value??1}`,gold:`+${e.value??5} GOUD!`,combo:`COMBO +5`,card:'Kaart ontdekt!',clear:'Mooie sprong!',magnet:'MAGNEET!',shield:'SCHILD!',block:'Gered!',double:'DUBBELE MUNTEN!',speed:'TURBO!'})[e.type];this.labels.push({x:p.x,y:p.y-160,text:label,life:1,type:e.type});if(!this.reduced)for(let i=0;i<9;i++){const a=i*2.4;this.particles.push({x:p.x,y:p.y-55,vx:Math.cos(a)*80,vy:Math.sin(a)*85-50,life:.65,color:e.type==='card'?'#a2f7ff':'#ffe58e'});}}}
 
  drawWorld(s,dt){const g=this.g,L=LEVELS[this.level],bg=this.images[this.scene],distance=travel(s),night=this.isNight,air=airborne(this.level,s),gliding=!!air;
  // a new bend every few seconds, eased; the run starts straight
@@ -195,6 +202,8 @@ export class Renderer{
   const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137+land-heroLift;
   const fists=name=>{const im=this.images[name];const h=SW*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);return bottom-h+this.topOf(name)*h+10;};
   const has=n=>manifest?.has(n)||!!this.images[n];
+  // In an outer lane a runner seen from behind points at the vanishing point, like the path's own edges do.
+  const lean=Math.atan((300+this.off(CAMERA.far*.5)-p.x)/Math.max(60,p.y-CAMERA.horizon))*.4,tilt=clampTilt(s)+lean;
   if(kind==='swing'&&phase){
    const liana=this.images['scenery-liana'];
    const drawLiana=(x0,y0,x1,y1,a)=>{if(!liana)return;const ang=Math.atan2(x1-x0,y1-y0),len=Math.hypot(x1-x0,y1-y0)+8,w=len*liana.width/liana.height;g.save();g.globalAlpha=a;g.translate(x0,y0);g.rotate(-ang);g.drawImage(liana,-w/2,0,w,len);g.restore();};
@@ -202,7 +211,7 @@ export class Renderer{
    if(phase==='lead'){const k=1-to/LEAD;const pose=has(`hero-${hero}-grab`)?`hero-${hero}-grab`:`hero-${hero}-jump`;const hy=fists(pose);
     drawLiana(p.x,top.y,p.x,hy-(1-k)*(1-k)*300,alpha*Math.min(1,k*2)); // the liana's end comes down to the rising hands and meets them exactly
     this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);}
-   else if(phase==='in'){const pose=sn>.35&&has(`hero-${hero}-swing-back`)?`hero-${hero}-swing-back`:sn<-.35?`hero-${hero}-swing`:has(`hero-${hero}-swing-2`)?`hero-${hero}-swing-2`:`hero-${hero}-swing`;
+   else if(phase==='in'){const hangN=seqCount(`hero-${hero}-hang`);const pose=hangN?seqName(`hero-${hero}-hang`,pingPong(Math.floor(s.time*20),hangN)):sn>.35&&has(`hero-${hero}-swing-back`)?`hero-${hero}-swing-back`:sn<-.35?`hero-${hero}-swing`:has(`hero-${hero}-swing-2`)?`hero-${hero}-swing-2`:`hero-${hero}-swing`;
     const hy=fists(pose),ph=Math.abs(hy-bottom);const hand={x:hx+Math.sin(sway)*ph,y:bottom-Math.cos(sway)*ph};
     drawLiana(top.x,top.y,hand.x,hand.y,alpha);
     this.image(pose,hx,bottom,SW,sway,alpha);}
@@ -215,18 +224,18 @@ export class Renderer{
    if(phase==='lead'){const k=1-to/LEAD;const pose=has(`hero-${hero}-reach`)?`hero-${hero}-reach`:`hero-${hero}-jump`;const hy=fists(pose);
     drawGlider(p.x,hy-(1-k)*(1-k)*360,alpha*Math.min(1,k*2.5));
     this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);}
-   else if(phase==='in'){this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6,alpha);}
+   else if(phase==='in'){const flyN=seqCount(`hero-${hero}-fly`);this.image(flyN?seqName(`hero-${hero}-fly`,pingPong(Math.floor(s.time*12),flyN)):`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6,alpha);}
    else{const k=since/TAIL;const pose=k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:null;
     drawGlider(p.x,fists(pose||`hero-${hero}-reach`)-k*k*420,alpha*(1-k));
     if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(runImage(hero,s.distance),p.x,bottom,211,clampTilt(s),alpha);}
   }
-  else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha,!!s.doubleFlip);
+  else if(s.jump>0&&!this.reduced){const hopN=seqCount(`hero-${hero}-hop`);if(hopN&&!s.doubleFlip){const k=1-Math.max(0,Math.min(.92,s.jump))/.92;this.image(seqName(`hero-${hero}-hop`,Math.min(hopN-1,Math.floor(k*hopN))),p.x,bottom,211,tilt,alpha);}else this.flip(p.x,bottom,211,s.jump,alpha,!!s.doubleFlip);}
   // bumped into something: the running stops dead, the child rocks backwards,
   // sinks through the knees and shakes himself back up — the whole world is
   // held still meanwhile (engine.js), so the stop is felt, not only seen.
   else if(s.stumble>0){const k=1-s.stumble/.55,rock=Math.sin(Math.min(1,k*1.35)*Math.PI);
-   this.image(`hero-${hero}-run-01`,p.x+(this.reduced?0:Math.sin(s.stumble*47)*5*(1-k)),bottom+rock*13,211,-.36*rock+clampTilt(s),alpha);}
-  else this.image(s.jump>0?`hero-${hero}-jump`:runImage(hero,s.distance),p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
+   this.image(`hero-${hero}-run-01`,p.x+(this.reduced?0:Math.sin(s.stumble*47)*5*(1-k)),bottom+rock*13,211,-.36*rock+tilt,alpha);}
+  else this.image(s.jump>0?`hero-${hero}-jump`:runImage(hero,s.distance),p.x,bottom,211,tilt+this.curve*.4,alpha);
   if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-heroLift,74,116,s.time,this.reduced);
   if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-heroLift,86,130,s.time,this.reduced);};
  let drawn=false;
@@ -253,7 +262,15 @@ export class Renderer{
    // bijna op zijn kant staat zie je de dikte als een donkerder gouden rand.
    // Zo is het een muntstuk in plaats van een platte schijf — de obstakels om
    // hem heen zijn allemaal echte 3D-platen.
-   if(o.kind==='coin'&&!this.reduced){
+   const spinN=o.kind==='coin'?seqCount('collectible-coin-spin'):0;
+   if(spinN&&!this.reduced){this.image(seqName('collectible-coin-spin',Math.floor(s.time*20+o.z*31)%spinN),p.x,p.y-lift,width,0,1);}
+   else if(o.kind==='card'&&!this.reduced){
+    // a card turns round its upright axis like a coin; edge-on it shows its thickness
+    const spin=Math.cos(s.time*2.3+o.z*5.1),sx=Math.max(.06,Math.abs(spin));
+    if(sx<.3){const ew=Math.max(2,width*.06),eh=width*1.25,ey=p.y-lift-eh;g.fillStyle='#7a4fd0';g.beginPath();if(g.roundRect)g.roundRect(p.x-ew/2,ey,ew,eh,ew*.5);else g.rect(p.x-ew/2,ey,ew,eh);g.fill();}
+    this.image(name,p.x,p.y-lift,width,0,1,false,sx);
+   }
+   else if(o.kind==='coin'&&!this.reduced){
     const spin=Math.cos(s.time*3.4+o.z*6.2),sx=Math.max(.14,Math.abs(spin));
     if(sx<.44){const edge=1-(sx-.14)/.30,ew=Math.max(1.5,width*.17*(1-sx*.55)),eh=width*.9,ex=p.x-ew/2,ey=p.y-lift-eh;
      g.fillStyle=`rgba(191,127,17,${(.5+edge*.4).toFixed(3)})`;g.beginPath();
@@ -266,8 +283,16 @@ export class Renderer{
  // turbo: speed streaks racing in from the edges and a warm glow
  if(s.boost>0&&!this.reduced){g.save();g.globalCompositeOperation='lighter';const k=Math.min(1,s.boost/.6);for(let i=0;i<26;i++){const a=(i/26)*Math.PI*2+Math.sin(i*7.3)*.2,r0=170+((s.time*1100+i*137)%460),len=120+(i%4)*50,x0=300+Math.cos(a)*r0,y0=480+Math.sin(a)*r0*.8,x1=300+Math.cos(a)*(r0+len),y1=480+Math.sin(a)*(r0+len)*.8;const grad=g.createLinearGradient(x0,y0,x1,y1);grad.addColorStop(0,'#fff2a000');grad.addColorStop(1,`rgba(255,240,160,${(.85*k).toFixed(2)})`);g.strokeStyle=grad;g.lineWidth=4;g.beginPath();g.moveTo(x0,y0);g.lineTo(x1,y1);g.stroke();}const glow=g.createRadialGradient(300,560,80,300,560,520);glow.addColorStop(0,'#ffb04000');glow.addColorStop(1,`rgba(255,150,40,${(.28*k).toFixed(2)})`);g.fillStyle=glow;g.fillRect(0,0,600,900);g.restore();}
  for(const p of this.particles){if(active){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=140*dt;}g.globalAlpha=Math.max(0,p.life/.65)*(p.r?.55:1);g.fillStyle=p.color;if(p.r){g.beginPath();g.arc(p.x,p.y,p.r*(1.6-p.life),0,7);g.fill();}else g.fillRect(p.x,p.y,4,4);}g.globalAlpha=1;this.particles=this.particles.filter(p=>p.life>0);
- for(const p of this.labels){if(active){p.life-=dt;p.y-=35*dt;}g.globalAlpha=Math.min(1,Math.max(0,p.life*2));g.font='900 23px system-ui';g.textAlign='center';g.lineWidth=4;g.strokeStyle='#63491a';g.strokeText(p.text,p.x,p.y);g.fillStyle='#fff4b4';g.fillText(p.text,p.x,p.y);}g.globalAlpha=1;this.labels=this.labels.filter(p=>p.life>0);
+ // Floating words: they pop in a little too big, settle, drift up slower and slower and fade out; each kind has its own colour.
+ for(const p of this.labels){if(active){p.life-=dt;p.y-=(18+70*p.life*p.life)*dt;}const age=1-p.life,pop=this.reduced?1:age<.12?.55+age/.12*.6:age<.26?1.15-(age-.12)/.14*.15:1;
+  const c=LABEL_COLORS[p.type]||LABEL_COLORS.coin;g.save();g.globalAlpha=Math.min(1,Math.max(0,p.life*3));g.translate(p.x,p.y);g.scale(pop,pop);
+  g.font='900 27px ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",system-ui,sans-serif';g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';
+  g.shadowColor='rgba(0,20,50,.38)';g.shadowBlur=8;g.shadowOffsetY=3;g.lineWidth=5;g.strokeStyle=c[2];g.strokeText(p.text,0,0);g.shadowColor='transparent';
+  const grad=g.createLinearGradient(0,-14,0,12);grad.addColorStop(0,c[0]);grad.addColorStop(1,c[1]);g.fillStyle=grad;g.fillText(p.text,0,0);g.restore();}
+ g.globalAlpha=1;this.labels=this.labels.filter(p=>p.life>0);
  }
  destroy(){this.particles=[];this.labels=[];}
 }
+// top, bottom, outline
+const LABEL_COLORS={coin:['#fffbe0','#ffc93c','#8a5200'],gold:['#fffbe0','#ffb81f','#7a4300'],combo:['#fffbe0','#ffb81f','#7a4300'],double:['#fffbe0','#ffcf3a','#8a5200'],card:['#f2feff','#62dcff','#0d5a8c'],magnet:['#fff0fd','#ff8ae8','#7b1f7a'],shield:['#f0fdff','#7fe6ff','#0b5c8c'],block:['#f0fdff','#7fe6ff','#0b5c8c'],speed:['#fff6e0','#ff9a2e','#8a2a00'],clear:['#f4ffe8','#8ef06a','#2c6a10'],doubleflip:['#f4ffe8','#8ef06a','#2c6a10'],hit:['#fff1ec','#ff9a80','#8a2a1a']};
 function clampTilt(s){return Math.max(-.08,Math.min(.08,(s.lane-s.x)*.09));}

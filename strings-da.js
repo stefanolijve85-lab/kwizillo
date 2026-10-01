@@ -88,7 +88,7 @@
     'jungle.brand':'KWIZILLO RUNNER','jungle.eyebrow':'KWIZILLO • ARCADE','jungle.titleA':'Kwizillo','jungle.titleB':'Runner','jungle.back':'Tilbage til Kwizillo','jungle.backShort':'Tilbage','jungle.easyShort':'Rolig tur',
     'jungle.levelLabel':'VÆLG DIN BANE','jungle.heroLabel':'HVEM LØBER MED DIG?','jungle.heroBoy':'Dreng','jungle.heroGirl':'Pige','jungle.glideOn':'Flyv!','jungle.glideOff':'Løb!','jungle.levelJungle':'Jungle','jungle.levelStad':'By','jungle.levelLucht':'Himmel',
     'jungle.swingOn':'Sving!','jungle.swingOff':'Løb!','jungle.powerSpeed':'⚡ {n}s','jungle.popSpeed':'TURBO!','jungle.popSpeedSub':'7 sekunder lynhurtigt · dobbelte mønter','jungle.labelSpeed':'TURBO!',
-    'jungle.canvasLabel':'Spillebane. Venstre og højre piletast styrer. Mellemrum hopper.','jungle.pause':'Pause','jungle.sound':'Lyd til eller fra','jungle.controls':'Spilkontroller','jungle.left':'Venstre','jungle.right':'Højre','jungle.jump':'Salto ↑',
+    'jungle.canvasLabel':'Spillebane. Venstre og højre piletast styrer. Mellemrum hopper.','jungle.pause':'Pause','jungle.sound':'Lyd til eller fra','jungle.controls':'Spilkontroller','jungle.left':'Venstre','jungle.right':'Højre','jungle.jump':'Hop ↑',
     'jungle.loading':'Dit eventyr gøres klar…','jungle.loadErrorTitle':'Prøv igen','jungle.loadErrorBody':'Junglebillederne kunne ikke indlæses. Tjek din forbindelse, og prøv igen.',
     'jungle.intro':'Følg det gyldne spor.<br>Hop, udforsk og saml!','jungle.legendMagnet':'🧲 Magnet','jungle.legendShield':'🛡 Skjold','jungle.legendGold':'★ Guld +5','jungle.legendDouble':'×2 Bonusstjerne',
     'jungle.easy':'Rolig tur · hopper af sig selv','jungle.music':'Musik','jungle.on':'til','jungle.off':'fra','jungle.start':'På eventyr →',

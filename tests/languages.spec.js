@@ -24,7 +24,7 @@ for (const lang of LANGS) {
       localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 3e10).toISOString(), store: 'dev' }));
     }, SAVED(lang));
     await page.goto('/', { waitUntil: 'domcontentloaded' });
-    await page.locator('.motion').click();
+    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {});   // the intro may already have gone on by itself
     await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
     await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
     await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });

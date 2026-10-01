@@ -182,7 +182,7 @@ export class KwizilloJungle extends HTMLElement{
   if(this.phase==='finished'){const count=this.root.querySelector('[data-count]');if(count){const p=this.renderer.reduced?1:Math.min(1,(t-this.finishStarted)/1400),n=Math.floor(this.run.coins*(1-Math.pow(1-p,3)));count.textContent='+'+n;if(n!==this.finishCount){this.finishCount=n;if(p<1&&Math.floor(t/80)!==this.lastCountTone){this.lastCountTone=Math.floor(t/80);this.audio.play('count');}}}}
   const boosting=this.phase==='playing'&&this.run.boost>0;if(boosting!==this.wasBoosting){this.wasBoosting=boosting;if(!boosting)this.options.onTempo?.(1);}
   this.audio.updateMusic(this.phase==='playing');
-  if(this.phase==='playing'&&LEVELS[this.level].air){const kind=airborne(this.level,this.run),g=!!kind;if(g!==this.wasGliding){this.wasGliding=g;const k=LEVELS[this.level].air.kind;if(this.run.time>1)this.toast(this.t(g?(k==='swing'?'swingOn':'glideOn'):(k==='swing'?'swingOff':'glideOff')));}}
+  if(this.phase==='playing'&&LEVELS[this.level].air){const kind=airborne(this.level,this.run),g=!!kind;if(g!==this.wasGliding){this.wasGliding=g;const k=LEVELS[this.level].air.kind;if(g)this.audio.play(k==='swing'?'swing':'glide');if(this.run.time>1)this.toast(this.t(g?(k==='swing'?'swingOn':'glideOn'):(k==='swing'?'swingOff':'glideOff')));}}
   this.renderer.draw(this.run,dt,this.phase==='playing');
   this.root.querySelector('.score b').textContent=this.run.coins;
   this.root.querySelector('.score small').textContent=`0:${String(Math.ceil(this.run.duration-this.run.time)).padStart(2,'0')}`;

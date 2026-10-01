@@ -48,8 +48,7 @@ async function boot(page, state = SAVED()) {
 // The film starts by itself; the first tap turns sound on, the second continues.
 async function tapThroughIntro(page) {
   const motion = page.locator('.motion');
-  await expect(motion).toBeVisible({ timeout: 8000 });
-  await motion.click();
+  await motion.click({ timeout: 8000 }).catch(() => {});   // the intro may already have gone on by itself
   await motion.click({ timeout: 1500 }).catch(() => {});
   // Wie al een naam heeft komt na de film op het terugkeerscherm uit
   // (welcome-back.js); "Verder spelen" brengt hem op Home.

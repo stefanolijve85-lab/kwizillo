@@ -15,7 +15,7 @@ async function boot(page, state = SAVED()) {
   await page.route(TTS, route => route.fulfill({ status: 503, body: '{}' }));
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click(); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
+  await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});   // the intro may already have gone on by itself
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }

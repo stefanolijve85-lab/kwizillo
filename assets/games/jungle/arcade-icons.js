@@ -9,6 +9,7 @@ const fill=g.createRadialGradient(-r*.35,-r*.4,r*.1,0,0,r);fill.addColorStop(0,c
 const rim=g.createRadialGradient(0,0,r*.82,0,0,r);rim.addColorStop(0,'#ffffff00');rim.addColorStop(1,'#ffffff55');g.fillStyle=rim;g.beginPath();g.arc(0,0,r,0,Math.PI*2);g.fill();
 g.fillStyle='#ffffffaa';g.beginPath();g.ellipse(-r*.32,-r*.45,r*.26,r*.16,-.6,0,Math.PI*2);g.fill();
 g.strokeStyle='#fff';g.fillStyle='#fff';g.lineWidth=size*.12;g.lineCap='round';g.lineJoin='round';g.shadowColor='#00000055';g.shadowBlur=size*.06;g.shadowOffsetY=size*.03;
+g.scale(Math.max(.12,Math.abs(Math.cos(time*2.2+x*.013))),1); // the symbol turns round inside the glass ball
 if(kind==='magnet'){g.shadowColor='transparent';magnet3d(g,r);}
 else if(kind==='shield'){g.beginPath();g.moveTo(0,-r*.58);g.lineTo(r*.48,-r*.33);g.lineTo(r*.39,r*.26);g.quadraticCurveTo(r*.2,r*.52,0,r*.65);g.quadraticCurveTo(-r*.2,r*.52,-r*.39,r*.26);g.lineTo(-r*.48,-r*.33);g.closePath();g.fill();g.shadowBlur=0;g.strokeStyle='#1575c9';g.lineWidth=size*.055;g.beginPath();g.moveTo(-r*.2,0);g.lineTo(-r*.03,r*.17);g.lineTo(r*.25,-r*.19);g.stroke();}
 else if(kind==='speed'){g.shadowColor='transparent';bolt3d(g,r);}
@@ -23,10 +24,12 @@ g.globalCompositeOperation='lighter';const hi=g.createRadialGradient(-rx*.35,-ry
 g.restore();}
 
 // The magnet at work: a soft pink halo around the hero, breathing, no outlines — the sister of the shield bubble.
-export function magnetAura(g,x,y,rx,ry,time,reduced){g.save();g.translate(x,y);const k=reduced?1:1+Math.sin(time*3.1)*.04;g.scale(k,k);
-const halo=g.createRadialGradient(0,0,ry*.3,0,0,ry);halo.addColorStop(0,'#ff8ff000');halo.addColorStop(.55,'#ff8ff01c');halo.addColorStop(.82,'#ffa6f27a');halo.addColorStop(.94,'#ffd6fbb0');halo.addColorStop(1,'#ffd6fb00');
-g.fillStyle=halo;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
-g.globalCompositeOperation='lighter';const hi=g.createRadialGradient(rx*.3,-ry*.4,2,rx*.3,-ry*.4,rx*.5);hi.addColorStop(0,'#ffffff66');hi.addColorStop(1,'#ffffff00');g.fillStyle=hi;g.beginPath();g.ellipse(0,0,rx,ry,0,0,Math.PI*2);g.fill();
+export function magnetAura(g,x,y,rx,ry,time,reduced){g.save();g.translate(x,y);const k=reduced?1:1+Math.sin(time*3.1)*.05;g.scale(k*1.15,k*1.15);
+// one soft glow that only fades towards its edge — no ring, no rim
+const halo=g.createRadialGradient(0,0,0,0,0,ry);halo.addColorStop(0,'#ff9df255');halo.addColorStop(.35,'#ff9df240');halo.addColorStop(.6,'#ff9df21f');halo.addColorStop(.82,'#ff9df208');halo.addColorStop(1,'#ff9df200');
+g.globalCompositeOperation='lighter';g.fillStyle=halo;g.beginPath();g.ellipse(0,0,rx*1.2,ry,0,0,Math.PI*2);g.fill();
+// a few sparks drifting inwards: the pull, not an outline
+if(!reduced)for(let i=0;i<7;i++){const a=i*0.9+time*.8,q=1-((time*.9+i*.37)%1),d=.35+q*.65;g.fillStyle=`rgba(255,214,251,${(.55*(1-q)).toFixed(3)})`;g.beginPath();g.arc(Math.cos(a)*rx*d,Math.sin(a)*ry*d,2.2+2*(1-q),0,Math.PI*2);g.fill();}
 g.restore();}
 
 // Symbols with body: the magnet and the lightning bolt used to be flat white
