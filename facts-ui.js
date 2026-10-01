@@ -41,9 +41,10 @@
   };
   K.markFactSeen=fact=>{if(!fact)return;const seen=seenMap();if(!seen[fact.id]){seen[fact.id]=true;K.save()}};
   // "Wist je dat…" is said once, when the screen opens; every next fact is just the fact.
-  const factSpeech=(fact,kicker=false)=>kicker?`${t('facts.kicker')} ${fact.t}`:fact.t;
-  // Spoken by whichever guide the child chose; silent for "Stil".
-  const readFact=(fact,kicker=false)=>{K.stopSpeech();return K.speak(factSpeech(fact,kicker)).catch(()=>{})};
+  const factSpeech=fact=>fact.t;
+  // Spoken by whichever guide the child chose; silent for "Stil". "Wist je dat…"
+  // is its own recording, so each fact is recorded once.
+  const readFact=(fact,kicker=false)=>{K.stopSpeech();return K.speakSequence([kicker&&{kind:'lead',text:t('facts.kicker')},{kind:'speech',text:fact.t}]).catch(()=>{})};
   // The next facts are chosen ahead of time and their voice lines warmed, so
   // "Volgend weetje" (and the first fact when the screen opens) starts talking
   // at once instead of after a round trip to the speech service. One queue per
@@ -139,7 +140,7 @@
     const fact=nextFact(world,null);
     if(!fact) return null;
     K.markFactSeen(fact);
-    fact.speech=`${t('facts.kicker')} ${fact.t}`;
+    fact.speech=[t('facts.kicker'),fact.t];   // two recordings: the kicker, then the fact itself
     fact.html=`<button class="result-fact" id="resultFact" data-fact="${fact.id}"><span class="result-fact-emoji" aria-hidden="true">${fact.e}</span><span class="result-fact-copy"><small>${esc(t('facts.kicker'))}</small><b>${esc(fact.t)}</b><em>${esc(t('facts.more'))} ›</em></span></button>`;
     return fact;
   };

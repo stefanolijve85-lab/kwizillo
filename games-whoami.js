@@ -59,7 +59,7 @@
     });
     K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
     // Every line of the whole game is requested now, so each round starts talking at once.
-    const lines=[];for(const r of rounds){lines.push(...r.clues,...r.options.map(o=>`${o.answer}.`),t('whoami.speech.yes',{answer:r.q.answer})+' '+r.q.explanation,t('whoami.speech.almost',{answer:r.q.answer})+' '+r.q.explanation)}
+    const lines=[];for(const r of rounds){lines.push(...r.clues,...r.options.map(o=>K.core.answerText(o.answer)),...['whoami.speech.yes','whoami.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
     lines.push(t('whoami.ask'),t('whoami.speech.great'),t('whoami.speech.done'));
     K.prefetchSpeech?.(lines);
     showRound();
@@ -98,7 +98,7 @@
     const speak=all=>{
       if(locked)return;
       const lines=all?r.clues.slice(0,shown):[r.clues[shown-1]];
-      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:`${o.answer}.`}))];
+      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:K.core.answerText(o.answer)}))];
       if(timer)timer.paused=true;
       K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='option')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>{tiles().forEach(x=>x.classList.remove('spoken-active'))}}).then(()=>{if(timer)timer.paused=false;startTimer()},()=>{if(timer)timer.paused=false;startTimer()});
     };
@@ -134,7 +134,8 @@
       card.innerHTML=`<div class="simple-modal-card">${ok?'':`<div class="simple-icon">${b?'💡':'⏰'}</div>`}<h2>${esc(ok?t('whoami.yes',{answer:q.answer,points:earned}):t(b?'whoami.almost':'whoami.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="whoNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'whoami.next'))}</button></div>`;
       f.appendChild(card);
       if(ok)K.cheer?.(card);
-      K.speak((ok?t('whoami.speech.yes',{answer:q.answer}):t('whoami.speech.almost',{answer:q.answer}))+' '+q.explanation);
+      // The verdict reuses the answer's recording and the quiz's explanation recording.
+        K.speakSequence([...K.core.answerSegments(t(ok?'whoami.speech.yes':'whoami.speech.almost'),q.answer),{kind:'speech',text:q.explanation}]);
       card.querySelector('#whoNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
     };
     f.querySelectorAll('.whoami-tile').forEach(b=>b.onclick=()=>pick(b));

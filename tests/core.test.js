@@ -79,14 +79,15 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
 {
   const q = topicBatch.questions[0];
   const segments = core.buildQuestionSpeechSegments(q);
-  assert.strictEqual(segments.length, 1 + q.options.length, 'Question and every answer must be separate speech segments');
+  // The letter and the answer are two recordings, so each answer is recorded once whatever letter it lands on.
+  assert.strictEqual(segments.length, 1 + 2 * q.options.length, 'Question, then letter and answer as separate speech segments');
   assert.strictEqual(segments[0].kind, 'question');
   assert.strictEqual(segments[0].text, q.prompt);
-  segments.slice(1).forEach((segment, i) => {
-    assert.strictEqual(segment.kind, 'answer');
-    assert.strictEqual(segment.index, i);
-    assert.strictEqual(segment.text, `${['A', 'B', 'C', 'D'][i]}. ${q.options[i]}.`);
-    assert.ok(!/antwoord|answer/i.test(segment.text), `Segment must not announce "${segment.text}"`);
+  q.options.forEach((o, i) => {
+    const [letter, answer] = segments.slice(1 + 2 * i, 3 + 2 * i);
+    assert.deepStrictEqual([letter.kind, letter.index, letter.text], ['option', i, `${['A', 'B', 'C', 'D'][i]}.`]);
+    assert.deepStrictEqual([answer.kind, answer.index, answer.text], ['answer', i, `${o}.`]);
+    for (const s of [letter, answer]) assert.ok(!/antwoord|answer/i.test(s.text) || /antwoord|answer/i.test(o), `Segment must not announce "${s.text}"`);
   });
 }
 
@@ -111,9 +112,10 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   const copy = { good: 'Top!', tryAgain: 'Bijna. Het is {answer}.', fact: '{fact}' };
   const right = core.buildFeedbackSegments(q, true, copy), wrong = core.buildFeedbackSegments(q, false, copy);
   assert.equal(right[0].text, 'Top!', 'The verdict is its own line');
-  assert.ok(wrong[0].text.includes(q.answer), 'The wrong-answer verdict names the answer');
-  assert.equal(right[1].text, wrong[1].text, 'The explanation is the same line after either verdict, so it is recorded once');
-  assert.ok(right[1].text.includes(q.explanation), 'The explanation is spoken');
+  // The wrong-answer verdict is its fixed words plus the answer's own recording (the same one the options use).
+  assert.deepStrictEqual(wrong.slice(0, 2).map(s => s.text), ['Bijna. Het is', `${q.answer}.`], 'The wrong-answer verdict names the answer with its option recording');
+  assert.equal(right.at(-1).text, wrong.at(-1).text, 'The explanation is the same line after either verdict, so it is recorded once');
+  assert.ok(right.at(-1).text.includes(q.explanation), 'The explanation is spoken');
   assert.ok(right.every(s => !/undefined|\{/.test(s.text)), 'No placeholders leak');
 }
 
@@ -188,7 +190,7 @@ assert.ok(topicBatch.questions.every(q => q.world === 'wetenschap' && q.topic ==
   }
   // The speech builder still emits the display form; conversion is the voice layer's job.
   const numeric = questions.find(q => q.options.some(o => /^\d+$/.test(o)));
-  const seg = core.buildQuestionSpeechSegments(numeric).find(s => /^\w\. \d+\.$/.test(s.text));
+  const seg = core.buildQuestionSpeechSegments(numeric).find(s => s.kind === 'answer' && /^\d+\.$/.test(s.text));
   assert.ok(seg, 'expected a numeric answer segment in the bank');
   assert.ok(!/\d/.test(core.spellNumbers(seg.text, 'nl')), 'numeric answer segment must be spoken as a word');
 }
@@ -306,7 +308,7 @@ assert.deepStrictEqual([1,2,3,4,5,6].map(core.hintsAllowed), [Infinity,Infinity,
 assert.deepStrictEqual([1,2,3,4,5,6].map(core.readsAnswers), [true,true,true,true,true,true]);   // every level reads the answers
 {
   const q = { prompt: 'Welke planeet is rood?', options: ['Mars','Venus','Aarde','Jupiter'] };
-  assert.strictEqual(core.buildQuestionSpeechSegments(q).length, 5, 'question + four answers');
+  assert.strictEqual(core.buildQuestionSpeechSegments(q).length, 9, 'question + four letters + four answers');
   assert.deepStrictEqual(core.buildQuestionSpeechSegments(q, { answers: false }).map(s => s.kind), ['question']);
 }
 /* ---- Rekenen speaks numbers in pieces from a closed set, and the pieces say the whole number ---- */

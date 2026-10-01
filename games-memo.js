@@ -109,7 +109,7 @@
     // Pictures first, words second: the board's images get the connections
     // before the speech warm-up starts, so no tile is still empty when the
     // child flips it.
-    loadBoardArt(qs).then(()=>K.prefetchSpeech([...qs.map(q=>q.answer),t('memo.speech.done'),t('memo.speech.time')]));
+    loadBoardArt(qs).then(()=>K.prefetchSpeech([...qs.map(q=>K.core.answerText(q.answer)),t('memo.speech.done'),t('memo.speech.time')]));
   };
 
   // Loads every picture on the board, four at a time, and resolves when all
@@ -188,7 +188,7 @@
     btn.classList.add('is-open');
     m.open.push(card);
     // Say the word of every flipped card; the picture gets its name too.
-    K.speak(card.q.answer);
+    K.speak(K.core.answerText(card.q.answer));
     if(m.open.length<2)return;
     m.moves++;
     const f=K.app.querySelector('.game-frame');

@@ -161,7 +161,7 @@
       const warm=[...lines(feedbackSpeech(q,true)),...lines(feedbackSpeech(q,false)),q.hint||t('hint.fallback')];
       if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),...lines(feedbackSpeech(nextQ,true)),...lines(feedbackSpeech(nextQ,false)));
       await K.speakSequence(K.core.buildQuestionSpeechSegments(q,speech),{
-        onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.kind==='answer')buttons[segment.index]?.classList.add('spoken-active')},
+        onSegment:segment=>{K.clearSpeechHighlight?.();if(segment.index!==undefined)buttons[segment.index]?.classList.add('spoken-active')},
         onDone:()=>K.clearSpeechHighlight?.(),
         prefetch:warm
       });
@@ -215,7 +215,8 @@
   // recording per question: it is fixed per question instead of per quiz.
   function variant(q,kind,count,salted=true){
     let h=salted?(K.quiz?.salt||0):0;for(const ch of q.id)h=(h*31+ch.charCodeAt(0))>>>0;
-    return t(`feedback.speech.${kind}.${(h%count)+1}`,{answer:q.answer});
+    // The answer is left as {answer}: buildFeedbackSegments says it with its own recording.
+    return t(`feedback.speech.${kind}.${(h%count)+1}`);
   }
   function feedbackSpeech(q,correct){
     return K.core.buildFeedbackSegments(q,correct,{
@@ -373,7 +374,7 @@
     const pct=total?Math.round(score/total*100):0;
     // A "did you know" from this world, read by the guide once the gift has opened.
     const bonus=K.bonusFact?.(K.currentWorld)||null;
-    if(bonus) K.prefetchSpeech([bonus.speech]);
+    if(bonus) K.prefetchSpeech(bonus.speech);
     const nextNumber=(K.runFor(K.currentWorld,q?.topicKey||null).quizNumber||0)+1;
     const nextIdx=isTopic&&topicIdx<keys.length-1?topicIdx+1:null;
     // Passed: move on (next topic, or the mixed quiz after the last one).
@@ -438,6 +439,6 @@
     f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
     // The bonus fact opens the Weetjes screen on this world.
     f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(K.currentWorld,{open:e.currentTarget.dataset.fact})});
-    if(bonus) setTimeout(()=>{if(f.isConnected)K.speak(bonus.speech)},passed?1900:900);
+    if(bonus) setTimeout(()=>{if(f.isConnected)K.speakSequence(bonus.speech.map((text,i)=>({kind:i?'speech':'lead',text})))},passed?1900:900);
   };
 })();

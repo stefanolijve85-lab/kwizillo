@@ -4,7 +4,20 @@
   function selectQuestions({questions,world,topicKey=null,grade=5,limit=10,rng=Math.random}){let pool=(questions||[]).filter(q=>q.world===world&&(!topicKey||q.topic===topicKey));const gradePool=pool.filter(q=>(q.groupMin||1)<=grade&&(q.groupMax||8)>=grade);if(gradePool.length>=Math.min(6,limit))pool=gradePool;return shuffle(pool,rng).slice(0,Math.min(limit,pool.length)).map(q=>prepareQuestion(q,rng))}
   // The letter is spoken as a plain label, never as "Antwoord A" / "Answer A"
   // (CLAUDE.md section 9). The trailing period gives the voice a natural fall.
-  function buildQuestionSpeechSegments(q,{answers=true}={}){const labels=['A','B','C','D','E','F'];if(!answers)return[{kind:'question',text:q.prompt}];return[{kind:'question',text:q.prompt},...(q.options||[]).map((o,i)=>({kind:'answer',index:i,label:labels[i]||String(i+1),text:`${labels[i]||i+1}. ${o}.`}))]}
+  // The letter and the answer are two recordings ("A." then "Mars."): the app
+  // shuffles the options, so "A. Mars." would need a recording under every
+  // letter. The answer recording is the same one the verdict reuses.
+  function buildQuestionSpeechSegments(q,{answers=true}={}){const labels=['A','B','C','D','E','F'];if(!answers)return[{kind:'question',text:q.prompt}];return[{kind:'question',text:q.prompt},...(q.options||[]).flatMap((o,i)=>{const label=labels[i]||String(i+1);return[{kind:'option',index:i,label,text:`${label}.`},{kind:'answer',index:i,label,text:answerText(o)}]})]}
+  const answerText=a=>`${String(a).trim()}.`;
+  // "Net niet. Het juiste antwoord is {answer}." is said as its fixed words and
+  // the answer's own recording: ["Net niet. Het juiste antwoord is", "Mars."].
+  // The last piece is a 'lead', so the pause before the explanation stays.
+  function answerSegments(template,answer){
+    const s=String(template||''),i=s.indexOf('{answer}');
+    if(i<0) return s.trim()?[{kind:'lead',text:s.trim()}]:[];
+    const before=s.slice(0,i).trim(),after=s.slice(i+8).replace(/^[\s.!?,;:…]+/,'').trim();
+    return[before&&{kind:'part',text:before},{kind:after?'part':'lead',text:answerText(answer)},after&&{kind:'lead',text:after}].filter(Boolean);
+  }
   function buildQuestionSpeech(q){return buildQuestionSpeechSegments(q).map(s=>s.text).join(' ').trim()}
   // Copy comes from the caller so this stays language-agnostic.
   function buildFeedbackSpeech(q,correct,copy={}){
@@ -24,9 +37,9 @@
   // praise comes before it, so it is recorded once per question instead of
   // once per verdict variant (12 of them).
   function buildFeedbackSegments(q,correct,copy={}){
-    const lead=correct?(copy.good||''):(copy.tryAgain||'').replace('{answer}',q.answer);
+    const lead=correct?[{kind:'lead',text:copy.good||''}]:answerSegments(copy.tryAgain,q.answer);
     const body=[q.explanation||(correct?'':q.hint||''),q.fact&&copy.fact?copy.fact.replace('{fact}',q.fact):''];
-    return[{kind:'lead',text:lead},{kind:'speech',text:body.filter(Boolean).join(' ')}]
+    return[...lead,{kind:'speech',text:body.filter(Boolean).join(' ')}]
       .map(s=>({...s,text:s.text.replace(/\s+/g,' ').trim()})).filter(s=>s.text);
   }
   function evaluateAnswer(q,value){return{correct:value===q.answer,answer:q.answer,selected:value}}
@@ -363,5 +376,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

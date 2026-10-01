@@ -141,32 +141,32 @@ for (const lang of langs) {
   const facts = FACTS[lang] || FACTS.nl || {};
   for (const w of WORLDS) for (const f of facts[w] || []) {
     add(lang, BOTH, f.t, 'facts: fact');
-    add(lang, BOTH, `${T('facts.kicker')} ${f.t}`, 'facts: kicker + fact');
   }
+  add(lang, BOTH, T('facts.kicker'), 'facts: kicker');
 
   // World entry (m1-ui.js enterWorld).
   for (const w of worlds) add(lang, BOTH, T('world.speech.enter', { title: T(`world.${w}.title`) }), 'world: enter');
 
   // Memo (games-memo.js): a turned card says its answer; any question with an
   // answer picture can be on the board (the "fill" pairs have no further filter).
-  for (const q of qs) if (answerArtFor(q)) add(lang, BOTH, q.answer, 'memo: card');
+  for (const q of qs) if (answerArtFor(q)) add(lang, BOTH, core.answerText(q.answer), 'memo: card');
   for (const k of ['done', 'time', 'tie', 'win']) add(lang, BOTH, T(`memo.speech.${k}`), 'memo: result');
 
   // Wat ben ik? (games-whoami.js): clues one by one, "Wat ben ik?", the four names, then yes/almost + explanation.
   const whoPool = whoamiCandidates(qs).filter(q => cluesFor(q).length >= 2);
   for (const q of whoPool) {
     for (const c of cluesFor(q)) add(lang, BOTH, c, 'whoami: clue');
-    add(lang, BOTH, `${q.answer}.`, 'whoami/fotozoom: option');
-    add(lang, BOTH, T('whoami.speech.yes', { answer: q.answer }) + ' ' + q.explanation, 'whoami: yes + explanation');
-    add(lang, BOTH, T('whoami.speech.almost', { answer: q.answer }) + ' ' + q.explanation, 'whoami: almost + explanation');
+    add(lang, BOTH, core.answerText(q.answer), 'whoami/fotozoom: option');
+    for (const k of ['whoami.speech.yes', 'whoami.speech.almost']) for (const s of core.answerSegments(T(k), q.answer)) add(lang, BOTH, s.text, 'whoami: verdict pieces');
+    add(lang, BOTH, q.explanation, 'whoami/fotozoom: explanation');
   }
   for (const k of ['whoami.ask', 'whoami.speech.great', 'whoami.speech.done']) add(lang, BOTH, T(k), 'whoami: fixed');
 
   // Fotozoom (games-fotozoom.js).
   for (const q of fotozoomCandidates(qs)) {
-    add(lang, BOTH, `${q.answer}.`, 'whoami/fotozoom: option');
-    add(lang, BOTH, T('fotozoom.speech.yes', { answer: q.answer }) + ' ' + q.explanation, 'fotozoom: yes + explanation');
-    add(lang, BOTH, T('fotozoom.speech.almost', { answer: q.answer }) + ' ' + q.explanation, 'fotozoom: almost + explanation');
+    add(lang, BOTH, core.answerText(q.answer), 'whoami/fotozoom: option');
+    for (const k of ['fotozoom.speech.yes', 'fotozoom.speech.almost']) for (const s of core.answerSegments(T(k), q.answer)) add(lang, BOTH, s.text, 'fotozoom: verdict pieces');
+    add(lang, BOTH, q.explanation, 'whoami/fotozoom: explanation');
   }
   for (const k of ['fotozoom.ask', 'fotozoom.speech.great', 'fotozoom.speech.done']) add(lang, BOTH, T(k), 'fotozoom: fixed');
 

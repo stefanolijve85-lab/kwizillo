@@ -240,7 +240,7 @@
     K.prefetchSpeech(shown().map(w=>t('world.speech.enter',{title:worldTitle(w)})));
     // The first two Weetjes are picked and warmed here, so the screen talks the moment it opens.
     const ahead=K.warmFacts?.(K.state.factsWorld||'all')||[];
-    if(ahead[0]) K.prefetchSpeech([`${t('facts.kicker')} ${ahead[0].t}`]);   // the first one opens with the facts kicker
+    if(ahead[0]) K.prefetchSpeech([t('facts.kicker'),ahead[0].t]);   // the first one opens with the facts kicker
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };

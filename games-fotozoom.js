@@ -41,7 +41,7 @@
     });
     K.fotozoom={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
     const lines=[t('fotozoom.ask')];
-    for(const r of rounds){lines.push(...r.options.map(o=>`${o.answer}.`),t('fotozoom.speech.yes',{answer:r.q.answer})+' '+r.q.explanation,t('fotozoom.speech.almost',{answer:r.q.answer})+' '+r.q.explanation)}
+    for(const r of rounds){lines.push(...r.options.map(o=>K.core.answerText(o.answer)),...['fotozoom.speech.yes','fotozoom.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
     lines.push(t('fotozoom.speech.great'),t('fotozoom.speech.done'));
     K.prefetchSpeech?.(lines);
     showRound();
@@ -79,7 +79,7 @@
     const zoomTo=z=>{img.style.transform=`scale(${z})`};
     const speak=()=>{
       if(locked)return;
-      const segs=[{kind:'question',text:t('fotozoom.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:`${o.answer}.`}))];
+      const segs=[{kind:'question',text:t('fotozoom.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:K.core.answerText(o.answer)}))];
       if(timer)timer.paused=true;
       K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='option')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>{tiles().forEach(x=>x.classList.remove('spoken-active'))}}).then(()=>{if(timer)timer.paused=false;startTimer()});
     };
@@ -120,7 +120,8 @@
         card.innerHTML=`<div class="simple-modal-card"><img class="fotozoom-reveal" src="${K.answerArtFor(q)}" alt="">${ok?'':`<div class="simple-icon">${b?'💡':'⏰'}</div>`}<h2>${esc(ok?t('fotozoom.yes',{answer:q.answer,points:earned}):t(b?'fotozoom.almost':'fotozoom.timeUp',{answer:q.answer}))}</h2><p>${esc(q.explanation)}</p><button class="simple-ok" id="fzNext">${esc(t(g.index+1>=g.rounds.length?'feedback.seeResult':'fotozoom.next'))}</button></div>`;
         f.appendChild(card);
         if(ok)K.cheer?.(card);
-        K.speak((ok?t('fotozoom.speech.yes',{answer:q.answer}):t('fotozoom.speech.almost',{answer:q.answer}))+' '+q.explanation);
+        // The verdict reuses the answer's recording and the quiz's explanation recording.
+        K.speakSequence([...K.core.answerSegments(t(ok?'fotozoom.speech.yes':'fotozoom.speech.almost'),q.answer),{kind:'speech',text:q.explanation}]);
         card.querySelector('#fzNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
       },ok?650:900);
     };

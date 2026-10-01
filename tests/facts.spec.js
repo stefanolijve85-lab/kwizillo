@@ -35,7 +35,8 @@ test('Home opens the Weetjes screen: one fact at a time, read by the chosen guid
   const first = await card.getAttribute('data-fact');
   const text = await card.locator('.fact-text').textContent();
   // The guide reads the fact in her own voice, never the child's name.
-  await expect.poll(() => spoken.some(r => r.text === `Wist je dat… ${text}` && r.voice === 'Luna'), { timeout: 20000 }).toBe(true);   // the kicker once, on opening
+  // The kicker and the fact are two recordings, so each fact is recorded once.
+  await expect.poll(() => spoken.some(r => r.text === 'Wist je dat…' && r.voice === 'Luna') && spoken.some(r => r.text === text && r.voice === 'Luna'), { timeout: 20000 }).toBe(true);   // the kicker once, on opening
   expect(spoken.map(r => JSON.stringify(r)).join('')).not.toContain('Mike');
   // Next fact: another one, counter up, both remembered.
   await screen.locator('#factNext').click();
@@ -115,7 +116,7 @@ test('the quiz result carries a bonus fact of that world, read by the guide; tap
   const id = await bonus.getAttribute('data-fact');
   expect(id).toMatch(/^dieren-\d+$/);
   const text = await bonus.locator('b').textContent();
-  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && r.text === `Wist je dat… ${text}`), { timeout: 5000 }).toBe(true);
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && r.text === 'Wist je dat…') && spoken.some(r => r.voice === 'Luna' && r.text === text), { timeout: 5000 }).toBe(true);
   await bonus.click();
   await expect(page.locator('.facts-screen')).toBeVisible();
   await expect(page.locator('.facts-screen .fact-card')).toHaveAttribute('data-fact', id);

@@ -918,7 +918,7 @@ test('on level 4 the voice still reads the question and the answers; the parent 
   // The voice gets numbers written out ("1500" → "vijftienhonderd"), so compare with what is spoken.
   const said = await page.evaluate(() => { const K = window.KWIZILLO_M1; return K.core.spellNumbers(K.quiz.questions[0].prompt, 'nl'); });
   await expect.poll(() => spoken.includes(said)).toBe(true);
-  await expect.poll(() => spoken.some(s => s.startsWith('A. ')), { message: 'the answers are read on level 4 too' }).toBe(true);
+  await expect.poll(() => spoken.some(s => /^[A-D]\.$/.test(s)), { message: 'the answers are read on level 4 too' }).toBe(true);
 
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 4; K.save(); K.showParent() });
   await expect(page.locator('.level-card small')).toHaveText('16 s per vraag · max. 3 fouten · 2 hints');
