@@ -84,6 +84,7 @@ company, App Store Connect can transfer an approved app to another account.
 | Build 1.0 (9): launch screen the K icon on brand blue | BUILT 1 OCT (upload not recorded) |
 | Build 1.0 (10): sound comes back after the background (SceneDelegate) | ARCHIVED 1 OCT, NOT UPLOADED (superseded by 11) |
 | Build 1.0 (11): launch screen is the film's exact first frame (iPhone portrait, iPad wide), the film takes over without a seam (no frame fade-in, filter or shade on adoption); world screen progress line centred above the topics | UPLOADED 1 OCT (`xcodebuild -exportArchive`, destination upload, EXPORT SUCCEEDED) |
+| Build 1.0 (12): sound settings open with the voice choice (Milo / Luna / Silent + voice volume), then effects and music | UPLOADED 1 OCT 22:36 (EXPORT SUCCEEDED) |
 | Subscription review screenshots (paywall, free player, NL/EN/PT) | DONE 1 OCT — `store/screenshots/subscription/`, `tools/paywall-shots.cjs` |
 | TestFlight on a real iPhone, sandbox purchase | NEXT — OWNER |
 | Store texts, age rating, privacy label, review notes | READY — `STORE_LISTING.md` |
