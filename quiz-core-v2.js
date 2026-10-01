@@ -322,7 +322,46 @@
     return out;
   }
 
+  // Rekenen speaks numbers it makes up on the spot, so it cannot ask for a whole
+  // sentence that was recorded beforehand. It says them in pieces instead, every
+  // piece one recording from a small closed set that is warmed once: 0 to 99,
+  // the round hundreds and thousands, and the hundreds prefix of a larger number
+  // ("driehonderd" + "zevenenveertig"). A joining word ("and", "og", "e", "و")
+  // goes with the rest, which is where a speaker puts the breath.
+  const JOINERS=/(?:\s+(?:and|og|e|y|et)|\s*و)$/u;
+  function numberParts(n,lang='nl'){
+    n=Math.round(Number(n));
+    const whole=spellNumbers(String(n),lang);
+    if(!(n>=100)||n%100===0) return [whole];
+    const rest=spellNumbers(String(n%100),lang);
+    if(!whole.endsWith(rest)) return [whole];
+    let head=whole.slice(0,whole.length-rest.length).trimEnd(),tail=rest;
+    const join=head.match(JOINERS);
+    if(join){head=head.slice(0,join.index);tail=`${join[0].trim()}${lang==='ar'?'':' '}${rest}`}
+    head=head.trim();
+    return head?[head,tail]:[whole];
+  }
+  // A template such as "Bijna. Het is {answer}." becomes its fixed words and its
+  // numbers as separate recordings: ["Bijna. Het is", "zeventien"]. Punctuation
+  // left on its own between two slots is dropped; it has nothing to say.
+  function speechParts(template,params={},lang='nl'){
+    const out=[];
+    for(const piece of String(template||'').split(/(\{\w+\})/)){
+      const slot=piece.match(/^\{(\w+)\}$/);
+      if(slot&&!(slot[1] in params)) continue;
+      if(slot){
+        const v=params[slot[1]];
+        if(typeof v==='number'||/^\d+$/.test(String(v))) out.push(...numberParts(Number(v),lang));
+        else out.push(spellNumbers(String(v),lang));
+        continue;
+      }
+      const text=spellNumbers(piece,lang).replace(/^[\s:;,.!?·–—-]+/,'').trim();
+      if(/[\p{L}\p{N}]/u.test(text)) out.push(text);
+    }
+    return out;
+  }
+
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

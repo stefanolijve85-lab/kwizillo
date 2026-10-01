@@ -6,6 +6,13 @@
   const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
   const pick=a=>a[Math.floor(Math.random()*a.length)];
   const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+  // Every line here is said in pieces from a closed set of recordings (see
+  // numberParts in quiz-core-v2.js), so a sum nobody has heard before costs
+  // nothing and still speaks: "17 + 4" is "zeventien", "plus", "vier".
+  const lang=()=>K.speechLang?.()||K.state.language||'nl';
+  const parts=(key,params)=>K.core.speechParts(t(key),params,lang());
+  const num=n=>K.core.numberParts(n,lang());
+  const say=(pieces,opts)=>K.speakSequence(pieces.map(text=>({kind:'part',text})),opts);
 
   // Rekenen: ten generated sums per round. Each level (niveau) adds a skill;
   // the timer and the allowed mistakes come from the level rules the quiz
@@ -27,16 +34,16 @@
     if(L===4) ops.push(()=>mul(10),()=>div(10),()=>add(100),()=>sub(100));
     if(L===5) ops.push(()=>add(1000),()=>sub(1000),()=>mul(9,25),()=>div(10,12));
     if(L===6) ops.push(
-      ()=>{const a=rnd(2,9),b=rnd(2,9),c=rnd(1,30);return{text:`${c} + ${a} × ${b}`,speech:t('math.speech.twoStep',{c,a,b}),answer:c+a*b}},
-      ()=>{const n=rnd(2,25)*2;return{text:t('math.half',{n}),speech:t('math.speech.half',{n}),answer:n/2}},
-      ()=>{const n=rnd(2,15)*4;return{text:t('math.quarter',{n}),speech:t('math.speech.quarter',{n}),answer:n/4}},
-      ()=>{const p=pick([10,25,50]),n=rnd(1,10)*(p===10?10:p===25?4:2)*2;return{text:t('math.percent',{p,n}),speech:t('math.speech.percent',{p,n}),answer:n*p/100}}
+      ()=>{const a=rnd(2,9),b=rnd(2,9),c=rnd(1,30);return{text:`${c} + ${a} × ${b}`,speech:parts('math.speech.twoStep',{c,a,b}),answer:c+a*b}},
+      ()=>{const n=rnd(2,25)*2;return{text:t('math.half',{n}),speech:parts('math.speech.half',{n}),answer:n/2}},
+      ()=>{const n=rnd(2,15)*4;return{text:t('math.quarter',{n}),speech:parts('math.speech.quarter',{n}),answer:n/4}},
+      ()=>{const p=pick([10,25,50]),n=rnd(1,10)*(p===10?10:p===25?4:2)*2;return{text:t('math.percent',{p,n}),speech:parts('math.speech.percent',{p,n}),answer:n*p/100}}
     );
     const s=pick(ops)();
     if(!s.text){
       s.text=`${s.a} ${s.op} ${s.b}`;
       const word={'+':t('math.op.plus'),'-':t('math.op.minus'),'×':t('math.op.times'),'÷':t('math.op.divided')}[s.op];
-      s.speech=`${s.a} ${word} ${s.b}`;
+      s.speech=[...num(s.a),word,...num(s.b)];
     }
     // Four options: the answer and three near misses, all distinct and >= 0.
     const opts=new Set([s.answer]);
@@ -86,7 +93,7 @@
     const sums=makeRound(niveau);
     K.math={world,niveau,sums,index:0,score:0,done:false,answers:[]};
     render();
-    K.prefetchSpeech([...sums.map(s=>s.speech),t('math.speech.done'),t('math.speech.fail')]);
+    K.prefetchSpeech([...new Set(sums.flatMap(s=>s.speech)),t('math.speech.done'),t('math.speech.fail')]);
   };
 
   function render(){
@@ -125,11 +132,11 @@
     f.querySelector('#mathBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showHome()};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>render()})});
     // The hint shows the counting dots (or the reversed operation) for a moment.
-    f.querySelector('#mathHint').onclick=()=>{K.sfx('hint');const h=f.querySelector('#mathFeedback');h.hidden=false;h.className='math-feedback is-hint';h.textContent=hintFor(s);K.speak(h.textContent);setTimeout(()=>{if(h.classList.contains('is-hint'))h.hidden=true},2600)};
+    f.querySelector('#mathHint').onclick=()=>{K.sfx('hint');const h=f.querySelector('#mathFeedback');h.hidden=false;h.className='math-feedback is-hint';h.textContent=hintFor(s);say(hintFor(s,true));setTimeout(()=>{if(h.classList.contains('is-hint'))h.hidden=true},2600)};
     f.querySelector('#mathPrev').onclick=()=>{if(m.index===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');m.index--;render()};
     if(done){
       f.querySelector('#mathNext').onclick=()=>{K.stopSpeech();K.sfx('tap');m.index++;render()};
-      f.querySelector('#mathRepeat').onclick=()=>{K.sfx('tap');K.speak(s.speech)};
+      f.querySelector('#mathRepeat').onclick=()=>{K.sfx('tap');say(s.speech)};
       return;
     }
     buttons.forEach(b=>b.onclick=()=>answer(Number(b.dataset.a),b));
@@ -144,7 +151,7 @@
         if(left<=0){stopTimer();answer(null,null)}},100)};
     };
     // The four options are warmed so the chosen number is spoken at once.
-    const read=async()=>{if(timer)timer.paused=true;await K.speak(s.speech,{prefetch:buttons.map(b=>`${b.dataset.a}.`)});if(timer)timer.paused=false;startTimer()};
+    const read=async()=>{if(timer)timer.paused=true;await say(s.speech,{prefetch:buttons.flatMap(b=>num(b.dataset.a))});if(timer)timer.paused=false;startTimer()};
     f.querySelector('#mathRepeat').onclick=()=>{K.sfx('tap');read()};
     read();
 
@@ -158,10 +165,11 @@
       if(correct)K.awardPoints(10);K.save();
       const h=f.querySelector('#mathFeedback');h.hidden=false;h.className=`math-feedback ${correct?'is-good':'is-try'}`;
       h.innerHTML=`<b>${esc(t(value===null?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</b><span>${esc(t('math.answerIs',{sum:s.text,answer:s.answer}))}</span>`;
-      const line=correct?t(`feedback.speech.good.${1+Math.floor(Math.random()*8)}`):t('math.speech.wrong',{answer:s.answer});
+      const line=correct?[t(`feedback.speech.good.${1+Math.floor(Math.random()*8)}`)]:parts('math.speech.wrong',{answer:s.answer});
       const go=()=>{m.index++;render()};
       // The voice names the chosen number first, then the praise or the correction.
-      const spoken=K.speakSequence([value===null?null:{kind:'answer',text:`${value}.`},{kind:'speech',text:line}]);
+      const chosen=value===null?[]:num(value).map((text,i,all)=>({kind:i===all.length-1?'answer':'part',text}));
+      const spoken=K.speakSequence([...chosen,...line.map(text=>({kind:'part',text}))]);
       // Move on when the lines have been spoken (or straight away without a voice), never later than 3.4 s.
       let moved=false;const next=()=>{if(moved)return;moved=true;go()};
       Promise.resolve(spoken).then(()=>setTimeout(next,350),()=>setTimeout(next,350));
@@ -170,12 +178,10 @@
     }
   }
 
-  function hintFor(s){
-    if(s.op==='+')return t('math.hint.plus',{a:s.a,b:s.b});
-    if(s.op==='-')return t('math.hint.minus',{a:s.a,b:s.b});
-    if(s.op==='×')return t('math.hint.times',{a:s.a,b:s.b});
-    if(s.op==='÷')return t('math.hint.divided',{a:s.a,b:s.b});
-    return t('math.hint.generic');
+  // The text for the screen, or (spoken) the same line in recordable pieces.
+  function hintFor(s,spoken){
+    const key={'+':'math.hint.plus','-':'math.hint.minus','×':'math.hint.times','÷':'math.hint.divided'}[s.op]||'math.hint.generic';
+    return spoken?parts(key,{a:s.a,b:s.b}):t(key,{a:s.a,b:s.b});
   }
 
   K.mathFinishForTest=()=>finish();

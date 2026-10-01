@@ -112,8 +112,9 @@ test('after an answer the voice names the chosen number, then the feedback line'
   await expect(page.locator('.math-sum')).toBeVisible();
   const btn = page.locator('.answer[data-a]').first();
   const chosen = await btn.getAttribute('data-a');
-  // Numbers are spoken as words ("zes."), so compare with the spelled form.
-  const word = await page.evaluate(n => window.KWIZILLO_M1.core.spellNumbers(`${n}.`, 'nl'), chosen);
+  // Numbers are spoken as words, in pieces from a closed set ("driehonderd",
+  // "zevenenveertig"), so compare with the last piece of the spelled form.
+  const word = await page.evaluate(n => window.KWIZILLO_M1.core.numberParts(Number(n), 'nl').at(-1), chosen);
   // The options are warmed two at a time while the sum is read; wait for that to
   // reach this one, so what follows measures the click and not the queue.
   await expect.poll(() => spoken.includes(word), { timeout: 20000 }).toBe(true);

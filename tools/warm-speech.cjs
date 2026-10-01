@@ -47,7 +47,8 @@ const t = (lang, key, params) => { K.state.language = lang; return K.t(key, para
 // The same variant choice as quiz-visual-v2.js: the "try again" line is fixed per question.
 const tryVariant = q => { let h = 0; for (const ch of q.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return (h % 4) + 1 };
 
-function linesFor(lang, tier) {
+// Also used by tools/speech-inventory.cjs, which needs the very same lines.
+function linesFor(lang, tier, { topic = null, ids = [] } = {}) {
   const bank = (banks[lang] || []).filter(q => (!topic || q.topic === topic) && (!ids.length || ids.includes(q.id)));
   const out = [];
   if (tier === 1) {
@@ -67,12 +68,13 @@ function linesFor(lang, tier) {
   return [...new Set(out.filter(Boolean).map(line => core.spellNumbers(line, lang).trim()))];
 }
 
-(async () => {
+module.exports = { linesFor, tryVariant, banks, i18n: K, t };
+if (require.main === module) (async () => {
   let asked = 0, chars = 0, failed = 0, inARow = 0, stop = '';
   const started = Date.now();
   for (const tier of tiers) {
     for (const lang of langs) {
-      const lines = linesFor(lang, tier);
+      const lines = linesFor(lang, tier, { topic, ids });
       if (dry) { console.log(`tier ${tier} ${lang}: ${lines.length} lines, ${lines.reduce((n, l) => n + l.length, 0)} characters per voice`); continue }
       for (const voice of voices) {
         const t0 = Date.now(); let fresh = 0, next = 0;

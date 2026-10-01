@@ -95,6 +95,13 @@ function corsHeaders(req){
   return { 'Access-Control-Allow-Origin': origin, 'Vary': 'Origin' };
 }
 
+// TTS_CACHE_ONLY=1 never asks ElevenLabs for anything: a line that is not in
+// .tts-cache answers 404 and the app skips it (a 503 would switch the voice off
+// for the whole session). Production runs like this, so players can never cost
+// credits; new lines are recorded on a machine without the switch
+// (tools/warm-speech.cjs) and the cache is copied over.
+const CACHE_ONLY = /^(1|true|yes)$/i.test(process.env.TTS_CACHE_ONLY || '');
+
 // TTS_DAILY_CHARS caps how many characters the whole server sends to
 // ElevenLabs per calendar day (0 = no cap). A cache hit costs nothing. The cap
 // is the hard ceiling on the credit bill whatever else goes wrong.
@@ -456,6 +463,8 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
   const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`).digest('hex');
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta,cached:true};
+  // Logged with the text so a line the warm-up missed can be found and recorded.
+  if(CACHE_ONLY){ const e=new Error(`not in cache: ${lang}/${guide} "${text.slice(0,120)}"`); e.name='CacheMiss'; throw e; }
   if(dailyBudgetLeft()<text.length){ const e=new Error('daily TTS budget spent'); e.name='BudgetError'; throw e; }
   dailySpend(text.length);
 
@@ -579,6 +588,7 @@ const server=http.createServer(async(req,res)=>{
         if(res.headersSent)return res.end();
         const timeout=e?.name==='TimeoutError'||e?.name==='AbortError';
         if(e?.name==='BudgetError')return json(res,503,{error:'Spraak is tijdelijk niet beschikbaar'});
+        if(e?.name==='CacheMiss')return json(res,404,{error:'Deze zin is niet opgenomen'});
         return json(res,timeout?504:502,{error:timeout?'Spraak duurde te lang':'Spraak is tijdelijk niet beschikbaar'});
       }
     }
@@ -607,6 +617,7 @@ const server=http.createServer(async(req,res)=>{
           console.error('Kwizillo TTS:',e?.message||e);
           const timeout=e?.name==='TimeoutError'||e?.name==='AbortError';
           if(e?.name==='BudgetError')return json(res,503,{error:'Spraak is tijdelijk niet beschikbaar'});
+          if(e?.name==='CacheMiss')return json(res,404,{error:'Deze zin is niet opgenomen'});
           json(res,timeout?504:502,{error:timeout?'Spraak duurde te lang':'Spraak is tijdelijk niet beschikbaar'});
         }
       });

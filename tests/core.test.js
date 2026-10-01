@@ -309,4 +309,15 @@ assert.deepStrictEqual([1,2,3,4,5,6].map(core.readsAnswers), [true,true,true,tru
   assert.strictEqual(core.buildQuestionSpeechSegments(q).length, 5, 'question + four answers');
   assert.deepStrictEqual(core.buildQuestionSpeechSegments(q, { answers: false }).map(s => s.kind), ['question']);
 }
+/* ---- Rekenen speaks numbers in pieces from a closed set, and the pieces say the whole number ---- */
+for (const lang of LANGS) {
+  const squash = x => x.replace(/[\s-]/g, '');
+  for (let n = 0; n <= 2000; n++) {
+    const parts = core.numberParts(n, lang);
+    assert.ok(parts.length >= 1 && parts.length <= 2, `${lang} ${n}: ${parts}`);
+    assert.strictEqual(squash(parts.join('')), squash(core.spellNumbers(String(n), lang)), `${lang} ${n} pieces do not add up: ${parts}`);
+  }
+}
+assert.deepStrictEqual(core.speechParts('Bijna. Het is {answer}.', { answer: 347 }, 'nl'), ['Bijna. Het is', 'driehonderd', 'zevenenveertig']);
+assert.deepStrictEqual(core.speechParts('{a} keer {b}', {}, 'nl'), ['keer'], 'an unfilled slot is never read out');
 console.log('Kwizillo core gameplay tests: OK');
