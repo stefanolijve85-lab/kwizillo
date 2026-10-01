@@ -22,7 +22,7 @@
     const wide=document.documentElement.dataset.shape==='wide';
     const url=(wide&&K.MOTION?.homeWide)||K.MOTION?.home||K.config?.introVideoUrl||'';
     const early=document.getElementById('introEarly');
-    if(!url){early?.remove();return onDone()}
+    if(!url){early?.remove();window.KWIZILLO_INTRO_MARK_OUT?.();return onDone()}
 
     const wideFilm=wide&&url===K.MOTION?.homeWide;
     // The blurred copy behind the film is only for a portrait film on a wide
@@ -54,12 +54,14 @@
     // The logo and the film appear together, the moment the film really moves
     // (base blue until then, the same as the launch screen: no dark flash, no
     // logo over an empty screen). An adopted film may be playing already.
-    const moving=()=>{el.classList.add('cinematic-playing');K.hideSplash?.()};
+    const moving=()=>{el.classList.add('cinematic-playing');window.KWIZILLO_INTRO_MARK_OUT?.();K.hideSplash?.()};
+    // Adopted at the very moment it started, its 'playing' may already be gone
+    // while currentTime is still 0: the first timeupdate catches that.
     if(!video.paused&&video.currentTime>0) moving();
-    else video.addEventListener('playing',moving,{once:true});
+    else{video.addEventListener('playing',moving,{once:true});video.addEventListener('timeupdate',moving,{once:true})}
     // A film that neither plays nor fails within 2.5 s: the logo comes anyway,
     // so the screen is never just blue.
-    setTimeout(()=>el.classList.add('cinematic-playing'),2500);
+    setTimeout(()=>{el.classList.add('cinematic-playing');window.KWIZILLO_INTRO_MARK_OUT?.()},2500);
     if(bg){const r=bg.play();if(r&&r.catch)r.catch(()=>{})}
     let timers=[],done=false,theme=null,soundOn=false,videoFailed=false,triedFallback=false;
     K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
@@ -82,6 +84,7 @@
     };
 
     const finish=()=>{
+      window.KWIZILLO_INTRO_MARK_OUT?.();
       if(done) return;
       done=true;
       timers.forEach(clearTimeout);
@@ -129,7 +132,7 @@
       log('error',err?.code,err?.message||'');
       // Nothing to show: the logo animation carries on over the dark
       // background and the theme still gets its 12 seconds after the tap.
-      el.classList.add('poster-only','cinematic-playing');
+      el.classList.add('poster-only','cinematic-playing');window.KWIZILLO_INTRO_MARK_OUT?.();
       timers.forEach(clearTimeout);timers=[];
       schedule(finish,soundOn?12500:SAFETY_MS);
     });
