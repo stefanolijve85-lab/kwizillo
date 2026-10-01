@@ -78,6 +78,12 @@ company, App Store Connect can transfer an approved app to another account.
 | Build 1.0 (3): intro starts before the rest of the app (`intro-early.js`) | UPLOADED 30 SEPT |
 | Build 1.0 (4): speech feedback as verdict + one explanation clip per question | UPLOADED 1 OCT 11:27 (archive + `-exportArchive`, destination upload) |
 | Build 1.0 (5): every line said from a closed set of recordings (letter and answer apart, Rekenen in pieces, explanations reused); needs the v4 voice cache on the server | UPLOADED 1 OCT 15:09 (first try refused until the updated developer agreement was accepted) |
+| Build 1.0 (6): new app icon (yellow K with a star on blue) | BUILT 1 OCT (upload not recorded) |
+| Build 1.0 (7): intro starts before the stylesheets; first frame zooms in until the film plays | BUILT 1 OCT (upload not recorded) |
+| Build 1.0 (8): launch screen plain brand blue, film and logo appear together | BUILT 1 OCT (upload not recorded) |
+| Build 1.0 (9): launch screen the K icon on brand blue | BUILT 1 OCT (upload not recorded) |
+| Build 1.0 (10): sound comes back after the background (SceneDelegate) | ARCHIVED 1 OCT, NOT UPLOADED (superseded by 11) |
+| Build 1.0 (11): launch screen is the film's exact first frame (iPhone portrait, iPad wide), the film takes over without a seam (no frame fade-in, filter or shade on adoption); world screen progress line centred above the topics | UPLOADED 1 OCT (`xcodebuild -exportArchive`, destination upload, EXPORT SUCCEEDED) |
 | Subscription review screenshots (paywall, free player, NL/EN/PT) | DONE 1 OCT — `store/screenshots/subscription/`, `tools/paywall-shots.cjs` |
 | TestFlight on a real iPhone, sandbox purchase | NEXT — OWNER |
 | Store texts, age rating, privacy label, review notes | READY — `STORE_LISTING.md` |
