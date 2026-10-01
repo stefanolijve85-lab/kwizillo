@@ -69,7 +69,7 @@ company, App Store Connect can transfer an approved app to another account.
 | StoreKit 2 plugin (products, purchase, verify, finish, current entitlements, updates, restore via `AppStore.sync`, manage sheet, trial eligibility) | CODE COMPLETE |
 | JS bridge + entitlement validity tied to the native store | CODE COMPLETE |
 | Light status bar, no-encryption declaration | CODE COMPLETE |
-| App icon (Milo waving against the game's sky, no text; master `assets/brand/app-icon-1024.png`) and launch screen (the intro's opening clouds, held by `@capacitor/splash-screen` until the film plays, 4 s safety net) | DONE 30 SEPT, checked in the iPhone 16 Pro Max simulator |
+| App icon (since 1 Oct: the yellow K with a star on blue, master `assets/brand/app-icon-1024.png`; every size from `swift tools/app-icon.swift`) and launch screen (the intro's opening clouds, held by `@capacitor/splash-screen` until the film plays, 4 s safety net) | DONE 30 SEPT, checked in the iPhone 16 Pro Max simulator |
 | iPad: universal target, portrait and landscape, layout scaled to fit | CODE COMPLETE, RUNS IN THE SIMULATOR |
 | Simulator build | BUILD SUCCEEDED (Xcode 26.4.1); runs on the iPhone 16 Pro Max and the iPad Pro 11" (M4) simulators, plugin registered and reachable |
 | Release archive for devices (generic iOS, unsigned) | ARCHIVE SUCCEEDED 30 SEPT (194 MB) |
