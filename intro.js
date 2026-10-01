@@ -22,7 +22,7 @@
     const wide=document.documentElement.dataset.shape==='wide';
     const url=(wide&&K.MOTION?.homeWide)||K.MOTION?.home||K.config?.introVideoUrl||'';
     const early=document.getElementById('introEarly');
-    if(!url){early?.remove();return onDone()}
+    if(!url){early?.remove();window.KWIZILLO_DROP_INTRO_STILL?.();return onDone()}
 
     const wideFilm=wide&&url===K.MOTION?.homeWide;
     // The blurred copy behind the film is only for a portrait film on a wide
@@ -74,6 +74,7 @@
     };
 
     const finish=()=>{
+      window.KWIZILLO_DROP_INTRO_STILL?.();
       if(done) return;
       done=true;
       timers.forEach(clearTimeout);

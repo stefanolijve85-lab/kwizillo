@@ -14,6 +14,8 @@
        accident. `tools/build-www.cjs` widens connect-src to the speech proxy of
        the iOS build and nothing else. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <!-- First of all, before the stylesheets: the opening film (see intro-early.js). -->
+  <script src="intro-early.js"></script>
   <link rel="stylesheet" href="base.css" />
   <link rel="stylesheet" href="screens.css" />
   <!-- Alleen voor de tablet in liggende stand; zie m1-runtime.js (data-shape). -->
@@ -21,7 +23,6 @@
 </head>
 <body>
   <main id="app" aria-live="polite"></main>
-  <script src="intro-early.js"></script>
   <script src="config.js"></script>
   <script src="strings-de.js"></script>
   <script src="strings-fr.js"></script>
