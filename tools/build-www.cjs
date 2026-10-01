@@ -11,7 +11,7 @@ const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..'), OUT = path.join(ROOT, 'www');
 const API_HOST = (process.env.API_HOST || 'https://app.kwizillo.nl').replace(/\/$/, '');
 
-const SKIP_JS = new Set(['server.js', 'playwright.config.js', 'capacitor.config.js']);
+const SKIP_JS = new Set(['server.js', 'speech-config.js', 'playwright.config.js', 'capacitor.config.js']);
 fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true });
 
 // scripts and styles the page references, plus the generated manifests
