@@ -29,7 +29,10 @@
     // screen. Anywhere else it was a second decoder on the same 10 MB file: on
     // an iPhone the theme played while the visible film stood still.
     const needsBg=wide&&!wideFilm;
-    const frame=K.frame(`<div class="motion kwizillo-cinematic fade-in${wideFilm?' wide-film':''}">
+    // A film intro-early.js already started is taken over as it stands: no
+    // fade-in of the frame (that showed the dark page through it, a flash).
+    const adopt=!!early&&early.getAttribute('src')===url.split('?')[0];
+    const frame=K.frame(`<div class="motion kwizillo-cinematic${adopt?'':' fade-in'}${wideFilm?' wide-film':''}">
       ${needsBg?`<video class="intro-bg" muted playsinline autoplay preload="auto" aria-hidden="true" src="${url}"></video>`:''}
       <video class="intro-main" muted playsinline autoplay preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
@@ -41,7 +44,7 @@
     // intro-early.js may already be playing this film: take that element over
     // (moved within one task, so it keeps playing) instead of starting again.
     if(early){
-      if(early.getAttribute('src')===url.split('?')[0]){
+      if(adopt){
         early.removeAttribute('id');early.removeAttribute('style');early.className='intro-main';
         video.replaceWith(early);video=early;
       }else early.remove();
@@ -51,16 +54,20 @@
     // is stom, speelt automatisch en doet er verder niet toe: lukt het niet,
     // dan blijft de onscherpe wereldkunst eronder staan.
     const bg=el.querySelector('.intro-bg');
+    // Until the film moves the frame shows its first frame, the picture the
+    // launch screen and intro-early.js show too (only where the film fills the
+    // screen; a portrait film on a wide screen stands on the blue).
+    if(!needsBg) el.style.background=`#1d5fa8 url("${wideFilm?'assets/brand/intro-wide-first.png':'assets/brand/intro-first.png'}") center/cover no-repeat`;
     // The logo and the film appear together, the moment the film really moves
     // (base blue until then, the same as the launch screen: no dark flash, no
     // logo over an empty screen). An adopted film may be playing already.
     const moving=()=>{el.classList.add('cinematic-playing');window.KWIZILLO_INTRO_MARK_OUT?.();K.hideSplash?.()};
-    // Adopted at the very moment it started, its 'playing' may already be gone
-    // while currentTime is still 0: the first timeupdate catches that.
-    if(!video.paused&&video.currentTime>0) moving();
+    // An adopted film that is already on screen stays on screen (data-playing:
+    // its 'playing' has been, even if currentTime is still 0).
+    if(video.dataset.playing||(!video.paused&&video.currentTime>0)) moving();
     else{video.addEventListener('playing',moving,{once:true});video.addEventListener('timeupdate',moving,{once:true})}
-    // A film that neither plays nor fails within 2.5 s: the logo comes anyway,
-    // so the screen is never just blue.
+    // A film that neither plays nor fails within 2.5 s: the logo comes anyway
+    // (over the first frame).
     setTimeout(()=>{el.classList.add('cinematic-playing');window.KWIZILLO_INTRO_MARK_OUT?.()},2500);
     if(bg){const r=bg.play();if(r&&r.catch)r.catch(()=>{})}
     let timers=[],done=false,theme=null,soundOn=false,videoFailed=false,triedFallback=false;
@@ -153,11 +160,11 @@
     if(native){
       el.querySelector('#introSound')?.classList.add('quiet');
       // An adopted film may be playing already, its 'playing' event long gone.
-      if(!video.paused&&video.currentTime>0){K.hideSplash?.();soundAtOnce()}
+      if(video.dataset.playing||(!video.paused&&video.currentTime>0)){K.hideSplash?.();soundAtOnce()}
       else video.addEventListener('playing',soundAtOnce,{once:true});
     }
     const p=video.play();
-    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);K.hideSplash?.();const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});   // no waiting behind the launch screen for a film that will not start by itself
+    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);K.hideSplash?.();window.KWIZILLO_INTRO_MARK_OUT?.();const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});   // no waiting behind the launch screen for a film that will not start by itself
   };
 
   // De eerste keer: de onboarding. Daarna: "Hoi Jan, verder spelen?" met wat er

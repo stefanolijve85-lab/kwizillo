@@ -1,67 +1,77 @@
-// The launch screen: the app icon (rounded, soft shadow) in the middle of the
-// brand blue. One mark, drawn three ways from assets/brand/app-icon-1024.png:
-//   assets/brand/splash-mark.png        the mark itself, for the web page
-//   iOS Splash.imageset (2732 square)   shown aspect-fill by LaunchScreen.storyboard
-//   Android drawable*/splash.png        one per density and orientation
+// The launch screen: the opening film's very first frame, so the app opens on
+// the picture the film starts with and the film takes over without a seam.
 //
 //   swift tools/splash.swift
 //
-// Size rule, the same everywhere so the native screen and the page line up to
-// the pixel: the icon is ICON of the screen's longer side (an aspect-filled
-// square scales with the longer side). intro-early.js uses the same numbers.
+// 1. Takes frame 0 of both films with tools/bin/ffmpeg (BT.709, as the web
+//    view decodes them) into assets/brand/intro-first.png and
+//    intro-wide-first.png. intro-early.js shows the same file on the page.
+// 2. iOS Splash.imageset: the portrait frame for iPhone, the wide frame for
+//    iPad. LaunchScreen.storyboard shows it aspect-fill, which crops exactly as
+//    the film's object-fit:cover does.
+// 3. Android drawable*/splash.png: each one the frame cropped to its own size
+//    (portrait folders the portrait film, landscape folders the wide film).
 import AppKit
 import CoreGraphics
 
-let ICON = 0.18485          // icon edge / longer screen side  (≈ 40% of a phone's width)
-let PAD = 0.14              // transparent margin round the icon for its shadow, per side, / icon edge
-let BLUE = CGColor(srgbRed: 0x1d / 255.0, green: 0x5f / 255.0, blue: 0xa8 / 255.0, alpha: 1)
-
 let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-let icon = NSImage(contentsOf: root.appendingPathComponent("assets/brand/app-icon-1024.png"))!
-  .cgImage(forProposedRect: nil, context: nil, hints: nil)!
-
-// The mark: icon of edge `e` px with its shadow, centred on (cx, cy).
-func drawMark(_ ctx: CGContext, cx: CGFloat, cy: CGFloat, e: CGFloat) {
-  let rect = CGRect(x: cx - e / 2, y: cy - e / 2, width: e, height: e)
-  let path = CGPath(roundedRect: rect, cornerWidth: e * 0.2237, cornerHeight: e * 0.2237, transform: nil)
-  ctx.saveGState()
-  ctx.setShadow(offset: CGSize(width: 0, height: -e * 0.035), blur: e * 0.09, color: CGColor(srgbRed: 0, green: 0.08, blue: 0.27, alpha: 0.45))
-  ctx.addPath(path); ctx.setFillColor(BLUE); ctx.fillPath()
-  ctx.restoreGState()
-  ctx.saveGState(); ctx.addPath(path); ctx.clip(); ctx.interpolationQuality = .high; ctx.draw(icon, in: rect); ctx.restoreGState()
-}
-
-func canvas(_ w: Int, _ h: Int, opaque: Bool) -> CGContext {
-  CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpace(name: CGColorSpace.sRGB)!,
-            bitmapInfo: opaque ? CGImageAlphaInfo.noneSkipLast.rawValue : CGImageAlphaInfo.premultipliedLast.rawValue)!
-}
-
-func save(_ ctx: CGContext, _ path: String) {
-  let url = root.appendingPathComponent(path)
-  try! NSBitmapImageRep(cgImage: ctx.makeImage()!).representation(using: .png, properties: [:])!.write(to: url)
-  print("\(path)  \(ctx.width)x\(ctx.height)")
-}
-
-// The page's copy: icon 512 px plus its margin.
-let e = 512.0, side = Int(e * (1 + 2 * PAD))
-let mark = canvas(side, side, opaque: false)
-drawMark(mark, cx: CGFloat(side) / 2, cy: CGFloat(side) / 2, e: e)
-save(mark, "assets/brand/splash-mark.png")
-
-func splash(_ path: String) {
-  let old = NSImage(contentsOf: root.appendingPathComponent(path))!.cgImage(forProposedRect: nil, context: nil, hints: nil)!
-  let w = old.width, h = old.height
-  let ctx = canvas(w, h, opaque: true)
-  ctx.setFillColor(BLUE); ctx.fill(CGRect(x: 0, y: 0, width: w, height: h))
-  drawMark(ctx, cx: CGFloat(w) / 2, cy: CGFloat(h) / 2, e: CGFloat(ICON) * CGFloat(max(w, h)))
-  save(ctx, path)
-}
-
 let fm = FileManager.default
-for f in ["splash-2732x2732.png", "splash-2732x2732-1.png", "splash-2732x2732-2.png"] {
-  splash("ios/App/App/Assets.xcassets/Splash.imageset/\(f)")
+
+func firstFrame(_ film: String, _ out: String) {
+  let p = Process()
+  p.executableURL = root.appendingPathComponent("tools/bin/ffmpeg")
+  p.arguments = ["-v", "error", "-y", "-i", "assets/brand/\(film)", "-frames:v", "1",
+                 "-vf", "scale=in_color_matrix=bt709:in_range=tv:out_range=pc,format=rgb24", "assets/brand/\(out)"]
+  try! p.run(); p.waitUntilExit()
+  precondition(p.terminationStatus == 0, "ffmpeg failed on \(film)")
+  print("assets/brand/\(out)")
 }
+firstFrame("intro.mp4", "intro-first.png")
+firstFrame("intro-wide.mp4", "intro-wide-first.png")
+
+func load(_ path: String) -> CGImage {
+  NSImage(contentsOf: root.appendingPathComponent(path))!.cgImage(forProposedRect: nil, context: nil, hints: nil)!
+}
+let tall = load("assets/brand/intro-first.png")
+let wide = load("assets/brand/intro-wide-first.png")
+
+func save(_ img: CGImage, _ path: String) {
+  try! NSBitmapImageRep(cgImage: img).representation(using: .png, properties: [:])!.write(to: root.appendingPathComponent(path))
+  print("\(path)  \(img.width)x\(img.height)")
+}
+
+// `src` scaled to cover w x h and centred, as object-fit:cover does.
+func cover(_ src: CGImage, _ w: Int, _ h: Int) -> CGImage {
+  let ctx = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: 0,
+                      space: CGColorSpace(name: CGColorSpace.sRGB)!, bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!
+  let s = max(Double(w) / Double(src.width), Double(h) / Double(src.height))
+  let dw = Double(src.width) * s, dh = Double(src.height) * s
+  ctx.interpolationQuality = .high
+  ctx.draw(src, in: CGRect(x: (Double(w) - dw) / 2, y: (Double(h) - dh) / 2, width: dw, height: dh))
+  return ctx.makeImage()!
+}
+
+// iOS: the frames as they are (the image view does the cropping).
+let set = "ios/App/App/Assets.xcassets/Splash.imageset"
+for f in (try? fm.contentsOfDirectory(atPath: root.appendingPathComponent(set).path)) ?? [] where f.hasSuffix(".png") {
+  try? fm.removeItem(at: root.appendingPathComponent("\(set)/\(f)"))
+}
+var entries: [String] = []
+for (idiom, img, scales) in [("iphone", tall, ["1x", "2x", "3x"]), ("ipad", wide, ["1x", "2x"])] {
+  for sc in scales {
+    let f = "splash-\(idiom)@\(sc).png"
+    save(img, "\(set)/\(f)")
+    entries.append("    { \"idiom\" : \"\(idiom)\", \"filename\" : \"\(f)\", \"scale\" : \"\(sc)\" }")
+  }
+}
+try! "{\n  \"images\" : [\n\(entries.joined(separator: ",\n"))\n  ],\n  \"info\" : { \"version\" : 1, \"author\" : \"xcode\" }\n}\n"
+  .write(to: root.appendingPathComponent("\(set)/Contents.json"), atomically: true, encoding: .utf8)
+
+// Android: every splash.png keeps its size and gets the frame cropped to it.
 let res = root.appendingPathComponent("android/app/src/main/res")
 for dir in (try? fm.contentsOfDirectory(atPath: res.path))?.sorted() ?? [] where dir.hasPrefix("drawable") {
-  if fm.fileExists(atPath: res.appendingPathComponent("\(dir)/splash.png").path) { splash("android/app/src/main/res/\(dir)/splash.png") }
+  let path = "android/app/src/main/res/\(dir)/splash.png"
+  guard fm.fileExists(atPath: root.appendingPathComponent(path).path) else { continue }
+  let old = load(path)
+  save(cover(old.width > old.height ? wide : tall, old.width, old.height), path)
 }

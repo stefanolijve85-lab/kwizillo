@@ -292,10 +292,10 @@
             <div class="world-kicker">${K.worldBadge(world,'tiny')} ${esc(t('world.kicker'))} · ${esc(t('settings.level'))} ${K.playLevel(world)}</div>
             <h1 class="${worldTitle(world).length>14?'long':''}">${esc(worldTitle(world))}</h1>
             <p>${esc(worldSub(world))}</p>
-            <p class="world-progress-line">${esc(t('world.progressLine',{passed:topics.filter(x=>x.passed).length,total:topics.length||4}))}</p>
           </div>
           <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
         </header>
+        <p class="world-progress-line">${esc(t('world.progressLine',{passed:topics.filter(x=>x.passed).length,total:topics.length||4}))}</p>
         <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic has-art ${topicFree(tp)?'':'locked'}" data-topic="${tp.i}">
           <img class="world-topic-art" src="${K.TOPIC_ART[tp.key]||K.MASTER[world]}" alt="" decoding="async">
           <span class="world-topic-veil"></span>
