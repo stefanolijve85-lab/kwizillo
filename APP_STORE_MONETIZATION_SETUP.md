@@ -80,7 +80,7 @@ in the app spells them out.
     | Monthly name | Kwizillo Premium Mensal |
     | Monthly description | Todos os 8 mundos, 1280 perguntas e todos os jogos. |
     | Yearly name | Kwizillo Premium Anual |
-    | Yearly description | 8 mundos, 1280 perguntas, todos os jogos. 7 dias grátis |
+    | Yearly description | 8 mundos, 1280 questões, todos os jogos. 7 dias grátis. |
 15. **Review screenshot** — OWNER ACTION. Each subscription needs one screenshot of
     the paywall as the reviewer will see it (take it from the iOS build; the web
     paywall is `K.showPremium()` — identical design).
