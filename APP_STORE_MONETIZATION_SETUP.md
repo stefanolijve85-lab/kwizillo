@@ -53,33 +53,34 @@ in the app spells them out.
     Prices → Introductory Offers → *Free* → duration 1 week → all countries. Do
     **not** add an introductory price (€39,99 etc.) for RC1 — see `MONETIZATION_FUTURE.md`.
 12. **Dutch localization** — OWNER ACTION. Group display name and per-product
-    localization. Copy that matches the app:
+    localization. Copy that matches the app. App Store Connect limits: name max 35
+    characters, description max 55 characters (all texts below fit):
 
     | Field | Text |
     |---|---|
     | Group name | Kwizillo Premium |
-    | Monthly name | Kwizillo Premium — Maandelijks |
-    | Monthly description | Alle werelden, 480+ kennisvragen, Rekenen, Memo, Weetjes en alle kaarten en mascottes. Maandelijks opzegbaar. |
-    | Yearly name | Kwizillo Premium — Jaarlijks |
-    | Yearly description | Alle werelden, 480+ kennisvragen, Rekenen, Memo, Weetjes en alle kaarten en mascottes. 7 dagen gratis proberen. |
+    | Monthly name | Kwizillo Premium Maandelijks |
+    | Monthly description | Alle 8 werelden, 1280 vragen en alle spellen. |
+    | Yearly name | Kwizillo Premium Jaarlijks |
+    | Yearly description | 8 werelden, 1280 vragen, alle spellen. 7 dagen gratis. |
 13. **English (US) localization** — OWNER ACTION.
 
     | Field | Text |
     |---|---|
     | Group name | Kwizillo Premium |
-    | Monthly name | Kwizillo Premium — Monthly |
-    | Monthly description | All worlds, 480+ knowledge questions, math, memory, facts and every card and mascot. Cancel any time. |
-    | Yearly name | Kwizillo Premium — Yearly |
-    | Yearly description | All worlds, 480+ knowledge questions, math, memory, facts and every card and mascot. Try 7 days free. |
+    | Monthly name | Kwizillo Premium Monthly |
+    | Monthly description | All 8 worlds, 1280 questions and every game. |
+    | Yearly name | Kwizillo Premium Yearly |
+    | Yearly description | 8 worlds, 1280 questions, every game. 7 days free. |
 14. **Portuguese (Brazil) localization** — OWNER ACTION.
 
     | Field | Text |
     |---|---|
     | Group name | Kwizillo Premium |
-    | Monthly name | Kwizillo Premium — Mensal |
-    | Monthly description | Todos os mundos, mais de 480 perguntas, matemática, jogo da memória, curiosidades e todas as cartas e mascotes. Cancele quando quiser. |
-    | Yearly name | Kwizillo Premium — Anual |
-    | Yearly description | Todos os mundos, mais de 480 perguntas, matemática, jogo da memória, curiosidades e todas as cartas e mascotes. Experimente grátis por 7 dias. |
+    | Monthly name | Kwizillo Premium Mensal |
+    | Monthly description | Todos os 8 mundos, 1280 perguntas e todos os jogos. |
+    | Yearly name | Kwizillo Premium Anual |
+    | Yearly description | 8 mundos, 1280 perguntas, todos os jogos. 7 dias grátis |
 15. **Review screenshot** — OWNER ACTION. Each subscription needs one screenshot of
     the paywall as the reviewer will see it (take it from the iOS build; the web
     paywall is `K.showPremium()` — identical design).
