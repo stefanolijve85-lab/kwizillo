@@ -22,6 +22,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 | Privacy-URL | `https://kwizillo.nl/privacy.html` (EN: `https://kwizillo.com/en/privacy.html`) — werkt zodra de site online staat |
 | Support-URL | `https://kwizillo.nl` (EN: `https://kwizillo.com`); later de hulppagina |
 | Support-e-mail | hallo@kwizillo.nl |
+| Telefoon (handelaarsstatus, contact voor App Review) | 0591 561737 (internationaal +31 591 561737) |
 | Uitgever / verkoper | Solotech vof, Boslaan 3, 7811 GJ Emmen, Nederland · KvK 94214578 (Apple- en Google-account van Solotech) |
 | Copyright | © 2026 Solotech vof |
 
@@ -128,7 +129,7 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 ### App Store Connect — formulieren
 
 **Leeftijd / Kids-categorie**
-- *Made for Kids*: **ja**, leeftijdsgroep **6–8** (advies; alternatief 9–11). De app
+- *Made for Kids*: **ja**, leeftijdsgroep **6–8** (besloten 1 oktober). De app
   voldoet aan de Kids-eisen: geen advertenties, geen analytics van derden, geen
   persoonsgegevens naar derden, en links naar buiten (e-mail, delen) en aankopen
   alleen na een oudercheck.
@@ -171,6 +172,11 @@ naar de links onderaan, want Apple en Google passen dit regelmatig aan.
 
 **Screenshots**: `node tools/store-shots.cjs` → `store/screenshots/iphone/{nl,en}/`
 (6,9", 1320 × 2868) en `store/screenshots/ipad/{nl,en}/` (13", 2064 × 2752), acht per taal.
+
+**Review-screenshot per abonnement**: `node tools/paywall-shots.cjs` →
+`store/screenshots/subscription/{nl,en,pt}.png` (de betaalpagina voor een gratis speler,
+1320 × 2868). Zelfde afbeelding voor maand en jaar. De bedragen komen uit de
+ontwikkelsimulator; de echte app toont Apples prijzen per land.
 
 ---
 
@@ -237,12 +243,12 @@ ESRB Everyone.
 
 | # | Wie | Wat |
 |---|---|---|
-| 1 | eigenaar | kwizillo.nl en .com online (komt eraan). Zet eerst de nieuwste site-versies (NL, EN, privacy, hulp) uit de artifacts in `site/`: de map in git is ouder. De privacytekst moet ook Google Play noemen. |
+| 1 | eigenaar | kwizillo.nl en .com staan online, maar de live privacyverklaring (27 sept) heeft nog de plaatshouder "[uitgever: naam en vestigingsadres invullen]". `site/privacy.html` en `site/en/privacy.html` in de repo noemen Solotech vof en Google Play: pushen en op de server `git pull` (`deploy/DEPLOY.md` §6). |
 | 2 | eigenaar | Spraakserver `app.kwizillo.nl` online (`deploy/DEPLOY.md`), met `ALLOWED_ORIGINS` inclusief `capacitor://localhost` en `https://localhost`. Anders heeft de app bij de beoordeling geen stem. |
-| 3 | eigenaar | Xcode › Settings › Accounts: aanmelden met het Apple Developer-account; daarna kan de build ondertekend en geüpload worden. |
+| 3 | — | Gedaan: builds 1.0 (1) t/m (4) zijn ondertekend en geüpload. |
 | 4 | eigenaar | App Store Connect: app aanmaken (`nl.kwizillo.app`), abonnementsgroep "Kwizillo Premium" met de twee producten en de proefweek, belasting- en bankgegevens (Paid Apps Agreement). |
 | 5 | eigenaar | Play Console: app aanmaken, twee abonnementen, licentiesleutel, licentietesters. Uploadsleutel en ondertekende AAB zijn klaar (30 sept). |
-| 6 | Claude | Na 3: archive + upload naar TestFlight. AAB `~/Desktop/Kwizillo-release/kwizillo-1.0-1.aab` staat klaar voor de interne test. |
+| 6 | Claude | Gedaan voor iOS (build 4, 1 okt). AAB `~/Desktop/Kwizillo-release/kwizillo-1.0-1.aab` staat klaar voor de interne test. |
 | 7 | samen | TestFlight en interne test op echte toestellen, dan indienen. |
 
 ## Bronnen (gecontroleerd 30-09-2026)

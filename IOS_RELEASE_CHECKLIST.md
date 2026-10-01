@@ -75,6 +75,9 @@ company, App Store Connect can transfer an approved app to another account.
 | Release archive for devices (generic iOS, unsigned) | ARCHIVE SUCCEEDED 30 SEPT (194 MB) |
 | Signed build 1.0 (1) uploaded to App Store Connect (team 26UQ38LCBQ, automatic signing, `xcodebuild -exportArchive` with destination upload) | UPLOAD SUCCEEDED 30 SEPT 19:15 |
 | Build 1.0 (2): intro plays with sound at once (web view allows media without a tap; no 'tap for sound' in the app) | UPLOADED 30 SEPT 19:38 |
+| Build 1.0 (3): intro starts before the rest of the app (`intro-early.js`) | UPLOADED 30 SEPT |
+| Build 1.0 (4): speech feedback as verdict + one explanation clip per question | UPLOADED 1 OCT 11:27 (archive + `-exportArchive`, destination upload) |
+| Subscription review screenshots (paywall, free player, NL/EN/PT) | DONE 1 OCT — `store/screenshots/subscription/`, `tools/paywall-shots.cjs` |
 | TestFlight on a real iPhone, sandbox purchase | NEXT — OWNER |
 | Store texts, age rating, privacy label, review notes | READY — `STORE_LISTING.md` |
 | Sandbox purchase, TestFlight | REQUIRES APP STORE CONNECT / TESTFLIGHT |
@@ -106,7 +109,9 @@ lacked was a layout and the orientations.
 
 ## Before App Review (later)
 
-- Kids category questionnaire; privacy labels "Data Not Collected".
-- Public Privacy Policy and Terms of Use URLs.
+- Kids category **6–8** (decided 1 Oct); privacy labels "Data Not Collected".
+- Public Privacy Policy and Terms of Use URLs. The live privacy pages still carry
+  the publisher placeholder: pull `site/` on the server first.
+- Trader status and App Review contact: Solotech vof, +31 591 561737, hallo@kwizillo.nl.
 - `ALLOWED_ORIGINS` on the speech server must include `capacitor://localhost`
   (already in `.env.example`).

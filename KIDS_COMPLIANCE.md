@@ -71,11 +71,11 @@ teaser and the Premium card in the parent zone).
 | Privacy manifest (`PrivacyInfo.xcprivacy`) | Added to the app target: `NSPrivacyTracking false`, no tracking domains, **no collected data types**, `NSPrivacyAccessedAPICategoryUserDefaults` / `CA92.1` |
 | App Privacy answers in App Store Connect | Answer **Data Not Collected**. Nothing is linked to the user, nothing is used for tracking |
 | Age rating questionnaire (the expanded 4+/9+/13+/16+/18+ set, mandatory since 31-01-2026) | To answer in App Store Connect: no violence, no mature themes, no gambling, no user-generated content, no chat, no ads, no unrestricted web access. Expected result 4+ |
-| Kids Category age band | **Decision for Stefan.** The game reads questions aloud and asks for a school year: 6–8 fits the content best. 4–5 would force simpler wording; 9–11 undersells the younger half of the audience |
+| Kids Category age band | **6–8** (decided 1 October 2026) |
 | Declared Age Range API | Not needed: no social features, no user-generated content |
 | Subscriptions in a kids app | Allowed, gated. Terms and privacy are reachable from the Premium screen; auto-renew wording is in `settings.termsBody` |
 | `UIRequiredDeviceCapabilities` | Fixed: was `armv7` (a 32-bit-only claim), now `arm64` |
-| Trader status (EU DSA, mandatory in App Store Connect) | **Open:** needs legal name, address, phone number and e-mail of the publisher |
+| Trader status (EU DSA, mandatory in App Store Connect) | Solotech vof, Boslaan 3, 7811 GJ Emmen, +31 591 561737, hallo@kwizillo.nl — to enter in App Store Connect |
 
 ## 5. Google Play
 
@@ -108,8 +108,7 @@ teaser and the Premium card in the parent zone).
 ## 7. EU: GDPR and DSA
 
 - Controller identity and contact details must be in the privacy notice —
-  **open**: both policy pages carry a clearly marked placeholder for the
-  publisher's legal name and address.
+  done in `site/` (Solotech vof); not yet live on the server.
 - Legal basis: none needed for the device-only data (it never reaches us). The
   speech proxy processes game text, not personal data; ElevenLabs acts as a
   processor and a data processing agreement should be on file.
@@ -120,10 +119,9 @@ teaser and the Premium card in the parent zone).
 
 ## 8. Open before submission
 
-1. Publisher's legal name, address, phone number and e-mail — for both policy
-   pages (replacing the placeholder), App Store Connect trader status and Play
-   Console.
-2. Decide the Kids Category age band (recommended: **6–8**).
+1. Publisher details are known (Solotech vof, see §4) and in `site/`; the live
+   privacy pages still show the placeholder until the site is pulled on the server.
+2. ~~Decide the Kids Category age band~~ — **6–8**.
 3. Put `site/` live on `kwizillo.nl` / `kwizillo.com` so the privacy URLs
    resolve, and check that `hallo@kwizillo.nl` and `hello@kwizillo.com` receive
    mail.
