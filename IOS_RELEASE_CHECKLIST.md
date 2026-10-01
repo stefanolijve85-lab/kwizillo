@@ -86,6 +86,7 @@ company, App Store Connect can transfer an approved app to another account.
 | Build 1.0 (11): launch screen is the film's exact first frame (iPhone portrait, iPad wide), the film takes over without a seam (no frame fade-in, filter or shade on adoption); world screen progress line centred above the topics | UPLOADED 1 OCT (`xcodebuild -exportArchive`, destination upload, EXPORT SUCCEEDED) |
 | Build 1.0 (12): sound settings open with the voice choice (Milo / Luna / Silent + voice volume), then effects and music | UPLOADED 1 OCT 22:36 (EXPORT SUCCEEDED) |
 | Build 1.0 (13): intro never asks for a tap (refused autoplay → first frame + logo, then on by itself); Rekenen/Memo no longer pull their screen back after leaving; runner boy runs in 19 frames (Higgsfield proof) | UPLOADED 1 OCT 23:13 (EXPORT SUCCEEDED) |
+| Build 1.0 (14): runner with filmed motion (run, hop, liana swing, glider) for boy and girl, 3D spinning coins, cards and power-up symbols turn, hero leans to the road centre in side lanes, soft magnet glow, new floating labels, 18 ElevenLabs arcade sounds; jump button now 'Spring' (second press = salto) | UPLOADED 2 OCT 00:03 (EXPORT SUCCEEDED) |
 | Subscription review screenshots (paywall, free player, NL/EN/PT) | DONE 1 OCT — `store/screenshots/subscription/`, `tools/paywall-shots.cjs` |
 | TestFlight on a real iPhone, sandbox purchase | NEXT — OWNER |
 | Store texts, age rating, privacy label, review notes | READY — `STORE_LISTING.md` |
