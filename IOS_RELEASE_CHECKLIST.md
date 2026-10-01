@@ -77,6 +77,7 @@ company, App Store Connect can transfer an approved app to another account.
 | Build 1.0 (2): intro plays with sound at once (web view allows media without a tap; no 'tap for sound' in the app) | UPLOADED 30 SEPT 19:38 |
 | Build 1.0 (3): intro starts before the rest of the app (`intro-early.js`) | UPLOADED 30 SEPT |
 | Build 1.0 (4): speech feedback as verdict + one explanation clip per question | UPLOADED 1 OCT 11:27 (archive + `-exportArchive`, destination upload) |
+| Build 1.0 (5): every line said from a closed set of recordings (letter and answer apart, Rekenen in pieces, explanations reused); needs the v4 voice cache on the server | UPLOADED 1 OCT 15:09 (first try refused until the updated developer agreement was accepted) |
 | Subscription review screenshots (paywall, free player, NL/EN/PT) | DONE 1 OCT — `store/screenshots/subscription/`, `tools/paywall-shots.cjs` |
 | TestFlight on a real iPhone, sandbox purchase | NEXT — OWNER |
 | Store texts, age rating, privacy label, review notes | READY — `STORE_LISTING.md` |
