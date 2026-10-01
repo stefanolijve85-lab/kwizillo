@@ -163,8 +163,23 @@
       if(video.dataset.playing||(!video.paused&&video.currentTime>0)){K.hideSplash?.();soundAtOnce()}
       else video.addEventListener('playing',soundAtOnce,{once:true});
     }
-    const p=video.play();
-    if(p&&p.catch) p.catch(e=>{log('autoplay refused',e?.name);K.hideSplash?.();window.KWIZILLO_INTRO_MARK_OUT?.();const s=el.querySelector('#introSound');if(s){s.classList.remove('quiet');s.textContent='▶ '+K.t('intro.tapToStart')}});   // no waiting behind the launch screen for a film that will not start by itself
+    // The intro never waits for a tap (CLAUDE.md §5). A play() that was only
+    // interrupted (AbortError: the element was moved, the source changed) is
+    // tried again. A real refusal (NotAllowedError, e.g. an iPhone in Low Power
+    // Mode, which blocks autoplay even in the app) gets the film's first frame
+    // with the logo, and the game follows by itself; a tap goes on at once.
+    let refused=false;
+    const stillIntro=e=>{
+      if(refused||done||!video.paused) return;
+      refused=true;soundOn=true;log('autoplay refused',e?.name);
+      el.querySelector('#introSound')?.remove();
+      el.classList.add('poster-only','cinematic-playing');
+      K.hideSplash?.();window.KWIZILLO_INTRO_MARK_OUT?.();
+      timers.forEach(clearTimeout);timers=[];
+      schedule(finish,3400);
+    };
+    const tryPlay=(again)=>{const p=video.play();if(p&&p.catch)p.catch(e=>{if(again&&e?.name!=='NotAllowedError')setTimeout(()=>video.paused&&tryPlay(false),250);else stillIntro(e)})};
+    tryPlay(true);
   };
 
   // De eerste keer: de onboarding. Daarna: "Hoi Jan, verder spelen?" met wat er

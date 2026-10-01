@@ -20,7 +20,7 @@ async function boot(page, state = SAVED(), { entitlement } = {}) {
     if (e) localStorage.setItem('kwizillo-entitlement', JSON.stringify(e)); else localStorage.removeItem('kwizillo-entitlement');
   }, { s: state, e: entitlement });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('.motion').click(); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }
@@ -104,7 +104,7 @@ test('cancel, pending and error from the store are handled calmly; the UI is nev
   await expect(page.locator('.memo-board')).toHaveCount(0);
   // A forged entitlement in storage is worthless without a store behind it.
   await page.evaluate(() => { localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'x', type: 'year', store: 'ios' })); });
-  await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('.motion').click(); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   expect(await page.evaluate(() => window.KWIZILLO_M1.premium.isPremium())).toBe(false);
@@ -185,7 +185,7 @@ test('no test switch in the parent zone; a development address can still open ev
 
   // ?premium=1 on a development host stamps this device and cleans the address.
   await page.goto('/?premium=1', { waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('.motion').click(); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   expect(new URL(page.url()).search).toBe('');
@@ -201,7 +201,7 @@ test('no test switch in the parent zone; a development address can still open ev
   const stamped = await page.evaluate(() => JSON.parse(localStorage.getItem('kwizillo-entitlement') || 'null'));
   expect(stamped).toMatchObject({ status: 'active', store: 'dev', type: 'year' });
   await page.goto('/?premium=0', { waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('.motion').click(); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   expect(await page.evaluate(() => window.KWIZILLO_M1.premium.isPremium())).toBe(false);

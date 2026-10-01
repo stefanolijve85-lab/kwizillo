@@ -205,11 +205,12 @@
       K.celebrateAt?.(f,{x:r1.left-fr.left+r1.width/2,y:r1.top-fr.top+r1.height/2,count:22});
       f.querySelector('#memoPairs').textContent=t('memo.pairs',{found:m.found,total:m.pairs});
       f.querySelector('#memoBar').style.width=`${Math.round(m.found/m.pairs*100)}%`;
-      if(m.found>=m.pairs){stopTimer();setTimeout(()=>finish(true),650);return}
+      if(m.found>=m.pairs){stopTimer();setTimeout(()=>{if(f.isConnected)finish(true)},650);return}
       // Classic rule: a pair earns another turn, so no swap here.
     }else{
       m.locked=true;
       setTimeout(()=>{
+        if(!f.isConnected)return;
         K.sfx('swoosh');
         [a,b].forEach(c=>f.querySelector(`[data-card="${c.id}"]`)?.classList.remove('is-open'));
         m.open=[];m.locked=false;

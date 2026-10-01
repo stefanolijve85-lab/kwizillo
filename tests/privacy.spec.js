@@ -27,7 +27,7 @@ test('a whole session talks to nobody but its own server, and never sends a name
 
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click();
-  await page.locator('.motion').click().catch(() => {});
+  await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });          // the greeting shows the name
   await expect(page.locator('.home')).toContainText(CHILD);
@@ -86,7 +86,7 @@ test('the parent portal shows what is stored and erases it behind the gate', asy
   }, { ...SAVED, answered: 12, correct: 9 });
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('.motion').click();
-  await page.locator('.motion').click().catch(() => {});
+  await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 10000 });
   await page.evaluate(() => window.KWIZILLO_M1.showParent());

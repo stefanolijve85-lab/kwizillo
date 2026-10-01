@@ -171,7 +171,9 @@
       const chosen=value===null?[]:num(value).map((text,i,all)=>({kind:i===all.length-1?'answer':'part',text}));
       const spoken=K.speakSequence([...chosen,...line.map(text=>({kind:'part',text}))]);
       // Move on when the lines have been spoken (or straight away without a voice), never later than 3.4 s.
-      let moved=false;const next=()=>{if(moved)return;moved=true;go()};
+      // Only while this sum is still on screen: leaving stops the voice, which
+      // settles `spoken`, and that used to pull Rekenen back over Home.
+      let moved=false;const next=()=>{if(moved||!f.isConnected)return;moved=true;go()};
       Promise.resolve(spoken).then(()=>setTimeout(next,350),()=>setTimeout(next,350));
       setTimeout(next,3400);
       h.onclick=next;

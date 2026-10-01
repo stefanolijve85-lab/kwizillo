@@ -50,7 +50,7 @@ async function tapThroughIntro(page) {
   const motion = page.locator('.motion');
   await expect(motion).toBeVisible({ timeout: 8000 });
   await motion.click();
-  await motion.click().catch(() => {});
+  await motion.click({ timeout: 1500 }).catch(() => {});
   // Wie al een naam heeft komt na de film op het terugkeerscherm uit
   // (welcome-back.js); "Verder spelen" brengt hem op Home.
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});

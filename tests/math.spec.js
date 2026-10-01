@@ -11,7 +11,7 @@ async function boot(page, state = SAVED(), tts = route => route.fulfill({ status
   await page.route(TTS, tts);
   await page.addInitScript(s => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-entitlement', JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' }));  if (!localStorage.getItem('kwizillo-state')) localStorage.setItem('kwizillo-state', JSON.stringify(s)); }, state);
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.locator('.motion').click(); await page.locator('.motion').click().catch(() => {});
+  await page.locator('.motion').click(); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
 }
@@ -138,4 +138,20 @@ test('a round never repeats a sum, and the next rounds do not bring the previous
     for (const s of cur) expect(prev).not.toContain(s);
     prev = cur;
   }
+});
+
+test('leaving right after an answer and opening another game does not pull Rekenen back', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeMath').click();
+  await expect(page.locator('.math-card')).toBeVisible();
+  const answer = await currentAnswer(page);
+  await page.locator(`.math-answers .answer[data-a="${answer}"]`).click();
+  // Straight back, while the verdict is still showing, then another game.
+  await page.locator('#mathBack').click();
+  await expect(page.locator('.home')).toBeVisible();
+  await page.locator('#homeMemo').click();
+  await expect(page.locator('.math-card')).toHaveCount(0);
+  await page.waitForTimeout(4000);   // past the 3.4 s the next sum used to wait for
+  await expect(page.locator('.math-card')).toHaveCount(0);
+  await expect(page.locator('.math')).toHaveCount(0);
 });

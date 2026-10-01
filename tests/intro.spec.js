@@ -125,3 +125,33 @@ test('skipping the cinematic clears its pending sound-design timers', async ({ p
   await expect(page.locator('.quiz-v2')).toBeVisible();
   await expect(page.locator('.motion')).toHaveCount(0);
 });
+
+test('a refused autoplay never asks for a tap: first frame with the logo, then the game by itself', async ({ page }) => {
+  // What an iPhone in Low Power Mode does: every play() without a gesture is refused.
+  await page.addInitScript(() => {
+    HTMLMediaElement.prototype.play = function(){ return Promise.reject(new DOMException('refused', 'NotAllowedError')); };
+  });
+  await boot(page);
+  await expect(page.locator('.motion.poster-only.cinematic-playing')).toBeVisible({ timeout: 4000 });
+  await expect(page.locator('.intro-brand-logo')).toBeVisible();
+  await expect(page.getByText('Tik om te starten')).toHaveCount(0);
+  await expect(page.locator('#introSound')).toHaveCount(0);
+  await expect(page.locator('.motion')).toHaveCount(0, { timeout: 6000 });
+});
+
+test('a play() that was only interrupted is tried again, so the film still starts', async ({ page }) => {
+  await page.addInitScript(() => {
+    const real = HTMLMediaElement.prototype.play;
+    window.__plays = 0;
+    HTMLMediaElement.prototype.play = function(){
+      window.__plays++;
+      if (this.classList.contains('intro-main') && !window.__aborted) { window.__aborted = true; return Promise.reject(new DOMException('interrupted', 'AbortError')); }
+      return real.call(this);
+    };
+  });
+  await boot(page);
+  await page.waitForTimeout(800);
+  expect(await page.evaluate(() => window.__aborted)).toBe(true);
+  await expect(page.locator('.motion.poster-only')).toHaveCount(0);
+  await expect(page.locator('#introSound')).not.toHaveText(/Tik om te starten/);
+});
