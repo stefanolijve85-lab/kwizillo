@@ -123,4 +123,18 @@ test('music and voice come back after the app is interrupted', async ({ page }) 
     .toMatchObject({ music: 'running', playing: true });
   expect(await current(page)).toBe('home');
   expect(await page.evaluate(() => window.KWIZILLO_M1.audio.voiceCtx.state)).not.toBe('closed');
+
+  // 4. Build 1.0 (9) on a real iPhone: back from the home screen both contexts
+  //    say "running" and their clocks move, yet the app's audio session is gone
+  //    and nothing is heard, not even after a tap. A return from the background
+  //    therefore never trusts the old contexts: both are new and the music runs.
+  await page.evaluate(() => { window.__oldMusic = window.KWIZILLO_M1.audio.ctx; window.__oldVoice = window.KWIZILLO_M1.audio.voiceCtx });
+  await hide();
+  await show();
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.health), { timeout: 25000 })
+    .toMatchObject({ music: 'running', playing: true });
+  expect(await page.evaluate(() => window.KWIZILLO_M1.audio.ctx !== window.__oldMusic)).toBe(true);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.audio.voiceCtx !== window.__oldVoice)).toBe(true);
+  expect(await page.evaluate(() => window.__oldMusic.state)).toBe('closed');
+  expect(await current(page)).toBe('home');
 });

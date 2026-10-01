@@ -48,7 +48,11 @@
   const clockMoves=async c=>{const t0=c.currentTime;await new Promise(r=>setTimeout(r,250));return c.currentTime>t0};
   // `rebuild` is used from the second attempt on: an interrupted iOS context that
   // refuses to resume is replaced rather than nursed.
-  async function wakeMusic(rebuild){
+  async function wakeMusic(rebuild,fresh){
+    // fresh: back from the background. iOS may report this context "running",
+    // clock and all, while the app's audio session was taken away and nothing is
+    // heard (build 1.0 (9), real iPhone). So it is not trusted: a new one is made.
+    if(fresh)resetMusicCtx();
     let c=ensure();if(!c)return false;
     if(stalled(c))await resumeSoon(c);
     // A context that says "running" while its clock stands still is dead (iOS
@@ -61,17 +65,24 @@
     return true;
   }
   function resetVoiceCtx(){try{if(voiceCtx&&voiceCtx.state!=='closed')voiceCtx.close()}catch(e){}voiceCtx=null;voiceSource=null;voiceNow=null}
-  async function wakeVoice(rebuild){
+  async function wakeVoice(rebuild,fresh){
+    if(fresh)resetVoiceCtx();
     let v=ensureVoiceCtx();if(!v)return true;   // no Web Audio at all: the HTMLAudio fallback needs no waking
     if(stalled(v))await resumeSoon(v);
     const frozen=v.state==='running'&&!await clockMoves(v);
     if(frozen||(rebuild&&v.state!=='running')){resetVoiceCtx();v=ensureVoiceCtx();if(!v)return true;if(stalled(v))await resumeSoon(v)}
     return v.state==='running';
   }
-  async function wake(rebuild=false){
-    if(document.visibilityState!=='visible')return;
-    const [music,voice]=await Promise.all([wakeMusic(rebuild),wakeVoice(rebuild)]);
-    needsWake=!(music&&voice);
+  // One wake at a time: focus, pageshow and visibilitychange arrive together on
+  // return, and two overlapping wakes could start the music twice.
+  let waking=Promise.resolve();
+  function wake(rebuild=false,fresh=false){
+    waking=waking.then(async()=>{
+      if(document.visibilityState!=='visible')return;
+      const [music,voice]=await Promise.all([wakeMusic(rebuild,fresh),wakeVoice(rebuild,fresh)]);
+      needsWake=!(music&&voice);
+    }).catch(()=>{});
+    return waking;
   }
   let wakeTimer=null;
   function wakeSoon(tries=3,delay=600){clearTimeout(wakeTimer);wakeTimer=setTimeout(()=>{wake(true).then(()=>{if(needsWake&&tries>1)wakeSoon(tries-1,Math.min(2400,delay*2))}).catch(()=>{})},delay)}
@@ -79,8 +90,10 @@
   // Swiped away mid-sentence: the line is dropped rather than resumed later out of
   // context, and HTMLAudio is marked for re-priming (its unlock does not survive
   // an interruption either).
+  let wasHidden=false;
   document.addEventListener('visibilitychange',()=>{
-    if(document.visibilityState==='hidden'){needsWake=true;primed=false;try{K.stopSpeech?.()}catch(e){}return}
+    if(document.visibilityState==='hidden'){wasHidden=true;needsWake=true;primed=false;try{K.stopSpeech?.()}catch(e){}return}
+    if(wasHidden){wasHidden=false;wake(true,true).then(()=>{if(needsWake)wakeSoon()}).catch(()=>{});return}
     wakeNow();
   });
   for(const ev of ['pageshow','focus']) window.addEventListener(ev,()=>wakeNow());
