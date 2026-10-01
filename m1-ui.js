@@ -790,13 +790,6 @@
     const tracks=Object.values(K.audio.tracks).map(tr=>`<button class="music-choice ${K.state.musicTrack===tr.id?'selected':''}" data-track="${tr.id}"><span class="music-icon">${tr.icon}</span><span><b>${esc(t(`track.${tr.id}`))}</b></span>${K.state.musicTrack===tr.id?'<i>✓</i>':''}</button>`).join('');
     o.innerHTML=`<div class="sound-settings-card">
       <div class="sound-head"><div><span class="sound-kicker">${esc(t('sound.kicker'))}</span><h2>${esc(t('sound.title'))}</h2></div><button class="sound-close" aria-label="${esc(t('common.close'))}">×</button></div>
-      <div class="sound-row"><div class="sound-label"><b>${esc(t('sound.fx'))}</b></div><button class="sound-toggle ${K.state.soundOn!==false?'on':''}" data-toggle="sfx"><span></span></button></div>
-      <div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.sfxVolume??.72)*100)}" data-volume="sfx"><span>🔊</span><button class="sound-test">${esc(t('sound.test'))}</button></div>
-      <div class="sound-divider"></div>
-      <div class="sound-row"><div class="sound-label"><b>${esc(t('sound.music'))}</b></div><button class="sound-toggle ${K.state.musicOn!==false?'on':''}" data-toggle="music"><span></span></button></div>
-      <div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.musicVolume??.24)*100)}" data-volume="music"><span>🔊</span></div>
-      <h3>${esc(t('sound.pickMusic'))}</h3><div class="music-choice-grid">${tracks}</div>
-      <div class="sound-divider"></div>
       <h3>${esc(t('sound.voiceGuide'))}</h3>
       <div class="sound-voice-grid">
         <button class="sound-voice ${K.state.voice==='Milo'?'selected':''}" data-guide="Milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt=""> <b>${esc(t('voice.milo'))}</b></button>
@@ -804,6 +797,13 @@
         <button class="sound-voice ${K.state.voice==='Stil'?'selected':''}" data-guide="Stil">🔇 <b>${esc(t('voice.silent'))}</b></button>
       </div>
       <div class="volume-row voice-volume"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.voiceVolume??1)*100)}" data-volume="voice" ${K.state.voice==='Stil'?'disabled':''}><span>🔊</span><button class="sound-test" data-test="voice" ${K.state.voice==='Stil'?'disabled':''}>${esc(t('sound.test'))}</button></div>
+      <div class="sound-divider"></div>
+      <div class="sound-row"><div class="sound-label"><b>${esc(t('sound.fx'))}</b></div><button class="sound-toggle ${K.state.soundOn!==false?'on':''}" data-toggle="sfx"><span></span></button></div>
+      <div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.sfxVolume??.72)*100)}" data-volume="sfx"><span>🔊</span><button class="sound-test">${esc(t('sound.test'))}</button></div>
+      <div class="sound-divider"></div>
+      <div class="sound-row"><div class="sound-label"><b>${esc(t('sound.music'))}</b></div><button class="sound-toggle ${K.state.musicOn!==false?'on':''}" data-toggle="music"><span></span></button></div>
+      <div class="volume-row"><span>🔈</span><input type="range" min="0" max="100" value="${Math.round((K.state.musicVolume??.24)*100)}" data-volume="music"><span>🔊</span></div>
+      <h3>${esc(t('sound.pickMusic'))}</h3><div class="music-choice-grid">${tracks}</div>
       </div>`;
     f.appendChild(o);
     const redraw=()=>{o.remove();K.showSoundSettings()};
