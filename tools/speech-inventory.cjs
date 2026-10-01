@@ -39,6 +39,9 @@ const opt = (name, fallback) => {
 };
 const langs = String(opt('lang', LANGS.join(','))).split(',').map(s => s.trim()).filter(l => LANGS.includes(l));
 const jsonOut = argv.includes('--json') ? opt('json', path.join(ROOT, 'audio-qa-output', 'speech-inventory.json')) : null;
+// --files <path>: the cache file names the app needs (one per line), for
+// rsync --files-from, so the server gets this set and not every old take.
+const filesOut = argv.includes('--files') ? opt('files', path.join(ROOT, 'audio-qa-output', 'speech-files.txt')) : null;
 const VOICES = ['Milo', 'Luna'];
 
 /* ---------------- the server's key, replicated ---------------- */
@@ -203,7 +206,7 @@ console.log(`.tts-cache: ${fmt(cached.size)} clip(s). Rekenen (games-math.js) no
 console.log(row(['lang', 'voice', 'lines', 'chars', 'cached ln', 'cached ch', 'missing ln', 'missing ch']));
 const total = { lines: 0, chars: 0, cl: 0, cc: 0 };
 const bySource = new Map();
-const dump = { model: MODEL, generated: new Date().toISOString(), settings: VOICE_SETTINGS, note: 'Rekenen (games-math.js) excluded', langs: {} };
+const dump = { model: MODEL, generated: new Date().toISOString(), settings: VOICE_SETTINGS, langs: {} };
 for (const lang of langs) {
   dump.langs[lang] = {};
   for (const voice of VOICES) {
@@ -246,4 +249,12 @@ if (jsonOut) {
   fs.mkdirSync(path.dirname(jsonOut), { recursive: true });
   fs.writeFileSync(jsonOut, JSON.stringify(dump, null, 1));
   console.log(`\nLine lists written to ${path.relative(process.cwd(), jsonOut) || jsonOut}`);
+}
+
+if (filesOut) {
+  const names = new Set();
+  for (const lang of Object.keys(dump.langs || {})) for (const voice of Object.keys(dump.langs[lang])) for (const l of dump.langs[lang][voice]) if (l.cached) names.add(`${l.key}.mp3`);
+  fs.mkdirSync(path.dirname(filesOut), { recursive: true });
+  fs.writeFileSync(filesOut, [...names].join('\n') + '\n');
+  console.log(`\n${names.size} cache file(s) listed in ${path.relative(process.cwd(), filesOut) || filesOut}`);
 }

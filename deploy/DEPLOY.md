@@ -113,6 +113,36 @@ De site heeft geen build-stap; een `git pull` is genoeg (nginx leest de bestande
 live). De TTS-cache (`.tts-cache/`) blijft staan, dus gesproken zinnen hoeven
 niet opnieuw gemaakt te worden.
 
+## 6b. Spraak: alles vooraf opgenomen, de server leest alleen uit de cache
+
+Sinds 1 oktober 2026 wordt elke zin die de app kan zeggen vooraf opgenomen
+(eleven_v4_turbo, 20 stemmen in `speech-config.js`). De server vraagt dan nooit
+meer iets aan ElevenLabs (`TTS_CACHE_ONLY=1` in `kwizillo.service`), dus spelers
+kosten geen credits. Opnemen gebeurt op de Mac; de server krijgt de bestanden.
+
+Op de Mac, in de repo (lokale server draait met `npm start`):
+
+```bash
+node tools/speech-inventory.cjs --json inv.json --files speech-files.txt   # wat ontbreekt + wat er is
+node tools/warm-speech.cjs --from inv.json                                   # neemt het ontbrekende op
+node tools/speech-inventory.cjs --files speech-files.txt                     # moet 0 missing tonen
+rsync -av --files-from=speech-files.txt .tts-cache/ \
+  root@213.126.59.35:/var/www/kwizillo/.tts-cache/
+```
+
+Op de server:
+
+```bash
+cd /var/www/kwizillo && sudo -u kwizillo git pull
+sudo chown -R kwizillo:kwizillo .tts-cache
+sudo cp deploy/kwizillo.service /etc/systemd/system/kwizillo.service
+sudo systemctl daemon-reload && sudo systemctl restart kwizillo
+journalctl -u kwizillo -f        # "not in cache: …" = een zin die nog ontbreekt
+```
+
+Na een tekstwijziging in de app: dezelfde drie Mac-stappen en de rsync; alleen
+de nieuwe zinnen kosten credits.
+
 ## 7. Later: de iOS-app
 
 De Capacitor-app krijgt `https://app.kwizillo.nl` als server-URL voor `/api/tts`;
