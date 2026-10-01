@@ -1050,12 +1050,13 @@
 .feedback-next:not(:disabled):active{transform:translateY(3px);box-shadow:0 2px 0 #dc8c12}
 .feedback-next.nudge{animation:feedback-nudge .32s ease}
 @keyframes feedback-nudge{30%{transform:scale(.97)}70%{transform:scale(1.02)}}
-/* The guide pops up from behind the top edge of the card on a correct answer, cheers, and ducks away. */
+/* The guide rises from behind the top edge of the card on a correct answer (celebrate.js K.riseGuide). */
 .feedback-float .feedback-card{z-index:1}
-.feedback-peek{position:absolute;z-index:0;height:auto;pointer-events:none;transform-origin:50% 100%;filter:drop-shadow(0 6px 8px rgba(0,20,70,.35));animation:feedback-peek 2.3s cubic-bezier(.3,1.25,.4,1) both;clip-path:inset(0 0 0 0)}
-/* Alleen op en neer, niet kantelen: een gids die scheef blijft hangen ziet er
-   niet uit. Het wippen geeft het leven, de draaiing gaf alleen scheefstand. */
-@keyframes feedback-peek{0%{transform:translateY(105%) scale(.92);opacity:0}16%{transform:translateY(0) scale(1);opacity:1}30%{transform:translateY(-7px)}44%{transform:translateY(0)}58%{transform:translateY(-4px)}80%{transform:translateY(0);opacity:1}100%{transform:translateY(105%) scale(.95);opacity:0}}
+.guide-rise{position:absolute;z-index:0;height:auto;pointer-events:none;user-select:none;transform-origin:50% 100%;filter:drop-shadow(0 6px 10px rgba(0,20,70,.3));animation:guide-rise 3.2s cubic-bezier(.3,1.2,.4,1) both}
+/* Alleen op en neer, niet kantelen. Hij komt van achter de kaart omhoog tot zijn
+   middel (celebrate.js zet hem zo neer), wipt twee keer en zakt weer weg. */
+@keyframes guide-rise{0%{transform:translateY(62%);opacity:0}6%{opacity:1}14%{transform:translateY(0)}24%{transform:translateY(-8px)}34%{transform:translateY(0)}46%{transform:translateY(-4px)}58%{transform:translateY(0)}86%{transform:translateY(0);opacity:1}100%{transform:translateY(62%);opacity:0}}
+@media(prefers-reduced-motion:reduce){.guide-rise{animation:guide-rise-still 3.2s both}@keyframes guide-rise-still{0%,100%{opacity:0}8%,90%{opacity:1}}}
 @media(max-height:700px){.feedback-card{padding:13px 13px 13px}.feedback-explain{font-size:14px}.feedback-answer b{font-size:20px}}
 
 /* ---------------- Premium ---------------- */
@@ -1345,34 +1346,8 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .wb-player b{display:block;font-size:clamp(14px,3.6vw,18px);font-weight:1000}
 .wb-player small{display:block;font-size:10px;font-weight:800;color:#bfdcff}
 
-/* ---- De gids die achter een popup vandaan piept (celebrate.js, K.peekGuide) ----
-   Bij een goed antwoord, niet elke keer en telkens uit een andere hoek. Hij
-   staat áchter de kaart (z-index 0 tegen de kaart z-index 1), zodat hij nooit
-   de tekst bedekt — maar wel ver genoeg ernaast dat je hem heel ziet. Praat de
-   gids mee, dan is dit hetzelfde pratende portret als elders in de app: de mond
-   gaat open op de luidheid van de stem die op dat moment de uitleg voorleest.
-   Geen scheve stand: een gids die half gekanteld blijft hangen ziet er niet uit,
-   dus de animatie schuift en schaalt alleen. */
-.cheer-peek{position:absolute;z-index:0;width:min(34%,164px);aspect-ratio:1;border-radius:50%;overflow:hidden;
-  border:4px solid #fff;box-shadow:0 12px 26px rgba(0,22,70,.35);pointer-events:none;background:#1d2f88}
-.cheer-peek .milo-still-face{display:block;width:100%;height:100%;object-fit:cover;object-position:center 26%}
-.cheer-peek.peek-tl{top:-4%;inset-inline-start:-3%;animation:peekTL .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-tr{top:-4%;inset-inline-end:-3%;animation:peekTR .55s cubic-bezier(.2,.9,.25,1.4) both}
-.cheer-peek.peek-tc{top:-6%;inset-inline-start:calc(50% - min(17%,82px));animation:peekTC .55s cubic-bezier(.2,.9,.25,1.4) both}
-/* Aan een popup (de ballon in Wat ben ik? en Fotozoom): de gids hing aan de
-   donkere laag over het hele scherm en stond dus in de schermhoek, half buiten
-   beeld. celebrate.js geeft hem de plek van de ballon zelf mee (--cl/--ct/--cw/
-   --ch); hij staat erachter en komt in de bovenhoeken met bijna zijn hele hoofd
-   boven de rand uit. */
+/* Wat ben ik? en Fotozoom: de ballon staat boven de gids die erachter omhoogkomt (K.riseGuide). */
 .simple-modal>.simple-modal-card{position:relative;z-index:1}
-.cheer-peek.peek-on-card{--s:min(calc(var(--cw) * .34),164px);width:var(--s);inset:auto;margin:0}
-.cheer-peek.peek-on-card.peek-tl{left:calc(var(--cl) + var(--cw) * .04);top:calc(var(--ct) - var(--s) * .74)}
-.cheer-peek.peek-on-card.peek-tc{left:calc(var(--cl) + (var(--cw) - var(--s)) / 2);top:calc(var(--ct) - var(--s) * .74)}
-.cheer-peek.peek-on-card.peek-tr{left:calc(var(--cl) + var(--cw) * .96 - var(--s));top:calc(var(--ct) - var(--s) * .74)}
-@keyframes peekTC{from{transform:translateY(55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekTL{from{transform:translate(30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
-@keyframes peekTR{from{transform:translate(-30%,55%) scale(.55);opacity:0}to{transform:none;opacity:1}}
-@media(prefers-reduced-motion:reduce){.cheer-peek{animation:none}}
 
 /* ---- Aanraakvlakken ----
    Apple houdt 44 pt aan als kleinste knop waar een vinger nog goed op mikt, en

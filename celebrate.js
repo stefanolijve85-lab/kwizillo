@@ -87,67 +87,41 @@
     }catch(e){}
   };
 
-  // Een gids die achter de popup vandaan piept. Niet elke keer en niet steeds op
-  // dezelfde plek, maar altijd boven de kaart: linksboven, middenboven of
-  // rechtsboven. Naast of onder de kaart stond hij in de weg van de tekst en de
-  // knoppen. Alle spellen gebruiken dit, zodat een goed antwoord overal
-  // hetzelfde aanvoelt.
-  const SPOTS=['tl','tc','tr'];
-  K.peekGuide=(host,{chance=.45}={})=>{
+  // De gids komt bij een goed antwoord áchter de bovenrand van de kaart omhoog,
+  // tot zijn middel: de kaart zelf verbergt de rest, dus hij staat er echt achter
+  // en niet ernaast. Links, midden of rechts, zodat tien goede antwoorden niet
+  // tien keer hetzelfde zijn. Hij wipt, juicht en zakt weer weg. Quiz, Wat ben
+  // ik? en Fotozoom gebruiken dit allemaal.
+  // WAIST: waar het middel zit in de juichpose (milo: de riem, luna: de broeksband),
+  // als deel van de hoogte van assets/mascots/*/cheer.png.
+  const WAIST={milo:.6,luna:.47};
+  const RATIO={milo:720/500,luna:720/439};
+  const SPOTS=['l','c','r'];
+  K.riseGuide=(host,card)=>{
     try{
-      if(!host||Math.random()>chance) return null;
-      // De gids die het kind gekozen heeft. Wie Luna koos hoort Luna en ziet
-      // Luna — ook hier. Met stem uit valt de gekozen buddy in.
-      const guide=K.state.voice==='Luna'?'luna':'milo';
-      const G=K.GUIDES?.[guide];
+      if(!host||!card) return null;
+      const guide=K.activeGuide?.()||'milo';
+      const src=K.GUIDE_POSES?.[guide]?.cheer?.src;
+      if(!src) return null;
+      // Layoutmaten (offset*), geen getBoundingClientRect: de kaart schuift op
+      // dit moment nog binnen, en die beweging mag de plek van de gids niet bepalen.
+      let cx=0,cy=0;for(let el=card;el&&el!==host;el=el.offsetParent){cx+=el.offsetLeft;cy+=el.offsetTop}
+      const cw=card.offsetWidth;
+      const w=Math.round(Math.min(150,cw*.4)),h=w*RATIO[guide];
       const spot=SPOTS[Math.floor(Math.random()*SPOTS.length)];
-      const wrap=document.createElement('div');
-      wrap.className='cheer-peek peek-'+spot;
-      wrap.setAttribute('aria-hidden','true');
-
-      // Praat hij mee? Dan het portret met de mond die opengaat, precies zoals
-      // de gids dat elders doet (milo.js). De uitleg wordt op dat moment al
-      // uitgesproken door het spel zelf, dus hier wordt niets extra gezegd —
-      // de mond volgt alleen de luidheid van die stem (K.voiceLevel).
-      const talking=K.state.voice!=='Stil'&&G?.base;
-      if(talking){
-        const m=G.mouth||{x:.5,y:.5,w:.2,h:.07};
-        wrap.classList.add('cheer-peek-talk','milo-still','mouth-'+(G.mouthStyle||'jaw'));
-        for(const [k,v] of Object.entries(m)) wrap.style.setProperty(`--m${k}`,String(v));
-        wrap.innerHTML=`<img class="milo-still-face" src="${G.base}" alt="" draggable="false"><span class="milo-mouth-hole"></span><span class="milo-still-chin"><img src="${G.base}" alt="" draggable="false"></span>`;
-      }else{
-        const art=K.MASCOT_ART?.[K.state.selectedMascot]||K.guideArt?.('Milo');
-        if(!art) return null;
-        wrap.innerHTML=`<img class="milo-still-face" src="${art}" alt="" draggable="false">`;
-      }
-      // A popup: the overlay covers the whole screen, so the corners must be the
-      // card's, not the screen's (the guide stood half off-screen, far from it).
-      const card=host.querySelector?.(':scope>.simple-modal-card');
-      if(card){
-        const hr=host.getBoundingClientRect(),cr=card.getBoundingClientRect();
-        wrap.classList.add('peek-on-card');
-        for(const [k,v] of [['cl',cr.left-hr.left],['ct',cr.top-hr.top],['cw',cr.width],['ch',cr.height]]) wrap.style.setProperty('--'+k,v.toFixed(1)+'px');
-      }
-      host.insertBefore(wrap,host.firstChild);
-
-      if(talking){
-        // Dezelfde envelope als de gids in de rondleiding: snel open, iets
-        // trager dicht, zodat medeklinkers nog flitsen. Stopt vanzelf als de
-        // stem klaar is of als de kaart weggaat.
-        let open=0,idle=0;
-        const id=setInterval(()=>{
-          if(!wrap.isConnected){clearInterval(id);return}
-          const level=(K.voiceLevel?.()||0)*.85;
-          open=level>open?open*.35+level*.65:open*.7+level*.3;
-          wrap.style.setProperty('--open',open.toFixed(3));
-          idle=level>.02?0:idle+1;
-          if(idle>50){clearInterval(id);wrap.style.setProperty('--open','0')}   // ~1,5 s stil: klaar
-        },30);
-      }
-      return wrap;
+      const left=cx+(spot==='l'?cw*.07:spot==='r'?cw*.93-w:(cw-w)/2);
+      // +8: het middel valt net onder de ronde bovenrand, niet erop.
+      const top=cy-h*WAIST[guide]+8;
+      host.querySelector(':scope>.guide-rise')?.remove();
+      const img=document.createElement('img');
+      img.className=`guide-rise guide-rise-${guide}`;img.src=src;img.alt='';img.setAttribute('aria-hidden','true');img.draggable=false;
+      img.style.cssText=`width:${w}px;left:${Math.round(left)}px;top:${Math.round(top)}px`;
+      host.insertBefore(img,card);
+      img.addEventListener('animationend',()=>img.remove());
+      return img;
     }catch(e){ return null }
   };
 
-  // Wat er gebeurt als een antwoord goed is: confetti én soms de gids.
-  K.cheer=(host,opts)=>{K.celebrate('pop',host);K.peekGuide(host,opts)};
+  // Wat er gebeurt als een antwoord goed is: confetti én de gids achter de ballon.
+  K.cheer=host=>{K.celebrate('pop',host);K.riseGuide(host,host?.querySelector?.(':scope>.simple-modal-card'))};
 })();

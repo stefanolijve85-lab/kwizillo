@@ -247,8 +247,6 @@
     const x=document.createElement('div');x.className=`feedback-float feedback-v2 ${correct?'is-good':'is-try'} ${timedOut?'is-time':''} world-${q.world}`;
     const explain=esc(q.explanation||(correct?t('feedback.thatsRight'):q.hint||''));
     const last=K.quiz.index+1>=K.quiz.questions.length;
-    const guide=K.activeGuide?.()||'milo';
-    const cheerPose=K.GUIDE_POSES?.[guide]?.cheer;const cheer=cheerPose&&(typeof cheerPose==='string'?cheerPose:cheerPose.src);
     x.innerHTML=`<div class="feedback-card ${correct?'good':'try'}" role="dialog" aria-live="polite">
       <button class="feedback-close" id="feedbackClose" aria-label="${esc(t('feedback.close'))}">×</button>
       <div class="feedback-verdict">
@@ -263,21 +261,8 @@
     </div>`;
     f.appendChild(x);
     if(correct&&!silent){
-      // The guide pops up from behind the top edge of the card, cheers and ducks away again.
-      if(cheer){
-        const card=x.querySelector('.feedback-card'),fr=f.getBoundingClientRect(),cr=card.getBoundingClientRect();
-        const peek=document.createElement('img');peek.className='feedback-peek';peek.src=cheer;peek.alt='';peek.setAttribute('aria-hidden','true');
-        const w=Math.min(96,Math.round(cr.width*.3));
-        // Niet altijd dezelfde plek, maar altijd boven de kaart: links, midden
-        // of rechts. Tien goede antwoorden achter elkaar zien er dan niet tien
-        // keer hetzelfde uit, en de gids komt nooit naast de tekst te staan.
-        const side=Math.floor(Math.random()*3);
-        const left=side===0?cr.left-fr.left+18:side===1?cr.right-fr.left-w-18:cr.left-fr.left+(cr.width-w)/2;
-        const top=cr.top-fr.top-w*.92;
-        peek.style.width=w+'px';peek.style.left=Math.round(left)+'px';peek.style.top=Math.round(top)+'px';
-        x.appendChild(peek);
-        peek.addEventListener('animationend',()=>peek.remove());
-      }
+      // The guide rises from behind the top edge of the card to the waist, cheers and ducks away again (celebrate.js).
+      K.riseGuide?.(x,x.querySelector('.feedback-card'));
       setTimeout(()=>K.celebrate?.('answer',x),140);
     }
     const nextBtn=x.querySelector('#feedbackNext');
