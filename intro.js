@@ -22,14 +22,14 @@
     const wide=document.documentElement.dataset.shape==='wide';
     const url=(wide&&K.MOTION?.homeWide)||K.MOTION?.home||K.config?.introVideoUrl||'';
     const early=document.getElementById('introEarly');
-    if(!url){early?.remove();window.KWIZILLO_DROP_INTRO_STILL?.();return onDone()}
+    if(!url){early?.remove();return onDone()}
 
     const wideFilm=wide&&url===K.MOTION?.homeWide;
     // The blurred copy behind the film is only for a portrait film on a wide
     // screen. Anywhere else it was a second decoder on the same 10 MB file: on
     // an iPhone the theme played while the visible film stood still.
     const needsBg=wide&&!wideFilm;
-    const frame=K.frame(`<div class="motion kwizillo-cinematic cinematic-playing fade-in${wideFilm?' wide-film':''}">
+    const frame=K.frame(`<div class="motion kwizillo-cinematic fade-in${wideFilm?' wide-film':''}">
       ${needsBg?`<video class="intro-bg" muted playsinline autoplay preload="auto" aria-hidden="true" src="${url}"></video>`:''}
       <video class="intro-main" muted playsinline autoplay preload="auto" src="${url}"></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
@@ -51,7 +51,15 @@
     // is stom, speelt automatisch en doet er verder niet toe: lukt het niet,
     // dan blijft de onscherpe wereldkunst eronder staan.
     const bg=el.querySelector('.intro-bg');
-    video.addEventListener('playing',()=>K.hideSplash?.(),{once:true});
+    // The logo and the film appear together, the moment the film really moves
+    // (base blue until then, the same as the launch screen: no dark flash, no
+    // logo over an empty screen). An adopted film may be playing already.
+    const moving=()=>{el.classList.add('cinematic-playing');K.hideSplash?.()};
+    if(!video.paused&&video.currentTime>0) moving();
+    else video.addEventListener('playing',moving,{once:true});
+    // A film that neither plays nor fails within 2.5 s: the logo comes anyway,
+    // so the screen is never just blue.
+    setTimeout(()=>el.classList.add('cinematic-playing'),2500);
     if(bg){const r=bg.play();if(r&&r.catch)r.catch(()=>{})}
     let timers=[],done=false,theme=null,soundOn=false,videoFailed=false,triedFallback=false;
     K.audio.holdMusic=true;   // the loop must not start under the theme; finish() releases it
@@ -74,7 +82,6 @@
     };
 
     const finish=()=>{
-      window.KWIZILLO_DROP_INTRO_STILL?.();
       if(done) return;
       done=true;
       timers.forEach(clearTimeout);
@@ -122,7 +129,7 @@
       log('error',err?.code,err?.message||'');
       // Nothing to show: the logo animation carries on over the dark
       // background and the theme still gets its 12 seconds after the tap.
-      el.classList.add('poster-only');
+      el.classList.add('poster-only','cinematic-playing');
       timers.forEach(clearTimeout);timers=[];
       schedule(finish,soundOn?12500:SAFETY_MS);
     });
