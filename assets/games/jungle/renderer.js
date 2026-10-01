@@ -34,10 +34,17 @@ export const isGliding=(level,s)=>!!airborne(level,s);
 // seconds until the path lets go (positive), and seconds since it came back (positive), for the grab / release poses
 export const gapTiming=(level,s)=>{const air=LEVELS[level]?.air;if(!air)return {to:Infinity,since:Infinity};const p=progress(s);let to=Infinity,since=Infinity;for(const [a,b] of air.windows){if(p<a)to=Math.min(to,(a-p)*s.duration);if(p>=b)since=Math.min(since,(p-b)*s.duration);}return {to,since};};
 
+// The run cycle: as many frames as the manifest lists for that hero (01, 02, …,
+// up to 24; the first four always exist). One cycle always covers the same
+// distance, so more frames make the stride smoother, not faster.
+const RUN_NAMES=Array.from({length:24},(_,i)=>'run-'+String(i+1).padStart(2,'0'));
+function runCount(hero){if(!manifest)return 4;let n=0;while(n<24&&manifest.has(`hero-${hero}-${RUN_NAMES[n]}`))n++;return n>=4?n:4;}
+function runImage(hero,distance){const n=runCount(hero);return `hero-${hero}-${RUN_NAMES[Math.floor(distance*27*n/4)%n]}`;}
+
 // Every painting a level + hero needs, and what stands in for one that is not
 // there yet (the jungle set and the boy always exist).
 const FALLBACK={'city-day':'jungle-tempel','sky-day':'jungle-watervallen','obstacle-barrier':'obstacle-log','obstacle-cone':'obstacle-rock','obstacle-bird':'obstacle-log','obstacle-storm':'obstacle-rock','scenery-lamp':'scenery-tree','scenery-building':'scenery-tree','scenery-tree-city':'scenery-tree','scenery-cloud':'scenery-fern','scenery-balloon':'scenery-tree','scenery-island':'scenery-bridge','collectible-city-card':'collectible-jungle-card','collectible-sky-card':'collectible-jungle-card'};
-export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.flatMap(p=>p.pick||[p.name]),...(L.extras||[])]);for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-${hero}-${f}`);names.add('scenery-glider');for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of ['run-01','run-02','run-03','run-04','jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
+export function assetNames(level,hero){const L=LEVELS[level];const names=new Set([...L.scenes,L.obstacles.log,L.obstacles.rock,L.card,'collectible-coin',...L.props.flatMap(p=>p.pick||[p.name]),...(L.extras||[])]);for(const f of [...RUN_NAMES,'jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-${hero}-${f}`);names.add('scenery-glider');for(const n of [...names])if(FALLBACK[n])names.add(FALLBACK[n]);if(hero!=='boy')for(const f of [...RUN_NAMES,'jump','flip','glide','swing','swing-back','swing-2','grab','release','reach'])names.add(`hero-boy-${f}`);names.add('hero-boy-jump');names.add('hero-boy-run-02');names.add('hero-girl-run-02');for(const l of Object.values(LEVELS))names.add(l.scenes[0]);names.add('hero-boy-portrait');names.add('hero-girl-portrait');return [...names];}
 // The painting that stands in for a missing one: a girl frame → the boy's, a level prop → its jungle cousin, a glide pose → the jump pose.
 export function resolveName(name,cache){if(cache[name]||(manifest&&manifest.has(name)))return name;if(FALLBACK[name]&&cache[FALLBACK[name]])return FALLBACK[name];const m=name.match(/^hero-girl-(.+)$/);if(m&&cache['hero-boy-'+m[1]])return 'hero-boy-'+m[1];if(/^hero-.+-(glide|swing)$/.test(name)){const j=name.replace(/glide|swing/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-(swing-back|swing-2)$/.test(name)){const j=name.replace(/swing-(back|2)/,'swing');return cache[j]?j:resolveName(j,cache);}if(/^hero-.+-(grab|reach)$/.test(name)){const j=name.replace(/grab|reach/,'jump');return cache[j]?j:'hero-boy-jump';}if(/^hero-.+-release$/.test(name)){const j=name.replace('release','run-02');return cache[j]?j:'hero-boy-run-02';}if(/^hero-.+-portrait$/.test(name)){const j=name.replace('portrait','run-02');return cache[j]?j:'hero-boy-run-02';}return name;}
 const one=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('Afbeelding kon niet laden: '+src));im.src=src;});
@@ -49,7 +56,7 @@ async function present(base){if(manifest)return manifest;try{const r=await fetch
 export async function loadAssets(base,names,cache={}){
  const have=await present(base);
  await Promise.all(names.map(async name=>{if(cache[name]!==undefined)return;if(have&&!have.has(name)){cache[name]=null;return;}try{cache[name]=await one(versioned(new URL(name+'.png',base).href));}catch{cache[name]=null;}}));
- const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana|scenery-glider|scenery-(house|shop|tower)-\d+|scenery-(bench|postbox|hydrant|busstop|balloon-seller|fountain)|city-evening|obstacle-car-side(-2)?|hero-(boy|girl)-(swing-back|swing-2|grab|release|reach))$/;
+ const optional=/^(jungle-ravine|jungle-ravine-edge|scenery-liana|scenery-glider|scenery-(house|shop|tower)-\d+|scenery-(bench|postbox|hydrant|busstop|balloon-seller|fountain)|city-evening|obstacle-car-side(-2)?|hero-(boy|girl)-(swing-back|swing-2|grab|release|reach)|hero-(boy|girl)-run-(0[5-9]|1\d|2[0-4]))$/;
  const images={};for(const name of names){const im=cache[resolveName(name,cache)];if(!im&&!optional.test(name))throw new Error('Afbeelding kon niet laden: '+name);if(im)images[name]=im;}
  return images;
 }
@@ -200,7 +207,7 @@ export class Renderer{
     drawLiana(top.x,top.y,hand.x,hand.y,alpha);
     this.image(pose,hx,bottom,SW,sway,alpha);}
    else{const k=since/TAIL;const pose=k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:null;
-    if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha);}
+    if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(runImage(hero,s.distance),p.x,bottom,211,clampTilt(s),alpha);}
   }
   else if(kind==='glide'&&phase){
    const glider=this.images['scenery-glider'];
@@ -211,7 +218,7 @@ export class Renderer{
    else if(phase==='in'){this.image(`hero-${hero}-glide`,p.x,bottom,236,clampTilt(s)*1.6,alpha);}
    else{const k=since/TAIL;const pose=k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:null;
     drawGlider(p.x,fists(pose||`hero-${hero}-reach`)-k*k*420,alpha*(1-k));
-    if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s),alpha);}
+    if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(runImage(hero,s.distance),p.x,bottom,211,clampTilt(s),alpha);}
   }
   else if(s.jump>0&&!this.reduced)this.flip(p.x,bottom,211,s.jump,alpha,!!s.doubleFlip);
   // bumped into something: the running stops dead, the child rocks backwards,
@@ -219,7 +226,7 @@ export class Renderer{
   // held still meanwhile (engine.js), so the stop is felt, not only seen.
   else if(s.stumble>0){const k=1-s.stumble/.55,rock=Math.sin(Math.min(1,k*1.35)*Math.PI);
    this.image(`hero-${hero}-run-01`,p.x+(this.reduced?0:Math.sin(s.stumble*47)*5*(1-k)),bottom+rock*13,211,-.36*rock+clampTilt(s),alpha);}
-  else this.image(s.jump>0?`hero-${hero}-jump`:`hero-${hero}-run-0${1+Math.floor(s.distance*27)%4}`,p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
+  else this.image(s.jump>0?`hero-${hero}-jump`:runImage(hero,s.distance),p.x,bottom,211,clampTilt(s)+this.curve*.4,alpha);
   if(s.shield)shieldAura(g,p.x,p.y-85-jump*137-heroLift,74,116,s.time,this.reduced);
   if(s.magnet>0)magnetAura(g,p.x,p.y-85-jump*137-heroLift,86,130,s.time,this.reduced);};
  let drawn=false;
