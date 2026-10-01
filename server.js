@@ -1,4 +1,5 @@
 const http = require('http');
+const { speechConfig, VOICES } = require('./speech-config.js');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -35,14 +36,13 @@ const PORT = Number(process.env.PORT || 8080);
 // are what make that acceptable for a home network, never for the open internet.
 const HOST = process.env.HOST || '127.0.0.1';
 const API_KEY = process.env.ELEVENLABS_API_KEY || '';
-// eleven_v3 was chosen in a blind A/B on 2026-09-13 for intonation, and it is
-// the finest reader of the three — but a line it has never made before takes
-// 0.6-1.0 s to the first sound and 2.0-2.7 s to the whole clip, and a child who
-// is already reading the answers hears the voice arrive late. flash_v2_5 makes
-// the same line in 0.13-0.18 s to the first sound and 0.23-0.31 s whole, with
-// the same voices, and that is what the game runs on (measured 2026-09-27; see
-// .env.example). Set ELEVENLABS_MODEL to go back to eleven_v3 or to turbo_v2_5.
-const MODEL = process.env.ELEVENLABS_MODEL || 'eleven_flash_v2_5';
+// Model, voices, settings and cache key live in speech-config.js, shared with
+// the tools that count and record every line. Since 2026-10-01 the whole app is
+// recorded ahead of time with eleven_v4_turbo and production serves only that
+// cache (TTS_CACHE_ONLY), so the model's latency no longer reaches the child.
+// ELEVENLABS_MODEL still overrides it, e.g. eleven_flash_v2_5 for the old set.
+const SPEECH = speechConfig(process.env);
+const MODEL = SPEECH.model;
 const CACHE_DIR = path.join(ROOT, '.tts-cache');
 const SELECTION_FILE = path.join(ROOT, '.voice-selection-v35.json');
 fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -138,7 +138,7 @@ const mime = {
 // Path traversal was already blocked, but dotfiles were not — `.git/config`,
 // `.voice-selection-*.json` and a future `.env` holding the ElevenLabs key were
 // all readable over the network.
-const ROOT_DENY = new Set(['server.js', 'playwright.config.js', 'package.json', 'package-lock.json']);
+const ROOT_DENY = new Set(['server.js', 'speech-config.js', 'playwright.config.js', 'package.json', 'package-lock.json']);
 const ASSET_DIR = 'assets';
 
 function resolveStatic(pathname){
@@ -348,7 +348,14 @@ async function ensureGuideVoice(guide, wanted, lang){
   const explicit=process.env[envKey] || (lang==='nl' ? process.env[guide==='Milo'?'MILO_VOICE_ID':'LUNA_VOICE_ID'] : '');
   const current=await loadCurrentVoices();
 
-  // 1. Pinned in .env. Always wins; this is how a reviewed voice is locked in.
+  // 0. Chosen by ear and pinned in speech-config.js (all ten languages).
+  const pinned=VOICES[lang]?.[guide];
+  if(pinned && !explicit){
+    const found=current.find(v=>v.voice_id===pinned)||{voice_id:pinned,name:`Kwizillo ${guide} ${lang.toUpperCase()} v4t`,labels:{}};
+    return {voice:found,meta:guideMeta(found,{source:'speech-config',lang,native:true})};
+  }
+
+  // 1. Pinned in .env. Wins over the config, for trying a voice out.
   if(explicit){
     const found=current.find(v=>v.voice_id===explicit)||{voice_id:explicit,name:`${guide} custom`,labels:{}};
     return {voice:found,meta:guideMeta(found,{source:'environment',lang,native:rule.matches(found)})};
@@ -419,13 +426,7 @@ async function loadVoices(lang){
 // Measured on 2026-09-13 with the curated v20 voices: Milo spoke at ~18 chars/s,
 // Luna at ~15. CLAUDE.md section 9 asks for calm, child-friendly pacing, so Milo
 // is slowed towards Luna. Range is 0.7-1.2; extremes degrade quality.
-const VOICE_SETTINGS = /multilingual_v2/.test(MODEL) ? {
-  Milo: { stability:0.42, similarity_boost:0.78, style:0.3,  use_speaker_boost:true, speed:Number(process.env.MILO_SPEED||0.88) },
-  Luna: { stability:0.38, similarity_boost:0.8,  style:0.46, use_speaker_boost:true, speed:Number(process.env.LUNA_SPEED||1.0) }
-} : {
-  Milo: { stability:0.5, similarity_boost:0.8, use_speaker_boost:true, speed:Number(process.env.MILO_SPEED||0.92) },
-  Luna: { stability:0.5, similarity_boost:0.8, use_speaker_boost:true, speed:Number(process.env.LUNA_SPEED||0.95) }
-};
+const VOICE_SETTINGS = SPEECH.settings;
 
 // ElevenLabs allows a fixed number of concurrent requests per subscription (5 on
 // this account) and answers the rest with 429 concurrent_limit_exceeded. A quiz
@@ -449,9 +450,8 @@ function releaseUpstream(){
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function tts(text, guide, lang, {stream=false, signal=null}={}){
-  // Audio tags such as "[excited]" are an eleven_v3 feature; any other model
-  // would read them out, so they are dropped there.
-  if(!/v3/.test(MODEL)) text=text.replace(/\[[a-z][a-z ]*\]\s*/gi,'').trim();
+  // Audio tags such as "[excited]" are kept for v3/v4 and dropped elsewhere.
+  text=SPEECH.clean(text);
   await loadVoices(lang);
   const v=chosen[lang][guide==='Luna'?'Luna':'Milo'];
   const meta=selectionMeta[lang][guide==='Luna'?'Luna':'Milo'];
@@ -459,8 +459,7 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
   // Language is part of the cache key: the same sentence in two languages is
   // two different recordings.
   const settings=VOICE_SETTINGS[guide==='Luna'?'Luna':'Milo'];
-  // Voice settings are part of the key: a speed change must not replay old audio.
-  const key=crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`).digest('hex');
+  const key=SPEECH.cacheKey(text,lang,guide,voiceId);
   const cached=path.join(CACHE_DIR,`${key}.mp3`);
   if(fs.existsSync(cached)) return {buf:fs.readFileSync(cached),voice:v,meta,cached:true};
   // Logged with the text so a line the warm-up missed can be found and recorded.
@@ -472,7 +471,7 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
     text, model_id:MODEL,
     // language_code is documented only for the flash/turbo models; the native
     // voice per language carries the accent on multilingual_v2 and v3.
-    ...(/flash|turbo/.test(MODEL) ? { language_code: lang } : {}),
+    ...(/flash|turbo|v4/.test(MODEL) ? { language_code: lang } : {}),
     voice_settings: settings
   });
 

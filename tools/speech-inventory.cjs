@@ -13,7 +13,8 @@
 // in .tts-cache. Rekenen (games-math.js) says its sums in pieces from a closed
 // set; that list comes from tools/math-speech.cjs.
 //
-// The cache key is the one server.js builds in tts() (around line 444):
+// The cache key, model, voices and settings come from speech-config.js, the
+// same module server.js uses:
 //   sha256(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(settings)}|${text}`)
 // where text is what the client sent (K.core.spellNumbers already applied, see
 // m1-runtime.js fetchVoiceBlobNow / speechUrl), trimmed and cut to 2500
@@ -43,7 +44,7 @@ const VOICES = ['Milo', 'Luna'];
 /* ---------------- the server's key, replicated ---------------- */
 
 // server.js loadEnvFile(): KEY=value lines from .env, the environment wins.
-// Only the three settings that change the key are read.
+// Only the settings that change the key are read; the rest is speech-config.js.
 const env = { ...process.env };
 try {
   for (const line of fs.readFileSync(path.join(ROOT, '.env'), 'utf8').split(/\r?\n/)) {
@@ -51,29 +52,14 @@ try {
     if (m && !(m[1] in env)) env[m[1]] = m[2].replace(/^(['"])(.*)\1$/, '$2');
   }
 } catch (e) { /* no .env: defaults */ }
-const MODEL = env.ELEVENLABS_MODEL || 'eleven_flash_v2_5';
-const VOICE_SETTINGS = /multilingual_v2/.test(MODEL) ? {
-  Milo: { stability: 0.42, similarity_boost: 0.78, style: 0.3, use_speaker_boost: true, speed: Number(env.MILO_SPEED || 0.88) },
-  Luna: { stability: 0.38, similarity_boost: 0.8, style: 0.46, use_speaker_boost: true, speed: Number(env.LUNA_SPEED || 1.0) }
-} : {
-  Milo: { stability: 0.5, similarity_boost: 0.8, use_speaker_boost: true, speed: Number(env.MILO_SPEED || 0.92) },
-  Luna: { stability: 0.5, similarity_boost: 0.8, use_speaker_boost: true, speed: Number(env.LUNA_SPEED || 0.95) }
-};
-const selection = JSON.parse(fs.readFileSync(path.join(ROOT, '.voice-selection-v35.json'), 'utf8'));
+const SPEECH = require('../speech-config.js').speechConfig(env);
+const MODEL = SPEECH.model, VOICE_SETTINGS = SPEECH.settings;
 const CACHE_DIR = path.join(ROOT, '.tts-cache');
 const cached = new Set(fs.existsSync(CACHE_DIR) ? fs.readdirSync(CACHE_DIR).filter(f => f.endsWith('.mp3')).map(f => f.slice(0, -4)) : []);
 
 // What the server ends up sending to ElevenLabs for what the app asks.
-const spoken = (text, lang) => {
-  let s = core.spellNumbers(String(text), lang).trim().slice(0, 2500);
-  if (!/v3/.test(MODEL)) s = s.replace(/\[[a-z][a-z ]*\]\s*/gi, '').trim();
-  return s;
-};
-const keyFor = (text, lang, voice) => {
-  const voiceId = selection[lang]?.[voice]?.voice_id;
-  if (!voiceId) return null;
-  return crypto.createHash('sha256').update(`${MODEL}|${lang}|${voiceId}|${JSON.stringify(VOICE_SETTINGS[voice])}|${text}`).digest('hex');
-};
+const spoken = (text, lang) => SPEECH.clean(core.spellNumbers(String(text), lang).trim().slice(0, 2500));
+const keyFor = (text, lang, voice) => SPEECH.voiceId(lang, voice) ? SPEECH.cacheKey(text, lang, voice) : null;
 
 /* ---------------- the app's data, as the browser has it ---------------- */
 
