@@ -36,11 +36,15 @@
   v.muted=true;v.playsInline=true;v.autoplay=true;v.preload='auto';
   v.setAttribute('playsinline','');v.setAttribute('aria-hidden','true');
   v.src=wide?'assets/brand/intro-wide.mp4':'assets/brand/intro.mp4';
-  v.style.cssText=full+'z-index:9999;opacity:0';
-  // Shown at once (it is the same picture as the still), the still goes a
-  // couple of frames later when the film certainly covers it. intro.js reads
-  // data-playing when it takes the element over.
-  v.addEventListener('playing',()=>{v.dataset.playing='1';v.style.opacity='1';setTimeout(()=>{stillOut();root.style.background=''},150)},{once:true});
+  // Never hidden: iOS does not autoplay a video it considers invisible
+  // (opacity 0 kept it waiting for ever on a real iPhone; the simulator plays
+  // it anyway). Its poster is the same first frame, so nothing shows until
+  // the film moves.
+  v.poster=still.src;
+  v.style.cssText=full+'z-index:9999;background:transparent';
+  // The still under it goes a couple of frames after the film really plays.
+  // intro.js reads data-playing when it takes the element over.
+  v.addEventListener('playing',()=>{v.dataset.playing='1';setTimeout(()=>{stillOut();root.style.background=''},150)},{once:true});
   root.appendChild(v);
   const p=v.play();if(p&&p.catch)p.catch(()=>{});
   // Never left behind: intro.js takes it (and drops the id) or removes it.

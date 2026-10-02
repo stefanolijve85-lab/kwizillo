@@ -34,7 +34,7 @@
     const adopt=!!early&&early.getAttribute('src')===url.split('?')[0];
     const frame=K.frame(`<div class="motion kwizillo-cinematic${adopt?'':' fade-in'}${wideFilm?' wide-film':''}">
       ${needsBg?`<video class="intro-bg" muted playsinline autoplay preload="auto" aria-hidden="true" src="${url}"></video>`:''}
-      <video class="intro-main" muted playsinline autoplay preload="auto" src="${url}"></video>
+      <video class="intro-main" muted playsinline autoplay preload="auto" src="${url}"${needsBg?'':` poster="${wideFilm?'assets/brand/intro-wide-first.png':'assets/brand/intro-first.png'}"`}></video>
       <div class="intro-brand"><img class="intro-brand-logo" src="${K.BRAND_LOGO_SHADOW||K.BRAND_LOGO||''}" alt="Kwizillo"></div>
       <div class="intro-sound" id="introSound">🔊 ${K.t('intro.tapForSound')}</div>
     </div>`);
@@ -58,9 +58,8 @@
     // launch screen and intro-early.js show too (only where the film fills the
     // screen; a portrait film on a wide screen stands on the blue).
     if(!needsBg) el.style.background=`#1d5fa8 url("${wideFilm?'assets/brand/intro-wide-first.png':'assets/brand/intro-first.png'}") center/cover no-repeat`;
-    // The logo and the film appear together, the moment the film really moves
-    // (base blue until then, the same as the launch screen: no dark flash, no
-    // logo over an empty screen). An adopted film may be playing already.
+    // The logo comes the moment the film really moves (until then the film's
+    // poster, its first frame, stands still). An adopted film may be playing already.
     const moving=()=>{el.classList.add('cinematic-playing');window.KWIZILLO_INTRO_MARK_OUT?.();K.hideSplash?.()};
     // An adopted film that is already on screen stays on screen (data-playing:
     // its 'playing' has been, even if currentTime is still 0).
