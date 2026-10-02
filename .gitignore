@@ -38,3 +38,6 @@ art-source/
 # Voice model comparison clips (made by hand, never shipped)
 voice-samples/
 store/screenshots/
+
+# list of cache files to rsync to the server (tools/speech-inventory.cjs --files)
+speech-files.txt
