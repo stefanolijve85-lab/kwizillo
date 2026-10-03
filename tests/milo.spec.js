@@ -97,9 +97,12 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   const worlds = await page.locator('.home-worlds').boundingBox();
   const s1 = await spot.boundingBox();
   expect(Math.abs(s1.y - worlds.y)).toBeLessThan(12);
+  // A tap on the screen does nothing: only Skip ends the tour, the guide moves on by itself.
   await tour.click({ position: { x: 10, y: 300 } });
-  await expect(tour.locator('.milo-host')).toHaveClass(/hopping/);   // hops to the next stop
-  await expect(bubble).toContainText('zes spelletjes', { timeout: 5000 });
+  await page.waitForTimeout(300);
+  await expect(bubble).toContainText('de werelden');
+  await expect(tour.locator('.milo-host')).not.toHaveClass(/hopping/);
+  await expect(bubble).toContainText('zes spelletjes', { timeout: 25000 });
   const games = await spot.boundingBox(), memo = await page.locator('#homeMemo').boundingBox(), math = await page.locator('#homeMath').boundingBox(), facts = await page.locator('#homeFacts').boundingBox();
   expect(games.x).toBeLessThan(memo.x + 8); expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // all six game tiles at once…
   expect(games.y + games.height).toBeGreaterThan(facts.y + facts.height - 8); // …including the Weetjes tile on the next row
@@ -107,16 +110,12 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
   // No lonely last word: the last two words are tied together.
   expect(await bubble.innerText()).toMatch(/probeer\u00a0het!$/);
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('munten', { timeout: 5000 });
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('collectie', { timeout: 5000 });
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(bubble).toContainText('Veel plezier', { timeout: 5000 });
+  await expect(bubble).toContainText('munten', { timeout: 25000 });
+  await expect(bubble).toContainText('collectie', { timeout: 25000 });
+  await expect(bubble).toContainText('Veel plezier', { timeout: 25000 });
   // the closing line has a clip too (rendered from the talk pose)
   await expect(page.locator('.milo-host')).toHaveAttribute('data-pose', 'talk');
-  await tour.click({ position: { x: 10, y: 300 } });
-  await expect(tour).toHaveCount(0, { timeout: 5000 });
+  await expect(tour).toHaveCount(0, { timeout: 25000 });
   await expect(page.locator('.home')).not.toHaveClass(/touring/);
   // Home is fully usable again.
   await page.locator('[data-world="ruimte"]').first().click();
@@ -241,14 +240,13 @@ test('while it explains, the guide points at what it is explaining and hops on t
   await expect(page.locator('.milo-tour .milo-figure')).toBeVisible();
   // The first stop is the worlds; the second is the games, which is the one
   // with six things to point at.
-  await page.waitForTimeout(2500);
-  await page.locator('.milo-tour').click({ position: { x: 10, y: 300 } });     // a tap anywhere but the skip button
+  // A tap does not move the tour on; a line that never finishes moves on by itself after 12 s.
   // Wait until the spotlight has arrived on the games row.
   await expect.poll(async () => {
     const spot = await page.locator('.milo-tour-spot').boundingBox();
     const games = await page.locator('.home-games').boundingBox();
     return Math.abs(spot.y - games.y);
-  }, { timeout: 15000 }).toBeLessThan(14);
+  }, { timeout: 20000 }).toBeLessThan(14);
   await expect.poll(() => page.evaluate(() => window.__poses.filter(p => /point|cheer/.test(p)).length), { timeout: 15000 }).toBeGreaterThan(0);
   const seen = await page.evaluate(() => ({ poses: [...new Set(window.__poses)], hops: window.__hops }));
   // It does not stand still: it points, it talks, it thinks, and it hops.

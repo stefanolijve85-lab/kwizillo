@@ -373,7 +373,10 @@
     const figW=()=>host.widthAt(figH);
     let done=false,advance=null,frames=0;
     const next=()=>{advance?.()};
-    layer.addEventListener('click',e=>{if(e.target.closest('.milo-tour-skip'))return;next()});
+    // Only Skip ends the tour. A tap anywhere else does nothing — not even to
+    // what lies under it: the tour opens by pointing at the worlds, and a tap
+    // that moved it on felt like tapping a world that did not open.
+    layer.addEventListener('click',e=>{if(e.target.closest('.milo-tour-skip'))return;e.preventDefault();e.stopPropagation()});
     layer.querySelector('.milo-tour-skip').onclick=()=>{done=true;next()};
     const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     const waitTap=ms=>new Promise(r=>{let to=setTimeout(()=>{advance=null;r()},ms);advance=()=>{clearTimeout(to);advance=null;r()}});
@@ -467,7 +470,7 @@
         const said=host.say(t(stop.key),{minMs:1400});
         // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
         {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb();const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-(f.bottom-6));if(over>0){to.y+=to.side==='top'?over:-over;host.moveTo(to.x,to.y,{instant:true});}}
-        await Promise.race([said,waitTap(20000)]);
+        await Promise.race([said,waitTap(12000)]);   // a line that never finishes (no network) moves on by itself
         stopGesture();
         host.stop();
       }

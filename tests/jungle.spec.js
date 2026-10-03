@@ -115,7 +115,7 @@ test('the sky level lets go of the cloud path twice: the hero glides, then lands
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.phase)).toBe('playing');
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.jungle.game.element.run.time)).toBeGreaterThan(1.05);
-  const glidingAt = async frac => page.evaluate(f => { const el = window.KWIZILLO_M1.jungle.game.element; el.run.distance = el.run.duration * (el.run.easy ? .26 : .31) * f; return new Promise(r => setTimeout(() => r(el.wasGliding), 250)); }, frac);
+  const glidingAt = async frac => page.evaluate(f => { const el = window.KWIZILLO_M1.jungle.game.element; el.run.distance = el.run.duration * (el.run.easy ? .26 : .31) * (el.run.pace || 1) * f; return new Promise(r => setTimeout(() => r(el.wasGliding), 250)); }, frac);
   expect(await glidingAt(.1)).toBe(false);
   expect(await glidingAt(.3)).toBe(true);
   await expect(inRunner(page, '.toast')).toHaveText('Vlieg!');

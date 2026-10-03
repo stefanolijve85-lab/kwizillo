@@ -836,7 +836,7 @@
 
 /* Home tour: a dimmed sheet with a spotlight cut-out; the guide floats over it. */
 .home.touring .home-ui{pointer-events:none}
-.milo-tour{position:absolute;inset:0;z-index:40;overflow:hidden;cursor:pointer}
+.milo-tour{position:absolute;inset:0;z-index:40;overflow:hidden;cursor:default}
 .milo-tour-spot{position:absolute;border-radius:24px;border:3px solid #ffd23f;box-shadow:0 0 0 9999px rgba(8,18,60,.6),0 0 0 6px rgba(255,210,63,.25),0 0 30px rgba(255,210,63,.55);
   transition:left .6s cubic-bezier(.2,.9,.3,1),top .6s cubic-bezier(.2,.9,.3,1),width .6s cubic-bezier(.2,.9,.3,1),height .6s cubic-bezier(.2,.9,.3,1)}
 .milo-tour-spot[hidden]{display:block;opacity:0;box-shadow:0 0 0 9999px rgba(8,18,60,.6)}

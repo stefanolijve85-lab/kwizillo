@@ -73,6 +73,8 @@
       onHero:h=>{K.state.runnerHero=h;K.save()},
       // The rustige rit jumps for you up to level 4; from level 5 the child does it.
       easy:(K.state.niveau||1)<=4,
+      // A bit quicker than the runner's own base, and a little quicker again with each level (1 → 6).
+      pace:1.08+.04*(Math.min(6,Math.max(1,K.state.niveau||1))-1),
       muted:K.state.soundOn===false,
       music:false,
       musicState:()=>K.state.musicOn!==false,

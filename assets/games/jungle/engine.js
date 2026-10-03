@@ -5,7 +5,9 @@ export function random(seed){let s=seed>>>0;return()=>{s+=0x6D2B79F5;let t=s;t=M
 export const HIT_PENALTY=5;
 // What stands in the way — all of it can be jumped, and all of it stops you.
 export const OBSTACLES=['rock','log','car'];
-export function createRun({duration=40,easy=false,seed=Date.now(),crossings=false}={}){return {duration:clamp(Number(duration)||40,30,45),easy,seed,crossings,random:random(seed),time:0,distance:0,lane:1,x:1,jump:0,buffer:0,cooldown:0,coins:0,collectedCard:false,items:[],nextRow:.5,row:0,done:false,hits:0,stumble:0,lostCoins:0,streak:0,bestStreak:0,magnet:0,double:0,doubleCoins:0,boost:0,boostCoins:0,shield:0,bonusCoins:0,pickups:0,jumpsCleared:0};}
+// Track units per second. The host sets pace (Kwizillo: faster with each level, see games-jungle.js).
+export const basePace=s=>(s.easy?.26:.31)*(s.pace||1);
+export function createRun({duration=40,easy=false,seed=Date.now(),crossings=false,pace=1}={}){return {duration:clamp(Number(duration)||40,30,45),easy,seed,crossings,pace:clamp(Number(pace)||1,.8,1.6),random:random(seed),time:0,distance:0,lane:1,x:1,jump:0,buffer:0,cooldown:0,coins:0,collectedCard:false,items:[],nextRow:.5,row:0,done:false,hits:0,stumble:0,lostCoins:0,streak:0,bestStreak:0,magnet:0,double:0,doubleCoins:0,boost:0,boostCoins:0,shield:0,bonusCoins:0,pickups:0,jumpsCleared:0};}
 export function move(s,d){if(!s.done&&s.stumble<=0)s.lane=clamp(s.lane+d,0,2);}
 export function jump(s){if(s.done||s.stumble>0)return false;if(s.jump<=0){s.jump=.92;s.doubleFlip=false;return true;}
 // a second press while still high in the air: the flip becomes a double somersault (a little more air time, a small bonus)
@@ -16,10 +18,10 @@ export function step(s,dt){const events=[];if(s.done)return events;dt=clamp(dt,0
 // turbo: five seconds of much faster running (everything comes at you sooner) and every coin counts double
 // a stumble stops the world: the child is really held for half a second,
 // then runs on a little slower while the shake wears off
-const speed=(s.easy?.26:.31)*(s.stumble>0?0:s.cooldown>.5?.75:1)*(s.boost>0?1.6:1);s.distance+=speed*dt;
+const speed=basePace(s)*(s.stumble>0?0:s.cooldown>.5?.75:1)*(s.boost>0?1.6:1);s.distance+=speed*dt;
 if(s.time>=s.nextRow&&s.time<s.duration-4.5){s.nextRow+=s.easy?1.65:1.3;s.row++;const lane=Math.floor(s.random()*3);const add=(kind,lane,z=0)=>s.items.push({kind,lane,z,resolved:false});add('coin',lane);add('coin',lane,-.065);add(s.row%5===0?'gold':'coin',lane,-.13);if(s.row===2||s.row===13)add('magnet',lane,-.22);if(s.row===8||s.row===19)add('double',lane,-.22);if(s.row===5||s.row===17)add('shield',lane,-.22);if(s.row===11||s.row===21)add('speed',lane,-.22);if(s.row>2){const block=(lane+1+Math.floor(s.random()*2))%3;add(s.row%3===0?'rock':'log',block);}if(s.row===9)add('card',(lane+2)%3,-.23);
 // a crossing: a car drives across the whole path while it comes towards you — jump over it, or pass in front of or behind it by changing lane
-if(s.crossings&&(s.row===6||s.row===14||s.row===20)){const dir=s.random()<.5?1:-1;const target=.3+s.random()*1.4,travel=1.15*1.35/(s.easy?.26:.31);/* the car is timed to be on the path, right in front of the child, when it arrives — so it has to be jumped */s.items.push({kind:'car',lane:target-dir*travel,z:-.35,dir,resolved:false,honked:false});}}
+if(s.crossings&&(s.row===6||s.row===14||s.row===20)){const dir=s.random()<.5?1:-1;const target=.3+s.random()*1.4,travel=1.15*1.35/basePace(s);/* the car is timed to be on the path, right in front of the child, when it arrives — so it has to be jumped */s.items.push({kind:'car',lane:target-dir*travel,z:-.35,dir,resolved:false,honked:false});}}
 for(const item of s.items){const before=item.z;item.z+=dt*speed;
 if(item.kind==='car'){item.lane+=item.dir*dt*1.15;if(!item.honked&&item.z>.45){item.honked=true;events.push({type:'honk',lane:item.lane});}}// the rustige rit jumps for you; in the normal ride every obstacle is yours to clear
 if(s.easy&&OBSTACLES.includes(item.kind)&&!item.resolved&&item.z>.86&&item.z<.94&&Math.abs(s.x-item.lane)<(item.kind==='car'?1.05:.38)&&!s.jump){jump(s);events.push({type:'jump'});}const collectible=['coin','gold'].includes(item.kind);

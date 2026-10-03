@@ -8,7 +8,7 @@
 // fly. Missing paintings fall back to the jungle set, so a level plays before
 // all of its art exists.
 import {flipFrame} from './flip.js';
-import {height} from './engine.js';
+import {height,basePace} from './engine.js';
 import {badge,shieldAura,magnetAura} from './arcade-icons.js';
 import {CAMERA,travel,project,itemDepth,sceneryDepth} from './world.js';
 
@@ -28,7 +28,7 @@ export const LEVELS={
 };
 // Stretches where the path lets go (fractions of the run, by distance): the sky
 // level hands the child a glider, the jungle a liana to swing on.
-export const progress=s=>s.distance/(s.duration*(s.easy?.26:.31));
+export const progress=s=>s.distance/(s.duration*basePace(s));
 export const airborne=(level,s)=>{const air=LEVELS[level]?.air;if(!air)return null;const p=progress(s);return air.windows.some(([a,b])=>p>=a&&p<b)?air.kind:null;};
 export const isGliding=(level,s)=>!!airborne(level,s);
 // seconds until the path lets go (positive), and seconds since it came back (positive), for the grab / release poses
@@ -120,7 +120,7 @@ export class Renderer{
  // later, so a stretch where the path lets go (the ravine, the open sky) is
  // visible as a gap that comes towards you and streams past — the same world,
  // never a cross-fade.
- const rate=s.duration*(s.easy?.26:.31),windows=L.air?.windows||[];
+ const rate=s.duration*basePace(s),windows=L.air?.windows||[];
  const gapAt=depth=>{if(!windows.length)return false;const p=(s.distance+(depth-CAMERA.player)/(CAMERA.far-CAMERA.player))/rate;return windows.some(([a,b])=>p>=a&&p<b);};
  const chasm=L.air?.kind==='swing'?(night?['#12261c','#0b1a12','#060d09']:['#4a6a3a','#2c4a2c','#15291a']):['#8fc6f3','#b8dbf8','#d8ecfd'];
  const ravine=L.air?.kind==='swing'?this.images['jungle-ravine']:null,edge=L.air?.kind==='swing'?this.images['jungle-ravine-edge']:null;
@@ -200,7 +200,7 @@ export class Renderer{
   // the hanging / reaching poses (384×560) are drawn narrower than the run frames so the child stays the same size — arms up only add height
   const SW=168,LIFT=kind==='glide'?150:110;const heroLift=phase==='lead'?(1-to/LEAD)**2*LIFT:phase==='in'?LIFT+(kind==='glide'?Math.sin(s.time*1.6)*10:0):phase==='tail'?(1-since/TAIL)**2*LIFT:0;
   const alpha=s.cooldown>.15?.72:1,bottom=p.y+17-jump*137+land-heroLift;
-  const fists=name=>{const im=this.images[name];const h=SW*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);return bottom-h+this.topOf(name)*h+10;};
+  const fists=(name,w=SW)=>{const im=this.images[name];const h=w*im.height/im.width*(this.canvas.width/600)/(this.canvas.height/900);return bottom-h+this.topOf(name)*h+10;};
   const has=n=>manifest?.has(n)||!!this.images[n];
   // In an outer lane a runner seen from behind points at the vanishing point, like the path's own edges do.
   const lean=Math.atan((300+this.off(CAMERA.far*.5)-p.x)/Math.max(60,p.y-CAMERA.horizon))*.4,tilt=clampTilt(s)+lean;
@@ -212,9 +212,10 @@ export class Renderer{
     drawLiana(p.x,top.y,p.x,hy-(1-k)*(1-k)*300,alpha*Math.min(1,k*2)); // the liana's end comes down to the rising hands and meets them exactly
     this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);}
    else if(phase==='in'){const hangN=seqCount(`hero-${hero}-hang`);const pose=hangN?seqName(`hero-${hero}-hang`,pingPong(Math.floor(s.time*20),hangN)):sn>.35&&has(`hero-${hero}-swing-back`)?`hero-${hero}-swing-back`:sn<-.35?`hero-${hero}-swing`:has(`hero-${hero}-swing-2`)?`hero-${hero}-swing-2`:`hero-${hero}-swing`;
-    const hy=fists(pose),ph=Math.abs(hy-bottom);const hand={x:hx+Math.sin(sway)*ph,y:bottom-Math.cos(sway)*ph};
+    // the filmed hang frames have the child longer in the canvas than the old poses: drawn a size smaller, so nobody looks stretched
+    const HW=hangN?Math.round(SW*.86):SW,hy=fists(pose,HW),ph=Math.abs(hy-bottom);const hand={x:hx+Math.sin(sway)*ph,y:bottom-Math.cos(sway)*ph};
     drawLiana(top.x,top.y,hand.x,hand.y,alpha);
-    this.image(pose,hx,bottom,SW,sway,alpha);}
+    this.image(pose,hx,bottom,HW,sway,alpha);}
    else{const k=since/TAIL;const pose=k<.7&&has(`hero-${hero}-release`)?`hero-${hero}-release`:null;
     if(pose)this.image(pose,p.x,bottom,SW,clampTilt(s),alpha);else this.image(runImage(hero,s.distance),p.x,bottom,211,clampTilt(s),alpha);}
   }
