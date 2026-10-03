@@ -1386,3 +1386,15 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 
 /* In the app the theme starts by itself; the hint only shows if that fails. */
 .intro-sound.quiet{visibility:hidden}
+/* parent zone: the tour with either guide, and the players on this device */
+.tour-card,.players-card{grid-template-columns:48px 1fr;row-gap:10px}
+.tour-guides{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tour-guides button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border:2px solid #cfe4f8;border-radius:16px;background:linear-gradient(180deg,#fff,#eef6ff);color:#17407a;font-weight:1000;font-size:15px;cursor:pointer}
+.tour-guides button:active{transform:translateY(2px)}
+.tour-guides .mascot-face{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#dcecfb}
+.player-list{grid-column:1/-1;display:grid;gap:8px}
+.player-row{display:grid;grid-template-columns:36px 1fr auto auto;gap:8px;align-items:center;padding:8px;border-radius:14px;background:#f3f8ff;border:1px solid #dcebfa}
+.player-face{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#7c64ff,#4e43d8);color:#fff;font-weight:1000}
+.player-name{min-width:0}.player-name b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#17407a}.player-name small{color:#5a7aa3;font-weight:800}
+.player-btn{min-height:44px;padding:0 10px;border:2px solid #cfe4f8;border-radius:12px;background:#fff;color:#2b5590;font-weight:1000;font-size:12px;cursor:pointer}
+.player-btn.danger{border-color:#f7c9c0;color:#b4412c;background:#fff6f4}

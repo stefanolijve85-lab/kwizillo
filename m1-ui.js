@@ -740,6 +740,16 @@
     setTimeout(()=>input.focus(),100);
   }
 
+  function showConfirm({icon,title,body,confirm,onConfirm}){
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const o=document.createElement('div');o.className='simple-modal';
+    o.innerHTML=`<div class="simple-modal-card danger"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">${icon}</div><h2>${esc(title)}</h2><p>${esc(body)}</p><div class="confirm-actions"><button class="cancel">${esc(t('common.cancel'))}</button><button class="confirm">${esc(confirm)}</button></div></div>`;
+    f.appendChild(o);
+    o.querySelector('.simple-close').onclick=()=>o.remove();
+    o.querySelector('.cancel').onclick=()=>o.remove();
+    o.querySelector('.confirm').onclick=()=>{o.remove();onConfirm()};
+  }
+
   function showResetConfirm(){
     const f=K.app.querySelector('.game-frame');if(!f)return;
     const o=document.createElement('div');o.className='simple-modal';
@@ -763,7 +773,9 @@
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
       
-      <section class="setting-card clickable" id="tourOpen"><div class="setting-icon">${K.activeGuide()==='luna'?'🎧':'🤖'}</div><div><b>${esc(t('tour.again',{guide:K.guideName()}))}</b><small>${esc(t('tour.againSub',{guide:K.guideName()}))}</small></div><em>›</em></section>
+      <section class="setting-card tour-card"><div class="setting-icon">🧭</div><div><b>${esc(t('tour.pick'))}</b><small>${esc(t('tour.pickSub'))}</small></div><div class="tour-guides"><button data-tour="milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt="">${esc(t('voice.milo'))}</button><button data-tour="luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt="">${esc(t('voice.luna'))}</button></div></section>
+      <section class="setting-card players-card"><div class="setting-icon">👨‍👩‍👧</div><div><b>${esc(t('players.title'))}</b><small>${esc(t('players.sub'))}</small></div><div class="player-list">${K.players.all().map(p=>`<div class="player-row"><span class="player-face">${esc((p.name[0]||'?').toUpperCase())}</span><span class="player-name"><b>${esc(p.name)}</b><small>${esc(p.current?t('players.current'):t('settings.level')+' '+Math.max(1,1+Math.floor(Number(p.state?.xp||0)/100)))}</small></span><button class="player-btn" data-player-reset="${esc(p.name)}">${esc(t('players.reset'))}</button><button class="player-btn danger" data-player-delete="${esc(p.name)}">${esc(t('players.delete'))}</button></div>`).join('')}</div></section>
+      <section class="setting-card clickable" id="logoutOpen"><div class="setting-icon">🚪</div><div><b>${esc(t('settings.logout'))}</b><small>${esc(t('settings.logoutSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('privacy.sub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
@@ -772,8 +784,13 @@
     f.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{K.sfx('tap');const d=b.dataset.group==='plus'?1:-1;K.state.group=Math.max(1,Math.min(8,(K.state.group||5)+d));K.state.groupChosen=true;K.save();K.showParent()});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
-    f.querySelector('#tourOpen').onclick=()=>{K.sfx('tap');K.showHome();setTimeout(()=>K.startTour(),320)};
-    K.warmTour?.();   // "tour again" starts talking at once
+    f.querySelectorAll('[data-tour]').forEach(b=>b.onclick=()=>{K.sfx('tap');const guide=b.dataset.tour;K.showHome();setTimeout(()=>K.startTour({guide}),320)});
+    K.warmTour?.('milo');K.warmTour?.('luna');   // either tour starts talking at once
+    // Log out: who plays now is put away safely, then the device asks who plays.
+    f.querySelector('#logoutOpen').onclick=()=>{K.sfx('tap');K.players.stash();K.showPlayerPicker()};
+    // Per player: start again at zero, or delete — both behind the parental gate and a confirm.
+    f.querySelectorAll('[data-player-reset]').forEach(b=>b.onclick=()=>{K.sfx('tap');const name=b.dataset.playerReset;showParentalGate(()=>showConfirm({icon:'♻️',title:t('players.resetTitle',{name}),body:t('players.resetBody',{name}),confirm:t('players.reset'),onConfirm:()=>{K.players.resetProgress(name);K.toast?.(t('players.resetDone',{name}));K.showParent()}}))});
+    f.querySelectorAll('[data-player-delete]').forEach(b=>b.onclick=()=>{K.sfx('tap');const name=b.dataset.playerDelete;showParentalGate(()=>showConfirm({icon:'🗑️',title:t('players.deleteTitle',{name}),body:t('players.deleteBody',{name}),confirm:t('players.delete'),onConfirm:()=>{const r=K.players.remove(name);if(r==='fresh')return K.startOnboarding({from:'name'});if(r==='switched')return K.showWelcomeBack();K.showParent()}}))});
     f.querySelector('#timeToggle').onclick=()=>{K.sfx('tap');K.state.timeLimitOn=K.state.timeLimitOn===false;K.save();K.showParent()};
     f.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.niveau=Number(b.dataset.level);K.save();K.showParent()});
     f.querySelector('#shareOpen').onclick=()=>{K.sfx('tap');K.shareScore()};

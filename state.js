@@ -221,8 +221,38 @@
       const all=readPlayers();
       delete all[nameKey(name)];
       writePlayers(all);
+    },
+    // Everyone on this device: who plays now first, then the others, newest first.
+    all(){
+      const me=String(K.state.name||'').trim();
+      return [...(me?[{key:nameKey(me),name:me,current:true,state:K.state}]:[]),...K.players.others().map(p=>({...p,current:false}))];
+    },
+    // "Op 0 zetten": everything the child earned starts again; the name, the
+    // language, the guide and the settings stay, so nobody has to go through
+    // the onboarding again.
+    resetProgress(name){
+      const fresh=s=>{const out=clone(s);for(const k of PROGRESS_KEYS)out[k]=clone(DEFAULTS[k]);out.scores=S.emptyScores();return out};
+      if(nameKey(name)===nameKey(K.state.name)){K.state=fresh(K.state);K.save();K.players.stash();return true}
+      const all=readPlayers(),rec=all[nameKey(name)];
+      if(!rec||!rec.state) return false;
+      rec.state=fresh(migrate(rec.state));rec.savedAt=Date.now();writePlayers(all);
+      return true;
+    },
+    // Delete a player from this device. Deleting the one who plays now hands the
+    // device to the most recent other player, or to a new one when there is
+    // nobody else. Returns 'other', 'switched' or 'fresh'.
+    remove(name){
+      if(nameKey(name)!==nameKey(K.state.name)){K.players.forget(name);return 'other'}
+      K.players.forget(name);
+      const next=K.players.others()[0];
+      if(next){const rec=readPlayers()[next.key];K.state=migrate(rec.state);K.save();return 'switched'}
+      const lang=K.state.language;
+      K.state=clone(DEFAULTS);K.state.language=lang;K.save();
+      return 'fresh';
     }
   };
+  // What "Op 0 zetten" clears: the earned things, never who the child is or how the app is set up.
+  const PROGRESS_KEYS=['xp','coins','streak','lastPlayedDate','answered','correct','quizzesPlayed','lastWorld','bestScores','shop','progress','selectedMascot'];
 
   // "Erase all data" in the parent zone: every key this app ever writes goes,
   // including the fresh-start choice and the cached App Store entitlement, so

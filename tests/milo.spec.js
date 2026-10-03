@@ -173,16 +173,17 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   for (const r of spoken.slice(before)) expect(JSON.stringify(r)).not.toContain('Sam');
   await page.locator('.milo-tour-skip').click();
   await expect(tour).toHaveCount(0, { timeout: 5000 });
-  // The parent zone offers her tour by name.
+  // The parent zone offers the tour with either guide, side by side.
   await page.locator('[data-nav="parent"]').click();
-  await expect(page.locator('#tourOpen')).toContainText('Rondleiding van Luna');
+  await expect(page.locator('.tour-guides button')).toHaveText(['Milo', 'Luna']);
 });
 
-test('the parent zone can replay the tour', async ({ page }) => {
+test('the parent zone can replay the tour, with Milo or with Luna', async ({ page }) => {
   await boot(page);
   await page.locator('[data-nav="parent"]').click();
-  await page.locator('#tourOpen').click();
+  await page.locator('[data-tour="milo"]').click();
   await expect(page.locator('.home .milo-tour')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('.milo-tour .milo-host')).toHaveAttribute('data-guide', 'milo');
   await page.locator('.milo-tour-skip').click();
   await expect(page.locator('.milo-tour')).toHaveCount(0, { timeout: 5000 });
 });
