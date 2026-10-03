@@ -10,13 +10,15 @@
 
   /* ---------------- Config ---------------- */
 
-  const BUNDLE_ID='nl.kwizillo.app';
+  // The product ids keep the nl.kwizillo.app prefix they were made with; since the
+  // app moved to Olijve Holding B.V. its iOS bundle id is com.kwizillo.app.
+  const PRODUCT_PREFIX='nl.kwizillo.app',BUNDLE_ID='com.kwizillo.app';
   const CONFIG={
     bundleId:BUNDLE_ID,
     subscriptionGroup:'Kwizillo Premium',
     products:{
-      monthly:{id:`${BUNDLE_ID}.premium.monthly`,period:'month',months:1,target:'€6,99'},
-      yearly:{id:`${BUNDLE_ID}.premium.yearly`,period:'year',months:12,target:'€49,99',trialDays:7,recommended:true}
+      monthly:{id:`${PRODUCT_PREFIX}.premium.monthly`,period:'month',months:1,target:'€6,99'},
+      yearly:{id:`${PRODUCT_PREFIX}.premium.yearly`,period:'year',months:12,target:'€49,99',trialDays:7,recommended:true}
     },
     // What Free can play. Everything else is visible with a lock and opens with Premium.
     free:{
