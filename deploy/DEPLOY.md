@@ -1,5 +1,21 @@
 # Kwizillo op de bestaande server (213.126.59.35, nginx)
 
+> **Zoals het echt draait (gecontroleerd 3 oktober 2026)** — wijkt af van de stappen hieronder:
+> - Machine: `detepoconnect` (thuisnetwerk 192.168.2.16; van buiten 213.126.59.35). SSH als
+>   `solotech` met de sleutel `~/.ssh/kwizillo_deploy` van de Mac; sudo vraagt het wachtwoord.
+> - Het **spel**: `/var/www/kwizillo-app`, gebruiker `kwizillo`, git-tak `website-video-assets`,
+>   Node op **127.0.0.1:8095** (unit `/etc/systemd/system/kwizillo.service`, met `TTS_CACHE_ONLY=1`).
+>   De unit in deze repo (`/var/www/kwizillo`, poort 8080) is níet die van de server: niet overschrijven,
+>   alleen regels aanpassen.
+> - De **website**: `/var/www/kwizillo` (statisch, eigenaar `solotech`, geen git). Die versie is nieuwer
+>   dan `site/` in deze repo (uitlegvideo's, `hulp.html`, `en/help.html`, share-plaatjes): niet
+>   overschrijven met `site/`.
+> - Spraak bijwerken: lijst maken (`node tools/speech-inventory.cjs --files speech-files.txt`), dan
+>   `rsync -a --files-from=speech-files.txt -e "ssh -i ~/.ssh/kwizillo_deploy" .tts-cache/ solotech@detepoconnect:tts-stage/`
+>   en op de server `sudo rsync -a ~/tts-stage/ /var/www/kwizillo-app/.tts-cache/ && sudo chown -R kwizillo:kwizillo /var/www/kwizillo-app/.tts-cache`.
+> - Code bijwerken: `cd /var/www/kwizillo-app && sudo -u kwizillo git pull --ff-only && sudo systemctl restart kwizillo`.
+> - Controle: `curl -s https://app.kwizillo.nl/api/voice-status` → `"model":"eleven_v4_turbo"`.
+
 Doel: `kwizillo.nl` / `kwizillo.com` tonen de website (`site/`), `app.kwizillo.nl` /
 `app.kwizillo.com` draaien het spel met de ElevenLabs-proxy (`server.js`).
 De nginx die er al staat krijgt drie serverblokken erbij; Node luistert alleen op
