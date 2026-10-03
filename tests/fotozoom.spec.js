@@ -101,3 +101,22 @@ test('Fotozoom in a locked world shows the Premium teaser for a free player', as
   await page.evaluate(() => window.KWIZILLO_M1.startFotozoom('dieren'));
   await expect(page.locator('.premium-teaser p')).toContainText('Fotozoom');
 });
+
+test('the four names on the tiles always differ, and so do the four pictures (no "Parijs" twice)', async ({ page }) => {
+  await boot(page);
+  const bad = await page.evaluate(() => {
+    const K = window.KWIZILLO_M1, core = a => String(a).replace(/^(de|het|een|the|a|an)\s+/i, '').toLowerCase(), out = [];
+    for (const world of ['mix', 'ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie']) {
+      for (let n = 0; n < 20; n++) {
+        K.startFotozoom(world);
+        for (const r of K.fotozoom?.rounds || []) {
+          const names = r.options.map(o => core(o.answer)), arts = r.options.map(o => K.answerArtFor(o));
+          if (new Set(names).size !== names.length || new Set(arts).size !== arts.length) out.push(names.join(' / '));
+        }
+      }
+    }
+    K.showHome();
+    return out;
+  });
+  expect(bad).toEqual([]);
+});

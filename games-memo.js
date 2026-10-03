@@ -95,7 +95,8 @@
     // board, the rest of the board is filled with picture pairs.
     const wordQs=pickQuestions(world,pairs);
     const used=new Set(wordQs.map(q=>q.id)),usedArt=new Set(wordQs.map(q=>K.answerArtFor(q)));
-    const fill=shuffle(K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&!used.has(q.id)&&!usedArt.has(K.answerArtFor(q)))).slice(0,Math.max(0,pairs-wordQs.length));
+    // The fill pairs are also compared with each other: two questions can share one picture.
+    const fill=[];for(const q of shuffle(K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&!used.has(q.id)))){if(fill.length>=pairs-wordQs.length)break;const a=K.answerArtFor(q);if(usedArt.has(a))continue;usedArt.add(a);fill.push(q)}
     const qs=[...wordQs,...fill];
     if(qs.length<pairs){K.toast(t('memo.none'));return K.showWorld(world)}
     const cards=shuffle(qs.flatMap((q,i)=>[

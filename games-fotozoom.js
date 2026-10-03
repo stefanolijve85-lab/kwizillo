@@ -33,8 +33,15 @@
     const pool=shuffle(candidates(world));
     if(pool.length<4){K.toast(t('memo.none'));K.showHome();return}
     const rounds=pool.slice(0,ROUNDS).map(q=>{
-      const others=shuffle(pool.filter(o=>o.id!==q.id&&o.answer!==q.answer&&o.world===q.world)).slice(0,3);
-      while(others.length<3){const o=pool.find(x=>x.id!==q.id&&x.answer!==q.answer&&!others.includes(x));if(!o)break;others.push(o)}
+      // Four different words and four different pictures, as in "Wat ben ik?":
+      // the others were only compared with the right answer, never with each
+      // other, so two tiles could both say "Parijs".
+      const name=o=>core(String(o.answer)).toLowerCase();
+      const words=new Set([name(q)]),arts=new Set([K.answerArtFor(q)]);
+      const fresh=o=>o.id!==q.id&&!words.has(name(o))&&!arts.has(K.answerArtFor(o));
+      const others=[],take=o=>{others.push(o);words.add(name(o));arts.add(K.answerArtFor(o))};
+      for(const o of shuffle(pool.filter(o=>o.world===q.world))){if(others.length>=3)break;if(fresh(o))take(o)}
+      for(const o of pool){if(others.length>=3)break;if(fresh(o))take(o)}
       // The zoom lands near the middle, where the picture's subject is, never
       // on a corner of sky or lawn.
       return {q,options:shuffle([q,...others]),fx:38+Math.random()*24,fy:34+Math.random()*26};
