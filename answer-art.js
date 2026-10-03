@@ -266,8 +266,14 @@
   };
   // URL of the picture that shows a question's answer, or null when there is
   // none. Takes a question or its id.
+  // Checked picture by picture on 2026-10-03: the picture does not show what the
+  // answer names (wrong animal, a scene, an old question's picture) or the answer
+  // cannot be pictured (a number, a colour, a reason). These questions stay in the
+  // quiz but are left out of Memo, Fotozoom and "Wat ben ik?".
+  const NO_ANSWER_ART=new Set(["aarde-continenten_landen-07", "aarde-weer_klimaat-15", "dieren-baby_dieren-14", "dieren-jungle-01", "dieren-jungle-18", "dieren-snelle_dieren-01", "dieren-snelle_dieren-02", "dieren-waterdieren-16", "geschiedenis-egyptenaren-11", "geschiedenis-egyptenaren-18", "geschiedenis-egyptenaren-19", "geschiedenis-ridders_kastelen-01", "geschiedenis-ridders_kastelen-12", "geschiedenis-ridders_kastelen-13", "geschiedenis-ridders_kastelen-16", "geschiedenis-ridders_kastelen-17", "geschiedenis-ridders_kastelen-38", "kunst-bouwkunst-04", "kunst-dans_theater-10", "kunst-dans_theater-12", "kunst-dans_theater-33", "kunst-dans_theater-35", "kunst-muziek-05", "kunst-muziek-07", "kunst-muziek-13", "kunst-muziek-15", "kunst-muziek-28", "kunst-muziek-32", "kunst-muziek-36", "kunst-schilderkunst-28", "kunst-schilderkunst-37", "mysterie-raadsels-08", "mysterie-raadsels-20", "ruimte-zonnestelsel-11", "wetenschap-slimme_proefjes-05", "wetenschap-uitvindingen-01", "wetenschap-uitvindingen-02", "wetenschap-uitvindingen-10"]);
   K.answerArtFor=q=>{
     const id=typeof q==='string'?q:q?.id;
+    if(NO_ANSWER_ART.has(id))return null;
     const v=A[id];
     if(!v){
       const world=String(id||'').split('-')[0];
