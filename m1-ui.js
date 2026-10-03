@@ -678,11 +678,13 @@
   // button that erases the lot. Apple's Kids Category and the COPPA rule both
   // want the retention and deletion lines inside the notice itself, so they live
   // here in the app, in every language, not only on the website.
-  const PRIVACY_UPDATED='2026-09-30';
+  const PRIVACY_UPDATED='2026-10-03';
+  // The date written out in the reader's language: 3 oktober 2026, 3 October 2026.
+  const updatedOn=()=>{const lang=K.state.language==='en'?'en-GB':K.state.language||'nl';try{return new Intl.DateTimeFormat(lang,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(PRIVACY_UPDATED+'T00:00:00Z'))}catch(e){return PRIVACY_UPDATED}};
   // Who answers for the data (GDPR art. 13, the stores' trader details). A name
   // and an address read the same in every language.
-  const PUBLISHER='Solotech vof · Boslaan 3, 7811 GJ Emmen · KvK 94214578';
-  const contactMail=()=>K.state.language==='nl'?'hallo@kwizillo.nl':'hello@kwizillo.com';
+  const PUBLISHER='Olijve Holding B.V. · Hunenoord 20, 7822 BP Emmen · KvK 89749685';
+  const contactMail=()=>'stefan@kwizillo.com';
   K.showPrivacy=({back}={})=>{
     K.stopSpeech();K.lastView='privacy';
     const p=progress();
@@ -700,7 +702,7 @@
       <p class="collection-note">${esc(t('privacy.noAccount'))}</p>
       <section class="setting-card clickable" id="privacyContact"><div class="setting-icon">✉️</div><div><b>${esc(t('privacy.contact'))}</b><small>${esc(t('privacy.contactSub',{email:contactMail()}))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="eraseOpen"><div class="setting-icon">🗑️</div><div><b>${esc(t('privacy.erase'))}</b><small>${esc(t('privacy.eraseSub'))}</small></div><em>›</em></section>
-      <p class="privacy-updated">${esc(t('privacy.updated',{date:PRIVACY_UPDATED}))}</p>
+      <p class="privacy-updated">${esc(t('privacy.updated',{date:updatedOn()}))}</p>
       <p class="privacy-publisher">${esc(PUBLISHER)}</p>`;
     const f=nativeScreen({cls:'privacy-screen',title:t('settings.privacy'),subtitle:t('privacy.sub'),body,active:'parent',back:back||(()=>K.showParent())});
     // Writing mail leaves the app and erasing cannot be undone: both wait for a grown-up.

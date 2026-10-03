@@ -97,3 +97,17 @@ test('log out puts the player away and asks who plays; the tour card offers Milo
   await page.locator('[data-tour="luna"]').click();
   await expect(page.locator('.milo-tour .milo-host')).toHaveAttribute('data-guide', 'luna', { timeout: 6000 });
 });
+
+test('the privacy notice names Olijve Holding B.V., mails stefan@kwizillo.com and is dated 3 October 2026 (NL and EN)', async ({ page }) => {
+  await boot(page);
+  await page.evaluate(() => window.KWIZILLO_M1.showPrivacy());
+  const screen = page.locator('.privacy-screen');
+  await expect(screen.locator('.privacy-publisher')).toHaveText('Olijve Holding B.V. · Hunenoord 20, 7822 BP Emmen · KvK 89749685');
+  await expect(screen.locator('#privacyContact')).toContainText('stefan@kwizillo.com');
+  await expect(screen.locator('.privacy-updated')).toHaveText('Laatst bijgewerkt: 3 oktober 2026');
+  await expect(screen).not.toContainText('Solotech');
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.setLanguage('en'); K.useBank(); K.showPrivacy(); });
+  await expect(screen.locator('.privacy-updated')).toHaveText('Last updated: 3 October 2026');
+  await expect(screen.locator('#privacyContact')).toContainText('stefan@kwizillo.com');
+  await expect(screen.locator('.privacy-publisher')).toContainText('Olijve Holding B.V.');
+});
