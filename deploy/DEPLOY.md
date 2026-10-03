@@ -1,7 +1,7 @@
 # Kwizillo op de bestaande server (213.126.59.35, nginx)
 
 > **Zoals het echt draait (gecontroleerd 3 oktober 2026)** — wijkt af van de stappen hieronder:
-> - Machine: `detepoconnect` — die naam werkt alleen op het netwerk van de beheerder (daar 192.168.2.16). Van elders (bij Stefan thuis): `ssh solotech@10.88.0.2`, op IP. SSH als
+> - Machine: `detepoconnect` — die naam werkt alleen op het netwerk van de beheerder (daar 192.168.2.16). Van elders (bij Stefan thuis): `ssh solotech@10.88.0.2`, op IP, door de beveiligde WireGuard-tunnel van de beheerder. Het openbare adres 213.126.59.35 heeft géén SSH (de tunnel blokkeert dat); de `root@213.126.59.35`-commando's verderop kloppen dus niet. SSH als
 >   `solotech` met de sleutel `~/.ssh/kwizillo_deploy` van de Mac; sudo vraagt het wachtwoord.
 > - Het **spel**: `/var/www/kwizillo-app`, gebruiker `kwizillo`, git-tak `website-video-assets`,
 >   Node op **127.0.0.1:8095** (unit `/etc/systemd/system/kwizillo.service`, met `TTS_CACHE_ONLY=1`).
