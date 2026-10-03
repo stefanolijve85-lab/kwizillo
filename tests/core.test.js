@@ -323,3 +323,13 @@ for (const lang of LANGS) {
 assert.deepStrictEqual(core.speechParts('Bijna. Het is {answer}.', { answer: 347 }, 'nl'), ['Bijna. Het is', 'driehonderd', 'zevenenveertig']);
 assert.deepStrictEqual(core.speechParts('{a} keer {b}', {}, 'nl'), ['keer'], 'an unfilled slot is never read out');
 console.log('Kwizillo core gameplay tests: OK');
+
+// A Dutch voice reads a bare "A." as the English letter now and then, so in Dutch the letters are spelled the way they are said.
+{
+  const q = { prompt: 'Vraag?', options: ['Een', 'Twee', 'Drie', 'Vier'], answer: 'Een' };
+  const letters = lang => core.buildQuestionSpeechSegments(q, { lang }).filter(s => s.kind === 'option').map(s => s.text);
+  assert.deepStrictEqual(letters('nl'), ['Aa.', 'Bee.', 'Cee.', 'Dee.']);
+  assert.deepStrictEqual(letters('en'), ['A.', 'B.', 'C.', 'D.']);
+  assert.deepStrictEqual(letters(undefined), ['A.', 'B.', 'C.', 'D.']);
+  console.log('spoken letters per language ✔');
+}

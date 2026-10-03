@@ -7,7 +7,12 @@
   // The letter and the answer are two recordings ("A." then "Mars."): the app
   // shuffles the options, so "A. Mars." would need a recording under every
   // letter. The answer recording is the same one the verdict reuses.
-  function buildQuestionSpeechSegments(q,{answers=true}={}){const labels=['A','B','C','D','E','F'];if(!answers)return[{kind:'question',text:q.prompt}];return[{kind:'question',text:q.prompt},...(q.options||[]).flatMap((o,i)=>{const label=labels[i]||String(i+1);return[{kind:'option',index:i,label,text:`${label}.`},{kind:'answer',index:i,label,text:answerText(o)}]})]}
+  // A Dutch voice reads a bare "A." as the English letter now and then ("ee"),
+  // so in Dutch the letters are written the way they are said.
+  const SPOKEN_LETTERS={nl:['Aa.','Bee.','Cee.','Dee.','Ee.','Ef.']};
+  const LETTERS=['A','B','C','D','E','F'];
+  function spokenLetters(lang){return LETTERS.map((l,i)=>SPOKEN_LETTERS[lang]?.[i]||`${l}.`)}
+  function buildQuestionSpeechSegments(q,{answers=true,lang}={}){if(!answers)return[{kind:'question',text:q.prompt}];const said=spokenLetters(lang);return[{kind:'question',text:q.prompt},...(q.options||[]).flatMap((o,i)=>{const label=LETTERS[i]||String(i+1);return[{kind:'option',index:i,label,text:said[i]||`${label}.`},{kind:'answer',index:i,label,text:answerText(o)}]})]}
   const answerText=a=>`${String(a).trim()}.`;
   // "Net niet. Het juiste antwoord is {answer}." is said as its fixed words and
   // the answer's own recording: ["Net niet. Het juiste antwoord is", "Mars."].
@@ -376,5 +381,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,spokenLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

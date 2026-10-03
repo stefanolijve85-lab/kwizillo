@@ -156,7 +156,7 @@
       // so every voice starts the moment its card appears.
       const nextQ=K.quiz.questions[K.quiz.index+1];
       // The question and the four answers are read on every level (see LEVELS).
-      const speech={answers:K.core.readsAnswers(level())};
+      const speech={answers:K.core.readsAnswers(level()),lang:K.state.language};
       const lines=segs=>segs.map(s=>s.text);
       const warm=[...lines(feedbackSpeech(q,true)),...lines(feedbackSpeech(q,false)),q.hint||t('hint.fallback')];
       if(nextQ&&!K.quiz.answeredById?.[nextQ.id]) warm.push(...K.core.buildQuestionSpeechSegments(nextQ,speech).map(s=>s.text),...lines(feedbackSpeech(nextQ,true)),...lines(feedbackSpeech(nextQ,false)));

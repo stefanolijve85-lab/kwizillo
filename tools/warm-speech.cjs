@@ -71,7 +71,7 @@ function linesFor(lang, tier, { topic = null, ids = [] } = {}) {
     }
   } else {
     // The letter and the answer are separate recordings (buildQuestionSpeechSegments).
-    out.push(...LABELS.map(l => `${l}.`));
+    out.push(...core.spokenLetters(lang).slice(0, LABELS.length));
     for (const q of bank) for (const o of q.options || []) out.push(core.answerText(o));
   }
   return [...new Set(out.filter(Boolean).map(line => core.spellNumbers(line, lang).trim()))];
