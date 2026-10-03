@@ -16,7 +16,7 @@
         ["Where is Pluto?","In the Kuiper belt",["Between Mars and Jupiter","Next to Venus","In the core of the Milky Way"],"Beyond Neptune.","Pluto is a dwarf planet in the Kuiper belt, far beyond Neptune.","A year on Pluto lasts 248 Earth years."]
       ],
       sterren_planeten: [
-        ["Which galaxy is closest to the Milky Way?","Andromeda",["Orion","Sirius","Cassiopeia"],"You can see it with the naked eye as a faint smudge.","Andromeda is the nearest large galaxy.","In about 4 billion years Andromeda and the Milky Way will collide."],
+        ["Which large galaxy is closest to the Milky Way?","Andromeda",["Orion","Sirius","Cassiopeia"],"You can see it with the naked eye as a faint smudge.","Andromeda is the nearest large galaxy.","In about 4 billion years Andromeda and the Milky Way will collide."],
         ["How hot is the hottest kind of star?", "Over 30,000 degrees", ["About 100 degrees", "About 1,000 degrees", "About 5,000 degrees"], "Far hotter than our sun.", "The hottest stars reach tens of thousands of degrees at their surface.", "Our sun, at nearly 5,500 degrees, is a calm, average star.",],
         ["What is a light-year?","A distance",["A time","A weight","A temperature"],"It is about how far, not how long.","A light-year is the distance light travels in one year.","That is about 9.5 trillion kilometres."],
         ["What is the brightest star in the night sky?","Sirius",["The North Star","Betelgeuse","Vega"],"It belongs to the constellation Canis Major.","Sirius is the brightest star we see at night.","Sirius is \"only\" 8.6 light-years away."],

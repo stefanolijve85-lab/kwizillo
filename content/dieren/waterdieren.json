@@ -2259,7 +2259,7 @@
         },
         "fr": {
           "prompt": "Comment un requin trouve-t-il sa proie en eau trouble ?",
-          "answer": "Il sent les champs",
+          "answer": "Il sent l’électricité",
           "wrong": [
             "Il entend l'eau",
             "Il voit dans le noir",

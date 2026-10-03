@@ -16,7 +16,7 @@
         ["Onde fica Plutão?","No cinturão de Kuiper",["Entre Marte e Júpiter","Ao lado de Vênus","No centro da Via Láctea"],"Depois de Netuno.","Plutão é um planeta anão no cinturão de Kuiper, muito além de Netuno.","Um ano em Plutão dura 248 anos terrestres."]
       ],
       sterren_planeten: [
-        ["Qual galáxia fica mais perto da Via Láctea?","Andrômeda",["Órion","Sirius","Cassiopeia"],"Dá para ver a olho nu como uma mancha fraca.","Andrômeda é a grande galáxia mais próxima.","Em cerca de 4 bilhões de anos, Andrômeda e a Via Láctea vão se chocar."],
+        ["Qual grande galáxia fica mais perto da Via Láctea?","Andrômeda",["Órion","Sirius","Cassiopeia"],"Dá para ver a olho nu como uma mancha fraca.","Andrômeda é a grande galáxia mais próxima.","Em cerca de 4 bilhões de anos, Andrômeda e a Via Láctea vão se chocar."],
         ["Que calor atinge a estrela mais quente?", "Mais de 30.000 graus", ["Cerca de 100 graus", "Cerca de 1.000 graus", "Cerca de 5.000 graus"], "Muito mais do que o nosso sol.", "As estrelas mais quentes chegam a dezenas de milhares de graus à superfície.", "O nosso sol, com quase 5.500 graus, é uma estrela média e calma.",],
         ["O que é um ano-luz?","Uma distância",["Um tempo","Um peso","Uma temperatura"],"É sobre quão longe, não quanto tempo.","Um ano-luz é a distância que a luz percorre em um ano.","São cerca de 9,5 trilhões de quilômetros."],
         ["Qual é a estrela mais brilhante do céu noturno?","Sirius",["A Estrela Polar","Betelgeuse","Vega"],"Fica na constelação do Cão Maior.","Sirius é a estrela mais brilhante que vemos à noite.","Sirius está \"só\" a 8,6 anos-luz de nós."],

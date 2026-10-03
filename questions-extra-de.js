@@ -16,7 +16,7 @@
         ["Wo befindet sich Pluto?","Im Kuipergürtel",["Zwischen Mars und Jupiter","Neben der Venus","Im Kern der Milchstraße"],"Jenseits von Neptun.","Pluto ist ein Zwergplanet im Kuipergürtel, weit hinter Neptun.","Ein Jahr auf Pluto dauert 248 Erdjahre."]
       ],
       sterren_planeten: [
-        ["Welche Galaxie liegt der Milchstraße am nächsten?","Andromeda",["Orion","Sirius","Kassiopeia"],"Du siehst sie mit dem Auge als blassen Fleck.","Andromeda ist die nächste große Galaxie.","In etwa 4 Milliarden Jahren stoßen Andromeda und die Milchstraße zusammen."],
+        ["Welche große Galaxie liegt der Milchstraße am nächsten?","Andromeda",["Orion","Sirius","Kassiopeia"],"Du siehst sie mit dem Auge als blassen Fleck.","Andromeda ist die nächste große Galaxie.","In etwa 4 Milliarden Jahren stoßen Andromeda und die Milchstraße zusammen."],
         ["Wie heiß ist die heißeste Art Stern ungefähr?", "Über 30.000 Grad", ["Etwa 100 Grad", "Etwa 1.000 Grad", "Etwa 5.000 Grad"], "Viel heißer als unsere Sonne.", "Die heißesten Sterne erreichen an der Oberfläche Zehntausende Grad.", "Unsere Sonne ist mit knapp 5.500 Grad ein ruhiger Durchschnittsstern.",],
         ["Was ist ein Lichtjahr?","Eine Entfernung",["Eine Zeit","Ein Gewicht","Eine Temperatur"],"Es geht darum, wie weit, nicht wie lange.","Ein Lichtjahr ist die Strecke, die Licht in einem Jahr zurücklegt.","Das sind etwa 9,5 Billionen Kilometer."],
         ["Was ist der hellste Stern am Nachthimmel?","Sirius",["Der Polarstern","Beteigeuze","Wega"],"Er gehört zum Sternbild Großer Hund.","Sirius ist der hellste Stern, den wir nachts sehen.","Sirius ist „nur“ 8,6 Lichtjahre entfernt."],

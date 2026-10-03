@@ -41,3 +41,4 @@ store/screenshots/
 
 # list of cache files to rsync to the server (tools/speech-inventory.cjs --files)
 speech-files.txt
+speech-files-new.txt

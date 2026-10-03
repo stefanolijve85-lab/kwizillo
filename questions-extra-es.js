@@ -16,7 +16,7 @@
         ["¿Dónde está Plutón?","En el cinturón de Kuiper",["Entre Marte y Júpiter","Al lado de Venus","En el centro de la Vía Láctea"],"Más allá de Neptuno.","Plutón es un planeta enano del cinturón de Kuiper, muy lejos de Neptuno.","Un año en Plutón dura 248 años terrestres."]
       ],
       sterren_planeten: [
-        ["¿Qué galaxia está más cerca de la Vía Láctea?","Andrómeda",["Orión","Sirio","Casiopea"],"Se ve a simple vista como una mancha pálida.","Andrómeda es la galaxia grande más cercana.","Dentro de unos 4000 millones de años, Andrómeda y la Vía Láctea chocarán."],
+        ["¿Qué gran galaxia está más cerca de la Vía Láctea?","Andrómeda",["Orión","Sirio","Casiopea"],"Se ve a simple vista como una mancha pálida.","Andrómeda es la galaxia grande más cercana.","Dentro de unos 4000 millones de años, Andrómeda y la Vía Láctea chocarán."],
         ["¿Qué temperatura alcanza la estrella más caliente?", "Más de 30.000 grados", ["Unos 100 grados", "Unos 1.000 grados", "Unos 5.000 grados"], "Mucho más que nuestro sol.", "Las estrellas más calientes llegan a decenas de miles de grados en su superficie.", "Nuestro sol, con casi 5.500 grados, es una estrella media y tranquila.",],
         ["¿Qué es un año luz?","Una distancia",["Un tiempo","Un peso","Una temperatura"],"Habla de cuán lejos, no de cuánto dura.","Un año luz es la distancia que recorre la luz en un año.","Son unos 9,5 billones de kilómetros."],
         ["¿Cuál es la estrella más brillante del cielo nocturno?","Sirio",["la estrella Polar","Betelgeuse","Vega"],"Pertenece a la constelación del Can Mayor.","Sirio es la estrella más brillante que vemos de noche.","Sirio está «solo» a 8,6 años luz."],

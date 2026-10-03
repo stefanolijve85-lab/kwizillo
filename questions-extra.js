@@ -18,7 +18,7 @@
         ['Waar ligt Pluto?','In de Kuipergordel',['Tussen Mars en Jupiter','Naast Venus','In de Melkweg-kern'],'Voorbij Neptunus.','Pluto is een dwergplaneet in de Kuipergordel, ver voorbij Neptunus.','Een jaar op Pluto duurt 248 aardse jaren.']
       ],
       sterren_planeten: [
-        ['Hoe heet het sterrenstelsel dat het dichtst bij de Melkweg staat?','Andromeda',['Orion','Sirius','Cassiopeia'],'Het is met het blote oog te zien als vaag vlekje.','Andromeda is het dichtstbijzijnde grote sterrenstelsel.','Over ongeveer 4 miljard jaar botsen Andromeda en de Melkweg.'],
+        ['Welk groot sterrenstelsel staat het dichtst bij de Melkweg?','Andromeda',['Orion','Sirius','Cassiopeia'],'Het is met het blote oog te zien als vaag vlekje.','Andromeda is het dichtstbijzijnde grote sterrenstelsel.','Over ongeveer 4 miljard jaar botsen Andromeda en de Melkweg.'],
         ["Hoe heet is de heetste soort ster ongeveer?", "Meer dan 30.000 graden", ["Ongeveer 100 graden", "Ongeveer 1.000 graden", "Ongeveer 5.000 graden"], "Veel heter dan onze zon.", "De heetste sterren halen aan hun oppervlak tienduizenden graden.", "Onze zon is met bijna 5.500 graden een rustige, gemiddelde ster.",],
         ['Wat is een lichtjaar?','Een afstand',['Een tijd','Een gewicht','Een temperatuur'],'Het gaat over hoe ver, niet hoe lang.','Een lichtjaar is de afstand die licht in één jaar aflegt.','Dat is ongeveer 9,5 biljoen kilometer.'],
         ['Hoe heet de helderste ster aan de nachthemel?','Sirius',['Poolster','Betelgeuze','Vega'],'Hij hoort bij het sterrenbeeld Grote Hond.','Sirius is de helderste ster die we \'s nachts zien.','Sirius staat "maar" 8,6 lichtjaar van ons vandaan.'],
@@ -189,7 +189,7 @@
         ['Waarom is de zee soms rood?','Door een bloei van kleine algen',['Door bloed','Door roest','Door de zonsondergang'],'Kleine organismen in enorme aantallen.','Bij een "rode vloed" kleuren miljarden algen het water rood.','Sommige van die algen zijn giftig voor vissen.'],
         ['Hoe kunnen zalmen hun geboorterivier terugvinden?','Aan de geur van het water',['Met een kaart','Ze volgen andere vissen','Ze zwemmen willekeurig'],'Hun neus onthoudt de rivier.','Zalmen ruiken het water van de rivier waar ze geboren zijn.','Ze zwemmen soms duizenden kilometers terug.'],
         ['Wat zijn kogelbliksems?','Zeldzame lichtbollen tijdens onweer',['Hagelstenen','Sterren','Vuurwerk'],'Wetenschappers snappen ze nog niet helemaal.','Kogelbliksems zijn zwevende lichtbollen die soms bij onweer worden gezien.','Ze worden al eeuwen beschreven, maar zijn zelden gefilmd.'],
-        ['Waarom staan honderden hectaren bomen in Siberië plat sinds 1908?','Een ontploffing van een ruimtesteen in de lucht',['Een orkaan','Een vulkaan','Houthakkers'],'De Toengoeska-gebeurtenis.','In 1908 ontplofte een meteoroïde boven Siberië en blies 80 miljoen bomen om.','Er is nooit een krater gevonden.']
+        ['Waarom liggen er sinds 1908 miljoenen bomen plat in Siberië?','Een ontploffing van een ruimtesteen in de lucht',['Een orkaan','Een vulkaan','Houthakkers'],'De Toengoeska-gebeurtenis.','In 1908 ontplofte een meteoroïde boven Siberië en blies 80 miljoen bomen om.','Er is nooit een krater gevonden.']
       ],
       speurtocht: [
         ['Wat is een alibi?','Bewijs dat je ergens anders was',['Een vingerafdruk','Een vermomming','Een geheime code'],'"Ik was thuis, mijn buurman zag me."','Een alibi bewijst dat een verdachte niet op de plek van het misdrijf kon zijn.','Het woord is Latijn voor "ergens anders".'],
@@ -201,7 +201,7 @@
         ['Wat is een sporenonderzoek?','Kleine aanwijzingen verzamelen op een plek',['Een wedstrijd hardlopen','Een zoekactie in een bos','Het bouwen van een spoor'],'Haren, vezels, voetstappen.','Bij sporenonderzoek zoeken speurders naar haren, vezels en afdrukken.','Zelfs stofdeeltjes kunnen verraden waar iemand is geweest.'],
         ['Waarmee kun je onzichtbare inkt van citroensap zichtbaar maken?','Warmte',['Water','Zout','Koud licht'],'Houd het papier bij een lamp.','Citroensap wordt bruin als je het papier voorzichtig verwarmt.','Spionnen gebruikten deze truc al honderden jaren geleden.'],
         ['Wat is een Caesar-code?','Elke letter schuift een vast aantal plaatsen op',['Een code van cijfers','Een code van kleuren','Een code van plaatjes'],'A wordt D, B wordt E.','Bij de Caesar-code vervang je elke letter door een letter verderop in het alfabet.','Met een verschuiving van 13 heet de code ROT13.'],
-        ['Hoe heet een geheim teken dat je met een spiegel kunt lezen?','Spiegelschrift',['Braille','Morse','Geheimschrift'],'Leonardo da Vinci schreef zo.','Spiegelschrift is achterstevoren geschreven en leesbaar in een spiegel.','Leonardo da Vinci vulde duizenden pagina\'s in spiegelschrift.']
+        ['Hoe heet een geheim teken dat je met een spiegel kunt lezen?','Spiegelschrift',['Braille','Morse','Onzichtbare inkt'],'Leonardo da Vinci schreef zo.','Spiegelschrift is achterstevoren geschreven en leesbaar in een spiegel.','Leonardo da Vinci vulde duizenden pagina\'s in spiegelschrift.']
       ]
     },
     dieren: {
@@ -239,7 +239,7 @@
         ['Welk zeedier kan elektrische schokken geven?','De sidderrog',['De kwal','De zeester','De krab'],'Een platte vis met stroom.','De sidderrog geeft schokken tot 200 volt om prooien te verdoven.','De Romeinen gebruikten sidderroggen tegen hoofdpijn.'],
         ['Waarom zwemmen haaien altijd door?','Anders krijgen ze geen zuurstof',['Ze kunnen niet stoppen','Ze zijn bang','Ze zoeken altijd eten'],'Water moet langs hun kieuwen stromen.','Veel haaien moeten blijven zwemmen om water langs hun kieuwen te sturen.','Haaien bestaan al langer dan bomen: 400 miljoen jaar.'],
         ['Wat is plankton?','Piepkleine zwevende planten en dieren',['Een soort zand','Groot zeewier','Een kwal'],'Walvissen eten er tonnen van.','Plankton bestaat uit minuscule organismen die met de stroming meedrijven.','Plankton maakt meer dan de helft van de zuurstof op aarde.'],
-        ['Welk dier verandert van kleur en vorm om zich te verstoppen?','De inktvis',['De dolfijn','De zeehond','De tonijn'],'Hij kan eruitzien als steen of wier.','Inktvissen veranderen in een oogwenk van kleur en huidstructuur.','De mimic octopus doet zelfs andere dieren na.']
+        ['Welk dier verandert van kleur en vorm om zich te verstoppen?','De octopus',['De dolfijn','De zeehond','De tonijn'],'Hij kan eruitzien als steen of wier.','Octopussen veranderen in een oogwenk van kleur en huidstructuur.','De mimic octopus doet zelfs andere dieren na.']
       ],
       jungle: [
         ['Hoe heet de dikste laag bladeren hoog in het regenwoud?','Het bladerdak',['De bosbodem','De onderlaag','De struiklaag'],'Daar leeft het meeste.','Het bladerdak of kronendak is de laag waar de meeste junglebewoners leven.','Sommige dieren komen nooit op de grond.'],

@@ -605,7 +605,7 @@
         },
         "pt": {
           "prompt": "O que transforma um ator noutra pessoa?",
-          "answer": "Um guarda-roupa",
+          "answer": "Um traje",
           "wrong": [
             "Uma vassoura",
             "Uma bicicleta",
@@ -3005,7 +3005,7 @@
           "prompt": "Hoe heet het als een danser op één been ronddraait?",
           "answer": "Een pirouette",
           "wrong": [
-            "Een marche",
+            "Een mars",
             "Een salto",
             "Een limbo"
           ],

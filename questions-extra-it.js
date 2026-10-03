@@ -16,7 +16,7 @@
         ["Dove si trova Plutone?","Nella fascia di Kuiper",["Tra Marte e Giove","Accanto a Venere","Al centro della Via Lattea"],"Oltre Nettuno.","Plutone è un pianeta nano della fascia di Kuiper, molto oltre Nettuno.","Un anno su Plutone dura 248 anni terrestri."]
       ],
       sterren_planeten: [
-        ["Quale galassia è la più vicina alla Via Lattea?","Andromeda",["Orione","Sirio","Cassiopea"],"La vedi a occhio nudo come una macchia chiara.","Andromeda è la grande galassia più vicina.","Tra circa 4 miliardi di anni Andromeda e la Via Lattea si scontreranno."],
+        ["Quale grande galassia è la più vicina alla Via Lattea?","Andromeda",["Orione","Sirio","Cassiopea"],"La vedi a occhio nudo come una macchia chiara.","Andromeda è la grande galassia più vicina.","Tra circa 4 miliardi di anni Andromeda e la Via Lattea si scontreranno."],
         ["Quanto è calda la stella più calda?", "Oltre 30.000 gradi", ["Circa 100 gradi", "Circa 1.000 gradi", "Circa 5.000 gradi"], "Molto più del nostro sole.", "Le stelle più calde toccano decine di migliaia di gradi in superficie.", "Il nostro sole, con quasi 5.500 gradi, è una stella media e tranquilla.",],
         ["Che cos’è un anno luce?","Una distanza",["Un tempo","Un peso","Una temperatura"],"Dice quanto lontano, non quanto dura.","Un anno luce è la distanza che la luce percorre in un anno.","Sono circa 9,5 mila miliardi di chilometri."],
         ["Qual è la stella più luminosa del cielo notturno?","Sirio",["la stella Polare","Betelgeuse","Vega"],"Appartiene alla costellazione del Cane Maggiore.","Sirio è la stella più luminosa che vediamo di notte.","Sirio è «solo» a 8,6 anni luce."],

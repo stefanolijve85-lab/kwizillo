@@ -123,7 +123,7 @@
         ['Waarvoor dienen botten behalve steun?','Bescherming en beweging',['Kleur','Slaap','Temperatuur'],'Spieren trekken aan botten.','Botten geven steun, bescherming en helpen bij beweging.','In beenmerg worden bloedcellen gemaakt.'],
         ['Wat doen spieren?','Ze trekken samen om beweging te maken',['Ze maken alleen bloed','Ze verteren eten','Ze zien licht'],'Spieren werken vaak samen met botten.','Spieren kunnen samentrekken en zo beweging veroorzaken.','Je lichaam heeft honderden spieren.'],
         ['Wat is de huid?','Het grootste orgaan van je lichaam',['Een bot','Een spier','Een bloedvat'],'Hij bedekt je hele lichaam.','De huid beschermt het lichaam.','De huid helpt ook bij temperatuurregeling.'],
-        ['Welke zintuig gebruik je met je oren?','Gehoor',['Smaak','Reuk','Zicht'],'Je hoort geluidsgolven.','Met je oren neem je geluid waar.','Je binnenoor helpt ook bij evenwicht.']
+        ['Welk zintuig gebruik je met je oren?','Gehoor',['Smaak','Reuk','Zicht'],'Je hoort geluidsgolven.','Met je oren neem je geluid waar.','Je binnenoor helpt ook bij evenwicht.']
       ],
       uitvindingen: [
         ['Waarmee kun je heel kleine dingen bekijken?','Microscoop',['Telescoop','Kompas','Barometer'],'Denk aan cellen en bacteriën.','Een microscoop vergroot kleine objecten.','Moderne microscopen kunnen extreem sterk vergroten.'],
@@ -152,12 +152,12 @@
     },
     mysterie: {
       raadsels: [
-        ['Ik heb sleutels maar geen sloten. Wat ben ik?','Piano',['Deur','Schatkist','Fiets'],'Je gebruikt je vingers om mij te bespelen.','Een piano heeft toetsen die ook “keys” worden genoemd.','Een piano kan meer dan tachtig toetsen hebben.'],
+        ['Ik heb zwarte en witte toetsen en ik maak muziek. Wat ben ik?','Piano',['Deur','Schatkist','Fiets'],'Je gebruikt je vingers om mij te bespelen.','Een piano heeft zwarte en witte toetsen.','Een piano kan meer dan tachtig toetsen hebben.'],
         ['Ik word natter terwijl ik droog. Wat ben ik?','Handdoek',['Paraplu','Zon','Spons'],'Je gebruikt mij na het wassen.','Een handdoek wordt nat terwijl hij jou droogt.','Handdoeken nemen water op met hun vezels.'],
-        ['Wat heeft een nek maar geen hoofd?','Fles',['Kat','Mens','Uil'],'Je kunt eruit drinken.','Een fles heeft een hals of nek.','Flessen worden van glas of plastic gemaakt.'],
+        ['Wat heeft een hals maar geen hoofd?','Fles',['Kat','Mens','Uil'],'Je kunt eruit drinken.','Een fles heeft een hals of nek.','Flessen worden van glas of plastic gemaakt.'],
         ['Wat heeft tanden maar kan niet bijten?','Kam',['Haai','Hond','Leeuw'],'Je gebruikt hem voor je haar.','Een kam heeft tanden maar geen mond.','Kammen bestaan al duizenden jaren.'],
         ['Wat gaat omhoog maar komt nooit omlaag?','Je leeftijd',['Een lift','Een bal','Een vogel'],'Ieder jaar wordt het groter.','Je leeftijd neemt toe naarmate je ouder wordt.','Op je verjaardag telt er weer een jaar bij.'],
-        ['Wat heeft handen maar geen armen?','Klok',['Robot','Mens','Aap'],'De handen wijzen iets aan.','Een analoge klok heeft wijzers die “handen” worden genoemd.','De wijzers tonen uren, minuten en soms seconden.'],
+        ['Wat heeft wijzers maar geen handen?','Klok',['Robot','Mens','Aap'],'De wijzers wijzen iets aan.','Een analoge klok heeft wijzers die de tijd aanwijzen.','De wijzers tonen uren, minuten en soms seconden.'],
         ['Wat kun je breken zonder het aan te raken?','Een belofte',['Een steen','Een glas','Een tak'],'Het gaat om vertrouwen.','Een belofte kun je figuurlijk breken.','Raadsels gebruiken vaak dubbele betekenissen.'],
         ['Wat heeft één oog maar kan niet zien?','Naald',['Uil','Mens','Camera'],'Door het oog gaat draad.','Een naald heeft een oog voor de draad.','Het oog zit meestal aan één uiteinde.'],
         ['Wat wordt groter als je er meer van afhaalt?','Een gat',['Een berg','Een doos','Een boek'],'Denk aan graven.','Hoe meer je uit een gat haalt, hoe groter het wordt.','Dit is een klassiek logisch raadsel.'],

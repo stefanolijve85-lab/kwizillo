@@ -16,7 +16,7 @@
         ["Hvor ligger Pluto?","I Kuiperbæltet",["Mellem Mars og Jupiter","Ved siden af Venus","I Mælkevejens centrum"],"Uden for Neptun.","Pluto er en dværgplanet i Kuiperbæltet, langt uden for Neptun.","Et år på Pluto varer 248 jordår."]
       ],
       sterren_planeten: [
-        ["Hvilken galakse ligger tættest på Mælkevejen?","Andromeda",["Orion","Sirius","Cassiopeia"],"Du kan se den med det blotte øje som en svag plet.","Andromeda er den nærmeste store galakse.","Om cirka 4 milliarder år støder Andromeda og Mælkevejen sammen."],
+        ["Hvilken stor galakse ligger tættest på Mælkevejen?","Andromeda",["Orion","Sirius","Cassiopeia"],"Du kan se den med det blotte øje som en svag plet.","Andromeda er den nærmeste store galakse.","Om cirka 4 milliarder år støder Andromeda og Mælkevejen sammen."],
         ["Hvor varm er den varmeste slags stjerne?", "Over 30.000 grader", ["Omkring 100 grader", "Omkring 1.000 grader", "Omkring 5.000 grader"], "Meget varmere end vores sol.", "De varmeste stjerner når titusinder af grader på overfladen.", "Vores sol er med knap 5.500 grader en rolig, helt almindelig stjerne.",],
         ["Hvad er et lysår?","En afstand",["En tid","En vægt","En temperatur"],"Det handler om hvor langt, ikke hvor længe.","Et lysår er den strækning, lyset tilbagelægger på et år.","Det er cirka 9,5 billioner kilometer."],
         ["Hvad er den klareste stjerne på nattehimlen?","Sirius",["Nordstjernen","Betelgeuse","Vega"],"Den hører til stjernebilledet Store Hund.","Sirius er den klareste stjerne, vi ser om natten.","Sirius er „kun“ 8,6 lysår væk."],

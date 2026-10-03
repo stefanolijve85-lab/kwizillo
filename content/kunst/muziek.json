@@ -1893,7 +1893,7 @@
         },
         "it": {
           "prompt": "Che cosa vuol dire piano in musica?",
-          "answer": "Suonare piano",
+          "answer": "Suonare dolcemente",
           "wrong": [
             "Suonare fortissimo",
             "Suonare veloce",
@@ -2141,7 +2141,7 @@
         },
         "es": {
           "prompt": "¿A qué familia pertenecen la trompeta y el trombón?",
-          "answer": "Al metal",
+          "answer": "A los metales",
           "wrong": [
             "A la cuerda",
             "A la percusión",

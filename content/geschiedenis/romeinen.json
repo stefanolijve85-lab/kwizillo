@@ -1007,7 +1007,7 @@
         },
         "da": {
           "prompt": "Hvad gik romerne med på fødderne?",
-          "answer": "Læbersandaler",
+          "answer": "Lædersandaler",
           "wrong": [
             "Træsko",
             "Gummistøvler",

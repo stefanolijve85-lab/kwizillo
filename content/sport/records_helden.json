@@ -99,7 +99,7 @@
           "prompt": "Hvad er en verdensrekord?",
           "answer": "Den bedste præstation",
           "wrong": [
-            "Et stort pokal",
+            "En stor pokal",
             "En flot trøje",
             "En lang kamp"
           ],
@@ -2204,7 +2204,7 @@
           "answer": "لاعبة جمباز كبيرة",
           "wrong": [
             "سبّاحة",
-            "دراجة",
+            "لاعبة دراجات",
             "متزلجة"
           ],
           "hint": "تدور قفزات لا تجرؤ عليها غيرها.",

@@ -1207,7 +1207,7 @@
         },
         "de": {
           "prompt": "Womit spielst du Hockey?",
-          "answer": "Mit einem Schläger",
+          "answer": "Mit einem Hockeyschläger",
           "wrong": [
             "Mit einem Tennisschläger",
             "Mit dem Kopf",

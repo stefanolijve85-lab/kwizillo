@@ -1542,7 +1542,7 @@
           "answer": "С О С",
           "wrong": [
             "А Б В",
-            "Х У Z",
+            "Э Ю Я",
             "Т Н Т"
           ],
           "hint": "Три коротких, три длинных, три коротких.",
@@ -1551,11 +1551,11 @@
         },
         "ar": {
           "prompt": "ما أشهر إشارة استغاثة في شيفرة مورس؟",
-          "answer": "س و س",
+          "answer": "S O S",
           "wrong": [
-            "أ ب ج",
-            "س ص ض",
-            "ت ن ت"
+            "A B C",
+            "X Y Z",
+            "T N T"
           ],
           "hint": "ثلاث قصيرة وثلاث طويلة وثلاث قصيرة.",
           "explanation": "اختيرت هذه الإشارة لأنها بسيطة وسهلة التمييز.",
@@ -1647,7 +1647,7 @@
           "prompt": "Porque contam duas testemunhas às vezes coisas diferentes?",
           "answer": "A memória engana",
           "wrong": [
-            "Uma mente sempre",
+            "Um deles mente sempre",
             "Não viram nada",
             "Inventam tudo"
           ],
