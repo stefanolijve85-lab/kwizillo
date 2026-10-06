@@ -95,3 +95,13 @@ test('every world has enough material in every language', async ({ page }) => {
   });
   for (const [k, n] of Object.entries(counts)) expect(n, k).toBe(5);
 });
+
+test('Wat ben ik? plays in every world, Sport too', async ({ page }) => {
+  await boot(page);
+  for (const w of ['sport', 'kunst']) {
+    await page.evaluate(() => window.KWIZILLO_M1.showGamePicker('whoami'));
+    await page.locator(`.game-picker [data-pick="${w}"]`).click();
+    await expect(page.locator('.whoami')).toBeVisible();
+    await expect(page.locator('.whoami-tile')).toHaveCount(4);
+  }
+});

@@ -1464,3 +1464,6 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* three game tiles per row (iPad): a little lower, the worlds get the height */
 @media(min-width:431px){.home-game.art{aspect-ratio:16/8}}
 @media(max-height:700px){.home-world-copy{padding:3px 5px 6px}.home-world-copy b{font-size:clamp(12px,9.5cqw,17px)}.home-world .home-world-level{font-size:7.5px;padding:1px 5px;top:3px;inset-inline-end:4px}}
+
+/* the gradient title is clipped to its own box: room for the descender of the g */
+.home-mega-copy b{line-height:1.18;padding-bottom:.06em}

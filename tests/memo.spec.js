@@ -214,3 +214,15 @@ test('three pairs in a row give a golden boost; a miss resets the run', async ({
   expect(await page.evaluate(() => window.KWIZILLO_M1.memo.boosts)).toBe(1);
   await expect(page.locator('.memo-boost')).toHaveCount(0, { timeout: 4000 });
 });
+
+// Sport had a single picture that showed its answer, so its Memo sent the child
+// back to the world. The audited answer pictures (tools/art-audit) fill it now.
+test('every world, Sport and Kunst too, lays out a Memo board', async ({ page }) => {
+  await boot(page);
+  for (const w of ['sport', 'kunst', 'wetenschap']) {
+    await page.evaluate(() => window.KWIZILLO_M1.showMemoPicker());
+    await page.locator(`[data-memo="${w}"]`).click();
+    await expect(page.locator('.memo-board')).toBeVisible();
+    await expect(page.locator('.memo-card, [data-card]')).toHaveCount(16);
+  }
+});

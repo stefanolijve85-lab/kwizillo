@@ -285,6 +285,8 @@
     const id=typeof q==='string'?q:q?.id;
     if(NO_ANSWER_ART.has(id))return null;
     const v=A[id];
+    // Checked by eye (tools/art-audit): the own picture shows this answer.
+    if(!v&&K.ANSWER_PICTURES?.has(id))return K.questionArtFor(id);
     if(!v){
       const world=String(id||'').split('-')[0];
       if(!world||curatedWorlds.has(world))return null;

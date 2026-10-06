@@ -38,6 +38,20 @@ for (const id of ids) {
   if (use === 's' && !safeOnDisk) use = 'n';
   plan[id] = r.own_fits === false && use !== 'o' ? use.toUpperCase() : use;
 }
+// Pictures that show the answer itself, for the games that put a name under a
+// picture (Memo, Fotozoom, Wat ben ik?): the own picture fits, gives the answer
+// away, and the answer is a short name of a thing — not a number, not a reason.
+// numbers, also compound ones ("Vierenzestig jaar"); "een" only as "één"
+const NUMBER = /^(nul|één|twee|drie|vier|vijf|zes|zeven|acht|negen|tien|elf|twaalf|dertien|veertien|vijftien|zestien|twintig|dertig|veertig|vijftig|zestig|zeventig|tachtig|negentig|honderd|duizend|\d)/i;
+const NOT_A_THING = /^(met je|met de|door|om|voor|in|op|naar|uit|bij|zonder|alle|alleen|ze|zij|het is|dan|omdat|ja|nee)\b|\b(wordt|worden|is|zijn|verdedigen|maken|doen)$|\b(wordt|worden)\b/i;
+const nl = Object.fromEntries(loadBanks().banks.nl.map(q => [q.id, q]));
+const answerPic = ids.filter(id => {
+  const r = byId.get(id), a = String(nl[id]?.answer || '').trim();
+  if (!r || r.own_fits === false || !r.own_reveals) return false;
+  if (NUMBER.test(a) || NOT_A_THING.test(a)) return false;
+  const n = a.split(/\s+/).length;
+  return (a.length <= 18 && n <= 2) || (n <= 3 && /^(de|het|een)\s/i.test(a));
+});
 const count = l => Object.values(plan).filter(v => v.toLowerCase() === l).length;
 const body = `(()=>{
   const K=window.KWIZILLO_M1=window.KWIZILLO_M1||{};
@@ -45,14 +59,16 @@ const body = `(()=>{
   // o: own picture · s: question-only picture · n: a new picture is needed (topic picture until then)
   // Upper case: the own picture does not fit the question (also kept off the feedback card).
   K.ART_PLAN=${JSON.stringify(plan)};
+  // Own pictures that show the answer itself (a short name of a thing): what Memo, Fotozoom and Wat ben ik? may use.
+  K.ANSWER_PICTURES=new Set(${JSON.stringify(answerPic)});
 })();
 `;
 if (process.argv.includes('--check')) {
   const now = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '';
   if (missing.length) { console.error(`art plan: ${missing.length} questions not audited, e.g. ${missing.slice(0, 5).join(', ')}`); process.exit(1) }
   if (now !== body) { console.error('question-art-plan.js is stale: run node tools/art-plan.cjs'); process.exit(1) }
-  console.log(`art plan: ${ids.length} questions — own ${count('o')}, question-only ${count('s')}, new picture needed ${count('n')} ✔`);
+  console.log(`art plan: ${ids.length} questions — own ${count('o')}, question-only ${count('s')}, new picture needed ${count('n')}; ${answerPic.length} pictures show their answer ✔`);
   process.exit(0);
 }
 fs.writeFileSync(OUT, body);
-console.log(`question-art-plan.js: own ${count('o')}, question-only ${count('s')}, new picture needed ${count('n')}${missing.length ? `, NOT AUDITED ${missing.length}` : ''}`);
+console.log(`question-art-plan.js: own ${count('o')}, question-only ${count('s')}, new picture needed ${count('n')}, ${answerPic.length} show their answer${missing.length ? `, NOT AUDITED ${missing.length}` : ''}`);
