@@ -1010,3 +1010,28 @@ test('a buddy earned mid-quiz is introduced there and then, and the quiz carries
   expect(await page.evaluate(() => window.KWIZILLO_M1.quiz.index)).toBe(1);
   expect(await page.evaluate(() => (window.KWIZILLO_M1.pendingUnlocks || []).length)).toBe(0);
 });
+
+// Every picture tile in the quiz is filled to its edges: no blurred copy behind
+// it and no dark or faded bars above, below or beside it (build 17 still showed
+// them on the phone). Checked on a phone and on an iPad-sized screen.
+for (const [w, h] of [[390, 844], [820, 1180]]) {
+  test(`question, hint and feedback pictures fill their whole tile (${w}×${h})`, async ({ page }) => {
+    await page.setViewportSize({ width: w, height: h });
+    await boot(page);
+    await page.locator('[data-world="dieren"]').click();
+    await page.locator('#worldMix').click();
+    const fills = async sel => page.locator(sel).first().evaluate(img => {
+      // layout sizes, so an entrance animation's scale does not count; the frame's border does not either
+      const box = img.parentElement;
+      return { fit: getComputedStyle(img).objectFit, w: Math.abs(img.offsetWidth - box.clientWidth) < 2, h: Math.abs(img.offsetHeight - box.clientHeight) < 2 };
+    });
+    await expect(page.locator('.quiz-art img')).toHaveCount(1);
+    await expect(page.locator('.quiz-art .art-main')).toBeVisible();
+    expect(await fills('.quiz-art .art-main')).toEqual({ fit: 'cover', w: true, h: true });
+    await page.getByRole('button', { name: /Hint/ }).click();
+    expect(await fills('.hint-visual img')).toEqual({ fit: 'cover', w: true, h: true });
+    await page.getByRole('button', { name: 'Hint sluiten' }).click();
+    await page.locator('.answer').first().click();
+    expect(await fills('.feedback-art img')).toEqual({ fit: 'cover', w: true, h: true });
+  });
+}

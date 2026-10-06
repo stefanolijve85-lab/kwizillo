@@ -96,7 +96,7 @@
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="quizTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span>`}</div>
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
-          <div class="quiz-art"><img class="art-fill" src="${quizArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${quizArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
+          <div class="quiz-art"><img class="art-main" src="${quizArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
           <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered&&!retry?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${K.core.answerLetters(K.state.language)[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
           ${answered?`<button class="review-next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}
           <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}">${actions}</div>
