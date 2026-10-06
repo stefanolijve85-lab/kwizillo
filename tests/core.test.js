@@ -372,3 +372,16 @@ console.log('Kwizillo core gameplay tests: OK');
   assert.deepStrictEqual(core.selectMegaBatch({ questions: qs, worlds: [], limit: 20 }).questions, []);
   console.log('mega quiz: 20 questions, an equal share per world, new ones next time ✔');
 }
+
+// The Mega Quiz as the app plays it: 80 questions, exactly 10 from every world.
+{
+  const { banks } = loadBanks();
+  for (const lang of ['nl', 'ar']) {
+    const qs = banks[lang], worlds = [...new Set(qs.map(q => q.world))];
+    const m = core.selectMegaBatch({ questions: qs, worlds, limit: 80 });
+    const per = {}; for (const q of m.questions) per[q.world] = (per[q.world] || 0) + 1;
+    assert.strictEqual(m.questions.length, 80, lang);
+    assert.ok(Object.values(per).every(n => n === 10), `${lang}: ten per world ${JSON.stringify(per)}`);
+  }
+  console.log('mega quiz: 80 questions, ten per world ✔');
+}

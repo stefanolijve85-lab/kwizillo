@@ -145,7 +145,12 @@
   K.TILE_ART={mysterie:'assets/worlds/mysterie-tile.jpg'};
   K.tileArt=w=>K.TILE_ART[w]||K.MASTER[w];
   // Een tegelplaat is al op het eiland gecentreerd; alleen de wereldplaten hebben een uitsnede nodig.
-  K.tileFocus=w=>K.TILE_ART[w]?'center':(K.WORLD_FOCUS?.[w]||'center 32%');
+  // The tiles are flat (about 5:2 on a phone, 2:1 in the pickers), so each
+  // painting is shifted until its island sits in the middle of the tile. The
+  // numbers come from where the island is in the portrait painting (its
+  // centre at 40-60% of the height), worked out for a 5:2 tile.
+  K.TILE_FOCUS={ruimte:'center 37%',dieren:'center 40%',aarde:'center 63%',geschiedenis:'center 60%',wetenschap:'center 53%',kunst:'center 47%',sport:'center 50%'};
+  K.tileFocus=w=>K.TILE_ART[w]?'center':(K.TILE_FOCUS[w]||K.WORLD_FOCUS?.[w]||'center 45%');
 
   // Eén plek waar het versiemerk op alle kunst wordt gezet. De kaarten
   // hierboven staan met kale paden in het bestand, zodat ze leesbaar blijven en

@@ -75,12 +75,14 @@
     'common.of':'sur',
     // Qui suis-je ?
     'whoami.title':'Qui suis-je ?','whoami.round':'Manche {n} sur {total}','whoami.points':'Déjà {n} points','whoami.ask':'Qui suis-je ?','whoami.more':'Un indice','whoami.next':'Suivant','whoami.timeUp':'Le temps est écoulé ! C’était {answer}.',
+    'whoami.speech.ask':'[playful] '+'Qui suis-je ?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Oui, {answer} ! +{points}','whoami.almost':'Presque ! C’était {answer}.',
     'whoami.speech.yes':'C’est {answer}','whoami.speech.almost':'Presque ! C’était {answer}.',
     'whoami.doneKicker':'QUI SUIS-JE ?','whoami.doneTitle':'{n} sur {total} devinés !','whoami.summary':'{score} points sur {max}. Plus tu devines tôt, plus tu gagnes de points.',
     'whoami.speech.great':'Waouh, tu devines vite ! Bravo.','whoami.speech.done':'Bien joué ! La prochaine fois tu en trouveras encore plus.',
     'jungle.title':'Runner','jungle.tileSub':'Cours, saute et vole à travers trois niveaux','jungle.loadError':'La jungle n’a pas pu se charger. Réessaie plus tard.',
     'fotozoom.title':'Photo Zoom','fotozoom.round':'Manche {n} sur {total}','fotozoom.points':'Déjà {n} points','fotozoom.ask':'Qu’est-ce que c’est ?','fotozoom.out':'Dézoomer','fotozoom.next':'Suivant','fotozoom.timeUp':'Le temps est écoulé ! C’était {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'Qu’est-ce que c’est ?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Oui, {answer} ! +{points}','fotozoom.almost':'Presque ! C’était {answer}.',
     'fotozoom.speech.yes':'C’est {answer}','fotozoom.speech.almost':'Presque ! C’était {answer}.',
     'fotozoom.doneKicker':'PHOTO ZOOM','fotozoom.doneTitle':'{n} sur {total} reconnus !','fotozoom.summary':'{score} points sur {max}. Moins tu dézoomes, plus tu gagnes de points.',
@@ -213,6 +215,7 @@
     'mega.sub':'{n} questions de tous les mondes',
     'mega.rule':'Des questions des {worlds} mondes : tu as eu {score} sur {total}.',
     'mega.again':'Encore un Méga Quiz',
+    'mega.collectionLine':'Joué {played} fois · meilleur {best} sur {total}',
     'quiz.progress':'Question {current} sur {total}',
     'quiz.hint':'Indice',
     'quiz.none':'Il n’y a pas encore de questions pour ce thème.',

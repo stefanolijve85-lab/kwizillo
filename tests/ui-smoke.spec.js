@@ -248,7 +248,8 @@ test('every navigation destination is dynamic and interactive', async ({ page })
 
   await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
-  await expect(page.locator('.progress-world')).toHaveCount(8);
+  await expect(page.locator('.progress-world[data-world]')).toHaveCount(8);   // the eight worlds
+  await expect(page.locator('#megaProgress')).toBeVisible();                    // and the Mega Quiz
   await page.getByRole('button', { name: /Kaarten/ }).click();
   await expect(page.locator('.kcard')).toHaveCount(2);
   // Every card carries its question's own illustration and opens large on tap.

@@ -74,12 +74,14 @@
     'common.of':'af',
     // Hvad er jeg?
     'whoami.title':'Hvad er jeg?','whoami.round':'Runde {n} af {total}','whoami.points':'Nu {n} point','whoami.ask':'Hvad er jeg?','whoami.more':'Et spor','whoami.next':'Videre','whoami.timeUp':'Tiden er gået! Det var {answer}.',
+    'whoami.speech.ask':'[playful] '+'Hvad er jeg?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Næsten! Det var {answer}.',
     'whoami.speech.yes':'Det er {answer}','whoami.speech.almost':'Næsten! Det var {answer}.',
     'whoami.doneKicker':'HVAD ER JEG?','whoami.doneTitle':'{n} af {total} gættet!','whoami.summary':'{score} af {max} point. Jo hurtigere du gætter, jo flere point.',
     'whoami.speech.great':'Wow, du gætter hurtigt! Godt gået.','whoami.speech.done':'Flot spillet! Næste gang gætter du endnu flere.',
     'jungle.title':'Runner','jungle.tileSub':'Løb, hop og flyv gennem tre baner','jungle.loadError':'Junglen kunne ikke indlæses. Prøv igen senere.',
     'fotozoom.title':'Foto Zoom','fotozoom.round':'Runde {n} af {total}','fotozoom.points':'Nu {n} point','fotozoom.ask':'Hvad er det?','fotozoom.out':'Zoom ud','fotozoom.next':'Videre','fotozoom.timeUp':'Tiden er gået! Det var {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'Hvad er det?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Ja, {answer}! +{points}','fotozoom.almost':'Næsten! Det var {answer}.',
     'fotozoom.speech.yes':'Det er {answer}','fotozoom.speech.almost':'Næsten! Det var {answer}.',
     'fotozoom.doneKicker':'FOTO ZOOM','fotozoom.doneTitle':'{n} af {total} genkendt!','fotozoom.summary':'{score} af {max} point. Jo mindre du zoomer ud, jo flere point.',
@@ -212,6 +214,7 @@
     'mega.sub':'{n} spørgsmål fra alle verdener',
     'mega.rule':'Spørgsmål fra alle {worlds} verdener: du havde {score} af {total} rigtige.',
     'mega.again':'En megaquiz mere',
+    'mega.collectionLine':'Spillet {played} gange · bedst {best} af {total}',
     'quiz.progress':'Spørgsmål {current} af {total}',
     'quiz.hint':'Spor',
     'quiz.none':'Der er endnu ingen spørgsmål til dette emne.',

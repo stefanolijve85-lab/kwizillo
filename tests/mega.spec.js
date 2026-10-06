@@ -34,8 +34,9 @@ test('free: the Mega Quiz button is on Home with a lock and opens the Premium te
   const mega = page.locator('#homeMega');
   await expect(mega).toBeVisible();
   await expect(mega).toContainText('Mega Quiz');
-  await expect(mega).toContainText('20 vragen uit alle werelden');
-  await expect(mega.locator('.premium-badge')).toBeVisible();
+  await expect(mega).toContainText('80 vragen uit alle werelden');
+  await expect(mega).toHaveClass(/locked/);
+  await expect(mega.locator('.home-mega-go')).toHaveAttribute('aria-label', 'Premium');
   // it sits above the worlds
   const [m, w] = [await mega.boundingBox(), await page.locator('.home-world').first().boundingBox()];
   expect(m.y).toBeLessThan(w.y);
@@ -44,34 +45,45 @@ test('free: the Mega Quiz button is on Home with a lock and opens the Premium te
   expect(await page.evaluate(() => window.KWIZILLO_M1.quiz?.mega)).toBeFalsy();
 });
 
-test('Premium: twenty questions from every world taking turns; the result offers the next Mega Quiz with new questions; back goes Home', async ({ page }) => {
-  test.setTimeout(120000);
+test('Premium: eighty questions, ten from every world, taking turns; the result offers the next Mega Quiz with new questions; back goes Home', async ({ page }) => {
+  test.setTimeout(300000);
   await boot(page);
   await expect(page.locator('#homeMega .premium-badge')).toHaveCount(0);
   await page.locator('#homeMega').click();
   await expect(page.locator('.quiz-v2')).toBeVisible();
-  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 20');
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 1 van 80');
   await expect(page.locator('.quiz-brand small')).toHaveText('Mega Quiz · Quiz 1');
   const first = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions.map(q => ({ id: q.id, world: q.world })));
-  expect(first).toHaveLength(20);
+  expect(first).toHaveLength(80);
   const worlds = await page.evaluate(() => window.KWIZILLO_M1.playableWorlds());
-  expect(new Set(first.map(q => q.world))).toEqual(new Set(worlds));
-  for (let i = 1; i < 20; i++) expect(first[i].world).not.toBe(first[i - 1].world);
+  const per = {}; for (const q of first) per[q.world] = (per[q.world] || 0) + 1;
+  expect(Object.keys(per).sort()).toEqual([...worlds].sort());
+  expect(Object.values(per).every(n => n === 10)).toBe(true);
+  for (let i = 1; i < 80; i++) expect(first[i].world).not.toBe(first[i - 1].world);
   // the background follows the world of the question
   await expect(page.locator('.quiz-v2')).toHaveClass(new RegExp(`quiz-world-${first[0].world}`));
 
-  await answerAll(page, 20);
+  await answerAll(page, 80);
   await expect(page.locator('.result-v2')).toBeVisible();
-  await expect(page.locator('.result-v2 h1')).toContainText('20');
+  await expect(page.locator('.result-v2 h1')).toContainText('80');
   await expect(page.locator('.result-rule')).toContainText(`Vragen uit alle ${worlds.length} werelden`);
   await expect(page.locator('#againBtn')).toHaveText('Nog een Mega Quiz');
   // every answer counted for the world it came from; the per-world best scores (out of 10) are left alone
   const st = await page.evaluate(() => { const K = window.KWIZILLO_M1; return { answered: K.state.answered, correct: K.state.correct, best: K.state.bestScores || {}, run: K.progress().runs.mega }; });
-  expect([st.answered, st.correct]).toEqual([20, 20]);
+  expect([st.answered, st.correct]).toEqual([80, 80]);
   expect(st.best.mega).toBeUndefined();
-  expect(st.run.best).toBe(20);
+  expect([st.run.best, st.run.played, st.run.total]).toEqual([80, 1, 80]);
 
-  await page.locator('#againBtn').click();
+  // the collection and the statistics show it
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('worlds'));
+  await expect(page.locator('#megaProgress')).toContainText('Mega Quiz');
+  await expect(page.locator('#megaProgress')).toContainText('1 keer gespeeld · beste 80 van 80');
+  await page.evaluate(() => window.KWIZILLO_M1.showStats());
+  await expect(page.locator('.game-stat', { hasText: 'Mega Quiz' })).toContainText('80/80');
+  // and the collection row starts the next one
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('worlds'));
+  await page.locator('#megaProgress').click();
+
   await expect(page.locator('.quiz-brand small')).toHaveText('Mega Quiz · Quiz 2');
   const second = await page.evaluate(() => window.KWIZILLO_M1.quiz.questions.map(q => q.id));
   expect(second.filter(id => first.some(q => q.id === id))).toEqual([]);

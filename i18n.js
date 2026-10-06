@@ -76,12 +76,14 @@
     'common.of':'van',
     // Wat ben ik?
     'whoami.title':'Wat ben ik?','whoami.round':'Ronde {n} van {total}','whoami.points':'Nu {n} punten','whoami.ask':'Wat ben ik?','whoami.more':'Een tip','whoami.next':'Volgende','whoami.timeUp':'De tijd is om! Het was {answer}.',
+    'whoami.speech.ask':'[playful] '+'Wat ben ik?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Bijna! Het was {answer}.',
     'whoami.speech.yes':'Dit is {answer}','whoami.speech.almost':'Bijna! Het was {answer}.',
     'whoami.doneKicker':'WAT BEN IK?','whoami.doneTitle':'{n} van {total} geraden!','whoami.summary':'{score} van {max} punten. Hoe eerder je raadt, hoe meer punten.',
     'whoami.speech.great':'Wauw, jij raadt snel! Knap gedaan.','whoami.speech.done':'Goed gespeeld! Volgende keer raad je er nog meer.',
     'jungle.title':'Runner','jungle.tileSub':'Ren, spring en vlieg door drie levels','jungle.loadError':'De jungle kon niet laden. Probeer het straks nog eens.',
     'fotozoom.title':'Fotozoom','fotozoom.round':'Ronde {n} van {total}','fotozoom.points':'Nu {n} punten','fotozoom.ask':'Wat is dit?','fotozoom.out':'Zoom uit','fotozoom.next':'Volgende','fotozoom.timeUp':'De tijd is om! Het was {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'Wat is dit?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Ja, {answer}! +{points}','fotozoom.almost':'Bijna! Het was {answer}.',
     'fotozoom.speech.yes':'Dit is {answer}','fotozoom.speech.almost':'Bijna! Het was {answer}.',
     'fotozoom.doneKicker':'FOTOZOOM','fotozoom.doneTitle':'{n} van {total} herkend!','fotozoom.summary':'{score} van {max} punten. Hoe minder je uitzoomt, hoe meer punten.',
@@ -214,6 +216,7 @@
     'mega.sub':'{n} vragen uit alle werelden',
     'mega.rule':'Vragen uit alle {worlds} werelden: je had er {score} van de {total} goed.',
     'mega.again':'Nog een Mega Quiz',
+    'mega.collectionLine':'{played} keer gespeeld · beste {best} van {total}',
     'quiz.progress':'Vraag {current} van {total}',
     'quiz.hint':'Hint',
     'quiz.none':'Voor dit onderwerp zijn nog geen vragen beschikbaar.',
@@ -642,12 +645,14 @@
     'common.of':'of',
     // What am I?
     'whoami.title':'What am I?','whoami.round':'Round {n} of {total}','whoami.points':'Now {n} points','whoami.ask':'What am I?','whoami.more':'A clue','whoami.next':'Next','whoami.timeUp':'Time is up! It was {answer}.',
+    'whoami.speech.ask':'[playful] '+'What am I?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Yes, {answer}! +{points}','whoami.almost':'Almost! It was {answer}.',
     'whoami.speech.yes':'This is {answer}','whoami.speech.almost':'Almost! It was {answer}.',
     'whoami.doneKicker':'WHAT AM I?','whoami.doneTitle':'{n} of {total} guessed!','whoami.summary':'{score} of {max} points. The sooner you guess, the more points.',
     'whoami.speech.great':'Wow, you guess fast! Well done.','whoami.speech.done':'Well played! Next time you will guess even more.',
     'jungle.title':'Runner','jungle.tileSub':'Run, jump and fly through three levels','jungle.loadError':'The jungle could not load. Please try again later.',
     'fotozoom.title':'Photo Zoom','fotozoom.round':'Round {n} of {total}','fotozoom.points':'Now {n} points','fotozoom.ask':'What is this?','fotozoom.out':'Zoom out','fotozoom.next':'Next','fotozoom.timeUp':'Time is up! It was {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'What is this?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Yes, {answer}! +{points}','fotozoom.almost':'Almost! It was {answer}.',
     'fotozoom.speech.yes':'This is {answer}','fotozoom.speech.almost':'Almost! It was {answer}.',
     'fotozoom.doneKicker':'PHOTO ZOOM','fotozoom.doneTitle':'{n} of {total} spotted!','fotozoom.summary':'{score} of {max} points. The less you zoom out, the more points you get.',
@@ -780,6 +785,7 @@
     'mega.sub':'{n} questions from every world',
     'mega.rule':'Questions from all {worlds} worlds: you got {score} of {total} right.',
     'mega.again':'Another Mega Quiz',
+    'mega.collectionLine':'Played {played} times · best {best} of {total}',
     'quiz.progress':'Question {current} of {total}',
     'quiz.hint':'Hint',
     'quiz.none':'There are no questions for this topic yet.',
@@ -1208,12 +1214,14 @@
     'common.of':'de',
     // O que sou eu?
     'whoami.title':'O que sou eu?','whoami.round':'Rodada {n} de {total}','whoami.points':'Agora {n} pontos','whoami.ask':'O que sou eu?','whoami.more':'Uma dica','whoami.next':'Próxima','whoami.timeUp':'Acabou o tempo! Era {answer}.',
+    'whoami.speech.ask':'[playful] '+'O que sou eu?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Isso, {answer}! +{points}','whoami.almost':'Quase! Era {answer}.',
     'whoami.speech.yes':'É {answer}','whoami.speech.almost':'Quase! Era {answer}.',
     'whoami.doneKicker':'O QUE SOU EU?','whoami.doneTitle':'{n} de {total} acertos!','whoami.summary':'{score} de {max} pontos. Quanto antes você adivinha, mais pontos ganha.',
     'whoami.speech.great':'Uau, você adivinha rápido! Muito bem.','whoami.speech.done':'Bem jogado! Na próxima você acerta ainda mais.',
     'jungle.title':'Runner','jungle.tileSub':'Corra, pule e voe por três fases','jungle.loadError':'A selva não carregou. Tente de novo mais tarde.',
     'fotozoom.title':'Foto Zoom','fotozoom.round':'Rodada {n} de {total}','fotozoom.points':'Agora {n} pontos','fotozoom.ask':'O que é isto?','fotozoom.out':'Afastar','fotozoom.next':'Próxima','fotozoom.timeUp':'Acabou o tempo! Era {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'O que é isto?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Sim, {answer}! +{points}','fotozoom.almost':'Quase! Era {answer}.',
     'fotozoom.speech.yes':'É {answer}','fotozoom.speech.almost':'Quase! Era {answer}.',
     'fotozoom.doneKicker':'FOTO ZOOM','fotozoom.doneTitle':'{n} de {total} descobertos!','fotozoom.summary':'{score} de {max} pontos. Quanto menos você afasta, mais pontos ganha.',
@@ -1346,6 +1354,7 @@
     'mega.sub':'{n} perguntas de todos os mundos',
     'mega.rule':'Perguntas de todos os {worlds} mundos: acertaste {score} de {total}.',
     'mega.again':'Mais um Mega Quiz',
+    'mega.collectionLine':'Jogado {played} vezes · melhor {best} de {total}',
     'quiz.progress':'Pergunta {current} de {total}',
     'quiz.hint':'Dica',
     'quiz.none':'Ainda não há perguntas para este tema.',

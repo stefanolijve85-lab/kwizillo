@@ -149,7 +149,7 @@ for (const lang of langs) {
     for (const k of ['whoami.speech.yes', 'whoami.speech.almost']) for (const s of core.answerSegments(T(k), q.answer)) add(lang, BOTH, s.text, 'whoami: verdict pieces');
     add(lang, BOTH, q.explanation, 'whoami/fotozoom: explanation');
   }
-  for (const k of ['whoami.ask', 'whoami.speech.great', 'whoami.speech.done']) add(lang, BOTH, T(k), 'whoami: fixed');
+  for (const k of ['whoami.speech.ask', 'whoami.speech.great', 'whoami.speech.done']) add(lang, BOTH, T(k), 'whoami: fixed');
 
   // Fotozoom (games-fotozoom.js).
   for (const q of fotozoomCandidates(qs)) {
@@ -157,7 +157,7 @@ for (const lang of langs) {
     for (const k of ['fotozoom.speech.yes', 'fotozoom.speech.almost']) for (const s of core.answerSegments(T(k), q.answer)) add(lang, BOTH, s.text, 'fotozoom: verdict pieces');
     add(lang, BOTH, q.explanation, 'whoami/fotozoom: explanation');
   }
-  for (const k of ['fotozoom.speech.great', 'fotozoom.speech.done']) add(lang, BOTH, T(k), 'fotozoom: fixed');
+  for (const k of ['fotozoom.speech.ask', 'fotozoom.speech.great', 'fotozoom.speech.done']) add(lang, BOTH, T(k), 'fotozoom: fixed');
 
   // Each guide's hello is only ever said in that guide's own voice
   // (m1-ui.js sound panel, onboarding.js takeOver via K.guideSay).

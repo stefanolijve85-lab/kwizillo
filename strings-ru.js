@@ -74,12 +74,14 @@
     'common.of':'из',
     // Кто я?
     'whoami.title':'Кто я?','whoami.round':'Раунд {n} из {total}','whoami.points':'Уже {n} очков','whoami.ask':'Кто я?','whoami.more':'Подсказка','whoami.next':'Дальше','whoami.timeUp':'Время вышло! Это был {answer}.',
+    'whoami.speech.ask':'[playful] '+'Кто я?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Да, {answer}! +{points}','whoami.almost':'Почти! Это был {answer}.',
     'whoami.speech.yes':'Это {answer}','whoami.speech.almost':'Почти! Это был {answer}.',
     'whoami.doneKicker':'КТО Я?','whoami.doneTitle':'Угадано {n} из {total}!','whoami.summary':'{score} очков из {max}. Чем раньше угадаешь, тем больше очков.',
     'whoami.speech.great':'Ух ты, как быстро ты угадываешь! Молодец.','whoami.speech.done':'Хорошая игра! В следующий раз угадаешь ещё больше.',
     'jungle.title':'Раннер','jungle.tileSub':'Беги, прыгай и лети через три уровня','jungle.loadError':'Джунгли не загрузились. Попробуй позже.',
     'fotozoom.title':'Фотозум','fotozoom.round':'Раунд {n} из {total}','fotozoom.points':'Уже {n} очков','fotozoom.ask':'Что это?','fotozoom.out':'Отдалить','fotozoom.next':'Дальше','fotozoom.timeUp':'Время вышло! Это был {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'Что это?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Да, {answer}! +{points}','fotozoom.almost':'Почти! Это был {answer}.',
     'fotozoom.speech.yes':'Это {answer}','fotozoom.speech.almost':'Почти! Это был {answer}.',
     'fotozoom.doneKicker':'ФОТОЗУМ','fotozoom.doneTitle':'Узнано {n} из {total}!','fotozoom.summary':'{score} очков из {max}. Чем меньше отдаляешь, тем больше очков.',
@@ -212,6 +214,7 @@
     'mega.sub':'{n} вопросов из всех миров',
     'mega.rule':'Вопросы из всех миров ({worlds}): правильных ответов — {score} из {total}.',
     'mega.again':'Ещё одна мега-викторина',
+    'mega.collectionLine':'Сыграно: {played} · лучший результат {best} из {total}',
     'quiz.progress':'Вопрос {current} из {total}',
     'quiz.hint':'Подсказка',
     'quiz.none':'Для этой темы пока нет вопросов.',

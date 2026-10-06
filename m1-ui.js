@@ -209,9 +209,8 @@
 
         <button class="home-mega ${K.premium.can('mega')?'':'locked'}" id="homeMega" aria-label="${esc(t('mega.title'))} · ${esc(t('mega.sub',{n:K.MEGA_SIZE}))}">
           <img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-mega-veil"></span>
-          ${K.premium.can('mega')?'':K.premiumBadge()}
           <span class="home-mega-copy"><b>${esc(t('mega.title'))}</b><small>${esc(t('mega.sub',{n:K.MEGA_SIZE}))}</small></span>
-          <span class="home-mega-go">${K.icon('play')}</span>
+          <span class="home-mega-go" ${K.premium.can('mega')?'':`aria-label="${esc(t('premium.label'))}"`}>${K.icon(K.premium.can('mega')?'play':'lock')}</span>
         </button>
 
         <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>
@@ -457,6 +456,10 @@
   });
 
 
+  // The Mega Quiz in the collection: how often it was played and the best score.
+  const megaRun=()=>K.runFor('mega',null);
+  const megaRow=()=>{const r=megaRun(),total=Number(r.total||K.MEGA_SIZE||80),best=Number(r.best||0);
+    return `<button class="progress-world mega-progress" id="megaProgress"><span class="progress-world-icon"><img class="world-badge" src="${K.GAME_ART.memoAll}" alt=""></span><span><b>${esc(t('mega.title'))}</b><small>${esc(t('mega.collectionLine',{played:Number(r.played||0),best,total}))}</small><span class="wide-track"><i style="width:${total?Math.round(best/total*100):0}%"></i></span></span><em>${best}</em></button>`};
   K.showCollection=(tab='worlds')=>{
     K.stopSpeech();K.lastView='collection';
     const ids=progress().correctQuestionIds;
@@ -465,7 +468,7 @@
     if(tab==='worlds'){
       const all=K.totalPoints(),allPct=all.max?Math.round(all.points/all.max*100):0;
       content=`<div class="progress-overall"><b>${esc(t('progress.overall',{points:all.points,max:all.max}))}</b><span class="wide-track"><i style="width:${allPct}%"></i></span><small>${esc(t('progress.overallSub'))}</small></div>
-        <div class="world-progress-grid">${shown().map(w=>{const p=K.worldPoints(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${K.worldBadge(w)}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))}</small><span class="wide-track"><i style="width:${p.max?Math.round(p.points/p.max*100):0}%"></i></span></span><em>${p.points}</em></button>`}).join('')}</div>`;
+        <div class="world-progress-grid">${shown().map(w=>{const p=K.worldPoints(w);return`<button class="progress-world" data-world="${w}"><span class="progress-world-icon">${K.worldBadge(w)}</span><span><b>${esc(worldTitle(w))}</b><small>${esc(t('progress.worldLine',{passed:p.passed,total:p.total,points:p.points}))}</small><span class="wide-track"><i style="width:${p.max?Math.round(p.points/p.max*100):0}%"></i></span></span><em>${p.points}</em></button>`}).join('')}${megaRow()}</div>`;
     }
     // Knowledge cards: a collectable trading card per correctly answered
     // question, with that question's own illustration. Rarity follows the
@@ -570,6 +573,7 @@
       f.appendChild(z);
     });
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
+    f.querySelector('#megaProgress')?.addEventListener('click',()=>{K.sfx('world');K.startMega()});
     f.querySelectorAll('[data-mascot]:not([disabled])').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.selectedMascot=b.dataset.mascot;K.save();K.showCollection('mascots')});
     f.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{K.sfx('tap');confirmBuy(b.dataset.buy,Number(b.dataset.price),b.dataset.title)});
   };
@@ -648,6 +652,7 @@
     const mathBest=Object.values(G.math?.best||{}).filter(Boolean);
     const game=(icon,title,line,best)=>`<article class="game-stat"><span class="game-stat-icon">${icon}</span><div><b>${esc(title)}</b><small>${esc(line)}</small></div>${best?`<em>${esc(best)}</em>`:''}</article>`;
     const games=`<div class="game-stat-list">
+      ${(r=>game('🌍',t('mega.title'),t('mega.collectionLine',{played:Number(r.played||0),best:Number(r.best||0),total:Number(r.total||K.MEGA_SIZE||80)}),r.best?`${r.best}/${r.total||K.MEGA_SIZE||80}`:''))(megaRun())}
       ${game('🧠',t('memo.title'),t('stats.memoLine',{played:Number(G.memo?.played||0),won:Number(G.memo?.won||0)}),memoBest.length?t('stats.memoBest',{n:Math.min(...memoBest)}):'')}
       ${game('🔢',t('math.title'),t('stats.mathLine',{played:Number(G.math?.played||0),won:Number(G.math?.won||0)}),mathBest.length?`${Math.max(...mathBest)}/10`:'')}
       ${game('🏃',t('jungle.title'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}

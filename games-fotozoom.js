@@ -46,7 +46,7 @@
       return {q,options:shuffle([q,...others]),fx:38+Math.random()*24,fy:34+Math.random()*26};
     });
     K.fotozoom={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
-    const lines=[];
+    const lines=[t('fotozoom.speech.ask')];
     for(const r of rounds){lines.push(...r.options.map(o=>K.core.answerText(o.answer)),...['fotozoom.speech.yes','fotozoom.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
     lines.push(t('fotozoom.speech.great'),t('fotozoom.speech.done'));
     K.prefetchSpeech?.(lines);
@@ -85,8 +85,9 @@
     const zoomTo=z=>{img.style.transform=`scale(${z})`};
     const speak=()=>{
       if(locked)return;
-      // "Wat is dit?" stays on screen but is not said every round: the picture asks it.
-      const segs=[...r.options.map((o,i)=>({kind:'option',index:i,text:K.core.answerText(o.answer)}))];
+      // "Wat is dit?" is asked every round, playfully (an audio tag the voice acts
+      // out and does not read): the plain question each time sounded flat.
+      const segs=[{kind:'question',text:t('fotozoom.speech.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:K.core.answerText(o.answer)}))];
       if(timer)timer.paused=true;
       K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='option')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>{tiles().forEach(x=>x.classList.remove('spoken-active'))}}).then(()=>{if(timer)timer.paused=false;startTimer()});
     };

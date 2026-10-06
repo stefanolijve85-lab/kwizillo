@@ -74,12 +74,14 @@
     'common.of':'von',
     // Was bin ich?
     'whoami.title':'Was bin ich?','whoami.round':'Runde {n} von {total}','whoami.points':'Jetzt {n} Punkte','whoami.ask':'Was bin ich?','whoami.more':'Ein Hinweis','whoami.next':'Weiter','whoami.timeUp':'Die Zeit ist um! Es war {answer}.',
+    'whoami.speech.ask':'[playful] '+'Was bin ich?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Fast! Es war {answer}.',
     'whoami.speech.yes':'Das ist {answer}','whoami.speech.almost':'Fast! Es war {answer}.',
     'whoami.doneKicker':'WAS BIN ICH?','whoami.doneTitle':'{n} von {total} erraten!','whoami.summary':'{score} von {max} Punkten. Je früher du rätst, desto mehr Punkte.',
     'whoami.speech.great':'Wow, du rätst schnell! Gut gemacht.','whoami.speech.done':'Schön gespielt! Nächstes Mal errätst du noch mehr.',
     'jungle.title':'Runner','jungle.tileSub':'Renne, springe und fliege durch drei Level','jungle.loadError':'Der Dschungel konnte nicht laden. Versuche es später noch einmal.',
     'fotozoom.title':'Fotozoom','fotozoom.round':'Runde {n} von {total}','fotozoom.points':'Jetzt {n} Punkte','fotozoom.ask':'Was ist das?','fotozoom.out':'Herauszoomen','fotozoom.next':'Weiter','fotozoom.timeUp':'Die Zeit ist um! Es war {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'Was ist das?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'Ja, {answer}! +{points}','fotozoom.almost':'Fast! Es war {answer}.',
     'fotozoom.speech.yes':'Das ist {answer}','fotozoom.speech.almost':'Fast! Es war {answer}.',
     'fotozoom.doneKicker':'FOTOZOOM','fotozoom.doneTitle':'{n} von {total} erkannt!','fotozoom.summary':'{score} von {max} Punkten. Je weniger du herauszoomst, desto mehr Punkte.',
@@ -212,6 +214,7 @@
     'mega.sub':'{n} Fragen aus allen Welten',
     'mega.rule':'Fragen aus allen {worlds} Welten: Du hattest {score} von {total} richtig.',
     'mega.again':'Noch ein Mega-Quiz',
+    'mega.collectionLine':'{played}-mal gespielt · beste {best} von {total}',
     'quiz.progress':'Frage {current} von {total}',
     'quiz.hint':'Hinweis',
     'quiz.none':'Für dieses Thema gibt es noch keine Fragen.',

@@ -80,6 +80,7 @@
     'whoami.round':'الجولة {n} من {total}',
     'whoami.points':'الآن {n} نقطة',
     'whoami.ask':'من أنا؟',
+    'whoami.speech.ask':'[playful] '+'من أنا؟',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.more':'دليل آخر',
     'whoami.next':'التالي',
     'whoami.timeUp':'انتهى الوقت! كان الجواب {answer}.',
@@ -101,6 +102,7 @@
     'fotozoom.round':'الجولة {n} من {total}',
     'fotozoom.points':'الآن {n} نقطة',
     'fotozoom.ask':'ما هذا؟',
+    'fotozoom.speech.ask':'[playful] '+'ما هذا؟',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.out':'صغّر الصورة',
     'fotozoom.next':'التالي',
     'fotozoom.timeUp':'انتهى الوقت! كان الجواب {answer}.',
@@ -362,6 +364,7 @@
     'mega.sub':'{n} سؤالًا من كل العوالم',
     'mega.rule':'أسئلة من كل العوالم ({worlds}): أجبت عن {score} من {total} بشكل صحيح.',
     'mega.again':'مسابقة كبرى أخرى',
+    'mega.collectionLine':'لُعبت {played} مرات · الأفضل {best} من {total}',
     'quiz.progress':'السؤال {current} من {total}',
     'quiz.hint':'تلميح',
     'quiz.none':'لا توجد أسئلة لهذا الموضوع بعد.',

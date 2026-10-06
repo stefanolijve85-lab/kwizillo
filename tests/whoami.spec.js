@@ -78,7 +78,8 @@ test('the clue, the question and the four tile names are read out (tiles light u
   await expect(page.locator('.whoami')).toBeVisible();
   const g = await page.evaluate(() => { const g = window.KWIZILLO_M1.whoami; return { clue: g.rounds[0].clues[0], tiles: g.rounds[0].options.map(o => o.answer), lastClue: g.rounds[4].clues[0] }; });
   await expect.poll(() => spoken.includes(g.clue)).toBe(true);
-  await expect.poll(() => spoken.includes('Wat ben ik?')).toBe(true);
+  // asked playfully: the audio tag is acted out by the voice, not read
+  await expect.poll(() => spoken.includes('[playful] Wat ben ik?')).toBe(true);
   for (const name of g.tiles) await expect.poll(() => spoken.includes(name + '.')).toBe(true);
   // Round 5's clue is on its way ahead of time; the warm queue runs two at a
   // time, so on a loaded machine it needs longer than the default six seconds.

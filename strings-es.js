@@ -75,12 +75,14 @@
     'common.of':'de',
     // ¿Qué soy?
     'whoami.title':'¿Qué soy?','whoami.round':'Ronda {n} de {total}','whoami.points':'Ya {n} puntos','whoami.ask':'¿Qué soy?','whoami.more':'Una pista','whoami.next':'Siguiente','whoami.timeUp':'¡Se acabó el tiempo! Era {answer}.',
+    'whoami.speech.ask':'[playful] '+'¿Qué soy?',   // spoken only: the voice asks it playfully, the tag is not read out
     'whoami.yes':'¡Sí, {answer}! +{points}','whoami.almost':'¡Casi! Era {answer}.',
     'whoami.speech.yes':'Es {answer}','whoami.speech.almost':'¡Casi! Era {answer}.',
     'whoami.doneKicker':'¿QUÉ SOY?','whoami.doneTitle':'¡{n} de {total} adivinados!','whoami.summary':'{score} de {max} puntos. Cuanto antes adivines, más puntos ganas.',
     'whoami.speech.great':'¡Vaya, adivinas rápido! Bien hecho.','whoami.speech.done':'¡Bien jugado! La próxima vez adivinarás aún más.',
     'jungle.title':'Runner','jungle.tileSub':'Corre, salta y vuela por tres niveles','jungle.loadError':'La selva no se ha podido cargar. Inténtalo más tarde.',
     'fotozoom.title':'Foto Zoom','fotozoom.round':'Ronda {n} de {total}','fotozoom.points':'Ya {n} puntos','fotozoom.ask':'¿Qué es esto?','fotozoom.out':'Alejar','fotozoom.next':'Siguiente','fotozoom.timeUp':'¡Se acabó el tiempo! Era {answer}.',
+    'fotozoom.speech.ask':'[playful] '+'¿Qué es esto?',   // spoken only: the voice asks it playfully, the tag is not read out
     'fotozoom.yes':'¡Sí, {answer}! +{points}','fotozoom.almost':'¡Casi! Era {answer}.',
     'fotozoom.speech.yes':'Es {answer}','fotozoom.speech.almost':'¡Casi! Era {answer}.',
     'fotozoom.doneKicker':'FOTO ZOOM','fotozoom.doneTitle':'¡{n} de {total} acertados!','fotozoom.summary':'{score} de {max} puntos. Cuanto menos alejes, más puntos ganas.',
@@ -213,6 +215,7 @@
     'mega.sub':'{n} preguntas de todos los mundos',
     'mega.rule':'Preguntas de los {worlds} mundos: acertaste {score} de {total}.',
     'mega.again':'Otro Mega Quiz',
+    'mega.collectionLine':'Jugado {played} veces · mejor {best} de {total}',
     'quiz.progress':'Pregunta {current} de {total}',
     'quiz.hint':'Pista',
     'quiz.none':'Todavía no hay preguntas para este tema.',

@@ -49,12 +49,14 @@
     setTimeout(()=>K.warmFacts?.(world,null,1),4000);
   };
 
-  // The Mega Quiz (Home, Premium): twenty questions from every world, dealt so
+  // The Mega Quiz (Home, Premium): ten questions from every world, dealt so
   // that the worlds take turns (quiz-core-v2.js, selectMegaBatch). It runs on
   // the quiz screen of a world quiz; every answer counts for the world of its
   // question. It plays at one level for the whole quiz: the average of the
   // worlds' own levels.
-  K.MEGA_SIZE=20;
+  K.MEGA_SIZE=80;
+  // A Mega Quiz is as long as eight world quizzes: hints and mistakes allowed grow with it.
+  const megaScale=()=>K.quiz?.mega?Math.max(1,K.quiz.questions.length/10):1;
   K.startMega=()=>{
     K.stopSpeech();
     if(!K.premium.can('mega')){K.premiumLocked({kind:'mega',retry:()=>K.startMega()});return}
@@ -202,8 +204,7 @@
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
-  // Twice the hints in the Mega Quiz: it is twice as long.
-  function hintsLeftNow(){return K.core.hintsAllowed(level())*(K.quiz?.mega?2:1)-Number(K.quiz?.hintsUsed||0)}
+  function hintsLeftNow(){return K.core.hintsAllowed(level())*megaScale()-Number(K.quiz?.hintsUsed||0)}
   function showHint(q){
     // Reopening the hint of the same question is free.
     const again=!!K.quiz.hintedIds?.[q.id];
@@ -360,8 +361,7 @@
     const total=q?.questions.length||0,score=q?.score||0,xp=Number(q?.points||0);
     const niveau=level();
     const mega=!!q?.mega;
-    // The Mega Quiz is twice as long, so twice the mistakes are allowed.
-    const allowed=K.core.maxWrong(niveau)*(mega?2:1),wrong=total-score;
+    const allowed=K.core.maxWrong(niveau)*megaScale(),wrong=total-score;
     const passed=wrong<=allowed;
     const keys=K.TOPIC_KEYS[K.currentWorld]||[];
     const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
@@ -373,7 +373,7 @@
       const ws=K.progress().worlds[q.world];
       if(ws) ws.quizzes=Number(ws.quizzes||0)+1;
       // bestScores is per world and out of 10; the Mega Quiz keeps its own best.
-      if(mega){const run=K.runFor('mega',null);run.best=Math.max(Number(run.best||0),q.score||0)}
+      if(mega){const run=K.runFor('mega',null);run.played=Number(run.played||0)+1;run.best=Math.max(Number(run.best||0),q.score||0);run.total=total}
       else{K.state.bestScores||={};if((q.score||0)>Number(K.state.bestScores[q.world]||0)) K.state.bestScores[q.world]=q.score||0}
       // A passed topic is ticked off for this level. Once all four topics of
       // this world are ticked, the world itself moves up a level — every world

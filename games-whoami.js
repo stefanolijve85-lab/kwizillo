@@ -60,7 +60,7 @@
     K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
     // Every line of the whole game is requested now, so each round starts talking at once.
     const lines=[];for(const r of rounds){lines.push(...r.clues,...r.options.map(o=>K.core.answerText(o.answer)),...['whoami.speech.yes','whoami.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
-    lines.push(t('whoami.ask'),t('whoami.speech.great'),t('whoami.speech.done'));
+    lines.push(t('whoami.speech.ask'),t('whoami.speech.great'),t('whoami.speech.done'));
     K.prefetchSpeech?.(lines);
     showRound();
   };
@@ -98,7 +98,7 @@
     const speak=all=>{
       if(locked)return;
       const lines=all?r.clues.slice(0,shown):[r.clues[shown-1]];
-      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:K.core.answerText(o.answer)}))];
+      const segs=[...lines.map(text=>({kind:'speech',text})),{kind:'question',text:t('whoami.speech.ask')},...r.options.map((o,i)=>({kind:'option',index:i,text:K.core.answerText(o.answer)}))];
       if(timer)timer.paused=true;
       K.speakSequence(segs,{onSegment:seg=>{tiles().forEach(x=>x.classList.remove('spoken-active'));if(seg.kind==='option')tiles()[seg.index]?.classList.add('spoken-active')},onDone:()=>{tiles().forEach(x=>x.classList.remove('spoken-active'))}}).then(()=>{if(timer)timer.paused=false;startTimer()},()=>{if(timer)timer.paused=false;startTimer()});
     };
