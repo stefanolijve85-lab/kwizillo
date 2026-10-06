@@ -298,6 +298,7 @@
     'memo.playSub':'Trova le coppie di {world}',
     'memo.level':'Livello {n}',
     'memo.pairs':'{found} coppie su {total}',
+    'memo.boostTitle':'Boost d’oro!','memo.boostSub':'3 coppie di fila · +{xp} punti',
     'memo.moves':'{n} mosse',
     'memo.movesShort':'mosse',
     'memo.card':'Carta memo',

@@ -297,6 +297,7 @@
     'memo.playSub':'Finde die Paare von {world}',
     'memo.level':'Level {n}',
     'memo.pairs':'{found} von {total} Paaren',
+    'memo.boostTitle':'Goldener Boost!','memo.boostSub':'3 Paare hintereinander · +{xp} Punkte',
     'memo.moves':'{n} Züge',
     'memo.movesShort':'Züge',
     'memo.card':'Memo-Karte',

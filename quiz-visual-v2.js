@@ -59,6 +59,9 @@
   const megaScale=()=>K.quiz?.mega?Math.max(1,K.quiz.questions.length/10):1;
   // The level the Mega Quiz plays at (and its Home tile shows): the average of the worlds' own levels.
   K.megaLevel=()=>{const ws=K.playableWorlds();return Math.round(ws.reduce((n,w)=>n+K.playLevel(w),0)/Math.max(1,ws.length))||1};
+  // What the Home tile says, like the world tiles: the levels earned, not the
+  // play level a parent may have raised in the parent zone.
+  K.megaEarnedLevel=()=>{const ws=K.playableWorlds();return Math.round(ws.reduce((n,w)=>n+K.worldLevel(w),0)/Math.max(1,ws.length))||1};
   K.startMega=()=>{
     K.stopSpeech();
     if(!K.premium.can('mega')){K.premiumLocked({kind:'mega',retry:()=>K.startMega()});return}

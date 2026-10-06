@@ -297,6 +297,7 @@
     'memo.playSub':'Find parrene fra {world}',
     'memo.level':'Niveau {n}',
     'memo.pairs':'{found} af {total} par',
+    'memo.boostTitle':'Gyldent boost!','memo.boostSub':'3 par i træk · +{xp} point',
     'memo.moves':'{n} ture',
     'memo.movesShort':'ture',
     'memo.card':'Memokort',

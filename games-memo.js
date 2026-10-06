@@ -64,7 +64,7 @@
         <label class="memo-p2" ${mode==='duel'?'':'hidden'}><span>${esc(t('memo.p2Label'))}</span><input id="memoP2" type="text" maxlength="14" autocomplete="off" placeholder="${esc(t('memo.player2'))}" value="${esc(K.state.memoPlayer2||'')}" aria-label="${esc(t('memo.p2Label'))}"></label>
         </div>
         <button class="memo-pick mix" data-memo="mix"><img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
-        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="object-position:${K.tileFocus(w)}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
       </div>
     </section>`);
     f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
@@ -198,6 +198,9 @@
     const [a,b]=m.open;
     if(a.pair===b.pair){
       a.matched=b.matched=true;m.found++;m.open=[];
+      // Three pairs in a row: a golden boost (bonus points at the end, a gold flash now).
+      m.streak=Number(m.streak||0)+1;
+      if(m.streak>=3){m.streak=0;m.boosts=Number(m.boosts||0)+1;setTimeout(()=>{if(f.isConnected&&!m.done)goldenBoost(f)},420)}
       if(m.duel){m.scores[m.turn]++;const em=f.querySelector(`[data-player="${m.turn}"] em`);if(em)em.textContent=m.scores[m.turn]}
       const els=[a,b].map(c=>f.querySelector(`[data-card="${c.id}"]`));
       els.forEach(el=>el.classList.add('is-matched'));
@@ -209,6 +212,7 @@
       if(m.found>=m.pairs){stopTimer();setTimeout(()=>{if(f.isConnected)finish(true)},650);return}
       // Classic rule: a pair earns another turn, so no swap here.
     }else{
+      m.streak=0;
       m.locked=true;
       setTimeout(()=>{
         if(!f.isConnected)return;
@@ -218,6 +222,17 @@
         if(m.duel)swapTurn(f);
       },750);
     }
+  }
+  const BOOST_XP=10;
+  function goldenBoost(f){
+    f.querySelector('.memo-boost')?.remove();
+    const el=document.createElement('div');el.className='memo-boost';
+    el.innerHTML=`<div class="memo-boost-card"><span class="memo-boost-rays" aria-hidden="true"></span><b>${esc(t('memo.boostTitle'))}</b><small>${esc(t('memo.boostSub',{xp:BOOST_XP}))}</small></div>`;
+    f.appendChild(el);
+    K.sfx('reward');setTimeout(()=>K.sfx('gift'),260);
+    K.celebrate?.('gold',el.querySelector('.memo-boost-card'));
+    setTimeout(()=>el.classList.add('out'),1500);
+    setTimeout(()=>el.remove(),1900);
   }
   // Duel: the other player is up after a miss; a pair keeps the turn.
   function swapTurn(f){
@@ -233,7 +248,7 @@
     if(m.duel)return finishDuel();
     const secs=Math.round((Date.now()-m.startedAt)/1000);
     const stars=!won?0:m.moves<=m.pairs+2?3:m.moves<=Math.ceil(m.pairs*1.7)?2:1;
-    const xp=won?m.pairs*5+stars*5:0,coins=won?m.pairs:0;
+    const xp=won?m.pairs*5+stars*5+Number(m.boosts||0)*BOOST_XP:0,coins=won?m.pairs:0;
     // Progress: XP, coins, best moves per world and a games counter that the
     // statistics and achievements read.
     const G=K.progress().games||={};const memo=G.memo||={played:0,won:0,best:{}};

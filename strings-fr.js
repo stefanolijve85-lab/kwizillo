@@ -298,6 +298,7 @@
     'memo.playSub':'Trouve les paires de {world}',
     'memo.level':'Niveau {n}',
     'memo.pairs':'{found} paires sur {total}',
+    'memo.boostTitle':'Boost doré !','memo.boostSub':'3 paires d’affilée · +{xp} points',
     'memo.moves':'{n} tours',
     'memo.movesShort':'tours',
     'memo.card':'Carte mémo',

@@ -298,6 +298,7 @@
     'memo.playSub':'Encuentra las parejas de {world}',
     'memo.level':'Nivel {n}',
     'memo.pairs':'{found} de {total} parejas',
+    'memo.boostTitle':'¡Impulso dorado!','memo.boostSub':'3 parejas seguidas · +{xp} puntos',
     'memo.moves':'{n} turnos',
     'memo.movesShort':'turnos',
     'memo.card':'Carta de memo',

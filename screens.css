@@ -1415,3 +1415,41 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .setting-card.world-levels .world-level-row{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:none;justify-content:stretch}
 .setting-card.world-levels .world-level-row .world-badge{width:100%;height:auto;aspect-ratio:1;border-radius:16px;box-shadow:0 4px 10px rgba(20,60,130,.18)}
 .setting-card.world-levels .world-level-row i{inset-inline-end:-4px;bottom:-4px;min-width:22px;height:22px;font-size:12px;line-height:22px}
+
+/* Memo: the eight worlds in two columns, like the other games' pickers */
+.memo-picker:not(.game-picker) .memo-pick-grid{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(0,1fr);max-height:none;height:100%}
+
+/* ---- Home header: avatar left, the Kwizillo logo in the middle with the
+   greeting under it, one statistics button (coins + streak) and the gear right ---- */
+.home-hud.with-logo{grid-template-columns:1fr auto 1fr;gap:8px;align-items:start}
+.home-hud.with-logo .hud-avatar{justify-self:start}
+.home-hud.with-logo .hud-center{display:grid;justify-items:center;gap:2px;min-width:0}
+.hud-logo{display:block;height:clamp(40px,11vw,58px);width:auto;filter:drop-shadow(0 4px 8px rgba(0,26,80,.35))}
+.home-hud.with-logo .hud-id{align-items:center;text-align:center}
+.home-hud.with-logo .hud-id b{font-size:clamp(12px,3.4vw,16px);max-width:150px}
+.home-hud.with-logo .hud-id small{font-size:9.5px}
+.home-hud.with-logo .hud-right{justify-self:end;gap:5px}
+.hud-stats{gap:7px;padding:6px 9px;min-height:44px}
+.hud-stats span{display:inline-flex;align-items:center;gap:3px}
+@media(max-width:380px){.hud-stats{flex-direction:column;gap:0;padding:3px 8px;font-size:11px}.hud-stats .ki{width:13px;height:13px}}
+
+/* ---- Memo: golden boost after three pairs in a row ---- */
+.memo-boost{position:absolute;inset:0;z-index:40;display:grid;place-items:center;pointer-events:none;background:radial-gradient(circle at 50% 46%,rgba(255,214,80,.35),rgba(60,30,0,.28) 60%,transparent 80%);animation:boostIn .32s cubic-bezier(.2,.9,.25,1.3) both}
+.memo-boost.out{animation:boostOut .4s ease forwards}
+.memo-boost-card{position:relative;display:grid;justify-items:center;gap:4px;padding:18px 26px;border-radius:26px;background:linear-gradient(180deg,#fff6c4,#ffd23f 55%,#f0a300);border:3px solid #fff;box-shadow:0 10px 0 #b86f00,0 0 60px rgba(255,200,40,.85),0 18px 40px rgba(60,30,0,.4);color:#5a2a00;text-align:center}
+.memo-boost-card b{font-size:clamp(26px,8vw,40px);font-weight:1000;letter-spacing:-.02em;text-shadow:0 2px 0 #fff7d0}
+.memo-boost-card small{font-size:14px;font-weight:900}
+.memo-boost-rays{position:absolute;inset:-60%;z-index:-1;background:repeating-conic-gradient(from 0deg,rgba(255,230,120,.55) 0 10deg,transparent 10deg 20deg);border-radius:50%;animation:boostSpin 2.4s linear infinite;mask:radial-gradient(circle,#000 30%,transparent 68%);-webkit-mask:radial-gradient(circle,#000 30%,transparent 68%)}
+@keyframes boostIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes boostOut{to{opacity:0;transform:scale(1.15)}}
+@keyframes boostSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.memo-boost,.memo-boost-rays{animation:none}}
+/* the logo sits in the exact middle whatever the side buttons measure */
+.home-hud.with-logo{position:relative;display:flex;justify-content:space-between;align-items:flex-start;min-height:84px}
+.home-hud.with-logo .hud-center{position:absolute;left:50%;top:0;transform:translateX(-50%);pointer-events:none;width:max-content;max-width:46%}
+.home-hud.with-logo .hud-logo{height:clamp(38px,10.5vw,54px)}
+.home-hud.with-logo .hud-stats{flex-direction:column;gap:0;padding:3px 9px;font-size:11.5px;line-height:1.25}
+.home-hud.with-logo .hud-stats .ki{width:13px;height:13px}
+@media(max-height:700px){.home-hud.with-logo{min-height:58px}.home-hud.with-logo .hud-logo{height:36px}.home-hud.with-logo .hud-id small{display:none}.home-hud.with-logo .hud-id b{font-size:12px}}
+/* room between the blue header and the first card, as much as there is below the last one */
+.native-panel-screen:is(.parent-screen,.stats-screen,.achievements-screen,.collection-screen,.privacy-screen,.profile-screen) .panel-scroll{padding-top:14px}

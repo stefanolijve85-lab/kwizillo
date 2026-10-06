@@ -27,7 +27,7 @@ async function solve(page) {
 test('Memo opens from Home and from a world, lays out a level-1 board of 8 picture pairs', async ({ page }) => {
   await boot(page);
   await page.locator('#homeMemo').click();
-  // A picker first: all worlds or one of the six.
+  // A picker first: all worlds or one of the eight, two per row.
   await expect(page.locator('.memo-picker')).toBeVisible();
   await expect(page.locator('[data-memo]')).toHaveCount(9);   // gemengd + acht werelden
   await page.locator('[data-memo="mix"]').click();
@@ -71,7 +71,7 @@ test('a mismatch flips back, a match stays; solving the board rewards XP, coins 
   await expect(page.locator('#resultGift')).toHaveCount(1);
   await expect(page.locator('.result-stars i.on')).toHaveCount(3);   // 9 moves for 8 pairs
   const st = await page.evaluate(() => { const K = window.KWIZILLO_M1; return { xp: K.state.xp, coins: K.state.coins, memo: K.progress().games.memo }; });
-  expect(st.xp).toBe(55); expect(st.coins).toBe(8);
+  expect(st.xp).toBe(75); expect(st.coins).toBe(8);   // 55 for the board + two golden boosts (7 pairs in a row) of 10
   expect(st.memo.played).toBe(1); expect(st.memo.won).toBe(1); expect(st.memo.best.dieren).toBe(9);
   await page.locator('#againBtn').click();
   await expect(page.locator('.memo-board')).toBeVisible();
@@ -190,4 +190,27 @@ test('on a small phone the "all worlds" tile keeps its full height; the world gr
   expect(mixHeight).toBeGreaterThan(100);   // flatter on a small phone, so all six world tiles stay in view…
   const lastTile = await page.locator('.memo-pick-grid .memo-pick').last().boundingBox();
   expect(lastTile.y + lastTile.height).toBeLessThanOrEqual(667);   // …fully
+});
+
+// Three pairs in a row: a golden boost pops up with a gold burst and pays a
+// bonus at the end; a miss in between starts the count again.
+test('three pairs in a row give a golden boost; a miss resets the run', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeMemo').click();
+  await page.locator('[data-memo="mix"]').click();
+  await expect(page.locator('.memo-board')).toBeVisible();
+  const pairs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(c.id); return Object.values(by); });
+  const pair = async i => { await page.locator(`[data-card="${pairs[i][0]}"]`).click(); await page.locator(`[data-card="${pairs[i][1]}"]`).click(); };
+  await pair(0); await pair(1);
+  // a miss: two cards of different pairs
+  await page.locator(`[data-card="${pairs[2][0]}"]`).click(); await page.locator(`[data-card="${pairs[3][0]}"]`).click();
+  await page.waitForTimeout(900);
+  await pair(2);
+  await expect(page.locator('.memo-boost')).toHaveCount(0);
+  await pair(3); await pair(4);
+  await expect(page.locator('.memo-boost')).toBeVisible();
+  await expect(page.locator('.memo-boost')).toContainText('Gouden boost!');
+  await expect(page.locator('.memo-boost')).toContainText('3 paren op rij');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.memo.boosts)).toBe(1);
+  await expect(page.locator('.memo-boost')).toHaveCount(0, { timeout: 4000 });
 });

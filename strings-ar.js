@@ -448,6 +448,7 @@
     'memo.playSub':'اعثر على أزواج {world}',
     'memo.level':'المستوى {n}',
     'memo.pairs':'{found} من {total} أزواج',
+    'memo.boostTitle':'دفعة ذهبية!','memo.boostSub':'3 أزواج متتالية · +{xp} نقاط',
     'memo.moves':'{n} محاولة',
     'memo.movesShort':'محاولات',
     'memo.card':'بطاقة ذاكرة',

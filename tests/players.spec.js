@@ -46,10 +46,11 @@ test('the parent zone lists every player without buttons; "Speler verwijderen" s
   await expect(rows.first()).toContainText('speelt nu');
   await expect(rows.nth(1)).toContainText('Sara');
   await expect(page.locator('.player-row button')).toHaveCount(0);
-  // the delete card is the last card, right after "Voortgang resetten", and looks like it
+  // the delete card is the last card, under "Voortgang resetten" and "Uitloggen", and looks like the reset card
   const cards = page.locator('.settings-list > .setting-card');
   await expect(cards.last()).toHaveAttribute('id', 'deleteOpen');
-  await expect(cards.nth(await cards.count() - 2)).toHaveAttribute('id', 'resetOpen');
+  await expect(cards.nth(await cards.count() - 2)).toHaveAttribute('id', 'logoutOpen');
+  await expect(cards.nth(await cards.count() - 3)).toHaveAttribute('id', 'resetOpen');
   await expect(cards.last()).toHaveClass(/reset-card/);
   await expect(cards.last()).toContainText('Speler verwijderen');
   await page.locator('#deleteOpen').click();

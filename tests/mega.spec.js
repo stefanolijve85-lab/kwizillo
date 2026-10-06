@@ -92,3 +92,11 @@ test('Premium: eighty questions, ten from every world, taking turns; the result 
   await page.locator('#qBack').click();
   await expect(page.locator('.home')).toBeVisible();
 });
+
+// The tile shows the levels earned, like the world tiles; a play level raised
+// in the parent zone does not change it.
+test('the Mega Quiz tile shows the earned level, not the play level chosen by a parent', async ({ page }) => {
+  await boot(page, { state: SAVED({ niveau: 4 }) });
+  await expect(page.locator('#homeMega .home-world-level')).toHaveText('Niveau 1');
+  await expect(page.locator('[data-world="ruimte"] .home-world-level')).toHaveText('Niveau 1');
+});

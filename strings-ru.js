@@ -297,6 +297,7 @@
     'memo.playSub':'Найди пары мира «{world}»',
     'memo.level':'Уровень {n}',
     'memo.pairs':'{found} из {total} пар',
+    'memo.boostTitle':'Золотой бонус!','memo.boostSub':'3 пары подряд · +{xp} очков',
     'memo.moves':'{n} ходов',
     'memo.movesShort':'ходов',
     'memo.card':'Карточка мемо',

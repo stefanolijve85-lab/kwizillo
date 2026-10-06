@@ -151,6 +151,11 @@
   // centre at 40-60% of the height), worked out for a 5:2 tile.
   K.TILE_FOCUS={ruimte:'center 37%',dieren:'center 40%',aarde:'center 63%',geschiedenis:'center 60%',wetenschap:'center 53%',kunst:'center 47%',sport:'center 50%'};
   K.tileFocus=w=>K.TILE_ART[w]?'center':(K.TILE_FOCUS[w]||K.WORLD_FOCUS?.[w]||'center 45%');
+  // The mystery tile is a zoomed-out painting: its island fills only half the
+  // width, so next to the others it looked far away. It is scaled up around
+  // the island (the separate `scale` property leaves a tile's own transforms alone).
+  K.TILE_ZOOM={mysterie:{scale:1.5,origin:'50% 55%'}};
+  K.tileStyle=w=>{const z=K.TILE_ZOOM[w];return `object-position:${K.tileFocus(w)}`+(z?`;scale:${z.scale};transform-origin:${z.origin}`:'')};
 
   // Eén plek waar het versiemerk op alle kunst wordt gezet. De kaarten
   // hierboven staan met kale paden in het bestand, zodat ze leesbaar blijven en

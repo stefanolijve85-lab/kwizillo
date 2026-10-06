@@ -192,7 +192,7 @@
       // nothing about how far the world had come — two right answers filled it.
       const wp=K.worldProgress(w);
       return `<button class="home-world" data-world="${w}" aria-label="${esc(worldTitle(w))} · ${esc(t('settings.level'))} ${lv.level} · ${esc(t('world.worldProgress',{done:wp.done,total:wp.total}))}">
-        <img class="home-world-art" src="${K.tileArt(w)}" alt="" decoding="async" style="object-position:${K.tileFocus(w)}">
+        <img class="home-world-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}">
         <span class="home-world-veil"></span>
         <span class="home-world-level">${esc(t('settings.level'))} ${lv.level}${lv.passed?` · ${lv.passed}/${lv.total}`:''}</span>
         <span class="home-world-copy">
@@ -205,18 +205,15 @@
     const f=K.frame(`<section class="home fade-in">
       <div class="home-sky"></div>
       <div class="home-ui">
-        <header class="home-hud">
-          <div class="hud-player">
-            <button class="hud-avatar" id="homeProfile" aria-label="${esc(t('profile.title'))}"><img class="mascot-face" src="${K.MASCOT_ART[K.state.selectedMascot]||K.guideArt(K.state.voice)}" alt=""></button>
-            <span class="hud-id">
-              <b>${esc(greeting)}</b>
-              <small>${esc(t('home.level',{level:lvl}))}</small>
-              <span class="hud-xp"><i style="width:${into}%"></i></span>
-            </span>
+        <header class="home-hud with-logo">
+          <button class="hud-avatar" id="homeProfile" aria-label="${esc(t('profile.title'))}"><img class="mascot-face" src="${K.MASCOT_ART[K.state.selectedMascot]||K.guideArt(K.state.voice)}" alt=""></button>
+          <div class="hud-center">
+            <img class="hud-logo" src="${K.BRAND_LOGO}" alt="Kwizillo" decoding="async">
+            <span class="hud-id"><b>${esc(greeting)}</b><small>${esc(t('home.level',{level:lvl}))}</small></span>
           </div>
           <div class="hud-right">
-            <button class="hud-chip" data-stats title="${esc(t('home.coins'))}">${K.icon('coin')} ${Number(K.state.coins||0)}</button>
-            <button class="hud-chip" data-stats title="${esc(t('home.streak'))}">${K.icon('flame')} ${Number(K.state.streak||0)}</button>
+            <!-- one button for the statistics: coins and streak side by side -->
+            <button class="hud-chip hud-stats" data-stats aria-label="${esc(t('home.coins'))} · ${esc(t('home.streak'))}"><span>${K.icon('coin')} ${Number(K.state.coins||0)}</span><span>${K.icon('flame')} ${Number(K.state.streak||0)}</span></button>
             <button class="hud-gear" id="homeGear" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
           </div>
         </header>
@@ -224,7 +221,7 @@
         <button class="home-mega ${K.premium.can('mega')?'':'locked'}" id="homeMega" aria-label="${esc(t('mega.title'))} · ${esc(t('mega.sub',{n:K.MEGA_SIZE}))}">
           <img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-mega-veil"></span>
           ${K.premium.can('mega')?'':K.premiumBadge()}
-          <span class="home-world-level">${esc(t('settings.level'))} ${K.megaLevel()}</span>
+          <span class="home-world-level">${esc(t('settings.level'))} ${K.megaEarnedLevel()}</span>
           <span class="home-mega-copy"><b>${esc(t('mega.title'))}</b><small>${esc(t('mega.sub',{n:K.MEGA_SIZE}))}</small></span>
         </button>
 
@@ -441,7 +438,7 @@
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
-        <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="object-position:${K.tileFocus(w)}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
+        <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
       </div>
       ${K.bottomNav('home')}
     </section>`);
@@ -817,10 +814,10 @@
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
       <section class="setting-card tour-card"><div class="setting-icon">🧭</div><div><b>${esc(t('tour.pick'))}</b><small>${esc(t('tour.pickSub'))}</small></div><div class="tour-guides"><button data-tour="milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt="">${esc(t('voice.milo'))}</button><button data-tour="luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt="">${esc(t('voice.luna'))}</button></div></section>
       <section class="setting-card players-card"><div class="setting-icon">👨‍👩‍👧</div><div><b>${esc(t('players.title'))}</b><small>${esc(t('players.sub'))}</small></div><div class="player-list">${K.players.all().map(p=>`<div class="player-row"><span class="player-face">${esc((p.name[0]||'?').toUpperCase())}</span><span class="player-name"><b>${esc(p.name)}</b><small>${esc(p.current?t('players.current'):t('settings.level')+' '+Math.max(1,1+Math.floor(Number(p.state?.xp||0)/100)))}</small></span></div>`).join('')}</div></section>
-      <section class="setting-card clickable" id="logoutOpen"><div class="setting-icon">🚪</div><div><b>${esc(t('settings.logout'))}</b><small>${esc(t('settings.logoutSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('privacy.sub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
+      <section class="setting-card clickable" id="logoutOpen"><div class="setting-icon">🚪</div><div><b>${esc(t('settings.logout'))}</b><small>${esc(t('settings.logoutSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="deleteOpen"><div class="setting-icon">🗑️</div><div><b>${esc(t('players.deleteCard'))}</b><small>${esc(t('players.deleteCardSub'))}</small></div><em>›</em></section>
     </div>`;
     const f=nativeScreen({cls:'parent-screen',title:t('settings.title'),subtitle:t('settings.sub'),body,active:'parent'});

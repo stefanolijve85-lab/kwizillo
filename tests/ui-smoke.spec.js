@@ -151,7 +151,7 @@ test('a brand new player starts at zero, not on seeded progress', async ({ page 
   await page.locator('.milo-tour-skip').click();
 
   const chips = await page.locator('.hud-chip').allTextContents();
-  expect(chips.map(c => c.trim())).toEqual(['0', '0']);
+  expect(chips.map(c => c.replace(/\s+/g, ' ').trim())).toEqual(['0 0']);   // one statistics button: coins and streak
   await expect(page.locator('.hud-id small')).toHaveText('Level 1');
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
@@ -276,7 +276,7 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
   // The order a parent reads top to bottom; the school group is set in the onboarding only
   // (it looked like a second difficulty setting next to the play level).
   const order = await page.locator('.settings-list > section').evaluateAll(els => els.map(e => e.id || [...e.classList].find(c => c !== 'setting-card' && c !== 'clickable') || ''));
-  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'logoutOpen', 'shareOpen', 'privacyOpen', 'resetOpen', 'deleteOpen']);
+  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'shareOpen', 'privacyOpen', 'resetOpen', 'logoutOpen', 'deleteOpen']);
   await expect(page.locator('.settings-list > :first-child')).toContainText('Premium');
   await expect(page.locator('[data-group]')).toHaveCount(0);
   // the eight world levels as a 2×4 grid
