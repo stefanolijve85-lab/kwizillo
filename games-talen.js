@@ -69,7 +69,7 @@
     const played=Number(s.themes[first?.id]?.stars||0)>0;
     const due=l?K.talenDue():[];
     const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
-      :`<p class="talen-msg">${esc(t(played?'talen.msgPlayed':'talen.msgNew'))}</p>
+      :`<div class="talen-hero"><img src="${K.GAME_ART.talen}" alt="" decoding="async"><p class="talen-msg">${esc(t(played?'talen.msgPlayed':'talen.msgNew'))}</p></div>
         <div class="talen-stamps">${stamps}</div>
         <button class="talen-start" id="talenStart">${K.icon('play')} ${esc(played?t('talen.again',{theme:t(`talen.theme.${first.id}`)}):t('talen.start'))}</button>
         ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>

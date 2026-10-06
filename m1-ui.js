@@ -210,7 +210,7 @@
           <button class="hud-avatar" id="homeProfile" aria-label="${esc(t('profile.title'))}"><img class="mascot-face" src="${K.MASCOT_ART[K.state.selectedMascot]||K.guideArt(K.state.voice)}" alt=""></button>
           <div class="hud-center">
             <img class="hud-logo" src="${K.BRAND_LOGO}" alt="Kwizillo" decoding="async">
-            <span class="hud-id"><b>${esc(greeting)}</b><small>${esc(t('home.level',{level:lvl}))}</small></span>
+            <span class="hud-id"><b>${esc(greeting)}</b></span>
           </div>
           <div class="hud-right">
             <!-- one button for the statistics: coins and streak side by side -->

@@ -152,7 +152,8 @@ test('a brand new player starts at zero, not on seeded progress', async ({ page 
 
   const chips = await page.locator('.hud-chip').allTextContents();
   expect(chips.map(c => c.replace(/\s+/g, ' ').trim())).toEqual(['0 0']);   // one statistics button: coins and streak
-  await expect(page.locator('.hud-id small')).toHaveText('Level 1');
+  await expect(page.locator('.hud-id small')).toHaveCount(0);   // the level line under the greeting is gone (2026-10-07)
+  expect(await page.evaluate(() => window.KWIZILLO_M1.level())).toBe(1);
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
   await expect(page.locator('.achievement-card.done')).toHaveCount(0);

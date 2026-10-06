@@ -380,7 +380,35 @@
   // elsewhere stops them, and they work without the speech server or a network.
   // Talen is listening, not reading, so these play even when the guide is silent.
   // onClip(i) is called as clip i starts.
-  const clipCache=new Map();
+  // Each clip plays through an <audio> element, like the first line of the
+  // guide's voice (playVoiceStream): on an iPhone with the silent switch on,
+  // Web Audio alone stays silent until a media element has played, and Talen
+  // sounded nothing at all on build 24 (2026-10-07).
+  function playClipElement(url,token){
+    return new Promise(resolve=>{
+      let settled=false;const finish=v=>{if(settled)return;settled=true;try{a.pause()}catch(e){}if(voiceNow&&voiceNow.el===a)voiceNow=null;resolve(v)};
+      const a=new Audio();a.preload='auto';
+      const c=ensureVoiceCtx();
+      if(c&&c.createMediaElementSource){
+        try{
+          const node=c.createMediaElementSource(a),makeup=c.createGain();
+          makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));
+          node.connect(makeup);makeup.connect(c.destination);
+          if(stalled(c))c.resume().catch(()=>{});
+        }catch(e){a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)))}
+      }else a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
+      a.onplaying=()=>{voiceNow={el:a}};
+      a.onended=()=>finish(gate.isCurrent(token));
+      a.onerror=()=>finish(null);
+      voiceStream=a;
+      a.src=url;
+      a.play().catch(()=>finish(null));
+      // a clip that never starts must not hold the lesson, and a stopped one
+      // (K.stopSpeech takes the element's handlers away) reports it at once
+      setTimeout(()=>{if(!settled&&a.currentTime===0)finish(null)},6000);
+      const watch=setInterval(()=>{if(settled)return clearInterval(watch);if(!gate.isCurrent(token)){clearInterval(watch);finish(false)}},80);
+    });
+  }
   K.playClips=async(urls,{gap=140,onClip}={})=>{
     urls=(urls||[]).filter(Boolean);if(!urls.length)return true;
     K.stopSpeech();
@@ -389,12 +417,9 @@
     try{
       for(let i=0;i<urls.length;i++){
         if(!gate.isCurrent(token))return false;
-        let blob=clipCache.get(urls[i]);
-        if(!blob){try{const r=await fetch(urls[i]);if(!r.ok)continue;blob=await r.blob();clipCache.set(urls[i],blob)}catch(e){continue}}
-        if(!gate.isCurrent(token))return false;
         try{onClip?.(i)}catch(e){}
-        const finished=await playVoiceBlob(blob,token);
-        if(!finished||!gate.isCurrent(token))return false;
+        const finished=await playClipElement(urls[i],token);
+        if(finished===false||!gate.isCurrent(token))return false;   // stopped: a tap, another screen
         if(i<urls.length-1)await pause(gap,token);
       }
       return true;
