@@ -3,7 +3,6 @@
   if(!K) return;
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const t=(k,p)=>K.t(k,p);
-  const letters=['A','B','C','D'];
 
   // Subject art first, then the topic illustration. The world background is only
   // a last resort and, with all 24 topics covered, is never reached in practice.
@@ -98,7 +97,7 @@
         <main class="quiz-card">
           <h1>${esc(q.prompt)}</h1>
           <div class="quiz-art"><img class="art-fill" src="${quizArt(q)}" alt="" aria-hidden="true"><img class="art-main" src="${quizArt(q)}" alt="${esc(t('quiz.artAlt'))}"></div>
-          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered&&!retry?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
+          <div class="answers">${q.options.map((o,i)=>`<button class="answer ${answerSize(o)} ${answered&&!retry?(o===q.answer?'correct':answered.value===o?'wrong':''):''}" data-a="${encodeURIComponent(o)}" data-index="${i}"><span class="answer-letter">${K.core.answerLetters(K.state.language)[i]}</span><span class="answer-copy">${esc(o)}</span></button>`).join('')}</div>
           ${answered?`<button class="review-next" id="nextBtn">${esc(t(idx+1>=total?'feedback.seeResult':'feedback.next'))} ›</button>`:''}
           <div class="quiz-actions ${K.state.voice==='Stil'?'no-voice':''}">${actions}</div>
         </main>

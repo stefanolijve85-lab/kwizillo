@@ -472,7 +472,9 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
     // language_code is documented only for the flash/turbo models; the native
     // voice per language carries the accent on multilingual_v2 and v3.
     ...(/flash|turbo|v4/.test(MODEL) ? { language_code: lang } : {}),
-    voice_settings: settings
+    voice_settings: settings,
+    // A bare answer letter is recorded with the alphabet around it (speech-config.js).
+    ...(SPEECH.letterContext(text, lang) || {})
   });
 
   // Streaming asks for the same audio, but ElevenLabs starts sending it while

@@ -24,6 +24,32 @@ const VOICES = {
   ar: { Milo: 'JoySr0ZYKEotnyhsN3Fi', Luna: 'w4LX7bK479eHGM1k15Em' },   // Jawad · Habibah
 };
 
+// A letter on its own ("B.") gives the model no clue which language it is in,
+// so it often says the English letter. When a bare answer letter is recorded,
+// ElevenLabs is shown the alphabet around it (previous_text / next_text): that
+// text is context only and is not spoken. Chosen by ear on 2026-10-06. Arabic
+// says its own letter names (alif, baa ...) and needs no context.
+const ALPHABET_INTRO = {
+  nl: 'Ik zeg het Nederlandse alfabet op:',
+  en: 'I am saying the English alphabet:',
+  de: 'Ich sage das deutsche Alphabet auf:',
+  fr: "Je récite l'alphabet français :",
+  es: 'Digo el abecedario español:',
+  it: "Recito l'alfabeto italiano:",
+  pt: 'Digo o alfabeto português:',
+  da: 'Jeg siger det danske alfabet:',
+  ru: 'Я называю латинские буквы:',
+};
+const LETTERS = ['A', 'B', 'C', 'D'];
+function letterContext(text, lang) {
+  const i = LETTERS.indexOf(String(text).replace(/\.$/, ''));
+  if (i < 0 || !/\.$/.test(text) || !ALPHABET_INTRO[lang]) return null;
+  return {
+    previous_text: `${ALPHABET_INTRO[lang]} ${LETTERS.slice(0, i).map(l => `${l}, `).join('')}`.trim(),
+    next_text: LETTERS.slice(i + 1).join(', '),
+  };
+}
+
 // env: the server's environment (ELEVENLABS_MODEL, MILO_SPEED, LUNA_SPEED).
 function speechConfig(env = process.env) {
   const model = env.ELEVENLABS_MODEL || DEFAULT_MODEL;
@@ -45,9 +71,13 @@ function speechConfig(env = process.env) {
   const clean = text => keepsTags ? text : text.replace(/\[[a-z][a-z ]*\]\s*/gi, '').trim();
   const voiceId = (lang, guide) => VOICES[lang]?.[guide === 'Luna' ? 'Luna' : 'Milo'] || null;
   // Voice settings are part of the key: a speed change must not replay old audio.
-  const cacheKey = (text, lang, guide, id = voiceId(lang, guide)) =>
-    crypto.createHash('sha256').update(`${model}|${lang}|${id}|${JSON.stringify(settings[guide === 'Luna' ? 'Luna' : 'Milo'])}|${text}`).digest('hex');
-  return { model, settings, keepsTags, clean, voiceId, cacheKey };
+  // The context is part of the key too: a letter said with the alphabet around
+  // it is a different recording from the bare one made before.
+  const cacheKey = (text, lang, guide, id = voiceId(lang, guide)) => {
+    const ctx = letterContext(text, lang);
+    return crypto.createHash('sha256').update(`${model}|${lang}|${id}|${JSON.stringify(settings[guide === 'Luna' ? 'Luna' : 'Milo'])}|${text}${ctx ? `|${JSON.stringify(ctx)}` : ''}`).digest('hex');
+  };
+  return { model, settings, keepsTags, clean, voiceId, cacheKey, letterContext };
 }
 
-module.exports = { DEFAULT_MODEL, VOICES, speechConfig };
+module.exports = { DEFAULT_MODEL, VOICES, speechConfig, letterContext };

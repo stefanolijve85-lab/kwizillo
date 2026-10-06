@@ -66,6 +66,8 @@ test('the quiz mirrors: answers run right to left and their letters sit on the r
   // The letter badge sits at the start of the card, which in Arabic is the right.
   const letter = await box(page.locator('.answer').nth(0).locator('.answer-letter'));
   expect(letter.x + letter.width / 2).toBeGreaterThan(a.x + a.width / 2);
+  // Arabic numbers its choices with Arabic letters, the ones the voice says.
+  await expect(page.locator('.answer-letter')).toHaveText(['أ', 'ب', 'ج', 'د']);
 
   // The question is Arabic, and the back arrow points the other way.
   await expect(page.locator('.quiz-card h1')).toHaveText(/[؀-ۿ]/);

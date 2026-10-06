@@ -54,7 +54,7 @@ test('the question is streamed and goes out first; the answers follow as ordinar
   // not asserted: an intercepted media load and an intercepted fetch do not
   // reach the handler in the order the browser started them.)
   expect(asked.filter(a => a.text === prompt).map(a => a.method), 'the question is streamed').toContain('GET');
-  // Each answer is two recordings: the letter ("A.", in Dutch "Aa.") and the answer itself.
+  // Each answer is two recordings: the letter ("A.", in Arabic "ألف.") and the answer itself.
   const answers = asked.filter(a => /^([A-D]|Aa|Bee|Cee|Dee)\.$/.test(a.text));
   expect(answers.length, 'four answers').toBeGreaterThanOrEqual(4);
   expect(answers.every(a => a.method === 'POST'), 'the answers are fetched whole').toBe(true);

@@ -22,7 +22,6 @@
   const wordRe=answer=>new RegExp('(^|[^\\p{L}])'+escapeRe(core(answer))+'(?=$|[^\\p{L}])','giu');
   const candidates=world=>K.questions.filter(q=>(world==='mix'||q.world===world)&&K.answerArtFor?.(q)&&/^\D{2,}$/.test(q.answer)&&q.answer.split(' ').length<=2&&q.explanation&&wordRe(q.answer).test(q.explanation)&&!/^(ja|nee|yes|no|sim|não|waar|niet waar|true|false)$/i.test(q.answer));
   const answerSize=text=>{const n=String(text||'').length;return n>52?'xlong':n>34?'long':''};
-  const letters=['A','B','C','D'];
 
   K.startFotozoom=world=>{
     world=world||'mix';
@@ -76,7 +75,7 @@
         <main class="quiz-card fotozoom-card">
           <div class="fotozoom-row"><h1>${esc(t('fotozoom.ask'))}</h1><span class="fotozoom-points" id="fzPoints">${esc(t('fotozoom.points',{n:POINTS[0]}))}</span></div>
           <div class="fotozoom-stage" id="fzStage"><img src="${K.answerArtFor(q)}" alt="" decoding="async" style="transform-origin:${r.fx}% ${r.fy}%;transform:scale(${ZOOMS[0]})"><span class="fotozoom-lens" aria-hidden="true">🔍</span></div>
-          <div class="answers fotozoom-answers">${r.options.map((o,i)=>`<button class="answer ${answerSize(o.answer)}" data-i="${i}" aria-label="${esc(o.answer)}"><span class="answer-letter">${letters[i]}</span><span class="answer-copy">${esc(o.answer)}</span></button>`).join('')}</div>
+          <div class="answers fotozoom-answers">${r.options.map((o,i)=>`<button class="answer ${answerSize(o.answer)}" data-i="${i}" aria-label="${esc(o.answer)}"><span class="answer-letter">${K.core.answerLetters(K.state.language)[i]}</span><span class="answer-copy">${esc(o.answer)}</span></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions"><button class="action hint" id="fzOut">🔍 ${esc(t('fotozoom.out'))}</button><button class="action repeat" id="fzRepeat">${K.icon('repeat')} ${esc(t('quiz.repeat'))}</button></div>
         </main>
       </div>

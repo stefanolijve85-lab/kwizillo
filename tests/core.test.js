@@ -324,12 +324,30 @@ assert.deepStrictEqual(core.speechParts('Bijna. Het is {answer}.', { answer: 347
 assert.deepStrictEqual(core.speechParts('{a} keer {b}', {}, 'nl'), ['keer'], 'an unfilled slot is never read out');
 console.log('Kwizillo core gameplay tests: OK');
 
-// A Dutch voice reads a bare "A." as the English letter now and then, so in Dutch the letters are spelled the way they are said.
+// Arabic says its own letter names; every other language sends "A." and gets the alphabet as context (speech-config.js).
 {
   const q = { prompt: 'Vraag?', options: ['Een', 'Twee', 'Drie', 'Vier'], answer: 'Een' };
   const letters = lang => core.buildQuestionSpeechSegments(q, { lang }).filter(s => s.kind === 'option').map(s => s.text);
-  assert.deepStrictEqual(letters('nl'), ['Aa.', 'Bee.', 'Cee.', 'Dee.']);
+  assert.deepStrictEqual(letters('nl'), ['A.', 'B.', 'C.', 'D.']);
   assert.deepStrictEqual(letters('en'), ['A.', 'B.', 'C.', 'D.']);
+  assert.deepStrictEqual(letters('ar'), ['ألف.', 'باء.', 'جيم.', 'دال.']);
+  assert.deepStrictEqual(core.answerLetters('ar').slice(0, 4), ['أ', 'ب', 'ج', 'د'], 'Arabic shows the letters it says');
+  assert.deepStrictEqual(core.answerLetters('nl').slice(0, 4), ['A', 'B', 'C', 'D']);
+  for (const lang of LANGS) assert.strictEqual(new Set(letters(lang)).size, 4, `${lang}: four different spoken letters`);
   assert.deepStrictEqual(letters(undefined), ['A.', 'B.', 'C.', 'D.']);
   console.log('spoken letters per language ✔');
+}
+
+// A bare answer letter is recorded with its language's alphabet around it, as context that is not spoken.
+{
+  const { letterContext, speechConfig } = require('../speech-config.js');
+  assert.deepStrictEqual(letterContext('C.', 'nl'), { previous_text: 'Ik zeg het Nederlandse alfabet op: A, B,', next_text: 'D' });
+  assert.deepStrictEqual(letterContext('A.', 'nl'), { previous_text: 'Ik zeg het Nederlandse alfabet op:', next_text: 'B, C, D' });
+  assert.strictEqual(letterContext('Mars.', 'nl'), null, 'an answer gets no context');
+  assert.strictEqual(letterContext('A', 'nl'), null);
+  assert.strictEqual(letterContext('ألف.', 'ar'), null, 'Arabic says its own letter names');
+  for (const lang of LANGS.filter(l => l !== 'ar')) assert.ok(letterContext('B.', lang), `${lang}: letters get context`);
+  const c = speechConfig({});
+  assert.notStrictEqual(c.cacheKey('B.', 'nl', 'Milo'), require('crypto').createHash('sha256').update(`${c.model}|nl|${c.voiceId('nl', 'Milo')}|${JSON.stringify(c.settings.Milo)}|B.`).digest('hex'), 'the old bare recording is not reused');
+  console.log('answer letters recorded with the alphabet as context ✔');
 }
