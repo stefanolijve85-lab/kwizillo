@@ -39,6 +39,8 @@
     const base=t('settings.levelSub',{seconds:K.core.questionSeconds(n),allowed:K.core.maxWrong(n),hints});
     return K.core.readsAnswers(n)?base:`${base} · ${t('settings.readsQuestionOnly')}`;
   }
+  // The language buttons (parent zone, profile): English first, then Dutch, then the rest.
+  const langOrder=()=>{const r=l=>l.id==='en'?0:l.id==='nl'?1:2;return [...K.LANGUAGES].sort((a,b)=>r(a)-r(b))};
   const worldTitle=w=>t(`world.${w}.title`);
   const worldSub=w=>t(`world.${w}.sub`);
   const topicLabel=key=>t(`topic.${key}`);
@@ -402,7 +404,7 @@
       </div>
       <section class="setting-card profile-row"><div><b>${esc(t('profile.buddy'))}</b><small>${esc(t(`mascot.${buddy}`))} · ${esc(t(`mascot.${buddy}.desc`))}</small></div><button class="profile-link" id="profileBuddy">${esc(t('profile.chooseBuddy'))} ›</button></section>
       <section class="setting-card profile-row profile-voice"><div><b>${esc(t('profile.voice'))}</b><small>${esc(t('onboarding.voice.sub'))}</small></div><div class="quick-pills">${guides.map(([id,art])=>`<button class="quick-pill ${K.state.voice===id?'selected':''}" data-voice="${id}" aria-label="${esc(t(id==='Milo'?'voice.milo':id==='Luna'?'voice.luna':'voice.silent'))}">${art?`<img class="mascot-face" src="${art}" alt="">`:'🔇'}</button>`).join('')}</div></section>
-      <section class="setting-card profile-row lang-card"><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>`;
+      <section class="setting-card profile-row lang-card"><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${langOrder().map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>`;
     const f=nativeScreen({cls:'profile-screen',title:t('profile.title'),subtitle:t('profile.sub'),body,active:''});
     f.querySelector('#profileName').onsubmit=e=>{e.preventDefault();const v=f.querySelector('#profileInput').value.trim();if(!v)return;K.state.name=v;K.save();K.sfx('good');K.toast(t('profile.saved'))};
     f.querySelector('#profileBuddy').onclick=()=>{K.sfx('tap');K.showCollection('mascots')};
@@ -803,7 +805,7 @@
     const body=`<div class="settings-list">
       ${K.premiumCard()}
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
-      <section class="setting-card lang-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
+      <section class="setting-card lang-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${langOrder().map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitPerWorld'))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
