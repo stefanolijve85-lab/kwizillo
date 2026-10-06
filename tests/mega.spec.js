@@ -36,7 +36,9 @@ test('free: the Mega Quiz button is on Home with a lock and opens the Premium te
   await expect(mega).toContainText('Mega Quiz');
   await expect(mega).toContainText('80 vragen uit alle werelden');
   await expect(mega).toHaveClass(/locked/);
-  await expect(mega.locator('.home-mega-go')).toHaveAttribute('aria-label', 'Premium');
+  await expect(mega.locator('.premium-badge')).toBeVisible();
+  await expect(mega.locator('.home-world-level')).toHaveText('Niveau 1');   // like the world tiles
+  await expect(mega.locator('.home-mega-go')).toHaveCount(0);
   // it sits above the worlds
   const [m, w] = [await mega.boundingBox(), await page.locator('.home-world').first().boundingBox()];
   expect(m.y).toBeLessThan(w.y);

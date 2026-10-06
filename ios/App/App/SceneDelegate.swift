@@ -4,6 +4,11 @@ import Capacitor
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    // Set once the app has really been in the background. sceneDidBecomeActive
+    // also fires at launch, and waking the page's audio then threw away the
+    // context that was playing the intro theme: the music started and stopped
+    // a moment later (build 18/19, 2026-10-06).
+    private var wasInBackground = false
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
@@ -22,8 +27,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // though Web Audio reported itself running (seen on build 1.0 (9), 2026-10-01).
     // Asking for the session again here brings music, effects and the voice back;
     // the category is left to WebKit, so the silent switch behaves as before.
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        wasInBackground = true
+    }
+
     func sceneDidBecomeActive(_ scene: UIScene) {
         try? AVAudioSession.sharedInstance().setActive(true)
+        guard wasInBackground else { return }   // launch: nothing to bring back
+        wasInBackground = false
         wakeWebAudio()
     }
 

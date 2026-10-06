@@ -52,7 +52,9 @@
     // fresh: back from the background. iOS may report this context "running",
     // clock and all, while the app's audio session was taken away and nothing is
     // heard (build 1.0 (9), real iPhone). So it is not trusted: a new one is made.
-    if(fresh)resetMusicCtx();
+    // Never while the intro holds the music bus: its theme plays in this
+    // context, and throwing it away cut the intro music off after a moment.
+    if(fresh&&!K.audio?.holdMusic&&!stingLive)resetMusicCtx();
     let c=ensure();if(!c)return false;
     if(stalled(c))await resumeSoon(c);
     // A context that says "running" while its clock stands still is dead (iOS

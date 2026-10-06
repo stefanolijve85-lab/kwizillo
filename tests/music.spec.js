@@ -140,3 +140,22 @@ test('music and voice come back after the app is interrupted', async ({ page }) 
   await expect.poll(() => page.evaluate(() => window.__oldMusic.state), { timeout: 5000 }).toBe('closed');
   expect(await current(page)).toBe('home');
 });
+
+// Build 18/19: at launch the native side asked the page to rebuild its audio
+// (sceneDidBecomeActive also fires then), which threw away the context playing
+// the intro theme: the music started and stopped a moment later. While the
+// intro holds the music, a "fresh" wake keeps the context.
+test('a wake during the intro keeps the context that plays the intro theme', async ({ page }) => {
+  await boot(page);
+  await page.evaluate(() => window.KWIZILLO_M1.audio.wake());
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.health.music), { timeout: 8000 }).toBe('running');
+  const same = await page.evaluate(async () => {
+    const A = window.KWIZILLO_M1.audio, before = A.ctx;
+    A.holdMusic = true;
+    await A.wake(true, true);
+    const kept = A.ctx === before && before.state !== 'closed';
+    A.holdMusic = false;
+    return kept;
+  });
+  expect(same).toBe(true);
+});

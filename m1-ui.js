@@ -209,8 +209,9 @@
 
         <button class="home-mega ${K.premium.can('mega')?'':'locked'}" id="homeMega" aria-label="${esc(t('mega.title'))} · ${esc(t('mega.sub',{n:K.MEGA_SIZE}))}">
           <img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-mega-veil"></span>
+          ${K.premium.can('mega')?'':K.premiumBadge()}
+          <span class="home-world-level">${esc(t('settings.level'))} ${K.megaLevel()}</span>
           <span class="home-mega-copy"><b>${esc(t('mega.title'))}</b><small>${esc(t('mega.sub',{n:K.MEGA_SIZE}))}</small></span>
-          <span class="home-mega-go" ${K.premium.can('mega')?'':`aria-label="${esc(t('premium.label'))}"`}>${K.icon(K.premium.can('mega')?'play':'lock')}</span>
         </button>
 
         <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>

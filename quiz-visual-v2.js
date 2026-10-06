@@ -57,6 +57,8 @@
   K.MEGA_SIZE=80;
   // A Mega Quiz is as long as eight world quizzes: hints and mistakes allowed grow with it.
   const megaScale=()=>K.quiz?.mega?Math.max(1,K.quiz.questions.length/10):1;
+  // The level the Mega Quiz plays at (and its Home tile shows): the average of the worlds' own levels.
+  K.megaLevel=()=>{const ws=K.playableWorlds();return Math.round(ws.reduce((n,w)=>n+K.playLevel(w),0)/Math.max(1,ws.length))||1};
   K.startMega=()=>{
     K.stopSpeech();
     if(!K.premium.can('mega')){K.premiumLocked({kind:'mega',retry:()=>K.startMega()});return}
@@ -72,7 +74,7 @@
     K.save();
     K.quiz=K.core.createSession({world:'mega',topicKey:null,topicLabel:t('mega.title'),questions:batch.questions,quizNumber:run.quizNumber});
     K.quiz.mega=true;
-    K.quiz.level=Math.round(worlds.reduce((n,w)=>n+K.playLevel(w),0)/Math.max(1,worlds.length))||1;
+    K.quiz.level=K.megaLevel();
     K.startScoreRun();
     K.quiz.salt=Math.floor(Math.random()*1e6);
     K.quiz.hintsUsed=0;
