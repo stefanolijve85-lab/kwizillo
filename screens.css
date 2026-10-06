@@ -1453,3 +1453,5 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 @media(max-height:700px){.home-hud.with-logo{min-height:58px}.home-hud.with-logo .hud-logo{height:36px}.home-hud.with-logo .hud-id small{display:none}.home-hud.with-logo .hud-id b{font-size:12px}}
 /* room between the blue header and the first card, as much as there is below the last one */
 .native-panel-screen:is(.parent-screen,.stats-screen,.achievements-screen,.collection-screen,.privacy-screen,.profile-screen) .panel-scroll{padding-top:14px}
+/* where the bottom bar shows "Meer", the gear top right is gone; an empty spacer keeps the title centred */
+.panel-spacer{visibility:hidden;pointer-events:none}

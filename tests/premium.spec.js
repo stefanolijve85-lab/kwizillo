@@ -134,7 +134,7 @@ test('Premium keeps progress, an expired subscription only locks content again, 
   expect(await page.evaluate(() => window.KWIZILLO_M1.premium.isPremium())).toBe(true);
   await page.locator('[data-world="dieren"]').click();
   await expect(page.locator('.world-topic.locked')).toHaveCount(0);
-  await page.locator('#worldGear').click();
+  await page.locator('.native-bottom-nav button[data-nav="parent"]').click();   // the gear top right is gone; "Meer" below opens the parent zone
   await expect(page.locator('#premiumOpen')).toContainText('Actief · Jaarlijks');
   // Expire it: content locks, everything the child earned stays.
   await page.evaluate(() => window.KWIZILLO_M1.premiumDev.expire());

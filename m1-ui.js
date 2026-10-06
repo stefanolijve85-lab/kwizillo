@@ -165,9 +165,8 @@
   }
   K.bottomNav=bottomNav;K.bindNav=bindNav;
   function nativeScreen({cls='',title,subtitle='',body,active='',back=()=>K.showHome()}){
-    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('common.brand'))}</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
+    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('common.brand'))}</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
-    f.querySelector('.panel-settings').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showParent()};
     bindNav(f);return f;
   }
 
@@ -214,7 +213,6 @@
           <div class="hud-right">
             <!-- one button for the statistics: coins and streak side by side -->
             <button class="hud-chip hud-stats" data-stats aria-label="${esc(t('home.coins'))} · ${esc(t('home.streak'))}"><span>${K.icon('coin')} ${Number(K.state.coins||0)}</span><span>${K.icon('flame')} ${Number(K.state.streak||0)}</span></button>
-            <button class="hud-gear" id="homeGear" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
           </div>
         </header>
 
@@ -244,7 +242,6 @@
 
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
     f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
-    f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
     f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.showGamePicker('whoami')};
@@ -312,7 +309,7 @@
             <h1 class="${worldTitle(world).length>14?'long':''}">${esc(worldTitle(world))}</h1>
             <p>${esc(worldSub(world))}</p>
           </div>
-          <button id="worldGear" class="world-round" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button>
+          <span class="world-round panel-spacer" aria-hidden="true"></span>
         </header>
         <p class="world-progress-line">${esc(t('world.progressLine',{passed:topics.filter(x=>x.passed).length,total:topics.length||4}))}</p>
         <div class="world-topic-grid">${topics.map(tp=>`<button class="world-topic has-art ${topicFree(tp)?'':'locked'}" data-topic="${tp.i}">
@@ -332,7 +329,6 @@
     </section>`);
 
     f.querySelector('#worldBack').onclick=()=>{K.sfx('tap');K.showHome()};
-    f.querySelector('#worldGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,Number(b.dataset.topic))});
     f.querySelector('#worldMix').onclick=()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(world,null)};
     bindNav(f);
@@ -435,7 +431,7 @@
     const mixArt=game==='facts'?K.GAME_ART.facts:K.GAME_ART.memoAll;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
         <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
@@ -443,7 +439,6 @@
       ${K.bottomNav('home')}
     </section>`);
     f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
-    f.querySelector('.panel-settings').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{K.sfx('world');P.start(b.dataset.pick)});
     K.bindNav(f);
   };

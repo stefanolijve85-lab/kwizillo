@@ -92,7 +92,7 @@
     const total=K.facts(world).length;
     const f=K.frame(`<section class="native-panel-screen facts-screen fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('home.playMore'))}</div><h1>${esc(t('facts.title'))}</h1><p id="factsSub">${esc(t('facts.sub',{seen:K.factsSeenCount(world),total}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('home.playMore'))}</div><h1>${esc(t('facts.title'))}</h1><p id="factsSub">${esc(t('facts.sub',{seen:K.factsSeenCount(world),total}))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
         <div class="fact-chips" role="tablist">
           <button class="fact-chip ${world==='all'?'active':''}" data-fworld="all" role="tab" aria-selected="${world==='all'}">✨ ${esc(t('game.mixAll'))}</button>
@@ -124,7 +124,6 @@
       K.warmFacts(world,current);   // the two after this one start loading now
     };
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
-    f.querySelector('.panel-settings').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showParent()};
     f.querySelector('#factNext').onclick=()=>{K.sfx('tap');show()};
     f.querySelector('#factListen').onclick=()=>{K.sfx('tap');if(current)readFact(current)};
     const fp=f.querySelector('#factPremium');if(fp)fp.onclick=()=>{K.sfx('tap');K.premiumLocked({kind:'facts',world,retry:()=>K.showFacts(world)})};

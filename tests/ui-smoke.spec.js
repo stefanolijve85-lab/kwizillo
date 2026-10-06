@@ -749,7 +749,7 @@ test('the timer can be switched off; the six levels set seconds, allowed mistake
   expect(rules).toEqual([[30, 6, 1], [25, 5, 2], [20, 4, 2], [16, 3, 3], [13, 2, 4], [10, 0, 4]]);
   // The parent zone offers the six levels.
   await page.locator('#qBack').click();
-  await page.locator('#worldGear').click();
+  await page.locator('.native-bottom-nav button[data-nav="parent"]').click();   // the gear top right is gone; "Meer" below opens the parent zone
   await expect(page.locator('[data-level]')).toHaveCount(6);
   await page.locator('[data-level="3"]').click();
   await expect(page.locator('.level-card b')).toContainText('Spelniveau 3');   // the dial is the sums game's level; worlds climb on their own
@@ -799,9 +799,9 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390
     await page.locator('[data-world="geschiedenis"]').click();
     await expect(page.locator('.world-topic')).toHaveCount(4);
     expect(await overflow(), 'world overflows horizontally').toBe(false);
-    const gear = await page.locator('#worldGear').boundingBox();
-    expect(gear.x + gear.width, 'settings button clipped on the right').toBeLessThanOrEqual(width);
-    expect(gear.width, 'settings button squashed').toBeGreaterThanOrEqual(40);
+    const back = await page.locator('#worldBack, .world-round').first().boundingBox();
+    expect(back.x, 'back button clipped on the left').toBeGreaterThanOrEqual(0);
+    expect(back.width, 'back button squashed').toBeGreaterThanOrEqual(40);
     for (const b of await page.locator('.world-topic b').all()) {
       const clipped = await b.evaluate(el => el.scrollWidth > el.clientWidth + 1);
       expect(clipped, `topic title clipped: ${await b.textContent()}`).toBe(false);
