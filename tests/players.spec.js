@@ -1,4 +1,4 @@
-// Parent zone: players on this device (reset to 0, delete), log out, and the tour with either guide.
+// Parent zone: players on this device (reset progress, delete a player), log out, and the tour with either guide.
 // (boot helper shared with the runner tests): the runner mounts inside the game frame in the app language
 // with a level and a hero to pick (art that is not there yet falls back to the
 // jungle set without a single 404), a finished run pays coins once per run id,
@@ -36,7 +36,7 @@ const seedOthers = async page => page.evaluate(() => {
   K.state.xp = 300; K.state.coins = 55; K.save();
 });
 
-test('the parent zone lists every player; one can be reset to 0 and another deleted, each behind the gate and a confirm', async ({ page }) => {
+test('the parent zone lists every player without buttons; "Speler verwijderen" sits at the bottom and deletes the one picked, behind the gate and a confirm', async ({ page }) => {
   await boot(page);
   await seedOthers(page);
   await page.evaluate(() => window.KWIZILLO_M1.showParent());
@@ -45,34 +45,38 @@ test('the parent zone lists every player; one can be reset to 0 and another dele
   await expect(rows.first()).toContainText('Mike');
   await expect(rows.first()).toContainText('speelt nu');
   await expect(rows.nth(1)).toContainText('Sara');
-  // Sara back to 0: name and settings stay
-  await page.locator('[data-player-reset="Sara"]').click();
+  await expect(page.locator('.player-row button')).toHaveCount(0);
+  // the delete card is the last card, right after "Voortgang resetten", and looks like it
+  const cards = page.locator('.settings-list > .setting-card');
+  await expect(cards.last()).toHaveAttribute('id', 'deleteOpen');
+  await expect(cards.nth(await cards.count() - 2)).toHaveAttribute('id', 'resetOpen');
+  await expect(cards.last()).toHaveClass(/reset-card/);
+  await expect(cards.last()).toContainText('Speler verwijderen');
+  await page.locator('#deleteOpen').click();
   await passGate(page);
-  await expect(page.locator('.simple-modal-card h2')).toHaveText('Alles van Sara op 0 zetten?');
-  await page.locator('.simple-modal-card .confirm').click();
-  const sara = await page.evaluate(() => JSON.parse(localStorage.getItem('kwizillo-players')).sara.state);
-  expect([sara.name, sara.xp, sara.coins, sara.answered]).toEqual(['Sara', 0, 0, 0]);
-  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(55);   // Mike untouched
-  // Delete Sara
-  await page.locator('[data-player-delete="Sara"]').click();
-  await passGate(page);
+  await expect(page.locator('.simple-modal-card h2')).toHaveText('Welke speler wil je verwijderen?');
+  await page.locator('[data-pick="Sara"]').click();
   await expect(page.locator('.simple-modal-card h2')).toHaveText('Sara verwijderen?');
   await page.locator('.simple-modal-card .confirm').click();
   await expect(page.locator('.player-row')).toHaveCount(1);
   expect(await page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('kwizillo-players') || '{}')))).not.toContain('sara');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(55);   // Mike untouched
 });
 
-test('resetting the player who plays now keeps the name and settings; deleting them hands the device to the other player', async ({ page }) => {
+test('"Voortgang resetten" puts the player who plays now back to 0 and keeps name and settings; deleting them hands the device to the other player', async ({ page }) => {
   await boot(page);
   await seedOthers(page);
   await page.evaluate(() => window.KWIZILLO_M1.showParent());
-  await page.locator('[data-player-reset="Mike"]').click();
+  await page.locator('#resetOpen').click();
   await passGate(page);
   await page.locator('.simple-modal-card .confirm').click();
   const me = await page.evaluate(() => { const s = window.KWIZILLO_M1.state; return [s.name, s.xp, s.coins, s.language, s.onboardingComplete]; });
   expect(me).toEqual(['Mike', 0, 0, 'nl', true]);
-  await page.locator('[data-player-delete="Mike"]').click();
+  const sara = await page.evaluate(() => JSON.parse(localStorage.getItem('kwizillo-players')).sara.state);
+  expect([sara.xp, sara.coins]).toEqual([450, 77]);   // Sara untouched
+  await page.locator('#deleteOpen').click();
   await passGate(page);
+  await page.locator('[data-pick="Mike"]').click();
   await page.locator('.simple-modal-card .confirm').click();
   await expect(page.locator('.welcome-back h1')).toContainText('Sara');
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.name)).toBe('Sara');
