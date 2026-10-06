@@ -199,6 +199,9 @@
     'sport-water_wintersport-28':1
   };
   K.ANSWER_ART=A;
+  // Whether the question's own picture belongs on the feedback card after the
+  // answer: only when it shows this question (upper case in the plan: it does not).
+  K.ownArtFits=q=>{const p=planFor(q);return !p||p===p.toLowerCase()};
   // Whether a question's own illustration would give the answer away while the
   // question is on screen. It does when the picture depicts the answer (the map
   // above) or when the answer is a concrete thing — a short noun ("Mars", "De
@@ -213,7 +216,11 @@
   const concrete=a=>{a=String(a||'');const n=a.split(' ').length;if(/^\d+$/.test(a)||NOT_A_NOUN.test(a))return false;return (a.length<=16&&n<=2)||(n<=3&&/^(de|het|een|the|a|an|o|a|um|uma|os|as)\s/i.test(a))||(n<=3&&/^(met|with|com)\s(een|de|het|a|an|the|um|uma)?\s?/i.test(a))};
   const PERSON=new Set(['ruimte-astronauten-11','ruimte-astronauten-12','ruimte-astronauten-16','geschiedenis-romeinen-16','geschiedenis-ontdekkingsreizigers-11','geschiedenis-ontdekkingsreizigers-12','geschiedenis-ontdekkingsreizigers-13','geschiedenis-ontdekkingsreizigers-14','geschiedenis-ontdekkingsreizigers-15','geschiedenis-ontdekkingsreizigers-16','geschiedenis-ontdekkingsreizigers-17','wetenschap-uitvindingen-11','wetenschap-uitvindingen-12','wetenschap-uitvindingen-13','wetenschap-uitvindingen-14','wetenschap-uitvindingen-16','wetenschap-uitvindingen-17','wetenschap-uitvindingen-19','mysterie-verborgen_schatten-15']);
   let revealed=null;
+  // The plan (question-art-plan.js, tools/art-plan.cjs) was decided by looking
+  // at every picture; it replaces the word rules below wherever it has an answer.
+  const planFor=q=>K.ART_PLAN?.[typeof q==='string'?q:q?.id]||null;
   K.artRevealsAnswer=q=>{
+    const p=planFor(q);if(p)return p.toLowerCase()!=='o';
     if(!revealed){
       revealed=new Set(Object.keys(A));
       for(const bank of Object.values(K.banks||{}))for(const x of bank||[])if(concrete(x.answer))revealed.add(x.id);
@@ -236,6 +243,9 @@
   const safe=new Map();
   K.safeQuestionArt=q=>{
     if(!q)return null;
+    // planned: the question-only picture, or nothing (the topic's picture) until a new one is drawn —
+    // never a neighbour's picture, which showed a rugby ball for a question about a tennis ball
+    const p=planFor(q);if(p)return p.toLowerCase()==='s'?'assets/questions/s/'+q.id+'.jpg':null;
     if(K.SAFE_ART_IDS?.has(q.id))return 'assets/questions/s/'+q.id+'.jpg';
     if(safe.has(q.id))return safe.get(q.id);
     let url=null;

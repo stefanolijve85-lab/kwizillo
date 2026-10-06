@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "geschiedenis-egyptenaren-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "aerial view of the Nile through the desert"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "wall covered with carved picture signs"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "papyrus scroll shown; also odd giant feet in foreground"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The three pyramids of Giza at sunrise seen from far across the sand dunes, with no statues in view.",
+  "note": "shows the Sphinx (lion body, human head)"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An ancient Egyptian farmer standing on the bank of the Nile at dawn holding an empty clay jar, with only the river and sky behind him.",
+  "note": "canals running between green crop rows"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "cat on a cushion in an Egyptian courtyard"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An ancient Egyptian scribe in a white linen kilt walking through a sunny temple courtyard between painted columns, hands empty.",
+  "note": "desk with blank scrolls and brushes shows keeping texts"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child explorer with a magnifying glass studying a torch-lit painted Egyptian temple wall in wonder.",
+  "note": "shows the Rosetta Stone with three scripts"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Tutankhamun's golden mask"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "river with pyramids identifies the Nile"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows the Sphinx"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows jackal-headed Anubis"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "scroll drawn as woven reed strips"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-19",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Cleopatra-styled queen on a golden barge"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-21",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An empty golden throne on painted steps in a columned Egyptian palace hall.",
+  "note": "pharaoh mask wearing the double crown"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-23",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An ancient Egyptian farmer holding a wooden plough at the edge of a dark muddy field beside the Nile, no animals in sight.",
+  "note": "two oxen ploughing in green European hills, not Egypt"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Egyptian workers resting in the shade of palm trees beside a pile of cut stone blocks and a rolled-up building plan.",
+  "note": "shows a pyramid's shape"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An ancient Egyptian family sharing a meal of bread and figs in the courtyard of their mud-brick house.",
+  "note": "village and fields lining the river"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-26",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The Great Pyramid of Giza standing tall and complete in the desert under a bright blue sky, with a few camels resting at its base.",
+  "note": "Greek-looking men hauling blocks up to a fort, not the Great Pyramid"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Ancient Egyptian embalmers in white linen and headcloths standing around a stone table in a torch-lit room, no containers visible.",
+  "note": "four canopic jars shown"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A bright sun rising over a painted Egyptian temple with tall columns on the bank of the Nile, no gods or people shown.",
+  "note": "falcon-headed god with sun disc (Ra)"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-29",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A pharaoh in a striped headcloth seated on a golden throne inside a painted Egyptian temple hall, seen from the side.",
+  "note": "European red-velvet palace, not Egypt"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A midday view along the Nile with a temple on one bank and rocky cliffs with small tomb doorways on the other bank.",
+  "note": "sun setting next to the pyramids"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-33",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Jackal-headed Anubis standing in a dim painted Egyptian hall beside a tall golden balance with both pans empty.",
+  "note": "heart and feather on a scale, in a modern room"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-34",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An ancient Egyptian scribe sitting cross-legged by the Nile, dipping a thin reed brush into a small pot on a wooden palette.",
+  "note": "European man with quill, not Egypt"
+ },
+ {
+  "id": "geschiedenis-egyptenaren-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-36",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-egyptenaren-40",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Ancient Egyptian workers pulling one big pale stone block on a wooden sledge toward a half-built pyramid.",
+  "note": "natural boulder in green hills, not a pyramid block"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": true,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A medieval lord in a fur-trimmed cloak riding a horse along a country road past farm fields, no buildings nearby.",
+  "note": "big castle on a hill"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A knight and a curious child standing at a castle gate looking at a parchment plan of the castle, the ground around the castle out of view.",
+  "note": "castle surrounded by water"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A castle seen from far away across a meadow at sunset, its gate hidden in shadow.",
+  "note": "wooden bridge with chains in front of the gate"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A young knight in a blue tunic standing in a sunny castle courtyard with empty hands, smiling.",
+  "note": "boy holding a shield in front of himself"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-07",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-08",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-09",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Medieval villagers walking along a dirt road through green hills at dawn, with mist hiding the hilltop ahead.",
+  "note": "walled fortress on a hill"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A long wooden banquet table in a castle hall with a cloth and empty plates, guests arriving under banners and candlelight.",
+  "note": "roast meat and bread on the table; safe picture is an empty tournament arena"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "chain-mail shirt on a stand"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A small arched wooden door inside a quiet stone castle corridor, lit by a single candle, closed.",
+  "note": "altar, cross and pews show a prayer room; safe picture is a broken castle wall"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The outside of a castle at dusk under a deep blue sky with the first stars appearing, windows dark.",
+  "note": "corridor lit by torches and candles"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Two knights in plain grey armour with closed helmets facing each other on a field while onlookers wonder who is who.",
+  "note": "wall of heraldic shields"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-19",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "plague doctor and rats"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A knight in shining armour standing alone on a castle wall, looking out over the countryside.",
+  "note": "knight sitting on a horse"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A stranger in a green feathered cap walking along a country road toward a castle with a closed bag on his back.",
+  "note": "man playing a lute for a crowd"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A stone castle seen from its courtyard looking up at the walls, with the tower tops cut off by the frame.",
+  "note": "red flag on top of the tower"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A medieval peasant family sitting down at a simple wooden table in their cottage with empty wooden bowls in front of them.",
+  "note": "bread and porridge on the table"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Yawning castle servants holding candles at the end of the evening in a stone corridor.",
+  "note": "servants asleep on straw in the great hall"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-26",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-27",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A castle gatehouse seen from a distance at sunset, with guards standing beside the dark arched entrance.",
+  "note": "spiked grille hanging in the gate"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A person in a colourful belled cap standing quietly in a castle hall doorway, seen from behind.",
+  "note": "jester making everyone laugh"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-32",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Worried castle guards on top of the battlements at dawn looking down at the empty fields around the castle.",
+  "note": "cheerful fair/camp near a castle, does not depict a siege (could suggest the 'feast' option)"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A castle blacksmith's forge with glowing coals and an empty anvil, the walls bare.",
+  "note": "blacksmith hammering a horseshoe, horseshoes on the wall"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A castle cook carrying an empty basket across the courtyard, looking around as if deciding where to go.",
+  "note": "vaulted storage cellar full of food"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A thick closed book with a leather cover lying on a wooden table in a medieval room by candlelight, no people.",
+  "note": "monk reading and writing"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-36",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-37",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Medieval builders with axes and saws standing in an open meadow next to piles of logs, ready to start building.",
+  "note": "wooden tower on a mound"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A close-up of a castle's stone gate with knights chatting in front of it on a sunny day.",
+  "note": "castle on a hill with a wide view over the land"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An army camp of tents in front of a closed castle gate, soldiers waiting, seen at an ordinary sunny moment.",
+  "note": "winter camp with cabins suggests a long time"
+ },
+ {
+  "id": "geschiedenis-ridders_kastelen-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A family with backpacks walking up a grassy hill path toward a hilltop hidden by trees, pointing ahead with excitement.",
+  "note": "crumbling castle ruin"
+ },
+ {
+  "id": "geschiedenis-romeinen-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": true,
+  "use": "own",
+  "new_scene": null,
+  "note": "Colosseum exterior (odd blank billboards); does not single out builders. Safe shows Roman workers building = hints Romans"
+ },
+ {
+  "id": "geschiedenis-romeinen-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child in a tunic standing on a grassy hill in Roman times, pointing into the distance at a hazy valley with a small walled town.",
+  "note": "shows the aqueduct with water channel = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-03",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-romeinen-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A single Roman soldier's red-crested helmet resting on a wooden table inside a tent, with a rolled scroll beside it.",
+  "note": "shows a huge group of Roman soldiers = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-05",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman boy and girl walking hand in hand down a narrow stone alley between red-roofed houses, seen from behind.",
+  "note": "shows a big central square with market = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The grand closed entrance gate of a Roman building with columns and steam-free stone steps, a few Romans in togas waiting outside.",
+  "note": "shows people in bathing pools = washing"
+ },
+ {
+  "id": "geschiedenis-romeinen-07",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman army camp at dawn with rows of tents and a wooden watchtower, seen from a distance with no soldiers' gear visible up close.",
+  "note": "unclear balcony scene with green doors; a red shield is visible"
+ },
+ {
+  "id": "geschiedenis-romeinen-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman emperor in a purple toga seated on a throne in a marble hall, holding a sealed scroll.",
+  "note": "wide map with lots of territory hints 'large area'"
+ },
+ {
+  "id": "geschiedenis-romeinen-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman traveller with a backpack and walking stick saying goodbye at the gate of a walled town, looking toward faraway hills.",
+  "note": "shows a long paved Roman road = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The outside of a large marble Roman building with tall bronze doors closed and a statue of an eagle on top.",
+  "note": "shows officials in togas in the senate chamber = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows the arena with crowd, rules out Pantheon/Forum"
+ },
+ {
+  "id": "geschiedenis-romeinen-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows a Roman stone wall with soldiers, rules out Great/Berlin Wall"
+ },
+ {
+  "id": "geschiedenis-romeinen-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": "watchtower on a river; names cannot be read from the picture"
+ },
+ {
+  "id": "geschiedenis-romeinen-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A busy Roman town square with a large stone fountain where children fill clay jugs, viewed from a rooftop.",
+  "note": "shows an aqueduct carrying water = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-15",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": "Roman town under erupting volcano; town name not identifiable"
+ },
+ {
+  "id": "geschiedenis-romeinen-16",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-romeinen-17",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman boy counting pebbles on a wooden abacus in a sunny courtyard, the stone wall behind him blank.",
+  "note": "clock with garbled non-Roman glyphs"
+ },
+ {
+  "id": "geschiedenis-romeinen-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Roman schoolchildren sitting on cushions in a courtyard listening to their teacher, their hands empty in their laps.",
+  "note": "children writing on wax tablets with styluses = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows a huge column of legionaries"
+ },
+ {
+  "id": "geschiedenis-romeinen-20",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "generic Roman river town; looks Mediterranean"
+ },
+ {
+  "id": "geschiedenis-romeinen-21",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "Roman ruins; city not identifiable vs Athens"
+ },
+ {
+  "id": "geschiedenis-romeinen-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Two baby twins in a woven basket drifting at the reedy edge of a river beside a fig tree.",
+  "note": "statue of the she-wolf = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman market stall with folded white and red-striped cloth stacked on a table, a merchant smiling behind it.",
+  "note": "man wearing a toga = long robe"
+ },
+ {
+  "id": "geschiedenis-romeinen-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Excited Roman spectators cheering in the stands of an arena, a big dust cloud rising from the track below.",
+  "note": "shows a chariot = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A close-up of the Colosseum's arches at golden hour with pigeons flying past.",
+  "note": "map of Italy with a pin on Rome = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman family waking up at sunrise in a villa bedroom, a child stretching by a window overlooking a garden.",
+  "note": "bread, cheese and olives on the table = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman family in a horse-drawn cart travelling on a country lane past vineyards and cypress trees.",
+  "note": "shows a large country house = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Roman people walking across a sunny paved square, seen from the waist up.",
+  "note": "close-up of leather sandals = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The empty, sunlit atrium of a rich Roman house with a pool, mosaic floor and painted walls.",
+  "note": "servants scrubbing and carrying water = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman merchant ship being unloaded at a harbour, workers carrying cargo under cloth covers.",
+  "note": "rows of clay jars = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "bust of an emperor; name not identifiable"
+ },
+ {
+  "id": "geschiedenis-romeinen-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Looking up at the inside of an enormous ancient dome with a round hole of sky at the top.",
+  "note": "tub of wet grey mortar/cement in foreground hints concrete"
+ },
+ {
+  "id": "geschiedenis-romeinen-33",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman family feasting by oil lamps in a villa on a cold winter night, with frost on the courtyard outside.",
+  "note": "modern Christmas scene, not Roman"
+ },
+ {
+  "id": "geschiedenis-romeinen-34",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "priestesses at eternal flame; goddess not identifiable"
+ },
+ {
+  "id": "geschiedenis-romeinen-35",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman market day in a town square with farmers selling vegetables from carts under awnings, columns and red roofs behind.",
+  "note": "Northern European gabled-town market, not Roman"
+ },
+ {
+  "id": "geschiedenis-romeinen-36",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-romeinen-37",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman milestone column beside a paved road lined with cypress and umbrella pines, travellers with a donkey cart passing.",
+  "note": "stone path in a pine forest, not a Roman road"
+ },
+ {
+  "id": "geschiedenis-romeinen-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "elephants in the Alps; general not identifiable"
+ },
+ {
+  "id": "geschiedenis-romeinen-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A rich Roman family gathered and smiling inside a villa room on a winter evening, snow falling past the window.",
+  "note": "arrows of warm air under the floor = the answer"
+ },
+ {
+  "id": "geschiedenis-romeinen-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "busy street; no specific number implied"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "ship at unexplored coast; does not show the activity itself"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "ship deck with wheel; no compass shown"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-03",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "captain's cabin; papers on table too small to read as a map"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-05",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A busy 15th-century Portuguese harbour seen from a hilltop, with sailors and merchants carrying crates along the quay.",
+  "note": "shows a sailing ship = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-06",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "loading cargo at harbour; reason not shown"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-07",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Worried sailors gathered on the deck of an old wooden ship on a calm grey morning, looking at each other.",
+  "note": "ship in a thunderstorm = storms"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A European prince studying a big globe in a palace room, pointing far to the east.",
+  "note": "spice market = trade in valuable goods"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tired explorer stepping off a ship onto a European quay, greeted by a curious man in a velvet cap.",
+  "note": "drafting table with map and dividers = improving maps"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "three ships at sea; explorer name not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-12",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "globe with route; name not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "Dutch sailors wintering in ice; name not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-14",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A wild green island coastline with tall eucalyptus forest and rocky cliffs, seen from the sea, no ships or flags.",
+  "note": "zebra on the island (wrong place); Dutch flag narrows to the Dutch options"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-15",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "traveller reaching a Chinese city; name not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-16",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "close-up of a sextant = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-19",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "lemons/limes illustrate vitamin C (already in question); disease not shown"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-20",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "Portuguese ship at a rocky cape; route not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A group of explorers in 16th-century clothes standing on a quay with maps and chests, looking out to the open sea.",
+  "note": "shows a sailing ship = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A wooden ship's mast seen from below with a small round platform high up against the blue sky, nobody visible.",
+  "note": "sailor looking out toward land = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Sailors carrying closed wooden barrels and sacks up a gangplank onto an old ship at the harbour.",
+  "note": "barrels of dried meat, rusks and dried fruit = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A crew of old-time sailors standing in a row on a ship's deck, all turned toward someone off-picture.",
+  "note": "captain in uniform at the wheel = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Sailors climbing the rope ladders of a tall wooden mast with bare yards, seen from the deck.",
+  "note": "sailors hoisting a sail = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-26",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "lemons already named in the question; reason not shown"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An old merchant in a silk robe standing at the gate of a desert city at sunrise, looking far to the east.",
+  "note": "camel caravan on a mountain road = trade route"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A grand 17th-century Amsterdam canal house with merchants in black hats and white collars talking on its front steps.",
+  "note": "harbour warehouses full of spices = trading company"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-29",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "map of route; duration not shown"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Sailors on an old wooden ship looking anxiously up at the sails, the sky open and blue.",
+  "note": "becalmed ship with slack sails = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-31",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A rocky, forested coastline across a misty sea at dawn, seen from far away with no boats.",
+  "note": "Viking longship singles out the only Norse name"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "woman on ship pressing plants; disguise not shown"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Explorers unloading closed sacks and baskets from a ship onto a European quay while townsfolk watch.",
+  "note": "potatoes, tomatoes and corn = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-34",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A 16th-century European ship anchored off a tropical American coast while native villagers watch from the beach.",
+  "note": "sick people in a European village with modern face masks, not America"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "Galapagos sea lions; ship name not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Five old wooden sailing ships leaving a Spanish harbour together under a bright sky.",
+  "note": "one battered ship returning = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "Chinese treasure ship (already in question); name not identifiable"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sailor on the deck of an old ship scratching numbers into a wooden board, with the sea rushing past.",
+  "note": "rope with knots and hourglass = the answer"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Explorers in fur coats on the deck of an old wooden ship, peering at a large blank map spread on a barrel.",
+  "note": "ship in Arctic pack ice points to the northern route"
+ },
+ {
+  "id": "geschiedenis-ontdekkingsreizigers-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": "twin-engine plane over ocean; pilot not identifiable"
+ }
+]

@@ -1054,3 +1054,19 @@ test('a new player earns buddies by different questions answered right, spread u
   await expect(page.locator('.mascot-card.unlocked')).toHaveCount(1);        // only Milo
   await expect(page.locator('.mascot-card.locked').first()).toContainText('Nog 115 goede antwoorden');
 });
+
+// Every question's picture was checked by eye (tools/art-audit, tools/art-plan.cjs).
+// The tennis-ball question used to show the topic picture (a rugby ball): its own
+// picture shows the tennis ball and gives nothing away. A question whose own
+// picture shows the answer gets its question-only picture or, until a new one is
+// drawn, the topic picture — never a neighbour's picture.
+test('the quiz shows the picture chosen for each question by eye', async ({ page }) => {
+  await boot(page);
+  const shown = await page.evaluate(() => {
+    const K = window.KWIZILLO_M1, q = id => K.questions.find(x => x.id === id);
+    return { tennis: K.quizArt(q('sport-balsporten-26')), racket: K.quizArt(q('sport-balsporten-05')), astronaut: K.quizArt(q('ruimte-astronauten-01')), topicRacket: K.TOPIC_ART[q('sport-balsporten-05').topic] };
+  });
+  expect(shown.tennis).toContain('assets/questions/q/sport-balsporten-26');
+  expect(shown.racket).toBe(shown.topicRacket);                              // own picture shows the racket: topic picture until a new one is drawn
+  expect(shown.astronaut).toContain('assets/questions/s/ruimte-astronauten-01');
+});

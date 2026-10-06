@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "ruimte-zonnestelsel-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "large green-blue Earth-like planet in front"
+ },
+ {
+  "id": "ruimte-zonnestelsel-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "big red planet prominent"
+ },
+ {
+  "id": "ruimte-zonnestelsel-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "ringed planet in centre"
+ },
+ {
+  "id": "ruimte-zonnestelsel-05",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Jupiter shown as the biggest in a row"
+ },
+ {
+  "id": "ruimte-zonnestelsel-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "pale blue ice planet hints Neptune"
+ },
+ {
+  "id": "ruimte-zonnestelsel-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Earth-like planet among planets next to sun"
+ },
+ {
+  "id": "ruimte-zonnestelsel-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Earth with small moon dot beside it"
+ },
+ {
+  "id": "ruimte-zonnestelsel-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child at a bedroom window at night looking up at a starry sky, a toy rocket on the windowsill.",
+  "note": "planet model lets the child count the planets"
+ },
+ {
+  "id": "ruimte-zonnestelsel-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Saturn surrounded by dozens of moons"
+ },
+ {
+  "id": "ruimte-zonnestelsel-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Uranus with vertical rings"
+ },
+ {
+  "id": "ruimte-zonnestelsel-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "glowing cloud-covered planet next to sun hints Venus"
+ },
+ {
+  "id": "ruimte-zonnestelsel-15",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-16",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-18",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "Saturn floating in a bathtub"
+ },
+ {
+  "id": "ruimte-zonnestelsel-20",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Planets travelling along glowing orbit rings around a centre hidden behind a thick swirl of cosmic mist.",
+  "note": "sun shown at the centre of the solar system"
+ },
+ {
+  "id": "ruimte-zonnestelsel-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A bright sun in space with empty glowing orbit lines curving around it and a child waving from a small spaceship window.",
+  "note": "planets shown orbiting the sun"
+ },
+ {
+  "id": "ruimte-zonnestelsel-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Earth seen from space with a dashed travel route leading away from the sun into the dark, a small rocket setting off along it.",
+  "note": "Earth and red Mars shown side by side with orbit line"
+ },
+ {
+  "id": "ruimte-zonnestelsel-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child at a bedroom window watching the evening sky over rooftops change from orange sunset to dark night.",
+  "note": "spinning Earth with rotation arrow"
+ },
+ {
+  "id": "ruimte-zonnestelsel-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child comparing marbles of different sizes on a desk under a lamp, next to a closed space book.",
+  "note": "small grey Mercury shown big in front of the sun"
+ },
+ {
+  "id": "ruimte-zonnestelsel-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Earth in space with only a short glowing arc of its path drawn next to it, the sun far off to one side.",
+  "note": "four seasons around the sun show a year"
+ },
+ {
+  "id": "ruimte-zonnestelsel-27",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child astronaut floating next to a big swirling cloud of colourful gas in open space, looking curious.",
+  "note": "Jupiter clearly shown next to a blue gas giant"
+ },
+ {
+  "id": "ruimte-zonnestelsel-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Children on a hilltop in daytime looking up in surprise as the landscape around them turns dim and birds fly home.",
+  "note": "solar eclipse shows the moon covering the sun"
+ },
+ {
+  "id": "ruimte-zonnestelsel-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in sneakers crouching, ready to jump as high as possible next to a tall striped measuring pole.",
+  "note": "astronaut jumping high on the moon"
+ },
+ {
+  "id": "ruimte-zonnestelsel-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-zonnestelsel-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small spaceship approaching Saturn from far away, its rings seen only as thin shining bands.",
+  "note": "close-up shows ice chunks and rocks"
+ },
+ {
+  "id": "ruimte-zonnestelsel-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A kite and a windsock pulled hard by a fierce wind on a hill under a starry sky, a child holding on tight.",
+  "note": "stormy deep-blue planet = Neptune"
+ },
+ {
+  "id": "ruimte-zonnestelsel-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child explorer looking up at a huge volcano hidden behind thick clouds, only its lower slopes visible.",
+  "note": "red Martian landscape singles out the only non-Earth volcano"
+ },
+ {
+  "id": "ruimte-zonnestelsel-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An hourglass and a slowly spinning toy top floating side by side in a starry sky.",
+  "note": "yellow cloud-covered Venus shown"
+ },
+ {
+  "id": "ruimte-zonnestelsel-37",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The sun seen as a tiny dot from very far away in dark space, with a faint dashed travel line leading out of the picture.",
+  "note": "shows the Voyager probe itself (answer object)"
+ },
+ {
+  "id": "ruimte-zonnestelsel-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A golden balance scale floating in space with both pans empty and level, a glowing sun and small planets in the background.",
+  "note": "scale shows sun far outweighing all planets"
+ },
+ {
+  "id": "ruimte-zonnestelsel-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An old study at night with papers full of drawn orbit circles, a compass and pencils on the desk, and a telescope aimed at a dark empty patch of sky.",
+  "note": "blue planet in the window hints Neptune"
+ },
+ {
+  "id": "ruimte-zonnestelsel-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-02",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child looking through a small telescope from a backyard at a single twinkling star in the night sky.",
+  "note": "sci-fi reactor porthole full of fire, not a star"
+ },
+ {
+  "id": "ruimte-sterren_planeten-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child astronaut at a spaceship porthole staring out into deep dark space in wonder.",
+  "note": "spiral of countless stars shows the definition"
+ },
+ {
+  "id": "ruimte-sterren_planeten-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "milky band of stars across the sky"
+ },
+ {
+  "id": "ruimte-sterren_planeten-05",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child looking up in wonder through an observatory telescope at a dark night sky.",
+  "note": "huge star explosion shown"
+ },
+ {
+  "id": "ruimte-sterren_planeten-06",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child at a big telescope at night, pointing it at a distant twinkling star.",
+  "note": "planet next to a strange star shows the definition"
+ },
+ {
+  "id": "ruimte-sterren_planeten-08",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "sun blazing right next to Earth"
+ },
+ {
+  "id": "ruimte-sterren_planeten-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-12",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child at a window at night looking at a faraway star, with a clock and a ruler lying on the windowsill.",
+  "note": "light beam spanning a long distance shows the answer"
+ },
+ {
+  "id": "ruimte-sterren_planeten-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "exploding star shown"
+ },
+ {
+  "id": "ruimte-sterren_planeten-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A spiral galaxy seen from far away with its centre hidden behind a dusty glowing haze.",
+  "note": "black hole shown"
+ },
+ {
+  "id": "ruimte-sterren_planeten-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-18",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child astronomer at a telescope at dusk looking up at a reddish point of light in the sky.",
+  "note": "huge swollen star scorching a planet"
+ },
+ {
+  "id": "ruimte-sterren_planeten-20",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-21",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child on a hill at night looking up at a starry sky with hands cupped around their eyes.",
+  "note": "child using a telescope"
+ },
+ {
+  "id": "ruimte-sterren_planeten-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a meadow at night pointing up at many glowing dots in the starry sky.",
+  "note": "glowing star next to an unlit dark planet"
+ },
+ {
+  "id": "ruimte-sterren_planeten-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child with a backpack and a rolled-up blanket setting out at dusk to go stargazing, seen from behind.",
+  "note": "split city vs dark starry countryside"
+ },
+ {
+  "id": "ruimte-sterren_planeten-25",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child astronaut at a spaceship porthole, eyes wide, the view outside lost in the bright glare on the glass.",
+  "note": "colourful clouds of gas and dust = the answer"
+ },
+ {
+  "id": "ruimte-sterren_planeten-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child with binoculars on a dark hill looking up at a starry winter sky with no star figures drawn.",
+  "note": "Orion hunter figure drawn with three-star belt"
+ },
+ {
+  "id": "ruimte-sterren_planeten-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A calm yellow sun shining in space with a large sand hourglass floating beside it.",
+  "note": "swollen red sun engulfing planets = red giant"
+ },
+ {
+  "id": "ruimte-sterren_planeten-29",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-31",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small candle burning down to its last glow on a windowsill under a starry night sky.",
+  "note": "small white star shown beside a big orange one"
+ },
+ {
+  "id": "ruimte-sterren_planeten-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A single bright star shining above snowy mountains and northern lights, with no star figures drawn.",
+  "note": "big and little bear figures under the star"
+ },
+ {
+  "id": "ruimte-sterren_planeten-33",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-34",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a scarf and hat stargazing in a snowy garden on a winter night, pointing up at the stars.",
+  "note": "diagram of Earth circling the sun = the answer"
+ },
+ {
+  "id": "ruimte-sterren_planeten-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A glowing expanding shell of colourful gas in space, its centre hidden behind a thick dusty haze.",
+  "note": "tiny spinning star with beams (neutron star) at centre"
+ },
+ {
+  "id": "ruimte-sterren_planeten-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A distant spiral galaxy seen through the open dome of an observatory at night, a child at the telescope.",
+  "note": "light beam visibly turns from blue to red"
+ },
+ {
+  "id": "ruimte-sterren_planeten-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-sterren_planeten-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-01",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows an astronaut = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "objects floating in the room show weightlessness"
+ },
+ {
+  "id": "ruimte-astronauten-04",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A dimly lit space station module at night with Earth glowing through a round window and a sleepy astronaut yawning and rubbing their eyes, no bed or sleeping gear visible.",
+  "note": "shows a normal bed (a wrong option), misleading"
+ },
+ {
+  "id": "ruimte-astronauten-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A space station orbiting high above Earth seen from a distance, with stars around it and no astronauts visible.",
+  "note": "shows an astronaut working outside the station = the definition"
+ },
+ {
+  "id": "ruimte-astronauten-07",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cheerful astronaut floating in a space station galley at mealtime, looking hungry with a hand on their tummy, no food visible.",
+  "note": "shows packaged food pouches = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a backyard at night pointing up at a bright moving dot of light crossing the starry sky.",
+  "note": "shows a space station = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-12",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A dimly lit space station module at night with Earth glowing through a round window and a sleepy astronaut yawning, no bed or sleeping gear visible.",
+  "note": "shows a sleeping bag strapped to the wall = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-16",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-18",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows the Artemis SLS rocket = the answer programme"
+ },
+ {
+  "id": "ruimte-astronauten-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An astronaut in a white spacesuit with a shiny closed helmet visor, seen from the side floating beside a space station with Earth below and no sun in view.",
+  "note": "blazing sun reflected in the gold visor hints at sunlight"
+ },
+ {
+  "id": "ruimte-astronauten-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child standing on a grassy hill at night looking up at a starry sky and the moon, with no vehicles in view.",
+  "note": "shows a rocket = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A thirsty astronaut floating in a space station module, wiping their forehead, with no drinks or containers visible.",
+  "note": "shows a drink pouch = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An astronaut floating inside a space station with their back to us, looking down through a round window filled with bright white glare.",
+  "note": "Earth fills the window = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An astronaut in a white spacesuit inside a space station module, helmet under one arm, getting ready to go outside, with no doors or hatches visible.",
+  "note": "astronaut floating out through a round airlock hatch = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "The body of an astronaut in a white spacesuit standing beside a rocket, framed from the shoulders down so the head is out of the picture.",
+  "note": "close-up of a space helmet = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A floating astronaut in a space station whose messy hair drifts in all directions, looking at their reflection in a small mirror.",
+  "note": "towel-washing without water shows no-rinse shampoo"
+ },
+ {
+  "id": "ruimte-astronauten-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Astronauts inside a cosy space station module taking a deep breath, with small air vents on the walls and Earth in the window.",
+  "note": "water tank with bubbles and machine shows air made from water and power"
+ },
+ {
+  "id": "ruimte-astronauten-28",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A close-up of an astronaut girl inside a space station looking a little sad with her eyes closed, Earth in the window behind her.",
+  "note": "a tear stuck on the eye = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-31",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An astronaut floating in a space station holding a tied-up rubbish bag and looking around with a puzzled face.",
+  "note": "cargo ship leaving the station = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A lone astronaut looking out of a space station window at Earth, with personal photos and drawings taped to the wall beside them.",
+  "note": "four seasons on Earth below depict a full year = the answer"
+ },
+ {
+  "id": "ruimte-astronauten-33",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-34",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-36",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-astronauten-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tall rocket standing on its launch pad at dawn with spectators watching from a safe distance, the engines not yet lit.",
+  "note": "rockets shown rising off the pad = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tall multi-stage rocket standing on its launch pad under a clear sky, with coloured bands marking its sections.",
+  "note": "a stage dropping away = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-05",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child in a space museum hall gazing upward in wonder, with model planets hanging from the ceiling.",
+  "note": "shows a rocket on its launch pad = the definition"
+ },
+ {
+  "id": "ruimte-raket_avontuur-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child on a hill at night pointing up at a starry sky with a crescent moon.",
+  "note": "satellite circling above Earth = the definition"
+ },
+ {
+  "id": "ruimte-raket_avontuur-07",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a space museum looking up in wonder at a big hall with planets painted on the ceiling.",
+  "note": "spacecraft with windows shows a vehicle people travel in = the definition"
+ },
+ {
+  "id": "ruimte-raket_avontuur-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows parachutes = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Earth seen from space with twinkling stars around it and the moon in the distance, no paths or lines drawn.",
+  "note": "glowing circular path around a planet = the definition"
+ },
+ {
+  "id": "ruimte-raket_avontuur-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sleek rocket standing on its launch pad at sunrise while workers in hard hats check it, no flames or landing visible.",
+  "note": "booster landing upright on a ship = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tall multi-stage rocket standing on its launch pad under a clear sky, with coloured bands marking its sections.",
+  "note": "a spent stage falling away = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows the Saturn V = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows a launch from the jungle coast = the answer place"
+ },
+ {
+  "id": "ruimte-raket_avontuur-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child looking through a telescope on a balcony at a starry night sky with a tiny ringed planet visible.",
+  "note": "shows an unmanned probe = the definition"
+ },
+ {
+  "id": "ruimte-raket_avontuur-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A dusty red Martian plain under a pinkish sky with rocks and distant cliffs, no vehicles.",
+  "note": "shows Perseverance with its helicopter = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A rocket rising from its launch tower into a blue sky with clouds of smoke billowing at the bottom, no arrows or symbols.",
+  "note": "big upward arrows plus exhaust illustrate thrust"
+ },
+ {
+  "id": "ruimte-raket_avontuur-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A space capsule floating calmly in orbit high above Earth, its round base facing the planet, before its trip home.",
+  "note": "capsule glowing red hot = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows the James Webb telescope = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tall rocket standing on its launch pad seen from far away at sunrise, moments before launch, with no flames or smoke yet.",
+  "note": "fire and exhaust gases = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-22",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A close-up of a launch tower's metal gantry and walkways at a space centre under a blue sky, with the rocket out of frame.",
+  "note": "rocket standing upright = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tall rocket seen from a distance on its launch pad, its nose cone closed and smooth, no cutaway view.",
+  "note": "cutaway shows the payload at the top"
+ },
+ {
+  "id": "ruimte-raket_avontuur-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A giant rocket on its pad seen from ground level, towering over tiny workers and trucks, no cutaway view.",
+  "note": "cutaway shows a huge fuel tank = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A close-up of a rocket's smooth, closed, pointed red nose cone against a blue sky.",
+  "note": "nose opening to release a satellite = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A rocket flying high above Earth into the black of space with its engine glowing, seen from the outside only.",
+  "note": "cutaway shows a separate oxygen tank = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-28",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A used rocket booster high in the sky among clouds, seen from far away as it heads back toward Earth.",
+  "note": "rocket standing upright on its legs = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-31",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A row of plain white cartoon rockets of different heights standing on a launch field under a blue sky, viewed from far away.",
+  "note": "giant shiny stainless-steel rocket resembles Starship"
+ },
+ {
+  "id": "ruimte-raket_avontuur-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A spacecraft drifting slowly in black starry space high above Earth, seen from a distance, with no jets or exhaust visible.",
+  "note": "small side jets firing = steering thrusters"
+ },
+ {
+  "id": "ruimte-raket_avontuur-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A communications satellite with a big dish antenna floating against a starry sky, with Earth partly visible at the edge.",
+  "note": "beam fixed on one spot shows it stays above the same place"
+ },
+ {
+  "id": "ruimte-raket_avontuur-34",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-36",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "ruimte-raket_avontuur-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small space probe with a big dish antenna travelling alone through dark starry space, far from any planet.",
+  "note": "probe swinging past Jupiter = the answer"
+ },
+ {
+  "id": "ruimte-raket_avontuur-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A rocket climbing through the clouds high above Earth, seen from the outside with no cutaway view.",
+  "note": "cutaway shows the fuel tank half empty"
+ },
+ {
+  "id": "ruimte-raket_avontuur-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A 1950s family gathered around an old radio at night, looking up at a starry sky through the window.",
+  "note": "shows Sputnik = the answer"
+ }
+]

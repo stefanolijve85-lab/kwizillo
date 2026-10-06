@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "mysterie-raadsels-01",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child holding up a big old-fashioned key and looking puzzled in a cosy room full of question marks, with no locks, doors, chests or instruments visible.",
+  "note": "generic attic, nothing about keys"
+ },
+ {
+  "id": "mysterie-raadsels-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-raadsels-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A thoughtful child pointing at their own neck with a puzzled look, glowing question marks floating around, plain background.",
+  "note": "row of containers and bottles on shelf points to bottle"
+ },
+ {
+  "id": "mysterie-raadsels-04",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A smiling cartoon mouth showing a neat row of white teeth next to a big question mark, on a soft colourful background.",
+  "note": "odd bathroom shelf with eyeball; grooming context points to comb"
+ },
+ {
+  "id": "mysterie-raadsels-05",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A big glowing upward arrow rising into the sky with a puzzled child looking up at it, question marks around.",
+  "note": "height chart with growing child shows age"
+ },
+ {
+  "id": "mysterie-raadsels-06",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A pair of cartoon hands waving out of a mysterious magic box with question marks, no arms visible, no clocks.",
+  "note": "generic living room, no relation to hands"
+ },
+ {
+  "id": "mysterie-raadsels-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child standing with hands behind their back looking thoughtfully at a big glowing question mark, nothing broken nearby.",
+  "note": "two children shaking hands = making a promise"
+ },
+ {
+  "id": "mysterie-raadsels-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A single big cartoon eye with a puzzled expression and a blindfold-style question mark over it, on a plain magical background.",
+  "note": "sewing basket with pins/needles"
+ },
+ {
+  "id": "mysterie-raadsels-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A child holding a magic glass that shows a 'take away' minus sign glowing in the air, with a puzzled face and question marks.",
+  "note": "beach scene shows a dug hole"
+ },
+ {
+  "id": "mysterie-raadsels-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A race track with a starting line and running shoes standing empty on it, question marks floating above.",
+  "note": "river shown"
+ },
+ {
+  "id": "mysterie-raadsels-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": true,
+  "use": "new",
+  "new_scene": "A child sitting on a hill pondering, with glowing thought bubbles containing a tiny house crossed out, a tree crossed out and a fish crossed out.",
+  "note": "picture is a map; safe hiker with signposts also hints map"
+ },
+ {
+  "id": "mysterie-raadsels-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "child digging with shovel"
+ },
+ {
+  "id": "mysterie-raadsels-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-raadsels-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-raadsels-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cartoon globe spinning with a dotted travel route looping around it and a big question mark, no letters, stamps or birds.",
+  "note": "envelope with stamp in corner"
+ },
+ {
+  "id": "mysterie-raadsels-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "boy shouting in canyon with sound waves = echo"
+ },
+ {
+  "id": "mysterie-raadsels-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cheerful wide-awake man standing next to a wall calendar with many days crossed off, a question mark above his head.",
+  "note": "split day/night image shows him sleeping at night"
+ },
+ {
+  "id": "mysterie-raadsels-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A strong weightlifter character puzzled while a single feather floats in front of him, question marks around.",
+  "note": "child visibly blowing breath"
+ },
+ {
+  "id": "mysterie-raadsels-19",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-raadsels-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "all options shown but potato drawn with cartoon eyes"
+ },
+ {
+  "id": "mysterie-raadsels-21",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Colourful autumn leaves swirling through the air past a tree trunk with a big question mark, no books.",
+  "note": "suitcase and lamp, unrelated to leaves"
+ },
+ {
+  "id": "mysterie-raadsels-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A mysterious curly tail peeking out from behind a big question-mark shaped bush, with no sky, kites or animals visible.",
+  "note": "ribbon tail flying in sky implies kite"
+ },
+ {
+  "id": "mysterie-raadsels-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small red cap lying alone on a mossy stone with question marks around it, no mushrooms visible.",
+  "note": "forest with red mushrooms"
+ },
+ {
+  "id": "mysterie-raadsels-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Water droplets splashing in the air above a puzzled child with question marks, no containers or sponges.",
+  "note": "sponge prominent on counter"
+ },
+ {
+  "id": "mysterie-raadsels-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child walking along a path looking over their shoulder curiously, lit softly from overhead so no shadow is visible, question marks floating behind.",
+  "note": "long shadows dominate the square"
+ },
+ {
+  "id": "mysterie-raadsels-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child standing at the start of a path with a thinking pose and a big question mark, the path ahead untouched.",
+  "note": "footprints in the sand"
+ },
+ {
+  "id": "mysterie-raadsels-27",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A dark cosy room with a soft warm glow coming from behind a big question mark, the light source hidden.",
+  "note": "shows a table lamp (light bulb distractor)"
+ },
+ {
+  "id": "mysterie-raadsels-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cosy empty bed under a starry sky outdoors with a big question mark above it, no water, hotels or pillows emphasised.",
+  "note": "river landscape"
+ },
+ {
+  "id": "mysterie-raadsels-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Glowing up and down arrows floating in a mysterious hall with a puzzled child, no stairs, doors or windows in view.",
+  "note": "spiral staircase"
+ },
+ {
+  "id": "mysterie-raadsels-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A thirsty-looking puzzled character holding a glass of water next to a big question mark, no tools visible.",
+  "note": "hammer and pot of nails"
+ },
+ {
+  "id": "mysterie-raadsels-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-raadsels-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child playing hide-and-seek, covering their eyes with a glowing question mark in front of them.",
+  "note": "road stretching ahead is a 'future' metaphor"
+ },
+ {
+  "id": "mysterie-raadsels-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child about to whisper a secret word, hand raised to mouth, with a large question mark beside them.",
+  "note": "empty quiet library suggests silence"
+ },
+ {
+  "id": "mysterie-raadsels-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A hungry cartoon tummy rumbling next to a glass of water and a big question mark, no flames, fish or plants.",
+  "note": "fire bowls burning in temple"
+ },
+ {
+  "id": "mysterie-raadsels-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A pile of fluffy feathers and a pile of grey stones side by side on a wooden table, both labelled only by a question mark between them, no scale.",
+  "note": "balanced scale shows equal weight"
+ },
+ {
+  "id": "mysterie-raadsels-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A calm lake at sunset with a single empty rowing boat and a fish jumping out of the water, question mark in the sky.",
+  "note": "three fishing rods shows three people"
+ },
+ {
+  "id": "mysterie-raadsels-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-raadsels-38",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cheerful snail climbing up a tall measuring pole on a sunny wall, with a moon on the other side, no numbers shown.",
+  "note": "empty well, no snail"
+ },
+ {
+  "id": "mysterie-raadsels-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A mysterious sphinx-like guardian statue asking a riddle in the desert with a sun moving across the sky.",
+  "note": "walking stick hints at elderly human (three legs)"
+ },
+ {
+  "id": "mysterie-raadsels-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A puzzled child squinting with a hand above their eyes and a big question mark, soft neutral lighting.",
+  "note": "blown-out smoking candle suggests darkness"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-03",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A young explorer in a safari hat standing at a fork of jungle paths, holding a small closed round brass case in one hand and looking around uncertainly.",
+  "note": "explorer holds a whistle/rattle, no compass visible"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-04",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An old wooden writing desk in a dim candlelit study, all drawers shut, with a curious child peering closely at its carved side panel.",
+  "note": "glowing hidden drawer shows the secret space"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-06",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child reading an open storybook by lamplight, with a dreamy pirate island drawn faintly on the page.",
+  "note": "shows a marked rune stone = the answer"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child at a desk holding a sealed envelope up to a lamp, frowning with curiosity.",
+  "note": "notebook full of coded symbols shows the answer"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-09",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child sitting at a table with a pencil behind the ear, thinking hard with a puzzled expression, a cup of pencils nearby.",
+  "note": "decoder wheel and cipher sheet show decoding"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A golden pharaoh's funeral mask resting on a dark pedestal in a softly lit museum room.",
+  "note": "rock-cut tomb in a desert valley shows the location"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "sunken city = Atlantis"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "golden jungle city = El Dorado"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small yellow submarine with bright headlights descending into the dark deep ocean, only empty sea floor in its beam.",
+  "note": "shows the Titanic wreck"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-15",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows Machu Picchu"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A dusty archaeological dig pit in the Chinese countryside at sunset, with workers in hats brushing soil, nothing yet uncovered.",
+  "note": "shows rows of clay soldier statues"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Two children in a sunny garden holding hands and looking at a big wall calendar with many years of pages, smiling at each other.",
+  "note": "box of keepsakes buried = answer"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "shows Petra's Treasury"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-20",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child sitting by a fireplace listening to a grandparent read from a big old storybook with a pirate ship on the cover.",
+  "note": "chest full of gold and jewels = answer"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cartoon pirate ship anchored off a tropical island at sunset, pirates rowing a small empty boat toward the beach.",
+  "note": "shows a treasure chest"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a sunny garden holding a treasure map and pointing excitedly at a spot on the lawn, no tools in sight.",
+  "note": "shows a spade"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A ploughed farm field at sunset with a few old coins half-buried in the dark soil, close-up.",
+  "note": "shows a metal detector"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A scuba diver with a torch swimming over a colourful coral reef in clear blue water.",
+  "note": "shows a sunken ship"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child with a toy shovel standing on a grassy meadow, looking thoughtfully down at the ground.",
+  "note": "roped-off excavation with finds shows protection"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-27",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child kneeling in a garden flower bed holding up a dirty old clay oil lamp just dug out of the soil, looking amazed.",
+  "note": "museum desk shows the answer; no garden find"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A smiling person in a wide sun hat and khaki shirt standing with a backpack in a sunny desert valley, viewed from behind.",
+  "note": "shows archaeologist excavating"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A grassy hill with a small modern village on top under a blue sky, an old stone peeking out of the grass.",
+  "note": "cut-away soil layers show the answer"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A single shiny gold coin lying on dark red velvet in a softly lit treasure room.",
+  "note": "gold coin next to rusted iron shows 'never rusts'"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-33",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Children gathered in a museum hall around a tall glass case covered with a velvet cloth, waiting for the unveiling.",
+  "note": "stone carved with hieroglyph-like pictures points to the answer"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Crowds on a grey Stockholm harbour quay watching cranes and divers at work on calm dark water.",
+  "note": "shows a 17th-century warship (rules out galley/submarine)"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An empty grand palace room with bare plaster walls and a single candle, a curious child peeking in through the doorway.",
+  "note": "shows the amber room itself"
+ },
+ {
+  "id": "mysterie-verborgen_schatten-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-verborgen_schatten-40",
+  "own_fits": false,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child kneeling in a muddy field holding up an old rusty coin just found in the soil, with a curious face.",
+  "note": "boy hands a lost wallet to an official: shows reporting, not an old find"
+ },
+ {
+  "id": "mysterie-natuurmysteries-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-03",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child with binoculars kneeling at the edge of a sunny forest clearing, scanning the bushes.",
+  "note": "animal barely visible in foliage shows 'stand out less'"
+ },
+ {
+  "id": "mysterie-natuurmysteries-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Small fishing boats lying on wet sand in a harbour at low tide, with a high-water line visible on the harbour wall, under a plain pale sky.",
+  "note": "full moon prominently shown above the low-tide beach"
+ },
+ {
+  "id": "mysterie-natuurmysteries-08",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-09",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A flock of geese flying in V-formation over a rocky coastline in soft daylight.",
+  "note": "glowing magnetic field lines and sun drawn in the sky"
+ },
+ {
+  "id": "mysterie-natuurmysteries-12",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small bat flying through a dark cave between stalactites, lit only by a faint blue glow from the cave mouth.",
+  "note": "sound waves drawn from the bat's mouth = echolocation"
+ },
+ {
+  "id": "mysterie-natuurmysteries-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A hot, thirsty traveller with a backpack walking along a long empty desert road under a blazing sun.",
+  "note": "shows the fake water pool illusion itself"
+ },
+ {
+  "id": "mysterie-natuurmysteries-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-18",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child peeking out from under a blanket in a cosy farmhouse bedroom at night while rain streams down the window.",
+  "note": "glowing ball of light during a storm = answer"
+ },
+ {
+  "id": "mysterie-natuurmysteries-20",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-21",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A hedgehog and a marmot standing awake on a frosty meadow as the first snowflakes start to fall.",
+  "note": "hedgehog asleep curled in a leaf nest under snow"
+ },
+ {
+  "id": "mysterie-natuurmysteries-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a scarf and wellies walking along a park path on a chilly misty morning, with only tree trunks visible and the treetops out of frame.",
+  "note": "yellow falling leaves = answer"
+ },
+ {
+  "id": "mysterie-natuurmysteries-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cute snail with a striped shell seen from the front, peeking out from under a green leaf.",
+  "note": "shiny slime trail clearly shown"
+ },
+ {
+  "id": "mysterie-natuurmysteries-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A hedgehog trotting calmly through a garden lawn at dusk, sniffing the grass.",
+  "note": "hedgehog rolled into a defensive spiky ball"
+ },
+ {
+  "id": "mysterie-natuurmysteries-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A girl on a sunny beach holding a big spiral seashell to her ear with her eyes closed, smiling.",
+  "note": "drawn sound waves bouncing out of the shell"
+ },
+ {
+  "id": "mysterie-natuurmysteries-27",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-28",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-29",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-33",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A towering thundercloud at night seen from far away over a quiet countryside, a child watching it from a hilltop.",
+  "note": "red flashes above the cloud = answer"
+ },
+ {
+  "id": "mysterie-natuurmysteries-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-36",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small sailing ship alone on a vast calm blue ocean under a hazy, mysterious sky, seen from high above.",
+  "note": "shows a triangle-shaped island, which is a wrong option"
+ },
+ {
+  "id": "mysterie-natuurmysteries-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-natuurmysteries-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A group of children with backpacks standing at the start of a hiking trail, looking out over rolling green hills.",
+  "note": "flag marking a point on the trail = answer"
+ },
+ {
+  "id": "mysterie-speurtocht-03",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "random nut shell on a dirt path, no clue/detective context"
+ },
+ {
+  "id": "mysterie-speurtocht-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child on a bicycle stopped at a fork in a sunny park path, studying a small route card in their hand.",
+  "note": "signpost arrow pointing left shows the answer"
+ },
+ {
+  "id": "mysterie-speurtocht-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A young explorer standing on a hilltop with a backpack, gazing over a wide valley of forests and rivers.",
+  "note": "pin on a gridded map shows a precise location"
+ },
+ {
+  "id": "mysterie-speurtocht-08",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-09",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A detective in a trench coat sitting at a desk across from a nervous man in a cap, a single lamp lighting the room.",
+  "note": "clock, train ticket and photo of being elsewhere = the answer"
+ },
+ {
+  "id": "mysterie-speurtocht-12",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "iconic Sherlock Holmes with deerstalker"
+ },
+ {
+  "id": "mysterie-speurtocht-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child finding a folded, sealed paper note tucked under a flowerpot on a windowsill, looking puzzled.",
+  "note": "parchment full of secret symbols = message in code"
+ },
+ {
+  "id": "mysterie-speurtocht-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "bloodhound tracking a scent on a leash"
+ },
+ {
+  "id": "mysterie-speurtocht-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cosy living room with a knocked-over flowerpot and a wide-open window, as if something mysterious just happened.",
+  "note": "kids collecting tiny clues with tweezers and bags = answer"
+ },
+ {
+  "id": "mysterie-speurtocht-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child at a desk looking curiously at a blank sheet of paper next to a halved lemon and a cotton bud.",
+  "note": "paper held up to a hot lamp shows the hidden drawing"
+ },
+ {
+  "id": "mysterie-speurtocht-19",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A Roman general in a red cloak writing a secret letter with a quill by candlelight in his tent.",
+  "note": "wheel of coloured dots suggests a colour code (a wrong option)"
+ },
+ {
+  "id": "mysterie-speurtocht-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "mirror reflecting a page of writing"
+ },
+ {
+  "id": "mysterie-speurtocht-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child detective in a cap kneeling by footprints in a garden, looking up thoughtfully with empty hands.",
+  "note": "shows a notebook with pencil"
+ },
+ {
+  "id": "mysterie-speurtocht-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A pitch-dark cellar with wooden stairs and old crates barely visible in the gloom.",
+  "note": "shows a torch"
+ },
+ {
+  "id": "mysterie-speurtocht-23",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a park stopping in surprise and pointing at a small glint half-hidden in the grass.",
+  "note": "found key left in place and marked with a cone"
+ },
+ {
+  "id": "mysterie-speurtocht-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A quiet street at dusk with a bicycle lying on its side by a lamppost and houses with lit windows.",
+  "note": "boy watching from the window = someone who saw something"
+ },
+ {
+  "id": "mysterie-speurtocht-26",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child detective holding up a strange torn ticket stub and scratching their head in confusion.",
+  "note": "clues kept and pinned on a board = keep it"
+ },
+ {
+  "id": "mysterie-speurtocht-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A detective's desk seen from above, covered in scattered photos, a notebook and a cup of tea.",
+  "note": "cards laid out in sequence = order of everything"
+ },
+ {
+  "id": "mysterie-speurtocht-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child kneeling in a sandy playground and spotting a shiny blue marble lying in the sand.",
+  "note": "found marble in a zip bag = answer"
+ },
+ {
+  "id": "mysterie-speurtocht-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-33",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tiny thread lying on a wooden desk under a bright lamp, seen in close-up.",
+  "note": "shows tweezers picking up the thread"
+ },
+ {
+  "id": "mysterie-speurtocht-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child at a desk reading a book of word puzzles, tapping a pencil against their chin.",
+  "note": "bridge mirrored in water hints 'the same backwards'"
+ },
+ {
+  "id": "mysterie-speurtocht-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "mysterie-speurtocht-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A detective sitting at a desk with a magnifying glass, looking thoughtfully out of a window on a sunny day.",
+  "note": "dusty box of old files = old unsolved case"
+ },
+ {
+  "id": "mysterie-speurtocht-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "1940s code-breakers in a busy office bent over papers covered in scribbles, a big clock on the wall.",
+  "note": "shows the Enigma machine"
+ }
+]

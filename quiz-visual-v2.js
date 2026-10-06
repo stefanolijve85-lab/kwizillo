@@ -289,7 +289,7 @@
         <span class="feedback-kicker">${timedOut?'⏱':correct?'✓':'✗'} ${esc(t(timedOut?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</span>
         ${correct?rewardBadge():''}
       </div>
-      ${K.artRevealsAnswer?.(q)&&K.questionArtFor?.(q.id)?`<div class="feedback-art"><img src="${questionArt(q)}" alt="" decoding="async"></div>`:''}
+      ${K.artRevealsAnswer?.(q)&&K.ownArtFits?.(q)!==false&&K.questionArtFor?.(q.id)?`<div class="feedback-art"><img src="${questionArt(q)}" alt="" decoding="async"></div>`:''}
       <div class="feedback-answer">${correct?'':`<small>${esc(t('feedback.answerLabel'))}</small>`}<b>${esc(q.answer)}</b></div>
       <p class="feedback-explain">${explain}</p>
       ${q.fact?`<div class="feedback-fact"><b>${esc(t('feedback.didYouKnow'))}</b><span>${esc(q.fact)}</span></div>`:''}

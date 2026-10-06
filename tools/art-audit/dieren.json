@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "dieren-snelle_dieren-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": false,
+  "safe_reveals": false,
+  "use": "new",
+  "new_scene": "A clear underwater view beneath icy polar water with rising bubbles and sunbeams, no animals visible.",
+  "note": "own shows a swimming penguin; safe shows a seal, not a bird"
+ },
+ {
+  "id": "dieren-snelle_dieren-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a bird of prey in flight"
+ },
+ {
+  "id": "dieren-snelle_dieren-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A gazelle standing calmly in tall savanna grass, seen from the side.",
+  "note": "gazelles shown running away from a cheetah"
+ },
+ {
+  "id": "dieren-snelle_dieren-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "sleek shark shown, rules out whale shark/seahorse/lionfish"
+ },
+ {
+  "id": "dieren-snelle_dieren-08",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-09",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a diving peregrine falcon"
+ },
+ {
+  "id": "dieren-snelle_dieren-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a sailfish"
+ },
+ {
+  "id": "dieren-snelle_dieren-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a big horsefly in front"
+ },
+ {
+  "id": "dieren-snelle_dieren-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cheetah standing alert on a termite mound, looking out over the savanna.",
+  "note": "cheetah panting in the shade hints at overheating"
+ },
+ {
+  "id": "dieren-snelle_dieren-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a running ostrich"
+ },
+ {
+  "id": "dieren-snelle_dieren-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a pronghorn"
+ },
+ {
+  "id": "dieren-snelle_dieren-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A wide evening sky over a forest at sunset with speed streaks in the air, no animals visible.",
+  "note": "shows a bat, rules out flying squirrel and hummingbird"
+ },
+ {
+  "id": "dieren-snelle_dieren-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a hummingbird"
+ },
+ {
+  "id": "dieren-snelle_dieren-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a black mamba"
+ },
+ {
+  "id": "dieren-snelle_dieren-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small race track through a garden with a start line and a finish flag in the grass, no animals visible.",
+  "note": "own shows a snail"
+ },
+ {
+  "id": "dieren-snelle_dieren-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small bird perched on a branch with its wings folded, blue sky behind it.",
+  "note": "bird shown with wings spread wide in flight"
+ },
+ {
+  "id": "dieren-snelle_dieren-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sunny meadow with a trail of flattened grass and a burrow entrance, no animals visible.",
+  "note": "own shows a hare with long ears"
+ },
+ {
+  "id": "dieren-snelle_dieren-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A wide open grassland under a blue sky with a long measuring line stretched across the ground, no animals visible.",
+  "note": "own shows a leaping kangaroo"
+ },
+ {
+  "id": "dieren-snelle_dieren-25",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-26",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cheetah standing still on the savanna seen from the side, tail hanging down.",
+  "note": "cheetah leaning into a curve with its tail out shows turning"
+ },
+ {
+  "id": "dieren-snelle_dieren-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A herd of mixed animal silhouettes far away on a dusty savanna plain at sunrise, no young animal in focus.",
+  "note": "own shows a gazelle mother and young running"
+ },
+ {
+  "id": "dieren-snelle_dieren-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A colourful flower garden with an empty branch in the foreground, no birds visible.",
+  "note": "own shows a hummingbird"
+ },
+ {
+  "id": "dieren-snelle_dieren-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-32",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A vast open ocean seen from high above the clouds, stretching to the horizon, no birds visible.",
+  "note": "long-billed wading bird shown, singles out the godwit (drawn as a stilt)"
+ },
+ {
+  "id": "dieren-snelle_dieren-34",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A snake resting coiled on a flat rock at the edge of sunny sand dunes.",
+  "note": "snake shown leaving curved sidewinding tracks"
+ },
+ {
+  "id": "dieren-snelle_dieren-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A colourful coral reef with shells and rocks on the sandy sea floor, no animals in focus.",
+  "note": "shows a crustacean smashing a shell (mantis shrimp)"
+ },
+ {
+  "id": "dieren-snelle_dieren-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A long empty dirt path stretching across a hot savanna toward the horizon.",
+  "note": "shows a human runner"
+ },
+ {
+  "id": "dieren-snelle_dieren-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-snelle_dieren-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A view high above the clouds with an aeroplane flying far below, no birds visible.",
+  "note": "shows a vulture with bald head"
+ },
+ {
+  "id": "dieren-baby_dieren-01",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-02",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-03",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-06",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-07",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A newborn lamb standing on wobbly legs next to its mother in a green meadow.",
+  "note": "shows a kid suckling from its mother"
+ },
+ {
+  "id": "dieren-baby_dieren-09",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-12",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A mother kangaroo standing in the red outback seen from the front, her pouch closed.",
+  "note": "newborn drawn as big as a cat, contradicts the answer"
+ },
+ {
+  "id": "dieren-baby_dieren-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a platypus with eggs"
+ },
+ {
+  "id": "dieren-baby_dieren-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows grey cygnets"
+ },
+ {
+  "id": "dieren-baby_dieren-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a seahorse with babies"
+ },
+ {
+  "id": "dieren-baby_dieren-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A group of emperor penguins standing close together on the Antarctic ice in cold wind, seen from a distance.",
+  "note": "shows the egg on the penguin's feet"
+ },
+ {
+  "id": "dieren-baby_dieren-17",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-18",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A mother mouse peeking out of a cosy straw nest in a wheat field, the babies hidden inside.",
+  "note": "shows about eight babies, the asked number"
+ },
+ {
+  "id": "dieren-baby_dieren-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "own shows a seal and pup"
+ },
+ {
+  "id": "dieren-baby_dieren-21",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A frog sitting on a stone at the edge of a calm pond with reeds and lily pads.",
+  "note": "shows frogspawn eggs"
+ },
+ {
+  "id": "dieren-baby_dieren-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A green caterpillar munching on a big leaf in a sunny garden.",
+  "note": "shows the butterfly"
+ },
+ {
+  "id": "dieren-baby_dieren-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A fluffy young bird sitting on a tree branch at dusk, getting sleepy.",
+  "note": "shows chicks in a nest"
+ },
+ {
+  "id": "dieren-baby_dieren-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Hungry chicks with wide-open beaks in a nest, no adult bird in sight.",
+  "note": "shows a parent feeding the chicks"
+ },
+ {
+  "id": "dieren-baby_dieren-26",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-27",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A mother crocodile resting on a sandy riverbank beside her buried nest.",
+  "note": "shows the baby carried in her mouth"
+ },
+ {
+  "id": "dieren-baby_dieren-29",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-31",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small songbird nest with several eggs in a leafy tree, no birds visible.",
+  "note": "shows a big grey barred cuckoo chick among small birds"
+ },
+ {
+  "id": "dieren-baby_dieren-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A young songbird sitting alone on a branch in a spring forest.",
+  "note": "shows a young bird singing along with an adult"
+ },
+ {
+  "id": "dieren-baby_dieren-34",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A fierce snowstorm sweeping across an empty Antarctic ice field under a grey sky.",
+  "note": "shows the chicks huddled together"
+ },
+ {
+  "id": "dieren-baby_dieren-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sea turtle crawling up a moonlit sandy beach toward the dunes.",
+  "note": "shows a nest full of eggs, hints at the number"
+ },
+ {
+  "id": "dieren-baby_dieren-37",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Baby sea turtles digging out of a sand nest on a dark beach, the sea not visible.",
+  "note": "hatchlings shown heading toward the bright moonlit sea"
+ },
+ {
+  "id": "dieren-baby_dieren-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": null
+ },
+ {
+  "id": "dieren-baby_dieren-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cold rocky northern coastline with waves and drifting ice, no animals visible.",
+  "note": "shows a seal and pup"
+ },
+ {
+  "id": "dieren-waterdieren-01",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "cetacean tail leaping next to ship hints dolphin"
+ },
+ {
+  "id": "dieren-waterdieren-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "octopus with eight arms"
+ },
+ {
+  "id": "dieren-waterdieren-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "giant blue whale shown"
+ },
+ {
+  "id": "dieren-waterdieren-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-06",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sunny tropical shoreline where gentle waves meet the sand, with flipper tracks leading from the water up the beach, no animals visible.",
+  "note": "sea turtle on beach"
+ },
+ {
+  "id": "dieren-waterdieren-07",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A calm blue ocean surface seen from a small boat with a large dark shape gliding just under the water, no spout or splash.",
+  "note": "whale blowing spout shows breathing"
+ },
+ {
+  "id": "dieren-waterdieren-09",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A rocky tide pool at low tide with seaweed, pebbles and a row of small sideways tracks in the wet sand, no animals visible.",
+  "note": "rock pool full of snail shells, crab barely visible"
+ },
+ {
+  "id": "dieren-waterdieren-10",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-11",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "blue whale beside boy in boat"
+ },
+ {
+  "id": "dieren-waterdieren-12",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-13",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-14",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "flatfish with both eyes on top"
+ },
+ {
+  "id": "dieren-waterdieren-16",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "ray crackling with electricity"
+ },
+ {
+  "id": "dieren-waterdieren-18",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child in a small boat dipping a fine net into sparkling blue sea water under the sun, the net's contents not visible.",
+  "note": "shows tiny drifting plants and animals = the answer"
+ },
+ {
+  "id": "dieren-waterdieren-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "camouflaged octopus"
+ },
+ {
+  "id": "dieren-waterdieren-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child snorkeling above a sunlit reef, peering curiously into the deep blue where only a vague distant silhouette is hinted at.",
+  "note": "shark shown"
+ },
+ {
+  "id": "dieren-waterdieren-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child standing at the edge of clear shallow sea water, looking warily at the surface where faint shimmering ripples drift.",
+  "note": "jellyfish shown"
+ },
+ {
+  "id": "dieren-waterdieren-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sunny rocky tide pool with clear water, seaweed and pebbles, seen from above, with no starfish visible.",
+  "note": "starfish with five arms shows the count"
+ },
+ {
+  "id": "dieren-waterdieren-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child snorkeling over swaying seagrass and coral, peering curiously between the leaves where something small is hiding out of sight.",
+  "note": "seahorse shown"
+ },
+ {
+  "id": "dieren-waterdieren-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A huge whale swimming with its mouth closed through deep blue open ocean, seen from the side, with no food or prey visible.",
+  "note": "whale gulping krill"
+ },
+ {
+  "id": "dieren-waterdieren-26",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A dolphin swimming underwater through clear blue water seen from below, top of its head out of view, no spout or bubbles.",
+  "note": "dolphin spouting through blowhole"
+ },
+ {
+  "id": "dieren-waterdieren-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious octopus on a reef looking startled with wide eyes as a big fish swims toward it, frozen just before it reacts.",
+  "note": "octopus squirting ink"
+ },
+ {
+  "id": "dieren-waterdieren-28",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small diver in a huge blue ocean looking up at an enormous vague shadow far above, its shape not recognisable.",
+  "note": "whale shark shown with diver"
+ },
+ {
+  "id": "dieren-waterdieren-30",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-31",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Two whales swimming toward each other in deep blue water, calm scene with no sound waves or symbols.",
+  "note": "sound waves between whales show song"
+ },
+ {
+  "id": "dieren-waterdieren-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A colourful sea anemone waving its tentacles on a coral reef, with a clownfish swimming in open water some distance away, not touching it.",
+  "note": "clownfish nestled inside anemone = sheltering"
+ },
+ {
+  "id": "dieren-waterdieren-33",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A curious child looking through a diving mask at a sandy sea floor with shells and coral, no animals in view.",
+  "note": "starfish with short regrowing arm"
+ },
+ {
+  "id": "dieren-waterdieren-35",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-36",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-37",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A young marine biologist in a ship's lab holding a magnifying glass over a closed sample jar, with the sea visible through a porthole, no animals shown.",
+  "note": "bright blue octopus shown, hints blue blood"
+ },
+ {
+  "id": "dieren-waterdieren-38",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-39",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-waterdieren-40",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-jungle-01",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "monkey swinging"
+ },
+ {
+  "id": "dieren-jungle-02",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A lush jungle branch with tropical flowers and fruit and an empty perch, no birds visible.",
+  "note": "toucan shown"
+ },
+ {
+  "id": "dieren-jungle-03",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "gorilla eating leaves"
+ },
+ {
+  "id": "dieren-jungle-04",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-jungle-05",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-jungle-06",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-jungle-07",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A sunlit rainforest branch covered in moss and leaves, with a small explorer child peering at it through binoculars, no reptiles visible.",
+  "note": "multicoloured chameleon shown"
+ },
+ {
+  "id": "dieren-jungle-08",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child explorer with a backpack studying a big globe in a cosy study, pointing at the middle of the globe, the room and globe without forests drawn in detail.",
+  "note": "dripping warm jungle shows the answer"
+ },
+ {
+  "id": "dieren-jungle-09",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A single howler monkey high in a misty rainforest treetop at dawn with its mouth wide open in a loud call.",
+  "note": "no howler monkeys, misty canopy with birds and a treehouse"
+ },
+ {
+  "id": "dieren-jungle-10",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A cricket sitting on a big rainforest leaf, looking nervous, with a blurred leafy branch in the background and no other animals visible.",
+  "note": "chameleon catching insect with tongue"
+ },
+ {
+  "id": "dieren-jungle-11",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-jungle-12",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "toucan and macaws point to South America/Amazon"
+ },
+ {
+  "id": "dieren-jungle-13",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "gorilla shown"
+ },
+ {
+  "id": "dieren-jungle-14",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "parrot talking to child"
+ },
+ {
+  "id": "dieren-jungle-15",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "green-furred sloth"
+ },
+ {
+  "id": "dieren-jungle-16",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "bright poison dart frog"
+ },
+ {
+  "id": "dieren-jungle-17",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "anaconda in swamp"
+ },
+ {
+  "id": "dieren-jungle-18",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": true,
+  "safe_reveals": false,
+  "use": "safe",
+  "new_scene": null,
+  "note": "tapir shown"
+ },
+ {
+  "id": "dieren-jungle-19",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child sitting on a hill overlooking a vast green rainforest stretching to the horizon under a clear sky, no symbols or arrows.",
+  "note": "glowing forest with swirling air hints oxygen"
+ },
+ {
+  "id": "dieren-jungle-20",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small ant hill at the foot of a rainforest tree with a trail of ants seen from far away, no leaves being carried.",
+  "note": "leafcutter ants carrying leaves"
+ },
+ {
+  "id": "dieren-jungle-21",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A dense Asian jungle clearing with a river, a big muddy wallow and broken branches, no animals visible.",
+  "note": "elephant shown"
+ },
+ {
+  "id": "dieren-jungle-22",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "Thick Asian jungle undergrowth at dusk with large paw prints in the mud along a stream, no animal visible.",
+  "note": "tiger shown"
+ },
+ {
+  "id": "dieren-jungle-23",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child explorer in the jungle looking up at a cloudy sky with a puzzled face, nothing falling yet.",
+  "note": "rain shown; also hedgehog and squirrel are not jungle animals"
+ },
+ {
+  "id": "dieren-jungle-24",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A big empty leaf nest high in a rainforest tree with a view over the treetops, no animal visible.",
+  "note": "orangutan shown"
+ },
+ {
+  "id": "dieren-jungle-25",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A bright sunny day in the jungle with a dark cave opening in a cliff, the inside of the cave not visible.",
+  "note": "bats hanging asleep"
+ },
+ {
+  "id": "dieren-jungle-26",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A rain gauge standing in a lush tropical rainforest clearing under a grey sky, its scale not readable and water level hidden.",
+  "note": "rain gauge in temperate pine forest, not a rainforest"
+ },
+ {
+  "id": "dieren-jungle-27",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child with a torch walking on a dim rainforest floor between giant tree trunks, looking around curiously.",
+  "note": "dense canopy blocking light shows the answer"
+ },
+ {
+  "id": "dieren-jungle-28",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A tall rainforest tree with a hole high in the trunk, sunlight on the leaves, no birds visible.",
+  "note": "hornbill with casque shown"
+ },
+ {
+  "id": "dieren-jungle-29",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child explorer in the jungle reading a big field guide with a curious face, the jungle behind softly blurred.",
+  "note": "boy swinging on vines shows the liana"
+ },
+ {
+  "id": "dieren-jungle-30",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A wide brown Amazon river under a sunny sky seen from a small wooden canoe, the water surface hiding what swims below.",
+  "note": "piranha shown"
+ },
+ {
+  "id": "dieren-jungle-31",
+  "own_fits": false,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child explorer with binoculars standing on a riverbank looking out over the vast green Amazon rainforest.",
+  "note": "European woodland animals (robin, woodpecker, hedgehog), not the Amazon"
+ },
+ {
+  "id": "dieren-jungle-32",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A quiet path through the Congo rainforest with hoof prints in the mud and leaves nibbled off a bush, no animals visible.",
+  "note": "okapi shown"
+ },
+ {
+  "id": "dieren-jungle-33",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A friendly pharmacy counter with a pharmacist handing a closed medicine box to a child, nothing showing where it comes from.",
+  "note": "rainforest plant next to medicine bottle shows the answer"
+ },
+ {
+  "id": "dieren-jungle-34",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A row of tall rainforest trees with swaying branches and falling leaves as if something just rushed through, no animals visible.",
+  "note": "gibbon shown"
+ },
+ {
+  "id": "dieren-jungle-35",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A single fresh green leaf drifting down from the rainforest canopy toward the forest floor, mid-air.",
+  "note": "decaying leaf with fungi shows rotting"
+ },
+ {
+  "id": "dieren-jungle-36",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A child with a butterfly net walking along a sunny rainforest path, looking up eagerly, no butterflies visible.",
+  "note": "blue morpho shown"
+ },
+ {
+  "id": "dieren-jungle-37",
+  "own_fits": true,
+  "own_reveals": false,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "own",
+  "new_scene": null,
+  "note": ""
+ },
+ {
+  "id": "dieren-jungle-38",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A small explorer standing at the bottom of the rainforest looking up in awe, the view cropped so only the ground and the base of many trunks are visible.",
+  "note": "giant buttressed rainforest tree is the answer tree"
+ },
+ {
+  "id": "dieren-jungle-39",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "A hot sunny savanna-edge jungle scene with a shimmering heat haze and a thermometer-shaped sun, no animals visible.",
+  "note": "elephant flapping its ears"
+ },
+ {
+  "id": "dieren-jungle-40",
+  "own_fits": true,
+  "own_reveals": true,
+  "safe_fits": null,
+  "safe_reveals": null,
+  "use": "new",
+  "new_scene": "An island with tropical forest and rocky cliffs seen from the sea at sunset, no animals visible.",
+  "note": "ring-tailed lemurs shown"
+ }
+]
