@@ -156,3 +156,30 @@ test('works without a network: every clip and picture comes from the app itself'
   await playLesson(page, { wrongAt: 2 });
   expect(external).toEqual([]);
 });
+
+test('Talen in the overviews: a Woordjes tab in the collection, a line in the statistics, two achievements', async ({ page }) => {
+  const now = Date.now(), w = id => [`en:${id}`, { seen: 1, firstTryOk: 1, lastSeen: now, box: 2 }];
+  const talen = { themes: { dieren: { stars: 2, played: 3 } }, words: Object.fromEntries(['dolphin', 'octopus', 'whale', 'seal', 'parrot', 'frog', 'snake', 'gorilla', 'shark', 'chicken'].map(w)) };
+  const clips = [];
+  await boot(page, { state: SAVED({ progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], talen } }), clips });
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('words'));
+  await expect(page.locator('[data-tab="words"]')).toHaveClass(/active/);
+  await expect(page.locator('.talen-words-grid .talen-chip')).toHaveCount(10);
+  await expect(page.locator('.talen-msg')).toHaveText('10 woordjes in het Engels. Tik om ze te horen.');
+  await page.locator('.talen-chip[data-hear="shark"]').click();
+  await expect.poll(() => clips).toEqual(['en/shark.mp3', 'nl/_betekent.mp3', 'nl/shark.mp3']);
+  await page.evaluate(() => window.KWIZILLO_M1.showStats());
+  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('10 woordjes geleerd · 3 lessen');
+  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/5');
+  await page.evaluate(() => window.KWIZILLO_M1.showAchievements());
+  await expect(page.getByText('Eerste les in Talen')).toBeVisible();
+  await expect(page.getByText('10 woordjes geleerd', { exact: true })).toBeVisible();
+});
+
+test('a new player sees an empty Woordjes tab that leads to Talen', async ({ page }) => {
+  await boot(page);
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('words'));
+  await expect(page.locator('.empty-state h2')).toHaveText('Nog geen woordjes');
+  await page.locator('#toTalen').click();
+  await expect(page.locator('.talen-pass h1')).toHaveText('Taalpaspoort');
+});

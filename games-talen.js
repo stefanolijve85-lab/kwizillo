@@ -41,6 +41,15 @@
   // Stamps for the Home tile: themes with at least one star, out of all themes.
   K.talenStamps=()=>{const th=T().themes;return {done:th.filter(x=>Number(store().themes[x.id]?.stars||0)>0).length,total:th.length}};
 
+  // For the overviews (statistics, collection, achievements).
+  K.talenSummary=()=>{
+    const s=store(),l=learn();
+    const words=l?learnedIds():[];
+    const lessons=Object.values(s.themes).reduce((n,x)=>n+Number(x.played||0),0);
+    return {learn:l,stamps:K.talenStamps(),words,lessons,themes:T().themes.map(th=>({id:th.id,icon:th.icon,ready:ready(th),stars:Number(s.themes[th.id]?.stars||0),img:th.words[0]?.img||null}))};
+  };
+  K.talenWord=word;
+  K.talenHear=id=>hear(id);
   const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)])};
   const back=()=>{K.stopSpeech();K.sfx('tap');K.showTalen()};
 

@@ -1523,3 +1523,12 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-result .talen-chip{padding:3px 8px 3px 3px;font-size:13px;gap:6px}
 .talen-result .talen-chip img{width:28px;height:28px}
 .talen-result .talen-chip small{font-size:10px}
+/* collection: a fifth tab (Woordjes) */
+.collection-tabs{grid-template-columns:repeat(5,1fr)}
+.collection-tabs button{font-size:10.5px;padding-inline:2px}
+.talen-stamps-mini{grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+.talen-stamps-mini .talen-stamp{padding:5px 4px 7px;cursor:default}
+.talen-stamps-mini .talen-stamp b{font-size:10px}
+.talen-stamps-mini .talen-stamp-icon{font-size:20px}
+.talen-stamps-mini .talen-stars{font-size:10px}
+.talen-words-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}

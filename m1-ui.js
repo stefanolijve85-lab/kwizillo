@@ -358,7 +358,9 @@
       {icon:'🃏',key:'achievement.cards5',now:Math.min(5,cards),goal:5},
       {icon:'🗺️',key:'achievement.allWorlds',now:playedWorlds,goal:6},
       {icon:'🧠',key:'achievement.memo3',now:Math.min(3,Number(progress().games?.memo?.won||0)),goal:3},
-      {icon:'🔢',key:'achievement.math3',now:Math.min(3,Number(progress().games?.math?.won||0)),goal:3}
+      {icon:'🔢',key:'achievement.math3',now:Math.min(3,Number(progress().games?.math?.won||0)),goal:3},
+      {icon:'🗣️',key:'achievement.talenFirst',now:Math.min(1,K.talenSummary?.().lessons||0),goal:1},
+      {icon:'📖',key:'achievement.talen10',now:Math.min(10,K.talenSummary?.().words.length||0),goal:10}
     ].map(a=>({...a,done:a.now>=a.goal}));
 
     const body=`<div class="summary-hero"><div class="summary-icon">${K.icon('trophy')}</div><div><b>${esc(t('achievements.summary',{done:defs.filter(x=>x.done).length,total:defs.length}))}</b><span>${esc(t('achievements.summarySub'))}</span></div></div>
@@ -552,6 +554,16 @@
     }
     // The shop: coins from the games buy a golden card or a buddy the child has
     // not reached yet. Nothing here can be bought with money — see premium.js.
+    // Talen: the passport's stamps and every word learned; a tap says it again.
+    if(tab==='words'){
+      const T=K.talenSummary?.();
+      const l=T?.learn,app=K.state.language;
+      content=!T||!T.words.length
+        ?`<div class="empty-state"><div>🗣️</div><h2>${esc(t('collection.wordsEmpty'))}</h2><p>${esc(t('collection.wordsEmptyBody'))}</p><button class="talen-start" id="toTalen">${K.icon('play')} ${esc(t('talen.title'))}</button></div>`
+        :`<div class="talen-stamps talen-stamps-mini">${T.themes.map(th=>`<div class="talen-stamp ${th.stars?'done':''} ${th.ready?'':'soon'}">${th.img?`<img src="${th.img}" alt="">`:`<span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span>`}<b>${esc(t('talen.theme.'+th.id))}</b><span class="talen-stars">${[1,2,3].map(n=>`<i class="${n<=th.stars?'on':''}">★</i>`).join('')}</span></div>`).join('')}</div>
+          <p class="talen-msg">${esc(t('collection.wordsCount',{n:T.words.length,lang:t('talen.lang.'+l)}))}</p>
+          <div class="talen-learned talen-words-grid">${T.words.map(id=>{const w=K.talenWord(id);return `<button class="talen-chip" data-hear="${id}"><img src="${w.img}" alt=""><span><b>${esc(w.text[l])}</b><small>${esc(t('talen.means',{word:w.text[app]}))} 🔊</small></span></button>`}).join('')}</div>`;
+    }
     if(tab==='shop'){
       const wallet=Number(K.state.coins||0);
       const tile=(id,title,sub,price,art,cls='',fallback='')=>{
@@ -572,10 +584,12 @@
         ${buddies.length?`<h2 class="section-title">${esc(t('shop.mascots'))}</h2><div class="shop-grid">${buddies.join('')}</div>`:''}
         ${sold?`<p class="collection-note">${esc(t('shop.empty'))}</p>`:''}`;
     }
-    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${K.cardCount()}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
+    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${K.cardCount()}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="words" class="${tab==='words'?'active':''}">${esc(t('collection.tabWords'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
     const f=nativeScreen({cls:'collection-screen',title:t('collection.title'),subtitle:t('collection.sub'),body,active:'collection'});
     wireFallbacks(f);
     f.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showCollection(b.dataset.tab)});
+    f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.talenHear?.(b.dataset.hear)});
+    f.querySelector('#toTalen')?.addEventListener('click',()=>{K.sfx('tap');K.showTalen()});
     // A golden or runner card opens large as well.
     const zoom=html=>{K.sfx('swoosh');const z=document.createElement('div');z.className='kcard-zoom fade-in';z.innerHTML=html;z.querySelector('.kcard').removeAttribute('data-gold');z.querySelector('.kcard').removeAttribute('data-runner');wireFallbacks(z);z.onclick=()=>{K.sfx('tap');z.remove()};f.appendChild(z)};
     f.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>zoom(goldCard(b.dataset.gold)));
@@ -675,6 +689,7 @@
       ${game('🏃',t('jungle.title'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}
       ${game('❓',t('whoami.title'),t('stats.playedLine',{played:Number(G.whoami?.played||0)}),G.whoami?.best?`${G.whoami.best} ⭐`:'')}
       ${game('🔍',t('fotozoom.title'),t('stats.playedLine',{played:Number(G.fotozoom?.played||0)}),G.fotozoom?.best?`${G.fotozoom.best} ⭐`:'')}
+      ${(T=>T?game('🗣️',t('talen.title'),t('stats.talenLine',{words:T.words.length,lessons:T.lessons}),T.stamps.done?`★ ${T.stamps.done}/${T.stamps.total}`:''):'')(K.talenSummary?.())}
     </div>`;
     const body=`${hero}${chips}
       <h2 class="section-title">${esc(t('score.title'))}</h2>${records}
