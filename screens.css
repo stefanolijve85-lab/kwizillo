@@ -1455,3 +1455,12 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .native-panel-screen:is(.parent-screen,.stats-screen,.achievements-screen,.collection-screen,.privacy-screen,.profile-screen) .panel-scroll{padding-top:14px}
 /* where the bottom bar shows "Meer", the gear top right is gone; an empty spacer keeps the title centred */
 .panel-spacer{visibility:hidden;pointer-events:none}
+/* World tile names scale with the tile, not with the screen: on an iPad the
+   screen is wide but the tile is not, and the name ran into the level badge. */
+.home-world{container-type:inline-size}
+.home-world-copy{padding:6px 6px 9px}
+.home-world-copy b{font-size:clamp(13px,11.5cqw,21px)}
+.home-world .home-world-level{font-size:clamp(8px,5cqw,10px);padding:2px 6px;top:5px;inset-inline-end:5px}
+/* three game tiles per row (iPad): a little lower, the worlds get the height */
+@media(min-width:431px){.home-game.art{aspect-ratio:16/8}}
+@media(max-height:700px){.home-world-copy{padding:3px 5px 6px}.home-world-copy b{font-size:clamp(12px,9.5cqw,17px)}.home-world .home-world-level{font-size:7.5px;padding:1px 5px;top:3px;inset-inline-end:4px}}
