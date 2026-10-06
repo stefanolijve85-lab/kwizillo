@@ -117,7 +117,7 @@
   K.BRAND_LOGO_SHADOW='assets/brand/logo-shadow.png';
   // Menu tiles for the two extra games.
   // New file names on every re-render: assets are cached for a day, so a replaced image under the same name would show stale.
-  K.GAME_ART={memo:'assets/games/memo-island.jpg',math:'assets/games/math-island.jpg',memoAll:'assets/games/worlds-all.jpg',facts:'assets/games/facts-island.jpg',whoami:'assets/games/whoami-island.jpg',jungle:'assets/games/jungle-runner.jpg',fotozoom:'assets/games/fotozoom-island.jpg'};
+  K.GAME_ART={memo:'assets/games/memo-island.jpg',math:'assets/games/math-island.jpg',memoAll:'assets/games/worlds-all.jpg',facts:'assets/games/facts-island.jpg',whoami:'assets/games/whoami-island.jpg',jungle:'assets/games/jungle-runner.jpg',fotozoom:'assets/games/fotozoom-island.jpg',talen:'assets/games/talen-island.jpg'};
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:
   // Home HUD, voice pickers, onboarding, feedback and result cards.

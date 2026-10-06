@@ -275,8 +275,9 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
   await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
   // The order a parent reads top to bottom; the school group is set in the onboarding only
   // (it looked like a second difficulty setting next to the play level).
+  // language, then the Talen learning language (a second lang-card)
   const order = await page.locator('.settings-list > section').evaluateAll(els => els.map(e => e.id || [...e.classList].find(c => c !== 'setting-card' && c !== 'clickable') || ''));
-  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'shareOpen', 'privacyOpen', 'resetOpen', 'logoutOpen', 'deleteOpen']);
+  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'shareOpen', 'privacyOpen', 'resetOpen', 'logoutOpen', 'deleteOpen']);
   await expect(page.locator('.settings-list > :first-child')).toContainText('Premium');
   await expect(page.locator('[data-group]')).toHaveCount(0);
   // the eight world levels as a 2×4 grid

@@ -208,7 +208,8 @@
     math:level=>Number(level||1)<=FREE.mathMaxLevel,
     memo:world=>FREE.memoWorlds.includes(world||'mix'),
     fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld,
-    mega:()=>false                // the Mega Quiz asks questions from every world: Premium only
+    mega:()=>false,               // the Mega Quiz asks questions from every world: Premium only
+    talen:id=>!!K.TALEN?.themes?.find(x=>x.id===id)?.free   // Talen: the animals are free, the other themes Premium
   };
   // can('quiz', world, topicKey, quizNumber) — true when free or Premium.
   const can=(kind,...args)=>isPremium()||!!rules[kind]?.(...args);

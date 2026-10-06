@@ -1470,3 +1470,56 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* parent zone: the ten languages fill the card in two rows of five, like the six levels; English first, then Dutch */
 .setting-card.lang-card .lang-toggle{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .setting-card.lang-card .lang-toggle button{min-width:0;min-height:44px;justify-content:center}
+
+/* ==== Talen (phase 1): passport, Hoor en tik, result. Built on the game
+   pickers, the Wat ben ik? card and the result card; only what Talen adds. ==== */
+/* Runner as a banner: the Mega Quiz banner's component; the runner in view on the right */
+.home-runner .home-game-art{object-position:70% 45%}
+/* passport */
+.talen-scroll{display:flex;flex-direction:column;gap:12px;overflow:auto}
+.talen-msg{margin:0;text-align:center;color:#10175b;font-weight:1000;letter-spacing:-.01em;font-size:14px}
+.talen-stamps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.talen-stamp{position:relative;display:grid;justify-items:center;align-content:start;gap:4px;padding:8px 6px 10px;border-radius:20px;border:2px solid rgba(255,255,255,.8);background:#fff;box-shadow:0 6px 0 #a8d9f4,0 10px 16px rgba(22,84,149,.14);color:#10175b;font:inherit;font-weight:1000;cursor:pointer;text-align:center}
+.talen-stamp img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+.talen-stamp b{font-size:13px;letter-spacing:-.01em}
+.talen-stamp.done{border-color:#ffd23f;box-shadow:0 6px 0 #e0a800,0 0 18px rgba(255,200,40,.35)}
+.talen-stamp.soon{cursor:default;opacity:.62;background:#eef6ff}
+.talen-stamp.soon small{font-size:11px;color:#5a7aa3}
+.talen-stamp-icon{display:grid;place-items:center;width:100%;aspect-ratio:1;font-size:34px;border-radius:14px;background:#dcecff}
+.talen-stamp.locked img{filter:saturate(.5) brightness(.85)}
+.talen-stars{display:flex;gap:2px;font-size:15px;line-height:1}.talen-stars i{font-style:normal;color:#cfdcec}.talen-stars i.on{color:#ffb300}
+.talen-start{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe969,#ffbd23);color:#17235e;font:inherit;font-weight:1000;font-size:17px;box-shadow:0 5px 0 #dc8c12;cursor:pointer}
+.talen-start.secondary{background:linear-gradient(180deg,#9c6cff,#6536e8);color:#fff;box-shadow:0 5px 0 #4a22b7}
+.talen-review{display:grid;gap:10px;padding:12px;border-radius:20px;background:#fff;box-shadow:0 6px 14px rgba(20,70,128,.1)}
+.talen-review b{color:#10175b}.talen-review small{display:block;color:#5a7aa3;font-weight:900}
+.talen-chips,.talen-learned{display:flex;flex-wrap:wrap;gap:8px}
+.talen-chip{display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:999px;border:2px solid #cfe4f8;background:#fff;color:#10175b;font:inherit;font-weight:1000;cursor:pointer;text-align:start}
+.talen-chip img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.talen-chip small{display:block;font-size:11px;color:#5a7aa3}
+.talen-soon-lang{display:grid;justify-items:center;gap:8px;padding:28px 16px;border-radius:22px;background:#fff;color:#10175b;font-weight:1000;text-align:center}.talen-soon-lang span{font-size:42px}
+/* Hoor en tik */
+.talen-say{display:grid;place-items:center;min-height:64px;border:2px solid #d6eaf9;font:inherit;font-weight:1000;font-size:clamp(22px,6vw,30px);color:#10175b;cursor:pointer}
+.talen-say.pulse{animation:talenPulse 1s ease-in-out infinite}
+.talen-milo.talking{animation:talenTalk .35s ease-in-out infinite alternate}
+.talen-card .whoami-grid{grid-auto-rows:1fr}
+.talen-tile .talen-label{display:none;font-weight:1000;letter-spacing:-.01em}
+.talen-tile .talen-label span{display:block;font-size:clamp(15px,4vw,19px)}
+.talen-tile .talen-label small{display:block;font-size:11px;opacity:.95}
+.talen-tile.correct .talen-label{display:block}
+.talen-tile.wrong{pointer-events:none;animation:talenShake .4s ease}
+/* result: the stamp lands on the card */
+.talen-stamp-fly{position:absolute;right:12%;top:8%;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#fff6c4;border:3px solid #ffd23f;font-size:32px;box-shadow:0 6px 16px rgba(120,80,0,.3);animation:talenStamp .7s cubic-bezier(.2,1.4,.4,1) .3s both}
+.talen-result .talen-learned{justify-content:center;margin:4px 0 10px}
+@keyframes talenPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes talenTalk{from{transform:translateY(0)}to{transform:translateY(-3px) rotate(-2deg)}}
+@keyframes talenShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes talenStamp{from{opacity:0;transform:scale(2.4) rotate(-25deg)}to{opacity:1;transform:scale(1) rotate(-8deg)}}
+@media (prefers-reduced-motion:reduce){.talen-say.pulse,.talen-milo.talking,.talen-tile.wrong,.talen-stamp-fly{animation:none}}
+/* passport: compact stamps, not stretched over the panel */
+.talen-pass .panel-scroll.talen-scroll{display:flex;flex-direction:column;grid-template-rows:none;overflow:auto}
+.talen-stamps{align-items:start;grid-auto-rows:auto}
+/* result: the learned words in two compact columns, above the buttons */
+.talen-result .talen-learned{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:34vh;overflow:auto}
+.talen-result .talen-chip{padding:3px 8px 3px 3px;font-size:13px;gap:6px}
+.talen-result .talen-chip img{width:28px;height:28px}
+.talen-result .talen-chip small{font-size:10px}

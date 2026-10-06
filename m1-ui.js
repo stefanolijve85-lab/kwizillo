@@ -228,14 +228,21 @@
         <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>
         <div class="home-worlds">${worldCards}</div>
 
+        <!-- The Runner as a wide banner: the Mega Quiz banner's component and styles, between the worlds and "Speel ook" -->
+        <button class="home-mega home-runner" id="homeJungle" aria-label="${esc(t('jungle.title'))} · ${esc(t('jungle.bannerSub'))}">
+          <img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-mega-veil"></span>
+          ${(b=>b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:'')(Number(K.progress().games?.jungle?.best||0))}
+          <span class="home-mega-copy"><b>${esc(t('jungle.title'))}</b><small>${esc(t('jungle.bannerSub'))}</small></span>
+        </button>
+
         <h2 class="home-section">${esc(t('home.playMore'))}</h2>
         <div class="home-games">
-          <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
+          <button class="home-game art talen" id="homeTalen"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${(s=>s.done?`<span class="home-world-level">★ ${s.done}/${s.total}</span>`:'')(K.talenStamps?.()||{done:0})}<b>${esc(t('talen.title'))}</b></button>
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
           <button class="home-game art whoami" id="homeWhoAmI"><img class="home-game-art" src="${K.GAME_ART.whoami}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('whoami.title'))}</b></button>
           <button class="home-game art fotozoom" id="homeFotozoom"><img class="home-game-art" src="${K.GAME_ART.fotozoom}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('fotozoom.title'))}</b></button>
           <button class="home-game art facts" id="homeFacts"><img class="home-game-art" src="${K.GAME_ART.facts}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('facts.title'))}</b></button>
-          <button class="home-game art jungle" id="homeJungle"><img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('jungle.title'))}</b></button>
+          <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
         </div>
 
         ${bottomNav('home')}
@@ -246,6 +253,7 @@
     f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
+    f.querySelector('#homeTalen').onclick=()=>{K.sfx('tap');K.showTalen()};
     f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.showGamePicker('whoami')};
     f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
     f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');K.showGamePicker('fotozoom')};
@@ -806,6 +814,7 @@
       ${K.premiumCard()}
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
       <section class="setting-card lang-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${langOrder().map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
+      <section class="setting-card lang-card learn-card"><div class="setting-icon">🗣️</div><div><b>${esc(t('settings.learnLang'))}</b><small>${esc(K.talenLearnLang?.()?t('settings.learnLangSub'):t('talen.soonLang'))}</small></div>${K.talenLearnLang?.()?`<div class="lang-toggle learn-toggle">${langOrder().filter(l=>K.TALEN.langs.includes(l.id)&&l.id!==K.state.language).map(l=>`<button data-learn="${l.id}" class="${K.talenLearnLang()===l.id?'active':''}">${l.flag} ${esc(t('talen.lang.'+l.id))}</button>`).join('')}</div>`:''}</section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitPerWorld'))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
@@ -819,6 +828,7 @@
     </div>`;
     const f=nativeScreen({cls:'parent-screen',title:t('settings.title'),subtitle:t('settings.sub'),body,active:'parent'});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
+    f.querySelectorAll('[data-learn]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.learnLang=b.dataset.learn;K.save();K.showParent()});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelectorAll('[data-tour]').forEach(b=>b.onclick=()=>{K.sfx('tap');const guide=b.dataset.tour;K.showHome();setTimeout(()=>K.startTour({guide}),320)});
     K.warmTour?.('milo');K.warmTour?.('luna');   // either tour starts talking at once

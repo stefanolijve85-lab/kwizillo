@@ -375,6 +375,33 @@
     }
   };
   K.speak=(text,opts)=>K.speakSequence([{kind:'speech',text}],opts);
+  // Clips that ship with the app (Talen: assets/talen/audio/), played one after
+  // the other through the same voice path as the guide: the music ducks, a tap
+  // elsewhere stops them, and they work without the speech server or a network.
+  // Talen is listening, not reading, so these play even when the guide is silent.
+  // onClip(i) is called as clip i starts.
+  const clipCache=new Map();
+  K.playClips=async(urls,{gap=140,onClip}={})=>{
+    urls=(urls||[]).filter(Boolean);if(!urls.length)return true;
+    K.stopSpeech();
+    const token=gate.begin();
+    K.audio.duck(true);
+    try{
+      for(let i=0;i<urls.length;i++){
+        if(!gate.isCurrent(token))return false;
+        let blob=clipCache.get(urls[i]);
+        if(!blob){try{const r=await fetch(urls[i]);if(!r.ok)continue;blob=await r.blob();clipCache.set(urls[i],blob)}catch(e){continue}}
+        if(!gate.isCurrent(token))return false;
+        try{onClip?.(i)}catch(e){}
+        const finished=await playVoiceBlob(blob,token);
+        if(!finished||!gate.isCurrent(token))return false;
+        if(i<urls.length-1)await pause(gap,token);
+      }
+      return true;
+    }finally{
+      if(gate.isCurrent(token))K.audio.duck(false);
+    }
+  };
 
   // ?debug shows an on-screen log (for phones without a console). Always mirrors to console.info.
   const DEBUG=new URLSearchParams(location.search).has('debug');
