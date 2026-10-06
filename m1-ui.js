@@ -169,7 +169,7 @@
   }
   K.bottomNav=bottomNav;K.bindNav=bindNav;
   function nativeScreen({cls='',title,subtitle='',body,active='',back=()=>K.showHome()}){
-    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('common.brand'))}</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
+    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><img class="panel-logo" src="${K.BRAND_LOGO}" alt="${esc(t('common.brand'))}" decoding="async"><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
     bindNav(f);return f;
   }
@@ -214,9 +214,7 @@
             <img class="hud-logo" src="${K.BRAND_LOGO}" alt="Kwizillo" decoding="async">
             <span class="hud-id"><b>${esc(greeting)}</b></span>
           </div>
-          <div class="hud-right">
-            <!-- one button for the statistics: coins and streak side by side -->
-            <button class="hud-chip hud-stats" data-stats aria-label="${esc(t('home.coins'))} · ${esc(t('home.streak'))}"><span>${K.icon('coin')} ${Number(K.state.coins||0)}</span><span>${K.icon('flame')} ${Number(K.state.streak||0)}</span></button>
+          <div class="hud-right" aria-hidden="true">
           </div>
         </header>
 

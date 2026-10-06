@@ -75,7 +75,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   await inRunner(page, '[data-act=exit]').click();
   await expect(page.locator('.home')).toBeVisible();
   await expect(runner(page)).toHaveCount(0);
-  await expect(page.locator('.hud-chip[data-stats]').first()).toContainText(String(booked.coins));
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(booked.coins);   // Home has no coin button any more; the coins are in the statistics
   expect(errors).toEqual([]);
 });
 
