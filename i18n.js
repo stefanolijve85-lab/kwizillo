@@ -452,6 +452,7 @@
     'collection.emptyTitle':'Nog geen kaarten',
     'collection.emptyBody':'Beantwoord vragen goed om kenniskaarten te verzamelen.',
     'collection.mascotLocked':'Nog {n} goede antwoorden',
+    'collection.mascotShop':'In de winkel: {n} munten',
     'collection.mascotActive':'Actief ✓',
     'collection.mascotChoose':'Kies maatje',
     'collection.mascotCount':'{unlocked}/{total} maatjes vrijgespeeld',
@@ -474,6 +475,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Uitvinder in de dop',
     'mascot.flora':'Flora','mascot.flora.desc':'Vriendin van de natuur',
     'mascot.draco':'Draco','mascot.draco.desc':'Kleine kasteeldraak',
+    'mascot.mike':'Mike','mascot.mike.desc':'Muziekfan met koptelefoon',
 
     'stats.title':'Statistieken',
     'stats.sub':'Echte voortgang uit jouw gespeelde vragen',
@@ -1064,6 +1066,7 @@
     'collection.emptyTitle':'No cards yet',
     'collection.emptyBody':'Answer questions correctly to collect knowledge cards.',
     'collection.mascotLocked':'{n} more correct answers',
+    'collection.mascotShop':'In the shop: {n} coins',
     'collection.mascotActive':'Active ✓',
     'collection.mascotChoose':'Choose buddy',
     'collection.mascotCount':'{unlocked}/{total} buddies unlocked',
@@ -1086,6 +1089,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Inventor in the making',
     'mascot.flora':'Flora','mascot.flora.desc':'Friend of nature',
     'mascot.draco':'Draco','mascot.draco.desc':'Little castle dragon',
+    'mascot.mike':'Mike','mascot.mike.desc':'Music fan with headphones',
 
     'stats.title':'Stats',
     'stats.sub':'Real progress from the questions you played',
@@ -1676,6 +1680,7 @@
     'collection.emptyTitle':'Ainda sem cartas',
     'collection.emptyBody':'Acerte perguntas para colecionar cartas de conhecimento.',
     'collection.mascotLocked':'Mais {n} respostas certas',
+    'collection.mascotShop':'Na loja: {n} moedas',
     'collection.mascotActive':'Ativo ✓',
     'collection.mascotChoose':'Escolher amigo',
     'collection.mascotCount':'{unlocked}/{total} amigos desbloqueados',
@@ -1698,6 +1703,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Inventor em formação',
     'mascot.flora':'Flora','mascot.flora.desc':'Amiga da natureza',
     'mascot.draco':'Draco','mascot.draco.desc':'Dragãozinho do castelo',
+    'mascot.mike':'Mike','mascot.mike.desc':'Fã de música com auscultadores',
 
     'stats.title':'Estatísticas',
     'stats.sub':'Progresso real das perguntas que você jogou',

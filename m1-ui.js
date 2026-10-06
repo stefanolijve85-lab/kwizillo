@@ -29,7 +29,9 @@
     {id:'pip',icon:'🐧',need:930,was:115},
     {id:'ravi',icon:'🥽',need:1045,was:140},
     {id:'flora',icon:'🦋',need:1165,was:170},
-    {id:'draco',icon:'🐉',need:1280,was:200}
+    {id:'draco',icon:'🐉',need:1280,was:200},
+    // Only in the shop (2026-10-07): no number of answers opens him, 1500 coins buy him.
+    {id:'mike',icon:'🎧',need:Infinity,price:1500}
   ].filter(m=>K.MASCOT_ART?.[m.id]);
 
   // One line per level for the parent zone: time, mistakes, hints, reading.
@@ -88,7 +90,7 @@
   // on one card. The buddies climb from a first one that a day of playing pays
   // for to a dragon that takes a while — the ladder follows how far into the
   // game the buddy would otherwise unlock itself.
-  const mascotPrice=m=>Math.max(100,Math.round((60+m.was*8)/50)*50);   // the shop keeps its prices
+  const mascotPrice=m=>m.price||Math.max(100,Math.round((60+m.was*8)/50)*50);   // the shop keeps its prices
   const GOLD_PRICE=1000;
 
   // A single place that records one answered question across every counter, and
@@ -547,7 +549,7 @@
         // locked buddy is a dark silhouette with a lock and how many more
         // correct answers it takes.
         const art=K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id];
-        const sub=ok?'':`<small>${esc(t('collection.mascotLocked',{n:Math.max(0,m.need-mascotProgress())}))}</small>`;
+        const sub=ok?'':`<small>${esc(Number.isFinite(m.need)?t('collection.mascotLocked',{n:Math.max(0,m.need-mascotProgress())}):t('collection.mascotShop',{n:mascotPrice(m)}))}</small>`;
         const state=sel?`<span class="mascot-state">${esc(t('collection.mascotActive'))}</span>`:'';
         return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'} aria-label="${esc(t(`mascot.${m.id}`))}"><img class="mascot-fill" src="${art}" alt="" decoding="async">${ok?'':'<i class="mascot-lock">🔒</i>'}${state}<b class="mascot-name">${esc(t(`mascot.${m.id}`))}${sub}</b></button>`;
       }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
@@ -577,7 +579,7 @@
         </article>`;
       };
       const golds=shown().map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,goldArt(w),'is-gold',K.goldFallback(w)));
-      const buddies=MASCOTS.filter(m=>mascotProgress()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
+      const buddies=MASCOTS.filter(m=>mascotProgress()<m.need).sort((a,b)=>mascotPrice(a)-mascotPrice(b)).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
       const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
       content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
         <h2 class="section-title">${esc(t('shop.cards'))}</h2><div class="shop-grid">${golds.join('')}</div>

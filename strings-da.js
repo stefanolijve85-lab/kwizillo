@@ -450,6 +450,7 @@
     'collection.emptyTitle':'Ingen kort endnu',
     'collection.emptyBody':'Svar rigtigt på spørgsmålene for at samle videnskort.',
     'collection.mascotLocked':'{n} rigtige svar mere',
+    'collection.mascotShop':'I butikken: {n} mønter',
     'collection.mascotActive':'Aktiv ✓',
     'collection.mascotChoose':'Vælg ven',
     'collection.mascotCount':'{unlocked}/{total} venner låst op',
@@ -472,6 +473,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Opfinder i lære',
     'mascot.flora':'Flora','mascot.flora.desc':'Naturens ven',
     'mascot.draco':'Draco','mascot.draco.desc':'Lille borgdrage',
+    'mascot.mike':'Mike','mascot.mike.desc':'Musikfan med høretelefoner',
 
     'stats.title':'Tal',
     'stats.sub':'Rigtig fremgang fra de spørgsmål, du har spillet',

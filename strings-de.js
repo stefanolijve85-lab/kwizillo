@@ -450,6 +450,7 @@
     'collection.emptyTitle':'Noch keine Karten',
     'collection.emptyBody':'Beantworte Fragen richtig, um Wissenskarten zu sammeln.',
     'collection.mascotLocked':'noch {n} richtige Antworten',
+    'collection.mascotShop':'Im Laden: {n} Münzen',
     'collection.mascotActive':'Aktiv ✓',
     'collection.mascotChoose':'Kumpel wählen',
     'collection.mascotCount':'{unlocked}/{total} Kumpel freigeschaltet',
@@ -472,6 +473,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Erfinder in Ausbildung',
     'mascot.flora':'Flora','mascot.flora.desc':'Freundin der Natur',
     'mascot.draco':'Draco','mascot.draco.desc':'Kleiner Burgdrache',
+    'mascot.mike':'Mike','mascot.mike.desc':'Musikfan mit Kopfhörern',
 
     'stats.title':'Statistik',
     'stats.sub':'Echter Fortschritt aus deinen gespielten Fragen',

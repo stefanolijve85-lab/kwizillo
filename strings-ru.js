@@ -450,6 +450,7 @@
     'collection.emptyTitle':'Карточек пока нет',
     'collection.emptyBody':'Отвечай на вопросы правильно, чтобы собирать карточки знаний.',
     'collection.mascotLocked':'ещё {n} правильных ответов',
+    'collection.mascotShop':'В магазине: {n} монет',
     'collection.mascotActive':'Активен ✓',
     'collection.mascotChoose':'Выбрать друга',
     'collection.mascotCount':'Открыто друзей: {unlocked}/{total}',
@@ -472,6 +473,7 @@
     'mascot.ravi':'Рави','mascot.ravi.desc':'Будущий изобретатель',
     'mascot.flora':'Флора','mascot.flora.desc':'Подруга природы',
     'mascot.draco':'Драко','mascot.draco.desc':'Маленький дракон из замка',
+    'mascot.mike':'Mike','mascot.mike.desc':'Меломан в наушниках',
 
     'stats.title':'Успехи',
     'stats.sub':'Настоящий прогресс по сыгранным вопросам',

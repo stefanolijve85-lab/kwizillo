@@ -155,3 +155,17 @@ test('the record book keeps the best exercise, day, week, month and year', async
   await expect(board.locator('.record-alltime b')).toHaveText('160');
   await expect(page.locator('.stats-screen')).toContainText('van 1500 punten vandaag');
 });
+
+// Mike is only in the shop (2026-10-07): no number of right answers opens him, 1500 coins buy him.
+test('Mike is a shop-only buddy for 1500 coins', async ({ page }) => {
+  await boot(page, { coins: 1600, correct: 2000, mascotLadder: 1280 });
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
+  await expect(page.locator('.mascot-card', { hasText: 'Mike' })).toContainText('In de winkel: 1500 munten');
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('shop'));
+  await expect(page.locator('[data-buy="mascot:mike"]')).toHaveAttribute('data-price', '1500');
+  await page.locator('[data-buy="mascot:mike"]').click();
+  await page.locator('.simple-modal .confirm.buy').click();
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.state.coins, window.KWIZILLO_M1.owned('mascot:mike')])).toEqual([100, true]);
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
+  await expect(page.locator('.mascot-card.unlocked', { hasText: 'Mike' })).toHaveCount(1);
+});

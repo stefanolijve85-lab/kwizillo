@@ -451,6 +451,7 @@
     'collection.emptyTitle':'Pas encore de cartes',
     'collection.emptyBody':'Réponds juste aux questions pour collectionner des cartes de connaissances.',
     'collection.mascotLocked':'encore {n} bonnes réponses',
+    'collection.mascotShop':'Dans la boutique : {n} pièces',
     'collection.mascotActive':'Actif ✓',
     'collection.mascotChoose':'Choisir un copain',
     'collection.mascotCount':'{unlocked}/{total} copains débloqués',
@@ -473,6 +474,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Inventeur en herbe',
     'mascot.flora':'Flora','mascot.flora.desc':'Amie de la nature',
     'mascot.draco':'Draco','mascot.draco.desc':'Petit dragon du château',
+    'mascot.mike':'Mike','mascot.mike.desc':'Fan de musique avec son casque',
 
     'stats.title':'Stats',
     'stats.sub':'De vrais progrès, tirés de tes questions jouées',

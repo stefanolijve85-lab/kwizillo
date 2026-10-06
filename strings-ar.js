@@ -615,6 +615,7 @@
     'collection.emptyTitle':'لا بطاقات بعد',
     'collection.emptyBody':'أجب عن الأسئلة إجابة صحيحة لتجمع بطاقات المعرفة.',
     'collection.mascotLocked':'{n} إجابات صحيحة إضافية',
+    'collection.mascotShop':'في المتجر: {n} عملة',
     'collection.mascotActive':'نشط ✓',
     'collection.mascotChoose':'اختر صديقًا',
     'collection.mascotCount':'فتحت {unlocked}/{total} أصدقاء',
@@ -643,6 +644,7 @@
     'mascot.flora.desc':'صديقة الطبيعة',
     'mascot.draco':'دراكو',
     'mascot.draco.desc':'تنين القلعة الصغير',
+    'mascot.mike':'Mike','mascot.mike.desc':'محبّ الموسيقى بسماعاته',
 
     'stats.title':'الأرقام',
     'stats.sub':'تقدم حقيقي من الأسئلة التي لعبتها',

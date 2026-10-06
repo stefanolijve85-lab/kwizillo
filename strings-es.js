@@ -451,6 +451,7 @@
     'collection.emptyTitle':'Todavía no hay cartas',
     'collection.emptyBody':'Responde bien a las preguntas para coleccionar cartas de conocimiento.',
     'collection.mascotLocked':'faltan {n} respuestas correctas',
+    'collection.mascotShop':'En la tienda: {n} monedas',
     'collection.mascotActive':'Activo ✓',
     'collection.mascotChoose':'Elegir colega',
     'collection.mascotCount':'{unlocked}/{total} colegas desbloqueados',
@@ -473,6 +474,7 @@
     'mascot.ravi':'Ravi','mascot.ravi.desc':'Inventor en prácticas',
     'mascot.flora':'Flora','mascot.flora.desc':'Amiga de la naturaleza',
     'mascot.draco':'Draco','mascot.draco.desc':'Dragoncito del castillo',
+    'mascot.mike':'Mike','mascot.mike.desc':'Fan de la música con auriculares',
 
     'stats.title':'Datos',
     'stats.sub':'Progreso real de las preguntas que has jugado',
