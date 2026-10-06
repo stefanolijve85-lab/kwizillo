@@ -12,20 +12,24 @@
   // (upbeat); no new music had to be written for the two newcomers.
   const WORLD_MUSIC={ruimte:'space',dieren:'jungle',aarde:'earth',geschiedenis:'history',wetenschap:'science',mysterie:'mystery',kunst:'home',sport:'play'};
   const MASCOTS=[
-    {id:'milo',icon:'🤖',need:0},
-    {id:'comet',icon:'🌠',need:5},
-    {id:'pootje',icon:'🐾',need:12},
-    {id:'terra',icon:'🌱',need:20},
-    {id:'sparky',icon:'⚗️',need:35},
-    {id:'lumi',icon:'🔮',need:50},
+    // need: different questions answered right. The eleven buddies after Milo
+    // are spread evenly over all 1280 questions (2026-10-06: they came far too
+    // fast at 5…200). was: the old ladder, which still sets the shop price and
+    // decides what a player who started before the change has already earned.
+    {id:'milo',icon:'🤖',need:0,was:0},
+    {id:'comet',icon:'🌠',need:115,was:5},
+    {id:'pootje',icon:'🐾',need:235,was:12},
+    {id:'terra',icon:'🌱',need:350,was:20},
+    {id:'sparky',icon:'⚗️',need:465,was:35},
+    {id:'lumi',icon:'🔮',need:580,was:50},
     // Six more buddies (see tools/mascot-prompts.md); a buddy without art in
     // K.MASCOT_ART stays hidden until its picture is added.
-    {id:'nova',icon:'👩‍🚀',need:70},
-    {id:'kiko',icon:'🐼',need:90},
-    {id:'pip',icon:'🐧',need:115},
-    {id:'ravi',icon:'🥽',need:140},
-    {id:'flora',icon:'🦋',need:170},
-    {id:'draco',icon:'🐉',need:200}
+    {id:'nova',icon:'👩‍🚀',need:700,was:70},
+    {id:'kiko',icon:'🐼',need:815,was:90},
+    {id:'pip',icon:'🐧',need:930,was:115},
+    {id:'ravi',icon:'🥽',need:1045,was:140},
+    {id:'flora',icon:'🦋',need:1165,was:170},
+    {id:'draco',icon:'🐉',need:1280,was:200}
   ].filter(m=>K.MASCOT_ART?.[m.id]);
 
   // One line per level for the parent zone: time, mistakes, hints, reading.
@@ -64,7 +68,17 @@
   const totalCorrect=()=>Number(K.state.correct||0);
   // A buddy is earned by answering, or bought with coins in the shop; both
   // paths end in the same unlocked tile.
-  const mascotOwned=m=>totalCorrect()>=m.need||K.owned(`mascot:${m.id}`);
+  // Buddies count different questions answered right (at most 1280), so the
+  // same easy quiz played again does not bring the next one closer.
+  const mascotProgress=()=>(progress().correctQuestionIds||[]).length;
+  // Whoever played before the new ladder keeps every buddy the old one gave
+  // them: those become owned, once per player (the state carries the mark).
+  function keepEarnedBuddies(){
+    if(K.state.mascotLadder===1280) return;
+    for(const m of MASCOTS) if(m.need&&totalCorrect()>=m.was&&!K.owned(`mascot:${m.id}`)) K.own(`mascot:${m.id}`);
+    K.state.mascotLadder=1280;K.save();
+  }
+  const mascotOwned=m=>{keepEarnedBuddies();return mascotProgress()>=m.need||K.owned(`mascot:${m.id}`)};
   const unlockedMascots=()=>MASCOTS.filter(mascotOwned);
   // What a buddy costs: the answers it would otherwise take, at six coins each,
   // rounded to fifty. Roughly a day of games for the first, a week for the last.
@@ -72,7 +86,7 @@
   // on one card. The buddies climb from a first one that a day of playing pays
   // for to a dragon that takes a while — the ladder follows how far into the
   // game the buddy would otherwise unlock itself.
-  const mascotPrice=m=>Math.max(100,Math.round((60+m.need*8)/50)*50);
+  const mascotPrice=m=>Math.max(100,Math.round((60+m.was*8)/50)*50);   // the shop keeps its prices
   const GOLD_PRICE=1000;
 
   // A single place that records one answered question across every counter, and
@@ -529,7 +543,7 @@
         // locked buddy is a dark silhouette with a lock and how many more
         // correct answers it takes.
         const art=K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id];
-        const sub=ok?'':`<small>${esc(t('collection.mascotLocked',{n:Math.max(0,m.need-totalCorrect())}))}</small>`;
+        const sub=ok?'':`<small>${esc(t('collection.mascotLocked',{n:Math.max(0,m.need-mascotProgress())}))}</small>`;
         const state=sel?`<span class="mascot-state">${esc(t('collection.mascotActive'))}</span>`:'';
         return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'} aria-label="${esc(t(`mascot.${m.id}`))}"><img class="mascot-fill" src="${art}" alt="" decoding="async">${ok?'':'<i class="mascot-lock">🔒</i>'}${state}<b class="mascot-name">${esc(t(`mascot.${m.id}`))}${sub}</b></button>`;
       }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
@@ -549,7 +563,7 @@
         </article>`;
       };
       const golds=shown().map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,goldArt(w),'is-gold',K.goldFallback(w)));
-      const buddies=MASCOTS.filter(m=>totalCorrect()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
+      const buddies=MASCOTS.filter(m=>mascotProgress()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
       const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
       content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
         <h2 class="section-title">${esc(t('shop.cards'))}</h2><div class="shop-grid">${golds.join('')}</div>
@@ -796,13 +810,11 @@
     const musicLine=t('settings.soundMusic',{state:t(K.state.musicOn===false?'settings.off':'settings.on')});
     const body=`<div class="settings-list">
       ${K.premiumCard()}
-      <section class="setting-card"><div class="setting-icon">🎓</div><div><b>${esc(t('settings.group'))}</b><small>${esc(t('settings.groupSub'))}</small></div><div class="stepper"><button data-group="minus">−</button><strong>${esc(t('settings.groupValue',{n:K.state.group}))}</strong><button data-group="plus">+</button></div></section>
+      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
       <section class="setting-card lang-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${K.LANGUAGES.map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitPerWorld'))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
-      <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
-      
       <section class="setting-card tour-card"><div class="setting-icon">🧭</div><div><b>${esc(t('tour.pick'))}</b><small>${esc(t('tour.pickSub'))}</small></div><div class="tour-guides"><button data-tour="milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt="">${esc(t('voice.milo'))}</button><button data-tour="luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt="">${esc(t('voice.luna'))}</button></div></section>
       <section class="setting-card players-card"><div class="setting-icon">👨‍👩‍👧</div><div><b>${esc(t('players.title'))}</b><small>${esc(t('players.sub'))}</small></div><div class="player-list">${K.players.all().map(p=>`<div class="player-row"><span class="player-face">${esc((p.name[0]||'?').toUpperCase())}</span><span class="player-name"><b>${esc(p.name)}</b><small>${esc(p.current?t('players.current'):t('settings.level')+' '+Math.max(1,1+Math.floor(Number(p.state?.xp||0)/100)))}</small></span></div>`).join('')}</div></section>
       <section class="setting-card clickable" id="logoutOpen"><div class="setting-icon">🚪</div><div><b>${esc(t('settings.logout'))}</b><small>${esc(t('settings.logoutSub'))}</small></div><em>›</em></section>
@@ -812,7 +824,6 @@
       <section class="setting-card clickable reset-card" id="deleteOpen"><div class="setting-icon">🗑️</div><div><b>${esc(t('players.deleteCard'))}</b><small>${esc(t('players.deleteCardSub'))}</small></div><em>›</em></section>
     </div>`;
     const f=nativeScreen({cls:'parent-screen',title:t('settings.title'),subtitle:t('settings.sub'),body,active:'parent'});
-    f.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{K.sfx('tap');const d=b.dataset.group==='plus'?1:-1;K.state.group=Math.max(1,Math.min(8,(K.state.group||5)+d));K.state.groupChosen=true;K.save();K.showParent()});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelectorAll('[data-tour]').forEach(b=>b.onclick=()=>{K.sfx('tap');const guide=b.dataset.tour;K.showHome();setTimeout(()=>K.startTour({guide}),320)});

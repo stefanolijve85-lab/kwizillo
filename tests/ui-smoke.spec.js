@@ -273,16 +273,23 @@ test('every navigation destination is dynamic and interactive', async ({ page })
 test('parent controls, language toggle and audio panel all operate', async ({ page }) => {
   await boot(page);
   await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
-  await expect(page.getByText('Groep 5')).toBeVisible();
-  await page.locator('[data-group="plus"]').click();
-  await expect(page.getByText('Groep 6')).toBeVisible();
+  // The order a parent reads top to bottom; the school group is set in the onboarding only
+  // (it looked like a second difficulty setting next to the play level).
+  const order = await page.locator('.settings-list > section').evaluateAll(els => els.map(e => e.id || [...e.classList].find(c => c !== 'setting-card' && c !== 'clickable') || ''));
+  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'logoutOpen', 'shareOpen', 'privacyOpen', 'resetOpen', 'deleteOpen']);
+  await expect(page.locator('.settings-list > :first-child')).toContainText('Premium');
+  await expect(page.locator('[data-group]')).toHaveCount(0);
+  // the eight world levels as a 2×4 grid
+  const badges = await page.locator('.world-levels .world-level-row > span').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().top)));
+  expect(badges).toHaveLength(8);
+  expect(new Set(badges).size).toBe(2);
 
   await page.locator('#timeToggle').click();
   await expect(page.locator('#timeToggle')).not.toHaveClass(/on/);
 
   await page.locator('[data-setlang="en"]').click();
   await expect(page.locator('.panel-head h1')).toHaveText('Parent zone');
-  await expect(page.getByText('Year 6')).toBeVisible();
+  await expect(page.locator('.level-card b')).toContainText('Game level');
   await page.locator('[data-setlang="nl"]').click();
 
   await page.locator('#soundOpen').click();
@@ -931,6 +938,7 @@ test('mascot tiles are filled by the character with only the name on it', async 
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
   await expect(page.locator('.mascot-card')).toHaveCount(12);
   await expect(page.locator('.mascot-card .mascot-fill')).toHaveCount(12);
+  // 12 right under the old ladder (Comet 5, Pootje 12): a player from before keeps them
   await expect(page.locator('.mascot-card.unlocked')).toHaveCount(3);        // Milo, Comet, Pootje
   await expect(page.locator('.mascot-card.unlocked .mascot-name').nth(1)).toHaveText('Comet');
   await expect(page.locator('.mascot-card.locked .mascot-lock')).toHaveCount(9);
@@ -986,8 +994,9 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
 });
 
 test('a buddy earned mid-quiz is introduced there and then, and the quiz carries on', async ({ page }) => {
-  // Four correct answers so far: the next one opens Comet, who needs five.
-  await boot(page, SAVED({ correct: 4, answered: 6 }));
+  // 114 different questions right so far: the next one opens Comet, who needs 115.
+  const ids = await (async () => { const { loadBanks } = require('./langs.js'); return loadBanks().banks.nl.filter(q => q.world !== 'ruimte').slice(0, 114).map(q => q.id); })();
+  await boot(page, SAVED({ correct: 114, answered: 120, mascotLadder: 1280, progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: ids } }));
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('.world-topic').first().click();
   await expect(page.locator('.answer')).toHaveCount(4);
@@ -1002,7 +1011,7 @@ test('a buddy earned mid-quiz is introduced there and then, and the quiz carries
   // The buddy comes first, with its name and how it was earned.
   await expect(page.locator('.mascot-unlock')).toBeVisible();
   await expect(page.locator('.mascot-unlock-card b')).toHaveText('Comet');
-  await expect(page.locator('.mascot-unlock')).toContainText('5 goede antwoorden');
+  await expect(page.locator('.mascot-unlock')).toContainText('115 goede antwoorden');
 
   // Tapping it away goes on to the next question, and it is not shown twice.
   await page.locator('.mascot-unlock-ok').click();
@@ -1036,3 +1045,12 @@ for (const [w, h] of [[390, 844], [820, 1180]]) {
     expect(await fills('.feedback-art img')).toEqual({ fit: 'cover', w: true, h: true });
   });
 }
+
+// The buddies are spread over all 1280 questions: twelve right answers no longer
+// open three of them for a new player, the same question twice counts once.
+test('a new player earns buddies by different questions answered right, spread up to 1280', async ({ page }) => {
+  await boot(page, SAVED({ correct: 60, mascotLadder: 1280 }));
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
+  await expect(page.locator('.mascot-card.unlocked')).toHaveCount(1);        // only Milo
+  await expect(page.locator('.mascot-card.locked').first()).toContainText('Nog 115 goede antwoorden');
+});

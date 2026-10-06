@@ -1410,3 +1410,8 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 [dir="rtl"] .home-mega .premium-badge{right:8px;left:auto}
 /* a short phone (SE): the Mega button and the game tiles give up height so the worlds keep theirs */
 @media(max-height:700px){.home-mega{min-height:50px;padding:6px 12px;border-radius:18px}.home-mega-copy b{font-size:20px}.home-mega-copy small{font-size:10.5px}.home-game.art{aspect-ratio:16/5.2}}
+/* parent zone: the world levels as a 2×4 grid of world icons under the title */
+.setting-card.world-levels{grid-template-columns:48px 1fr;row-gap:10px}
+.setting-card.world-levels .world-level-row{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:none;justify-content:stretch}
+.setting-card.world-levels .world-level-row .world-badge{width:100%;height:auto;aspect-ratio:1;border-radius:16px;box-shadow:0 4px 10px rgba(20,60,130,.18)}
+.setting-card.world-levels .world-level-row i{inset-inline-end:-4px;bottom:-4px;min-width:22px;height:22px;font-size:12px;line-height:22px}
