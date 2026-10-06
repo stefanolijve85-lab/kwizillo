@@ -135,6 +135,8 @@ test('music and voice come back after the app is interrupted', async ({ page }) 
     .toMatchObject({ music: 'running', playing: true });
   expect(await page.evaluate(() => window.KWIZILLO_M1.audio.ctx !== window.__oldMusic)).toBe(true);
   expect(await page.evaluate(() => window.KWIZILLO_M1.audio.voiceCtx !== window.__oldVoice)).toBe(true);
-  expect(await page.evaluate(() => window.__oldMusic.state)).toBe('closed');
+  // The old context is closed only after the new one runs: closing it first let
+  // WebKit switch the app's audio session off under the new one (build 17).
+  await expect.poll(() => page.evaluate(() => window.__oldMusic.state), { timeout: 5000 }).toBe('closed');
   expect(await current(page)).toBe('home');
 });

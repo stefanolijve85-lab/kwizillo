@@ -27,6 +27,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         wakeWebAudio()
     }
 
+    // While the page swaps its audio contexts, WebKit may switch the session off
+    // again behind our back (it does so when it thinks no context is left). The
+    // session is asked for once more after the swap has settled, so the first
+    // return from the background is not silent (build 17, 2026-10-06).
+    private func keepSessionActive() {
+        for delay in [1.0, 2.5] {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                guard UIApplication.shared.applicationState == .active else { return }
+                try? AVAudioSession.sharedInstance().setActive(true)
+            }
+        }
+    }
+
     // The page wakes its own audio on visibilitychange, but that can arrive
     // before the session above is active again (iPad, build 1.0 (16)): the
     // contexts it builds then stay silent. So once the session is back, the page
@@ -37,6 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let vc = self?.window?.rootViewController as? CAPBridgeViewController else { return }
             vc.webView?.evaluateJavaScript("window.KWIZILLO_M1&&window.KWIZILLO_M1.audio&&window.KWIZILLO_M1.audio.wake(true,true)", completionHandler: nil)
         }
+        keepSessionActive()
     }
 
     @objc private func audioInterrupted(_ note: Notification) {
