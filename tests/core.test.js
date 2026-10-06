@@ -351,3 +351,24 @@ console.log('Kwizillo core gameplay tests: OK');
   assert.notStrictEqual(c.cacheKey('B.', 'nl', 'Milo'), require('crypto').createHash('sha256').update(`${c.model}|nl|${c.voiceId('nl', 'Milo')}|${JSON.stringify(c.settings.Milo)}|B.`).digest('hex'), 'the old bare recording is not reused');
   console.log('answer letters recorded with the alphabet as context ✔');
 }
+
+// The Mega Quiz: 20 questions over every world, an equal share each, never two in a row from one world,
+// and the next Mega Quiz finds new questions.
+{
+  const { banks } = loadBanks();
+  const qs = banks.nl;
+  const worlds = [...new Set(qs.map(q => q.world))];
+  const a = core.selectMegaBatch({ questions: qs, worlds, limit: 20 });
+  assert.strictEqual(a.questions.length, 20);
+  const per = {}; for (const q of a.questions) per[q.world] = (per[q.world] || 0) + 1;
+  assert.strictEqual(Object.keys(per).length, worlds.length, 'every world is in it');
+  assert.ok(Math.max(...Object.values(per)) - Math.min(...Object.values(per)) <= 1, `an equal share per world: ${JSON.stringify(per)}`);
+  for (let i = 1; i < 20; i++) assert.notStrictEqual(a.questions[i].world, a.questions[i - 1].world, 'never two in a row from one world');
+  assert.strictEqual(new Set(a.questions.map(q => q.id)).size, 20, 'no question twice');
+  assert.deepStrictEqual(new Set(a.usedIds), new Set(a.questions.map(q => q.id)), 'only what was asked counts as seen');
+  const b = core.selectMegaBatch({ questions: qs, worlds, limit: 20, usedIds: a.usedIds });
+  assert.ok(b.questions.every(q => !a.usedIds.includes(q.id)), 'the second Mega Quiz has new questions');
+  assert.strictEqual(b.usedIds.length, 40);
+  assert.deepStrictEqual(core.selectMegaBatch({ questions: qs, worlds: [], limit: 20 }).questions, []);
+  console.log('mega quiz: 20 questions, an equal share per world, new ones next time ✔');
+}

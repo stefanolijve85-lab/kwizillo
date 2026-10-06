@@ -1396,3 +1396,18 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .player-face{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#7c64ff,#4e43d8);color:#fff;font-weight:1000}
 .player-name{min-width:0}.player-name b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#17407a}.player-name small{color:#5a7aa3;font-weight:800}
 .player-pick{display:grid;gap:8px;margin-top:12px}.player-pick button{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;min-height:52px;padding:8px 12px;border:2px solid #dcebfa;border-radius:14px;background:#f3f8ff;color:#17407a;font:inherit;font-weight:1000;text-align:start;cursor:pointer}.player-pick button small{color:#5a7aa3;font-weight:800}
+
+/* ---- Mega Quiz: one wide button on Home, above the worlds ---- */
+.home-mega{position:relative;flex:0 0 auto;display:flex;align-items:center;gap:10px;min-height:74px;padding:10px 14px;overflow:hidden;border-radius:22px;border:2px solid rgba(255,255,255,.8);background:#10306e;box-shadow:0 6px 0 #1a3a9c,0 12px 24px rgba(0,26,80,.32);text-align:start;cursor:pointer;color:#fff}
+.home-mega .home-game-art{object-position:center 50%}
+.home-mega-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,30,110,.86) 0%,rgba(40,40,160,.55) 48%,rgba(10,20,70,.1) 100%)}
+.home-mega-copy{position:relative;z-index:2;flex:1;min-width:0;display:grid;gap:2px}
+.home-mega-copy b{font-size:clamp(20px,5.6vw,28px);line-height:1;font-weight:1000;letter-spacing:-.02em;background:linear-gradient(180deg,#fff86c,#ffca26 60%,#ff9b10);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #3a2a9c) drop-shadow(0 4px 6px rgba(0,20,70,.4))}
+.home-mega-copy small{font-size:12px;font-weight:900;color:#e4eeff;text-shadow:0 1px 4px rgba(0,18,56,.8)}
+.home-mega-go{position:relative;z-index:2;display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:50%;background:linear-gradient(180deg,#ffe969,#ffbd23);color:#17235e;box-shadow:0 4px 0 #dc8c12}
+.home-mega:active{transform:translateY(3px);box-shadow:0 3px 0 #1a3a9c}
+.home-mega .premium-badge{position:absolute;z-index:3;top:7px;inset-inline-end:8px}
+.home-mega.locked .home-mega-go{display:none}
+[dir="rtl"] .home-mega-veil{background:linear-gradient(270deg,rgba(12,30,110,.86) 0%,rgba(40,40,160,.55) 48%,rgba(10,20,70,.1) 100%)}
+/* a short phone (SE): the Mega button and the game tiles give up height so the worlds keep theirs */
+@media(max-height:700px){.home-mega{min-height:50px;padding:6px 12px;border-radius:18px}.home-mega-copy b{font-size:20px}.home-mega-copy small{font-size:10.5px}.home-mega-go{width:34px;height:34px;flex-basis:34px}.home-game.art{aspect-ratio:16/5.2}}

@@ -122,6 +122,7 @@
     'premium.statusFree':'Бесплатная версия · открыть всё','premium.statusActive':'Активно · {type}','premium.statusTrial':'Бесплатный период · {type}','premium.statusExpired':'Срок вышел · прогресс сохранён','premium.renews':'Продлится',
     'premium.teaserTitle':'Это Premium','premium.askParent':'Спроси взрослого',
     'premium.teaser.quiz':'Эта викторина входит в Kwizillo Premium. Попроси взрослого открыть все миры.',
+    'premium.teaser.mega':'Мега-викторина входит в Kwizillo Premium. Попроси взрослого открыть все миры.',
     'premium.teaser.memo':'Эта игра на память входит в Kwizillo Premium. Попроси взрослого открыть все поля.',
     'premium.teaser.math':'Высокие уровни счёта входят в Kwizillo Premium. Попроси взрослого открыть их.',
     'premium.teaser.facts':'Другие факты входят в Kwizillo Premium. Попроси взрослого открыть их все.',
@@ -207,6 +208,10 @@
     'world.mixDone':'сыграно: {n}',
 
     'quiz.mixed':'Смешанная викторина',
+    'mega.title':'Мега-викторина',
+    'mega.sub':'{n} вопросов из всех миров',
+    'mega.rule':'Вопросы из всех миров ({worlds}): правильных ответов — {score} из {total}.',
+    'mega.again':'Ещё одна мега-викторина',
     'quiz.progress':'Вопрос {current} из {total}',
     'quiz.hint':'Подсказка',
     'quiz.none':'Для этой темы пока нет вопросов.',

@@ -207,6 +207,13 @@
           </div>
         </header>
 
+        <button class="home-mega ${K.premium.can('mega')?'':'locked'}" id="homeMega" aria-label="${esc(t('mega.title'))} · ${esc(t('mega.sub',{n:K.MEGA_SIZE}))}">
+          <img class="home-game-art" src="${K.GAME_ART.memoAll}" alt="" decoding="async"><span class="home-mega-veil"></span>
+          ${K.premium.can('mega')?'':K.premiumBadge()}
+          <span class="home-mega-copy"><b>${esc(t('mega.title'))}</b><small>${esc(t('mega.sub',{n:K.MEGA_SIZE}))}</small></span>
+          <span class="home-mega-go">${K.icon('play')}</span>
+        </button>
+
         <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>
         <div class="home-worlds">${worldCards}</div>
 
@@ -225,6 +232,7 @@
     </section>`);
 
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
+    f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
     f.querySelector('#homeGear').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};

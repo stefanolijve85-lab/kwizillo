@@ -122,6 +122,7 @@
     'premium.statusFree':'Gratisversion · alles freischalten','premium.statusActive':'Aktiv · {type}','premium.statusTrial':'Gratiszeitraum · {type}','premium.statusExpired':'Abgelaufen · dein Fortschritt bleibt','premium.renews':'Verlängert sich am',
     'premium.teaserTitle':'Das ist Premium','premium.askParent':'Frag einen Erwachsenen',
     'premium.teaser.quiz':'Dieses Quiz gehört zu Kwizillo Premium. Bitte einen Erwachsenen, alle Welten zu öffnen.',
+    'premium.teaser.mega':'Das Mega-Quiz gehört zu Kwizillo Premium. Frag einen Erwachsenen, alle Welten freizuschalten.',
     'premium.teaser.memo':'Dieses Memo-Spiel gehört zu Kwizillo Premium. Bitte einen Erwachsenen, alle Spiele zu öffnen.',
     'premium.teaser.math':'Die höheren Rechenlevel gehören zu Kwizillo Premium. Bitte einen Erwachsenen, sie zu öffnen.',
     'premium.teaser.facts':'Mehr Wissenswertes gehört zu Kwizillo Premium. Bitte einen Erwachsenen, alles zu öffnen.',
@@ -207,6 +208,10 @@
     'world.mixDone':'{n} gespielt',
 
     'quiz.mixed':'Gemischtes Quiz',
+    'mega.title':'Mega-Quiz',
+    'mega.sub':'{n} Fragen aus allen Welten',
+    'mega.rule':'Fragen aus allen {worlds} Welten: Du hattest {score} von {total} richtig.',
+    'mega.again':'Noch ein Mega-Quiz',
     'quiz.progress':'Frage {current} von {total}',
     'quiz.hint':'Hinweis',
     'quiz.none':'Für dieses Thema gibt es noch keine Fragen.',

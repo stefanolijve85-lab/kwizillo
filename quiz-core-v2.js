@@ -113,6 +113,31 @@
     return{questions:picked,usedIds:nextUsed,recycled,poolSize:pool.length};
   }
 
+  // The Mega Quiz: one quiz across every world. Each world gives an equal share
+  // (20 over 8 worlds: two or three each), picked the same way as a world's own
+  // mixed quiz, so successive Mega Quizzes keep finding questions not seen in
+  // the Mega Quiz before. usedIds is one list for all worlds; each world only
+  // looks at its own ids in it. The questions are dealt round by round over the
+  // worlds in a shuffled order, so two questions in a row never share a world.
+  function selectMegaBatch({questions,worlds=[],grade=5,limit=20,usedIds=[],bandFor=()=>null,rng=Math.random}){
+    const ws=shuffle(worlds.filter(w=>(questions||[]).some(q=>q.world===w)),rng);
+    if(!ws.length) return{questions:[],usedIds:[]};
+    const worldOf={};for(const q of questions||[])worldOf[q.id]=q.world;
+    const per=Math.ceil(limit/ws.length);
+    const lists={},nextUsed=[];
+    for(const w of ws){
+      const b=selectQuizBatch({questions,world:w,grade,limit:per,usedIds:usedIds.filter(id=>worldOf[id]===w),rng,band:bandFor(w)});
+      lists[w]=shuffle(b.questions,rng);nextUsed.push(...b.usedIds);
+    }
+    const dealt=[];
+    for(let round=0;dealt.length<limit&&ws.some(w=>lists[w].length>round);round++)
+      for(const w of ws){if(dealt.length>=limit)break;const q=lists[w][round];if(q)dealt.push(q)}
+    // Only what was really asked counts as seen; the extra picks of the last round go back.
+    const asked=new Set(dealt.map(q=>q.id));
+    const dropped=new Set(Object.values(lists).flat().filter(q=>!asked.has(q.id)).map(q=>q.id));
+    return{questions:dealt,usedIds:nextUsed.filter(id=>!dropped.has(id))};
+  }
+
   function createSession({world,topicKey=null,topicLabel='',questions=[],quizNumber=1}){return{world,topicKey,topicLabel,questions,quizNumber,index:0,score:0,xp:0,answeredById:{}}}
   // value === null records a time-out: counted as answered and wrong.
   function recordAnswer(session,q,value){if(!session||!q)return{accepted:false,reason:'invalid'};if(session.answeredById?.[q.id])return{accepted:false,reason:'already-answered'};session.answeredById||={};const result=evaluateAnswer(q,value);session.answeredById[q.id]={value,correct:result.correct,timedOut:value===null};if(result.correct){session.score++;session.xp+=q.xp||10}return{accepted:true,timedOut:value===null,...result}}
@@ -386,5 +411,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,spokenLetters,answerLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,selectMegaBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,spokenLetters,answerLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

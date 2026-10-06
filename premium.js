@@ -207,7 +207,8 @@
     quiz:(world,topicKey,quizNumber)=>world===FREE.starterWorld||(topicKey==null&&Number(quizNumber||1)<=FREE.freeQuizzesElsewhere),
     math:level=>Number(level||1)<=FREE.mathMaxLevel,
     memo:world=>FREE.memoWorlds.includes(world||'mix'),
-    fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld
+    fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld,
+    mega:()=>false                // the Mega Quiz asks questions from every world: Premium only
   };
   // can('quiz', world, topicKey, quizNumber) — true when free or Premium.
   const can=(kind,...args)=>isPremium()||!!rules[kind]?.(...args);

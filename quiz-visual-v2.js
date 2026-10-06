@@ -49,6 +49,36 @@
     setTimeout(()=>K.warmFacts?.(world,null,1),4000);
   };
 
+  // The Mega Quiz (Home, Premium): twenty questions from every world, dealt so
+  // that the worlds take turns (quiz-core-v2.js, selectMegaBatch). It runs on
+  // the quiz screen of a world quiz; every answer counts for the world of its
+  // question. It plays at one level for the whole quiz: the average of the
+  // worlds' own levels.
+  K.MEGA_SIZE=20;
+  K.startMega=()=>{
+    K.stopSpeech();
+    if(!K.premium.can('mega')){K.premiumLocked({kind:'mega',retry:()=>K.startMega()});return}
+    const worlds=K.playableWorlds();
+    const run=K.runFor('mega',null);
+    const batch=K.core.selectMegaBatch({
+      questions:K.questions,worlds,grade:Number(K.state.group||5),limit:K.MEGA_SIZE,usedIds:run.usedIds,
+      bandFor:w=>K.core.difficultyBand({niveau:K.playLevel(w)})
+    });
+    if(!batch.questions.length){K.toast(t('quiz.none'));K.showHome();return}
+    run.usedIds=batch.usedIds;
+    run.quizNumber=Number(run.quizNumber||0)+1;
+    K.save();
+    K.quiz=K.core.createSession({world:'mega',topicKey:null,topicLabel:t('mega.title'),questions:batch.questions,quizNumber:run.quizNumber});
+    K.quiz.mega=true;
+    K.quiz.level=Math.round(worlds.reduce((n,w)=>n+K.playLevel(w),0)/Math.max(1,worlds.length))||1;
+    K.startScoreRun();
+    K.quiz.salt=Math.floor(Math.random()*1e6);
+    K.quiz.hintsUsed=0;
+    K.audio.setTrack('play').catch(()=>{});
+    K.showQuiz();
+    setTimeout(()=>K.warmFacts?.('all',null,1),4000);
+  };
+
   K.showQuiz=()=>{
     if(!K.quiz)return K.showWorld(K.currentWorld);
     const q=K.quiz.questions[K.quiz.index];
@@ -67,7 +97,7 @@
   // Het niveau waarop gespeeld wordt: het verdiende niveau van de wereld, of
   // hoger als dat in de ouderzone is gekozen (state.js, K.playLevel). Hieraan
   // hangen de seconden per vraag, het aantal fouten dat mag en de hints.
-  const level=()=>K.playLevel(K.quiz?.world||K.currentWorld);
+  const level=()=>K.quiz?.mega?K.quiz.level:K.playLevel(K.quiz?.world||K.currentWorld);
   function questionSecondsFor(){return K.state.timeLimitOn===false?0:K.core.questionSeconds(level())}
 
   function render(q){
@@ -107,7 +137,7 @@
     const buttons=[...f.querySelectorAll('.answer')];
     preloadNextArt();
     K.clearSpeechHighlight=()=>buttons.forEach(b=>b.classList.remove('spoken-active'));
-    f.querySelector('#qBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showWorld(K.quiz.world)};
+    f.querySelector('#qBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.quiz.mega?K.showHome():K.showWorld(K.quiz.world)};
     // Coins/streak open the statistics; "back" there lands on this same question.
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>K.showQuiz()})});
     f.querySelector('#prevBtn').onclick=()=>{if(idx===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');K.quiz.index--;K.showQuiz()};
@@ -172,7 +202,8 @@
   }
   K.pauseTimer=on=>{if(timer)timer.paused=!!on};
 
-  function hintsLeftNow(){return K.core.hintsAllowed(level())-Number(K.quiz?.hintsUsed||0)}
+  // Twice the hints in the Mega Quiz: it is twice as long.
+  function hintsLeftNow(){return K.core.hintsAllowed(level())*(K.quiz?.mega?2:1)-Number(K.quiz?.hintsUsed||0)}
   function showHint(q){
     // Reopening the hint of the same question is free.
     const again=!!K.quiz.hintedIds?.[q.id];
@@ -328,7 +359,10 @@
     const q=K.quiz;
     const total=q?.questions.length||0,score=q?.score||0,xp=Number(q?.points||0);
     const niveau=level();
-    const passed=K.core.quizPassed({score,total,niveau});
+    const mega=!!q?.mega;
+    // The Mega Quiz is twice as long, so twice the mistakes are allowed.
+    const allowed=K.core.maxWrong(niveau)*(mega?2:1),wrong=total-score;
+    const passed=wrong<=allowed;
     const keys=K.TOPIC_KEYS[K.currentWorld]||[];
     const topicIdx=q?.topicKey?keys.indexOf(q.topicKey):-1;
     const isTopic=topicIdx>=0;
@@ -338,8 +372,9 @@
       K.state.quizzesPlayed=Number(K.state.quizzesPlayed||0)+1;
       const ws=K.progress().worlds[q.world];
       if(ws) ws.quizzes=Number(ws.quizzes||0)+1;
-      K.state.bestScores||={};
-      if((q.score||0)>Number(K.state.bestScores[q.world]||0)) K.state.bestScores[q.world]=q.score||0;
+      // bestScores is per world and out of 10; the Mega Quiz keeps its own best.
+      if(mega){const run=K.runFor('mega',null);run.best=Math.max(Number(run.best||0),q.score||0)}
+      else{K.state.bestScores||={};if((q.score||0)>Number(K.state.bestScores[q.world]||0)) K.state.bestScores[q.world]=q.score||0}
       // A passed topic is ticked off for this level. Once all four topics of
       // this world are ticked, the world itself moves up a level — every world
       // climbs on its own, at the pace of the child playing it.
@@ -357,19 +392,20 @@
     }
     const pct=total?Math.round(score/total*100):0;
     // A "did you know" from this world, read by the guide once the gift has opened.
-    const bonus=K.bonusFact?.(K.currentWorld)||null;
+    const factWorld=mega?'all':K.currentWorld;
+    const bonus=K.bonusFact?.(factWorld)||null;
     if(bonus) K.prefetchSpeech(bonus.speech);
-    const nextNumber=(K.runFor(K.currentWorld,q?.topicKey||null).quizNumber||0)+1;
+    const nextNumber=(K.runFor(mega?'mega':K.currentWorld,q?.topicKey||null).quizNumber||0)+1;
     const nextIdx=isTopic&&topicIdx<keys.length-1?topicIdx+1:null;
     // Passed: move on (next topic, or the mixed quiz after the last one).
     // Failed: the same topic again is the only way forward.
-    const primaryLabel=!passed?t('result.retryNow')
+    const primaryLabel=mega?t('mega.again')
+      :!passed?t('result.retryNow')
       :!isTopic?t('result.againNumbered',{n:nextNumber})
       :nextIdx!==null?t('result.nextTopic',{topic:t(`topic.${keys[nextIdx]}`)})
       :t('result.finishWorld');
-    const allowed=K.core.maxWrong(niveau),wrong=total-score;
     const f=K.frame(`<section class="result-v2 fade-in ${passed?'is-pass':'is-fail'}">
-      <img class="result-v2-bg" src="${K.MASTER[K.currentWorld]||K.MASTER.ruimte}" alt="">
+      <img class="result-v2-bg" src="${mega?K.GAME_ART.memoAll:K.MASTER[K.currentWorld]||K.MASTER.ruimte}" alt="">
       <div class="result-v2-dim"></div>
       <div class="result-v2-card">
         <div class="result-stage ${passed?'':'open'}">
@@ -379,7 +415,7 @@
         <div class="result-kicker">${esc(t(passed?'result.passKicker':'result.failKicker'))}</div>
         <h1>${esc(t('result.title',{score,total}))}</h1>
         <div class="result-stars" aria-label="${pct>=90?3:pct>=70?2:1}/3">${[1,2,3].map(n=>`<i class="${passed&&n<=(pct>=90?3:pct>=70?2:1)?'on':''}">★</i>`).join('')}</div>
-        <p class="result-rule">${esc(t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
+        <p class="result-rule">${esc(mega?t('mega.rule',{worlds:K.playableWorlds().length,score,total}):t(passed?'result.passRule':'result.failRule',{niveau,allowed,wrong}))}</p>
         ${unlocked?`<p class="result-unlock">${esc(t('result.worldLevelUp',{world:t(`world.${q.world}.title`),niveau:unlocked}))}</p>`:''}
         ${mastered?`<p class="result-unlock is-gold">${esc(t('result.worldMastered',{world:t(`world.${q.world}.title`)}))}</p>`:''}
         <div class="result-stats"><span><b>${pct}%</b><small>${esc(t('result.score'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
@@ -415,6 +451,7 @@
 
     f.querySelector('#againBtn').onclick=()=>{
       K.stopSpeech();K.sfx('tap');
+      if(mega) return K.startMega();
       if(!passed) return K.startQuiz(K.currentWorld,isTopic?topicIdx:null);
       K.startQuiz(K.currentWorld,isTopic?nextIdx:null);   // nextIdx null after the last topic = mixed quiz
     };
@@ -422,7 +459,7 @@
     f.querySelector('#retryBtn')?.addEventListener('click',()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(K.currentWorld,topicIdx)});
     f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
     // The bonus fact opens the Weetjes screen on this world.
-    f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(K.currentWorld,{open:e.currentTarget.dataset.fact})});
+    f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(factWorld,{open:e.currentTarget.dataset.fact})});
     if(bonus) setTimeout(()=>{if(f.isConnected)K.speakSequence(bonus.speech.map((text,i)=>({kind:i?'speech':'lead',text})))},passed?1900:900);
   };
 })();

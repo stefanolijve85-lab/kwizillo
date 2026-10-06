@@ -123,6 +123,7 @@
     'premium.statusFree':'Version gratuite · tout débloquer','premium.statusActive':'Actif · {type}','premium.statusTrial':'Période gratuite · {type}','premium.statusExpired':'Expiré · tes progrès sont gardés','premium.renews':'Se renouvelle le',
     'premium.teaserTitle':'Ceci est Premium','premium.askParent':'Demande à un adulte',
     'premium.teaser.quiz':'Ce quiz fait partie de Kwizillo Premium. Demande à un adulte d’ouvrir tous les mondes.',
+    'premium.teaser.mega':'Le Méga Quiz fait partie de Kwizillo Premium. Demande à un parent d’ouvrir tous les mondes.',
     'premium.teaser.memo':'Ce jeu de mémoire fait partie de Kwizillo Premium. Demande à un adulte d’ouvrir tous les plateaux.',
     'premium.teaser.math':'Les niveaux de calcul supérieurs font partie de Kwizillo Premium. Demande à un adulte de les ouvrir.',
     'premium.teaser.facts':'D’autres infos font partie de Kwizillo Premium. Demande à un adulte de tout ouvrir.',
@@ -208,6 +209,10 @@
     'world.mixDone':'{n} joués',
 
     'quiz.mixed':'Quiz mélangé',
+    'mega.title':'Méga Quiz',
+    'mega.sub':'{n} questions de tous les mondes',
+    'mega.rule':'Des questions des {worlds} mondes : tu as eu {score} sur {total}.',
+    'mega.again':'Encore un Méga Quiz',
     'quiz.progress':'Question {current} sur {total}',
     'quiz.hint':'Indice',
     'quiz.none':'Il n’y a pas encore de questions pour ce thème.',

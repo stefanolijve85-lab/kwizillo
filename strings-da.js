@@ -122,6 +122,7 @@
     'premium.statusFree':'Gratis version · lås alt op','premium.statusActive':'Aktiv · {type}','premium.statusTrial':'Gratis periode · {type}','premium.statusExpired':'Udløbet · din fremgang er gemt','premium.renews':'Fornyes den',
     'premium.teaserTitle':'Det her er Premium','premium.askParent':'Spørg en voksen',
     'premium.teaser.quiz':'Denne quiz er en del af Kwizillo Premium. Bed en voksen om at åbne alle verdener.',
+    'premium.teaser.mega':'Megaquizzen hører til Kwizillo Premium. Spørg en voksen om at åbne alle verdener.',
     'premium.teaser.memo':'Dette hukommelsesspil er en del af Kwizillo Premium. Bed en voksen om at åbne alle plader.',
     'premium.teaser.math':'De højere regneniveauer er en del af Kwizillo Premium. Bed en voksen om at åbne dem.',
     'premium.teaser.facts':'Flere fakta er en del af Kwizillo Premium. Bed en voksen om at åbne dem alle.',
@@ -207,6 +208,10 @@
     'world.mixDone':'{n} spillet',
 
     'quiz.mixed':'Blandet quiz',
+    'mega.title':'Megaquiz',
+    'mega.sub':'{n} spørgsmål fra alle verdener',
+    'mega.rule':'Spørgsmål fra alle {worlds} verdener: du havde {score} af {total} rigtige.',
+    'mega.again':'En megaquiz mere',
     'quiz.progress':'Spørgsmål {current} af {total}',
     'quiz.hint':'Spor',
     'quiz.none':'Der er endnu ingen spørgsmål til dette emne.',
