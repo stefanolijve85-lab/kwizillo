@@ -1575,8 +1575,8 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* the learning language: nine languages with their full names, three in a row, flag beside the name */
 .setting-card.learn-card .lang-toggle{grid-template-columns:repeat(3,1fr)}
 .setting-card.learn-card .lang-toggle button{flex-direction:row;gap:5px;white-space:nowrap;font-size:13px;padding-inline:4px;min-height:42px;overflow:hidden}
-/* Talen tile: the painting was redrawn taller (outpainted) so the "Hello!" balloon fits; the tile keeps the top in view */
-.home-game.talen .home-game-art{object-position:50% 12%}
+/* Talen tile: the island of languages, with the globe in the middle of the tile */
+.home-game.talen .home-game-art{object-position:50% 40%}
 /* Talen: "Nog een keer" and the hint side by side, as wide as the tiles above them */
 .talen-actions .action{display:flex;align-items:center;justify-content:center;gap:6px}
 .talen-actions .action .ki{width:18px;height:18px}
