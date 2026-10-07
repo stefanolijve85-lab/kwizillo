@@ -9,6 +9,12 @@
 //   node server.js                    (or npm start, in another terminal)
 //   node tools/site-shots.cjs         → site/assets/shots/*.jpg
 //   node tools/site-shots.cjs --only home,quiz
+//   node tools/site-shots.cjs --lang en      → site/assets/shots/en/*.jpg (kwizillo.com)
+//   OUT=../kwizillo/site/assets/shots node tools/site-shots.cjs   (another checkout's site)
+//
+// The phone on the site shows an iPhone: the app is laid out with the notch and the
+// home bar (safe areas of 47 and 34 px) and a status bar (9:41) is drawn over the top,
+// the way the shots on the live site look (2026-10-07).
 //
 // The profile below is a child who has played for a while: a name, a level, some
 // coins and a streak, worlds in progress, cards collected. Nothing is faked in
@@ -17,7 +23,8 @@ const fs = require('fs'); const path = require('path');
 const { chromium } = require('playwright');
 
 const ROOT = path.join(__dirname, '..');
-const OUT = path.join(ROOT, 'site', 'assets', 'shots');
+const LANG = (() => { const i = process.argv.indexOf('--lang'); return i > 0 ? process.argv[i + 1] : 'nl' })();
+const OUT = path.join(process.env.OUT ? path.resolve(process.env.OUT) : path.join(ROOT, 'site', 'assets', 'shots'), LANG === 'nl' ? '' : LANG);
 const BASE = process.env.BASE || 'http://127.0.0.1:8080';
 const W = 554, H = 1200, SCALE = 2, QUALITY = 0.86;
 const only = (() => { const i = process.argv.indexOf('--only'); return i > 0 ? process.argv[i + 1].split(',') : null })();
@@ -78,6 +85,22 @@ const SHOTS = [
     }
     if (pairs[2]) { await p.locator(`[data-card="${pairs[2][0]}"]`).click(); await p.waitForTimeout(500) }
   }],
+  // The games under "Speel ook" (site: "Meer dan een quiz").
+  ['games/memo', async p => { await SHOTS.find(s => s[0] === 'memo')[1](p) }],
+  ['games/math', async p => { await p.evaluate(() => window.KWIZILLO_M1.startMath('mix')); await p.waitForSelector('.math-screen, .quiz-v2'); await p.waitForTimeout(700) }],
+  ['games/whoami', async p => { await p.evaluate(() => window.KWIZILLO_M1.startWhoAmI('dieren')); await p.waitForSelector('.whoami-tile'); await p.waitForTimeout(900) }],
+  ['games/fotozoom', async p => { await p.evaluate(() => window.KWIZILLO_M1.startFotozoom('dieren')); await p.waitForSelector('.quiz-v2'); await p.waitForTimeout(900) }],
+  ['games/facts', async p => { await p.evaluate(() => window.KWIZILLO_M1.showFacts('ruimte')); await p.waitForTimeout(900) }],
+  ['games/talen', async p => {
+    // A right answer: the picture turns green and "dolphin betekent dolfijn" is written out.
+    await p.evaluate(() => { const K = window.KWIZILLO_M1; K.startTalen('dieren'); });
+    await p.waitForSelector('.talen-tile');
+    const id = await p.evaluate(() => { const g = window.KWIZILLO_M1.talen; return g.words[g.round].id });
+    await p.locator(`.talen-tile[data-pick="${id}"]`).click();
+    await p.waitForFunction(() => document.querySelectorAll('.talen-say .talen-piece.on').length === 3, null, { timeout: 8000 }).catch(() => {});
+    await p.waitForTimeout(300);
+  }],
+  ['talen', async p => { await p.evaluate(() => window.KWIZILLO_M1.showTalen()); await p.waitForSelector('.talen-stamp'); await p.waitForTimeout(500) }],
 ];
 
 // tools/store-shots.cjs takes the same shots at App Store sizes.
@@ -90,6 +113,7 @@ if (require.main === module) (async () => {
   await page.route('**/*.mp4', r => r.abort());          // no intro film in a still
   await page.route('**/api/tts**', r => r.fulfill({ status: 503, body: '{}' }));
   await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+  STATE.language = LANG;
   await page.evaluate(s => {
     localStorage.setItem('kwizillo-fresh-start', '0');
     localStorage.setItem('kwizillo-state', JSON.stringify(s));
@@ -109,6 +133,8 @@ if (require.main === module) (async () => {
     const ids = K.questions.filter(q => q.world === 'dieren' || q.world === 'ruimte').slice(0, 26).map(q => q.id);
     K.progress().correctQuestionIds = ids;
     K.own('gold:dieren');
+    // Talen: the animals stamped, a few words learned
+    const p = K.progress(); p.talen = { themes: { 'en:dieren': { stars: 3, played: 2 }, 'en:kleuren': { stars: 2, played: 1 }, 'nl:dieren': { stars: 3, played: 2 }, 'nl:kleuren': { stars: 2, played: 1 } }, words: {} };
     K.save();
   });
 
@@ -127,12 +153,25 @@ if (require.main === module) (async () => {
 
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
+  // An iPhone: safe areas, and a status bar drawn over the top.
+  const phone = () => page.evaluate(() => {
+    document.documentElement.style.setProperty('--safe-area-inset-top', '47px');
+    document.documentElement.style.setProperty('--safe-area-inset-bottom', '34px');
+    if (document.getElementById('shotBar')) return;
+    const bar = document.createElement('div'); bar.id = 'shotBar';
+    bar.style.cssText = 'position:fixed;z-index:99999;left:0;right:0;top:0;height:47px;display:flex;align-items:center;justify-content:space-between;padding:6px 30px 0 46px;font:600 17px -apple-system,system-ui,sans-serif;color:#fff;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.25)';
+    bar.innerHTML = '<span>9:41</span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="#fff"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.3C13.5 1.4 10.8.4 8 .4S2.5 1.4.5 3.4l1.2 1.3C3.4 3.1 5.6 2.2 8 2.2zm0 3.7c1.4 0 2.7.5 3.7 1.4l1.2-1.3C11.6 4.8 9.9 4.1 8 4.1s-3.6.7-4.9 1.9l1.2 1.3c1-.9 2.3-1.4 3.7-1.4zM8 9.6l2-2.1C9.5 7.1 8.8 6.8 8 6.8s-1.5.3-2 .7L8 9.6z"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".45"/><rect x="2" y="2" width="19" height="9" rx="2" fill="#fff"/><rect x="24" y="4.5" width="1.6" height="4" rx=".8" fill="#fff" opacity=".45"/></svg></span>';
+    const ind = document.createElement('div'); ind.id = 'shotHome';
+    ind.style.cssText = 'position:fixed;z-index:99999;left:50%;bottom:8px;width:139px;height:5px;margin-left:-69px;border-radius:3px;background:rgba(255,255,255,.85);pointer-events:none';
+    document.body.append(bar, ind);
+  });
   for (const [name, go] of SHOTS) {
     if (only && !only.includes(name)) continue;
+    await phone();
     try { await go(page) } catch (e) { console.error(`${name}: ${e.message}`); continue }
     await page.waitForTimeout(250);
     const url = await shrink(await page.screenshot({ type: 'png' }));
-    const file = path.join(OUT, `${name}.jpg`);
+    const file = path.join(OUT, `${name}.jpg`); fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, Buffer.from(url.split(',')[1], 'base64'));
     console.log(`${name}.jpg  ${W}x${H}  ${(fs.statSync(file).size / 1024).toFixed(0)} kB`);
   }
