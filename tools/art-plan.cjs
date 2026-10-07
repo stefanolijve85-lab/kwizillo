@@ -24,7 +24,11 @@ const DIR = path.join(ROOT, 'tools', 'art-audit');
 const OUT = path.join(ROOT, 'question-art-plan.js');
 const { loadBanks } = require('../tests/langs.js');
 
-const rows = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).flatMap(f => JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')));
+const rows = fs.readdirSync(DIR).filter(f => f.endsWith('.json') && !f.startsWith('_')).flatMap(f => JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')));
+// Question-only pictures drawn after the audit (2026-10-07, Higgsfield, each checked by eye
+// against its question and options): they replace whatever was in assets/questions/s/ before.
+const drawnFile = path.join(DIR, '_drawn.json');
+const drawn = new Set(fs.existsSync(drawnFile) ? JSON.parse(fs.readFileSync(drawnFile, 'utf8')) : []);
 const byId = new Map(rows.map(r => [r.id, r]));
 const ids = loadBanks().banks.nl.map(q => q.id);
 const missing = ids.filter(id => !byId.has(id));
@@ -34,7 +38,7 @@ for (const id of ids) {
   const safeOnDisk = fs.existsSync(path.join(ROOT, 'assets', 'questions', 's', `${id}.jpg`));
   let use = r.use === 'own' ? 'o' : r.use === 'safe' ? 's' : 'n';
   // A question-only picture drawn after the audit for a question that needed one.
-  if (use === 'n' && safeOnDisk && r.safe_fits !== false) use = 's';
+  if (use === 'n' && safeOnDisk && (r.safe_fits !== false || drawn.has(id))) use = 's';
   if (use === 's' && !safeOnDisk) use = 'n';
   plan[id] = r.own_fits === false && use !== 'o' ? use.toUpperCase() : use;
 }
