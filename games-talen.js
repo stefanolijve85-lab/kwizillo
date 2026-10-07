@@ -88,7 +88,7 @@
           <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('talen.title'))}</div><h1>${esc(t('talen.passport'))}</h1><p>${esc(l?t('talen.passportSub',{lang:t(`talen.lang.${l}`)}):t('talen.soon'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(l?t('talen.passportSub',{lang:t(`talen.lang.${l}`)}):t('talen.soon'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll talen-scroll">${body}</div>
       ${K.bottomNav('home')}
     </section>`);
@@ -136,12 +136,14 @@
         <main class="quiz-card whoami-card talen-card">
           <div class="whoami-guide"><img class="mascot-face talen-milo" src="${K.MASCOT_ART.milo}" alt=""><button class="whoami-bubble talen-say" id="talenSay" aria-label="${esc(t('talen.listen'))}"><span aria-hidden="true">🔊</span></button></div>
           <div class="whoami-grid">${opts.map(o=>`<button class="whoami-tile talen-tile" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[app()]}))}</small></b></button>`).join('')}</div>
-          <div class="quiz-actions whoami-actions talen-actions"><button class="action repeat" id="talenReplay">${K.icon('repeat')} ${esc(t('talen.replay'))}</button></div>
+          <div class="quiz-actions whoami-actions talen-actions"><button class="action repeat" id="talenReplay">${K.icon('repeat')} ${esc(t('talen.replay'))}</button><button class="action hint" id="talenHint">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button></div>
         </main>
       </div>
     </section>`);
     const say=f.querySelector('#talenSay'),milo=f.querySelector('.talen-milo');
     const talking=on=>{say.classList.toggle('pulse',on);milo.classList.toggle('talking',on)};
+    // decoded now, while the child listens and looks: the answer sentence is joined from these at once
+    K.preloadClips?.([audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id),...Array.from({length:T().praise},(_,i)=>audio(app(),`_goed${i+1}`)),...Array.from({length:T().almost},(_,i)=>audio(app(),`_bijna${i+1}`))]);
     const speakWord=async()=>{
       talking(true);
       const clips=[];if(g.intro){g.intro=false;clips.push(audio(app(),'_intro'))}
@@ -152,6 +154,18 @@
     f.querySelector('#talenBack').onclick=back;
     say.onclick=()=>{if(!g.locked)speakWord()};
     f.querySelector('#talenReplay').onclick=()=>{K.sfx('tap');if(!g.locked)speakWord()};
+    // Hint: one wrong picture fades away (two at most, so a choice is left). The
+    // word then no longer counts as right first time, like a wrong tap.
+    const hintBtn=f.querySelector('#talenHint');
+    hintBtn.onclick=()=>{
+      if(g.locked)return;
+      const wrong=[...f.querySelectorAll('.talen-tile')].filter(b=>b.dataset.pick!==w.id&&!b.disabled);
+      if(wrong.length<=1){hintBtn.disabled=true;return}
+      K.sfx('tap');g.missed=true;
+      const b=wrong[Math.floor(Math.random()*wrong.length)];b.classList.add('hinted');b.disabled=true;
+      if(wrong.length<=2)hintBtn.disabled=true;
+      speakWord();
+    };
     f.querySelectorAll('[data-pick]').forEach(b=>b.onclick=async()=>{
       if(g.locked||b.classList.contains('wrong'))return;
       if(b.dataset.pick===w.id){
@@ -162,7 +176,7 @@
         K.celebrateAt?.(f,{x:r.left-fr.left+r.width/2,y:r.top-fr.top+r.height/2,count:18});
         talking(true);
         // praise (one of ten), the word, "betekent", the word in the child's own language (the handover's exact order)
-        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[160,30,30]});   // one flowing sentence: a breath after the praise, then word, "betekent", word
+        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[120,40,40]});   // one flowing sentence: a breath after the praise, then word, "betekent", word
         if(!f.isConnected||K.talen!==g)return;
         talking(false);
         if(done===false&&!f.isConnected)return;

@@ -1567,3 +1567,19 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* the learning language: nine languages with their full names, three in a row, flag beside the name */
 .setting-card.learn-card .lang-toggle{grid-template-columns:repeat(3,1fr)}
 .setting-card.learn-card .lang-toggle button{flex-direction:row;gap:5px;white-space:nowrap;font-size:13px;padding-inline:4px;min-height:42px;overflow:hidden}
+/* Talen tile: the painting was redrawn taller (outpainted) so the "Hello!" balloon fits; the tile keeps the top in view */
+.home-game.talen .home-game-art{object-position:50% 12%}
+/* Talen: "Nog een keer" and the hint side by side, as wide as the tiles above them */
+.talen-actions .action{display:flex;align-items:center;justify-content:center;gap:6px}
+.talen-actions .action .ki{width:18px;height:18px}
+.talen-actions .action:disabled{opacity:.45}
+.talen-tile.hinted{opacity:.18;filter:grayscale(1);transform:scale(.96);transition:opacity .35s ease,transform .35s ease,filter .35s ease}
+/* Ideas and feedback (parent zone): kind of message, the text, send */
+.feedback-modal .simple-modal-card{text-align:center}
+.feedback-kinds{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0 8px}
+.feedback-kinds button{min-height:44px;border-radius:14px;border:2px solid #cfe4f7;background:#f3f9ff;color:#17235e;font-weight:900;font-size:12px;padding:6px 4px;line-height:1.15}
+.feedback-kinds button.active{border-color:#4d8dff;background:#e3efff;box-shadow:0 0 0 3px rgba(77,141,255,.18)}
+#feedbackText{width:100%;box-sizing:border-box;border:2px solid #cfe4f7;border-radius:16px;padding:10px 12px;font:inherit;font-size:15px;font-weight:700;color:#10175c;resize:none;background:#fff}
+#feedbackText:focus{outline:none;border-color:#4d8dff}
+.feedback-error{color:#c2410c;font-weight:900;font-size:13px;margin:6px 0 0}
+.feedback-note{display:block;margin-top:8px;color:#5b6b8f;font-size:11px;font-weight:800}

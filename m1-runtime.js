@@ -411,21 +411,65 @@
       const watch=setInterval(()=>{if(settled)return clearInterval(watch);if(!gate.isCurrent(token)){clearInterval(watch);finish(false)}},80);
     });
   }
+  // The clips of one line ("Goed zo!", "shark", "betekent", "haai") are joined into
+  // ONE sound before it plays: decoded once (and kept), laid end to end with the
+  // given pauses, written as a WAV and played through a single <audio> element.
+  // Played one element after the other, an iPhone lost the start of each clip and
+  // swallowed a short "Goed zo!" whole, and every new element started late
+  // (build 29, 2026-10-07). A short silent lead-in covers the moment the audio
+  // route wakes up. When joining fails (no Web Audio, a clip that will not
+  // decode) the clips play one by one as before.
+  const decoded=new Map();
+  function decodeClip(url,c){
+    if(decoded.has(url))return decoded.get(url);
+    const p=fetch(url).then(r=>{if(!r.ok)throw new Error(`${r.status} ${url}`);return r.arrayBuffer()})
+      .then(b=>new Promise((ok,no)=>{const r=c.decodeAudioData(b,ok,no);if(r&&r.then)r.then(ok,no)}));
+    decoded.set(url,p);p.catch(()=>decoded.delete(url));
+    return p;
+  }
+  K.preloadClips=urls=>{const c=ensureVoiceCtx();if(c)for(const u of (urls||[]).filter(Boolean))decodeClip(u,c).catch(()=>{})};
+  const LEAD_IN=.15,TAIL=.05;
+  function joinedWav(buffers,gaps,rate){
+    let n=Math.round(LEAD_IN*rate);
+    const at=buffers.map((b,i)=>{const start=n;n+=b.length+(i<buffers.length-1?Math.round((gaps[i]||0)/1000*rate):0);return start});
+    n+=Math.round(TAIL*rate);
+    const pcm=new Int16Array(n);
+    buffers.forEach((b,i)=>{
+      const chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
+      for(let j=0;j<b.length;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;pcm[at[i]+j]=Math.max(-1,Math.min(1,v))*0x7fff}
+    });
+    const head=new DataView(new ArrayBuffer(44)),w=(o,str)=>{for(let k=0;k<str.length;k++)head.setUint8(o+k,str.charCodeAt(k))};
+    w(0,'RIFF');head.setUint32(4,36+pcm.byteLength,true);w(8,'WAVE');w(12,'fmt ');head.setUint32(16,16,true);head.setUint16(20,1,true);head.setUint16(22,1,true);
+    head.setUint32(24,rate,true);head.setUint32(28,rate*2,true);head.setUint16(32,2,true);head.setUint16(34,16,true);w(36,'data');head.setUint32(40,pcm.byteLength,true);
+    return {blob:new Blob([head.buffer,pcm.buffer],{type:'audio/wav'}),starts:at.map(x=>x/rate)};
+  }
   // gap: the pause after each clip in ms, one number for all or a list per clip.
   K.playClips=async(urls,{gap=140,onClip}={})=>{
     urls=(urls||[]).filter(Boolean);if(!urls.length)return true;
     K.stopSpeech();
     const token=gate.begin();
     K.audio.duck(true);
-    const els=urls.map(clipElement);
+    const gaps=urls.map((_,i)=>Array.isArray(gap)?(gap[i]??0):gap);
     try{
+      const c=ensureVoiceCtx();
+      let joined=null;
+      if(c){try{const bufs=await Promise.all(urls.map(u=>decodeClip(u,c)));joined=joinedWav(bufs,gaps,bufs[0].sampleRate)}catch(e){K.debugLog?.('talen: joining failed',e?.message||String(e))}}
+      if(!gate.isCurrent(token))return false;
+      if(joined){
+        const src=URL.createObjectURL(joined.blob),el=clipElement(src),timers=[];
+        if(onClip)el.addEventListener('playing',()=>joined.starts.forEach((t0,i)=>timers.push(setTimeout(()=>{if(gate.isCurrent(token))try{onClip(i)}catch(e){}},t0*1000))),{once:true});
+        const finished=await playClipElement(src,token,el);
+        timers.forEach(clearTimeout);setTimeout(()=>URL.revokeObjectURL(src),1000);
+        if(finished!==null)return finished!==false&&gate.isCurrent(token);
+      }
+      // one by one (no Web Audio, or the joined sound would not play)
+      const els=urls.map(clipElement);
       for(let i=0;i<urls.length;i++){
         if(!gate.isCurrent(token))return false;
         try{onClip?.(i)}catch(e){}
         const finished=await playClipElement(urls[i],token,els[i]);
         if(finished===false||!gate.isCurrent(token))return false;   // stopped: a tap, another screen
-        const ms=Array.isArray(gap)?(gap[i]??0):gap;
-        if(i<urls.length-1&&ms>0)await pause(ms,token);
+        if(i<urls.length-1&&gaps[i]>0)await pause(gaps[i],token);
       }
       return true;
     }finally{

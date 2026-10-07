@@ -49,8 +49,8 @@ const PRAISE = {
     goed: ["Bravo!","Super!","Sì!","Grande!","Perfetto!","Molto bene!","Ben fatto!","Continua così!","Che bravo!","Wow!"],
     bijna: ["Quasi! Ascolta ancora.","Non proprio! Ascolta di nuovo.","Ops! Riprova.","Mmm, ascolta bene ancora una volta."] },
   pt: {
-    goed: ["Muito bem!","Boa!","Sim!","Fantástico!","Perfeito!","Excelente!","Bem feito!","Continua assim!","Que esperto!","Uau!"],
-    bijna: ["Quase! Ouve outra vez.","Ainda não! Ouve mais uma vez.","Ups! Tenta outra vez.","Hmm, ouve bem outra vez."] },
+    goed: ["Muito bem!","Boa!","Sim!","Fantástico!","Perfeito!","Excelente!","Mandou bem!","Continue assim!","Que esperto!","Uau!"],
+    bijna: ["Quase! Escute de novo.","Ainda não! Escute mais uma vez.","Ops! Tente de novo.","Hmm, escute bem de novo."] },
   da: {
     goed: ["Godt klaret!","Super!","Ja!","Fedt!","Perfekt!","Rigtig godt!","Flot!","Bliv ved!","Sådan!","Wow!"],
     bijna: ["Næsten! Lyt igen.","Ikke helt! Lyt en gang til.","Ups! Prøv igen.","Hmm, lyt godt efter igen."] },
@@ -62,25 +62,25 @@ const PRAISE = {
     bijna: ["اقتربت! استمع مرة أخرى.","ليس تمامًا! استمع مرة أخرى.","أوه! حاول مرة أخرى.","همم، استمع جيدًا مرة أخرى."] }
 };
 const LINES = {
-  nl: { intro: 'Luister goed, en tik op het juiste plaatje!', betekent: 'betekent', klaar_dieren: 'Wauw, je kent nu alle dieren!',
+  nl: { intro: 'Luister goed, en tik op het juiste plaatje!', betekent: 'betekent', klaar_dieren: 'Wauw, je kent nu alle dieren!', klaar_kleuren: 'Wauw, je kent nu alle kleuren!', klaar_getallen: 'Super, je kunt nu tellen tot tien!', klaar_eten: 'Smakelijk! Je kent nu al het eten en drinken!', klaar_lichaam: 'Wauw, je kent nu je hele lichaam!', klaar_vervoer: 'Toet toet! Je kent nu alle voertuigen!',
     ...Object.fromEntries(PRAISE.nl.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.nl.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  en: { intro: 'Listen carefully, and tap the right picture!', betekent: 'means', klaar_dieren: 'Wow, you know all the animals now!',
+  en: { intro: 'Listen carefully, and tap the right picture!', betekent: 'means', klaar_dieren: 'Wow, you know all the animals now!', klaar_kleuren: 'Wow, you know all the colors now!', klaar_getallen: 'Super, you can count to ten now!', klaar_eten: 'Yummy! You know all the food and drinks now!', klaar_lichaam: 'Wow, you know your whole body now!', klaar_vervoer: 'Beep beep! You know all the vehicles now!',
     ...Object.fromEntries(PRAISE.en.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.en.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  de: { intro: 'Hör gut zu und tippe auf das richtige Bild!', betekent: 'heißt', klaar_dieren: 'Wow, jetzt kennst du alle Tiere!',
+  de: { intro: 'Hör gut zu und tippe auf das richtige Bild!', betekent: 'heißt', klaar_dieren: 'Wow, jetzt kennst du alle Tiere!', klaar_kleuren: 'Wow, jetzt kennst du alle Farben!', klaar_getallen: 'Super, jetzt kannst du bis zehn zählen!', klaar_eten: 'Lecker! Jetzt kennst du alles zum Essen und Trinken!', klaar_lichaam: 'Wow, jetzt kennst du deinen ganzen Körper!', klaar_vervoer: 'Tut tut! Jetzt kennst du alle Fahrzeuge!',
     ...Object.fromEntries(PRAISE.de.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.de.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  fr: { intro: 'Écoute bien, et touche la bonne image !', betekent: 'veut dire', klaar_dieren: 'Waouh, tu connais maintenant tous les animaux !',
+  fr: { intro: 'Écoute bien, et touche la bonne image !', betekent: 'veut dire', klaar_dieren: 'Waouh, tu connais maintenant tous les animaux !', klaar_kleuren: 'Waouh, tu connais maintenant toutes les couleurs !', klaar_getallen: 'Super, tu sais compter jusqu’à dix !', klaar_eten: 'Miam ! Tu connais maintenant tout ce qu’on mange et ce qu’on boit !', klaar_lichaam: 'Waouh, tu connais maintenant tout ton corps !', klaar_vervoer: 'Tut tut ! Tu connais maintenant tous les véhicules !',
     ...Object.fromEntries(PRAISE.fr.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.fr.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  es: { intro: '¡Escucha bien y toca la imagen correcta!', betekent: 'significa', klaar_dieren: '¡Guau, ya conoces todos los animales!',
+  es: { intro: '¡Escucha bien y toca la imagen correcta!', betekent: 'significa', klaar_dieren: '¡Guau, ya conoces todos los animales!', klaar_kleuren: '¡Guau, ya conoces todos los colores!', klaar_getallen: '¡Genial, ya sabes contar hasta diez!', klaar_eten: '¡Qué rico! ¡Ya conoces toda la comida y la bebida!', klaar_lichaam: '¡Guau, ya conoces todo tu cuerpo!', klaar_vervoer: '¡Pi pi! ¡Ya conoces todos los vehículos!',
     ...Object.fromEntries(PRAISE.es.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.es.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  it: { intro: "Ascolta bene e tocca l'immagine giusta!", betekent: 'vuol dire', klaar_dieren: 'Wow, ora conosci tutti gli animali!',
+  it: { intro: "Ascolta bene e tocca l'immagine giusta!", betekent: 'vuol dire', klaar_dieren: 'Wow, ora conosci tutti gli animali!', klaar_kleuren: 'Wow, ora conosci tutti i colori!', klaar_getallen: 'Super, ora sai contare fino a dieci!', klaar_eten: 'Gnam! Ora conosci tutto il cibo e le bevande!', klaar_lichaam: 'Wow, ora conosci tutto il tuo corpo!', klaar_vervoer: 'Bip bip! Ora conosci tutti i veicoli!',
     ...Object.fromEntries(PRAISE.it.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.it.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  pt: { intro: 'Ouve bem e toca na imagem certa!', betekent: 'significa', klaar_dieren: 'Uau, agora já conheces todos os animais!',
+  pt: { intro: 'Escute bem e toque na imagem certa!', betekent: 'significa', klaar_dieren: 'Uau, agora você conhece todos os animais!', klaar_kleuren: 'Uau, agora você conhece todas as cores!', klaar_getallen: 'Demais, agora você sabe contar até dez!', klaar_eten: 'Que delícia! Agora você conhece todas as comidas e bebidas!', klaar_lichaam: 'Uau, agora você conhece o seu corpo todo!', klaar_vervoer: 'Bi bi! Agora você conhece todos os veículos!',
     ...Object.fromEntries(PRAISE.pt.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.pt.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  da: { intro: 'Lyt godt efter, og tryk på det rigtige billede!', betekent: 'betyder', klaar_dieren: 'Wow, nu kender du alle dyrene!',
+  da: { intro: 'Lyt godt efter, og tryk på det rigtige billede!', betekent: 'betyder', klaar_dieren: 'Wow, nu kender du alle dyrene!', klaar_kleuren: 'Wow, nu kender du alle farverne!', klaar_getallen: 'Super, nu kan du tælle til ti!', klaar_eten: 'Mums! Nu kender du al maden og drikken!', klaar_lichaam: 'Wow, nu kender du hele din krop!', klaar_vervoer: 'Dyt dyt! Nu kender du alle køretøjerne!',
     ...Object.fromEntries(PRAISE.da.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.da.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  ru: { intro: 'Слушай внимательно и нажми на правильную картинку!', betekent: 'значит', klaar_dieren: 'Ух ты, теперь ты знаешь всех животных!',
+  ru: { intro: 'Слушай внимательно и нажми на правильную картинку!', betekent: 'значит', klaar_dieren: 'Ух ты, теперь ты знаешь всех животных!', klaar_kleuren: 'Ух ты, теперь ты знаешь все цвета!', klaar_getallen: 'Супер, теперь ты умеешь считать до десяти!', klaar_eten: 'Вкусно! Теперь ты знаешь всю еду и напитки!', klaar_lichaam: 'Ух ты, теперь ты знаешь всё своё тело!', klaar_vervoer: 'Би-би! Теперь ты знаешь весь транспорт!',
     ...Object.fromEntries(PRAISE.ru.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.ru.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
-  ar: { intro: 'استمع جيدًا، واضغط على الصورة الصحيحة!', betekent: 'تعني', klaar_dieren: 'واو، أنت الآن تعرف كل الحيوانات!',
+  ar: { intro: 'استمع جيدًا، واضغط على الصورة الصحيحة!', betekent: 'تعني', klaar_dieren: 'واو، أنت الآن تعرف كل الحيوانات!', klaar_kleuren: 'واو، أنت الآن تعرف كل الألوان!', klaar_getallen: 'رائع، أنت الآن تعرف العد حتى عشرة!', klaar_eten: 'لذيذ! أنت الآن تعرف كل الطعام والشراب!', klaar_lichaam: 'واو، أنت الآن تعرف جسمك كله!', klaar_vervoer: 'بيب بيب! أنت الآن تعرف كل وسائل النقل!',
     ...Object.fromEntries(PRAISE.ar.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.ar.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
 };
 
@@ -103,9 +103,14 @@ if (process.argv.includes('--check')) {
 const redo = (process.argv[process.argv.indexOf('--redo') + 1] || '').split(',').filter(Boolean);
 const todo = clips.filter(c => !fs.existsSync(path.join(OUT, c.file)) || redo.includes(c.text) || redo.includes(path.basename(c.file, '.mp3')) || redo.includes(c.file.replace(/\.mp3$/, '')));
 
+// What the voice is given when the word on the tile would be read as something
+// else: "sept" and "dez" are the abbreviations of septembre and dezembro, and
+// that is what came out (2026-10-07). The digit is said as the number.
+const SAY = { 'fr/seven': '7', 'pt/ten': '10' };
 async function record(c) {
-  const CONTEXT = { nl: 'In het Nederlands heet dit dier', en: 'In English this animal is called', de: 'Auf Deutsch heißt dieses Tier', fr: 'En français, cet animal s’appelle', es: 'En español, este animal se llama', it: 'In italiano, questo animale si chiama', pt: 'Em português, este animal chama-se', da: 'På dansk hedder dette dyr', ru: 'По-русски это животное называется', ar: 'بالعربية، اسم هذا الحيوان' };
-  const body = { text: c.text, model_id: SPEECH.model, voice_settings: SPEECH.settings[c.guide], language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
+  // Said before the word as context, not spoken: without it a lone word came out in the wrong language ("haai" as "hi").
+  const CONTEXT = { nl: 'In het Nederlands zeg je', en: 'In English you say', de: 'Auf Deutsch sagt man', fr: 'En français, on dit', es: 'En español se dice', it: 'In italiano si dice', pt: 'Em português se diz', da: 'På dansk siger man', ru: 'По-русски говорят', ar: 'بالعربية نقول' };
+  const body = { text: SAY[c.file.replace(/\.mp3$/, '')] || c.text, model_id: SPEECH.model, voice_settings: SPEECH.settings[c.guide], language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${SPEECH.voiceId(c.lang, c.guide)}?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
   const out = path.join(OUT, c.file); fs.mkdirSync(path.dirname(out), { recursive: true });

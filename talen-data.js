@@ -31,17 +31,74 @@
         {id:'whale',img:img('whale'),text:{nl:'walvis',en:'whale',de:'Wal',fr:'baleine',es:'ballena',it:'balena',pt:'baleia',da:'hval',ru:'кит',ar:'حوت'}},
         {id:'seal',img:img('seal'),text:{nl:'zeehond',en:'seal',de:'Robbe',fr:'phoque',es:'foca',it:'foca',pt:'foca',da:'sæl',ru:'тюлень',ar:'فقمة'}},
         {id:'parrot',img:img('parrot'),text:{nl:'papegaai',en:'parrot',de:'Papagei',fr:'perroquet',es:'loro',it:'pappagallo',pt:'papagaio',da:'papegøje',ru:'попугай',ar:'ببغاء'}},
-        {id:'frog',img:img('frog'),text:{nl:'kikker',en:'frog',de:'Frosch',fr:'grenouille',es:'rana',it:'rana',pt:'rã',da:'frø',ru:'лягушка',ar:'ضفدع'}},
+        {id:'frog',img:img('frog'),text:{nl:'kikker',en:'frog',de:'Frosch',fr:'grenouille',es:'rana',it:'rana',pt:'sapo',da:'frø',ru:'лягушка',ar:'ضفدع'}},
         {id:'snake',img:img('snake'),text:{nl:'slang',en:'snake',de:'Schlange',fr:'serpent',es:'serpiente',it:'serpente',pt:'cobra',da:'slange',ru:'змея',ar:'ثعبان'}},
         {id:'gorilla',img:img('gorilla'),text:{nl:'gorilla',en:'gorilla',de:'Gorilla',fr:'gorille',es:'gorila',it:'gorilla',pt:'gorila',da:'gorilla',ru:'горилла',ar:'غوريلا'}},
         {id:'shark',img:img('shark'),text:{nl:'haai',en:'shark',de:'Hai',fr:'requin',es:'tiburón',it:'squalo',pt:'tubarão',da:'haj',ru:'акула',ar:'قرش'}},
         {id:'chicken',img:img('chicken'),text:{nl:'kip',en:'chicken',de:'Huhn',fr:'poule',es:'gallina',it:'gallina',pt:'galinha',da:'høne',ru:'курица',ar:'دجاجة'}}
       ]},
-      // Not finished yet: shown as "binnenkort" in the passport (Premium once they are).
-      {id:'kleuren',icon:'🎨',words:[]},
-      {id:'eten',icon:'🍎',words:[]},
-      {id:'getallen',icon:'🔢',words:[]},
-      {id:'lichaam',icon:'🖐️',words:[]}
+      // The other themes are Premium; their pictures: kleuren and getallen drawn by
+      // tools/talen-tiles.cjs, eten, lichaam and vervoer painted (Higgsfield, 2026-10-07).
+      {id:'kleuren',icon:'🎨',words:[
+        {id:'red',img:img('red'),text:{nl:'rood',en:'red',de:'rot',fr:'rouge',es:'rojo',it:'rosso',pt:'vermelho',da:'rød',ru:'красный',ar:'أحمر'}},
+        {id:'blue',img:img('blue'),text:{nl:'blauw',en:'blue',de:'blau',fr:'bleu',es:'azul',it:'blu',pt:'azul',da:'blå',ru:'синий',ar:'أزرق'}},
+        {id:'yellow',img:img('yellow'),text:{nl:'geel',en:'yellow',de:'gelb',fr:'jaune',es:'amarillo',it:'giallo',pt:'amarelo',da:'gul',ru:'жёлтый',ar:'أصفر'}},
+        {id:'green',img:img('green'),text:{nl:'groen',en:'green',de:'grün',fr:'vert',es:'verde',it:'verde',pt:'verde',da:'grøn',ru:'зелёный',ar:'أخضر'}},
+        {id:'orange',img:img('orange'),text:{nl:'oranje',en:'orange',de:'orange',fr:'orange',es:'naranja',it:'arancione',pt:'laranja',da:'orange',ru:'оранжевый',ar:'برتقالي'}},
+        {id:'purple',img:img('purple'),text:{nl:'paars',en:'purple',de:'lila',fr:'violet',es:'morado',it:'viola',pt:'roxo',da:'lilla',ru:'фиолетовый',ar:'بنفسجي'}},
+        {id:'pink',img:img('pink'),text:{nl:'roze',en:'pink',de:'rosa',fr:'rose',es:'rosa',it:'rosa',pt:'rosa',da:'lyserød',ru:'розовый',ar:'وردي'}},
+        {id:'black',img:img('black'),text:{nl:'zwart',en:'black',de:'schwarz',fr:'noir',es:'negro',it:'nero',pt:'preto',da:'sort',ru:'чёрный',ar:'أسود'}},
+        {id:'white',img:img('white'),text:{nl:'wit',en:'white',de:'weiß',fr:'blanc',es:'blanco',it:'bianco',pt:'branco',da:'hvid',ru:'белый',ar:'أبيض'}},
+        {id:'brown',img:img('brown'),text:{nl:'bruin',en:'brown',de:'braun',fr:'marron',es:'marrón',it:'marrone',pt:'marrom',da:'brun',ru:'коричневый',ar:'بني'}}
+      ]},
+      {id:'getallen',icon:'🔢',words:[
+        {id:'one',img:img('one'),text:{nl:'één',en:'one',de:'eins',fr:'un',es:'uno',it:'uno',pt:'um',da:'en',ru:'один',ar:'واحد'}},
+        {id:'two',img:img('two'),text:{nl:'twee',en:'two',de:'zwei',fr:'deux',es:'dos',it:'due',pt:'dois',da:'to',ru:'два',ar:'اثنان'}},
+        {id:'three',img:img('three'),text:{nl:'drie',en:'three',de:'drei',fr:'trois',es:'tres',it:'tre',pt:'três',da:'tre',ru:'три',ar:'ثلاثة'}},
+        {id:'four',img:img('four'),text:{nl:'vier',en:'four',de:'vier',fr:'quatre',es:'cuatro',it:'quattro',pt:'quatro',da:'fire',ru:'четыре',ar:'أربعة'}},
+        {id:'five',img:img('five'),text:{nl:'vijf',en:'five',de:'fünf',fr:'cinq',es:'cinco',it:'cinque',pt:'cinco',da:'fem',ru:'пять',ar:'خمسة'}},
+        {id:'six',img:img('six'),text:{nl:'zes',en:'six',de:'sechs',fr:'six',es:'seis',it:'sei',pt:'seis',da:'seks',ru:'шесть',ar:'ستة'}},
+        {id:'seven',img:img('seven'),text:{nl:'zeven',en:'seven',de:'sieben',fr:'sept',es:'siete',it:'sette',pt:'sete',da:'syv',ru:'семь',ar:'سبعة'}},
+        {id:'eight',img:img('eight'),text:{nl:'acht',en:'eight',de:'acht',fr:'huit',es:'ocho',it:'otto',pt:'oito',da:'otte',ru:'восемь',ar:'ثمانية'}},
+        {id:'nine',img:img('nine'),text:{nl:'negen',en:'nine',de:'neun',fr:'neuf',es:'nueve',it:'nove',pt:'nove',da:'ni',ru:'девять',ar:'تسعة'}},
+        {id:'ten',img:img('ten'),text:{nl:'tien',en:'ten',de:'zehn',fr:'dix',es:'diez',it:'dieci',pt:'dez',da:'ti',ru:'десять',ar:'عشرة'}}
+      ]},
+      {id:'eten',icon:'🍎',words:[
+        {id:'apple',img:img('apple'),text:{nl:'appel',en:'apple',de:'Apfel',fr:'pomme',es:'manzana',it:'mela',pt:'maçã',da:'æble',ru:'яблоко',ar:'تفاحة'}},
+        {id:'banana',img:img('banana'),text:{nl:'banaan',en:'banana',de:'Banane',fr:'banane',es:'plátano',it:'banana',pt:'banana',da:'banan',ru:'банан',ar:'موزة'}},
+        {id:'bread',img:img('bread'),text:{nl:'brood',en:'bread',de:'Brot',fr:'pain',es:'pan',it:'pane',pt:'pão',da:'brød',ru:'хлеб',ar:'خبز'}},
+        {id:'milk',img:img('milk'),text:{nl:'melk',en:'milk',de:'Milch',fr:'lait',es:'leche',it:'latte',pt:'leite',da:'mælk',ru:'молоко',ar:'حليب'}},
+        {id:'cheese',img:img('cheese'),text:{nl:'kaas',en:'cheese',de:'Käse',fr:'fromage',es:'queso',it:'formaggio',pt:'queijo',da:'ost',ru:'сыр',ar:'جبن'}},
+        {id:'egg',img:img('egg'),text:{nl:'ei',en:'egg',de:'Ei',fr:'œuf',es:'huevo',it:'uovo',pt:'ovo',da:'æg',ru:'яйцо',ar:'بيضة'}},
+        {id:'carrot',img:img('carrot'),text:{nl:'wortel',en:'carrot',de:'Karotte',fr:'carotte',es:'zanahoria',it:'carota',pt:'cenoura',da:'gulerod',ru:'морковь',ar:'جزرة'}},
+        {id:'strawberry',img:img('strawberry'),text:{nl:'aardbei',en:'strawberry',de:'Erdbeere',fr:'fraise',es:'fresa',it:'fragola',pt:'morango',da:'jordbær',ru:'клубника',ar:'فراولة'}},
+        {id:'water',img:img('water'),text:{nl:'water',en:'water',de:'Wasser',fr:'eau',es:'agua',it:'acqua',pt:'água',da:'vand',ru:'вода',ar:'ماء'}},
+        {id:'icecream',img:img('icecream'),text:{nl:'ijsje',en:'ice cream',de:'Eis',fr:'glace',es:'helado',it:'gelato',pt:'sorvete',da:'is',ru:'мороженое',ar:'آيس كريم'}}
+      ]},
+      {id:'lichaam',icon:'🖐️',words:[
+        {id:'hand',img:img('hand'),text:{nl:'hand',en:'hand',de:'Hand',fr:'main',es:'mano',it:'mano',pt:'mão',da:'hånd',ru:'рука',ar:'يد'}},
+        {id:'foot',img:img('foot'),text:{nl:'voet',en:'foot',de:'Fuß',fr:'pied',es:'pie',it:'piede',pt:'pé',da:'fod',ru:'нога',ar:'قدم'}},
+        {id:'eye',img:img('eye'),text:{nl:'oog',en:'eye',de:'Auge',fr:'œil',es:'ojo',it:'occhio',pt:'olho',da:'øje',ru:'глаз',ar:'عين'}},
+        {id:'nose',img:img('nose'),text:{nl:'neus',en:'nose',de:'Nase',fr:'nez',es:'nariz',it:'naso',pt:'nariz',da:'næse',ru:'нос',ar:'أنف'}},
+        {id:'ear',img:img('ear'),text:{nl:'oor',en:'ear',de:'Ohr',fr:'oreille',es:'oreja',it:'orecchio',pt:'orelha',da:'øre',ru:'ухо',ar:'أذن'}},
+        {id:'mouth',img:img('mouth'),text:{nl:'mond',en:'mouth',de:'Mund',fr:'bouche',es:'boca',it:'bocca',pt:'boca',da:'mund',ru:'рот',ar:'فم'}},
+        {id:'head',img:img('head'),text:{nl:'hoofd',en:'head',de:'Kopf',fr:'tête',es:'cabeza',it:'testa',pt:'cabeça',da:'hoved',ru:'голова',ar:'رأس'}},
+        {id:'hair',img:img('hair'),text:{nl:'haar',en:'hair',de:'Haare',fr:'cheveux',es:'pelo',it:'capelli',pt:'cabelo',da:'hår',ru:'волосы',ar:'شعر'}},
+        {id:'tooth',img:img('tooth'),text:{nl:'tand',en:'tooth',de:'Zahn',fr:'dent',es:'diente',it:'dente',pt:'dente',da:'tand',ru:'зуб',ar:'سن'}},
+        {id:'belly',img:img('belly'),text:{nl:'buik',en:'belly',de:'Bauch',fr:'ventre',es:'barriga',it:'pancia',pt:'barriga',da:'mave',ru:'живот',ar:'بطن'}}
+      ]},
+      {id:'vervoer',icon:'🚗',words:[
+        {id:'car',img:img('car'),text:{nl:'auto',en:'car',de:'Auto',fr:'voiture',es:'coche',it:'macchina',pt:'carro',da:'bil',ru:'машина',ar:'سيارة'}},
+        {id:'bus',img:img('bus'),text:{nl:'bus',en:'bus',de:'Bus',fr:'bus',es:'autobús',it:'autobus',pt:'ônibus',da:'bus',ru:'автобус',ar:'حافلة'}},
+        {id:'train',img:img('train'),text:{nl:'trein',en:'train',de:'Zug',fr:'train',es:'tren',it:'treno',pt:'trem',da:'tog',ru:'поезд',ar:'قطار'}},
+        {id:'plane',img:img('plane'),text:{nl:'vliegtuig',en:'plane',de:'Flugzeug',fr:'avion',es:'avión',it:'aereo',pt:'avião',da:'fly',ru:'самолёт',ar:'طائرة'}},
+        {id:'boat',img:img('boat'),text:{nl:'boot',en:'boat',de:'Boot',fr:'bateau',es:'barco',it:'barca',pt:'barco',da:'båd',ru:'лодка',ar:'قارب'}},
+        {id:'bike',img:img('bike'),text:{nl:'fiets',en:'bike',de:'Fahrrad',fr:'vélo',es:'bicicleta',it:'bicicletta',pt:'bicicleta',da:'cykel',ru:'велосипед',ar:'دراجة'}},
+        {id:'helicopter',img:img('helicopter'),text:{nl:'helikopter',en:'helicopter',de:'Hubschrauber',fr:'hélicoptère',es:'helicóptero',it:'elicottero',pt:'helicóptero',da:'helikopter',ru:'вертолёт',ar:'مروحية'}},
+        {id:'rocket',img:img('rocket'),text:{nl:'raket',en:'rocket',de:'Rakete',fr:'fusée',es:'cohete',it:'razzo',pt:'foguete',da:'raket',ru:'ракета',ar:'صاروخ'}},
+        {id:'tractor',img:img('tractor'),text:{nl:'tractor',en:'tractor',de:'Traktor',fr:'tracteur',es:'tractor',it:'trattore',pt:'trator',da:'traktor',ru:'трактор',ar:'جرار'}},
+        {id:'firetruck',img:img('firetruck'),text:{nl:'brandweerauto',en:'fire truck',de:'Feuerwehrauto',fr:'camion de pompiers',es:'camión de bomberos',it:'camion dei pompieri',pt:'caminhão de bombeiros',da:'brandbil',ru:'пожарная машина',ar:'سيارة إطفاء'}}
+      ]}
     ]
   };
   K.talenAudio=(lang,name,guide)=>`assets/talen/audio/${lang}/${guide?guide.toLowerCase()+'/':''}${name}.mp3`;

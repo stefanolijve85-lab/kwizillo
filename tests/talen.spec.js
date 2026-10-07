@@ -52,7 +52,7 @@ test('Home: the Runner is a banner under the worlds, Talen is first in "Speel oo
   await expect(page.locator('#homeTalen')).toContainText('Talen');
   await expect(page.locator('#homeTalen .home-world-level')).toHaveCount(0);   // no badge before the first lesson
   await page.locator('#homeTalen').click();
-  await expect(page.locator('.talen-pass h1')).toHaveText('Taalpaspoort');
+  await expect(page.locator('.talen-pass h1.game-name')).toHaveText('Talen');
 });
 
 test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kept per theme with Leitner boxes; sound order after a right answer', async ({ page }) => {
@@ -92,7 +92,7 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   await expect.poll(() => clips).toContain('nl/milo/_klaar_dieren.mp3');
   // stamp on the Home tile
   await page.evaluate(() => window.KWIZILLO_M1.showHome());
-  await expect(page.locator('#homeTalen .home-world-level')).toHaveText('★ 1/5');
+  await expect(page.locator('#homeTalen .home-world-level')).toHaveText('★ 1/6');
 });
 
 test('progress is per player: Sara does not get Mike\'s stars', async ({ page }) => {
@@ -112,22 +112,23 @@ test('progress is per player: Sara does not get Mike\'s stars', async ({ page })
   expect(await page.evaluate(() => [window.KWIZILLO_M1.state.name, window.KWIZILLO_M1.talenSummary().themes[0].stars])).toEqual(['Sara', 1]);
 });
 
-test('a Premium theme has a lock without Premium and opens with it; unfinished themes say "binnenkort"', async ({ page }) => {
-  const addTheme = () => page.evaluate(() => { const T = window.KWIZILLO_M1.TALEN; const k = T.themes.find(x => x.id === 'kleuren'); k.words = T.themes[0].words.slice(0, 6); window.KWIZILLO_M1.showTalen(); });
+test('six themes, all playable: animals free, the other five with a Premium lock that opens the teaser', async ({ page }) => {
   await boot(page);
   await page.locator('#homeTalen').click();
-  await expect(page.locator('.talen-stamp.soon')).toHaveCount(4);
-  await expect(page.locator('.talen-stamp.soon').first()).toContainText('binnenkort');
-  await addTheme();
-  await expect(page.locator('[data-theme="kleuren"].locked .premium-badge')).toBeVisible();
-  await page.locator('[data-theme="kleuren"]').click();
+  await expect(page.locator('.talen-pass .panel-head h1.game-name')).toHaveText('Talen');
+  await expect(page.locator('.talen-stamp')).toHaveCount(6);
+  await expect(page.locator('.talen-stamp.soon')).toHaveCount(0);
+  await expect(page.locator('[data-theme].locked')).toHaveCount(5);
+  await expect(page.locator('[data-theme="dieren"]')).not.toHaveClass(/locked/);
+  await page.locator('[data-theme="vervoer"]').click();
   await expect(page.locator('.premium-teaser p')).toContainText('Premium');
   expect(await page.evaluate(() => window.KWIZILLO_M1.talen?.theme)).toBeFalsy();
 });
 
 test('with Premium the other themes open', async ({ page }) => {
   await boot(page, { premium: true });
-  await page.evaluate(() => { const T = window.KWIZILLO_M1.TALEN; T.themes.find(x => x.id === 'kleuren').words = T.themes[0].words.slice(0, 6); window.KWIZILLO_M1.showTalen(); });
+  await page.evaluate(() => window.KWIZILLO_M1.showTalen());
+  await expect(page.locator('[data-theme].locked')).toHaveCount(0);
   await expect(page.locator('[data-theme="kleuren"]')).not.toHaveClass(/locked/);
   await page.locator('[data-theme="kleuren"]').click();
   await expect(page.locator('.talen-tile')).toHaveCount(4);
@@ -155,17 +156,18 @@ test('every app language learns: English for a Dutch child and Dutch for an Engl
   await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_intro.mp3', `de/${await current(page)}.mp3`]);
 });
 
-test('every word, line and closing line exists in all ten languages', async () => {
+test('six themes of ten words: every word, picture, line and closing line exists in all ten languages', async () => {
   const fs = require('fs'), path = require('path'), vm = require('vm');
   const ctx = { window: {} }; vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'talen-data.js'), 'utf8'), ctx);
   const T = ctx.window.KWIZILLO_M1.TALEN, dir = path.join(__dirname, '..', 'assets', 'talen', 'audio');
   expect(T.langs).toHaveLength(10);
+  expect(T.themes.map(t => t.words.length)).toEqual([10, 10, 10, 10, 10, 10]);
   for (const l of T.langs) {
-    for (const w of T.themes[0].words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, `${w.id}.mp3`))).toBe(true); }
+    for (const th of T.themes) for (const w of th.words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, `${w.id}.mp3`)), `${l}/${w.id}`).toBe(true); expect(fs.existsSync(path.join(__dirname, '..', w.img)), w.img).toBe(true); }
     for (let i = 1; i <= T.praise; i++) expect(fs.existsSync(path.join(dir, l, `_goed${i}.mp3`)), `${l} _goed${i}`).toBe(true);
     for (let i = 1; i <= T.almost; i++) expect(fs.existsSync(path.join(dir, l, `_bijna${i}.mp3`)), `${l} _bijna${i}`).toBe(true);
-    for (const g of ['milo', 'luna']) expect(fs.existsSync(path.join(dir, l, g, '_klaar_dieren.mp3'))).toBe(true);
+    for (const g of ['milo', 'luna']) for (const th of T.themes) expect(fs.existsSync(path.join(dir, l, g, `_klaar_${th.id}.mp3`)), `${l}/${g}/_klaar_${th.id}`).toBe(true);
   }
 });
 
@@ -193,7 +195,7 @@ test('Talen in the overviews: a Woordjes tab in the collection, a line in the st
   await expect.poll(() => clips).toEqual(['en/shark.mp3', 'nl/_betekent.mp3', 'nl/shark.mp3']);
   await page.evaluate(() => window.KWIZILLO_M1.showStats());
   await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('10 woordjes geleerd · 3 lessen');
-  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/5');
+  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/6');
   await page.evaluate(() => window.KWIZILLO_M1.showAchievements());
   await expect(page.getByText('Eerste les in Talen')).toBeVisible();
   await expect(page.getByText('10 woordjes geleerd', { exact: true })).toBeVisible();
@@ -204,20 +206,40 @@ test('a new player sees an empty Woordjes tab that leads to Talen', async ({ pag
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('words'));
   await expect(page.locator('.empty-state h2')).toHaveText('Nog geen woordjes');
   await page.locator('#toTalen').click();
-  await expect(page.locator('.talen-pass h1')).toHaveText('Taalpaspoort');
+  await expect(page.locator('.talen-pass h1.game-name')).toHaveText('Talen');
 });
 
-test('Talen strings the answer together as one sentence: the clips load before the first one plays and only a breath follows the praise', async ({ page }) => {
+test('Talen strings the answer together as one sentence: the clips are joined into ONE sound (one element, a short lead-in), so nothing is cut off or swallowed', async ({ page }) => {
   await page.goto('/');
   await page.waitForFunction(() => window.KWIZILLO_M1 && window.KWIZILLO_M1.playClips);
-  const made = await page.evaluate(() => {
-    const K = window.KWIZILLO_M1, urls = [], real = window.Audio;
-    window.Audio = function () { const a = new real(); const d = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src'); Object.defineProperty(a, 'src', { set(v) { urls.push(v); d.set.call(a, v) }, get() { return d.get.call(a) } }); a.play = () => Promise.resolve(); return a; };
-    K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [160, 30, 30] });
-    window.Audio = real; K.stopSpeech();
-    return urls;
+  const r = await page.evaluate(async () => {
+    const K = window.KWIZILLO_M1, srcs = [], real = window.Audio;
+    window.Audio = function () { const a = new real(); const d = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src'); Object.defineProperty(a, 'src', { set(v) { srcs.push(v); d.set.call(a, v) }, get() { return d.get.call(a) } }); a.play = () => Promise.resolve(); return a; };
+    const done = K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [120, 40, 40] });
+    await new Promise(ok => { const t = setInterval(() => { if (srcs.length) { clearInterval(t); ok(); } }, 20); setTimeout(ok, 4000); });
+    window.Audio = real; K.stopSpeech(); await done;
+    return srcs;
   });
-  expect(made).toHaveLength(4);   // all four made at once, before the first one ended
+  expect(r).toHaveLength(1);
+  expect(r[0]).toMatch(/^blob:/);
   const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'games-talen.js'), 'utf8');
-  expect(src).toContain('{gap:[160,30,30]}');
+  expect(src).toMatch(/gap:\[1\d0,\d0,\d0\]/);
+});
+
+test('the hint sits beside "Nog een keer": it fades one wrong picture (two at most) and the word no longer counts as right first time', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeTalen').click();
+  await page.locator('#talenStart').click();
+  await expect(page.locator('.talen-actions .action')).toHaveCount(2);
+  const [a, b] = await page.locator('.talen-actions .action').evaluateAll(els => els.map(e => e.getBoundingClientRect().width));
+  expect(Math.abs(a - b)).toBeLessThan(2);
+  await page.locator('#talenHint').click();
+  await expect(page.locator('.talen-tile.hinted')).toHaveCount(1);
+  await page.locator('#talenHint').click();
+  await expect(page.locator('.talen-tile.hinted')).toHaveCount(2);
+  await expect(page.locator('#talenHint')).toBeDisabled();
+  const id = await current(page);
+  await expect(page.locator(`.talen-tile.hinted[data-pick="${id}"]`)).toHaveCount(0);
+  await page.locator(`.talen-tile[data-pick="${id}"]`).click();
+  expect(await page.evaluate(() => window.KWIZILLO_M1.talen.firstTry)).toBe(0);
 });
