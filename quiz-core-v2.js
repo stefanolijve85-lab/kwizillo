@@ -22,6 +22,9 @@
   // "Net niet. Het juiste antwoord is {answer}." is said as its fixed words and
   // the answer's own recording: ["Net niet. Het juiste antwoord is", "Mars."].
   // The last piece is a 'lead', so the pause before the explanation stays.
+  // How many wordings the spoken verdicts have (feedback.speech.good.N / try.N in every
+  // language). The speech tools record all of them; the games pick one.
+  const FEEDBACK_VARIANTS={good:16,try:6};
   function answerSegments(template,answer){
     const s=String(template||''),i=s.indexOf('{answer}');
     if(i<0) return s.trim()?[{kind:'lead',text:s.trim()}]:[];
@@ -411,5 +414,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,selectMegaBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,spokenLetters,answerLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{FEEDBACK_VARIANTS,buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,selectMegaBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,spokenLetters,answerLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

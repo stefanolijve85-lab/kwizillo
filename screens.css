@@ -1564,3 +1564,6 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .home-runner{min-height:54px;padding-block:5px}
 @media(max-height:700px){.home-runner{min-height:38px;padding-block:3px}.home-runner .home-mega-copy b{font-size:17px}.home-game.art{aspect-ratio:16/8}.home-game.art b{font-size:12px;bottom:4px}}
 @media(min-width:431px){.home-game.art{aspect-ratio:16/6.5}.home-runner{max-height:76px}}
+/* the learning language: nine languages with their full names, three in a row, flag beside the name */
+.setting-card.learn-card .lang-toggle{grid-template-columns:repeat(3,1fr)}
+.setting-card.learn-card .lang-toggle button{flex-direction:row;gap:5px;white-space:nowrap;font-size:13px;padding-inline:4px;min-height:42px;overflow:hidden}

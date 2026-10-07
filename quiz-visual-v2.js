@@ -246,18 +246,22 @@
   // The praise varies from question to question. The pick is fixed per
   // question and quiz (a hash, not Math.random) so the line prefetched while
   // the child is thinking is the line that gets spoken.
-  // Praise varies per quiz (eight short lines, recorded once per language). The
-  // "almost, it is {answer}" line names the answer, so every variant is a new
-  // recording per question: it is fixed per question instead of per quiz.
+  // Praise (sixteen short lines) and "almost, it is {answer}" (six) vary per quiz.
+  // The answer in the "almost" line is its own recording (answerSegments), so the
+  // words around it are a closed set too, recorded once per language.
   function variant(q,kind,count,salted=true){
     let h=salted?(K.quiz?.salt||0):0;for(const ch of q.id)h=(h*31+ch.charCodeAt(0))>>>0;
     // The answer is left as {answer}: buildFeedbackSegments says it with its own recording.
     return t(`feedback.speech.${kind}.${(h%count)+1}`);
   }
+  // A praise line for the games around the quiz (Wat ben ik?, Fotozoom, Rekenen):
+  // random, never the one heard just before.
+  let lastPraise=0;
+  K.praiseLine=()=>{const n=K.core.FEEDBACK_VARIANTS.good;let i;do i=1+Math.floor(Math.random()*n);while(i===lastPraise);lastPraise=i;return t(`feedback.speech.good.${i}`)};
   function feedbackSpeech(q,correct){
     return K.core.buildFeedbackSegments(q,correct,{
-      good:variant(q,'good',8),
-      tryAgain:variant(q,'try',4,false),
+      good:variant(q,'good',K.core.FEEDBACK_VARIANTS.good),
+      tryAgain:variant(q,'try',K.core.FEEDBACK_VARIANTS.try),
       fact:t('feedback.speech.fact')
     });
   }

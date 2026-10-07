@@ -67,13 +67,13 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   const first = await current(page);
   clips.length = 0;
   await page.locator(`.talen-tile[data-pick="${first}"]`).click();
-  await expect.poll(() => clips.slice(0, 4), { timeout: 8000 }).toEqual(['nl/_goedzo.mp3', `en/${first}.mp3`, 'nl/_betekent.mp3', `nl/${first}.mp3`]);
+  await expect.poll(() => clips.slice(0, 4), { timeout: 8000 }).toEqual([expect.stringMatching(/^nl\/_goed([1-9]|10)\.mp3$/), `en/${first}.mp3`, 'nl/_betekent.mp3', `nl/${first}.mp3`]);
   await expect(page.locator('.talen-tile.correct .talen-label')).toContainText('betekent');
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.talen.round), { timeout: 15000 }).toBe(1);
   // the rest, with one wrong tap in round 4
   for (let round = 1; round < 8; round++) {
     const id = await current(page);
-    if (round === 3) { clips.length = 0; await page.locator(`.talen-tile:not([data-pick="${id}"])`).first().click(); await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_bijna.mp3', `en/${id}.mp3`]); }
+    if (round === 3) { clips.length = 0; await page.locator(`.talen-tile:not([data-pick="${id}"])`).first().click(); await expect.poll(() => clips.slice(0, 2)).toEqual([expect.stringMatching(/^nl\/_bijna[1-4]\.mp3$/), `en/${id}.mp3`]); }
     await page.locator(`.talen-tile[data-pick="${id}"]`).click();
     if (round < 7) await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.talen.round), { timeout: 15000 }).toBe(round + 1);
   }
@@ -81,7 +81,7 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   await expect(page.locator('.talen-result .result-stars i.on')).toHaveCount(3);
   await expect(page.locator('.talen-result h1')).toHaveText('Je kent de dieren!');
   await expect(page.locator('.talen-result .talen-chip')).toHaveCount(8);
-  const st = await page.evaluate(() => { const T = window.KWIZILLO_M1.progress().talen; return { stars: T.themes.dieren.stars, words: T.words }; });
+  const st = await page.evaluate(() => { const T = window.KWIZILLO_M1.progress().talen; return { stars: T.themes['en:dieren'].stars, words: T.words }; });
   expect(st.stars).toBe(3);
   const boxes = Object.entries(st.words);
   expect(boxes).toHaveLength(8);
@@ -104,11 +104,12 @@ test('progress is per player: Sara does not get Mike\'s stars', async ({ page })
   await page.locator('#homeTalen').click();
   await page.locator('#talenStart').click();
   await playLesson(page);
-  expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.themes.dieren.stars)).toBe(3);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.themes['en:dieren'].stars)).toBe(3);
   await page.evaluate(() => { window.KWIZILLO_M1.players.stash(); window.KWIZILLO_M1.showPlayerPicker(); });
   await page.locator('[data-player="Sara"]').click();
   await expect(page.locator('.home')).toBeVisible();
-  expect(await page.evaluate(() => [window.KWIZILLO_M1.state.name, window.KWIZILLO_M1.progress().talen.themes.dieren.stars])).toEqual(['Sara', 1]);
+  // Sara's record from phase 1 (per theme only) is read as her English one
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.state.name, window.KWIZILLO_M1.talenSummary().themes[0].stars])).toEqual(['Sara', 1]);
 });
 
 test('a Premium theme has a lock without Premium and opens with it; unfinished themes say "binnenkort"', async ({ page }) => {
@@ -132,7 +133,7 @@ test('with Premium the other themes open', async ({ page }) => {
   await expect(page.locator('.talen-tile')).toHaveCount(4);
 });
 
-test('an English child learns Dutch; another app language says "binnenkort"; the parent can set the learning language', async ({ page }) => {
+test('every app language learns: English for a Dutch child and Dutch for an English one by default, English for the rest; the parent picks any of the other nine', async ({ page }) => {
   const clips = [];
   await boot(page, { state: SAVED({ language: 'en' }), clips });
   await page.locator('#homeTalen').click();
@@ -140,10 +141,32 @@ test('an English child learns Dutch; another app language says "binnenkort"; the
   await page.locator('#talenStart').click();
   await expect.poll(() => clips.slice(0, 2)).toEqual(['en/_intro.mp3', `nl/${await current(page)}.mp3`]);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.stopSpeech(); K.setLanguage('de'); K.useBank(); K.showTalen(); });
-  await expect(page.locator('.talen-soon-lang')).toContainText('Bald auch in deiner Sprache');
+  await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Lerne Englisch mit Milo');
+  await expect(page.locator('.talen-soon-lang')).toHaveCount(0);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.setLanguage('nl'); K.useBank(); K.showParent(); });
-  await expect(page.locator('.learn-card [data-learn]')).toHaveCount(1);   // phase 1: a Dutch child learns English
+  await expect(page.locator('.learn-card [data-learn]')).toHaveCount(9);
   await expect(page.locator('.learn-card [data-learn="en"]')).toHaveClass(/active/);
+  // a Dutch child learning German: German words, Dutch around them, and a fresh stamp
+  await page.locator('.learn-card [data-learn="de"]').click();
+  await page.evaluate(() => window.KWIZILLO_M1.showTalen());
+  await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Leer Duits met Milo');
+  clips.length = 0;
+  await page.locator('#talenStart').click();
+  await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_intro.mp3', `de/${await current(page)}.mp3`]);
+});
+
+test('every word, line and closing line exists in all ten languages', async () => {
+  const fs = require('fs'), path = require('path'), vm = require('vm');
+  const ctx = { window: {} }; vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'talen-data.js'), 'utf8'), ctx);
+  const T = ctx.window.KWIZILLO_M1.TALEN, dir = path.join(__dirname, '..', 'assets', 'talen', 'audio');
+  expect(T.langs).toHaveLength(10);
+  for (const l of T.langs) {
+    for (const w of T.themes[0].words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, `${w.id}.mp3`))).toBe(true); }
+    for (let i = 1; i <= T.praise; i++) expect(fs.existsSync(path.join(dir, l, `_goed${i}.mp3`)), `${l} _goed${i}`).toBe(true);
+    for (let i = 1; i <= T.almost; i++) expect(fs.existsSync(path.join(dir, l, `_bijna${i}.mp3`)), `${l} _bijna${i}`).toBe(true);
+    for (const g of ['milo', 'luna']) expect(fs.existsSync(path.join(dir, l, g, '_klaar_dieren.mp3'))).toBe(true);
+  }
 });
 
 test('works without a network: every clip and picture comes from the app itself', async ({ page }) => {
@@ -190,7 +213,7 @@ test('Talen strings the answer together as one sentence: the clips load before t
   const made = await page.evaluate(() => {
     const K = window.KWIZILLO_M1, urls = [], real = window.Audio;
     window.Audio = function () { const a = new real(); const d = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src'); Object.defineProperty(a, 'src', { set(v) { urls.push(v); d.set.call(a, v) }, get() { return d.get.call(a) } }); a.play = () => Promise.resolve(); return a; };
-    K.playClips(['assets/talen/audio/nl/_goedzo.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [160, 30, 30] });
+    K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [160, 30, 30] });
     window.Audio = real; K.stopSpeech();
     return urls;
   });

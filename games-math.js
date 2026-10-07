@@ -165,7 +165,7 @@
       if(correct)K.awardPoints(10);K.save();
       const h=f.querySelector('#mathFeedback');h.hidden=false;h.className=`math-feedback ${correct?'is-good':'is-try'}`;
       h.innerHTML=`<b>${esc(t(value===null?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</b><span>${esc(t('math.answerIs',{sum:s.text,answer:s.answer}))}</span>`;
-      const line=correct?[t(`feedback.speech.good.${1+Math.floor(Math.random()*8)}`)]:parts('math.speech.wrong',{answer:s.answer});
+      const line=correct?[K.praiseLine()]:parts('math.speech.wrong',{answer:s.answer});
       const go=()=>{m.index++;render()};
       // The voice names the chosen number first, then the praise or the correction.
       const chosen=value===null?[]:num(value).map((text,i,all)=>({kind:i===all.length-1?'answer':'part',text}));

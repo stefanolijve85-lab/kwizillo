@@ -16,7 +16,7 @@
 //
 // Two tiers, each run for every language before the next tier starts:
 //   1  the question, the hint, the verdict ("almost, it is …"), the explanation
-//      and the eight praise lines: what every quiz says whatever the child taps
+//      and the sixteen praise lines: what every quiz says whatever the child taps
 //   2  the answers: the letters "A." … "D." and every option once ("Mars."),
 //      which the verdict ("… het juiste antwoord is" + "Mars.") reuses
 // The run stops by itself when the proxy's daily budget is spent (503) or when
@@ -52,14 +52,16 @@ const K = i18n();
 const t = (lang, key, params) => { K.state.language = lang; return K.t(key, params) };
 
 // The same variant choice as quiz-visual-v2.js: the "try again" line is fixed per question.
-const tryVariant = q => { let h = 0; for (const ch of q.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return (h % 4) + 1 };
+const tryVariant = q => { let h = 0; for (const ch of q.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return (h % core.FEEDBACK_VARIANTS.try) + 1 };
 
 // Also used by tools/speech-inventory.cjs, which needs the very same lines.
 function linesFor(lang, tier, { topic = null, ids = [] } = {}) {
   const bank = (banks[lang] || []).filter(q => (!topic || q.topic === topic) && (!ids.length || ids.includes(q.id)));
   const out = [];
   if (tier === 1) {
-    for (let i = 1; i <= 8; i++) out.push(t(lang, `feedback.speech.good.${i}`));
+    for (let i = 1; i <= core.FEEDBACK_VARIANTS.good; i++) out.push(t(lang, `feedback.speech.good.${i}`));
+    // the words around the answer in every "almost" wording (the quiz picks one per quiz)
+    for (let i = 1; i <= core.FEEDBACK_VARIANTS.try; i++) for (const s of core.answerSegments(t(lang, `feedback.speech.try.${i}`), '')) if (s.text) out.push(s.text);
     out.push(t(lang, 'hint.fallback'));
     for (const q of bank) {
       const fact = t(lang, 'feedback.speech.fact');

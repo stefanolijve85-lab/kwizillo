@@ -19,6 +19,14 @@
   const learn=()=>K.talenLearnLang();
   const store=()=>{const p=K.progress();p.talen||={themes:{},words:{}};p.talen.themes||={};p.talen.words||={};return p.talen};
   const theme=id=>T().themes.find(x=>x.id===id);
+  // Stars per theme are kept per learning language ("en:dieren"): a child who
+  // switches from English to German starts German with an empty stamp. Phase 1
+  // kept them per theme only; such a record belongs to the language learned then.
+  const themeRec=(id,make=false)=>{
+    const s=store(),l=learn(),k=`${l}:${id}`;
+    if(!s.themes[k]&&s.themes[id]&&l){s.themes[k]=s.themes[id];delete s.themes[id]}
+    return s.themes[k]||(make?(s.themes[k]={stars:0,played:0}):null);
+  };
   const word=id=>T().themes.flatMap(x=>x.words).find(w=>w.id===id);
   const audio=(lang,name,guide)=>K.talenAudio(lang,name,guide);
   // A theme can be played when it has its words; the free one always, the others with Premium.
@@ -39,19 +47,22 @@
   const learnedIds=()=>{const pre=`${learn()}:`;return Object.keys(store().words).filter(k=>k.startsWith(pre)).map(k=>k.slice(pre.length)).filter(word)};
   K.talenDue=(now=Date.now())=>learnedIds().filter(id=>{const r=store().words[key(id)];return now-(r.lastSeen||0)>=DAYS[Math.max(1,Math.min(5,r.box||1))-1]*864e5}).slice(0,8);
   // Stamps for the Home tile: themes with at least one star, out of all themes.
-  K.talenStamps=()=>{const th=T().themes;return {done:th.filter(x=>Number(store().themes[x.id]?.stars||0)>0).length,total:th.length}};
+  K.talenStamps=()=>{const th=T().themes;return {done:th.filter(x=>Number(themeRec(x.id)?.stars||0)>0).length,total:th.length}};
 
   // For the overviews (statistics, collection, achievements).
   K.talenSummary=()=>{
     const s=store(),l=learn();
     const words=l?learnedIds():[];
     const lessons=Object.values(s.themes).reduce((n,x)=>n+Number(x.played||0),0);
-    return {learn:l,stamps:K.talenStamps(),words,lessons,themes:T().themes.map(th=>({id:th.id,icon:th.icon,ready:ready(th),stars:Number(s.themes[th.id]?.stars||0),img:th.words[0]?.img||null}))};
+    return {learn:l,stamps:K.talenStamps(),words,lessons,themes:T().themes.map(th=>({id:th.id,icon:th.icon,ready:ready(th),stars:Number(themeRec(th.id)?.stars||0),img:th.words[0]?.img||null}))};
   };
   K.talenWord=word;
   K.talenHear=id=>hear(id);
   const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)],{gap:30})};
   const back=()=>{K.stopSpeech();K.sfx('tap');K.showTalen()};
+  // Praise and "almost" vary: a random wording, never the one heard just before.
+  const lastSaid={};
+  const vary=(kind,n)=>{let i;do i=1+Math.floor(Math.random()*n);while(n>1&&i===lastSaid[kind]);lastSaid[kind]=i;return audio(app(),`_${kind}${i}`)};
 
   /* ---------------- Taalpaspoort ---------------- */
   K.showTalen=()=>{
@@ -60,13 +71,13 @@
     const l=learn();
     const s=store();
     const stamps=T().themes.map(th=>{
-      const stars=Number(s.themes[th.id]?.stars||0);
+      const stars=Number(themeRec(th.id)?.stars||0);
       if(!ready(th))return `<div class="talen-stamp soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b><small>${esc(t('talen.soon'))}</small></div>`;
       const locked=!open(th);
       return `<button class="talen-stamp ${stars?'done':''} ${locked?'locked':''}" data-theme="${th.id}"><img src="${th.words[0].img}" alt="" decoding="async">${locked?K.premiumBadge():''}<b>${esc(t(`talen.theme.${th.id}`))}</b><span class="talen-stars" aria-label="${stars}/3">${[1,2,3].map(n=>`<i class="${n<=stars?'on':''}">★</i>`).join('')}</span></button>`;
     }).join('');
     const first=T().themes.find(ready);
-    const played=Number(s.themes[first?.id]?.stars||0)>0;
+    const played=Number(first&&themeRec(first.id)?.stars||0)>0;
     const due=l?K.talenDue():[];
     const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
       :`<div class="talen-hero"><img src="${K.GAME_ART.talen}" alt="" decoding="async"><p class="talen-msg">${esc(t(played?'talen.msgPlayed':'talen.msgNew'))}</p></div>
@@ -150,8 +161,8 @@
         const r=b.getBoundingClientRect(),fr=f.getBoundingClientRect();
         K.celebrateAt?.(f,{x:r.left-fr.left+r.width/2,y:r.top-fr.top+r.height/2,count:18});
         talking(true);
-        // praise, the word, "betekent", the word in the child's own language (the handover's exact order)
-        const done=await K.playClips([audio(app(),g.round%2?'_super':'_goedzo'),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[160,30,30]});   // one flowing sentence: a breath after the praise, then word, "betekent", word
+        // praise (one of ten), the word, "betekent", the word in the child's own language (the handover's exact order)
+        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[160,30,30]});   // one flowing sentence: a breath after the praise, then word, "betekent", word
         if(!f.isConnected||K.talen!==g)return;
         talking(false);
         if(done===false&&!f.isConnected)return;
@@ -161,7 +172,7 @@
         if(g.round<g.words.length)showRound();else finish();
       }else{
         g.missed=true;b.classList.add('wrong');b.disabled=true;
-        talking(true);await K.playClips([audio(app(),'_bijna'),audio(l,w.id)],{gap:120});if(f.isConnected)talking(false);
+        talking(true);await K.playClips([vary('bijna',T().almost),audio(l,w.id)],{gap:120});if(f.isConnected)talking(false);
       }
     });
     speakWord();
@@ -171,7 +182,7 @@
     const g=K.talen,n=g.words.length;
     // 8 rounds: 7-8 right first time = 3 stars, 5-6 = 2, otherwise 1 (scaled for a shorter review)
     const share=g.firstTry/n,stars=share>=7/8?3:share>=5/8?2:1;
-    if(g.theme){const th=store().themes[g.theme]||={stars:0,played:0};th.played++;th.stars=Math.max(th.stars||0,stars)}
+    if(g.theme){const th=themeRec(g.theme,true);th.played++;th.stars=Math.max(th.stars||0,stars)}
     const xp=stars*6+n,coins=stars*3;
     K.awardPoints(xp);K.awardCoins(coins);K.touchStreak();K.save();
     const l=learn();

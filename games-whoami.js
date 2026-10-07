@@ -55,11 +55,11 @@
       const others=[];
       for(const o of shuffle(pool.filter(o=>fresh(o)&&o.world===q.world))){if(others.length>=3)break;take(o)}
       for(const o of pool){if(others.length>=3)break;if(fresh(o))take(o)}
-      return {q,clues:cluesFor(q),options:shuffle([q,...others])};
+      return {q,clues:cluesFor(q),options:shuffle([q,...others]),praise:K.praiseLine()};
     });
     K.whoami={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
     // Every line of the whole game is requested now, so each round starts talking at once.
-    const lines=[];for(const r of rounds){lines.push(...r.clues,...r.options.map(o=>K.core.answerText(o.answer)),...['whoami.speech.yes','whoami.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
+    const lines=[];for(const r of rounds){lines.push(r.praise,...r.clues,...r.options.map(o=>K.core.answerText(o.answer)),...['whoami.speech.yes','whoami.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
     lines.push(t('whoami.speech.ask'),t('whoami.speech.great'),t('whoami.speech.done'));
     K.prefetchSpeech?.(lines);
     showRound();
@@ -135,7 +135,8 @@
       f.appendChild(card);
       if(ok)K.cheer?.(card);
       // The verdict reuses the answer's recording and the quiz's explanation recording.
-        K.speakSequence([...K.core.answerSegments(t(ok?'whoami.speech.yes':'whoami.speech.almost'),q.answer),{kind:'speech',text:q.explanation}]);
+        // a right answer opens with one of sixteen praise lines ("Top!", "Lekker bezig!"), then "Dit is …"
+        K.speakSequence([...(ok?[{kind:'lead',text:r.praise}]:[]),...K.core.answerSegments(t(ok?'whoami.speech.yes':'whoami.speech.almost'),q.answer),{kind:'speech',text:q.explanation}]);
       card.querySelector('#whoNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
     };
     f.querySelectorAll('.whoami-tile').forEach(b=>b.onclick=()=>pick(b));
