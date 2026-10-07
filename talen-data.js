@@ -98,6 +98,32 @@
         {id:'rocket',img:img('rocket'),text:{nl:'raket',en:'rocket',de:'Rakete',fr:'fusée',es:'cohete',it:'razzo',pt:'foguete',da:'raket',ru:'ракета',ar:'صاروخ'}},
         {id:'tractor',img:img('tractor'),text:{nl:'tractor',en:'tractor',de:'Traktor',fr:'tracteur',es:'tractor',it:'trattore',pt:'trator',da:'traktor',ru:'трактор',ar:'جرار'}},
         {id:'firetruck',img:img('firetruck'),text:{nl:'brandweerauto',en:'fire truck',de:'Feuerwehrauto',fr:'camion de pompiers',es:'camión de bomberos',it:'camion dei pompieri',pt:'caminhão de bombeiros',da:'brandbil',ru:'пожарная машина',ar:'سيارة إطفاء'}}
+      ]},
+      // Sport and Praten (greeting, thanking, yes and no), 2026-10-07: eight themes like the eight
+      // worlds of the other games; pictures painted (Higgsfield). Praten's words are short phrases.
+      {id:'sport',icon:'⚽',words:[
+        {id:'football',img:img('football'),text:{nl:'voetbal',en:'soccer',de:'Fußball',fr:'football',es:'fútbol',it:'calcio',pt:'futebol',da:'fodbold',ru:'футбол',ar:'كرة القدم'}},
+        {id:'basketball',img:img('basketball'),text:{nl:'basketbal',en:'basketball',de:'Basketball',fr:'basket',es:'baloncesto',it:'pallacanestro',pt:'basquete',da:'basketball',ru:'баскетбол',ar:'كرة السلة'}},
+        {id:'tennis',img:img('tennis'),text:{nl:'tennis',en:'tennis',de:'Tennis',fr:'tennis',es:'tenis',it:'tennis',pt:'tênis',da:'tennis',ru:'теннис',ar:'تنس'}},
+        {id:'swimming',img:img('swimming'),text:{nl:'zwemmen',en:'swimming',de:'Schwimmen',fr:'natation',es:'natación',it:'nuoto',pt:'natação',da:'svømning',ru:'плавание',ar:'سباحة'}},
+        {id:'running',img:img('running'),text:{nl:'hardlopen',en:'running',de:'Laufen',fr:'course',es:'correr',it:'corsa',pt:'corrida',da:'løb',ru:'бег',ar:'جري'}},
+        {id:'skating',img:img('skating'),text:{nl:'schaatsen',en:'ice skating',de:'Eislaufen',fr:'patinage',es:'patinaje',it:'pattinaggio',pt:'patinação',da:'skøjteløb',ru:'коньки',ar:'تزلج على الجليد'}},
+        {id:'skiing',img:img('skiing'),text:{nl:'skiën',en:'skiing',de:'Skifahren',fr:'ski',es:'esquí',it:'sci',pt:'esqui',da:'skiløb',ru:'лыжи',ar:'تزلج على الثلج'}},
+        {id:'medal',img:img('medal'),text:{nl:'medaille',en:'medal',de:'Medaille',fr:'médaille',es:'medalla',it:'medaglia',pt:'medalha',da:'medalje',ru:'медаль',ar:'ميدالية'}},
+        {id:'trophy',img:img('trophy'),text:{nl:'beker',en:'trophy',de:'Pokal',fr:'coupe',es:'trofeo',it:'coppa',pt:'troféu',da:'pokal',ru:'кубок',ar:'كأس'}},
+        {id:'skateboard',img:img('skateboard'),text:{nl:'skateboard',en:'skateboard',de:'Skateboard',fr:'skateboard',es:'monopatín',it:'skateboard',pt:'skate',da:'skateboard',ru:'скейтборд',ar:'لوح تزلج'}}
+      ]},
+      {id:'praten',icon:'💬',words:[
+        {id:'hello',img:img('hello'),text:{nl:'hallo',en:'hello',de:'hallo',fr:'salut',es:'hola',it:'ciao',pt:'olá',da:'hej',ru:'привет',ar:'مرحبا'}},
+        {id:'goodbye',img:img('goodbye'),text:{nl:'doei',en:'bye',de:'tschüss',fr:'au revoir',es:'adiós',it:'arrivederci',pt:'tchau',da:'farvel',ru:'пока',ar:'مع السلامة'}},
+        {id:'thanks',img:img('thanks'),text:{nl:'dank je',en:'thank you',de:'danke',fr:'merci',es:'gracias',it:'grazie',pt:'obrigado',da:'tak',ru:'спасибо',ar:'شكرا'}},
+        {id:'please',img:img('please'),text:{nl:'alsjeblieft',en:'please',de:'bitte',fr:'s’il te plaît',es:'por favor',it:'per favore',pt:'por favor',da:'vær sød',ru:'пожалуйста',ar:'من فضلك'}},
+        {id:'yes',img:img('yes'),text:{nl:'ja',en:'yes',de:'ja',fr:'oui',es:'sí',it:'sì',pt:'sim',da:'ja',ru:'да',ar:'نعم'}},
+        {id:'no',img:img('no'),text:{nl:'nee',en:'no',de:'nein',fr:'non',es:'no',it:'no',pt:'não',da:'nej',ru:'нет',ar:'لا'}},
+        {id:'sorry',img:img('sorry'),text:{nl:'sorry',en:'sorry',de:'Entschuldigung',fr:'pardon',es:'perdón',it:'scusa',pt:'desculpa',da:'undskyld',ru:'извини',ar:'آسف'}},
+        {id:'goodmorning',img:img('goodmorning'),text:{nl:'goedemorgen',en:'good morning',de:'guten Morgen',fr:'bonjour',es:'buenos días',it:'buongiorno',pt:'bom dia',da:'godmorgen',ru:'доброе утро',ar:'صباح الخير'}},
+        {id:'goodnight',img:img('goodnight'),text:{nl:'welterusten',en:'good night',de:'gute Nacht',fr:'bonne nuit',es:'buenas noches',it:'buonanotte',pt:'boa noite',da:'godnat',ru:'спокойной ночи',ar:'تصبح على خير'}},
+        {id:'howareyou',img:img('howareyou'),text:{nl:'hoe gaat het?',en:'how are you?',de:'wie geht’s?',fr:'ça va ?',es:'¿qué tal?',it:'come stai?',pt:'tudo bem?',da:'hvordan går det?',ru:'как дела?',ar:'كيف حالك؟'}}
       ]}
     ]
   };

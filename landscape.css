@@ -121,7 +121,10 @@ html[data-shape="wide"] .game-frame{width:1180px;height:820px;border-radius:40px
 
 /* The panel header (collectie, prestaties, statistieken) keeps its shape but
    gives the list more room on a screen that is wider than it is tall. */
-[data-shape="wide"] .panel-head{padding-block:1.4% 1%}
+[data-shape="wide"] .panel-head{padding-block:0 1%}
+/* the logo at the same height as on Home (it sat 15 px lower on an iPad held sideways) */
+[data-shape="wide"] .native-panel-screen{padding-top:calc(3.4% + var(--sat))}
+[data-shape="wide"] .panel-logo{margin-top:0}
 
 /* ---- intro ----
    De openingsfilm is staand (720 × 1280). Staat er een liggende versie

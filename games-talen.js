@@ -18,7 +18,10 @@
   };
   const learn=()=>K.talenLearnLang();
   const store=()=>{const p=K.progress();p.talen||={themes:{},words:{}};p.talen.themes||={};p.talen.words||={};return p.talen};
-  const theme=id=>T().themes.find(x=>x.id===id);
+  // "Alles door elkaar": a lesson with words from every theme, like the mix of
+  // all worlds in the other games. Premium (premium.js: only the animals are free).
+  const MIX={id:'mix',icon:'🌍'};
+  const theme=id=>id==='mix'?MIX:T().themes.find(x=>x.id===id);
   // Stars per theme are kept per learning language ("en:dieren"): a child who
   // switches from English to German starts German with an empty stamp. Phase 1
   // kept them per theme only; such a record belongs to the language learned then.
@@ -75,7 +78,10 @@
       if(!ready(th))return `<div class="talen-stamp soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b><small>${esc(t('talen.soon'))}</small></div>`;
       const locked=!open(th);
       return `<button class="talen-stamp ${stars?'done':''} ${locked?'locked':''}" data-theme="${th.id}"><img src="${th.words[0].img}" alt="" decoding="async">${locked?K.premiumBadge():''}<b>${esc(t(`talen.theme.${th.id}`))}</b><span class="talen-stars" aria-label="${stars}/3">${[1,2,3].map(n=>`<i class="${n<=stars?'on':''}">★</i>`).join('')}</span></button>`;
-    }).join('');
+    }).join('')+(()=>{
+      const stars=Number(themeRec('mix')?.stars||0),locked=!K.premium.can('talen','mix');
+      return `<button class="talen-stamp mix ${stars?'done':''} ${locked?'locked':''}" data-theme="mix"><img src="${K.GAME_ART.talen}" alt="" decoding="async">${locked?K.premiumBadge():''}<b>${esc(t('talen.theme.mix'))}</b><span class="talen-stars" aria-label="${stars}/3">${[1,2,3].map(n=>`<i class="${n<=stars?'on':''}">★</i>`).join('')}</span></button>`;
+    })();
     const first=T().themes.find(ready);
     const played=Number(first&&themeRec(first.id)?.stars||0)>0;
     const due=l?K.talenDue():[];
@@ -107,9 +113,15 @@
     let pool,words;
     if(review){pool=learnedIds().map(word);words=shuffle(K.talenDue().map(word)).slice(0,T().rounds)}
     else{
-      const th=theme(themeId);if(!th||!ready(th))return K.showTalen();
-      if(!open(th)){K.premiumLocked({kind:'talen',retry:()=>K.startTalen(themeId)});return}
-      pool=th.words;words=shuffle(th.words).slice(0,T().rounds);
+      if(themeId==='mix'){
+        if(!K.premium.can('talen','mix')){K.premiumLocked({kind:'talen',retry:()=>K.startTalen('mix')});return}
+        pool=T().themes.filter(ready).flatMap(x=>x.words);
+      }else{
+        const th=theme(themeId);if(!th||!ready(th))return K.showTalen();
+        if(!open(th)){K.premiumLocked({kind:'talen',retry:()=>K.startTalen(themeId)});return}
+        pool=th.words;
+      }
+      words=shuffle(pool).slice(0,T().rounds);
     }
     if(pool.length<4||!words.length)return K.showTalen();
     K.audio.setTrack('play').catch(()=>{});
@@ -220,7 +232,7 @@
     </section>`);
     K.sfx('reward');setTimeout(()=>K.celebrate?.('quiz',f.querySelector('.result-stage')),250);
     // the closing line in the chosen guide's voice; a silent guide stays silent
-    if(g.theme&&K.state.voice!=='Stil')setTimeout(()=>{if(f.isConnected)K.playClips([audio(app(),`_klaar_${g.theme}`,K.state.voice==='Luna'?'Luna':'Milo')])},700);
+    if(g.theme&&K.state.voice!=='Stil')setTimeout(()=>{if(f.isConnected)K.playClips([g.theme==='mix'?vary('goed',T().praise):audio(app(),`_klaar_${g.theme}`,K.state.voice==='Luna'?'Luna':'Milo')])},700);
     f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');hear(b.dataset.hear)});
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');g.theme?K.startTalen(g.theme):K.startTalen(null,{review:true})};
     f.querySelector('#passBtn').onclick=back;

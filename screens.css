@@ -1532,7 +1532,7 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* collection: a fifth tab (Woordjes) */
 .collection-tabs{grid-template-columns:repeat(5,1fr)}
 .collection-tabs button{font-size:10.5px;padding-inline:2px}
-.talen-stamps-mini{grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+.talen-stamps-mini{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
 .talen-stamps-mini .talen-stamp{padding:5px 4px 7px;cursor:default}
 .talen-stamps-mini .talen-stamp b{font-size:10px}
 .talen-stamps-mini .talen-stamp-icon{font-size:20px}
@@ -1619,3 +1619,19 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 @media(max-height:700px){.talen-pass .talen-stamp img,.talen-pass .talen-stamp-icon{aspect-ratio:16/10}.talen-pass .talen-stamp b{font-size:11.5px}.talen-pass .talen-start{min-height:46px}.talen-pass .panel-scroll.talen-scroll{gap:8px}}
 /* iPad: three buddies per row, so a whole row of tiles is in view while scrolling */
 @media(min-width:700px){.mascot-grid{grid-template-columns:repeat(3,1fr)}.mascot-card b{font-size:clamp(15px,2.2vw,20px)}.mascot-card small{font-size:clamp(11px,1.5vw,13px)}}
+/* iPad upright: the logo at Home's height (it sat 2 px lower) */
+@media(min-width:600px){.panel-logo{margin-top:1px}}
+/* Talen passport with eight themes and the mix (nine tiles): the island and the three rows of tiles share the
+   height that is left, the pictures shrink with it, so it never scrolls on a phone or an iPad either way up */
+.talen-pass .panel-scroll.talen-scroll{overflow:hidden}
+.talen-pass .talen-hero{flex:1 1 0;min-height:0}
+.talen-pass .talen-hero .talen-msg{padding:14px 10px 8px;font-size:13px}
+.talen-pass .talen-stamps{flex:3.2 1 0;min-height:0;grid-template-rows:repeat(3,minmax(0,1fr));align-items:stretch}
+.talen-pass .talen-stamp{display:flex;flex-direction:column;align-items:stretch;min-height:0;overflow:hidden}
+.talen-pass .talen-stamp img,.talen-pass .talen-stamp-icon{flex:1 1 0;min-height:0;height:auto;aspect-ratio:auto;width:100%;object-fit:cover}
+.talen-pass .talen-stamp b{flex:0 0 auto;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.talen-pass .talen-stamp .talen-stars{flex:0 0 auto;text-align:center;line-height:1}
+.talen-pass .talen-review{flex:0 0 auto}
+.talen-pass .talen-stamp b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.05;text-wrap:balance}
+.talen-pass .talen-stamp .talen-stars{display:flex;justify-content:center;gap:2px}
+[data-shape="wide"] .talen-pass .talen-stamps{grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,minmax(0,1fr))}

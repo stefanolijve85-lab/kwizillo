@@ -92,7 +92,7 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   await expect.poll(() => clips).toContain('nl/milo/_klaar_dieren.mp3');
   // stamp on the Home tile
   await page.evaluate(() => window.KWIZILLO_M1.showHome());
-  await expect(page.locator('#homeTalen .home-world-level')).toHaveText('★ 1/6');
+  await expect(page.locator('#homeTalen .home-world-level')).toHaveText('★ 1/8');
 });
 
 test('progress is per player: Sara does not get Mike\'s stars', async ({ page }) => {
@@ -112,13 +112,15 @@ test('progress is per player: Sara does not get Mike\'s stars', async ({ page })
   expect(await page.evaluate(() => [window.KWIZILLO_M1.state.name, window.KWIZILLO_M1.talenSummary().themes[0].stars])).toEqual(['Sara', 1]);
 });
 
-test('six themes, all playable: animals free, the other five with a Premium lock that opens the teaser', async ({ page }) => {
+test('eight themes and a mix, all playable: animals free, the other seven and the mix with a Premium lock that opens the teaser; the passport does not scroll', async ({ page }) => {
   await boot(page);
   await page.locator('#homeTalen').click();
   await expect(page.locator('.talen-pass .panel-head h1.game-name')).toHaveText('Talen');
-  await expect(page.locator('.talen-stamp')).toHaveCount(6);
+  await expect(page.locator('.talen-stamp')).toHaveCount(9);
   await expect(page.locator('.talen-stamp.soon')).toHaveCount(0);
-  await expect(page.locator('[data-theme].locked')).toHaveCount(5);
+  await expect(page.locator('[data-theme].locked')).toHaveCount(8);
+  await expect(page.locator('[data-theme="mix"]')).toHaveText(/Mix/);
+  expect(await page.locator('.talen-scroll').evaluate(e => e.scrollHeight - e.clientHeight)).toBeLessThanOrEqual(1);
   await expect(page.locator('[data-theme="dieren"]')).not.toHaveClass(/locked/);
   await page.locator('[data-theme="vervoer"]').click();
   await expect(page.locator('.premium-teaser p')).toContainText('Premium');
@@ -132,6 +134,11 @@ test('with Premium the other themes open', async ({ page }) => {
   await expect(page.locator('[data-theme="kleuren"]')).not.toHaveClass(/locked/);
   await page.locator('[data-theme="kleuren"]').click();
   await expect(page.locator('.talen-tile')).toHaveCount(4);
+  // the mix: eight words from all themes, the pictures on the tiles from any of them
+  await page.evaluate(() => { window.KWIZILLO_M1.stopSpeech(); window.KWIZILLO_M1.startTalen('mix'); });
+  await expect(page.locator('.talen-tile')).toHaveCount(4);
+  const g = await page.evaluate(() => ({ theme: window.KWIZILLO_M1.talen.theme, pool: window.KWIZILLO_M1.talen.pool.length, words: window.KWIZILLO_M1.talen.words.length }));
+  expect(g).toEqual({ theme: 'mix', pool: 80, words: 8 });
 });
 
 test('every app language learns: English for a Dutch child and Dutch for an English one by default, English for the rest; the parent picks any of the other nine', async ({ page }) => {
@@ -156,13 +163,13 @@ test('every app language learns: English for a Dutch child and Dutch for an Engl
   await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_intro.mp3', `de/${await current(page)}.mp3`]);
 });
 
-test('six themes of ten words: every word, picture, line and closing line exists in all ten languages', async () => {
+test('eight themes of ten words: every word, picture, line and closing line exists in all ten languages', async () => {
   const fs = require('fs'), path = require('path'), vm = require('vm');
   const ctx = { window: {} }; vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'talen-data.js'), 'utf8'), ctx);
   const T = ctx.window.KWIZILLO_M1.TALEN, dir = path.join(__dirname, '..', 'assets', 'talen', 'audio');
   expect(T.langs).toHaveLength(10);
-  expect(T.themes.map(t => t.words.length)).toEqual([10, 10, 10, 10, 10, 10]);
+  expect(T.themes.map(t => t.words.length)).toEqual([10, 10, 10, 10, 10, 10, 10, 10]);
   for (const l of T.langs) {
     for (const th of T.themes) for (const w of th.words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, `${w.id}.mp3`)), `${l}/${w.id}`).toBe(true); expect(fs.existsSync(path.join(__dirname, '..', w.img)), w.img).toBe(true); }
     for (let i = 1; i <= T.praise; i++) expect(fs.existsSync(path.join(dir, l, `_goed${i}.mp3`)), `${l} _goed${i}`).toBe(true);
@@ -195,7 +202,7 @@ test('Talen in the overviews: a Woordjes tab in the collection, a line in the st
   await expect.poll(() => clips).toEqual(['en/shark.mp3', 'nl/_betekent.mp3', 'nl/shark.mp3']);
   await page.evaluate(() => window.KWIZILLO_M1.showStats());
   await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('10 woordjes geleerd · 3 lessen');
-  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/6');
+  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/8');
   await page.evaluate(() => window.KWIZILLO_M1.showAchievements());
   await expect(page.getByText('Eerste les in Talen')).toBeVisible();
   await expect(page.getByText('10 woordjes geleerd', { exact: true })).toBeVisible();
