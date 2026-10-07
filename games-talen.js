@@ -73,33 +73,32 @@
     K.stopSpeech();K.lastView='home';
     const l=learn();
     const s=store();
+    // Zoals de andere spellen: de mix als brede tegel bovenaan, daaronder de
+    // acht thema's. Een woordplaatje is een close-up; het staat helemaal in de
+    // tegel (contain) op een vage kopie van zichzelf, zodat niets wordt
+    // weggesneden. Een thema mag een eigen omslag hebben (`cover`).
+    const starsOf=id=>Number(themeRec(id)?.stars||0);
+    const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
+    const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}"><img class="talen-pick-fill" src="${img}" alt="" decoding="async"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
     const stamps=T().themes.map(th=>{
-      const stars=Number(themeRec(th.id)?.stars||0);
-      if(!ready(th))return `<div class="talen-stamp soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b><small>${esc(t('talen.soon'))}</small></div>`;
-      const locked=!open(th);
-      return `<button class="talen-stamp ${stars?'done':''} ${locked?'locked':''}" data-theme="${th.id}"><img src="${th.words[0].img}" alt="" decoding="async">${locked?K.premiumBadge():''}<b>${esc(t(`talen.theme.${th.id}`))}</b><span class="talen-stars" aria-label="${stars}/3">${[1,2,3].map(n=>`<i class="${n<=stars?'on':''}">★</i>`).join('')}</span></button>`;
-    }).join('')+(()=>{
-      const stars=Number(themeRec('mix')?.stars||0),locked=!K.premium.can('talen','mix');
-      return `<button class="talen-stamp mix ${stars?'done':''} ${locked?'locked':''}" data-theme="mix"><img src="${K.GAME_ART.talen}" alt="" decoding="async">${locked?K.premiumBadge():''}<b>${esc(t('talen.theme.mix'))}</b><span class="talen-stars" aria-label="${stars}/3">${[1,2,3].map(n=>`<i class="${n<=stars?'on':''}">★</i>`).join('')}</span></button>`;
-    })();
-    const first=T().themes.find(ready);
-    const played=Number(first&&themeRec(first.id)?.stars||0)>0;
+      if(!ready(th))return `<div class="memo-pick talen-pick soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b></div>`;
+      return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th)});
+    }).join('');
+    const mixTile=`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`;
     const due=l?K.talenDue():[];
     const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
-      :`<div class="talen-hero"><img src="${K.GAME_ART.talen}" alt="" decoding="async"><p class="talen-msg">${esc(t(played?'talen.msgPlayed':'talen.msgNew'))}</p></div>
-        <div class="talen-stamps">${stamps}</div>
-        <button class="talen-start" id="talenStart">${K.icon('play')} ${esc(played?t('talen.again',{theme:t(`talen.theme.${first.id}`)}):t('talen.start'))}</button>
+      :`${mixTile}
+        <div class="memo-pick-grid talen-picks">${stamps}</div>
         ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
           <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}"><img src="${word(id).img}" alt="">${esc(word(id).text[l])}</button>`).join('')}</div>
           <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass fade-in">
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(l?t('talen.passportSub',{lang:t(`talen.lang.${l}`)}):t('talen.soon'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
-      <div class="panel-scroll talen-scroll">${body}</div>
+      <div class="panel-scroll">${body}</div>
       ${K.bottomNav('home')}
     </section>`);
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
-    f.querySelector('#talenStart')?.addEventListener('click',()=>{K.sfx('world');K.startTalen(first.id)});
     f.querySelector('#talenReview')?.addEventListener('click',()=>{K.sfx('world');K.startTalen(null,{review:true})});
     f.querySelectorAll('[data-theme]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalen(b.dataset.theme)});
     f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');hear(b.dataset.hear)});

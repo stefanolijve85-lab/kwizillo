@@ -4,6 +4,8 @@
 // and a number exactly that many things, which a painting does not promise.
 //
 //   node tools/talen-tiles.cjs     → assets/talen/img/<id>.jpg (360x360, like the other word tiles)
+//   node tools/talen-tiles.cjs --cover → only assets/talen/img/cover-getallen.jpg: "1 2 3" without
+//                                         stars, the tile of the getallen theme in the Talen picker
 //
 // A colour is a glossy paint blob on the sky-blue tile background; a number is
 // the digit in the app's display face (Luckiest Guy) above that many stars, so
@@ -38,6 +40,10 @@ const number = n => `<div class="num"><b>${n}</b><div class="stars" style="--col
     await p.evaluate(() => document.fonts.ready);
     await p.screenshot({ path: path.join(OUT, `${id}.jpg`), type: 'jpeg', quality: 88 });
   };
+  // De omslag van het thema: drie cijfers in drie kleuren, zonder sterren (die horen bij één getal).
+  const cover = ['#ffd21f', '#ff8a3d', '#5fd16b'].map((c, i) => `<b style="color:${c};font-size:118px;transform:rotate(${[-8, 4, -3][i]}deg) translateY(${[6, -8, 4][i]}px)">${i + 1}</b>`).join('');
+  await shot('cover-getallen', `<div class="num" style="display:flex;gap:10px;align-items:center">${cover}</div>`);
+  if (process.argv.includes('--cover')) { await b.close(); return console.log('cover-getallen.jpg written'); }
   for (const [id, c] of Object.entries(COLOURS)) await shot(id, blob(c));
   for (let i = 0; i < 10; i++) await shot(NUMBERS[i], number(i + 1));
   await b.close();

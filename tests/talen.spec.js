@@ -60,7 +60,7 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   const clips = [];
   await boot(page, { clips });
   await page.locator('#homeTalen').click();
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await expect(page.locator('.talen-tile')).toHaveCount(4);
   // the first round opens with the intro, then the word in English
   await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_intro.mp3', `en/${await current(page)}.mp3`]);
@@ -102,7 +102,7 @@ test('progress is per player: Sara does not get Mike\'s stars', async ({ page })
     localStorage.setItem('kwizillo-players', JSON.stringify({ sara: { savedAt: Date.now() - 1000, state: { ...window.KWIZILLO_M1.state, name: 'Sara', progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], talen: { themes: { dieren: { stars: 1, played: 1 } }, words: {} } } } } }));
   });
   await page.locator('#homeTalen').click();
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await playLesson(page);
   expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.themes['en:dieren'].stars)).toBe(3);
   await page.evaluate(() => { window.KWIZILLO_M1.players.stash(); window.KWIZILLO_M1.showPlayerPicker(); });
@@ -112,15 +112,19 @@ test('progress is per player: Sara does not get Mike\'s stars', async ({ page })
   expect(await page.evaluate(() => [window.KWIZILLO_M1.state.name, window.KWIZILLO_M1.talenSummary().themes[0].stars])).toEqual(['Sara', 1]);
 });
 
-test('eight themes and a mix, all playable: animals free, the other seven and the mix with a Premium lock that opens the teaser; the passport does not scroll', async ({ page }) => {
+test('eight themes and a mix, all playable: animals free, the other seven and the mix with a Premium lock that opens the teaser; the picker does not scroll', async ({ page }) => {
   await boot(page);
   await page.locator('#homeTalen').click();
   await expect(page.locator('.talen-pass .panel-head h1.game-name')).toHaveText('Talen');
-  await expect(page.locator('.talen-stamp')).toHaveCount(9);
-  await expect(page.locator('.talen-stamp.soon')).toHaveCount(0);
+  // Like the other game pickers: the mix as the wide tile on top, the eight themes below it.
+  await expect(page.locator('.talen-pass .panel-scroll > .memo-pick.mix[data-theme="mix"]')).toHaveCount(1);
+  await expect(page.locator('.talen-picks .talen-pick')).toHaveCount(8);
+  await expect(page.locator('.talen-pick.soon')).toHaveCount(0);
+  // Getallen shows its own cover (1 2 3), not the "one" word picture with its star.
+  await expect(page.locator('[data-theme="getallen"] .talen-pick-art')).toHaveAttribute('src', /cover-getallen\.jpg/);
   await expect(page.locator('[data-theme].locked')).toHaveCount(8);
   await expect(page.locator('[data-theme="mix"]')).toHaveText(/Mix/);
-  expect(await page.locator('.talen-scroll').evaluate(e => e.scrollHeight - e.clientHeight)).toBeLessThanOrEqual(1);
+  expect(await page.locator('.talen-pass .panel-scroll').evaluate(e => e.scrollHeight - e.clientHeight)).toBeLessThanOrEqual(1);
   await expect(page.locator('[data-theme="dieren"]')).not.toHaveClass(/locked/);
   await page.locator('[data-theme="vervoer"]').click();
   await expect(page.locator('.premium-teaser p')).toContainText('Premium');
@@ -146,7 +150,7 @@ test('every app language learns: English for a Dutch child and Dutch for an Engl
   await boot(page, { state: SAVED({ language: 'en' }), clips });
   await page.locator('#homeTalen').click();
   await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Learn Dutch with Milo');
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await expect.poll(() => clips.slice(0, 2)).toEqual(['en/_intro.mp3', `nl/${await current(page)}.mp3`]);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.stopSpeech(); K.setLanguage('de'); K.useBank(); K.showTalen(); });
   await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Lerne Englisch mit Milo');
@@ -159,7 +163,7 @@ test('every app language learns: English for a Dutch child and Dutch for an Engl
   await page.evaluate(() => window.KWIZILLO_M1.showTalen());
   await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Leer Duits met Milo');
   clips.length = 0;
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_intro.mp3', `de/${await current(page)}.mp3`]);
 });
 
@@ -184,7 +188,7 @@ test('works without a network: every clip and picture comes from the app itself'
   await boot(page);
   page.on('request', r => { const u = new URL(r.url()); if (u.host !== '127.0.0.1:8080' || u.pathname.startsWith('/api/')) external.push(r.url()); });
   await page.locator('#homeTalen').click();
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await playLesson(page, { wrongAt: 2 });
   expect(external).toEqual([]);
 });
@@ -236,7 +240,7 @@ test('Talen strings the answer together as one sentence: the clips are joined in
 test('the hint sits beside "Nog een keer": it fades one wrong picture (two at most) and the word no longer counts as right first time', async ({ page }) => {
   await boot(page);
   await page.locator('#homeTalen').click();
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await expect(page.locator('.talen-actions .action')).toHaveCount(2);
   const [a, b] = await page.locator('.talen-actions .action').evaluateAll(els => els.map(e => e.getBoundingClientRect().width));
   expect(Math.abs(a - b)).toBeLessThan(2);
@@ -254,7 +258,7 @@ test('the hint sits beside "Nog een keer": it fades one wrong picture (two at mo
 test('a right answer writes out "shark betekent haai" in the bubble, piece by piece as it is said', async ({ page }) => {
   await boot(page);
   await page.locator('#homeTalen').click();
-  await page.locator('#talenStart').click();
+  await page.locator('[data-theme="dieren"]').click();
   await expect(page.locator('.talen-tile')).toHaveCount(4);
   const id = await current(page);
   await page.locator(`.talen-tile[data-pick="${id}"]`).click();

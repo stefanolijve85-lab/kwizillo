@@ -51,7 +51,7 @@
         {id:'white',img:img('white'),text:{nl:'wit',en:'white',de:'weiß',fr:'blanc',es:'blanco',it:'bianco',pt:'branco',da:'hvid',ru:'белый',ar:'أبيض'}},
         {id:'brown',img:img('brown'),text:{nl:'bruin',en:'brown',de:'braun',fr:'marron',es:'marrón',it:'marrone',pt:'marrom',da:'brun',ru:'коричневый',ar:'بني'}}
       ]},
-      {id:'getallen',icon:'🔢',words:[
+      {id:'getallen',icon:'🔢',cover:'assets/talen/img/cover-getallen.jpg',words:[
         {id:'one',img:img('one'),text:{nl:'één',en:'one',de:'eins',fr:'un',es:'uno',it:'uno',pt:'um',da:'en',ru:'один',ar:'واحد'}},
         {id:'two',img:img('two'),text:{nl:'twee',en:'two',de:'zwei',fr:'deux',es:'dos',it:'due',pt:'dois',da:'to',ru:'два',ar:'اثنان'}},
         {id:'three',img:img('three'),text:{nl:'drie',en:'three',de:'drei',fr:'trois',es:'tres',it:'tre',pt:'três',da:'tre',ru:'три',ar:'ثلاثة'}},
