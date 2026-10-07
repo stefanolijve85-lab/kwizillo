@@ -1069,6 +1069,7 @@ test('the quiz shows the picture chosen for each question by eye', async ({ page
     return { tennis: K.quizArt(q('sport-balsporten-26')), racket: K.quizArt(q('sport-balsporten-05')), astronaut: K.quizArt(q('ruimte-astronauten-01')), topicRacket: K.TOPIC_ART[q('sport-balsporten-05').topic] };
   });
   expect(shown.tennis).toContain('assets/questions/q/sport-balsporten-26');
-  expect(shown.racket).toBe(shown.topicRacket);                              // own picture shows the racket: topic picture until a new one is drawn
+  expect(shown.racket).toContain('assets/questions/s/sport-balsporten-05');   // own picture shows the racket: its question-only picture (drawn 2026-10-07)
+  expect(shown.racket).not.toBe(shown.topicRacket);
   expect(shown.astronaut).toContain('assets/questions/s/ruimte-astronauten-01');
 });
