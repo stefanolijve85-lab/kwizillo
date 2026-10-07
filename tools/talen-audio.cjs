@@ -4,6 +4,7 @@
 //   node tools/talen-audio.cjs            records what is missing, then checks every clip with Scribe
 //   node tools/talen-audio.cjs --check    only checks that every clip exists (for npm test)
 //   node tools/talen-audio.cjs --redo shark,haai   records those again
+//   node tools/talen-audio.cjs --trim     only trims the silence off every clip again
 //
 // The voices, the model and the settings are the app's own (speech-config.js),
 // so Milo sounds in Talen as he does everywhere else. One recording per word:
@@ -12,6 +13,7 @@
 // language; the closing line per theme by the guide the child chose (Milo or Luna).
 // The ElevenLabs key is read from .env at run time and never printed.
 const fs = require('fs'); const path = require('path'); const vm = require('vm');
+const { execFileSync } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'assets', 'talen', 'audio');
 try { for (const line of fs.readFileSync(path.join(ROOT, '.env'), 'utf8').split(/\r?\n/)) { const m = line.match(/^\s*([A-Z_]+)\s*=\s*(.*)$/); if (m && !(m[1] in process.env)) process.env[m[1]] = m[2].trim().replace(/^["']|["']$/g, ''); } } catch {}
@@ -55,6 +57,23 @@ async function record(c) {
   if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
   const out = path.join(OUT, c.file); fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, Buffer.from(await r.arrayBuffer()));
+  trim(out);
+}
+// The answer is heard as one sentence ("shark ... betekent ... haai"), in two voices:
+// ElevenLabs leaves up to a fifth of a second of silence at both ends of a clip, and
+// strung together that sounded like separate words. Each clip keeps 20 ms in front
+// and 40 ms behind (tools/bin/ffmpeg, the copy the repo already uses).
+const FFMPEG = path.join(ROOT, 'tools', 'bin', 'ffmpeg');
+function trim(file) {
+  const tmp = file + '.trim.mp3';
+  execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-af',
+    'silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.04,areverse',
+    '-c:a', 'libmp3lame', '-b:a', '128k', tmp]);
+  fs.renameSync(tmp, file);
+}
+if (process.argv.includes('--trim')) {
+  for (const c of clips) trim(path.join(OUT, c.file));
+  console.log(`trimmed ${clips.length} clips`); process.exit(0);
 }
 const norm = s => String(s).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
 async function hear(c) {

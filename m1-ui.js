@@ -228,14 +228,13 @@
         <h2 class="home-section">${esc(t('home.pickWorld'))}</h2>
         <div class="home-worlds">${worldCards}</div>
 
-        <!-- The Runner as a wide banner: the Mega Quiz banner's component and styles, between the worlds and "Speel ook" -->
+        <h2 class="home-section">${esc(t('home.playMore'))}</h2>
+        <!-- The Runner as a wide banner: the Mega Quiz banner's component and styles, first under "Speel ook", so the worlds stand apart from the games -->
         <button class="home-mega home-runner" id="homeJungle" aria-label="${esc(t('jungle.title'))} · ${esc(t('jungle.bannerSub'))}">
           <img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-mega-veil"></span>
           ${(b=>b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:'')(Number(K.progress().games?.jungle?.best||0))}
           <span class="home-mega-copy"><b>${esc(t('jungle.title'))}</b><small>${esc(t('jungle.bannerSub'))}</small></span>
         </button>
-
-        <h2 class="home-section">${esc(t('home.playMore'))}</h2>
         <div class="home-games">
           <button class="home-game art talen" id="homeTalen"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${(s=>s.done?`<span class="home-world-level">★ ${s.done}/${s.total}</span>`:'')(K.talenStamps?.()||{done:0})}<b>${esc(t('talen.title'))}</b></button>
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
@@ -443,7 +442,7 @@
     const mixArt=game==='facts'?K.GAME_ART.facts:K.GAME_ART.memoAll;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t(P.kicker))}</h1><p>${esc(t('game.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
         <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
@@ -584,7 +583,7 @@
         ${buddies.length?`<h2 class="section-title">${esc(t('shop.mascots'))}</h2><div class="shop-grid">${buddies.join('')}</div>`:''}
         ${sold?`<p class="collection-note">${esc(t('shop.empty'))}</p>`:''}`;
     }
-    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${K.cardCount()}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="words" class="${tab==='words'?'active':''}">${esc(t('collection.tabWords'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
+    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))}</button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="words" class="${tab==='words'?'active':''}">${esc(t('collection.tabWords'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
     const f=nativeScreen({cls:'collection-screen',title:t('collection.title'),subtitle:t('collection.sub'),body,active:'collection'});
     wireFallbacks(f);
     f.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showCollection(b.dataset.tab)});

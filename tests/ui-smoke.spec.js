@@ -1073,3 +1073,17 @@ test('the quiz shows the picture chosen for each question by eye', async ({ page
   expect(shown.racket).not.toBe(shown.topicRacket);
   expect(shown.astronaut).toContain('assets/questions/s/ruimte-astronauten-01');
 });
+
+test('Home: the worlds stand apart (the Runner opens "Speel ook"); the game pickers carry the game name as their title', async ({ page }) => {
+  await boot(page);
+  await expect(page.locator('.home')).toBeVisible();
+  const order = await page.evaluate(() => [...document.querySelectorAll('.home-section, .home-worlds, #homeJungle, .home-games')].map(e => e.id || e.className.split(' ')[0]));
+  expect(order).toEqual(['home-section', 'home-worlds', 'home-section', 'homeJungle', 'home-games']);
+  for (const [game, name] of [['whoami', 'Wat ben ik?'], ['fotozoom', 'Fotozoom'], ['facts', 'Weetjes']]) {
+    await page.evaluate(g => window.KWIZILLO_M1.showGamePicker(g), game);
+    await expect(page.locator('.panel-head h1.game-name')).toHaveText(name);
+    await expect(page.locator('.panel-head .panel-kicker')).toHaveCount(0);
+  }
+  await page.evaluate(() => window.KWIZILLO_M1.showMemoPicker());
+  await expect(page.locator('.panel-head h1.game-name')).toHaveText('Memo');
+});

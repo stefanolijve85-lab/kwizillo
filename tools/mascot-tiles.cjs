@@ -35,7 +35,7 @@ const KEYED = new Set(['terra']);
 // Standing figures are tall and narrow: drawn to the tile's height they left the
 // sides empty while the others fill their tile. These are drawn larger, head at
 // the top, and may run off the bottom (2026-10-06).
-const ZOOM = { nova: 1.4, kiko: 1.3, pip: 1.3, ravi: 1.4, flora: 1.4, draco: 1.3 };
+const ZOOM = { nova: 1.4, kiko: 1.3, pip: 1.3, ravi: 1.4, flora: 1.4, draco: 1.3, mike: 1.2 };
 
 const sources = () => fs.readdirSync(SRC).filter(f => /\.jpg$/.test(f) && (!only.length || only.includes(f.replace(/\.jpg$/, '')))).sort();
 const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));

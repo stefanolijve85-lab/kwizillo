@@ -183,3 +183,18 @@ test('a new player sees an empty Woordjes tab that leads to Talen', async ({ pag
   await page.locator('#toTalen').click();
   await expect(page.locator('.talen-pass h1')).toHaveText('Taalpaspoort');
 });
+
+test('Talen strings the answer together as one sentence: the clips load before the first one plays and only a breath follows the praise', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForFunction(() => window.KWIZILLO_M1 && window.KWIZILLO_M1.playClips);
+  const made = await page.evaluate(() => {
+    const K = window.KWIZILLO_M1, urls = [], real = window.Audio;
+    window.Audio = function () { const a = new real(); const d = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src'); Object.defineProperty(a, 'src', { set(v) { urls.push(v); d.set.call(a, v) }, get() { return d.get.call(a) } }); a.play = () => Promise.resolve(); return a; };
+    K.playClips(['assets/talen/audio/nl/_goedzo.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [160, 30, 30] });
+    window.Audio = real; K.stopSpeech();
+    return urls;
+  });
+  expect(made).toHaveLength(4);   // all four made at once, before the first one ended
+  const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'games-talen.js'), 'utf8');
+  expect(src).toContain('{gap:[160,30,30]}');
+});

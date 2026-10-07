@@ -220,7 +220,8 @@ test('a card from the runner is in the collection the moment the run is booked, 
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('cards'));
   await expect(page.locator('.kcard.runner')).toHaveCount(1);
   await expect(page.locator('.kcard.runner .kcard-top b')).toHaveText('Jungleblad');
-  await expect(page.locator('[data-tab="cards"] i')).toHaveText(String(before + 1));
+  // the tab carries only its name: a big number next to it pushed the other tabs aside (2026-10-07)
+  await expect(page.locator('[data-tab="cards"] i')).toHaveCount(0);
 
   // The same card from a second run is not a second card.
   await page.evaluate(() => window.KWIZILLO_M1.jungleReward({ version: 1, game: 'jungle-runner', completed: true, runId: 'run-card-2', theme: 'jungle', coins: 5, cardId: 'jungle-leaf' }));

@@ -384,10 +384,13 @@
   // guide's voice (playVoiceStream): on an iPhone with the silent switch on,
   // Web Audio alone stays silent until a media element has played, and Talen
   // sounded nothing at all on build 24 (2026-10-07).
-  function playClipElement(url,token){
+  // The elements are made (and start loading) before the first clip plays, so the
+  // next clip is ready the moment the previous one ends: no load pause between
+  // "shark", "betekent" and "haai".
+  const clipElement=url=>{const a=new Audio();a.preload='auto';a.src=url;try{a.load()}catch(e){}return a};
+  function playClipElement(url,token,a=clipElement(url)){
     return new Promise(resolve=>{
       let settled=false;const finish=v=>{if(settled)return;settled=true;try{a.pause()}catch(e){}if(voiceNow&&voiceNow.el===a)voiceNow=null;resolve(v)};
-      const a=new Audio();a.preload='auto';
       const c=ensureVoiceCtx();
       if(c&&c.createMediaElementSource){
         try{
@@ -401,7 +404,6 @@
       a.onended=()=>finish(gate.isCurrent(token));
       a.onerror=()=>finish(null);
       voiceStream=a;
-      a.src=url;
       a.play().catch(()=>finish(null));
       // a clip that never starts must not hold the lesson, and a stopped one
       // (K.stopSpeech takes the element's handlers away) reports it at once
@@ -409,18 +411,21 @@
       const watch=setInterval(()=>{if(settled)return clearInterval(watch);if(!gate.isCurrent(token)){clearInterval(watch);finish(false)}},80);
     });
   }
+  // gap: the pause after each clip in ms, one number for all or a list per clip.
   K.playClips=async(urls,{gap=140,onClip}={})=>{
     urls=(urls||[]).filter(Boolean);if(!urls.length)return true;
     K.stopSpeech();
     const token=gate.begin();
     K.audio.duck(true);
+    const els=urls.map(clipElement);
     try{
       for(let i=0;i<urls.length;i++){
         if(!gate.isCurrent(token))return false;
         try{onClip?.(i)}catch(e){}
-        const finished=await playClipElement(urls[i],token);
+        const finished=await playClipElement(urls[i],token,els[i]);
         if(finished===false||!gate.isCurrent(token))return false;   // stopped: a tap, another screen
-        if(i<urls.length-1)await pause(gap,token);
+        const ms=Array.isArray(gap)?(gap[i]??0):gap;
+        if(i<urls.length-1&&ms>0)await pause(ms,token);
       }
       return true;
     }finally{

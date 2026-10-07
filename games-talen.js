@@ -50,7 +50,7 @@
   };
   K.talenWord=word;
   K.talenHear=id=>hear(id);
-  const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)])};
+  const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)],{gap:30})};
   const back=()=>{K.stopSpeech();K.sfx('tap');K.showTalen()};
 
   /* ---------------- Taalpaspoort ---------------- */
@@ -135,7 +135,7 @@
       talking(true);
       const clips=[];if(g.intro){g.intro=false;clips.push(audio(app(),'_intro'))}
       clips.push(audio(l,w.id));
-      await K.playClips(clips,{gap:260});
+      await K.playClips(clips,{gap:200});
       if(f.isConnected)talking(false);
     };
     f.querySelector('#talenBack').onclick=back;
@@ -151,7 +151,7 @@
         K.celebrateAt?.(f,{x:r.left-fr.left+r.width/2,y:r.top-fr.top+r.height/2,count:18});
         talking(true);
         // praise, the word, "betekent", the word in the child's own language (the handover's exact order)
-        const done=await K.playClips([audio(app(),g.round%2?'_super':'_goedzo'),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:200});
+        const done=await K.playClips([audio(app(),g.round%2?'_super':'_goedzo'),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[160,30,30]});   // one flowing sentence: a breath after the praise, then word, "betekent", word
         if(!f.isConnected||K.talen!==g)return;
         talking(false);
         if(done===false&&!f.isConnected)return;
@@ -161,7 +161,7 @@
         if(g.round<g.words.length)showRound();else finish();
       }else{
         g.missed=true;b.classList.add('wrong');b.disabled=true;
-        talking(true);await K.playClips([audio(app(),'_bijna'),audio(l,w.id)],{gap:200});if(f.isConnected)talking(false);
+        talking(true);await K.playClips([audio(app(),'_bijna'),audio(l,w.id)],{gap:120});if(f.isConnected)talking(false);
       }
     });
     speakWord();
