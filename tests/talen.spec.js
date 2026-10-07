@@ -230,7 +230,7 @@ test('Talen strings the answer together as one sentence: the clips are joined in
   expect(r).toHaveLength(1);
   expect(r[0]).toMatch(/^blob:/);
   const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'games-talen.js'), 'utf8');
-  expect(src).toMatch(/gap:\[\d+,-\d+,-\d+\]/);
+  expect(src).toMatch(/gap:\[-?\d+,-\d+,-\d+\]/);
 });
 
 test('the hint sits beside "Nog een keer": it fades one wrong picture (two at most) and the word no longer counts as right first time', async ({ page }) => {
@@ -249,4 +249,17 @@ test('the hint sits beside "Nog een keer": it fades one wrong picture (two at mo
   await expect(page.locator(`.talen-tile.hinted[data-pick="${id}"]`)).toHaveCount(0);
   await page.locator(`.talen-tile[data-pick="${id}"]`).click();
   expect(await page.evaluate(() => window.KWIZILLO_M1.talen.firstTry)).toBe(0);
+});
+
+test('a right answer writes out "shark betekent haai" in the bubble, piece by piece as it is said', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeTalen').click();
+  await page.locator('#talenStart').click();
+  await expect(page.locator('.talen-tile')).toHaveCount(4);
+  const id = await current(page);
+  await page.locator(`.talen-tile[data-pick="${id}"]`).click();
+  await expect(page.locator('.talen-say .talen-piece')).toHaveCount(3);
+  await expect(page.locator('.talen-say .talen-piece.on')).toHaveCount(3, { timeout: 8000 });
+  const [en, nl] = await page.evaluate(i => { const w = window.KWIZILLO_M1.talenWord(i); return [w.text.en, w.text.nl]; }, id);
+  await expect(page.locator('.talen-say')).toHaveText(`${en} betekent ${nl}`);
 });
