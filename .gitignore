@@ -42,3 +42,7 @@ store/screenshots/
 # list of cache files to rsync to the server (tools/speech-inventory.cjs --files)
 speech-files.txt
 speech-files-new.txt
+
+# Website video (44 MB): lives on the web server, a local copy in site/assets/video/ is not committed
+site/assets/video/*.mp4
+site/assets/video/*.webm
