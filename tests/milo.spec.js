@@ -57,7 +57,7 @@ test('onboarding is hosted by Milo: a pose and a bubble on every step, spoken in
   for (const r of spoken) { expect(r.voice).toBe('Milo'); expect(JSON.stringify(r)).not.toContain('Sam'); }
 });
 
-test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo flies off; a tap moves on', async ({ page }) => {
+test('the tour visits the Mega Quiz, worlds, games, HUD and nav with a spotlight, then Milo flies off; a tap moves on', async ({ page }) => {
   await boot(page);
   await expect(page.locator('.milo-tour')).toHaveCount(0);   // never on its own for a returning player
   // The walk in lasts under a second, so whether it happened is recorded as it
@@ -85,7 +85,10 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   await expect(tour.locator('.milo-tour-hint > *')).toHaveCount(1);
   await expect(tour.locator('.milo-tour-skip')).toHaveText('Overslaan');
   const bubble = tour.locator('.milo-bubble');
-  await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('de werelden'))), { timeout: 15000 }).toBe(true);
+  // It opens at the top, on the Mega Quiz…
+  await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('Mega Quiz'))), { timeout: 15000 }).toBe(true);
+  { const mega = await page.locator('#homeMega').boundingBox(), sp = await tour.locator('.milo-tour-spot').boundingBox(); expect(Math.abs(sp.y - mega.y)).toBeLessThan(12) }
+  await expect.poll(() => page.evaluate(() => window.__said.some(t => t.includes('acht werelden'))), { timeout: 25000 }).toBe(true);
   await expect(tour.locator('.milo-host')).not.toHaveClass(/walking/);
   // In the tour the figure stays and gestures: a lip-synced clip would replace
   // it with a video of the guide standing still, and here it has things to
@@ -100,19 +103,21 @@ test('the tour visits worlds, games, HUD and nav with a spotlight, then Milo fli
   // A tap on the screen does nothing: only Skip ends the tour, the guide moves on by itself.
   await tour.click({ position: { x: 10, y: 300 } });
   await page.waitForTimeout(300);
-  await expect(bubble).toContainText('de werelden');
+  await expect(bubble).toContainText('acht werelden');
+  // "Straks": during the tour a tap does nothing, so no line tells the child to tap now.
+  await expect(bubble).toContainText('Straks tik je');
   await expect(tour.locator('.milo-host')).not.toHaveClass(/hopping/);
-  await expect(bubble).toContainText('zes spelletjes', { timeout: 25000 });
-  const games = await spot.boundingBox(), memo = await page.locator('#homeMemo').boundingBox(), math = await page.locator('#homeMath').boundingBox(), facts = await page.locator('#homeFacts').boundingBox();
-  expect(games.x).toBeLessThan(memo.x + 8); expect(games.x + games.width).toBeGreaterThan(math.x + math.width - 8);   // all six game tiles at once…
-  expect(games.y + games.height).toBeGreaterThan(facts.y + facts.height - 8); // …including the Weetjes tile on the next row
+  await expect(bubble).toContainText('de Runner, Talen', { timeout: 25000 });
+  const games = await spot.boundingBox(), runner = await page.locator('#homeJungle').boundingBox(), first = await page.locator('.home-games .home-game').first().boundingBox(), last = await page.locator('.home-games .home-game').last().boundingBox();
+  expect(Math.abs(games.y - runner.y)).toBeLessThan(12);   // the Runner banner and…
+  expect(games.x).toBeLessThan(first.x + 8); expect(games.y + games.height).toBeGreaterThan(last.y + last.height - 8);   // …every game tile, at once
   // every bubble of the tour stays inside the frame
   { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
   // No lonely last word: the last two words are tied together.
-  expect(await bubble.innerText()).toMatch(/probeer\u00a0het!$/);
+  expect(await bubble.innerText()).toMatch(/allemaal\u00a0proberen!$/);
   await expect(bubble).toContainText('munten', { timeout: 25000 });
   await expect(bubble).toContainText('collectie', { timeout: 25000 });
-  await expect(bubble).toContainText('Veel plezier', { timeout: 25000 });
+  await expect(bubble).toContainText('Nu ben jij aan de beurt', { timeout: 25000 });
   // the closing line has a clip too (rendered from the talk pose)
   await expect(page.locator('.milo-host')).toHaveAttribute('data-pose', 'talk');
   await expect(tour).toHaveCount(0, { timeout: 25000 });
@@ -155,7 +160,7 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   await page.locator('[data-guide="Luna"]').click();
   await expect(page.locator('.onboarding .milo-host:not(.leave)')).toHaveAttribute('data-guide', 'luna');
   // Her tour lines are already loading, two screens before the tour.
-  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /de werelden/.test(r.text)), { timeout: 8000 }).toBe(true);
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /acht werelden/.test(r.text)), { timeout: 8000 }).toBe(true);
   // The welcome and the tour are hers. Tapping the guide that is already chosen
   // goes on to the welcome, the same as "Verder".
   await page.locator('[data-guide="Luna"]').click();
@@ -166,10 +171,10 @@ test('tapping Luna on the guide step brings her on stage; she says hello, hosts 
   const tour = page.locator('.home .milo-tour');
   await expect(tour).toBeVisible({ timeout: 5000 });
   await expect(tour.locator('.milo-host')).toHaveAttribute('data-guide', 'luna');
-  await expect(tour.locator('.milo-bubble')).toContainText('de werelden', { timeout: 5000 });
+  await expect(tour.locator('.milo-bubble')).toContainText('Mega Quiz', { timeout: 5000 });
   // The tour lines are hers alone (lines warmed earlier for Milo may still drain from the queue).
-  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /de werelden/.test(r.text))).toBe(true);
-  expect(spoken.filter(r => r.voice === 'Milo' && /werelden|Memo|munten|collectie|plezier/.test(r.text))).toEqual([]);
+  await expect.poll(() => spoken.some(r => r.voice === 'Luna' && /Mega Quiz/.test(r.text))).toBe(true);
+  expect(spoken.filter(r => r.voice === 'Milo' && /werelden|Memo|munten|collectie|plezier|Mega Quiz/.test(r.text))).toEqual([]);
   for (const r of spoken.slice(before)) expect(JSON.stringify(r)).not.toContain('Sam');
   await page.locator('.milo-tour-skip').click();
   await expect(tour).toHaveCount(0, { timeout: 5000 });
@@ -239,13 +244,12 @@ test('while it explains, the guide points at what it is explaining and hops on t
     window.KWIZILLO_M1.startTour();
   });
   await expect(page.locator('.milo-tour .milo-figure')).toBeVisible();
-  // The first stop is the worlds; the second is the games, which is the one
-  // with six things to point at.
+  // The first stop is the Mega Quiz; the second is the worlds.
   // A tap does not move the tour on; a line that never finishes moves on by itself after 12 s.
-  // Wait until the spotlight has arrived on the games row.
+  // Wait until the spotlight has arrived on the worlds.
   await expect.poll(async () => {
     const spot = await page.locator('.milo-tour-spot').boundingBox();
-    const games = await page.locator('.home-games').boundingBox();
+    const games = await page.locator('.home-worlds').boundingBox();
     return Math.abs(spot.y - games.y);
   }, { timeout: 20000 }).toBeLessThan(14);
   await expect.poll(() => page.evaluate(() => window.__poses.filter(p => /point|cheer/.test(p)).length), { timeout: 15000 }).toBeGreaterThan(0);
