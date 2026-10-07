@@ -39,5 +39,8 @@
   // ruimte overblijft voor de titel.
   const FOCUS={ruimte:'center 30%',dieren:'center 32%',aarde:'center 48%',geschiedenis:'center 50%',wetenschap:'center 48%',mysterie:'center 33%',kunst:'center 30%',sport:'center 30%'};
   K.WORLD_FOCUS=FOCUS;
-  K.worldBadge=(w,cls='')=>K.MASTER?.[w]?`<img class="world-badge ${cls}" src="${K.MASTER[w]}" alt="" style="object-position:${FOCUS[w]||'center'}">`:'';
+  // De badge zelf heeft een eigen vierkante uitsnede per wereld (tools/world-badges.cjs):
+  // het eiland in het midden en overal even groot.
+  const BADGES=new Set(['ruimte','dieren','aarde','geschiedenis','wetenschap','mysterie','kunst','sport']);
+  K.worldBadge=(w,cls='')=>BADGES.has(w)?`<img class="world-badge ${cls}" src="assets/worlds/badge-${w}.jpg" alt="">`:K.MASTER?.[w]?`<img class="world-badge ${cls}" src="${K.MASTER[w]}" alt="" style="object-position:${FOCUS[w]||'center'}">`:'';
 })();
