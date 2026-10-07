@@ -61,7 +61,7 @@
   };
   K.talenWord=word;
   K.talenHear=id=>hear(id);
-  const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)],{gap:-120})};
+  const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)],{gap:20})};
   const back=()=>{K.stopSpeech();K.sfx('tap');K.showTalen()};
   // Praise and "almost" vary: a random wording, never the one heard just before.
   const lastSaid={};
@@ -192,7 +192,7 @@
         K.celebrateAt?.(f,{x:r.left-fr.left+r.width/2,y:r.top-fr.top+r.height/2,count:18});
         talking(true);
         // praise (one of ten), the word, "betekent", the word in the child's own language (the handover's exact order)
-        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[-40,-120,-120],onClip:show});   // one flowing sentence: the clips' quiet ends overlap, so the words run on (pauses of 40 to 140 ms)
+        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[90,20,20],onClip:show});   // one flowing sentence: silent ends cut off, a short breath between the words, nothing on top of each other
         for(const i of [1,2,3])show(i);   // all of it in view once the sentence is over (also when it was not heard)
         if(!f.isConnected||K.talen!==g)return;
         talking(false);
@@ -203,7 +203,7 @@
         if(g.round<g.words.length)showRound();else finish();
       }else{
         g.missed=true;b.classList.add('wrong');b.disabled=true;
-        talking(true);await K.playClips([vary('bijna',T().almost),audio(l,w.id)],{gap:-40});if(f.isConnected)talking(false);
+        talking(true);await K.playClips([vary('bijna',T().almost),audio(l,w.id)],{gap:40});if(f.isConnected)talking(false);
       }
     });
     speakWord();

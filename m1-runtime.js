@@ -244,9 +244,10 @@
   }
 
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
-  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(stalled(c))await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,startedAt:0};const measured=measureVoiceGain(buffer);pre.gain.value=measured;const gk=(K.state.voice==='Luna'?'Luna':'Milo');gainMemory[gk]=gainMemory[gk]*.7+measured*.3;compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=performance.now();onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
+  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(stalled(c))await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return playVoiceBuffer(c,buffer,token,onStart)}
     return new Promise(resolve=>{const url=URL.createObjectURL(blob),a=new Audio(url);voiceUrl=url;a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));a.onended=()=>{URL.revokeObjectURL(url);if(voiceUrl===url)voiceUrl=null;resolve(gate.isCurrent(token))};a.onerror=()=>{URL.revokeObjectURL(url);resolve(false)};a.onplaying=()=>onStart?.(a.duration||0);a.play().catch(()=>resolve(false))})
   }
+  function playVoiceBuffer(c,buffer,token,onStart){return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,startedAt:0};const measured=measureVoiceGain(buffer);pre.gain.value=measured;const gk=(K.state.voice==='Luna'?'Luna':'Milo');gainMemory[gk]=gainMemory[gk]*.7+measured*.3;compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=performance.now();onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
   // Mouth level of the line playing right now (0..1), for a guide portrait
   // that talks along with the voice: the loudness envelope of the clip is
   // measured once per clip (30 ms windows, scaled to its own loud parts) and
@@ -295,6 +296,30 @@
   // "part" is a piece of one spoken line (Rekenen says its sums in pieces), so
   // it follows the previous piece without a pause of its own.
   const GAP={question:520,answer:300,option:120,speech:0,lead:180,part:0};
+  // Stukjes van één zin (kind "part" en het stuk dat erop volgt: Rekenen zegt
+  // "zeven" "plus" "drie", Wat ben ik? "Dit is" "een olifant") worden één
+  // geluid. Elke opname heeft stilte aan begin en eind; los na elkaar gaf dat
+  // gaten tussen de woorden en klonk het als een robot. Hier gaat die stilte
+  // eraf en sluiten de stukjes aan met een korte adem ertussen.
+  const PIECE_LEAD=.02,PIECE_TAIL=.04,PIECE_GAP=.01,PIECE_END=.2;
+  function speechEdges(b){
+    const thr=.005;let s0=b.length,e0=-1;
+    for(let k=0;k<b.numberOfChannels;k++){const d=b.getChannelData(k);for(let j=0;j<d.length;j++)if(Math.abs(d[j])>thr){s0=Math.min(s0,j);break}for(let j=d.length-1;j>=0;j--)if(Math.abs(d[j])>thr){e0=Math.max(e0,j);break}}
+    return e0<s0?[0,b.length]:[s0,e0+1];
+  }
+  function joinPieces(c,buffers){
+    const rate=c.sampleRate,last=buffers.length-1;
+    const cuts=buffers.map((b,i)=>{const [a,z]=speechEdges(b);return [Math.max(0,a-Math.round(PIECE_LEAD*rate)),Math.min(b.length,z+Math.round((i===last?PIECE_END:PIECE_TAIL)*rate))]});
+    const gap=Math.round(PIECE_GAP*rate),total=cuts.reduce((n,[a,z])=>n+(z-a),0)+gap*last;
+    const out=c.createBuffer(1,total,rate),o=out.getChannelData(0),fin=Math.round(.006*rate),fout=Math.round(.02*rate);let p=0;
+    buffers.forEach((b,i)=>{
+      const [a,z]=cuts[i],chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
+      for(let j=a;j<z;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;o[p++]=v}
+      p+=gap;
+    });
+    return out;
+  }
+  const decodeBlob=(c,blob)=>blob.arrayBuffer().then(d=>new Promise((ok,no)=>{const r=c.decodeAudioData(d,ok,no);if(r&&r.then)r.then(ok,no)}));
   function pause(ms,token){return ms>0?new Promise(resolve=>{const id=setTimeout(resolve,ms);const check=setInterval(()=>{if(!gate.isCurrent(token)){clearTimeout(id);clearInterval(check);resolve()}},60);setTimeout(()=>clearInterval(check),ms+80)}):Promise.resolve()}
   // One failed segment must not silence the rest of the question: it is logged,
   // skipped, and the sequence carries on with the next answer. Before this, a
@@ -316,7 +341,7 @@
     // line is asked for at this same moment and is ready long before its turn.
     const announce=i=>{try{onSegment?.(segments[i],i)}catch(e){}};
     const started=i=>d=>{try{onStart?.(segments[i],i,d)}catch(e){}};
-    const streamFirst=canStream(segments[0].text,v,lang);
+    const streamFirst=!(segments[0].kind==='part'&&segments.length>1)&&canStream(segments[0].text,v,lang);
     // The first line goes out before anything else asks for a connection: it is
     // the one the child is waiting for, and a browser only keeps a handful of
     // connections per host.
@@ -349,6 +374,17 @@
             }
             finished=await playVoiceBlob(result.blob,token,started(0));
           }
+        }else if(segments[i].kind==='part'&&i<segments.length-1&&ensureVoiceCtx()){
+          // a line in pieces: up to and including the first segment that is not a piece
+          let k=i;while(k<segments.length-1&&segments[k].kind==='part')k++;
+          const c=ensureVoiceCtx(),results=(await Promise.all(requests.slice(i,k+1))).filter(r=>r.ok);
+          if(!gate.isCurrent(token))return;
+          let joined=null;
+          if(results.length){try{if(stalled(c))await c.resume().catch(()=>{});joined=joinPieces(c,await Promise.all(results.map(r=>decodeBlob(c,r.blob))))}catch(e){console.warn('Kwizillo TTS: joining failed —',e?.message||e)}}
+          if(!gate.isCurrent(token))return;
+          if(joined){announce(i);finished=await playVoiceBuffer(c,joined,token,started(i))}
+          else finished=true;
+          i=k;
         }else{
           // One failed segment must not silence the rest of the question: it is
           // logged, skipped, and the sequence carries on with the next answer.
@@ -431,14 +467,24 @@
     return p;
   }
   K.preloadClips=urls=>{const c=ensureVoiceCtx();if(c)for(const u of (urls||[]).filter(Boolean))decodeClip(u,c).catch(()=>{})};
-  const LEAD_IN=.15,TAIL=.2;
+  // One sound for the whole sentence. Each clip loses its silent ends here
+  // (speechEdges, the same cut as a line in pieces) and the next clip starts
+  // `gap` ms after the last sound of the one before; never on top of it. The
+  // clips used to overlap by up to 120 ms, and then the end of a word went
+  // under the start of the next ("haai" lost its tail, a short word vanished).
+  // A slightly longer lead-in: an element that starts playing can swallow its
+  // first few hundredths of a second on iOS.
+  const LEAD_IN=.22,TAIL=.2,CLIP_LEAD=.02,CLIP_TAIL=.06;
   function joinedWav(buffers,gaps,rate){
-    let n=Math.round(LEAD_IN*rate),end=0;
-    const at=buffers.map((b,i)=>{const start=n;end=Math.max(end,start+b.length);n=Math.max(start+1,start+b.length+(i<buffers.length-1?Math.round((gaps[i]||0)/1000*rate):0));return start});
-    const mix=new Float32Array(end+Math.round(TAIL*rate));
+    const cuts=buffers.map(b=>{const [a,z]=speechEdges(b);return [Math.max(0,a-Math.round(CLIP_LEAD*rate)),Math.min(b.length,z+Math.round(CLIP_TAIL*rate))]});
+    const pause=i=>Math.round(Math.max(0,gaps[i]||0)/1000*rate);
+    let n=Math.round(LEAD_IN*rate);
+    const at=cuts.map(([a,z],i)=>{const start=n;n=start+(z-a)+(i<cuts.length-1?pause(i):0);return start});
+    const mix=new Float32Array(n+Math.round(TAIL*rate));
     buffers.forEach((b,i)=>{
-      const chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
-      for(let j=0;j<b.length;j++){let v=0;for(const ch of chans)v+=ch[j];mix[at[i]+j]+=v/chans.length}
+      const [a,z]=cuts[i],chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
+      const fin=Math.round(.006*rate),fout=Math.round(.02*rate);
+      for(let j=a;j<z;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;mix[at[i]+j-a]=v}
     });
     const pcm=new Int16Array(mix.length);for(let j=0;j<mix.length;j++)pcm[j]=Math.max(-1,Math.min(1,mix[j]))*0x7fff;
     const head=new DataView(new ArrayBuffer(44)),w=(o,str)=>{for(let k=0;k<str.length;k++)head.setUint8(o+k,str.charCodeAt(k))};

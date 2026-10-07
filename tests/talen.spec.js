@@ -220,13 +220,13 @@ test('a new player sees an empty Woordjes tab that leads to Talen', async ({ pag
   await expect(page.locator('.talen-pass h1.game-name')).toHaveText('Talen');
 });
 
-test('Talen strings the answer together as one sentence: the clips are joined into ONE sound (one element, a short lead-in, the quiet ends overlapping), so nothing is cut off or swallowed', async ({ page }) => {
+test('Talen strings the answer together as one sentence: the clips are joined into ONE sound (one element, a short lead-in, silent ends cut, never on top of each other), so nothing is cut off or swallowed', async ({ page }) => {
   await page.goto('/');
   await page.waitForFunction(() => window.KWIZILLO_M1 && window.KWIZILLO_M1.playClips);
   const r = await page.evaluate(async () => {
     const K = window.KWIZILLO_M1, srcs = [], real = window.Audio;
     window.Audio = function () { const a = new real(); const d = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src'); Object.defineProperty(a, 'src', { set(v) { srcs.push(v); d.set.call(a, v) }, get() { return d.get.call(a) } }); a.play = () => Promise.resolve(); return a; };
-    const done = K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [30, -70, -70] });   // below zero: the next word starts in the quiet end of the one before
+    const done = K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [90, 20, 20] });
     await new Promise(ok => { const t = setInterval(() => { if (srcs.length) { clearInterval(t); ok(); } }, 20); setTimeout(ok, 4000); });
     window.Audio = real; K.stopSpeech(); await done;
     return srcs;
@@ -234,7 +234,7 @@ test('Talen strings the answer together as one sentence: the clips are joined in
   expect(r).toHaveLength(1);
   expect(r[0]).toMatch(/^blob:/);
   const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'games-talen.js'), 'utf8');
-  expect(src).toMatch(/gap:\[-?\d+,-\d+,-\d+\]/);
+  expect(src).toMatch(/gap:\[\d+,\d+,\d+\]/);   // no overlap: a negative gap put the next word over the end of the one before
 });
 
 test('the hint sits beside "Nog een keer": it fades one wrong picture (two at most) and the word no longer counts as right first time', async ({ page }) => {
