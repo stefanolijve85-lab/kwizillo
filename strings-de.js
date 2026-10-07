@@ -451,7 +451,7 @@
     'result.failKicker':'NOCH NICHT',
     'result.passRule':'Level {niveau}: du durftest {allowed} Fehler machen und hattest {wrong}.',
     'result.failRule':'Level {niveau}: du darfst {allowed} Fehler machen, du hattest {wrong}. Spiele dieses Thema noch einmal!',
-    'result.toCollection':'Zu meiner Sammlung',
+    'result.toHome':'Zum Start',
 
     'profile.title':'Mein Profil',
     'profile.sub':'Dein Name, dein Kumpel und deine Einstellungen',

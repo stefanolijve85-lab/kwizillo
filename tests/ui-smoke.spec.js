@@ -362,7 +362,8 @@ test('finishing a quiz counts one quiz, one streak day and real stats', async ({
   await answerAll(page, 10);
   await expect(page.locator('.result-v2')).toBeVisible();
 
-  await page.locator('#collectionBtn').click();
+  await page.locator('#homeBtn').click();
+  await expect(page.locator('.home')).toBeVisible();
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
   await expect(page.locator('.stats-hero-copy p')).toContainText('10 vragen beantwoord');
   await expect(page.locator('.stats-hero-copy p')).toContainText('1 quiz gespeeld');
@@ -645,19 +646,12 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['Pro Max', 430, 
   });
 }
 
-test('the coin chip in a quiz opens statistics and "back" returns to the same question', async ({ page }) => {
+test('the quiz header has no coin and streak chips (they led to statistics in the middle of a game)', async ({ page }) => {
   await boot(page);
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
-  await page.locator('.answer').first().click();
-  await feedbackNext(page);
-  const prompt = await page.locator('.quiz-card h1').textContent();
-  await page.locator('.quiz-meta [data-stats]').first().click();
-  await expect(page.locator('.stats-screen')).toBeVisible();
-  await page.locator('.panel-back').click();
   await expect(page.locator('.quiz-v2')).toBeVisible();
-  await expect(page.locator('.quiz-card h1')).toHaveText(prompt);
-  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+  await expect(page.locator('.quiz-meta [data-stats], .quiz-meta .meta-chip')).toHaveCount(0);
 });
 
 test('the avatar on Home opens the profile, where the name can be changed', async ({ page }) => {
@@ -990,7 +984,8 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
   await page.locator('.world-topic').nth(3).click();
   await answerAll(page, 10, { correct: true });
   await expect(page.locator('.result-v2')).toBeVisible();
-  await page.locator('#collectionBtn').click();
+  await page.locator('#homeBtn').click();
+  await page.locator('.native-bottom-nav [data-nav="collection"]').click();
   await expect(page.locator('.progress-overall')).toContainText('Totaal 125 van 800 punten');
   await expect(page.locator('.progress-world').first()).toContainText('4 van 4 quizzen gehaald · 100 punten');
 });

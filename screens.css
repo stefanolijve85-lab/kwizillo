@@ -1648,3 +1648,22 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-pick.soon .talen-stamp-icon{width:auto;aspect-ratio:auto;background:none;font-size:34px}
 .talen-pass .memo-pick.mix{aspect-ratio:auto;height:clamp(84px,15vh,170px)}
 .talen-pick.locked .talen-stars{display:none}
+/* The result card always fits inside the screen with room all round: "Naar Home" and "Deel je score" share a
+   row, a short screen gets a smaller gift and tighter spacing, and should it still be too tall the card
+   scrolls inside itself instead of running off the bottom edge */
+.result-v2-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.result-v2-card::-webkit-scrollbar{display:none}
+.result-native{grid-template-columns:1fr 1fr}
+.result-native button{grid-column:1/-1}
+.result-native #homeBtn,.result-native #shareBtn{grid-column:auto;padding-inline:8px;line-height:1.1}
+@media(max-height:760px){
+  .result-v2{padding-top:calc(5% + var(--sat));padding-bottom:calc(5% + var(--sab))}
+  .result-v2-card{padding:5% 5%}
+  .result-stage{height:74px}
+  .result-mascot .mascot-face.large{width:54px;height:54px}
+  .result-v2 h1{font-size:clamp(26px,7vw,40px);margin:3px 0}
+  .result-stats{margin:10px 0}
+  .result-stats span{padding:7px 4px}
+  .result-native{gap:7px}
+  .result-native button{min-height:44px;padding-block:9px}
+}

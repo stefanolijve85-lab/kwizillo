@@ -452,7 +452,7 @@
     'result.failKicker':'TODAVÍA NO',
     'result.passRule':'Nivel {niveau}: podías fallar {allowed} veces y has fallado {wrong}.',
     'result.failRule':'Nivel {niveau}: puedes fallar {allowed} veces y has fallado {wrong}. ¡Juega este tema otra vez!',
-    'result.toCollection':'Ir a mi colección',
+    'result.toHome':'Volver al inicio',
 
     'profile.title':'Mi perfil',
     'profile.sub':'Tu nombre, tu colega y tus ajustes',

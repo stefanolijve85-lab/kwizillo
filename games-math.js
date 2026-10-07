@@ -113,7 +113,7 @@
         <header class="quiz-v2-head">
           <button class="quiz-back" id="mathBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>${esc(t('math.title'))}</span><small>${esc(m.world==='mix'?t('game.mixAll'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:m.niveau}))}</small></div>
-          <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
+          <div class="quiz-meta" aria-hidden="true"></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
         <main class="quiz-card math-card">
@@ -130,7 +130,6 @@
     // terug hoort dus naar Home te gaan. Het ging naar het wereldscherm van de
     // wereld waar de sommen vandaan kwamen, en dat is niet waar je vandaan kwam.
     f.querySelector('#mathBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showHome()};
-    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>render()})});
     // The hint shows the counting dots (or the reversed operation) for a moment.
     f.querySelector('#mathHint').onclick=()=>{K.sfx('hint');const h=f.querySelector('#mathFeedback');h.hidden=false;h.className='math-feedback is-hint';h.textContent=hintFor(s);say(hintFor(s,true));setTimeout(()=>{if(h.classList.contains('is-hint'))h.hidden=true},2600)};
     f.querySelector('#mathPrev').onclick=()=>{if(m.index===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');m.index--;render()};

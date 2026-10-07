@@ -451,7 +451,7 @@
     'result.failKicker':'ПОКА НЕТ',
     'result.passRule':'Уровень {niveau}: можно было ошибиться {allowed} раз, а ты ошибся {wrong}.',
     'result.failRule':'Уровень {niveau}: можно ошибиться {allowed} раз, а ты ошибся {wrong}. Сыграй эту тему ещё раз!',
-    'result.toCollection':'В мою коллекцию',
+    'result.toHome':'Домой',
 
     'profile.title':'Мой профиль',
     'profile.sub':'Твоё имя, твой друг и твои настройки',

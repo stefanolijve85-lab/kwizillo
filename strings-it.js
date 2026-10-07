@@ -452,7 +452,7 @@
     'result.failKicker':'NON ANCORA',
     'result.passRule':'Livello {niveau}: potevi sbagliare {allowed} volte e ne hai sbagliate {wrong}.',
     'result.failRule':'Livello {niveau}: puoi sbagliare {allowed} volte e ne hai sbagliate {wrong}. Rigioca questo tema!',
-    'result.toCollection':'Vai alla mia collezione',
+    'result.toHome':'Torna alla Home',
 
     'profile.title':'Il mio profilo',
     'profile.sub':'Il tuo nome, il tuo amico e le tue impostazioni',

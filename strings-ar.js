@@ -615,7 +615,7 @@
     'result.failKicker':'ليس بعد',
     'result.passRule':'المستوى {niveau}: كان مسموحًا بـ{allowed} أخطاء وأخطأت {wrong}.',
     'result.failRule':'المستوى {niveau}: يُسمح بـ{allowed} أخطاء، وأخطأت {wrong}. العب هذا الموضوع مرة أخرى!',
-    'result.toCollection':'إلى مجموعتي',
+    'result.toHome':'إلى الرئيسية',
 
     'profile.title':'ملفي',
     'profile.sub':'اسمك وصديقك وإعداداتك',

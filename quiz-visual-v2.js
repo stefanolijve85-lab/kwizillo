@@ -128,7 +128,7 @@
         <header class="quiz-v2-head">
           <button class="quiz-back" id="qBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>Kwizillo</span><small>${esc(K.quiz.topicLabel)} · ${esc(t('quiz.quizLabel',{n:K.quiz.quizNumber}))}</small></div>
-          <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
+          <div class="quiz-meta" aria-hidden="true"></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="quizTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span>`}</div>
         <main class="quiz-card">
@@ -146,7 +146,6 @@
     K.clearSpeechHighlight=()=>buttons.forEach(b=>b.classList.remove('spoken-active'));
     f.querySelector('#qBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.quiz.mega?K.showHome():K.showWorld(K.quiz.world)};
     // Coins/streak open the statistics; "back" there lands on this same question.
-    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>K.showQuiz()})});
     f.querySelector('#prevBtn').onclick=()=>{if(idx===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');K.quiz.index--;K.showQuiz()};
 
     f.querySelector('#hintBtn').onclick=()=>showHint(q);
@@ -432,7 +431,7 @@
         <div class="result-native">
           <button id="againBtn">${esc(primaryLabel)}</button>
           ${passed&&isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
-          <button id="collectionBtn" class="secondary">${esc(t('result.toCollection'))}</button>
+          <button id="homeBtn" class="secondary">${esc(t('result.toHome'))}</button>
           <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
@@ -466,7 +465,7 @@
     };
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#retryBtn')?.addEventListener('click',()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(K.currentWorld,topicIdx)});
-    f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
+    f.querySelector('#homeBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
     // The bonus fact opens the Weetjes screen on this world.
     f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(factWorld,{open:e.currentTarget.dataset.fact})});
     if(bonus) setTimeout(()=>{if(f.isConnected)K.speakSequence(bonus.speech.map((text,i)=>({kind:i?'speech':'lead',text})))},passed?1900:900);

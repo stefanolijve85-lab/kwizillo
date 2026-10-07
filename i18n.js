@@ -453,7 +453,7 @@
     'result.failKicker':'NOG NIET GEHAALD',
     'result.passRule':'Niveau {niveau}: je mocht {allowed} fouten maken en had er {wrong}.',
     'result.failRule':'Niveau {niveau}: je mag {allowed} fouten maken, je had er {wrong}. Doe dit onderwerp nog een keer!',
-    'result.toCollection':'Naar mijn collectie',
+    'result.toHome':'Naar Home',
 
     'profile.title':'Mijn profiel',
     'profile.sub':'Jouw naam, maatje en instellingen',
@@ -1107,7 +1107,7 @@
     'result.failKicker':'NOT YET',
     'result.passRule':'Level {niveau}: you could make {allowed} mistakes and made {wrong}.',
     'result.failRule':'Level {niveau}: you may make {allowed} mistakes, you made {wrong}. Play this topic once more!',
-    'result.toCollection':'Go to my collection',
+    'result.toHome':'Back to Home',
 
     'profile.title':'My profile',
     'profile.sub':'Your name, buddy and settings',
@@ -1761,7 +1761,7 @@
     'result.failKicker':'AINDA NÃO',
     'result.passRule':'Nível {niveau}: você podia errar {allowed} e errou {wrong}.',
     'result.failRule':'Nível {niveau}: você pode errar {allowed}, e errou {wrong}. Jogue este tema mais uma vez!',
-    'result.toCollection':'Ir para minha coleção',
+    'result.toHome':'Voltar ao início',
 
     'profile.title':'Meu perfil',
     'profile.sub':'Seu nome, seu amigo e configurações',

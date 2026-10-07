@@ -451,7 +451,7 @@
     'result.failKicker':'IKKE ENDNU',
     'result.passRule':'Niveau {niveau}: du måtte lave {allowed} fejl, og du lavede {wrong}.',
     'result.failRule':'Niveau {niveau}: du må lave {allowed} fejl, og du lavede {wrong}. Spil dette emne en gang til!',
-    'result.toCollection':'Gå til min samling',
+    'result.toHome':'Til Hjem',
 
     'profile.title':'Min profil',
     'profile.sub':'Dit navn, din ven og dine indstillinger',

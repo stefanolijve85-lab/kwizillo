@@ -452,7 +452,7 @@
     'result.failKicker':'PAS ENCORE',
     'result.passRule':'Niveau {niveau} : tu pouvais faire {allowed} erreurs et tu en as fait {wrong}.',
     'result.failRule':'Niveau {niveau} : tu peux faire {allowed} erreurs, tu en as fait {wrong}. Rejoue ce thème !',
-    'result.toCollection':'Aller à ma collection',
+    'result.toHome':'Retour à l’accueil',
 
     'profile.title':'Mon profil',
     'profile.sub':'Ton prénom, ton copain et tes réglages',
