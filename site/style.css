@@ -305,3 +305,8 @@ footer a{color:#fff}
   .world span{height:48%;padding:6% 9px 7px;font-size:clamp(13px,3.9vw,15px)}
   .world small{font-size:clamp(9.5px,2.75vw,10.5px);line-height:1.3}
 }
+/* "Nieuw" next to a game that came with an update (Talen, 2026-10) */
+.new-badge{display:inline-block;vertical-align:middle;margin-left:6px;padding:2px 9px;border-radius:999px;background:linear-gradient(180deg,#ffe65c,#ffbc22);color:#17235e;font-size:12px;font-weight:900;letter-spacing:.02em}
+/* seven games: the last one alone in its row sits in the middle */
+@media(min-width:901px){.game-grid>.game-card:last-child:nth-child(3n+1){grid-column:2}}
+@media(min-width:561px) and (max-width:900px){.game-grid>.game-card:last-child:nth-child(2n+1){grid-column:1/-1;justify-self:center;max-width:50%}}
