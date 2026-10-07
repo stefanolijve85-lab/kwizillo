@@ -74,12 +74,12 @@
     const l=learn();
     const s=store();
     // Zoals de andere spellen: de mix als brede tegel bovenaan, daaronder de
-    // acht thema's. Een woordplaatje is een close-up; het staat helemaal in de
-    // tegel (contain) op een vage kopie van zichzelf, zodat niets wordt
-    // weggesneden. Een thema mag een eigen omslag hebben (`cover`).
+    // acht thema's. Een woordplaatje is een vierkante close-up; het staat heel
+    // en overal even groot midden in de tegel. Een thema mag een eigen omslag
+    // hebben (`cover`).
     const starsOf=id=>Number(themeRec(id)?.stars||0);
     const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
-    const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}"><img class="talen-pick-fill" src="${img}" alt="" decoding="async"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
+    const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
     const stamps=T().themes.map(th=>{
       if(!ready(th))return `<div class="memo-pick talen-pick soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b></div>`;
       return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th)});

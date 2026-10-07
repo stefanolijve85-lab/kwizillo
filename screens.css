@@ -1631,13 +1631,14 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
   .collection-screen .shop-short{font-size:9.5px}
 }
 
-/* Talen like the other game pickers: the mix on top, the eight themes below. A word picture is a close-up,
-   so it sits whole in the tile (contain) on a blurred copy of itself; nothing is cut off. */
+/* Talen like the other game pickers: the mix on top, the eight themes below. A word picture is a square
+   close-up: it sits whole and the same size in every tile, centred on the sky blue of the drawn word tiles,
+   no blur and no faded edges. */
 .talen-pass .panel-scroll{grid-template-rows:auto minmax(0,1fr) auto}
-.talen-pick .talen-pick-fill{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(12px) saturate(1.15) brightness(.95)}
-.talen-pick .talen-pick-art{position:absolute;left:50%;top:0;height:86%;width:auto;aspect-ratio:1;transform:translateX(-50%);object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%),linear-gradient(180deg,#000 72%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%),linear-gradient(180deg,#000 72%,transparent 100%);mask-composite:intersect}
-.talen-pick.locked .talen-pick-art,.talen-pick.locked .talen-pick-fill{filter:saturate(.6) brightness(.8)}
-.talen-pick.locked .talen-pick-fill{filter:blur(12px) saturate(.6) brightness(.75)}
+.talen-pick:not(.mix){background:radial-gradient(circle at 50% 35%,#e9f7ff 0%,#bfe6ff 55%,#8fcdf7 100%)}
+.talen-pick .talen-pick-art{position:absolute;left:50%;top:7%;height:66%;width:auto;aspect-ratio:1;transform:translateX(-50%);object-fit:cover;border-radius:14px;box-shadow:0 3px 8px rgba(0,40,110,.25)}
+.talen-pick.locked .talen-pick-art{filter:saturate(.6) brightness(.85)}
+.talen-pick:not(.mix) .home-game-veil{background:linear-gradient(180deg,rgba(2,22,66,0) 62%,rgba(2,20,62,.75) 100%)}
 .talen-pick.done{border-color:#ffd23f}
 .talen-pick .talen-stars{position:absolute;top:6px;right:8px;display:flex;gap:1px;padding:2px 6px;border-radius:999px;background:rgba(8,28,82,.55);font-size:11px;line-height:1.2}
 .talen-pick .talen-stars i{font-style:normal;color:rgba(255,255,255,.45)}
@@ -1646,3 +1647,4 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-pick.soon{display:grid;place-items:center;opacity:.6}
 .talen-pick.soon .talen-stamp-icon{width:auto;aspect-ratio:auto;background:none;font-size:34px}
 .talen-pass .memo-pick.mix{aspect-ratio:auto;height:clamp(84px,15vh,170px)}
+.talen-pick.locked .talen-stars{display:none}
