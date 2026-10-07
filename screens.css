@@ -1610,3 +1610,12 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .feedback-note{display:block;margin-top:10px;color:#5b6b8f;font-size:11px;font-weight:800}
 /* Arabic letters join: no negative spacing, and a thinner outline so the gold fill shows in the thin strokes */
 [dir="rtl"] .panel-head h1.game-name,[dir="rtl"] .feedback-modal h2.ideas-title,[dir="rtl"] .home-mega-copy b{letter-spacing:0;-webkit-text-stroke-width:.6px}
+/* Talen passport without scrolling: lower picture tiles (4:3, and wider still on a short phone), the island takes what is left */
+.talen-pass .talen-stamp img,.talen-pass .talen-stamp-icon{aspect-ratio:4/3}
+.talen-pass .talen-stamp{padding:6px 6px 7px;gap:2px}
+.talen-pass .talen-stamp b{font-size:12.5px;line-height:1.1;text-wrap:balance}
+.talen-pass .talen-stamps{gap:8px}
+.talen-pass .talen-hero{min-height:84px}
+@media(max-height:700px){.talen-pass .talen-stamp img,.talen-pass .talen-stamp-icon{aspect-ratio:16/10}.talen-pass .talen-stamp b{font-size:11.5px}.talen-pass .talen-start{min-height:46px}.talen-pass .panel-scroll.talen-scroll{gap:8px}}
+/* iPad: three buddies per row, so a whole row of tiles is in view while scrolling */
+@media(min-width:700px){.mascot-grid{grid-template-columns:repeat(3,1fr)}.mascot-card b{font-size:clamp(15px,2.2vw,20px)}.mascot-card small{font-size:clamp(11px,1.5vw,13px)}}

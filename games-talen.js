@@ -140,6 +140,7 @@
         </main>
       </div>
     </section>`);
+    K.audio.setSteady(true);   // the music stays as soft as under the voice the whole lesson, not louder between the words
     const say=f.querySelector('#talenSay'),milo=f.querySelector('.talen-milo');
     const talking=on=>{say.classList.toggle('pulse',on);milo.classList.toggle('talking',on)};
     // decoded now, while the child listens and looks: the answer sentence is joined from these at once
