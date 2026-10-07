@@ -174,7 +174,7 @@
     'feedback.title':'Dis-le-nous !',
     'feedback.lead':'Tu as une idée, quelque chose ne va pas, ou tu adores quelque chose ? Nous lisons tout.',
     'feedback.kind.idea':'Idée',
-    'feedback.kind.bug':'Quelque chose ne va pas',
+    'feedback.kind.bug':'Remarque',
     'feedback.kind.love':'Compliment',
     'feedback.placeholder':'Écris ton message ici…',
     'feedback.empty':'Écris d’abord ton message.',

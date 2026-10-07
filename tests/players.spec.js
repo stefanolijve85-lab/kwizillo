@@ -125,8 +125,12 @@ test('ideas and feedback: under the players a card opens a message window; sendi
   await page.evaluate(() => window.KWIZILLO_M1.showParent());
   const order = await page.evaluate(() => [...document.querySelectorAll('.setting-card')].map(e => e.id || e.className));
   expect(order.indexOf('feedbackOpen')).toBe(order.findIndex(c => /players-card/.test(c)) + 1);
+  // as wide as the other cards (the class name of the quiz's feedback card once made it 92% wide)
+  const [fb, pl] = [await page.locator('#feedbackOpen').boundingBox(), await page.locator('.players-card').boundingBox()];
+  expect(Math.abs(fb.width - pl.width)).toBeLessThan(1);
   await page.locator('#feedbackOpen').click();
   await expect(page.locator('.feedback-modal h2')).toHaveText('Vertel het ons!');
+  await expect(page.locator('[data-kind="bug"]')).toHaveText(/Opmerking/);
   await page.locator('#feedbackSend').click();
   await expect(page.locator('.feedback-error')).toBeVisible();
   await page.locator('[data-kind="bug"]').click();

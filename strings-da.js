@@ -173,7 +173,7 @@
     'feedback.title':'Fortæl os det!',
     'feedback.lead':'Har du en idé, er der noget, der ikke er rigtigt, eller elsker du noget? Vi læser det hele.',
     'feedback.kind.idea':'Idé',
-    'feedback.kind.bug':'Noget er forkert',
+    'feedback.kind.bug':'Bemærkning',
     'feedback.kind.love':'Ros',
     'feedback.placeholder':'Skriv din besked her…',
     'feedback.empty':'Skriv din besked først.',

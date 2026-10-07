@@ -324,7 +324,7 @@
     'feedback.title':'أخبرنا!',
     'feedback.lead':'هل لديك فكرة، أو هناك شيء غير صحيح، أو شيء تحبه كثيرًا؟ نحن نقرأ كل شيء.',
     'feedback.kind.idea':'فكرة',
-    'feedback.kind.bug':'هناك خطأ',
+    'feedback.kind.bug':'ملاحظة',
     'feedback.kind.love':'مديح',
     'feedback.placeholder':'اكتب رسالتك هنا…',
     'feedback.empty':'اكتب رسالتك أولًا.',

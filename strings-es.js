@@ -174,7 +174,7 @@
     'feedback.title':'¡Cuéntanoslo!',
     'feedback.lead':'¿Tienes una idea, algo no está bien o hay algo que te encanta? Lo leemos todo.',
     'feedback.kind.idea':'Idea',
-    'feedback.kind.bug':'Algo no está bien',
+    'feedback.kind.bug':'Comentario',
     'feedback.kind.love':'Elogio',
     'feedback.placeholder':'Escribe aquí tu mensaje…',
     'feedback.empty':'Primero escribe tu mensaje.',

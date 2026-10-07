@@ -173,7 +173,7 @@
     'feedback.title':'Расскажи нам!',
     'feedback.lead':'У тебя есть идея, что-то не так или тебе что-то очень нравится? Мы читаем всё.',
     'feedback.kind.idea':'Идея',
-    'feedback.kind.bug':'Что-то не так',
+    'feedback.kind.bug':'Замечание',
     'feedback.kind.love':'Похвала',
     'feedback.placeholder':'Напиши здесь своё сообщение…',
     'feedback.empty':'Сначала напиши сообщение.',

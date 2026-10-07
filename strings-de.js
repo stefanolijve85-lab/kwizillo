@@ -173,7 +173,7 @@
     'feedback.title':'Erzähl es uns!',
     'feedback.lead':'Hast du eine Idee, stimmt etwas nicht, oder magst du etwas ganz besonders? Wir lesen alles.',
     'feedback.kind.idea':'Idee',
-    'feedback.kind.bug':'Etwas stimmt nicht',
+    'feedback.kind.bug':'Anmerkung',
     'feedback.kind.love':'Lob',
     'feedback.placeholder':'Schreib hier deine Nachricht…',
     'feedback.empty':'Schreib zuerst deine Nachricht.',

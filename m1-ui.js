@@ -232,6 +232,7 @@
         <!-- The Runner as a wide banner: the Mega Quiz banner's component and styles, first under "Speel ook", so the worlds stand apart from the games -->
         <button class="home-mega home-runner" id="homeJungle" aria-label="${esc(t('jungle.title'))} · ${esc(t('jungle.bannerSub'))}">
           <img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-mega-veil"></span>
+          <img class="home-runner-kid boy" src="assets/games/jungle/img/hero-boy-portrait.png" alt="" decoding="async"><img class="home-runner-kid girl" src="assets/games/jungle/img/hero-girl-portrait.png" alt="" decoding="async">
           ${(b=>b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:'')(Number(K.progress().games?.jungle?.best||0))}
           <span class="home-mega-copy"><b>${esc(t('jungle.title'))}</b><small>${esc(t('jungle.bannerSub'))}</small></span>
         </button>
@@ -775,14 +776,17 @@
   // level, so a "this is not right" can be found.
   function showFeedback(){
     const f=K.app.querySelector('.game-frame');if(!f)return;
-    const kinds=['idea','bug','love'],icons={idea:'💡',bug:'🛠️',love:'💛'};
+    const kinds=['idea','bug','love'],icons={idea:'💡',bug:'📝',love:'💛'};
     let kind='idea';
+    const guide=K.state.voice==='Luna'?'luna':'milo';
     const o=document.createElement('div');o.className='simple-modal feedback-modal';
-    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button><div class="simple-icon">💬</div><h2>${esc(t('feedback.title'))}</h2><p>${esc(t('feedback.lead'))}</p>
-      <div class="feedback-kinds" role="radiogroup">${kinds.map(k=>`<button type="button" role="radio" data-kind="${k}" class="${k===kind?'active':''}" aria-checked="${k===kind}">${icons[k]} ${esc(t('feedback.kind.'+k))}</button>`).join('')}</div>
+    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button>
+      <div class="ideas-hero"><img class="ideas-guide" src="${K.MASCOT_ART[guide]}" alt=""><span class="ideas-bubble">💬</span></div>
+      <h2 class="ideas-title">${esc(t('feedback.title'))}</h2><p class="ideas-lead">${esc(t('feedback.lead'))}</p>
+      <div class="feedback-kinds" role="radiogroup">${kinds.map(k=>`<button type="button" role="radio" data-kind="${k}" class="kind-${k}${k===kind?' active':''}" aria-checked="${k===kind}"><span class="ideas-emoji">${icons[k]}</span><b>${esc(t('feedback.kind.'+k))}</b></button>`).join('')}</div>
       <textarea id="feedbackText" maxlength="1200" rows="5" placeholder="${esc(t('feedback.placeholder'))}" aria-label="${esc(t('feedback.title'))}"></textarea>
       <p class="feedback-error" hidden>${esc(t('feedback.empty'))}</p>
-      <button class="simple-ok" id="feedbackSend">${esc(t('feedback.send'))}</button><small class="feedback-note">${esc(t('feedback.note'))}</small></div>`;
+      <button class="simple-ok ideas-send" id="feedbackSend">✉️ ${esc(t('feedback.send'))}</button><small class="feedback-note">${esc(t('feedback.note'))}</small></div>`;
     f.appendChild(o);
     const text=o.querySelector('#feedbackText'),err=o.querySelector('.feedback-error');
     o.querySelector('.simple-close').onclick=()=>{K.sfx('tap');o.remove()};
@@ -795,7 +799,7 @@
         const subject=`Kwizillo feedback: ${t('feedback.kind.'+kind)}`;
         const body=`${msg}\n\n---\n${t('feedback.kind.'+kind)} · ${K.state.language} · ${t('settings.level')} ${K.state.niveau||1}`;
         location.href=`mailto:${contactMail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        o.querySelector('.simple-modal-card').innerHTML=`<div class="simple-icon">🙏</div><h2>${esc(t('feedback.thanksTitle'))}</h2><p>${esc(t('feedback.thanks'))}</p><button class="simple-ok" id="feedbackDone">${esc(t('common.close'))}</button>`;
+        o.querySelector('.simple-modal-card').innerHTML=`<div class="ideas-hero"><img class="ideas-guide" src="${K.MASCOT_ART[guide]}" alt=""><span class="ideas-bubble">🙏</span></div><h2 class="ideas-title">${esc(t('feedback.thanksTitle'))}</h2><p class="ideas-lead">${esc(t('feedback.thanks'))}</p><button class="simple-ok ideas-send" id="feedbackDone">${esc(t('common.close'))}</button>`;
         o.querySelector('#feedbackDone').onclick=()=>{K.sfx('tap');o.remove()};
         K.cheer?.(o.querySelector('.simple-modal-card'));
       });
@@ -870,7 +874,7 @@
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
       <section class="setting-card tour-card"><div class="setting-icon">🧭</div><div><b>${esc(t('tour.pick'))}</b><small>${esc(t('tour.pickSub'))}</small></div><div class="tour-guides"><button data-tour="milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt="">${esc(t('voice.milo'))}</button><button data-tour="luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt="">${esc(t('voice.luna'))}</button></div></section>
       <section class="setting-card players-card"><div class="setting-icon">👨‍👩‍👧</div><div><b>${esc(t('players.title'))}</b><small>${esc(t('players.sub'))}</small></div><div class="player-list">${K.players.all().map(p=>`<div class="player-row"><span class="player-face">${esc((p.name[0]||'?').toUpperCase())}</span><span class="player-name"><b>${esc(p.name)}</b><small>${esc(p.current?t('players.current'):t('settings.level')+' '+Math.max(1,1+Math.floor(Number(p.state?.xp||0)/100)))}</small></span></div>`).join('')}</div></section>
-      <section class="setting-card clickable feedback-card" id="feedbackOpen"><div class="setting-icon">💬</div><div><b>${esc(t('settings.feedback'))}</b><small>${esc(t('settings.feedbackSub'))}</small></div><em>›</em></section>
+      <section class="setting-card clickable ideas-open" id="feedbackOpen"><div class="setting-icon">💬</div><div><b>${esc(t('settings.feedback'))}</b><small>${esc(t('settings.feedbackSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('privacy.sub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>

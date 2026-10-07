@@ -174,7 +174,7 @@
     'feedback.title':'Raccontacelo!',
     'feedback.lead':'Hai un’idea, qualcosa non va o c’è qualcosa che ti piace tanto? Leggiamo tutto.',
     'feedback.kind.idea':'Idea',
-    'feedback.kind.bug':'Qualcosa non va',
+    'feedback.kind.bug':'Commento',
     'feedback.kind.love':'Complimento',
     'feedback.placeholder':'Scrivi qui il tuo messaggio…',
     'feedback.empty':'Prima scrivi il tuo messaggio.',
