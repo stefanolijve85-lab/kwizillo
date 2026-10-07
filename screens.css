@@ -1641,3 +1641,21 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-say .talen-piece.on{opacity:1}
 .talen-say .talen-piece.native{color:#2f6fe8}
 @media (prefers-reduced-motion:reduce){.talen-say .talen-piece{transition:none}}
+/* Prestaties, Collectie, Statistieken: a compact blue header (logo, title, one line), so more of the page is in view;
+   the blue band ends right under it (--head-end, set by nativeScreen) */
+.native-panel-screen.achievements-screen,.native-panel-screen.collection-screen,.native-panel-screen.stats-screen{background:linear-gradient(180deg,#39aaf2 0,#1775d4 calc(var(--head-end,24%) - 1px),#ecf8ff var(--head-end,24%),#e6f5ff 100%)}
+:is(.achievements-screen,.collection-screen,.stats-screen) .panel-head{min-height:0}
+:is(.achievements-screen,.collection-screen,.stats-screen) .panel-head .panel-logo+h1{margin-top:4px}
+:is(.achievements-screen,.collection-screen,.stats-screen) .panel-head h1{font-size:clamp(22px,6.2vw,34px);margin-bottom:0}
+:is(.achievements-screen,.collection-screen,.stats-screen) .panel-head p{margin-top:2px}
+/* Collectie, Kaarten and Winkel: three per row, so three whole cards are in view before scrolling; on a card
+   that small the fact text waits for the card to be opened (tap) */
+.collection-screen .kcard-grid,.collection-screen .shop-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media(max-width:600px){.collection-screen .kcard-grid .kcard-text,.collection-screen .kcard-grid .kcard-foot{display:none}}
+@media(max-width:600px){
+  .collection-screen .shop-item{padding:6px;gap:4px;border-radius:16px}
+  .collection-screen .shop-copy small{display:none}
+  .collection-screen .shop-copy b{font-size:11.5px;line-height:1.1}
+  .collection-screen .shop-buy{min-height:32px;font-size:11px;white-space:nowrap;padding-inline:4px}
+  .collection-screen .shop-short{font-size:9.5px}
+}

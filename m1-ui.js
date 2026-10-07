@@ -171,6 +171,10 @@
   function nativeScreen({cls='',title,subtitle='',body,active='',back=()=>K.showHome()}){
     const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><img class="panel-logo" src="${K.BRAND_LOGO}" alt="${esc(t('common.brand'))}" decoding="async"><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
+    // The blue band ends just under the header, whatever its height (a compact header leaves more page).
+    const scr=f.querySelector('.native-panel-screen'),head=f.querySelector('.panel-head');
+    const band=()=>scr.style.setProperty('--head-end',`${head.offsetTop+head.offsetHeight+8}px`);band();
+    if(window.ResizeObserver)new ResizeObserver(band).observe(head);
     bindNav(f);return f;
   }
 
