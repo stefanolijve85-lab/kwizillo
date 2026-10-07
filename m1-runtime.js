@@ -419,6 +419,9 @@
   // (build 29, 2026-10-07). A short silent lead-in covers the moment the audio
   // route wakes up. When joining fails (no Web Audio, a clip that will not
   // decode) the clips play one by one as before.
+  // A pause below zero lets the next clip start in the quiet end of the one
+  // before (the two are added up): each clip keeps a soft fade at both ends
+  // (tools/talen-audio.cjs), so the words run on without cutting into them.
   const decoded=new Map();
   function decodeClip(url,c){
     if(decoded.has(url))return decoded.get(url);
@@ -428,16 +431,16 @@
     return p;
   }
   K.preloadClips=urls=>{const c=ensureVoiceCtx();if(c)for(const u of (urls||[]).filter(Boolean))decodeClip(u,c).catch(()=>{})};
-  const LEAD_IN=.15,TAIL=.05;
+  const LEAD_IN=.15,TAIL=.2;
   function joinedWav(buffers,gaps,rate){
-    let n=Math.round(LEAD_IN*rate);
-    const at=buffers.map((b,i)=>{const start=n;n+=b.length+(i<buffers.length-1?Math.round((gaps[i]||0)/1000*rate):0);return start});
-    n+=Math.round(TAIL*rate);
-    const pcm=new Int16Array(n);
+    let n=Math.round(LEAD_IN*rate),end=0;
+    const at=buffers.map((b,i)=>{const start=n;end=Math.max(end,start+b.length);n=Math.max(start+1,start+b.length+(i<buffers.length-1?Math.round((gaps[i]||0)/1000*rate):0));return start});
+    const mix=new Float32Array(end+Math.round(TAIL*rate));
     buffers.forEach((b,i)=>{
       const chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
-      for(let j=0;j<b.length;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;pcm[at[i]+j]=Math.max(-1,Math.min(1,v))*0x7fff}
+      for(let j=0;j<b.length;j++){let v=0;for(const ch of chans)v+=ch[j];mix[at[i]+j]+=v/chans.length}
     });
+    const pcm=new Int16Array(mix.length);for(let j=0;j<mix.length;j++)pcm[j]=Math.max(-1,Math.min(1,mix[j]))*0x7fff;
     const head=new DataView(new ArrayBuffer(44)),w=(o,str)=>{for(let k=0;k<str.length;k++)head.setUint8(o+k,str.charCodeAt(k))};
     w(0,'RIFF');head.setUint32(4,36+pcm.byteLength,true);w(8,'WAVE');w(12,'fmt ');head.setUint32(16,16,true);head.setUint16(20,1,true);head.setUint16(22,1,true);
     head.setUint32(24,rate,true);head.setUint32(28,rate*2,true);head.setUint16(32,2,true);head.setUint16(34,16,true);w(36,'data');head.setUint32(40,pcm.byteLength,true);

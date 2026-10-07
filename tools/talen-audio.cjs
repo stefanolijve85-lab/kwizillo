@@ -4,7 +4,8 @@
 //   node tools/talen-audio.cjs            records what is missing, then checks every clip with Scribe
 //   node tools/talen-audio.cjs --check    only checks that every clip exists (for npm test)
 //   node tools/talen-audio.cjs --redo shark,haai   records those again (or one language: --redo de/shark)
-//   node tools/talen-audio.cjs --trim     only trims the silence off every clip again
+//   node tools/talen-audio.cjs --trim     only cuts the silence again, from the takes in .talen-raw/
+//   node tools/talen-audio.cjs --redo all  records every clip again
 //
 // The model and the settings are the app's own (speech-config.js). One recording
 // per word: cutting a list of words out of one take left clipped edges in the
@@ -106,7 +107,7 @@ if (process.argv.includes('--check')) {
   console.log(`talen audio: ${clips.length} clips present ✔`); process.exit(0);
 }
 const redo = (process.argv[process.argv.indexOf('--redo') + 1] || '').split(',').filter(Boolean);
-const todo = clips.filter(c => !fs.existsSync(path.join(OUT, c.file)) || redo.includes(c.text) || redo.includes(path.basename(c.file, '.mp3')) || redo.includes(c.file.replace(/\.mp3$/, '')));
+const todo = clips.filter(c => !fs.existsSync(path.join(OUT, c.file)) || redo.includes('all') || redo.includes(c.text) || redo.includes(path.basename(c.file, '.mp3')) || redo.includes(c.file.replace(/\.mp3$/, '')));
 
 // What the voice is given when the word on the tile would be read as something
 // else: "sept" and "dez" are the abbreviations of septembre and dezembro, and
@@ -117,28 +118,44 @@ const voiceFor = c => c.guide === 'Milo' && TALEN_VOICE.for.includes(c.lang) ? S
 async function record(c) {
   // Said before the word as context, not spoken: without it a lone word came out in the wrong language ("haai" as "hi").
   const CONTEXT = { nl: 'In het Nederlands zeg je', en: 'In English you say', de: 'Auf Deutsch sagt man', fr: 'En français, on dit', es: 'En español se dice', it: 'In italiano si dice', pt: 'Em português se diz', da: 'På dansk siger man', ru: 'По-русски говорят', ar: 'بالعربية نقول' };
-  const body = { text: SAY[c.file.replace(/\.mp3$/, '')] || c.text, model_id: SPEECH.model, voice_settings: SPEECH.settings[c.guide], language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
+  const body = { text: SAY[c.file.replace(/\.mp3$/, '')] || c.text, model_id: SPEECH.model, voice_settings: { ...SPEECH.settings[c.guide], speed: TALEN_SPEED }, language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceFor(c)}?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
-  const out = path.join(OUT, c.file); fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, Buffer.from(await r.arrayBuffer()));
-  trim(out);
+  const raw = path.join(RAW, c.file); fs.mkdirSync(path.dirname(raw), { recursive: true });
+  fs.writeFileSync(raw, Buffer.from(await r.arrayBuffer()));
+  trim(c.file);
 }
-// The answer is heard as one sentence ("shark ... betekent ... haai"), in two voices:
-// ElevenLabs leaves up to a fifth of a second of silence at both ends of a clip, and
-// strung together that sounded like separate words. Each clip keeps 20 ms in front
-// and 40 ms behind (tools/bin/ffmpeg, the copy the repo already uses).
+// The answer is heard as one sentence ("shark ... betekent ... haai"): ElevenLabs leaves
+// up to a fifth of a second of silence at both ends of a clip, and strung together that
+// sounded like separate words, so the silence is cut off. The first cut (2026-10-07,
+// -45 dB, 20 ms in front and 40 ms behind) also cut into the words: the "t" of
+// "betekent" and the start of "requin" were gone. Now the speech is found at -50 dB,
+// 40 ms is kept in front and 90 ms behind (a soft consonant fades out there), with a
+// short fade at both ends against clicks. The take as it came from ElevenLabs is kept
+// in .talen-raw/ (not in git), so the cut can be changed without recording again;
+// the app overlaps the quiet ends a little when it joins the clips (K.playClips).
+// Talen speaks a little faster than the quiz (0.95): words strung into a sentence.
+const TALEN_SPEED = 1.05;
+const RAW = path.join(ROOT, '.talen-raw');
 const FFMPEG = path.join(ROOT, 'tools', 'bin', 'ffmpeg');
+const RATE = 44100, KEEP_IN = 0.04, KEEP_OUT = 0.09, FADE_IN = 0.008, FADE_OUT = 0.03;
 function trim(file) {
-  const tmp = file + '.trim.mp3';
-  execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-af',
-    'silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.04,areverse',
-    '-c:a', 'libmp3lame', '-b:a', '128k', tmp]);
-  fs.renameSync(tmp, file);
+  const pcm = execFileSync(FFMPEG, ['-loglevel', 'error', '-i', path.join(RAW, file), '-ac', '1', '-ar', String(RATE), '-f', 's16le', '-'], { maxBuffer: 1e8 });
+  const s = new Int16Array(pcm.buffer.slice(pcm.byteOffset, pcm.byteOffset + pcm.length));
+  const thr = 32768 * Math.pow(10, -50 / 20);
+  let i0 = 0; while (i0 < s.length && Math.abs(s[i0]) < thr) i0++;
+  let i1 = s.length - 1; while (i1 > i0 && Math.abs(s[i1]) < thr) i1--;
+  const from = Math.max(0, i0 - Math.round(KEEP_IN * RATE)), to = Math.min(s.length, i1 + 1 + Math.round(KEEP_OUT * RATE));
+  const out = s.slice(from, to), fi = Math.round(FADE_IN * RATE), fo = Math.round(FADE_OUT * RATE);
+  for (let j = 0; j < fi && j < out.length; j++) out[j] = Math.round(out[j] * j / fi);
+  for (let j = 0; j < fo && j < out.length; j++) out[out.length - 1 - j] = Math.round(out[out.length - 1 - j] * j / fo);
+  const dest = path.join(OUT, file); fs.mkdirSync(path.dirname(dest), { recursive: true });
+  execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-f', 's16le', '-ar', String(RATE), '-ac', '1', '-i', '-', '-c:a', 'libmp3lame', '-b:a', '128k', dest], { input: Buffer.from(out.buffer) });
 }
 if (process.argv.includes('--trim')) {
-  for (const c of clips) trim(path.join(OUT, c.file));
-  console.log(`trimmed ${clips.length} clips`); process.exit(0);
+  const have = clips.filter(c => fs.existsSync(path.join(RAW, c.file)));
+  for (const c of have) trim(c.file);
+  console.log(`trimmed ${have.length} clips from .talen-raw/`); process.exit(0);
 }
 // Spelling that sounds the same is not a fault: ещё/еще, accents, Arabic vowel marks.
 const norm = s => String(s).toLowerCase().normalize('NFKD').replace(/[̀-ًͯ-ْ]/g, '').replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();

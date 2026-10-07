@@ -45,3 +45,6 @@ speech-files-new.txt
 
 # Talen handover (prototype, illustrations): reference only, never in the repo
 talen-handover/
+
+# Talen: the takes as they came from ElevenLabs (tools/talen-audio.cjs cuts them into assets/talen/audio/)
+.talen-raw/
