@@ -40,6 +40,15 @@ const ALPHABET_INTRO = {
   da: 'Jeg siger det danske alfabet:',
   ru: 'Я называю латинские буквы:',
 };
+// A piece said on its own that the voice reads as something else, and what it is
+// given to say instead. Rekenen says a sum in pieces (quiz-core-v2.js numberParts):
+// a bare "min" came out as "minimaal" and a bare "een" as the article "un"
+// (2026-10-07, heard by Scribe for Milo and Luna). Only an exact whole piece is
+// changed; the text on screen and the client stay as they are.
+const SPOKEN = {
+  nl: { min: 'minn', een: 'Eén.' },
+};
+const spoken = (text, lang) => SPOKEN[lang]?.[String(text).trim()] ?? text;
 const LETTERS = ['A', 'B', 'C', 'D'];
 function letterContext(text, lang) {
   const i = LETTERS.indexOf(String(text).replace(/\.$/, ''));
@@ -77,7 +86,7 @@ function speechConfig(env = process.env) {
     const ctx = letterContext(text, lang);
     return crypto.createHash('sha256').update(`${model}|${lang}|${id}|${JSON.stringify(settings[guide === 'Luna' ? 'Luna' : 'Milo'])}|${text}${ctx ? `|${JSON.stringify(ctx)}` : ''}`).digest('hex');
   };
-  return { model, settings, keepsTags, clean, voiceId, cacheKey, letterContext };
+  return { model, settings, keepsTags, clean, voiceId, cacheKey, letterContext, spoken };
 }
 
-module.exports = { DEFAULT_MODEL, VOICES, speechConfig, letterContext };
+module.exports = { DEFAULT_MODEL, VOICES, speechConfig, letterContext, spoken };

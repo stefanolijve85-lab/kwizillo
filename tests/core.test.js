@@ -385,3 +385,14 @@ console.log('Kwizillo core gameplay tests: OK');
   }
   console.log('mega quiz: 80 questions, ten per world ✔');
 }
+
+// Rekenen says a sum in pieces: a bare "min" came out as "minimaal" and a bare "een" as "un";
+// the server gives those exact pieces their spoken form, and nothing else changes.
+{
+  const { spoken } = require('../speech-config.js');
+  assert.strictEqual(spoken('min', 'nl'), 'minn');
+  assert.strictEqual(spoken('een', 'nl'), 'Eén.');
+  assert.strictEqual(spoken('Het is een kat.', 'nl'), 'Het is een kat.');
+  assert.strictEqual(spoken('minus', 'en'), 'minus');
+  console.log('speech: "min" and "een" said as minus and one ✔');
+}

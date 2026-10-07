@@ -451,7 +451,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function tts(text, guide, lang, {stream=false, signal=null}={}){
   // Audio tags such as "[excited]" are kept for v3/v4 and dropped elsewhere.
-  text=SPEECH.clean(text);
+  // A piece the voice would misread is given its spoken form (speech-config.js SPOKEN).
+  text=SPEECH.spoken(SPEECH.clean(text),lang);
   await loadVoices(lang);
   const v=chosen[lang][guide==='Luna'?'Luna':'Milo'];
   const meta=selectionMeta[lang][guide==='Luna'?'Luna':'Milo'];

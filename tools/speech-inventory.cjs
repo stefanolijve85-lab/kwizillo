@@ -61,7 +61,7 @@ const CACHE_DIR = path.join(ROOT, '.tts-cache');
 const cached = new Set(fs.existsSync(CACHE_DIR) ? fs.readdirSync(CACHE_DIR).filter(f => f.endsWith('.mp3')).map(f => f.slice(0, -4)) : []);
 
 // What the server ends up sending to ElevenLabs for what the app asks.
-const spoken = (text, lang) => SPEECH.clean(core.spellNumbers(String(text), lang).trim().slice(0, 2500));
+const spoken = (text, lang) => SPEECH.spoken(SPEECH.clean(core.spellNumbers(String(text), lang).trim().slice(0, 2500)), lang);
 const keyFor = (text, lang, voice) => SPEECH.voiceId(lang, voice) ? SPEECH.cacheKey(text, lang, voice) : null;
 
 /* ---------------- the app's data, as the browser has it ---------------- */
