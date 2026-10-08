@@ -226,7 +226,7 @@
         <div class="result-stars">${[1,2,3].map(k=>`<i class="${k<=stars?'on':''}">★</i>`).join('')}</div>
         <div class="result-stats"><span><b>${g.firstTry}/${n}</b><small>${esc(t('talen.firstTry'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <p class="result-rule">${esc(t('talen.learned'))}</p>
-        <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}"><img src="${w.img}" alt=""><span><b>${esc(w.text[l])}</b><small>${esc(t('talen.means',{word:w.text[app()]}))} 🔊</small></span></button>`).join('')}</div>
+        <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}" aria-label="${esc(w.text[l])}, ${esc(t('talen.means',{word:w.text[app()]}))}"><img src="${w.img}" alt=""><span><b>${esc(w.text[l])}</b><small>${esc(w.text[app()])} 🔊</small></span></button>`).join('')}</div>
         <div class="result-native">
           <button id="againBtn">${esc(g.theme?t('talen.again',{theme:t(`talen.theme.${g.theme}`)}):t('talen.review'))}</button>
           <button id="passBtn" class="secondary">${esc(t('talen.passport'))}</button>

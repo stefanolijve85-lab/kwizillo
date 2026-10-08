@@ -1523,7 +1523,6 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* passport: compact stamps, not stretched over the panel */
 .talen-stamps{align-items:start;grid-auto-rows:auto}
 /* result: the learned words in two compact columns, above the buttons */
-.talen-result .talen-learned{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:34vh;overflow:auto}
 .talen-result .talen-chip{padding:3px 8px 3px 3px;font-size:13px;gap:6px}
 .talen-result .talen-chip img{width:28px;height:28px}
 .talen-result .talen-chip small{font-size:10px}
@@ -1664,3 +1663,28 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
   .result-native{gap:7px}
   .result-native button{min-height:44px;padding-block:9px}
 }
+
+/* Talen result without scrolling: the card is a column that never grows past the screen; the learned words give
+   way (their rows shrink, one line each), so "Speel ... nog eens" and "Taalpaspoort" are always in view */
+.talen-result .result-v2-card{display:flex;flex-direction:column;overflow:hidden;padding:clamp(14px,3.2vh,30px) 5% clamp(14px,2.6vh,26px)}
+.talen-result .result-stage{flex:0 0 auto;height:clamp(54px,9vh,96px);margin:0}
+.talen-result .result-mascot .mascot-face.large{width:clamp(46px,7vh,64px);height:clamp(46px,7vh,64px)}
+.talen-result .talen-stamp-fly{width:clamp(42px,6.5vh,64px);height:clamp(42px,6.5vh,64px);font-size:clamp(22px,3.4vh,32px);top:4%}
+.talen-result h1{flex:0 0 auto;font-size:clamp(22px,4.4vh,44px);margin:2px 0}
+.talen-result .result-stars{flex:0 0 auto;font-size:clamp(24px,4.2vh,40px);line-height:1.1}
+.talen-result .result-stats{flex:0 0 auto;margin:clamp(6px,1.4vh,14px) 0}
+.talen-result .result-stats span{padding:clamp(4px,1vh,10px) 4px}
+.talen-result .result-rule{flex:0 0 auto;margin:0 0 6px}
+.talen-result .talen-learned{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:minmax(0,46px);align-content:start;gap:6px;overflow:hidden;margin:0 0 clamp(8px,1.6vh,14px)}
+.talen-result .talen-chip{min-width:0;min-height:0;height:100%;padding:3px 8px 3px 3px;font-size:13px;gap:6px}
+.talen-result .talen-chip img{flex:0 0 auto;height:min(28px,100%);width:auto;aspect-ratio:1}
+.talen-result .talen-chip>span{min-width:0}
+.talen-result .talen-chip b,.talen-result .talen-chip small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.15}
+.talen-result .result-native{flex:0 0 auto}
+.talen-result .result-native button{min-height:clamp(42px,6vh,52px)}
+[data-shape="wide"] .talen-result .talen-learned{grid-template-columns:repeat(4,minmax(0,1fr))}
+/* The logo at exactly Home's height on every page and every phone width: the same top padding as .home-ui
+   (3.4% of the width) and no margin of its own. 2.7% + 2px matched Home only at one width; on a 430-wide
+   phone Home sat 1.2px higher. Landscape keeps its own rule (landscape.css). */
+.native-panel-screen{padding-top:calc(3.4% + var(--sat))}
+.panel-logo{margin-top:0}

@@ -267,3 +267,22 @@ test('a right answer writes out "shark betekent haai" in the bubble, piece by pi
   const [en, nl] = await page.evaluate(i => { const w = window.KWIZILLO_M1.talenWord(i); return [w.text.en, w.text.nl]; }, id);
   await expect(page.locator('.talen-say')).toHaveText(`${en} betekent ${nl}`);
 });
+
+test('the lesson result fits a small phone without scrolling: both buttons in view, every learned word with its translation', async ({ page }) => {
+  test.setTimeout(150000);
+  await page.setViewportSize({ width: 375, height: 667 });
+  await boot(page);
+  await page.locator('#homeTalen').click();
+  await page.locator('[data-theme="dieren"]').click();
+  await playLesson(page);
+  for (const sel of ['#againBtn', '#passBtn']) {
+    const b = await page.locator(sel).boundingBox();
+    expect(b.y + b.height).toBeLessThanOrEqual(667);
+    await expect(page.locator(sel)).toBeInViewport({ ratio: 1 });
+  }
+  expect(await page.locator('.talen-result .result-v2-card').evaluate(e => e.scrollHeight - e.clientHeight)).toBeLessThanOrEqual(1);
+  await expect(page.locator('.talen-learned .talen-chip')).toHaveCount(8);
+  // under each word only its translation ("dolfijn 🔊"), so it is never cut off after "betekent"
+  const smalls = await page.locator('.talen-learned .talen-chip small').allInnerTexts();
+  for (const x of smalls) { expect(x).toMatch(/ 🔊$/); expect(x).not.toContain('betekent'); }
+});
