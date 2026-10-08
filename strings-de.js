@@ -433,6 +433,7 @@
     'math.op.minus':'minus',
     'math.op.times':'mal',
     'math.op.divided':'geteilt durch',
+    'math.op.equals':'ist',
     'math.speech.twoStep':'{c} plus {a} mal {b}',
     'math.speech.half':'Die Hälfte von {n}',
     'math.speech.quarter':'Ein Viertel von {n}',

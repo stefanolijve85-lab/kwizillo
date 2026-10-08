@@ -433,6 +433,7 @@
     'math.op.minus':'minus',
     'math.op.times':'gange',
     'math.op.divided':'divideret med',
+    'math.op.equals':'er',
     'math.speech.twoStep':'{c} plus {a} gange {b}',
     'math.speech.half':'Halvdelen af {n}',
     'math.speech.quarter':'En fjerdedel af {n}',

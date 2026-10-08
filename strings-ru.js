@@ -433,6 +433,7 @@
     'math.op.minus':'минус',
     'math.op.times':'умножить на',
     'math.op.divided':'разделить на',
+    'math.op.equals':'равно',
     'math.speech.twoStep':'{c} плюс {a} умножить на {b}',
     'math.speech.half':'Половина от {n}',
     'math.speech.quarter':'Четверть от {n}',

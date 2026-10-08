@@ -596,6 +596,7 @@
     'math.op.minus':'ناقص',
     'math.op.times':'ضرب',
     'math.op.divided':'مقسوم على',
+    'math.op.equals':'يساوي',
     'math.speech.twoStep':'{c} زائد {a} ضرب {b}',
     'math.speech.half':'نصف {n}',
     'math.speech.quarter':'ربع {n}',

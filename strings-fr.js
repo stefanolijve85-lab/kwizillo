@@ -434,6 +434,7 @@
     'math.op.minus':'moins',
     'math.op.times':'fois',
     'math.op.divided':'divisé par',
+    'math.op.equals':'égale',
     'math.speech.twoStep':'{c} plus {a} fois {b}',
     'math.speech.half':'La moitié de {n}',
     'math.speech.quarter':'Un quart de {n}',

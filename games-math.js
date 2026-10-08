@@ -45,6 +45,8 @@
       const word={'+':t('math.op.plus'),'-':t('math.op.minus'),'×':t('math.op.times'),'÷':t('math.op.divided')}[s.op];
       s.speech=[...num(s.a),word,...num(s.b)];
     }
+    // "=" is said too ("zeven plus drie is …"), so the sum sounds like the one on screen.
+    s.speech=[...s.speech,t('math.op.equals')];
     // Four options: the answer and three near misses, all distinct and >= 0.
     const opts=new Set([s.answer]);
     const near=[1,-1,2,-2,10,-10,s.answer>20?Math.round(s.answer*.1):3,s.a&&s.b?s.a+s.b:5];
