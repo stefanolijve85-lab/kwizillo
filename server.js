@@ -518,6 +518,15 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
   }
 }
 
+// Kwizillo voor scholen (docs/SCHOLENPORTAAL.md): only with SCHOOL_DB set, so
+// the app server runs exactly as before without it. The database file lives
+// outside the web root; SCHOOL_INSECURE_COOKIES=1 only for local http testing.
+let school=null;
+if(process.env.SCHOOL_DB){
+  const store=require('./school/store.cjs').open(process.env.SCHOOL_DB);
+  school=require('./school/api.cjs').create(store,{secureCookies:process.env.SCHOOL_INSECURE_COOKIES!=='1'});
+}
+
 const server=http.createServer(async(req,res)=>{
   try{
     // 0.0.0.0 is not a host a URL can be built on, and a path like "//" is not
@@ -525,6 +534,10 @@ const server=http.createServer(async(req,res)=>{
     let url;
     try{ url=new URL(req.url,`http://127.0.0.1:${PORT}`) }
     catch(e){ res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'}); return res.end('Not found') }
+    if(url.pathname.startsWith('/api/school/')){
+      if(school&&await school(req,res,url))return;
+      return json(res,404,{error:'Niet beschikbaar'});
+    }
     if(url.pathname==='/api/voice-status'){
       if(!API_KEY)return json(res,200,{mode:'not-configured'});
       try{

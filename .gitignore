@@ -48,3 +48,8 @@ talen-handover/
 
 # Talen: the takes as they came from ElevenLabs (tools/talen-audio.cjs cuts them into assets/talen/audio/)
 .talen-raw/
+
+# Kwizillo voor scholen: de database staat nooit in git
+*.db
+*.db-wal
+*.db-shm
