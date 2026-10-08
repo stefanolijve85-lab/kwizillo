@@ -74,9 +74,8 @@
     const l=learn();
     const s=store();
     // Zoals de andere spellen: de mix als brede tegel bovenaan, daaronder de
-    // acht thema's. Een woordplaatje is een vierkante close-up; het staat heel
-    // en overal even groot midden in de tegel. Een thema mag een eigen omslag
-    // hebben (`cover`).
+    // acht thema's, elk plaatje vult zijn hele tegel. Een thema mag een eigen
+    // omslag hebben (`cover`).
     const starsOf=id=>Number(themeRec(id)?.stars||0);
     const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
     const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};

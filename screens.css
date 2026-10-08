@@ -1631,14 +1631,11 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
   .collection-screen .shop-short{font-size:9.5px}
 }
 
-/* Talen like the other game pickers: the mix on top, the eight themes below. A word picture is a square
-   close-up: it sits whole and the same size in every tile, centred on the sky blue of the drawn word tiles,
-   no blur and no faded edges. */
+/* Talen like the other game pickers: the mix on top, the eight themes below, every picture filling its
+   whole tile like the world tiles do (no blur, no faded edges, no frame inside the tile) */
 .talen-pass .panel-scroll{grid-template-rows:auto minmax(0,1fr) auto}
-.talen-pick:not(.mix){background:radial-gradient(circle at 50% 35%,#e9f7ff 0%,#bfe6ff 55%,#8fcdf7 100%)}
-.talen-pick .talen-pick-art{position:absolute;left:50%;top:7%;height:66%;width:auto;aspect-ratio:1;transform:translateX(-50%);object-fit:cover;border-radius:14px;box-shadow:0 3px 8px rgba(0,40,110,.25)}
-.talen-pick.locked .talen-pick-art{filter:saturate(.6) brightness(.85)}
-.talen-pick:not(.mix) .home-game-veil{background:linear-gradient(180deg,rgba(2,22,66,0) 62%,rgba(2,20,62,.75) 100%)}
+.talen-pick .talen-pick-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.talen-pick.locked .talen-pick-art{filter:saturate(.6) brightness(.8)}
 .talen-pick.done{border-color:#ffd23f}
 .talen-pick .talen-stars{position:absolute;top:6px;right:8px;display:flex;gap:1px;padding:2px 6px;border-radius:999px;background:rgba(8,28,82,.55);font-size:11px;line-height:1.2}
 .talen-pick .talen-stars i{font-style:normal;color:rgba(255,255,255,.45)}
