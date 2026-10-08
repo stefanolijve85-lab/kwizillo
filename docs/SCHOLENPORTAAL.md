@@ -118,3 +118,47 @@ Leerling:
 - een map voor de database buiten de webroot (bijv. `/var/lib/kwizillo/`), eigenaar
   `kwizillo`, en een dagelijkse versleutelde backup daarvan
 - `SCHOOL_DB=/var/lib/kwizillo/kwizillo-school.db` in de service
+
+## Live zetten (voor de beheerder van de server)
+
+Voorwaarde: de code van `feature/scholen` staat op de server (nu draait daar
+`website-video-assets`; samenvoegen gebeurt pas na akkoord van Stefan).
+
+1. DNS (Stefan, bij Hostnet): A-record `school` → `84.86.23.137` (hetzelfde adres als
+   `app.kwizillo.nl`).
+2. Node-versie: `node -v` moet ≥ 22.13 zijn (`node:sqlite`).
+3. Map voor de database, buiten de webroot:
+
+   ```
+   sudo mkdir -p /var/lib/kwizillo && sudo chown kwizillo:kwizillo /var/lib/kwizillo && sudo chmod 700 /var/lib/kwizillo
+   ```
+
+4. In de service (`/etc/systemd/system/kwizillo.service`, onder `[Service]`):
+
+   ```
+   Environment=SCHOOL_DB=/var/lib/kwizillo/kwizillo-school.db
+   ```
+
+   daarna `sudo systemctl daemon-reload && sudo systemctl restart kwizillo`.
+5. nginx: een serverblok voor `school.kwizillo.nl`, gelijk aan dat van
+   `app.kwizillo.nl` (proxy naar `127.0.0.1:8095`, met `proxy_set_header Host $host;`
+   en `proxy_set_header X-Real-IP $remote_addr;`), plus een certificaat:
+   `sudo certbot --nginx -d school.kwizillo.nl`.
+6. Backup, dagelijks (cron van `kwizillo`), versleuteld en buiten de server bewaard:
+
+   ```
+   sqlite3 /var/lib/kwizillo/kwizillo-school.db ".backup /var/lib/kwizillo/backup.db" && gpg --symmetric --batch --passphrase-file ~/.backup-pass -o ~/backup-$(date +%F).db.gpg /var/lib/kwizillo/backup.db
+   ```
+
+7. De pilotschool aanmaken en de eerste leerkracht uitnodigen:
+
+   ```
+   cd /var/www/kwizillo-app
+   sudo -u kwizillo SCHOOL_DB=/var/lib/kwizillo/kwizillo-school.db node tools/school-admin.cjs add-school "Montessorischool Emmen" 250 2027-07-31
+   sudo -u kwizillo SCHOOL_DB=/var/lib/kwizillo/kwizillo-school.db node tools/school-admin.cjs invite 1 leerkracht@school.nl "Naam Leerkracht"
+   ```
+
+   De link die dat geeft, stuurt Stefan naar de leerkracht (7 dagen geldig).
+
+Controle: `https://school.kwizillo.nl/leraar/` toont het inlogscherm, en
+`https://school.kwizillo.nl/` begint na de intro met "Wat is de code van je klas?".

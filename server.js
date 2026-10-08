@@ -140,10 +140,14 @@ const mime = {
 // all readable over the network.
 const ROOT_DENY = new Set(['server.js', 'speech-config.js', 'playwright.config.js', 'package.json', 'package-lock.json']);
 const ASSET_DIR = 'assets';
+// Kwizillo voor scholen: the teachers' portal (html, css, js only; see docs/SCHOLENPORTAAL.md).
+const PORTAL_DIR = 'leraar';
 
 function resolveStatic(pathname){
   let rel;
-  try { rel = decodeURIComponent(pathname === '/' ? '/index.html' : pathname); }
+  // A folder (the teachers' portal: /leraar, /leraar/) means its index.html.
+  if (pathname === '/' + PORTAL_DIR || pathname.endsWith('/')) pathname = (pathname.endsWith('/') ? pathname : pathname + '/') + 'index.html';
+  try { rel = decodeURIComponent(pathname); }
   catch { return null; }
   rel = rel.replace(/^\/+/, '');
   if (!rel || rel.includes('\0') || rel.includes('\\')) return null;
@@ -157,6 +161,8 @@ function resolveStatic(pathname){
 
   if (segments.length === 1) {
     if (ROOT_DENY.has(rel)) return null;            // never hand out our own source
+  } else if (segments[0] === PORTAL_DIR) {
+    if (segments.length !== 2 || !['.html', '.css', '.js'].includes(path.extname(rel).toLowerCase())) return null;
   } else if (segments[0] !== ASSET_DIR) {
     return null;                                     // tests/, docs/, .tts-cache/, …
   }

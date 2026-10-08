@@ -177,7 +177,9 @@
 
   /* ---------------- Gating rules ---------------- */
 
-  const isPremium=()=>valid(ent);
+  // A pupil logged in through a school with a valid licence plays everything
+  // (school-client.js); the school licence is bought outside any app store.
+  const isPremium=()=>valid(ent)||!!K.schoolPremium?.();
 
   // Testing on your own phone. There is no switch in the app for this — the
   // parent zone used to carry one and it had no business in a shipping build.

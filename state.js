@@ -148,6 +148,9 @@
   const stored=read(KEY)||read(LEGACY_KEY);
   K.state=migrate(stored);
   K.save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(K.state)) }catch(e){} };
+  // Kwizillo voor scholen (school-client.js): progress that comes from the
+  // server goes through the same migration as progress read from this device.
+  K.migrateState=old=>migrate(old);
   K.save();
 
   K.resetProgress=()=>{
