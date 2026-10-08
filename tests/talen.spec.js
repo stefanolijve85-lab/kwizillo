@@ -220,19 +220,24 @@ test('a new player sees an empty Woordjes tab that leads to Talen', async ({ pag
   await expect(page.locator('.talen-pass h1.game-name')).toHaveText('Talen');
 });
 
-test('Talen strings the answer together as one sentence: the clips are joined into ONE sound (one element, a short lead-in, silent ends cut, never on top of each other), so nothing is cut off or swallowed', async ({ page }) => {
+test('Talen strings the answer together as one sentence: the clips are joined into ONE sound played like every spoken line (one buffer through Web Audio, no <audio> element), silent ends cut, never on top of each other', async ({ page }) => {
   await page.goto('/');
   await page.waitForFunction(() => window.KWIZILLO_M1 && window.KWIZILLO_M1.playClips);
+  await page.mouse.click(5, 5);   // a gesture, so the audio context may run
   const r = await page.evaluate(async () => {
-    const K = window.KWIZILLO_M1, srcs = [], real = window.Audio;
-    window.Audio = function () { const a = new real(); const d = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src'); Object.defineProperty(a, 'src', { set(v) { srcs.push(v); d.set.call(a, v) }, get() { return d.get.call(a) } }); a.play = () => Promise.resolve(); return a; };
-    const done = K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [90, 20, 20] });
-    await new Promise(ok => { const t = setInterval(() => { if (srcs.length) { clearInterval(t); ok(); } }, 20); setTimeout(ok, 4000); });
-    window.Audio = real; K.stopSpeech(); await done;
-    return srcs;
+    const K = window.KWIZILLO_M1, started = [], elements = [];
+    const st = AudioBufferSourceNode.prototype.start, ap = HTMLMediaElement.prototype.play;
+    AudioBufferSourceNode.prototype.start = function (...a) { started.push(this.buffer.duration); return st.apply(this, a) };
+    HTMLMediaElement.prototype.play = function () { elements.push(this.src); return ap.call(this) };
+    const done = K.playClips(['assets/talen/audio/nl/_goed1.mp3', 'assets/talen/audio/en/shark.mp3', 'assets/talen/audio/nl/_betekent.mp3', 'assets/talen/audio/nl/shark.mp3'], { gap: [60, 0, 0] });
+    await new Promise(ok => { const t = setInterval(() => { if (started.length) { clearInterval(t); ok() } }, 20); setTimeout(ok, 5000) });
+    AudioBufferSourceNode.prototype.start = st; HTMLMediaElement.prototype.play = ap;
+    K.stopSpeech(); await done;
+    return { started, elements };
   });
-  expect(r).toHaveLength(1);
-  expect(r[0]).toMatch(/^blob:/);
+  expect(r.started).toHaveLength(1);
+  expect(r.started[0]).toBeGreaterThan(1.5);   // the four clips, end to end
+  expect(r.elements).toEqual([]);
   const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'games-talen.js'), 'utf8');
   expect(src).toMatch(/gap:\[\d+,\d+,\d+\]/);   // no overlap: a negative gap put the next word over the end of the one before
 });

@@ -468,33 +468,28 @@
   }
   K.preloadClips=urls=>{const c=ensureVoiceCtx();if(c)for(const u of (urls||[]).filter(Boolean))decodeClip(u,c).catch(()=>{})};
   // One sound for the whole sentence. Each clip loses its silent ends here
-  // (speechEdges, the same cut as a line in pieces) and the next clip starts
-  // `gap` ms after the last sound of the one before; never on top of it. The
-  // clips used to overlap by up to 120 ms, and then the end of a word went
-  // under the start of the next ("haai" lost its tail, a short word vanished).
-  // A slightly longer lead-in: an element that starts playing can swallow its
-  // first few hundredths of a second on iOS.
-  const LEAD_IN=.22,TAIL=.2,CLIP_LEAD=.02,CLIP_TAIL=.06;
-  function joinedWav(buffers,gaps,rate){
+  // (speechEdges, the same cut as a line in pieces: what goes is -66 dB or
+  // softer) and the next clip starts `gap` ms after the last sound of the one
+  // before, never on top of it. The result is an AudioBuffer played like every
+  // other spoken line (playVoiceBuffer): through an <audio> element with a
+  // MediaElementSource, as before, an iPhone now and then dropped the voice or
+  // part of a word, mostly when the reward sound started at the same moment.
+  // The loudness is set in the clips themselves (tools/talen-audio.cjs, EBU R128
+  // at -20 LUFS). A short silent lead-in covers the audio route waking up.
+  const LEAD_IN=.12,TAIL=.2,CLIP_LEAD=.015,CLIP_TAIL=.04;
+  function joinedBuffer(c,buffers,gaps){
+    const rate=c.sampleRate;
     const cuts=buffers.map(b=>{const [a,z]=speechEdges(b);return [Math.max(0,a-Math.round(CLIP_LEAD*rate)),Math.min(b.length,z+Math.round(CLIP_TAIL*rate))]});
     const pause=i=>Math.round(Math.max(0,gaps[i]||0)/1000*rate);
     let n=Math.round(LEAD_IN*rate);
     const at=cuts.map(([a,z],i)=>{const start=n;n=start+(z-a)+(i<cuts.length-1?pause(i):0);return start});
-    const mix=new Float32Array(n+Math.round(TAIL*rate));
-    // The loudness is set in the clips themselves (tools/talen-audio.cjs, EBU R128 at
-    // -20 LUFS): the voices of the ten languages differ too much in sound for a level
-    // measured here to make them sound equally loud.
+    const out=c.createBuffer(1,n+Math.round(TAIL*rate),rate),mix=out.getChannelData(0);
+    const fin=Math.round(.006*rate),fout=Math.round(.02*rate);
     buffers.forEach((b,i)=>{
       const [a,z]=cuts[i],chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
-      const mono=j=>{let v=0;for(const ch of chans)v+=ch[j];return v/chans.length};
-      const fin=Math.round(.006*rate),fout=Math.round(.02*rate);
-      for(let j=a;j<z;j++){let v=mono(j);const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;mix[at[i]+j-a]=v}
+      for(let j=a;j<z;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;mix[at[i]+j-a]=v}
     });
-    const pcm=new Int16Array(mix.length);for(let j=0;j<mix.length;j++)pcm[j]=Math.max(-1,Math.min(1,mix[j]))*0x7fff;
-    const head=new DataView(new ArrayBuffer(44)),w=(o,str)=>{for(let k=0;k<str.length;k++)head.setUint8(o+k,str.charCodeAt(k))};
-    w(0,'RIFF');head.setUint32(4,36+pcm.byteLength,true);w(8,'WAVE');w(12,'fmt ');head.setUint32(16,16,true);head.setUint16(20,1,true);head.setUint16(22,1,true);
-    head.setUint32(24,rate,true);head.setUint32(28,rate*2,true);head.setUint16(32,2,true);head.setUint16(34,16,true);w(36,'data');head.setUint32(40,pcm.byteLength,true);
-    return {blob:new Blob([head.buffer,pcm.buffer],{type:'audio/wav'}),starts:at.map(x=>x/rate)};
+    return {buffer:out,starts:at.map(x=>x/rate)};
   }
   // gap: the pause after each clip in ms, one number for all or a list per clip.
   K.playClips=async(urls,{gap=140,onClip}={})=>{
@@ -506,14 +501,26 @@
     try{
       const c=ensureVoiceCtx();
       let joined=null;
-      if(c){try{const bufs=await Promise.all(urls.map(u=>decodeClip(u,c)));joined=joinedWav(bufs,gaps,bufs[0].sampleRate)}catch(e){K.debugLog?.('talen: joining failed',e?.message||String(e))}}
+      if(c){try{const bufs=await Promise.all(urls.map(u=>decodeClip(u,c)));joined=joinedBuffer(c,bufs,gaps)}catch(e){K.debugLog?.('talen: joining failed',e?.message||String(e))}}
       if(!gate.isCurrent(token))return false;
       if(joined){
-        const src=URL.createObjectURL(joined.blob),el=clipElement(src),timers=[];
-        if(onClip)el.addEventListener('playing',()=>joined.starts.forEach((t0,i)=>timers.push(setTimeout(()=>{if(gate.isCurrent(token))try{onClip(i)}catch(e){}},t0*1000))),{once:true});
-        const finished=await playClipElement(src,token,el);
-        timers.forEach(clearTimeout);setTimeout(()=>URL.revokeObjectURL(src),1000);
-        if(finished!==null)return finished!==false&&gate.isCurrent(token);
+        if(stalled(c))await Promise.race([c.resume().catch(()=>{}),new Promise(r=>setTimeout(r,400))]);
+        if(!gate.isCurrent(token))return false;
+        const timers=[];
+        // A stopped source never fires onended (K.stopSpeech takes it away), and a
+        // context iOS has interrupted never plays it out: the gate and a deadline
+        // settle it either way, so a lesson never waits on a sound that will not come.
+        let began=false;
+        const finished=await new Promise(res=>{
+          let over=false;const end=v=>{if(over)return;over=true;clearInterval(watch);clearTimeout(deadline);res(v)};
+          const watch=setInterval(()=>{if(!gate.isCurrent(token))end(false)},80);
+          const deadline=setTimeout(()=>end(began&&c.state==='running'?true:null),(joined.buffer.duration+2.5)*1000);
+          playVoiceBuffer(c,joined.buffer,token,()=>{began=true;if(onClip)joined.starts.forEach((t0,i)=>timers.push(setTimeout(()=>{if(gate.isCurrent(token))try{onClip(i)}catch(e){}},t0*1000)))}).then(v=>end(v?true:began?false:null),()=>end(null));
+        });
+        timers.forEach(clearTimeout);
+        if(finished===true||!gate.isCurrent(token))return finished===true&&gate.isCurrent(token);
+        K.debugLog?.('talen: the joined sentence did not play, clips one by one');
+        // it would not start: fall through to the clips one by one
       }
       // one by one (no Web Audio, or the joined sound would not play)
       const els=urls.map(clipElement);
