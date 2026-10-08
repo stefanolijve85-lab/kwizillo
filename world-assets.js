@@ -117,7 +117,7 @@
   K.BRAND_LOGO_SHADOW='assets/brand/logo-shadow.png';
   // Menu tiles for the two extra games.
   // New file names on every re-render: assets are cached for a day, so a replaced image under the same name would show stale.
-  K.GAME_ART={memo:'assets/games/memo-island.jpg',math:'assets/games/math-island.jpg',memoAll:'assets/games/worlds-all.jpg',facts:'assets/games/facts-island.jpg',whoami:'assets/games/whoami-island.jpg',jungle:'assets/games/jungle-runner.jpg',fotozoom:'assets/games/fotozoom-island.jpg'};
+  K.GAME_ART={memo:'assets/games/memo-island.jpg',math:'assets/games/math-island.jpg',memoAll:'assets/games/worlds-all.jpg',facts:'assets/games/facts-island.jpg',whoami:'assets/games/whoami-island.jpg',jungle:'assets/games/jungle-runner.jpg',fotozoom:'assets/games/fotozoom-island.jpg',talen:'assets/games/talen-island.jpg'};
 
   // Mascot portraits, used wherever the app shows Milo or Luna as a face:
   // Home HUD, voice pickers, onboarding, feedback and result cards.
@@ -129,7 +129,7 @@
   // Second wave of buddies (tools/mascot-prompts.md). Add an id here once its
   // 512x512 picture is in assets/mascots/, so the collection never shows an
   // empty tile: nova, kiko, pip, ravi, flora, draco.
-  for(const id of ['nova','kiko','pip','ravi','flora','draco']) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
+  for(const id of ['nova','kiko','pip','ravi','flora','draco','mike']) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
   // The same pictures, redrawn to one tile shape by tools/mascot-tiles.cjs: the
   // renders came in two formats, so a tile that cropped to fill showed one buddy
   // in full and zoomed into the next one's nose. The round avatars keep using

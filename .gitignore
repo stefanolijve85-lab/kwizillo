@@ -46,3 +46,14 @@ speech-files-new.txt
 # Website video (44 MB): lives on the web server, a local copy in site/assets/video/ is not committed
 site/assets/video/*.mp4
 site/assets/video/*.webm
+
+# Talen handover (prototype, illustrations): reference only, never in the repo
+talen-handover/
+
+# Talen: the takes as they came from ElevenLabs (tools/talen-audio.cjs cuts them into assets/talen/audio/)
+.talen-raw/
+
+# Kwizillo voor scholen: de database staat nooit in git
+*.db
+*.db-wal
+*.db-shm

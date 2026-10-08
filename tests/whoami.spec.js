@@ -105,3 +105,23 @@ test('Wat ben ik? plays in every world, Sport too', async ({ page }) => {
     await expect(page.locator('.whoami-tile')).toHaveCount(4);
   }
 });
+
+test('a right guess opens with one of sixteen praise lines before "Dit is …", and the next round does not repeat it', async ({ page }) => {
+  await boot(page);
+  await page.locator('#homeWhoAmI').click();
+  await page.locator('.game-picker [data-pick="mix"]').click();
+  await expect(page.locator('.whoami')).toBeVisible();
+  const said = [];
+  await page.exposeFunction('__said', s => said.push(s));
+  await page.evaluate(() => { const K = window.KWIZILLO_M1, real = K.speakSequence; K.speakSequence = (segs, o) => { window.__said(segs.map(s => s.text)); return real(segs, o); }; });
+  const praise = await page.evaluate(() => Array.from({ length: window.KWIZILLO_M1.core.FEEDBACK_VARIANTS.good }, (_, i) => window.KWIZILLO_M1.t(`feedback.speech.good.${i + 1}`)));
+  expect(praise).toHaveLength(16);
+  expect(praise).toContain('Lekker bezig!');
+  const picks = await page.evaluate(() => window.KWIZILLO_M1.whoami.rounds.map(r => r.praise));
+  for (let i = 1; i < picks.length; i++) expect(picks[i]).not.toBe(picks[i - 1]);
+  await page.locator(`.whoami-tile[aria-label="${await answer(page)}"]`).click();
+  await expect.poll(() => said.find(s => s[1] === 'Dit is')).toBeTruthy();
+  const line = said.find(s => s[1] === 'Dit is');
+  expect(praise).toContain(line[0]);
+  expect(line[0]).toBe(picks[0]);
+});

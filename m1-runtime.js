@@ -20,12 +20,12 @@
     return K.WORLDS.filter(w=>(K.TOPIC_KEYS[w]||[]).every(t=>have.has(`${w}/${t}`)))};
   const paths={fanfare:'assets/audio/fanfare.wav',good:'assets/audio/correct.wav',bad:'assets/audio/wrong.wav',reward:'assets/audio/reward.wav',world:'assets/audio/world.wav',confetti:'assets/audio/confetti.wav',gift:'assets/audio/gift.wav',hint:'assets/audio/hint.wav',swoosh:'assets/audio/swoosh.wav',tick:'assets/audio/tick.wav',tock:'assets/audio/tock.wav'};/* Background music: one loop per world plus the hub and the mini-games. Each file is built by tools/music-loop.cjs: `loop` is the exact loop length and `lead` the run-in before it (the loop window slides over continuous music, so an mp3 decoder's start delay cannot cause a click). Decoded buffers are big (~10 MB per minute), so only the current and previous track stay cached. */const tracks={home:{id:'home',icon:'🏝️',src:'assets/audio/music/home.mp3',loop:61.9276,lead:.6},space:{id:'space',icon:'🚀',src:'assets/audio/music/space.mp3',loop:61.0917,lead:.6},jungle:{id:'jungle',icon:'🐒',src:'assets/audio/music/jungle.mp3',loop:52.3610,lead:.6},earth:{id:'earth',icon:'🌍',src:'assets/audio/music/earth.mp3',loop:47.9956,lead:.6},history:{id:'history',icon:'🏰',src:'assets/audio/music/history.mp3',loop:50.5266,lead:.6},science:{id:'science',icon:'🔬',src:'assets/audio/music/science.mp3',loop:50.5266,lead:.6},mystery:{id:'mystery',icon:'🔮',src:'assets/audio/music/mystery.mp3',loop:62.6707,lead:.6},play:{id:'play',icon:'🎲',src:'assets/audio/music/play.mp3',loop:60.0004,lead:.6}};const LEGACY_TRACKS={magical:'home',adventure:'history',calm:'earth'};function trackFor(id){return tracks[id]||tracks[LEGACY_TRACKS[id]]||tracks.home}const BUFFER_KEEP=2;const preload={};Object.entries(paths).forEach(([k,s])=>{const a=new Audio(s);a.preload='auto';preload[k]=a});let ctx=null,master=null,src=null,srcGain=null,currentId=null,ducked=false;let stingLive=false;const buffers=new Map();
   /* iOS parks the context as "interrupted" (not "suspended") when the app is swiped away or a call comes in; both need resume() */const stalled=c=>!!c&&(c.state==='suspended'||c.state==='interrupted');let needsWake=false;/* A discarded context takes its decoded buffers and its playing source with it: both belong to that context, and a source left behind in `src` makes start() believe music is already playing. *//* A discarded context is muted at once but closed only a little later, once its successor runs. WebKit gives up the app's audio session when the last live context closes; closing the old one first, on the way back from the background, left the new one running in a session iOS had just switched off: nothing was heard, taps did not help, and only a second trip to the background brought the sound back (build 17, 2026-10-06). */function retire(c){if(!c||c.state==='closed')return;setTimeout(()=>{try{if(c.state!=='closed')c.close()}catch(e){}},1500)}function resetMusicCtx(){try{if(src)src.stop()}catch(e){}try{if(master)master.gain.value=0}catch(e){}retire(ctx);ctx=null;master=null;src=null;srcGain=null;stingLive=false;buffers.clear();sfxBuf.clear()}
-  function ensure(){if(ctx&&ctx.state==='closed')resetMusicCtx();if(!ctx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;ctx=new C();master=ctx.createGain();master.connect(ctx.destination);master.gain.value=0;ctx.onstatechange=()=>{if(stalled(ctx))needsWake=true}}return ctx}function wanted(){return K.state.musicOn===false?0:Math.max(0,Math.min(1,Number(K.state.musicVolume??.24)))*(ducked?.34:1)}function ramp(sec=.18){if(!ctx||!master)return;const n=ctx.currentTime;master.gain.cancelScheduledValues(n);master.gain.setValueAtTime(master.gain.value,n);master.gain.linearRampToValueAtTime(wanted(),n+sec)}async function load(id){const t=trackFor(id);if(buffers.has(t.id))return buffers.get(t.id);const c=ensure();if(!c)return null;const r=await fetch(t.src);const b=await c.decodeAudioData((await r.arrayBuffer()).slice(0));buffers.set(t.id,b);for(const k of [...buffers.keys()]){if(buffers.size<=BUFFER_KEEP)break;if(k!==t.id&&k!==currentId)buffers.delete(k)}return b}async function start(id=K.state.musicTrack||'home',cross=.35){const c=ensure();if(!c)return;if(stalled(c))await c.resume().catch(()=>{});const t=trackFor(id),b=await load(t.id);if(!b)return;const n=c.currentTime,s=c.createBufferSource(),g=c.createGain();s.buffer=b;s.loop=true;s.playbackRate.value=tempo;s.loopStart=Math.min(t.lead||0,b.duration);s.loopEnd=t.loop?Math.min(b.duration,s.loopStart+t.loop):b.duration;g.gain.setValueAtTime(0,n);s.connect(g);g.connect(master);s.start(n);g.gain.linearRampToValueAtTime(1,n+cross);const os=src,og=srcGain;src=s;srcGain=g;currentId=t.id;K.state.musicTrack=t.id;K.save();if(os&&og){try{og.gain.linearRampToValueAtTime(0,n+cross);os.stop(n+cross+.05)}catch(e){}}ramp(.15)}let primed=false;const SILENCE='data:audio/wav;base64,UklGRmQGAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YUAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';/* 0.1 s of digital silence: unlocks HTMLAudio on iOS without a single audible sample (the tap sound at 1% was still a faint click on the intro) */function primePlayback(){if(primed)return;primed=true;try{const a=new Audio(SILENCE);a.volume=1;a.muted=false;const p=a.play();if(p&&p.catch)p.catch(()=>{})}catch(e){}}async function unlock(){const c=ensure();if(!c)return;primePlayback();if(stalled(c))await c.resume().catch(()=>{});Object.keys(paths).forEach(k=>sfxBuffer(k));if(K.state.musicOn!==false&&!src&&!stingLive&&!K.audio?.holdMusic)await start().catch(()=>{});else ramp(.1)}const SFX_LEVEL={fanfare:.45,swoosh:.5,hint:.6,tick:.22,tock:.4};const sfxBuf=new Map();
+  function ensure(){if(ctx&&ctx.state==='closed')resetMusicCtx();if(!ctx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;ctx=new C();master=ctx.createGain();master.connect(ctx.destination);master.gain.value=0;ctx.onstatechange=()=>{if(stalled(ctx))needsWake=true}}return ctx}function wanted(){return K.state.musicOn===false?0:Math.max(0,Math.min(1,Number(K.state.musicVolume??.24)))*(ducked||steady?.34:1)}function ramp(sec=.18){if(!ctx||!master)return;const n=ctx.currentTime;master.gain.cancelScheduledValues(n);master.gain.setValueAtTime(master.gain.value,n);master.gain.linearRampToValueAtTime(wanted(),n+sec)}async function load(id){const t=trackFor(id);if(buffers.has(t.id))return buffers.get(t.id);const c=ensure();if(!c)return null;const r=await fetch(t.src);const b=await c.decodeAudioData((await r.arrayBuffer()).slice(0));buffers.set(t.id,b);for(const k of [...buffers.keys()]){if(buffers.size<=BUFFER_KEEP)break;if(k!==t.id&&k!==currentId)buffers.delete(k)}return b}async function start(id=K.state.musicTrack||'home',cross=.35){const c=ensure();if(!c)return;if(stalled(c))await c.resume().catch(()=>{});const t=trackFor(id),b=await load(t.id);if(!b)return;const n=c.currentTime,s=c.createBufferSource(),g=c.createGain();s.buffer=b;s.loop=true;s.playbackRate.value=tempo;s.loopStart=Math.min(t.lead||0,b.duration);s.loopEnd=t.loop?Math.min(b.duration,s.loopStart+t.loop):b.duration;g.gain.setValueAtTime(0,n);s.connect(g);g.connect(master);s.start(n);g.gain.linearRampToValueAtTime(1,n+cross);const os=src,og=srcGain;src=s;srcGain=g;currentId=t.id;K.state.musicTrack=t.id;K.save();if(os&&og){try{og.gain.linearRampToValueAtTime(0,n+cross);os.stop(n+cross+.05)}catch(e){}}ramp(.15)}let primed=false;const SILENCE='data:audio/wav;base64,UklGRmQGAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YUAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';/* 0.1 s of digital silence: unlocks HTMLAudio on iOS without a single audible sample (the tap sound at 1% was still a faint click on the intro) */function primePlayback(){if(primed)return;primed=true;try{const a=new Audio(SILENCE);a.volume=1;a.muted=false;const p=a.play();if(p&&p.catch)p.catch(()=>{})}catch(e){}}async function unlock(){const c=ensure();if(!c)return;primePlayback();if(stalled(c))await c.resume().catch(()=>{});Object.keys(paths).forEach(k=>sfxBuffer(k));if(K.state.musicOn!==false&&!src&&!stingLive&&!K.audio?.holdMusic)await start().catch(()=>{});else ramp(.1)}const SFX_LEVEL={fanfare:.45,swoosh:.5,hint:.6,tick:.22,tock:.4};const sfxBuf=new Map();
   function sfxBuffer(kind){const c=ensure();if(!c||!paths[kind])return Promise.resolve(null);if(!sfxBuf.has(kind))sfxBuf.set(kind,fetch(paths[kind]).then(r=>r.arrayBuffer()).then(ab=>c.decodeAudioData(ab)).catch(()=>null));return sfxBuf.get(kind)}
   // Effects play through Web Audio so the FX slider works on iOS too (Safari
   // ignores HTMLAudio.volume, which is why the slider used to do nothing on the
   // phone). The plain tap sound is gone for good: a tap makes no noise.
-  function play(kind='good'){if(K.state.soundOn===false||kind==='tap'||!paths[kind])return;const vol=Math.max(0,Math.min(1,Number(K.state.sfxVolume??.72)))*(SFX_LEVEL[kind]??.68);if(vol<=0)return;const c=ensure();if(c&&c.state==='running'){sfxBuffer(kind).then(buf=>{if(!buf)return;const src=c.createBufferSource();src.buffer=buf;const g=c.createGain();g.gain.value=vol;src.connect(g);g.connect(c.destination);src.onended=()=>{try{src.disconnect();g.disconnect()}catch(e){}};src.start()});return}try{const a=preload[kind].cloneNode();a.volume=vol;a.play().catch(()=>{})}catch(e){}}async function setMusic(on){K.state.musicOn=!!on;K.save();await unlock().catch(()=>{});if(on){if(!src)await start().catch(()=>{});ramp()}else ramp()}function setSfx(on){K.state.soundOn=!!on;K.save();if(on)play('good')}function setSfxVolume(v){K.state.sfxVolume=Math.max(0,Math.min(1,Number(v)));K.save()}function setMusicVolume(v){K.state.musicVolume=Math.max(0,Math.min(1,Number(v)));K.save();ramp(.08)}function setVoiceVolume(v){K.state.voiceVolume=Math.max(0,Math.min(1,Number(v)));K.save()}async function setTrack(id){const t=trackFor(id);K.state.musicTrack=t.id;K.save();if(K.audio?.holdMusic)return;/* the intro starts the loop itself when it hands over */if(src&&currentId===t.id){ramp(.1);return}await unlock();if(K.state.musicOn!==false&&src&&currentId!==t.id)await start(t.id,.9)}function duck(on){ducked=!!on;ramp(on?.1:.25)}/* tempo: the music speeds up with the runner's turbo and settles back afterwards */let tempo=1;function setTempo(rate=1,sec=.35){tempo=Math.max(.5,Math.min(2,Number(rate)||1));if(!ctx||!src)return;const n=ctx.currentTime;try{src.playbackRate.cancelScheduledValues(n);src.playbackRate.setValueAtTime(src.playbackRate.value,n);src.playbackRate.linearRampToValueAtTime(tempo,n+sec)}catch(e){}}
+  function play(kind='good'){if(K.state.soundOn===false||kind==='tap'||!paths[kind])return;const vol=Math.max(0,Math.min(1,Number(K.state.sfxVolume??.72)))*(SFX_LEVEL[kind]??.68);if(vol<=0)return;const c=ensure();if(c&&c.state==='running'){sfxBuffer(kind).then(buf=>{if(!buf)return;const src=c.createBufferSource();src.buffer=buf;const g=c.createGain();g.gain.value=vol;src.connect(g);g.connect(c.destination);src.onended=()=>{try{src.disconnect();g.disconnect()}catch(e){}};src.start()});return}try{const a=preload[kind].cloneNode();a.volume=vol;a.play().catch(()=>{})}catch(e){}}async function setMusic(on){K.state.musicOn=!!on;K.save();await unlock().catch(()=>{});if(on){if(!src)await start().catch(()=>{});ramp()}else ramp()}function setSfx(on){K.state.soundOn=!!on;K.save();if(on)play('good')}function setSfxVolume(v){K.state.sfxVolume=Math.max(0,Math.min(1,Number(v)));K.save()}function setMusicVolume(v){K.state.musicVolume=Math.max(0,Math.min(1,Number(v)));K.save();ramp(.08)}function setVoiceVolume(v){K.state.voiceVolume=Math.max(0,Math.min(1,Number(v)));K.save()}async function setTrack(id){const t=trackFor(id);K.state.musicTrack=t.id;K.save();if(K.audio?.holdMusic)return;/* the intro starts the loop itself when it hands over */if(src&&currentId===t.id){ramp(.1);return}await unlock();if(K.state.musicOn!==false&&src&&currentId!==t.id)await start(t.id,.9)}function duck(on){ducked=!!on;ramp(on?.1:.25)}/* steady: a game that talks every few seconds (Talen) keeps the music at the ducked level the whole time, so it does not swell up between the words; any new screen (K.frame) lets it go */let steady=false;function setSteady(on){if(steady===!!on)return;steady=!!on;ramp(.4)}/* tempo: the music speeds up with the runner's turbo and settles back afterwards */let tempo=1;function setTempo(rate=1,sec=.35){tempo=Math.max(.5,Math.min(2,Number(rate)||1));if(!ctx||!src)return;const n=ctx.currentTime;try{src.playbackRate.cancelScheduledValues(n);src.playbackRate.setValueAtTime(src.playbackRate.value,n);src.playbackRate.linearRampToValueAtTime(tempo,n+sec)}catch(e){}}
   // A one-shot piece on the music bus (the intro theme). It obeys the music
   // toggle and volume like the loops do, can start mid-way to stay in sync with
   // a video, and returns a handle whose stop() fades it under the next loop.
@@ -99,7 +99,7 @@
     wakeNow();
   });
   for(const ev of ['pageshow','focus']) window.addEventListener(ev,()=>wakeNow());
-  K.audio={tracks,play,unlock,start,sting,setMusic,setSfx,setSfxVolume,setMusicVolume,setVoiceVolume,setTrack,duck,setTempo,wake,get currentId(){return currentId},get stingLive(){return stingLive},/* Read-only view of the two contexts, for the interruption test and for QA on a real phone. */get health(){return{music:ctx?ctx.state:'none',voice:voiceCtx?voiceCtx.state:'none',/* a source left over from a discarded context is silence, not music */playing:!!src&&src.context===ctx,needsWake}},get ctx(){return ctx},get voiceCtx(){return voiceCtx}};
+  K.audio={tracks,play,unlock,start,sting,setMusic,setSfx,setSfxVolume,setMusicVolume,setVoiceVolume,setTrack,duck,setSteady,setTempo,wake,get currentId(){return currentId},get stingLive(){return stingLive},/* Read-only view of the two contexts, for the interruption test and for QA on a real phone. */get health(){return{music:ctx?ctx.state:'none',voice:voiceCtx?voiceCtx.state:'none',/* a source left over from a discarded context is silence, not music */playing:!!src&&src.context===ctx,needsWake}},get ctx(){return ctx},get voiceCtx(){return voiceCtx}};
 
   let abort=null,voiceCtx=null,voiceSource=null,voiceUrl=null,voiceStream=null;const gate=K.core.createCancellationGate();
   function ensureVoiceCtx(){if(voiceCtx&&voiceCtx.state==='closed')voiceCtx=null;if(!voiceCtx){const C=window.AudioContext||window.webkitAudioContext;if(C){voiceCtx=new C();voiceCtx.onstatechange=()=>{if(stalled(voiceCtx))needsWake=true}}}return voiceCtx}
@@ -244,9 +244,10 @@
   }
 
   function measureVoiceGain(buffer){let sum=0,count=0;const step=24;for(let ch=0;ch<buffer.numberOfChannels;ch++){const data=buffer.getChannelData(ch);for(let i=0;i<data.length;i+=step){const v=data[i];sum+=v*v;count++}}const rms=Math.sqrt(sum/Math.max(1,count));return Math.max(.7,Math.min(5,.16/Math.max(rms,.02)))}
-  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(stalled(c))await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,startedAt:0};const measured=measureVoiceGain(buffer);pre.gain.value=measured;const gk=(K.state.voice==='Luna'?'Luna':'Milo');gainMemory[gk]=gainMemory[gk]*.7+measured*.3;compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=performance.now();onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
+  async function playVoiceBlob(blob,token,onStart){if(!gate.isCurrent(token))return false;const c=ensureVoiceCtx();if(c){if(stalled(c))await c.resume().catch(()=>{});if(!gate.isCurrent(token))return false;const data=await blob.arrayBuffer();if(!gate.isCurrent(token))return false;const buffer=await c.decodeAudioData(data.slice(0));if(!gate.isCurrent(token))return false;return playVoiceBuffer(c,buffer,token,onStart)}
     return new Promise(resolve=>{const url=URL.createObjectURL(blob),a=new Audio(url);voiceUrl=url;a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));a.onended=()=>{URL.revokeObjectURL(url);if(voiceUrl===url)voiceUrl=null;resolve(gate.isCurrent(token))};a.onerror=()=>{URL.revokeObjectURL(url);resolve(false)};a.onplaying=()=>onStart?.(a.duration||0);a.play().catch(()=>resolve(false))})
   }
+  function playVoiceBuffer(c,buffer,token,onStart){return new Promise(resolve=>{const source=c.createBufferSource(),pre=c.createGain(),compressor=c.createDynamicsCompressor(),makeup=c.createGain(),limiter=c.createDynamicsCompressor();voiceSource=source;source.buffer=buffer;voiceNow={buffer,startedAt:0};const measured=measureVoiceGain(buffer);pre.gain.value=measured;const gk=(K.state.voice==='Luna'?'Luna':'Milo');gainMemory[gk]=gainMemory[gk]*.7+measured*.3;compressor.threshold.value=-20;compressor.knee.value=14;compressor.ratio.value=4;compressor.attack.value=.002;compressor.release.value=.14;makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));limiter.threshold.value=-4;limiter.knee.value=2;limiter.ratio.value=20;limiter.attack.value=.001;limiter.release.value=.08;source.connect(pre);pre.connect(compressor);compressor.connect(makeup);makeup.connect(limiter);limiter.connect(c.destination);source.onended=()=>{if(voiceSource===source){voiceSource=null;voiceNow=null}resolve(gate.isCurrent(token))};try{source.start();voiceNow.startedAt=performance.now();onStart?.(buffer.duration)}catch(e){voiceNow=null;resolve(false)}})}
   // Mouth level of the line playing right now (0..1), for a guide portrait
   // that talks along with the voice: the loudness envelope of the clip is
   // measured once per clip (30 ms windows, scaled to its own loud parts) and
@@ -295,6 +296,30 @@
   // "part" is a piece of one spoken line (Rekenen says its sums in pieces), so
   // it follows the previous piece without a pause of its own.
   const GAP={question:520,answer:300,option:120,speech:0,lead:180,part:0};
+  // Stukjes van één zin (kind "part" en het stuk dat erop volgt: Rekenen zegt
+  // "zeven" "plus" "drie", Wat ben ik? "Dit is" "een olifant") worden één
+  // geluid. Elke opname heeft stilte aan begin en eind; los na elkaar gaf dat
+  // gaten tussen de woorden en klonk het als een robot. Hier gaat die stilte
+  // eraf en sluiten de stukjes aan met een korte adem ertussen.
+  const PIECE_LEAD=.02,PIECE_TAIL=.04,PIECE_GAP=.01,PIECE_END=.2;
+  function speechEdges(b){
+    const thr=.005;let s0=b.length,e0=-1;
+    for(let k=0;k<b.numberOfChannels;k++){const d=b.getChannelData(k);for(let j=0;j<d.length;j++)if(Math.abs(d[j])>thr){s0=Math.min(s0,j);break}for(let j=d.length-1;j>=0;j--)if(Math.abs(d[j])>thr){e0=Math.max(e0,j);break}}
+    return e0<s0?[0,b.length]:[s0,e0+1];
+  }
+  function joinPieces(c,buffers){
+    const rate=c.sampleRate,last=buffers.length-1;
+    const cuts=buffers.map((b,i)=>{const [a,z]=speechEdges(b);return [Math.max(0,a-Math.round(PIECE_LEAD*rate)),Math.min(b.length,z+Math.round((i===last?PIECE_END:PIECE_TAIL)*rate))]});
+    const gap=Math.round(PIECE_GAP*rate),total=cuts.reduce((n,[a,z])=>n+(z-a),0)+gap*last;
+    const out=c.createBuffer(1,total,rate),o=out.getChannelData(0),fin=Math.round(.006*rate),fout=Math.round(.02*rate);let p=0;
+    buffers.forEach((b,i)=>{
+      const [a,z]=cuts[i],chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
+      for(let j=a;j<z;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;o[p++]=v}
+      p+=gap;
+    });
+    return out;
+  }
+  const decodeBlob=(c,blob)=>blob.arrayBuffer().then(d=>new Promise((ok,no)=>{const r=c.decodeAudioData(d,ok,no);if(r&&r.then)r.then(ok,no)}));
   function pause(ms,token){return ms>0?new Promise(resolve=>{const id=setTimeout(resolve,ms);const check=setInterval(()=>{if(!gate.isCurrent(token)){clearTimeout(id);clearInterval(check);resolve()}},60);setTimeout(()=>clearInterval(check),ms+80)}):Promise.resolve()}
   // One failed segment must not silence the rest of the question: it is logged,
   // skipped, and the sequence carries on with the next answer. Before this, a
@@ -316,7 +341,7 @@
     // line is asked for at this same moment and is ready long before its turn.
     const announce=i=>{try{onSegment?.(segments[i],i)}catch(e){}};
     const started=i=>d=>{try{onStart?.(segments[i],i,d)}catch(e){}};
-    const streamFirst=canStream(segments[0].text,v,lang);
+    const streamFirst=!(segments[0].kind==='part'&&segments.length>1)&&canStream(segments[0].text,v,lang);
     // The first line goes out before anything else asks for a connection: it is
     // the one the child is waiting for, and a browser only keeps a handful of
     // connections per host.
@@ -349,6 +374,17 @@
             }
             finished=await playVoiceBlob(result.blob,token,started(0));
           }
+        }else if(segments[i].kind==='part'&&i<segments.length-1&&ensureVoiceCtx()){
+          // a line in pieces: up to and including the first segment that is not a piece
+          let k=i;while(k<segments.length-1&&segments[k].kind==='part')k++;
+          const c=ensureVoiceCtx(),results=(await Promise.all(requests.slice(i,k+1))).filter(r=>r.ok);
+          if(!gate.isCurrent(token))return;
+          let joined=null;
+          if(results.length){try{if(stalled(c))await c.resume().catch(()=>{});joined=joinPieces(c,await Promise.all(results.map(r=>decodeBlob(c,r.blob))))}catch(e){console.warn('Kwizillo TTS: joining failed —',e?.message||e)}}
+          if(!gate.isCurrent(token))return;
+          if(joined){announce(i);finished=await playVoiceBuffer(c,joined,token,started(i))}
+          else finished=true;
+          i=k;
         }else{
           // One failed segment must not silence the rest of the question: it is
           // logged, skipped, and the sequence carries on with the next answer.
@@ -375,6 +411,131 @@
     }
   };
   K.speak=(text,opts)=>K.speakSequence([{kind:'speech',text}],opts);
+  // Clips that ship with the app (Talen: assets/talen/audio/), played one after
+  // the other through the same voice path as the guide: the music ducks, a tap
+  // elsewhere stops them, and they work without the speech server or a network.
+  // Talen is listening, not reading, so these play even when the guide is silent.
+  // onClip(i) is called as clip i starts.
+  // Each clip plays through an <audio> element, like the first line of the
+  // guide's voice (playVoiceStream): on an iPhone with the silent switch on,
+  // Web Audio alone stays silent until a media element has played, and Talen
+  // sounded nothing at all on build 24 (2026-10-07).
+  // The elements are made (and start loading) before the first clip plays, so the
+  // next clip is ready the moment the previous one ends: no load pause between
+  // "shark", "betekent" and "haai".
+  const clipElement=url=>{const a=new Audio();a.preload='auto';a.src=url;try{a.load()}catch(e){}return a};
+  function playClipElement(url,token,a=clipElement(url)){
+    return new Promise(resolve=>{
+      let settled=false;const finish=v=>{if(settled)return;settled=true;try{a.pause()}catch(e){}if(voiceNow&&voiceNow.el===a)voiceNow=null;resolve(v)};
+      const c=ensureVoiceCtx();
+      if(c&&c.createMediaElementSource){
+        try{
+          const node=c.createMediaElementSource(a),makeup=c.createGain();
+          makeup.gain.value=Math.max(0,Math.min(1.5,Number(K.state.voiceVolume??1)));
+          node.connect(makeup);makeup.connect(c.destination);
+          if(stalled(c))c.resume().catch(()=>{});
+        }catch(e){a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)))}
+      }else a.volume=Math.max(0,Math.min(1,Number(K.state.voiceVolume??1)));
+      a.onplaying=()=>{voiceNow={el:a}};
+      a.onended=()=>finish(gate.isCurrent(token));
+      a.onerror=()=>finish(null);
+      voiceStream=a;
+      a.play().catch(()=>finish(null));
+      // a clip that never starts must not hold the lesson, and a stopped one
+      // (K.stopSpeech takes the element's handlers away) reports it at once
+      setTimeout(()=>{if(!settled&&a.currentTime===0)finish(null)},6000);
+      const watch=setInterval(()=>{if(settled)return clearInterval(watch);if(!gate.isCurrent(token)){clearInterval(watch);finish(false)}},80);
+    });
+  }
+  // The clips of one line ("Goed zo!", "shark", "betekent", "haai") are joined into
+  // ONE sound before it plays: decoded once (and kept), laid end to end with the
+  // given pauses, written as a WAV and played through a single <audio> element.
+  // Played one element after the other, an iPhone lost the start of each clip and
+  // swallowed a short "Goed zo!" whole, and every new element started late
+  // (build 29, 2026-10-07). A short silent lead-in covers the moment the audio
+  // route wakes up. When joining fails (no Web Audio, a clip that will not
+  // decode) the clips play one by one as before.
+  // A pause below zero lets the next clip start in the quiet end of the one
+  // before (the two are added up): each clip keeps a soft fade at both ends
+  // (tools/talen-audio.cjs), so the words run on without cutting into them.
+  const decoded=new Map();
+  function decodeClip(url,c){
+    if(decoded.has(url))return decoded.get(url);
+    const p=fetch(url).then(r=>{if(!r.ok)throw new Error(`${r.status} ${url}`);return r.arrayBuffer()})
+      .then(b=>new Promise((ok,no)=>{const r=c.decodeAudioData(b,ok,no);if(r&&r.then)r.then(ok,no)}));
+    decoded.set(url,p);p.catch(()=>decoded.delete(url));
+    return p;
+  }
+  K.preloadClips=urls=>{const c=ensureVoiceCtx();if(c)for(const u of (urls||[]).filter(Boolean))decodeClip(u,c).catch(()=>{})};
+  // One sound for the whole sentence. Each clip loses its silent ends here
+  // (speechEdges, the same cut as a line in pieces: what goes is -66 dB or
+  // softer) and the next clip starts `gap` ms after the last sound of the one
+  // before, never on top of it. The result is an AudioBuffer played like every
+  // other spoken line (playVoiceBuffer): through an <audio> element with a
+  // MediaElementSource, as before, an iPhone now and then dropped the voice or
+  // part of a word, mostly when the reward sound started at the same moment.
+  // The loudness is set in the clips themselves (tools/talen-audio.cjs, EBU R128
+  // at -20 LUFS). A short silent lead-in covers the audio route waking up.
+  const LEAD_IN=.12,TAIL=.2,CLIP_LEAD=.015,CLIP_TAIL=.04;
+  function joinedBuffer(c,buffers,gaps){
+    const rate=c.sampleRate;
+    const cuts=buffers.map(b=>{const [a,z]=speechEdges(b);return [Math.max(0,a-Math.round(CLIP_LEAD*rate)),Math.min(b.length,z+Math.round(CLIP_TAIL*rate))]});
+    const pause=i=>Math.round(Math.max(0,gaps[i]||0)/1000*rate);
+    let n=Math.round(LEAD_IN*rate);
+    const at=cuts.map(([a,z],i)=>{const start=n;n=start+(z-a)+(i<cuts.length-1?pause(i):0);return start});
+    const out=c.createBuffer(1,n+Math.round(TAIL*rate),rate),mix=out.getChannelData(0);
+    const fin=Math.round(.006*rate),fout=Math.round(.02*rate);
+    buffers.forEach((b,i)=>{
+      const [a,z]=cuts[i],chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
+      for(let j=a;j<z;j++){let v=0;for(const ch of chans)v+=ch[j];v/=chans.length;const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;mix[at[i]+j-a]=v}
+    });
+    return {buffer:out,starts:at.map(x=>x/rate)};
+  }
+  // gap: the pause after each clip in ms, one number for all or a list per clip.
+  K.playClips=async(urls,{gap=140,onClip}={})=>{
+    urls=(urls||[]).filter(Boolean);if(!urls.length)return true;
+    K.stopSpeech();
+    const token=gate.begin();
+    K.audio.duck(true);
+    const gaps=urls.map((_,i)=>Array.isArray(gap)?(gap[i]??0):gap);
+    try{
+      const c=ensureVoiceCtx();
+      let joined=null;
+      if(c){try{const bufs=await Promise.all(urls.map(u=>decodeClip(u,c)));joined=joinedBuffer(c,bufs,gaps)}catch(e){K.debugLog?.('talen: joining failed',e?.message||String(e))}}
+      if(!gate.isCurrent(token))return false;
+      if(joined){
+        if(stalled(c))await Promise.race([c.resume().catch(()=>{}),new Promise(r=>setTimeout(r,400))]);
+        if(!gate.isCurrent(token))return false;
+        const timers=[];
+        // A stopped source never fires onended (K.stopSpeech takes it away), and a
+        // context iOS has interrupted never plays it out: the gate and a deadline
+        // settle it either way, so a lesson never waits on a sound that will not come.
+        let began=false;
+        const finished=await new Promise(res=>{
+          let over=false;const end=v=>{if(over)return;over=true;clearInterval(watch);clearTimeout(deadline);res(v)};
+          const watch=setInterval(()=>{if(!gate.isCurrent(token))end(false)},80);
+          const deadline=setTimeout(()=>end(began&&c.state==='running'?true:null),(joined.buffer.duration+2.5)*1000);
+          playVoiceBuffer(c,joined.buffer,token,()=>{began=true;if(onClip)joined.starts.forEach((t0,i)=>timers.push(setTimeout(()=>{if(gate.isCurrent(token))try{onClip(i)}catch(e){}},t0*1000)))}).then(v=>end(v?true:began?false:null),()=>end(null));
+        });
+        timers.forEach(clearTimeout);
+        if(finished===true||!gate.isCurrent(token))return finished===true&&gate.isCurrent(token);
+        K.debugLog?.('talen: the joined sentence did not play, clips one by one');
+        // it would not start: fall through to the clips one by one
+      }
+      // one by one (no Web Audio, or the joined sound would not play)
+      const els=urls.map(clipElement);
+      for(let i=0;i<urls.length;i++){
+        if(!gate.isCurrent(token))return false;
+        try{onClip?.(i)}catch(e){}
+        const finished=await playClipElement(urls[i],token,els[i]);
+        if(finished===false||!gate.isCurrent(token))return false;   // stopped: a tap, another screen
+        if(i<urls.length-1&&gaps[i]>0)await pause(gaps[i],token);
+      }
+      return true;
+    }finally{
+      if(gate.isCurrent(token))K.audio.duck(false);
+    }
+  };
 
   // ?debug shows an on-screen log (for phones without a console). Always mirrors to console.info.
   const DEBUG=new URLSearchParams(location.search).has('debug');
@@ -429,5 +590,5 @@
   let splashDown=false;
   K.hideSplash=()=>{if(splashDown)return;splashDown=true;try{window.Capacitor?.Plugins?.SplashScreen?.hide?.({fadeOutDuration:250})?.catch?.(()=>{})}catch(e){}};
   setTimeout(K.hideSplash,4000);
-  K.frame=html=>{K.stageArt();K.stopSpeech();K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));if(!f.querySelector('.kwizillo-cinematic'))requestAnimationFrame(()=>requestAnimationFrame(K.hideSplash));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
+  K.frame=html=>{K.stageArt();K.stopSpeech();K.audio.setSteady(false);K.app.innerHTML=`<section class="game-frame ${new URLSearchParams(location.search).has('debug')?'debug':''}">${html}</section>`;const f=K.app.firstElementChild;requestAnimationFrame(()=>K.fitTitles(f));if(!f.querySelector('.kwizillo-cinematic'))requestAnimationFrame(()=>requestAnimationFrame(K.hideSplash));return f};K.toast=text=>{const f=K.app.querySelector('.game-frame');if(!f)return;const t=document.createElement('div');t.className='toast';t.textContent=text;f.appendChild(t);setTimeout(()=>t.remove(),2200)};K.sfx=(k='tap')=>K.audio.play(k);K.timerTick=sec=>{if(sec<=0||sec>10)return;K.audio.play(sec<=5?'tock':'tick')};
 })();

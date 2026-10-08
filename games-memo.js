@@ -56,7 +56,7 @@
     const worlds=K.playableWorlds();
     const f=K.frame(`<section class="native-panel-screen memo-picker fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('memo.title'))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('memo.pickSub',{n:K.state.niveau||1}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('memo.title'))}</h1><p>${esc(t('memo.pickSub',{n:K.state.niveau||1}))}</p></div><button class="panel-settings" aria-label="${esc(t('common.settings'))}">${K.icon('gear')}</button></header>
       <div class="panel-scroll">
         <div class="memo-mode" role="radiogroup" aria-label="${esc(t('memo.modeTitle'))}">
           <button class="memo-mode-btn solo ${mode==='solo'?'active':''}" data-mode="solo" role="radio" aria-checked="${mode==='solo'}"><span class="memo-mode-faces"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""></span><b>${esc(t('memo.solo'))}</b><small>${esc(t('memo.soloSub'))}</small>${mode==='solo'?`<i class="memo-mode-check">${K.icon('check')}</i>`:''}</button>
@@ -147,7 +147,7 @@
         <header class="quiz-v2-head">
           <button class="quiz-back" id="memoBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>Memo</span><small>${esc(m.world==='mix'?t('game.mixAll'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:K.state.niveau||1}))}</small></div>
-          <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
+          <div class="quiz-meta" aria-hidden="true"></div>
         </header>
         ${m.duel?`<div class="memo-duel" id="memoDuel">${[0,1].map(i=>`<span class="memo-player ${i===m.turn?'active':''}" data-player="${i}"><b>${esc(playerName(i))}</b><em>${m.scores[i]}</em></span>`).join('')}</div>`:''}
         <div class="quiz-progress memo-progress"><strong id="memoPairs">${esc(t('memo.pairs',{found:0,total:m.pairs}))}</strong><div><i id="memoBar" style="width:0%"></i></div>${m.seconds?`<span class="quiz-timer running" id="memoTimer" style="--p:100"><b>${m.seconds}</b></span>`:`<span id="memoMoves">${esc(t('memo.moves',{n:0}))}</span>`}</div>
@@ -162,7 +162,6 @@
     </section>`);
     const home=()=>K.showMemoPicker();
     f.querySelector('#memoBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');home()};
-    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:home})});
     f.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>flip(b));
     m.cards.forEach(c=>{const img=f.querySelector(`[data-card="${c.id}"] .memo-front img`);if(img)armArt(img,c.q.answer)});
 

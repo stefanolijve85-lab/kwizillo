@@ -43,11 +43,11 @@
       for(const o of pool){if(others.length>=3)break;if(fresh(o))take(o)}
       // The zoom lands near the middle, where the picture's subject is, never
       // on a corner of sky or lawn.
-      return {q,options:shuffle([q,...others]),fx:38+Math.random()*24,fy:34+Math.random()*26};
+      return {q,praise:K.praiseLine(),options:shuffle([q,...others]),fx:38+Math.random()*24,fy:34+Math.random()*26};
     });
     K.fotozoom={world,rounds,index:0,score:0,correct:0,startedAt:Date.now(),done:false};
     const lines=[t('fotozoom.speech.ask')];
-    for(const r of rounds){lines.push(...r.options.map(o=>K.core.answerText(o.answer)),...['fotozoom.speech.yes','fotozoom.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
+    for(const r of rounds){lines.push(r.praise,...r.options.map(o=>K.core.answerText(o.answer)),...['fotozoom.speech.yes','fotozoom.speech.almost'].flatMap(k=>K.core.answerSegments(t(k),r.q.answer).map(x=>x.text)),r.q.explanation)}
     lines.push(t('fotozoom.speech.great'),t('fotozoom.speech.done'));
     K.prefetchSpeech?.(lines);
     showRound();
@@ -129,7 +129,7 @@
         f.appendChild(card);
         if(ok)K.cheer?.(card);
         // The verdict reuses the answer's recording and the quiz's explanation recording.
-        K.speakSequence([...K.core.answerSegments(t(ok?'fotozoom.speech.yes':'fotozoom.speech.almost'),q.answer),{kind:'speech',text:q.explanation}]);
+        K.speakSequence([...(ok?[{kind:'lead',text:r.praise}]:[]),...K.core.answerSegments(t(ok?'fotozoom.speech.yes':'fotozoom.speech.almost'),q.answer),{kind:'speech',text:q.explanation}]);
         card.querySelector('#fzNext').onclick=()=>{K.stopSpeech();K.sfx('tap');g.index++;if(g.index>=g.rounds.length)finish();else showRound()};
       },ok?650:900);
     };

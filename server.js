@@ -140,10 +140,14 @@ const mime = {
 // all readable over the network.
 const ROOT_DENY = new Set(['server.js', 'speech-config.js', 'playwright.config.js', 'package.json', 'package-lock.json']);
 const ASSET_DIR = 'assets';
+// Kwizillo voor scholen: the teachers' portal (html, css, js only; see docs/SCHOLENPORTAAL.md).
+const PORTAL_DIR = 'leraar';
 
 function resolveStatic(pathname){
   let rel;
-  try { rel = decodeURIComponent(pathname === '/' ? '/index.html' : pathname); }
+  // A folder (the teachers' portal: /leraar, /leraar/) means its index.html.
+  if (pathname === '/' + PORTAL_DIR || pathname.endsWith('/')) pathname = (pathname.endsWith('/') ? pathname : pathname + '/') + 'index.html';
+  try { rel = decodeURIComponent(pathname); }
   catch { return null; }
   rel = rel.replace(/^\/+/, '');
   if (!rel || rel.includes('\0') || rel.includes('\\')) return null;
@@ -157,6 +161,8 @@ function resolveStatic(pathname){
 
   if (segments.length === 1) {
     if (ROOT_DENY.has(rel)) return null;            // never hand out our own source
+  } else if (segments[0] === PORTAL_DIR) {
+    if (segments.length !== 2 || !['.html', '.css', '.js'].includes(path.extname(rel).toLowerCase())) return null;
   } else if (segments[0] !== ASSET_DIR) {
     return null;                                     // tests/, docs/, .tts-cache/, …
   }
@@ -518,6 +524,15 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
   }
 }
 
+// Kwizillo voor scholen (docs/SCHOLENPORTAAL.md): only with SCHOOL_DB set, so
+// the app server runs exactly as before without it. The database file lives
+// outside the web root; SCHOOL_INSECURE_COOKIES=1 only for local http testing.
+let school=null;
+if(process.env.SCHOOL_DB){
+  const store=require('./school/store.cjs').open(process.env.SCHOOL_DB);
+  school=require('./school/api.cjs').create(store,{secureCookies:process.env.SCHOOL_INSECURE_COOKIES!=='1'});
+}
+
 const server=http.createServer(async(req,res)=>{
   try{
     // 0.0.0.0 is not a host a URL can be built on, and a path like "//" is not
@@ -525,6 +540,10 @@ const server=http.createServer(async(req,res)=>{
     let url;
     try{ url=new URL(req.url,`http://127.0.0.1:${PORT}`) }
     catch(e){ res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'}); return res.end('Not found') }
+    if(url.pathname.startsWith('/api/school/')){
+      if(school&&await school(req,res,url))return;
+      return json(res,404,{error:'Niet beschikbaar'});
+    }
     if(url.pathname==='/api/voice-status'){
       if(!API_KEY)return json(res,200,{mode:'not-configured'});
       try{

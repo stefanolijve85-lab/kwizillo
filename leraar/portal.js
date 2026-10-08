@@ -1,0 +1,135 @@
+// Kwizillo voor leerkrachten (docs/SCHOLENPORTAAL.md): log in, make classes,
+// add pupils, print their login cards and follow their progress. Talks only to
+// /api/school on this site; the session is an HttpOnly cookie.
+(() => {
+  const PICS = window.KWIZILLO_SCHOOL_PICTURES || [];
+  const app = document.getElementById('app'), who = document.getElementById('who');
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+  const api = async (method, path, body) => {
+    const r = await fetch('/api/school' + path, { method, credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+    let json = null; try { json = await r.json() } catch (e) {}
+    return { status: r.status, json };
+  };
+  const render = html => { app.innerHTML = html; window.scrollTo(0, 0) };
+  const on = (sel, ev, fn) => app.querySelectorAll(sel).forEach(el => el.addEventListener(ev, fn));
+  const date = ms => ms ? new Date(ms).toLocaleString('nl-NL', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'nog niet';
+  const pct = (a, b) => b ? Math.round(a / b * 100) + '%' : '–';
+  let me = null;
+
+  function setWho() {
+    who.innerHTML = me ? `${esc(me.teacher.name)} <button class="secondary" id="logout">Uitloggen</button>` : '';
+    who.querySelector('#logout')?.addEventListener('click', async () => { await api('POST', '/teacher/logout'); me = null; setWho(); showLogin() });
+  }
+
+  /* ---------------- inloggen en uitnodiging ---------------- */
+
+  function showLogin(error = '') {
+    render(`<div class="card narrow"><h1>Inloggen</h1><p class="lead">Voor leerkrachten van scholen met Kwizillo.</p>
+      <form id="f"><label for="em">E-mailadres</label><input id="em" type="email" autocomplete="username" required>
+      <label for="pw">Wachtwoord</label><input id="pw" type="password" autocomplete="current-password" required>
+      <p class="error" role="alert">${esc(error)}</p><button type="submit">Inloggen</button></form></div>`);
+    on('#f', 'submit', async e => {
+      e.preventDefault();
+      const r = await api('POST', '/teacher/login', { email: app.querySelector('#em').value.trim(), password: app.querySelector('#pw').value });
+      if (r.status === 200) return start();
+      showLogin(r.json?.error || 'Inloggen lukt niet');
+    });
+  }
+  function showInvite(token, error = '') {
+    render(`<div class="card narrow"><h1>Welkom bij Kwizillo</h1><p class="lead">Kies een wachtwoord voor je account (minstens 10 tekens).</p>
+      <form id="f"><label for="pw">Wachtwoord</label><input id="pw" type="password" autocomplete="new-password" minlength="10" required>
+      <label for="pw2">Nog een keer</label><input id="pw2" type="password" autocomplete="new-password" minlength="10" required>
+      <p class="error" role="alert">${esc(error)}</p><button type="submit">Account activeren</button></form></div>`);
+    on('#f', 'submit', async e => {
+      e.preventDefault();
+      const a = app.querySelector('#pw').value, b = app.querySelector('#pw2').value;
+      if (a !== b) return showInvite(token, 'De twee wachtwoorden zijn niet gelijk');
+      const r = await api('POST', '/teacher/invite/accept', { token, password: a });
+      if (r.status !== 200) return showInvite(token, r.json?.error || 'Dat lukte niet');
+      history.replaceState(null, '', location.pathname);
+      start();
+    });
+  }
+
+  /* ---------------- overzicht van de klassen ---------------- */
+
+  async function start() {
+    const r = await api('GET', '/teacher/me');
+    if (r.status !== 200) { me = null; setWho(); return showLogin() }
+    me = r.json; setWho(); showHome();
+  }
+  function licenceLine(l) {
+    const until = l.validUntil ? new Date(l.validUntil).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }) : '–';
+    return `<div class="licence"><span>${esc(l.school)}</span><span>${l.used} van ${l.seats} leerlingplaatsen</span><span class="${l.active ? '' : 'bad'}">Licentie ${l.active ? 'geldig t/m' : 'verlopen op'} ${esc(until)}</span></div>`;
+  }
+  function showHome(error = '') {
+    render(`<h1>Jouw klassen</h1>${licenceLine(me.licence)}
+      <h2>Klassen</h2>
+      ${me.classes.length ? `<div class="classes">${me.classes.map(c => `<button class="class-tile" data-class="${c.id}"><b>${esc(c.name)}</b><span class="code">${esc(c.code)}</span> · ${c.pupils} leerlingen</button>`).join('')}</div>` : '<p class="note">Nog geen klassen. Maak er hieronder een.</p>'}
+      <h2>Nieuwe klas</h2>
+      <form id="nc" class="card"><label for="cn">Naam van de klas</label><input id="cn" placeholder="bijvoorbeeld Groep 5b" maxlength="60" required>
+      <label for="cl">Taal van het spel</label><select id="cl"><option value="nl">Nederlands</option><option value="en">Engels</option></select>
+      <p class="error" role="alert">${esc(error)}</p><button type="submit">Klas maken</button></form>`);
+    on('[data-class]', 'click', e => showClass(Number(e.currentTarget.dataset.class)));
+    on('#nc', 'submit', async e => {
+      e.preventDefault();
+      const r = await api('POST', '/classes', { name: app.querySelector('#cn').value, language: app.querySelector('#cl').value });
+      if (r.status !== 201) return showHome(r.json?.error || 'Dat lukte niet');
+      await refreshMe(); showClass(r.json.id);
+    });
+  }
+  async function refreshMe() { const r = await api('GET', '/teacher/me'); if (r.status === 200) me = r.json }
+
+  /* ---------------- één klas ---------------- */
+
+  async function showClass(id, { cards = [], error = '' } = {}) {
+    const r = await api('GET', `/classes/${id}/overview`);
+    if (r.status === 401) return showLogin();
+    if (r.status !== 200) return showHome('Klas niet gevonden');
+    const { class: c, pupils } = r.json;
+    render(`<p class="no-print"><button class="link" id="back">← Alle klassen</button></p>
+      <h1>${esc(c.name)}</h1>
+      <p class="lead">Klascode <span class="code bigcode">${esc(c.code)}</span><br><span class="note">De kinderen gaan naar <b>${esc(location.host)}</b>, typen deze code, tikken hun naam aan en hun drie plaatjes.</span></p>
+      ${cards.length ? cardsBlock(c, cards) : ''}
+      <h2 class="no-print">Voortgang</h2>
+      ${pupils.length ? `<div class="no-print scroll-x"><table><thead><tr><th>Naam</th><th>Laatst gespeeld</th><th class="num">Vragen</th><th class="num">Goed</th><th class="num">Quizzen</th><th class="num">Niveau</th><th class="num">Rekenen</th><th class="num">Talen-woordjes</th><th></th></tr></thead><tbody>
+        ${pupils.map(p => `<tr><td><b>${esc(p.name)}</b></td><td>${esc(date(p.playedAt))}</td><td class="num">${p.answered}</td><td class="num">${pct(p.correct, p.answered)}</td><td class="num">${p.quizzes}</td><td class="num">${p.level}</td><td class="num">${p.math.won}/${p.math.played}</td><td class="num">${p.talen.words}</td>
+          <td><button class="secondary" data-reset="${p.id}">Nieuwe plaatjes</button> <button class="danger" data-delete="${p.id}" data-name="${esc(p.name)}">Verwijderen</button></td></tr>`).join('')}
+      </tbody></table></div>` : '<p class="note no-print">Nog geen leerlingen in deze klas.</p>'}
+      <h2 class="no-print">Leerlingen toevoegen</h2>
+      <form id="ap" class="card no-print"><label for="names">Eén naam per regel: voornaam en de eerste letter van de achternaam (bijvoorbeeld <i>Sam B.</i>). Geen volledige namen nodig.</label>
+      <textarea id="names" placeholder="Sam B.&#10;Noor K.&#10;Daan V."></textarea>
+      <p class="error" role="alert">${esc(error)}</p><button type="submit">Toevoegen en inlogkaartjes maken</button></form>`);
+    app.querySelector('#back').addEventListener('click', async () => { await refreshMe(); showHome() });
+    on('#ap', 'submit', async e => {
+      e.preventDefault();
+      const names = app.querySelector('#names').value.split('\n').map(s => s.trim()).filter(Boolean);
+      if (!names.length) return;
+      const r = await api('POST', `/classes/${id}/pupils`, { names });
+      if (r.status !== 201) return showClass(id, { error: r.json?.error || 'Dat lukte niet' });
+      showClass(id, { cards: r.json.pupils });
+    });
+    on('[data-reset]', 'click', async e => {
+      if (!confirm('Een nieuwe plaatjescode maken? De oude werkt dan niet meer.')) return;
+      const r = await api('POST', `/pupils/${e.currentTarget.dataset.reset}/reset-code`);
+      if (r.status === 200) showClass(id, { cards: [r.json] });
+    });
+    on('[data-delete]', 'click', async e => {
+      const name = e.currentTarget.dataset.name;
+      if (!confirm(`${name} verwijderen? Alle voortgang van ${name} wordt gewist. Dit kan niet ongedaan worden.`)) return;
+      await api('DELETE', `/pupils/${e.currentTarget.dataset.delete}`);
+      showClass(id);
+    });
+    app.querySelector('#print')?.addEventListener('click', () => window.print());
+  }
+  // The picture codes are shown once, right after they are made: print them now.
+  function cardsBlock(c, cards) {
+    return `<div class="card"><div class="row no-print"><b>Inlogkaartjes</b><span class="note">Alleen nu te zien: print ze of schrijf ze over. Kwijt? Maak later een nieuwe plaatjescode.</span><button id="print">Printen</button></div>
+      <div class="cards">${cards.map(p => `<div class="login-card" data-card="${p.id}" data-pictures="${p.pictures.join(',')}"><div class="lc-head"><span class="lc-name">${esc(p.name)}</span><span class="code">${esc(c.code)}</span></div>
+        <div class="lc-pics">${p.pictures.map((i, n) => `<figure><img src="/${esc(PICS[i]?.img || '')}" alt=""><span>${n + 1}. ${esc(PICS[i]?.nl || '')}</span></figure>`).join('')}</div>
+        <div class="lc-foot">${esc(c.name)} · ${esc(location.host)}</div></div>`).join('')}</div></div>`;
+  }
+
+  const invite = /[#&]uitnodiging=([A-Za-z0-9_-]+)/.exec(location.hash);
+  if (invite) showInvite(invite[1]); else start();
+})();

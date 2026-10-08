@@ -173,7 +173,7 @@ for (const lang of langs) {
   for (const k of ['voice', 'welcome']) add(lang, BOTH, T(`onboarding.speech.${k}`), 'onboarding');
 
   // Home tour (milo.js TOUR_KEYS / startTour), by the active guide.
-  for (const k of ['worlds', 'games', 'hud', 'nav', 'done']) add(lang, BOTH, T(`tour.${k}`), 'tour');
+  for (const k of ['mega', 'worlds', 'games', 'hud', 'nav', 'done']) add(lang, BOTH, T(`tour.${k}`), 'tour');
 
   // Rekenen: numbers, operators and the fixed words of its lines, in pieces.
   for (const line of mathLines(lang, k => T(k))) add(lang, BOTH, line, 'math: pieces');

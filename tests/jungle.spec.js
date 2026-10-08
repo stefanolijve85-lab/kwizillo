@@ -75,7 +75,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   await inRunner(page, '[data-act=exit]').click();
   await expect(page.locator('.home')).toBeVisible();
   await expect(runner(page)).toHaveCount(0);
-  await expect(page.locator('.hud-chip[data-stats]').first()).toContainText(String(booked.coins));
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(booked.coins);   // Home has no coin button any more; the coins are in the statistics
   expect(errors).toEqual([]);
 });
 
@@ -220,7 +220,8 @@ test('a card from the runner is in the collection the moment the run is booked, 
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('cards'));
   await expect(page.locator('.kcard.runner')).toHaveCount(1);
   await expect(page.locator('.kcard.runner .kcard-top b')).toHaveText('Jungleblad');
-  await expect(page.locator('[data-tab="cards"] i')).toHaveText(String(before + 1));
+  // the tab carries only its name: a big number next to it pushed the other tabs aside (2026-10-07)
+  await expect(page.locator('[data-tab="cards"] i')).toHaveCount(0);
 
   // The same card from a second run is not a second card.
   await page.evaluate(() => window.KWIZILLO_M1.jungleReward({ version: 1, game: 'jungle-runner', completed: true, runId: 'run-card-2', theme: 'jungle', coins: 5, cardId: 'jungle-leaf' }));

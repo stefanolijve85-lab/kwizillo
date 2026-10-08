@@ -325,8 +325,8 @@
 
   /* ---------------- Home tour ---------------- */
 
-  const TOUR_KEYS=['tour.worlds','tour.games','tour.hud','tour.nav','tour.done'];
-  // Warms the tour's five lines for a guide (voice and clips) well before the
+  const TOUR_KEYS=['tour.mega','tour.worlds','tour.games','tour.hud','tour.nav','tour.done'];
+  // Warms the tour's six lines for a guide (voice and clips) well before the
   // tour starts — a guide without clips would otherwise start every stop with a
   // round trip to the speech service.
   // Only the lines: the tour plays no clips (see the stop loop below), so
@@ -343,10 +343,13 @@
     if(!home||home.querySelector('.milo-tour')) return;
     guide=guideOf(guide||K.activeGuide());
     const t=K.t;
-    // Memo + Rekenen share one stop; the Weetjes get a stop of their own.
+    // Van boven naar beneden: de Mega Quiz, de werelden, dan de Runner en de
+    // spelletjes samen. De zinnen zeggen "straks": tijdens de rondleiding doet
+    // een tik niets, en een kind dat "tik op een wereld" hoort, tikt meteen.
     const stops=[
+      {sel:'#homeMega',key:'tour.mega'},
       {sel:'.home-worlds',key:'tour.worlds'},
-      {sel:'.home-games',key:'tour.games'},
+      {sel:'#homeJungle,.home-games',key:'tour.games'},
       {sel:'.home-hud',key:'tour.hud'},
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}
@@ -469,7 +472,8 @@
         // dat het al snapt tikt door en hoeft niet te wachten.
         const said=host.say(t(stop.key),{minMs:1400});
         // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
-        {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb();const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-(f.bottom-6));if(over>0){to.y+=to.side==='top'?over:-over;host.moveTo(to.x,to.y,{instant:true});}}
+        // (onderaan ook boven de knop Overslaan, die moet altijd te zien zijn)
+        {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb(),skip=layer.querySelector('.milo-tour-skip').getBoundingClientRect();const floor=Math.min(f.bottom-6,skip.height?skip.top-14:f.bottom-6);const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-floor);if(over>0){const o=over/scale();to.y+=to.side==='top'?o:-o;host.moveTo(to.x,to.y,{instant:true});}}
         await Promise.race([said,waitTap(12000)]);   // a line that never finishes (no network) moves on by itself
         stopGesture();
         host.stop();

@@ -150,9 +150,10 @@ test('a brand new player starts at zero, not on seeded progress', async ({ page 
   await page.locator('#obStart').click();
   await page.locator('.milo-tour-skip').click();
 
-  const chips = await page.locator('.hud-chip').allTextContents();
-  expect(chips.map(c => c.replace(/\s+/g, ' ').trim())).toEqual(['0 0']);   // one statistics button: coins and streak
-  await expect(page.locator('.hud-id small')).toHaveText('Level 1');
+  await expect(page.locator('.home .hud-chip')).toHaveCount(0);   // no coin or statistics button on Home: the bar below has Statistieken
+  expect(await page.evaluate(() => [window.KWIZILLO_M1.state.coins, window.KWIZILLO_M1.state.streak])).toEqual([0, 0]);
+  await expect(page.locator('.hud-id small')).toHaveCount(0);   // the level line under the greeting is gone (2026-10-07)
+  expect(await page.evaluate(() => window.KWIZILLO_M1.level())).toBe(1);
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
   await expect(page.locator('.achievement-card.done')).toHaveCount(0);
@@ -244,7 +245,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
       correctQuestionIds: ['ruimte-zonnestelsel-01', 'ruimte-zonnestelsel-02'] } }));
 
   await page.locator('.native-bottom-nav button[data-nav="achievements"]').click();
-  await expect(page.locator('.achievement-card')).toHaveCount(8);
+  await expect(page.locator('.achievement-card')).toHaveCount(10);   // eight, plus two for Talen
 
   await page.locator('.native-bottom-nav button[data-nav="collection"]').click();
   await expect(page.locator('.collection-tabs')).toBeVisible();
@@ -259,7 +260,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
   await page.locator('.kcard-zoom').click();
   await expect(page.locator('.kcard-zoom')).toHaveCount(0);
   await page.getByRole('button', { name: /Mascottes/ }).click();
-  await expect(page.locator('.mascot-card')).toHaveCount(12);
+  await expect(page.locator('.mascot-card')).toHaveCount(13);   // twelve, plus Mike (shop only)
   await page.locator('.mascot-card:not([disabled])').first().click();
 
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
@@ -275,8 +276,9 @@ test('parent controls, language toggle and audio panel all operate', async ({ pa
   await page.locator('.native-bottom-nav button[data-nav="parent"]').click();
   // The order a parent reads top to bottom; the school group is set in the onboarding only
   // (it looked like a second difficulty setting next to the play level).
+  // language, then the Talen learning language (a second lang-card)
   const order = await page.locator('.settings-list > section').evaluateAll(els => els.map(e => e.id || [...e.classList].find(c => c !== 'setting-card' && c !== 'clickable') || ''));
-  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'shareOpen', 'privacyOpen', 'resetOpen', 'logoutOpen', 'deleteOpen']);
+  expect(order.slice(1)).toEqual(['level-card', 'lang-card', 'lang-card', 'soundOpen', '', 'world-levels', 'tour-card', 'players-card', 'feedbackOpen', 'shareOpen', 'privacyOpen', 'resetOpen', 'logoutOpen', 'deleteOpen']);
   await expect(page.locator('.settings-list > :first-child')).toContainText('Premium');
   await expect(page.locator('[data-group]')).toHaveCount(0);
   // the eight world levels as a 2×4 grid
@@ -360,7 +362,8 @@ test('finishing a quiz counts one quiz, one streak day and real stats', async ({
   await answerAll(page, 10);
   await expect(page.locator('.result-v2')).toBeVisible();
 
-  await page.locator('#collectionBtn').click();
+  await page.locator('#homeBtn').click();
+  await expect(page.locator('.home')).toBeVisible();
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
   await expect(page.locator('.stats-hero-copy p')).toContainText('10 vragen beantwoord');
   await expect(page.locator('.stats-hero-copy p')).toContainText('1 quiz gespeeld');
@@ -643,19 +646,12 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['Pro Max', 430, 
   });
 }
 
-test('the coin chip in a quiz opens statistics and "back" returns to the same question', async ({ page }) => {
+test('the quiz header has no coin and streak chips (they led to statistics in the middle of a game)', async ({ page }) => {
   await boot(page);
   await page.locator('[data-world="ruimte"]').click();
   await page.locator('#worldMix').click();
-  await page.locator('.answer').first().click();
-  await feedbackNext(page);
-  const prompt = await page.locator('.quiz-card h1').textContent();
-  await page.locator('.quiz-meta [data-stats]').first().click();
-  await expect(page.locator('.stats-screen')).toBeVisible();
-  await page.locator('.panel-back').click();
   await expect(page.locator('.quiz-v2')).toBeVisible();
-  await expect(page.locator('.quiz-card h1')).toHaveText(prompt);
-  await expect(page.locator('.quiz-progress strong')).toHaveText('Vraag 2 van 10');
+  await expect(page.locator('.quiz-meta [data-stats], .quiz-meta .meta-chip')).toHaveCount(0);
 });
 
 test('the avatar on Home opens the profile, where the name can be changed', async ({ page }) => {
@@ -936,12 +932,12 @@ test('on level 4 the voice still reads the question and the answers; the parent 
 test('mascot tiles are filled by the character with only the name on it', async ({ page }) => {
   await boot(page, SAVED({ correct: 12 }));
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
-  await expect(page.locator('.mascot-card')).toHaveCount(12);
-  await expect(page.locator('.mascot-card .mascot-fill')).toHaveCount(12);
+  await expect(page.locator('.mascot-card')).toHaveCount(13);   // twelve, plus Mike (shop only)
+  await expect(page.locator('.mascot-card .mascot-fill')).toHaveCount(13);
   // 12 right under the old ladder (Comet 5, Pootje 12): a player from before keeps them
   await expect(page.locator('.mascot-card.unlocked')).toHaveCount(3);        // Milo, Comet, Pootje
   await expect(page.locator('.mascot-card.unlocked .mascot-name').nth(1)).toHaveText('Comet');
-  await expect(page.locator('.mascot-card.locked .mascot-lock')).toHaveCount(9);
+  await expect(page.locator('.mascot-card.locked .mascot-lock')).toHaveCount(10);
   const fill = await page.locator('.mascot-card .mascot-fill').first().boundingBox();
   const card = await page.locator('.mascot-card').first().boundingBox();
   expect(Math.abs(fill.width - card.width)).toBeLessThan(2);
@@ -988,7 +984,8 @@ test('a passed quiz is worth 25 world points: four passed topics make 100, shown
   await page.locator('.world-topic').nth(3).click();
   await answerAll(page, 10, { correct: true });
   await expect(page.locator('.result-v2')).toBeVisible();
-  await page.locator('#collectionBtn').click();
+  await page.locator('#homeBtn').click();
+  await page.locator('.native-bottom-nav [data-nav="collection"]').click();
   await expect(page.locator('.progress-overall')).toContainText('Totaal 125 van 800 punten');
   await expect(page.locator('.progress-world').first()).toContainText('4 van 4 quizzen gehaald · 100 punten');
 });
@@ -1070,4 +1067,18 @@ test('the quiz shows the picture chosen for each question by eye', async ({ page
   expect(shown.racket).toContain('assets/questions/s/sport-balsporten-05');   // own picture shows the racket: its question-only picture (drawn 2026-10-07)
   expect(shown.racket).not.toBe(shown.topicRacket);
   expect(shown.astronaut).toContain('assets/questions/s/ruimte-astronauten-01');
+});
+
+test('Home: the worlds stand apart (the Runner opens "Speel ook"); the game pickers carry the game name as their title', async ({ page }) => {
+  await boot(page);
+  await expect(page.locator('.home')).toBeVisible();
+  const order = await page.evaluate(() => [...document.querySelectorAll('.home-section, .home-worlds, #homeJungle, .home-games')].map(e => e.id || e.className.split(' ')[0]));
+  expect(order).toEqual(['home-section', 'home-worlds', 'home-section', 'homeJungle', 'home-games']);
+  for (const [game, name] of [['whoami', 'Wat ben ik?'], ['fotozoom', 'Fotozoom'], ['facts', 'Weetjes']]) {
+    await page.evaluate(g => window.KWIZILLO_M1.showGamePicker(g), game);
+    await expect(page.locator('.panel-head h1.game-name')).toHaveText(name);
+    await expect(page.locator('.panel-head .panel-kicker')).toHaveCount(0);
+  }
+  await page.evaluate(() => window.KWIZILLO_M1.showMemoPicker());
+  await expect(page.locator('.panel-head h1.game-name')).toHaveText('Memo');
 });

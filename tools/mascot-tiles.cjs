@@ -32,10 +32,12 @@ const only = process.argv.slice(2).filter(a => !a.startsWith('--'));
 // mask cut half of them off. His backdrop is a plain teal, so it is keyed out
 // instead: everything teal that touches the edge goes.
 const KEYED = new Set(['terra']);
-// Standing figures are tall and narrow: drawn to the tile's height they left the
-// sides empty while the others fill their tile. These are drawn larger, head at
-// the top, and may run off the bottom (2026-10-06).
-const ZOOM = { nova: 1.4, kiko: 1.3, pip: 1.3, ravi: 1.4, flora: 1.4, draco: 1.3 };
+// One framing for all, Mike's (2026-10-07): a figure is drawn as wide as most of
+// the tile, head at the top, and a tall one runs off the bottom (a bust). Drawn
+// to the tile's height a standing figure stayed a narrow strip with empty sides
+// next to the wide ones; a hand-picked zoom per buddy left them all different.
+const WIDE = 0.74;               // the character's width as a share of the tile
+const MAX_ZOOM = 1.5;            // at most this much larger than fitted whole
 
 const sources = () => fs.readdirSync(SRC).filter(f => /\.jpg$/.test(f) && (!only.length || only.includes(f.replace(/\.jpg$/, '')))).sort();
 const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));
@@ -69,11 +71,11 @@ const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));
   await page.goto('about:blank');
   console.log('');
   for (const file of files) {
-    const id = file.replace(/\.jpg$/, ''), keyed = KEYED.has(id), zoom = ZOOM[id] || 1;
+    const id = file.replace(/\.jpg$/, ''), keyed = KEYED.has(id);
     const cut = keyed ? path.join(SRC, file) : path.join(cutDir, file.replace(/\.jpg$/, '.png'));
     if (!fs.existsSync(cut)) { console.error(`${file}: no cut-out, skipped`); continue }
     const data = `data:image/${keyed ? 'jpeg' : 'png'};base64,` + fs.readFileSync(cut).toString('base64');
-    const result = await page.evaluate(async ({ data, W, H, FILL, keyed, zoom }) => {
+    const result = await page.evaluate(async ({ data, W, H, FILL, keyed, WIDE, MAX_ZOOM }) => {
       const img = new Image();
       await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = data });
       const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
@@ -113,12 +115,13 @@ const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));
       const tile = document.createElement('canvas'); tile.width = W; tile.height = H;
       const tg = tile.getContext('2d');
       tg.imageSmoothingQuality = 'high';
-      const scale = Math.min((H * FILL) / sh, (W * 0.92) / sw) * zoom;
+      const whole = Math.min((H * FILL) / sh, (W * 0.92) / sw);
+      const scale = Math.max(whole, Math.min((W * WIDE) / sw, whole * MAX_ZOOM));
       const dw = sw * scale, dh = sh * scale;
       // a zoomed buddy keeps its head at the top and runs off the bottom
-      tg.drawImage(c, x0, y0, sw, sh, (W - dw) / 2, zoom > 1 ? H * 0.03 : (H - dh) / 2, dw, dh);
+      tg.drawImage(c, x0, y0, sw, sh, (W - dw) / 2, dh > H ? H * 0.03 : (H - dh) / 2, dw, dh);
       return { url: tile.toDataURL('image/png'), box: [sw, sh] };
-    }, { data, W, H, FILL, keyed, zoom });
+    }, { data, W, H, FILL, keyed, WIDE, MAX_ZOOM });
     if (!result) { console.error(`${file}: the cut-out came back empty, skipped`); continue }
     const out = tileOf(file);
     fs.writeFileSync(out, Buffer.from(result.url.split(',')[1], 'base64'));

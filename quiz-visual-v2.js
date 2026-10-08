@@ -128,7 +128,7 @@
         <header class="quiz-v2-head">
           <button class="quiz-back" id="qBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>Kwizillo</span><small>${esc(K.quiz.topicLabel)} · ${esc(t('quiz.quizLabel',{n:K.quiz.quizNumber}))}</small></div>
-          <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
+          <div class="quiz-meta" aria-hidden="true"></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('quiz.progress',{current:idx+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="quizTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${K.state.voice==='Stil'?'🔇':`🔊 ${esc(t(K.state.voice==='Milo'?'voice.milo':'voice.luna'))}`}</span>`}</div>
         <main class="quiz-card">
@@ -146,7 +146,6 @@
     K.clearSpeechHighlight=()=>buttons.forEach(b=>b.classList.remove('spoken-active'));
     f.querySelector('#qBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.quiz.mega?K.showHome():K.showWorld(K.quiz.world)};
     // Coins/streak open the statistics; "back" there lands on this same question.
-    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>K.showQuiz()})});
     f.querySelector('#prevBtn').onclick=()=>{if(idx===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');K.quiz.index--;K.showQuiz()};
 
     f.querySelector('#hintBtn').onclick=()=>showHint(q);
@@ -246,18 +245,22 @@
   // The praise varies from question to question. The pick is fixed per
   // question and quiz (a hash, not Math.random) so the line prefetched while
   // the child is thinking is the line that gets spoken.
-  // Praise varies per quiz (eight short lines, recorded once per language). The
-  // "almost, it is {answer}" line names the answer, so every variant is a new
-  // recording per question: it is fixed per question instead of per quiz.
+  // Praise (sixteen short lines) and "almost, it is {answer}" (six) vary per quiz.
+  // The answer in the "almost" line is its own recording (answerSegments), so the
+  // words around it are a closed set too, recorded once per language.
   function variant(q,kind,count,salted=true){
     let h=salted?(K.quiz?.salt||0):0;for(const ch of q.id)h=(h*31+ch.charCodeAt(0))>>>0;
     // The answer is left as {answer}: buildFeedbackSegments says it with its own recording.
     return t(`feedback.speech.${kind}.${(h%count)+1}`);
   }
+  // A praise line for the games around the quiz (Wat ben ik?, Fotozoom, Rekenen):
+  // random, never the one heard just before.
+  let lastPraise=0;
+  K.praiseLine=()=>{const n=K.core.FEEDBACK_VARIANTS.good;let i;do i=1+Math.floor(Math.random()*n);while(i===lastPraise);lastPraise=i;return t(`feedback.speech.good.${i}`)};
   function feedbackSpeech(q,correct){
     return K.core.buildFeedbackSegments(q,correct,{
-      good:variant(q,'good',8),
-      tryAgain:variant(q,'try',4,false),
+      good:variant(q,'good',K.core.FEEDBACK_VARIANTS.good),
+      tryAgain:variant(q,'try',K.core.FEEDBACK_VARIANTS.try),
       fact:t('feedback.speech.fact')
     });
   }
@@ -428,7 +431,7 @@
         <div class="result-native">
           <button id="againBtn">${esc(primaryLabel)}</button>
           ${passed&&isTopic?`<button id="retryBtn" class="secondary">${esc(t('result.retryTopic'))}</button>`:''}
-          <button id="collectionBtn" class="secondary">${esc(t('result.toCollection'))}</button>
+          <button id="homeBtn" class="secondary">${esc(t('result.toHome'))}</button>
           <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
         </div>
       </div>
@@ -462,7 +465,7 @@
     };
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
     f.querySelector('#retryBtn')?.addEventListener('click',()=>{K.stopSpeech();K.sfx('tap');K.startQuiz(K.currentWorld,topicIdx)});
-    f.querySelector('#collectionBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showCollection('worlds')};
+    f.querySelector('#homeBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
     // The bonus fact opens the Weetjes screen on this world.
     f.querySelector('#resultFact')?.addEventListener('click',e=>{K.stopSpeech();K.sfx('tap');K.showFacts(factWorld,{open:e.currentTarget.dataset.fact})});
     if(bonus) setTimeout(()=>{if(f.isConnected)K.speakSequence(bonus.speech.map((text,i)=>({kind:i?'speech':'lead',text})))},passed?1900:900);

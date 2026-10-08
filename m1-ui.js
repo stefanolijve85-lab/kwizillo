@@ -29,7 +29,9 @@
     {id:'pip',icon:'🐧',need:930,was:115},
     {id:'ravi',icon:'🥽',need:1045,was:140},
     {id:'flora',icon:'🦋',need:1165,was:170},
-    {id:'draco',icon:'🐉',need:1280,was:200}
+    {id:'draco',icon:'🐉',need:1280,was:200},
+    // Only in the shop (2026-10-07): no number of answers opens him, 1500 coins buy him.
+    {id:'mike',icon:'🎧',need:Infinity,price:1500}
   ].filter(m=>K.MASCOT_ART?.[m.id]);
 
   // One line per level for the parent zone: time, mistakes, hints, reading.
@@ -88,7 +90,7 @@
   // on one card. The buddies climb from a first one that a day of playing pays
   // for to a dragon that takes a while — the ladder follows how far into the
   // game the buddy would otherwise unlock itself.
-  const mascotPrice=m=>Math.max(100,Math.round((60+m.was*8)/50)*50);   // the shop keeps its prices
+  const mascotPrice=m=>m.price||Math.max(100,Math.round((60+m.was*8)/50)*50);   // the shop keeps its prices
   const GOLD_PRICE=1000;
 
   // A single place that records one answered question across every counter, and
@@ -167,8 +169,12 @@
   }
   K.bottomNav=bottomNav;K.bindNav=bindNav;
   function nativeScreen({cls='',title,subtitle='',body,active='',back=()=>K.showHome()}){
-    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('common.brand'))}</div><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
+    const f=K.frame(`<section class="native-panel-screen ${cls} fade-in"><div class="native-panel-glow"></div><header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><img class="panel-logo" src="${K.BRAND_LOGO}" alt="${esc(t('common.brand'))}" decoding="async"><h1>${esc(title)}</h1>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header><main class="panel-scroll">${body}</main>${bottomNav(active)}</section>`);
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
+    // The blue band ends just under the header, whatever its height (a compact header leaves more page).
+    const scr=f.querySelector('.native-panel-screen'),head=f.querySelector('.panel-head');
+    const band=()=>scr.style.setProperty('--head-end',`${head.offsetTop+head.offsetHeight+8}px`);band();
+    if(window.ResizeObserver)new ResizeObserver(band).observe(head);
     bindNav(f);return f;
   }
 
@@ -210,11 +216,9 @@
           <button class="hud-avatar" id="homeProfile" aria-label="${esc(t('profile.title'))}"><img class="mascot-face" src="${K.MASCOT_ART[K.state.selectedMascot]||K.guideArt(K.state.voice)}" alt=""></button>
           <div class="hud-center">
             <img class="hud-logo" src="${K.BRAND_LOGO}" alt="Kwizillo" decoding="async">
-            <span class="hud-id"><b>${esc(greeting)}</b><small>${esc(t('home.level',{level:lvl}))}</small></span>
+            <span class="hud-id"><b>${esc(greeting)}</b></span>
           </div>
-          <div class="hud-right">
-            <!-- one button for the statistics: coins and streak side by side -->
-            <button class="hud-chip hud-stats" data-stats aria-label="${esc(t('home.coins'))} · ${esc(t('home.streak'))}"><span>${K.icon('coin')} ${Number(K.state.coins||0)}</span><span>${K.icon('flame')} ${Number(K.state.streak||0)}</span></button>
+          <div class="hud-right" aria-hidden="true">
           </div>
         </header>
 
@@ -229,13 +233,20 @@
         <div class="home-worlds">${worldCards}</div>
 
         <h2 class="home-section">${esc(t('home.playMore'))}</h2>
+        <!-- The Runner as a wide banner: the Mega Quiz banner's component and styles, first under "Speel ook", so the worlds stand apart from the games -->
+        <button class="home-mega home-runner" id="homeJungle" aria-label="${esc(t('jungle.title'))} · ${esc(t('jungle.bannerSub'))}">
+          <img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-mega-veil"></span>
+          <img class="home-runner-kid boy" src="assets/games/jungle/img/hero-boy-portrait.png" alt="" decoding="async"><img class="home-runner-kid girl" src="assets/games/jungle/img/hero-girl-portrait.png" alt="" decoding="async">
+          ${(b=>b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:'')(Number(K.progress().games?.jungle?.best||0))}
+          <span class="home-mega-copy"><b>${esc(t('jungle.title'))}</b><small>${esc(t('jungle.bannerSub'))}</small></span>
+        </button>
         <div class="home-games">
-          <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
+          <button class="home-game art talen" id="homeTalen"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${(s=>s.done?`<span class="home-world-level">★ ${s.done}/${s.total}</span>`:'')(K.talenStamps?.()||{done:0})}<b>${esc(t('talen.title'))}</b></button>
           <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
           <button class="home-game art whoami" id="homeWhoAmI"><img class="home-game-art" src="${K.GAME_ART.whoami}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('whoami.title'))}</b></button>
           <button class="home-game art fotozoom" id="homeFotozoom"><img class="home-game-art" src="${K.GAME_ART.fotozoom}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('fotozoom.title'))}</b></button>
           <button class="home-game art facts" id="homeFacts"><img class="home-game-art" src="${K.GAME_ART.facts}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('facts.title'))}</b></button>
-          <button class="home-game art jungle" id="homeJungle"><img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('jungle.title'))}</b></button>
+          <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
         </div>
 
         ${bottomNav('home')}
@@ -246,6 +257,7 @@
     f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
+    f.querySelector('#homeTalen').onclick=()=>{K.sfx('tap');K.showTalen()};
     f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.showGamePicker('whoami')};
     f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
     f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');K.showGamePicker('fotozoom')};
@@ -350,7 +362,9 @@
       {icon:'🃏',key:'achievement.cards5',now:Math.min(5,cards),goal:5},
       {icon:'🗺️',key:'achievement.allWorlds',now:playedWorlds,goal:6},
       {icon:'🧠',key:'achievement.memo3',now:Math.min(3,Number(progress().games?.memo?.won||0)),goal:3},
-      {icon:'🔢',key:'achievement.math3',now:Math.min(3,Number(progress().games?.math?.won||0)),goal:3}
+      {icon:'🔢',key:'achievement.math3',now:Math.min(3,Number(progress().games?.math?.won||0)),goal:3},
+      {icon:'🗣️',key:'achievement.talenFirst',now:Math.min(1,K.talenSummary?.().lessons||0),goal:1},
+      {icon:'📖',key:'achievement.talen10',now:Math.min(10,K.talenSummary?.().words.length||0),goal:10}
     ].map(a=>({...a,done:a.now>=a.goal}));
 
     const body=`<div class="summary-hero"><div class="summary-icon">${K.icon('trophy')}</div><div><b>${esc(t('achievements.summary',{done:defs.filter(x=>x.done).length,total:defs.length}))}</b><span>${esc(t('achievements.summarySub'))}</span></div></div>
@@ -433,7 +447,7 @@
     const mixArt=game==='facts'?K.GAME_ART.facts:K.GAME_ART.memoAll;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t(P.kicker))}</div><h1>${esc(t('memo.pickTitle'))}</h1><p>${esc(t('game.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t(P.kicker))}</h1><p>${esc(t('game.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
         <button class="memo-pick mix" data-pick="${P.mix}"><img class="home-game-art" src="${mixArt}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('game.mixAll'))}</b></button>
         <div class="memo-pick-grid">${(P.worlds?P.worlds():shown()).map(w=>`<button class="memo-pick ${P.locked(w)?'locked':''}" data-pick="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}"><span class="home-game-veil"></span>${P.locked(w)?K.premiumBadge():''}<b>${esc(worldTitle(w))}</b></button>`).join('')}</div>
@@ -537,13 +551,23 @@
         // locked buddy is a dark silhouette with a lock and how many more
         // correct answers it takes.
         const art=K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id];
-        const sub=ok?'':`<small>${esc(t('collection.mascotLocked',{n:Math.max(0,m.need-mascotProgress())}))}</small>`;
+        const sub=ok?'':`<small>${esc(Number.isFinite(m.need)?t('collection.mascotLocked',{n:Math.max(0,m.need-mascotProgress())}):t('collection.mascotShop',{n:mascotPrice(m)}))}</small>`;
         const state=sel?`<span class="mascot-state">${esc(t('collection.mascotActive'))}</span>`:'';
         return`<button class="mascot-card ${ok?'unlocked':'locked'} ${sel?'selected':''}" data-mascot="${m.id}" ${ok?'':'disabled'} aria-label="${esc(t(`mascot.${m.id}`))}"><img class="mascot-fill" src="${art}" alt="" decoding="async">${ok?'':'<i class="mascot-lock">🔒</i>'}${state}<b class="mascot-name">${esc(t(`mascot.${m.id}`))}${sub}</b></button>`;
       }).join('')}</div><div class="collection-note">${esc(t('collection.mascotCount',{unlocked:unlockedMascots().length,total:MASCOTS.length}))}</div>`;
     }
     // The shop: coins from the games buy a golden card or a buddy the child has
     // not reached yet. Nothing here can be bought with money — see premium.js.
+    // Talen: the passport's stamps and every word learned; a tap says it again.
+    if(tab==='words'){
+      const T=K.talenSummary?.();
+      const l=T?.learn,app=K.state.language;
+      content=!T||!T.words.length
+        ?`<div class="empty-state"><div>🗣️</div><h2>${esc(t('collection.wordsEmpty'))}</h2><p>${esc(t('collection.wordsEmptyBody'))}</p><button class="talen-start" id="toTalen">${K.icon('play')} ${esc(t('talen.title'))}</button></div>`
+        :`<div class="talen-stamps talen-stamps-mini">${T.themes.map(th=>`<div class="talen-stamp ${th.stars?'done':''} ${th.ready?'':'soon'}">${th.img?`<img src="${th.img}" alt="">`:`<span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span>`}<b>${esc(t('talen.theme.'+th.id))}</b><span class="talen-stars">${[1,2,3].map(n=>`<i class="${n<=th.stars?'on':''}">★</i>`).join('')}</span></div>`).join('')}</div>
+          <p class="talen-msg">${esc(t('collection.wordsCount',{n:T.words.length,lang:t('talen.lang.'+l)}))}</p>
+          <div class="talen-learned talen-words-grid">${T.words.map(id=>{const w=K.talenWord(id);return `<button class="talen-chip" data-hear="${id}"><img src="${w.img}" alt=""><span><b>${esc(w.text[l])}</b><small>${esc(t('talen.means',{word:w.text[app]}))} 🔊</small></span></button>`}).join('')}</div>`;
+    }
     if(tab==='shop'){
       const wallet=Number(K.state.coins||0);
       const tile=(id,title,sub,price,art,cls='',fallback='')=>{
@@ -557,17 +581,19 @@
         </article>`;
       };
       const golds=shown().map(w=>tile(`gold:${w}`,t('shop.goldCard',{world:worldTitle(w)}),t('shop.goldCardSub'),GOLD_PRICE,goldArt(w),'is-gold',K.goldFallback(w)));
-      const buddies=MASCOTS.filter(m=>mascotProgress()<m.need).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
+      const buddies=MASCOTS.filter(m=>mascotProgress()<m.need).sort((a,b)=>mascotPrice(a)-mascotPrice(b)).map(m=>tile(`mascot:${m.id}`,t(`mascot.${m.id}`),t(`mascot.${m.id}.desc`),mascotPrice(m),K.MASCOT_TILE[m.id]||K.MASCOT_ART[m.id]));
       const sold=[...golds,...buddies].length&&[...golds,...buddies].every(h=>/is-owned/.test(h));
       content=`<div class="shop-wallet"><span>${K.icon('coin')}</span><b>${wallet}</b><small>${esc(t('shop.earnHint'))}</small></div>
         <h2 class="section-title">${esc(t('shop.cards'))}</h2><div class="shop-grid">${golds.join('')}</div>
         ${buddies.length?`<h2 class="section-title">${esc(t('shop.mascots'))}</h2><div class="shop-grid">${buddies.join('')}</div>`:''}
         ${sold?`<p class="collection-note">${esc(t('shop.empty'))}</p>`:''}`;
     }
-    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))} <i>${K.cardCount()}</i></button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
+    const body=`<div class="collection-tabs"><button data-tab="worlds" class="${tab==='worlds'?'active':''}">${esc(t('collection.tabWorlds'))}</button><button data-tab="cards" class="${tab==='cards'?'active':''}">${esc(t('collection.tabCards'))}</button><button data-tab="mascots" class="${tab==='mascots'?'active':''}">${esc(t('collection.tabMascots'))}</button><button data-tab="words" class="${tab==='words'?'active':''}">${esc(t('collection.tabWords'))}</button><button data-tab="shop" class="${tab==='shop'?'active':''}">${esc(t('shop.tab'))}</button></div>${content}`;
     const f=nativeScreen({cls:'collection-screen',title:t('collection.title'),subtitle:t('collection.sub'),body,active:'collection'});
     wireFallbacks(f);
     f.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showCollection(b.dataset.tab)});
+    f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.talenHear?.(b.dataset.hear)});
+    f.querySelector('#toTalen')?.addEventListener('click',()=>{K.sfx('tap');K.showTalen()});
     // A golden or runner card opens large as well.
     const zoom=html=>{K.sfx('swoosh');const z=document.createElement('div');z.className='kcard-zoom fade-in';z.innerHTML=html;z.querySelector('.kcard').removeAttribute('data-gold');z.querySelector('.kcard').removeAttribute('data-runner');wireFallbacks(z);z.onclick=()=>{K.sfx('tap');z.remove()};f.appendChild(z)};
     f.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>zoom(goldCard(b.dataset.gold)));
@@ -667,6 +693,7 @@
       ${game('🏃',t('jungle.title'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}
       ${game('❓',t('whoami.title'),t('stats.playedLine',{played:Number(G.whoami?.played||0)}),G.whoami?.best?`${G.whoami.best} ⭐`:'')}
       ${game('🔍',t('fotozoom.title'),t('stats.playedLine',{played:Number(G.fotozoom?.played||0)}),G.fotozoom?.best?`${G.fotozoom.best} ⭐`:'')}
+      ${(T=>T?game('🗣️',t('talen.title'),t('stats.talenLine',{words:T.words.length,lessons:T.lessons}),T.stamps.done?`★ ${T.stamps.done}/${T.stamps.total}`:''):'')(K.talenSummary?.())}
     </div>`;
     const body=`${hero}${chips}
       <h2 class="section-title">${esc(t('score.title'))}</h2>${records}
@@ -746,6 +773,45 @@
   // Resetting wipes everything, so it sits behind a parental gate rather than a
   // plain confirm a child can tap through (CLAUDE.md section 17, kids/privacy).
   K.parentalGate=onPass=>showParentalGate(onPass);
+  // Ideas and feedback from the players: an idea, something that is not right, or
+  // a compliment, in their own words. It leaves the app as an e-mail the parent
+  // sends (behind the parental gate, like the privacy contact): no server, no
+  // account, and no name of the child. What goes along is the app language and the
+  // level, so a "this is not right" can be found.
+  function showFeedback(){
+    const f=K.app.querySelector('.game-frame');if(!f)return;
+    const kinds=['idea','bug','love'],icons={idea:'💡',bug:'📝',love:'💛'};
+    let kind='idea';
+    const guide=K.state.voice==='Luna'?'luna':'milo';
+    const o=document.createElement('div');o.className='simple-modal feedback-modal';
+    o.innerHTML=`<div class="simple-modal-card"><button class="simple-close" aria-label="${esc(t('common.close'))}">×</button>
+      <div class="ideas-hero"><img class="ideas-guide" src="${K.MASCOT_ART[guide]}" alt=""><span class="ideas-bubble">💬</span></div>
+      <h2 class="ideas-title">${esc(t('feedback.title'))}</h2><p class="ideas-lead">${esc(t('feedback.lead'))}</p>
+      <div class="feedback-kinds" role="radiogroup">${kinds.map(k=>`<button type="button" role="radio" data-kind="${k}" class="kind-${k}${k===kind?' active':''}" aria-checked="${k===kind}"><span class="ideas-emoji">${icons[k]}</span><b>${esc(t('feedback.kind.'+k))}</b></button>`).join('')}</div>
+      <textarea id="feedbackText" maxlength="1200" rows="5" placeholder="${esc(t('feedback.placeholder'))}" aria-label="${esc(t('feedback.title'))}"></textarea>
+      <p class="feedback-error" hidden>${esc(t('feedback.empty'))}</p>
+      <button class="simple-ok ideas-send" id="feedbackSend">✉️ ${esc(t('feedback.send'))}</button><small class="feedback-note">${esc(t('feedback.note'))}</small></div>`;
+    f.appendChild(o);
+    const text=o.querySelector('#feedbackText'),err=o.querySelector('.feedback-error');
+    o.querySelector('.simple-close').onclick=()=>{K.sfx('tap');o.remove()};
+    o.querySelectorAll('[data-kind]').forEach(b=>b.onclick=()=>{K.sfx('tap');kind=b.dataset.kind;o.querySelectorAll('[data-kind]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-checked',String(x===b))})});
+    o.querySelector('#feedbackSend').onclick=()=>{
+      const msg=text.value.trim();
+      if(!msg){err.hidden=false;text.focus();return}
+      K.sfx('tap');
+      showParentalGate(()=>{
+        const subject=`Kwizillo feedback: ${t('feedback.kind.'+kind)}`;
+        const body=`${msg}\n\n---\n${t('feedback.kind.'+kind)} · ${K.state.language} · ${t('settings.level')} ${K.state.niveau||1}`;
+        location.href=`mailto:${contactMail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        o.querySelector('.simple-modal-card').innerHTML=`<div class="ideas-hero"><img class="ideas-guide" src="${K.MASCOT_ART[guide]}" alt=""><span class="ideas-bubble">🙏</span></div><h2 class="ideas-title">${esc(t('feedback.thanksTitle'))}</h2><p class="ideas-lead">${esc(t('feedback.thanks'))}</p><button class="simple-ok ideas-send" id="feedbackDone">${esc(t('common.close'))}</button>`;
+        o.querySelector('#feedbackDone').onclick=()=>{K.sfx('tap');o.remove()};
+        K.cheer?.(o.querySelector('.simple-modal-card'));
+      });
+    };
+    setTimeout(()=>text.focus(),150);
+  }
+  K.showFeedback=showFeedback;
+
   function showParentalGate(onPass){
     const f=K.app.querySelector('.game-frame');if(!f)return;
     // Beyond a six-to-eight-year-old, trivial for a grown-up: two digits times
@@ -806,11 +872,13 @@
       ${K.premiumCard()}
       <section class="setting-card level-card"><div class="setting-icon">🎯</div><div><b>${esc(t('settings.levelMath'))} ${K.state.niveau||1}</b><small>${esc(levelSummary(K.state.niveau||1))}</small></div><div class="level-toggle">${[1,2,3,4,5,6].map(v=>`<button data-level="${v}" class="${Number(K.state.niveau||1)===v?'active':''} ${K.premium.can('math',v)?'':'premium-level'}">${v}</button>`).join('')}</div></section>
       <section class="setting-card lang-card"><div class="setting-icon">🌍</div><div><b>${esc(t('settings.language'))}</b><small>${esc(t('settings.languageSub'))}</small></div><div class="lang-toggle">${langOrder().map(l=>`<button data-setlang="${l.id}" class="${K.state.language===l.id?'active':''}">${l.flag} ${esc(l.id.toUpperCase())}</button>`).join('')}</div></section>
+      <section class="setting-card lang-card learn-card"><div class="setting-icon">🗣️</div><div><b>${esc(t('settings.learnLang'))}</b><small>${esc(K.talenLearnLang?.()?t('settings.learnLangSub'):t('talen.soonLang'))}</small></div>${K.talenLearnLang?.()?`<div class="lang-toggle learn-toggle">${langOrder().filter(l=>K.TALEN.langs.includes(l.id)&&l.id!==K.state.language).map(l=>`<button data-learn="${l.id}" class="${K.talenLearnLang()===l.id?'active':''}">${l.flag} ${esc(t('talen.lang.'+l.id))}</button>`).join('')}</div>`:''}</section>
       <section class="setting-card clickable" id="soundOpen"><div class="setting-icon">🔊</div><div><b>${esc(t('settings.sound'))}</b><small>${esc(voiceLine)} · ${esc(musicLine)}</small></div><em>›</em></section>
       <section class="setting-card"><div class="setting-icon">⏱️</div><div><b>${esc(t('settings.timeLimit'))}</b><small id="timeLabel">${esc(K.state.timeLimitOn===false?t('settings.timeLimitOff'):t('settings.timeLimitPerWorld'))}</small></div><button class="native-switch ${K.state.timeLimitOn!==false?'on':''}" id="timeToggle" aria-label="${esc(t('settings.timeLimit'))}"><i></i></button></section>
       <section class="setting-card world-levels"><div class="setting-icon">🗺️</div><div><b>${esc(t('settings.levelWorlds'))}</b><small>${esc(t('settings.levelWorldsSub'))}</small></div><div class="world-level-row">${shown().map(w=>`<span title="${esc(worldTitle(w))}">${K.worldBadge(w,'tiny')}<i>${K.worldLevel(w)}</i></span>`).join('')}</div></section>
       <section class="setting-card tour-card"><div class="setting-icon">🧭</div><div><b>${esc(t('tour.pick'))}</b><small>${esc(t('tour.pickSub'))}</small></div><div class="tour-guides"><button data-tour="milo"><img class="mascot-face" src="${K.MASCOT_ART.milo}" alt="">${esc(t('voice.milo'))}</button><button data-tour="luna"><img class="mascot-face" src="${K.MASCOT_ART.luna}" alt="">${esc(t('voice.luna'))}</button></div></section>
       <section class="setting-card players-card"><div class="setting-icon">👨‍👩‍👧</div><div><b>${esc(t('players.title'))}</b><small>${esc(t('players.sub'))}</small></div><div class="player-list">${K.players.all().map(p=>`<div class="player-row"><span class="player-face">${esc((p.name[0]||'?').toUpperCase())}</span><span class="player-name"><b>${esc(p.name)}</b><small>${esc(p.current?t('players.current'):t('settings.level')+' '+Math.max(1,1+Math.floor(Number(p.state?.xp||0)/100)))}</small></span></div>`).join('')}</div></section>
+      <section class="setting-card clickable ideas-open" id="feedbackOpen"><div class="setting-icon">💬</div><div><b>${esc(t('settings.feedback'))}</b><small>${esc(t('settings.feedbackSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="shareOpen"><div class="setting-icon">📣</div><div><b>${esc(t('settings.share'))}</b><small>${esc(t('settings.shareSub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable" id="privacyOpen"><div class="setting-icon">🛡️</div><div><b>${esc(t('settings.privacy'))}</b><small>${esc(t('privacy.sub'))}</small></div><em>›</em></section>
       <section class="setting-card clickable reset-card" id="resetOpen"><div class="setting-icon">♻️</div><div><b>${esc(t('settings.reset'))}</b><small>${esc(t('settings.resetSub'))}</small></div><em>›</em></section>
@@ -819,6 +887,8 @@
     </div>`;
     const f=nativeScreen({cls:'parent-screen',title:t('settings.title'),subtitle:t('settings.sub'),body,active:'parent'});
     f.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>{K.sfx('tap');if(K.setLanguage(b.dataset.setlang)){K.useBank();K.showParent()}});
+    f.querySelector('#feedbackOpen')?.addEventListener('click',()=>{K.sfx('tap');showFeedback()});
+    f.querySelectorAll('[data-learn]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.state.learnLang=b.dataset.learn;K.save();K.showParent()});
     f.querySelector('#soundOpen').onclick=()=>{K.sfx('tap');K.showSoundSettings()};
     f.querySelectorAll('[data-tour]').forEach(b=>b.onclick=()=>{K.sfx('tap');const guide=b.dataset.tour;K.showHome();setTimeout(()=>K.startTour({guide}),320)});
     K.warmTour?.('milo');K.warmTour?.('luna');   // either tour starts talking at once

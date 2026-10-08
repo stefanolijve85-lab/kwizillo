@@ -45,6 +45,8 @@
       const word={'+':t('math.op.plus'),'-':t('math.op.minus'),'×':t('math.op.times'),'÷':t('math.op.divided')}[s.op];
       s.speech=[...num(s.a),word,...num(s.b)];
     }
+    // "=" is said too ("zeven plus drie is …"), so the sum sounds like the one on screen.
+    s.speech=[...s.speech,t('math.op.equals')];
     // Four options: the answer and three near misses, all distinct and >= 0.
     const opts=new Set([s.answer]);
     const near=[1,-1,2,-2,10,-10,s.answer>20?Math.round(s.answer*.1):3,s.a&&s.b?s.a+s.b:5];
@@ -113,7 +115,7 @@
         <header class="quiz-v2-head">
           <button class="quiz-back" id="mathBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
           <div class="quiz-brand"><span>${esc(t('math.title'))}</span><small>${esc(m.world==='mix'?t('game.mixAll'):t(`world.${m.world}.title`))} · ${esc(t('memo.level',{n:m.niveau}))}</small></div>
-          <div class="quiz-meta"><button class="meta-chip" data-stats>${K.icon('coin')} ${Number(K.state.coins||0)}</button><button class="meta-chip" data-stats>${K.icon('flame')} ${Number(K.state.streak||0)}</button></div>
+          <div class="quiz-meta" aria-hidden="true"></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('math.progress',{current:m.index+1,total}))}</strong><div><i style="width:${pct}%"></i></div>${seconds?`<span class="quiz-timer" id="mathTimer" style="--p:100"><b>${seconds}</b></span>`:`<span>${m.score} ✓</span>`}</div>
         <main class="quiz-card math-card">
@@ -130,7 +132,6 @@
     // terug hoort dus naar Home te gaan. Het ging naar het wereldscherm van de
     // wereld waar de sommen vandaan kwamen, en dat is niet waar je vandaan kwam.
     f.querySelector('#mathBack').onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showHome()};
-    f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.stopSpeech();stopTimer();K.sfx('tap');K.showStats({back:()=>render()})});
     // The hint shows the counting dots (or the reversed operation) for a moment.
     f.querySelector('#mathHint').onclick=()=>{K.sfx('hint');const h=f.querySelector('#mathFeedback');h.hidden=false;h.className='math-feedback is-hint';h.textContent=hintFor(s);say(hintFor(s,true));setTimeout(()=>{if(h.classList.contains('is-hint'))h.hidden=true},2600)};
     f.querySelector('#mathPrev').onclick=()=>{if(m.index===0)return;K.stopSpeech();stopTimer();K.sfx('swoosh');m.index--;render()};
@@ -165,7 +166,7 @@
       if(correct)K.awardPoints(10);K.save();
       const h=f.querySelector('#mathFeedback');h.hidden=false;h.className=`math-feedback ${correct?'is-good':'is-try'}`;
       h.innerHTML=`<b>${esc(t(value===null?'feedback.timeKicker':correct?'feedback.goodKicker':'feedback.tryKicker'))}</b><span>${esc(t('math.answerIs',{sum:s.text,answer:s.answer}))}</span>`;
-      const line=correct?[t(`feedback.speech.good.${1+Math.floor(Math.random()*8)}`)]:parts('math.speech.wrong',{answer:s.answer});
+      const line=correct?[K.praiseLine()]:parts('math.speech.wrong',{answer:s.answer});
       const go=()=>{m.index++;render()};
       // The voice names the chosen number first, then the praise or the correction.
       const chosen=value===null?[]:num(value).map((text,i,all)=>({kind:i===all.length-1?'answer':'part',text}));

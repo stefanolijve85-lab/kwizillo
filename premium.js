@@ -177,7 +177,9 @@
 
   /* ---------------- Gating rules ---------------- */
 
-  const isPremium=()=>valid(ent);
+  // A pupil logged in through a school with a valid licence plays everything
+  // (school-client.js); the school licence is bought outside any app store.
+  const isPremium=()=>valid(ent)||!!K.schoolPremium?.();
 
   // Testing on your own phone. There is no switch in the app for this — the
   // parent zone used to carry one and it had no business in a shipping build.
@@ -208,7 +210,8 @@
     math:level=>Number(level||1)<=FREE.mathMaxLevel,
     memo:world=>FREE.memoWorlds.includes(world||'mix'),
     fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld,
-    mega:()=>false                // the Mega Quiz asks questions from every world: Premium only
+    mega:()=>false,               // the Mega Quiz asks questions from every world: Premium only
+    talen:id=>!!K.TALEN?.themes?.find(x=>x.id===id)?.free   // Talen: the animals are free, the other themes Premium
   };
   // can('quiz', world, topicKey, quizNumber) — true when free or Premium.
   const can=(kind,...args)=>isPremium()||!!rules[kind]?.(...args);

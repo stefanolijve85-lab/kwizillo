@@ -1402,7 +1402,7 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .home-mega .home-game-art{object-position:center 50%}
 .home-mega-veil{position:absolute;inset:0;background:radial-gradient(ellipse 62% 90% at 50% 50%,rgba(12,30,110,.78),rgba(30,40,150,.42) 70%,rgba(10,20,70,.12) 100%)}
 .home-mega-copy{position:relative;z-index:2;flex:1;min-width:0;display:grid;gap:2px;justify-items:center;text-align:center}
-.home-mega-copy b{font-size:clamp(20px,5.6vw,28px);line-height:1;font-weight:1000;letter-spacing:-.02em;background:linear-gradient(180deg,#fff86c,#ffca26 60%,#ff9b10);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #3a2a9c) drop-shadow(0 4px 6px rgba(0,20,70,.4))}
+.home-mega-copy b{padding:.12em .1em .24em;margin:-.12em 0 -.24em;font-size:clamp(20px,5.6vw,28px);line-height:1;font-weight:1000;letter-spacing:-.02em;background:linear-gradient(180deg,#fff86c,#ffca26 60%,#ff9b10);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #3a2a9c) drop-shadow(0 4px 6px rgba(0,20,70,.4))}
 .home-mega-copy small{font-size:12px;font-weight:900;color:#e4eeff;text-shadow:0 1px 4px rgba(0,18,56,.8)}
 .home-mega:active{transform:translateY(3px);box-shadow:0 3px 0 #1a3a9c}
 /* like a world tile: the level top right; when locked the Premium badge top left */
@@ -1470,3 +1470,253 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* parent zone: the ten languages fill the card in two rows of five, like the six levels; English first, then Dutch */
 .setting-card.lang-card .lang-toggle{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .setting-card.lang-card .lang-toggle button{min-width:0;min-height:44px;justify-content:center}
+
+/* ==== Talen (phase 1): passport, Hoor en tik, result. Built on the game
+   pickers, the Wat ben ik? card and the result card; only what Talen adds. ==== */
+/* Runner as a banner: the Mega Quiz banner's component; the runner in view on the right */
+.home-runner .home-game-art{object-position:50% 16%;filter:brightness(1.12) saturate(1.2)}
+/* bright banner: the waterfalls in view, only a soft shade behind the name; the two runners (the game's own portraits) on the sides */
+.home-runner .home-mega-veil{background:radial-gradient(ellipse 34% 80% at 50% 50%,rgba(14,40,130,.62),rgba(14,40,130,.18) 70%,transparent 100%)}
+.home-runner-kid{position:absolute;z-index:1;bottom:auto;top:4%;height:190%;width:auto;pointer-events:none;filter:drop-shadow(0 4px 6px rgba(0,25,70,.35))}
+.home-runner-kid.boy{inset-inline-start:2%}
+.home-runner-kid.girl{inset-inline-end:2%}
+.home-runner .home-world-level{z-index:3}
+/* passport */
+.talen-msg{margin:0;text-align:center;color:#10175b;font-weight:1000;letter-spacing:-.01em;font-size:14px}
+.talen-stamps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.talen-stamp{position:relative;display:grid;justify-items:center;align-content:start;gap:4px;padding:8px 6px 10px;border-radius:20px;border:2px solid rgba(255,255,255,.8);background:#fff;box-shadow:0 6px 0 #a8d9f4,0 10px 16px rgba(22,84,149,.14);color:#10175b;font:inherit;font-weight:1000;cursor:pointer;text-align:center}
+.talen-stamp img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+.talen-stamp b{font-size:13px;letter-spacing:-.01em}
+.talen-stamp.done{border-color:#ffd23f;box-shadow:0 6px 0 #e0a800,0 0 18px rgba(255,200,40,.35)}
+.talen-stamp.soon{cursor:default;opacity:.62;background:#eef6ff}
+.talen-stamp.soon small{font-size:11px;color:#5a7aa3}
+.talen-stamp-icon{display:grid;place-items:center;width:100%;aspect-ratio:1;font-size:34px;border-radius:14px;background:#dcecff}
+.talen-stamp.locked img{filter:saturate(.5) brightness(.85)}
+.talen-stars{display:flex;gap:2px;font-size:15px;line-height:1}.talen-stars i{font-style:normal;color:#cfdcec}.talen-stars i.on{color:#ffb300}
+.talen-start{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe969,#ffbd23);color:#17235e;font:inherit;font-weight:1000;font-size:17px;box-shadow:0 5px 0 #dc8c12;cursor:pointer}
+.talen-start.secondary{background:linear-gradient(180deg,#9c6cff,#6536e8);color:#fff;box-shadow:0 5px 0 #4a22b7}
+.talen-review{display:grid;gap:10px;padding:12px;border-radius:20px;background:#fff;box-shadow:0 6px 14px rgba(20,70,128,.1)}
+.talen-review b{color:#10175b}.talen-review small{display:block;color:#5a7aa3;font-weight:900}
+.talen-chips,.talen-learned{display:flex;flex-wrap:wrap;gap:8px}
+.talen-chip{display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:999px;border:2px solid #cfe4f8;background:#fff;color:#10175b;font:inherit;font-weight:1000;cursor:pointer;text-align:start}
+.talen-chip img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.talen-chip small{display:block;font-size:11px;color:#5a7aa3}
+.talen-soon-lang{display:grid;justify-items:center;gap:8px;padding:28px 16px;border-radius:22px;background:#fff;color:#10175b;font-weight:1000;text-align:center}.talen-soon-lang span{font-size:42px}
+/* Hoor en tik */
+.talen-say{display:grid;place-items:center;min-height:64px;border:2px solid #d6eaf9;font:inherit;font-weight:1000;font-size:clamp(22px,6vw,30px);color:#10175b;cursor:pointer}
+.talen-say.pulse{animation:talenPulse 1s ease-in-out infinite}
+.talen-milo.talking{animation:talenTalk .35s ease-in-out infinite alternate}
+.talen-card .whoami-grid{grid-auto-rows:1fr}
+.talen-tile .talen-label{display:none;font-weight:1000;letter-spacing:-.01em}
+.talen-tile .talen-label span{display:block;font-size:clamp(15px,4vw,19px)}
+.talen-tile .talen-label small{display:block;font-size:11px;opacity:.95}
+.talen-tile.correct .talen-label{display:block}
+.talen-tile.wrong{pointer-events:none;animation:talenShake .4s ease}
+/* result: the stamp lands on the card */
+.talen-stamp-fly{position:absolute;right:12%;top:8%;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#fff6c4;border:3px solid #ffd23f;font-size:32px;box-shadow:0 6px 16px rgba(120,80,0,.3);animation:talenStamp .7s cubic-bezier(.2,1.4,.4,1) .3s both}
+.talen-result .talen-learned{justify-content:center;margin:4px 0 10px}
+@keyframes talenPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes talenTalk{from{transform:translateY(0)}to{transform:translateY(-3px) rotate(-2deg)}}
+@keyframes talenShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes talenStamp{from{opacity:0;transform:scale(2.4) rotate(-25deg)}to{opacity:1;transform:scale(1) rotate(-8deg)}}
+@media (prefers-reduced-motion:reduce){.talen-say.pulse,.talen-milo.talking,.talen-tile.wrong,.talen-stamp-fly{animation:none}}
+/* passport: compact stamps, not stretched over the panel */
+.talen-stamps{align-items:start;grid-auto-rows:auto}
+/* result: the learned words in two compact columns, above the buttons */
+.talen-result .talen-chip{padding:3px 8px 3px 3px;font-size:13px;gap:6px}
+.talen-result .talen-chip img{width:28px;height:28px}
+.talen-result .talen-chip small{font-size:10px}
+/* collection: a fifth tab (Woordjes) */
+.collection-tabs{grid-template-columns:repeat(5,1fr)}
+.collection-tabs button{font-size:10.5px;padding-inline:2px}
+.talen-stamps-mini{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.talen-stamps-mini .talen-stamp{padding:5px 4px 7px;cursor:default}
+.talen-stamps-mini .talen-stamp b{font-size:10px}
+.talen-stamps-mini .talen-stamp-icon{font-size:20px}
+.talen-stamps-mini .talen-stars{font-size:10px}
+.talen-words-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+/* Home header without the level line: the Mega Quiz moves up, the worlds get the height */
+.home-hud.with-logo{min-height:68px}
+@media(max-height:700px){.home-hud.with-logo{min-height:50px}}
+/* passport: the island and the message on top, the stamps and the button at the bottom above the bar */
+/* the worlds get the height back: a lower Runner banner and lower game tiles, smaller names */
+.home-runner{min-height:60px;padding-block:6px}
+.home-runner .home-mega-copy b{font-size:clamp(18px,5vw,24px)}
+@media(max-width:430px){.home-game.art{aspect-ratio:16/6}}
+.home-world-copy b{font-size:clamp(12px,9.5cqw,19px)}
+/* a short phone (SE): the games in three columns and a slim Runner banner, so the worlds keep room */
+@media(max-height:700px){.home-games{grid-template-columns:1fr 1fr 1fr;gap:7px}.home-game.art{aspect-ratio:16/10}.home-game.art b{font-size:12px;bottom:5px}.home-runner{min-height:40px;padding-block:3px}.home-runner .home-mega-copy small{display:none}.home-runner .home-mega-copy b{font-size:18px}}
+/* Home without the statistics button (the bar below has it): an empty right side as wide as the avatar keeps it balanced */
+.home-hud.with-logo .hud-right{width:48px;min-height:1px}
+/* Statistics, collection, achievements and the other panels: the Kwizillo logo where Home has it, the title a little lower */
+.panel-logo{display:block;margin:0 auto;height:clamp(38px,10.5vw,54px);width:auto;filter:drop-shadow(0 4px 8px rgba(0,26,80,.35))}
+.panel-head .panel-logo+h1{margin-top:12px}
+/* exactly where Home has it (measured: Home's logo sits 2 px lower; 36 px tall on a short phone) */
+.panel-logo{margin-top:2px}
+@media(max-height:700px){.panel-logo{height:36px;margin-top:3px}}
+/* Game pickers (Memo, Wat ben ik?, Fotozoom, Weetjes): the game's own name as the title, in the gold letters Rekenen wears in its header (.quiz-brand) */
+/* Gradient titles fill the whole glyph: background-clip:text only paints inside the box, so the padding
+   (given back by the margin) keeps the tails of g, p and y and Arabic and Cyrillic letters filled. */
+.panel-head h1.game-name{margin:calc(8px - .16em) 0 calc(4px - .12em);padding:.16em .12em .3em;font-size:clamp(34px,10vw,48px);font-weight:1000;line-height:1;letter-spacing:-.05em;background:linear-gradient(180deg,#fff86c,#ffca26 60%,#ff9b10);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:clamp(1px,.34vw,2px) #2842ae;text-shadow:none;filter:drop-shadow(0 4px 0 #512fa8) drop-shadow(0 7px 8px rgba(0,20,70,.33))}
+/* Home: the eight worlds a little bigger. The Runner moved under "Speel ook" and the games stand three in a row on a phone too, so the worlds get the height and stand apart from the games */
+@media(max-width:430px){.home-games{grid-template-columns:1fr 1fr 1fr;gap:8px}.home-game.art{aspect-ratio:16/10}.home-game.art b{font-size:13px;bottom:6px;left:3px;right:3px}.home-game.art .home-world-level{font-size:8px;padding:1px 5px;top:4px;inset-inline-end:4px}}
+.home-runner{min-height:54px;padding-block:5px}
+@media(max-height:700px){.home-runner{min-height:38px;padding-block:3px}.home-runner .home-mega-copy b{font-size:17px}.home-game.art{aspect-ratio:16/8}.home-game.art b{font-size:12px;bottom:4px}}
+@media(min-width:431px){.home-game.art{aspect-ratio:16/6.5}.home-runner{max-height:76px}}
+/* the learning language: nine languages with their full names, three in a row, flag beside the name */
+.setting-card.learn-card .lang-toggle{grid-template-columns:repeat(3,1fr)}
+.setting-card.learn-card .lang-toggle button{flex-direction:row;gap:5px;white-space:nowrap;font-size:13px;padding-inline:4px;min-height:42px;overflow:hidden}
+/* Talen tile: the island of languages, with the globe in the middle of the tile */
+.home-game.talen .home-game-art{object-position:50% 40%}
+/* Talen: "Nog een keer" and the hint side by side, as wide as the tiles above them */
+.talen-actions .action{display:flex;align-items:center;justify-content:center;gap:6px}
+.talen-actions .action .ki{width:18px;height:18px}
+.talen-actions .action:disabled{opacity:.45}
+.talen-tile.hinted{opacity:.18;filter:grayscale(1);transform:scale(.96);transition:opacity .35s ease,transform .35s ease,filter .35s ease}
+/* Ideas and feedback (parent zone): a game card with the guide on top, three big choices, the text, a gold send button */
+.feedback-modal{padding:5%}
+.feedback-modal .simple-modal-card{text-align:center;max-height:100%;overflow:auto;padding:0 16px 16px;border-color:#fff}
+.ideas-hero{position:relative;display:grid;place-items:center;margin:0 -16px 0;padding:18px 0 12px;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.35),transparent 55%),linear-gradient(180deg,#5aa8ff,#4a5fe0 70%,#5b3fc4)}
+.ideas-guide{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:4px solid #fff;box-shadow:0 6px 0 #3a2a9c,0 10px 20px rgba(0,20,70,.35)}
+.ideas-bubble{position:absolute;top:12px;left:calc(50% + 30px);font-size:30px;filter:drop-shadow(0 3px 4px rgba(0,20,70,.3));animation:ideasBob 2.4s ease-in-out infinite}
+@keyframes ideasBob{50%{transform:translateY(-4px) rotate(-6deg)}}
+@media(prefers-reduced-motion:reduce){.ideas-bubble{animation:none}}
+.feedback-modal .simple-close{z-index:2;background:rgba(255,255,255,.9)}
+.feedback-modal h2.ideas-title{margin:12px 0 4px;padding:.12em .1em .26em;font-size:clamp(28px,8vw,36px);font-weight:1000;line-height:1;letter-spacing:-.04em;background:linear-gradient(180deg,#fff86c,#ffca26 60%,#ff9b10);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1.5px #2842ae;filter:drop-shadow(0 3px 0 #512fa8)}
+.feedback-modal p.ideas-lead{margin:0 4px;color:#2f4f7d;font-size:14px;font-weight:850;line-height:1.35}
+.feedback-kinds{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 10px}
+.feedback-kinds button{display:grid;justify-items:center;gap:4px;min-height:84px;border-radius:18px;border:3px solid transparent;padding:10px 4px 9px;cursor:pointer;color:#17235e;box-shadow:0 4px 0 rgba(23,35,94,.14);transition:transform .15s,box-shadow .15s,border-color .15s}
+.feedback-kinds button b{font-size:13px;font-weight:1000;line-height:1.1}
+.feedback-kinds .ideas-emoji{font-size:30px;line-height:1}
+.feedback-kinds .kind-idea{background:linear-gradient(180deg,#fff7c9,#ffe589)}
+.feedback-kinds .kind-bug{background:linear-gradient(180deg,#e2f0ff,#bcdcff)}
+.feedback-kinds .kind-love{background:linear-gradient(180deg,#ffe6f1,#ffc3dc)}
+.feedback-kinds button.active{border-color:#3d6ff0;transform:translateY(-3px);box-shadow:0 7px 0 #2842ae,0 0 0 4px rgba(77,141,255,.2)}
+.feedback-kinds button:not(.active){opacity:.82}
+#feedbackText{width:100%;box-sizing:border-box;border:3px solid #cfe4f7;border-radius:18px;padding:12px 14px;font:inherit;font-size:16px;font-weight:700;color:#10175c;resize:none;background:#f7fbff}
+#feedbackText:focus{outline:none;border-color:#4d8dff;background:#fff}
+.feedback-error{color:#c2410c;font-weight:900;font-size:13px;margin:6px 0 0}
+.feedback-modal .ideas-send{width:100%;min-height:54px;margin-top:12px;font-size:18px;box-shadow:0 5px 0 #dc8c12}
+.feedback-modal .ideas-send:active{transform:translateY(3px);box-shadow:0 2px 0 #dc8c12}
+.feedback-note{display:block;margin-top:10px;color:#5b6b8f;font-size:11px;font-weight:800}
+/* Arabic letters join: no negative spacing, and a thinner outline so the gold fill shows in the thin strokes */
+[dir="rtl"] .panel-head h1.game-name,[dir="rtl"] .feedback-modal h2.ideas-title,[dir="rtl"] .home-mega-copy b{letter-spacing:0;-webkit-text-stroke-width:.6px}
+/* iPad: three buddies per row, so a whole row of tiles is in view while scrolling */
+@media(min-width:700px){.mascot-grid{grid-template-columns:repeat(3,1fr)}.mascot-card b{font-size:clamp(15px,2.2vw,20px)}.mascot-card small{font-size:clamp(11px,1.5vw,13px)}}
+/* iPad upright: the logo at Home's height (it sat 2 px lower) */
+@media(min-width:600px){.panel-logo{margin-top:1px}}
+/* the answer line in the Talen bubble: each piece appears when it is said */
+.talen-say .talen-line{display:inline;text-align:center;line-height:1.15;font-size:clamp(19px,5.4vw,28px)}
+.talen-say .talen-piece{opacity:0;transition:opacity .18s ease}
+.talen-say .talen-piece.on{opacity:1}
+.talen-say .talen-piece.native{color:#2f6fe8}
+@media (prefers-reduced-motion:reduce){.talen-say .talen-piece{transition:none}}
+/* Prestaties, Collectie, Statistieken, Ouderzone: a compact blue header (logo, title, one line), so more of the page is in view;
+   the blue band ends right under it (--head-end, set by nativeScreen) */
+.native-panel-screen.achievements-screen,.native-panel-screen.collection-screen,.native-panel-screen.stats-screen,.native-panel-screen.parent-screen{background:linear-gradient(180deg,#39aaf2 0,#1775d4 calc(var(--head-end,24%) - 1px),#ecf8ff var(--head-end,24%),#e6f5ff 100%)}
+:is(.achievements-screen,.collection-screen,.stats-screen,.parent-screen) .panel-head{min-height:0}
+:is(.achievements-screen,.collection-screen,.stats-screen,.parent-screen) .panel-head .panel-logo+h1{margin-top:4px}
+:is(.achievements-screen,.collection-screen,.stats-screen,.parent-screen) .panel-head h1{font-size:clamp(22px,6.2vw,34px);margin-bottom:0}
+:is(.achievements-screen,.collection-screen,.stats-screen,.parent-screen) .panel-head p{margin-top:2px}
+/* Collectie, Kaarten and Winkel: three per row, so three whole cards are in view before scrolling; on a card
+   that small the fact text waits for the card to be opened (tap) */
+.collection-screen .kcard-grid,.collection-screen .shop-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media(max-width:600px){.collection-screen .kcard-grid .kcard-text,.collection-screen .kcard-grid .kcard-foot{display:none}}
+@media(max-width:600px){
+  .collection-screen .shop-item{padding:6px;gap:4px;border-radius:16px}
+  .collection-screen .shop-copy small{display:none}
+  .collection-screen .shop-copy b{font-size:11.5px;line-height:1.1}
+  .collection-screen .shop-buy{min-height:32px;font-size:11px;white-space:nowrap;padding-inline:4px}
+  .collection-screen .shop-short{font-size:9.5px}
+}
+
+/* Talen like the other game pickers: the mix on top, the eight themes below, every picture filling its
+   whole tile like the world tiles do (no blur, no faded edges, no frame inside the tile) */
+.talen-pass .panel-scroll{grid-template-rows:auto minmax(0,1fr) auto}
+.talen-pick .talen-pick-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.talen-pick.locked .talen-pick-art{filter:saturate(.6) brightness(.8)}
+.talen-pick.done{border-color:#ffd23f}
+.talen-pick .talen-stars{position:absolute;top:6px;right:8px;display:flex;gap:1px;padding:2px 6px;border-radius:999px;background:rgba(8,28,82,.55);font-size:11px;line-height:1.2}
+.talen-pick .talen-stars i{font-style:normal;color:rgba(255,255,255,.45)}
+.talen-pick .talen-stars i.on{color:#ffd23f}
+[dir="rtl"] .talen-pick .talen-stars{right:auto;left:8px}
+.talen-pick.soon{display:grid;place-items:center;opacity:.6}
+.talen-pick.soon .talen-stamp-icon{width:auto;aspect-ratio:auto;background:none;font-size:34px}
+.talen-pass .memo-pick.mix{aspect-ratio:auto;height:clamp(84px,15vh,170px)}
+.talen-pick.locked .talen-stars{display:none}
+/* The result card always fits inside the screen with room all round: "Naar Home" and "Deel je score" share a
+   row, a short screen gets a smaller gift and tighter spacing, and should it still be too tall the card
+   scrolls inside itself instead of running off the bottom edge */
+.result-v2-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.result-v2-card::-webkit-scrollbar{display:none}
+.result-native{grid-template-columns:1fr 1fr}
+.result-native button{grid-column:1/-1}
+.result-native #homeBtn,.result-native #shareBtn{grid-column:auto;padding-inline:8px;line-height:1.1}
+@media(max-height:760px){
+  .result-v2{padding-top:calc(5% + var(--sat));padding-bottom:calc(5% + var(--sab))}
+  .result-v2-card{padding:5% 5%}
+  .result-stage{height:74px}
+  .result-mascot .mascot-face.large{width:54px;height:54px}
+  .result-v2 h1{font-size:clamp(26px,7vw,40px);margin:3px 0}
+  .result-stats{margin:10px 0}
+  .result-stats span{padding:7px 4px}
+  .result-native{gap:7px}
+  .result-native button{min-height:44px;padding-block:9px}
+}
+
+/* Talen result without scrolling: the card is a column that never grows past the screen; the learned words give
+   way (their rows shrink, one line each), so "Speel ... nog eens" and "Taalpaspoort" are always in view */
+.talen-result .result-v2-card{display:flex;flex-direction:column;overflow:hidden;padding:clamp(14px,3.2vh,30px) 5% clamp(14px,2.6vh,26px)}
+.talen-result .result-stage{flex:0 0 auto;height:clamp(54px,9vh,96px);margin:0}
+.talen-result .result-mascot .mascot-face.large{width:clamp(46px,7vh,64px);height:clamp(46px,7vh,64px)}
+.talen-result .talen-stamp-fly{width:clamp(42px,6.5vh,64px);height:clamp(42px,6.5vh,64px);font-size:clamp(22px,3.4vh,32px);top:4%}
+.talen-result h1{flex:0 0 auto;font-size:clamp(22px,4.4vh,44px);margin:2px 0}
+.talen-result .result-stars{flex:0 0 auto;font-size:clamp(24px,4.2vh,40px);line-height:1.1}
+.talen-result .result-stats{flex:0 0 auto;margin:clamp(6px,1.4vh,14px) 0}
+.talen-result .result-stats span{padding:clamp(4px,1vh,10px) 4px}
+.talen-result .result-rule{flex:0 0 auto;margin:0 0 6px}
+.talen-result .talen-learned{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:minmax(0,46px);align-content:start;gap:6px;overflow:hidden;margin:0 0 clamp(8px,1.6vh,14px)}
+.talen-result .talen-chip{min-width:0;min-height:0;height:100%;padding:3px 8px 3px 3px;font-size:13px;gap:6px}
+.talen-result .talen-chip img{flex:0 0 auto;height:min(28px,100%);width:auto;aspect-ratio:1}
+.talen-result .talen-chip>span{min-width:0}
+.talen-result .talen-chip b,.talen-result .talen-chip small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.15}
+.talen-result .result-native{flex:0 0 auto}
+.talen-result .result-native button{min-height:clamp(42px,6vh,52px)}
+[data-shape="wide"] .talen-result .talen-learned{grid-template-columns:repeat(4,minmax(0,1fr))}
+/* The logo at exactly Home's height on every page and every phone width: the same top padding as .home-ui
+   (3.4% of the width) and no margin of its own. 2.7% + 2px matched Home only at one width; on a 430-wide
+   phone Home sat 1.2px higher. Landscape keeps its own rule (landscape.css). */
+.native-panel-screen{padding-top:calc(3.4% + var(--sat))}
+.panel-logo{margin-top:0}
+/* Kwizillo voor scholen (school-client.js): the class login, and in the parent zone nothing the school already
+   arranges (buying Premium, players on this device, logging out or deleting a player, wiping progress) */
+.school-login{position:absolute;inset:0;display:grid;place-items:center;padding:calc(5% + var(--sat)) 5% calc(5% + var(--sab));overflow:hidden;background:#0b3f92}
+.school-login-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.6)}
+.school-login-card{position:relative;width:min(560px,100%);max-height:100%;overflow:auto;padding:22px 20px 18px;border-radius:30px;background:linear-gradient(180deg,#fff,#eef8ff);border:3px solid #fff;box-shadow:0 24px 70px rgba(0,25,75,.5);text-align:center;color:#10205d}
+.school-login-logo{display:block;height:46px;margin:0 auto 8px}
+.school-login h1{margin:4px 0 6px;font-size:clamp(22px,6vw,32px);line-height:1.1}
+.school-login p{margin:0 0 12px;color:#3566a8;font-weight:800;font-size:14px}
+.school-login p small{font-weight:700;color:#6181a7}
+.school-code{display:grid;gap:12px}
+.school-code input{width:100%;box-sizing:border-box;padding:14px;border:3px solid #cfe4f7;border-radius:20px;font:inherit;font-size:clamp(28px,8vw,40px);font-weight:1000;letter-spacing:.3em;text-align:center;text-transform:uppercase;color:#10205d;background:#f7fbff}
+.school-code input:focus{outline:none;border-color:#4d8dff;background:#fff}
+.school-code button,.school-back{min-height:52px;border:0;border-radius:999px;font:inherit;font-weight:1000;font-size:18px;cursor:pointer}
+.school-code button{background:linear-gradient(180deg,#ffe868,#ffbd21);color:#17235d;box-shadow:0 5px 0 #dc8c12}
+.school-back{width:100%;margin-top:10px;min-height:46px;font-size:15px;background:linear-gradient(180deg,#edf5ff,#dbeeff);color:#2e5f9c;box-shadow:0 4px 0 #b7d6ef}
+.school-error{min-height:1.2em;margin:10px 0 0!important;color:#c2410c!important}
+.school-names{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;max-height:52vh;overflow:auto;padding:2px}
+.school-names button{display:flex;align-items:center;gap:8px;min-height:52px;padding:6px 10px 6px 6px;border:2px solid #cfe4f8;border-radius:18px;background:#fff;font:inherit;font-weight:900;color:#10205d;cursor:pointer;text-align:start}
+.school-names button span{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:50%;background:linear-gradient(180deg,#5aa8ff,#2f6fe8);color:#fff;font-weight:1000}
+.school-names button b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.school-dots{display:flex;justify-content:center;gap:10px;margin:0 0 12px}
+.school-dots i{width:16px;height:16px;border-radius:50%;background:#dbe8f6;box-shadow:inset 0 0 0 2px #b9cfe7}
+.school-dots i.on{background:#ffc72d;box-shadow:inset 0 0 0 2px #e0930b}
+.school-pictures{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:360px;margin:0 auto}
+.school-pictures button{aspect-ratio:1;padding:0;border:3px solid #fff;border-radius:20px;overflow:hidden;background:#dcecff;box-shadow:0 5px 0 #a8d9f4,0 8px 14px rgba(22,84,149,.18);cursor:pointer;transition:transform .12s}
+.school-pictures button img{width:100%;height:100%;object-fit:cover;display:block}
+.school-pictures button.picked{transform:scale(.92)}
+.school-pictures.shake{animation:schoolShake .4s}
+@keyframes schoolShake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+@media(prefers-reduced-motion:reduce){.school-pictures.shake{animation:none}}
+.school-out{border:2px solid #ffd23f}
+[data-school] #premiumOpen,[data-school] .players-card,[data-school] #logoutOpen,[data-school] #deleteOpen,[data-school] #resetOpen{display:none}

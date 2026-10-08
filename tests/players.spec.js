@@ -116,3 +116,28 @@ test('the privacy notice names Olijve Holding B.V., mails stefan@kwizillo.com an
   await expect(screen.locator('#privacyContact')).toContainText('stefan@kwizillo.com');
   await expect(screen.locator('.privacy-publisher')).toContainText('Olijve Holding B.V.');
 });
+
+test('ideas and feedback: under the players a card opens a message window; sending asks the parental gate, opens a mail without the child\'s name and thanks the player', async ({ page }) => {
+  await page.route('**/*.mp4', route => route.abort());
+  await page.addInitScript(() => { localStorage.setItem('kwizillo-fresh-start', '0'); localStorage.setItem('kwizillo-state', JSON.stringify({ schemaVersion: 2, language: 'nl', name: 'Sanne', onboardingComplete: true, voice: 'Stil', group: 5, xp: 0, coins: 0, streak: 0, niveau: 2, soundOn: false, musicOn: false, tourDone: true, lastWorld: 'ruimte', progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] } })); });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
+  await page.evaluate(() => window.KWIZILLO_M1.showParent());
+  const order = await page.evaluate(() => [...document.querySelectorAll('.setting-card')].map(e => e.id || e.className));
+  expect(order.indexOf('feedbackOpen')).toBe(order.findIndex(c => /players-card/.test(c)) + 1);
+  // as wide as the other cards (the class name of the quiz's feedback card once made it 92% wide)
+  const [fb, pl] = [await page.locator('#feedbackOpen').boundingBox(), await page.locator('.players-card').boundingBox()];
+  expect(Math.abs(fb.width - pl.width)).toBeLessThan(1);
+  await page.locator('#feedbackOpen').click();
+  await expect(page.locator('.feedback-modal h2')).toHaveText('Vertel het ons!');
+  await expect(page.locator('[data-kind="bug"]')).toHaveText(/Opmerking/);
+  await page.locator('#feedbackSend').click();
+  await expect(page.locator('.feedback-error')).toBeVisible();
+  await page.locator('[data-kind="bug"]').click();
+  await page.locator('#feedbackText').fill('De vraag over Mars heeft een raar plaatje');
+  await page.locator('#feedbackSend').click();
+  const sum = await page.locator('.gate-form').evaluate(() => { const m = document.querySelector('.simple-modal:last-child p').textContent.match(/(\d+)\D+(\d+)/); return Number(m[1]) * Number(m[2]); });
+  await page.locator('#gateInput').fill(String(sum));
+  await page.locator('.gate-form').evaluate(f => f.requestSubmit());
+  await expect(page.locator('.feedback-modal h2')).toHaveText('Dank je wel!');
+});
