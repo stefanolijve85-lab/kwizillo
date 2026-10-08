@@ -4,7 +4,7 @@
 //   node tools/talen-audio.cjs            records what is missing, then checks every clip with Scribe
 //   node tools/talen-audio.cjs --check    only checks that every clip exists (for npm test)
 //   node tools/talen-audio.cjs --redo shark,haai   records those again (or one language: --redo de/shark)
-//   node tools/talen-audio.cjs --trim     only cuts the silence again, from the takes in .talen-raw/
+//   node tools/talen-audio.cjs --trim     only cuts the silence (and sets the loudness) again, from the takes in .talen-raw/
 //   node tools/talen-audio.cjs --redo all  records every clip again
 //
 // The model and the settings are the app's own (speech-config.js). One recording
@@ -139,6 +139,25 @@ const TALEN_SPEED = 1.05;
 const RAW = path.join(ROOT, '.talen-raw');
 const FFMPEG = path.join(ROOT, 'tools', 'bin', 'ffmpeg');
 const RATE = 44100, KEEP_IN = 0.04, KEEP_OUT = 0.09, FADE_IN = 0.008, FADE_OUT = 0.03;
+// Every clip at the same loudness as the ear hears it (EBU R128, LUFS), so a Portuguese
+// word after a Dutch "betekent" is not suddenly louder: the voices of the ten
+// languages came out of ElevenLabs up to 9 LU apart (nl about -28, pt about -19).
+// Measured with a second of silence on either side (R128 gates silence out, and a
+// short word then still fills its 400 ms blocks); the gain never lifts a peak past -1 dBFS.
+const LOUDNESS = -20, PEAK = Math.pow(10, -1 / 20);
+function loudnessOf(samples) {
+  const pad = new Int16Array(RATE), buf = new Int16Array(pad.length * 2 + samples.length);
+  buf.set(samples, pad.length);
+  const r = require('child_process').spawnSync(FFMPEG, ['-hide_banner', '-nostats', '-f', 's16le', '-ar', String(RATE), '-ac', '1', '-i', '-', '-af', 'ebur128', '-f', 'null', '-'], { input: Buffer.from(buf.buffer), maxBuffer: 1e8 });
+  const m = String(r.stderr).match(/I:\s+(-?[\d.]+) LUFS\s*\n\s*Threshold/);
+  return m ? Number(m[1]) : null;
+}
+function level(samples) {
+  const lufs = loudnessOf(samples); if (lufs === null || lufs < -60) return;
+  let peak = 0; for (const v of samples) peak = Math.max(peak, Math.abs(v) / 32768);
+  const gain = Math.min(Math.pow(10, (LOUDNESS - lufs) / 20), PEAK / Math.max(peak, 1e-4));
+  for (let j = 0; j < samples.length; j++) samples[j] = Math.max(-32768, Math.min(32767, Math.round(samples[j] * gain)));
+}
 function trim(file) {
   const pcm = execFileSync(FFMPEG, ['-loglevel', 'error', '-i', path.join(RAW, file), '-ac', '1', '-ar', String(RATE), '-f', 's16le', '-'], { maxBuffer: 1e8 });
   const s = new Int16Array(pcm.buffer.slice(pcm.byteOffset, pcm.byteOffset + pcm.length));
@@ -149,6 +168,7 @@ function trim(file) {
   const out = s.slice(from, to), fi = Math.round(FADE_IN * RATE), fo = Math.round(FADE_OUT * RATE);
   for (let j = 0; j < fi && j < out.length; j++) out[j] = Math.round(out[j] * j / fi);
   for (let j = 0; j < fo && j < out.length; j++) out[out.length - 1 - j] = Math.round(out[out.length - 1 - j] * j / fo);
+  level(out);
   const dest = path.join(OUT, file); fs.mkdirSync(path.dirname(dest), { recursive: true });
   execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-f', 's16le', '-ar', String(RATE), '-ac', '1', '-i', '-', '-c:a', 'libmp3lame', '-b:a', '128k', dest], { input: Buffer.from(out.buffer) });
 }

@@ -481,18 +481,14 @@
     let n=Math.round(LEAD_IN*rate);
     const at=cuts.map(([a,z],i)=>{const start=n;n=start+(z-a)+(i<cuts.length-1?pause(i):0);return start});
     const mix=new Float32Array(n+Math.round(TAIL*rate));
-    // Every clip at the same speech level: "Goed zo!", the English word and the
-    // Dutch one were recorded apart and could differ by several dB. The level is
-    // the RMS of the voiced samples (quiet ones left out, so a short word with
-    // little silence is not judged louder); a clip is never pushed past a peak of .95.
-    const LEVEL=.11;
+    // The loudness is set in the clips themselves (tools/talen-audio.cjs, EBU R128 at
+    // -20 LUFS): the voices of the ten languages differ too much in sound for a level
+    // measured here to make them sound equally loud.
     buffers.forEach((b,i)=>{
       const [a,z]=cuts[i],chans=[];for(let k=0;k<b.numberOfChannels;k++)chans.push(b.getChannelData(k));
       const mono=j=>{let v=0;for(const ch of chans)v+=ch[j];return v/chans.length};
-      let sum=0,cnt=0,peak=0;for(let j=a;j<z;j++){const v=Math.abs(mono(j));if(v>peak)peak=v;if(v>.02){sum+=v*v;cnt++}}
-      const rms=cnt?Math.sqrt(sum/cnt):0,gain=rms?Math.min(Math.max(LEVEL/rms,.4),4,.95/Math.max(peak,1e-4)):1;
       const fin=Math.round(.006*rate),fout=Math.round(.02*rate);
-      for(let j=a;j<z;j++){let v=mono(j)*gain;const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;mix[at[i]+j-a]=v}
+      for(let j=a;j<z;j++){let v=mono(j);const x=j-a,y=z-1-j;if(x<fin)v*=x/fin;if(y<fout)v*=y/fout;mix[at[i]+j-a]=v}
     });
     const pcm=new Int16Array(mix.length);for(let j=0;j<mix.length;j++)pcm[j]=Math.max(-1,Math.min(1,mix[j]))*0x7fff;
     const head=new DataView(new ArrayBuffer(44)),w=(o,str)=>{for(let k=0;k<str.length;k++)head.setUint8(o+k,str.charCodeAt(k))};
