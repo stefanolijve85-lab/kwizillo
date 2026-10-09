@@ -10,6 +10,7 @@
 //
 //   node tools/mascot-tiles.cjs            → assets/mascots/tile/<id>.png
 //   node tools/mascot-tiles.cjs --check    → fails if a tile is missing or stale
+//   node tools/mascot-tiles.cjs --heads-only → only the head step (HEADS), once, on tiles fresh from step 2
 //
 // The cutting is done by tools/cutout.swift, which asks macOS for the same
 // subject mask that Preview's "Remove Background" uses: it knows what a
@@ -39,8 +40,34 @@ const KEYED = new Set(['terra']);
 const WIDE = 0.74;               // the character's width as a share of the tile
 const MAX_ZOOM = 1.5;            // at most this much larger than fitted whole
 
+// Then every head the size and height of Mike's (2026-10-09, Stefan: "sommige groter
+// dan de ander, sommige te lang en niet breed genoeg; Mike ziet er goed uit, neem
+// hem als basis"). One width for all still left Luna, Milo, Pootje and Pip as
+// close-ups with a head far larger than Mike's, and Terra and Sparky with a small
+// one. Measured on a 320x256 view of the tile above (top of the head, chin, centre
+// of the head; Mike 10..158) and set by eye in the collection next to Mike, since a
+// hat or goggles is not head: [scale, top, centre x]. The head goes to Mike's
+// height and to the middle; a drawing that then ends above the bottom of the tile
+// fades out there, under the name band of the card.
+const HEADS = { luna: [.86, 10, 142], milo: [.87, 32, 160], pootje: [.86, 10, 155], pip: [.86, 10, 163], ravi: [.86, 8, 160], draco: [.88, 10, 151], kiko: [.87, 10, 160], flora: [.92, 12, 165], nova: [.92, 10, 160], terra: [1.14, 28, 156], sparky: [1.06, 8, 159] };
+const HEAD_TOP = 20, FADE = 80;
+function headStep(file) {
+  const [s, top, cx] = HEADS[file.replace(/\.(jpg|png)$/, '')] || []; if (!s) return;
+  const w = Math.round(W * s), h = Math.round(H * s), x = Math.round(W / 2 - cx * 2 * s), y = Math.round(HEAD_TOP - top * 2 * s);
+  const fade = y + h < H ? `,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='alpha(X,Y)*min(1,(H-1-Y)/${FADE})'` : '';
+  const out = tileOf(file), tmp = out + '.tmp.png';
+  execFileSync(path.join(__dirname, 'bin', 'ffmpeg'), ['-loglevel', 'error', '-y', '-i', out, '-f', 'lavfi', '-i', `color=c=black@0:s=${W}x${H},format=rgba`,
+    '-filter_complex', `[0:v]format=rgba,scale=${w}:${h}:flags=lanczos${fade}[f];[1:v][f]overlay=${x}:${y}:format=auto,format=rgba`, '-frames:v', '1', tmp]);
+  fs.renameSync(tmp, out);
+}
+
 const sources = () => fs.readdirSync(SRC).filter(f => /\.jpg$/.test(f) && (!only.length || only.includes(f.replace(/\.jpg$/, '')))).sort();
 const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));
+
+if (process.argv.includes('--heads-only')) {   // the head step alone, on the tiles as they are
+  for (const f of sources()) headStep(f);
+  console.log('heads set'); process.exit(0);
+}
 
 (async () => {
   const stale = sources().filter(f => {
@@ -125,6 +152,7 @@ const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));
     if (!result) { console.error(`${file}: the cut-out came back empty, skipped`); continue }
     const out = tileOf(file);
     fs.writeFileSync(out, Buffer.from(result.url.split(',')[1], 'base64'));
+    headStep(file);
     console.log(`${file}: character ${result.box[0]}x${result.box[1]} → ${path.basename(out)} (${(fs.statSync(out).size / 1024).toFixed(0)} kB)`);
   }
   await browser.close();
