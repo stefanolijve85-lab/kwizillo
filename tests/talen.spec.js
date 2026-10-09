@@ -174,10 +174,14 @@ test('eight themes of ten words: every word, picture, line and closing line exis
   const T = ctx.window.KWIZILLO_M1.TALEN, dir = path.join(__dirname, '..', 'assets', 'talen', 'audio');
   expect(T.langs).toHaveLength(10);
   expect(T.themes.map(t => t.words.length)).toEqual([10, 10, 10, 10, 10, 10, 10, 10]);
+  // Milo's clips in <lang>/, Luna's in <lang>/luna/: a child who chose Luna hears only Luna.
+  for (const l of T.langs) for (const g of ['', 'luna']) {
+    for (const th of T.themes) for (const w of th.words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, g, `${w.id}.mp3`)), `${l}/${g}/${w.id}`).toBe(true); expect(fs.existsSync(path.join(__dirname, '..', w.img)), w.img).toBe(true); }
+    for (let i = 1; i <= T.praise; i++) expect(fs.existsSync(path.join(dir, l, g, `_goed${i}.mp3`)), `${l}/${g} _goed${i}`).toBe(true);
+    for (let i = 1; i <= T.almost; i++) expect(fs.existsSync(path.join(dir, l, g, `_bijna${i}.mp3`)), `${l}/${g} _bijna${i}`).toBe(true);
+    for (const k of ['_intro', '_betekent']) expect(fs.existsSync(path.join(dir, l, g, `${k}.mp3`)), `${l}/${g} ${k}`).toBe(true);
+  }
   for (const l of T.langs) {
-    for (const th of T.themes) for (const w of th.words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, `${w.id}.mp3`)), `${l}/${w.id}`).toBe(true); expect(fs.existsSync(path.join(__dirname, '..', w.img)), w.img).toBe(true); }
-    for (let i = 1; i <= T.praise; i++) expect(fs.existsSync(path.join(dir, l, `_goed${i}.mp3`)), `${l} _goed${i}`).toBe(true);
-    for (let i = 1; i <= T.almost; i++) expect(fs.existsSync(path.join(dir, l, `_bijna${i}.mp3`)), `${l} _bijna${i}`).toBe(true);
     for (const g of ['milo', 'luna']) for (const th of T.themes) expect(fs.existsSync(path.join(dir, l, g, `_klaar_${th.id}.mp3`)), `${l}/${g}/_klaar_${th.id}`).toBe(true);
   }
 });
@@ -210,6 +214,26 @@ test('Talen in the overviews: a Woordjes tab in the collection, a line in the st
   await page.evaluate(() => window.KWIZILLO_M1.showAchievements());
   await expect(page.getByText('Eerste les in Talen')).toBeVisible();
   await expect(page.getByText('10 woordjes geleerd', { exact: true })).toBeVisible();
+});
+
+test('a child who chose Luna hears only Luna in Talen, never Milo', async ({ page }) => {
+  const now = Date.now(), w = id => [`en:${id}`, { seen: 1, firstTryOk: 1, lastSeen: now, box: 2 }];
+  const talen = { themes: { dieren: { stars: 2, played: 3 } }, words: Object.fromEntries(['shark'].map(w)) };
+  const clips = [];
+  await boot(page, { state: SAVED({ voice: 'Luna', progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], talen } }), clips });
+  await page.evaluate(() => window.KWIZILLO_M1.showCollection('words'));
+  await page.locator('.talen-chip[data-hear="shark"]').click();
+  await expect.poll(() => clips).toEqual(['en/luna/shark.mp3', 'nl/luna/_betekent.mp3', 'nl/luna/shark.mp3']);
+  // and the lesson itself: the intro, the words and the praise all from luna/
+  clips.length = 0;
+  await page.evaluate(() => window.KWIZILLO_M1.showHome());
+  await page.locator('#homeTalen').click();
+  await page.locator('[data-theme="dieren"]').click();
+  await expect(page.locator('.talen-tile').first()).toBeVisible({ timeout: 10000 });
+  const id = await current(page);
+  await page.locator(`.talen-tile[data-pick="${id}"]`).click();
+  await expect.poll(() => clips.length, { timeout: 10000 }).toBeGreaterThan(2);
+  expect(clips.filter(c => !/^[a-z]{2}\/luna\//.test(c)), 'clips outside luna/').toEqual([]);
 });
 
 test('a new player sees an empty Woordjes tab that leads to Talen', async ({ page }) => {
