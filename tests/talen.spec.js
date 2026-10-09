@@ -4,7 +4,7 @@ const { TTS } = require('./tts.js');
 
 const SAVED = (over = {}) => ({
   schemaVersion: 2, language: 'nl', name: 'Mike', onboardingComplete: true, voice: 'Milo',
-  group: 5, xp: 0, coins: 0, streak: 0, niveau: 1, soundOn: false, musicOn: false, tourDone: true, lastWorld: 'ruimte',
+  group: 5, xp: 0, coins: 0, streak: 0, niveau: 1, soundOn: false, musicOn: false, tourDone: true, lastWorld: 'ruimte', learnLang: 'en',
   progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [] }, ...over
 });
 const PREMIUM = JSON.stringify({ status: 'active', productId: 'nl.kwizillo.app.premium.yearly', type: 'year', expiresAt: new Date(Date.now() + 300 * 864e5).toISOString(), store: 'dev' });
@@ -145,7 +145,7 @@ test('with Premium the other themes open', async ({ page }) => {
   expect(g).toEqual({ theme: 'mix', pool: 80, words: 8 });
 });
 
-test('every app language learns: English for a Dutch child and Dutch for an English one by default, English for the rest; the parent picks any of the other nine', async ({ page }) => {
+test('every app language learns: English for a Dutch child and Dutch for an English one by default, English for the rest; the child picks any of the other nine in Talen', async ({ page }) => {
   const clips = [];
   await boot(page, { state: SAVED({ language: 'en' }), clips });
   await page.locator('#homeTalen').click();
@@ -155,12 +155,22 @@ test('every app language learns: English for a Dutch child and Dutch for an Engl
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.stopSpeech(); K.setLanguage('de'); K.useBank(); K.showTalen(); });
   await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Lerne Englisch mit Milo');
   await expect(page.locator('.talen-soon-lang')).toHaveCount(0);
+  // the parents' menu has the app language, not the learning language any more
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.setLanguage('nl'); K.useBank(); K.showParent(); });
-  await expect(page.locator('.learn-card [data-learn]')).toHaveCount(9);
-  await expect(page.locator('.learn-card [data-learn="en"]')).toHaveClass(/active/);
-  // a Dutch child learning German: German words, Dutch around them, and a fresh stamp
-  await page.locator('.learn-card [data-learn="de"]').click();
+  await expect(page.locator('[data-setlang]').first()).toBeVisible();
+  await expect(page.locator('[data-learn]')).toHaveCount(0);
+  // in Talen: the flag above the passport opens the choice, the current one marked
   await page.evaluate(() => window.KWIZILLO_M1.showTalen());
+  await expect(page.locator('#talenLang')).toContainText('Engels');
+  await page.locator('#talenLang').click();
+  await expect(page.locator('.talen-flags [data-learn]')).toHaveCount(9);
+  await expect(page.locator('[data-learn="en"]')).toHaveClass(/active/);
+  // a Dutch child learning German: "hallo" in German, then German words, Dutch around them, and a fresh stamp
+  clips.length = 0;
+  await page.locator('[data-learn="de"]').click();
+  await expect.poll(() => clips).toEqual(['de/hello.mp3']);
+  await expect(page.locator('#talenGo')).toHaveText(/Leer Duits!/);
+  await page.locator('#talenGo').click();
   await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Leer Duits met Milo');
   clips.length = 0;
   await page.locator('[data-theme="dieren"]').click();
@@ -234,6 +244,40 @@ test('a child who chose Luna hears only Luna in Talen, never Milo', async ({ pag
   await page.locator(`.talen-tile[data-pick="${id}"]`).click();
   await expect.poll(() => clips.length, { timeout: 10000 }).toBeGreaterThan(2);
   expect(clips.filter(c => !/^[a-z]{2}\/luna\//.test(c)), 'clips outside luna/').toEqual([]);
+});
+
+test('the first time in Talen the child chooses the language: a flag per language with hello in it, one big button to the passport', async ({ page }) => {
+  const clips = [];
+  await boot(page, { state: SAVED({ learnLang: null, voice: 'Luna' }), clips });
+  await page.locator('#homeTalen').click();
+  await expect(page.locator('.talen-ask-bubble')).toHaveText('Welke taal wil je leren?');
+  await expect(page.locator('.talen-flags [data-learn]')).toHaveCount(9);   // all but the app language
+  await expect(page.locator('[data-learn="nl"]')).toHaveCount(0);
+  await expect(page.locator('[data-learn="fr"]')).toContainText('Frans');
+  await expect(page.locator('[data-learn="fr"]')).toContainText('salut!');
+  await expect(page.locator('#talenGo')).toBeHidden();                      // nothing chosen yet
+  await page.locator('[data-learn="fr"]').click();
+  await expect.poll(() => clips).toEqual(['fr/luna/hello.mp3']);            // in the chosen guide's voice
+  await page.locator('#talenGo').click();
+  await expect(page.locator('.talen-pass .panel-head p')).toHaveText('Leer Frans met Luna');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.learnLang)).toBe('fr');
+  // the next time straight to the passport
+  await page.evaluate(() => { window.KWIZILLO_M1.showHome(); });
+  await page.locator('#homeTalen').click();
+  await expect(page.locator('#talenLang')).toContainText('Frans');
+  // back from a first choice goes home, nothing saved
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.learnLang = null; K.save(); K.showTalen(); });
+  await page.locator('.panel-back').click();
+  await expect(page.locator('.home')).toBeVisible();
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.learnLang)).toBe(null);
+});
+
+test('a child who played Talen before the choice moved there keeps the language without being asked', async ({ page }) => {
+  const now = Date.now();
+  await boot(page, { state: SAVED({ learnLang: null, progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], talen: { themes: { 'en:dieren': { stars: 2, played: 1 } }, words: { 'en:shark': { seen: 1, firstTryOk: 1, lastSeen: now, box: 2 } } } } }) });
+  await page.locator('#homeTalen').click();
+  await expect(page.locator('#talenLang')).toContainText('Engels');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.state.learnLang)).toBe('en');
 });
 
 test('a new player sees an empty Woordjes tab that leads to Talen', async ({ page }) => {
