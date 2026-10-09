@@ -15,8 +15,10 @@ const core = require('../quiz-core-v2.js');
 const MAX = 2000;
 const OPS = ['math.op.plus', 'math.op.minus', 'math.op.times', 'math.op.divided', 'math.op.equals'];
 const TEMPLATES = ['math.speech.twoStep', 'math.speech.half', 'math.speech.quarter', 'math.speech.percent', 'math.speech.wrong',
-  'math.hint.plus', 'math.hint.minus', 'math.hint.times', 'math.hint.divided', 'math.hint.generic'];
-const FIXED = ['math.speech.done', 'math.speech.fail', ...Array.from({ length: 16 }, (_, i) => `feedback.speech.good.${i + 1}`)];
+  'math.hint.plus',
+  // Geld tellen (2026-10-10): an amount is said as '{n} euro' 'en' '{n} cent', in the plural form the number needs
+  'math.money.main.one', 'math.money.main.few', 'math.money.main.many', 'math.money.sub.one', 'math.money.sub.few', 'math.money.sub.many', 'math.hint.minus', 'math.hint.times', 'math.hint.divided', 'math.hint.generic'];
+const FIXED = ['math.money.ask', 'math.money.and', 'math.speech.done', 'math.speech.fail', ...Array.from({ length: core.FEEDBACK_VARIANTS.good }, (_, i) => `feedback.speech.good.${i + 1}`)];
 
 function mathLines(lang, t) {
   const out = new Set();

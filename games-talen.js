@@ -34,6 +34,10 @@
   const audio=(lang,name,guide)=>K.talenAudio(lang,name,guide||(K.state.voice==='Luna'?'Luna':null));   // Luna's clips live in <lang>/luna/, Milo's (and Stil's, for the words) in <lang>/
   // A theme can be played when it has its words; the free one always, the others with Premium.
   const ready=th=>th.words.length>=4;
+  // A sentence theme (kind:'zin') has an emoji per sentence instead of a picture: the
+  // child hears the sentence and taps what it means in their own language.
+  const isZin=w=>!!w.emoji;
+  const pic=(w,cls='')=>w.emoji?`<span class="talen-emoji ${cls}" aria-hidden="true">${w.emoji}</span>`:`<img class="${cls}" src="${w.img}" alt="" decoding="async">`;
   const open=th=>ready(th)&&(th.free||K.premium.can('talen',th.id));
   // The scene behind a lesson: the world the theme belongs to (the animals: Dierenwereld).
   const SCENE={dieren:'dieren'};
@@ -124,18 +128,23 @@
     const starsOf=id=>Number(themeRec(id)?.stars||0);
     const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
     const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
-    const stamps=T().themes.map(th=>{
+    const stampOf=th=>{
       if(!ready(th))return `<div class="memo-pick talen-pick soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b></div>`;
+      if(th.kind==='zin'&&!th.cover)return `<button class="memo-pick talen-pick zin ${starsOf(th.id)?'done':''} ${open(th)?'':'locked'}" data-theme="${th.id}"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><span class="home-game-veil"></span>${open(th)?'':K.premiumBadge()}${badge(starsOf(th.id))}<b>${esc(t(`talen.theme.${th.id}`))}</b></button>`;
       return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th)});
-    }).join('');
+    };
+    // Since 17 themes (2026-10-10) the passport scrolls, in two parts: words, then sentences.
+    const words=T().themes.filter(th=>th.kind!=='zin'),zinnen=T().themes.filter(th=>th.kind==='zin');
+    const stamps=`<h2 class="talen-section">${esc(t('talen.section.words'))}</h2><div class="memo-pick-grid talen-picks">${words.map(stampOf).join('')}</div>`
+      +(zinnen.length?`<h2 class="talen-section">${esc(t('talen.section.sentences'))}</h2><div class="memo-pick-grid talen-picks zinnen">${zinnen.map(stampOf).join('')}</div>`:'');
     const mixTile=`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`;
     const due=l?K.talenDue():[];
     const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
       :`<button class="talen-lang-switch" id="talenLang"><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small>${esc(t('talen.switchLang'))}</small></button>
         ${mixTile}
-        <div class="memo-pick-grid talen-picks">${stamps}</div>
+        ${stamps}
         ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
-          <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}"><img src="${word(id).img}" alt="">${esc(word(id).text[l])}</button>`).join('')}</div>
+          <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}">${pic(word(id))}${esc(word(id).text[l])}</button>`).join('')}</div>
           <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass fade-in">
       <div class="native-panel-glow"></div>
@@ -160,7 +169,7 @@
     else{
       if(themeId==='mix'){
         if(!K.premium.can('talen','mix')){K.premiumLocked({kind:'talen',retry:()=>K.startTalen('mix')});return}
-        pool=T().themes.filter(ready).flatMap(x=>x.words);
+        pool=T().themes.filter(x=>ready(x)&&x.kind!=='zin').flatMap(x=>x.words);   // words only: a sentence among pictures would give itself away
       }else{
         const th=theme(themeId);if(!th||!ready(th))return K.showTalen();
         if(!open(th)){K.premiumLocked({kind:'talen',retry:()=>K.startTalen(themeId)});return}
@@ -169,6 +178,8 @@
       words=shuffle(pool).slice(0,T().rounds);
     }
     if(pool.length<4||!words.length)return K.showTalen();
+    if(review)words=words.filter(w=>pool.filter(x=>isZin(x)===isZin(w)).length>=4);   // a review round needs three others of its kind
+    if(!words.length)return K.showTalen();
     K.audio.setTrack('play').catch(()=>{});
     K.talen={theme:review?null:themeId,review,pool,words,round:0,firstTry:0,missed:false,locked:false,intro:true};
     showRound();
@@ -178,7 +189,8 @@
   function showRound(){
     const g=K.talen,w=g.words[g.round],l=learn();
     g.missed=false;g.locked=false;
-    const opts=shuffle([w,...shuffle(g.pool.filter(x=>x.id!==w.id)).slice(0,3)]);
+    const zin=isZin(w);
+    const opts=shuffle([w,...shuffle(g.pool.filter(x=>x.id!==w.id&&isZin(x)===zin)).slice(0,3)]);
     const pct=Math.round(g.round/g.words.length*100);
     const f=K.frame(`<section class="quiz-v2 whoami talen-game fade-in">
       <img class="quiz-v2-bg" src="${sceneOf(g)}" alt="">
@@ -192,7 +204,10 @@
         <div class="quiz-progress"><strong>${esc(t('talen.round',{n:g.round+1,total:g.words.length}))}</strong><div><i style="width:${pct}%"></i></div><span>🔊</span></div>
         <main class="quiz-card whoami-card talen-card">
           <div class="whoami-guide"><img class="mascot-face talen-milo" src="${K.MASCOT_ART.milo}" alt=""><button class="whoami-bubble talen-say" id="talenSay" aria-label="${esc(t('talen.listen'))}"><span aria-hidden="true">🔊</span></button></div>
-          <div class="whoami-grid">${opts.map(o=>`<button class="whoami-tile talen-tile" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[app()]}))}</small></b></button>`).join('')}</div>
+          <div class="whoami-grid">${opts.map(o=>zin
+            // a sentence: its meaning is on the card from the start, the sentence itself appears once it is found
+            ?`<button class="whoami-tile talen-tile zin" data-pick="${o.id}" aria-label="${esc(o.text[app()])}">${pic(o)}<b class="talen-meaning">${esc(o.text[app()])}</b><b class="talen-label"><span>${esc(o.text[l])}</span></b></button>`
+            :`<button class="whoami-tile talen-tile" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[app()]}))}</small></b></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions talen-actions"><button class="action repeat" id="talenReplay">${K.icon('repeat')} ${esc(t('talen.replay'))}</button><button class="action hint" id="talenHint">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button></div>
         </main>
       </div>
@@ -201,10 +216,10 @@
     const say=f.querySelector('#talenSay'),milo=f.querySelector('.talen-milo');
     const talking=on=>{say.classList.toggle('pulse',on);milo.classList.toggle('talking',on)};
     // decoded now, while the child listens and looks: the answer sentence is joined from these at once
-    K.preloadClips?.([audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id),...Array.from({length:T().praise},(_,i)=>audio(app(),`_goed${i+1}`)),...Array.from({length:T().almost},(_,i)=>audio(app(),`_bijna${i+1}`))]);
+    K.preloadClips?.([...(g.intro?[audio(app(),zin?'_intro_zin':'_intro')]:[]),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id),...Array.from({length:T().praise},(_,i)=>audio(app(),`_goed${i+1}`)),...Array.from({length:T().almost},(_,i)=>audio(app(),`_bijna${i+1}`))]);
     const speakWord=async()=>{
       talking(true);
-      const clips=[];if(g.intro){g.intro=false;clips.push(audio(app(),'_intro'))}
+      const clips=[];if(g.intro){g.intro=false;clips.push(audio(app(),zin?'_intro_zin':'_intro'))}
       clips.push(audio(l,w.id));
       await K.playClips(clips,{gap:200});
       if(f.isConnected)talking(false);
@@ -273,7 +288,7 @@
         <div class="result-stars">${[1,2,3].map(k=>`<i class="${k<=stars?'on':''}">★</i>`).join('')}</div>
         <div class="result-stats"><span><b>${g.firstTry}/${n}</b><small>${esc(t('talen.firstTry'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <p class="result-rule">${esc(t('talen.learned'))}</p>
-        <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}" aria-label="${esc(w.text[l])}, ${esc(t('talen.means',{word:w.text[app()]}))}"><img src="${w.img}" alt=""><span><b>${esc(w.text[l])}</b><small>${esc(w.text[app()])} 🔊</small></span></button>`).join('')}</div>
+        <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}" aria-label="${esc(w.text[l])}, ${esc(t('talen.means',{word:w.text[app()]}))}">${pic(w)}<span><b>${esc(w.text[l])}</b><small>${esc(w.text[app()])} 🔊</small></span></button>`).join('')}</div>
         <div class="result-native">
           <button id="againBtn">${esc(g.theme?t('talen.again',{theme:t(`talen.theme.${g.theme}`)}):t('talen.review'))}</button>
           <button id="passBtn" class="secondary">${esc(t('talen.passport'))}</button>

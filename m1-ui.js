@@ -566,7 +566,7 @@
         ?`<div class="empty-state"><div>🗣️</div><h2>${esc(t('collection.wordsEmpty'))}</h2><p>${esc(t('collection.wordsEmptyBody'))}</p><button class="talen-start" id="toTalen">${K.icon('play')} ${esc(t('talen.title'))}</button></div>`
         :`<div class="talen-stamps talen-stamps-mini">${T.themes.map(th=>`<div class="talen-stamp ${th.stars?'done':''} ${th.ready?'':'soon'}">${th.img?`<img src="${th.img}" alt="">`:`<span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span>`}<b>${esc(t('talen.theme.'+th.id))}</b><span class="talen-stars">${[1,2,3].map(n=>`<i class="${n<=th.stars?'on':''}">★</i>`).join('')}</span></div>`).join('')}</div>
           <p class="talen-msg">${esc(t('collection.wordsCount',{n:T.words.length,lang:t('talen.lang.'+l)}))}</p>
-          <div class="talen-learned talen-words-grid">${T.words.map(id=>{const w=K.talenWord(id);return `<button class="talen-chip" data-hear="${id}"><img src="${w.img}" alt=""><span><b>${esc(w.text[l])}</b><small>${esc(t('talen.means',{word:w.text[app]}))} 🔊</small></span></button>`}).join('')}</div>`;
+          <div class="talen-learned talen-words-grid">${T.words.map(id=>{const w=K.talenWord(id);return `<button class="talen-chip" data-hear="${id}">${w.emoji?`<span class="talen-emoji" aria-hidden="true">${w.emoji}</span>`:`<img src="${w.img}" alt="">`}<span><b>${esc(w.text[l])}</b><small>${esc(t('talen.means',{word:w.text[app]}))} 🔊</small></span></button>`}).join('')}</div>`;
     }
     if(tab==='shop'){
       const wallet=Number(K.state.coins||0);

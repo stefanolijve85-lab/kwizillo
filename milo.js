@@ -386,7 +386,29 @@
     // A stop may spotlight several elements at once (their union).
     const rectOf=sel=>{const ns=sel?[...home.querySelectorAll(sel)]:[];if(!ns.length)return null;const b=hb(),s=scale();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of ns){const r=n.getBoundingClientRect();x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom)}return {x:(x0-b.left)/s,y:(y0-b.top)/s,w:(x1-x0)/s,h:(y1-y0)/s}};
     // Cycles walk or jump frames while the figure travels, then lands in `pose`.
-    const stride=(kind,ms)=>{clearInterval(frames);let k=0;const seq=kind==='walk'?['walkA','walkB']:['jumpA','jumpB','jumpB'];host.pose(seq[0]);frames=setInterval(()=>{k++;host.pose(seq[k%seq.length])},kind==='walk'?150:190);return sleep(ms).then(()=>{clearInterval(frames);frames=0})};
+    // The frames face right; `dir` < 0 mirrors them so the guide looks where it goes
+    // (pose() resets the mirror from the pose itself, so it is put back after every frame).
+    // A jump is crouch (jumpA) at take-off and landing and stretched (jumpB) in the air.
+    const stride=(kind,ms,dir=1)=>{clearInterval(frames);let k=0;
+      const face=()=>host.el.classList.toggle('flip',dir<0);
+      if(kind==='jump'){host.pose('jumpA');face();const air=setTimeout(()=>{host.pose('jumpB');face()},Math.min(140,ms*.18)),land=setTimeout(()=>{host.pose('jumpA');face()},ms*.84);frames=setInterval(()=>{},1e6);return sleep(ms).then(()=>{clearTimeout(air);clearTimeout(land);clearInterval(frames);frames=0})}
+      host.pose('walkA');face();frames=setInterval(()=>{k++;host.pose(k%2?'walkB':'walkA');face()},150);return sleep(ms).then(()=>{clearInterval(frames);frames=0})};
+    // Where the figure stands now (the start of the next move).
+    let at={x:0,y:0};
+    const place=(x,y)=>{at={x,y};host.moveTo(x,y,{instant:true})};
+    // One move along a path: x evenly, y on a parabola `lift` px above the straight line,
+    // the figure squashing a little at take-off and on landing. Web Animations, so the
+    // move, the arc and the frames share one clock (the CSS transition used to glide on
+    // for 0.3 s after the jump frames had stopped).
+    const fly=(to,ms,lift,easing)=>{
+      const from=at,N=16,frames=[];
+      for(let i=0;i<=N;i++){const p=i/N,x=from.x+(to.x-from.x)*p,y=from.y+(to.y-from.y)*p-lift*4*p*(1-p);frames.push({transform:`translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`})}
+      const a=host.el.animate(frames,{duration:ms,easing,fill:'forwards'});
+      return a.finished.catch(()=>{}).then(()=>{place(to.x,to.y);a.cancel()});
+    };
+    const squash=(kind)=>host.el.querySelector('.milo-body')?.animate(kind==='land'
+      ?[{transform:'scale(1,1)'},{transform:'scale(1.07,.9)',offset:.35},{transform:'scale(.98,1.03)',offset:.7},{transform:'scale(1,1)'}]
+      :[{transform:'scale(1,1)'},{transform:'scale(1.06,.9)'},{transform:'scale(1,1)'}],{duration:kind==='land'?260:170,easing:'ease-out'}).finished.catch(()=>{});
     // The bubble hangs above or below the figure, centred on it but kept
     // inside the screen; the tail keeps pointing at the figure's middle.
     const bubbleAt=(x,side)=>{
@@ -411,16 +433,23 @@
     };
     const showSpot=r=>{if(!r){spot.hidden=true;return}spot.hidden=false;spot.style.left=(r.x-6)+'px';spot.style.top=(r.y-6)+'px';spot.style.width=(r.w+12)+'px';spot.style.height=(r.h+12)+'px'};
     // Travel: walk in from the right edge the first time, hop between stops after that.
+    // The time follows the distance, so a short hop is quick and a long one is not a rush.
     const travel=async(to,first)=>{
       host.bubble(null);
       if(first){
-        host.moveTo(W()+figW(),to.y,{instant:true});
+        place(W()+figW(),to.y);
         await sleep(30);
-        host.el.classList.add('walking');host.moveTo(to.x,to.y);
-        await stride('walk',560);host.el.classList.remove('walking');
+        const ms=Math.round(Math.min(1100,Math.max(600,(W()+figW()-to.x)*1.6)));
+        host.el.classList.add('walking');
+        await Promise.all([fly(to,ms,0,'cubic-bezier(.25,.1,.35,1)'),stride('walk',ms,-1)]);
+        host.el.classList.remove('walking');
       }else{
-        host.el.classList.add('hopping');host.moveTo(to.x,to.y);
-        await stride('jump',480);host.el.classList.remove('hopping');
+        const dx=to.x-at.x,dist=Math.hypot(dx,to.y-at.y);
+        if(dist<6){host.pose(to.pose);bubbleAt(to.x,to.side);return}
+        const ms=Math.round(Math.min(900,Math.max(480,380+dist*.9))),lift=Math.min(110,40+dist*.22);
+        await squash('takeoff');
+        await Promise.all([fly(to,ms,lift,'cubic-bezier(.35,.1,.45,1)'),stride('jump',ms,dx<-4?-1:1)]);
+        host.pose('talk');await squash('land');
       }
       host.pose(to.pose);bubbleAt(to.x,to.side);
     };
@@ -473,7 +502,7 @@
         const said=host.say(t(stop.key),{minMs:1400});
         // the bubble is written synchronously: if it pokes out of the frame, slide the figure so bubble and figure both fit
         // (onderaan ook boven de knop Overslaan, die moet altijd te zien zijn)
-        {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb(),skip=layer.querySelector('.milo-tour-skip').getBoundingClientRect();const floor=Math.min(f.bottom-6,skip.height?skip.top-14:f.bottom-6);const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-floor);if(over>0){const o=over/scale();to.y+=to.side==='top'?o:-o;host.moveTo(to.x,to.y,{instant:true});}}
+        {const b=host.el.querySelector('.milo-bubble').getBoundingClientRect(),f=hb(),skip=layer.querySelector('.milo-tour-skip').getBoundingClientRect();const floor=Math.min(f.bottom-6,skip.height?skip.top-14:f.bottom-6);const over=to.side==='top'?Math.max(0,f.top+6-b.top):Math.max(0,b.bottom-floor);if(over>0){const o=over/scale();to.y+=to.side==='top'?o:-o;place(to.x,to.y);}}
         await Promise.race([said,waitTap(12000)]);   // a line that never finishes (no network) moves on by itself
         stopGesture();
         host.stop();
@@ -483,9 +512,9 @@
       host.stop();
       spot.hidden=true;host.bubble(null);
       // Off he goes, walking out to the left.
-      host.el.classList.add('walking','flip');stride('walk',760);host.moveTo(-figW()*1.4,H()*.3);
+      host.el.classList.add('walking');stride('walk',780,-1);fly({x:-figW()*1.4,y:at.y},780,0,'cubic-bezier(.45,0,.8,.6)');
       K.state.tourDone=true;K.save();
-      setTimeout(()=>{clearInterval(frames);layer.remove();home.classList.remove('touring');onDone?.()},780);
+      setTimeout(()=>{clearInterval(frames);layer.remove();home.classList.remove('touring');onDone?.()},800);
     }
   };
 })();

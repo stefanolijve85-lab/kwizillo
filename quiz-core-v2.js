@@ -24,7 +24,7 @@
   // The last piece is a 'lead', so the pause before the explanation stays.
   // How many wordings the spoken verdicts have (feedback.speech.good.N / try.N in every
   // language). The speech tools record all of them; the games pick one.
-  const FEEDBACK_VARIANTS={good:16,try:6};
+  const FEEDBACK_VARIANTS={good:30,try:12};   // 2026-10-10: 14 + 6 more, in words children use (Vet goed!, Nailed it!, Läuft bei dir!)
   function answerSegments(template,answer){
     const s=String(template||''),i=s.indexOf('{answer}');
     if(i<0) return s.trim()?[{kind:'lead',text:s.trim()}]:[];

@@ -846,10 +846,11 @@
 .milo-tour .milo-char{height:100%}
 .milo-tour .milo-figure{height:100%;width:auto}
 .milo-tour .milo-host.walking{transition-timing-function:linear}
-.milo-tour .milo-host.walking .milo-body{animation:guide-walk .3s ease-in-out infinite}
+.milo-tour .milo-host.walking .milo-body{animation:guide-walk .3s ease-in-out infinite;transform-origin:50% 100%}
+.milo-tour .milo-body{transform-origin:50% 100%}
 @keyframes guide-walk{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .milo-tour .milo-host.hopping{transition-timing-function:cubic-bezier(.3,.7,.3,1)}
-.milo-tour .milo-host.hopping .milo-body{animation:guide-hop .72s cubic-bezier(.3,0,.2,1) both}
+/* (the jump's arc is the path itself since 2026-10-10, milo.js fly(); no separate bounce) */
 @keyframes guide-hop{0%{transform:translateY(0)}20%{transform:translateY(6px)}55%{transform:translateY(-46px)}100%{transform:translateY(0)}}
 /* A little hop on the spot while a line is spoken — smaller than the hop
    between stops, and only on the figure, so the speech bubble stays put. */
@@ -1511,6 +1512,15 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-tile .talen-label span{display:block;font-size:clamp(15px,4vw,19px)}
 .talen-tile .talen-label small{display:block;font-size:11px;opacity:.95}
 .talen-tile.correct .talen-label{display:block}
+/* a sentence card: the emoji on a light card, its meaning at the bottom; found, the sentence takes the meaning's place */
+.talen-tile.zin{background:linear-gradient(180deg,#f4f9ff,#dcecff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 6px 46px}
+.talen-tile.zin .talen-emoji{font-size:clamp(48px,16vw,72px);line-height:1}
+.talen-tile.zin b{color:#10175b;text-shadow:none;background:none;padding:0 2px;font-size:clamp(13px,3.6vw,16px);line-height:1.15}
+.talen-tile.zin.correct .talen-meaning{display:none}
+.talen-tile.zin .talen-label span{font-size:clamp(13px,3.6vw,16px)}
+.talen-chip .talen-emoji{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#dcecff;font-size:20px}
+.talen-result .talen-chip .talen-emoji{width:28px;height:28px;font-size:16px}
+.talen-pick.zin .talen-stamp-icon{position:absolute;inset:0;height:100%;font-size:54px;border-radius:inherit;background:linear-gradient(180deg,#e8f3ff,#bcd9fb)}
 .talen-tile.wrong{pointer-events:none;animation:talenShake .4s ease}
 /* result: the stamp lands on the card */
 .talen-stamp-fly{position:absolute;right:12%;top:8%;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#fff6c4;border:3px solid #ffd23f;font-size:32px;box-shadow:0 6px 16px rgba(120,80,0,.3);animation:talenStamp .7s cubic-bezier(.2,1.4,.4,1) .3s both}
@@ -1738,3 +1748,14 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-go{position:sticky;bottom:4px;flex:none;width:100%;font-size:19px;min-height:58px}
 .talen-go[hidden]{display:none}
 @media(min-width:700px){.talen-flags{grid-template-columns:repeat(5,minmax(0,1fr))}}
+/* Talen passport, 17 themes (2026-10-10): it scrolls like a list, in two parts with a
+   heading each; the tiles keep their shape instead of being squeezed into the screen. */
+.talen-pass .panel-scroll{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:16px}
+.talen-pass .panel-scroll>*+*{margin-top:10px}
+.talen-pass .talen-picks{height:auto;max-height:none;grid-template-rows:none;grid-auto-rows:auto}
+.talen-pass .talen-picks .memo-pick{aspect-ratio:16/10;height:auto}
+.talen-section{margin:16px 4px 2px;font-size:15px;font-weight:1000;letter-spacing:.02em;color:#17235e}
+.talen-pass .talen-pick .premium-badge{top:6px;right:6px;padding:3px 7px;font-size:9px}
+[dir="rtl"] .talen-pass .talen-pick .premium-badge{right:auto;left:6px}
+.talen-pick.zin{background:linear-gradient(180deg,#5b8def,#2f5bc4)}
+.talen-pick.zin .talen-stamp-icon{display:grid;place-items:center;padding-bottom:22%;font-size:clamp(40px,12vw,58px);background:none}

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Records the sound of Talen into assets/talen/audio/ (it ships with the app).
 //
-//   node tools/talen-audio.cjs            records what is missing, then checks every clip with Scribe
+//   node tools/talen-audio.cjs            records what is missing, then checks what it recorded with Scribe (--hear-all: every clip)
 //   node tools/talen-audio.cjs --check    only checks that every clip exists (for npm test)
 //   node tools/talen-audio.cjs --redo shark,haai   records those again (or one language: --redo de/shark)
 //   node tools/talen-audio.cjs --trim     only cuts the silence (and sets the loudness) again, from the takes in .talen-raw/
@@ -34,41 +34,42 @@ vm.runInContext(fs.readFileSync(path.join(ROOT, 'talen-data.js'), 'utf8'), ctx);
 const T = ctx.window.KWIZILLO_M1.TALEN;
 
 // What Milo says around the words, in the child's own language. Praise and
-// "almost" come in several wordings (_goed1.._goed10, _bijna1.._bijna4): the same
+// "almost" come in several wordings (_goed1.._goed16, _bijna1.._bijna6; six and two more in
+// words children use since 2026-10-10): the same
 // "Goed zo!" after every word got dull (2026-10-07). The closing line does not
 // name the language being learned: with ten languages that would be a recording
 // per pair.
 const PRAISE = {
   nl: {
-    goed: ["Goed zo!","Super!","Yes!","Top!","Perfect!","Heel goed!","Lekker bezig!","Ga zo door!","Knap!","Wauw!"],
-    bijna: ["Bijna! Luister nog een keer.","Net niet! Luister nog eens.","Oeps! Probeer het nog eens.","Hmm, luister nog even goed."] },
+    goed: ["Goed zo!","Super!","Yes!","Top!","Perfect!","Heel goed!","Lekker bezig!","Ga zo door!","Knap!","Wauw!","Vet goed!","Gaaf!","Te gek!","Toppie!","Kanon!","Nice!"],
+    bijna: ["Bijna! Luister nog een keer.","Net niet! Luister nog eens.","Oeps! Probeer het nog eens.","Hmm, luister nog even goed.","Ai, net niet! Luister nog eens.","Bijna raak! Nog een keer."] },
   en: {
-    goed: ["Well done!","Super!","Yes!","Great!","Perfect!","Very good!","Nice one!","Keep going!","Clever!","Wow!"],
-    bijna: ["Almost! Listen again.","Not quite! Listen once more.","Oops! Try again.","Hmm, listen carefully again."] },
+    goed: ["Well done!","Super!","Yes!","Great!","Perfect!","Very good!","Nice one!","Keep going!","Clever!","Wow!","Boom!","Sweet!","Epic!","You rock!","Nailed it!","So cool!"],
+    bijna: ["Almost! Listen again.","Not quite! Listen once more.","Oops! Try again.","Hmm, listen carefully again.","So close! Listen again.","Nearly! One more try."] },
   de: {
-    goed: ["Gut gemacht!","Super!","Ja!","Toll!","Perfekt!","Sehr gut!","Klasse!","Weiter so!","Schlau!","Wow!"],
-    bijna: ["Fast! Hör noch mal zu.","Nicht ganz! Hör noch einmal hin.","Hoppla! Versuch es noch mal.","Hmm, hör noch mal genau hin."] },
+    goed: ["Gut gemacht!","Super!","Ja!","Toll!","Perfekt!","Sehr gut!","Klasse!","Weiter so!","Schlau!","Wow!","Mega!","Krass!","Stark!","Hammer!","Cool!","Spitze!"],
+    bijna: ["Fast! Hör noch mal zu.","Nicht ganz! Hör noch einmal hin.","Hoppla! Versuch es noch mal.","Hmm, hör noch mal genau hin.","Knapp daneben! Hör noch mal.","Fast! Noch ein Versuch."] },
   fr: {
-    goed: ["Bravo !","Super !","Oui !","Génial !","Parfait !","Très bien !","Bien joué !","Continue !","Malin !","Waouh !"],
-    bijna: ["Presque ! Écoute encore une fois.","Pas tout à fait ! Écoute encore.","Oups ! Essaie encore.","Hmm, écoute bien encore une fois."] },
+    goed: ["Bravo !","Super !","Oui !","Génial !","Parfait !","Très bien !","Bien joué !","Continue !","Malin !","Waouh !","Trop fort !","Énorme !","Trop bien !","Chapeau !","La classe !","Bien vu !"],
+    bijna: ["Presque ! Écoute encore une fois.","Pas tout à fait ! Écoute encore.","Oups ! Essaie encore.","Hmm, écoute bien encore une fois.","Tout près ! Écoute encore.","Presque ! Encore un essai."] },
   es: {
-    goed: ["¡Muy bien!","¡Genial!","¡Sí!","¡Estupendo!","¡Perfecto!","¡Fenomenal!","¡Bien hecho!","¡Sigue así!","¡Qué listo!","¡Guau!"],
-    bijna: ["¡Casi! Escucha otra vez.","¡No del todo! Escucha una vez más.","¡Uy! Inténtalo otra vez.","Mmm, escucha bien otra vez."] },
+    goed: ["¡Muy bien!","¡Genial!","¡Sí!","¡Estupendo!","¡Perfecto!","¡Fenomenal!","¡Bien hecho!","¡Sigue así!","¡Qué listo!","¡Guau!","¡Qué crack!","¡Guay!","¡Toma ya!","¡Olé!","¡Brutal!","¡De lujo!"],
+    bijna: ["¡Casi! Escucha otra vez.","¡No del todo! Escucha una vez más.","¡Uy! Inténtalo otra vez.","Mmm, escucha bien otra vez.","¡Por poco! Escucha otra vez.","¡Casi! Otro intento."] },
   it: {
-    goed: ["Bravo!","Super!","Sì!","Grande!","Perfetto!","Molto bene!","Ben fatto!","Continua così!","Che bravo!","Wow!"],
-    bijna: ["Quasi! Ascolta ancora.","Non proprio! Ascolta di nuovo.","Ops! Riprova.","Mmm, ascolta bene ancora una volta."] },
+    goed: ["Bravo!","Super!","Sì!","Grande!","Perfetto!","Molto bene!","Ben fatto!","Continua così!","Che bravo!","Wow!","Mitico!","Fortissimo!","Spettacolo!","Bomba!","Che forza!","Pazzesco!"],
+    bijna: ["Quasi! Ascolta ancora.","Non proprio! Ascolta di nuovo.","Ops! Riprova.","Mmm, ascolta bene ancora una volta.","Per un pelo! Ascolta ancora.","Quasi! Un altro tentativo."] },
   pt: {
-    goed: ["Muito bem!","Boa!","Sim!","Fantástico!","Perfeito!","Excelente!","Mandou bem!","Continue assim!","Que esperto!","Uau!"],
-    bijna: ["Quase! Escute de novo.","Ainda não! Escute mais uma vez.","Ops! Tente de novo.","Hmm, escute bem de novo."] },
+    goed: ["Muito bem!","Boa!","Sim!","Fantástico!","Perfeito!","Excelente!","Mandou bem!","Continue assim!","Que esperto!","Uau!","Arrasou!","Show!","Massa!","Irado!","Demais!","Top!"],
+    bijna: ["Quase! Escute de novo.","Ainda não! Escute mais uma vez.","Ops! Tente de novo.","Hmm, escute bem de novo.","Por pouco! Escute de novo.","Quase! Mais uma vez."] },
   da: {
-    goed: ["Godt klaret!","Super!","Ja!","Fedt!","Perfekt!","Rigtig godt!","Flot!","Bliv ved!","Sådan!","Wow!"],
-    bijna: ["Næsten! Lyt igen.","Ikke helt! Lyt en gang til.","Ups! Prøv igen.","Hmm, lyt godt efter igen."] },
+    goed: ["Godt klaret!","Super!","Ja!","Fedt!","Perfekt!","Rigtig godt!","Flot!","Bliv ved!","Sådan!","Wow!","Sejt!","Vildt!","Mega!","Sådan der!","Nice!","Pletskud!"],
+    bijna: ["Næsten! Lyt igen.","Ikke helt! Lyt en gang til.","Ups! Prøv igen.","Hmm, lyt godt efter igen.","Tæt på! Lyt igen.","Næsten! Prøv en gang til."] },
   ru: {
-    goed: ["Молодец!","Супер!","Да!","Здорово!","Идеально!","Очень хорошо!","Отлично!","Так держать!","Умница!","Ух ты!"],
-    bijna: ["Почти! Послушай ещё раз.","Не совсем! Послушай снова.","Ой! Попробуй ещё раз.","Хм, послушай внимательно ещё раз."] },
+    goed: ["Молодец!","Супер!","Да!","Здорово!","Идеально!","Очень хорошо!","Отлично!","Так держать!","Умница!","Ух ты!","Круто!","Класс!","Огонь!","Блестяще!","Шикарно!","Вот это да!"],
+    bijna: ["Почти! Послушай ещё раз.","Не совсем! Послушай снова.","Ой! Попробуй ещё раз.","Хм, послушай внимательно ещё раз.","Чуть-чуть! Послушай ещё.","Почти! Ещё попытка."] },
   ar: {
-    goed: ["أحسنت!","رائع!","نعم!","ممتاز!","مثالي!","جيد جدًا!","عمل جميل!","استمر!","يا لك من ذكي!","واو!"],
-    bijna: ["اقتربت! استمع مرة أخرى.","ليس تمامًا! استمع مرة أخرى.","أوه! حاول مرة أخرى.","همم، استمع جيدًا مرة أخرى."] }
+    goed: ["أحسنت!","رائع!","نعم!","ممتاز!","مثالي!","جيد جدًا!","عمل جميل!","استمر!","يا لك من ذكي!","واو!","رهيب!","يا سلام!","برافو!","كفو!","هايل!","مذهل!"],
+    bijna: ["اقتربت! استمع مرة أخرى.","ليس تمامًا! استمع مرة أخرى.","أوه! حاول مرة أخرى.","همم، استمع جيدًا مرة أخرى.","قريب جدًا! استمع مرة أخرى.","تقريبًا! حاول مرة أخرى."] }
 };
 const LINES = {
   nl: { intro: 'Luister goed, en tik op het juiste plaatje!', betekent: 'betekent', klaar_dieren: 'Wauw, je kent nu alle dieren!', klaar_kleuren: 'Wauw, je kent nu alle kleuren!', klaar_getallen: 'Super, je kunt nu tellen tot tien!', klaar_eten: 'Smakelijk! Je kent nu al het eten en drinken!', klaar_lichaam: 'Wauw, je kent nu je hele lichaam!', klaar_vervoer: 'Toet toet! Je kent nu alle voertuigen!', klaar_sport: "Goed gespeeld! Je kent nu alle sporten!", klaar_praten: "Super, nu kun je met iedereen praten!",
@@ -93,13 +94,29 @@ const LINES = {
     ...Object.fromEntries(PRAISE.ar.goed.map((x, i) => [`goed${i + 1}`, x])), ...Object.fromEntries(PRAISE.ar.bijna.map((x, i) => [`bijna${i + 1}`, x])) },
 };
 
+// The lines for the next themes (talen-data.js next, 2026-10-10): the closing line per
+// theme and the opening line of the sentence game (hear a sentence, tap its meaning).
+const NEXT_LINES = {
+  nl: { intro_zin: 'Luister goed, en tik op wat het betekent!', klaar_huis: 'Wauw, je kent nu alle spullen in huis!', klaar_natuur: 'Wauw, je kent nu de hele natuur!', klaar_familie: 'Super, je kent nu de hele familie!', klaar_kleding: 'Wauw, je kent nu alle kleren!', klaar_school: 'Top, je kent nu alle schoolspullen!', klaar_mij: 'Super, nu kun je over jezelf vertellen!', klaar_vragen: 'Knap, nu kun je vragen stellen!', klaar_gevoel: 'Wauw, nu kun je zeggen hoe je je voelt!', klaar_samen: 'Goed gespeeld! Nu kun je samen spelen!' },
+  en: { intro_zin: 'Listen carefully, and tap what it means!', klaar_huis: 'Wow, you know everything in the house now!', klaar_natuur: 'Wow, you know all about nature now!', klaar_familie: 'Super, you know the whole family now!', klaar_kleding: 'Wow, you know all the clothes now!', klaar_school: 'Great, you know all the school things now!', klaar_mij: 'Super, now you can talk about yourself!', klaar_vragen: 'Clever, now you can ask questions!', klaar_gevoel: 'Wow, now you can say how you feel!', klaar_samen: 'Well played! Now you can play together!' },
+  de: { intro_zin: 'Hör gut zu und tippe auf das, was es heißt!', klaar_huis: 'Wow, jetzt kennst du alle Sachen im Haus!', klaar_natuur: 'Wow, jetzt kennst du die ganze Natur!', klaar_familie: 'Super, jetzt kennst du die ganze Familie!', klaar_kleding: 'Wow, jetzt kennst du alle Kleidungsstücke!', klaar_school: 'Toll, jetzt kennst du alle Schulsachen!', klaar_mij: 'Super, jetzt kannst du von dir erzählen!', klaar_vragen: 'Klasse, jetzt kannst du Fragen stellen!', klaar_gevoel: 'Wow, jetzt kannst du sagen, wie du dich fühlst!', klaar_samen: 'Gut gespielt! Jetzt könnt ihr zusammen spielen!' },
+  fr: { intro_zin: 'Écoute bien, et touche ce que ça veut dire !', klaar_huis: 'Waouh, tu connais maintenant tout ce qu’il y a dans la maison !', klaar_natuur: 'Waouh, tu connais maintenant toute la nature !', klaar_familie: 'Super, tu connais maintenant toute la famille !', klaar_kleding: 'Waouh, tu connais maintenant tous les vêtements !', klaar_school: 'Génial, tu connais maintenant toutes les affaires d’école !', klaar_mij: 'Super, maintenant tu peux parler de toi !', klaar_vragen: 'Bravo, maintenant tu sais poser des questions !', klaar_gevoel: 'Waouh, maintenant tu sais dire ce que tu ressens !', klaar_samen: 'Bien joué ! Maintenant vous pouvez jouer ensemble !' },
+  es: { intro_zin: '¡Escucha bien y toca lo que significa!', klaar_huis: '¡Guau, ya conoces todas las cosas de la casa!', klaar_natuur: '¡Guau, ya conoces toda la naturaleza!', klaar_familie: '¡Genial, ya conoces a toda la familia!', klaar_kleding: '¡Guau, ya conoces toda la ropa!', klaar_school: '¡Estupendo, ya conoces todas las cosas del colegio!', klaar_mij: '¡Genial, ya puedes hablar de ti!', klaar_vragen: '¡Muy bien, ya sabes hacer preguntas!', klaar_gevoel: '¡Guau, ya sabes decir cómo te sientes!', klaar_samen: '¡Bien jugado! ¡Ya podéis jugar juntos!' },
+  it: { intro_zin: 'Ascolta bene e tocca cosa vuol dire!', klaar_huis: 'Wow, ora conosci tutte le cose di casa!', klaar_natuur: 'Wow, ora conosci tutta la natura!', klaar_familie: 'Super, ora conosci tutta la famiglia!', klaar_kleding: 'Wow, ora conosci tutti i vestiti!', klaar_school: 'Grande, ora conosci tutte le cose per la scuola!', klaar_mij: 'Super, ora puoi parlare di te!', klaar_vragen: 'Bravo, ora sai fare domande!', klaar_gevoel: 'Wow, ora sai dire come ti senti!', klaar_samen: 'Ben giocato! Ora potete giocare insieme!' },
+  pt: { intro_zin: 'Escute bem e toque no que significa!', klaar_huis: 'Uau, agora você conhece todas as coisas da casa!', klaar_natuur: 'Uau, agora você conhece toda a natureza!', klaar_familie: 'Demais, agora você conhece a família toda!', klaar_kleding: 'Uau, agora você conhece todas as roupas!', klaar_school: 'Demais, agora você conhece todo o material escolar!', klaar_mij: 'Demais, agora você pode falar de você!', klaar_vragen: 'Muito bem, agora você sabe fazer perguntas!', klaar_gevoel: 'Uau, agora você sabe dizer como se sente!', klaar_samen: 'Mandou bem! Agora vocês podem brincar juntos!' },
+  da: { intro_zin: 'Lyt godt efter, og tryk på det, det betyder!', klaar_huis: 'Wow, nu kender du alle tingene i huset!', klaar_natuur: 'Wow, nu kender du hele naturen!', klaar_familie: 'Super, nu kender du hele familien!', klaar_kleding: 'Wow, nu kender du alt tøjet!', klaar_school: 'Fedt, nu kender du alle skoletingene!', klaar_mij: 'Super, nu kan du fortælle om dig selv!', klaar_vragen: 'Flot, nu kan du stille spørgsmål!', klaar_gevoel: 'Wow, nu kan du sige, hvordan du har det!', klaar_samen: 'Godt spillet! Nu kan I lege sammen!' },
+  ru: { intro_zin: 'Слушай внимательно и нажми, что это значит!', klaar_huis: 'Ух ты, теперь ты знаешь все вещи в доме!', klaar_natuur: 'Ух ты, теперь ты знаешь всю природу!', klaar_familie: 'Супер, теперь ты знаешь всю семью!', klaar_kleding: 'Ух ты, теперь ты знаешь всю одежду!', klaar_school: 'Здорово, теперь ты знаешь все школьные вещи!', klaar_mij: 'Супер, теперь ты можешь рассказать о себе!', klaar_vragen: 'Молодец, теперь ты умеешь задавать вопросы!', klaar_gevoel: 'Ух ты, теперь ты можешь сказать, что чувствуешь!', klaar_samen: 'Отлично! Теперь вы можете играть вместе!' },
+  ar: { intro_zin: 'استمع جيدًا، واضغط على معناه!', klaar_huis: 'واو، أنت الآن تعرف كل أشياء البيت!', klaar_natuur: 'واو، أنت الآن تعرف كل الطبيعة!', klaar_familie: 'رائع، أنت الآن تعرف كل العائلة!', klaar_kleding: 'واو، أنت الآن تعرف كل الملابس!', klaar_school: 'ممتاز، أنت الآن تعرف كل أدوات المدرسة!', klaar_mij: 'رائع، الآن يمكنك أن تتحدث عن نفسك!', klaar_vragen: 'أحسنت، الآن تعرف كيف تسأل!', klaar_gevoel: 'واو، الآن يمكنك أن تقول بماذا تشعر!', klaar_samen: 'أحسنت اللعب! الآن يمكنكم اللعب معًا!' },
+};
+for (const l of Object.keys(LINES)) Object.assign(LINES[l], NEXT_LINES[l]);
+
 const clips = [];
 for (const lang of T.langs) {
   // A word on its own gave the model too little to go on ("haai" came out as English "hi"):
   // it is recorded after a short sentence in its language, as context that is not spoken.
   for (const g of ['Milo', 'Luna']) {
     const dir = g === 'Luna' ? `${lang}/luna/` : `${lang}/`;
-    for (const th of T.themes) for (const w of th.words) clips.push({ file: `${dir}${w.id}.mp3`, text: w.text[lang], lang, guide: g, word: true });
+    for (const th of [...T.themes, ...(T.next || [])]) for (const w of th.words) clips.push({ file: `${dir}${w.id}.mp3`, text: w.text[lang], lang, guide: g, word: true });
     for (const [k, text] of Object.entries(LINES[lang]))
       clips.push({ file: k.startsWith('klaar_') ? `${lang}/${g.toLowerCase()}/_${k}.mp3` : `${dir}_${k}.mp3`, text, lang, guide: g });
   }
@@ -130,7 +147,7 @@ const key = c => c.file.replace(/\.mp3$/, '').replace(/\/(?:milo|luna)\//, '/');
 // the end of a sentence it stayed English; in the middle of a Dutch sentence it is
 // Dutch (about 1050 Hz). So these are spoken inside that sentence and cut out of it at
 // the times ElevenLabs gives per character; trim() then cuts the silence as for any clip.
-const IN_SENTENCE = { 'nl/snake': ['Zij zag een ', ', een grote slang.'] };
+const IN_SENTENCE = { 'nl/snake': ['Zij zag een ', ', een grote slang.'], 'nl/bed': ['Zij sliep in het ', ' van haar oma.'], 'nl/lamp': ['Op de tafel stond een ', '. Hij was geel.'], 'nl/teacher': ['Dit is onze ', '. Zij is heel lief.'], 'nl/glue': ['Ik plak het met ', '. Dat houdt goed.'], 'fr/bed': ['Il dort dans son ', '. Il fait bien chaud.'], 'en/scarf': ['She wore a warm ', '. It was snowing.'], 'it/table': ['Il libro è sul ', '. È di legno.'] };
 async function recordInSentence(c, body) {
   const [before, after] = IN_SENTENCE[key(c)], text = before + body.text + after;
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceFor(c)}/with-timestamps?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, text, previous_text: undefined }) });
@@ -164,6 +181,8 @@ async function record(c) {
 // in .talen-raw/ (not in git), so the cut can be changed without recording again;
 // the app overlaps the quiet ends a little when it joins the clips (K.playClips).
 // Talen speaks a little faster than the quiz (0.95): words strung into a sentence.
+// 64 kb/s mono (2026-10-10, was 128): speech sounds the same and Talen ships with the app, so
+// it halves 80 MB of sound — the Android bundle has a 200 MB limit (ANDROID_RELEASE_CHECKLIST.md).
 const TALEN_SPEED = 1.05;
 const RAW = path.join(ROOT, '.talen-raw');
 const FFMPEG = path.join(ROOT, 'tools', 'bin', 'ffmpeg');
@@ -199,7 +218,7 @@ function trim(file) {
   for (let j = 0; j < fo && j < out.length; j++) out[out.length - 1 - j] = Math.round(out[out.length - 1 - j] * j / fo);
   level(out);
   const dest = path.join(OUT, file); fs.mkdirSync(path.dirname(dest), { recursive: true });
-  execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-f', 's16le', '-ar', String(RATE), '-ac', '1', '-i', '-', '-c:a', 'libmp3lame', '-b:a', '128k', dest], { input: Buffer.from(out.buffer) });
+  execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-f', 's16le', '-ar', String(RATE), '-ac', '1', '-i', '-', '-c:a', 'libmp3lame', '-b:a', '64k', dest], { input: Buffer.from(out.buffer) });
 }
 if (process.argv.includes('--trim')) {
   const have = clips.filter(c => fs.existsSync(path.join(RAW, c.file)));
@@ -235,8 +254,8 @@ async function hear(c) {
 (async () => {
   for (const c of todo) { await record(c); console.log(`recorded ${c.file}  "${c.text}"`); }
   let off = 0;
-  // after --redo or --only only the clips recorded now are checked; otherwise all of them
-  for (const c of redo.length || only ? todo : clips) {
+  // only the clips recorded now are checked (Scribe costs credits too); --hear-all checks every clip
+  for (const c of process.argv.includes('--hear-all') ? clips : todo) {
     const heard = await hear(c);
     const ok = c.word ? norm(heard).endsWith(norm(c.text)) : norm(heard) === norm(c.text);
     if (!ok) off++;

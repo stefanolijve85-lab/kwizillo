@@ -203,7 +203,8 @@ for (const guide of ['milo', 'luna']) {
       const f = img.getBoundingClientRect(), m = mouth.getBoundingClientRect(), box = img.parentElement.getBoundingClientRect();
       return {
         boxDiffers: Math.abs(box.width - f.width),               // how far the box is from the picture
-        x: (m.x + m.width / 2 - f.x) / f.width,                  // where the mouth sits on the picture
+        // a guide walking left is mirrored (milo.js stride): the mouth then sits mirrored on the picture
+        x: (document.querySelector('.milo-tour .milo-host').classList.contains('flip') ? 1 - (m.x + m.width / 2 - f.x) / f.width : (m.x + m.width / 2 - f.x) / f.width),
         y: (m.y + m.height / 2 - f.y) / f.height,
         anchor: window.KWIZILLO_M1.FACE_ANCHORS[document.querySelector('.milo-tour .milo-host').dataset.guide].poses[document.querySelector('.milo-tour .milo-host').dataset.pose]
       };
