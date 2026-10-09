@@ -92,6 +92,7 @@ Leerkracht:
 - `POST /api/school/pupils/:id/reset-code` → nieuwe plaatjescode
 - `DELETE /api/school/pupils/:id`
 - `GET  /api/school/classes/:id/overview` → per leerling: gespeeld, goed, quizzen, werelden, Rekenen, Talen, laatst gespeeld
+- `GET  /api/school/pupils/:id` → de pagina van één leerling (klik op de rij in het portaal): per wereld en onderwerp vragen, goed en gehaald, Rekenen (gespeeld, gehaald, beste score per niveau) en Talen per taal (woordjes, sterren per thema). Gelezen uit de opgeslagen spelstand (`school/detail.cjs`), met de Nederlandse namen uit het spel zelf; er wordt niets extra bewaard
 
 Leerling:
 

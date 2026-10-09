@@ -72,7 +72,7 @@
   async function start() {
     const r = await api('GET', '/teacher/me');
     if (r.status !== 200) { me = null; setWho(); return showLogin() }
-    me = r.json; setWho(); showHome();
+    me = r.json; setWho(); view();
   }
   function licenceLine(l) {
     const until = l.validUntil ? new Date(l.validUntil).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }) : '–';
@@ -86,12 +86,12 @@
       <form id="nc" class="card"><label for="cn">Naam van de klas</label><input id="cn" placeholder="bijvoorbeeld Groep 5b" maxlength="60" required>
       <label for="cl">Taal van het spel</label><select id="cl"><option value="nl">Nederlands</option><option value="en">Engels</option></select>
       <p class="error" role="alert">${esc(error)}</p><button type="submit">Klas maken</button></form>`);
-    on('[data-class]', 'click', e => showClass(Number(e.currentTarget.dataset.class)));
+    on('[data-class]', 'click', e => go(`klas=${e.currentTarget.dataset.class}`));
     on('#nc', 'submit', async e => {
       e.preventDefault();
       const r = await api('POST', '/classes', { name: app.querySelector('#cn').value, language: app.querySelector('#cl').value });
       if (r.status !== 201) return showHome(r.json?.error || 'Dat lukte niet');
-      await refreshMe(); showClass(r.json.id);
+      await refreshMe(); go(`klas=${r.json.id}`);
     });
   }
   async function refreshMe() { const r = await api('GET', '/teacher/me'); if (r.status === 200) me = r.json }
@@ -109,14 +109,14 @@
       ${cards.length ? cardsBlock(c, cards) : ''}
       <h2 class="no-print">Voortgang</h2>
       ${pupils.length ? `<div class="no-print scroll-x"><table><thead><tr><th>Naam</th><th>Laatst gespeeld</th><th class="num">Vragen</th><th class="num">Goed</th><th class="num">Quizzen</th><th class="num">Niveau</th><th class="num">Rekenen</th><th class="num">Talen-woordjes</th><th></th></tr></thead><tbody>
-        ${pupils.map(p => `<tr><td><b>${esc(p.name)}</b></td><td>${esc(date(p.playedAt))}</td><td class="num">${p.answered}</td><td class="num">${pct(p.correct, p.answered)}</td><td class="num">${p.quizzes}</td><td class="num">${p.level}</td><td class="num">${p.math.won}/${p.math.played}</td><td class="num">${p.talen.words}</td>
+        ${pupils.map(p => `<tr class="pupil-row" data-pupil="${p.id}"><td><a class="pupil-link" href="#leerling=${p.id}">${esc(p.name)}</a></td><td>${esc(date(p.playedAt))}</td><td class="num">${p.answered}</td><td class="num">${pct(p.correct, p.answered)}</td><td class="num">${p.quizzes}</td><td class="num">${p.level}</td><td class="num">${p.math.won}/${p.math.played}</td><td class="num">${p.talen.words}</td>
           <td><button class="secondary" data-reset="${p.id}">Nieuwe plaatjes</button> <button class="danger" data-delete="${p.id}" data-name="${esc(p.name)}">Verwijderen</button></td></tr>`).join('')}
-      </tbody></table></div>` : '<p class="note no-print">Nog geen leerlingen in deze klas.</p>'}
+      </tbody></table></div><p class="note no-print">Klik op een leerling voor meer: per wereld en onderwerp, Rekenen en Talen.</p>` : '<p class="note no-print">Nog geen leerlingen in deze klas.</p>'}
       <h2 class="no-print">Leerlingen toevoegen</h2>
       <form id="ap" class="card no-print"><label for="names">Eén naam per regel: voornaam en de eerste letter van de achternaam (bijvoorbeeld <i>Sam B.</i>). Geen volledige namen nodig.</label>
       <textarea id="names" placeholder="Sam B.&#10;Noor K.&#10;Daan V."></textarea>
       <p class="error" role="alert">${esc(error)}</p><button type="submit">Toevoegen en inlogkaartjes maken</button></form>`);
-    app.querySelector('#back').addEventListener('click', async () => { await refreshMe(); showHome() });
+    app.querySelector('#back').addEventListener('click', () => go(''));
     on('#ap', 'submit', async e => {
       e.preventDefault();
       const names = app.querySelector('#names').value.split('\n').map(s => s.trim()).filter(Boolean);
@@ -125,6 +125,7 @@
       if (r.status !== 201) return showClass(id, { error: r.json?.error || 'Dat lukte niet' });
       showClass(id, { cards: r.json.pupils });
     });
+    on('.pupil-row', 'click', e => { if (!e.target.closest('button,a')) go(`leerling=${e.currentTarget.dataset.pupil}`) });
     on('[data-reset]', 'click', async e => {
       if (!confirm('Een nieuwe plaatjescode maken? De oude werkt dan niet meer.')) return;
       const r = await api('POST', `/pupils/${e.currentTarget.dataset.reset}/reset-code`);
@@ -138,6 +139,51 @@
     });
     app.querySelector('#print')?.addEventListener('click', () => window.print());
   }
+  /* ---------------- één leerling ---------------- */
+
+  const bar = (a, b) => { const v = b ? Math.round(a / b * 100) : 0; return `<span class="bar" title="${v}%"><i style="width:${v}%" class="${!b ? '' : v >= 80 ? 'good' : v < 60 ? 'low' : ''}"></i></span>` };
+  async function showPupil(id) {
+    const r = await api('GET', `/pupils/${id}`);
+    if (r.status === 401) return showLogin();
+    if (r.status !== 200) return go('');
+    const p = r.json, played = p.worlds.filter(w => w.answered), unplayed = p.worlds.filter(w => !w.answered);
+    const topics = p.worlds.flatMap(w => w.topics.map(t => ({ ...t, world: w.title })));
+    const passed = topics.filter(t => t.passed).length;
+    // At least 5 questions before a topic counts as going well or needing practice.
+    const rated = topics.filter(t => t.answered >= 5).map(t => ({ ...t, score: t.correct / t.answered }));
+    const practise = rated.filter(t => t.score < .6).sort((a, b) => a.score - b.score);
+    const strong = rated.filter(t => t.score >= .85).sort((a, b) => b.score - a.score);
+    const chips = list => list.map(t => `<span class="chip">${esc(t.label)} <small>${esc(t.world)} · ${pct(t.correct, t.answered)}</small></span>`).join('');
+    const best = Object.entries(p.math.best).filter(([, v]) => v).map(([lv, v]) => `niveau ${esc(lv)}: ${v}`).join(', ');
+    render(`<p><button class="link" id="back">← ${esc(p.class.name)}</button></p>
+      <h1>${esc(p.name)}</h1>
+      <p class="lead">Laatst gespeeld: ${esc(date(p.playedAt))} · Niveau ${p.level}</p>
+      <div class="stats">
+        <div class="stat"><b>${p.answered}</b><span>vragen beantwoord</span></div>
+        <div class="stat"><b>${pct(p.correct, p.answered)}</b><span>goed</span></div>
+        <div class="stat"><b>${p.quizzes}</b><span>quizzen gespeeld</span></div>
+        <div class="stat"><b>${passed}/${topics.length}</b><span>onderwerpen gehaald</span></div>
+      </div>
+      ${p.answered ? '' : '<p class="note">Nog niets gespeeld. Zodra het kind speelt, verschijnt hier de voortgang.</p>'}
+      ${practise.length || strong.length ? `<div class="insight">
+        ${practise.length ? `<div class="card"><h3>Oefent nog</h3><p class="note">Minder dan 60% goed (vanaf 5 vragen).</p>${chips(practise)}</div>` : ''}
+        ${strong.length ? `<div class="card"><h3>Gaat goed</h3><p class="note">85% of meer goed (vanaf 5 vragen).</p>${chips(strong)}</div>` : ''}
+      </div>` : ''}
+      ${played.length ? `<h2>Werelden</h2>${played.map(w => `<div class="card world">
+        <div class="world-head"><b>${esc(w.title)}</b><span>${w.answered} vragen · ${pct(w.correct, w.answered)} goed</span>${bar(w.correct, w.answered)}</div>
+        <table class="topics"><colgroup><col class="c-name"><col class="c-n"><col class="c-ok"><col class="c-pass"></colgroup>
+          <thead><tr><th>Onderwerp</th><th class="num">Vragen</th><th>Goed</th><th class="pass">Quiz gehaald</th></tr></thead><tbody>
+          ${w.topics.map(t => `<tr><td>${esc(t.label)}</td><td class="num">${t.answered}</td><td class="ok"><span class="pc">${pct(t.correct, t.answered)}</span>${t.answered ? bar(t.correct, t.answered) : ''}</td><td class="pass">${t.passed ? '<span class="tick" title="Quiz gehaald">✓</span>' : ''}</td></tr>`).join('')}
+        </tbody></table></div>`).join('')}` : ''}
+      ${unplayed.length && played.length ? `<p class="note">Nog niet gespeeld: ${unplayed.map(w => esc(w.title)).join(', ')}.</p>` : ''}
+      <h2>Rekenen</h2>
+      <div class="card">${p.math.played ? `${p.math.played} keer gespeeld, ${p.math.won} keer gehaald.${best ? ` Beste score: ${best}.` : ''}` : '<span class="note">Nog niet gespeeld.</span>'}</div>
+      <h2>Talen</h2>
+      ${p.talen.length ? p.talen.map(l => `<div class="card"><b>${esc(l.name)}</b> · ${l.words} woordjes geleerd
+        ${l.themes.length ? `<div class="chips">${l.themes.map(t => `<span class="chip">${esc(t.label)} <small>${'★'.repeat(t.stars)}${'☆'.repeat(Math.max(0, 3 - t.stars))} · ${t.played}× gespeeld</small></span>`).join('')}</div>` : ''}</div>`).join('') : '<div class="card"><span class="note">Nog niet gespeeld.</span></div>'}`);
+    app.querySelector('#back').addEventListener('click', () => go(`klas=${p.class.id}`));
+  }
+
   // The picture codes are shown once, right after they are made: print them now.
   function cardsBlock(c, cards) {
     return `<div class="card"><div class="row no-print"><b>Inlogkaartjes</b><span class="note">Alleen nu te zien: print ze of schrijf ze over. Kwijt? Maak later een nieuwe plaatjescode.</span><button id="print">Printen</button></div>
@@ -146,8 +192,17 @@
         <div class="lc-foot">${esc(c.name)} · ${esc(location.host)}</div></div>`).join('')}</div></div>`;
   }
 
+  // Where a teacher is lives in the address (#klas=3, #leerling=12): the browser's
+  // back button goes back a page, and a reload stays on it.
+  function go(hash) { if (location.hash.slice(1) === hash) view(); else location.hash = hash }
+  function view() {
+    if (!me) return start();
+    const m = /^#(klas|leerling)=(\d+)$/.exec(location.hash);
+    if (!m) return refreshMe().then(() => showHome());   // the pupil counts may have changed
+    return m[1] === 'klas' ? showClass(Number(m[2])) : showPupil(Number(m[2]));
+  }
   // also when the link is opened in a tab that already shows the portal
   const route = () => { const link = /[#&](uitnodiging|herstel)=([A-Za-z0-9_-]+)/.exec(location.hash); if (link) showInvite(link[2], '', link[1] === 'herstel'); else return true };
-  window.addEventListener('hashchange', route);
+  window.addEventListener('hashchange', () => { if (route()) view() });
   if (route()) start();
 })();

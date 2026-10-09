@@ -2,6 +2,7 @@
 // server.js when SCHOOL_DB is set. Teachers use a cookie (same origin only);
 // pupils a bearer token, so the game can also log in from the iOS app later.
 const A = require('./auth.cjs');
+const { detail } = require('./detail.cjs');
 
 const COOKIE = 'kws';
 const BODY_MAX = 512 * 1024;          // a pupil's game state is well under 100 KB
@@ -172,6 +173,11 @@ function create(store, { secureCookies = true, mailer = null, logLinks = false }
       if ((r = /^\/api\/school\/classes\/(\d+)\/overview$/.exec(p)) && m === 'GET') {
         const c = store.classOwned(Number(r[1]), t.id); if (!c) return fail(res, 404, 'Klas niet gevonden'), true;
         return send(res, 200, { class: { id: c.id, name: c.name, code: c.code, language: c.language }, pupils: store.overview(c.id) }), true;
+      }
+      if ((r = /^\/api\/school\/pupils\/(\d+)$/.exec(p)) && m === 'GET') {
+        const pu = store.pupilOwned(Number(r[1]), t.id); if (!pu) return fail(res, 404, 'Leerling niet gevonden'), true;
+        const c = store.classOwned(pu.class_id, t.id);
+        return send(res, 200, { id: pu.id, name: pu.display_name, playedAt: pu.played_at, class: { id: c.id, name: c.name }, ...detail(pu.state ? JSON.parse(pu.state) : null) }), true;
       }
       if ((r = /^\/api\/school\/pupils\/(\d+)\/reset-code$/.exec(p)) && m === 'POST') {
         const pu = store.pupilOwned(Number(r[1]), t.id); if (!pu) return fail(res, 404, 'Leerling niet gevonden'), true;
