@@ -30,6 +30,8 @@ PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=true
 ReadWritePaths=/var/www/kwizillo
+# the school database (SCHOOL_DB); without this ProtectSystem makes it read-only
+ReadWritePaths=/var/lib/kwizillo
 
 [Install]
 WantedBy=multi-user.target

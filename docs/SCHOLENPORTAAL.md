@@ -138,7 +138,12 @@ Voorwaarde: de code van `feature/scholen` staat op de server (nu draait daar
 
    ```
    Environment=SCHOOL_DB=/var/lib/kwizillo/kwizillo-school.db
+   ReadWritePaths=/var/lib/kwizillo
    ```
+
+   Zonder die tweede regel maakt `ProtectSystem=strict` de database alleen-lezen voor
+   de service ("attempt to write a readonly database", "Serverfout" bij het activeren),
+   terwijl `school-admin.cjs` via `sudo -u kwizillo` gewoon werkt.
 
    daarna `sudo systemctl daemon-reload && sudo systemctl restart kwizillo`.
 5. nginx: een serverblok voor `school.kwizillo.nl`, gelijk aan dat van
