@@ -9,14 +9,17 @@
 //
 // The model and the settings are the app's own (speech-config.js). One recording
 // per word: cutting a list of words out of one take left clipped edges in the
-// prototype. In Dutch and English everything Milo says in Talen is said by ONE
-// voice, the Dutch Milo (TALEN_VOICE): "Goed zo! shark betekent haai" in two
-// voices sounded like two people, in one voice it is one sentence (Stefan's
-// choice, 2026-10-07, from three samples). The other eight languages keep their
-// own Milo: the Dutch voice spoke them badly ("Godt klaret!" was heard as "Hot
-// klar det", "vuol dire" as "fuori dire"), and in a language lesson the
-// pronunciation comes first. The closing line per theme is said by the guide the
-// child chose; Luna keeps her own voice per language.
+// prototype. Everything in Talen is said by the guide the child chose, in ONE voice
+// per guide: "Goed zo! shark betekent haai" in two voices sounded like two people,
+// in one voice it is one sentence (Stefan's choice, 2026-10-07, from three samples).
+// Until 2026-10-09 that one voice was always Milo's, also for a child who chose
+// Luna, who then only heard her in the closing line; Stefan: "uiteraard wil je
+// alleen Luna horen als je Luna kiest". So every clip now exists twice: <lang>/<file>
+// for Milo and <lang>/luna/<file> for Luna. In Dutch and English a guide speaks
+// with their Dutch voice (TALEN_VOICE); the other eight languages keep the guide's
+// own voice per language: the Dutch voice spoke them badly ("Godt klaret!" was
+// heard as "Hot klar det", "vuol dire" as "fuori dire"), and in a language lesson
+// the pronunciation comes first.
 // The ElevenLabs key is read from .env at run time and never printed.
 const fs = require('fs'); const path = require('path'); const vm = require('vm');
 const { execFileSync } = require('child_process');
@@ -94,10 +97,11 @@ const clips = [];
 for (const lang of T.langs) {
   // A word on its own gave the model too little to go on ("haai" came out as English "hi"):
   // it is recorded after a short sentence in its language, as context that is not spoken.
-  for (const th of T.themes) for (const w of th.words) clips.push({ file: `${lang}/${w.id}.mp3`, text: w.text[lang], lang, guide: 'Milo', word: true });
-  for (const [k, text] of Object.entries(LINES[lang])) {
-    if (k.startsWith('klaar_')) for (const g of ['Milo', 'Luna']) clips.push({ file: `${lang}/${g.toLowerCase()}/_${k}.mp3`, text, lang, guide: g });
-    else clips.push({ file: `${lang}/_${k}.mp3`, text, lang, guide: 'Milo' });
+  for (const g of ['Milo', 'Luna']) {
+    const dir = g === 'Luna' ? `${lang}/luna/` : `${lang}/`;
+    for (const th of T.themes) for (const w of th.words) clips.push({ file: `${dir}${w.id}.mp3`, text: w.text[lang], lang, guide: g, word: true });
+    for (const [k, text] of Object.entries(LINES[lang]))
+      clips.push({ file: k.startsWith('klaar_') ? `${lang}/${g.toLowerCase()}/_${k}.mp3` : `${dir}_${k}.mp3`, text, lang, guide: g });
   }
 }
 
@@ -107,14 +111,18 @@ if (process.argv.includes('--check')) {
   console.log(`talen audio: ${clips.length} clips present ✔`); process.exit(0);
 }
 const redo = (process.argv[process.argv.indexOf('--redo') + 1] || '').split(',').filter(Boolean);
-const todo = clips.filter(c => !fs.existsSync(path.join(OUT, c.file)) || redo.includes('all') || redo.includes(c.text) || redo.includes(path.basename(c.file, '.mp3')) || redo.includes(c.file.replace(/\.mp3$/, '')));
+// --only nl/luna/ limits a run to the clips under that path (a first try of a new voice)
+const only = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : '';
+const todo = clips.filter(c => c.file.startsWith(only)).filter(c => !fs.existsSync(path.join(OUT, c.file)) || redo.includes('all') || redo.includes(c.text) || redo.includes(path.basename(c.file, '.mp3')) || redo.includes(c.file.replace(/\.mp3$/, '')));
 
 // What the voice is given when the word on the tile would be read as something
 // else: "sept" and "dez" are the abbreviations of septembre and dezembro, and
 // that is what came out (2026-10-07). The digit is said as the number.
 const SAY = { 'fr/seven': '7', 'pt/ten': '10' };
-const TALEN_VOICE = { lang: 'nl', guide: 'Milo', for: ['nl', 'en'] };
-const voiceFor = c => c.guide === 'Milo' && TALEN_VOICE.for.includes(c.lang) ? SPEECH.voiceId(TALEN_VOICE.lang, TALEN_VOICE.guide) : SPEECH.voiceId(c.lang, c.guide);
+const TALEN_VOICE = { lang: 'nl', for: ['nl', 'en'] };
+const voiceFor = c => SPEECH.voiceId(TALEN_VOICE.for.includes(c.lang) ? TALEN_VOICE.lang : c.lang, c.guide);
+// SAY and IN_SENTENCE are per word, the same for both guides: 'nl/luna/snake' looks up 'nl/snake'.
+const key = c => c.file.replace(/\.mp3$/, '').replace(/\/(?:milo|luna)\//, '/');
 // A word that is also an English word can come out English with the context only as
 // previous_text: Dutch "slang" was said as English "slang" (sleng), twice (2026-10-08
 // and 10-09; measured, the second formant of the vowel was 1600-2000 Hz, as in English
@@ -124,7 +132,7 @@ const voiceFor = c => c.guide === 'Milo' && TALEN_VOICE.for.includes(c.lang) ? S
 // the times ElevenLabs gives per character; trim() then cuts the silence as for any clip.
 const IN_SENTENCE = { 'nl/snake': ['Zij zag een ', ', een grote slang.'] };
 async function recordInSentence(c, body) {
-  const [before, after] = IN_SENTENCE[c.file.replace(/\.mp3$/, '')], text = before + body.text + after;
+  const [before, after] = IN_SENTENCE[key(c)], text = before + body.text + after;
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceFor(c)}/with-timestamps?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, text, previous_text: undefined }) });
   if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
   const { audio_base64, alignment } = await r.json();
@@ -138,9 +146,9 @@ async function recordInSentence(c, body) {
 async function record(c) {
   // Said before the word as context, not spoken: without it a lone word came out in the wrong language ("haai" as "hi").
   const CONTEXT = { nl: 'In het Nederlands zeg je', en: 'In English you say', de: 'Auf Deutsch sagt man', fr: 'En français, on dit', es: 'En español se dice', it: 'In italiano si dice', pt: 'Em português se diz', da: 'På dansk siger man', ru: 'По-русски говорят', ar: 'بالعربية نقول' };
-  const body = { text: SAY[c.file.replace(/\.mp3$/, '')] || c.text, model_id: SPEECH.model, voice_settings: { ...SPEECH.settings[c.guide], speed: TALEN_SPEED }, language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
+  const body = { text: SAY[key(c)] || c.text, model_id: SPEECH.model, voice_settings: { ...SPEECH.settings[c.guide], speed: TALEN_SPEED }, language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
   const raw = path.join(RAW, c.file); fs.mkdirSync(path.dirname(raw), { recursive: true });
-  if (c.word && IN_SENTENCE[c.file.replace(/\.mp3$/, '')]) { fs.writeFileSync(raw, await recordInSentence(c, body)); return trim(c.file); }
+  if (c.word && IN_SENTENCE[key(c)]) { fs.writeFileSync(raw, await recordInSentence(c, body)); return trim(c.file); }
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceFor(c)}?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
   fs.writeFileSync(raw, Buffer.from(await r.arrayBuffer()));
@@ -227,8 +235,8 @@ async function hear(c) {
 (async () => {
   for (const c of todo) { await record(c); console.log(`recorded ${c.file}  "${c.text}"`); }
   let off = 0;
-  // after --redo only the clips recorded again are checked; otherwise all of them
-  for (const c of redo.length ? todo : clips) {
+  // after --redo or --only only the clips recorded now are checked; otherwise all of them
+  for (const c of redo.length || only ? todo : clips) {
     const heard = await hear(c);
     const ok = c.word ? norm(heard).endsWith(norm(c.text)) : norm(heard) === norm(c.text);
     if (!ok) off++;

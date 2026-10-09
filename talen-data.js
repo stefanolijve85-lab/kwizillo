@@ -9,7 +9,8 @@
   // Sound ships with the app (assets/talen/audio/<lang>/), not through the
   // speech server: a word is one recording, made with the app's own voices,
   // model and settings (tools/talen-audio.cjs). <lang>/<id>.mp3 is a word,
-  // <lang>/_<line>.mp3 a line Milo says (_goed<n>: praise, _bijna<n>: almost), <lang>/<guide>/_klaar_<theme>.mp3 the
+  // <lang>/_<line>.mp3 a line (_goed<n>: praise, _bijna<n>: almost), both in Milo's
+  // voice; <lang>/luna/ has the same in Luna's; <lang>/<guide>/_klaar_<theme>.mp3 the
   // closing line in the chosen guide's voice.
   //
   // Pictures: 360x360, cut square from the question pictures with the animal in
