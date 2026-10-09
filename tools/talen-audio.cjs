@@ -115,13 +115,34 @@ const todo = clips.filter(c => !fs.existsSync(path.join(OUT, c.file)) || redo.in
 const SAY = { 'fr/seven': '7', 'pt/ten': '10' };
 const TALEN_VOICE = { lang: 'nl', guide: 'Milo', for: ['nl', 'en'] };
 const voiceFor = c => c.guide === 'Milo' && TALEN_VOICE.for.includes(c.lang) ? SPEECH.voiceId(TALEN_VOICE.lang, TALEN_VOICE.guide) : SPEECH.voiceId(c.lang, c.guide);
+// A word that is also an English word can come out English with the context only as
+// previous_text: Dutch "slang" was said as English "slang" (sleng), twice (2026-10-08
+// and 10-09; measured, the second formant of the vowel was 1600-2000 Hz, as in English
+// "hand", where a Dutch a as in "hand", "tand" or "zwart" is about 1000 Hz). Alone or at
+// the end of a sentence it stayed English; in the middle of a Dutch sentence it is
+// Dutch (about 1050 Hz). So these are spoken inside that sentence and cut out of it at
+// the times ElevenLabs gives per character; trim() then cuts the silence as for any clip.
+const IN_SENTENCE = { 'nl/snake': ['Zij zag een ', ', een grote slang.'] };
+async function recordInSentence(c, body) {
+  const [before, after] = IN_SENTENCE[c.file.replace(/\.mp3$/, '')], text = before + body.text + after;
+  const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceFor(c)}/with-timestamps?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, text, previous_text: undefined }) });
+  if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
+  const { audio_base64, alignment } = await r.json();
+  const start = alignment.character_start_times_seconds, end = alignment.character_end_times_seconds;
+  const i = before.length, j = i + body.text.length - 1;
+  const from = Math.max(end[i - 2] ?? 0, start[i] - 0.05), to = Math.min(end[j] + 0.12, start[j + 2] ?? Infinity);
+  const whole = path.join(require('os').tmpdir(), 'kwizillo-talen-sentence.mp3');
+  fs.writeFileSync(whole, Buffer.from(audio_base64, 'base64'));
+  return execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-ss', from.toFixed(3), '-to', to.toFixed(3), '-i', whole, '-c:a', 'libmp3lame', '-b:a', '128k', '-f', 'mp3', '-'], { maxBuffer: 1e8 });
+}
 async function record(c) {
   // Said before the word as context, not spoken: without it a lone word came out in the wrong language ("haai" as "hi").
   const CONTEXT = { nl: 'In het Nederlands zeg je', en: 'In English you say', de: 'Auf Deutsch sagt man', fr: 'En français, on dit', es: 'En español se dice', it: 'In italiano si dice', pt: 'Em português se diz', da: 'På dansk siger man', ru: 'По-русски говорят', ar: 'بالعربية نقول' };
   const body = { text: SAY[c.file.replace(/\.mp3$/, '')] || c.text, model_id: SPEECH.model, voice_settings: { ...SPEECH.settings[c.guide], speed: TALEN_SPEED }, language_code: c.lang, ...(c.word ? { previous_text: CONTEXT[c.lang] } : {}) };
+  const raw = path.join(RAW, c.file); fs.mkdirSync(path.dirname(raw), { recursive: true });
+  if (c.word && IN_SENTENCE[c.file.replace(/\.mp3$/, '')]) { fs.writeFileSync(raw, await recordInSentence(c, body)); return trim(c.file); }
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceFor(c)}?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`${c.file}: ${r.status} ${(await r.text()).slice(0, 120)}`);
-  const raw = path.join(RAW, c.file); fs.mkdirSync(path.dirname(raw), { recursive: true });
   fs.writeFileSync(raw, Buffer.from(await r.arrayBuffer()));
   trim(c.file);
 }
