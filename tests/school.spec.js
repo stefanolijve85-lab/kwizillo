@@ -77,6 +77,21 @@ test('a pupil logs in with code, name and pictures, plays with the school licenc
   await teacher.locator('.class-tile').first().click();
   await expect.poll(async () => { await teacher.locator('#back').click(); await teacher.locator('.class-tile').first().click(); return teacher.locator('tbody tr', { hasText: 'Sam B.' }).innerText() }, { timeout: 15000 })
     .toMatch(/\t7\t71%\t1\t/);
+  // a click on the row opens the pupil's own page; back (the link or the browser) returns to the class
+  await teacher.locator('tbody tr', { hasText: 'Sam B.' }).locator('td').nth(2).click();
+  await expect(teacher.locator('h1')).toHaveText('Sam B.');
+  await expect(teacher.locator('.stat').first()).toContainText('7');
+  await expect(teacher.locator('.stat').nth(1)).toContainText('71%');
+  await expect(teacher.locator('h2', { hasText: 'Rekenen' })).toBeVisible();
+  expect(teacher.url()).toMatch(/#leerling=\d+$/);
+  await teacher.goBack();
+  await expect(teacher.locator('h1')).toHaveText('Groep 5');
+  await teacher.locator('.pupil-link', { hasText: 'Sam B.' }).click();
+  await expect(teacher.locator('h1')).toHaveText('Sam B.');
+  await teacher.reload();
+  await expect(teacher.locator('h1')).toHaveText('Sam B.');
+  await teacher.locator('#back').click();
+  await expect(teacher.locator('h1')).toHaveText('Groep 5');
   // after a reload the child is still logged in and gets the progress from the server
   await page.evaluate(() => localStorage.removeItem('kwizillo-state'));
   await page.reload();

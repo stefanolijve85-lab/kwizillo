@@ -50,3 +50,50 @@ td.num,th.num{text-align:right}
   .cards{grid-template-columns:repeat(3,1fr)}
 }
 .scroll-x{overflow:auto}
+.pupil-row{cursor:pointer}
+.pupil-row:hover td{background:#f6faff}
+.pupil-link{font-weight:800;color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:6px 0 8px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.stat b{display:block;font-size:28px}
+.stat span{color:#3d5f8f;font-size:14px}
+.insight{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
+.insight h3{margin:0 0 2px;font-size:17px}
+.chips{margin-top:8px}
+.chip{display:inline-block;margin:6px 6px 0 0;padding:5px 10px;border-radius:999px;background:var(--soft);font-weight:700;font-size:14px}
+.chip small{font-weight:600;color:#3d5f8f}
+.card.world{margin-bottom:12px;padding:14px}
+.world-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-bottom:8px}
+.world-head b{font-size:18px}
+.world-head span{color:#3d5f8f;font-size:14px}
+.bar{display:inline-block;width:110px;height:10px;border-radius:999px;background:#e3eefa;overflow:hidden;vertical-align:middle}
+.bar i{display:block;height:100%;background:#4d8dff;border-radius:999px}
+.bar i.good{background:#2fae62}
+.bar i.low{background:#f08a3c}
+table.topics{table-layout:fixed}
+table.topics .c-name{width:44%}
+table.topics .c-n{width:14%}
+table.topics .c-ok{width:28%}
+table.topics .c-pass{width:14%}
+table.topics td.ok{white-space:nowrap}
+table.topics .pc{display:inline-block;min-width:3.2em}
+table.topics .pass{text-align:center}
+.tick{color:#2fae62;font-weight:900;font-size:18px}
+@media (max-width:560px){
+  table.topics .c-name{width:42%}
+  table.topics .c-n{width:15%}
+  table.topics .c-ok{width:27%}
+  table.topics .c-pass{width:16%}
+  table.topics th,table.topics td{padding:8px 5px}
+  table.topics .bar{display:block;width:100%;margin-top:4px}
+  table.topics th.pass{font-size:0}
+  table.topics th.pass::after{content:"Gehaald";font-size:12px}
+}
+/* the top bar on a phone: the logo, the name and the button fit on one line */
+@media (max-width:560px){
+  .top{padding:10px 16px;gap:8px}
+  .logo{height:32px}
+  .top-title{display:none}
+  .top-who{font-size:14px;gap:8px;min-width:0}
+  .top-who button{padding:8px 12px}
+}

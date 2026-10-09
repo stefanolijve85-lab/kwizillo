@@ -96,6 +96,33 @@ const net = require('net');
     assert.ok(sam.playedAt > 0);
   });
 
+  await ok('the teacher opens one pupil: per world and topic, with the game\'s own names', async () => {
+    // a second save with per-topic counts and a passed quiz
+    const state = { answered: 20, correct: 15, quizzesPlayed: 2, xp: 250, progress: {
+      worlds: { ruimte: { answered: 14, correct: 12, quizzes: 1 }, dieren: { answered: 6, correct: 3 } },
+      topics: { zonnestelsel: { answered: 10, correct: 9 }, astronauten: { answered: 4, correct: 3 }, jungle: { answered: 6, correct: 3 } },
+      passed: { 1: { 'ruimte:zonnestelsel': true } },
+      games: { math: { played: 3, won: 2, best: { 2: 80 } } },
+      talen: { words: { 'en:dog': {}, 'en:cat': {}, 'de:hund': {} }, themes: { 'en:dieren': { stars: 2, played: 1 } } } } };
+    let r = await call('PUT', '/api/school/pupil/state', { token, body: { state, version } });
+    assert.strictEqual(r.status, 200); version = r.json.version;
+    r = await call('GET', `/api/school/pupils/${pupils[0].id}`, { cookie });
+    assert.strictEqual(r.status, 200);
+    const d = r.json;
+    assert.strictEqual(d.name, 'Sam B.'); assert.strictEqual(d.class.id, cls.id);
+    const ruimte = d.worlds.find(w => w.id === 'ruimte');
+    assert.strictEqual(ruimte.title, 'Ruimtewereld');
+    assert.deepStrictEqual(ruimte.topics.find(t => t.key === 'zonnestelsel'), { key: 'zonnestelsel', label: 'Zonnestelsel', answered: 10, correct: 9, passed: true });
+    assert.strictEqual(ruimte.topics.length, 4);
+    assert.deepStrictEqual(d.math, { played: 3, won: 2, best: { 2: 80 } });
+    assert.deepStrictEqual(d.talen.map(l => [l.name, l.words, l.themes.map(t => [t.label, t.stars])]), [['Engels', 2, [['Dieren', 2]]], ['Duits', 1, []]]);
+    // a pupil who never played
+    r = await call('GET', `/api/school/pupils/${pupils[1].id}`, { cookie });
+    assert.strictEqual(r.status, 200); assert.strictEqual(r.json.answered, 0); assert.deepStrictEqual(r.json.talen, []);
+    assert.strictEqual((await call('GET', '/api/school/pupils/999999', { cookie })).status, 404);
+    assert.strictEqual((await call('GET', `/api/school/pupils/${pupils[0].id}`)).status, 401);
+  });
+
   await ok('five wrong picture codes lock the pupil for a while', async () => {
     const noor = pupils[1], wrong = noor.pictures.map(x => (x + 1) % 9);
     for (let i = 0; i < 5; i++) assert.strictEqual((await call('POST', '/api/school/pupil/login', { body: { code: cls.code, pupilId: noor.id, pictures: wrong } })).status, 401);
@@ -110,6 +137,7 @@ const net = require('net');
     const inv = store.inviteTeacher(other, 'meester@elders.nl', 'Meester Bas');
     const c2 = (await call('POST', '/api/school/teacher/invite/accept', { body: { token: inv, password: 'nog-een-wachtwoord' } })).cookie;
     assert.strictEqual((await call('GET', `/api/school/classes/${cls.id}/overview`, { cookie: c2 })).status, 404);
+    assert.strictEqual((await call('GET', `/api/school/pupils/${pupils[0].id}`, { cookie: c2 })).status, 404);
     assert.strictEqual((await call('DELETE', `/api/school/pupils/${pupils[0].id}`, { cookie: c2 })).status, 404);
     assert.deepStrictEqual((await call('GET', '/api/school/teacher/me', { cookie: c2 })).json.classes, []);
   });
