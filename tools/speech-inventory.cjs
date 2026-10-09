@@ -187,7 +187,7 @@ for (const lang of langs) {
 const CALL_RE = /\bK\.(speak|speakSequence|prefetchSpeech|guideSay|guidePrefetch|miloSay|miloPrefetch|warmTour)\b\??\.?\s*\(|\bhost\.say\(/g;
 const EXPECTED = {
   'facts-ui.js': 2, 'games-fotozoom.js': 4, 'games-memo.js': 5, 'games-whoami.js': 4,
-  'm1-ui.js': 10, 'milo.js': 9, 'onboarding.js': 8, 'quiz-visual-v2.js': 7,
+  'm1-ui.js': 11, 'milo.js': 9, 'onboarding.js': 8, 'quiz-visual-v2.js': 7,
 };
 const SKIP = new Set(['server.js', 'games-math.js', 'm1-runtime.js', 'playwright.config.js']);
 const drift = [];
