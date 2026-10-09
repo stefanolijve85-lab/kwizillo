@@ -46,15 +46,17 @@ const MAX_ZOOM = 1.5;            // at most this much larger than fitted whole
 // close-ups with a head far larger than Mike's, and Terra and Sparky with a small
 // one. Measured on a 320x256 view of the tile above (top of the head, chin, centre
 // of the head; Mike 10..158) and set by eye in the collection next to Mike, since a
-// hat or goggles is not head: [scale, top, centre x]. The head goes to Mike's
-// height and to the middle; a drawing that then ends above the bottom of the tile
-// fades out there, under the name band of the card.
+// hat or goggles is not head: [scale, top, centre x]. Every buddy keeps standing on
+// the bottom edge like Mike, nothing fades (a fade looked like a different kind of
+// tile, Stefan the same day): a smaller one sinks a little and gets air above its
+// head, a larger one keeps its head at Mike's height and runs off the bottom.
 const HEADS = { luna: [.86, 10, 142], milo: [.87, 32, 160], pootje: [.86, 10, 155], pip: [.86, 10, 163], ravi: [.86, 8, 160], draco: [.88, 10, 151], kiko: [.87, 10, 160], flora: [.92, 12, 165], nova: [.92, 10, 160], terra: [1.14, 28, 156], sparky: [1.06, 8, 159] };
-const HEAD_TOP = 20, FADE = 80;
+const HEAD_TOP = 20;
 function headStep(file) {
   const [s, top, cx] = HEADS[file.replace(/\.(jpg|png)$/, '')] || []; if (!s) return;
-  const w = Math.round(W * s), h = Math.round(H * s), x = Math.round(W / 2 - cx * 2 * s), y = Math.round(HEAD_TOP - top * 2 * s);
-  const fade = y + h < H ? `,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='alpha(X,Y)*min(1,(H-1-Y)/${FADE})'` : '';
+  const w = Math.round(W * s), h = Math.round(H * s), x = Math.round(W / 2 - cx * 2 * s);
+  const y = s < 1 ? H - h : Math.round(HEAD_TOP - top * 2 * s);   // smaller: on the bottom edge; larger: head at Mike's height
+  const fade = '';
   const out = tileOf(file), tmp = out + '.tmp.png';
   execFileSync(path.join(__dirname, 'bin', 'ffmpeg'), ['-loglevel', 'error', '-y', '-i', out, '-f', 'lavfi', '-i', `color=c=black@0:s=${W}x${H},format=rgba`,
     '-filter_complex', `[0:v]format=rgba,scale=${w}:${h}:flags=lanczos${fade}[f];[1:v][f]overlay=${x}:${y}:format=auto,format=rgba`, '-frames:v', '1', tmp]);
