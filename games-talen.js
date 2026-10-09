@@ -31,7 +31,7 @@
     return s.themes[k]||(make?(s.themes[k]={stars:0,played:0}):null);
   };
   const word=id=>T().themes.flatMap(x=>x.words).find(w=>w.id===id);
-  const audio=(lang,name,guide)=>K.talenAudio(lang,name,guide);
+  const audio=(lang,name,guide)=>K.talenAudio(lang,name,guide||(K.state.voice==='Luna'?'Luna':null));   // Luna's clips live in <lang>/luna/, Milo's (and Stil's, for the words) in <lang>/
   // A theme can be played when it has its words; the free one always, the others with Premium.
   const ready=th=>th.words.length>=4;
   const open=th=>ready(th)&&(th.free||K.premium.can('talen',th.id));
