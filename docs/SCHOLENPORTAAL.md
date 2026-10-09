@@ -141,6 +141,9 @@ Voorwaarde: de code van `feature/scholen` staat op de server (nu draait daar
    ReadWritePaths=/var/lib/kwizillo
    ```
 
+   en `https://school.kwizillo.nl` erbij in `ALLOWED_ORIGINS`, anders weigert `/api/tts`
+   de stemmen op de schoolsite (403; muziek werkt dan wel, de stemmen niet).
+
    Zonder die tweede regel maakt `ProtectSystem=strict` de database alleen-lezen voor
    de service ("attempt to write a readonly database", "Serverfout" bij het activeren),
    terwijl `school-admin.cjs` via `sudo -u kwizillo` gewoon werkt.
