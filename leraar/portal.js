@@ -27,25 +27,41 @@
     render(`<div class="card narrow"><h1>Inloggen</h1><p class="lead">Voor leerkrachten van scholen met Kwizillo.</p>
       <form id="f"><label for="em">E-mailadres</label><input id="em" type="email" autocomplete="username" required>
       <label for="pw">Wachtwoord</label><input id="pw" type="password" autocomplete="current-password" required>
-      <p class="error" role="alert">${esc(error)}</p><button type="submit">Inloggen</button></form></div>`);
+      <p class="error" role="alert">${esc(error)}</p><div class="row"><button type="submit">Inloggen</button><button type="button" class="link" id="forgot">Wachtwoord vergeten?</button></div></form></div>`);
     on('#f', 'submit', async e => {
       e.preventDefault();
       const r = await api('POST', '/teacher/login', { email: app.querySelector('#em').value.trim(), password: app.querySelector('#pw').value });
       if (r.status === 200) return start();
       showLogin(r.json?.error || 'Inloggen lukt niet');
     });
+    on('#forgot', 'click', () => showForgot(app.querySelector('#em').value.trim()));
   }
-  function showInvite(token, error = '') {
-    render(`<div class="card narrow"><h1>Welkom bij Kwizillo</h1><p class="lead">Kies een wachtwoord voor je account (minstens 10 tekens).</p>
+  // The answer never says whether the address has an account.
+  function showForgot(email = '', error = '') {
+    render(`<div class="card narrow"><h1>Wachtwoord vergeten</h1><p class="lead">Vul het e-mailadres van je account in. Je krijgt een e-mail met een link om een nieuw wachtwoord te kiezen.</p>
+      <form id="f"><label for="em">E-mailadres</label><input id="em" type="email" autocomplete="username" required value="${esc(email)}">
+      <p class="error" role="alert">${esc(error)}</p><div class="row"><button type="submit">Stuur de link</button><button type="button" class="link" id="back">Terug naar inloggen</button></div></form></div>`);
+    on('#back', 'click', () => showLogin());
+    on('#f', 'submit', async e => {
+      e.preventDefault();
+      const r = await api('POST', '/teacher/forgot', { email: app.querySelector('#em').value.trim() });
+      if (r.status !== 200) return showForgot(app.querySelector('#em').value.trim(), r.json?.error || 'Dat lukte niet');
+      render(`<div class="card narrow"><h1>Kijk in je mail</h1><p class="lead">Als dit e-mailadres bij Kwizillo bekend is, krijg je binnen een paar minuten een e-mail met een link. De link is een uur geldig.</p>
+        <p class="note">Geen e-mail gekregen? Kijk ook bij de ongewenste e-mail, of vraag het aan Kwizillo.</p><button class="secondary" id="back">Terug naar inloggen</button></div>`);
+      on('#back', 'click', () => showLogin());
+    });
+  }
+  function showInvite(token, error = '', reset = false) {
+    render(`<div class="card narrow"><h1>${reset ? 'Nieuw wachtwoord' : 'Welkom bij Kwizillo'}</h1><p class="lead">Kies ${reset ? 'een nieuw' : 'een'} wachtwoord voor je account (minstens 10 tekens).</p>
       <form id="f"><label for="pw">Wachtwoord</label><input id="pw" type="password" autocomplete="new-password" minlength="10" required>
       <label for="pw2">Nog een keer</label><input id="pw2" type="password" autocomplete="new-password" minlength="10" required>
-      <p class="error" role="alert">${esc(error)}</p><button type="submit">Account activeren</button></form></div>`);
+      <p class="error" role="alert">${esc(error)}</p><button type="submit">${reset ? 'Wachtwoord opslaan' : 'Account activeren'}</button></form></div>`);
     on('#f', 'submit', async e => {
       e.preventDefault();
       const a = app.querySelector('#pw').value, b = app.querySelector('#pw2').value;
-      if (a !== b) return showInvite(token, 'De twee wachtwoorden zijn niet gelijk');
+      if (a !== b) return showInvite(token, 'De twee wachtwoorden zijn niet gelijk', reset);
       const r = await api('POST', '/teacher/invite/accept', { token, password: a });
-      if (r.status !== 200) return showInvite(token, r.json?.error || 'Dat lukte niet');
+      if (r.status !== 200) return showInvite(token, r.json?.error || 'Dat lukte niet', reset);
       history.replaceState(null, '', location.pathname);
       start();
     });
@@ -130,6 +146,8 @@
         <div class="lc-foot">${esc(c.name)} · ${esc(location.host)}</div></div>`).join('')}</div></div>`;
   }
 
-  const invite = /[#&]uitnodiging=([A-Za-z0-9_-]+)/.exec(location.hash);
-  if (invite) showInvite(invite[1]); else start();
+  // also when the link is opened in a tab that already shows the portal
+  const route = () => { const link = /[#&](uitnodiging|herstel)=([A-Za-z0-9_-]+)/.exec(location.hash); if (link) showInvite(link[2], '', link[1] === 'herstel'); else return true };
+  window.addEventListener('hashchange', route);
+  if (route()) start();
 })();

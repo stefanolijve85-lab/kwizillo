@@ -9,6 +9,7 @@
 //   add-school "Montessorischool Emmen" 120 2027-08-31   school met 120 plaatsen tot en met die datum
 //   licence <schoolId> <plaatsen> <tot-en-met>           licentie aanpassen
 //   invite <schoolId> <e-mail> "<naam>"                  uitnodigingslink voor een leerkracht (7 dagen geldig)
+//   reset <e-mail>                                       link voor een nieuw wachtwoord (24 uur geldig), als de e-mail niet aankomt
 //
 // SCHOOL_URL (standaard https://school.kwizillo.nl) bepaalt het adres in de link.
 const path = require('path');
@@ -31,6 +32,10 @@ if (cmd === 'schools') {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(a[1])) { console.error('Geen geldig e-mailadres'); process.exit(1) }
   const token = store.inviteTeacher(int(a[0]), a[1], a[2]);
   console.log(`Uitnodiging voor ${a[2]} (7 dagen geldig):\n${BASE}/leraar/#uitnodiging=${token}`);
+} else if (cmd === 'reset' && a.length === 1) {
+  const r = store.resetToken(a[0].toLowerCase(), 24 * 36e5);
+  if (!r) { console.error('Geen leerkracht met dit e-mailadres'); process.exit(1) }
+  console.log(`Link voor een nieuw wachtwoord voor ${r.teacher.name} (24 uur geldig):\n${BASE}/leraar/#herstel=${r.token}`);
 } else {
   console.log(require('fs').readFileSync(__filename, 'utf8').split('\n').filter(l => l.startsWith('//')).map(l => l.slice(3)).join('\n'));
   process.exit(cmd ? 1 : 0);

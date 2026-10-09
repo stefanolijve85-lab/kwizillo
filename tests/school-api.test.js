@@ -2,15 +2,19 @@
 // makes a class with pupils, a pupil logs in with the class code and picture
 // code, saves and loads progress, and the teacher sees it in the overview. Plus
 // the protections: wrong pictures lock a pupil, other teachers see nothing,
-// changes need the same origin, the licence caps the seats.
+// changes need the same origin, the licence caps the seats; a forgotten password
+// gets a link by e-mail (over SMTP) that never tells whether an address exists.
 const assert = require('assert');
 const http = require('http');
 const { open } = require('../school/store.cjs');
 const { create } = require('../school/api.cjs');
+const { createMailer } = require('../school/mail.cjs');
+const net = require('net');
 
 (async () => {
   const store = open(':memory:');
-  const handle = create(store, { secureCookies: false });
+  const mails = [];
+  const handle = create(store, { secureCookies: false, mailer: async m => { mails.push(m) } });
   const server = http.createServer(async (req, res) => { const url = new URL(req.url, 'http://x'); if (!(await handle(req, res, url))) { res.writeHead(404); res.end() } });
   await new Promise(r => server.listen(0, '127.0.0.1', r));
   const host = `127.0.0.1:${server.address().port}`, base = `http://${host}`;
@@ -122,6 +126,58 @@ const { create } = require('../school/api.cjs');
     const pics = store.resetPictures(noor.id);
     const r = await call('POST', '/api/school/pupil/login', { body: { code: cls.code, pupilId: noor.id, pictures: pics } });
     assert.strictEqual(r.json.premium, false);
+  });
+
+  await ok('forgotten password: a link by e-mail, the same answer for an unknown address, the old password and sessions stop', async () => {
+    let r = await call('POST', '/api/school/teacher/forgot', { body: { email: 'niemand@school.nl' } });
+    assert.strictEqual(r.status, 200); assert.strictEqual(mails.length, 0);
+    assert.strictEqual((await call('POST', '/api/school/teacher/forgot', { body: { email: 'juf@school.nl' }, origin: 'https://evil.example' })).status, 403);
+    r = await call('POST', '/api/school/teacher/forgot', { body: { email: 'Juf@School.nl ' } });
+    assert.deepStrictEqual(r.json, { ok: true }); assert.strictEqual(mails.length, 1);
+    assert.strictEqual(mails[0].to, 'juf@school.nl'); assert.match(mails[0].text, /Hallo Juf Anna/);
+    const link = /https:\/\/school\.kwizillo\.nl\/leraar\/#herstel=([A-Za-z0-9_-]+)/.exec(mails[0].text);
+    assert.ok(link, 'the link points at the school site, not at the Host of the request');
+    const before = (await call('POST', '/api/school/teacher/login', { body: { email: 'juf@school.nl', password: 'een-goed-wachtwoord' } })).cookie;
+    r = await call('POST', '/api/school/teacher/invite/accept', { body: { token: link[1], password: 'een-nieuw-wachtwoord' } });
+    assert.strictEqual(r.status, 200); cookie = r.cookie;
+    assert.strictEqual((await call('GET', '/api/school/teacher/me', { cookie: before })).status, 401, 'other sessions end');
+    assert.strictEqual((await call('POST', '/api/school/teacher/login', { body: { email: 'juf@school.nl', password: 'een-goed-wachtwoord' } })).status, 401);
+    assert.strictEqual((await call('POST', '/api/school/teacher/invite/accept', { body: { token: link[1], password: 'nog-een-keer-anders' } })).status, 400, 'a link works once');
+    // at most three mails per address per hour
+    for (let i = 0; i < 3; i++) await call('POST', '/api/school/teacher/forgot', { body: { email: 'juf@school.nl' } });
+    assert.strictEqual(mails.length, 3);
+  });
+
+  await ok('the mail goes out over SMTP: login, sender, recipient, a UTF-8 subject and the text', async () => {
+    const seen = [];
+    const smtp = net.createServer(s => {
+      let data = false, msg = '';
+      s.write('220 test\r\n');
+      s.on('data', d => {
+        for (const line of String(d).split('\r\n').filter((l, i, a) => i < a.length - 1 || l)) {
+          if (data) { if (line === '.') { data = false; seen.push(msg); s.write('250 ok\r\n') } else msg += line + '\n'; continue }
+          seen.push(line);
+          if (/^EHLO/.test(line)) s.write('250-test\r\n250 AUTH PLAIN\r\n');
+          else if (/^AUTH/.test(line)) s.write('235 ok\r\n');
+          else if (line === 'DATA') { data = true; s.write('354 go\r\n') }
+          else if (line === 'QUIT') s.end('221 bye\r\n');
+          else s.write('250 ok\r\n');
+        }
+      });
+    });
+    await new Promise(r => smtp.listen(0, '127.0.0.1', r));
+    const send = createMailer({ host: '127.0.0.1', port: smtp.address().port, user: 'noreply@kwizillo.nl', pass: 'geheim', from: 'Kwizillo <noreply@kwizillo.nl>', mode: 'none' });
+    await send({ to: 'juf@school.nl', subject: 'Nieuw wachtwoord voor Kwizillo', text: 'Hallo Juf Anna, één link' });
+    smtp.close();
+    assert.ok(seen.includes('AUTH PLAIN ' + Buffer.from('\0noreply@kwizillo.nl\0geheim').toString('base64')));
+    assert.ok(seen.includes('MAIL FROM:<noreply@kwizillo.nl>') && seen.includes('RCPT TO:<juf@school.nl>'));
+    const msg = seen.at(-1), body = Buffer.from(msg.split('\n\n')[1].replace(/\s/g, ''), 'base64').toString('utf8');
+    assert.match(msg, /Subject: =\?UTF-8\?B\?/); assert.strictEqual(body, 'Hallo Juf Anna, één link');
+    // without STARTTLS on port 587 it refuses to send the password
+    const plain = net.createServer(s => { s.write('220 x\r\n'); s.on('data', () => s.write('250 x\r\n')) });
+    await new Promise(r => plain.listen(0, '127.0.0.1', r));
+    await assert.rejects(createMailer({ host: '127.0.0.1', port: plain.address().port, user: 'u', pass: 'p', from: 'a@b.nl' })({ to: 'c@d.nl', subject: 's', text: 't' }), /no STARTTLS/);
+    plain.close();
   });
 
   await ok('a teacher logs out', async () => {

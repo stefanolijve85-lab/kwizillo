@@ -99,3 +99,21 @@ test('the parent zone hides what the school arranges; the normal site has no sch
   await page.goto(`${BASE}/?school=0`);
   expect(await page.evaluate(() => [window.KWIZILLO_M1.school.on, document.documentElement.dataset.school || null])).toEqual([false, null]);
 });
+
+test('a teacher who forgot the password asks for a link and chooses a new one', async ({ page }) => {
+  await page.goto(`${BASE}/leraar/`);
+  await page.locator('#em').fill('juf@school.nl');
+  await page.getByRole('button', { name: 'Wachtwoord vergeten?' }).click();
+  await expect(page.locator('h1')).toHaveText('Wachtwoord vergeten');
+  await expect(page.locator('#em')).toHaveValue('juf@school.nl');
+  await page.getByRole('button', { name: 'Stuur de link' }).click();
+  await expect(page.locator('h1')).toHaveText('Kijk in je mail');
+  // the link from the e-mail (made here directly: the test server sends no mail)
+  const store = require('../school/store.cjs').open(DB);
+  const { token } = store.resetToken('juf@school.nl'); store.db.close();
+  await page.goto(`${BASE}/leraar/#herstel=${token}`);
+  await expect(page.locator('h1')).toHaveText('Nieuw wachtwoord');
+  await page.locator('#pw').fill('mijn-nieuwe-wachtwoord'); await page.locator('#pw2').fill('mijn-nieuwe-wachtwoord');
+  await page.getByRole('button', { name: 'Wachtwoord opslaan' }).click();
+  await expect(page.locator('h1')).toHaveText('Jouw klassen');
+});
