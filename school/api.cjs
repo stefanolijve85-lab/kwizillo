@@ -18,7 +18,24 @@ function limiter() {
   };
 }
 
-function create(store, { secureCookies = true } = {}) {
+// The link in the e-mail always points at this address, never at the Host of the
+// request (that could be made to point elsewhere).
+const SITE = (process.env.SCHOOL_URL || 'https://school.kwizillo.nl').replace(/\/$/, '');
+const resetMail = (name, link) => `Hallo ${name},
+
+Je hebt gevraagd om een nieuw wachtwoord voor Kwizillo voor leerkrachten.
+Kies een nieuw wachtwoord via deze link (een uur geldig):
+
+${link}
+
+Heb je dit niet zelf gevraagd? Dan hoef je niets te doen: je wachtwoord blijft
+zoals het was.
+
+Groeten,
+Kwizillo
+`;
+
+function create(store, { secureCookies = true, mailer = null, logLinks = false } = {}) {
   const allow = limiter();
   const locks = new Map();            // pupil id -> { fails, first, until }
 
@@ -111,8 +128,25 @@ function create(store, { secureCookies = true } = {}) {
         if (!allow('invite:' + ip(req), 10, 15 * 60e3)) return fail(res, 429, 'Te veel pogingen'), true;
         if (typeof b.password !== 'string' || b.password.length < 10) return fail(res, 400, 'Kies een wachtwoord van minstens 10 tekens'), true;
         const id = store.acceptInvite(String(b.token || ''), b.password);
-        if (!id) return fail(res, 400, 'Deze uitnodiging is verlopen of al gebruikt'), true;
+        if (!id) return fail(res, 400, 'Deze link is verlopen of al gebruikt'), true;
         return send(res, 200, { ok: true }, { 'Set-Cookie': setCookie(store.startSession('teacher', id), 30 * 86400) }), true;
+      }
+      if (p === '/api/school/teacher/forgot' && m === 'POST') {
+        const b = await body(req), email = String(b.email || '').trim().toLowerCase().slice(0, 200);
+        if (!allow('forgot:' + ip(req), 5, 15 * 60e3)) return fail(res, 429, 'Te veel pogingen, probeer het over een kwartier opnieuw'), true;
+        // The answer is the same whether the address is known or not, and it does not
+        // wait for the mail, so it cannot tell who has an account.
+        if (/^[^@\s<>]+@[^@\s<>]+\.[^@\s<>]+$/.test(email) && allow('forgot:' + email, 3, 60 * 60e3)) {
+          const r = store.resetToken(email);
+          if (r) {
+            const link = `${SITE}/leraar/#herstel=${r.token}`;
+            if (logLinks) console.log(`Kwizillo school: link voor een nieuw wachtwoord (alleen lokaal): ${link}`);
+            if (mailer) mailer({ to: r.teacher.email, subject: 'Nieuw wachtwoord voor Kwizillo', text: resetMail(r.teacher.name, link) })
+              .catch(e => console.error('Kwizillo school: e-mail niet verstuurd:', e?.message || e));
+            else if (!logLinks) console.error(`Kwizillo school: wachtwoord vergeten voor leerkracht ${r.teacher.id}, maar er is geen SMTP ingesteld (tools/school-admin.cjs reset)`);
+          }
+        }
+        return send(res, 200, { ok: true }), true;
       }
       if (p === '/api/school/teacher/logout' && m === 'POST') { const c = cookie(req); if (c) store.endSession(c); return send(res, 200, { ok: true }, { 'Set-Cookie': setCookie(null, 0) }), true }
 

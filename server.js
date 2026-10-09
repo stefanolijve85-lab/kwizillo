@@ -530,7 +530,10 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
 let school=null;
 if(process.env.SCHOOL_DB){
   const store=require('./school/store.cjs').open(process.env.SCHOOL_DB);
-  school=require('./school/api.cjs').create(store,{secureCookies:process.env.SCHOOL_INSECURE_COOKIES!=='1'});
+  // the e-mail for "wachtwoord vergeten" goes out through SMTP_* (school/mail.cjs);
+  // SCHOOL_MAIL_LOG=1 prints the link instead, for testing on your own computer only
+  const mailer=require('./school/mail.cjs').fromEnv();
+  school=require('./school/api.cjs').create(store,{secureCookies:process.env.SCHOOL_INSECURE_COOKIES!=='1',mailer,logLinks:process.env.SCHOOL_MAIL_LOG==='1'});
 }
 
 const server=http.createServer(async(req,res)=>{

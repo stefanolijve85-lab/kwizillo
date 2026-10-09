@@ -84,7 +84,8 @@ Leerkracht:
 
 - `POST /api/school/teacher/login` `{email, password}` → cookie
 - `POST /api/school/teacher/logout`
-- `POST /api/school/teacher/invite/accept` `{token, password}` (uitnodigingslink)
+- `POST /api/school/teacher/invite/accept` `{token, password}` (uitnodigingslink, ook de link uit "wachtwoord vergeten")
+- `POST /api/school/teacher/forgot` `{email}` → altijd `{ok:true}` (verraadt niet of een adres bestaat); een bekend adres krijgt een e-mail met een link (`#herstel=`, een uur geldig; max. 3 per adres per uur, 5 per IP per kwartier). Na een nieuw wachtwoord stoppen alle sessies van die leerkracht.
 - `GET  /api/school/teacher/me` → leerkracht, school, licentie, klassen
 - `POST /api/school/classes` `{name}` → klas met klascode
 - `POST /api/school/classes/:id/pupils` `{names: [...]}` → leerlingen + plaatjescodes (eenmalig zichtbaar, om te printen)
@@ -159,6 +160,23 @@ Voorwaarde: de code van `feature/scholen` staat op de server (nu draait daar
    ```
 
    De link die dat geeft, stuurt Stefan naar de leerkracht (7 dagen geldig).
+
+8. E-mail voor "wachtwoord vergeten": een mailbox van kwizillo.nl (bijv. `noreply@kwizillo.nl`
+   bij Hostnet), in een bestand dat alleen root kan lezen:
+
+   ```
+   sudo install -m 600 /dev/null /etc/kwizillo-smtp.env
+   sudoedit /etc/kwizillo-smtp.env
+   #   SMTP_HOST=smtp.hostnet.nl
+   #   SMTP_PORT=587
+   #   SMTP_USER=noreply@kwizillo.nl
+   #   SMTP_PASS=...
+   #   SMTP_FROM=Kwizillo <noreply@kwizillo.nl>
+   ```
+
+   en in de service (`sudo systemctl edit kwizillo`): `EnvironmentFile=/etc/kwizillo-smtp.env`.
+   Zonder SMTP werkt alles behalve die e-mail; dan maakt de beheerder een link met
+   `tools/school-admin.cjs reset <e-mail>` (24 uur geldig).
 
 Controle: `https://school.kwizillo.nl/leraar/` toont het inlogscherm, en
 `https://school.kwizillo.nl/` begint na de intro met "Wat is de code van je klas?".

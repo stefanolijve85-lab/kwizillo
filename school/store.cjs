@@ -62,6 +62,17 @@ function open(file) {
         return token;
       });
     },
+    // "Wachtwoord vergeten": a link for an existing teacher, shorter-lived than an
+    // invite. It is used like an invite; older links of that teacher stay valid
+    // until one of them is used (acceptInvite removes them all).
+    resetToken(email, ms = 60 * 60e3) {
+      const t = q('SELECT * FROM teachers WHERE email=?').get(String(email || ''));
+      if (!t) return null;
+      const token = A.newToken();
+      q('DELETE FROM invites WHERE expires_at<?').run(now());
+      q('INSERT INTO invites(token_hash,teacher_id,expires_at) VALUES (?,?,?)').run(A.tokenHash(token), t.id, now() + ms);
+      return { token, teacher: t };
+    },
     acceptInvite(token, password) {
       return tx(() => {
         const inv = q('SELECT * FROM invites WHERE token_hash=?').get(A.tokenHash(token));
