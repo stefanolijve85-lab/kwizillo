@@ -148,8 +148,12 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
   // ---------- the art pack (tools/jump-art.cjs): a skin over the collision boxes ----------
   const A = n => art && art.images[n] ? { img: art.images[n], m: art.ART[n] } : null;
   const P = { underwater: 'uw', candy: 'cd', space: 'sp' }[world.id];
-  const pic = { bgWide: A(P + '-bg'), bgTall: A(P + '-bg-tall'), urchin: A('uw-urchin'), crystals: A('sp-crystals'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: A('star'), shield: A('shield'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
+  const pic = { bgWide: A(P + '-bg'), bgTall: A(P + '-bg-tall'), urchin: A('uw-urchin'), crystals: A('sp-crystals'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: (world.id === 'underwater' && A('star-uw')) || A('star'), shield: A('shield'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
   pic.bg = pic.bgWide;
+  // a soft white glow behind the light-blue stars, so they stand out against the water
+  let glow = null;
+  if (world.id === 'underwater') { glow = document.createElement('canvas'); glow.width = glow.height = 64; const c = glow.getContext('2d'), gr = c.createRadialGradient(32, 32, 6, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); c.fillStyle = gr; c.fillRect(0, 0, 64, 64) }
+  const SPARK_COL = world.id === 'underwater' ? '#a8ecff' : '#ffec8c';   // the star sparkle in the star's own colour
   // the band of a platform, its caps kept, its middle repeated to any width
   function slice(a, x, y, w, h) {
     const m = a.m, sl = m.slice, k = h / m.h;
@@ -404,10 +408,10 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
       p.x += p.vx * dt; p.y += p.vy * dt;
       if (p.kind === DUST) { p.vy -= 30 * dt; g.globalAlpha = a * .7; g.fillStyle = '#ffffff'; g.beginPath(); g.arc(p.x, p.y, p.size * (1.6 - a * .6), 0, 7); g.fill(); g.globalAlpha = 1 }
       else if (p.kind === RING) { g.globalAlpha = a * .9; g.strokeStyle = '#46aaff'; g.lineWidth = 5 * a + 1; g.beginPath(); g.arc(p.x, p.y, p.size + (1 - a) * 70, 0, 7); g.stroke(); g.globalAlpha = a * .7; g.strokeStyle = '#beebff'; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, Math.max(1, p.size + (1 - a) * 70 - 7), 0, 7); g.stroke(); g.globalAlpha = 1 }
-      else if (p.kind === SPARK) { p.vy += 240 * dt; g.globalAlpha = a; g.fillStyle = '#ffec8c'; g.beginPath(); g.arc(p.x, p.y, p.size * a + 1, 0, 7); g.fill(); g.globalAlpha = 1 }
+      else if (p.kind === SPARK) { p.vy += 240 * dt; g.globalAlpha = a; g.fillStyle = SPARK_COL; g.beginPath(); g.arc(p.x, p.y, p.size * a + 1, 0, 7); g.fill(); g.globalAlpha = 1 }
       else if (p.kind === MINISTAR) { p.vy += 160 * dt; p.rot += dt * 5; g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.globalAlpha = a; g.fillStyle = p.color; drawStarShape(g, 0, 0, p.size, p.size * .45); g.fill(); g.restore() }
       else if (p.kind === CONFETTI) { p.vy += 300 * dt; p.vx *= .99; p.rot += dt * 8; g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.globalAlpha = Math.min(1, a * 2); g.fillStyle = p.color; g.fillRect(-5, -3, 10, 6); g.restore() }
-      else if (p.kind === POP) { g.globalAlpha = a; g.drawImage(starSprite, p.x - p.size * (2 - a), p.y - p.size * (2 - a), p.size * 2 * (2 - a), p.size * 2 * (2 - a)); g.globalAlpha = 1 }
+      else if (p.kind === POP) { g.globalAlpha = a; g.drawImage(pic.star ? pic.star.img : starSprite, p.x - p.size * (2 - a), p.y - p.size * (2 - a), p.size * 2 * (2 - a), p.size * 2 * (2 - a)); g.globalAlpha = 1 }
     }
   }
 
@@ -473,7 +477,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     for (const c of L.cps) if (c.x > x0 - 40 && c.x < x1 + 40) { const lit = s.cp.x >= c.x; g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(c.x - 2, c.y - 46, 4, 46); g.fillStyle = lit ? C.accent : 'rgba(255,255,255,.6)'; g.beginPath(); g.arc(c.x, c.y - 50, 7, 0, 7); g.fill() }
     const bob = reducedMotion ? 0 : Math.sin(time * 4) * 3;
     const sw = pic.star ? 46 : 48, sh = pic.star ? 46 * pic.star.m.h / pic.star.m.w : 48, simg = pic.star ? pic.star.img : starSprite;
-    for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; g.drawImage(simg, st.x - sw / 2, st.y - sh / 2 + bob, sw, sh) }
+    for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; if (glow) g.drawImage(glow, st.x - 40, st.y - 40 + bob, 80, 80); g.drawImage(simg, st.x - sw / 2, st.y - sh / 2 + bob, sw, sh) }
     if (pic.shield) for (let i = 0; i < (L.shields || []).length; i++) { const it = L.shields[i]; if (s.gotShield[i] || it.x < x0 - 60 || it.x > x1 + 60) continue; const h2 = 52, w2 = h2 * pic.shield.m.w / pic.shield.m.h; g.globalAlpha = .35; g.fillStyle = '#7ff0ff'; g.beginPath(); g.arc(it.x, it.y + bob, 34, 0, 7); g.fill(); g.globalAlpha = 1; g.drawImage(pic.shield.img, it.x - w2 / 2, it.y - h2 / 2 + bob, w2, h2) }
     drawPlayer(s, px, py);
     // the shield while it lasts: a soft blue bubble round the child

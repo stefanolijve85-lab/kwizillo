@@ -57,6 +57,9 @@ const CUTS = {
   'sp-gate': { src: '04_Ruimte/Slidepoort.png', h: 250, gate: true },
   // ---- shared
   star: { src: '05_Verzamelitems/Bonusster.png', h: 150 },
+  // the same gem star in light aqua blue for the Onderwaterwereld (the pink and violet turned to blue,
+  // highlights and the sparkle kept), with a darker blue outline so it stands out against the water
+  'star-uw': { src: '05_Verzamelitems/Bonusster.png', h: 150, hue: { from: [255, 360], to: 196, sat: .62, light: 1.12 }, outline: ['#1d5fa6', 4] },
   shield: { src: '05_Verzamelitems/Schild.png', h: 150 },
   finish: { src: '06_Finish_en_Bediening/Finishpoort.png', h: 640 },
   medal: { src: '06_Finish_en_Bediening/Medaille.png', h: 300 },
@@ -102,7 +105,29 @@ const CUTS = {
       const tw = tx1 - tx0 + 1, th = ty1 - ty0 + 1, k = cut.h / th, ow = Math.round(tw * k), oh = cut.h;
       const o = document.createElement('canvas'); o.width = ow; o.height = oh;
       const og = o.getContext('2d', { willReadFrequently: true }); og.imageSmoothingQuality = 'high'; og.drawImage(c, tx0, ty0, tw, th, 0, 0, ow, oh);
-      const info = { w: ow, h: oh };
+      if (cut.hue) {
+        const id = og.getImageData(0, 0, ow, oh), d = id.data, H = cut.hue;
+        for (let i = 0; i < d.length; i += 4) {
+          if (!d[i + 3]) continue;
+          const r = d[i] / 255, g2 = d[i + 1] / 255, b = d[i + 2] / 255, mx = Math.max(r, g2, b), mn = Math.min(r, g2, b), dd = mx - mn;
+          if (dd < .08) continue;   // white highlights and greys stay
+          let hu = mx === r ? ((g2 - b) / dd) % 6 : mx === g2 ? (b - r) / dd + 2 : (r - g2) / dd + 4; hu = (hu * 60 + 360) % 360;
+          if (hu < H.from[0] && hu > 20) continue;   // only the pinks, magentas and violets (the cyan gem stays)
+          const sa = dd / mx * H.sat, v = Math.min(1, mx * H.light), c = v * sa, h6 = H.to / 60, X = c * (1 - Math.abs(h6 % 2 - 1)), m = v - c;
+          const [r1, g1, b1] = h6 < 1 ? [c, X, 0] : h6 < 2 ? [X, c, 0] : h6 < 3 ? [0, c, X] : h6 < 4 ? [0, X, c] : h6 < 5 ? [X, 0, c] : [c, 0, X];
+          d[i] = (r1 + m) * 255; d[i + 1] = (g1 + m) * 255; d[i + 2] = (b1 + m) * 255;
+        }
+        og.putImageData(id, 0, 0);
+      }
+      if (cut.outline) {
+        // a solid outline: the silhouette in the outline colour, stamped round the picture, the picture on top
+        const [col, rad] = cut.outline, p = rad + 1, o2 = document.createElement('canvas'); o2.width = ow + p * 2; o2.height = oh + p * 2;
+        const sil = document.createElement('canvas'); sil.width = ow; sil.height = oh; const sg = sil.getContext('2d');
+        sg.drawImage(o, 0, 0); sg.globalCompositeOperation = 'source-in'; sg.fillStyle = col; sg.fillRect(0, 0, ow, oh);
+        const g3 = o2.getContext('2d'); for (let a = 0; a < 24; a++) g3.drawImage(sil, p + Math.cos(a / 24 * 6.283) * rad, p + Math.sin(a / 24 * 6.283) * rad);
+        g3.drawImage(o, p, p); o.width = o2.width; o.height = o2.height; og.clearRect(0, 0, o.width, o.height); og.drawImage(o2, 0, 0);
+      }
+      const info = { w: o.width, h: o.height };
       if (cut.gate) {
         // the underside of the bar: in the middle column, the lowest visible pixel above the opening
         const d = og.getImageData(Math.round(ow / 2), 0, 1, oh).data; let y = 0;

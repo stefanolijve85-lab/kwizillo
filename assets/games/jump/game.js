@@ -156,6 +156,7 @@ export function mountJump(host, opts = {}) {
 
   function newRun() {
     W = WORLDS[worldId]; L = getLevel(worldId); autoPlan = null; hideHint();
+    root.querySelector('.kj-stars img').src = BASE + (worldId === 'underwater' ? 'art/star-uw.webp' : 'art/star.webp');
     run = createRun(L, W); runId = `jump-${worldId}-${Date.now().toString(36)}-${++runSeq}`; booked = null; resultShown = false;
     prev.x = run.p.x; prev.y = run.p.y; acc = 0; blockedT = 0;
     renderer = createRenderer(canvas, { level: L, world: W, sprites: { ...SPRITES, images }, hero, art: { ART, images: artImages }, reducedMotion: reduced });
