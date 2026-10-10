@@ -133,3 +133,4 @@ lacked was a layout and the orientations.
 - Trader status and App Review contact: Solotech vof, +31 591 561737, hallo@kwizillo.nl.
 - `ALLOWED_ORIGINS` on the speech server must include `capacitor://localhost`
   (already in `.env.example`).
+| Build 1.0 (48): Talen — choose the language you speak and the one you learn; passport opens on wide tiles (Woordjes, Zinnetjes); pictures fill their tiles; sentence icons on coloured stickers. Rekenen choice tiles lower. Same team/bundle as 45 | UPLOADED 10 OCT 10:48 (EXPORT SUCCEEDED) |
