@@ -45,8 +45,16 @@ const ALPHABET_INTRO = {
 // a bare "min" came out as "minimaal" and a bare "een" as the article "un"
 // (2026-10-07, heard by Scribe for Milo and Luna). Only an exact whole piece is
 // changed; the text on screen and the client stay as they are.
+// 2026-10-10 (Stefan heard "dezembro" for 10; then every number piece of every
+// language was checked with Scribe, and these were fixed for both voices): a bare
+// "dez" and "sept" were read as the months, others came out mumbled; said with
+// an exclamation they come out whole. "Déz" is the same open e as "dez".
 const SPOKEN = {
-  nl: { min: 'minn', een: 'Eén.' },
+  nl: { min: 'minn', een: 'Eén.', tien: 'Tien!' },
+  pt: { dez: 'Déz' },
+  fr: { sept: 'Sept !', 'zéro': 'Zéro !' },
+  da: { nitten: 'Nitten!', 'og tretten': 'og tretten!' },
+  ar: { 'خمسة': 'خمسة!', 'وتسعة': 'وتسعة!', 'مئة': 'مئة!' },
 };
 const spoken = (text, lang) => SPOKEN[lang]?.[String(text).trim()] ?? text;
 const LETTERS = ['A', 'B', 'C', 'D'];
