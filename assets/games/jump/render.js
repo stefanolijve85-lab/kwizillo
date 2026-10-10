@@ -277,7 +277,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     const p = s.p, S = sprites[hero], img = sprites.images[hero];
     const state = pose(s), list = S.states[state];
     let i = 0;
-    if (state === 'run') i = Math.floor(time * 11) % list.length;
+    if (state === 'run') i = Math.floor(time * 14) % list.length;   // 8 poses: about two strides a second at 14 per second
     else if (state === 'idle') i = (time % 3) > 2.85 ? 1 : 0;
     else if (state === 'jump') i = p.vy < -420 ? 0 : 1;
     else if (state === 'doubleJump') i = p.doubleT > .25 ? 0 : 1;

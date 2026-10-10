@@ -63,7 +63,7 @@
 .kj-worlds{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:min(620px,100%)}
 .kj-world{position:relative;border:0;padding:0;border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:#123;box-shadow:0 5px 0 rgba(10,30,90,.4),inset 0 0 0 3px rgba(255,255,255,.5)}
 .kj-world img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.kj-world span{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 6px;background:linear-gradient(180deg,transparent,rgba(5,20,60,.85));font-size:clamp(13px,2.7vmin,17px);line-height:1.05;text-align:center}
+.kj-world span{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 6px;background:linear-gradient(180deg,transparent,rgba(5,20,60,.85));font-size:clamp(10.5px,2.7vmin,17px);line-height:1.05;text-align:center;hyphens:auto}
 .kj-world small{display:block;font-size:12px;color:#ffd23f;margin-top:2px}
 .kj-world[aria-pressed=true]{box-shadow:0 5px 0 #c27c00,inset 0 0 0 4px #ffd23f,0 0 0 3px rgba(255,210,63,.6)}
 .kj-go{border:0;border-radius:30px;padding:14px 38px;min-height:58px;font-size:clamp(22px,4.4vmin,28px);background:linear-gradient(180deg,#ffe066,#ffb300);color:#6b3a00;box-shadow:0 6px 0 #b86e00,0 10px 20px rgba(0,0,0,.25)}
