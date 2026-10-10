@@ -929,7 +929,7 @@ test('on level 4 the voice still reads the question and the answers; the parent 
   await expect(page.locator('.level-card small')).toHaveText('30 s per vraag · max. 6 fouten · hints vrij');
 });
 
-test('mascot tiles are filled by the character with only the name on it', async ({ page }) => {
+test('mascot tiles show the whole character on the name band, not zoomed in', async ({ page }) => {
   await boot(page, SAVED({ correct: 12 }));
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
   await expect(page.locator('.mascot-card')).toHaveCount(19);   // twelve, plus Mike and six more (shop only)
@@ -941,7 +941,9 @@ test('mascot tiles are filled by the character with only the name on it', async 
   const fill = await page.locator('.mascot-card .mascot-fill').first().boundingBox();
   const card = await page.locator('.mascot-card').first().boundingBox();
   expect(Math.abs(fill.width - card.width)).toBeLessThan(2);
-  expect(Math.abs(fill.height - card.height)).toBeLessThan(2);
+  // the figure stands on the name band at 80% of the tile, with air above its head (not zoomed in)
+  expect(fill.height).toBeLessThan(card.height * 0.85);
+  expect(fill.height).toBeGreaterThan(card.height * 0.6);
 });
 
 test('a question whose picture would show the answer gets a related picture instead; the feedback card shows its own', async ({ page }) => {

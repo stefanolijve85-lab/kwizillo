@@ -1804,3 +1804,6 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-pick.fit::before,.talen-tile.fit::before{content:"";position:absolute;inset:-12%;background:var(--art) center/cover;filter:blur(14px) saturate(1.1) brightness(.92)}
 .talen-pick.fit .talen-pick-art,.talen-tile.fit img{object-fit:contain;object-position:center}
 .talen-tile.fit img{z-index:0}
+/* Buddies less zoomed in (Stefan, 2026-10-10): the figure at 80% of the tile, standing on
+   the name band, with air above the head. */
+.mascot-card .mascot-fill{inset:auto 0 30px 0;height:calc(80% - 10px);object-position:center bottom}
