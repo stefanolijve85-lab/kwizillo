@@ -508,7 +508,7 @@
     'math.money.sub':'Conta le monete',
     'math.money.ok':'Fatto!',
     'math.money.delete':'Cancella',
-    'math.money.ask':'Quanti soldi ci sono?',
+    'math.money.ask':'Quanto fa in tutto?',
     'math.money.main.one':'{n} euro',
     'math.money.main.few':'{n} euro',
     'math.money.main.many':'{n} euro',

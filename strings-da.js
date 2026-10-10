@@ -507,7 +507,7 @@
     'math.money.sub':'Tæl mønterne',
     'math.money.ok':'Færdig!',
     'math.money.delete':'Slet',
-    'math.money.ask':'Hvor mange penge er det?',
+    'math.money.ask':'Hvor meget er det til sammen?',
     'math.money.main.one':'{n} krone',
     'math.money.main.few':'{n} kroner',
     'math.money.main.many':'{n} kroner',

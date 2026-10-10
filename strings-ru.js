@@ -507,7 +507,7 @@
     'math.money.sub':'Посчитай монеты',
     'math.money.ok':'Готово!',
     'math.money.delete':'Стереть',
-    'math.money.ask':'Сколько здесь денег?',
+    'math.money.ask':'Сколько это всего?',
     'math.money.main.one':'{n} рубль',
     'math.money.main.few':'{n} рубля',
     'math.money.main.many':'{n} рублей',

@@ -508,7 +508,7 @@
     'math.money.sub':'Compte les pièces',
     'math.money.ok':'Fini !',
     'math.money.delete':'Effacer',
-    'math.money.ask':'Combien d’argent y a-t-il ?',
+    'math.money.ask':'Combien ça fait en tout ?',
     'math.money.main.one':'{n} euro',
     'math.money.main.few':'{n} euros',
     'math.money.main.many':'{n} euros',

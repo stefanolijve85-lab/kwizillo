@@ -670,7 +670,7 @@
     'math.money.sub':'عُدّ العملات',
     'math.money.ok':'تم!',
     'math.money.delete':'حذف',
-    'math.money.ask':'كم من المال هنا؟',
+    'math.money.ask':'كم المجموع؟',
     'math.money.main.one':'{n} درهم',
     'math.money.main.few':'{n} دراهم',
     'math.money.main.many':'{n} درهمًا',
