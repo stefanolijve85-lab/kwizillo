@@ -246,7 +246,7 @@
         <div class="home-worlds home-play">
           ${playTile('homeTalen',K.GAME_ART.talen,t('talen.title'),(s=>s.done?`★ ${s.done}/${s.total}`:'')(K.talenStamps?.()||{done:0}))}
           ${playTile('homeMath',K.GAME_ART.math,t('math.title'))}
-          ${playTile('homeJungle',K.GAME_ART.jungle,t('jungle.title'),(b=>b?`${K.icon('trophy')} ${b}`:'')(Number(K.progress().games?.jungle?.best||0)),true)}
+          ${playTile('homeJungle',K.GAME_ART.runnerTile,t('jungle.title'),(b=>b?`${K.icon('trophy')} ${b}`:'')(Number(K.progress().games?.jungle?.best||0)),true)}
           <button class="home-world home-play-tile chest" id="homeChest" aria-label="${esc(t('chest.title'))}">
             <span class="home-chest-mosaic" aria-hidden="true">${CHEST.slice(0,4).map(g=>`<img src="${K.GAME_ART[g.art]}" alt="" decoding="async">`).join('')}</span>
             <span class="home-world-veil"></span>
@@ -300,7 +300,7 @@
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('chest.title'))}</h1><p>${esc(t('chest.sub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
-        <div class="chest-grid">${CHEST.map((g,i)=>`<button class="memo-pick math-pick-tile ${i===4?'wide':''}" id="${g.id}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t(g.title))}</b></button>`).join('')}</div>
+        <div class="chest-grid">${CHEST.map((g,i)=>`<button class="memo-pick math-pick-tile ${i===4?'wide':''}" id="${g.id}" data-art="${g.art}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t(g.title))}</b></button>`).join('')}</div>
       </div>
       ${bottomNav('home')}
     </section>`);
@@ -310,7 +310,7 @@
   };
   // The Runner tile (2026-10-10): the two runners, the Kwizillo Runner and Mike & Mia: Jump & Slide.
   const RUNNERS=[
-    {id:'homeRunnerJungle',art:'jungle',title:'jungle.title',open:()=>K.startJungle(),badge:()=>Number(K.progress().games?.jungle?.best||0)},
+    {id:'homeRunnerJungle',art:'runnerTile',title:'jungle.title',open:()=>K.startJungle(),badge:()=>Number(K.progress().games?.jungle?.best||0)},
     {id:'homeJump',art:'jump',title:'jump.title',open:()=>K.startJump(),badge:()=>Math.max(0,...Object.values(K.progress().games?.jump?.best||{}).map(Number).filter(Number.isFinite))}
   ];
   K.showRunnerPick=()=>{
@@ -320,7 +320,7 @@
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('runner.pickTitle'))}</h1><p>${esc(t('chest.sub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
-        ${RUNNERS.map(g=>{const b=g.badge();return `<button class="memo-pick math-pick-tile" id="${g.id}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span>${b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:''}<b>${esc(t(g.title))}</b></button>`}).join('')}
+        ${RUNNERS.map(g=>{const b=g.badge();return `<button class="memo-pick math-pick-tile" id="${g.id}" data-art="${g.art}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span>${b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:''}<b>${esc(t(g.title))}</b></button>`}).join('')}
       </div>
       ${bottomNav('home')}
     </section>`);

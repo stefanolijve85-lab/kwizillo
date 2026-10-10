@@ -2076,3 +2076,15 @@ html[lang="ru"] .quiz-brand>span,html[lang="ru"] .panel-head h1.game-name,html[l
 .chest-pick .chest-grid .math-pick-tile{height:100%;min-height:0;aspect-ratio:auto}
 .chest-pick .chest-grid .math-pick-tile.wide{grid-column:1/-1}
 .chest-pick .chest-grid .math-pick-tile b{font-size:clamp(16px,4.6vw,22px)}
+/* Spellenkist and runner choice: each painting framed on its subject (Stefan, 2026-10-10). The square
+   island paintings show their island and its subject in the upper middle; the wide Blokkenpret and
+   runner paintings their middle. */
+.chest-pick .math-pick-tile .home-game-art{object-position:center 42%}
+.chest-pick .math-pick-tile[data-art="memo"] .home-game-art{object-position:center 38%}
+.chest-pick .math-pick-tile[data-art="facts"] .home-game-art{object-position:center 30%}
+.chest-pick .math-pick-tile[data-art="fotozoom"] .home-game-art{object-position:center 40%}
+.chest-pick .math-pick-tile[data-art="whoami"] .home-game-art{object-position:center 38%}
+.chest-pick .math-pick-tile[data-art="blokken"] .home-game-art{object-position:center 45%}
+.chest-pick .math-pick-tile[data-art="runnerTile"] .home-game-art{object-position:center 40%}
+.chest-pick .math-pick-tile[data-art="jump"] .home-game-art{object-position:center 45%}
+.home-play-tile#homeJungle .home-world-art{object-position:center 45%;filter:none}
