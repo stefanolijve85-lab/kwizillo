@@ -95,6 +95,18 @@
           "explanation": "Uma mão tem quatro dedos e um polegar, cinco ao todo.",
           "fact": "Só o polegar consegue tocar em todos os outros dedos."
         },
+        "ptpt": {
+          "prompt": "Quantos dedos tem normalmente uma mão?",
+          "answer": "Cinco",
+          "wrong": [
+            "Três",
+            "Sete",
+            "Dez"
+          ],
+          "hint": "Conta-os.",
+          "explanation": "Uma mão tem quatro dedos e um polegar, cinco ao todo.",
+          "fact": "Só o polegar consegue tocar em todos os outros dedos."
+        },
         "da": {
           "prompt": "Hvor mange fingre har en hånd som regel?",
           "answer": "Fem",
@@ -224,6 +236,18 @@
           "hint": "Fica na sua boca.",
           "explanation": "A língua tem milhares de pequenas papilas.",
           "fact": "Sem o nariz, você sente muito menos o gosto da comida; por isso tudo fica sem gosto quando você está resfriado."
+        },
+        "ptpt": {
+          "prompt": "Com que sentes que algo é doce?",
+          "answer": "Com a língua",
+          "wrong": [
+            "Com as orelhas",
+            "Com o cabelo",
+            "Com o cotovelo"
+          ],
+          "hint": "Está na tua boca.",
+          "explanation": "A língua tem milhares de pequenas papilas.",
+          "fact": "Sem o nariz sabes muito menos ao que comes; por isso tudo sabe a pouco com constipação."
         },
         "da": {
           "prompt": "Hvad smager du med, om noget er sødt?",
@@ -355,6 +379,18 @@
           "explanation": "Dormindo, o corpo se recupera e o cérebro organiza o dia.",
           "fact": "As crianças crescem principalmente à noite."
         },
+        "ptpt": {
+          "prompt": "De que precisa o teu corpo todas as noites?",
+          "answer": "De dormir",
+          "wrong": [
+            "De desporto",
+            "De rebuçados",
+            "De barulho"
+          ],
+          "hint": "Os olhos fecham-se sozinhos.",
+          "explanation": "A dormir, o corpo repara-se e o cérebro arruma o dia.",
+          "fact": "As crianças crescem sobretudo de noite."
+        },
         "da": {
           "prompt": "Hvad har din krop brug for hver nat?",
           "answer": "Søvn",
@@ -482,6 +518,18 @@
             "Com o calcanhar"
           ],
           "hint": "Fica no meio do rosto.",
+          "explanation": "No alto do nariz há células que levam os cheiros ao cérebro.",
+          "fact": "Uma pessoa distingue mais de mil cheiros diferentes."
+        },
+        "ptpt": {
+          "prompt": "Com que cheiras?",
+          "answer": "Com o nariz",
+          "wrong": [
+            "Com o joelho",
+            "Com a orelha",
+            "Com o calcanhar"
+          ],
+          "hint": "Está no meio da cara.",
           "explanation": "No alto do nariz há células que levam os cheiros ao cérebro.",
           "fact": "Uma pessoa distingue mais de mil cheiros diferentes."
         },
@@ -615,6 +663,18 @@
           "explanation": "O coração fica entre os pulmões, um pouco à esquerda.",
           "fact": "O seu coração é quase do tamanho do seu punho."
         },
+        "ptpt": {
+          "prompt": "Onde fica o teu coração?",
+          "answer": "No peito",
+          "wrong": [
+            "No pé",
+            "Na mão",
+            "No joelho"
+          ],
+          "hint": "Põe a mão em cima.",
+          "explanation": "O coração fica entre os pulmões, um pouco à esquerda.",
+          "fact": "O teu coração é quase do tamanho do teu punho."
+        },
         "da": {
           "prompt": "Hvor i kroppen sidder dit hjerte?",
           "answer": "I brystet",
@@ -744,6 +804,18 @@
           "hint": "Pense no suor e no xixi.",
           "explanation": "Você perde água pelo suor, pelo xixi e até pela respiração, por isso precisa repor.",
           "fact": "Mais da metade do seu corpo é água."
+        },
+        "ptpt": {
+          "prompt": "Porque tens de beber todos os dias?",
+          "answer": "Perdes água sem parar",
+          "wrong": [
+            "A água faz-te crescer",
+            "A água limpa os dentes",
+            "A água fortalece o cabelo"
+          ],
+          "hint": "Pensa no suor e no chichi.",
+          "explanation": "Perdes água pelo suor, pelo chichi e até pela respiração, por isso repões.",
+          "fact": "Mais de metade do teu corpo é água."
         },
         "da": {
           "prompt": "Hvorfor skal du drikke hver dag?",
@@ -875,6 +947,18 @@
           "explanation": "Os músculos da parede amassam a comida, e o ácido a desmancha.",
           "fact": "Vazio, ele é do tamanho de um punho, mas estica muito."
         },
+        "ptpt": {
+          "prompt": "O que faz o estômago com a comida?",
+          "answer": "Amassa-a até virar papa",
+          "wrong": [
+            "Bombeia o sangue",
+            "Limpa o ar",
+            "Comanda os músculos"
+          ],
+          "hint": "Aperta e mistura.",
+          "explanation": "Os músculos da parede amassam a comida e o ácido desfá-la.",
+          "fact": "Vazio é do tamanho de um punho, mas estica imenso."
+        },
         "da": {
           "prompt": "Hvad gør maven ved maden?",
           "answer": "Den ælter den til grød",
@@ -1005,6 +1089,18 @@
           "explanation": "Os músculos pedem mais oxigênio, por isso o coração bombeia mais rápido.",
           "fact": "Depois do esforço, o batimento diminui aos poucos."
         },
+        "ptpt": {
+          "prompt": "O que acontece ao coração quando corres?",
+          "answer": "Bate mais depressa",
+          "wrong": [
+            "Para",
+            "Bate mais devagar",
+            "Não muda nada"
+          ],
+          "hint": "Sente-o no pescoço.",
+          "explanation": "Os músculos pedem mais oxigénio, por isso o coração bombeia mais rápido.",
+          "fact": "Depois do esforço o batimento desce aos poucos."
+        },
         "da": {
           "prompt": "Hvad sker der med hjerteslaget, når du løber?",
           "answer": "Det bliver hurtigere",
@@ -1133,6 +1229,18 @@
           ],
           "hint": "As bactérias adoram açúcar.",
           "explanation": "As bactérias transformam o açúcar em ácido, e esse ácido corrói o dente.",
+          "fact": "O esmalte é o material mais duro de todo o corpo."
+        },
+        "ptpt": {
+          "prompt": "Porque tens de lavar os dentes?",
+          "answer": "Contra as cáries",
+          "wrong": [
+            "Contra as dores de cabeça",
+            "Contra os espirros",
+            "Contra a tosse"
+          ],
+          "hint": "As bactérias adoram açúcar.",
+          "explanation": "As bactérias transformam o açúcar em ácido, e esse ácido come o dente.",
           "fact": "O esmalte é o material mais duro de todo o corpo."
         },
         "da": {
@@ -1265,6 +1373,18 @@
           "explanation": "Tremer é contrair os músculos bem rápido, e isso produz calor.",
           "fact": "O arrepio na pele vem do tempo em que tínhamos pelo grosso."
         },
+        "ptpt": {
+          "prompt": "O que faz o teu corpo quando tens frio?",
+          "answer": "Começas a tremer",
+          "wrong": [
+            "Começas a suar",
+            "Ficas mais alto",
+            "Começas a espirrar"
+          ],
+          "hint": "Os músculos vibram depressa.",
+          "explanation": "Tremer é contrair os músculos muito depressa, e isso produz calor.",
+          "fact": "A pele de galinha vem do tempo do pelo espesso."
+        },
         "da": {
           "prompt": "Hvad gør kroppen, når du fryser?",
           "answer": "Du begynder at ryste",
@@ -1394,6 +1514,18 @@
           "hint": "Cinco caixas de leite.",
           "explanation": "Um corpo adulto tem cerca de cinco litros de sangue.",
           "fact": "Todo dia, esse sangue faz uma longa viagem pelo corpo todo."
+        },
+        "ptpt": {
+          "prompt": "Quanto sangue tem mais ou menos um adulto?",
+          "answer": "Cerca de cinco litros",
+          "wrong": [
+            "Cerca de meio litro",
+            "Cerca de vinte litros",
+            "Cerca de cinquenta litros"
+          ],
+          "hint": "Cinco pacotes de leite.",
+          "explanation": "Um corpo adulto tem cerca de cinco litros de sangue.",
+          "fact": "Esse sangue dá todos os dias uma volta longa por todo o corpo."
         },
         "da": {
           "prompt": "Hvor meget blod har en voksen cirka?",
@@ -1525,6 +1657,18 @@
           "explanation": "O estribo, no ouvido médio, mede apenas alguns milímetros.",
           "fact": "Com o martelo e a bigorna, ele leva o som para dentro."
         },
+        "ptpt": {
+          "prompt": "Qual é o osso mais pequeno do corpo?",
+          "answer": "O estribo",
+          "wrong": [
+            "O osso do nariz",
+            "Um osso do dedo",
+            "A costela menor"
+          ],
+          "hint": "Está no ouvido.",
+          "explanation": "O estribo, no ouvido médio, mede apenas alguns milímetros.",
+          "fact": "Com o martelo e a bigorna leva o som para dentro."
+        },
         "da": {
           "prompt": "Hvilket knogle er den mindste i kroppen?",
           "answer": "Stigbøjlen",
@@ -1655,6 +1799,18 @@
           "explanation": "Cada olho vê de um jeito um pouco diferente, e o cérebro transforma isso em profundidade.",
           "fact": "Por isso, pegar algo com um olho fechado é bem mais difícil."
         },
+        "ptpt": {
+          "prompt": "Para que precisas de dois olhos?",
+          "answer": "Para ver a profundidade",
+          "wrong": [
+            "Para ver mais longe",
+            "Para ler mais depressa",
+            "Para poder piscar"
+          ],
+          "hint": "Fecha um e tenta agarrar algo.",
+          "explanation": "Cada olho vê de forma ligeiramente diferente, e o cérebro faz disso profundidade.",
+          "fact": "Por isso apanhar com um olho fechado é bem mais difícil."
+        },
         "da": {
           "prompt": "Hvorfor har du brug for to øjne?",
           "answer": "For at se dybde",
@@ -1783,6 +1939,18 @@
           ],
           "hint": "Eles o buscam nos pulmões.",
           "explanation": "Os glóbulos vermelhos pegam oxigênio nos pulmões e o entregam pelo corpo.",
+          "fact": "Uma gota de sangue tem milhões deles."
+        },
+        "ptpt": {
+          "prompt": "O que fazem os glóbulos vermelhos?",
+          "answer": "Transportam o oxigénio",
+          "wrong": [
+            "Fabricam ossos",
+            "Digerem a comida",
+            "Enviam sinais"
+          ],
+          "hint": "Vão buscá-lo aos pulmões.",
+          "explanation": "Os glóbulos vermelhos carregam oxigénio nos pulmões e entregam-no pelo corpo.",
           "fact": "Uma gota de sangue tem milhões deles."
         },
         "da": {
@@ -1915,6 +2083,18 @@
           "explanation": "Os nervos mais rápidos transmitem a mais de cem metros por segundo.",
           "fact": "Por isso você afasta a mão antes de sentir a dor."
         },
+        "ptpt": {
+          "prompt": "A que velocidade viaja um sinal nervoso?",
+          "answer": "Mais de 400 km por hora",
+          "wrong": [
+            "Lento como um caracol",
+            "Rápido como uma bicicleta",
+            "Rápido como a luz"
+          ],
+          "hint": "Mais do que um carro de corrida.",
+          "explanation": "Os nervos mais rápidos transmitem a mais de cem metros por segundo.",
+          "fact": "Por isso afastas a mão antes de sentires a dor."
+        },
         "da": {
           "prompt": "Hvor hurtigt kan et nervesignal rejse?",
           "answer": "Over 400 km i timen",
@@ -2044,6 +2224,18 @@
           "hint": "Umas quinze vezes por minuto.",
           "explanation": "Uma criança respira umas vinte mil vezes por dia sem pensar nisso.",
           "fact": "Você nunca precisa se lembrar: o tronco cerebral cuida disso."
+        },
+        "ptpt": {
+          "prompt": "Quantas vezes respiras por dia, mais ou menos?",
+          "answer": "Cerca de 20.000 vezes",
+          "wrong": [
+            "Cerca de 200 vezes",
+            "Cerca de 2.000 vezes",
+            "Cerca de 2 milhões de vezes"
+          ],
+          "hint": "Cerca de quinze vezes por minuto.",
+          "explanation": "Uma criança respira umas vinte mil vezes por dia sem pensar nisso.",
+          "fact": "Nunca tens de te lembrar: trata disso o tronco cerebral."
         },
         "da": {
           "prompt": "Hvor mange gange trækker du vejret på en dag?",
@@ -2175,6 +2367,18 @@
           "explanation": "O fígado produz bile, que quebra a gordura em gotinhas minúsculas.",
           "fact": "O fígado é o único órgão capaz de voltar a crescer."
         },
+        "ptpt": {
+          "prompt": "Que órgão faz bílis para digerir a gordura?",
+          "answer": "O fígado",
+          "wrong": [
+            "Os pulmões",
+            "O baço",
+            "Os rins"
+          ],
+          "hint": "Fica sob as costelas à direita.",
+          "explanation": "O fígado faz bílis, que parte a gordura em gotinhas minúsculas.",
+          "fact": "O fígado é o único órgão capaz de voltar a crescer."
+        },
         "da": {
           "prompt": "Hvilket organ laver galde til at fordøje fedt?",
           "answer": "Leveren",
@@ -2302,6 +2506,18 @@
             "No coração"
           ],
           "hint": "Bem dentro dos seus ossos.",
+          "explanation": "Na medula mole dos ossos nascem milhões de células por segundo.",
+          "fact": "Um glóbulo vermelho vive cerca de quatro meses."
+        },
+        "ptpt": {
+          "prompt": "Onde são feitas as novas células do sangue?",
+          "answer": "Na medula dos ossos",
+          "wrong": [
+            "No estômago",
+            "Na pele",
+            "No coração"
+          ],
+          "hint": "Bem dentro dos teus ossos.",
           "explanation": "Na medula mole dos ossos nascem milhões de células por segundo.",
           "fact": "Um glóbulo vermelho vive cerca de quatro meses."
         },
@@ -2435,6 +2651,18 @@
           "explanation": "A pupila é a abertura por onde entra a luz; a íris regula o tamanho.",
           "fact": "No escuro, ela abre até três vezes mais."
         },
+        "ptpt": {
+          "prompt": "Como se chama o círculo preto que deixa entrar a luz?",
+          "answer": "A pupila",
+          "wrong": [
+            "A pálpebra",
+            "A sobrancelha",
+            "O canal lacrimal"
+          ],
+          "hint": "Fica maior no escuro.",
+          "explanation": "A pupila é a abertura por onde entra a luz; a íris regula o tamanho.",
+          "fact": "No escuro abre até três vezes mais."
+        },
         "da": {
           "prompt": "Hvad hedder den sorte cirkel, der lukker lys ind i øjet?",
           "answer": "Pupillen",
@@ -2564,6 +2792,18 @@
           "hint": "Uma tampinha se fecha.",
           "explanation": "Ao engolir, a epiglote se dobra sobre a traqueia para a comida seguir o caminho certo.",
           "fact": "Quando ela falha, a comida vai pelo caminho errado e você tem que tossir."
+        },
+        "ptpt": {
+          "prompt": "Porque não podes engolir e respirar ao mesmo tempo?",
+          "answer": "Uma tampa fecha a traqueia",
+          "wrong": [
+            "A língua é grande de mais",
+            "Os pulmões param",
+            "O estômago empurra"
+          ],
+          "hint": "Uma tampinha fecha-se.",
+          "explanation": "Ao engolir, a epiglote dobra-se sobre a traqueia para a comida seguir o caminho certo.",
+          "fact": "Quando falha, vai pelo lado errado e tens de tossir."
         },
         "da": {
           "prompt": "Hvorfor kan du ikke synke og trække vejret samtidig?",

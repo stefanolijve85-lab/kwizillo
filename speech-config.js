@@ -37,6 +37,7 @@ const ALPHABET_INTRO = {
   es: 'Digo el abecedario español:',
   it: "Recito l'alfabeto italiano:",
   pt: 'Digo o alfabeto português:',
+  ptpt: 'Digo o alfabeto português:',
   da: 'Jeg siger det danske alfabet:',
   ru: 'Я называю латинские буквы:',
 };

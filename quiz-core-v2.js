@@ -199,6 +199,9 @@
     if(n<1000000){const k=Math.floor(n/1000),r=n%1000;return (k===1?'mil':ptNumber(k)+' mil')+(r?(r<100||r%100===0?' e ':' ')+ptNumber(r):'')}
     return String(n);
   }
+  // European Portuguese (ptpt, 2026-10-10) counts like Brazil but says catorze,
+  // dezasseis, dezassete and dezanove.
+  const ptptNumber=n=>ptNumber(n).replace(/quatorze/g,'catorze').replace(/dezesseis/g,'dezasseis').replace(/dezessete/g,'dezassete').replace(/dezenove/g,'dezanove');
   // German, Spanish, French, Italian, Russian and Danish, written the way each
   // language writes numbers out loud: German and Italian as one word, French with
   // "soixante-dix"/"quatre-vingts", Danish with "enogtyve", Russian with the
@@ -298,7 +301,7 @@
     const word=m===1?'مليون':m===2?'مليونان':m<=10?`${AR_ONES[m]} ملايين`:m<100?`${arNumber(m)} مليونًا`:`${arNumber(m)} مليون`;
     return word+(r?` و${arNumber(r)}`:'');
   }
-  const NUMBER_WORDS={nl:nlNumber,en:enNumber,pt:ptNumber,de:deNumber,es:esNumber,fr:frNumber,it:itNumber,ru:ruNumber,da:daNumber,ar:arNumber};
+  const NUMBER_WORDS={nl:nlNumber,en:enNumber,pt:ptNumber,ptpt:ptptNumber,de:deNumber,es:esNumber,fr:frNumber,it:itNumber,ru:ruNumber,da:daNumber,ar:arNumber};
   // 1100 to 1999 the way people say years (and "1500 metres") in these four
   // languages: in hundreds, not thousands. "negentienhonderdzevenendertig",
   // "nineteen thirty-seven", "neunzehnhundertsiebenunddreißig", "nitten hundrede
@@ -312,6 +315,7 @@
   };
   const UNITS={
     pt:[[/\s*%/g,' por cento'],[/\bkm\/h\b/g,'quilômetros por hora'],[/\b1 km\b/g,'1 quilômetro'],[/\bkm\b/g,'quilômetros'],[/\s*°\s*C\b/g,' graus Celsius'],[/\b1 cm\b/g,'1 centímetro'],[/\bcm\b/g,'centímetros']],
+    ptpt:[[/\s*%/g,' por cento'],[/\bkm\/h\b/g,'quilómetros por hora'],[/\b1 km\b/g,'1 quilómetro'],[/\bkm\b/g,'quilómetros'],[/\s*°\s*C\b/g,' graus Celsius'],[/\b1 cm\b/g,'1 centímetro'],[/\bcm\b/g,'centímetros']],
     nl:[[/\s*%/g,' procent'],[/\bkm\/u\b/g,'kilometer per uur'],[/\bkm\b/g,'kilometer'],[/\s*°\s*C\b/g,' graden Celsius'],[/\bcm\b/g,'centimeter']],
     // English units pluralise, so "1 cm" must become "one centimetre".
     en:[[/\s*%/g,' percent'],[/\b1 km\/h\b/g,'1 kilometre per hour'],[/\bkm\/h\b/g,'kilometres per hour'],[/\b1 km\b/g,'1 kilometre'],[/\bkm\b/g,'kilometres'],[/\s*°\s*C\b/g,' degrees Celsius'],[/\b1 cm\b/g,'1 centimetre'],[/\bcm\b/g,'centimetres']],
@@ -329,6 +333,7 @@
   const NUMBER_STYLE={
     nl:{group:'.',decimal:',',point:' komma ',ratio:' op '},
     pt:{group:'.',decimal:',',point:' vírgula ',ratio:' para '},
+    ptpt:{group:'.',decimal:',',point:' vírgula ',ratio:' para '},
     en:{group:',',decimal:'.',point:' point ',ratio:' to '},
     de:{group:'.',decimal:',',point:' Komma ',ratio:' zu '},
     es:{group:'.',decimal:',',point:' coma ',ratio:' a '},
@@ -402,7 +407,7 @@
   // needs no "и"; Arabic says one after the noun and two as a dual. t(key) gives the raw template ('{n} euro'); the pieces are the
   // recorded ones (tools/math-speech.cjs lists them).
   const MONEY_STYLE={nl:{short:true},de:{short:true,one:'ein'},fr:{short:true},es:{short:true,join:'con',apocope:true},it:{short:true,keepAnd:true,one:'un'},ru:{noAnd:true,femSub:true}};
-  const MONEY_LOCALE={nl:'nl-NL',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT',pt:'pt-BR',da:'da-DK',ru:'ru-RU',ar:'ar'};
+  const MONEY_LOCALE={nl:'nl-NL',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT',pt:'pt-BR',ptpt:'pt-PT',da:'da-DK',ru:'ru-RU',ar:'ar'};
   function moneyParts(minor,lang,t){
     const st=MONEY_STYLE[lang]||{},rules=new Intl.PluralRules(MONEY_LOCALE[lang]||lang);
     const form=n=>{const c=rules.select(n);return c==='one'?'one':(c==='few'||c==='two')?'few':'many'};

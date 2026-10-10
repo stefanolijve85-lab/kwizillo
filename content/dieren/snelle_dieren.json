@@ -95,6 +95,18 @@
           "explanation": "Um caracol avança cerca de um milímetro por segundo.",
           "fact": "Para andar cem metros, ele levaria um dia inteiro."
         },
+        "ptpt": {
+          "prompt": "Que animal é mesmo muito lento?",
+          "answer": "O caracol",
+          "wrong": [
+            "A lebre",
+            "O cavalo",
+            "O cão"
+          ],
+          "hint": "Deixa um rasto brilhante.",
+          "explanation": "Um caracol avança cerca de um milímetro por segundo.",
+          "fact": "Cem metros levariam-lhe um dia inteiro."
+        },
         "da": {
           "prompt": "Hvilket dyr er til gengæld meget langsomt?",
           "answer": "Sneglen",
@@ -223,6 +235,18 @@
           ],
           "hint": "Ela as bate no ar.",
           "explanation": "Asas e músculos fortes deixam uma ave rápida.",
+          "fact": "Os músculos do peito são muitas vezes a parte mais pesada."
+        },
+        "ptpt": {
+          "prompt": "O que ajuda uma ave a voar depressa?",
+          "answer": "As asas",
+          "wrong": [
+            "O bico",
+            "Os olhos",
+            "As penas da cabeça"
+          ],
+          "hint": "Bate-as no ar.",
+          "explanation": "Asas e músculos fortes tornam uma ave rápida.",
           "fact": "Os músculos do peito são muitas vezes a parte mais pesada."
         },
         "da": {
@@ -355,6 +379,18 @@
           "explanation": "Uma lebre fugindo chega aos setenta quilômetros por hora.",
           "fact": "As orelhas compridas também a refrescam."
         },
+        "ptpt": {
+          "prompt": "Que animal corre depressa e tem orelhas compridas?",
+          "answer": "A lebre",
+          "wrong": [
+            "O rato",
+            "O ouriço",
+            "A tartaruga"
+          ],
+          "hint": "Vê-se muitas vezes num campo.",
+          "explanation": "Uma lebre em fuga chega aos setenta quilómetros por hora.",
+          "fact": "As orelhas compridas também a arrefecem."
+        },
         "da": {
           "prompt": "Hvilket dyr løber stærkt og har lange ører?",
           "answer": "Haren",
@@ -484,6 +520,18 @@
           "hint": "Tem patas traseiras enormes.",
           "explanation": "Um canguru salta nove metros de uma vez.",
           "fact": "Para ele, saltar gasta menos energia do que andar."
+        },
+        "ptpt": {
+          "prompt": "Que animal avança imenso num só salto?",
+          "answer": "O canguru",
+          "wrong": [
+            "A vaca",
+            "O pinguim",
+            "A tartaruga"
+          ],
+          "hint": "Tem patas traseiras enormes.",
+          "explanation": "Um canguru salta nove metros de uma vez.",
+          "fact": "Saltar custa-lhe menos energia do que andar."
         },
         "da": {
           "prompt": "Hvilket dyr kommer langt i ét spring?",
@@ -615,6 +663,18 @@
           "explanation": "No esforço, o coração bombeia mais rápido para os músculos.",
           "fact": "Nos atletas, ele bate bem devagar em repouso."
         },
+        "ptpt": {
+          "prompt": "O que faz o teu coração quando corres muito?",
+          "answer": "Bate mais depressa",
+          "wrong": [
+            "Para um instante",
+            "Bate mais devagar",
+            "Não muda nada"
+          ],
+          "hint": "Os músculos querem mais oxigénio.",
+          "explanation": "No esforço o coração bombeia mais depressa para os músculos.",
+          "fact": "Nos atletas bate muito devagar em repouso."
+        },
         "da": {
           "prompt": "Hvad gør dit hjerte, når du løber stærkt?",
           "answer": "Det slår hurtigere",
@@ -744,6 +804,18 @@
           "hint": "Mais rápido do que um carro na rodovia.",
           "explanation": "Uma chita passa dos cem quilômetros por hora.",
           "fact": "Ela chega à velocidade máxima em três segundos."
+        },
+        "ptpt": {
+          "prompt": "A que velocidade corre uma chita mais ou menos?",
+          "answer": "Cerca de 110 km por hora",
+          "wrong": [
+            "Cerca de 30 km por hora",
+            "Cerca de 60 km por hora",
+            "Cerca de 300 km por hora"
+          ],
+          "hint": "Mais depressa do que um carro na autoestrada.",
+          "explanation": "Uma chita passa dos cem quilómetros por hora.",
+          "fact": "Chega à velocidade máxima em três segundos."
         },
         "da": {
           "prompt": "Hvor hurtigt løber en gepard cirka?",
@@ -875,6 +947,18 @@
           "explanation": "A cauda funciona como contrapeso nas curvas apertadas.",
           "fact": "Sem ela, uma chita cairia na curva."
         },
+        "ptpt": {
+          "prompt": "Porque têm muitos animais rápidos uma cauda comprida?",
+          "answer": "Para conseguirem virar",
+          "wrong": [
+            "Para enxotar moscas",
+            "Para se aquecerem",
+            "Para cavar"
+          ],
+          "hint": "Pensa num equilibrista com a vara.",
+          "explanation": "A cauda funciona como contrapeso nas curvas apertadas.",
+          "fact": "Sem ela uma chita caía na curva."
+        },
         "da": {
           "prompt": "Hvorfor har mange hurtige dyr en lang hale?",
           "answer": "For at kunne dreje",
@@ -1003,6 +1087,18 @@
           ],
           "hint": "Na savana não dá para esperar.",
           "explanation": "Um filhote de gazela corre com a manada depois de uma hora.",
+          "fact": "Os ratos e os gatos nascem cegos e indefesos."
+        },
+        "ptpt": {
+          "prompt": "Que cria corre com o grupo quase logo a seguir?",
+          "answer": "A gazela",
+          "wrong": [
+            "O rato",
+            "O gato",
+            "O morcego"
+          ],
+          "hint": "Na savana não se espera.",
+          "explanation": "Uma cria de gazela corre com a manada ao fim de uma hora.",
           "fact": "Os ratos e os gatos nascem cegos e indefesos."
         },
         "da": {
@@ -1135,6 +1231,18 @@
           "explanation": "O beija-flor é a única ave que voa de verdade para trás.",
           "fact": "As asas então desenham um oito deitado."
         },
+        "ptpt": {
+          "prompt": "Que ave também consegue voar para trás?",
+          "answer": "O beija-flor",
+          "wrong": [
+            "O pardal",
+            "A águia",
+            "A coruja"
+          ],
+          "hint": "Também fica parado no ar.",
+          "explanation": "O beija-flor é a única ave que voa mesmo para trás.",
+          "fact": "As asas desenham então um oito deitado."
+        },
         "da": {
           "prompt": "Hvilken fugl kan også flyve baglæns?",
           "answer": "Kolibrien",
@@ -1265,6 +1373,18 @@
           "explanation": "Um golfinho chega aos quarenta quilômetros por hora.",
           "fact": "Ele gosta de surfar a onda da proa de um barco."
         },
+        "ptpt": {
+          "prompt": "A que velocidade nada um golfinho mais ou menos?",
+          "answer": "Cerca de 40 km por hora",
+          "wrong": [
+            "Cerca de 5 km por hora",
+            "Cerca de 100 km por hora",
+            "Cerca de 300 km por hora"
+          ],
+          "hint": "Mais do que uma bicicleta, menos do que um carro.",
+          "explanation": "Um golfinho chega aos quarenta quilómetros por hora.",
+          "fact": "Gosta de surfar a onda da proa de um barco."
+        },
         "da": {
           "prompt": "Hvor hurtigt svømmer en delfin cirka?",
           "answer": "Cirka 40 km i timen",
@@ -1392,6 +1512,18 @@
             "Cerca de 2.000 vezes"
           ],
           "hint": "É por isso que dá para ouvir um zumbido.",
+          "explanation": "Uma abelha bate as asas cerca de duzentas vezes por segundo.",
+          "fact": "É essa velocidade que faz o zumbido."
+        },
+        "ptpt": {
+          "prompt": "Quantas vezes por segundo bate as asas uma abelha?",
+          "answer": "Cerca de 200 vezes",
+          "wrong": [
+            "Cerca de 2 vezes",
+            "Cerca de 20 vezes",
+            "Cerca de 2.000 vezes"
+          ],
+          "hint": "É por isso que se ouve um zumbido.",
           "explanation": "Uma abelha bate as asas cerca de duzentas vezes por segundo.",
           "fact": "É essa velocidade que faz o zumbido."
         },
@@ -1525,6 +1657,18 @@
           "explanation": "Para um corpo tão pesado, as asas são pequenas demais.",
           "fact": "Mesmo assim, ele as usa para virar enquanto corre."
         },
+        "ptpt": {
+          "prompt": "Porque não consegue voar uma avestruz?",
+          "answer": "As asas são pequenas de mais",
+          "wrong": [
+            "É preguiçosa de mais",
+            "Não tem penas",
+            "Tem medo das alturas"
+          ],
+          "hint": "Repara no peso dela.",
+          "explanation": "Para um corpo tão pesado as asas são pequenas de mais.",
+          "fact": "Ainda assim usa-as para virar enquanto corre."
+        },
         "da": {
           "prompt": "Hvorfor kan en struds ikke flyve?",
           "answer": "Vingerne er for små",
@@ -1653,6 +1797,18 @@
           ],
           "hint": "Atravessa todo o Pacífico.",
           "explanation": "Em 2022, um deles voou mais de 13.000 quilômetros sem parar.",
+          "fact": "A viagem durou onze dias sem comer nem dormir."
+        },
+        "ptpt": {
+          "prompt": "Que ave voa mais longe sem pousar?",
+          "answer": "O maçarico-de-bico-virado",
+          "wrong": [
+            "A andorinha",
+            "O melro",
+            "O pombo"
+          ],
+          "hint": "Atravessa todo o Pacífico.",
+          "explanation": "Em 2022 um destes voou mais de 13.000 quilómetros sem parar.",
           "fact": "A viagem durou onze dias sem comer nem dormir."
         },
         "da": {
@@ -1785,6 +1941,18 @@
           "explanation": "Um canguru-vermelho chega aos sessenta quilômetros por hora.",
           "fact": "Quanto mais rápido ele salta, menos energia gasta em cada salto."
         },
+        "ptpt": {
+          "prompt": "A que velocidade consegue saltar um canguru?",
+          "answer": "Cerca de 60 km por hora",
+          "wrong": [
+            "Cerca de 10 km por hora",
+            "Cerca de 20 km por hora",
+            "Cerca de 150 km por hora"
+          ],
+          "hint": "Mais ou menos como uma motorizada.",
+          "explanation": "Um canguru-vermelho chega aos sessenta quilómetros por hora.",
+          "fact": "Quanto mais depressa salta, menos lhe custa cada salto."
+        },
         "da": {
           "prompt": "Hvor hurtigt kan en kænguru springe?",
           "answer": "Cirka 60 km i timen",
@@ -1915,6 +2083,18 @@
           "explanation": "Indo de lado, ela só toca a areia escaldante por instantes.",
           "fact": "As marcas são riscos separados, não uma linha contínua."
         },
+        "ptpt": {
+          "prompt": "Como avança uma cobra do deserto na areia solta?",
+          "answer": "De lado, em curvas",
+          "wrong": [
+            "A direito e devagar",
+            "Aos saltos",
+            "A cavar"
+          ],
+          "hint": "Deixa riscos inclinados.",
+          "explanation": "Ao andar de lado, só toca na areia a ferver por instantes.",
+          "fact": "As pegadas são riscos soltos, não uma linha contínua."
+        },
         "da": {
           "prompt": "Hvordan bevæger en ørkenslange sig i løst sand?",
           "answer": "Sidelæns, i buer",
@@ -2042,6 +2222,18 @@
             "O beija-flor"
           ],
           "hint": "Ele dá um golpe, não corre.",
+          "explanation": "O golpe dura apenas dois milésimos de segundo.",
+          "fact": "É tão rápido que a água chega a brilhar."
+        },
+        "ptpt": {
+          "prompt": "Que animal faz o movimento mais rápido de todos?",
+          "answer": "O camarão-louva-a-deus",
+          "wrong": [
+            "A chita",
+            "O falcão-peregrino",
+            "O beija-flor"
+          ],
+          "hint": "Dá um golpe, não corre.",
           "explanation": "O golpe dura apenas dois milésimos de segundo.",
           "fact": "É tão rápido que a água chega a brilhar."
         },
@@ -2175,6 +2367,18 @@
           "explanation": "A língua chega à presa em cerca de um centésimo de segundo.",
           "fact": "Esticada, ela é mais comprida do que o animal inteiro."
         },
+        "ptpt": {
+          "prompt": "Quanto demora a língua de um camaleão a sair?",
+          "answer": "Um centésimo de segundo",
+          "wrong": [
+            "Um segundo",
+            "Dez segundos",
+            "Um minuto"
+          ],
+          "hint": "Mais depressa do que um piscar de olhos.",
+          "explanation": "A língua chega à presa em cerca de um centésimo de segundo.",
+          "fact": "Esticada é mais comprida do que o animal todo."
+        },
         "da": {
           "prompt": "Hvor hurtigt skyder en kamæleons tunge frem?",
           "answer": "På en hundrededel sekund",
@@ -2304,6 +2508,18 @@
           "hint": "Não é o mais rápido, mas o mais resistente.",
           "explanation": "As pessoas correm por horas porque suam muito bem.",
           "fact": "Alguns caçadores perseguiam um antílope até ele não aguentar mais."
+        },
+        "ptpt": {
+          "prompt": "Que animal consegue correr mais tempo seguido?",
+          "answer": "O ser humano",
+          "wrong": [
+            "A chita",
+            "A lebre",
+            "O gato"
+          ],
+          "hint": "Não o mais rápido, mas o mais resistente.",
+          "explanation": "As pessoas correm horas porque transpiram muito bem.",
+          "fact": "Alguns caçadores perseguiam um antílope até ele já não poder."
         },
         "da": {
           "prompt": "Hvilket dyr kan løbe længst i træk?",
@@ -2435,6 +2651,18 @@
           "explanation": "Em voo, o coração do beija-flor bate mais de mil vezes por minuto.",
           "fact": "À noite, cai para cinquenta para poupar energia."
         },
+        "ptpt": {
+          "prompt": "Quantas vezes bate o coração de um beija-flor em voo?",
+          "answer": "Mais de 1.000 por minuto",
+          "wrong": [
+            "60 por minuto",
+            "200 por minuto",
+            "10.000 por minuto"
+          ],
+          "hint": "Muito mais depressa do que o teu.",
+          "explanation": "Em voo o coração do beija-flor bate mais de mil vezes por minuto.",
+          "fact": "De noite desce para cinquenta para poupar energia."
+        },
         "da": {
           "prompt": "Hvor tit slår hjertet på en flyvende kolibri?",
           "answer": "Over 1.000 gange i minuttet",
@@ -2564,6 +2792,18 @@
           "hint": "Voava mais alto do que um avião de passageiros.",
           "explanation": "Um grifo-de-Rüppell foi registrado a mais de onze quilômetros de altura.",
           "fact": "Lá o oxigênio é tão escasso que uma pessoa não aguentaria."
+        },
+        "ptpt": {
+          "prompt": "Que ave já foi vista a voar mais alto?",
+          "answer": "O grifo-de-Rüppell",
+          "wrong": [
+            "A águia",
+            "O cisne",
+            "O grou"
+          ],
+          "hint": "Voava mais alto do que um avião de passageiros.",
+          "explanation": "Registou-se um grifo-de-Rüppell a mais de onze quilómetros.",
+          "fact": "Ali o oxigénio é tão escasso que uma pessoa não aguentava."
         },
         "da": {
           "prompt": "Hvilken fugl er set flyve højest?",

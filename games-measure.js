@@ -18,7 +18,7 @@
   const pick=a=>a[Math.floor(Math.random()*a.length)];
   const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
   const lang=()=>K.state.language||'nl';
-  const LOCALE={nl:'nl-NL',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT',pt:'pt-BR',da:'da-DK',ru:'ru-RU',ar:'ar-AE-u-nu-latn'};
+  const LOCALE={nl:'nl-NL',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT',pt:'pt-BR',ptpt:'pt-PT',da:'da-DK',ru:'ru-RU',ar:'ar-AE-u-nu-latn'};
   // 1500 g, not 1.500 g: a grouping dot reads as a decimal to a child.
   const num=v=>new Intl.NumberFormat(LOCALE[lang()]||'nl-NL',{useGrouping:false,maximumFractionDigits:2}).format(v);
   const U=u=>t(`measure.u.${u}`);

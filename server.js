@@ -59,7 +59,7 @@ const RATE_WINDOW_MS = 60000;
 // so a quick child legitimately reaches 100+ requests a minute; cache hits are
 // refunded below and never count.
 const RATE_MAX = Number(process.env.TTS_RATE_LIMIT || 240);
-const LANGS = new Set(['nl','en','pt','de','es','fr','it','ru','da','ar']);
+const LANGS = new Set(['nl','en','pt','ptpt','de','es','fr','it','ru','da','ar']);
 const hits = new Map();
 
 // Production runs behind Caddy (deploy/Caddyfile), where every socket is
@@ -276,6 +276,7 @@ const LANG_RULES = {
   nl: langRuleFor('Netherlands Dutch','nl',{prefer:/^(standard|nl-nl|netherlands|dutch)$/,avoid:NON_DUTCH_ACCENTS,veto:isFlemish,strict:false}),
   en: langRuleFor('US English','en',{prefer:/american|en-us/}),
   pt: langRuleFor('Brazilian Portuguese','pt',{prefer:/brazil|brasil|pt-br/,avoid:/portugal|european|pt-pt/}),
+  ptpt: langRuleFor('European Portuguese','pt',{prefer:/portugal|european|pt-pt|lisbon/,avoid:/brazil|brasil|pt-br/}),
   // Added for the six new languages. Each one wants the standard variety of the
   // country the product ships to, so a regional variety that would sound wrong to
   // a child (Swiss German, Quebec French) is pushed down rather than rejected:
@@ -478,7 +479,7 @@ async function tts(text, guide, lang, {stream=false, signal=null}={}){
     text, model_id:MODEL,
     // language_code is documented only for the flash/turbo models; the native
     // voice per language carries the accent on multilingual_v2 and v3.
-    ...(/flash|turbo|v4/.test(MODEL) ? { language_code: lang } : {}),
+    ...(/flash|turbo|v4/.test(MODEL) ? { language_code: lang === 'ptpt' ? 'pt' : lang } : {}),   // ElevenLabs knows one Portuguese; the voice carries Portugal or Brazil
     voice_settings: settings,
     // A bare answer letter is recorded with the alphabet around it (speech-config.js).
     ...(SPEECH.letterContext(text, lang) || {})

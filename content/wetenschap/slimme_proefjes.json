@@ -95,6 +95,18 @@
           "explanation": "O ar sai disparado por um lado e empurra o balão para o outro.",
           "fact": "Um foguete funciona exatamente assim."
         },
+        "ptpt": {
+          "prompt": "O que acontece se largares um balão cheio?",
+          "answer": "Sai a voar",
+          "wrong": [
+            "Fica mais pesado",
+            "Derrete",
+            "Fica parado"
+          ],
+          "hint": "O ar tem de sair.",
+          "explanation": "O ar sai disparado por um lado e empurra o balão para o outro.",
+          "fact": "Um foguetão funciona exatamente assim."
+        },
         "da": {
           "prompt": "Hvad sker der, når du slipper en pustet ballon?",
           "answer": "Den flyver væk",
@@ -214,6 +226,18 @@
           "fact": "Certi legni tropicali sono così pesanti che affondano."
         },
         "pt": {
+          "prompt": "O que flutua na água?",
+          "answer": "Um pedaço de madeira",
+          "wrong": [
+            "Uma pedra",
+            "Um prego",
+            "Uma moeda"
+          ],
+          "hint": "Vem de uma árvore.",
+          "explanation": "A madeira é mais leve do que a mesma quantidade de água, por isso fica à tona.",
+          "fact": "Algumas madeiras tropicais são tão pesadas que afundam."
+        },
+        "ptpt": {
           "prompt": "O que flutua na água?",
           "answer": "Um pedaço de madeira",
           "wrong": [
@@ -355,6 +379,18 @@
           "explanation": "A zero graus, as partículas quase param e formam uma rede sólida.",
           "fact": "Essa rede faz o gelo ocupar mais espaço do que a água."
         },
+        "ptpt": {
+          "prompt": "O que acontece à água no congelador?",
+          "answer": "Vira gelo",
+          "wrong": [
+            "Desaparece",
+            "Fica salgada",
+            "Aquece"
+          ],
+          "hint": "Abaixo de zero graus.",
+          "explanation": "A zero graus as partículas quase param e formam uma rede sólida.",
+          "fact": "Essa rede faz o gelo ocupar mais espaço do que a água."
+        },
         "da": {
           "prompt": "Hvad sker der med vand i fryseren?",
           "answer": "Det bliver til is",
@@ -485,6 +521,18 @@
           "explanation": "Um ímã atrai ferro e aço, até através do papel.",
           "fact": "No cobre, no ouro ou no alumínio, um ímã não faz nada."
         },
+        "ptpt": {
+          "prompt": "Com que apanhas pregos sem lhes tocar?",
+          "answer": "Com um íman",
+          "wrong": [
+            "Com uma esponja",
+            "Com papel",
+            "Com uma palhinha"
+          ],
+          "hint": "O ferro salta para ele.",
+          "explanation": "Um íman atrai ferro e aço, até através do papel.",
+          "fact": "Sobre o cobre, o ouro ou o alumínio um íman não faz nada."
+        },
         "da": {
           "prompt": "Hvad samler søm op, uden at du rører dem?",
           "answer": "En magnet",
@@ -613,6 +661,18 @@
           ],
           "hint": "Pense em um casaco escuro no verão.",
           "explanation": "O preto engole quase toda a luz e a transforma em calor.",
+          "fact": "O branco devolve a luz e por isso fica mais fresco."
+        },
+        "ptpt": {
+          "prompt": "Que cor aquece mais depressa ao sol?",
+          "answer": "O preto",
+          "wrong": [
+            "O branco",
+            "O prateado",
+            "O transparente"
+          ],
+          "hint": "Pensa num casaco escuro no verão.",
+          "explanation": "O preto engole quase toda a luz e transforma-a em calor.",
           "fact": "O branco devolve a luz e por isso fica mais fresco."
         },
         "da": {
@@ -745,6 +805,18 @@
           "explanation": "Um navio afasta muita água porque tem ar dentro, e isso o mantém na superfície.",
           "fact": "Se entrar água, o ar sai e o navio afunda do mesmo jeito."
         },
+        "ptpt": {
+          "prompt": "Porque afunda um prego e flutua um navio grande?",
+          "answer": "O navio está cheio de ar",
+          "wrong": [
+            "O navio pesa muito pouco",
+            "O ferro flutua sempre",
+            "O motor segura-o"
+          ],
+          "hint": "Olha para a forma, não para o peso.",
+          "explanation": "Um navio afasta muita água porque tem ar dentro, e isso mantém-no à tona.",
+          "fact": "Se entrar água, o ar sai e o navio afunda na mesma."
+        },
         "da": {
           "prompt": "Hvorfor synker et søm, mens et stort skib flyder?",
           "answer": "Skibet er fyldt med luft",
@@ -872,6 +944,18 @@
             "A pimenta se dissolve"
           ],
           "hint": "Acontece em um instante.",
+          "explanation": "O sabão enfraquece a película da água, e isso puxa a pimenta para a borda.",
+          "fact": "Essa mesma película faz um clipe flutuar."
+        },
+        "ptpt": {
+          "prompt": "O que acontece se puseres sabão na pimenta sobre água?",
+          "answer": "A pimenta foge",
+          "wrong": [
+            "A pimenta afunda logo",
+            "A água fica verde",
+            "A pimenta dissolve-se"
+          ],
+          "hint": "Acontece num instante.",
           "explanation": "O sabão enfraquece a película da água, e isso puxa a pimenta para a borda.",
           "fact": "Essa mesma película faz um clipe flutuar."
         },
@@ -1005,6 +1089,18 @@
           "explanation": "O suco de repolho roxo é um indicador: rosa no ácido, verde em água com sabão.",
           "fact": "Assim você tem um teste de pH feito na cozinha."
         },
+        "ptpt": {
+          "prompt": "O que faz o sumo de couve roxa com vinagre?",
+          "answer": "Muda de cor",
+          "wrong": [
+            "A água congela",
+            "O sumo desaparece",
+            "Começa a fumegar"
+          ],
+          "hint": "O roxo fica cor-de-rosa.",
+          "explanation": "O sumo de couve roxa é um indicador: rosa no ácido, verde em água com sabão.",
+          "fact": "Assim tens um teste de pH feito na cozinha."
+        },
         "da": {
           "prompt": "Hvad gør rødkålssaft, når du hælder eddike i?",
           "answer": "Farven skifter",
@@ -1135,6 +1231,18 @@
           "explanation": "O ácido dissolve a casca de calcário e sobra um ovo que quica, dentro de uma pele.",
           "fact": "Esse mesmo ácido também ataca o esmalte dos dentes."
         },
+        "ptpt": {
+          "prompt": "O que acontece a um ovo deixado um dia em vinagre?",
+          "answer": "A casca desaparece",
+          "wrong": [
+            "O ovo fica verde",
+            "O ovo coze",
+            "O ovo encolhe"
+          ],
+          "hint": "Saem bolhinhas logo.",
+          "explanation": "O ácido dissolve a casca de cal e fica um ovo aos saltos dentro de uma pele.",
+          "fact": "Esse mesmo ácido ataca também o esmalte dos dentes."
+        },
         "da": {
           "prompt": "Hvad sker der med et æg, der ligger et døgn i eddike?",
           "answer": "Skallen forsvinder",
@@ -1263,6 +1371,18 @@
           ],
           "hint": "Olhe de lado.",
           "explanation": "A luz muda de direção ao passar da água para o ar, e o canudo parece quebrado.",
+          "fact": "Esse mesmo desvio da luz faz o arco-íris."
+        },
+        "ptpt": {
+          "prompt": "Como fica uma palhinha inclinada num copo de água?",
+          "answer": "Parece partida",
+          "wrong": [
+            "Dobra mesmo",
+            "Dissolve-se",
+            "Fica mais grossa"
+          ],
+          "hint": "Olha de lado.",
+          "explanation": "A luz muda de direção ao passar da água para o ar, e a palhinha parece quebrada.",
           "fact": "Esse mesmo desvio da luz faz o arco-íris."
         },
         "da": {
@@ -1395,6 +1515,18 @@
           "explanation": "Se você mudar duas coisas, não sabe qual fez a diferença.",
           "fact": "Por isso, tudo fica igual, menos uma variável."
         },
+        "ptpt": {
+          "prompt": "Porque mudas só uma coisa de cada vez numa experiência?",
+          "answer": "Assim sabes o que fez efeito",
+          "wrong": [
+            "Assim é mais rápido",
+            "Assim fica mais limpo",
+            "Assim não é preciso medir"
+          ],
+          "hint": "Senão ficas com dois suspeitos.",
+          "explanation": "Se mudares duas coisas não sabes qual fez a diferença.",
+          "fact": "Por isso mantém-se tudo igual menos uma variável."
+        },
         "da": {
           "prompt": "Hvorfor ændrer du kun én ting ad gangen i et forsøg?",
           "answer": "Så ved du, hvad der virkede",
@@ -1524,6 +1656,18 @@
           "hint": "A água tem uma película.",
           "explanation": "As partículas de água puxam umas às outras e formam na superfície uma película que segura o clipe.",
           "fact": "Os insetos chamados alfaiates andam nessa mesma película."
+        },
+        "ptpt": {
+          "prompt": "Porque flutua um clipe se o pousares devagar?",
+          "answer": "Pela tensão superficial",
+          "wrong": [
+            "Porque o aço é leve",
+            "Pelo vento",
+            "Pelo magnetismo"
+          ],
+          "hint": "A água tem uma película.",
+          "explanation": "As partículas de água puxam umas pelas outras e formam à superfície uma película que segura o clipe.",
+          "fact": "Os alfaiates-da-água andam nessa mesma película."
         },
         "da": {
           "prompt": "Hvorfor flyder en papirclips, hvis du lægger den forsigtigt?",
@@ -1655,6 +1799,18 @@
           "explanation": "Substâncias da maçã reagem com o oxigênio e formam uma camada marrom.",
           "fact": "O suco de limão freia essa reação porque é ácido."
         },
+        "ptpt": {
+          "prompt": "Porque fica castanha uma maçã cortada?",
+          "answer": "Pelo oxigénio do ar",
+          "wrong": [
+            "Pela luz",
+            "Pela faca",
+            "Pela água"
+          ],
+          "hint": "O sumo de limão ajuda.",
+          "explanation": "Substâncias da maçã reagem com o oxigénio e formam uma camada castanha.",
+          "fact": "O sumo de limão trava essa reação porque é ácido."
+        },
         "da": {
           "prompt": "Hvorfor bliver et snittet æble brunt?",
           "answer": "På grund af ilt i luften",
@@ -1784,6 +1940,18 @@
           "hint": "Coloque o ovo em um copo de água.",
           "explanation": "Um ovo velho tem mais ar e sobe; um fresco fica no fundo.",
           "fact": "Pela casca, a umidade sai devagar e a bolha de ar cresce."
+        },
+        "ptpt": {
+          "prompt": "Como vês se um ovo ainda está fresco?",
+          "answer": "Um ovo fresco afunda",
+          "wrong": [
+            "Um ovo fresco flutua",
+            "Um ovo fresco está quente",
+            "Um ovo fresco chocalha"
+          ],
+          "hint": "Põe-no num copo de água.",
+          "explanation": "Um ovo velho tem mais ar e sobe; um fresco fica no fundo.",
+          "fact": "Pela casca sai devagar humidade e a bolha de ar cresce."
         },
         "da": {
           "prompt": "Hvordan ser du, om et æg stadig er friskt?",
@@ -1915,6 +2083,18 @@
           "explanation": "Em água quente, as partículas se mexem mais rápido e separam os grãos mais cedo.",
           "fact": "Em água quente também cabe muito mais açúcar."
         },
+        "ptpt": {
+          "prompt": "O que faz o açúcar em água quente comparado com fria?",
+          "answer": "Dissolve-se mais depressa",
+          "wrong": [
+            "Dissolve-se mais devagar",
+            "Não se dissolve",
+            "Fica salgado"
+          ],
+          "hint": "Mexe um chá.",
+          "explanation": "Em água quente as partículas mexem-se mais depressa e separam os grãos mais cedo.",
+          "fact": "Em água quente cabe também muito mais açúcar."
+        },
         "da": {
           "prompt": "Hvad gør sukker i varmt vand frem for koldt?",
           "answer": "Det opløses hurtigere",
@@ -2044,6 +2224,18 @@
           "hint": "É com ele que você compara.",
           "explanation": "O grupo de controle não recebe a mudança; assim você vê o que acontece sem ela.",
           "fact": "Sem ele, você nunca sabe se foi a sua mudança que fez diferença."
+        },
+        "ptpt": {
+          "prompt": "O que é um grupo de controlo numa experiência?",
+          "answer": "O grupo sem a mudança",
+          "wrong": [
+            "O grupo que mede",
+            "O grupo que ganha",
+            "O grupo que arruma"
+          ],
+          "hint": "É com ele que comparas.",
+          "explanation": "O grupo de controlo não recebe a mudança, assim vês o que acontece sem ela.",
+          "fact": "Sem ele nunca sabes se foi a tua mudança que contou."
         },
         "da": {
           "prompt": "Hvad er en kontrolgruppe i et forsøg?",
@@ -2175,6 +2367,18 @@
           "explanation": "Você tira ar do canudo, e a pressão sobre o copo empurra a bebida para cima.",
           "fact": "Acima de uns dez metros, sugar não funciona mais."
         },
+        "ptpt": {
+          "prompt": "Porque sobe a limonada quando sopras ao contrário na palhinha?",
+          "answer": "A pressão do ar empurra",
+          "wrong": [
+            "Puxas a água para cima",
+            "A bebida é muito leve",
+            "A palhinha suga sozinha"
+          ],
+          "hint": "O ar de fora empurra também.",
+          "explanation": "Tiras ar da palhinha, e a pressão sobre o copo empurra a bebida para cima.",
+          "fact": "Acima de uns dez metros sugar deixa de funcionar."
+        },
         "da": {
           "prompt": "Hvorfor stiger saften, når du suger i et sugerør?",
           "answer": "Lufttrykket skubber den op",
@@ -2303,6 +2507,18 @@
           ],
           "hint": "Só aparece no ar frio.",
           "explanation": "O vapor de água invisível esfria e forma gotinhas bem pequenas, e são elas que você vê.",
+          "fact": "Uma nuvem no céu é feita exatamente dessas gotinhas."
+        },
+        "ptpt": {
+          "prompt": "O que é o vapor branco sobre uma chávena de chá?",
+          "answer": "Vapor tornado gotinhas",
+          "wrong": [
+            "É fumo",
+            "É ar quente",
+            "É pó"
+          ],
+          "hint": "Só se vê no ar frio.",
+          "explanation": "O vapor de água invisível arrefece e forma gotinhas muito pequenas, e essas vês.",
           "fact": "Uma nuvem no céu é feita exatamente dessas gotinhas."
         },
         "da": {
@@ -2435,6 +2651,18 @@
           "explanation": "O tornassol fica vermelho no ácido e azul em uma base, e assim você vê a diferença.",
           "fact": "O suco de repolho roxo faz o mesmo em roxo, rosa e verde."
         },
+        "ptpt": {
+          "prompt": "Para que serve um papel de tornassol?",
+          "answer": "Testa se algo é ácido",
+          "wrong": [
+            "Mede a temperatura",
+            "Mede o peso",
+            "Mede a velocidade"
+          ],
+          "hint": "Muda de cor logo.",
+          "explanation": "O tornassol fica vermelho no ácido e azul numa base, e assim vês a diferença.",
+          "fact": "O sumo de couve roxa faz o mesmo em roxo, rosa e verde."
+        },
         "da": {
           "prompt": "Hvad gør et stykke lakmuspapir?",
           "answer": "Det tester, om noget er surt",
@@ -2564,6 +2792,18 @@
           "hint": "O vapor não pode sair.",
           "explanation": "Sob alta pressão, a água só ferve acima de cem graus, e água mais quente cozinha mais rápido.",
           "fact": "No alto das montanhas é o contrário: a água já ferve a noventa graus."
+        },
+        "ptpt": {
+          "prompt": "Porque cozem as batatas mais depressa na panela de pressão?",
+          "answer": "A pressão aquece mais a água",
+          "wrong": [
+            "A chama é mais forte",
+            "Tem mais sal",
+            "A panela é de cobre"
+          ],
+          "hint": "O vapor não pode sair.",
+          "explanation": "Sob alta pressão a água só ferve acima dos cem graus, e água mais quente coze mais depressa.",
+          "fact": "Na alta montanha é ao contrário: a água ferve já aos noventa graus."
         },
         "da": {
           "prompt": "Hvorfor koger kartofler hurtigere i en trykkoger?",

@@ -8,7 +8,7 @@ const vm = require('vm');
 
 const ROOT = path.join(__dirname, '..');
 
-const stringsFiles = () => fs.readdirSync(ROOT).filter(f => /^strings-[a-z]{2}\.js$/.test(f)).sort();
+const stringsFiles = () => fs.readdirSync(ROOT).filter(f => /^strings-[a-z]{2,4}\.js$/.test(f)).sort();
 
 function i18n() {
   const ctx = { window: {}, document: { documentElement: {} } };

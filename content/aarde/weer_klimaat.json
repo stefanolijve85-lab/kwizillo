@@ -95,6 +95,18 @@
           "explanation": "Com um guarda-chuva, você fica seco na chuva.",
           "fact": "Os primeiros guarda-sóis têm milhares de anos."
         },
+        "ptpt": {
+          "prompt": "O que levas quando chove?",
+          "answer": "Um guarda-chuva",
+          "wrong": [
+            "Óculos de sol",
+            "Um leque",
+            "Uma pá"
+          ],
+          "hint": "Segura-lo por cima da cabeça.",
+          "explanation": "Com um guarda-chuva ficas seco à chuva.",
+          "fact": "Os primeiros guarda-sóis têm milhares de anos."
+        },
         "da": {
           "prompt": "Hvad tager du med, når det regner?",
           "answer": "En paraply",
@@ -225,6 +237,18 @@
           "explanation": "A luz do sol se curva nas gotas e se separa em cores.",
           "fact": "Você sempre vê um arco-íris com o sol às suas costas."
         },
+        "ptpt": {
+          "prompt": "O que vês às vezes quando chove com sol?",
+          "answer": "Um arco-íris",
+          "wrong": [
+            "Neve",
+            "Nevoeiro",
+            "Granizo"
+          ],
+          "hint": "Tem imensas cores.",
+          "explanation": "A luz do sol dobra-se nas gotas e separa-se em cores.",
+          "fact": "Vê-se sempre um arco-íris com o sol nas costas."
+        },
         "da": {
           "prompt": "Hvad ser man nogle gange, når det regner i solskin?",
           "answer": "En regnbue",
@@ -352,6 +376,18 @@
             "Orvalho"
           ],
           "hint": "Você pode fazer bolas com ela.",
+          "explanation": "A neve é feita de cristais de gelo formados na nuvem.",
+          "fact": "Não há dois flocos exatamente iguais."
+        },
+        "ptpt": {
+          "prompt": "Como se chama a água gelada que cai do céu?",
+          "answer": "Neve",
+          "wrong": [
+            "Chuva",
+            "Nevoeiro",
+            "Orvalho"
+          ],
+          "hint": "Podes fazer bolas com ela.",
           "explanation": "A neve é feita de cristais de gelo formados na nuvem.",
           "fact": "Não há dois flocos exatamente iguais."
         },
@@ -485,6 +521,18 @@
           "explanation": "O sol primeiro aquece o chão, e o chão aquece o ar acima dele.",
           "fact": "Por isso, à tarde faz mais calor do que quando o sol nasce."
         },
+        "ptpt": {
+          "prompt": "O que faz o sol ao ar?",
+          "answer": "Torna-o mais quente",
+          "wrong": [
+            "Torna-o mais frio",
+            "Molha-o",
+            "Não lhe faz nada"
+          ],
+          "hint": "Pensa num dia de verão.",
+          "explanation": "O sol aquece primeiro o chão, e este aquece o ar por cima.",
+          "fact": "Por isso à tarde está mais calor do que ao nascer do sol."
+        },
         "da": {
           "prompt": "Hvad gør solen ved luften?",
           "answer": "Den gør den varmere",
@@ -612,6 +660,18 @@
             "Vem trovoada"
           ],
           "hint": "Você não vê nada branco.",
+          "explanation": "Um céu todo azul quer dizer que não há nuvens.",
+          "fact": "O céu é azul porque a luz azul se espalha mais."
+        },
+        "ptpt": {
+          "prompt": "O que quer dizer um céu todo azul?",
+          "answer": "Não há nuvens",
+          "wrong": [
+            "Vai chover",
+            "Vem a noite",
+            "Vem trovoada"
+          ],
+          "hint": "Não vês nada branco.",
           "explanation": "Um céu todo azul quer dizer que não há nuvens.",
           "fact": "O céu é azul porque a luz azul se espalha mais."
         },
@@ -745,6 +805,18 @@
           "explanation": "Quando o chão esfria à noite, o vapor se deposita em gotas.",
           "fact": "Quando gela, esse mesmo orvalho vira geada branca."
         },
+        "ptpt": {
+          "prompt": "O que é o orvalho?",
+          "answer": "Gotas na erva fria",
+          "wrong": [
+            "Chuva de verão",
+            "Neve fina",
+            "Nevoeiro na serra"
+          ],
+          "hint": "Vê-se de manhã cedo.",
+          "explanation": "Quando o chão arrefece de noite, o vapor deposita-se em gotas.",
+          "fact": "Quando gela, esse orvalho transforma-se em geada branca."
+        },
         "da": {
           "prompt": "Hvad er dug?",
           "answer": "Dråber på koldt græs",
@@ -873,6 +945,18 @@
           ],
           "hint": "Lá em cima está mais frio.",
           "explanation": "O ar que sobe esfria e o vapor vira gotinhas minúsculas.",
+          "fact": "Uma só nuvem pode ter centenas de toneladas de água."
+        },
+        "ptpt": {
+          "prompt": "Como se forma uma nuvem?",
+          "answer": "O vapor vira gotas",
+          "wrong": [
+            "Sobe fumo",
+            "Voa poeira",
+            "É o sol que a faz"
+          ],
+          "hint": "Lá em cima está mais frio.",
+          "explanation": "O ar que sobe arrefece e o vapor vira gotinhas minúsculas.",
           "fact": "Uma só nuvem pode ter centenas de toneladas de água."
         },
         "da": {
@@ -1005,6 +1089,18 @@
           "explanation": "Na escala de Beaufort a força dez é uma tempestade forte.",
           "fact": "A força doze se chama furacão."
         },
+        "ptpt": {
+          "prompt": "O que quer dizer força dez do vento?",
+          "answer": "Uma tempestade forte",
+          "wrong": [
+            "Uma brisa suave",
+            "Calmaria",
+            "Uma aragem"
+          ],
+          "hint": "Partem-se ramos.",
+          "explanation": "Na escala de Beaufort a força dez é uma tempestade forte.",
+          "fact": "A força doze chama-se furacão."
+        },
         "da": {
           "prompt": "Hvad betyder vindstyrke ti?",
           "answer": "En stærk storm",
@@ -1132,6 +1228,18 @@
             "A Lua está mais longe"
           ],
           "hint": "Repare na altura do sol.",
+          "explanation": "Como a Terra está inclinada, no verão o sol sobe mais e dura mais.",
+          "fact": "Em janeiro a Terra está até mais perto do sol."
+        },
+        "ptpt": {
+          "prompt": "Porque faz mais calor no verão do que no inverno?",
+          "answer": "O sol está mais alto",
+          "wrong": [
+            "A Terra está mais perto",
+            "O sol arde mais",
+            "A Lua está mais longe"
+          ],
+          "hint": "Repara na altura do sol.",
           "explanation": "Como a Terra está inclinada, no verão o sol sobe mais e dura mais.",
           "fact": "Em janeiro a Terra está até mais perto do sol."
         },
@@ -1265,6 +1373,18 @@
           "explanation": "O smog é uma mistura de neblina e poluição sobre as cidades.",
           "fact": "O ar sujo fica preso debaixo de uma camada quente."
         },
+        "ptpt": {
+          "prompt": "O que é o smog?",
+          "answer": "Névoa suja sobre a cidade",
+          "wrong": [
+            "Nevoeiro no mar",
+            "Fumo de um vulcão",
+            "Uma nuvem alta"
+          ],
+          "hint": "A palavra vem de smoke e fog.",
+          "explanation": "O smog é uma mistura de nevoeiro e poluição sobre as cidades.",
+          "fact": "O ar sujo fica preso debaixo de uma camada quente."
+        },
         "da": {
           "prompt": "Hvad er smog?",
           "answer": "Snavset dis over en by",
@@ -1394,6 +1514,18 @@
           "hint": "Mais rápido do que um carro na rodovia.",
           "explanation": "A partir de cerca de cento e vinte quilômetros por hora, já é furacão.",
           "fact": "Os piores passam de trezentos quilômetros por hora."
+        },
+        "ptpt": {
+          "prompt": "A que velocidade sopra no mínimo um furacão?",
+          "answer": "Mais de 120 km por hora",
+          "wrong": [
+            "Cerca de 30 km por hora",
+            "Cerca de 60 km por hora",
+            "Mais de 500 km por hora"
+          ],
+          "hint": "Mais depressa do que um carro na autoestrada.",
+          "explanation": "A partir de cerca de cento e vinte quilómetros por hora é furacão.",
+          "fact": "Os piores passam os trezentos quilómetros por hora."
         },
         "da": {
           "prompt": "Hvor kraftigt blæser det mindst i en orkan?",
@@ -1525,6 +1657,18 @@
           "explanation": "No olho quase não há vento e muitas vezes brilha o sol.",
           "fact": "Ao redor fica a parede de vento mais violenta."
         },
+        "ptpt": {
+          "prompt": "O que é o olho de um furacão?",
+          "answer": "O centro calmo",
+          "wrong": [
+            "O sítio pior",
+            "A frente",
+            "O fim"
+          ],
+          "hint": "Ali o céu até está limpo.",
+          "explanation": "No olho quase não há vento e muitas vezes brilha o sol.",
+          "fact": "À volta fica a parede de vento mais violenta."
+        },
         "da": {
           "prompt": "Hvad er en orkans øje?",
           "answer": "Den rolige kerne",
@@ -1653,6 +1797,18 @@
           ],
           "hint": "Pense em um balão de ar quente.",
           "explanation": "O ar quente se expande e fica mais leve do que o ar frio ao redor.",
+          "fact": "Um balão de ar quente sobe exatamente por isso."
+        },
+        "ptpt": {
+          "prompt": "Porque sobe o ar quente?",
+          "answer": "O ar quente é mais leve",
+          "wrong": [
+            "O vento empurra-o",
+            "O sol puxa-o",
+            "É mais pesado"
+          ],
+          "hint": "Pensa num balão de ar quente.",
+          "explanation": "O ar quente dilata-se e fica mais leve do que o ar frio à volta.",
           "fact": "Um balão de ar quente sobe exatamente por isso."
         },
         "da": {
@@ -1785,6 +1941,18 @@
           "explanation": "Um pluviômetro mede quantos milímetros de chuva caem.",
           "fact": "Um milímetro de chuva é um litro por metro quadrado."
         },
+        "ptpt": {
+          "prompt": "O que mede um pluviómetro?",
+          "answer": "Quanta chuva cai",
+          "wrong": [
+            "Quanto vento faz",
+            "Que frio está",
+            "Quanta humidade há"
+          ],
+          "hint": "Há água dentro de um tubinho.",
+          "explanation": "Um pluviómetro mede quantos milímetros de chuva caem.",
+          "fact": "Um milímetro de chuva é um litro por metro quadrado."
+        },
         "da": {
           "prompt": "Hvad måler en regnmåler?",
           "answer": "Hvor meget regn der falder",
@@ -1914,6 +2082,18 @@
           "hint": "Desce de uma nuvem de tempestade.",
           "explanation": "Em um tornado, o ar gira a uma velocidade enorme dentro de um funil.",
           "fact": "Lá dentro, o vento pode ser mais forte do que em um furacão."
+        },
+        "ptpt": {
+          "prompt": "O que acontece num tornado?",
+          "answer": "O ar roda num funil",
+          "wrong": [
+            "O mar esvazia-se",
+            "O chão racha",
+            "O céu fica vermelho"
+          ],
+          "hint": "Pende de uma nuvem de trovoada.",
+          "explanation": "Num tornado o ar roda a uma velocidade enorme dentro de um funil.",
+          "fact": "Lá dentro pode soprar mais do que num furacão."
         },
         "da": {
           "prompt": "Hvad sker der i en tornado?",
@@ -2045,6 +2225,18 @@
           "explanation": "Gases como o dióxido de carbono prendem o calor como um cobertor.",
           "fact": "Desde 1880, a Terra esquentou mais de um grau."
         },
+        "ptpt": {
+          "prompt": "Porque está a Terra a aquecer?",
+          "answer": "Mais gases de estufa",
+          "wrong": [
+            "O sol está a aproximar-se",
+            "A Terra roda mais depressa",
+            "Há mais vulcões"
+          ],
+          "hint": "Vem sobretudo de queimar coisas.",
+          "explanation": "Gases como o dióxido de carbono seguram o calor como um cobertor.",
+          "fact": "Desde 1880 a Terra aqueceu mais de um grau."
+        },
         "da": {
           "prompt": "Hvorfor bliver Jorden varmere?",
           "answer": "Mere drivhusgas i luften",
@@ -2173,6 +2365,18 @@
           ],
           "hint": "Os aviões a aproveitam.",
           "explanation": "É uma faixa de vento rapidíssimo a dez quilômetros de altura.",
+          "fact": "Com ela a favor, um avião chega uma hora mais cedo."
+        },
+        "ptpt": {
+          "prompt": "O que é uma corrente de jato?",
+          "answer": "Um vento muito alto",
+          "wrong": [
+            "Uma corrente marítima",
+            "Um tipo de relâmpago",
+            "Um aguaceiro longo"
+          ],
+          "hint": "Os aviões aproveitam-na.",
+          "explanation": "É uma faixa de vento rapidíssimo a dez quilómetros de altura.",
           "fact": "Com ela a favor, um avião chega uma hora mais cedo."
         },
         "da": {
@@ -2305,6 +2509,18 @@
           "explanation": "No mundo inteiro cai um raio cerca de cem vezes por segundo.",
           "fact": "A cada momento há umas duas mil trovoadas acontecendo."
         },
+        "ptpt": {
+          "prompt": "Quantas vezes por segundo cai um raio na Terra?",
+          "answer": "Cerca de cem vezes",
+          "wrong": [
+            "Cerca de uma vez",
+            "Cerca de dez vezes",
+            "Cerca de dez mil vezes"
+          ],
+          "hint": "Algures há sempre trovoada.",
+          "explanation": "No mundo inteiro cai um raio cerca de cem vezes por segundo.",
+          "fact": "Em cada momento há umas duas mil trovoadas a decorrer."
+        },
         "da": {
           "prompt": "Hvor mange gange i sekundet slår lynet ned på Jorden?",
           "answer": "Cirka hundrede gange",
@@ -2435,6 +2651,18 @@
           "explanation": "A camada de ozônio barra a parte mais perigosa da luz do sol.",
           "fact": "O buraco vem se fechando desde que certos gases foram proibidos."
         },
+        "ptpt": {
+          "prompt": "O que faz a camada de ozono?",
+          "answer": "Trava a luz ultravioleta",
+          "wrong": [
+            "Faz chuva",
+            "Segura o calor",
+            "Faz vento"
+          ],
+          "hint": "Sem ela queimavas-te depressa.",
+          "explanation": "A camada de ozono trava a parte mais perigosa da luz do sol.",
+          "fact": "O buraco vai fechando desde que certos gases foram proibidos."
+        },
         "da": {
           "prompt": "Hvad gør ozonlaget?",
           "answer": "Det stopper ultraviolet lys",
@@ -2564,6 +2792,18 @@
           "hint": "Leva uma caixinha pendurada.",
           "explanation": "Um balão desses mede temperatura, pressão e umidade enquanto sobe.",
           "fact": "Ele sobe mais de trinta quilômetros e depois estoura."
+        },
+        "ptpt": {
+          "prompt": "O que mede um balão meteorológico lá no alto?",
+          "answer": "Temperatura e humidade",
+          "wrong": [
+            "O número de aves",
+            "A cor do céu",
+            "O som do trovão"
+          ],
+          "hint": "Leva uma caixinha pendurada.",
+          "explanation": "Um balão destes mede temperatura, pressão e humidade enquanto sobe.",
+          "fact": "Sobe mais de trinta quilómetros e depois rebenta."
         },
         "da": {
           "prompt": "Hvad måler en vejrballon højt oppe?",

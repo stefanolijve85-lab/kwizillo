@@ -95,6 +95,18 @@
           "explanation": "A natação é praticada na água: em uma piscina, em um lago ou no mar.",
           "fact": "Nos Jogos, as provas são em uma piscina de cinquenta metros."
         },
+        "ptpt": {
+          "prompt": "Em que desporto entras na água?",
+          "answer": "A natação",
+          "wrong": [
+            "O esqui",
+            "O futebol",
+            "O xadrez"
+          ],
+          "hint": "Entras numa piscina ou num lago.",
+          "explanation": "A natação pratica-se na água: numa piscina, num lago ou no mar.",
+          "fact": "Nos Jogos nadam numa piscina de cinquenta metros."
+        },
         "da": {
           "prompt": "I hvilken sport går du ned i vandet?",
           "answer": "Svømning",
@@ -225,6 +237,18 @@
           "explanation": "Os patins deslizam sobre gelo bem gelado, em um rinque ou ao ar livre.",
           "fact": "Um rinque coberto é feito com água, camada por camada."
         },
+        "ptpt": {
+          "prompt": "Sobre o que desliza um patim?",
+          "answer": "No gelo",
+          "wrong": [
+            "Na areia",
+            "Na erva",
+            "Na lama"
+          ],
+          "hint": "Tem de ser duro e frio.",
+          "explanation": "Os patins deslizam sobre gelo bem gelado, num ringue ou ao ar livre.",
+          "fact": "Um ringue coberto é construído com água, camada a camada."
+        },
         "da": {
           "prompt": "Hvad glider en skøjte på?",
           "answer": "På is",
@@ -353,6 +377,18 @@
           ],
           "hint": "Duas tábuas compridas.",
           "explanation": "Com esquis embaixo dos pés, você desce deslizando sobre a neve.",
+          "fact": "O esqui mais antigo encontrado tem mais de quatro mil anos."
+        },
+        "ptpt": {
+          "prompt": "O que atas debaixo dos pés para descer uma montanha com neve?",
+          "answer": "Esquis",
+          "wrong": [
+            "Patins",
+            "Barbatanas",
+            "Botas de futebol"
+          ],
+          "hint": "Duas tábuas compridas.",
+          "explanation": "Com esquis debaixo dos pés desces a deslizar sobre a neve.",
           "fact": "O esqui mais antigo encontrado tem mais de quatro mil anos."
         },
         "da": {
@@ -485,6 +521,18 @@
           "explanation": "O surfista fica de pé em uma prancha e se deixa levar por uma onda.",
           "fact": "A maior onda já surfada era alta como um prédio de oito andares."
         },
+        "ptpt": {
+          "prompt": "Sobre o que anda um surfista?",
+          "answer": "Nas ondas",
+          "wrong": [
+            "No gelo",
+            "Na neve",
+            "Na areia"
+          ],
+          "hint": "Chegam do mar.",
+          "explanation": "O surfista põe-se de pé numa prancha e deixa-se empurrar por uma onda.",
+          "fact": "A maior onda já surfada era alta como um edifício de oito andares."
+        },
         "da": {
           "prompt": "Hvad surfer en surfer på?",
           "answer": "På bølger",
@@ -614,6 +662,18 @@
           "hint": "Você sente no cabelo.",
           "explanation": "O vento empurra a vela, e assim o barco avança.",
           "fact": "Os velejadores olham para bandeirinhas para ver de onde ele sopra."
+        },
+        "ptpt": {
+          "prompt": "O que empurra um barco à vela?",
+          "answer": "O vento",
+          "wrong": [
+            "Um motor",
+            "O sol",
+            "Os pedais"
+          ],
+          "hint": "Sentes-o no cabelo.",
+          "explanation": "O vento empurra a vela, e assim o barco avança.",
+          "fact": "Os velejadores olham para bandeirinhas para ver de onde sopra."
         },
         "da": {
           "prompt": "Hvad driver en sejlbåd frem?",
@@ -745,6 +805,18 @@
           "explanation": "Os jogadores patinam no gelo e batem em um disco com um taco.",
           "fact": "O disco é de borracha dura e voa a cento e cinquenta quilômetros por hora."
         },
+        "ptpt": {
+          "prompt": "O que tem um jogador de hóquei no gelo debaixo dos sapatos?",
+          "answer": "Patins de gelo",
+          "wrong": [
+            "Rodas",
+            "Esquis",
+            "Pitons"
+          ],
+          "hint": "Joga sobre gelo.",
+          "explanation": "Os jogadores patinam no gelo e batem num disco com um stick.",
+          "fact": "O disco é de borracha dura e voa a cento e cinquenta quilómetros por hora."
+        },
         "da": {
           "prompt": "Hvad har en ishockeyspiller under skoene?",
           "answer": "Skøjter",
@@ -874,6 +946,18 @@
           "hint": "Bem alto sobre a água.",
           "explanation": "Eles saltam de um trampolim ou de uma plataforma em uma piscina bem funda.",
           "fact": "A plataforma olímpica mais alta fica a dez metros da água."
+        },
+        "ptpt": {
+          "prompt": "De onde saltam os saltadores para a água?",
+          "answer": "Da prancha ou da torre",
+          "wrong": [
+            "De uma cadeira",
+            "De uma escada",
+            "De um barco"
+          ],
+          "hint": "Bem alto sobre a água.",
+          "explanation": "Saltam de uma prancha ou de uma torre para uma piscina muito funda.",
+          "fact": "A torre olímpica mais alta está a dez metros da água."
         },
         "da": {
           "prompt": "Hvor springer udspringere fra?",
@@ -1005,6 +1089,18 @@
           "explanation": "O remador puxa os remos pela água, e o barco salta para a frente.",
           "fact": "Os remadores vão de costas: olham para o lugar de onde saíram."
         },
+        "ptpt": {
+          "prompt": "Com o que faz avançar o barco um remador?",
+          "answer": "Com remos",
+          "wrong": [
+            "Com uma vela",
+            "Com um motor",
+            "Com um pau"
+          ],
+          "hint": "Duas varas compridas com uma pá.",
+          "explanation": "O remador puxa os remos pela água, e o barco salta para a frente.",
+          "fact": "Os remadores vão de costas: olham para o lugar de onde partiram."
+        },
         "da": {
           "prompt": "Hvad får en roer båden frem med?",
           "answer": "Med årer",
@@ -1134,6 +1230,18 @@
           "hint": "Tem que fazer frio.",
           "explanation": "Os esportes de inverno são praticados na neve ou no gelo; é preciso frio ou um ginásio gelado.",
           "fact": "Em países quentes, às vezes constroem um ginásio com neve de verdade."
+        },
+        "ptpt": {
+          "prompt": "O que precisas para os desportos de inverno?",
+          "answer": "Neve ou gelo",
+          "wrong": [
+            "Areia",
+            "Chuva",
+            "Nevoeiro"
+          ],
+          "hint": "Tem de fazer frio.",
+          "explanation": "Os desportos de inverno fazem-se na neve ou no gelo, é preciso frio ou um pavilhão frio.",
+          "fact": "Nos países quentes constroem às vezes um pavilhão com neve a sério."
         },
         "da": {
           "prompt": "Hvad skal der til for vintersport?",
@@ -1265,6 +1373,18 @@
           "explanation": "Em águas abertas, a natação é em um lago, em um rio ou no mar, sem raias.",
           "fact": "Em uma prova, a água não pode estar abaixo de dezesseis graus."
         },
+        "ptpt": {
+          "prompt": "Onde se nada em águas abertas?",
+          "answer": "Num lago ou no mar",
+          "wrong": [
+            "Numa banheira",
+            "Numa fonte",
+            "Num balde"
+          ],
+          "hint": "Ao ar livre, sem pistas.",
+          "explanation": "Em águas abertas nada-se num lago, num rio ou no mar, sem linhas.",
+          "fact": "Numa prova a água não pode estar a menos de dezasseis graus."
+        },
         "da": {
           "prompt": "Hvor svømmer man ved åbent vand?",
           "answer": "I en sø eller i havet",
@@ -1393,6 +1513,18 @@
           ],
           "hint": "Pouco menos de meio campo.",
           "explanation": "Uma piscina olímpica tem cinquenta metros e dez raias lado a lado.",
+          "fact": "Cabem cerca de dois milhões e meio de litros de água."
+        },
+        "ptpt": {
+          "prompt": "Qual é o comprimento de uma piscina olímpica?",
+          "answer": "Cinquenta metros",
+          "wrong": [
+            "Cinco metros",
+            "Dez metros",
+            "Quinhentos metros"
+          ],
+          "hint": "Pouco menos de meio campo.",
+          "explanation": "Uma piscina olímpica tem cinquenta metros e dez pistas lado a lado.",
           "fact": "Cabem cerca de dois milhões e meio de litros de água."
         },
         "da": {
@@ -1525,6 +1657,18 @@
           "explanation": "Deitado de costas, você leva os braços para trás pela água.",
           "fact": "Quem nada assim larga dentro da água; nos outros estilos, a largada é do bloco."
         },
+        "ptpt": {
+          "prompt": "Em que estilo olhas para o teto?",
+          "answer": "As costas",
+          "wrong": [
+            "Bruços",
+            "Crol",
+            "Mariposa"
+          ],
+          "hint": "Estás deitado de barriga para cima.",
+          "explanation": "Deitado de costas, levas os braços para trás pela água.",
+          "fact": "Quem nada assim parte dentro da água; os outros estilos partem do bloco."
+        },
         "da": {
           "prompt": "I hvilken svømmeart ser du op i loftet?",
           "answer": "Rygcrawl",
@@ -1654,6 +1798,18 @@
           "hint": "Passa por onze cidades da Frísia.",
           "explanation": "Os participantes patinam quase duzentos quilômetros por onze cidades da Frísia.",
           "fact": "A última foi em 1997; depois disso, nunca mais congelou o suficiente."
+        },
+        "ptpt": {
+          "prompt": "Como se chama a mais famosa corrida de patins dos Países Baixos?",
+          "answer": "A Elfstedentocht",
+          "wrong": [
+            "A Volta a França",
+            "A maratona",
+            "Os Quatro Trampolins"
+          ],
+          "hint": "Passa por onze cidades da Frísia.",
+          "explanation": "Os participantes patinam quase duzentos quilómetros por onze cidades frísias.",
+          "fact": "A última foi em 1997; depois nunca mais gelou o suficiente."
         },
         "da": {
           "prompt": "Hvad hedder Hollands mest berømte skøjteløb?",
@@ -1785,6 +1941,18 @@
           "explanation": "Seis jogadores de cada time ficam no gelo e são trocados quase a cada minuto.",
           "fact": "A troca é tão rápida que os jogadores pulam por cima da mureta."
         },
+        "ptpt": {
+          "prompt": "Quantos jogadores de uma equipa estão no gelo no hóquei?",
+          "answer": "Seis",
+          "wrong": [
+            "Dois",
+            "Onze",
+            "Vinte"
+          ],
+          "hint": "Cinco jogadores e um guarda-redes.",
+          "explanation": "Seis jogadores por equipa estão no gelo e trocam quase a cada minuto.",
+          "fact": "A troca é tão rápida que os jogadores saltam por cima da tabela."
+        },
         "da": {
           "prompt": "Hvor mange spillere fra et hold er på isen i ishockey?",
           "answer": "Seks",
@@ -1915,6 +2083,18 @@
           "explanation": "Eles empurram o trenó correndo e depois pulam para dentro em um instante.",
           "fact": "Na pista, um bobsled às vezes passa dos cento e trinta por hora."
         },
+        "ptpt": {
+          "prompt": "O que fazem os pilotos de bobsleigh no início da descida?",
+          "answer": "Empurram e saltam",
+          "wrong": [
+            "Nadam uma volta",
+            "Deslizam de barriga",
+            "Esperam uma ajuda"
+          ],
+          "hint": "Primeiro correm, depois sentam-se.",
+          "explanation": "Empurram o trenó a correr e depois saltam lá para dentro num instante.",
+          "fact": "Na pista um bobsleigh passa às vezes dos cento e trinta por hora."
+        },
         "da": {
           "prompt": "Hvad gør bobslædeholdet i starten af turen?",
           "answer": "De skubber og hopper ind",
@@ -2043,6 +2223,18 @@
           ],
           "hint": "Uma pedra pesada desliza para um alvo.",
           "explanation": "No curling, os jogadores varrem o gelo para a pedra deslizar mais longe e mais reta.",
+          "fact": "Uma pedra de curling pesa quase vinte quilos e vem da Escócia."
+        },
+        "ptpt": {
+          "prompt": "Em que desporto de inverno varres o gelo com uma escova?",
+          "answer": "O curling",
+          "wrong": [
+            "A patinagem",
+            "O esqui",
+            "O hóquei"
+          ],
+          "hint": "Uma pedra pesada desliza para um alvo.",
+          "explanation": "No curling varrem o gelo para que a pedra deslize mais longe e mais reta.",
           "fact": "Uma pedra de curling pesa quase vinte quilos e vem da Escócia."
         },
         "da": {
@@ -2175,6 +2367,18 @@
           "explanation": "De um trampolim grande, às vezes eles planam mais de cento e quarenta metros.",
           "fact": "Eles abrem os esquis em V, porque assim ficam mais tempo no ar."
         },
+        "ptpt": {
+          "prompt": "Até onde consegue planar um saltador de esqui?",
+          "answer": "Mais de cem metros",
+          "wrong": [
+            "Mais de um metro",
+            "Mais de dez metros",
+            "Mais de dez quilómetros"
+          ],
+          "hint": "Quase o comprimento de um campo.",
+          "explanation": "De um trampolim grande planam às vezes mais de cento e quarenta metros.",
+          "fact": "Põem os esquis em V, porque assim ficam mais tempo no ar."
+        },
         "da": {
           "prompt": "Hvor langt kan et skihop svæve?",
           "answer": "Over hundrede meter",
@@ -2304,6 +2508,18 @@
           "hint": "Os braços giram sem parar.",
           "explanation": "O crawl é o estilo mais rápido, por isso quase todos o escolhem nas provas de nado livre.",
           "fact": "Assim, um nadador de ponta passa dos oito quilômetros por hora."
+        },
+        "ptpt": {
+          "prompt": "Qual é o estilo de natação mais rápido?",
+          "answer": "O crol",
+          "wrong": [
+            "Bruços",
+            "Costas",
+            "Mariposa"
+          ],
+          "hint": "Os braços rodam sem parar.",
+          "explanation": "O crol é o estilo mais rápido, por isso quase todos o escolhem nas provas livres.",
+          "fact": "Um nadador de topo passa assim dos oito quilómetros por hora."
         },
         "da": {
           "prompt": "Hvilken svømmeart er den hurtigste?",
@@ -2435,6 +2651,18 @@
           "explanation": "A touca mantém o cabelo liso, e assim o nadador desliza melhor na água.",
           "fact": "Alguns nadadores chegam a raspar os braços e as pernas por isso."
         },
+        "ptpt": {
+          "prompt": "Porque usa um nadador touca?",
+          "answer": "Para ter menos atrito",
+          "wrong": [
+            "Para poder ouvir",
+            "Para ficar seco",
+            "Para lavar o cabelo"
+          ],
+          "hint": "O cabelo trava-te na água.",
+          "explanation": "A touca mantém o cabelo liso, e assim o nadador desliza melhor na água.",
+          "fact": "Alguns nadadores chegam a rapar braços e pernas por isso."
+        },
         "da": {
           "prompt": "Hvorfor har en svømmer badehætte på?",
           "answer": "For mindre modstand",
@@ -2564,6 +2792,18 @@
           "hint": "Seis jogadores e um goleiro.",
           "explanation": "Sete jogadores de cada time nadam na parte funda e não podem tocar o fundo.",
           "fact": "Em um jogo, um jogador nada quase dois quilômetros."
+        },
+        "ptpt": {
+          "prompt": "Quantos jogadores de uma equipa nadam na piscina no polo aquático?",
+          "answer": "Sete",
+          "wrong": [
+            "Dois",
+            "Onze",
+            "Vinte"
+          ],
+          "hint": "Seis jogadores e um guarda-redes.",
+          "explanation": "Sete jogadores por equipa nadam na parte funda e não podem tocar no fundo.",
+          "fact": "Num jogo um jogador nada quase dois quilómetros."
         },
         "da": {
           "prompt": "Hvor mange spillere fra et hold svømmer i bassinet i vandpolo?",
@@ -2695,6 +2935,18 @@
           "explanation": "Ireen Wüst ganhou seis vezes o ouro olímpico, mais do que qualquer patinador de velocidade.",
           "fact": "Ela é a única que conquistou ouro em cinco Jogos seguidos."
         },
+        "ptpt": {
+          "prompt": "Que patinadora neerlandesa ganhou mais vezes o ouro olímpico?",
+          "answer": "Ireen Wüst",
+          "wrong": [
+            "Fanny Blankers-Koen",
+            "Sifan Hassan",
+            "Dafne Schippers"
+          ],
+          "hint": "Foi primeira em cinco Jogos diferentes.",
+          "explanation": "Ireen Wüst ganhou seis vezes o ouro olímpico, mais do que qualquer patinador de velocidade.",
+          "fact": "É a única que conquistou ouro em cinco Jogos seguidos."
+        },
         "da": {
           "prompt": "Hvilken hollandsk skøjteløber har vundet olympisk guld flest gange?",
           "answer": "Ireen Wüst",
@@ -2824,6 +3076,18 @@
           "hint": "O gelo derrete por um instante embaixo da lâmina.",
           "explanation": "A pressão e o atrito derretem, embaixo da lâmina, uma camada de água bem fina.",
           "fact": "Em gelo muito frio, um patim desliza até pior."
+        },
+        "ptpt": {
+          "prompt": "Porque desliza um patim com tanta facilidade?",
+          "answer": "Uma fina camada de água",
+          "wrong": [
+            "O gelo está bem seco",
+            "O patim tem rodas",
+            "O gelo é de vidro"
+          ],
+          "hint": "O gelo derrete um instante debaixo da lâmina.",
+          "explanation": "A pressão e o atrito derretem debaixo da lâmina uma camada de água muito fina.",
+          "fact": "Em gelo muito frio um patim desliza até pior."
         },
         "da": {
           "prompt": "Hvorfor glider en skøjte så let?",
@@ -2955,6 +3219,18 @@
           "explanation": "A roupa guarda uma fina camada de água junto à pele, e o corpo a esquenta.",
           "fact": "Nos mares quentes, as pessoas surfam de bermuda."
         },
+        "ptpt": {
+          "prompt": "Porque usa um surfista fato de neoprene?",
+          "answer": "Para não ter frio",
+          "wrong": [
+            "Para nadar mais depressa",
+            "Para ficar seco",
+            "Para dar nas vistas"
+          ],
+          "hint": "A água do mar está quase sempre fria.",
+          "explanation": "O fato guarda uma fina camada de água junto à pele, e o corpo aquece-a.",
+          "fact": "Nos mares quentes as pessoas surfam de calções."
+        },
         "da": {
           "prompt": "Hvorfor har en surfer våddragt på?",
           "answer": "For at holde varmen",
@@ -3084,6 +3360,18 @@
           "hint": "Três esportes seguidos, sem pausa.",
           "explanation": "Um triatleta primeiro nada, depois pedala e termina correndo, sem descansar.",
           "fact": "No triatlo mais duro, os atletas nadam quase quatro quilômetros e no fim ainda correm uma maratona."
+        },
+        "ptpt": {
+          "prompt": "De que três desportos é feito um triatlo?",
+          "answer": "Nadar, pedalar e correr",
+          "wrong": [
+            "Só correr",
+            "Patinagem e esqui",
+            "Nadar três vezes"
+          ],
+          "hint": "Três desportos seguidos, sem pausa.",
+          "explanation": "Um triatleta nada primeiro, depois pedala e acaba a correr, sem descansar.",
+          "fact": "No triatlo mais duro nadam-se quase quatro quilómetros e depois corre-se uma maratona."
         },
         "da": {
           "prompt": "Hvilke tre sportsgrene består en triatlon af?",
@@ -3215,6 +3503,18 @@
           "explanation": "Ir atrás de alguém custa menos força, porque quase não se sente vento de frente.",
           "fact": "Por isso eles trocam sem parar quem vai na frente."
         },
+        "ptpt": {
+          "prompt": "Porque patinam os maratonistas colados uns aos outros?",
+          "answer": "Apanham menos vento",
+          "wrong": [
+            "Para poderem conversar",
+            "O regulamento exige",
+            "Para saberem o caminho"
+          ],
+          "hint": "Ir à frente é muito mais duro.",
+          "explanation": "Ir atrás de alguém custa menos força, porque quase não se sente vento de frente.",
+          "fact": "Por isso trocam sem parar quem vai na frente."
+        },
         "da": {
           "prompt": "Hvorfor kører maratonskøjteløbere tæt bag hinanden?",
           "answer": "De får mindre modvind",
@@ -3344,6 +3644,18 @@
           "hint": "Um país pequeno cheio de canais.",
           "explanation": "Os Países Baixos ganharam mais medalhas olímpicas de patinação de velocidade do que qualquer outro país.",
           "fact": "Os canais rasos ajudam: eles congelam rápido o suficiente para patinar."
+        },
+        "ptpt": {
+          "prompt": "Que país ganhou mais medalhas na patinagem de velocidade?",
+          "answer": "Os Países Baixos",
+          "wrong": [
+            "O Brasil",
+            "O Egito",
+            "A Austrália"
+          ],
+          "hint": "Um país pequeno cheio de canais.",
+          "explanation": "Os Países Baixos ganharam mais medalhas olímpicas de patinagem de velocidade do que qualquer país.",
+          "fact": "Ajudam os canais pouco fundos: gelam depressa o suficiente para patinar."
         },
         "da": {
           "prompt": "Hvilket land har vundet flest medaljer i hurtigløb på skøjter?",
@@ -3475,6 +3787,18 @@
           "explanation": "No esqui de fundo, você percorre quilômetros sobre neve plana e um pouco ondulada.",
           "fact": "Na Escandinávia, algumas crianças vão assim para a escola."
         },
+        "ptpt": {
+          "prompt": "O que é o esqui de fundo?",
+          "answer": "Esquiar em neve plana",
+          "wrong": [
+            "Descer uma montanha",
+            "Esquiar com um esqui",
+            "Esquiar sobre a água"
+          ],
+          "hint": "Impulsionas-te com bastões.",
+          "explanation": "No esqui de fundo percorres quilómetros sobre neve plana e um pouco ondulada.",
+          "fact": "Na Escandinávia algumas crianças vão assim para a escola."
+        },
         "da": {
           "prompt": "Hvad er langrend?",
           "answer": "Ski på flad sne",
@@ -3603,6 +3927,18 @@
           ],
           "hint": "Primeiro pelo ar, depois pela neve.",
           "explanation": "No combinado nórdico, você primeiro salta da rampa e depois faz uma corrida de esqui cross-country.",
+          "fact": "Quem saltou mais longe larga primeiro na corrida."
+        },
+        "ptpt": {
+          "prompt": "Quais são as duas provas da combinada nórdica?",
+          "answer": "Salto e esqui de fundo",
+          "wrong": [
+            "Patinagem e natação",
+            "Esqui e golfe",
+            "Surf e vela"
+          ],
+          "hint": "Primeiro pelo ar, depois pela neve.",
+          "explanation": "Na combinada nórdica primeiro saltas da rampa e depois fazes uma corrida de esqui de fundo.",
           "fact": "Quem saltou mais longe larga primeiro na corrida."
         },
         "da": {
@@ -3735,6 +4071,18 @@
           "explanation": "Em uma piscina funda, as ondas voltam menos, e assim todos nadam mais rápido.",
           "fact": "Uma piscina dessas tem pelo menos dois metros, e mais ainda para os Jogos."
         },
+        "ptpt": {
+          "prompt": "Porque é tão funda uma piscina de competição?",
+          "answer": "Assim há menos ondas",
+          "wrong": [
+            "É mais barata",
+            "Cabem peixes",
+            "A água fica mais fria"
+          ],
+          "hint": "As ondas batem no fundo e voltam.",
+          "explanation": "Numa piscina funda as ondas voltam menos, e assim todos nadam mais depressa.",
+          "fact": "Uma piscina dessas tem pelo menos dois metros, e mais ainda para os Jogos."
+        },
         "da": {
           "prompt": "Hvorfor er et konkurrencebassin så dybt?",
           "answer": "Så er der færre bølger",
@@ -3864,6 +4212,18 @@
           "hint": "Essa prova é em águas abertas.",
           "explanation": "A maratona aquática tem dez quilômetros em águas abertas e dura quase duas horas.",
           "fact": "No caminho, os nadadores recebem bebida de uma plataforma flutuante."
+        },
+        "ptpt": {
+          "prompt": "Qual é a prova de natação mais longa dos Jogos?",
+          "answer": "Dez quilómetros",
+          "wrong": [
+            "Cinquenta metros",
+            "Cem metros",
+            "Cem quilómetros"
+          ],
+          "hint": "Essa prova é em águas abertas.",
+          "explanation": "A maratona da natação são dez quilómetros em águas abertas e dura quase duas horas.",
+          "fact": "Pelo caminho dão de beber aos nadadores a partir de um pontão."
         },
         "da": {
           "prompt": "Hvad er det længste svømmeløb ved legene?",
@@ -3995,6 +4355,18 @@
           "explanation": "Matthew Webb nadou da Inglaterra até a França em quase vinte e duas horas.",
           "fact": "Ele nadava de peito e passava gordura no corpo para se proteger do frio."
         },
+        "ptpt": {
+          "prompt": "Quem atravessou o Canal a nado pela primeira vez, em 1875?",
+          "answer": "Matthew Webb",
+          "wrong": [
+            "Michael Phelps",
+            "Maarten van der Weijden",
+            "Pieter van den Hoogenband"
+          ],
+          "hint": "Um inglês, sem neoprene.",
+          "explanation": "Matthew Webb nadou de Inglaterra para França em quase vinte e duas horas.",
+          "fact": "Nadava de bruços e untava-se de gordura para manter o frio de fora."
+        },
         "da": {
           "prompt": "Hvem svømmede først over Kanalen, i 1875?",
           "answer": "Matthew Webb",
@@ -4124,6 +4496,18 @@
           "hint": "Ele fez isso para arrecadar dinheiro contra o câncer.",
           "explanation": "Van der Weijden nadou quase duzentos quilômetros ao longo das onze cidades da Frísia.",
           "fact": "Em 2008, ele também ganhou o ouro olímpico nos dez quilômetros em águas abertas."
+        },
+        "ptpt": {
+          "prompt": "Porque é famoso Maarten van der Weijden nos Países Baixos?",
+          "answer": "Nadou as onze cidades",
+          "wrong": [
+            "Correu a maratona",
+            "Subiu os Alpes",
+            "Deu a volta ao mundo"
+          ],
+          "hint": "Fê-lo para juntar dinheiro contra o cancro.",
+          "explanation": "Van der Weijden nadou quase duzentos quilómetros ao longo das onze cidades frísias.",
+          "fact": "Em 2008 ganhou também o ouro olímpico nos dez quilómetros em águas abertas."
         },
         "da": {
           "prompt": "Hvorfor er Maarten van der Weijden berømt i Holland?",
@@ -4255,6 +4639,18 @@
           "explanation": "Neste patim, a lâmina se solta do calcanhar, e assim o impulso dura mais tempo.",
           "fact": "Ele foi inventado por pesquisadores holandeses; desde 1997, quase todos o usam."
         },
+        "ptpt": {
+          "prompt": "O que é um patim de lâmina articulada?",
+          "answer": "Uma lâmina com dobradiça",
+          "wrong": [
+            "Um patim de madeira",
+            "Um patim de duas lâminas",
+            "Um patim sem lâmina"
+          ],
+          "hint": "O talão sobe e a lâmina fica em baixo.",
+          "explanation": "Neste patim a lâmina separa-se do talão, e assim o impulso dura mais tempo.",
+          "fact": "Foi inventado por investigadores neerlandeses; desde 1997 quase todos o usam."
+        },
         "da": {
           "prompt": "Hvad er en klapskøjte?",
           "answer": "Et jern, der klapper op",
@@ -4384,6 +4780,18 @@
           "hint": "A vela pula para o outro lado.",
           "explanation": "Na virada, o barco passa a proa pelo vento e a vela muda de lado.",
           "fact": "O comandante grita antes, para ninguém levar uma pancada da retranca na cabeça."
+        },
+        "ptpt": {
+          "prompt": "O que significa um barco à vela virar por davante?",
+          "answer": "Roda a proa pelo vento",
+          "wrong": [
+            "Volta-se ao contrário",
+            "Deixa de navegar",
+            "Lança a âncora"
+          ],
+          "hint": "A vela salta para o outro lado.",
+          "explanation": "Ao virar, o barco passa a proa pelo vento e a vela muda de lado.",
+          "fact": "O comandante grita antes, para ninguém levar a retranca na cabeça."
         },
         "da": {
           "prompt": "Hvad betyder det, at en sejlbåd stagvender?",
@@ -4515,6 +4923,18 @@
           "explanation": "Uma roupa justa e lisa deixa o ar escorregar pelo corpo, e assim eles vão mais rápido.",
           "fact": "Uma ruga na roupa pode custar décimos de segundo em uma descida longa."
         },
+        "ptpt": {
+          "prompt": "Porque usam os esquiadores de descida um fato liso e justo?",
+          "answer": "Menos resistência do ar",
+          "wrong": [
+            "Para aparecer na televisão",
+            "Porque aquece mais",
+            "Para mostrar o patrocínio"
+          ],
+          "hint": "Chegam aos cento e trinta quilómetros por hora.",
+          "explanation": "Um fato justo e liso deixa o ar escorregar pelo corpo, e assim vão mais depressa.",
+          "fact": "Uma ruga no fato pode custar décimos de segundo numa descida longa."
+        },
         "da": {
           "prompt": "Hvorfor har styrtløbere en stram, glat dragt på?",
           "answer": "Mindre luftmodstand",
@@ -4644,6 +5064,18 @@
           "hint": "Quatro atletas entram juntos na curva.",
           "explanation": "Uma volta de pista curta tem apenas cento e onze metros, com curvas muito fechadas.",
           "fact": "Eles se inclinam tanto que tocam o gelo com a mão."
+        },
+        "ptpt": {
+          "prompt": "Qual é a grande diferença entre pista curta e patinagem de velocidade?",
+          "answer": "A pista é bem mais curta",
+          "wrong": [
+            "Não há gelo",
+            "Não há curvas",
+            "Não usam patins"
+          ],
+          "hint": "Quatro atletas entram juntos na curva.",
+          "explanation": "Uma volta de pista curta tem apenas cento e onze metros, com curvas muito fechadas.",
+          "fact": "Inclinam-se tanto que tocam no gelo com a mão."
         },
         "da": {
           "prompt": "Hvad er den store forskel mellem short track og almindeligt hurtigløb?",
@@ -4775,6 +5207,18 @@
           "explanation": "Embaixo do piso correm tubos com líquido gelado, que congelam a água camada por camada.",
           "fact": "Essa placa de gelo muitas vezes tem só três centímetros."
         },
+        "ptpt": {
+          "prompt": "Como mantém um pavilhão o gelo duro?",
+          "answer": "Tubos frios no chão",
+          "wrong": [
+            "Com muito sal",
+            "Com canhões de neve",
+            "Com grandes ventoinhas"
+          ],
+          "hint": "Passa algo por baixo do gelo.",
+          "explanation": "Sob o chão correm tubos com líquido gelado que congelam a água camada a camada.",
+          "fact": "Essa placa de gelo tem muitas vezes só três centímetros."
+        },
         "da": {
           "prompt": "Hvordan holder en skøjtehal isen hård?",
           "answer": "Kolde rør i gulvet",
@@ -4904,6 +5348,18 @@
           "hint": "Eles não têm onde treinar.",
           "explanation": "Sem neve nem gelo, os atletas quase não conseguem treinar, por isso vão muito poucos.",
           "fact": "Mesmo assim, a Jamaica apareceu em 1988 com uma equipe de bobsled e ficou famosa."
+        },
+        "ptpt": {
+          "prompt": "Porque quase não participam os países quentes nos Jogos de inverno?",
+          "answer": "Ali nunca neva",
+          "wrong": [
+            "Não podem participar",
+            "Não gostam de desporto",
+            "Não têm bandeira"
+          ],
+          "hint": "Não podem treinar naquilo de que precisam.",
+          "explanation": "Sem neve nem gelo os atletas quase não podem treinar, por isso vão muito poucos.",
+          "fact": "A Jamaica apareceu mesmo assim em 1988 com uma equipa de bobsleigh e ficou famosa."
         },
         "da": {
           "prompt": "Hvorfor er varme lande næsten aldrig med ved vinterlegene?",
@@ -5035,6 +5491,18 @@
           "explanation": "A luz muda de direção ao sair da água, e por isso o fundo parece mais alto.",
           "fact": "Por isso, às vezes você pisa mais fundo do que esperava."
         },
+        "ptpt": {
+          "prompt": "Porque parece uma piscina menos funda do que é?",
+          "answer": "A luz desvia-se na água",
+          "wrong": [
+            "A água é clara de mais",
+            "O fundo é claro",
+            "Os teus olhos crescem"
+          ],
+          "hint": "Pensa numa palhinha que parece torta num copo.",
+          "explanation": "A luz muda de direção ao sair da água, e por isso o fundo parece mais alto.",
+          "fact": "Por isso às vezes pisas mais fundo do que esperavas."
+        },
         "da": {
           "prompt": "Hvorfor ser et svømmebassin mindre dybt ud, end det er?",
           "answer": "Lys bøjes i vandet",
@@ -5164,6 +5632,18 @@
           "hint": "Pense no mar Morto.",
           "explanation": "O sal deixa a água mais pesada, e por isso o seu corpo fica mais alto nela.",
           "fact": "O mar Morto é tão salgado que você quase não consegue afundar."
+        },
+        "ptpt": {
+          "prompt": "Porque flutuas mais facilmente no mar do que numa piscina?",
+          "answer": "Por causa do sal",
+          "wrong": [
+            "Está mais frio",
+            "Há peixes lá dentro",
+            "É mais fundo"
+          ],
+          "hint": "Pensa no mar Morto.",
+          "explanation": "O sal torna a água mais pesada, e por isso o teu corpo fica mais alto nela.",
+          "fact": "O mar Morto é tão salgado que quase não consegues afundar-te."
         },
         "da": {
           "prompt": "Hvorfor flyder man lettere i havet end i et svømmebassin?",

@@ -95,6 +95,18 @@
           "explanation": "Os tijolos são moldados com argila e cozidos em um forno.",
           "fact": "Um pedreiro assenta mais de quinhentos em um dia."
         },
+        "ptpt": {
+          "prompt": "De que são feitas muitas casas?",
+          "answer": "De tijolos",
+          "wrong": [
+            "De papel",
+            "De água",
+            "De nuvens"
+          ],
+          "hint": "São vermelhos ou amarelos.",
+          "explanation": "Os tijolos moldam-se com argila e cozem-se num forno.",
+          "fact": "Um pedreiro assenta mais de quinhentos num dia."
+        },
         "da": {
           "prompt": "Hvad er mange huse bygget af?",
           "answer": "Af mursten",
@@ -224,6 +236,18 @@
           "hint": "Estão de pé.",
           "explanation": "As paredes levam o peso do telhado até o chão.",
           "fact": "Se você tirar uma parede mestra, é preciso colocar uma viga de aço."
+        },
+        "ptpt": {
+          "prompt": "O que segura o telhado de uma casa?",
+          "answer": "As paredes",
+          "wrong": [
+            "O papel de parede",
+            "As cortinas",
+            "Os tapetes"
+          ],
+          "hint": "Estão de pé.",
+          "explanation": "As paredes levam o peso do telhado até ao chão.",
+          "fact": "Se tirares uma parede mestra, tem de entrar uma viga de aço."
         },
         "da": {
           "prompt": "Hvad holder taget på et hus oppe?",
@@ -355,6 +379,18 @@
           "explanation": "As janelas deixam entrar luz e barram o vento e a chuva.",
           "fact": "O vidro era tão caro que as casas pobres só tinham venezianas."
         },
+        "ptpt": {
+          "prompt": "Por onde entra a luz do dia numa casa?",
+          "answer": "Pelas janelas",
+          "wrong": [
+            "Pelas paredes",
+            "Pelo chão",
+            "Pelo capacho"
+          ],
+          "hint": "São de vidro.",
+          "explanation": "As janelas deixam entrar luz e travam o vento e a chuva.",
+          "fact": "O vidro era tão caro que as casas pobres só tinham portadas."
+        },
         "da": {
           "prompt": "Hvor kommer dagslyset ind i et hus?",
           "answer": "Gennem vinduerne",
@@ -484,6 +520,18 @@
           "hint": "Trabalha com linhas e medidas.",
           "explanation": "O arquiteto decide como o edifício vai ser e como se anda lá dentro.",
           "fact": "No desenho, tudo está em escala, até a espessura de uma parede."
+        },
+        "ptpt": {
+          "prompt": "Quem desenha um edifício antes de ser construído?",
+          "answer": "O arquiteto",
+          "wrong": [
+            "O padeiro",
+            "O médico",
+            "O cabeleireiro"
+          ],
+          "hint": "Trabalha com linhas e medidas.",
+          "explanation": "O arquiteto decide como o edifício fica e como se anda lá dentro.",
+          "fact": "No desenho tudo está à escala, até a espessura de uma parede."
         },
         "da": {
           "prompt": "Hvem tegner en bygning, før den bliver bygget?",
@@ -615,6 +663,18 @@
           "explanation": "A argamassa é areia, cimento e água; quando seca, fica dura como pedra.",
           "fact": "A camada entre os tijolos fica igual em todo lugar, guiada por um fio."
         },
+        "ptpt": {
+          "prompt": "Com que cola um pedreiro os tijolos?",
+          "answer": "Com argamassa",
+          "wrong": [
+            "Com papel colante",
+            "Com água",
+            "Com tinta"
+          ],
+          "hint": "É uma pasta cinzenta.",
+          "explanation": "A argamassa é areia, cimento e água; ao secar fica dura como pedra.",
+          "fact": "A camada entre tijolos fica igual em todo o lado, guiada por um fio."
+        },
         "da": {
           "prompt": "Hvad limer en murer stenene sammen med?",
           "answer": "Med mørtel",
@@ -743,6 +803,18 @@
           ],
           "hint": "Dá para ver de longe.",
           "explanation": "A torre deixa a igreja visível de longe e muitas vezes abriga os sinos.",
+          "fact": "A torre de igreja mais alta dos Países Baixos tem 112 metros."
+        },
+        "ptpt": {
+          "prompt": "O que há no alto de muitas igrejas?",
+          "answer": "Uma torre",
+          "wrong": [
+            "Uma piscina",
+            "Um jardim",
+            "Uma garagem"
+          ],
+          "hint": "Vê-se de longe.",
+          "explanation": "A torre torna a igreja visível ao longe e leva muitas vezes os sinos.",
           "fact": "A torre de igreja mais alta dos Países Baixos tem 112 metros."
         },
         "da": {
@@ -875,6 +947,18 @@
           "explanation": "A escada divide a altura em degraus fáceis de subir.",
           "fact": "Os degraus têm quase sempre a mesma altura para você não tropeçar."
         },
+        "ptpt": {
+          "prompt": "Como sobes ao andar de cima numa casa?",
+          "answer": "Pelas escadas",
+          "wrong": [
+            "Pela chaminé",
+            "Pela caixa do correio",
+            "Pela caleira"
+          ],
+          "hint": "Degrau a degrau.",
+          "explanation": "A escada divide a altura em degraus fáceis de subir.",
+          "fact": "Os degraus têm quase sempre a mesma altura para não tropeçares."
+        },
         "da": {
           "prompt": "Hvordan kommer du op på næste etage i et hus?",
           "answer": "Ad trappen",
@@ -1005,6 +1089,18 @@
           "explanation": "Uma ponte leva o caminho por cima da água, de um vale ou de outra estrada.",
           "fact": "As pontes mais longas do mundo têm dezenas de quilômetros."
         },
+        "ptpt": {
+          "prompt": "O que é uma ponte?",
+          "answer": "Um caminho sobre a água",
+          "wrong": [
+            "Uma casa com jardim",
+            "Uma torre alta",
+            "Um buraco fundo"
+          ],
+          "hint": "Passa-se por cima.",
+          "explanation": "Uma ponte leva o caminho por cima da água, de um vale ou de outra estrada.",
+          "fact": "As pontes mais longas do mundo têm dezenas de quilómetros."
+        },
         "da": {
           "prompt": "Hvad er en bro?",
           "answer": "En vej over vandet",
@@ -1133,6 +1229,18 @@
           ],
           "hint": "Tem gente em cima e embaixo.",
           "explanation": "Em um prédio, as casas ficam empilhadas, cada uma em seu nível.",
+          "fact": "Assim cabem muito mais pessoas no mesmo terreno."
+        },
+        "ptpt": {
+          "prompt": "Onde moras num prédio de apartamentos?",
+          "answer": "Num andar",
+          "wrong": [
+            "No telhado",
+            "No jardim",
+            "Na caleira"
+          ],
+          "hint": "Há gente por cima e por baixo.",
+          "explanation": "Num prédio as casas ficam empilhadas, cada uma no seu nível.",
           "fact": "Assim cabem muito mais pessoas no mesmo terreno."
         },
         "da": {
@@ -1265,6 +1373,18 @@
           "explanation": "O vidro deixa passar a luz, mas barra o vento e a chuva.",
           "fact": "O vidro é feito derretendo areia a mais de mil graus."
         },
+        "ptpt": {
+          "prompt": "De que é feita uma janela normal?",
+          "answer": "De vidro",
+          "wrong": [
+            "De madeira",
+            "De tecido",
+            "De pedra"
+          ],
+          "hint": "Vê-se através dela.",
+          "explanation": "O vidro deixa passar a luz mas trava o vento e a chuva.",
+          "fact": "O vidro faz-se com areia derretida a mais de mil graus."
+        },
         "da": {
           "prompt": "Hvad er et almindeligt vindue lavet af?",
           "answer": "Af glas",
@@ -1394,6 +1514,18 @@
           "hint": "Fica embaixo do chão.",
           "explanation": "A fundação espalha o peso pelo solo para a casa não afundar.",
           "fact": "Em terreno mole, ela desce sobre estacas, às vezes de vinte metros."
+        },
+        "ptpt": {
+          "prompt": "Para que serve a fundação de um edifício?",
+          "answer": "O edifício assenta nela",
+          "wrong": [
+            "Para a cor bonita",
+            "Para recolher chuva",
+            "Para o aquecimento"
+          ],
+          "hint": "Fica debaixo do chão.",
+          "explanation": "A fundação espalha o peso pelo solo para a casa não afundar.",
+          "fact": "Em terreno mole desce sobre estacas, às vezes de vinte metros."
         },
         "da": {
           "prompt": "Hvad skal et fundament bruges til?",
@@ -1525,6 +1657,18 @@
           "explanation": "A calha recolhe a água do telhado e a leva por um cano.",
           "fact": "Sem ela, a água respinga na parede, que fica úmida e fria."
         },
+        "ptpt": {
+          "prompt": "O que faz uma caleira?",
+          "answer": "Escoar a água da chuva",
+          "wrong": [
+            "Aquecer o telhado",
+            "Enfeitar a parede",
+            "Afastar os pássaros"
+          ],
+          "hint": "Fica na borda do telhado.",
+          "explanation": "A caleira recolhe a água do telhado e leva-a por um tubo.",
+          "fact": "Sem ela a água salpica a parede, que fica húmida e fria."
+        },
         "da": {
           "prompt": "Hvad gør en tagrende?",
           "answer": "Leder regnvandet væk",
@@ -1653,6 +1797,18 @@
           ],
           "hint": "A água não fica em cima.",
           "explanation": "Em um telhado inclinado, a chuva e a neve escorregam sozinhas para a calha.",
+          "fact": "Onde neva muito, os telhados são ainda mais inclinados."
+        },
+        "ptpt": {
+          "prompt": "Porque tem o telhado muitas vezes uma inclinação?",
+          "answer": "Para a chuva escorrer",
+          "wrong": [
+            "Para ficar mais bonito",
+            "Para os pássaros pousarem",
+            "Para ser mais quente"
+          ],
+          "hint": "A água não fica em cima.",
+          "explanation": "Num telhado inclinado a chuva e a neve escorregam sozinhas para a caleira.",
           "fact": "Onde neva muito, os telhados são ainda mais inclinados."
         },
         "da": {
@@ -1785,6 +1941,18 @@
           "explanation": "A planta mostra, vista de cima, onde vai cada parede, porta e tubulação.",
           "fact": "Os operários a levam na mão até no andaime."
         },
+        "ptpt": {
+          "prompt": "O que é uma planta de obra?",
+          "answer": "O desenho de um edifício",
+          "wrong": [
+            "Uma foto de uma casa",
+            "Uma pilha de tijolos",
+            "Uma lista de nomes"
+          ],
+          "hint": "Está tudo à escala.",
+          "explanation": "A planta mostra de cima onde vai cada parede, porta e tubagem.",
+          "fact": "Os operários levam-na mesmo na mão no andaime."
+        },
         "da": {
           "prompt": "Hvad er en byggetegning?",
           "answer": "Tegningen af en bygning",
@@ -1914,6 +2082,18 @@
           "hint": "Ele não pode se inclinar.",
           "explanation": "Um triângulo de vigas não se deforma; um quadrado se deforma.",
           "fact": "Por isso você vê triângulos em guindastes, pontes e tesouras de telhado."
+        },
+        "ptpt": {
+          "prompt": "Que forma é a mais forte numa construção?",
+          "answer": "O triângulo",
+          "wrong": [
+            "A estrela",
+            "O ziguezague",
+            "A espiral"
+          ],
+          "hint": "Não pode inclinar-se.",
+          "explanation": "Um triângulo de vigas não se deforma; um quadrado deforma-se.",
+          "fact": "Por isso vês triângulos em gruas, pontes e asnas de telhado."
         },
         "da": {
           "prompt": "Hvilken form er stærkest i et bygningsværk?",
@@ -2045,6 +2225,18 @@
           "explanation": "Com cabos e roldanas, um guindaste ergue toneladas de concreto.",
           "fact": "Um guindaste de torre constrói a si mesmo mais alto à medida que o prédio cresce."
         },
+        "ptpt": {
+          "prompt": "O que faz uma grua numa obra?",
+          "answer": "Levantar coisas pesadas",
+          "wrong": [
+            "Tirar água",
+            "Pintar paredes",
+            "Lavar vidros"
+          ],
+          "hint": "Tem um braço comprido.",
+          "explanation": "Com cabos e roldanas uma grua ergue toneladas de betão.",
+          "fact": "Uma grua-torre constrói-se a si mesma mais alta à medida que o prédio cresce."
+        },
         "da": {
           "prompt": "Hvad laver en kran på en byggeplads?",
           "answer": "Løfter tunge ting op",
@@ -2173,6 +2365,18 @@
           ],
           "hint": "Por dentro é abaulada.",
           "explanation": "Uma cúpula se sustenta sozinha: as pedras se empurram umas às outras no lugar.",
+          "fact": "A cúpula do Panteão de Roma tem quase dois mil anos."
+        },
+        "ptpt": {
+          "prompt": "O que é uma cúpula?",
+          "answer": "Um telhado redondo",
+          "wrong": [
+            "Uma porta quadrada",
+            "Um corredor comprido",
+            "Uma cave funda"
+          ],
+          "hint": "Por dentro é abaulada.",
+          "explanation": "Uma cúpula segura-se sozinha: as pedras empurram-se para o lugar em redor.",
           "fact": "A cúpula do Panteão de Roma tem quase dois mil anos."
         },
         "da": {
@@ -2305,6 +2509,18 @@
           "explanation": "A coluna leva o peso de cima direto até o chão.",
           "fact": "Assim não é preciso parede, e o espaço fica aberto."
         },
+        "ptpt": {
+          "prompt": "Para que serve uma coluna?",
+          "answer": "Para suportar peso",
+          "wrong": [
+            "Para recolher chuva",
+            "Para dar luz",
+            "Para abrir a porta"
+          ],
+          "hint": "Fica de pé sob uma viga.",
+          "explanation": "A coluna leva o peso de cima a direito até ao chão.",
+          "fact": "Assim não é preciso parede e o espaço fica aberto."
+        },
         "da": {
           "prompt": "Hvad skal en søjle bruges til?",
           "answer": "At bære vægt",
@@ -2434,6 +2650,18 @@
           "hint": "Tudo que está acima faz força.",
           "explanation": "Quanto mais baixo, mais pedra pesa sobre a parede; por isso ela tem de ser mais larga.",
           "fact": "Em uma torre antiga, a base chega a três metros de espessura."
+        },
+        "ptpt": {
+          "prompt": "Porque são as paredes antigas mais grossas em baixo?",
+          "answer": "Aguentam mais peso",
+          "wrong": [
+            "Ali há mais tinta",
+            "Fica mais bonito",
+            "Ali é mais frio"
+          ],
+          "hint": "Tudo o que está acima faz força.",
+          "explanation": "Quanto mais fundo, mais pedra assenta na parede, por isso tem de ser mais larga.",
+          "fact": "Numa torre antiga o pé chega a três metros de espessura."
         },
         "da": {
           "prompt": "Hvorfor er gamle mure tit tykkere forneden?",
@@ -2565,6 +2793,18 @@
           "explanation": "O concreto é despejado como pasta e endurece; o aço dentro dele o torna forte.",
           "fact": "Ele continua endurecendo um pouco durante anos depois de despejado."
         },
+        "ptpt": {
+          "prompt": "De que é feito o betão?",
+          "answer": "Areia, brita, cimento e água",
+          "wrong": [
+            "Só areia",
+            "Vidro derretido",
+            "Papel prensado"
+          ],
+          "hint": "Deita-se líquido.",
+          "explanation": "O betão é deitado como pasta e fica duro; o aço lá dentro torna-o forte.",
+          "fact": "Continua a endurecer um pouco durante anos depois de deitado."
+        },
         "da": {
           "prompt": "Hvad er beton lavet af?",
           "answer": "Sand, sten, cement og vand",
@@ -2694,6 +2934,18 @@
           "hint": "Já se inclinava durante a construção.",
           "explanation": "O solo sob Pisa é mole, por isso a torre afundou de um lado.",
           "fact": "Com tirantes e obras, ela foi endireitada um pouco."
+        },
+        "ptpt": {
+          "prompt": "Que torre famosa em Itália está inclinada?",
+          "answer": "A torre de Pisa",
+          "wrong": [
+            "A torre Eiffel",
+            "O Big Ben",
+            "A torre do Dom"
+          ],
+          "hint": "Já se inclinava durante a construção.",
+          "explanation": "O solo sob Pisa é mole, por isso a torre afundou de um lado.",
+          "fact": "Com tirantes e obras foi endireitada um pouco."
         },
         "da": {
           "prompt": "Hvilket berømt tårn i Italien hælder?",
@@ -2825,6 +3077,18 @@
           "explanation": "Gustave Eiffel a construiu em 1889 para a Exposição Universal.",
           "fact": "Muitos parisienses a achavam feia e queriam derrubá-la."
         },
+        "ptpt": {
+          "prompt": "Que torre de ferro está em Paris?",
+          "answer": "A torre Eiffel",
+          "wrong": [
+            "A estátua da Liberdade",
+            "O Big Ben",
+            "A Sagrada Família"
+          ],
+          "hint": "Passa dos trezentos metros.",
+          "explanation": "Gustave Eiffel construiu-a em 1889 para a exposição universal.",
+          "fact": "Muitos parisienses achavam-na feia e queriam deitá-la abaixo."
+        },
         "da": {
           "prompt": "Hvilket jerntårn står i Paris?",
           "answer": "Eiffeltårnet",
@@ -2954,6 +3218,18 @@
           "hint": "A pedra do meio trava tudo.",
           "explanation": "No arco, as pedras se empurram e o peso vai para os lados.",
           "fact": "Por isso os arcos romanos ainda estão de pé depois de dois mil anos."
+        },
+        "ptpt": {
+          "prompt": "Que forma usavam os romanos nas portas fortes?",
+          "answer": "O arco",
+          "wrong": [
+            "A estrela",
+            "A cruz",
+            "O ziguezague"
+          ],
+          "hint": "A pedra do meio trava tudo.",
+          "explanation": "No arco as pedras empurram-se e o peso vai para os lados.",
+          "fact": "Por isso os arcos romanos ainda estão de pé passados dois mil anos."
         },
         "da": {
           "prompt": "Hvilken form brugte romerne til stærke porte?",
@@ -3085,6 +3361,18 @@
           "explanation": "Os arcos ogivais e os arcobotantes permitiram construir muito mais alto.",
           "fact": "Algumas catedrais levaram mais de cem anos para ficar prontas."
         },
+        "ptpt": {
+          "prompt": "O que é uma catedral gótica?",
+          "answer": "Uma igreja de arcos ogivais",
+          "wrong": [
+            "Uma casa baixa de madeira",
+            "Um templo redondo",
+            "Um celeiro de madeira"
+          ],
+          "hint": "Tudo aponta para cima.",
+          "explanation": "Os arcos ogivais e os arcobotantes deixaram construir muito mais alto.",
+          "fact": "Algumas catedrais levaram mais de cem anos a erguer."
+        },
         "da": {
           "prompt": "Hvad er en gotisk katedral?",
           "answer": "En kirke med spidsbuer",
@@ -3215,6 +3503,18 @@
           "explanation": "Gaudí começou em 1883 e a igreja ainda não está pronta.",
           "fact": "Ele desenhava pouco: fazia maquetes com barbantes e pesos."
         },
+        "ptpt": {
+          "prompt": "Quem desenhou a Sagrada Família em Barcelona?",
+          "answer": "Antoni Gaudí",
+          "wrong": [
+            "Gustave Eiffel",
+            "Le Corbusier",
+            "Rem Koolhaas"
+          ],
+          "hint": "As suas formas lembram a natureza.",
+          "explanation": "Gaudí começou em 1883 e a igreja ainda não está pronta.",
+          "fact": "Desenhava pouco: fazia maquetas com cordéis e pesos."
+        },
         "da": {
           "prompt": "Hvem tegnede Sagrada Família i Barcelona?",
           "answer": "Antoni Gaudí",
@@ -3343,6 +3643,18 @@
           ],
           "hint": "Sem o segundo, você subiria sem fim.",
           "explanation": "Uma estrutura de aço aguenta o peso, e o elevador leva as pessoas para cima.",
+          "fact": "Sem elevador ninguém queria morar acima do sexto andar."
+        },
+        "ptpt": {
+          "prompt": "O que tornou possíveis os arranha-céus altos?",
+          "answer": "O aço e o elevador",
+          "wrong": [
+            "Só o vidro",
+            "Só o betão",
+            "A madeira"
+          ],
+          "hint": "Sem o segundo subirias sem fim.",
+          "explanation": "Uma estrutura de aço aguenta o peso e o elevador leva as pessoas acima.",
           "fact": "Sem elevador ninguém queria morar acima do sexto andar."
         },
         "da": {
@@ -3475,6 +3787,18 @@
           "explanation": "O arcobotante recebe o empuxo da abóbada alta e o leva até o chão.",
           "fact": "Assim as paredes puderam ficar finas e as janelas enormes."
         },
+        "ptpt": {
+          "prompt": "O que é um arcobotante numa catedral?",
+          "answer": "Um apoio pelo exterior",
+          "wrong": [
+            "Uma ponte no ar",
+            "Uma janela no telhado",
+            "Uma escada sem corrimão"
+          ],
+          "hint": "Empurra a parede para dentro.",
+          "explanation": "O arcobotante recebe o impulso da abóbada alta e leva-o ao chão.",
+          "fact": "Assim as paredes puderam ficar finas e as janelas enormes."
+        },
         "da": {
           "prompt": "Hvad er en stræbebue på en katedral?",
           "answer": "En støtte udefra",
@@ -3605,6 +3929,18 @@
           "explanation": "O buraco redondo, o óculo, é a única janela e deixa entrar um feixe de luz.",
           "fact": "O chão embaixo dele tem furinhos para escoar a água."
         },
+        "ptpt": {
+          "prompt": "Que edifício de Roma tem um buraco na cúpula?",
+          "answer": "O Panteão",
+          "wrong": [
+            "O Coliseu",
+            "O Fórum",
+            "A fonte de Trevi"
+          ],
+          "hint": "A chuva entra por ali.",
+          "explanation": "O buraco redondo, o óculo, é a única janela e deixa entrar um feixe de luz.",
+          "fact": "O chão por baixo tem furinhos para escoar a água."
+        },
         "da": {
           "prompt": "Hvilken bygning i Rom har et hul i kuplen?",
           "answer": "Pantheon",
@@ -3732,6 +4068,18 @@
             "De vidro"
           ],
           "hint": "O material está ao seu redor.",
+          "explanation": "A neve está cheia de ar, e o ar isola; lá dentro é muito mais quente.",
+          "fact": "Uma só pessoa faz um iglu em cerca de uma hora."
+        },
+        "ptpt": {
+          "prompt": "De que é construído um iglu?",
+          "answer": "De blocos de neve",
+          "wrong": [
+            "De madeira",
+            "De pedra",
+            "De vidro"
+          ],
+          "hint": "O material está à tua volta.",
           "explanation": "A neve está cheia de ar, e o ar isola; lá dentro é muito mais quente.",
           "fact": "Uma só pessoa faz um iglu em cerca de uma hora."
         },
@@ -3865,6 +4213,18 @@
           "explanation": "Um prédio que balança um pouco absorve o tremor em vez de rachar.",
           "fact": "Algumas torres têm no topo um peso enorme que balança para o lado contrário."
         },
+        "ptpt": {
+          "prompt": "Porque podem os prédios oscilar em zona de sismos?",
+          "answer": "Senão partem-se",
+          "wrong": [
+            "Senão custam de mais",
+            "Senão ficam sem graça",
+            "Senão a obra demora"
+          ],
+          "hint": "Aqui ser rígido é perigoso.",
+          "explanation": "Um prédio que balança um pouco absorve o abalo em vez de fender.",
+          "fact": "Algumas torres levam no topo um peso enorme que baloiça ao contrário."
+        },
         "da": {
           "prompt": "Hvorfor må bygninger i jordskælvsområder svaje?",
           "answer": "Ellers knækker de",
@@ -3995,6 +4355,18 @@
           "explanation": "O Burj Khalifa, em Dubai, passa dos oitocentos metros.",
           "fact": "Lá no alto, o sol se põe mais tarde do que aqui embaixo na rua."
         },
+        "ptpt": {
+          "prompt": "Que altura tem o edifício mais alto do mundo?",
+          "answer": "Mais de oitocentos metros",
+          "wrong": [
+            "Cerca de cem metros",
+            "Cerca de trezentos metros",
+            "Mais de cinco quilómetros"
+          ],
+          "hint": "Mais alto do que duas torres Eiffel.",
+          "explanation": "O Burj Khalifa no Dubai passa os oitocentos metros.",
+          "fact": "Lá no alto o sol põe-se mais tarde do que cá em baixo na rua."
+        },
         "da": {
           "prompt": "Hvor højt er verdens højeste bygning cirka?",
           "answer": "Over otte hundrede meter",
@@ -4119,6 +4491,18 @@
           "wrong": [
             "Para a bandeira",
             "Para barrar a chuva",
+            "Para escorar a fachada"
+          ],
+          "hint": "As escadas são estreitas e íngremes.",
+          "explanation": "Os móveis sobem por uma corda e entram pela janela.",
+          "fact": "Por isso muitas casas se inclinam um pouco para a frente, de propósito."
+        },
+        "ptpt": {
+          "prompt": "Porque há uma trave com gancho sobre as casas dos canais?",
+          "answer": "Para içar coisas",
+          "wrong": [
+            "Para a bandeira",
+            "Para travar a chuva",
             "Para escorar a fachada"
           ],
           "hint": "As escadas são estreitas e íngremes.",
@@ -4255,6 +4639,18 @@
           "explanation": "Um pagode tem um beiral em cada nível e vai se estreitando para cima.",
           "fact": "Alguns pagodes de madeira resistiram a terremotos durante séculos."
         },
+        "ptpt": {
+          "prompt": "O que é um pagode?",
+          "answer": "Uma torre de vários telhados",
+          "wrong": [
+            "Uma tenda redonda",
+            "Uma ponte de madeira",
+            "Um muro com portas"
+          ],
+          "hint": "Veem-se na Ásia.",
+          "explanation": "Um pagode tem um beiral em cada nível e estreita para cima.",
+          "fact": "Alguns pagodes de madeira resistiram a sismos durante séculos."
+        },
         "da": {
           "prompt": "Hvad er en pagode?",
           "answer": "Et tårn med flere tage",
@@ -4383,6 +4779,18 @@
           ],
           "hint": "Por dor e por amor.",
           "explanation": "Um imperador mandou erguê-lo no século dezessete para a esposa que tinha morrido.",
+          "fact": "O mármore branco muda com a luz: rosa de manhã, dourado ao pôr do sol."
+        },
+        "ptpt": {
+          "prompt": "Para que foi construído o Taj Mahal?",
+          "answer": "Como túmulo de uma esposa",
+          "wrong": [
+            "Como palácio de um rei",
+            "Como templo do sol",
+            "Como escola"
+          ],
+          "hint": "Por dor e por amor.",
+          "explanation": "Um imperador mandou erguê-lo no século dezassete para a mulher que morrera.",
           "fact": "O mármore branco muda com a luz: rosa de manhã, dourado ao pôr do sol."
         },
         "da": {
@@ -4515,6 +4923,18 @@
           "explanation": "Ele construía com vidro, aço e linhas retas e tirava tudo que não fazia falta.",
           "fact": "Seu pavilhão de Barcelona é mais conhecido que muitos palácios."
         },
+        "ptpt": {
+          "prompt": "Que arquiteto tornou famoso o 'menos é mais'?",
+          "answer": "Mies van der Rohe",
+          "wrong": [
+            "Antoni Gaudí",
+            "Gustave Eiffel",
+            "Leonardo da Vinci"
+          ],
+          "hint": "Os seus edifícios são limpos e abertos.",
+          "explanation": "Construía com vidro, aço e linhas retas e tirava tudo o que não fazia falta.",
+          "fact": "O seu pavilhão de Barcelona é mais conhecido do que muitos palácios."
+        },
         "da": {
           "prompt": "Hvilken arkitekt gjorde 'mindre er mere' berømt?",
           "answer": "Mies van der Rohe",
@@ -4644,6 +5064,18 @@
           "hint": "Colore a luz lá dentro.",
           "explanation": "Pedacinhos de vidro colorido são unidos com tiras de chumbo em um grande painel.",
           "fact": "Em uma igreja escura, eles contavam a história para quem não sabia ler."
+        },
+        "ptpt": {
+          "prompt": "Como se chama um painel de igreja em vidro colorido?",
+          "answer": "Um vitral",
+          "wrong": [
+            "Uma janela espelhada",
+            "Uma portada",
+            "Uma trapeira"
+          ],
+          "hint": "Colore a luz lá dentro.",
+          "explanation": "Pedacinhos de vidro colorido juntam-se com tiras de chumbo num grande painel.",
+          "fact": "Numa igreja escura contavam a história a quem não sabia ler."
         },
         "da": {
           "prompt": "Hvad hedder et kirkevindue af farvet glas i bly?",
@@ -4775,6 +5207,18 @@
           "explanation": "Uma coluna perfeitamente reta parece côncava de longe; a curva corrige isso.",
           "fact": "Os gregos também curvavam um pouco o chão, pelo mesmo motivo."
         },
+        "ptpt": {
+          "prompt": "Porque são as colunas gregas mais grossas ao meio?",
+          "answer": "Para parecerem direitas",
+          "wrong": [
+            "Para caberem mais",
+            "Para pesarem menos",
+            "Para afastar a chuva"
+          ],
+          "hint": "O olho prega-te uma partida.",
+          "explanation": "Uma coluna perfeitamente reta parece encovada ao longe; a curva corrige isso.",
+          "fact": "Os gregos curvavam também um pouco o chão, pela mesma razão."
+        },
         "da": {
           "prompt": "Hvorfor er græske søjler tykkere på midten?",
           "answer": "Så de ser helt lige ud",
@@ -4904,6 +5348,18 @@
           "hint": "Não passa uma faca entre elas.",
           "explanation": "Os blocos eram desgastados até se encaixarem perfeitamente.",
           "fact": "Esses muros continuam retos depois de quinhentos anos e de terremotos fortes."
+        },
+        "ptpt": {
+          "prompt": "Como erguiam os incas muros sem argamassa?",
+          "answer": "As pedras encaixavam",
+          "wrong": [
+            "Com lama",
+            "Com cavilhas de madeira",
+            "Com barras de ferro"
+          ],
+          "hint": "Não passa uma faca entre elas.",
+          "explanation": "Os blocos eram desgastados até encaixarem na perfeição.",
+          "fact": "Esses muros continuam direitos após quinhentos anos e sismos fortes."
         },
         "da": {
           "prompt": "Hvordan byggede inkaerne mure uden mørtel?",
@@ -5035,6 +5491,18 @@
           "explanation": "Os telhados em forma de concha são partes de uma mesma esfera, o que resolveu a construção.",
           "fact": "Levou quatorze anos e custou quatorze vezes o previsto."
         },
+        "ptpt": {
+          "prompt": "Que edifício de Sydney parece grandes velas brancas?",
+          "answer": "A casa da ópera",
+          "wrong": [
+            "A câmara municipal",
+            "A estação",
+            "A biblioteca"
+          ],
+          "hint": "Fica à beira da água.",
+          "explanation": "Os telhados em concha são partes de uma mesma esfera, o que resolveu a obra.",
+          "fact": "Levou catorze anos e custou catorze vezes o previsto."
+        },
         "da": {
           "prompt": "Hvilken bygning i Sydney ligner store hvide sejl?",
           "answer": "Operahuset",
@@ -5164,6 +5632,18 @@
           "hint": "O vento precisa poder passar.",
           "explanation": "Pela malha aberta, o vento atravessa quase toda a torre.",
           "fact": "No verão, o calor faz a torre crescer alguns centímetros."
+        },
+        "ptpt": {
+          "prompt": "Porque é a torre Eiffel feita de ferro vazado?",
+          "answer": "O vento agarra-a menos",
+          "wrong": [
+            "É mais barata de pintar",
+            "Parece mais leve",
+            "Deixa passar a água"
+          ],
+          "hint": "O vento tem de poder passar.",
+          "explanation": "Pela malha aberta o vento atravessa a torre quase toda.",
+          "fact": "No verão o calor faz a torre crescer alguns centímetros."
         },
         "da": {
           "prompt": "Hvorfor er Eiffeltårnet lavet af åbent jernværk?",

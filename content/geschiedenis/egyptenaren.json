@@ -95,6 +95,18 @@
           "explanation": "As três maiores pirâmides ficam no planalto de Gizé.",
           "fact": "Ainda dá para vê-las da beira da cidade."
         },
+        "ptpt": {
+          "prompt": "Onde ficam as maiores pirâmides do Egito?",
+          "answer": "Em Gizé",
+          "wrong": [
+            "Em Roma",
+            "Em Atenas",
+            "Em Paris"
+          ],
+          "hint": "Mesmo ao lado da capital, o Cairo.",
+          "explanation": "As três maiores pirâmides ficam no planalto de Gizé.",
+          "fact": "Ainda se veem da beira da cidade."
+        },
         "da": {
           "prompt": "Hvor står Egyptens største pyramider?",
           "answer": "Ved Giza",
@@ -224,6 +236,18 @@
           "hint": "Muitas vezes de duas cores.",
           "explanation": "O faraó usava uma coroa dupla, pelo Alto e pelo Baixo Egito.",
           "fact": "As metades branca e vermelha representavam seus dois reinos."
+        },
+        "ptpt": {
+          "prompt": "O que levava um faraó na cabeça?",
+          "answer": "Uma coroa",
+          "wrong": [
+            "Um boné",
+            "Um capacete",
+            "Um cesto"
+          ],
+          "hint": "Muitas vezes de duas cores.",
+          "explanation": "O faraó usava uma coroa dupla pelo Alto e pelo Baixo Egito.",
+          "fact": "As metades branca e vermelha representavam os seus dois reinos."
         },
         "da": {
           "prompt": "Hvad havde en farao på hovedet?",
@@ -355,6 +379,18 @@
           "explanation": "Os bois puxavam os arados pela terra fértil do Nilo.",
           "fact": "Ainda dá para vê-los trabalhando nas pinturas das paredes."
         },
+        "ptpt": {
+          "prompt": "Que animal ajudava no trabalho do campo no Egito?",
+          "answer": "O boi",
+          "wrong": [
+            "O leão",
+            "O crocodilo",
+            "O gato"
+          ],
+          "hint": "Puxava o arado.",
+          "explanation": "Os bois puxavam os arados pela terra fértil do Nilo.",
+          "fact": "Ainda se veem a trabalhar nas pinturas das paredes."
+        },
         "da": {
           "prompt": "Hvilket dyr hjalp med markarbejdet i Egypten?",
           "answer": "Oksen",
@@ -484,6 +520,18 @@
           "hint": "Vai ficando estreita para cima.",
           "explanation": "Uma pirâmide tem quatro lados triangulares que se juntam em uma ponta.",
           "fact": "Antigamente os lados eram lisos e brilhavam ao sol."
+        },
+        "ptpt": {
+          "prompt": "Que forma tem uma pirâmide?",
+          "answer": "Bicuda e com quatro lados",
+          "wrong": [
+            "Toda redonda",
+            "Chata como uma panqueca",
+            "Em forma de estrela"
+          ],
+          "hint": "Vai ficando estreita para cima.",
+          "explanation": "Uma pirâmide tem quatro lados triangulares que se juntam num bico.",
+          "fact": "Dantes os lados eram lisos e brilhavam ao sol."
         },
         "da": {
           "prompt": "Hvilken form har en pyramide?",
@@ -615,6 +663,18 @@
           "explanation": "Só perto do Nilo havia água suficiente para viver e plantar.",
           "fact": "Fora dessa faixa estreita, o deserto começa logo."
         },
+        "ptpt": {
+          "prompt": "Onde viviam quase todos os egípcios?",
+          "answer": "Muito perto do Nilo",
+          "wrong": [
+            "No meio do deserto",
+            "No alto das montanhas",
+            "No mar"
+          ],
+          "hint": "Era ali que havia verde.",
+          "explanation": "Só junto ao Nilo havia água suficiente para viver e cultivar.",
+          "fact": "Fora dessa faixa estreita começa logo o deserto."
+        },
         "da": {
           "prompt": "Hvor boede næsten alle egyptere?",
           "answer": "Tæt ved Nilen",
@@ -745,6 +805,18 @@
           "explanation": "A Grande Pirâmide foi construída há uns quatro mil e quinhentos anos.",
           "fact": "Cleópatra viveu mais perto do nosso tempo do que dos construtores."
         },
+        "ptpt": {
+          "prompt": "Há quanto tempo foi construída a Grande Pirâmide?",
+          "answer": "Há cerca de 4.500 anos",
+          "wrong": [
+            "Há cerca de 500 anos",
+            "Há cerca de 1.000 anos",
+            "Há cerca de 50.000 anos"
+          ],
+          "hint": "Mais velha do que quase tudo o que está de pé.",
+          "explanation": "A Grande Pirâmide foi construída há uns quatro mil e quinhentos anos.",
+          "fact": "Cleópatra viveu mais perto do nosso tempo do que dos construtores."
+        },
         "da": {
           "prompt": "Hvor længe siden blev Den Store Pyramide bygget?",
           "answer": "Cirka 4.500 år siden",
@@ -870,6 +942,18 @@
             "Jogavam fora",
             "Comiam",
             "Deixavam lá dentro"
+          ],
+          "hint": "Quatro vasos com cabeças de animais.",
+          "explanation": "Os órgãos iam para vasos canopos ao lado do caixão.",
+          "fact": "Só o coração ficava dentro do corpo."
+        },
+        "ptpt": {
+          "prompt": "O que faziam os egípcios aos órgãos de uma múmia?",
+          "answer": "Guardavam-nos em vasos",
+          "wrong": [
+            "Deitavam-nos fora",
+            "Comiam-nos",
+            "Deixavam-nos lá dentro"
           ],
           "hint": "Quatro vasos com cabeças de animais.",
           "explanation": "Os órgãos iam para vasos canopos ao lado do caixão.",
@@ -1005,6 +1089,18 @@
           "explanation": "Rá era o deus do sol e atravessava o céu de barco todos os dias.",
           "fact": "À noite, diziam, ele navegava pelo mundo dos mortos."
         },
+        "ptpt": {
+          "prompt": "Quem era o deus do sol para os egípcios?",
+          "answer": "Rá",
+          "wrong": [
+            "Anúbis",
+            "Osíris",
+            "Hórus"
+          ],
+          "hint": "O nome dele é curtíssimo.",
+          "explanation": "Rá era o deus do sol e atravessava o céu de barco todos os dias.",
+          "fact": "À noite, contava-se, navegava pelo mundo dos mortos."
+        },
         "da": {
           "prompt": "Hvem var egypternes solgud?",
           "answer": "Ra",
@@ -1124,6 +1220,18 @@
           "fact": "Più tardi divenne il nome del sovrano stesso."
         },
         "pt": {
+          "prompt": "O que quer dizer afinal a palavra faraó?",
+          "answer": "Casa grande",
+          "wrong": [
+            "Grande rei",
+            "Filho do sol",
+            "Senhor da água"
+          ],
+          "hint": "Fala de um edifício.",
+          "explanation": "Faraó vem de per-aa, que quer dizer casa grande ou palácio.",
+          "fact": "Mais tarde passou a ser o nome do próprio governante."
+        },
+        "ptpt": {
           "prompt": "O que quer dizer afinal a palavra faraó?",
           "answer": "Casa grande",
           "wrong": [
@@ -1265,6 +1373,18 @@
           "explanation": "O oeste pertencia à morte, porque era ali que o sol desaparecia.",
           "fact": "As cidades ficavam a leste, onde o sol nascia."
         },
+        "ptpt": {
+          "prompt": "Porque construíam os túmulos na margem oeste?",
+          "answer": "É onde o sol se põe",
+          "wrong": [
+            "Havia mais água",
+            "Era mais fresco",
+            "Vivia mais gente"
+          ],
+          "hint": "Pensa no fim do dia.",
+          "explanation": "O oeste pertencia à morte, porque era ali que o sol desaparecia.",
+          "fact": "As cidades ficavam a leste, onde o sol nascia."
+        },
         "da": {
           "prompt": "Hvorfor byggede egypterne grave på vestbredden?",
           "answer": "Der går solen ned",
@@ -1394,6 +1514,18 @@
           "hint": "Mais do que o tempo desde os romanos.",
           "explanation": "O Egito foi governado por faraós durante mais de três mil anos.",
           "fact": "Nesse tempo, mais de trinta dinastias se sucederam."
+        },
+        "ptpt": {
+          "prompt": "Quanto tempo durou o Egito dos faraós?",
+          "answer": "Cerca de 3.000 anos",
+          "wrong": [
+            "Cerca de 100 anos",
+            "Cerca de 500 anos",
+            "Cerca de 30.000 anos"
+          ],
+          "hint": "Mais do que o tempo desde os romanos.",
+          "explanation": "O Egito foi governado por faraós durante mais de três mil anos.",
+          "fact": "Nesse tempo sucederam-se mais de trinta dinastias."
         },
         "da": {
           "prompt": "Hvor længe bestod faraonernes Egypten cirka?",
@@ -1525,6 +1657,18 @@
           "explanation": "Hatchepsut se fez representar como faraó, com a barba falsa do cargo.",
           "fact": "Seu templo de terraços ainda está de pé."
         },
+        "ptpt": {
+          "prompt": "Que mulher faraó se fez representar com barba?",
+          "answer": "Hatchepsut",
+          "wrong": [
+            "Cleópatra",
+            "Nefertiti",
+            "Ísis"
+          ],
+          "hint": "Reinou muito antes de Cleópatra.",
+          "explanation": "Hatchepsut fez-se representar como faraó, com a barba falsa do cargo.",
+          "fact": "O seu templo de terraços ainda está de pé."
+        },
         "da": {
           "prompt": "Hvilken kvindelig farao lod sig afbilde med skæg?",
           "answer": "Hatshepsut",
@@ -1644,6 +1788,18 @@
           "fact": "Per questo il cuore restava nella mummia."
         },
         "pt": {
+          "prompt": "O que pesava o deus Anúbis depois de alguém morrer?",
+          "answer": "O coração contra uma pena",
+          "wrong": [
+            "A cabeça contra ouro",
+            "Os pés contra pedra",
+            "Os olhos contra água"
+          ],
+          "hint": "Ser leve era bom.",
+          "explanation": "Um coração mais leve do que a pena de Maat podia seguir.",
+          "fact": "Por isso o coração ficava dentro da múmia."
+        },
+        "ptpt": {
           "prompt": "O que pesava o deus Anúbis depois de alguém morrer?",
           "answer": "O coração contra uma pena",
           "wrong": [
@@ -1785,6 +1941,18 @@
           "explanation": "A fuligem da lareira era misturada com água e goma.",
           "fact": "Para o vermelho usavam ocre bem moído."
         },
+        "ptpt": {
+          "prompt": "De que faziam os egípcios a tinta preta?",
+          "answer": "De fuligem e água",
+          "wrong": [
+            "De sangue",
+            "De leite",
+            "De areia"
+          ],
+          "hint": "Vem da beira do fogo.",
+          "explanation": "A fuligem da lareira era misturada com água e goma.",
+          "fact": "Para o vermelho usavam ocre bem moído."
+        },
         "da": {
           "prompt": "Hvad lavede egypterne sort blæk af?",
           "answer": "Af sod og vand",
@@ -1904,6 +2072,18 @@
           "fact": "Furono scavate per sfuggire ai ladri di tombe."
         },
         "pt": {
+          "prompt": "Como se chama o vale com muitos túmulos de faraós?",
+          "answer": "O Vale dos Reis",
+          "wrong": [
+            "O Vale do Nilo",
+            "O Vale das Esfinges",
+            "O Vale Dourado"
+          ],
+          "hint": "Fica perto de Luxor.",
+          "explanation": "O Vale dos Reis tem mais de sessenta túmulos escavados na rocha.",
+          "fact": "Foram escavados assim para enganar os saqueadores."
+        },
+        "ptpt": {
           "prompt": "Como se chama o vale com muitos túmulos de faraós?",
           "answer": "O Vale dos Reis",
           "wrong": [
@@ -2045,6 +2225,18 @@
           "explanation": "A Grande Pirâmide é feita de cerca de 2,3 milhões de blocos.",
           "fact": "Durante vinte anos, foi preciso colocar um bloco a cada poucos minutos."
         },
+        "ptpt": {
+          "prompt": "Quantos blocos de pedra tem a Grande Pirâmide?",
+          "answer": "Mais de dois milhões",
+          "wrong": [
+            "Cerca de mil",
+            "Cerca de dez mil",
+            "Mais de dois mil milhões"
+          ],
+          "hint": "Mais de um milhão.",
+          "explanation": "A Grande Pirâmide é feita de cerca de 2,3 milhões de blocos.",
+          "fact": "Durante vinte anos foi preciso pôr um bloco de poucos em poucos minutos."
+        },
         "da": {
           "prompt": "Hvor mange stenblokke er der i Den Store Pyramide?",
           "answer": "Over to millioner",
@@ -2174,6 +2366,18 @@
           "hint": "Era um linguista francês.",
           "explanation": "Jean-François Champollion decifrou a escrita em 1822.",
           "fact": "Para isso, ele usou a Pedra de Roseta."
+        },
+        "ptpt": {
+          "prompt": "Quem decifrou primeiro os hieróglifos?",
+          "answer": "Champollion",
+          "wrong": [
+            "Howard Carter",
+            "Napoleão",
+            "Cleópatra"
+          ],
+          "hint": "Era um linguista francês.",
+          "explanation": "Jean-François Champollion decifrou a escrita em 1822.",
+          "fact": "Para isso usou a pedra de Roseta."
         },
         "da": {
           "prompt": "Hvem tydede først hieroglyfferne?",
@@ -2305,6 +2509,18 @@
           "explanation": "Howard Carter encontrou o túmulo quase intacto em 1922.",
           "fact": "Por um buraco na parede, ele viu ouro brilhando por todo lado."
         },
+        "ptpt": {
+          "prompt": "Quem encontrou em 1922 o túmulo de Tutankamon?",
+          "answer": "Howard Carter",
+          "wrong": [
+            "Champollion",
+            "Napoleão",
+            "Marco Polo"
+          ],
+          "hint": "Era um arqueólogo inglês.",
+          "explanation": "Howard Carter encontrou o túmulo quase intacto em 1922.",
+          "fact": "Por um buraco na parede viu ouro a brilhar por todo o lado."
+        },
         "da": {
           "prompt": "Hvem fandt i 1922 Tutankhamons grav?",
           "answer": "Howard Carter",
@@ -2435,6 +2651,18 @@
           "explanation": "No ar seco do deserto, madeira, tecido e tinta duram milênios.",
           "fact": "Em um país úmido, não sobraria quase nada."
         },
+        "ptpt": {
+          "prompt": "Porque se conservou tanta coisa no Egito?",
+          "answer": "Ali está tudo sequíssimo",
+          "wrong": [
+            "Ali faz muito frio",
+            "Esteve tudo debaixo de água",
+            "As pedras são mágicas"
+          ],
+          "hint": "A humidade apodrece as coisas.",
+          "explanation": "No ar seco do deserto, madeira, tecido e tinta duram milénios.",
+          "fact": "Num país húmido não restaria quase nada."
+        },
         "da": {
           "prompt": "Hvorfor er så meget bevaret i Egypten?",
           "answer": "Der er knastørt",
@@ -2564,6 +2792,18 @@
           "hint": "Mais do que um carro.",
           "explanation": "Um bloco médio pesa cerca de duas toneladas e meia.",
           "fact": "Os mais pesados, lá dentro, chegam a cinquenta toneladas."
+        },
+        "ptpt": {
+          "prompt": "Quanto pesa um bloco médio da Grande Pirâmide?",
+          "answer": "Cerca de 2.500 quilos",
+          "wrong": [
+            "Cerca de 25 quilos",
+            "Cerca de 250 quilos",
+            "Cerca de 25.000 quilos"
+          ],
+          "hint": "Mais do que um carro.",
+          "explanation": "Um bloco médio pesa cerca de duas toneladas e meia.",
+          "fact": "Os mais pesados lá dentro chegam às cinquenta toneladas."
         },
         "da": {
           "prompt": "Hvor meget vejer en gennemsnitlig pyramideblok?",

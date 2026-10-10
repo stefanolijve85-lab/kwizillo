@@ -9,7 +9,8 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
   const T=()=>K.TALEN;
-  const app=()=>K.state.language;
+  // Talen has one Portuguese (Brazilian recordings); a child playing in European Portuguese hears that one.
+  const app=()=>K.state.language==='ptpt'?'pt':K.state.language;
   // The language the child learns: the parent's choice, else the default for the app language.
   // null when the app language has no learning language yet (phase 1: Dutch and English only).
   K.talenLearnLang=()=>{

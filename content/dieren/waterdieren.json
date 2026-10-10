@@ -95,6 +95,18 @@
           "explanation": "Os tubarões são peixes com dentes afiados e barbatana dorsal.",
           "fact": "Um tubarão perde dentes a vida toda e ganha outros."
         },
+        "ptpt": {
+          "prompt": "Que animal marinho tem barbatana no dorso e dentes afiados?",
+          "answer": "O tubarão",
+          "wrong": [
+            "A foca",
+            "A alforreca",
+            "O caranguejo"
+          ],
+          "hint": "Às vezes vê-se a barbatana fora de água.",
+          "explanation": "Os tubarões são peixes com dentes afiados e barbatana dorsal.",
+          "fact": "Um tubarão perde dentes toda a vida e cria outros."
+        },
         "da": {
           "prompt": "Hvilket havdyr har en finne på ryggen og skarpe tænder?",
           "answer": "Hajen",
@@ -225,6 +237,18 @@
           "explanation": "A água-viva queima com os fios para pegar presas.",
           "fact": "Uma água-viva é feita quase toda de água."
         },
+        "ptpt": {
+          "prompt": "O que flutua transparente no mar e pode picar?",
+          "answer": "A alforreca",
+          "wrong": [
+            "A estrela-do-mar",
+            "A concha",
+            "A alga"
+          ],
+          "hint": "Tem fios compridos.",
+          "explanation": "A alforreca pica com os fios para apanhar presas.",
+          "fact": "Uma alforreca é quase toda feita de água."
+        },
         "da": {
           "prompt": "Hvad flyder gennemsigtigt i havet og kan brænde?",
           "answer": "Vandmanden",
@@ -352,6 +376,18 @@
             "Vinte"
           ],
           "hint": "Conte as pontas da estrela.",
+          "explanation": "A maioria das estrelas-do-mar tem cinco braços.",
+          "fact": "Algumas espécies chegam a vinte."
+        },
+        "ptpt": {
+          "prompt": "Quantos braços tem normalmente uma estrela-do-mar?",
+          "answer": "Cinco",
+          "wrong": [
+            "Dois",
+            "Oito",
+            "Vinte"
+          ],
+          "hint": "Conta as pontas da estrela.",
           "explanation": "A maioria das estrelas-do-mar tem cinco braços.",
           "fact": "Algumas espécies chegam a vinte."
         },
@@ -485,6 +521,18 @@
           "explanation": "O cavalo-marinho nada em pé e se agarra às plantas com a cauda.",
           "fact": "Ele nada tão devagar que quase parece parado."
         },
+        "ptpt": {
+          "prompt": "Que animal marinho parece um cavalinho?",
+          "answer": "O cavalo-marinho",
+          "wrong": [
+            "A foca",
+            "A estrela-do-mar",
+            "O leão-marinho"
+          ],
+          "hint": "Segura-se com a cauda.",
+          "explanation": "O cavalo-marinho nada direito e agarra-se às plantas com a cauda.",
+          "fact": "Nada tão devagar que quase parece parado."
+        },
         "da": {
           "prompt": "Hvilket havdyr ligner en lille hest?",
           "answer": "Søhesten",
@@ -613,6 +661,18 @@
           ],
           "hint": "Ela os filtra da água.",
           "explanation": "Muitas baleias comem bilhões de camarõezinhos.",
+          "fact": "Uma baleia dessas come quatro toneladas de krill por dia."
+        },
+        "ptpt": {
+          "prompt": "O que come sobretudo uma baleia grande?",
+          "answer": "Animaizinhos minúsculos",
+          "wrong": [
+            "Peixes grandes",
+            "Algas",
+            "Conchas"
+          ],
+          "hint": "Filtra-os da água.",
+          "explanation": "Muitas baleias comem milhares de milhões de camarõezinhos.",
           "fact": "Uma baleia dessas come quatro toneladas de krill por dia."
         },
         "da": {
@@ -745,6 +805,18 @@
           "explanation": "O golfinho respira por um espiráculo no alto da cabeça.",
           "fact": "Ele tem que pensar em cada respiração, mesmo dormindo."
         },
+        "ptpt": {
+          "prompt": "Como respira um golfinho?",
+          "answer": "Por um buraco na cabeça",
+          "wrong": [
+            "Com guelras",
+            "Pela boca",
+            "Pela pele"
+          ],
+          "hint": "Tem de subir um instante.",
+          "explanation": "O golfinho respira por um espiráculo no cimo da cabeça.",
+          "fact": "Tem de pensar em cada respiração, mesmo a dormir."
+        },
         "da": {
           "prompt": "Hvordan ånder en delfin?",
           "answer": "Gennem et hul på hovedet",
@@ -874,6 +946,18 @@
           "hint": "Depois ele some de repente.",
           "explanation": "A nuvem de tinta confunde o atacante enquanto o polvo foge.",
           "fact": "Ele também passa por um buraco do tamanho do próprio olho."
+        },
+        "ptpt": {
+          "prompt": "O que faz um polvo quando se assusta?",
+          "answer": "Lança tinta",
+          "wrong": [
+            "Fica maior",
+            "Adormece",
+            "Pede ajuda"
+          ],
+          "hint": "Depois desaparece de repente.",
+          "explanation": "A nuvem de tinta confunde o atacante enquanto ele foge.",
+          "fact": "Também passa por um buraco do tamanho do olho dele."
         },
         "da": {
           "prompt": "Hvad gør en blæksprutte, når den bliver forskrækket?",
@@ -1005,6 +1089,18 @@
           "explanation": "O salmão se lembra do cheiro do rio onde nasceu.",
           "fact": "Para voltar lá, às vezes ele nada milhares de quilômetros."
         },
+        "ptpt": {
+          "prompt": "Como encontra um salmão o rio onde nasceu?",
+          "answer": "Pelo cheiro",
+          "wrong": [
+            "Pela cor",
+            "Pelo som",
+            "Vai ao acaso"
+          ],
+          "hint": "A água de cada ribeiro cheira de maneira diferente.",
+          "explanation": "O salmão lembra-se do cheiro do rio onde nasceu.",
+          "fact": "Para lá voltar nada às vezes milhares de quilómetros."
+        },
         "da": {
           "prompt": "Hvordan finder en laks den flod, den blev født i?",
           "answer": "På lugten",
@@ -1129,6 +1225,18 @@
           "wrong": [
             "A baleia-azul",
             "O peixe-espada",
+            "O peixe-serra"
+          ],
+          "hint": "Uma baleia não é um peixe.",
+          "explanation": "O tubarão-baleia chega aos dezoito metros de comprimento.",
+          "fact": "Come apenas plâncton e peixinhos."
+        },
+        "ptpt": {
+          "prompt": "Qual é o maior peixe do mundo?",
+          "answer": "O tubarão-baleia",
+          "wrong": [
+            "A baleia-azul",
+            "O espadarte",
             "O peixe-serra"
           ],
           "hint": "Uma baleia não é um peixe.",
@@ -1265,6 +1373,18 @@
           "explanation": "Com a bexiga cheia de ar, o peixe fica parado na água sem esforço.",
           "fact": "Os tubarões não têm uma e por isso nadam sem parar."
         },
+        "ptpt": {
+          "prompt": "Para que serve a bexiga natatória de um peixe?",
+          "answer": "Para ficar a flutuar",
+          "wrong": [
+            "Para respirar",
+            "Para comer",
+            "Para fazer barulho"
+          ],
+          "hint": "Uma espécie de braçadeira por dentro.",
+          "explanation": "Com a bexiga cheia de ar o peixe fica suspenso sem esforço.",
+          "fact": "Os tubarões não a têm e por isso nadam sempre."
+        },
         "da": {
           "prompt": "Hvad bruger en fisk en svømmeblære til?",
           "answer": "At svæve i vandet",
@@ -1394,6 +1514,18 @@
           "hint": "O som viaja longe debaixo d'água.",
           "explanation": "As baleias cantam e dão estalos para conversar e se orientar.",
           "fact": "Alguns cantos são ouvidos a centenas de quilômetros."
+        },
+        "ptpt": {
+          "prompt": "Como falam as baleias umas com as outras?",
+          "answer": "Com cantos e estalidos",
+          "wrong": [
+            "Com as barbatanas",
+            "Com cores",
+            "Não falam"
+          ],
+          "hint": "O som viaja longe debaixo de água.",
+          "explanation": "As baleias cantam e dão estalidos para falar e se orientarem.",
+          "fact": "Alguns cantos ouvem-se a centenas de quilómetros."
         },
         "da": {
           "prompt": "Hvordan taler hvaler sammen?",
@@ -1525,6 +1657,18 @@
           "explanation": "Uma camada de muco o protege dos tentáculos que queimam.",
           "fact": "Em troca, ele mantém a anêmona limpa."
         },
+        "ptpt": {
+          "prompt": "O que faz um peixe-palhaço numa anémona?",
+          "answer": "Abriga-se nela",
+          "wrong": [
+            "Come-a",
+            "Enche-a de areia",
+            "Empurra-a"
+          ],
+          "hint": "As células urticantes não lhe fazem nada.",
+          "explanation": "Uma camada de muco protege-o dos tentáculos que queimam.",
+          "fact": "Em troca mantém a anémona limpa."
+        },
         "da": {
           "prompt": "Hvad gør en klovnfisk i en søanemone?",
           "answer": "Den søger ly i den",
@@ -1648,6 +1792,18 @@
           "answer": "Assim não chamam atenção",
           "wrong": [
             "Porque lá é quente",
+            "Para poderem nadar",
+            "Para se verem"
+          ],
+          "hint": "A luz vermelha não chega lá.",
+          "explanation": "Nas profundezas não há vermelho, por isso um peixe vermelho parece preto.",
+          "fact": "Assim ficam quase invisíveis para os caçadores."
+        },
+        "ptpt": {
+          "prompt": "Porque são muitos peixes abissais vermelhos ou pretos?",
+          "answer": "Assim não dão nas vistas",
+          "wrong": [
+            "Porque ali é quente",
             "Para poderem nadar",
             "Para se verem"
           ],
@@ -1785,6 +1941,18 @@
           "explanation": "Uma estrela-do-mar simplesmente faz o braço quebrado crescer de novo.",
           "fact": "Em algumas espécies, esse braço vira uma estrela inteira."
         },
+        "ptpt": {
+          "prompt": "Que animal marinho faz crescer de novo um braço perdido?",
+          "answer": "A estrela-do-mar",
+          "wrong": [
+            "O tubarão",
+            "O golfinho",
+            "A foca"
+          ],
+          "hint": "De qualquer forma tem vários.",
+          "explanation": "Uma estrela-do-mar faz simplesmente crescer o braço partido.",
+          "fact": "Nalgumas espécies esse braço dá uma estrela inteira."
+        },
         "da": {
           "prompt": "Hvilket havdyr får en tabt arm til at vokse ud igen?",
           "answer": "Søstjernen",
@@ -1914,6 +2082,18 @@
           "hint": "Na verdade, ele voa dentro d'água.",
           "explanation": "O pinguim usa as asas rígidas como remos.",
           "fact": "Algumas espécies chegam aos trinta quilômetros por hora."
+        },
+        "ptpt": {
+          "prompt": "O que torna um pinguim tão rápido debaixo de água?",
+          "answer": "As asas como remos",
+          "wrong": [
+            "O bico",
+            "As penas",
+            "A cauda"
+          ],
+          "hint": "Na verdade voa dentro de água.",
+          "explanation": "O pinguim usa as asas rígidas como remos.",
+          "fact": "Algumas espécies chegam aos trinta quilómetros por hora."
         },
         "da": {
           "prompt": "Hvad gør en pingvin så hurtig under vandet?",
@@ -2045,6 +2225,18 @@
           "explanation": "O tubarão-da-groenlândia vive talvez três ou quatro séculos.",
           "fact": "Ele só fica adulto aos cento e cinquenta."
         },
+        "ptpt": {
+          "prompt": "Que idade pode atingir um tubarão-da-gronelândia?",
+          "answer": "Mais de 300 anos",
+          "wrong": [
+            "Cerca de 20 anos",
+            "Cerca de 80 anos",
+            "Mais de 1.000 anos"
+          ],
+          "hint": "Mais do que qualquer outro vertebrado.",
+          "explanation": "O tubarão-da-gronelândia vive talvez três ou quatro séculos.",
+          "fact": "Só é adulto aos cento e cinquenta."
+        },
         "da": {
           "prompt": "Hvor gammel kan en grønlandshaj blive?",
           "answer": "Mere end 300 år",
@@ -2165,6 +2357,18 @@
         },
         "pt": {
           "prompt": "Qual animal marinho tem sangue azul?",
+          "answer": "O polvo",
+          "wrong": [
+            "O tubarão",
+            "O golfinho",
+            "O salmão"
+          ],
+          "hint": "Também tem três corações.",
+          "explanation": "O sangue do polvo tem cobre em vez de ferro.",
+          "fact": "Por isso é azul e funciona melhor em água fria."
+        },
+        "ptpt": {
+          "prompt": "Que animal marinho tem sangue azul?",
           "answer": "O polvo",
           "wrong": [
             "O tubarão",
@@ -2305,6 +2509,18 @@
           "explanation": "Poros no focinho o deixam sentir os músculos da presa.",
           "fact": "Ele encontra até um peixe escondido na areia."
         },
+        "ptpt": {
+          "prompt": "Como encontra um tubarão presas em água turva?",
+          "answer": "Sente campos elétricos",
+          "wrong": [
+            "Ouve a água",
+            "Vê no escuro",
+            "Prova a areia"
+          ],
+          "hint": "Todo o animal vivo cria um campo fraco.",
+          "explanation": "Poros no focinho deixam-no sentir os músculos da presa.",
+          "fact": "Encontra até um peixe escondido na areia."
+        },
         "da": {
           "prompt": "Hvordan finder en haj bytte i uklart vand?",
           "answer": "Den mærker elektriske felter",
@@ -2435,6 +2651,18 @@
           "explanation": "Muitos animais do fundo criam luz com uma reação química.",
           "fact": "Alguns peixes a usam como isca, tipo uma vara de pescar."
         },
+        "ptpt": {
+          "prompt": "O que é a luz que os animais abissais fazem?",
+          "answer": "Luz viva",
+          "wrong": [
+            "Sol vindo de cima",
+            "Um reflexo",
+            "Luz de lâmpadas"
+          ],
+          "hint": "Lá em baixo não chega sol.",
+          "explanation": "Muitos animais do fundo criam luz com uma reação química.",
+          "fact": "Alguns peixes usam-na como isco, tipo cana de pesca."
+        },
         "da": {
           "prompt": "Hvad er det lys, dybhavsdyr selv laver?",
           "answer": "Levende lys",
@@ -2563,6 +2791,18 @@
           ],
           "hint": "Mais do que uma aula na escola.",
           "explanation": "Um cachalote fica lá embaixo de sessenta a noventa minutos.",
+          "fact": "Depois respira uns dez minutos à superfície."
+        },
+        "ptpt": {
+          "prompt": "Quanto tempo aguenta um cachalote debaixo de água?",
+          "answer": "Mais de uma hora",
+          "wrong": [
+            "Cerca de um minuto",
+            "Cerca de cinco minutos",
+            "Um dia inteiro"
+          ],
+          "hint": "Mais do que uma aula na escola.",
+          "explanation": "Um cachalote fica lá em baixo sessenta a noventa minutos.",
           "fact": "Depois respira uns dez minutos à superfície."
         },
         "da": {

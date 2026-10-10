@@ -95,6 +95,18 @@
           "explanation": "Um relógio conta para você as horas, os minutos e os segundos.",
           "fact": "Os primeiros relógios só tinham ponteiro das horas."
         },
+        "ptpt": {
+          "prompt": "Com que invento lês as horas?",
+          "answer": "Com um relógio",
+          "wrong": [
+            "Com um espelho",
+            "Com uma tesoura",
+            "Com um balão"
+          ],
+          "hint": "Dois ponteiros giram.",
+          "explanation": "Um relógio conta por ti as horas, os minutos e os segundos.",
+          "fact": "Os primeiros relógios só tinham ponteiro das horas."
+        },
         "da": {
           "prompt": "Med hvilken opfindelse aflæser du tiden?",
           "answer": "Med et ur",
@@ -223,6 +235,18 @@
           ],
           "hint": "O motor é você.",
           "explanation": "Com pedais, corrente e duas rodas, você vai muito mais longe do que a pé.",
+          "fact": "As primeiríssimas bicicletas nem tinham pedais."
+        },
+        "ptpt": {
+          "prompt": "Que invento de duas rodas moves a pedalar?",
+          "answer": "A bicicleta",
+          "wrong": [
+            "O comboio",
+            "O elevador",
+            "O guarda-chuva"
+          ],
+          "hint": "O motor és tu.",
+          "explanation": "Com pedais, corrente e duas rodas vais muito mais longe do que a pé.",
           "fact": "As primeiríssimas bicicletas nem tinham pedais."
         },
         "da": {
@@ -355,6 +379,18 @@
           "explanation": "A geladeira bombeia o calor de dentro para fora, e assim dentro fica frio.",
           "fact": "Por isso a parte de trás de uma geladeira está sempre morna."
         },
+        "ptpt": {
+          "prompt": "O que faz um frigorífico?",
+          "answer": "Mantém a comida fria",
+          "wrong": [
+            "Coze pão",
+            "Lava a roupa",
+            "Dá luz"
+          ],
+          "hint": "Atrás está quente.",
+          "explanation": "O frigorífico bombeia o calor de dentro para fora, e assim dentro fica frio.",
+          "fact": "Por isso as costas de um frigorífico estão sempre mornas."
+        },
         "da": {
           "prompt": "Hvad gør et køleskab?",
           "answer": "Det holder maden kold",
@@ -484,6 +520,18 @@
           "hint": "Você aperta um botão.",
           "explanation": "Um elevador fica pendurado em cabos fortes com um contrapeso, e um motor o puxa.",
           "fact": "Sem elevador, os arranha-céus nunca teriam sido construídos."
+        },
+        "ptpt": {
+          "prompt": "Que invento te leva depressa ao último andar?",
+          "answer": "O elevador",
+          "wrong": [
+            "O baloiço",
+            "O escorrega",
+            "O carrinho de mão"
+          ],
+          "hint": "Carregas num botão.",
+          "explanation": "Um elevador pende de cabos fortes com um contrapeso, e um motor puxa-o.",
+          "fact": "Sem elevador nunca se teriam construído arranha-céus."
         },
         "da": {
           "prompt": "Hvilken opfindelse fører dig hurtigt til øverste etage?",
@@ -615,6 +663,18 @@
           "explanation": "O pano esticado leva a chuva para o lado, até o chão.",
           "fact": "Os primeiros guarda-sóis eram contra o sol, não contra a chuva."
         },
+        "ptpt": {
+          "prompt": "Para que foi inventado o guarda-chuva?",
+          "answer": "Para travar a chuva",
+          "wrong": [
+            "Para fazer vento",
+            "Para dar luz",
+            "Para arrefecer comida"
+          ],
+          "hint": "Abre-se de repente.",
+          "explanation": "O pano esticado leva a chuva ao teu lado até ao chão.",
+          "fact": "Os primeiros chapéus de sol eram contra o sol, não contra a chuva."
+        },
         "da": {
           "prompt": "Hvad blev paraplyen opfundet til?",
           "answer": "At holde regnen væk",
@@ -745,6 +805,18 @@
           "explanation": "As pás faziam girar mós pesadas que moíam o grão.",
           "fact": "De longe, a posição das pás anunciava festa ou luto."
         },
+        "ptpt": {
+          "prompt": "O que fazia um moinho holandês de cereal?",
+          "answer": "Moía grão até virar farinha",
+          "wrong": [
+            "Cozia pão",
+            "Fiava lã",
+            "Fundia ferro"
+          ],
+          "hint": "Giram duas pedras pesadas.",
+          "explanation": "As velas faziam girar mós pesadas que moíam o grão.",
+          "fact": "De longe a posição das velas anunciava festa ou luto."
+        },
         "da": {
           "prompt": "Hvad gjorde en hollandsk kornmølle?",
           "answer": "Den malede korn til mel",
@@ -873,6 +945,18 @@
           ],
           "hint": "Ele pega muito ar.",
           "explanation": "O pano grande pega tanto ar que você desce flutuando devagar.",
+          "fact": "Leonardo da Vinci desenhou um paraquedas há quinhentos anos."
+        },
+        "ptpt": {
+          "prompt": "Para que serve um paraquedas?",
+          "answer": "Para descer devagar",
+          "wrong": [
+            "Para cair mais depressa",
+            "Para subir a voar",
+            "Para nadar"
+          ],
+          "hint": "Apanha muito ar.",
+          "explanation": "O pano grande apanha tanto ar que desces a flutuar devagar.",
           "fact": "Leonardo da Vinci desenhou um paraquedas há quinhentos anos."
         },
         "da": {
@@ -1005,6 +1089,18 @@
           "explanation": "As primeiras máquinas a vapor bombeavam a água das minas de carvão.",
           "fact": "Trens e navios a vapor só vieram depois."
         },
+        "ptpt": {
+          "prompt": "Para que serviu a primeira máquina a vapor?",
+          "answer": "Esvaziar minas de água",
+          "wrong": [
+            "Cozer pão",
+            "Fazer eletricidade",
+            "Iluminar casas"
+          ],
+          "hint": "Lá em baixo enchia tudo.",
+          "explanation": "As primeiras máquinas a vapor bombeavam a água das minas de carvão.",
+          "fact": "Comboios e navios a vapor só vieram depois."
+        },
         "da": {
           "prompt": "Hvad blev den første dampmaskine brugt til?",
           "answer": "At pumpe miner tørre",
@@ -1134,6 +1230,18 @@
           "hint": "A agulha sempre aponta para o mesmo lado.",
           "explanation": "A agulha magnética se vira para o norte onde quer que você esteja.",
           "fact": "Perto de um ímã forte, a agulha fica maluca."
+        },
+        "ptpt": {
+          "prompt": "Para que serve uma bússola?",
+          "answer": "Para achar a direção",
+          "wrong": [
+            "Para medir o tempo",
+            "Para medir distâncias",
+            "Para pesar"
+          ],
+          "hint": "A agulha aponta sempre igual.",
+          "explanation": "A agulha magnética vira-se para norte onde quer que estejas.",
+          "fact": "Perto de um íman forte a agulha enlouquece."
         },
         "da": {
           "prompt": "Hvad bruger man et kompas til?",
@@ -1265,6 +1373,18 @@
           "explanation": "Sobre rodas, a carga rola em vez de ser arrastada pelo chão.",
           "fact": "A roda serviu primeiro para fazer potes no torno e só depois para andar."
         },
+        "ptpt": {
+          "prompt": "O que ficou muito mais fácil graças à roda?",
+          "answer": "Mover coisas pesadas",
+          "wrong": [
+            "Fazer fogo",
+            "Cozinhar",
+            "Fazer roupa"
+          ],
+          "hint": "Rolar custa menos força.",
+          "explanation": "Sobre rodas a carga rola em vez de arrastar pelo chão.",
+          "fact": "A roda serviu primeiro para tornear potes e só depois para andar."
+        },
         "da": {
           "prompt": "Hvad blev meget lettere takket være hjulet?",
           "answer": "At flytte tunge ting",
@@ -1394,6 +1514,18 @@
           "hint": "Ele testou milhares de filamentos.",
           "explanation": "Edison procurou até achar um filamento que brilhava por horas.",
           "fact": "A oficina dele registrou mais de mil patentes."
+        },
+        "ptpt": {
+          "prompt": "Quem fez a lâmpada que durava o suficiente?",
+          "answer": "Thomas Edison",
+          "wrong": [
+            "Nikola Tesla",
+            "Henry Ford",
+            "Marie Curie"
+          ],
+          "hint": "Experimentou milhares de filamentos.",
+          "explanation": "Edison procurou até achar um filamento que brilhava horas.",
+          "fact": "A sua oficina registou mais de mil patentes."
         },
         "da": {
           "prompt": "Hvem lavede den glødepære, der brændte længe nok?",
@@ -1525,6 +1657,18 @@
           "explanation": "Karl Benz construiu um triciclo com um pequeno motor a gasolina.",
           "fact": "A mulher dele, Bertha, foi a primeira a percorrer mais de cem quilômetros."
         },
+        "ptpt": {
+          "prompt": "O que andou primeiro a gasolina em 1885?",
+          "answer": "O primeiro automóvel",
+          "wrong": [
+            "O primeiro comboio",
+            "A primeira bicicleta",
+            "O primeiro foguetão"
+          ],
+          "hint": "Só tinha três rodas.",
+          "explanation": "Karl Benz construiu um triciclo com um pequeno motor a gasolina.",
+          "fact": "A sua mulher Bertha foi a primeira a fazer mais de cem quilómetros."
+        },
         "da": {
           "prompt": "Hvad kørte først på benzin i 1885?",
           "answer": "Den første bil",
@@ -1653,6 +1797,18 @@
           ],
           "hint": "Uma imagem levava horas.",
           "explanation": "Na câmera, a luz cai em uma placa sensível e a imagem fica lá.",
+          "fact": "A foto mais antiga exigiu mais de oito horas de exposição."
+        },
+        "ptpt": {
+          "prompt": "Que invento fixou uma imagem pela primeira vez?",
+          "answer": "A máquina fotográfica",
+          "wrong": [
+            "O telefone",
+            "A rádio",
+            "A imprensa"
+          ],
+          "hint": "Uma imagem levava horas.",
+          "explanation": "Na máquina a luz cai numa placa sensível e a imagem fica lá.",
           "fact": "A foto mais antiga exigiu mais de oito horas de exposição."
         },
         "da": {
@@ -1785,6 +1941,18 @@
           "explanation": "Em 1901, Marconi captou no Canadá um sinal vindo da Inglaterra.",
           "fact": "Muitos cientistas achavam que as ondas não seguiam a curva da Terra."
         },
+        "ptpt": {
+          "prompt": "Quem enviou o primeiro sinal de rádio sobre o oceano?",
+          "answer": "Guglielmo Marconi",
+          "wrong": [
+            "Thomas Edison",
+            "Christiaan Huygens",
+            "Tim Berners-Lee"
+          ],
+          "hint": "Trabalhava com faíscas e uma antena alta.",
+          "explanation": "Em 1901 Marconi captou no Canadá um sinal vindo de Inglaterra.",
+          "fact": "Muitos sábios achavam que as ondas não seguiam a curva da Terra."
+        },
         "da": {
           "prompt": "Hvem sendte først et radiosignal over havet?",
           "answer": "Guglielmo Marconi",
@@ -1915,6 +2083,18 @@
           "explanation": "Uma impressora 3D coloca centenas de camadas finas até a peça ficar pronta.",
           "fact": "No hospital, às vezes imprimem assim um modelo de osso para treinar."
         },
+        "ptpt": {
+          "prompt": "O que faz uma impressora 3D?",
+          "answer": "Constrói camada a camada",
+          "wrong": [
+            "Torna as fotos nítidas",
+            "Imprime jornais",
+            "Corta papel"
+          ],
+          "hint": "A partir de um fio fino de plástico.",
+          "explanation": "Uma impressora 3D põe centenas de camadas finas até a peça ficar pronta.",
+          "fact": "No hospital às vezes imprimem assim um modelo de osso para treinar."
+        },
         "da": {
           "prompt": "Hvad gør en 3D-printer?",
           "answer": "Den bygger lag på lag",
@@ -2043,6 +2223,18 @@
           ],
           "hint": "Primeiro cozinhar, depois fechar sem ar.",
           "explanation": "Em uma lata soldada, as bactérias não chegam à comida.",
+          "fact": "A lata existiu cinquenta anos antes de alguém inventar o abre-latas."
+        },
+        "ptpt": {
+          "prompt": "Que invento guardou comida durante anos?",
+          "answer": "A lata de conserva",
+          "wrong": [
+            "O micro-ondas",
+            "A batedeira",
+            "O moinho de café"
+          ],
+          "hint": "Primeiro cozer, depois fechar sem ar.",
+          "explanation": "Numa lata soldada as bactérias não chegam à comida.",
           "fact": "A lata existiu cinquenta anos antes de alguém inventar o abre-latas."
         },
         "da": {
@@ -2175,6 +2367,18 @@
           "explanation": "Cochrane construiu uma máquina com cestos e jatos de água quente.",
           "fact": "As máquinas dela foram compradas primeiro por hotéis e restaurantes."
         },
+        "ptpt": {
+          "prompt": "Quem inventou a máquina de lavar loiça em 1886?",
+          "answer": "Josephine Cochrane",
+          "wrong": [
+            "Marie Curie",
+            "Ada Lovelace",
+            "Bertha Benz"
+          ],
+          "hint": "Estava farta de loiça partida.",
+          "explanation": "Cochrane construiu uma máquina com cestos e jatos de água quente.",
+          "fact": "As suas máquinas foram compradas primeiro por hotéis e restaurantes."
+        },
         "da": {
           "prompt": "Hvem opfandt opvaskemaskinen i 1886?",
           "answer": "Josephine Cochrane",
@@ -2304,6 +2508,18 @@
           "hint": "Ele estava ao lado de um tubo de radar.",
           "explanation": "Spencer viu o radar derreter a barra no bolso e criou um forno a partir disso.",
           "fact": "O primeiro micro-ondas era do tamanho de uma geladeira."
+        },
+        "ptpt": {
+          "prompt": "Que invento descobriu Percy Spencer por causa de uma barra derretida?",
+          "answer": "O micro-ondas",
+          "wrong": [
+            "O frigorífico",
+            "O grelhador",
+            "A fritadeira"
+          ],
+          "hint": "Estava ao lado de um tubo de radar.",
+          "explanation": "Spencer viu o radar derreter a barra no bolso e fez daí um forno.",
+          "fact": "O primeiro micro-ondas era do tamanho de um frigorífico."
         },
         "da": {
           "prompt": "Hvilken opfindelse fandt Percy Spencer via en smeltet bar?",
@@ -2435,6 +2651,18 @@
           "explanation": "Em um chip há milhões de interruptores minúsculos que calculam juntos.",
           "fact": "Um celular moderno tem mais deles do que pessoas na Terra."
         },
+        "ptpt": {
+          "prompt": "Que invento de 1958 está em quase todos os aparelhos?",
+          "answer": "O microchip",
+          "wrong": [
+            "A lâmpada",
+            "A balança de mola",
+            "A máquina a vapor"
+          ],
+          "hint": "Cabe na ponta do dedo.",
+          "explanation": "Num chip há milhões de interruptores minúsculos que calculam juntos.",
+          "fact": "Um telemóvel moderno tem mais deles do que pessoas na Terra."
+        },
         "da": {
           "prompt": "Hvilken opfindelse fra 1958 sidder i næsten alt?",
           "answer": "Mikrochippen",
@@ -2560,6 +2788,18 @@
             "A fita cassete",
             "O rádio",
             "Os fones de ouvido"
+          ],
+          "hint": "É lido por um raio laser.",
+          "explanation": "A Philips e a Sony criaram um disco com a música gravada em covinhas.",
+          "fact": "A duração foi escolhida de propósito para caber uma sinfonia inteira."
+        },
+        "ptpt": {
+          "prompt": "Que invento neerlandês substituiu o disco de vinil?",
+          "answer": "O disco compacto",
+          "wrong": [
+            "A cassete",
+            "A rádio",
+            "Os auscultadores"
           ],
           "hint": "É lido por um raio laser.",
           "explanation": "A Philips e a Sony criaram um disco com a música gravada em covinhas.",

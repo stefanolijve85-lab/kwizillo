@@ -33,7 +33,7 @@
 
   /* ---------------- Paywall ---------------- */
 
-  const money=(n,cur,lang)=>{try{return new Intl.NumberFormat({nl:'nl-NL',en:'en-US',pt:'pt-BR',de:'de-DE',es:'es-ES',fr:'fr-FR',it:'it-IT',ru:'ru-RU',da:'da-DK'}[lang]||'en-US',{style:'currency',currency:cur}).format(n)}catch{return n.toFixed(2)}};
+  const money=(n,cur,lang)=>{try{return new Intl.NumberFormat({nl:'nl-NL',en:'en-US',pt:'pt-BR',ptpt:'pt-PT',de:'de-DE',es:'es-ES',fr:'fr-FR',it:'it-IT',ru:'ru-RU',da:'da-DK'}[lang]||'en-US',{style:'currency',currency:cur}).format(n)}catch{return n.toFixed(2)}};
 
   K.showPremium=({from}={})=>{
     K.stopSpeech();K.lastView='premium';
@@ -144,7 +144,7 @@
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><div class="panel-kicker">${esc(t('premium.kicker'))}</div><h1>${esc(t('premium.name'))}</h1><p>${esc(t(s.trial?'premium.statusTrial':'premium.statusActive',{type:t(s.subscriptionType==='year'?'premium.yearly':'premium.monthly')}))}</p></div><span></span></header>
       <div class="panel-scroll"><div class="settings-list">
-        ${s.expirationDate?`<section class="setting-card"><div class="setting-icon">📅</div><div><b>${esc(t('premium.renews'))}</b><small>${esc(new Date(s.expirationDate).toLocaleDateString({nl:'nl-NL',en:'en-US',pt:'pt-BR',de:'de-DE',es:'es-ES',fr:'fr-FR',it:'it-IT',ru:'ru-RU',da:'da-DK'}[K.state.language]||'en-US'))}</small></div></section>`:''}
+        ${s.expirationDate?`<section class="setting-card"><div class="setting-icon">📅</div><div><b>${esc(t('premium.renews'))}</b><small>${esc(new Date(s.expirationDate).toLocaleDateString({nl:'nl-NL',en:'en-US',pt:'pt-BR',ptpt:'pt-PT',de:'de-DE',es:'es-ES',fr:'fr-FR',it:'it-IT',ru:'ru-RU',da:'da-DK'}[K.state.language]||'en-US'))}</small></div></section>`:''}
         <section class="setting-card clickable" id="premiumManage"><div class="setting-icon">⚙️</div><div><b>${esc(t('premium.manage'))}</b><small>${esc(t('premium.manageSub'))}</small></div><em>›</em></section>
         <section class="setting-card clickable" id="premiumRestore"><div class="setting-icon">🔄</div><div><b>${esc(t('premium.restore'))}</b><small>${esc(t('premium.restoreSub'))}</small></div><em>›</em></section>
       </div></div>

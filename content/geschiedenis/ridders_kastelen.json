@@ -95,6 +95,18 @@
           "explanation": "O cavaleiro andava a cavalo, e seu cavalo era caro e bem treinado.",
           "fact": "Um bom cavalo de cavaleiro às vezes custava tanto quanto uma casa pequena."
         },
+        "ptpt": {
+          "prompt": "Que animal acompanhava um cavaleiro?",
+          "answer": "O cavalo",
+          "wrong": [
+            "O elefante",
+            "O pinguim",
+            "O camelo"
+          ],
+          "hint": "Montava-o para ir aos torneios.",
+          "explanation": "O cavaleiro andava a cavalo, e o cavalo dele era caro e bem treinado.",
+          "fact": "Um bom cavalo de cavaleiro custava às vezes tanto como uma casa pequena."
+        },
         "da": {
           "prompt": "Hvilket dyr hørte til en ridder?",
           "answer": "Hesten",
@@ -224,6 +236,18 @@
           "hint": "Ele cantava músicas e contava histórias.",
           "explanation": "Os menestréis iam de castelo em castelo levando música e notícias.",
           "fact": "Muitas de suas canções falavam de viagens distantes e heróis corajosos."
+        },
+        "ptpt": {
+          "prompt": "O que era um menestrel?",
+          "answer": "Um músico viajante",
+          "wrong": [
+            "Um cozinheiro",
+            "Um ferreiro",
+            "Um camponês"
+          ],
+          "hint": "Cantava canções e contava histórias.",
+          "explanation": "Os menestréis andavam de castelo em castelo a levar música e notícias.",
+          "fact": "Muitas das suas canções falavam de viagens distantes e de heróis corajosos."
         },
         "da": {
           "prompt": "Hvad var en spillemand?",
@@ -355,6 +379,18 @@
           "explanation": "A bandeira mostrava quem era o senhor do castelo.",
           "fact": "Se não estava hasteada, o senhor costumava estar fora."
         },
+        "ptpt": {
+          "prompt": "O que ondula muitas vezes no alto de uma torre?",
+          "answer": "Uma bandeira",
+          "wrong": [
+            "Uma chaminé",
+            "Uma antena",
+            "Um moinho"
+          ],
+          "hint": "Nela vês as cores do senhor.",
+          "explanation": "A bandeira mostrava quem era o senhor do castelo.",
+          "fact": "Se não estava içada, o senhor costumava estar fora."
+        },
         "da": {
           "prompt": "Hvad vajer der ofte øverst på et borgtårn?",
           "answer": "En fane",
@@ -483,6 +519,18 @@
           ],
           "hint": "Feitos de cereais.",
           "explanation": "A comida do dia a dia era pão escuro, mingau e às vezes legumes.",
+          "fact": "A carne quase só aparecia nos dias de festa."
+        },
+        "ptpt": {
+          "prompt": "O que comia a gente simples na Idade Média?",
+          "answer": "Pão e papas",
+          "wrong": [
+            "Piza",
+            "Hambúrgueres",
+            "Batatas fritas"
+          ],
+          "hint": "Feito de cereais.",
+          "explanation": "A comida diária era pão escuro, papas e às vezes legumes.",
           "fact": "A carne quase só aparecia nos dias de festa."
         },
         "da": {
@@ -615,6 +663,18 @@
           "explanation": "Os criados dormiam sobre palha no salão, onde a lareira ficava acesa.",
           "fact": "Só o senhor e a família tinham quarto próprio."
         },
+        "ptpt": {
+          "prompt": "Onde dormiam os criados num castelo?",
+          "answer": "No grande salão",
+          "wrong": [
+            "No fosso",
+            "No telhado",
+            "No poço"
+          ],
+          "hint": "Perto do fogo.",
+          "explanation": "Os criados dormiam sobre palha no salão, onde ardia a lareira.",
+          "fact": "Só o senhor e a família tinham quarto próprio."
+        },
         "da": {
           "prompt": "Hvor sov tjenestefolkene på en borg?",
           "answer": "I den store sal",
@@ -744,6 +804,18 @@
           "hint": "Quase como um cachorro grande.",
           "explanation": "Uma boa armadura pesava de vinte a trinta quilos, distribuídos pelo corpo.",
           "fact": "Com ela, um cavaleiro treinado corria e até se levantava do chão."
+        },
+        "ptpt": {
+          "prompt": "Quanto pesava mais ou menos uma armadura completa?",
+          "answer": "Cerca de 25 quilos",
+          "wrong": [
+            "Cerca de 2 quilos",
+            "Cerca de 100 quilos",
+            "Cerca de 500 quilos"
+          ],
+          "hint": "Quase como um cão grande.",
+          "explanation": "Uma boa armadura pesava vinte a trinta quilos, repartidos pelo corpo.",
+          "fact": "Com ela um cavaleiro treinado corria e até se levantava do chão."
         },
         "da": {
           "prompt": "Hvor tung var en hel rustning omtrent?",
@@ -875,6 +947,18 @@
           "explanation": "Em uma torre estreita, a escada em caracol gira em volta de uma coluna central, e assim ela cabe.",
           "fact": "Depois de centenas de anos, os degraus de pedra costumam estar gastos no meio."
         },
+        "ptpt": {
+          "prompt": "Porque é que as torres dos castelos tinham muitas vezes uma escada em caracol?",
+          "answer": "Ocupa pouco espaço",
+          "wrong": [
+            "Traz sorte",
+            "É mais macia para pisar",
+            "Mantém a torre quente"
+          ],
+          "hint": "Uma torre é redonda e estreita.",
+          "explanation": "Numa torre estreita, a escada em caracol gira à volta de uma coluna central, e assim cabe.",
+          "fact": "Ao fim de centenas de anos, os degraus de pedra costumam estar gastos no meio."
+        },
         "da": {
           "prompt": "Hvorfor havde borgtårne ofte en vindeltrappe?",
           "answer": "Den fylder ikke meget",
@@ -1004,6 +1088,18 @@
           "hint": "Fica na passagem da porta.",
           "explanation": "Em caso de perigo, a grade pesada descia na passagem do portão.",
           "fact": "A grade ficava presa a correntes que passavam por uma grande roda de madeira acima do portão."
+        },
+        "ptpt": {
+          "prompt": "O que é a grade levadiça de um castelo?",
+          "answer": "Uma grade que cai",
+          "wrong": [
+            "Uma ponte sobre o fosso",
+            "Um alçapão no telhado",
+            "Uma janela com grades"
+          ],
+          "hint": "Fica na passagem da porta.",
+          "explanation": "Em caso de perigo, a grade pesada descia na passagem do portão.",
+          "fact": "A grade estava presa a correntes que passavam por uma grande roda de madeira por cima do portão."
         },
         "da": {
           "prompt": "Hvad er et faldgitter?",
@@ -1135,6 +1231,18 @@
           "explanation": "O bobo divertia a corte com piadas, canções e truques.",
           "fact": "Era o único que podia zombar do senhor sem levar castigo."
         },
+        "ptpt": {
+          "prompt": "O que fazia um bobo da corte?",
+          "answer": "Pôr as pessoas a rir",
+          "wrong": [
+            "Cuidar dos cavalos",
+            "Cozinhar a comida",
+            "Levantar as muralhas"
+          ],
+          "hint": "Usava um gorro com sinos.",
+          "explanation": "O bobo divertia a corte com piadas, canções e truques.",
+          "fact": "Era o único que podia gozar com o senhor sem castigo."
+        },
         "da": {
           "prompt": "Hvad gjorde en hofnar?",
           "answer": "Fik folk til at grine",
@@ -1264,6 +1372,18 @@
           "hint": "Sair já não era possível.",
           "explanation": "Sem poço próprio, um castelo cercado se rendia em poucos dias.",
           "fact": "Alguns poços tinham mais de quarenta metros de profundidade."
+        },
+        "ptpt": {
+          "prompt": "Porque é que cada castelo tinha um poço dentro das muralhas?",
+          "answer": "Para ter água num cerco",
+          "wrong": [
+            "Para criar peixes",
+            "Para deitar o lixo",
+            "Para tomar banho"
+          ],
+          "hint": "Sair já não era possível.",
+          "explanation": "Sem poço próprio, um castelo cercado cedia em poucos dias.",
+          "fact": "Alguns poços passavam dos quarenta metros de fundo."
         },
         "da": {
           "prompt": "Hvorfor havde hver borg en brønd inden for murene?",
@@ -1395,6 +1515,18 @@
           "explanation": "A partir dos sete anos, um menino servia primeiro como pajem e depois como escudeiro.",
           "fact": "Por volta dos vinte e um anos, ele era armado cavaleiro."
         },
+        "ptpt": {
+          "prompt": "Quanto durava a formação de um cavaleiro?",
+          "answer": "Cerca de catorze anos",
+          "wrong": [
+            "Cerca de uma semana",
+            "Cerca de um ano",
+            "Cerca de cinquenta anos"
+          ],
+          "hint": "Começava-se aos sete anos.",
+          "explanation": "Desde os sete anos um rapaz servia primeiro de pajem e depois de escudeiro.",
+          "fact": "Por volta dos vinte e um era armado cavaleiro."
+        },
         "da": {
           "prompt": "Hvor længe varede det at blive ridder?",
           "answer": "Omkring fjorten år",
@@ -1525,6 +1657,18 @@
           "explanation": "Em um cerco, um exército fechava um castelo até ele se render.",
           "fact": "Muitas vezes, tudo dependia de quem tinha comida suficiente por mais tempo."
         },
+        "ptpt": {
+          "prompt": "O que era um cerco?",
+          "answer": "Fechar um castelo",
+          "wrong": [
+            "Uma festa no castelo",
+            "Uma luta entre cavaleiros",
+            "Uma viagem ao oriente"
+          ],
+          "hint": "Esperar que a comida acabe.",
+          "explanation": "Num cerco um exército fechava um castelo até ele se render.",
+          "fact": "Muitas vezes tudo dependia de quem tinha comida para mais tempo."
+        },
         "da": {
           "prompt": "Hvad var en belejring?",
           "answer": "At lukke en borg inde",
@@ -1652,6 +1796,18 @@
             "Roupas para o senhor"
           ],
           "hint": "Ele trabalhava com fogo, ferro e uma bigorna.",
+          "explanation": "O ferreiro forjava ferraduras, pregos, fechaduras, dobradiças e ferramentas.",
+          "fact": "O som do martelo na bigorna ecoava por todo o pátio do castelo."
+        },
+        "ptpt": {
+          "prompt": "O que costumava fazer o ferreiro de um castelo?",
+          "answer": "Ferraduras para os cavalos",
+          "wrong": [
+            "Pão para o pequeno-almoço",
+            "Velas para a capela",
+            "Roupa para o senhor"
+          ],
+          "hint": "Trabalhava com fogo, ferro e uma bigorna.",
           "explanation": "O ferreiro forjava ferraduras, pregos, fechaduras, dobradiças e ferramentas.",
           "fact": "O som do martelo na bigorna ecoava por todo o pátio do castelo."
         },
@@ -1785,6 +1941,18 @@
           "explanation": "No porão fresco, grãos, legumes, queijo e carne salgada duravam muito tempo.",
           "fact": "Sem geladeira, o sal era o principal jeito de conservar os alimentos."
         },
+        "ptpt": {
+          "prompt": "Onde se guardava a comida num castelo?",
+          "answer": "Na despensa",
+          "wrong": [
+            "No telhado",
+            "No fosso",
+            "Na torre de vigia"
+          ],
+          "hint": "Debaixo da terra é fresco.",
+          "explanation": "Na despensa fresca, cereais, legumes, queijo e carne salgada duravam muito tempo.",
+          "fact": "Sem frigorífico, o sal era a principal maneira de conservar os alimentos."
+        },
         "da": {
           "prompt": "Hvor opbevarede man maden på en borg?",
           "answer": "I forrådskælderen",
@@ -1914,6 +2082,18 @@
           "hint": "Os livros custavam uma fortuna.",
           "explanation": "Ler e escrever se aprendia sobretudo em mosteiros e cortes ricas.",
           "fact": "Um monge podia levar um ano para copiar um só livro."
+        },
+        "ptpt": {
+          "prompt": "Quem sabia ler normalmente na Idade Média?",
+          "answer": "Monges e ricos",
+          "wrong": [
+            "Quase todos",
+            "Só as crianças",
+            "Ninguém mesmo"
+          ],
+          "hint": "Os livros custavam uma fortuna.",
+          "explanation": "Ler e escrever aprendia-se sobretudo em mosteiros e cortes ricas.",
+          "fact": "Copiar um só livro podia levar um ano a um monge."
         },
         "da": {
           "prompt": "Hvem kunne som regel læse i middelalderen?",
@@ -2045,6 +2225,18 @@
           "explanation": "Com a Magna Carta, até o rei tinha de obedecer à lei.",
           "fact": "A ideia continua viva em muitas constituições."
         },
+        "ptpt": {
+          "prompt": "Que documento limitou em 1215 o poder do rei?",
+          "answer": "A Magna Carta",
+          "wrong": [
+            "O código de cavalaria",
+            "O Domesday Book",
+            "A paz de Utrecht"
+          ],
+          "hint": "Os nobres ingleses impuseram-na.",
+          "explanation": "Com a Magna Carta também o rei tinha de obedecer à lei.",
+          "fact": "A ideia continua em muitas constituições."
+        },
         "da": {
           "prompt": "Hvilket dokument begrænsede kongens magt i 1215?",
           "answer": "Magna Carta",
@@ -2172,6 +2364,18 @@
             "Uma caverna na rocha"
           ],
           "hint": "Rápida de erguer com terra e madeira.",
+          "explanation": "Os primeiros castelos eram torres de madeira sobre um monte de terra.",
+          "fact": "Só mais tarde foram refeitos em pedra."
+        },
+        "ptpt": {
+          "prompt": "Como era o primeiro tipo de castelo?",
+          "answer": "Uma torre de madeira",
+          "wrong": [
+            "Um castelo de pedra",
+            "Um palácio com jardins",
+            "Uma gruta na rocha"
+          ],
+          "hint": "Rápido de erguer em terra e madeira.",
           "explanation": "Os primeiros castelos eram torres de madeira sobre um monte de terra.",
           "fact": "Só mais tarde foram refeitos em pedra."
         },
@@ -2305,6 +2509,18 @@
           "explanation": "De uma colina dava para ver visitantes e viajantes chegando de longe.",
           "fact": "Às vezes as próprias pessoas construíam essa colina; ela se chama mota."
         },
+        "ptpt": {
+          "prompt": "Porque é que muitos castelos ficavam numa colina?",
+          "answer": "Para ver ao longe",
+          "wrong": [
+            "Porque lá é mais quente",
+            "Para tocar nas estrelas",
+            "Porque lá nunca chove"
+          ],
+          "hint": "Lá de cima vês tudo a chegar.",
+          "explanation": "De uma colina dava para ver visitantes e viajantes a chegar de longe.",
+          "fact": "Às vezes eram as próprias pessoas que construíam essa colina; chama-se mota."
+        },
         "da": {
           "prompt": "Hvorfor lå mange borge på en bakke?",
           "answer": "For at kunne se langt",
@@ -2435,6 +2651,18 @@
           "explanation": "Alguns cercos se arrastavam por meses e até anos.",
           "fact": "Os sitiantes construíam cabanas e até uma aldeia."
         },
+        "ptpt": {
+          "prompt": "Quanto tempo podia durar um cerco?",
+          "answer": "Às vezes mais de um ano",
+          "wrong": [
+            "No máximo uma hora",
+            "No máximo um dia",
+            "Nunca mais de uma semana"
+          ],
+          "hint": "Os dois lados tinham de comer.",
+          "explanation": "Alguns cercos arrastavam-se meses e até anos.",
+          "fact": "Os sitiantes construíam cabanas e mesmo uma aldeia."
+        },
         "da": {
           "prompt": "Hvor længe kunne en belejring vare?",
           "answer": "Nogle gange over et år",
@@ -2563,6 +2791,18 @@
           ],
           "hint": "Muitas vezes restam só algumas paredes.",
           "explanation": "Quando ninguém mais morava neles, muitos castelos desmoronaram; às vezes suas pedras viravam casas.",
+          "fact": "Hoje dá para visitar e explorar muitas ruínas."
+        },
+        "ptpt": {
+          "prompt": "O que é a ruína de um castelo?",
+          "answer": "Um castelo desmoronado",
+          "wrong": [
+            "Um castelo novinho em folha",
+            "Um castelo de gelo",
+            "Um castelo de brinquedo"
+          ],
+          "hint": "Muitas vezes restam só algumas paredes.",
+          "explanation": "Quando já ninguém lá morava, muitos castelos desmoronaram-se; às vezes as suas pedras serviam para fazer casas.",
           "fact": "Hoje dá para visitar e explorar muitas ruínas."
         },
         "da": {

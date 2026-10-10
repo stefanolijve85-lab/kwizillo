@@ -102,7 +102,7 @@
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
   const devPrices={
     nl:{monthly:'€ 6,99',yearly:'€ 49,99',cur:'EUR'},en:{monthly:'$6.99',yearly:'$49.99',cur:'USD'},
-    pt:{monthly:'R$ 34,90',yearly:'R$ 249,90',cur:'BRL'},
+    pt:{monthly:'R$ 34,90',yearly:'R$ 249,90',cur:'BRL'},ptpt:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},
     de:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},es:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},
     fr:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},it:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},
     ru:{monthly:'6,99 €',yearly:'49,99 €',cur:'EUR'},da:{monthly:'54,99 kr.',yearly:'399,00 kr.',cur:'DKK'}

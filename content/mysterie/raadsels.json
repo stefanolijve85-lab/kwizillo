@@ -95,6 +95,18 @@
           "explanation": "As páginas de um livro também se chamam folhas.",
           "fact": "Nos livros antigos, se contavam folhas, não páginas."
         },
+        "ptpt": {
+          "prompt": "Tenho folhas mas não sou uma árvore. O que sou?",
+          "answer": "Um livro",
+          "wrong": [
+            "Uma pedra",
+            "Uma nuvem",
+            "Um sapato"
+          ],
+          "hint": "Viras-me uma a uma.",
+          "explanation": "As páginas de um livro também se chamam folhas.",
+          "fact": "Nos livros antigos contavam-se folhas, não páginas."
+        },
         "da": {
           "prompt": "Jeg har blade, men er ikke et træ. Hvad er jeg?",
           "answer": "En bog",
@@ -224,6 +236,18 @@
           "hint": "Gosto de vento.",
           "explanation": "A cauda mantém a pipa reta no ar.",
           "fact": "Sem cauda, ela gira sem parar e mergulha."
+        },
+        "ptpt": {
+          "prompt": "Tenho cauda mas não sou um animal. O que sou?",
+          "answer": "Um papagaio de papel",
+          "wrong": [
+            "Uma cadeira",
+            "Uma montanha",
+            "Um candeeiro"
+          ],
+          "hint": "Gosto de vento.",
+          "explanation": "A cauda mantém o papagaio direito no ar.",
+          "fact": "Sem cauda ele roda sobre si e mergulha."
         },
         "da": {
           "prompt": "Jeg har en hale, men er ikke et dyr. Hvad er jeg?",
@@ -355,6 +379,18 @@
           "explanation": "A parte de cima de um cogumelo se chama chapéu.",
           "fact": "Embaixo desse chapéu há lâminas cheias de esporos."
         },
+        "ptpt": {
+          "prompt": "Tenho chapéu mas não tenho cabeça. O que sou?",
+          "answer": "Um cogumelo",
+          "wrong": [
+            "Um sapato",
+            "Um prato",
+            "Uma cadeira"
+          ],
+          "hint": "Cresço no bosque.",
+          "explanation": "A parte de cima de um cogumelo chama-se chapéu.",
+          "fact": "Sob esse chapéu há lâminas cheias de esporos."
+        },
         "da": {
           "prompt": "Jeg har en hat, men intet hoved. Hvad er jeg?",
           "answer": "En svamp",
@@ -482,6 +518,18 @@
             "Uma folha"
           ],
           "hint": "Você me espreme.",
+          "explanation": "A água fica presa nos buraquinhos da esponja.",
+          "fact": "Uma esponja natural é na verdade o esqueleto de um animal marinho."
+        },
+        "ptpt": {
+          "prompt": "Estou cheio de buracos e ainda assim seguro água. O que sou?",
+          "answer": "Uma esponja",
+          "wrong": [
+            "Um balde",
+            "Uma pedra",
+            "Uma folha"
+          ],
+          "hint": "Espremes-me.",
           "explanation": "A água fica presa nos buraquinhos da esponja.",
           "fact": "Uma esponja natural é na verdade o esqueleto de um animal marinho."
         },
@@ -615,6 +663,18 @@
           "explanation": "O seu corpo bloqueia a luz, e no chão fica uma forma escura.",
           "fact": "Ao meio-dia essa forma é a mais curta."
         },
+        "ptpt": {
+          "prompt": "Sigo-te por todo o lado mas nunca te toco. O que sou?",
+          "answer": "A tua sombra",
+          "wrong": [
+            "O teu sapato",
+            "A tua cadeira",
+            "O teu casaco"
+          ],
+          "hint": "Sem luz desapareço.",
+          "explanation": "O teu corpo trava a luz e no chão fica uma forma escura.",
+          "fact": "Ao meio-dia essa forma é a mais curta."
+        },
         "da": {
           "prompt": "Jeg følger dig overalt, men rører dig aldrig. Hvad er jeg?",
           "answer": "Din skygge",
@@ -743,6 +803,18 @@
           ],
           "hint": "Pense em uma praia.",
           "explanation": "Cada passo que você dá fica atrás de você.",
+          "fact": "Na lama seca algumas pegadas duram milhões de anos."
+        },
+        "ptpt": {
+          "prompt": "Quanto mais levas, mais deixas para trás. O que são?",
+          "answer": "As pegadas",
+          "wrong": [
+            "Maçãs",
+            "Moedas",
+            "Folhas"
+          ],
+          "hint": "Pensa numa praia.",
+          "explanation": "Cada passo que dás fica atrás de ti.",
           "fact": "Na lama seca algumas pegadas duram milhões de anos."
         },
         "da": {
@@ -875,6 +947,18 @@
           "explanation": "Enquanto a cera arde, a vela vai ficando mais curta.",
           "fact": "A chama, na verdade, queima o vapor da cera derretida."
         },
+        "ptpt": {
+          "prompt": "Fico mais curta enquanto trabalho e dou luz. O que sou?",
+          "answer": "Uma vela",
+          "wrong": [
+            "Uma janela",
+            "Uma estrela",
+            "Uma lâmpada"
+          ],
+          "hint": "Com uma chama no cimo.",
+          "explanation": "Enquanto a cera arde, a vela vai ficando mais curta.",
+          "fact": "A chama queima na verdade o vapor da cera derretida."
+        },
         "da": {
           "prompt": "Jeg bliver kortere, mens jeg arbejder, og jeg giver lys. Hvad er jeg?",
           "answer": "Et stearinlys",
@@ -1005,6 +1089,18 @@
           "explanation": "O fundo por onde corre um rio se chama leito.",
           "fact": "Em uma enchente, às vezes o rio abre um leito totalmente novo."
         },
+        "ptpt": {
+          "prompt": "Tenho leito mas nunca durmo. O que sou?",
+          "answer": "Um rio",
+          "wrong": [
+            "Um hotel",
+            "Uma cadeira",
+            "Uma almofada"
+          ],
+          "hint": "Corro para o mar.",
+          "explanation": "O fundo por onde corre um rio chama-se leito.",
+          "fact": "Numa cheia o rio abre às vezes um leito totalmente novo."
+        },
         "da": {
           "prompt": "Jeg har en seng, men sover aldrig. Hvad er jeg?",
           "answer": "En flod",
@@ -1133,6 +1229,18 @@
           ],
           "hint": "O esforço é seu.",
           "explanation": "Uma escada leva você para cima e para baixo enquanto fica parada.",
+          "fact": "A altura de um degrau é quase igual no mundo inteiro."
+        },
+        "ptpt": {
+          "prompt": "Subo e desço mas nunca me mexo. O que sou?",
+          "answer": "Uma escada",
+          "wrong": [
+            "Uma porta",
+            "Uma janela",
+            "Uma parede"
+          ],
+          "hint": "O esforço é teu.",
+          "explanation": "Uma escada leva-te acima e abaixo enquanto fica parada.",
           "fact": "A altura de um degrau é quase igual no mundo inteiro."
         },
         "da": {
@@ -1265,6 +1373,18 @@
           "explanation": "A parte plana de cima de um prego se chama cabeça.",
           "fact": "É essa cabeça que segura a madeira no lugar."
         },
+        "ptpt": {
+          "prompt": "Tenho cabeça mas nunca bebo. O que sou?",
+          "answer": "Um prego",
+          "wrong": [
+            "Uma chávena",
+            "Um cão",
+            "Uma árvore"
+          ],
+          "hint": "O martelo bate-me.",
+          "explanation": "A parte plana de cima de um prego chama-se cabeça.",
+          "fact": "É essa cabeça que segura a madeira no lugar."
+        },
         "da": {
           "prompt": "Jeg har et hoved, men drikker aldrig. Hvad er jeg?",
           "answer": "Et søm",
@@ -1394,6 +1514,18 @@
           "hint": "Experimente.",
           "explanation": "A mão direita não consegue agarrar o cotovelo do próprio braço.",
           "fact": "Com a esquerda, dá certo na hora."
+        },
+        "ptpt": {
+          "prompt": "O que podes segurar com a mão esquerda mas nunca com a direita?",
+          "answer": "O teu cotovelo direito",
+          "wrong": [
+            "Uma maçã",
+            "Uma chave",
+            "Uma caneta"
+          ],
+          "hint": "Experimenta.",
+          "explanation": "A mão direita não consegue agarrar o cotovelo do próprio braço.",
+          "fact": "Com a esquerda resulta logo."
         },
         "da": {
           "prompt": "Hvad kan du holde i venstre hånd, men aldrig i højre?",
@@ -1525,6 +1657,18 @@
           "explanation": "O que está por vir fica na sua frente e continua invisível.",
           "fact": "Assim que você alcança o futuro, ele se chama presente."
         },
+        "ptpt": {
+          "prompt": "Estou sempre à tua frente mas nunca me vês. O que sou?",
+          "answer": "O futuro",
+          "wrong": [
+            "O teu nariz",
+            "A parede",
+            "A porta"
+          ],
+          "hint": "Amanhã chego mais perto.",
+          "explanation": "O que está por vir fica à tua frente e continua invisível.",
+          "fact": "Assim que alcanças o futuro, chama-se presente."
+        },
         "da": {
           "prompt": "Jeg er altid foran dig, men du ser mig aldrig. Hvad er jeg?",
           "answer": "Fremtiden",
@@ -1654,6 +1798,18 @@
           "hint": "Fale baixinho.",
           "explanation": "No instante em que você diz a palavra, o silêncio acabou.",
           "fact": "Silêncio total de verdade quase não existe em lugar nenhum."
+        },
+        "ptpt": {
+          "prompt": "Parto-me assim que dizes o meu nome. O que sou?",
+          "answer": "O silêncio",
+          "wrong": [
+            "Um copo",
+            "Um ramo",
+            "Um osso"
+          ],
+          "hint": "Diz baixinho.",
+          "explanation": "No instante em que dizes a palavra, o silêncio acabou.",
+          "fact": "Silêncio mesmo total quase não existe em parte alguma."
         },
         "da": {
           "prompt": "Jeg går i stykker, så snart du siger mit navn. Hvad er jeg?",
@@ -1785,6 +1941,18 @@
           "explanation": "O fogo precisa de combustível, e a água o apaga na hora.",
           "fact": "O fogo não é uma coisa, mas uma reação: combustível, oxigênio e calor."
         },
+        "ptpt": {
+          "prompt": "Tenho sempre fome e morro se bebo. O que sou?",
+          "answer": "O fogo",
+          "wrong": [
+            "Um peixe",
+            "Uma planta",
+            "Uma pedra"
+          ],
+          "hint": "Como madeira e papel.",
+          "explanation": "O fogo precisa de combustível, e a água apaga-o logo.",
+          "fact": "O fogo não é uma coisa mas uma reação: combustível, oxigénio e calor."
+        },
         "da": {
           "prompt": "Jeg er altid sulten og dør, hvis jeg drikker. Hvad er jeg?",
           "answer": "Ilden",
@@ -1915,6 +2083,18 @@
           "explanation": "Um quilo é sempre um quilo, por mais leve ou pesado que pareça.",
           "fact": "Um quilo de penas é que ocupa muito mais espaço."
         },
+        "ptpt": {
+          "prompt": "O que pesa mais: um quilo de penas ou um quilo de pedra?",
+          "answer": "Pesam o mesmo",
+          "wrong": [
+            "As penas",
+            "A pedra",
+            "Ninguém pode saber"
+          ],
+          "hint": "Lê o que está escrito.",
+          "explanation": "Um quilo é sempre um quilo, por mais leve ou pesado que pareça.",
+          "fact": "Um quilo de penas ocupa é muito mais espaço."
+        },
         "da": {
           "prompt": "Hvad vejer mest: et kilo fjer eller et kilo sten?",
           "answer": "De vejer lige meget",
@@ -2043,6 +2223,18 @@
           ],
           "hint": "Alguém é duas coisas ao mesmo tempo.",
           "explanation": "O homem do meio é filho do avô e pai do menino.",
+          "fact": "Três pessoas cumprem assim quatro papéis."
+        },
+        "ptpt": {
+          "prompt": "Dois pais e dois filhos pescam um peixe cada um, três ao todo. Como?",
+          "answer": "Avô, pai e filho",
+          "wrong": [
+            "Um peixe fugiu",
+            "Partilham um peixe",
+            "Eram quatro pessoas"
+          ],
+          "hint": "Alguém é duas coisas ao mesmo tempo.",
+          "explanation": "O homem do meio é filho do avô e pai do rapaz.",
           "fact": "Três pessoas cumprem assim quatro papéis."
         },
         "da": {
@@ -2175,6 +2367,18 @@
           "explanation": "Os outros dizem o seu nome muito mais vezes do que você.",
           "fact": "Mesmo em uma sala barulhenta, você o reconhece na hora."
         },
+        "ptpt": {
+          "prompt": "É teu, mas os outros usam-no muito mais do que tu. O que é?",
+          "answer": "O teu nome",
+          "wrong": [
+            "A tua bicicleta",
+            "A tua mochila",
+            "A tua cama"
+          ],
+          "hint": "Ouve-lo o dia inteiro.",
+          "explanation": "Os outros dizem o teu nome muito mais vezes do que tu.",
+          "fact": "Mesmo numa sala barulhenta reconhece-lo logo."
+        },
         "da": {
           "prompt": "Det er dit, men andre bruger det langt mere end du. Hvad er det?",
           "answer": "Dit navn",
@@ -2304,6 +2508,18 @@
           "hint": "No último dia já não escorrega.",
           "explanation": "Depois de sete dias, ele está a sete metros e, no oitavo, sai de uma vez.",
           "fact": "Se você esquecer esse dia, conta dois a mais."
+        },
+        "ptpt": {
+          "prompt": "Um caracol sobe três metros por dia e desce dois à noite. Quantos dias até dez metros?",
+          "answer": "Oito dias",
+          "wrong": [
+            "Dez dias",
+            "Cinco dias",
+            "Doze dias"
+          ],
+          "hint": "No último dia já não escorrega.",
+          "explanation": "Ao fim de sete dias está a sete metros e no oitavo sai de uma vez.",
+          "fact": "Se esqueceres esse dia, contas dois a mais."
         },
         "da": {
           "prompt": "En snegl kravler tre meter om dagen og glider to ned om natten. Hvor mange dage til ti?",
@@ -2435,6 +2651,18 @@
           "explanation": "Um bebê engatinha, um adulto caminha e um idoso usa bengala.",
           "fact": "Este enigma tem milhares de anos e vem da Grécia."
         },
+        "ptpt": {
+          "prompt": "Quem anda de manhã em quatro pernas, ao meio-dia em duas e à tarde em três?",
+          "answer": "O ser humano",
+          "wrong": [
+            "Um cão",
+            "Uma mesa",
+            "Uma aranha"
+          ],
+          "hint": "Uma vida inteira num dia.",
+          "explanation": "Um bebé gatinha, um adulto caminha e um idoso usa bengala.",
+          "fact": "Este enigma tem milhares de anos e vem da Grécia."
+        },
         "da": {
           "prompt": "Hvem går om morgenen på fire ben, ved middag på to og om aftenen på tre?",
           "answer": "Mennesket",
@@ -2564,6 +2792,18 @@
           "hint": "Feche os olhos.",
           "explanation": "Sem luz, os seus olhos não distinguem nada.",
           "fact": "Depois de vinte minutos no escuro, os seus olhos enxergam dez vezes melhor."
+        },
+        "ptpt": {
+          "prompt": "Quanto mais de mim houver, menos vês. O que sou?",
+          "answer": "A escuridão",
+          "wrong": [
+            "A luz",
+            "A água",
+            "O som"
+          ],
+          "hint": "Fecha os olhos.",
+          "explanation": "Sem luz os teus olhos não distinguem nada.",
+          "fact": "Após vinte minutos no escuro os teus olhos veem dez vezes melhor."
         },
         "da": {
           "prompt": "Jo mere der er af mig, jo mindre ser du. Hvad er jeg?",

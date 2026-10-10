@@ -95,6 +95,18 @@
           "explanation": "Só um foguete sobe alto e rápido o suficiente para chegar ao espaço.",
           "fact": "Um foguete chega a quase 28.000 quilômetros por hora."
         },
+        "ptpt": {
+          "prompt": "Como se vai para o espaço?",
+          "answer": "Num foguetão",
+          "wrong": [
+            "Num avião",
+            "Num barco",
+            "Num elevador"
+          ],
+          "hint": "É preciso um empurrão enorme.",
+          "explanation": "Só um foguetão sobe alto e depressa o suficiente para chegar ao espaço.",
+          "fact": "Um foguetão chega a quase 28.000 quilómetros por hora."
+        },
         "da": {
           "prompt": "Hvordan kommer man ud i rummet?",
           "answer": "Med en raket",
@@ -225,6 +237,18 @@
           "explanation": "Os astronautas bebem de um saco mole com canudo, senão tudo sai flutuando.",
           "fact": "Uma gota derramada vira uma bola flutuante."
         },
+        "ptpt": {
+          "prompt": "De onde bebem os astronautas?",
+          "answer": "De um saco com palhinha",
+          "wrong": [
+            "De um copo aberto",
+            "De uma garrafa aberta",
+            "Das mãos"
+          ],
+          "hint": "Beber ao ar livre voaria.",
+          "explanation": "Bebe-se de um saco mole com palhinha, senão tudo sai a flutuar.",
+          "fact": "Uma gota entornada vira uma bola a flutuar."
+        },
         "da": {
           "prompt": "Hvad drikker astronauter af?",
           "answer": "En pose med sugerør",
@@ -353,6 +377,18 @@
           ],
           "hint": "Você voa bem em cima dela.",
           "explanation": "A estação gira ao redor da Terra, por isso a Terra está sempre embaixo.",
+          "fact": "Pela janela redonda passam países inteiros."
+        },
+        "ptpt": {
+          "prompt": "O que vês por baixo de ti da estação espacial?",
+          "answer": "A Terra",
+          "wrong": [
+            "O Sol",
+            "Marte",
+            "Mesmo nada"
+          ],
+          "hint": "Voas logo por cima dela.",
+          "explanation": "A estação anda à volta da Terra, por isso a Terra está sempre em baixo.",
           "fact": "Pela janela redonda passam países inteiros."
         },
         "da": {
@@ -485,6 +521,18 @@
           "explanation": "Da câmara, o ar é retirado antes de sair.",
           "fact": "Sem ela todo o ar sairia de uma vez."
         },
+        "ptpt": {
+          "prompt": "Por onde sai um astronauta para o exterior?",
+          "answer": "Por uma câmara de ar",
+          "wrong": [
+            "Pela janela",
+            "Pela porta da frente",
+            "Por um alçapão no chão"
+          ],
+          "hint": "Uma porta fecha antes de a outra abrir.",
+          "explanation": "Da câmara de ar tira-se o ar antes de sair.",
+          "fact": "Sem ela todo o ar sairia de uma vez."
+        },
         "da": {
           "prompt": "Hvordan kommer en astronaut udenfor?",
           "answer": "Gennem en luftsluse",
@@ -612,6 +660,18 @@
             "Um chapéu"
           ],
           "hint": "Ele se prende ao traje.",
+          "explanation": "O capacete mantém o ar dentro e o sol forte fora.",
+          "fact": "Lá dentro há também um microfone para falar."
+        },
+        "ptpt": {
+          "prompt": "O que leva um astronauta na cabeça?",
+          "answer": "Um capacete",
+          "wrong": [
+            "Um boné",
+            "Um gorro",
+            "Um chapéu"
+          ],
+          "hint": "Prende-se ao fato.",
           "explanation": "O capacete mantém o ar dentro e o sol forte fora.",
           "fact": "Lá dentro há também um microfone para falar."
         },
@@ -745,6 +805,18 @@
           "explanation": "Usam um xampu especial que não precisa de enxágue.",
           "fact": "A estação não tem chuveiro onde a água caia."
         },
+        "ptpt": {
+          "prompt": "Como lavam o cabelo os astronautas?",
+          "answer": "Com champô sem água",
+          "wrong": [
+            "No duche",
+            "Numa banheira",
+            "Nunca o lavam"
+          ],
+          "hint": "A água flutuaria por todo o lado.",
+          "explanation": "Usam um champô especial que não precisa de ser enxaguado.",
+          "fact": "A estação não tem duche onde a água caia."
+        },
         "da": {
           "prompt": "Hvordan vasker astronauter hår?",
           "answer": "Med shampoo uden vand",
@@ -873,6 +945,18 @@
           ],
           "hint": "A eletricidade separa um líquido conhecido.",
           "explanation": "Uma máquina separa a água com eletricidade em oxigênio e hidrogênio.",
+          "fact": "Os painéis solares dão essa eletricidade."
+        },
+        "ptpt": {
+          "prompt": "De onde vem o ar da estação espacial?",
+          "answer": "Da água com corrente",
+          "wrong": [
+            "Diretamente do espaço",
+            "De plantas a bordo",
+            "De garrafas enviadas"
+          ],
+          "hint": "A eletricidade separa um líquido conhecido.",
+          "explanation": "Uma máquina separa a água com eletricidade em oxigénio e hidrogénio.",
           "fact": "Os painéis solares dão essa eletricidade."
         },
         "da": {
@@ -1005,6 +1089,18 @@
           "explanation": "A estação anda tão rápido que o Sol nasce dezesseis vezes por dia.",
           "fact": "Uma volta demora cerca de noventa minutos."
         },
+        "ptpt": {
+          "prompt": "Quantas vezes por dia veem ali o Sol nascer?",
+          "answer": "Dezasseis vezes",
+          "wrong": [
+            "Uma vez",
+            "Duas vezes",
+            "Nunca"
+          ],
+          "hint": "Dão a volta à Terra em hora e meia.",
+          "explanation": "A estação anda tão depressa que o Sol nasce dezasseis vezes por dia.",
+          "fact": "Uma volta demora cerca de noventa minutos."
+        },
         "da": {
           "prompt": "Hvor tit ser astronauterne dér solen stå op?",
           "answer": "Seksten gange om dagen",
@@ -1134,6 +1230,18 @@
           "hint": "Nada as puxa para baixo.",
           "explanation": "As lágrimas ficam no olho como uma bolinha de água.",
           "fact": "Os astronautas as enxugam com um pano."
+        },
+        "ptpt": {
+          "prompt": "O que acontece às lágrimas sem gravidade?",
+          "answer": "Ficam agarradas ao olho",
+          "wrong": [
+            "Caem para baixo",
+            "Evaporam logo",
+            "Congelam"
+          ],
+          "hint": "Nada as puxa para baixo.",
+          "explanation": "As lágrimas ficam no olho como uma bolinha de água.",
+          "fact": "Os astronautas limpam-nas com um pano."
         },
         "da": {
           "prompt": "Hvad sker der med tårer i vægtløshed?",
@@ -1265,6 +1373,18 @@
           "explanation": "O branco reflete o sol forte para o traje não esquentar demais.",
           "fact": "Na sombra, ele pode ficar gelado."
         },
+        "ptpt": {
+          "prompt": "Porque é branco um fato espacial?",
+          "answer": "Para afastar o calor",
+          "wrong": [
+            "Porque fica bonito",
+            "Para parecer neve",
+            "Para ver a sujidade"
+          ],
+          "hint": "O branco devolve a luz do Sol.",
+          "explanation": "O branco reflete o sol forte para o fato não aquecer de mais.",
+          "fact": "À sombra pode ficar gelado."
+        },
         "da": {
           "prompt": "Hvorfor er en rumdragt hvid?",
           "answer": "For at holde varmen ude",
@@ -1394,6 +1514,18 @@
           "hint": "Volta a entrar na atmosfera.",
           "explanation": "O lixo vai em uma nave de carga que depois queima na atmosfera.",
           "fact": "Assim não fica sucata girando ao redor da Terra."
+        },
+        "ptpt": {
+          "prompt": "O que acontece ao lixo da estação espacial?",
+          "answer": "Vai numa nave de carga",
+          "wrong": [
+            "Vai borda fora",
+            "É queimado a bordo",
+            "Fica num armário"
+          ],
+          "hint": "Volta a entrar na atmosfera.",
+          "explanation": "O lixo vai numa nave de carga que depois arde na atmosfera.",
+          "fact": "Assim não fica sucata a andar à volta da Terra."
         },
         "da": {
           "prompt": "Hvad sker der med affaldet i rumstationen?",
@@ -1525,6 +1657,18 @@
           "explanation": "Valeri Polyakov passou 437 dias seguidos no espaço.",
           "fact": "Esse recorde existe desde 1995."
         },
+        "ptpt": {
+          "prompt": "Quanto durou a viagem espacial mais longa de uma pessoa?",
+          "answer": "Mais de um ano",
+          "wrong": [
+            "Uma semana",
+            "Um mês",
+            "Dez anos"
+          ],
+          "hint": "Mais de quatrocentos dias.",
+          "explanation": "Valeri Poliakov esteve 437 dias seguidos no espaço.",
+          "fact": "Esse recorde dura desde 1995."
+        },
         "da": {
           "prompt": "Hvor længe varede den længste rumrejse for ét menneske?",
           "answer": "Over et år",
@@ -1655,6 +1799,18 @@
           "explanation": "A ISS é uma parceria de quinze países.",
           "fact": "Portugal participa por meio da Agência Espacial Europeia."
         },
+        "ptpt": {
+          "prompt": "Quantos países trabalham juntos na estação espacial?",
+          "answer": "Quinze",
+          "wrong": [
+            "Dois",
+            "Cinquenta",
+            "Cem"
+          ],
+          "hint": "Mais de dez e menos de vinte.",
+          "explanation": "A ISS é uma parceria de quinze países.",
+          "fact": "Portugal participa através da agência espacial europeia."
+        },
         "da": {
           "prompt": "Hvor mange lande samarbejder om rumstationen?",
           "answer": "Femten",
@@ -1783,6 +1939,18 @@
           ],
           "hint": "Desceu a escada primeiro em 1969.",
           "explanation": "Neil Armstrong deu o primeiro passo na Lua em 20 de julho de 1969.",
+          "fact": "A pegada ainda lá está, porque não há vento."
+        },
+        "ptpt": {
+          "prompt": "Quem pôs primeiro o pé na Lua?",
+          "answer": "Neil Armstrong",
+          "wrong": [
+            "Yuri Gagarin",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "hint": "Desceu a escada primeiro em 1969.",
+          "explanation": "Neil Armstrong deu o primeiro passo na Lua a 20 de julho de 1969.",
           "fact": "A pegada ainda lá está, porque não há vento."
         },
         "da": {
@@ -1915,6 +2083,18 @@
           "explanation": "Depois de meses flutuando, as pernas precisam se acostumar de novo.",
           "fact": "Com algumas semanas de treino, ele fica bem."
         },
+        "ptpt": {
+          "prompt": "Porque levam o astronauta ao colo depois de aterrar?",
+          "answer": "As pernas estão fracas",
+          "wrong": [
+            "Faz parte da festa",
+            "Não pode pisar o chão",
+            "O fato pesa de mais"
+          ],
+          "hint": "Há meses que não está de pé.",
+          "explanation": "Depois de meses a flutuar, as pernas têm de se habituar outra vez.",
+          "fact": "Com umas semanas de treino fica bem."
+        },
         "da": {
           "prompt": "Hvorfor bæres en astronaut efter landingen?",
           "answer": "Benene er stadig svage",
@@ -2045,6 +2225,18 @@
           "explanation": "Em 1965, Alexei Leonov foi o primeiro a flutuar fora da sua nave.",
           "fact": "O traje inchou tanto que ele quase não conseguiu voltar."
         },
+        "ptpt": {
+          "prompt": "Quem fez o primeiro passeio no espaço?",
+          "answer": "Alexei Leonov",
+          "wrong": [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "André Kuipers"
+          ],
+          "hint": "Foi em 1965, preso a um cabo.",
+          "explanation": "Em 1965 Alexei Leonov flutuou primeiro fora da sua nave.",
+          "fact": "O fato inchou tanto que quase não conseguiu voltar."
+        },
         "da": {
           "prompt": "Hvem lavede den allerførste rumvandring?",
           "answer": "Aleksej Leonov",
@@ -2173,6 +2365,18 @@
           ],
           "hint": "Mais do que uma pessoa adulta.",
           "explanation": "Um traje espacial completo pesa na Terra cerca de 120 quilos.",
+          "fact": "No espaço não se sente esse peso."
+        },
+        "ptpt": {
+          "prompt": "Quanto pesa um fato espacial na Terra?",
+          "answer": "Cerca de 120 quilos",
+          "wrong": [
+            "Cerca de 10 quilos",
+            "Cerca de 50 quilos",
+            "Cerca de 300 quilos"
+          ],
+          "hint": "Mais do que uma pessoa adulta.",
+          "explanation": "Um fato espacial completo pesa na Terra cerca de 120 quilos.",
           "fact": "No espaço não se sente esse peso."
         },
         "da": {
@@ -2305,6 +2509,18 @@
           "explanation": "Respirar oxigênio puro tira o nitrogênio do sangue.",
           "fact": "Os mergulhadores fazem algo parecido ao subir."
         },
+        "ptpt": {
+          "prompt": "Porque respira um astronauta oxigénio puro antes?",
+          "answer": "Para tirar o azoto",
+          "wrong": [
+            "Para cheirar melhor",
+            "Para ficar acordado",
+            "Para encher o fato"
+          ],
+          "hint": "Senão formam-se bolhas no sangue.",
+          "explanation": "Respirar oxigénio puro tira o azoto do sangue.",
+          "fact": "Os mergulhadores fazem algo parecido ao subir."
+        },
         "da": {
           "prompt": "Hvorfor indånder en astronaut først ren ilt?",
           "answer": "For at fjerne kvælstof",
@@ -2435,6 +2651,18 @@
           "explanation": "A ISS voa a cerca de 400 quilômetros de altura.",
           "fact": "Lá em cima ainda há um fiozinho de ar que a freia."
         },
+        "ptpt": {
+          "prompt": "A que altura voa a estação espacial?",
+          "answer": "Cerca de 400 quilómetros",
+          "wrong": [
+            "Cerca de 40 quilómetros",
+            "Cerca de 4000 quilómetros",
+            "Cerca de 40.000 quilómetros"
+          ],
+          "hint": "Mais ou menos Lisboa-Porto, mas para cima.",
+          "explanation": "A ISS voa a cerca de 400 quilómetros de altura.",
+          "fact": "Lá em cima ainda há um fio de ar que a trava."
+        },
         "da": {
           "prompt": "Hvor højt over Jorden flyver rumstationen?",
           "answer": "Cirka 400 kilometer",
@@ -2554,6 +2782,18 @@
           "fact": "È fatta di tre parti a forma di T."
         },
         "pt": {
+          "prompt": "Como se chama a estação espacial chinesa?",
+          "answer": "Tiangong",
+          "wrong": [
+            "Mir",
+            "Skylab",
+            "Artemis"
+          ],
+          "hint": "O nome significa palácio celeste.",
+          "explanation": "Tiangong é a estação espacial da China.",
+          "fact": "É feita de três partes em forma de T."
+        },
+        "ptpt": {
           "prompt": "Como se chama a estação espacial chinesa?",
           "answer": "Tiangong",
           "wrong": [

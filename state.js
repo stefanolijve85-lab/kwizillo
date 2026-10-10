@@ -17,11 +17,12 @@
   // A new player starts in the language of the device when Kwizillo speaks it,
   // otherwise in English (the widest fallback). Someone who already chose a
   // language keeps it: this only fills in a state that has none yet.
-  const SUPPORTED=['nl','en','de','fr','es','it','pt','da','ru','ar'];
+  const SUPPORTED=['nl','en','de','fr','es','it','pt','ptpt','da','ru','ar'];
   function deviceLanguage(){
     try{
       for(const tag of [...(navigator.languages||[]),navigator.language]){
-        const base=String(tag||'').toLowerCase().split(/[-_]/)[0];
+        const low=String(tag||'').toLowerCase(),base=low.split(/[-_]/)[0];
+        if(/^pt[-_]pt\b/.test(low)) return 'ptpt';   // Portugal: European Portuguese; every other pt is Brazilian
         if(SUPPORTED.includes(base)) return base;
       }
     }catch(e){}

@@ -95,6 +95,18 @@
           "explanation": "Um vulcão é uma montanha por onde pode sair rocha derretida.",
           "fact": "Na Terra há cerca de mil e quinhentos vulcões ativos."
         },
+        "ptpt": {
+          "prompt": "O que é um vulcão?",
+          "answer": "Uma montanha que explode",
+          "wrong": [
+            "Um lago fundo",
+            "Um rio grande",
+            "Um bloco de gelo"
+          ],
+          "hint": "Às vezes sai fumo do cimo.",
+          "explanation": "Um vulcão é uma montanha por onde pode sair rocha derretida.",
+          "fact": "Na Terra há cerca de mil e quinhentos vulcões ativos."
+        },
         "da": {
           "prompt": "Hvad er en vulkan?",
           "answer": "Et bjerg, der kan bryde ud",
@@ -224,6 +236,18 @@
           "hint": "De dia faz um calor escaldante.",
           "explanation": "Em um deserto quase não chove.",
           "fact": "Já à noite pode fazer um frio de rachar."
+        },
+        "ptpt": {
+          "prompt": "Onde há muita areia e quase nada de chuva?",
+          "answer": "No deserto",
+          "wrong": [
+            "Na floresta",
+            "Na neve",
+            "Na cidade"
+          ],
+          "hint": "De dia está um calor escaldante.",
+          "explanation": "Num deserto quase não cai chuva.",
+          "fact": "De noite pode, pelo contrário, fazer um frio de rachar."
         },
         "da": {
           "prompt": "Hvor finder man meget sand og næsten ingen regn?",
@@ -355,6 +379,18 @@
           "explanation": "Um rio leva a água de cima para baixo, normalmente até o mar.",
           "fact": "No caminho, ele arrasta areia e pedrinhas."
         },
+        "ptpt": {
+          "prompt": "O que é um rio?",
+          "answer": "Água que corre para o mar",
+          "wrong": [
+            "Um lago parado",
+            "Uma montanha alta",
+            "Uma nuvem grande"
+          ],
+          "hint": "Começa pequenino na montanha.",
+          "explanation": "Um rio leva a água de cima para baixo, normalmente até ao mar.",
+          "fact": "Pelo caminho arrasta areia e pedrinhas."
+        },
         "da": {
           "prompt": "Hvad er en flod?",
           "answer": "Vand, der løber mod havet",
@@ -484,6 +520,18 @@
           "hint": "Como uma praia, mas debaixo d'água.",
           "explanation": "O fundo do mar é feito de areia, lodo e rocha.",
           "fact": "Em alguns lugares há cordilheiras enormes."
+        },
+        "ptpt": {
+          "prompt": "O que há no fundo do mar?",
+          "answer": "Areia e rochas",
+          "wrong": [
+            "Erva",
+            "Neve",
+            "Betão"
+          ],
+          "hint": "Como uma praia, mas debaixo de água.",
+          "explanation": "O fundo do mar é feito de areia, lodo e rocha.",
+          "fact": "Nalguns sítios há cordilheiras enormes."
         },
         "da": {
           "prompt": "Hvad ligger der på havbunden?",
@@ -615,6 +663,18 @@
           "explanation": "A água do mar é tão salgada que dá ainda mais sede.",
           "fact": "O corpo precisa de mais água para se livrar desse sal."
         },
+        "ptpt": {
+          "prompt": "Que água não se pode beber assim?",
+          "answer": "Água do mar",
+          "wrong": [
+            "Água da chuva",
+            "Água da nascente",
+            "Água da torneira"
+          ],
+          "hint": "Sabe a sal.",
+          "explanation": "A água do mar é tão salgada que dá ainda mais sede.",
+          "fact": "O corpo precisa de mais água para se livrar desse sal."
+        },
         "da": {
           "prompt": "Hvilket vand kan man ikke bare drikke?",
           "answer": "Havvand",
@@ -738,6 +798,18 @@
           "answer": "A água dissolve a rocha",
           "wrong": [
             "Os animais a cavam",
+            "Cai do céu",
+            "Cresce sozinha"
+          ],
+          "hint": "Demora milhares de anos.",
+          "explanation": "A água da chuva dissolve devagar o calcário e abre uma gruta.",
+          "fact": "As estalactites crescem um centímetro por século."
+        },
+        "ptpt": {
+          "prompt": "Como se forma uma gruta com estalactites?",
+          "answer": "A água dissolve a rocha",
+          "wrong": [
+            "Os animais cavam-na",
             "Cai do céu",
             "Cresce sozinha"
           ],
@@ -875,6 +947,18 @@
           "explanation": "Uma cachoeira se forma onde um rio passa por um degrau de rocha dura.",
           "fact": "O Salto Ángel, na Venezuela, tem quase um quilômetro de queda."
         },
+        "ptpt": {
+          "prompt": "O que é uma queda de água?",
+          "answer": "Água que cai de um degrau",
+          "wrong": [
+            "Um lago fundo",
+            "Uma onda grande",
+            "Chuva na montanha"
+          ],
+          "hint": "Ouve-se de longe.",
+          "explanation": "Uma queda de água forma-se onde um rio passa um degrau de rocha dura.",
+          "fact": "O Salto Ángel, na Venezuela, cai quase um quilómetro."
+        },
         "da": {
           "prompt": "Hvad er et vandfald?",
           "answer": "Vand, der falder ud",
@@ -1003,6 +1087,18 @@
           ],
           "hint": "Quanto mais você sobe, mais fino fica o ar.",
           "explanation": "Lá em cima o ar é rarefeito e segura mal o calor.",
+          "fact": "Por cada mil metros a temperatura desce uns seis graus."
+        },
+        "ptpt": {
+          "prompt": "Porque faz mais frio no cimo de uma montanha?",
+          "answer": "O ar ali é mais rarefeito",
+          "wrong": [
+            "Estás mais perto do sol",
+            "Há sempre neve",
+            "O vento vem de cima"
+          ],
+          "hint": "Quanto mais sobes, mais fino fica o ar.",
+          "explanation": "Lá em cima o ar é rarefeito e retém mal o calor.",
           "fact": "Por cada mil metros a temperatura desce uns seis graus."
         },
         "da": {
@@ -1135,6 +1231,18 @@
           "explanation": "Um fiorde é um vale glaciar que o mar encheu mais tarde.",
           "fact": "Alguns fiordes têm mais de um quilômetro de profundidade."
         },
+        "ptpt": {
+          "prompt": "O que é um fiorde?",
+          "answer": "Um vale cheio de mar",
+          "wrong": [
+            "Uma queda de água alta",
+            "Um deserto de gelo",
+            "Uma baía redonda"
+          ],
+          "hint": "Encontram-se sobretudo na Noruega.",
+          "explanation": "Um fiorde é um vale glaciar que o mar encheu mais tarde.",
+          "fact": "Alguns fiordes têm mais de um quilómetro de fundo."
+        },
         "da": {
           "prompt": "Hvad er en fjord?",
           "answer": "En dyb dal fuld af havvand",
@@ -1264,6 +1372,18 @@
           "hint": "Cai do céu.",
           "explanation": "A chuva e a neve derretida enchem rios, lagos e lençóis freáticos.",
           "fact": "A água das nuvens, por sua vez, vem principalmente do mar."
+        },
+        "ptpt": {
+          "prompt": "De onde vem quase toda a água doce?",
+          "answer": "Da chuva e da neve",
+          "wrong": [
+            "Do mar",
+            "Do sol",
+            "Do vento"
+          ],
+          "hint": "Cai do céu.",
+          "explanation": "A chuva e a neve derretida enchem rios, lagos e lençóis de água.",
+          "fact": "A água das nuvens vem, por sua vez, sobretudo do mar."
         },
         "da": {
           "prompt": "Hvor kommer næsten alt ferskvand fra?",
@@ -1395,6 +1515,18 @@
           "explanation": "A Antártida é um deserto frio: quase não cai precipitação.",
           "fact": "Em alguns pontos não chove há milhões de anos."
         },
+        "ptpt": {
+          "prompt": "Qual é o maior deserto do mundo?",
+          "answer": "A Antártida",
+          "wrong": [
+            "O Sara",
+            "O Gobi",
+            "O Kalahari"
+          ],
+          "hint": "Um deserto não tem de ser quente.",
+          "explanation": "A Antártida é um deserto frio: quase não cai precipitação.",
+          "fact": "Nalguns pontos não chove há milhões de anos."
+        },
         "da": {
           "prompt": "Hvad er verdens største ørken?",
           "answer": "Antarktis",
@@ -1524,6 +1656,18 @@
           "hint": "Funciona como uma lixa de gelo.",
           "explanation": "Uma geleira vai escavando vales largos na rocha.",
           "fact": "Os blocos que ela arrasta vão parar a centenas de quilômetros."
+        },
+        "ptpt": {
+          "prompt": "O que faz um glaciar à paisagem?",
+          "answer": "Escava vales",
+          "wrong": [
+            "Torna as montanhas maiores",
+            "Enche os mares",
+            "Não muda nada"
+          ],
+          "hint": "Funciona como lixa de gelo.",
+          "explanation": "Um glaciar vai escavando vales largos na rocha.",
+          "fact": "Os blocos que arrasta acabam a centenas de quilómetros."
         },
         "da": {
           "prompt": "Hvad gør en gletsjer ved landskabet?",
@@ -1655,6 +1799,18 @@
           "explanation": "Quase toda a água da Terra é salgada; só uns poucos por cento é doce.",
           "fact": "E a maior parte dessa água doce está presa no gelo."
         },
+        "ptpt": {
+          "prompt": "Quanta da água da Terra é água doce?",
+          "answer": "Apenas uns poucos por cento",
+          "wrong": [
+            "Cerca de metade",
+            "Cerca de trinta por cento",
+            "Quase toda"
+          ],
+          "hint": "O resto é salgada.",
+          "explanation": "Quase toda a água da Terra é salgada; só uns poucos por cento é doce.",
+          "fact": "E a maior parte dessa água doce está presa nos gelos."
+        },
         "da": {
           "prompt": "Hvor meget af Jordens vand er ferskvand?",
           "answer": "Kun få procent",
@@ -1783,6 +1939,18 @@
           ],
           "hint": "Jorra de tempos em tempos.",
           "explanation": "Em um gêiser, o calor da Terra empurra a água subterrânea para cima.",
+          "fact": "A Islândia e Yellowstone estão cheios deles."
+        },
+        "ptpt": {
+          "prompt": "O que é um géiser?",
+          "answer": "Um repuxo de água a ferver",
+          "wrong": [
+            "Uma nascente fria",
+            "Um vulcão de gelo",
+            "Um poço fundo"
+          ],
+          "hint": "Jorra de tempos a tempos.",
+          "explanation": "Num géiser o calor da Terra empurra a água subterrânea para cima.",
           "fact": "A Islândia e Yellowstone estão cheios deles."
         },
         "da": {
@@ -1915,6 +2083,18 @@
           "explanation": "Acima do limite das árvores faz frio demais e venta demais.",
           "fact": "Nos Alpes, esse limite fica em torno de dois mil metros."
         },
+        "ptpt": {
+          "prompt": "Porque deixam de crescer árvores no alto da montanha?",
+          "answer": "Está frio de mais",
+          "wrong": [
+            "O solo está molhado de mais",
+            "Há sol de mais",
+            "As árvores não querem"
+          ],
+          "hint": "Há um limite acima do qual acabam.",
+          "explanation": "Acima do limite das árvores faz frio e vento de mais.",
+          "fact": "Nos Alpes esse limite anda pelos dois mil metros."
+        },
         "da": {
           "prompt": "Hvorfor vokser der ikke træer højt oppe i bjergene?",
           "answer": "Der er for koldt",
@@ -2035,6 +2215,18 @@
         },
         "pt": {
           "prompt": "Que porcentagem da água do mar é sal?",
+          "answer": "Cerca de 3,5 por cento",
+          "wrong": [
+            "Cerca de 0,5 por cento",
+            "Cerca de 10 por cento",
+            "Cerca de 35 por cento"
+          ],
+          "hint": "Mais ou menos uma colher por copo.",
+          "explanation": "Cada litro de água do mar tem cerca de trinta e cinco gramas de sal.",
+          "fact": "O sal de todos os mares cobriria a terra com uma camada grossa."
+        },
+        "ptpt": {
+          "prompt": "Que percentagem da água do mar é sal?",
           "answer": "Cerca de 3,5 por cento",
           "wrong": [
             "Cerca de 0,5 por cento",
@@ -2175,6 +2367,18 @@
           "explanation": "O lago Baikal tem mais de mil e seiscentos metros de profundidade.",
           "fact": "Ele contém um quinto de toda a água doce líquida do planeta."
         },
+        "ptpt": {
+          "prompt": "Qual é o lago mais fundo do mundo?",
+          "answer": "O lago Baikal",
+          "wrong": [
+            "O lago Michigan",
+            "O lago Vitória",
+            "O lago de Constança"
+          ],
+          "hint": "Fica na Sibéria.",
+          "explanation": "O lago Baikal tem mais de mil e seiscentos metros de profundidade.",
+          "fact": "Contém um quinto de toda a água doce líquida do planeta."
+        },
         "da": {
           "prompt": "Hvad er verdens dybeste sø?",
           "answer": "Bajkalsøen",
@@ -2304,6 +2508,18 @@
           "hint": "A chuva, o gelo e o vento tratam disso.",
           "explanation": "A erosão transforma picos afiados em colinas baixas e redondas.",
           "fact": "As colinas da Escócia já foram tão altas quanto os Alpes."
+        },
+        "ptpt": {
+          "prompt": "O que acontece a uma cordilheira ao fim de milhões de anos?",
+          "answer": "Desgasta-se até colinas",
+          "wrong": [
+            "Fica cada vez mais alta",
+            "Afunda-se no mar",
+            "Vira areia"
+          ],
+          "hint": "A chuva, o gelo e o vento tratam disso.",
+          "explanation": "A erosão transforma picos afiados em colinas baixas e redondas.",
+          "fact": "As colinas da Escócia foram um dia tão altas como os Alpes."
         },
         "da": {
           "prompt": "Hvad sker der med en bjergkæde efter millioner af år?",
@@ -2435,6 +2651,18 @@
           "explanation": "O plâncton do mar produz cerca de metade de todo o oxigênio.",
           "fact": "Você deve ao mar uma em cada duas respirações."
         },
+        "ptpt": {
+          "prompt": "De onde vem boa parte do nosso oxigénio?",
+          "answer": "Do oceano",
+          "wrong": [
+            "Do deserto",
+            "Dos vulcões",
+            "Do vento"
+          ],
+          "hint": "Não é só das florestas.",
+          "explanation": "O plâncton do mar produz cerca de metade de todo o oxigénio.",
+          "fact": "Deves ao mar uma em cada duas respirações."
+        },
         "da": {
           "prompt": "Hvor kommer en stor del af vores ilt fra?",
           "answer": "Fra havet",
@@ -2564,6 +2792,18 @@
           "hint": "Mais fundo do que o Everest é alto.",
           "explanation": "O ponto mais fundo fica quase onze quilômetros abaixo da superfície.",
           "fact": "O Everest caberia lá dentro com folga."
+        },
+        "ptpt": {
+          "prompt": "Que profundidade tem o ponto mais fundo do oceano?",
+          "answer": "Cerca de onze quilómetros",
+          "wrong": [
+            "Cerca de um quilómetro",
+            "Cerca de três quilómetros",
+            "Cerca de 50 quilómetros"
+          ],
+          "hint": "Mais fundo do que o Evereste é alto.",
+          "explanation": "O ponto mais fundo fica quase onze quilómetros abaixo da superfície.",
+          "fact": "O Evereste cabia lá dentro com folga."
         },
         "da": {
           "prompt": "Hvor dybt er havets dybeste sted cirka?",

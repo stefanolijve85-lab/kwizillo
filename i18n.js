@@ -2474,6 +2474,7 @@
     {id:'es',label:'Español',flag:'🇪🇸'},
     {id:'it',label:'Italiano',flag:'🇮🇹'},
     {id:'pt',label:'Português (Brasil)',flag:'🇧🇷'},
+    {id:'ptpt',label:'Português (Portugal)',flag:'🇵🇹'},
     {id:'da',label:'Dansk',flag:'🇩🇰'},
     {id:'ru',label:'Русский',flag:'🇷🇺'},
     {id:'ar',label:'العربية',flag:'🇸🇦',dir:'rtl'}

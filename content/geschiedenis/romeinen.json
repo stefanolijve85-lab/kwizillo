@@ -95,6 +95,18 @@
           "explanation": "Roma era o centro do império, com o imperador e o senado.",
           "fact": "Cada marco das estradas contava a distância até Roma."
         },
+        "ptpt": {
+          "prompt": "Que cidade era a capital do Império Romano?",
+          "answer": "Roma",
+          "wrong": [
+            "Atenas",
+            "Paris",
+            "O Cairo"
+          ],
+          "hint": "Todos os caminhos lá iam dar.",
+          "explanation": "Roma era o centro do império, com o imperador e o senado.",
+          "fact": "Cada marco das estradas contava a distância até Roma."
+        },
         "da": {
           "prompt": "Hvilken by var hovedstad i Romerriget?",
           "answer": "Rom",
@@ -224,6 +236,18 @@
           "hint": "Encontrou os bebês perto do rio.",
           "explanation": "A lenda diz que uma loba amamentou os gêmeos que fundaram Roma.",
           "fact": "A estátua da loba continua sendo o símbolo de Roma."
+        },
+        "ptpt": {
+          "prompt": "Que animal amamentou Rómulo e Remo na lenda?",
+          "answer": "Uma loba",
+          "wrong": [
+            "Um urso",
+            "Uma águia",
+            "Uma cabra"
+          ],
+          "hint": "Encontrou os bebés junto ao rio.",
+          "explanation": "A lenda diz que uma loba amamentou os gémeos que fundaram Roma.",
+          "fact": "A estátua da loba continua a ser o símbolo de Roma."
         },
         "da": {
           "prompt": "Hvilket dyr diede Romulus og Remus i sagnet?",
@@ -355,6 +379,18 @@
           "explanation": "A toga era um pano de lã enrolado ao redor do corpo.",
           "fact": "Só os cidadãos romanos podiam usá-la."
         },
+        "ptpt": {
+          "prompt": "O que é uma toga?",
+          "answer": "Uma veste comprida",
+          "wrong": [
+            "Um elmo",
+            "Um sapato",
+            "Um navio"
+          ],
+          "hint": "Põe-se sobre o ombro.",
+          "explanation": "A toga era um pano de lã enrolado à volta do corpo.",
+          "fact": "Só os cidadãos romanos a podiam usar."
+        },
         "da": {
           "prompt": "Hvad er en toga?",
           "answer": "En lang klædning",
@@ -483,6 +519,18 @@
           ],
           "hint": "Duas rodas e muita poeira.",
           "explanation": "As corridas de bigas eram o esporte favorito, com quatro equipes e cores.",
+          "fact": "No Circo Máximo cabiam mais de cem mil pessoas."
+        },
+        "ptpt": {
+          "prompt": "O que puxavam os cavalos na arena romana?",
+          "answer": "Uma biga de corrida",
+          "wrong": [
+            "Um carro",
+            "Um comboio",
+            "Uma bicicleta"
+          ],
+          "hint": "Duas rodas e muito pó.",
+          "explanation": "As corridas de bigas eram o desporto favorito, com quatro equipas e cores.",
           "fact": "No Circo Máximo cabiam mais de cem mil pessoas."
         },
         "da": {
@@ -615,6 +663,18 @@
           "explanation": "Roma fica às margens do rio Tibre, no centro da Itália.",
           "fact": "Dentro de Roma existe um país minúsculo: o Vaticano."
         },
+        "ptpt": {
+          "prompt": "Em que país fica Roma?",
+          "answer": "Em Itália",
+          "wrong": [
+            "Em Espanha",
+            "No Egito",
+            "Na Grécia"
+          ],
+          "hint": "O país tem forma de bota.",
+          "explanation": "Roma fica junto ao rio Tibre, no meio da Itália.",
+          "fact": "Dentro de Roma há um país minúsculo: o Vaticano."
+        },
         "da": {
           "prompt": "I hvilket land ligger Rom?",
           "answer": "I Italien",
@@ -743,6 +803,18 @@
           ],
           "hint": "Pequeno e simples, muitas vezes salgado.",
           "explanation": "O café da manhã romano era pequeno: pão, queijo, azeitonas ou um pouco de fruta.",
+          "fact": "A maior refeição do dia era a cena, no fim da tarde."
+        },
+        "ptpt": {
+          "prompt": "O que costumavam os romanos comer ao pequeno-almoço?",
+          "answer": "Pão com queijo ou azeitonas",
+          "wrong": [
+            "Cereais com leite",
+            "Panquecas com xarope",
+            "Pão com creme de chocolate"
+          ],
+          "hint": "Pequeno e simples, muitas vezes salgado.",
+          "explanation": "O pequeno-almoço romano era pequeno: pão, queijo, azeitonas ou um pouco de fruta.",
           "fact": "A maior refeição do dia era a cena, no fim da tarde."
         },
         "da": {
@@ -875,6 +947,18 @@
           "explanation": "Os romanos ricos tinham uma villa no campo, com pátio e fonte.",
           "fact": "Embaixo de muitas vilas havia porões cheios de grãos e azeite."
         },
+        "ptpt": {
+          "prompt": "O que era uma villa romana?",
+          "answer": "Uma grande casa de campo",
+          "wrong": [
+            "Um barco pequeno",
+            "Um tipo de pão",
+            "Um instrumento musical"
+          ],
+          "hint": "Fora da cidade, com jardim.",
+          "explanation": "Os romanos ricos tinham uma villa no campo, com pátio e fonte.",
+          "fact": "Por baixo de muitas villas havia caves cheias de cereais e azeite."
+        },
         "da": {
           "prompt": "Hvad var en romersk villa?",
           "answer": "Et stort landhus",
@@ -1004,6 +1088,18 @@
           "hint": "Tiras e pregos.",
           "explanation": "Os soldados usavam sandálias com pregos na sola, para não escorregar.",
           "fact": "Uma sola dessas se gastava depois de uns quinhentos quilômetros."
+        },
+        "ptpt": {
+          "prompt": "O que usavam os romanos nos pés?",
+          "answer": "Sandálias de couro",
+          "wrong": [
+            "Tamancos de madeira",
+            "Botas de borracha",
+            "Chinelos de lã"
+          ],
+          "hint": "Tiras e pregos.",
+          "explanation": "Os soldados usavam sandálias com pregos na sola, para não escorregar.",
+          "fact": "Uma sola dessas gastava-se ao fim de uns quinhentos quilómetros."
         },
         "da": {
           "prompt": "Hvad gik romerne med på fødderne?",
@@ -1135,6 +1231,18 @@
           "explanation": "Os escravos trabalhavam na casa, nos campos e nas minas, sem salário nem liberdade.",
           "fact": "Alguns eram libertados e chegavam a ter sua própria loja."
         },
+        "ptpt": {
+          "prompt": "Quem fazia o trabalho mais duro numa casa romana?",
+          "answer": "Os escravos",
+          "wrong": [
+            "Os imperadores",
+            "Os senadores",
+            "Os soldados"
+          ],
+          "hint": "Não podiam escolher.",
+          "explanation": "Os escravos faziam a casa, os campos e as minas, sem salário nem liberdade.",
+          "fact": "Alguns eram libertados e chegavam a ter loja própria."
+        },
         "da": {
           "prompt": "Hvem udførte det hårdeste arbejde i et romersk hjem?",
           "answer": "Slaverne",
@@ -1264,6 +1372,18 @@
           "hint": "Acabava em bico.",
           "explanation": "Os romanos transportavam azeite, grãos e molho de peixe pelo mar em ânforas.",
           "fact": "O bico se encaixava na areia ou em um suporte a bordo."
+        },
+        "ptpt": {
+          "prompt": "O que era uma ânfora?",
+          "answer": "Um grande pote de barro",
+          "wrong": [
+            "Um tipo de navio",
+            "Um elmo",
+            "Uma moeda"
+          ],
+          "hint": "Acabava em bico.",
+          "explanation": "Os romanos transportavam azeite, cereais e molho de peixe pelo mar em ânforas.",
+          "fact": "O bico encaixava na areia ou num suporte a bordo."
         },
         "da": {
           "prompt": "Hvad var en amfora?",
@@ -1395,6 +1515,18 @@
           "explanation": "Augusto se tornou o primeiro imperador em 27 antes de Cristo.",
           "fact": "Dizia ter encontrado Roma feita de tijolo e tê-la deixado de mármore."
         },
+        "ptpt": {
+          "prompt": "Quem foi o primeiro imperador de Roma?",
+          "answer": "Augusto",
+          "wrong": [
+            "Nero",
+            "Aníbal",
+            "Trajano"
+          ],
+          "hint": "Era o filho adotivo de César.",
+          "explanation": "Augusto tornou-se o primeiro imperador em 27 antes de Cristo.",
+          "fact": "Dizia ter encontrado Roma de tijolo e deixá-la de mármore."
+        },
         "da": {
           "prompt": "Hvem var Roms første kejser?",
           "answer": "Augustus",
@@ -1524,6 +1656,18 @@
           "hint": "Você despeja líquido e ele endurece.",
           "explanation": "O concreto de cinza vulcânica permitiu erguer cúpulas e portos.",
           "fact": "O Panteão sustenta sua cúpula de concreto há dois mil anos."
+        },
+        "ptpt": {
+          "prompt": "Que invenção permitiu as enormes cúpulas romanas?",
+          "answer": "O betão",
+          "wrong": [
+            "O papel",
+            "O vidro",
+            "A pólvora"
+          ],
+          "hint": "Deita-se líquido e fica duro.",
+          "explanation": "O betão de cinza vulcânica permitiu erguer cúpulas e portos.",
+          "fact": "O Panteão sustenta a sua cúpula de betão há dois mil anos."
         },
         "da": {
           "prompt": "Hvilken opfindelse gav romerne kæmpe kupler?",
@@ -1655,6 +1799,18 @@
           "explanation": "Nas Saturnais havia banquetes e as pessoas davam presentes.",
           "fact": "Por um dia, os escravos se sentavam e os donos serviam."
         },
+        "ptpt": {
+          "prompt": "Que festa romana caía a meio do inverno?",
+          "answer": "As Saturnais",
+          "wrong": [
+            "As Lupercais",
+            "As Olimpíadas",
+            "As Vestais"
+          ],
+          "hint": "Trocavam-se pequenos presentes.",
+          "explanation": "Nas Saturnais havia banquetes e as pessoas ofereciam prendas.",
+          "fact": "Por um dia os escravos sentavam-se e os donos serviam."
+        },
         "da": {
           "prompt": "Hvilken romersk fest lå midt om vinteren?",
           "answer": "Saturnalia",
@@ -1784,6 +1940,18 @@
           "hint": "Seu templo era redondo.",
           "explanation": "As vestais mantinham o fogo sagrado de Roma aceso dia e noite.",
           "fact": "Se ele se apagasse, temiam pela cidade inteira."
+        },
+        "ptpt": {
+          "prompt": "Que deusa guardava um fogo que nunca podia apagar-se?",
+          "answer": "Vesta",
+          "wrong": [
+            "Vénus",
+            "Juno",
+            "Diana"
+          ],
+          "hint": "O seu templo era redondo.",
+          "explanation": "As vestais mantinham o fogo sagrado de Roma aceso dia e noite.",
+          "fact": "Se se apagasse, temia-se pela cidade inteira."
         },
         "da": {
           "prompt": "Hvilken gudinde vogtede en ild, der aldrig måtte gå ud?",
@@ -1915,6 +2083,18 @@
           "explanation": "A semana romana ia de mercado a mercado, durante oito dias.",
           "fact": "Só séculos depois eles adotaram a semana de sete dias."
         },
+        "ptpt": {
+          "prompt": "Quantos dias tinha a antiga semana romana?",
+          "answer": "Oito dias",
+          "wrong": [
+            "Sete dias",
+            "Cinco dias",
+            "Dez dias"
+          ],
+          "hint": "O oitavo dia era de mercado.",
+          "explanation": "A semana romana ia de mercado a mercado, durante oito dias.",
+          "fact": "Só séculos depois adotaram a semana de sete dias."
+        },
         "da": {
           "prompt": "Hvor mange dage havde den gamle romerske uge?",
           "answer": "Otte dage",
@@ -2044,6 +2224,18 @@
           "hint": "Há mais de quinze séculos.",
           "explanation": "Em 476 o último imperador do Ocidente foi deposto.",
           "fact": "A parte oriental durou ainda quase mil anos."
+        },
+        "ptpt": {
+          "prompt": "Em que ano caiu o Império Romano do Ocidente?",
+          "answer": "No ano 476",
+          "wrong": [
+            "No ano 1066",
+            "No ano 79",
+            "No ano 1492"
+          ],
+          "hint": "Há mais de quinze séculos.",
+          "explanation": "Em 476 o último imperador do Ocidente foi deposto.",
+          "fact": "A parte oriental continuou quase mais mil anos."
         },
         "da": {
           "prompt": "I hvilket år faldt Vestromerriget?",
@@ -2175,6 +2367,18 @@
           "explanation": "A Via Ápia foi traçada já em 312 antes de Cristo, de Roma rumo ao sul.",
           "fact": "Alguns trechos continuam lá depois de mais de dois mil anos."
         },
+        "ptpt": {
+          "prompt": "Como se chamava a mais famosa estrada romana?",
+          "answer": "A Via Ápia",
+          "wrong": [
+            "A Via Maris",
+            "A rota da seda",
+            "O limes"
+          ],
+          "hint": "Sai de Roma para sul.",
+          "explanation": "A Via Ápia foi traçada já em 312 antes de Cristo, de Roma para sul.",
+          "fact": "Há troços que lá continuam após mais de dois mil anos."
+        },
         "da": {
           "prompt": "Hvad hed den mest berømte romerske hovedvej?",
           "answer": "Via Appia",
@@ -2304,6 +2508,18 @@
           "hint": "Vinha de Cartago.",
           "explanation": "Aníbal surpreendeu Roma atravessando as montanhas com um exército e elefantes.",
           "fact": "Quase nenhum de seus elefantes sobreviveu à travessia."
+        },
+        "ptpt": {
+          "prompt": "Que general atravessou os Alpes com elefantes?",
+          "answer": "Aníbal",
+          "wrong": [
+            "César",
+            "Nero",
+            "Augusto"
+          ],
+          "hint": "Vinha de Cartago.",
+          "explanation": "Aníbal surpreendeu Roma ao atravessar as montanhas com um exército e elefantes.",
+          "fact": "Quase nenhum dos seus elefantes sobreviveu à travessia."
         },
         "da": {
           "prompt": "Hvilken hærfører krydsede Alperne med elefanter?",
@@ -2435,6 +2651,18 @@
           "explanation": "Um fogo aquecia o vão embaixo do chão, e o calor subia por ele.",
           "fact": "Isso se chamava hipocausto, e o chão às vezes queimava os pés."
         },
+        "ptpt": {
+          "prompt": "Como aqueciam a casa os romanos ricos?",
+          "answer": "Ar quente sob o chão",
+          "wrong": [
+            "Com um fogão a carvão",
+            "Com peles de animais",
+            "Com água quente na cama"
+          ],
+          "hint": "Em baixo ardia um fogo.",
+          "explanation": "Um fogo aquecia o vão sob o chão e o calor subia por ele.",
+          "fact": "Chamava-se hipocausto, e o chão às vezes queimava os pés."
+        },
         "da": {
           "prompt": "Hvordan varmede rige romere deres hus op?",
           "answer": "Varm luft under gulvet",
@@ -2555,6 +2783,18 @@
         },
         "pt": {
           "prompt": "Quantas pessoas viviam em Roma por volta do ano 100?",
+          "answer": "Cerca de um milhão",
+          "wrong": [
+            "Cerca de mil",
+            "Cerca de dez mil",
+            "Mais de cem milhões"
+          ],
+          "hint": "Como uma grande cidade de hoje.",
+          "explanation": "Roma era então a maior cidade do mundo, com perto de um milhão de pessoas.",
+          "fact": "Nenhuma cidade europeia voltou a esse número antes de 1800."
+        },
+        "ptpt": {
+          "prompt": "Quanta gente vivia em Roma por volta do ano 100?",
           "answer": "Cerca de um milhão",
           "wrong": [
             "Cerca de mil",
