@@ -1807,3 +1807,29 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* Buddies less zoomed in (Stefan, 2026-10-10): the figure at 80% of the tile, standing on
    the name band, with air above the head. */
 .mascot-card .mascot-fill{inset:auto 0 30px 0;height:calc(80% - 10px);object-position:center bottom}
+/* Talen (Stefan, 2026-10-10): first "Ik spreek" (a row of flags that scrolls sideways,
+   the chosen one first), then the language to learn; the passport opens on wide tiles,
+   one per kind of lesson (Woordjes, Zinnetjes, more later), each with three of its pictures. */
+.talen-speaks{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.talen-speaks::-webkit-scrollbar{display:none}
+.talen-speaks .talen-flag{flex:0 0 auto;min-width:92px;min-height:84px;padding:8px 10px;scroll-snap-align:start}
+.talen-speaks .talen-flag .talen-flag-icon{font-size:32px}
+.talen-speaks .talen-flag small{display:none}
+.talen-langpick .talen-section{margin-top:4px}
+.talen-pass .talen-lang-switch .talen-lang-arrow{color:#6a7fb0;font-weight:1000;margin:0 -2px}
+.talen-cats{display:grid;gap:12px}
+.talen-cat{position:relative;display:flex;align-items:center;gap:12px;width:100%;min-height:clamp(104px,17vh,150px);padding:14px 16px 14px 20px;box-sizing:border-box;border:0;border-radius:24px;overflow:hidden;font:inherit;text-align:start;cursor:pointer;color:#fff;background:linear-gradient(135deg,#5b6cff,#7a3fe0);box-shadow:0 6px 0 #3e2aa8,0 12px 22px rgba(60,40,170,.28);transition:transform .15s ease}
+.talen-cat[data-cat="sentences"]{background:linear-gradient(135deg,#ff8a3d,#ef4f8a);box-shadow:0 6px 0 #b7305f,0 12px 22px rgba(190,50,100,.28)}
+.talen-cat:active{transform:translateY(3px)}
+.talen-cat-copy{display:grid;gap:4px;flex:1;min-width:0;z-index:1}
+.talen-cat-copy b{font-size:clamp(22px,6vw,30px);font-weight:1000;line-height:1.05;text-shadow:0 2px 0 rgba(0,0,0,.18)}
+.talen-cat-copy small{font-size:14px;font-weight:900;opacity:.92}
+.talen-cat-fan{position:relative;flex:none;width:clamp(120px,36vw,190px);height:clamp(76px,13vh,110px)}
+.talen-cat-fan img{position:absolute;top:50%;width:62%;aspect-ratio:1;object-fit:cover;border-radius:16px;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.25);background:#fff}
+.talen-cat-fan img:nth-child(1){inset-inline-start:0;transform:translateY(-50%) rotate(-9deg);z-index:1}
+.talen-cat-fan img:nth-child(2){inset-inline-start:19%;transform:translateY(-55%) rotate(2deg);z-index:2}
+.talen-cat-fan img:nth-child(3){inset-inline-start:38%;transform:translateY(-50%) rotate(10deg);z-index:3}
+.talen-cat-go{flex:none;font-size:34px;font-weight:1000;line-height:1;opacity:.9;z-index:1}
+[dir="rtl"] .talen-cat-go{transform:scaleX(-1)}
+.talen-cat-title{font-size:20px;margin-top:4px}
+@media(min-width:700px){.talen-cats{grid-template-columns:1fr 1fr}}

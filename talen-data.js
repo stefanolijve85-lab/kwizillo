@@ -25,6 +25,10 @@
     // "almost" in several wordings (_goed1.._goed16, _bijna1.._bijna6).
     lines:['intro','betekent'],praise:16,almost:6,
     rounds:8,
+    // The passport's wide tiles: a kind of lesson each (a theme's `kind`, 'woord'
+    // when it has none). A new kind (2026-10-10: more will follow) only needs a line here
+    // and talen.section.<id> in the strings.
+    categories:[{id:'words',kind:'woord',mix:true},{id:'sentences',kind:'zin'}],
     themes:[
       {id:'dieren',icon:'🐬',free:true,words:[
         {id:'dolphin',img:img('dolphin'),text:{nl:'dolfijn',en:'dolphin',de:'Delfin',fr:'dauphin',es:'delfín',it:'delfino',pt:'golfinho',da:'delfin',ru:'дельфин',ar:'دلفين'}},

@@ -293,6 +293,8 @@
     'talen.theme.praten':'Hablar',
     'talen.section.words':'Palabras',
     'talen.section.sentences':'Frases',
+    'talen.speakHead':'Yo hablo',
+    'talen.catThemes':"{n} temas",
     'talen.theme.huis':'Casa',
     'talen.theme.natuur':'Naturaleza',
     'talen.theme.familie':'Familia',

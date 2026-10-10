@@ -292,6 +292,8 @@
     'talen.theme.praten':'Sprechen',
     'talen.section.words':'Wörter',
     'talen.section.sentences':'Sätze',
+    'talen.speakHead':'Ich spreche',
+    'talen.catThemes':"{n} Themen",
     'talen.theme.huis':'Zuhause',
     'talen.theme.natuur':'Natur',
     'talen.theme.familie':'Familie',

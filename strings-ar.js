@@ -442,6 +442,8 @@
     'talen.theme.praten':'الكلام',
     'talen.section.words':'كلمات',
     'talen.section.sentences':'جمل',
+    'talen.speakHead':'أنا أتكلم',
+    'talen.catThemes':"{n} مواضيع",
     'talen.theme.huis':'البيت',
     'talen.theme.natuur':'الطبيعة',
     'talen.theme.familie':'العائلة',

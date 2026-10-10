@@ -292,6 +292,8 @@
     'talen.theme.praten':'Snak',
     'talen.section.words':'Ord',
     'talen.section.sentences':'Sætninger',
+    'talen.speakHead':'Jeg taler',
+    'talen.catThemes':"{n} emner",
     'talen.theme.huis':'Hjemme',
     'talen.theme.natuur':'Natur',
     'talen.theme.familie':'Familie',

@@ -292,6 +292,8 @@
     'talen.theme.praten':'Разговор',
     'talen.section.words':'Слова',
     'talen.section.sentences':'Фразы',
+    'talen.speakHead':'Мой язык',
+    'talen.catThemes':"Тем: {n}",
     'talen.theme.huis':'Дом',
     'talen.theme.natuur':'Природа',
     'talen.theme.familie':'Семья',

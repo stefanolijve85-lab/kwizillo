@@ -569,7 +569,7 @@
     // Talen: the passport's stamps and every word learned; a tap says it again.
     if(tab==='words'){
       const T=K.talenSummary?.();
-      const l=T?.learn,app=K.state.language;
+      const l=T?.learn,app=K.talenSpeakLang?.()||K.state.language;
       content=!T||!T.words.length
         ?`<div class="empty-state"><div>🗣️</div><h2>${esc(t('collection.wordsEmpty'))}</h2><p>${esc(t('collection.wordsEmptyBody'))}</p><button class="talen-start" id="toTalen">${K.icon('play')} ${esc(t('talen.title'))}</button></div>`
         :`<div class="talen-stamps talen-stamps-mini">${T.themes.map(th=>`<div class="talen-stamp ${th.stars?'done':''} ${th.ready?'':'soon'}">${th.img?`<img src="${th.img}" alt="">`:`<span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span>`}<b>${esc(t('talen.theme.'+th.id))}</b><span class="talen-stars">${[1,2,3].map(n=>`<i class="${n<=th.stars?'on':''}">★</i>`).join('')}</span></div>`).join('')}</div>

@@ -13,10 +13,14 @@
   // The language the child learns: the parent's choice, else the default for the app language.
   // null when the app language has no learning language yet (phase 1: Dutch and English only).
   K.talenLearnLang=()=>{
-    const a=app();if(!T().langs.includes(a))return null;
+    const a=own();if(!T().langs.includes(a))return null;
     const l=K.state.learnLang;return l&&l!==a&&T().langs.includes(l)?l:T().defaultLearn[a]||null;
   };
   const learn=()=>K.talenLearnLang();
+  // The language the child speaks (2026-10-10): the meanings, the praise and Milo's
+  // lines in Talen. The app language, unless the child picks another one in Talen.
+  K.talenSpeakLang=()=>{const s=K.state.talenSpeak;return s&&T().langs.includes(s)?s:app()};
+  const own=()=>K.talenSpeakLang();
   const store=()=>{const p=K.progress();p.talen||={themes:{},words:{}};p.talen.themes||={};p.talen.words||={};return p.talen};
   // "Alles door elkaar": a lesson with words from every theme, like the mix of
   // all worlds in the other games. Premium (premium.js: only the animals are free).
@@ -65,11 +69,11 @@
   };
   K.talenWord=word;
   K.talenHear=id=>hear(id);
-  const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(app(),'_betekent'),audio(app(),id)],{gap:0})};
-  const back=()=>{K.stopSpeech();K.sfx('tap');K.showTalen()};
+  const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(own(),'_betekent'),audio(own(),id)],{gap:0})};
+  const back=()=>{K.stopSpeech();K.sfx('tap');toThemes()};
   // Praise and "almost" vary: a random wording, never the one heard just before.
   const lastSaid={};
-  const vary=(kind,n)=>{let i;do i=1+Math.floor(Math.random()*n);while(n>1&&i===lastSaid[kind]);lastSaid[kind]=i;return audio(app(),`_${kind}${i}`)};
+  const vary=(kind,n)=>{let i;do i=1+Math.floor(Math.random()*n);while(n>1&&i===lastSaid[kind]);lastSaid[kind]=i;return audio(own(),`_${kind}${i}`)};
 
   /* ---------------- Welke taal wil je leren? ---------------- */
   // The learning language is chosen here, in Talen, not in the parents' menu
@@ -79,86 +83,124 @@
   const guideName=()=>t(K.state.voice==='Luna'?'voice.luna':'voice.milo');
   const langName=l=>{const n=t(`talen.lang.${l}`);return n.charAt(0).toLocaleUpperCase()+n.slice(1)};
   const flagOf=l=>(K.LANGUAGES.find(x=>x.id===l)||{}).flag||'🌍';
+  // Since 2026-10-10 the child also says which language they speak: Milo then
+  // gives the meanings and the praise in that one (every language has its own
+  // recordings), whatever the app language is. Both choices on one screen.
   K.showTalenPick=()=>{
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();K.lastView='home';
-    const a=app(),first=!K.state.learnLang;
+    const first=!K.state.learnLang;
     const order=l=>l==='en'?0:l==='nl'?1:2;
-    const langs=T().langs.filter(l=>l!==a).sort((x,y)=>order(x)-order(y));
-    let pick=first?null:learn();
+    let speak=own(),pick=first?null:learn();
     const hello=word('hello');
+    const flag=(l,attr,on)=>`<button class="talen-flag ${on?'active':''}" ${attr}="${l}" dir="auto"><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small lang="${l}">${esc(hello?hello.text[l]:'')}!</small></button>`;
+    const speaks=()=>[speak,...T().langs.filter(l=>l!==speak).sort((x,y)=>(x===app()?-1:y===app()?1:order(x)-order(y)))];
+    const learns=()=>T().langs.filter(l=>l!==speak).sort((x,y)=>order(x)-order(y));
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass talen-langpick fade-in">
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(t('talen.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
+        <h2 class="talen-section">${esc(t('talen.speakHead'))}</h2>
+        <div class="talen-speaks"></div>
         <div class="talen-ask"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><b class="talen-ask-bubble">${esc(t('talen.pickTitle'))}</b></div>
-        <div class="talen-flags">${langs.map(l=>`<button class="talen-flag ${l===pick?'active':''}" data-learn="${l}" dir="auto"><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small lang="${l}">${esc(hello?hello.text[l]:'')}!</small></button>`).join('')}</div>
-        <button class="talen-start talen-go" id="talenGo" ${pick?'':'hidden'}>${esc(pick?t('talen.pickGo',{lang:langName(pick)}):'')} ${K.icon('play')}</button>
+        <div class="talen-flags"></div>
+        <button class="talen-start talen-go" id="talenGo" hidden></button>
       </div>
       ${K.bottomNav('home')}
     </section>`);
-    const go=f.querySelector('#talenGo');
+    const go=f.querySelector('#talenGo'),speakRow=f.querySelector('.talen-speaks'),grid=f.querySelector('.talen-flags');
+    const draw=()=>{
+      speakRow.innerHTML=speaks().map(l=>flag(l,'data-speak',l===speak)).join('');
+      grid.innerHTML=learns().map(l=>flag(l,'data-learn',l===pick)).join('');
+      go.hidden=!pick;if(pick)go.innerHTML=`${esc(t('talen.pickGo',{lang:langName(pick)}))} ${K.icon('play')}`;
+      speakRow.querySelectorAll('[data-speak]').forEach(b=>b.onclick=()=>{
+        speak=b.dataset.speak;if(pick===speak)pick=null;
+        K.stopSpeech();K.sfx('tap');if(hello)K.playClips([audio(speak,'hello')]);
+        draw();speakRow.scrollTo?.({left:0,behavior:'smooth'});
+      });
+      grid.querySelectorAll('[data-learn]').forEach(b=>b.onclick=()=>{
+        pick=b.dataset.learn;draw();
+        K.stopSpeech();if(hello)K.playClips([audio(pick,'hello')]);
+        go.scrollIntoView?.({block:'nearest',behavior:'smooth'});
+      });
+    };
+    draw();
     f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');first?K.showHome():K.showTalen()};
-    f.querySelectorAll('[data-learn]').forEach(b=>b.onclick=()=>{
-      pick=b.dataset.learn;
-      f.querySelectorAll('[data-learn]').forEach(x=>x.classList.toggle('active',x===b));
-      go.hidden=false;go.innerHTML=`${esc(t('talen.pickGo',{lang:langName(pick)}))} ${K.icon('play')}`;
-      K.stopSpeech();if(hello)K.playClips([audio(pick,'hello')]);
-      go.scrollIntoView?.({block:'nearest',behavior:'smooth'});
-    });
-    go.onclick=()=>{if(!pick)return;K.stopSpeech();K.sfx('world');K.state.learnLang=pick;K.save();K.showTalen()};
+    go.onclick=()=>{if(!pick)return;K.stopSpeech();K.sfx('world');K.state.talenSpeak=speak===app()?null:speak;K.state.learnLang=pick;K.save();K.showTalen()};
     K.bindNav(f);
   };
 
   /* ---------------- Taalpaspoort ---------------- */
-  K.showTalen=()=>{
-    // The first time the child chooses the language; a child who already played
+  // The passport (2026-10-10): wide tiles per kind of lesson (words, sentences,
+  // and later more: K.TALEN.categories), each opens its own themes.
+  const starsOf=id=>Number(themeRec(id)?.stars||0);
+  const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
+  const catThemes=c=>T().themes.filter(th=>(th.kind||'woord')===c.kind);
+  const firstVisit=()=>{
+    // The first time the child chooses the languages; a child who already played
     // with the default (before the choice moved here) keeps it without asking.
-    if(T().langs.includes(app())&&!K.state.learnLang){
-      if(!Object.keys(store().themes).length&&!Object.keys(store().words).length)return K.showTalenPick();
+    if(T().langs.includes(own())&&!K.state.learnLang){
+      if(!Object.keys(store().themes).length&&!Object.keys(store().words).length){K.showTalenPick();return true}
       K.state.learnLang=learn();K.save();
     }
+    return false;
+  };
+  const passport=(sub,body,onBack)=>{
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();K.lastView='home';
+    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass fade-in">
+      <div class="native-panel-glow"></div>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(sub)}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <div class="panel-scroll">${body}</div>
+      ${K.bottomNav('home')}
+    </section>`);
+    f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');onBack()};
+    f.querySelector('#talenLang')?.addEventListener('click',()=>{K.sfx('tap');K.showTalenPick()});
+    f.querySelectorAll('[data-theme]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalen(b.dataset.theme)});
+    f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');hear(b.dataset.hear)});
+    K.bindNav(f);
+    return f;
+  };
+  const passSub=l=>l?t(K.state.voice==='Luna'?'talen.passportSubLuna':'talen.passportSub',{lang:t(`talen.lang.${l}`)}):t('talen.soon');
+  K.showTalen=()=>{
+    if(firstVisit())return;
+    K.talenCat=null;
     const l=learn();
-    const s=store();
-    // Zoals de andere spellen: de mix als brede tegel bovenaan, daaronder de
-    // acht thema's, elk plaatje vult zijn hele tegel. Een thema mag een eigen
-    // omslag hebben (`cover`).
-    const starsOf=id=>Number(themeRec(id)?.stars||0);
-    const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
+    const catTile=c=>{
+      const list=catThemes(c),done=list.filter(th=>starsOf(th.id)>0).length;
+      const arts=list.slice(0,3).map(th=>th.cover||th.words[0].img);
+      return `<button class="talen-cat" data-cat="${c.id}"><span class="talen-cat-copy"><b>${esc(t(`talen.section.${c.id}`))}</b><small>${esc(t('talen.catThemes',{n:list.length}))}${done?` · ★ ${done}/${list.length}`:''}</small></span><span class="talen-cat-fan" aria-hidden="true">${arts.map(a=>`<img src="${a}" alt="" decoding="async">`).join('')}</span><span class="talen-cat-go" aria-hidden="true">›</span></button>`;
+    };
+    const due=l?K.talenDue():[];
+    const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
+      :`<button class="talen-lang-switch" id="talenLang"><span class="talen-flag-icon" aria-hidden="true">${flagOf(own())}</span><span class="talen-lang-arrow" aria-hidden="true">→</span><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small>${esc(t('talen.switchLang'))}</small></button>
+        <div class="talen-cats">${T().categories.filter(c=>catThemes(c).length).map(catTile).join('')}</div>
+        ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
+          <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}">${pic(word(id))}${esc(word(id).text[l])}</button>`).join('')}</div>
+          <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
+    const f=passport(passSub(l),body,()=>K.showHome());
+    f.querySelector('#talenReview')?.addEventListener('click',()=>{K.sfx('world');K.startTalen(null,{review:true})});
+    f.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showTalenCat(b.dataset.cat)});
+  };
+  // One kind of lesson: its themes, the words with "Alles door elkaar" on top.
+  K.showTalenCat=id=>{
+    if(firstVisit())return;
+    const l=learn(),c=T().categories.find(x=>x.id===id);
+    if(!l||!c)return K.showTalen();
+    K.talenCat=id;
+    // Elk plaatje vult zijn hele tegel; een thema mag een eigen omslag hebben (`cover`).
     const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick fit ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}" style="--art:url('${img}')"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
     const stampOf=th=>{
       if(!ready(th))return `<div class="memo-pick talen-pick soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b></div>`;
       if(th.kind==='zin'&&!th.cover)return `<button class="memo-pick talen-pick zin ${starsOf(th.id)?'done':''} ${open(th)?'':'locked'}" data-theme="${th.id}"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><span class="home-game-veil"></span>${open(th)?'':K.premiumBadge()}${badge(starsOf(th.id))}<b>${esc(t(`talen.theme.${th.id}`))}</b></button>`;
-      return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th),cls:th.kind==='zin'?'zin':''});   // a sentence theme with its own cover picture (2026-10-10)
+      return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th),cls:th.kind==='zin'?'zin':''});
     };
-    // Since 17 themes (2026-10-10) the passport scrolls, in two parts: words, then sentences.
-    const words=T().themes.filter(th=>th.kind!=='zin'),zinnen=T().themes.filter(th=>th.kind==='zin');
-    const stamps=`<h2 class="talen-section">${esc(t('talen.section.words'))}</h2><div class="memo-pick-grid talen-picks">${words.map(stampOf).join('')}</div>`
-      +(zinnen.length?`<h2 class="talen-section">${esc(t('talen.section.sentences'))}</h2><div class="memo-pick-grid talen-picks zinnen">${zinnen.map(stampOf).join('')}</div>`:'');
-    const mixTile=`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`;
-    const due=l?K.talenDue():[];
-    const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
-      :`<button class="talen-lang-switch" id="talenLang"><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small>${esc(t('talen.switchLang'))}</small></button>
-        ${mixTile}
-        ${stamps}
-        ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
-          <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}">${pic(word(id))}${esc(word(id).text[l])}</button>`).join('')}</div>
-          <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
-    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass fade-in">
-      <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(l?t(K.state.voice==='Luna'?'talen.passportSubLuna':'talen.passportSub',{lang:t(`talen.lang.${l}`)}):t('talen.soon'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
-      <div class="panel-scroll">${body}</div>
-      ${K.bottomNav('home')}
-    </section>`);
-    f.querySelector('.panel-back').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
-    f.querySelector('#talenLang')?.addEventListener('click',()=>{K.sfx('tap');K.showTalenPick()});
-    f.querySelector('#talenReview')?.addEventListener('click',()=>{K.sfx('world');K.startTalen(null,{review:true})});
-    f.querySelectorAll('[data-theme]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalen(b.dataset.theme)});
-    f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');hear(b.dataset.hear)});
-    K.bindNav(f);
+    const mixTile=c.mix?`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`:'';
+    const list=catThemes(c);
+    passport(passSub(l),`<h2 class="talen-section talen-cat-title">${esc(t(`talen.section.${c.id}`))}</h2>${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()});
   };
+  // Back from a lesson: to the themes it came from.
+  const toThemes=()=>K.talenCat?K.showTalenCat(K.talenCat):K.showTalen();
 
   /* ---------------- Hoor en tik ---------------- */
   // review: up to eight words that are due, with distractors from everything learned.
@@ -206,8 +248,8 @@
           <div class="whoami-guide"><img class="mascot-face talen-milo" src="${K.MASCOT_ART.milo}" alt=""><button class="whoami-bubble talen-say" id="talenSay" aria-label="${esc(t('talen.listen'))}"><span aria-hidden="true">🔊</span></button></div>
           <div class="whoami-grid">${opts.map(o=>zin
             // a sentence: its meaning is on the card from the start, the sentence itself appears once it is found
-            ?`<button class="whoami-tile talen-tile zin" data-pick="${o.id}" aria-label="${esc(o.text[app()])}">${pic(o)}<b class="talen-meaning">${esc(o.text[app()])}</b><b class="talen-label"><span>${esc(o.text[l])}</span></b></button>`
-            :`<button class="whoami-tile talen-tile fit" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}" style="--art:url('${o.img}')"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[app()]}))}</small></b></button>`).join('')}</div>
+            ?`<button class="whoami-tile talen-tile zin" data-pick="${o.id}" aria-label="${esc(o.text[own()])}">${pic(o)}<b class="talen-meaning">${esc(o.text[own()])}</b><b class="talen-label"><span>${esc(o.text[l])}</span></b></button>`
+            :`<button class="whoami-tile talen-tile fit" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}" style="--art:url('${o.img}')"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[own()]}))}</small></b></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions talen-actions"><button class="action repeat" id="talenReplay">${K.icon('repeat')} ${esc(t('talen.replay'))}</button><button class="action hint" id="talenHint">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button></div>
         </main>
       </div>
@@ -216,10 +258,10 @@
     const say=f.querySelector('#talenSay'),milo=f.querySelector('.talen-milo');
     const talking=on=>{say.classList.toggle('pulse',on);milo.classList.toggle('talking',on)};
     // decoded now, while the child listens and looks: the answer sentence is joined from these at once
-    K.preloadClips?.([...(g.intro?[audio(app(),zin?'_intro_zin':'_intro')]:[]),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id),...Array.from({length:T().praise},(_,i)=>audio(app(),`_goed${i+1}`)),...Array.from({length:T().almost},(_,i)=>audio(app(),`_bijna${i+1}`))]);
+    K.preloadClips?.([...(g.intro?[audio(own(),zin?'_intro_zin':'_intro')]:[]),audio(l,w.id),audio(own(),'_betekent'),audio(own(),w.id),...Array.from({length:T().praise},(_,i)=>audio(own(),`_goed${i+1}`)),...Array.from({length:T().almost},(_,i)=>audio(own(),`_bijna${i+1}`))]);
     const speakWord=async()=>{
       talking(true);
-      const clips=[];if(g.intro){g.intro=false;clips.push(audio(app(),zin?'_intro_zin':'_intro'))}
+      const clips=[];if(g.intro){g.intro=false;clips.push(audio(own(),zin?'_intro_zin':'_intro'))}
       clips.push(audio(l,w.id));
       await K.playClips(clips,{gap:200});
       if(f.isConnected)talking(false);
@@ -247,13 +289,13 @@
         b.classList.add('correct');
         // "parrot betekent papegaai" is written out piece by piece as Milo says it
         const [pre,post]=t('talen.means',{word:'\u0000'}).split('\u0000');
-        say.innerHTML=`<span class="talen-line"><b class="talen-piece" data-at="1">${esc(w.text[l])}</b> <span class="talen-piece" data-at="2">${esc(pre.trim())}</span> <b class="talen-piece native" data-at="3">${esc(w.text[app()])}</b>${post?`<span class="talen-piece" data-at="3">${esc(post)}</span>`:''}</span>`;
+        say.innerHTML=`<span class="talen-line"><b class="talen-piece" data-at="1">${esc(w.text[l])}</b> <span class="talen-piece" data-at="2">${esc(pre.trim())}</span> <b class="talen-piece native" data-at="3">${esc(w.text[own()])}</b>${post?`<span class="talen-piece" data-at="3">${esc(post)}</span>`:''}</span>`;
         const show=i=>say.querySelectorAll(`.talen-piece[data-at="${i}"]`).forEach(x=>x.classList.add('on'));
         const r=b.getBoundingClientRect(),fr=f.getBoundingClientRect();
         K.celebrateAt?.(f,{x:r.left-fr.left+r.width/2,y:r.top-fr.top+r.height/2,count:18});
         talking(true);
         // praise (one of ten), the word, "betekent", the word in the child's own language (the handover's exact order)
-        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(app(),'_betekent'),audio(app(),w.id)],{gap:[60,0,0],onClip:show});   // one flowing sentence: silent ends cut off, the words straight after each other, nothing on top of each other
+        const done=await K.playClips([vary('goed',T().praise),audio(l,w.id),audio(own(),'_betekent'),audio(own(),w.id)],{gap:[60,0,0],onClip:show});   // one flowing sentence: silent ends cut off, the words straight after each other, nothing on top of each other
         for(const i of [1,2,3])show(i);   // all of it in view once the sentence is over (also when it was not heard)
         if(!f.isConnected||K.talen!==g)return;
         talking(false);
@@ -288,7 +330,7 @@
         <div class="result-stars">${[1,2,3].map(k=>`<i class="${k<=stars?'on':''}">★</i>`).join('')}</div>
         <div class="result-stats"><span><b>${g.firstTry}/${n}</b><small>${esc(t('talen.firstTry'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <p class="result-rule">${esc(t('talen.learned'))}</p>
-        <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}" aria-label="${esc(w.text[l])}, ${esc(t('talen.means',{word:w.text[app()]}))}">${pic(w)}<span><b>${esc(w.text[l])}</b><small>${esc(w.text[app()])} 🔊</small></span></button>`).join('')}</div>
+        <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}" aria-label="${esc(w.text[l])}, ${esc(t('talen.means',{word:w.text[own()]}))}">${pic(w)}<span><b>${esc(w.text[l])}</b><small>${esc(w.text[own()])} 🔊</small></span></button>`).join('')}</div>
         <div class="result-native">
           <button id="againBtn">${esc(g.theme?t('talen.again',{theme:t(`talen.theme.${g.theme}`)}):t('talen.review'))}</button>
           <button id="passBtn" class="secondary">${esc(t('talen.passport'))}</button>
@@ -297,7 +339,7 @@
     </section>`);
     K.sfx('reward');setTimeout(()=>K.celebrate?.('quiz',f.querySelector('.result-stage')),250);
     // the closing line in the chosen guide's voice; a silent guide stays silent
-    if(g.theme&&K.state.voice!=='Stil')setTimeout(()=>{if(f.isConnected)K.playClips([g.theme==='mix'?vary('goed',T().praise):audio(app(),`_klaar_${g.theme}`,K.state.voice==='Luna'?'Luna':'Milo')])},700);
+    if(g.theme&&K.state.voice!=='Stil')setTimeout(()=>{if(f.isConnected)K.playClips([g.theme==='mix'?vary('goed',T().praise):audio(own(),`_klaar_${g.theme}`,K.state.voice==='Luna'?'Luna':'Milo')])},700);
     f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');hear(b.dataset.hear)});
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');g.theme?K.startTalen(g.theme):K.startTalen(null,{review:true})};
     f.querySelector('#passBtn').onclick=back;

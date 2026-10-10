@@ -59,7 +59,8 @@
     scores:S.emptyScores(), // points per window plus the records; see scores.js
     shop:{owned:[]},        // special cards and mascots bought with coins
     progress:{worlds:{},topics:{},runs:{},correctQuestionIds:[],passed:{},games:{},factsSeen:{},talen:{themes:{},words:{}}},
-    learnLang:null          // Talen: the language the child learns; null = the default for the app language (talen-data.js)
+    learnLang:null,         // Talen: the language the child learns; null = the default for the app language (talen-data.js)
+    talenSpeak:null         // Talen: the language the child speaks (meanings, praise); null = the app language
   };
 
   const clone=v=>JSON.parse(JSON.stringify(v));

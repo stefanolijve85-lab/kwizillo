@@ -293,6 +293,8 @@
     'talen.theme.praten':'Parler',
     'talen.section.words':'Mots',
     'talen.section.sentences':'Phrases',
+    'talen.speakHead':'Je parle',
+    'talen.catThemes':"{n} thèmes",
     'talen.theme.huis':'Maison',
     'talen.theme.natuur':'Nature',
     'talen.theme.familie':'Famille',
