@@ -139,7 +139,7 @@ for (const lang of langs) {
   // the praise is the quiz's. Amounts are on screen only.
   for (const k of Object.keys(K.strings.nl).filter(k => /^measure\.(tip|try|len\.|wt\.|vol\.|cmp\.|est\.|convert$|story$)/.test(k))) add(lang, BOTH, T(k), 'measure: questions');
   // Game opened from Home (m1-ui.js openGame).
-  for (const k of ['talen.title', 'math.title', 'whoami.title', 'fotozoom.title', 'facts.title', 'memo.title', 'chest.title']) add(lang, BOTH, T('world.speech.enter', { title: T(k) }), 'game: open');
+  for (const k of ['talen.title', 'math.title', 'whoami.title', 'fotozoom.title', 'facts.title', 'memo.title', 'chest.title', 'jump.title']) add(lang, BOTH, T('world.speech.enter', { title: T(k) }), 'game: open');
 
   // Memo (games-memo.js): a turned card says its answer; any question with an
   // answer picture can be on the board (the "fill" pairs have no further filter).

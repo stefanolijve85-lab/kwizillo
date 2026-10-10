@@ -248,7 +248,7 @@
           ${playTile('homeMath',K.GAME_ART.math,t('math.title'))}
           ${playTile('homeJungle',K.GAME_ART.jungle,t('jungle.title'),(b=>b?`${K.icon('trophy')} ${b}`:'')(Number(K.progress().games?.jungle?.best||0)),true)}
           <button class="home-world home-play-tile chest" id="homeChest" aria-label="${esc(t('chest.title'))}">
-            <span class="home-chest-mosaic" aria-hidden="true">${CHEST.map(g=>`<img src="${K.GAME_ART[g.art]}" alt="" decoding="async">`).join('')}</span>
+            <span class="home-chest-mosaic" aria-hidden="true">${CHEST.slice(0,4).map(g=>`<img src="${K.GAME_ART[g.art]}" alt="" decoding="async">`).join('')}</span>
             <span class="home-world-veil"></span>
             <span class="home-world-copy"><b>${esc(t('chest.title'))}</b></span>
           </button>
@@ -289,7 +289,9 @@
     {id:'homeMemo',art:'memo',title:'memo.title',open:()=>K.showMemoPicker()},
     {id:'homeFacts',art:'facts',title:'facts.title',open:()=>K.showGamePicker('facts')},
     {id:'homeFotozoom',art:'fotozoom',title:'fotozoom.title',open:()=>K.showGamePicker('fotozoom')},
-    {id:'homeWhoAmI',art:'whoami',title:'whoami.title',open:()=>K.showGamePicker('whoami')}
+    {id:'homeWhoAmI',art:'whoami',title:'whoami.title',open:()=>K.showGamePicker('whoami')},
+    // Mike & Mia: Jump & Slide (games-jump.js), its own game next to the Runner
+    {id:'homeJump',art:'jump',title:'jump.title',open:()=>K.startJump()}
   ];
   K.showGameChest=()=>{
     K.audio.setTrack('play').catch(()=>{});

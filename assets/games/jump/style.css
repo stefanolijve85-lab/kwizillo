@@ -1,0 +1,103 @@
+/* Mike & Mia: Jump & Slide. Everything is scoped under .kj (the game's root),
+   so nothing here reaches another screen. */
+.kj{position:absolute;inset:0;overflow:hidden;background:#0b3b66;color:#fff;font-family:'Kwizillo Arcade',ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",system-ui,sans-serif;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;touch-action:none;overscroll-behavior:none}
+.kj.kj-fixed{position:fixed;z-index:60}
+.kj *{box-sizing:border-box}
+.kj [hidden]{display:none!important}
+.kj button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.kj-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.kj-field{position:absolute;inset:0;touch-action:none}
+.kj .kj-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* HUD: hearts, stars, distance, pause — compact, in the top safe area */
+.kj-hud{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:10px;padding:calc(var(--sat,0px) + 10px) calc(var(--sar,0px) + 12px) 0 calc(var(--sal,0px) + 12px);pointer-events:none;direction:ltr}
+.kj-hud>*{pointer-events:auto}
+.kj-pill{display:flex;align-items:center;gap:6px;height:40px;padding:0 12px;border-radius:20px;background:rgba(8,24,60,.55);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);font-size:20px;line-height:1;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.kj-hearts{gap:3px;padding:0 10px}
+.kj-heart{width:24px;height:22px;display:block;transition:transform .25s ease,opacity .25s ease}
+.kj-heart.lost{opacity:.28;transform:scale(.8)}
+.kj-stars svg{width:24px;height:24px}
+.kj-progress{flex:1;min-width:60px;max-width:360px;height:14px;border-radius:7px;background:rgba(8,24,60,.5);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);overflow:hidden;position:relative}
+.kj-progress i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:7px;background:linear-gradient(90deg,#7ff0ff,#ffd23f)}
+.kj-progress b{position:absolute;right:3px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:2px;background:repeating-conic-gradient(#fff 0 25%,#1b1b3a 0 50%) 0 0/5px 5px}
+.kj-icon-btn{width:44px;height:44px;border:0;border-radius:22px;background:rgba(8,24,60,.55);box-shadow:inset 0 0 0 2px rgba(255,255,255,.3);display:grid;place-items:center;padding:0}
+.kj-icon-btn svg{width:22px;height:22px}
+
+/* the two big buttons, bottom right, out of the way of what comes */
+.kj-controls{position:absolute;right:calc(var(--sar,0px) + 14px);bottom:calc(var(--sab,0px) + 14px);display:flex;align-items:flex-end;gap:14px;direction:ltr;touch-action:none}
+.kj-btn{position:relative;border:0;border-radius:50%;display:grid;place-items:center;align-content:center;gap:2px;font-size:15px;letter-spacing:.02em;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.25);touch-action:none;transition:transform .06s ease}
+.kj-btn svg{width:42%;height:auto}
+.kj-jump{width:clamp(84px,13vmin,112px);height:clamp(84px,13vmin,112px);background:radial-gradient(circle at 35% 30%,#7cc4ff,#2b6fe8 60%,#1b47b8);box-shadow:0 6px 0 #12348a,0 10px 18px rgba(0,0,0,.3),inset 0 0 0 3px rgba(255,255,255,.35)}
+.kj-slide{width:clamp(70px,10.5vmin,92px);height:clamp(70px,10.5vmin,92px);background:radial-gradient(circle at 35% 30%,#ffb38a,#ff6f61 60%,#d9434e);box-shadow:0 6px 0 #9c2a3a,0 10px 18px rgba(0,0,0,.3),inset 0 0 0 3px rgba(255,255,255,.35)}
+.kj-btn.down{transform:translateY(4px) scale(.96)}
+.kj-jump.down{box-shadow:0 2px 0 #12348a,0 4px 10px rgba(0,0,0,.3),inset 0 0 0 3px rgba(255,255,255,.5)}
+.kj-slide.down{box-shadow:0 2px 0 #9c2a3a,0 4px 10px rgba(0,0,0,.3),inset 0 0 0 3px rgba(255,255,255,.5)}
+.kj-btn.nudge{animation:kj-nudge 1s ease-in-out infinite}
+@keyframes kj-nudge{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.kj-btn small{font-size:13px;line-height:1}
+
+/* first-run hints: one short bubble above the button it is about */
+.kj-hint{position:absolute;left:50%;top:calc(var(--sat,0px) + 64px);translate:-50% 0;max-width:min(300px,70vw);padding:10px 14px;border-radius:16px;background:#fff;color:#1b2a6b;font-size:17px;line-height:1.15;box-shadow:0 6px 0 rgba(10,30,90,.25);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease;pointer-events:none;text-align:center}
+.kj-hint.on{opacity:1;transform:none}
+
+/* countdown */
+.kj-count{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-size:clamp(70px,22vmin,160px);color:#ffd23f;text-shadow:0 6px 0 #c2410c,0 12px 24px rgba(0,0,0,.35)}
+.kj-count span{animation:kj-pop .55s ease-out both}
+@keyframes kj-pop{0%{transform:scale(.4);opacity:0}40%{transform:scale(1.12);opacity:1}100%{transform:scale(1);opacity:1}}
+
+/* panels: hero + world pick, pause, results, loading */
+.kj-panel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:calc(var(--sat,0px) + 12px) calc(var(--sar,0px) + 14px) calc(var(--sab,0px) + 14px) calc(var(--sal,0px) + 14px);background:radial-gradient(circle at 50% 20%,rgba(56,198,217,.95),rgba(11,59,102,.97) 70%);overflow-y:auto;touch-action:pan-y}
+.kj-panel.dim{background:rgba(6,20,52,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.kj-panel h1,.kj-panel h2{margin:0;text-align:center;line-height:1.05;text-shadow:0 3px 0 rgba(0,0,0,.25)}
+.kj-panel h1{font-size:clamp(26px,5.6vmin,40px);color:#ffd23f}
+.kj-panel h2{font-size:clamp(17px,3.6vmin,22px);font-weight:400}
+.kj-top{position:absolute;left:calc(var(--sal,0px) + 12px);top:calc(var(--sat,0px) + 10px)}
+.kj-heroes{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(520px,100%)}
+.kj-hero{position:relative;border:0;border-radius:24px;padding:8px 8px 10px;background:linear-gradient(180deg,#ffffff,#d9f3ff);color:#1b2a6b;box-shadow:0 6px 0 rgba(10,30,90,.35),inset 0 0 0 3px rgba(255,255,255,.8);display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .12s ease}
+.kj-hero[aria-pressed=true]{background:linear-gradient(180deg,#fff7c2,#ffd23f);box-shadow:0 6px 0 #c27c00,inset 0 0 0 4px #fff,0 0 0 4px rgba(255,210,63,.55)}
+.kj-hero:active{transform:translateY(3px)}
+.kj-hero .kj-face{width:100%;height:clamp(120px,26vmin,190px);background-repeat:no-repeat;background-position:center bottom}
+.kj-hero b{font-size:clamp(22px,4.6vmin,30px)}
+.kj-hero .kj-check{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:#2bb673;display:none;place-items:center;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.kj-hero[aria-pressed=true] .kj-check{display:grid}
+.kj-worlds{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:min(620px,100%)}
+.kj-world{position:relative;border:0;padding:0;border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:#123;box-shadow:0 5px 0 rgba(10,30,90,.4),inset 0 0 0 3px rgba(255,255,255,.5)}
+.kj-world img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kj-world span{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 6px;background:linear-gradient(180deg,transparent,rgba(5,20,60,.85));font-size:clamp(13px,2.7vmin,17px);line-height:1.05;text-align:center}
+.kj-world small{display:block;font-size:12px;color:#ffd23f;margin-top:2px}
+.kj-world[aria-pressed=true]{box-shadow:0 5px 0 #c27c00,inset 0 0 0 4px #ffd23f,0 0 0 3px rgba(255,210,63,.6)}
+.kj-go{border:0;border-radius:30px;padding:14px 38px;min-height:58px;font-size:clamp(22px,4.4vmin,28px);background:linear-gradient(180deg,#ffe066,#ffb300);color:#6b3a00;box-shadow:0 6px 0 #b86e00,0 10px 20px rgba(0,0,0,.25)}
+.kj-go:active{transform:translateY(3px);box-shadow:0 3px 0 #b86e00}
+.kj-go.alt{background:linear-gradient(180deg,#ffffff,#d9f3ff);color:#1b2a6b;box-shadow:0 6px 0 rgba(10,30,90,.35)}
+.kj-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.kj-loading{display:grid;place-items:center;gap:14px;font-size:20px}
+.kj-spin{width:40px;height:40px;border-radius:50%;border:5px solid rgba(255,255,255,.3);border-top-color:#fff;animation:kj-spin .8s linear infinite}
+@keyframes kj-spin{to{transform:rotate(360deg)}}
+
+/* results */
+.kj-card{width:min(440px,100%);border-radius:26px;padding:18px 18px 16px;background:linear-gradient(180deg,#ffffff,#e3f6ff);color:#1b2a6b;box-shadow:0 8px 0 rgba(10,30,90,.35);display:flex;flex-direction:column;align-items:center;gap:10px}
+.kj-card h1{color:#ff8a00;text-shadow:0 3px 0 rgba(255,210,63,.6)}
+.kj-card .kj-face{width:120px;height:120px;background-repeat:no-repeat;background-position:center bottom}
+.kj-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%}
+.kj-stat{border-radius:14px;background:rgba(27,42,107,.08);padding:8px 4px;text-align:center}
+.kj-stat b{display:block;font-size:24px;line-height:1.1}
+.kj-stat small{font-size:13px;opacity:.8}
+.kj-new{color:#2bb673}
+.kj-earned{font-size:18px;color:#1b6b3a;text-align:center}
+
+/* the picker side by side on a low landscape screen */
+@media (orientation:landscape) and (max-height:520px){
+  .kj-pick{flex-direction:row;flex-wrap:wrap;align-content:center;gap:10px 18px}
+  .kj-pick h1{width:100%;font-size:26px}
+  .kj-heroes{width:min(330px,42vw)}
+  .kj-hero .kj-face{height:clamp(100px,34vh,150px)}
+  .kj-pick-right{display:flex;flex-direction:column;align-items:center;gap:10px;width:min(440px,50vw)}
+  .kj-worlds{width:100%}
+  .kj-panel{gap:8px}
+  .kj-card{padding:12px;gap:6px}
+  .kj-card .kj-face{width:80px;height:80px}
+}
+.kj-pick-right{display:contents}
+@media (orientation:landscape) and (max-height:520px){.kj-pick-right{display:flex}}
+@media (prefers-reduced-motion:reduce){.kj *{animation:none!important;transition:none!important}}
+.kj .kj-hero{color:#1b2a6b}

@@ -23,6 +23,12 @@
       const exit=runner.shadowRoot?.querySelector('[data-act="exit"]');
       if(exit){exit.click();return 'exit'}
     }
+    const jump=K.jumpForTest?.();
+    if(jump&&jump.element?.isConnected){
+      if(['play','count'].includes(jump.screen)){jump.pause();return 'pause'}
+      const exit=jump.element.querySelector('[data-act="exit"]');
+      if(exit){exit.click();return 'exit'}
+    }
     const top=first(OVERLAYS)||first(BACKS);
     if(top){top.click();return 'back'}
     if(document.querySelector('.kwizillo-cinematic')){document.querySelector('.motion')?.click();return 'skip'}
