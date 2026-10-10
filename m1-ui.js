@@ -264,13 +264,13 @@
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
     f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
-    f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');K.showMemoPicker()};
-    f.querySelector('#homeTalen').onclick=()=>{K.sfx('tap');K.showTalen()};
-    f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.showGamePicker('whoami')};
+    f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');openGame('memo.title',K.showMemoPicker)};
+    f.querySelector('#homeTalen').onclick=()=>{K.sfx('tap');openGame('talen.title',K.showTalen)};
+    f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');openGame('whoami.title',()=>K.showGamePicker('whoami'))};
     f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
-    f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');K.showGamePicker('fotozoom')};
-    f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.showMathPick(last)};   // sums or money (games-money.js)
-    f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showGamePicker('facts')};
+    f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');openGame('fotozoom.title',()=>K.showGamePicker('fotozoom'))};
+    f.querySelector('#homeMath').onclick=()=>{K.sfx('world');openGame('math.title',()=>K.showMathPick(last))};   // sums or money (games-money.js)
+    f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');openGame('facts.title',()=>K.showGamePicker('facts'))};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);
     // The six world names are warmed on Home so the guide calls one out the
@@ -281,6 +281,13 @@
     if(ahead[0]) K.prefetchSpeech([t('facts.kicker'),ahead[0].t]);   // the first one opens with the facts kicker
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
+  };
+
+  // A game opened from Home: the guide calls out its name, as for a world
+  // (Stefan, 2026-10-10). Only while that screen is still there.
+  const openGame=(key,open)=>{
+    open();const f=K.app.firstElementChild;
+    setTimeout(()=>{if(f?.isConnected)K.speak(t('world.speech.enter',{title:t(key)}))},420);
   };
 
   /* ---------------- World ---------------- */

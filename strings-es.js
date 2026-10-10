@@ -104,7 +104,7 @@
     'jungle.labelGold':'¡+{n} ORO!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'¡Carta encontrada!','jungle.labelClear':'¡Buen salto!','jungle.labelMagnet':'¡IMÁN!','jungle.labelShield':'¡ESCUDO!','jungle.labelBlock':'¡Salvado!','jungle.labelDouble':'¡MONEDAS DOBLES!',
     'jungle.saving':'Guardando tu recompensa…','jungle.saved':'Tus monedas están añadidas.','jungle.saveError':'Guardar no ha funcionado todavía. Prueba otra vez.',
     'jungle.finishEyebrow':'AVENTURA COMPLETADA','jungle.finish':'¡META!','jungle.finishSub':'Tu botín de esta carrera','jungle.coinsEarned':'monedas ganadas','jungle.bestStreak':'Mejor racha','jungle.bonusCoins':'Monedas extra',
-    'jungle.cardAlt':'Carta conseguida','jungle.cardEyebrow':'CARTA ENCONTRADA','jungle.cardSub':'Para tu colección de Kwizillo','jungle.cardTitle':'Hoja de la selva','card.jungle-leaf':'Hoja de la selva','card.city-star':'Estrella de la ciudad','card.sky-feather':'Pluma del cielo','jungle.retry':'Guardar otra vez','jungle.take':'Llevarme el botín','jungle.again':'Otra aventura','jungle.replay':'Esta otra vez',
+    'jungle.cardAlt':'Carta conseguida','jungle.cardEyebrow':'CARTA ENCONTRADA','jungle.cardSub':'Para tu colección de Kwizillo','jungle.cardTitle':'Hoja de la selva','card.jungle-leaf':'Hoja de la selva','card.city-star':'Estrella de la ciudad','card.sky-feather':'Pluma del cielo','jungle.retry':'Guardar otra vez','jungle.take':'Llevarme el botín','jungle.again':'Otra aventura','jungle.replay':'Juega otra vez',
     // Premium
     'common.ok':'OK','common.retry':'Prueba otra vez',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'PARA PADRES',

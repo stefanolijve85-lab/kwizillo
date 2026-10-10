@@ -104,7 +104,7 @@
     'jungle.labelGold':'+{n} ORO!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Carta trovata!','jungle.labelClear':'Bel salto!','jungle.labelMagnet':'MAGNETE!','jungle.labelShield':'SCUDO!','jungle.labelBlock':'Salvato!','jungle.labelDouble':'MONETE DOPPIE!',
     'jungle.saving':'Sto salvando il tuo premio…','jungle.saved':'Le tue monete sono state aggiunte.','jungle.saveError':'Il salvataggio non è ancora riuscito. Riprova.',
     'jungle.finishEyebrow':'AVVENTURA COMPLETATA','jungle.finish':'TRAGUARDO!','jungle.finishSub':'Il tuo bottino di questa corsa','jungle.coinsEarned':'monete guadagnate','jungle.bestStreak':'Serie migliore','jungle.bonusCoins':'Monete bonus',
-    'jungle.cardAlt':'Carta raccolta','jungle.cardEyebrow':'CARTA TROVATA','jungle.cardSub':'Per la tua collezione Kwizillo','jungle.cardTitle':'Foglia della giungla','card.jungle-leaf':'Foglia della giungla','card.city-star':'Stella della città','card.sky-feather':'Piuma del cielo','jungle.retry':'Salva di nuovo','jungle.take':'Prendo il bottino','jungle.again':'Altra avventura','jungle.replay':'Di nuovo questa',
+    'jungle.cardAlt':'Carta raccolta','jungle.cardEyebrow':'CARTA TROVATA','jungle.cardSub':'Per la tua collezione Kwizillo','jungle.cardTitle':'Foglia della giungla','card.jungle-leaf':'Foglia della giungla','card.city-star':'Stella della città','card.sky-feather':'Piuma del cielo','jungle.retry':'Salva di nuovo','jungle.take':'Prendo il bottino','jungle.again':'Altra avventura','jungle.replay':'Gioca ancora',
     // Premium
     'common.ok':'OK','common.retry':'Riprova',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'PER I GENITORI',

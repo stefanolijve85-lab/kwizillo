@@ -103,7 +103,7 @@
     'jungle.labelGold':'+{n} ЗОЛОТА!','jungle.labelCombo':'КОМБО +5','jungle.labelCard':'Карточка найдена!','jungle.labelClear':'Отличный прыжок!','jungle.labelMagnet':'МАГНИТ!','jungle.labelShield':'ЩИТ!','jungle.labelBlock':'Спасён!','jungle.labelDouble':'ДВОЙНЫЕ МОНЕТЫ!',
     'jungle.saving':'Сохраняем твою награду…','jungle.saved':'Твои монеты добавлены.','jungle.saveError':'Сохранить пока не получилось. Попробуй снова.',
     'jungle.finishEyebrow':'ПРИКЛЮЧЕНИЕ ЗАВЕРШЕНО','jungle.finish':'ФИНИШ!','jungle.finishSub':'Твоя добыча за этот забег','jungle.coinsEarned':'монет заработано','jungle.bestStreak':'Лучшая серия','jungle.bonusCoins':'Бонусные монеты',
-    'jungle.cardAlt':'Собранная карточка','jungle.cardEyebrow':'КАРТОЧКА НАЙДЕНА','jungle.cardSub':'Для твоей коллекции Kwizillo','jungle.cardTitle':'Лист джунглей','card.jungle-leaf':'Лист джунглей','card.city-star':'Звезда города','card.sky-feather':'Небесное перо','jungle.retry':'Сохранить ещё раз','jungle.take':'Забрать добычу','jungle.again':'Другое приключение','jungle.replay':'Это ещё раз',
+    'jungle.cardAlt':'Собранная карточка','jungle.cardEyebrow':'КАРТОЧКА НАЙДЕНА','jungle.cardSub':'Для твоей коллекции Kwizillo','jungle.cardTitle':'Лист джунглей','card.jungle-leaf':'Лист джунглей','card.city-star':'Звезда города','card.sky-feather':'Небесное перо','jungle.retry':'Сохранить ещё раз','jungle.take':'Забрать добычу','jungle.again':'Другое приключение','jungle.replay':'Играть ещё раз',
     // Premium
     'common.ok':'ОК','common.retry':'Попробуй снова',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'ДЛЯ РОДИТЕЛЕЙ',

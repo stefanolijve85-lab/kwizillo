@@ -105,7 +105,7 @@
     'jungle.labelGold':'+{n} GOUD!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Kaart ontdekt!','jungle.labelClear':'Mooie sprong!','jungle.labelMagnet':'MAGNEET!','jungle.labelShield':'SCHILD!','jungle.labelBlock':'Gered!','jungle.labelDouble':'DUBBELE MUNTEN!',
     'jungle.saving':'Je beloning wordt opgeslagen…','jungle.saved':'Je munten zijn erbij gedaan.','jungle.saveError':'Opslaan lukte nog niet. Probeer het opnieuw.',
     'jungle.finishEyebrow':'AVONTUUR VOLTOOID','jungle.finish':'FINISH!','jungle.finishSub':'Jouw buit van deze rit','jungle.coinsEarned':'munten verdiend','jungle.bestStreak':'Beste reeks','jungle.bonusCoins':'Bonusmunten',
-    'jungle.cardAlt':'Verzamelde kaart','jungle.cardEyebrow':'KAART ONTDEKT','jungle.cardSub':'Voor je Kwizillo-verzameling','jungle.cardTitle':'Jungleblad','card.jungle-leaf':'Jungleblad','card.city-star':'Stadsster','card.sky-feather':'Luchtveer','jungle.retry':'Opnieuw opslaan','jungle.take':'Neem mijn buit mee','jungle.again':'Ander avontuur','jungle.replay':'Deze nog een keer',
+    'jungle.cardAlt':'Verzamelde kaart','jungle.cardEyebrow':'KAART ONTDEKT','jungle.cardSub':'Voor je Kwizillo-verzameling','jungle.cardTitle':'Jungleblad','card.jungle-leaf':'Jungleblad','card.city-star':'Stadsster','card.sky-feather':'Luchtveer','jungle.retry':'Opnieuw opslaan','jungle.take':'Neem mijn buit mee','jungle.again':'Ander avontuur','jungle.replay':'Speel nog een keer',
     // Premium (parent pays for access; the child earns rewards by playing)
     'common.ok':'Oké','common.retry':'Opnieuw proberen',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'VOOR OUDERS',
@@ -845,7 +845,7 @@
     'jungle.labelGold':'+{n} GOLD!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Card found!','jungle.labelClear':'Nice jump!','jungle.labelMagnet':'MAGNET!','jungle.labelShield':'SHIELD!','jungle.labelBlock':'Saved!','jungle.labelDouble':'DOUBLE COINS!',
     'jungle.saving':'Saving your reward…','jungle.saved':'Your coins have been added.','jungle.saveError':'Saving did not work yet. Please try again.',
     'jungle.finishEyebrow':'ADVENTURE COMPLETE','jungle.finish':'FINISH!','jungle.finishSub':'Your loot from this run','jungle.coinsEarned':'coins earned','jungle.bestStreak':'Best streak','jungle.bonusCoins':'Bonus coins',
-    'jungle.cardAlt':'Collected card','jungle.cardEyebrow':'CARD FOUND','jungle.cardSub':'For your Kwizillo collection','jungle.cardTitle':'Jungle leaf','card.jungle-leaf':'Jungle leaf','card.city-star':'City star','card.sky-feather':'Sky feather','jungle.retry':'Save again','jungle.take':'Take my loot','jungle.again':'Other adventure','jungle.replay':'This one again',
+    'jungle.cardAlt':'Collected card','jungle.cardEyebrow':'CARD FOUND','jungle.cardSub':'For your Kwizillo collection','jungle.cardTitle':'Jungle leaf','card.jungle-leaf':'Jungle leaf','card.city-star':'City star','card.sky-feather':'Sky feather','jungle.retry':'Save again','jungle.take':'Take my loot','jungle.again':'Other adventure','jungle.replay':'Play again',
     // Premium
     'common.ok':'OK','common.retry':'Try again',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'FOR PARENTS',
@@ -1585,7 +1585,7 @@
     'jungle.labelGold':'+{n} OURO!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Carta encontrada!','jungle.labelClear':'Belo salto!','jungle.labelMagnet':'ÍMÃ!','jungle.labelShield':'ESCUDO!','jungle.labelBlock':'Salvo!','jungle.labelDouble':'MOEDAS EM DOBRO!',
     'jungle.saving':'Salvando sua recompensa…','jungle.saved':'Suas moedas foram adicionadas.','jungle.saveError':'Ainda não deu para salvar. Tente de novo.',
     'jungle.finishEyebrow':'AVENTURA CONCLUÍDA','jungle.finish':'CHEGADA!','jungle.finishSub':'Seu tesouro desta corrida','jungle.coinsEarned':'moedas ganhas','jungle.bestStreak':'Melhor sequência','jungle.bonusCoins':'Moedas bônus',
-    'jungle.cardAlt':'Carta coletada','jungle.cardEyebrow':'CARTA DESCOBERTA','jungle.cardSub':'Para sua coleção Kwizillo','jungle.cardTitle':'Folha da selva','card.jungle-leaf':'Folha da selva','card.city-star':'Estrela da cidade','card.sky-feather':'Pena do céu','jungle.retry':'Salvar de novo','jungle.take':'Levar meu tesouro','jungle.again':'Outra aventura','jungle.replay':'Esta de novo',
+    'jungle.cardAlt':'Carta coletada','jungle.cardEyebrow':'CARTA DESCOBERTA','jungle.cardSub':'Para sua coleção Kwizillo','jungle.cardTitle':'Folha da selva','card.jungle-leaf':'Folha da selva','card.city-star':'Estrela da cidade','card.sky-feather':'Pena do céu','jungle.retry':'Salvar de novo','jungle.take':'Levar meu tesouro','jungle.again':'Outra aventura','jungle.replay':'Jogue de novo',
     // Premium
     'common.ok':'OK','common.retry':'Tentar de novo',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'PARA OS PAIS',

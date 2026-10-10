@@ -104,7 +104,7 @@
     'jungle.labelGold':'+{n} OR !','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Carte trouvée !','jungle.labelClear':'Beau saut !','jungle.labelMagnet':'AIMANT !','jungle.labelShield':'BOUCLIER !','jungle.labelBlock':'Sauvé !','jungle.labelDouble':'PIÈCES DOUBLÉES !',
     'jungle.saving':'Ta récompense est enregistrée…','jungle.saved':'Tes pièces sont ajoutées.','jungle.saveError':'L’enregistrement n’a pas encore marché. Réessaie.',
     'jungle.finishEyebrow':'AVENTURE TERMINÉE','jungle.finish':'ARRIVÉE !','jungle.finishSub':'Ton butin de cette course','jungle.coinsEarned':'pièces gagnées','jungle.bestStreak':'Meilleure série','jungle.bonusCoins':'Pièces bonus',
-    'jungle.cardAlt':'Carte collectée','jungle.cardEyebrow':'CARTE TROUVÉE','jungle.cardSub':'Pour ta collection Kwizillo','jungle.cardTitle':'Feuille de jungle','card.jungle-leaf':'Feuille de jungle','card.city-star':'Étoile de la ville','card.sky-feather':'Plume du ciel','jungle.retry':'Enregistrer encore','jungle.take':'Prendre mon butin','jungle.again':'Autre aventure','jungle.replay':'Encore celle-ci',
+    'jungle.cardAlt':'Carte collectée','jungle.cardEyebrow':'CARTE TROUVÉE','jungle.cardSub':'Pour ta collection Kwizillo','jungle.cardTitle':'Feuille de jungle','card.jungle-leaf':'Feuille de jungle','card.city-star':'Étoile de la ville','card.sky-feather':'Plume du ciel','jungle.retry':'Enregistrer encore','jungle.take':'Prendre mon butin','jungle.again':'Autre aventure','jungle.replay':'Rejouer',
     // Premium
     'common.ok':'OK','common.retry':'Réessayer',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'POUR LES PARENTS',

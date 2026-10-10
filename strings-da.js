@@ -103,7 +103,7 @@
     'jungle.labelGold':'+{n} GULD!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Kort fundet!','jungle.labelClear':'Flot hop!','jungle.labelMagnet':'MAGNET!','jungle.labelShield':'SKJOLD!','jungle.labelBlock':'Reddet!','jungle.labelDouble':'DOBBELTE MØNTER!',
     'jungle.saving':'Din belønning gemmes…','jungle.saved':'Dine mønter er lagt til.','jungle.saveError':'Det lykkedes ikke at gemme endnu. Prøv igen.',
     'jungle.finishEyebrow':'EVENTYRET ER FULDFØRT','jungle.finish':'MÅL!','jungle.finishSub':'Dit bytte fra denne tur','jungle.coinsEarned':'mønter tjent','jungle.bestStreak':'Bedste stime','jungle.bonusCoins':'Bonusmønter',
-    'jungle.cardAlt':'Samlet kort','jungle.cardEyebrow':'KORT FUNDET','jungle.cardSub':'Til din Kwizillo-samling','jungle.cardTitle':'Jungleblad','card.jungle-leaf':'Jungleblad','card.city-star':'Bystjerne','card.sky-feather':'Himmelfjer','jungle.retry':'Gem igen','jungle.take':'Tag mit bytte','jungle.again':'Andet eventyr','jungle.replay':'Den her igen',
+    'jungle.cardAlt':'Samlet kort','jungle.cardEyebrow':'KORT FUNDET','jungle.cardSub':'Til din Kwizillo-samling','jungle.cardTitle':'Jungleblad','card.jungle-leaf':'Jungleblad','card.city-star':'Bystjerne','card.sky-feather':'Himmelfjer','jungle.retry':'Gem igen','jungle.take':'Tag mit bytte','jungle.again':'Andet eventyr','jungle.replay':'Spil igen',
     // Premium
     'common.ok':'OK','common.retry':'Prøv igen',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'TIL FORÆLDRE',

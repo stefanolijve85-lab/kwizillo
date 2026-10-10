@@ -216,7 +216,7 @@
     'jungle.retry':'احفظ مرة أخرى',
     'jungle.take':'خذ غنيمتي',
     'jungle.again':'مغامرة أخرى',
-    'jungle.replay':'هذه مرة أخرى',
+    'jungle.replay':'العب مرة أخرى',
 
     'common.ok':'حسنًا',
     'common.retry':'حاول مرة أخرى',

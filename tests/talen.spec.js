@@ -125,7 +125,7 @@ test('eighteen themes and a mix, all playable: animals free, the rest and the mi
   expect(cat.width / cat.height).toBeGreaterThan(2);
   // Woordjes: the mix as the wide tile on top, then fourteen word themes
   await page.locator('[data-cat="words"]').click();
-  await expect(page.locator('.talen-cat-title')).toHaveText('Woordjes');
+  await expect(page.locator('.talen-cat-title')).toHaveCount(0);                // no "Woordjes" heading once chosen
   await expect(page.locator('.talen-pass .panel-scroll > .memo-pick.mix[data-theme="mix"]')).toHaveCount(1);
   await expect(page.locator('.talen-picks .talen-pick')).toHaveCount(14);
   await expect(page.locator('.talen-pick.soon')).toHaveCount(0);
@@ -156,7 +156,7 @@ test('the child picks the language they speak too: meanings and praise in that o
   await boot(page, { premium: true, clips });
   await page.locator('#homeTalen').click();
   await page.locator('#talenLang').click();
-  await expect(page.locator('.talen-section').first()).toHaveText('Ik spreek');
+  await expect(page.locator('.talen-ask-bubble').first()).toHaveText('Ik spreek');
   await expect(page.locator('.talen-speaks [data-speak]')).toHaveCount(10);
   await expect(page.locator('.talen-speaks [data-speak]').first()).toHaveAttribute('data-speak', 'nl');
   await expect(page.locator('[data-speak="nl"]')).toHaveClass(/active/);
@@ -179,7 +179,7 @@ test('the child picks the language they speak too: meanings and praise in that o
   // back from the lesson: the word themes, not the wide tiles
   await page.evaluate(() => window.KWIZILLO_M1.stopSpeech());
   await page.locator('#talenBack').click();
-  await expect(page.locator('.talen-cat-title')).toHaveText('Woordjes');
+  await expect(page.locator('.talen-picks .talen-pick')).toHaveCount(14);
   // speaking the app language again stores nothing extra
   await page.evaluate(() => window.KWIZILLO_M1.showTalenPick());
   await page.locator('[data-speak="nl"]').click();
@@ -311,7 +311,7 @@ test('the first time in Talen the child chooses the language: a flag per languag
   const clips = [];
   await boot(page, { state: SAVED({ learnLang: null, voice: 'Luna' }), clips });
   await page.locator('#homeTalen').click();
-  await expect(page.locator('.talen-ask-bubble')).toHaveText('Welke taal wil je leren?');
+  await expect(page.locator('.talen-ask-bubble').last()).toHaveText('Welke taal wil je leren?');
   await expect(page.locator('.talen-flags [data-learn]')).toHaveCount(9);   // all but the app language
   await expect(page.locator('[data-learn="nl"]')).toHaveCount(0);
   await expect(page.locator('[data-learn="fr"]')).toContainText('Frans');

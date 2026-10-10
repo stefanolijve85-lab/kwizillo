@@ -100,12 +100,12 @@
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(t('talen.pickSub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
-        <h2 class="talen-section">${esc(t('talen.speakHead'))}</h2>
+        <div class="talen-ask"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><b class="talen-ask-bubble">${esc(t('talen.speakHead'))}</b></div>
         <div class="talen-speaks"></div>
         <div class="talen-ask"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><b class="talen-ask-bubble">${esc(t('talen.pickTitle'))}</b></div>
         <div class="talen-flags"></div>
-        <button class="talen-start talen-go" id="talenGo" hidden></button>
       </div>
+      <button class="talen-start talen-go" id="talenGo" hidden></button>
       ${K.bottomNav('home')}
     </section>`);
     const go=f.querySelector('#talenGo'),speakRow=f.querySelector('.talen-speaks'),grid=f.querySelector('.talen-flags');
@@ -121,7 +121,6 @@
       grid.querySelectorAll('[data-learn]').forEach(b=>b.onclick=()=>{
         pick=b.dataset.learn;draw();
         K.stopSpeech();if(hello)K.playClips([audio(pick,'hello')]);
-        go.scrollIntoView?.({block:'nearest',behavior:'smooth'});
       });
     };
     draw();
@@ -197,7 +196,7 @@
     };
     const mixTile=c.mix?`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`:'';
     const list=catThemes(c);
-    passport(passSub(l),`<h2 class="talen-section talen-cat-title">${esc(t(`talen.section.${c.id}`))}</h2>${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()});
+    passport(passSub(l),`${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()});
   };
   // Back from a lesson: to the themes it came from.
   const toThemes=()=>K.talenCat?K.showTalenCat(K.talenCat):K.showTalen();

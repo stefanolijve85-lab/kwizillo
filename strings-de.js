@@ -103,7 +103,7 @@
     'jungle.labelGold':'+{n} GOLD!','jungle.labelCombo':'COMBO +5','jungle.labelCard':'Karte gefunden!','jungle.labelClear':'Guter Sprung!','jungle.labelMagnet':'MAGNET!','jungle.labelShield':'SCHILD!','jungle.labelBlock':'Gerettet!','jungle.labelDouble':'DOPPELTE MÜNZEN!',
     'jungle.saving':'Deine Belohnung wird gespeichert…','jungle.saved':'Deine Münzen sind hinzugefügt.','jungle.saveError':'Das Speichern hat noch nicht geklappt. Versuche es erneut.',
     'jungle.finishEyebrow':'ABENTEUER GESCHAFFT','jungle.finish':'ZIEL!','jungle.finishSub':'Deine Beute aus diesem Lauf','jungle.coinsEarned':'Münzen verdient','jungle.bestStreak':'Beste Serie','jungle.bonusCoins':'Bonusmünzen',
-    'jungle.cardAlt':'Gesammelte Karte','jungle.cardEyebrow':'KARTE GEFUNDEN','jungle.cardSub':'Für deine Kwizillo-Sammlung','jungle.cardTitle':'Dschungelblatt','card.jungle-leaf':'Dschungelblatt','card.city-star':'Stadtstern','card.sky-feather':'Himmelsfeder','jungle.retry':'Noch einmal speichern','jungle.take':'Beute mitnehmen','jungle.again':'Anderes Abenteuer','jungle.replay':'Dieses noch einmal',
+    'jungle.cardAlt':'Gesammelte Karte','jungle.cardEyebrow':'KARTE GEFUNDEN','jungle.cardSub':'Für deine Kwizillo-Sammlung','jungle.cardTitle':'Dschungelblatt','card.jungle-leaf':'Dschungelblatt','card.city-star':'Stadtstern','card.sky-feather':'Himmelsfeder','jungle.retry':'Noch einmal speichern','jungle.take':'Beute mitnehmen','jungle.again':'Anderes Abenteuer','jungle.replay':'Nochmal spielen',
     // Premium
     'common.ok':'OK','common.retry':'Noch einmal',
     'premium.label':'Premium','premium.name':'Kwizillo Premium','premium.kicker':'FÜR ELTERN',
