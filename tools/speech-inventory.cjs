@@ -141,7 +141,7 @@ for (const lang of langs) {
   // Talen: a section opened from the passport says its name (games-talen.js saySection).
   for (const k of ['words', 'sentences', 'conversations', 'speaking']) add(lang, BOTH, T('world.speech.enter', { title: T(`talen.section.${k}`) }), 'talen: section');
   // Game opened from Home (m1-ui.js openGame).
-  for (const k of ['talen.title', 'math.title', 'whoami.title', 'fotozoom.title', 'facts.title', 'memo.title', 'chest.title']) add(lang, BOTH, T('world.speech.enter', { title: T(k) }), 'game: open');
+  for (const k of ['talen.title', 'math.title', 'whoami.title', 'fotozoom.title', 'facts.title', 'memo.title', 'chest.title', 'blokken.title']) add(lang, BOTH, T('world.speech.enter', { title: T(k) }), 'game: open');
 
   // Memo (games-memo.js): a turned card says its answer; any question with an
   // answer picture can be on the board (the "fill" pairs have no further filter).
