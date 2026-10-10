@@ -12,9 +12,9 @@
   const first=sel=>[...document.querySelectorAll(sel)].reverse().find(shown);   // the topmost is last in the DOM
 
   // What lies on top of a screen, most recent first.
-  const OVERLAYS='.mascot-unlock-ok,#feedbackClose,.hint-close,.simple-close,.sound-close,.confirm-actions .cancel';
+  const OVERLAYS='.bk-modal .bk-close,.bk-coach .bk-close,.bk-banner .bk-close,.mascot-unlock-ok,#feedbackClose,.hint-close,.simple-close,.sound-close,.confirm-actions .cancel';
   // Each screen's own way back.
-  const BACKS='#qBack,#worldBack,#whoBack,#memoBack,#mathBack,#fzBack,#premiumBack,#obBack,#wbBack,.panel-back,.quiz-back,.onboarding-back';
+  const BACKS='#bkBack,#qBack,#worldBack,#whoBack,#memoBack,#mathBack,#fzBack,#premiumBack,#obBack,#wbBack,.panel-back,.quiz-back,.onboarding-back';
 
   K.nativeBack=()=>{
     const runner=document.querySelector('kwizillo-jungle');
