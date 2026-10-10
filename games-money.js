@@ -73,7 +73,7 @@
   }
   const say=parts=>K.speakSequence(parts.map(text=>({kind:'part',text})));
 
-  /* ---------------- Rekenen: sums or money ---------------- */
+  /* ---------------- Rekenen: sums, money or measuring ---------------- */
   K.showMathPick=world=>{
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();
@@ -85,12 +85,14 @@
       <div class="panel-scroll">
         <button class="memo-pick math-pick-tile" data-pick="sums"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.pick.sums'))}<small>${esc(t('math.sub'))}</small></b></button>
         <button class="memo-pick math-pick-tile money" data-pick="money"><span class="money-pick-coins" aria-hidden="true">${coins.map((v,i)=>`<img src="${coinSrc(m,v)}" alt="" style="--i:${i}">`).join('')}</span><span class="home-game-veil"></span><b>${esc(t('math.money.title'))}<small>${esc(t('math.money.sub'))}</small></b></button>
+        <button class="memo-pick math-pick-tile measure" data-pick="measure"><img class="home-game-art" src="${K.GAME_ART.measure}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('measure.title'))}<small>${esc(t('measure.sub'))}</small></b></button>
       </div>
       ${K.bottomNav('home')}
     </section>`);
     f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
     f.querySelector('[data-pick="sums"]').onclick=()=>{K.sfx('world');K.startMath(world)};
     f.querySelector('[data-pick="money"]').onclick=()=>{K.sfx('world');K.startMoney()};
+    f.querySelector('[data-pick="measure"]').onclick=()=>{K.sfx('world');K.startMeasure()};   // games-measure.js
     K.bindNav(f);
   };
 

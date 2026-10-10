@@ -167,11 +167,11 @@ const typeAmount = async (page, minor, sep) => {
   const s = (minor / 100).toFixed(2).replace('.', sep);
   for (const ch of s) await page.locator(`.money-key[data-key="${ch}"]`).click();
 };
-test('Rekenen offers sums or money; money shows real coins and a keypad, a typed amount with a comma is checked in cents', async ({ page }) => {
+test('Rekenen offers sums, money or measuring; money shows real coins and a keypad, a typed amount with a comma is checked in cents', async ({ page }) => {
   const errors = []; page.on('pageerror', e => errors.push(String(e)));
   await boot(page, SAVED({ niveau: 3 }));
   await page.locator('#homeMath').click();
-  await expect(page.locator('.math-pick [data-pick]')).toHaveCount(2);
+  await expect(page.locator('.math-pick [data-pick]')).toHaveCount(3);   // Sommen, Geld tellen, Meten & Wegen (measure.spec.js)
   await page.locator('[data-pick="money"]').click();
   await expect(page.locator('.money-card')).toBeVisible();
   const pile = await page.evaluate(() => window.KWIZILLO_M1.math.sums[0]);

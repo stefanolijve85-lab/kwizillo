@@ -1856,3 +1856,38 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-langpick .panel-scroll>:first-child{margin-top:max(4px,calc(24vh - 106px - var(--sat)))}
 @supports(height:1cqh){.talen-langpick .panel-scroll>:first-child{margin-top:max(4px,calc(24cqh - 106px - var(--sat)))}}
 .talen-langpick .talen-go{position:relative;z-index:3;bottom:auto;margin:0}
+/* Meten & Wegen (games-measure.js, 2026-10-10): the third Rekenen tile, then one question
+   at a time: the question, the drawing (ruler, scale, jug ...) on a white mat, the answers. */
+.math-pick-tile.measure .home-game-art{object-position:center 62%}
+.measure-card{display:flex;flex-direction:column;gap:8px;min-height:0;justify-content:flex-start}
+.measure-q{margin:2px 0 0;text-align:center;font-size:clamp(19px,5.4vw,26px);line-height:1.15;font-weight:1000;color:#10175c;cursor:pointer}
+.measure-stage{position:relative;flex:1 1 auto;min-height:120px;max-height:38vh;display:grid;place-items:center;padding:8px;border-radius:20px;background:linear-gradient(180deg,#fff,#eef7ff);border:2px solid #fff;box-shadow:inset 0 2px 8px rgba(20,70,150,.1),0 4px 0 #cfe4f8;overflow:hidden}
+.measure-stage .m-svg{width:100%;height:100%;max-height:calc(38vh - 20px);display:block}
+.measure-stage .m-ruler-svg{height:auto}
+.m-ruler{fill:#ffe08a;stroke:#e0a82e;stroke-width:1.5}
+.m-tick{stroke:#5d4300;stroke-width:1}.m-tick.big{stroke-width:1.6}
+.m-num{font:900 10px system-ui,-apple-system,sans-serif;fill:#3b2a00;text-anchor:middle}
+.m-num.small{font-size:9.5px;fill:#37474f}.m-num.unit{font-size:10px;fill:#90a4ae}
+.m-num.badge{font-size:13px;fill:#c62828}.m-num.badge.light{fill:#fff}
+.m-num.jug{text-anchor:start;font-size:9.5px;fill:#0d47a1}
+.m-jugmark{stroke:#1565c0;stroke-width:1.6}.m-jugmark.big{stroke-width:2.4}
+.m-guide{stroke:#90a4ae;stroke-width:1;stroke-dasharray:3 3}
+.m-needle{stroke:#c62828;stroke-width:3.2;stroke-linecap:round}
+.m-label{font:900 11px system-ui,-apple-system,sans-serif;fill:#3566a8}
+.m-emoji{text-anchor:middle;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.measure-stage .rv{opacity:0;transition:opacity .35s ease}
+.measure-stage.reveal .rv{opacity:1}
+.measure-stage.reveal .m-guide{stroke:#ffb300;stroke-width:2;stroke-dasharray:none}
+.m-span{fill:#ffb300}.m-dot{fill:#ff6f00;stroke:#fff;stroke-width:1.5}
+.m-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.m-card{display:grid;justify-items:center;gap:2px;padding:10px 6px;border-radius:18px;background:#fff;box-shadow:0 4px 0 #cfe4f8,0 8px 14px rgba(20,70,128,.1);color:#10175c}
+.m-card b{font-size:15px;font-weight:1000}
+.m-card strong{font-size:clamp(18px,5.4vw,24px);font-weight:1000;color:#3566a8}
+.m-big-emoji{font-size:clamp(52px,16vw,84px);line-height:1.05;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.m-estimate .m-big-emoji{font-size:clamp(84px,26vw,132px)}
+.m-convert{font-size:clamp(28px,9vw,44px);font-weight:1000;color:#10175c;text-align:center}
+.m-story{font-size:clamp(16px,4.6vw,21px);font-weight:900;line-height:1.35;color:#10175c;text-align:center;padding:4px 6px}
+.measure-answers .answer{min-height:64px!important;font-size:clamp(17px,5vw,24px)!important}
+.measure-answers.two{grid-template-columns:1fr 1fr}
+.measure-answers .answer-copy{overflow-wrap:anywhere}
+.measure-card[data-kind="length"] .measure-stage,.measure-card[data-kind="compare"] .measure-stage{flex:0 1 auto}
