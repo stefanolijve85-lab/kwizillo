@@ -10,19 +10,30 @@
   // reward — booked once per run id, like the Runner's (games-jungle.js). It has
   // its own progress (progress.games.jump) and leaves the Runner's alone.
   const WORLDS=['underwater','candy','space'];
-  const MUSIC={underwater:'earth',candy:'play',space:'space'};
+  // The game's own arcade loop in every world (Stefan, 2026-10-11: "more arcade music";
+  // tools/jump-music.cjs). It joins the audio manager's track table so the one manager plays,
+  // loops and crossfades it like any other track — but not enumerable, so it does not show up
+  // as a choice in the Settings music list (that list has a name per track in the strings).
+  const ARCADE={id:'arcade',icon:'🕹️',src:'assets/audio/music/arcade.mp3',loop:51.2000,lead:.6};
+  if(K.audio?.tracks&&!K.audio.tracks.arcade)Object.defineProperty(K.audio.tracks,'arcade',{value:ARCADE,enumerable:false,configurable:true});
+  const MUSIC={underwater:'arcade',candy:'arcade',space:'arcade'};
+  // the turbo speeds the music up a little while it lasts (the Runner does the same)
+  const TURBO_TEMPO=1.12;
+  const setTempo=on=>{try{K.audio.setTempo?.(on?TURBO_TEMPO:1)}catch(e){}};
   // The game's own sounds (tools/jump-sfx.cjs: synthesised, no voices), through
   // the app's sound manager so the FX switch and slider apply. Mike and Mia each
   // have their own jump, double jump, land, slide, hurt and celebrate; the rest is shared.
   const SFX_DIR='assets/games/jump/sfx/';
-  const HERO_SFX=['jump','double','land','slide','hurt','celebrate'],SHARED_SFX=['star','bounce','shield','shieldhit','tick','go','finish','over'];
+  const HERO_SFX=['jump','double','land','slide','hurt','celebrate'],SHARED_SFX=['star','bounce','shield','shieldhit','tick','go','finish','over','jetpack','jethum','jetoff','jetpuff','energy'];
+  // the jetpack's engine hum plays once a second for the whole flight: quieter than a one-off sound
+  const SFX_LEVEL={jethum:.32,jetpuff:.4};
   const sfxKey=(name,hero)=>'jmm_'+(hero?hero+'_':'')+name;
   const addSfx=()=>{const files={},levels={};
     for(const h of ['mike','mia'])for(const n of HERO_SFX){files[sfxKey(n,h)]=SFX_DIR+h+'-'+n+'.mp3';levels[sfxKey(n,h)]=.6}
-    for(const n of SHARED_SFX){files[sfxKey(n)]=SFX_DIR+n+'.mp3';levels[sfxKey(n)]=.6}
+    for(const n of SHARED_SFX){files[sfxKey(n)]=SFX_DIR+n+'.mp3';levels[sfxKey(n)]=SFX_LEVEL[n]??.6}
     K.audio.addSfx?.(files,levels)};
   // game event → sound (hero sounds follow the child chosen for the run)
-  const SFX={jump:'jump',double:'double',land:'land',slide:'slide',hit:'hurt',fall:'hurt',celebrate:'celebrate',star:'star',bounce:'bounce',shield:'shield',shieldHit:'shieldhit',count:'tick',go:'go',finish:'finish',over:'over'};
+  const SFX={jump:'jump',double:'double',land:'land',slide:'slide',hit:'hurt',fall:'hurt',celebrate:'celebrate',star:'star',bounce:'bounce',shield:'shield',shieldHit:'shieldhit',count:'tick',go:'go',finish:'finish',over:'over',jetpack:'jetpack',jetHum:'jethum',jetEnd:'jetoff',puff:'jetpuff',energy:'energy'};
   const playSfx=(ev,hero)=>{const n=SFX[ev];if(!n)return;K.sfx(sfxKey(n,HERO_SFX.includes(n)?(hero==='mia'?'mia':'mike'):''))};
   K.jumpSfxKey=sfxKey;
 
@@ -60,7 +71,7 @@
   };
 
   let active=null;
-  const leave=()=>{try{active?.destroy()}catch(e){}active=null;K.jump=null};
+  const leave=()=>{try{active?.destroy()}catch(e){}active=null;K.jump=null;setTempo(false)};
 
   K.startJump=async()=>{
     leave();addSfx();
@@ -87,6 +98,7 @@
       best:w=>Number(jumpProgress().best[w]||0),
       reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
       sfx:(k,hero)=>playSfx(k,hero),
+      onPower:(kind,on)=>{if(kind==='boost')setTempo(on)},
       onReady:()=>{const poster=f.querySelector('.jungle-poster');if(poster){poster.style.opacity='0';setTimeout(()=>poster.remove(),300)}},
       onStart:w=>{K.audio.unlock().catch(()=>{});K.audio.setTrack(MUSIC[w]).catch(()=>{});K.startScoreRun()},
       onComplete:reward=>{
@@ -97,7 +109,7 @@
         if(booked.capped)booked.note=t('score.coinsCapped',{n:booked.coins,got:Number(reward.stars||0)+10});
         return booked;
       },
-      onExit:()=>{active=null;K.jump=null;K.backFromGame()}
+      onExit:()=>{active=null;K.jump=null;setTempo(false);K.backFromGame()}
     });
     active={destroy:()=>game.destroy()};
     K.jump={game,progress:jumpProgress()};

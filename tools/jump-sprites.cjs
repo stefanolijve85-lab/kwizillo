@@ -24,10 +24,19 @@
 //   5. writes one atlas per child: assets/games/jump/<hero>.webp plus the frame
 //      table in assets/games/jump/sprites.js (cell size, foot anchor, frames per
 //      animation state).
+//   6. the power-up poses (Stefan, 2026-10-11), per child — single drawings
+//      <hero>-fly.png (flying with the jetpack), <hero>-speed.png (turbo run) and
+//      <hero>-grab.png (swinging/putting the jetpack on): a second, small atlas
+//      <hero>-power.webp with its own cell, so the wide flames and speed streaks
+//      do not make every cell of the main atlas wider. Drawn at the stand pose's
+//      scale (the same drawing size), Mike's eyes recoloured like his stand pose.
+//      A child without all three files gets no power atlas, and the renderer
+//      draws the jetpack and the turbo glow over her/his normal poses instead.
 //
 //   node tools/jump-sprites.cjs            → writes the atlases
 //   node tools/jump-sprites.cjs --sheet    → also writes a labelled contact sheet of
 //                                             every cleaned pose to art-source/jump/
+//   node tools/jump-sprites.cjs --check    → fails if an atlas in sprites.js is missing
 //
 // It runs on the Chromium that Playwright installs (no image library needed).
 const fs = require('fs'); const path = require('path');
@@ -69,18 +78,38 @@ const MAP = {
 };
 // The grid of each source (rows × columns) per child.
 const SOURCES = { anim: { mike: [8, 4], mia: [9, 4] }, run8: { mike: [2, 4], mia: [2, 4] }, stand: { mike: [1, 1], mia: [1, 1] } };
+// The power-up poses (see 6. above), the same for both children: state → source drawing.
+// A child gets them as soon as all of her/his files lie in art-source/jump/
+// (mike-/mia-fly.png, -speed.png, -grab.png; the originals are in art-source/jump/power/).
+const POWER_POSES = { fly: 'fly', boost: 'speed', grab: 'grab' };
+const POWER_MAP = {};
+for (const hero of ['mike', 'mia']) {
+  if (!Object.values(POWER_POSES).every(f => fs.existsSync(path.join(SRC, `${hero}-${f}.png`)))) continue;
+  POWER_MAP[hero] = Object.fromEntries(Object.entries(POWER_POSES).map(([state, f]) => [state, [[f, 0, 0]]]));
+  for (const f of Object.values(POWER_POSES)) (SOURCES[f] ||= {})[hero] = [1, 1];
+}
+// the far eye of a three-quarter face is recoloured too on these big single drawings (on the
+// small anim poses it is a sliver against the hair and stays as drawn)
+const BOTH_EYES = ['fly', 'speed', 'grab'];
 // Which file each source is, per child (Mike's run cycle was redrawn with his blue-green eyes and a thin white outline).
 const FILES = { mike: { run8: 'run8-v2' } };
 // Sources drawn with a white outline that has to go (not elsewhere: the white of an eye at the edge of a face must stay).
 const WHITE_OUTLINE = { mike: ['run8'] };
 // Mike's eyes are recoloured on these sources only (the redrawn run cycle has them already).
-const TEAL_EYES = { mike: ['stand'] };
+const TEAL_EYES = { mike: ['stand', 'anim', 'fly', 'speed', 'grab'] };   // Mia's eyes are drawn as they should be
 // Frames that stand in for a pose the sheet does not have.
 const TEMPORARY = {
-  mike: { slide: 'Mike has no slide pose on his sheet: his "leaning back, legs forward" air pose (row 5, column 2) is turned 42° backwards as a stand-in. Replace with a real slide frame when it is drawn.', eyes: 'Mike\'s run cycle (mike-run8-v2.png) is drawn with his blue-green eyes; the stand pose is recoloured to blue-green in this tool; the jump, double jump, fall, land, slide, hurt and celebrate poses from mike-anim.png still have the brown eyes as drawn (too small to recolour cleanly) until those poses are redrawn.' }
+  mike: { slide: 'Mike has no slide pose on his sheet: his "leaning back, legs forward" air pose (row 5, column 2) is turned 42° backwards as a stand-in. Replace with a real slide frame when it is drawn.', eyes: 'Mike\'s run cycle (mike-run8-v2.png) is drawn with his blue-green eyes; the stand pose, the power poses and (since 2026-10-11) the small jump, double jump, fall, land, slide and celebrate poses of mike-anim.png are recoloured to blue-green in this tool. On those small poses the far eye (three-quarter view) is drawn as a near-black sliver without any iris colour and stays as drawn, until those poses are redrawn.' }
 };
 const TARGET = 200;   // standing height of both children in the atlas, px
 
+if (process.argv.includes('--check')) {
+  const txt = fs.readFileSync(path.join(OUT, 'sprites.js'), 'utf8'), files = [...txt.matchAll(/"src":"([^"]+)"/g)].map(m => m[1]);
+  const missing = files.filter(f => !fs.existsSync(path.join(OUT, f)));
+  const noPower = ['mike', 'mia'].filter(h => !files.includes(`${h}-power.webp`));
+  if (missing.length || noPower.length) { console.error('jump sprites missing:', missing.join(', ') || noPower.map(h => `${h}-power.webp`).join(', ') + ' not in sprites.js'); process.exit(1) }
+  console.log(`jump sprites: ${files.length} atlases ✔`); process.exit(0);
+}
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const browser = await chromium.launch();
@@ -91,9 +120,10 @@ const TARGET = 200;   // standing height of both children in the atlas, px
   for (const hero of ['mike', 'mia']) {
    await page.evaluate(() => { window.__F = {} });
    for (const [srcName, grids] of Object.entries(SOURCES)) {
+    if (!grids[hero]) continue;
     const [rows, cols] = grids[hero];
     const data = 'data:image/png;base64,' + fs.readFileSync(path.join(SRC, `${hero}-${FILES[hero]?.[srcName] || srcName}.png`)).toString('base64');
-    const rep = await page.evaluate(async ({ data, rows, cols, srcName, teal, sheet, cleanWhite }) => {
+    const rep = await page.evaluate(async ({ data, rows, cols, srcName, teal, sheet, cleanWhite, bothEyes, darkIris }) => {
       const img = new Image();
       await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = data });
       const W = img.width, H = img.height;
@@ -207,9 +237,10 @@ const TARGET = 200;   // standing height of both children in the atlas, px
       for (let ci = 0; ci < rows * cols; ci++) frames[ci] = frame(ci);
       // Mike's eyes: brown irises → blue-green (see the header)
       const eyeLog = [];
-      // only the run cycle and the stand pose: on the small poses of the anim sheet the
-      // irises are a few pixels of near-black, and recolouring left brown eyes with a teal
-      // rim (checked at 2.4x on every frame, 2026-10-10) — those keep the drawn eyes
+      // the small poses of the anim sheet draw the iris dark brown, nearly black: they take the
+      // darkIris rule (dark browns count as iris, only the blackest core is the pupil, the teal is
+      // lifted so it reads) — Stefan, 2026-10-11: "Mike always has blue-green eyes"; checked at
+      // 2.4x in mike-eyes.png on every frame
       if (teal) for (const [ci, f] of Object.entries(frames)) { if (f) eyeLog.push([ci, recolourEyes(f)]) }
       function recolourEyes(f) {
         const g2 = f.c.getContext('2d'), im = g2.getImageData(0, 0, f.w, f.h), p = im.data, w = f.w, h = f.h;
@@ -254,8 +285,12 @@ const TARGET = 200;   // standing height of both children in the atlas, px
           for (let y = Math.max(0, y0 - 1); y <= Math.min(h - 1, y1 + 1); y++) for (let x = Math.max(0, x0 - Rw); x <= Math.min(w - 1, x1 + Rw); x++) {
             const q = y * w + x; if (!near[q]) continue; const i = q * 4;
             ring++; if (skin(i)) skinRing++;
-            if (dark(i)) { pupil++; continue } if (white(i)) continue;
-            const [hu, sa, v] = hsv(i); if (hu >= 14 && hu <= 40 && sa > .55 && v < .84 && p[i + 3] > 200) cand[q] = 1;
+            if (dark(i)) { pupil++; if (!darkIris || Math.max(p[i], p[i + 1], p[i + 2]) < 34) continue } if (white(i)) continue;
+            const [hu, sa, v] = hsv(i);
+            if (!darkIris && hu >= 14 && hu <= 40 && sa > .55 && v < .84 && p[i + 3] > 200) cand[q] = 1;
+            // the small anim poses: the iris is drawn dark brown, nearly black — those count (only the
+            // blackest core is the pupil); the lighter orange of the lid shading does not
+            else if (darkIris && hu <= 45 && sa > .3 && v >= .14 && v < .6 && p[i + 3] > 200) cand[q] = 1;
           }
           // the iris grows from the pixels right beside the white, through iris colours only:
           // the black outline of the eye stops it before the hair or the brow
@@ -269,10 +304,10 @@ const TARGET = 200;   // standing height of both children in the atlas, px
         // the far eye seen from the side is a sliver against the hair: left as drawn
         const biggest = Math.max(0, ...accepted.map(a => a.g.px.length));
         for (const { g, inside } of accepted) {
-          if (g.px.length < biggest * .3) { rejected++; continue }
+          if (g.px.length < biggest * (bothEyes ? .08 : .3)) { rejected++; continue }
           irises++;
           for (const i of inside) { const [hu, sa, v] = hsv(i), q = i / 4; cxs += q % w; cys += (q / w) | 0; cn++;
-            const H2 = 176, S2 = Math.min(.9, Math.max(.5, sa)), V2 = Math.min(1, v * 1.05);
+            const H2 = 176, S2 = Math.min(.9, Math.max(.5, sa)), V2 = darkIris ? Math.min(.95, Math.max(v * 1.7, v + .22)) : Math.min(1, v * 1.05);
             const c = V2 * S2, X = c * (1 - Math.abs(((H2 / 60) % 2) - 1)), m = V2 - c;
             p[i] = m * 255; p[i + 1] = (c + m) * 255; p[i + 2] = (X + m) * 255; changed++ }
         }
@@ -289,13 +324,13 @@ const TARGET = 200;   // standing height of both children in the atlas, px
       }
       const heights = Object.values(frames).map(f => f ? f.foot - f.top : 0);
       return { report, eyeLog, contact, heights, first: sheet && frames[0] ? frames[0].c.toDataURL('image/png') : null };
-    }, { data, rows, cols, srcName, teal: !!TEAL_EYES[hero]?.includes(srcName), sheet, cleanWhite: !!WHITE_OUTLINE[hero]?.includes(srcName) });
+    }, { data, rows, cols, srcName, teal: !!TEAL_EYES[hero]?.includes(srcName), sheet, cleanWhite: !!WHITE_OUTLINE[hero]?.includes(srcName), bothEyes: BOTH_EYES.includes(srcName) || srcName === 'anim', darkIris: srcName === 'anim' });
     console.log(`${hero}/${srcName}: ${rep.report.shapes} figures (${rep.report.split} split), per cell ${rep.report.cells.join('')}${rep.eyeLog.length ? ', eyes ' + rep.eyeLog.map(([ci, e]) => `${ci}:${e.irises}/${e.changed}/${e.rejected}`).join(' ') : ''}`);
     if (sheet && rep.first) fs.writeFileSync(path.join(SRC, `${hero}-${srcName}-first.png`), Buffer.from(rep.first.split(',')[1], 'base64'));
     if (sheet && rep.contact) fs.writeFileSync(path.join(SRC, `${hero}-${srcName}-cleaned.png`), Buffer.from(rep.contact.split(',')[1], 'base64'));
    }
     // compose: one scale for all sources, one foot line, one body line
-    const res = await page.evaluate(({ map, TARGET, sheet, teal }) => {
+    const compose = (map, power) => page.evaluate(({ map, TARGET, sheet, teal, power }) => {
       const F = window.__F, H = f => f.foot - f.top, mean = a => a.reduce((x, y) => x + y, 0) / a.length;
       const animRun = [4, 5, 6, 7].map(i => F.anim[i]).filter(Boolean);
       const sAnim = TARGET / H(F.anim[0]);
@@ -304,6 +339,8 @@ const TARGET = 200;   // standing height of both children in the atlas, px
         run8: mean(animRun.map(H)) * sAnim / mean(Object.values(F.run8).filter(Boolean).map(H)),
         stand: TARGET / H(F.stand[0])
       };
+      // the power drawings are made at the stand drawing's size (same canvas, same framing): its scale
+      for (const k of ['fly', 'speed', 'grab']) if (F[k]) SCALE[k] = SCALE.stand;
       const turned = (f, deg) => {
         const R = Math.ceil(Math.hypot(f.w, f.h)), c2 = document.createElement('canvas'); c2.width = c2.height = R;
         const g2 = c2.getContext('2d'); g2.translate(R / 2, R / 2); g2.rotate(deg * Math.PI / 180); g2.drawImage(f.c, -f.w / 2, -f.h / 2);
@@ -321,7 +358,7 @@ const TARGET = 200;   // standing height of both children in the atlas, px
       let L = 0, Rt = 0, Up = 0;
       for (const { f, k } of used) { L = Math.max(L, (f.body - f.left) * k); Rt = Math.max(Rt, (f.right - f.body) * k); Up = Math.max(Up, (f.foot - f.top) * k) }
       const pad = 3, cw = Math.ceil(L + Rt + pad * 2), ch = Math.ceil(Up + pad * 2), ax = Math.ceil(L + pad), ay = ch - pad;
-      const cols = 6, rowsOut = Math.ceil(used.length / cols);
+      const cols = power ? used.length : 6, rowsOut = Math.ceil(used.length / cols);
       const atlas = document.createElement('canvas'); atlas.width = cols * cw; atlas.height = rowsOut * ch;
       const ag = atlas.getContext('2d'); ag.imageSmoothingQuality = 'high';
       used.forEach(({ f, k }, i) => {
@@ -343,7 +380,8 @@ const TARGET = 200;   // standing height of both children in the atlas, px
         eyes = s.toDataURL('image/png');
       }
       return { url: atlas.toDataURL('image/webp', 0.9), preview: atlas.toDataURL('image/png'), cell: [cw, ch], anchor: [ax, ay], cols, count: used.length, states, boxes, head, scale: SCALE, eyes };
-    }, { map: MAP[hero], TARGET, sheet, teal: !!TEAL_EYES[hero] });
+    }, { map, TARGET, sheet, teal: !!TEAL_EYES[hero], power });
+    const res = await compose(MAP[hero], false);
     console.log(`  scale anim ${res.scale.anim.toFixed(3)} run8 ${res.scale.run8.toFixed(3)} stand ${res.scale.stand.toFixed(3)}; head widths ${res.head.filter((_, i) => [0, 1, 9, 13].includes(i)).map(([n, w]) => n.split(' ')[0] + ' ' + w).join(', ')}`);
     fs.writeFileSync(path.join(OUT, `${hero}.webp`), Buffer.from(res.url.split(',')[1], 'base64'));
     if (sheet) {
@@ -352,6 +390,13 @@ const TARGET = 200;   // standing height of both children in the atlas, px
     }
     table[hero] = { src: `${hero}.webp`, cell: res.cell, anchor: res.anchor, cols: res.cols, height: TARGET, states: res.states, boxes: res.boxes, temporary: Object.keys(TEMPORARY[hero] || {}) };
     console.log(`  atlas ${res.cols}×${Math.ceil(res.count / res.cols)} cells of ${res.cell.join('×')}, ${res.count} frames → assets/games/jump/${hero}.webp (${(fs.statSync(path.join(OUT, `${hero}.webp`)).size / 1024).toFixed(0)} kB)`);
+    if (POWER_MAP[hero]) {
+      const pw = await compose(POWER_MAP[hero], true), file = `${hero}-power.webp`;
+      fs.writeFileSync(path.join(OUT, file), Buffer.from(pw.url.split(',')[1], 'base64'));
+      if (sheet) { fs.writeFileSync(path.join(SRC, `${hero}-power-preview.png`), Buffer.from(pw.preview.split(',')[1], 'base64')); if (pw.eyes) fs.writeFileSync(path.join(SRC, `${hero}-power-eyes.png`), Buffer.from(pw.eyes.split(',')[1], 'base64')) }
+      table[hero].power = { src: file, cell: pw.cell, anchor: pw.anchor, cols: pw.cols, states: pw.states, boxes: pw.boxes };
+      console.log(`  power atlas ${pw.count} frames of ${pw.cell.join('×')} → assets/games/jump/${file} (${(fs.statSync(path.join(OUT, file)).size / 1024).toFixed(0)} kB)`);
+    }
   }
   const notes = Object.entries(TEMPORARY).flatMap(([h, m]) => Object.entries(m).map(([s, why]) => `//   ${h}.${s}: ${why}`)).join('\n');
   fs.writeFileSync(path.join(OUT, 'sprites.js'), `// Written by tools/jump-sprites.cjs — do not edit by hand.\n// Per child: the atlas, the size of one cell, the foot anchor inside a cell\n// (every pose stands on it), and the cells that play each animation state.\n// Temporary frames:\n${notes}\nexport const SPRITES = {\n${Object.entries(table).map(([k, v]) => `  ${k}: ${JSON.stringify(v)}`).join(",\n")}\n};\n`);

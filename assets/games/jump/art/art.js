@@ -24,6 +24,8 @@ export const ART = {
   'star': {"src":"art/star.webp","w":162,"h":150},
   'star-uw': {"src":"art/star-uw.webp","w":172,"h":160},
   'shield': {"src":"art/shield.webp","w":144,"h":150},
+  'jetpack': {"src":"art/jetpack.webp","w":210,"h":200},
+  'energy': {"src":"art/energy.webp","w":236,"h":180},
   'finish': {"src":"art/finish.webp","w":940,"h":640},
   'medal': {"src":"art/medal.webp","w":237,"h":300},
   'btn-jump': {"src":"art/btn-jump.webp","w":255,"h":256},

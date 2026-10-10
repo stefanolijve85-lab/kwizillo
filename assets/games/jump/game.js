@@ -7,7 +7,7 @@
 // Screens: loading → pick (child + world) → countdown → play ⇄ pause → result.
 // The host decides about music, sound effects and rewards; this file never
 // touches the app's state itself.
-import { STEP, createRun, step, pressJump, pressSlide, score, PLAYER, HEARTS } from './engine.js';
+import { STEP, createRun, step, pressJump, pressSlide, score, PLAYER, HEARTS, POWER } from './engine.js';
 import { WORLDS, WORLD_ORDER, level as getLevel } from './levels.js';
 import { SPRITES } from './sprites.js';
 import { createRenderer } from './render.js';
@@ -59,6 +59,7 @@ export function mountJump(host, opts = {}) {
       <span class="kj-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(T('progress'))}"><i></i><b></b></span>
       <span class="kj-pill kj-stars" role="status"><img src="${BASE}art/star.webp" alt=""><span class="kj-star-n">0</span></span>
     </div>
+    <div class="kj-powers" aria-hidden="true" hidden><span class="kj-pw kj-pw-jet" hidden><img src="${BASE}art/jetpack.webp" alt=""></span><span class="kj-pw kj-pw-energy" hidden><img src="${BASE}art/energy.webp" alt=""></span></div>
     <div class="kj-controls" hidden aria-label="${esc(T('controls'))}">
       <button class="kj-btn kj-slide" id="kjSlide" data-act="slide" aria-label="${esc(T('slide'))}"><small>${esc(T('slide'))}</small></button>
       <button class="kj-btn kj-jump" id="kjJump" data-act="jump" aria-label="${esc(T('jump'))}"><small>${esc(T('jump'))}</small></button>
@@ -73,6 +74,7 @@ export function mountJump(host, opts = {}) {
   const $ = sel => root.querySelector(sel);
   const canvas = $('.kj-canvas'), field = $('.kj-field'), hud = $('.kj-hud'), controls = $('.kj-controls'), hint = $('.kj-hint'), count = $('.kj-count'), layer = $('.kj-layer');
   const jumpBtn = $('#kjJump'), slideBtn = $('#kjSlide');
+  const pwJet = $('.kj-pw-jet'), pwEnergy = $('.kj-pw-energy');
   const shieldOn = $('.kj-shield-on'), heartsEl = $('.kj-hearts'), starN = $('.kj-star-n'), bar = $('.kj-progress i'), progress = $('.kj-progress');
 
   // ---------- assets ----------
@@ -80,6 +82,8 @@ export function mountJump(host, opts = {}) {
   const loadImg = src => new Promise((ok, no) => { const i = new Image(); i.decoding = 'async'; i.onload = () => ok(i); i.onerror = () => no(new Error(src)); i.src = BASE + src });
   const preload = () => Promise.all([
     ...HEROES.map(h => loadImg(SPRITES[h].src).then(i => { images[h] = i })),
+    // the power-up poses (jetpack, turbo), when the child has them
+    ...HEROES.filter(h => SPRITES[h].power).map(h => loadImg(SPRITES[h].power.src).then(i => { images[h + '-power'] = i })),
     ...WORLD_ORDER.map(w => loadImg(`world-${w}.jpg`)),
     ...Object.entries(ART).map(([n, a]) => loadImg(a.src).then(i => { artImages[n] = i }))
   ]);
@@ -123,7 +127,7 @@ export function mountJump(host, opts = {}) {
 
   // ---------- screens ----------
   function show(html, cls = '') { layer.innerHTML = html ? `<div class="kj-panel ${cls}">${html}</div>` : ''; }
-  function setPlayUI(on) { hud.hidden = !on; controls.hidden = !on }
+  function setPlayUI(on) { hud.hidden = !on; controls.hidden = !on; $('.kj-powers').hidden = !on }
 
   function face(canvasEl, h, size) {
     const S = SPRITES[h], img = images[h]; if (!img || !canvasEl) return;
@@ -166,6 +170,7 @@ export function mountJump(host, opts = {}) {
     root.querySelector('.kj-stars img').src = BASE + (worldId === 'underwater' ? 'art/star-uw.webp' : 'art/star.webp');
     run = createRun(L, W); runId = `jump-${worldId}-${Date.now().toString(36)}-${++runSeq}`; booked = null; resultShown = false;
     prev.x = run.p.x; prev.y = run.p.y; acc = 0; blockedT = 0;
+    power('boost', false);
     renderer = createRenderer(canvas, { level: L, world: W, sprites: { ...SPRITES, images }, hero, art: { ART, images: artImages }, reducedMotion: reduced });
     fit();
     canvas.setAttribute('aria-label', T('canvas', { world: T('world.' + worldId) }));
@@ -244,7 +249,10 @@ export function mountJump(host, opts = {}) {
   };
 
   // ---------- HUD ----------
-  let hudHearts = -1, hudStars = -1, hudPct = -1, hudShield = null;
+  let hudHearts = -1, hudStars = -1, hudPct = -1, hudShield = null, hudJet = -1, hudEnergy = -1;
+  // a power-up's badge under the hearts: its picture in a ring that runs out with the seconds left
+  // (no words: it reads in every language)
+  const badge = (el, left, total, last) => { const q = Math.ceil(left / total * 60); if (q === last) return q; el.hidden = q <= 0; el.style.setProperty('--p', (q / 60).toFixed(3)); el.classList.toggle('low', left > 0 && left < 1.6); return q };
   function renderHud(force) {
     if (!run) return;
     if (force || run.hearts !== hudHearts) {
@@ -254,6 +262,8 @@ export function mountJump(host, opts = {}) {
     }
     if (force || run.stars !== hudStars) { hudStars = run.stars; starN.textContent = run.stars }
     if (force || run.shield !== hudShield) { hudShield = run.shield; shieldOn.hidden = !run.shield }
+    if (force) hudJet = hudEnergy = -1;
+    hudJet = badge(pwJet, run.p.jet, POWER.jet, hudJet); hudEnergy = badge(pwEnergy, run.p.boost, POWER.boost, hudEnergy);
     const pct = Math.max(0, Math.min(100, Math.round((run.p.x - L.start.x) / (L.finish - L.start.x) * 100)));
     if (force || pct !== hudPct) { hudPct = pct; bar.style.width = pct + '%'; progress.setAttribute('aria-valuenow', pct) }
   }
@@ -308,10 +318,12 @@ export function mountJump(host, opts = {}) {
         if (hintT > 0) { hintT -= dt; if (hintT <= 0) hideHint() }
         for (const h of L.hints) if (!seen[h.kind] && run.p.x >= h.x && run.p.x < h.x + 400) showHint(h.kind);
       }
-      if (run.phase !== 'run' && screen === 'play') { screen = 'ending'; setPlayUI(false); hideHint(); jumpBtn.classList.remove('nudge') }
+      if (run.phase !== 'run' && screen === 'play') { screen = 'ending'; setPlayUI(false); hideHint(); jumpBtn.classList.remove('nudge'); power('boost', false) }
       if (screen === 'ending' && run.after > (run.endedBy === 'finish' ? 1.6 : 1.1)) finishRun();
     }
   }
+  let boosted = false;
+  const power = (kind, on) => { if (on === boosted) return; boosted = on; try { opts.onPower?.(kind, on) } catch { } };
   // tests only: a solver plan pressed by the loop itself (decision k = step 6k)
   let autoPlan = null;
   function planPress() { const sc = Math.round(run.t / STEP); if (sc % 6) return; const a = autoPlan.get(sc / 6); if (a === 'jump') pressJump(run); else if (a === 'slide') pressSlide(run) }
@@ -321,6 +333,11 @@ export function mountJump(host, opts = {}) {
     for (let i = 0; i < e.n; i++) {
       const t = e.list[i].type;
       if (t === 'jump' || t === 'double' || t === 'land' || t === 'star' || t === 'hit' || t === 'bounce' || t === 'slide' || t === 'shield' || t === 'shieldHit') sfx(t);
+      // the power-ups: the jetpack ignites and hums once a second while it flies; energy zaps,
+      // and the host speeds the music up for the turbo (Stefan, 2026-10-11)
+      else if (t === 'jetpack' || t === 'jetHum' || t === 'jetEnd' || t === 'puff' || t === 'energy') sfx(t);
+      else if (t === 'jetLand') sfx('land');
+      if (t === 'energy') power('boost', true); else if (t === 'boostEnd') power('boost', false);
       else if (t === 'fall') sfx('fall');
       else if (t === 'finish') { sfx('finish'); setTimeout(() => { if (!destroyed) sfx('celebrate') }, 650) }
       else if (t === 'over') sfx('over');
@@ -343,6 +360,7 @@ export function mountJump(host, opts = {}) {
   }
   function destroy() {
     if (destroyed) return; destroyed = true;
+    power('boost', false);
     stopLoop(); input.destroy(); ro.disconnect(); live.observers--;
     if (watch) { watch.disconnect(); live.observers-- }
     root.remove(); run = null; renderer = null;
@@ -373,7 +391,7 @@ export function mountJump(host, opts = {}) {
     press(kind) { if (!run) return; if (kind === 'jump') pressJump(run); else pressSlide(run) },
     tick(sec) { const n = Math.round(sec / STEP); for (let i = 0; i < n; i++) { step(run); handleEvents() } },
     showResults() { finishRun() },
-    debug() { return { screen, pose: renderer?.pose, camera: renderer?.camera, live: { ...live }, raf: !!raf, particles: renderer?.activeParticles() ?? 0, player: run ? { x: run.p.x, y: run.p.y, h: run.p.h, sliding: run.p.sliding, jumps: run.p.jumps, ground: run.p.ground } : null } }
+    debug() { return { screen, pose: renderer?.pose, camera: renderer?.camera, live: { ...live }, raf: !!raf, particles: renderer?.activeParticles() ?? 0, player: run ? { x: run.p.x, y: run.p.y, h: run.p.h, sliding: run.p.sliding, jumps: run.p.jumps, ground: run.p.ground, jet: run.p.jet, sinking: run.p.sinking, boost: run.p.boost } : null, hud: { jet: !pwJet.hidden, energy: !pwEnergy.hidden } } }
   };
 }
 export { live };

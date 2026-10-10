@@ -5,13 +5,23 @@
 //
 // Every level follows the same fixed rhythm (no randomness):
 //   0–5 s  a safe start         5–15 s easy jumps and stars
-//   15–25 s double jumps and slides   25–35 s mixed combinations
-//   35–40 s a clear run-up and the finish
+//   15–25 s double jumps and slides   25–37 s the high tower (jetpack)
+//   37–47 s mixed combinations (energy)   47–52 s a clear run-up and the finish
 // Gap widths are worked out from each world's own jump (single = how far one
 // jump carries), so a tuned world never gets a gap its physics cannot clear.
 // tests/jump.test.js drives the real engine through every level to prove it.
+//
+// Power-ups (Stefan, 2026-10-11): every world has one high tower stretch — a
+// jetpack floating out of running reach (a jump grabs it), then two towers no
+// jump or double jump can clear, flown over at the cruise height with a star
+// trail, and a long safe floor to sink down on — and one energy (7 s turbo)
+// in front of a row of things that sting. TOWER is above the highest jump plus
+// double jump of every world (the test checks it).
 
-const DEPTH = 900;   // floors reach far down, so the bottom of the screen is never empty
+const DEPTH = 900;
+// the high tower stretch, in units from the jetpack: towers this high, the jetpack this far
+// above the floor (out of running reach, inside a jump's), the cruise height (feet) above them
+export const FLIGHT = { tower: 380, towerW: 190, jetUp: 170, cruise: 480, len: 4100, jetAt: 560, towers: [820, 1560] };   // floors reach far down, so the bottom of the screen is never empty
 
 export const WORLDS = {
   underwater: {
@@ -36,7 +46,7 @@ export const WORLD_ORDER = ['underwater', 'candy', 'space'];
 export const reach = W => W.speed * 2 * W.jump / W.gravity;
 
 function builder(W) {
-  const L = { world: W.id, solids: [], oneway: [], lows: [], hazards: [], bounces: [], stars: [], shields: [], cps: [], deco: [], hints: [], start: { x: 150, y: 0 }, finish: 0, killY: 0, end: 0 };
+  const L = { world: W.id, solids: [], oneway: [], lows: [], hazards: [], bounces: [], stars: [], shields: [], jetpacks: [], energies: [], cps: [], deco: [], hints: [], start: { x: 150, y: 0 }, finish: 0, killY: 0, end: 0 };
   let x = 0, fy = 0;
   const one = reach(W);
   // The centre of the child over one jump from (x0, floor y0): the real
@@ -75,6 +85,22 @@ function builder(W) {
     pad(ax, w = 92, kind = 'pad') { L.bounces.push({ x: ax, y: fy, w, h: 26, power: W.bounce, kind }) },
     cp(ax, y = fy) { L.cps.push({ x: ax, y }) },
     shield(ax, dy = -44) { L.shields.push({ x: ax, y: fy + dy }) },
+    // a jetpack floating `up` above the floor; it flies the child with the feet at `cruise` above it
+    jetpack(ax, up = FLIGHT.jetUp, cruise = FLIGHT.cruise) { L.jetpacks.push({ x: ax, y: fy - up, cruise: fy - cruise }) },
+    // energy at head height: running through it is enough
+    energy(ax, dy = -100) { L.energies.push({ x: ax, y: fy + dy }) },
+    tower(ax, h = FLIGHT.tower, w = FLIGHT.towerW) { L.solids.push({ x: ax, y: fy - h, w, h, kind: 'tower' }) },
+    // The high tower stretch (see the top): a checkpoint before the jetpack (missing it sends
+    // the child back here, no heart lost), stars leading up to the jetpack, the towers, a star
+    // trail along the cruise line with a few higher ones for a puff, and floor enough to land.
+    flight(floorKind = 'floor') {
+      const s = B.floor(FLIGHT.len, floorKind), J = s + FLIGHT.jetAt, cy = fy - FLIGHT.cruise - 44;
+      B.cp(s + 80); B.hint(J - 360, 'jump');
+      B.arc(J - 125, 3, { to: .4 }); B.jetpack(J);
+      for (const t of FLIGHT.towers) B.tower(J + t);
+      for (let x = J + 420; x <= J + 2150; x += 115) B.star(x, cy - (Math.floor((x - J) / 115) % 6 === 3 ? 120 : 0));
+      return s;
+    },
     hint(ax, kind) { L.hints.push({ x: ax, kind }) },
     deco(ax, kind, y = fy) { L.deco.push({ x: ax, y, kind }) },
     star(sx, sy) { L.stars.push({ x: Math.round(sx), y: Math.round(sy) }) },
@@ -88,7 +114,7 @@ function builder(W) {
     finish(at) { L.finish = at; L.deco.push({ x: at, y: fy, kind: 'finish' }) },
     done() {
       L.end = x; L.killY = Math.max(...L.solids.map(s => s.y)) + 380;
-      L.solids.sort((a, b) => a.x - b.x); L.oneway.sort((a, b) => a.x - b.x); L.stars.sort((a, b) => a.x - b.x);
+      L.solids.sort((a, b) => a.x - b.x); L.oneway.sort((a, b) => a.x - b.x); L.stars.sort((a, b) => a.x - b.x); L.jetpacks.sort((a, b) => a.x - b.x); L.energies.sort((a, b) => a.x - b.x);
       return L;
     }
   };
@@ -120,12 +146,14 @@ function underwater() {
   b.deco(s, 'deckDown', b.fy); b.deco(s + 1150, 'deckUp', b.fy);
   s = b.floor(1000); b.low(s + 300, 170, 'arch'); b.line(s + 310, s + 450, 3, -26);
   b.hazard(s + 820, 'urchin'); b.plat(s + 700, -140, 300); b.arc(s + 640, 5, { until: -140, to: .99 });
+  // the high tower: jetpack over the stacked crates
+  b.flight('floor');
   // 25–35 s: everything together (a shield first, on the running line)
   s = b.floor(1200); b.cp(s + 40); b.shield(s + 120); b.crate(s + 260, 64, 56); b.arc(s + 140, 4); b.low(s + 680, 170, 'arch'); b.line(s + 690, s + 830, 3, -26);
   b.gap(b.easy); b.arc(s + 1200 - 70, 4);
   s = b.floor(700); b.hazard(s + 330, 'urchin'); b.arc(s + 210, 4);
   b.gap(b.wide, -60); b.arc(s + 700 - 60, 7, { y0: 0, dbl: .3, until: -60, to: .95 });
-  s = b.floor(900); b.cp(s + 80); b.low(s + 400, 180, 'arch'); b.line(s + 410, s + 560, 3, -26);
+  s = b.floor(900); b.cp(s + 80); b.energy(s + 220); b.low(s + 400, 180, 'arch'); b.line(s + 410, s + 560, 3, -26);
   b.gap(b.mid, 60); b.arc(s + 900 - 60, 5, { y0: -60, until: 60 });
   s = b.floor(700); b.hazard(s + 220, 'urchin'); b.arc(s + 100, 4); b.hazard(s + 520, 'urchin'); b.arc(s + 400, 4);
   // 35–40 s: run-up and the finish
@@ -160,12 +188,13 @@ function candy() {
   b.pad(s + 1100 - 92); b.gap(330); b.arc(s + 1100 - 92, 6, { power: W.bounce, dbl: .5, to: .95 });
   s = b.floor(1000, 'cake'); b.cp(s + 120); b.hazard(s + 420, 'gummy'); b.arc(s + 300, 4);
   b.low(s + 720, 170, 'toybar'); b.line(s + 730, s + 870, 3, -26);
+  // the high tower: jetpack over the toy-block towers
+  b.flight('cake');
   // 25–35 s (a shield first, on the running line)
-  b.gap(b.easy); b.arc(s + 1000 - 70, 4);
   s = b.floor(1250, 'cake'); b.cp(s + 40); b.shield(s + 70); b.crate(s + 250, 64, 60, 'toy'); b.arc(s + 130, 4);
   b.pad(s + 640); b.plat(s + 900, -260, 320, 'frosting'); b.line(s + 940, s + 1180, 4, -260 - 44); b.arc(s + 620, 6, { power: W.bounce, until: 0, to: .9 });
   b.gap(b.wide, -60); b.arc(s + 1250 - 60, 7, { y0: 0, dbl: .3, until: -60, to: .95 });
-  s = b.floor(1100, 'cake'); b.cp(s + 80); b.low(s + 400, 180, 'toybar'); b.line(s + 410, s + 560, 3, -26);
+  s = b.floor(1100, 'cake'); b.cp(s + 80); b.energy(s + 220); b.low(s + 400, 180, 'toybar'); b.line(s + 410, s + 560, 3, -26);
   b.hazard(s + 850, 'gummy'); b.arc(s + 730, 4);
   b.gap(b.mid, 60); b.arc(s + 1100 - 60, 5, { y0: -60, until: 60 });
   s = b.floor(900, 'cake'); b.cp(s + 80); b.crate(s + 260, 64, 60, 'toy'); b.arc(s + 140, 4); b.hazard(s + 620, 'gummy'); b.arc(s + 500, 4);
@@ -198,11 +227,12 @@ function space() {
   b.gap(b.mid); b.arc(s + 500 - 60, 4);
   s = b.floor(1000, 'rock'); b.cp(s + 80); b.low(s + 300, 170, 'beam'); b.line(s + 310, s + 450, 3, -26);
   b.hazard(s + 760, 'crystal', 40, 46); b.arc(s + 640, 4);
+  // the high tower: jetpack over the moon-rock towers
+  b.flight('rock');
   // 25–35 s (a shield first, on the running line)
-  b.gap(b.easy); b.arc(s + 1000 - 70, 4);
   s = b.floor(1200, 'rock'); b.cp(s + 40); b.shield(s + 480); b.crate(s + 240, 72, 56, 'module'); b.arc(s + 120, 4); b.low(s + 700, 170, 'beam'); b.line(s + 710, s + 850, 3, -26);
   b.gap(b.wide, -60); b.arc(s + 1200 - 60, 7, { y0: 0, dbl: .3, until: -60, to: .95 });
-  s = b.floor(900, 'rock'); b.cp(s + 80); b.hazard(s + 380, 'crystal', 40, 46); b.arc(s + 260, 4);
+  s = b.floor(900, 'rock'); b.cp(s + 80); b.energy(s + 200); b.hazard(s + 380, 'crystal', 40, 46); b.arc(s + 260, 4);
   b.gap(b.mid, 60); b.arc(s + 900 - 60, 5, { y0: -60, until: 60 });
   s = b.floor(800, 'rock'); b.low(s + 260, 180, 'beam'); b.line(s + 270, s + 420, 3, -26); b.hazard(s + 640, 'crystal', 40, 46); b.arc(s + 520, 4);
   s = b.floor(1700, 'rock'); b.cp(s + 60); b.line(s + 200, s + 800, 5);

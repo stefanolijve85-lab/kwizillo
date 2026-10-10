@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/questions.test.js && node tests/core.test.js && node tests/scores.test.js && node tests/facts.test.js && node tests/jump.test.mjs && node tools/jump-art.cjs --check && node tools/jump-sfx.cjs --check && node tests/mascots.test.js && node tests/blokken.test.js && node tests/strings.test.js && node tests/server-static.test.js && node --no-warnings tests/school-api.test.js && node tools/content-build.cjs --check && node tools/content-lint.cjs --quiet && node tools/art-plan.cjs --check && node tools/talen-audio.cjs --check",
+    "test": "node tests/questions.test.js && node tests/core.test.js && node tests/scores.test.js && node tests/facts.test.js && node tests/jump.test.mjs && node tools/jump-art.cjs --check && node tools/jump-sfx.cjs --check && node tools/jump-sprites.cjs --check && node tools/jump-music.cjs --check && node tests/mascots.test.js && node tests/blokken.test.js && node tests/strings.test.js && node tests/server-static.test.js && node --no-warnings tests/school-api.test.js && node tools/content-build.cjs --check && node tools/content-lint.cjs --quiet && node tools/art-plan.cjs --check && node tools/talen-audio.cjs --check",
     "test:ui": "playwright test",
     "test:audio": "node tests/audio-qa.js && node tests/audio-transcribe.js",
     "start:lan": "HOST=0.0.0.0 node server.js",

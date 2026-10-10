@@ -46,7 +46,8 @@ test('the tile is under the Runner tile, next to the Kwizillo Runner; back retur
   await expect(page.locator('kwizillo-jump')).toHaveCount(0);
   await page.reload();
   await page.locator('.motion').click({ timeout: 5000 }).catch(() => {});
-  await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
+  // the welcome-back card can take a moment when the other tests' solvers keep the machine busy
+  await page.locator('#wbGo').click({ timeout: 6000 }).catch(() => {});
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
   await openJump(page);
   await expect(page.locator('[data-hero=mia]')).toHaveAttribute('aria-pressed', 'true');
@@ -95,7 +96,7 @@ for (const world of ['underwater', 'candy', 'space']) {
     await page.evaluate(async w => { const m = await import('/assets/games/jump/solver.js'); window.__g.autoplay(m.solve(w).plan) }, world);
     const end = await G(page, g => g.fastForward(60));
     expect(end.phase).toBe('finish');
-    expect(end.t).toBeGreaterThan(36); expect(end.t).toBeLessThan(44);
+    expect(end.t).toBeGreaterThan(44); expect(end.t).toBeLessThan(58);   // with the high tower stretch (2026-10-11)
     await expect(page.locator('.kj-card h1')).toHaveText('Gehaald!', { timeout: 8000 });
     await expect(page.locator('.kj-card')).toContainText('munten');
     const after = await page.evaluate(() => ({ coins: window.KWIZILLO_M1.state.coins, jump: window.KWIZILLO_M1.progress().games.jump, jungle: JSON.stringify(window.KWIZILLO_M1.progress().games.jungle) }));
@@ -113,6 +114,34 @@ for (const world of ['underwater', 'candy', 'space']) {
     await expect(page.locator('.kj-card [data-act=next]')).toHaveCount(world === 'space' ? 0 : 1);
   });
 }
+
+test('power-ups: a jump grabs the floating jetpack, the child flies over the high tower with its badge in the HUD and lands safely; energy shows its badge and speeds up', async ({ page }) => {
+  test.setTimeout(60000);
+  const errors = []; page.on('pageerror', e => errors.push(e.message));
+  await boot(page);
+  await openJump(page);
+  await startRun(page, 'underwater', 'mia');
+  await page.evaluate(async () => { const m = await import('/assets/games/jump/solver.js'); window.__plan = m.solve('underwater').plan; window.__g.autoplay(window.__plan) });
+  // run up to the jetpack, then step until it is taken
+  const jx = await G(page, g => g.level.jetpacks[0].x);
+  await G(page, (g, x) => { while (g.run.p.x < x - 500 && g.run.phase === 'run') g.fastForward(.05) }, jx);
+  expect(await G(page, g => [g.run.jetsTaken, g.debug().hud.jet])).toEqual([0, false]);
+  await G(page, g => { for (let i = 0; i < 80 && !g.run.jetsTaken; i++) g.fastForward(.05) });
+  expect(await G(page, g => g.run.jetsTaken)).toBe(1);
+  await expect(page.locator('.kj-pw-jet')).toBeVisible();
+  expect(await G(page, g => g.debug().hud)).toEqual({ jet: true, energy: false });
+  // over the towers: the feet stay above every tower top, no heart lost
+  const tops = await G(page, g => { const T = g.level.solids.filter(b => b.kind === 'tower'); let clear = 1e9; for (let i = 0; i < 150; i++) { g.fastForward(.05); const p = g.run.p; for (const t of T) if (p.x + p.w > t.x && p.x < t.x + t.w) clear = Math.min(clear, t.y - p.y) } return { clear, x: g.run.p.x, past: T.every(t => g.run.p.x > t.x + t.w), hearts: g.run.hearts } });
+  expect(tops.past).toBe(true); expect(tops.clear).toBeGreaterThan(40); expect(tops.hearts).toBe(3);
+  await G(page, g => { for (let i = 0; i < 120 && !(g.run.p.ground && !g.run.p.sinking); i++) g.fastForward(.05) });
+  expect(await G(page, g => [g.run.p.jet, g.run.p.sinking, g.run.p.ground, g.run.hits])).toEqual([0, false, true, 0]);
+  await expect(page.locator('.kj-pw-jet')).toBeHidden();
+  // the energy further on
+  await G(page, g => { for (let i = 0; i < 400 && !g.run.energiesTaken; i++) g.fastForward(.05) });
+  await expect(page.locator('.kj-pw-energy')).toBeVisible();
+  expect(await G(page, g => g.run.p.boost)).toBeGreaterThan(6);
+  expect(errors).toEqual([]);
+});
 
 test('touch gestures on the play field: tap = jump (again in the air = double), swipe down = slide (no jump), swipe up = jump; the buttons fire once', async ({ page }) => {
   await boot(page);

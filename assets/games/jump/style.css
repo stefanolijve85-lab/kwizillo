@@ -21,6 +21,17 @@
 .kj-progress{flex:1;min-width:60px;max-width:360px;height:14px;border-radius:7px;background:rgba(8,24,60,.5);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);overflow:hidden;position:relative}
 .kj-progress i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:7px;background:linear-gradient(90deg,#7ff0ff,#ffd23f)}
 .kj-progress b{position:absolute;right:3px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:2px;background:repeating-conic-gradient(#fff 0 25%,#1b1b3a 0 50%) 0 0/5px 5px}
+/* the power-up badges under the HUD (Stefan, 2026-10-11): the jetpack or energy picture in a ring
+   that runs out with its seconds (--p from 1 to 0), and pulses in the last second and a half */
+.kj-powers{position:absolute;left:calc(var(--sal,0px) + 12px);top:calc(var(--sat,0px) + 60px);display:flex;gap:10px;pointer-events:none;direction:ltr}
+.kj-pw{--p:1;position:relative;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ring) calc(var(--p) * 360deg),rgba(255,255,255,.18) 0);box-shadow:0 3px 10px rgba(0,0,0,.3);animation:kj-pw-in .35s ease-out}
+.kj-pw::before{content:'';position:absolute;inset:6px;border-radius:50%;background:rgba(8,24,60,.72)}
+.kj-pw img{position:relative;width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.kj-pw-jet{--ring:#ffd23f}
+.kj-pw-energy{--ring:#46d8ff}
+.kj-pw.low{animation:kj-pw-low .5s ease-in-out infinite alternate}
+@keyframes kj-pw-in{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+@keyframes kj-pw-low{to{transform:scale(.88);opacity:.7}}
 .kj-icon-btn{width:44px;height:44px;border:0;border-radius:22px;background:rgba(8,24,60,.55);box-shadow:inset 0 0 0 2px rgba(255,255,255,.3);display:grid;place-items:center;padding:0}
 .kj-icon-btn svg{width:22px;height:22px}
 

@@ -6,17 +6,24 @@
 // finish is a clean run, with its presses as the input plan. `windows` then
 // measures, for each press of that plan, how much earlier or later it could
 // have come and still give a clean run (the margin a child has).
+// The jetpack and the energy are part of the search like any other state: a
+// branch that runs into a high tower without the jetpack is stopped by it
+// (blocked), so a plan that finishes has grabbed the jetpack in time.
 // Used by tests/jump.test.mjs and by the in-game test hook; never in play.
 import { createRun, step, pressJump, pressSlide, snapshot, restore, STEP } from './engine.js';
 import { level as getLevel, WORLDS } from './levels.js';
 
 const EVERY = 6;   // engine steps per decision (120 Hz / 6 = 20 decisions a second)
 const bad = s => s.hits > 0 || s.falls > 0 || s.p.blocked;
+// The power-ups in a state's key: two branches at the same moment and height are only the same
+// when they fly, sink and run turbo alike (and, with turbo, stand at the same place).
+const power = s => { const p = s.p; return `${Math.ceil(p.jet * 20)}${p.sinking ? 's' : ''}|${Math.ceil(p.boost * 20)}|${p.boost > 0 || s.energiesTaken ? Math.round(p.x / 4) : ''}` };
 
-export function solve(id, { budget = 400000 } = {}) {
-  const L = getLevel(id), W = WORLDS[id], s = createRun(L, W);
+// `level` replaces the world's level (the test takes the jetpack away to show the tower needs it).
+export function solve(id, { budget = 400000, level = null } = {}) {
+  const L = level || getLevel(id), W = WORLDS[id], s = createRun(L, W);
   const seen = new Set(), stack = [{ snap: snapshot(s), k: 0, choice: 0 }], plan = [];
-  let tries = 0;
+  let tries = 0, farthest = 0;
   while (stack.length && tries < budget) {
     const top = stack[stack.length - 1];
     if (top.choice > 2) { stack.pop(); plan.pop(); continue }
@@ -27,14 +34,14 @@ export function solve(id, { budget = 400000 } = {}) {
     for (let i = 0; i < EVERY; i++) { step(s); if (bad(s)) { dead = true; break } if (s.phase === 'finish') break }
     tries++;
     if (dead) continue;
-    const p = s.p, key = `${top.k}|${Math.round(p.y)}|${Math.round(p.vy / 40)}|${p.jumps}|${p.sliding ? Math.ceil(p.slideT * 20) : -1}|${p.ground ? 1 : 0}`;
+    const p = s.p, key = `${top.k}|${Math.round(p.y)}|${Math.round(p.vy / 40)}|${p.jumps}|${p.sliding ? Math.ceil(p.slideT * 20) : -1}|${p.ground ? 1 : 0}|${power(s)}`;
     if (seen.has(key)) continue;
-    seen.add(key);
+    seen.add(key); if (p.x > farthest) farthest = p.x;
     plan.length = stack.length - 1; if (choice) plan.push({ k: top.k, a: choice === 1 ? 'jump' : 'slide' }); else plan.push(null);
     if (s.phase === 'finish') return { ok: true, plan: plan.filter(Boolean), time: s.t, stars: s.stars, tries };
     stack.push({ snap: snapshot(s), k: top.k + 1, choice: 0 });
   }
-  return { ok: false, tries, reached: Math.round(Math.max(...[...seen].map(k => Number(k.split('|')[0])))) * EVERY * STEP };
+  return { ok: false, tries, reached: Math.round(Math.max(...[...seen].map(k => Number(k.split('|')[0])))) * EVERY * STEP, far: farthest };
 }
 
 // Plays a plan (presses at decision k) and reports how the run went.
@@ -64,7 +71,7 @@ function survives(s, depth) {
     for (let n = 0; n < EVERY; n++) { step(s); if (bad(s)) { dead = true; break } if (s.phase !== 'run') return true }
     if (dead) continue;
     if (top.d + 1 >= depth) return true;
-    const p = s.p, key = `${top.d}|${Math.round(p.y)}|${Math.round(p.vy / 40)}|${p.jumps}|${p.sliding ? Math.ceil(p.slideT * 20) : -1}`;
+    const p = s.p, key = `${top.d}|${Math.round(p.y)}|${Math.round(p.vy / 40)}|${p.jumps}|${p.sliding ? Math.ceil(p.slideT * 20) : -1}|${power(s)}`;
     if (seen.has(key)) continue; seen.add(key);
     stack.push({ snap: snapshot(s), d: top.d + 1, choice: 0 });
   }

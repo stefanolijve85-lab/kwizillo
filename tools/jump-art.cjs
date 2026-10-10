@@ -61,6 +61,10 @@ const CUTS = {
   // highlights and the sparkle kept), with a darker blue outline so it stands out against the water
   'star-uw': { src: '05_Verzamelitems/Bonusster.png', h: 150, hue: { from: [255, 360], to: 196, sat: .62, light: 1.12 }, outline: ['#1d5fa6', 4] },
   shield: { src: '05_Verzamelitems/Schild.png', h: 150 },
+  // the power-ups (Stefan, 2026-10-11; art-source/jump/power/): drawn in the level, in the HUD,
+  // and the jetpack also on Mia's back while she flies (she has no flying art of her own)
+  jetpack: { src: '../../power/jetpack-icon.png', h: 200, fringe: true },
+  energy: { src: '../../power/energy-icon.png', h: 180, fringe: true },
   finish: { src: '06_Finish_en_Bediening/Finishpoort.png', h: 640 },
   medal: { src: '06_Finish_en_Bediening/Medaille.png', h: 300 },
   'btn-jump': { src: '06_Finish_en_Bediening/Springknop.png', h: 256 },

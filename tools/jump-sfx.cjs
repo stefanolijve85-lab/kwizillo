@@ -50,6 +50,7 @@ function noise(sec, { from = 3000, to = 800, env = humpEnv(.3), gain = 1, high =
   return b;
 }
 const expEnv = k => (t, s) => Math.min(1, s / .004) * Math.exp(-k * t);
+const flatEnv = edge => (t, sec, n = 1) => Math.min(1, t / edge, (1 - t) / edge);
 const humpEnv = peak => t => t < peak ? t / peak : Math.pow(1 - (t - peak) / (1 - peak), 2);
 function mix(...bs) { const n = Math.max(...bs.map(b => b.length)), o = new Float32Array(n); for (const b of bs) for (let i = 0; i < b.length; i++) o[i] += b[i]; return o }
 const note = n => 440 * Math.pow(2, (n - 69) / 12);   // MIDI note → Hz
@@ -78,7 +79,20 @@ const SOUNDS = {
   'tick': () => tone(.07, () => 880, { env: expEnv(7) }),
   'go': () => mix(tone(.18, () => note(88), { wave: 'tri', env: expEnv(4) }), tone(.18, () => note(93), { wave: 'tri', env: expEnv(4), gain: .8 })),
   'finish': () => mix(...[67, 72, 76, 79, 84].map((n, i) => tone(.2, () => note(n), { wave: 'tri', env: expEnv(3.5), gain: .7, start: i * .05 }))),
-  'over': () => mix(...[67, 64, 60].map((n, i) => tone(.18, () => note(n), { wave: 'tri', env: expEnv(4), gain: .8, start: i * .1 })))
+  'over': () => mix(...[67, 64, 60].map((n, i) => tone(.18, () => note(n), { wave: 'tri', env: expEnv(4), gain: .8, start: i * .1 }))),
+  // the power-ups (Stefan, 2026-10-11): you hear the jetpack when you grab it, its engine
+  // while it flies, and a zap for the energy
+  // ignite: a click-whoosh that swells into a roar, with a rising whistle on top
+  'jetpack': () => mix(noise(.7, { from: 500, to: 2600, env: humpEnv(.45), gain: 1.1 }), noise(.12, { from: 7000, to: 2000, env: expEnv(9), gain: .7, high: 1 }), tone(.6, t => 160 + 420 * t, { wave: 'square', env: humpEnv(.6), gain: .25, vib: .03, vibRate: 22 }), tone(.55, t => 55 + 30 * t, { wave: 'tri', env: humpEnv(.5), gain: .8 })),
+  // the engine, played once a second during the flight: a flat roar (rumble + soft hiss with a
+  // fast flutter) that fades in and out over 50 ms, so back to back it sounds continuous
+  'jethum': () => mix(noise(1.05, { from: 900, to: 900, env: flatEnv(.05), gain: 1.2, seed: 11 }), tone(1.05, () => 62, { wave: 'tri', env: (t, sec) => flatEnv(.05)(t, sec) * (.75 + .25 * Math.sin(TAU * 21 * sec)), gain: .7 })),
+  // out of fuel: a falling sputter
+  'jetoff': () => mix(noise(.5, { from: 1800, to: 300, env: (t, sec) => Math.pow(1 - t, 1.5) * (.6 + .4 * (Math.sin(TAU * 13 * sec) > 0)), gain: 1 }), tone(.45, t => 300 * Math.pow(.4, t), { wave: 'tri', env: expEnv(3), gain: .4 })),
+  // a puff upwards: a short soft whoosh
+  'jetpuff': () => noise(.2, { from: 1200, to: 3200, env: humpEnv(.3), gain: 1 }),
+  // energy: an electric zap and a fast rising arpeggio
+  'energy': () => mix(noise(.16, { from: 9000, to: 3000, env: expEnv(7), gain: .6, high: 1 }), ...[72, 76, 79, 84, 88].map((n, i) => tone(.12, () => note(n), { wave: 'square', env: expEnv(5), gain: .5, start: i * .045 })), tone(.4, t => 200 * Math.pow(6, t), { wave: 'sine', env: humpEnv(.3), gain: .35, vib: .08, vibRate: 30 }))
 };
 
 const TARGET_RMS = .11, PEAK = .56;   // the same loudness for every sound; peak under -5 dBFS

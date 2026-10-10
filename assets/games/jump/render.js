@@ -6,7 +6,7 @@
 // Scale: the world is scaled by the height of the screen, but never so far that
 // fewer than MIN_VIEW world units are visible ahead — a phone held upright sees
 // the same distance to the next obstacle as a wide screen.
-import { PLAYER, pose } from './engine.js';
+import { PLAYER, POWER, pose } from './engine.js';
 
 const LAYERS = [['far', .2], ['mid', .5]];   // background layers and how fast they move
 const DESIGN_H = 540, MIN_VIEW = 760, LOOK = 0.25;   // the child stands at 25% from the left
@@ -29,7 +29,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     for (const p of parts) if (!p.on) { p.on = true; p.kind = kind; p.x = x; p.y = y; p.vx = vx; p.vy = vy; p.life = life; p.max = life; p.size = size; p.color = color; p.rot = (x * 7 + y * 3) % 6.28; return p }
     return null;
   };
-  const DUST = 1, RING = 2, SPARK = 3, MINISTAR = 4, CONFETTI = 5, POP = 6;
+  const DUST = 1, RING = 2, SPARK = 3, MINISTAR = 4, CONFETTI = 5, POP = 6, FLAME = 7;
   let squash = 0, padHit = { x: -1, t: 0 }, hurtRing = 0;
 
   // A star, drawn once and stamped (a gradient glow plus the five points).
@@ -142,7 +142,8 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     const p = s.p;
     if (!cam.init) { cam.ref = p.y; cam.init = true }
     // follow the floor the child stands on; in the air only when climbing high or falling far
-    const target = p.ground ? p.y : Math.min(cam.ref + 140, Math.max(p.y, Math.min(cam.ref, p.y + 260)));
+    // flying with the jetpack: the view keeps the floor it left (the line below lifts it only as far as the HUD needs)
+    const target = p.ground ? p.y : (p.jet > 0 || p.sinking) ? cam.ref : Math.min(cam.ref + 140, Math.max(p.y, Math.min(cam.ref, p.y + 260)));
     cam.ref += (target - cam.ref) * Math.min(1, a * (p.ground ? 6 : 3));
     cam.x = px - viewW * look;
     // and never let the child rise under the HUD: the view lifts with a high jump
@@ -157,7 +158,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
   // ---------- the art pack (tools/jump-art.cjs): a skin over the collision boxes ----------
   const A = n => art && art.images[n] ? { img: art.images[n], m: art.ART[n] } : null;
   const P = { underwater: 'uw', candy: 'cd', space: 'sp' }[world.id];
-  const pic = { bgWide: A(P + '-bg'), bgTall: A(P + '-bg-tall'), urchin: A('uw-urchin'), crystals: A('sp-crystals'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: (world.id === 'underwater' && A('star-uw')) || A('star'), shield: A('shield'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
+  const pic = { bgWide: A(P + '-bg'), bgTall: A(P + '-bg-tall'), urchin: A('uw-urchin'), crystals: A('sp-crystals'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: (world.id === 'underwater' && A('star-uw')) || A('star'), shield: A('shield'), jetpack: A('jetpack'), energy: A('energy'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
   pic.bg = pic.bgWide;
   // a soft white glow behind the light-blue stars, so they stand out against the water
   let glow = null;
@@ -201,6 +202,23 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     }
     if (b.kind === 'module') { g.drawImage(pic.rock.img, b.x - 10, b.y - 6, b.w + 20, b.h + 7); return }
     const a = b.w > 72 ? pic.crate2 : pic.crate; g.drawImage(a.img, b.x - 2, b.y - 2, b.w + 4, b.h + 3);
+  }
+  // The high tower (a jetpack is needed to pass it): the world's own blocks stacked high, a
+  // beacon light on top so it reads as a landmark from far away.
+  function drawTower(b) {
+    const rows = 3, rh = b.h / rows;
+    if (world.id === 'candy' && pic.blocks[0]) {
+      const cols = Math.max(1, Math.round(b.w / 64)), bw = b.w / cols, n = Math.round(b.h / bw), bh = b.h / n;
+      for (let j = 0; j < n; j++) for (let i = 0; i < cols; i++) g.drawImage(pic.blocks[(i + j * 2) % 3].img, b.x + i * bw - 1, b.y + j * bh - 1, bw + 2, bh + 2);
+    } else if (world.id === 'space' && pic.rock) {
+      for (let i = 0; i < rows; i++) g.drawImage(pic.rock.img, b.x - 14 + (i % 2 ? 8 : -4), b.y + b.h - (i + 1) * rh - 8, b.w + 24, rh + 14);
+    } else if (pic.crate) {
+      for (let i = 0; i < rows; i++) { const a = i % 2 ? pic.crate : pic.crate2; g.drawImage(a.img, b.x - 4 + (i % 2 ? 6 : -4), b.y + b.h - (i + 1) * rh - 2, b.w + 8, rh + 4) }
+    } else { for (let i = 0; i < rows; i++) drawBlock({ x: b.x, y: b.y + i * rh, w: b.w, h: rh, kind: 'crate' }) }
+    const cx = b.x + b.w / 2, pulse = reducedMotion ? .7 : .55 + .35 * Math.sin(time * 4);
+    g.fillStyle = C.accent; g.globalAlpha = pulse * .45; g.beginPath(); g.arc(cx, b.y - 14, 22, 0, 7); g.fill();
+    g.globalAlpha = 1; g.fillStyle = '#ffffff'; g.beginPath(); g.arc(cx, b.y - 14, 7, 0, 7); g.fill();
+    g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(cx - 3, b.y - 8, 6, 10);
   }
   function artOneway(b) { slice(pic.plat, b.x - 3, b.y - 3, b.w + 6, world.id === 'candy' ? 32 : 28) }
   function artLow(b) {
@@ -388,31 +406,88 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     g.fillStyle = C.accent; for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(x + i * 32, y - 186, 5, 0, 7); g.fill() }
   }
 
+  // The child. Mike's power poses come from his power atlas (tools/jump-sprites.cjs); a child
+  // without them (Mia, until her drawings come) borrows a pose from the main atlas and gets the
+  // jetpack picture on her back and the flames in code (Stefan, 2026-10-11).
+  const TRAIL = { mike: '#2fb8ff', mia: '#ffb21e' };
   function drawPlayer(s, px, py) {
-    const p = s.p, S = sprites[hero], img = sprites.images[hero];
-    const state = still ? 'idle' : pose(s), list = S.states[state]; lastPose = state;
+    const p = s.p, S = sprites[hero], img = sprites.images[hero], PW = S.power, pimg = sprites.images[hero + '-power'];
+    let state = still ? 'idle' : pose(s);
+    const turbo = !still && p.boost > 0 && s.phase === 'run';
+    // the first half second of a turbo is the dash pose (when drawn), then the run cycle with the trail
+    const dash = turbo && p.ground && state === 'run' && POWER.boost - p.boost < .55;
+    const power = state === 'fly' || state === 'grab' ? state : dash ? 'boost' : null;
+    const own = power && PW && pimg && PW.states[power];
+    lastPose = power || state;
+    let A2 = S, im = img, list;
+    if (own) { A2 = PW; im = pimg; list = PW.states[power] }
+    else if (power === 'fly') list = S.states.jump.slice(-1);
+    else if (power === 'grab') list = S.states.doubleJump.slice(0, 1);
+    else if (power === 'boost') list = S.states.run;
+    else list = S.states[state];
+    if (power === 'boost' && !own) state = 'run';
     let i = 0;
-    if (state === 'run') i = Math.floor(time * 14) % list.length;   // 8 poses: about two strides a second at 14 per second
+    if (state === 'run' && !own) i = Math.floor(time * (turbo ? 19 : 14)) % list.length;   // 8 poses: about two strides a second at 14 per second
     else if (state === 'idle') i = (time % 3) > 2.85 ? 1 : 0;
     else if (state === 'jump') i = p.vy < -420 ? 0 : 1;
     else if (state === 'doubleJump') i = p.doubleT > .25 ? 0 : 1;
     else if (state === 'fall') i = Math.floor(time * 4) % list.length;
     else if (state === 'celebrate') i = Math.floor(time * 6) % list.length;
-    const f = list[Math.min(i, list.length - 1)], box = S.boxes[f];
+    const f = list[Math.min(i, list.length - 1)], box = A2.boxes[f];
     let k = VISUAL_H / S.height;
     // a slide is drawn no taller than the gap it slides through
     if (state === 'slide') k = Math.min(k, 60 / -box[1]);
-    const cw = S.cell[0], ch = S.cell[1], sx = (f % S.cols) * cw, sy = Math.floor(f / S.cols) * ch;
+    const cw = A2.cell[0], ch = A2.cell[1], sx = (f % A2.cols) * cw, sy = Math.floor(f / A2.cols) * ch;
     const ax = px + PLAYER.w / 2, ay = py;
+    const flyNow = !still && (state === 'fly' || state === 'grab');
+    if (turbo) speedTrail(ax, ay, A2, im, sx, sy, cw, ch, k);
     let sxk = 1, syk = 1;
     if (squash > 0 && !reducedMotion) { const q = Math.sin(squash / .14 * Math.PI) * .1; syk = 1 - q; sxk = 1 + q * .8 }
     g.save();
     if (p.inv > 0 && s.phase === 'run') g.globalAlpha = .55 + .45 * (0.5 + 0.5 * Math.cos(p.inv * 18));   // a soft pulse, never a flash
-    // shadow on the floor
     g.translate(ax, ay); g.scale(sxk, syk);
-    g.drawImage(img, sx, sy, cw, ch, -S.anchor[0] * k, -S.anchor[1] * k, cw * k, ch * k);
+    // flying: a gentle hover bob; the borrowed pose leans forward into the flight
+    if (flyNow) { g.translate(0, reducedMotion ? 0 : Math.sin(time * 6) * 3); if (!own) { g.translate(0, -50); g.rotate(.2); g.translate(0, 50) } }
+    if (flyNow && !own) backpack();
+    if (flyNow && !own) flames();
+    g.drawImage(im, sx, sy, cw, ch, -A2.anchor[0] * k, -A2.anchor[1] * k, cw * k, ch * k);
     g.restore();
     if (hurtRing > 0) { g.globalAlpha = Math.min(1, hurtRing * 1.6); g.strokeStyle = '#ffffff'; g.lineWidth = 4; g.beginPath(); g.arc(ax, ay - 50, 70 - hurtRing * 60, 0, 7); g.stroke(); g.globalAlpha = 1 }
+    // flame particles from the nozzles, left behind in the world
+    if (flyNow && !reducedMotion && (time * 60 | 0) % 3 === 0) { const [nx, ny] = own ? NOZZLE[hero] || NOZZLE.pack : NOZZLE.pack; spawn(FLAME, ax + nx, ay + ny, s.world.speed * .3, 160 + (time * 997 % 60), .28, 6, '') }
+  }
+  // where the flames end, from the child's feet point (world units): on each child's flying
+  // drawing (its own flames point back-down-left), and on the jetpack picture drawn on a back
+  const NOZZLE = { mike: [-62, -34], mia: [-62, -34], pack: [-30, -40] };
+  function backpack() {
+    const a = pic.jetpack; if (!a) return;
+    const w = 58, h = w * a.m.h / a.m.w;
+    g.drawImage(a.img, -18 - w / 2, -82 - h / 2, w, h);
+  }
+  function flames() {
+    const [nx, ny] = NOZZLE.pack, fl = reducedMotion ? 1 : .8 + .35 * Math.sin(time * 41) + .15 * Math.sin(time * 67);
+    for (const dx of [-12, 12]) {
+      const x = nx + dx, y = ny, len = 34 * fl;
+      const gr = g.createLinearGradient(x, y, x - len * .35, y + len); gr.addColorStop(0, 'rgba(255,255,255,.95)'); gr.addColorStop(.3, 'rgba(255,214,90,.9)'); gr.addColorStop(1, 'rgba(255,110,40,0)');
+      g.fillStyle = gr; g.beginPath(); g.moveTo(x - 8, y); g.quadraticCurveTo(x - len * .3, y + len * .6, x - len * .35, y + len); g.quadraticCurveTo(x + 2, y + len * .5, x + 8, y); g.closePath(); g.fill();
+    }
+  }
+  // turbo: a glow round the child, two fading copies behind and speed streaks (a white core in
+  // the child's colour, so they read on the dark sea as well as on the pastel candy sky)
+  function speedTrail(ax, ay, A2, im, sx, sy, cw, ch, k) {
+    const col = TRAIL[hero] || TRAIL.mike, pul = reducedMotion ? 0 : .08 * Math.sin(time * 12);
+    g.save();
+    const gl = g.createRadialGradient(ax, ay - 56, 8, ax, ay - 56, 74); gl.addColorStop(0, col + 'aa'); gl.addColorStop(1, col + '00');
+    g.globalAlpha = .75 + pul; g.fillStyle = gl; g.beginPath(); g.ellipse(ax, ay - 56, 74, 74, 0, 0, 7); g.fill();
+    for (let j = 1; j <= 2 && !reducedMotion; j++) { g.globalAlpha = .3 / j; g.drawImage(im, sx, sy, cw, ch, ax - 30 * j - A2.anchor[0] * k, ay - A2.anchor[1] * k, cw * k, ch * k) }
+    g.lineCap = 'round';
+    for (let j = 0; j < 5; j++) {
+      const ph = reducedMotion ? .5 : (time * 3.2 + j * .37) % 1, len = 50 + (j * 23) % 40, x1 = ax - 30 - ph * 70, y = ay - 16 - j * 19;
+      g.globalAlpha = .9 * (1 - ph);
+      g.strokeStyle = col; g.lineWidth = 7; g.beginPath(); g.moveTo(x1, y); g.lineTo(x1 - len, y); g.stroke();
+      g.strokeStyle = '#ffffff'; g.lineWidth = 2.5; g.beginPath(); g.moveTo(x1, y); g.lineTo(x1 - len * .8, y); g.stroke();
+    }
+    g.restore();
   }
 
   function drawParts(dt) {
@@ -422,7 +497,8 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
       const a = p.life / p.max;
       p.x += p.vx * dt; p.y += p.vy * dt;
       if (p.kind === DUST) { p.vy -= 30 * dt; g.globalAlpha = a * .7; g.fillStyle = '#ffffff'; g.beginPath(); g.arc(p.x, p.y, p.size * (1.6 - a * .6), 0, 7); g.fill(); g.globalAlpha = 1 }
-      else if (p.kind === RING) { g.globalAlpha = a * .9; g.strokeStyle = '#46aaff'; g.lineWidth = 5 * a + 1; g.beginPath(); g.arc(p.x, p.y, p.size + (1 - a) * 70, 0, 7); g.stroke(); g.globalAlpha = a * .7; g.strokeStyle = '#beebff'; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, Math.max(1, p.size + (1 - a) * 70 - 7), 0, 7); g.stroke(); g.globalAlpha = 1 }
+      else if (p.kind === FLAME) { p.vy -= 200 * dt; g.globalAlpha = a * .85; g.fillStyle = a > .6 ? '#ffe28a' : a > .3 ? '#ff9a3c' : 'rgba(150,150,170,.6)'; g.beginPath(); g.arc(p.x, p.y, p.size * (1.3 - a * .6), 0, 7); g.fill(); g.globalAlpha = 1 }
+      else if (p.kind === RING) { g.globalAlpha = a * .9; g.strokeStyle = p.color || '#46aaff'; g.lineWidth = 5 * a + 1; g.beginPath(); g.arc(p.x, p.y, p.size + (1 - a) * 70, 0, 7); g.stroke(); g.globalAlpha = a * .7; g.strokeStyle = '#beebff'; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, Math.max(1, p.size + (1 - a) * 70 - 7), 0, 7); g.stroke(); g.globalAlpha = 1 }
       else if (p.kind === SPARK) { p.vy += 240 * dt; g.globalAlpha = a; g.fillStyle = SPARK_COL; g.beginPath(); g.arc(p.x, p.y, p.size * a + 1, 0, 7); g.fill(); g.globalAlpha = 1 }
       else if (p.kind === MINISTAR) { p.vy += 160 * dt; p.rot += dt * 5; g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.globalAlpha = a; g.fillStyle = p.color; drawStarShape(g, 0, 0, p.size, p.size * .45); g.fill(); g.restore() }
       else if (p.kind === CONFETTI) { p.vy += 300 * dt; p.vx *= .99; p.rot += dt * 8; g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.globalAlpha = Math.min(1, a * 2); g.fillStyle = p.color; g.fillRect(-5, -3, 10, 6); g.restore() }
@@ -448,6 +524,14 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
       if (ev.type === 'hit') hurtRing = .5;
       if (ev.type === 'shield' || ev.type === 'shieldHit') { spawn(RING, ev.x, ev.y, s.world.speed, 0, .5, 20, ''); for (let j = 0; j < 8 * many; j++) { const a = j / 8 * Math.PI * 2; spawn(SPARK, ev.x, ev.y, s.world.speed + Math.cos(a) * 150, Math.sin(a) * 150, .4, 3.5, '') } }
       if (ev.type === 'respawn') cam.init = false;
+      // the power-ups: a gold ring for the jetpack, a blue-and-yellow zap for the energy
+      if (ev.type === 'jetpack' || ev.type === 'energy') {
+        const v = s.world.speed, gold = ev.type === 'jetpack';
+        spawn(RING, ev.x, ev.y, v, 0, .55, 24, gold ? '#ffd23f' : '#46d8ff');
+        for (let j = 0; j < 10 * many; j++) { const a = j / 10 * Math.PI * 2; spawn(MINISTAR, ev.x, ev.y, v + Math.cos(a) * 190, Math.sin(a) * 190, .6, 9, j % 2 ? '#ffd23f' : gold ? '#ffffff' : '#7fe3ff') }
+      }
+      if (ev.type === 'puff' && !reducedMotion) for (let j = 0; j < 4; j++) spawn(FLAME, ev.x - 30 + j * 4, ev.y - 40, s.world.speed * .3, 220 + j * 30, .3, 10, '');
+      if (ev.type === 'jetLand') { squash = .14; for (let j = 0; j < 7 * many; j++) spawn(DUST, ev.x + (j - 3) * 10, ev.y - 4, (j - 3) * 40, -30 - j * 5, .45, 7, '') }
       if (ev.type === 'finish') { const n = reducedMotion ? 14 : 40, pal = ['#ffd23f', '#ff5fa2', '#33e1ff', '#7ee08a', '#ffffff']; for (let j = 0; j < n; j++) spawn(CONFETTI, s.p.x + 60 + (j % 10) * 22, cam.y + 30, ((j * 37) % 200) - 100, 60 + (j * 13) % 140, 2.2, 1, pal[j % 5]) }
     }
   }
@@ -485,7 +569,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     const useArt = !!pic.plat;
     for (const d of L.deco) if (d.kind === 'finish' && d.x > x0 - 240 && d.x < x1 + 240) (pic.finish ? artFinish : drawFinish)(d.x, d.y);
     for (const b of L.lows) if (vis(b)) (useArt && pic.gate ? artLow : drawLow)(b);
-    for (const b of L.solids) if (vis(b)) { if (b.h > 400) (useArt ? artFloor : drawFloor)(b, x0, x1); else (useArt ? artBlock : drawBlock)(b) }
+    for (const b of L.solids) if (vis(b)) { if (b.kind === 'tower') drawTower(b); else if (b.h > 400) (useArt ? artFloor : drawFloor)(b, x0, x1); else (useArt ? artBlock : drawBlock)(b) }
     for (const b of L.oneway) if (vis(b)) (useArt ? artOneway : drawOneway)(b);
     for (const b of L.bounces) if (vis(b)) (pic.pad ? artPad : drawPad)(b);
     for (const h of L.hazards) if (vis(h)) drawHazard(h);
@@ -494,6 +578,10 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     const sw = pic.star ? 46 : 48, sh = pic.star ? 46 * pic.star.m.h / pic.star.m.w : 48, simg = pic.star ? pic.star.img : starSprite;
     for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; if (glow) g.drawImage(glow, st.x - 40, st.y - 40 + bob, 80, 80); g.drawImage(simg, st.x - sw / 2, st.y - sh / 2 + bob, sw, sh) }
     if (pic.shield) for (let i = 0; i < (L.shields || []).length; i++) { const it = L.shields[i]; if (s.gotShield[i] || it.x < x0 - 60 || it.x > x1 + 60) continue; const h2 = 52, w2 = h2 * pic.shield.m.w / pic.shield.m.h; g.globalAlpha = .35; g.fillStyle = '#7ff0ff'; g.beginPath(); g.arc(it.x, it.y + bob, 34, 0, 7); g.fill(); g.globalAlpha = 1; g.drawImage(pic.shield.img, it.x - w2 / 2, it.y - h2 / 2 + bob, w2, h2) }
+    // the power-ups float and glow (the jetpack higher up: only a jump reaches it)
+    const items = (list, got, a, w, glowCol, bobK) => { if (!a) return; for (let i = 0; i < (list || []).length; i++) { const it = list[i]; if (got[i] || it.x < x0 - 80 || it.x > x1 + 80) continue; const h2 = w * a.m.h / a.m.w, y = it.y + bob * bobK; g.globalAlpha = .3 + (reducedMotion ? 0 : .12 * Math.sin(time * 5 + i)); g.fillStyle = glowCol; g.beginPath(); g.arc(it.x, y, w * .62, 0, 7); g.fill(); g.globalAlpha = 1; g.drawImage(a.img, it.x - w / 2, y - h2 / 2, w, h2) } };
+    items(L.jetpacks, s.gotJet, pic.jetpack, 78, '#ffe27a', 2.2);
+    items(L.energies, s.gotEnergy, pic.energy, 70, '#7fe3ff', 1.4);
     drawPlayer(s, px, py);
     if (pic.finish) for (const d of L.deco) if (d.kind === 'finish' && d.x > x0 - 240 && d.x < x1 + 240) artFinishFront(d.x, d.y);
     // the shield while it lasts: a soft blue bubble round the child
