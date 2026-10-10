@@ -1761,12 +1761,12 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-pick.zin .talen-stamp-icon{display:grid;place-items:center;padding-bottom:22%;font-size:clamp(40px,12vw,58px);background:none}
 /* Rekenen: sums or money (games-money.js, 2026-10-10) */
 .math-pick .panel-scroll{display:flex;flex-direction:column;gap:14px;overflow-y:auto}
-.math-pick .math-pick-tile{aspect-ratio:16/9;height:auto}
+.math-pick .math-pick-tile{aspect-ratio:auto;height:clamp(100px,15vh,140px);flex:none}   /* lower, like the Talen tiles (Stefan, 2026-10-10) */
 .math-pick .math-pick-tile b{font-size:20px;line-height:1.1}
 .math-pick .math-pick-tile b small{display:block;margin-top:3px;font-size:12px;font-weight:800;opacity:.9}
 .math-pick-tile.money{background:radial-gradient(circle at 50% 30%,#6fb2ff,#2a62d6 62%,#1a3f9c)}
 .money-pick-coins{position:absolute;inset:0;display:block}
-.money-pick-coins img{position:absolute;top:calc(14% + var(--i) * 7%);left:calc(18% + var(--i) * 22%);width:34%;aspect-ratio:1;object-fit:contain;transform:rotate(calc(-14deg + var(--i) * 14deg))}
+.money-pick-coins img{position:absolute;top:38%;left:calc(50% + (var(--i) - 1) * 13%);height:62%;width:auto;aspect-ratio:1;object-fit:contain;transform:translate(-50%,-50%) rotate(calc(-14deg + var(--i) * 14deg))}
 /* the game: a light blue mat with the coins (Stefan: blue like the rest, 2026-10-10), the amount, the keypad */
 .money-card{display:flex;flex-direction:column;gap:8px;min-height:0}
 .money-tray{position:relative;flex:1 1 auto;min-height:170px;border-radius:20px;overflow:hidden;background:radial-gradient(circle at 50% 35%,#e8f4ff,#bcdcff 60%,#93c2f7);border:2px solid #fff;box-shadow:inset 0 2px 10px rgba(20,70,150,.18),0 4px 0 #a8d9f4}
@@ -1799,11 +1799,9 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .talen-pass .talen-lang-switch{display:flex;width:100%;box-sizing:border-box;justify-content:flex-start;min-height:52px;padding:6px 16px 6px 10px;font-size:17px}
 .talen-pass .talen-lang-switch .talen-flag-icon{font-size:28px}
 .talen-pass .talen-lang-switch small{margin-inline-start:auto;font-size:13px}
-/* Talen pictures whole, not zoomed in (Stefan, 2026-10-10: "te ver ingezoomd, te vol"):
-   the square picture is shown complete, a blurred copy of it fills the rest of the tile. */
-.talen-pick.fit::before,.talen-tile.fit::before{content:"";position:absolute;inset:-12%;background:var(--art) center/cover;filter:blur(14px) saturate(1.1) brightness(.92)}
-.talen-pick.fit .talen-pick-art,.talen-tile.fit img{object-fit:contain;object-position:center}
-.talen-tile.fit img{z-index:0}
+/* Talen pictures fill their whole tile (Stefan, 2026-10-10, after trying them whole with a
+   blurred edge): cover, centred, no extra zoom. */
+.talen-pick.fit .talen-pick-art,.talen-tile.fit img{object-fit:cover;object-position:center}
 /* Buddies less zoomed in (Stefan, 2026-10-10): the figure at 80% of the tile, standing on
    the name band, with air above the head. */
 .mascot-card .mascot-fill{inset:auto 0 30px 0;height:calc(80% - 10px);object-position:center bottom}
