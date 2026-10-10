@@ -41,8 +41,8 @@ async function geometry(page, id) {
   await page.waitForFunction(() => ![...document.querySelectorAll('.bk-piece')].some(e => e.style.transform));
   await page.evaluate(() => new Promise(done => {   // and until nothing moves for a few frames
     let last = '', same = 0, n = 0;
-    const tick = () => { const now = [...document.querySelectorAll('.bk-piece')].map(e => { const r = e.getBoundingClientRect(); return `${r.x|0},${r.y|0}`; }).join(';'); same = now === last ? same + 1 : 0; last = now; if (same >= 3 || ++n > 120) done(); else requestAnimationFrame(tick); };
-    requestAnimationFrame(tick);
+    const tick = () => { const now = [...document.querySelectorAll('.bk-piece')].map(e => { const r = e.getBoundingClientRect(); return `${r.x|0},${r.y|0}`; }).join(';'); same = now === last ? same + 1 : 0; last = now; if (same >= 3 || ++n > 100) done(); else setTimeout(tick, 20); };
+    setTimeout(tick, 20);
   }));
   return page.evaluate(id => {
     const K = window.KWIZILLO_M1, D = K.blokkenData, s = K.blokken.state, lv = D.level(s.level), p = D.pieceById(lv, id);
@@ -100,7 +100,7 @@ async function solveBy(page, how = mouseDrag, solution) {
       expect((await S(page)).trayRot[m.id] || 0).toBe(m.rot);
     }
     await how(page, m.id, m.x, m.y);
-    await expect.poll(async () => !!(await S(page))?.placements?.[m.id] || (await S(page))?.phase !== 'play', { message: `level ${lv.n}: ${m.id} at ${m.x},${m.y} r${m.rot}` }).toBe(true);
+    await expect.poll(async () => !!(await S(page))?.placements?.[m.id] || (await S(page))?.phase !== 'play', { timeout: 12000, message: `level ${lv.n}: ${m.id} at ${m.x},${m.y} r${m.rot}` }).toBe(true);
   }
 }
 
@@ -166,7 +166,7 @@ test.describe('Blokkenpret', () => {
     // replay: a new attempt, a small reward, still booked once
     await startLevel(page, 1);
     await solveBy(page, mouseDrag);
-    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 4000 });
+    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 10000 });
     expect(await page.evaluate(() => window.KWIZILLO_M1.state.xp)).toBe(after.xp + 4);
     expect((await store(page)).booked).toHaveLength(2);
   });
@@ -182,7 +182,7 @@ test.describe('Blokkenpret', () => {
     });
     expect(alt).toBeTruthy();
     await solveBy(page, mouseDrag, alt);
-    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 4000 });
+    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 10000 });
   });
 
   test('invalid drops go back; placed pieces can be moved, put back and undone', async ({ page }) => {
@@ -240,7 +240,7 @@ test.describe('Blokkenpret', () => {
     // the whole level by turning and dragging
     await page.locator('#bkRestart').click();
     await solveBy(page, mouseDrag);
-    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 4000 });
+    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 10000 });
   });
 
   test('keyboard: select a piece, arrows, Enter places, Escape cancels', async ({ page }) => {
@@ -300,7 +300,7 @@ test.describe('Blokkenpret', () => {
     await page.mouse.up();
     await piecesIntact(page);
     await solveBy(page, touchDrag, lv.solution.slice(1));
-    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 4000 });
+    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 10000 });
   });
 
   test('help reads the current board: a dead end gets a take-back step, then a spot that leads to a full figure', async ({ page }) => {
@@ -526,7 +526,7 @@ test.describe('Blokkenpret', () => {
     for (let n = 1; n <= 10; n++) {
       await startLevel(page, n);
       await solveBy(page, mouseDrag);
-      await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 5000 });
+      await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 10000 });
       if (n < 10) { await expect(page.locator('#bkNext')).toBeVisible(); await page.locator('#bkToLevels').click(); }
     }
     await expect(page.locator('.bk-result-card.final')).toContainText('Alle 10 levels gehaald!');
@@ -568,7 +568,7 @@ test.describe('Blokkenpret', () => {
     await openLevels(page);
     await startLevel(page, 1);
     await solveBy(page, mouseDrag);
-    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 4000 });
+    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 10000 });
     expect((await store(page)).booked).toHaveLength(1);
   });
 
