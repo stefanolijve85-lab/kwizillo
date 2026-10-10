@@ -1831,3 +1831,18 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 [dir="rtl"] .talen-cat-go{transform:scaleX(-1)}
 .talen-cat-title{font-size:20px;margin-top:4px}
 @media(min-width:700px){.talen-cats{grid-template-columns:1fr 1fr}}
+/* Sentence cards visually stronger (Stefan, 2026-10-10): the emoji large on a glossy coloured
+   sticker, a colour per card, and the card itself tinted to match. */
+.talen-tile.zin{--zc1:#ffd86b;--zc2:#ff9f3d;--zbg:#fff6e6}
+.talen-tile.zin:nth-child(4n+2){--zc1:#8fd3ff;--zc2:#3d8bff;--zbg:#eaf4ff}
+.talen-tile.zin:nth-child(4n+3){--zc1:#b9a2ff;--zc2:#7a4dff;--zbg:#f3eeff}
+.talen-tile.zin:nth-child(4n+4){--zc1:#8eeab0;--zc2:#21b56b;--zbg:#e8fbf0}
+.talen-tile.zin{background:radial-gradient(circle at 50% 38%,#fff 0,var(--zbg) 60%)}
+.talen-tile.zin .talen-emoji{display:grid;place-items:center;width:clamp(96px,30vw,150px);aspect-ratio:1;border-radius:50%;font-size:clamp(60px,19vw,96px);
+  background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.75) 0 14%,transparent 15%),linear-gradient(160deg,var(--zc1),var(--zc2));
+  border:5px solid #fff;box-shadow:0 8px 0 rgba(0,0,0,.08),0 12px 22px rgba(30,40,110,.25),inset 0 -8px 14px rgba(0,0,0,.12);
+  filter:drop-shadow(0 0 0 transparent);animation:zinPop .5s cubic-bezier(.3,1.5,.5,1) both}
+.talen-tile.zin:nth-child(2) .talen-emoji{animation-delay:.06s}.talen-tile.zin:nth-child(3) .talen-emoji{animation-delay:.12s}.talen-tile.zin:nth-child(4) .talen-emoji{animation-delay:.18s}
+@keyframes zinPop{from{transform:scale(.6) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.talen-tile.zin .talen-emoji{animation:none}}
+.talen-chip .talen-emoji{background:linear-gradient(160deg,#ffd86b,#ff9f3d);box-shadow:0 0 0 2px #fff,0 3px 6px rgba(30,40,110,.2)}
