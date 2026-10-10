@@ -129,7 +129,7 @@
   // Second wave of buddies (tools/mascot-prompts.md). Add an id here once its
   // 512x512 picture is in assets/mascots/, so the collection never shows an
   // empty tile: nova, kiko, pip, ravi, flora, draco.
-  for(const id of ['nova','kiko','pip','ravi','flora','draco','mike']) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
+  for(const id of ['nova','kiko','pip','ravi','flora','draco','mike','zibo','leo','pixi','olli','finn','ember']) K.MASCOT_ART[id]=`assets/mascots/${id}.jpg`;
   // The same pictures, redrawn to one tile shape by tools/mascot-tiles.cjs: the
   // renders came in two formats, so a tile that cropped to fill showed one buddy
   // in full and zoomed into the next one's nose. The round avatars keep using

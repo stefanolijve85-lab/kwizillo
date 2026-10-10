@@ -590,6 +590,12 @@
     'mascot.flora':'Flora','mascot.flora.desc':'Naturens ven',
     'mascot.draco':'Draco','mascot.draco.desc':'Lille borgdrage',
     'mascot.mike':'Mike','mascot.mike.desc':'Musikfan med høretelefoner',
+    'mascot.zibo':'Zibo','mascot.zibo.desc':'Glad rumrejsende',
+    'mascot.leo':'Leo','mascot.leo.desc':'Sporty løve med medalje',
+    'mascot.pixi':'Pixi','mascot.pixi.desc':'Kreativ ræv med pensel',
+    'mascot.olli':'Olli','mascot.olli.desc':'Klog ugle med flyverbriller',
+    'mascot.finn':'Finn','mascot.finn.desc':'Legesyg delfin',
+    'mascot.ember':'Ember','mascot.ember.desc':'Lille lilla drage',
 
     'stats.title':'Tal',
     'stats.sub':'Rigtig fremgang fra de spørgsmål, du har spillet',

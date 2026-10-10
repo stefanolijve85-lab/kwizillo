@@ -31,7 +31,15 @@
     {id:'flora',icon:'🦋',need:1165,was:170},
     {id:'draco',icon:'🐉',need:1280,was:200},
     // Only in the shop (2026-10-07): no number of answers opens him, 1500 coins buy him.
-    {id:'mike',icon:'🎧',need:Infinity,price:1500}
+    {id:'mike',icon:'🎧',need:Infinity,price:1500},
+    // Third wave (2026-10-10, Stefan's renders): shop only, like Mike — the 1280
+    // questions are already shared out over the first twelve.
+    {id:'zibo',icon:'👽',need:Infinity,price:400},
+    {id:'leo',icon:'🦁',need:Infinity,price:600},
+    {id:'pixi',icon:'🎨',need:Infinity,price:800},
+    {id:'olli',icon:'🦉',need:Infinity,price:1000},
+    {id:'finn',icon:'🐬',need:Infinity,price:1200},
+    {id:'ember',icon:'🐲',need:Infinity,price:1400}
   ].filter(m=>K.MASCOT_ART?.[m.id]);
 
   // One line per level for the parent zone: time, mistakes, hints, reading.

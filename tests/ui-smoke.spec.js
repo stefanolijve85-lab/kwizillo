@@ -260,7 +260,7 @@ test('every navigation destination is dynamic and interactive', async ({ page })
   await page.locator('.kcard-zoom').click();
   await expect(page.locator('.kcard-zoom')).toHaveCount(0);
   await page.getByRole('button', { name: /Mascottes/ }).click();
-  await expect(page.locator('.mascot-card')).toHaveCount(13);   // twelve, plus Mike (shop only)
+  await expect(page.locator('.mascot-card')).toHaveCount(19);   // twelve, plus Mike and six more (shop only)
   await page.locator('.mascot-card:not([disabled])').first().click();
 
   await page.locator('.native-bottom-nav button[data-nav="stats"]').click();
@@ -932,12 +932,12 @@ test('on level 4 the voice still reads the question and the answers; the parent 
 test('mascot tiles are filled by the character with only the name on it', async ({ page }) => {
   await boot(page, SAVED({ correct: 12 }));
   await page.evaluate(() => window.KWIZILLO_M1.showCollection('mascots'));
-  await expect(page.locator('.mascot-card')).toHaveCount(13);   // twelve, plus Mike (shop only)
-  await expect(page.locator('.mascot-card .mascot-fill')).toHaveCount(13);
+  await expect(page.locator('.mascot-card')).toHaveCount(19);   // twelve, plus Mike and six more (shop only)
+  await expect(page.locator('.mascot-card .mascot-fill')).toHaveCount(19);
   // 12 right under the old ladder (Comet 5, Pootje 12): a player from before keeps them
   await expect(page.locator('.mascot-card.unlocked')).toHaveCount(3);        // Milo, Comet, Pootje
   await expect(page.locator('.mascot-card.unlocked .mascot-name').nth(1)).toHaveText('Comet');
-  await expect(page.locator('.mascot-card.locked .mascot-lock')).toHaveCount(10);
+  await expect(page.locator('.mascot-card.locked .mascot-lock')).toHaveCount(16);
   const fill = await page.locator('.mascot-card .mascot-fill').first().boundingBox();
   const card = await page.locator('.mascot-card').first().boundingBox();
   expect(Math.abs(fill.width - card.width)).toBeLessThan(2);

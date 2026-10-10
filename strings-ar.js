@@ -761,6 +761,12 @@
     'mascot.draco':'دراكو',
     'mascot.draco.desc':'تنين القلعة الصغير',
     'mascot.mike':'Mike','mascot.mike.desc':'محبّ الموسيقى بسماعاته',
+    'mascot.zibo':'زيبو','mascot.zibo.desc':'مسافر فضاء مرح',
+    'mascot.leo':'ليو','mascot.leo.desc':'أسد رياضي بميدالية',
+    'mascot.pixi':'بيكسي','mascot.pixi.desc':'ثعلب فنان بفرشاة',
+    'mascot.olli':'أولي','mascot.olli.desc':'بومة ذكية بنظارة طيران',
+    'mascot.finn':'فين','mascot.finn.desc':'دلفين مرح',
+    'mascot.ember':'إمبر','mascot.ember.desc':'تنين بنفسجي صغير',
 
     'stats.title':'الأرقام',
     'stats.sub':'تقدم حقيقي من الأسئلة التي لعبتها',

@@ -591,6 +591,12 @@
     'mascot.flora':'Flora','mascot.flora.desc':'Amie de la nature',
     'mascot.draco':'Draco','mascot.draco.desc':'Petit dragon du château',
     'mascot.mike':'Mike','mascot.mike.desc':'Fan de musique avec son casque',
+    'mascot.zibo':'Zibo','mascot.zibo.desc':'Joyeux voyageur de l’espace',
+    'mascot.leo':'Leo','mascot.leo.desc':'Lion sportif avec une médaille',
+    'mascot.pixi':'Pixi','mascot.pixi.desc':'Renard artiste avec un pinceau',
+    'mascot.olli':'Olli','mascot.olli.desc':'Chouette maligne avec des lunettes d’aviateur',
+    'mascot.finn':'Finn','mascot.finn.desc':'Dauphin joueur',
+    'mascot.ember':'Ember','mascot.ember.desc':'Petit dragon violet',
 
     'stats.title':'Stats',
     'stats.sub':'De vrais progrès, tirés de tes questions jouées',

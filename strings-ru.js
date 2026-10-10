@@ -590,6 +590,12 @@
     'mascot.flora':'Флора','mascot.flora.desc':'Подруга природы',
     'mascot.draco':'Драко','mascot.draco.desc':'Маленький дракон из замка',
     'mascot.mike':'Mike','mascot.mike.desc':'Меломан в наушниках',
+    'mascot.zibo':'Зибо','mascot.zibo.desc':'Весёлый космический путешественник',
+    'mascot.leo':'Лео','mascot.leo.desc':'Спортивный лев с медалью',
+    'mascot.pixi':'Пикси','mascot.pixi.desc':'Лиса-художница с кисточкой',
+    'mascot.olli':'Олли','mascot.olli.desc':'Умная сова в лётных очках',
+    'mascot.finn':'Финн','mascot.finn.desc':'Игривый дельфин',
+    'mascot.ember':'Эмбер','mascot.ember.desc':'Маленький фиолетовый дракон',
 
     'stats.title':'Успехи',
     'stats.sub':'Настоящий прогресс по сыгранным вопросам',

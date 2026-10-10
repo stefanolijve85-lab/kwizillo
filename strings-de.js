@@ -590,6 +590,12 @@
     'mascot.flora':'Flora','mascot.flora.desc':'Freundin der Natur',
     'mascot.draco':'Draco','mascot.draco.desc':'Kleiner Burgdrache',
     'mascot.mike':'Mike','mascot.mike.desc':'Musikfan mit Kopfhörern',
+    'mascot.zibo':'Zibo','mascot.zibo.desc':'Fröhlicher Weltraumreisender',
+    'mascot.leo':'Leo','mascot.leo.desc':'Sportlicher Löwe mit Medaille',
+    'mascot.pixi':'Pixi','mascot.pixi.desc':'Kreativer Fuchs mit Pinsel',
+    'mascot.olli':'Olli','mascot.olli.desc':'Kluge Eule mit Fliegerbrille',
+    'mascot.finn':'Finn','mascot.finn.desc':'Verspielter Delfin',
+    'mascot.ember':'Ember','mascot.ember.desc':'Kleiner lila Drache',
 
     'stats.title':'Statistik',
     'stats.sub':'Echter Fortschritt aus deinen gespielten Fragen',

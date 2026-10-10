@@ -11,6 +11,7 @@
 //   node tools/mascot-tiles.cjs            → assets/mascots/tile/<id>.png
 //   node tools/mascot-tiles.cjs --check    → fails if a tile is missing or stale
 //   node tools/mascot-tiles.cjs --heads-only → only the head step (HEADS), once, on tiles fresh from step 2
+//   node tools/mascot-tiles.cjs --harden-only → only the hard edge (step 3), on the tiles as they are
 //
 // The cutting is done by tools/cutout.swift, which asks macOS for the same
 // subject mask that Preview's "Remove Background" uses: it knows what a
@@ -50,7 +51,9 @@ const MAX_ZOOM = 1.5;            // at most this much larger than fitted whole
 // the bottom edge like Mike, nothing fades (a fade looked like a different kind of
 // tile, Stefan the same day): a smaller one sinks a little and gets air above its
 // head, a larger one keeps its head at Mike's height and runs off the bottom.
-const HEADS = { luna: [.86, 10, 142], milo: [.87, 32, 160], pootje: [.86, 10, 155], pip: [.86, 10, 163], ravi: [.86, 8, 160], draco: [.88, 10, 151], kiko: [.87, 10, 160], flora: [.92, 12, 165], nova: [.92, 10, 160], terra: [1.14, 28, 156], sparky: [1.06, 8, 159] };
+const HEADS = { luna: [.86, 10, 142], milo: [.87, 32, 160], pootje: [.86, 10, 155], pip: [.86, 10, 163], ravi: [.86, 8, 160], draco: [.88, 10, 151], kiko: [.87, 10, 160], flora: [.92, 12, 165], nova: [.92, 10, 160], terra: [1.14, 28, 156], sparky: [1.06, 8, 159],
+  // third wave (2026-10-10): standing figures, so drawn larger with the head at Mike's height
+  zibo: [1.3, 8, 154], leo: [1.12, 9, 144], pixi: [1.2, 8, 176], olli: [1.04, 8, 134], finn: [1.28, 5, 153], ember: [1.2, 8, 160] };
 const HEAD_TOP = 20;
 function headStep(file) {
   const [s, top, cx] = HEADS[file.replace(/\.(jpg|png)$/, '')] || []; if (!s) return;
@@ -66,6 +69,26 @@ function headStep(file) {
 const sources = () => fs.readdirSync(SRC).filter(f => /\.jpg$/.test(f) && (!only.length || only.includes(f.replace(/\.jpg$/, '')))).sort();
 const tileOf = file => path.join(OUT, file.replace(/\.jpg$/, '.png'));
 
+// 3. A hard edge (2026-10-10, Stefan: "zorg dat ze allemaal strak uitgesneden zijn"): the
+// subject mask is feathered, and where a render faded into its backdrop the bottom of
+// the figure faded out with it. Every pixel is now either the figure or nothing, with
+// one half-strong pixel along the outline so the edge does not look jagged.
+function hardenStep(file) {
+  const out = tileOf(file), ff = path.join(__dirname, 'bin', 'ffmpeg');
+  const px = execFileSync(ff, ['-loglevel', 'error', '-i', out, '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], { maxBuffer: 1e8 });
+  const n = W * H, solid = new Uint8Array(n);
+  for (let i = 0; i < n; i++) solid[i] = px[i * 4 + 3] >= 128 ? 1 : 0;
+  for (let i = 0; i < n; i++) {
+    const x = i % W, y = (i / W) | 0;
+    const edge = solid[i] && ((x && !solid[i - 1]) || (x < W - 1 && !solid[i + 1]) || (y && !solid[i - W]) || (y < H - 1 && !solid[i + W]));
+    px[i * 4 + 3] = !solid[i] ? 0 : edge ? 170 : 255;
+  }
+  execFileSync(ff, ['-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', `${W}x${H}`, '-i', '-', '-pix_fmt', 'rgba', out], { input: px });
+}
+if (process.argv.includes('--harden-only')) {   // the hard edge alone, on the tiles as they are
+  for (const f of sources()) hardenStep(f);
+  console.log('edges hardened'); process.exit(0);
+}
 if (process.argv.includes('--heads-only')) {   // the head step alone, on the tiles as they are
   for (const f of sources()) headStep(f);
   console.log('heads set'); process.exit(0);
@@ -155,6 +178,7 @@ if (process.argv.includes('--heads-only')) {   // the head step alone, on the ti
     const out = tileOf(file);
     fs.writeFileSync(out, Buffer.from(result.url.split(',')[1], 'base64'));
     headStep(file);
+    hardenStep(file);
     console.log(`${file}: character ${result.box[0]}x${result.box[1]} → ${path.basename(out)} (${(fs.statSync(out).size / 1024).toFixed(0)} kB)`);
   }
   await browser.close();
