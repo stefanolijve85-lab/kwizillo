@@ -1846,3 +1846,8 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 @keyframes zinPop{from{transform:scale(.6) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.talen-tile.zin .talen-emoji{animation:none}}
 .talen-chip .talen-emoji{background:linear-gradient(160deg,#ffd86b,#ff9f3d);box-shadow:0 0 0 2px #fff,0 3px 6px rgba(30,40,110,.2)}
+/* Woordjes and Zinnetjes start under the blue band (Stefan, 2026-10-10): the band is 24% of
+   the screen high, so on tall phones the tiles get the extra room above them. */
+.talen-pass{container-type:size}
+.talen-pass .talen-cats{margin-top:max(10px,calc(24vh - 150px))}
+@supports(height:1cqh){.talen-pass .talen-cats{margin-top:max(10px,calc(24cqh - 150px))}}
