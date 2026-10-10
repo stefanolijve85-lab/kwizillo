@@ -91,9 +91,9 @@
             "Cinco",
             "Doze"
           ],
-          "hint": "Pensa na Europa, Ásia, África e mais quatro.",
-          "explanation": "A Terra costuma dividir-se em sete continentes.",
-          "fact": "A Antártida é um deles, embora ninguém viva lá de forma fixa."
+          "hint": "Pense na Europa, na Ásia, na África e em mais quatro.",
+          "explanation": "A Terra costuma ser dividida em sete continentes.",
+          "fact": "A Antártida é um deles, embora ninguém more lá de forma permanente."
         },
         "da": {
           "prompt": "Hvor mange verdensdele er der?",
@@ -215,15 +215,15 @@
         },
         "pt": {
           "prompt": "Qual é a capital dos Países Baixos?",
-          "answer": "Amesterdão",
+          "answer": "Amsterdã",
           "wrong": [
-            "Roterdão",
+            "Roterdã",
             "Haia",
             "Utrecht"
           ],
           "hint": "É a cidade dos canais.",
-          "explanation": "Segundo a constituição, a capital é Amesterdão.",
-          "fact": "O governo, porém, fica em Haia."
+          "explanation": "Pela Constituição, a capital é Amsterdã.",
+          "fact": "Mas o governo fica em Haia."
         },
         "da": {
           "prompt": "Hvad er Nederlandenes hovedstad?",
@@ -344,16 +344,16 @@
           "fact": "Un tempo i mulini pompavano l'acqua fuori dalle terre."
         },
         "pt": {
-          "prompt": "Que país é conhecido pelas tulipas e pelos moinhos?",
+          "prompt": "Qual país é conhecido pelas tulipas e pelos moinhos?",
           "answer": "Os Países Baixos",
           "wrong": [
             "A Espanha",
             "A Noruega",
             "O Egito"
           ],
-          "hint": "É plano e dá para o mar do Norte.",
+          "hint": "É plano e fica de frente para o mar do Norte.",
           "explanation": "Os Países Baixos são famosos pelos campos de tulipas e pelos moinhos.",
-          "fact": "Antigamente os moinhos bombeavam a água das terras."
+          "fact": "Antigamente, os moinhos bombeavam a água para fora das terras."
         },
         "da": {
           "prompt": "Hvilket land er kendt for tulipaner og vindmøller?",
@@ -474,16 +474,16 @@
           "fact": "Là fu misurata una volta una temperatura di meno ottantanove gradi."
         },
         "pt": {
-          "prompt": "Que continente é o mais frio?",
+          "prompt": "Qual continente é o mais frio?",
           "answer": "A Antártida",
           "wrong": [
             "A Europa",
             "A África",
             "A Ásia"
           ],
-          "hint": "Fica mesmo em baixo no globo.",
+          "hint": "Fica bem embaixo no globo.",
           "explanation": "A Antártida é o continente mais frio da Terra.",
-          "fact": "Ali mediram uma vez oitenta e nove graus negativos."
+          "fact": "Lá já mediram oitenta e nove graus negativos."
         },
         "da": {
           "prompt": "Hvilken verdensdel er den koldeste?",
@@ -612,7 +612,7 @@
             "Alemanha"
           ],
           "hint": "Fica na capital desse país.",
-          "explanation": "A torre Eiffel fica em Paris, em França.",
+          "explanation": "A torre Eiffel fica em Paris, na França.",
           "fact": "Foi construída para a exposição universal de 1889."
         },
         "da": {
@@ -734,16 +734,16 @@
           "fact": "Al centro c'è l'isola dove la città ebbe inizio."
         },
         "pt": {
-          "prompt": "Que rio passa por Paris?",
+          "prompt": "Qual rio passa por Paris?",
           "answer": "O Sena",
           "wrong": [
             "O Reno",
             "O Danúbio",
             "O Tamisa"
           ],
-          "hint": "Dezenas de pontes atravessam-no.",
+          "hint": "Dezenas de pontes passam por cima dele.",
           "explanation": "O Sena atravessa Paris de lado a lado.",
-          "fact": "No meio fica a ilha onde a cidade começou."
+          "fact": "No meio dele fica a ilha onde a cidade começou."
         },
         "da": {
           "prompt": "Hvilken flod løber gennem Paris?",
@@ -864,16 +864,16 @@
           "fact": "Il confine è lungo più di quattrocento chilometri."
         },
         "pt": {
-          "prompt": "Que país fica logo a sul dos Países Baixos?",
+          "prompt": "Qual país fica logo ao sul dos Países Baixos?",
           "answer": "A Bélgica",
           "wrong": [
             "A Dinamarca",
-            "A Polónia",
+            "A Polônia",
             "A Suécia"
           ],
-          "hint": "Ali também se fala neerlandês.",
+          "hint": "Lá também se fala holandês.",
           "explanation": "A Bélgica é o vizinho do sul dos Países Baixos.",
-          "fact": "A fronteira tem mais de quatrocentos quilómetros."
+          "fact": "A fronteira tem mais de quatrocentos quilômetros."
         },
         "da": {
           "prompt": "Hvilket land ligger lige syd for Nederlandene?",
@@ -994,15 +994,15 @@
           "fact": "Attraversa undici paesi prima di arrivare al mare."
         },
         "pt": {
-          "prompt": "Qual é o rio mais longo de África?",
+          "prompt": "Qual é o rio mais longo da África?",
           "answer": "O Nilo",
           "wrong": [
             "O Congo",
             "O Zambeze",
             "O Níger"
           ],
-          "hint": "Corre para norte.",
-          "explanation": "Com mais de seis mil quilómetros, o Nilo é o mais longo de África.",
+          "hint": "Ele corre para o norte.",
+          "explanation": "Com mais de seis mil quilômetros, o Nilo é o mais longo da África.",
           "fact": "Atravessa onze países antes de chegar ao mar."
         },
         "da": {
@@ -1124,7 +1124,7 @@
           "fact": "A Gibilterra il passaggio è largo solo quattordici chilometri."
         },
         "pt": {
-          "prompt": "Que mar fica entre a Europa e a África?",
+          "prompt": "Qual mar fica entre a Europa e a África?",
           "answer": "O Mediterrâneo",
           "wrong": [
             "O mar do Norte",
@@ -1132,8 +1132,8 @@
             "O mar Báltico"
           ],
           "hint": "Tem ilhas como a Sicília.",
-          "explanation": "O Mediterrâneo separa a Europa de África.",
-          "fact": "Em Gibraltar a passagem tem só catorze quilómetros."
+          "explanation": "O Mediterrâneo separa a Europa da África.",
+          "fact": "Em Gibraltar, a passagem tem só quatorze quilômetros."
         },
         "da": {
           "prompt": "Hvilket hav ligger mellem Europa og Afrika?",
@@ -1254,7 +1254,7 @@
           "fact": "Alcuni sono più piccoli di una grande città."
         },
         "pt": {
-          "prompt": "Quantos países há mais ou menos na Europa?",
+          "prompt": "Quantos países há, mais ou menos, na Europa?",
           "answer": "Cerca de cinquenta",
           "wrong": [
             "Cerca de dez",
@@ -1263,7 +1263,7 @@
           ],
           "hint": "Mais de quarenta e menos de sessenta.",
           "explanation": "A Europa tem cerca de cinquenta países.",
-          "fact": "Alguns são mais pequenos do que uma cidade grande."
+          "fact": "Alguns são menores do que uma cidade grande."
         },
         "da": {
           "prompt": "Hvor mange lande er der cirka i Europa?",
@@ -1393,7 +1393,7 @@
           ],
           "hint": "Mais de dez.",
           "explanation": "A Rússia é tão larga que tem onze fusos horários.",
-          "fact": "Quando Moscovo toma o pequeno-almoço, a leste já é noite."
+          "fact": "Quando Moscou está tomando café da manhã, no leste já é noite."
         },
         "da": {
           "prompt": "Hvor mange tidszoner har Rusland?",
@@ -1514,16 +1514,16 @@
           "fact": "In barca si passa da un continente all'altro."
         },
         "pt": {
-          "prompt": "Que grande cidade fica em dois continentes?",
+          "prompt": "Qual cidade grande fica em dois continentes?",
           "answer": "Istambul",
           "wrong": [
-            "Moscovo",
+            "Moscou",
             "Cairo",
             "Atenas"
           ],
-          "hint": "Um estreito passa pelo meio dela.",
+          "hint": "Um estreito passa bem no meio dela.",
           "explanation": "Istambul fica em parte na Europa e em parte na Ásia.",
-          "fact": "De barco passa-se de um continente para o outro."
+          "fact": "De barco, dá para passar de um continente para o outro."
         },
         "da": {
           "prompt": "Hvilken storby ligger i to verdensdele?",
@@ -1647,13 +1647,13 @@
           "prompt": "Qual é a montanha mais alta de África?",
           "answer": "O Kilimanjaro",
           "wrong": [
-            "O monte Quénia",
+            "O monte Quênia",
             "O Atlas",
             "A Montanha da Mesa"
           ],
-          "hint": "Tem neve, mesmo ao pé do equador.",
+          "hint": "Tem neve, mesmo bem pertinho do equador.",
           "explanation": "O Kilimanjaro tem quase seis mil metros.",
-          "fact": "Ao fundo faz calor e no cimo há gelo."
+          "fact": "Lá embaixo faz calor e no topo tem gelo."
         },
         "da": {
           "prompt": "Hvad er Afrikas højeste bjerg?",
@@ -1774,7 +1774,7 @@
           "fact": "Solo poche migliaia sono abitate."
         },
         "pt": {
-          "prompt": "Que país é feito de mais de dezassete mil ilhas?",
+          "prompt": "Qual país é formado por mais de dezessete mil ilhas?",
           "answer": "A Indonésia",
           "wrong": [
             "O Japão",
@@ -1782,8 +1782,8 @@
             "As Filipinas"
           ],
           "hint": "Fica entre dois oceanos.",
-          "explanation": "A Indonésia é feita de mais de dezassete mil ilhas.",
-          "fact": "Só uns poucos milhares têm gente a viver."
+          "explanation": "A Indonésia é formada por mais de dezessete mil ilhas.",
+          "fact": "Só alguns milhares delas têm gente morando."
         },
         "da": {
           "prompt": "Hvilket land består af over sytten tusind øer?",
@@ -1913,7 +1913,7 @@
           ],
           "hint": "Fica dentro de uma capital famosa.",
           "explanation": "A Cidade do Vaticano fica toda dentro de Roma.",
-          "fact": "Dá para lhe dar a volta a pé em meia hora."
+          "fact": "Dá para dar a volta nela a pé em meia hora."
         },
         "da": {
           "prompt": "I hvilket land ligger Vatikanstaten?",
@@ -2034,7 +2034,7 @@
           "fact": "Molti furono scavati dai ghiacci dell'era glaciale."
         },
         "pt": {
-          "prompt": "Que país tem mais lagos do mundo?",
+          "prompt": "Qual país tem mais lagos no mundo?",
           "answer": "O Canadá",
           "wrong": [
             "A Rússia",
@@ -2043,7 +2043,7 @@
           ],
           "hint": "Fica no norte da América.",
           "explanation": "O Canadá tem mais lagos do que todos os outros países juntos.",
-          "fact": "Muitos foram escavados pelo gelo na idade do gelo."
+          "fact": "Muitos foram escavados pelo gelo na Era do Gelo."
         },
         "da": {
           "prompt": "Hvilket land har flest søer i verden?",
@@ -2164,16 +2164,16 @@
           "fact": "Ai nuovi arrivati l'aria sottile a volte dà le vertigini."
         },
         "pt": {
-          "prompt": "Que capital fica mais alta de todas?",
+          "prompt": "Qual é a capital mais alta de todas?",
           "answer": "La Paz",
           "wrong": [
-            "Madrid",
+            "Madri",
             "Cidade do México",
-            "Nairobi"
+            "Nairóbi"
           ],
           "hint": "Fica nos Andes.",
           "explanation": "La Paz, na Bolívia, fica a mais de três mil metros.",
-          "fact": "Quem chega de novo às vezes fica tonto com o ar rarefeito."
+          "fact": "Quem acaba de chegar às vezes fica tonto com o ar rarefeito."
         },
         "da": {
           "prompt": "Hvilken hovedstad ligger højest af alle?",
@@ -2294,7 +2294,7 @@
           "fact": "L'acqua potabile viene soprattutto dal mare dissalato."
         },
         "pt": {
-          "prompt": "Que país grande não tem rios nenhuns?",
+          "prompt": "Qual país grande não tem nenhum rio?",
           "answer": "A Arábia Saudita",
           "wrong": [
             "O Egito",
@@ -2303,7 +2303,7 @@
           ],
           "hint": "É quase todo deserto.",
           "explanation": "Na Arábia Saudita não corre nenhum rio todo o ano.",
-          "fact": "A água potável vem sobretudo do mar dessalinizado."
+          "fact": "A água potável vem principalmente da água do mar dessalinizada."
         },
         "da": {
           "prompt": "Hvilket stort land har slet ingen floder?",
@@ -2424,16 +2424,16 @@
           "fact": "Le chiuse sollevano le navi di ventisei metri."
         },
         "pt": {
-          "prompt": "Que canal liga o Atlântico ao Pacífico?",
+          "prompt": "Qual canal liga o Atlântico ao Pacífico?",
           "answer": "O canal do Panamá",
           "wrong": [
-            "O canal do Suez",
+            "O canal de Suez",
             "O canal de Kiel",
             "O canal do Mar do Norte"
           ],
           "hint": "Fica na América Central.",
           "explanation": "O canal do Panamá corta a América Central de lado a lado.",
-          "fact": "As eclusas levantam os navios vinte e seis metros."
+          "fact": "As eclusas erguem os navios vinte e seis metros."
         },
         "da": {
           "prompt": "Hvilken kanal forbinder Atlanterhavet og Stillehavet?",
@@ -2554,7 +2554,7 @@
           "fact": "Un punto opposto così si chiama antipode."
         },
         "pt": {
-          "prompt": "Onde sais se cavares a direito através da Terra desde a Europa?",
+          "prompt": "Onde você sai se cavar reto através da Terra a partir da Europa?",
           "answer": "Perto da Nova Zelândia",
           "wrong": [
             "Perto da Austrália",
@@ -2562,8 +2562,8 @@
             "Perto do Chile"
           ],
           "hint": "Do outro lado do globo.",
-          "explanation": "Mesmo em frente aos Países Baixos fica o mar perto da Nova Zelândia.",
-          "fact": "A esse ponto oposto chama-se antípoda."
+          "explanation": "Bem do lado oposto aos Países Baixos fica o mar perto da Nova Zelândia.",
+          "fact": "Esse ponto oposto se chama antípoda."
         },
         "da": {
           "prompt": "Hvor kommer man ud, hvis man graver lige gennem Jorden fra Europa?",

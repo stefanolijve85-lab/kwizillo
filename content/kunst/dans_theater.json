@@ -84,7 +84,7 @@
           "fact": "Quasi ogni paese del mondo ha i suoi balli antichi."
         },
         "pt": {
-          "prompt": "O que fazes com o corpo ao ritmo da música?",
+          "prompt": "O que você faz com o corpo ao ritmo da música?",
           "answer": "Dançar",
           "wrong": [
             "Dormir",
@@ -92,8 +92,8 @@
             "Contar"
           ],
           "hint": "Os pés vão sozinhos.",
-          "explanation": "Ao dançar mexes o corpo ao ritmo da música.",
-          "fact": "Quase todos os países do mundo têm danças antigas próprias."
+          "explanation": "Ao dançar, você mexe o corpo ao ritmo da música.",
+          "fact": "Quase todos os países do mundo têm suas próprias danças antigas."
         },
         "da": {
           "prompt": "Hvad gør du med kroppen i takt til musikken?",
@@ -222,8 +222,8 @@
             "No armário"
           ],
           "hint": "O público olha para ele.",
-          "explanation": "O palco é o chão elevado onde se representa.",
-          "fact": "Atrás do palco os atores esperam a sua entrada."
+          "explanation": "O palco é o piso elevado onde se representa.",
+          "fact": "Atrás do palco, os atores esperam sua entrada."
         },
         "da": {
           "prompt": "Hvor står skuespillerne, når de spiller et stykke?",
@@ -345,15 +345,15 @@
         },
         "pt": {
           "prompt": "O que se abre quando começa o espetáculo?",
-          "answer": "O pano",
+          "answer": "A cortina",
           "wrong": [
-            "O frigorífico",
+            "A geladeira",
             "O guarda-chuva",
             "O livro"
           ],
-          "hint": "É grande e muitas vezes vermelho.",
-          "explanation": "O pano corre para o lado e mostra o cenário.",
-          "fact": "Em alguns teatros cai em vez de correr."
+          "hint": "É grande e muitas vezes vermelha.",
+          "explanation": "A cortina corre para o lado e mostra o cenário.",
+          "fact": "Em alguns teatros, ela desce em vez de correr."
         },
         "da": {
           "prompt": "Hvad går op, når forestillingen begynder?",
@@ -482,8 +482,8 @@
             "Correr"
           ],
           "hint": "Faz muito barulho.",
-          "explanation": "Com os aplausos o público diz que gostou do espetáculo.",
-          "fact": "Depois de um muito bom, toda a gente se levanta."
+          "explanation": "Com os aplausos, o público diz que gostou do espetáculo.",
+          "fact": "Depois de um muito bom, todo mundo se levanta."
         },
         "da": {
           "prompt": "Hvad gør publikum efter en flot forestilling?",
@@ -604,16 +604,16 @@
           "fact": "Per un solo spettacolo si cuciono a volte centinaia di costumi."
         },
         "pt": {
-          "prompt": "O que transforma um ator noutra pessoa?",
-          "answer": "Um traje",
+          "prompt": "O que transforma um ator em outra pessoa?",
+          "answer": "Um figurino",
           "wrong": [
             "Uma vassoura",
             "Uma bicicleta",
             "Uma colher"
           ],
-          "hint": "Veste-se.",
-          "explanation": "Roupa, peruca e maquilhagem fazem do ator outra pessoa.",
-          "fact": "Para um só espetáculo cosem-se às vezes centenas de fatos."
+          "hint": "É algo que se veste.",
+          "explanation": "Roupa, peruca e maquiagem fazem do ator outra pessoa.",
+          "fact": "Para um só espetáculo, às vezes são costurados centenas de figurinos."
         },
         "da": {
           "prompt": "Hvad gør en skuespiller til en anden person?",
@@ -734,15 +734,15 @@
           "fact": "Una ballerina ne consuma anche cento paia in un anno."
         },
         "pt": {
-          "prompt": "Que sapatilhas usa uma bailarina nas pontas?",
+          "prompt": "Que sapatilhas uma bailarina usa nas pontas?",
           "answer": "As sapatilhas de ponta",
           "wrong": [
             "Botas",
             "Chinelos",
             "Tamancos"
           ],
-          "hint": "Têm fitas.",
-          "explanation": "Têm a ponta dura para a bailarina se aguentar nas pontas dos pés.",
+          "hint": "Elas têm fitas.",
+          "explanation": "Elas têm a ponta dura para a bailarina se equilibrar na ponta dos pés.",
           "fact": "Uma bailarina pode gastar mais de cem pares por ano."
         },
         "da": {
@@ -872,8 +872,8 @@
             "Um quadro"
           ],
           "hint": "Há atores e público.",
-          "explanation": "Numa peça os atores representam juntos uma história, com texto e movimento.",
-          "fact": "O público faz parte: sem espectadores ainda é um ensaio."
+          "explanation": "Em uma peça, os atores representam juntos uma história, com texto e movimento.",
+          "fact": "O público faz parte: sem espectadores, ainda é um ensaio."
         },
         "da": {
           "prompt": "Hvad er et teaterstykke?",
@@ -995,15 +995,15 @@
         },
         "pt": {
           "prompt": "Quem diz aos atores como representar?",
-          "answer": "O encenador",
+          "answer": "O diretor",
           "wrong": [
             "O cabeleireiro",
             "O padeiro",
             "O vizinho"
           ],
-          "hint": "Nos ensaios fica na plateia.",
-          "explanation": "O encenador decide como fica a peça e onde cada um se coloca.",
-          "fact": "Durante o espetáculo já não faz nada: fica tudo nas mãos dos atores."
+          "hint": "Nos ensaios, ele fica na plateia.",
+          "explanation": "O diretor decide como a peça vai ser e onde cada um fica.",
+          "fact": "Durante o espetáculo, ele já não faz nada: tudo fica nas mãos dos atores."
         },
         "da": {
           "prompt": "Hvem siger til skuespillerne, hvordan de skal spille?",
@@ -1124,15 +1124,15 @@
           "fact": "In certe sale entrano duemila persone."
         },
         "pt": {
-          "prompt": "Onde se senta o público num teatro?",
+          "prompt": "Onde o público se senta em um teatro?",
           "answer": "Na plateia",
           "wrong": [
             "No palco",
             "No camarim",
-            "Atrás do pano"
+            "Atrás da cortina"
           ],
-          "hint": "Fila após fila, com o palco à frente.",
-          "explanation": "O chão sobe muitas vezes para todos verem por cima das cabeças.",
+          "hint": "Fileira após fileira, com o palco na frente.",
+          "explanation": "O piso muitas vezes sobe para todos enxergarem por cima das cabeças.",
           "fact": "Em algumas salas cabem duas mil pessoas."
         },
         "da": {
@@ -1254,16 +1254,16 @@
           "fact": "I clown si allenano anni per inciampare esattamente come serve."
         },
         "pt": {
-          "prompt": "O que leva muitas vezes um palhaço no nariz?",
+          "prompt": "O que um palhaço muitas vezes usa no nariz?",
           "answer": "Uma bola vermelha",
           "wrong": [
             "Um chapéu",
-            "Uns óculos",
+            "Óculos",
             "Uma gravata"
           ],
-          "hint": "Vê-se logo.",
-          "explanation": "O nariz vermelho é a máscara mais pequena do mundo e é do palhaço.",
-          "fact": "Os palhaços treinam anos para tropeçar exatamente bem."
+          "hint": "Você vê logo.",
+          "explanation": "O nariz vermelho é a menor máscara do mundo, e ela é do palhaço.",
+          "fact": "Os palhaços treinam anos para tropeçar do jeito certo."
         },
         "da": {
           "prompt": "Hvad har en klovn tit på næsen?",
@@ -1392,8 +1392,8 @@
             "Uma dança sem música"
           ],
           "hint": "A história continua nas canções.",
-          "explanation": "Num musical os mesmos artistas representam, cantam e dançam uma história.",
-          "fact": "Alguns musicais estão em cena há décadas sem parar."
+          "explanation": "Em um musical, os mesmos artistas representam, cantam e dançam uma história.",
+          "fact": "Alguns musicais estão em cartaz há décadas sem parar."
         },
         "da": {
           "prompt": "Hvad er en musical?",
@@ -1514,16 +1514,16 @@
           "fact": "Nei teatri moderni la sua buca è quasi sparita."
         },
         "pt": {
-          "prompt": "O que faz o ponto num teatro?",
+          "prompt": "O que faz o ponto em um teatro?",
           "answer": "Soprar o texto",
           "wrong": [
             "Limpar o palco",
-            "Vender bilhetes",
+            "Vender ingressos",
             "Tocar a música"
           ],
-          "hint": "Está à frente, meio debaixo do palco.",
-          "explanation": "Se um ator perde a fala, o ponto sussurra-lhe a primeira palavra.",
-          "fact": "Nos teatros modernos a sua caixa quase desapareceu."
+          "hint": "Fica na frente, meio embaixo do palco.",
+          "explanation": "Se um ator esquece a fala, o ponto sussurra para ele a primeira palavra.",
+          "fact": "Nos teatros modernos, a caixa dele quase desapareceu."
         },
         "da": {
           "prompt": "Hvad laver suffløren i et teater?",
@@ -1647,13 +1647,13 @@
           "prompt": "O que é um ensaio?",
           "answer": "Treinar para o espetáculo",
           "wrong": [
-            "A última récita",
+            "A última apresentação",
             "O aplauso",
             "O intervalo"
           ],
           "hint": "Ainda sem público.",
-          "explanation": "Num ensaio repete-se tudo até sair sozinho.",
-          "fact": "Para uma só noite ensaia-se por vezes durante meses."
+          "explanation": "Em um ensaio, tudo se repete até sair naturalmente.",
+          "fact": "Para uma só noite, às vezes se ensaia durante meses."
         },
         "da": {
           "prompt": "Hvad er en prøve i teatret?",
@@ -1774,16 +1774,16 @@
           "fact": "Tutti i passi di balletto hanno nomi francesi, ovunque si danzi."
         },
         "pt": {
-          "prompt": "O que é o ballet?",
+          "prompt": "O que é o balé?",
           "answer": "Dança com música clássica",
           "wrong": [
             "Cantar sem palavras",
             "Teatro sem dança",
             "Um tipo de pintura"
           ],
-          "hint": "Pensa nas pontas e nas poses.",
-          "explanation": "O ballet é uma dança de passos e posições fixos, com música de orquestra.",
-          "fact": "Todos os passos de ballet têm nomes franceses em qualquer parte do mundo."
+          "hint": "Pense nas pontas e nas poses.",
+          "explanation": "O balé é uma dança de passos e posições fixos, com música de orquestra.",
+          "fact": "Todos os passos de balé têm nomes em francês em qualquer lugar do mundo."
         },
         "da": {
           "prompt": "Hvad er ballet?",
@@ -1904,16 +1904,16 @@
           "fact": "Da vicino il trucco teatrale sembra esagerato."
         },
         "pt": {
-          "prompt": "Porque se maquilham tanto os atores?",
+          "prompt": "Por que os atores usam tanta maquiagem?",
           "answer": "Para o público os ver",
           "wrong": [
-            "Porque faz comichão",
+            "Porque dá coceira",
             "Para poderem dormir",
-            "Para não terem frio"
+            "Para não sentirem frio"
           ],
           "hint": "A sala fica longe.",
-          "explanation": "Sob focos fortes um rosto normal desaparece; a maquilhagem devolve-o.",
-          "fact": "De perto a maquilhagem de teatro parece exagerada."
+          "explanation": "Sob holofotes fortes, um rosto normal desaparece; a maquiagem o traz de volta.",
+          "fact": "De perto, a maquiagem de teatro parece exagerada."
         },
         "da": {
           "prompt": "Hvorfor sminker skuespillere sig så kraftigt?",
@@ -2039,11 +2039,11 @@
           "wrong": [
             "As cadeiras da sala",
             "A luz do corredor",
-            "O bilhete à porta"
+            "O ingresso na porta"
           ],
           "hint": "Mostra onde se passa a história.",
-          "explanation": "Com panos, móveis e paredes o cenário faz um bosque, um quarto ou uma rua.",
-          "fact": "Muitas vezes vai sobre rodas, para mudar em segundos."
+          "explanation": "Com panos, móveis e paredes, o cenário vira uma floresta, um quarto ou uma rua.",
+          "fact": "Muitas vezes ele fica sobre rodas, para mudar em segundos."
         },
         "da": {
           "prompt": "Hvad er en scenografi?",
@@ -2172,8 +2172,8 @@
             "Do Canadá"
           ],
           "hint": "Nasceu nos bairros do porto.",
-          "explanation": "O tango começou por volta de 1880 em Buenos Aires e correu o mundo.",
-          "fact": "No tango os pares ficam muito juntos e param de repente."
+          "explanation": "O tango começou por volta de 1880 em Buenos Aires e ganhou o mundo.",
+          "fact": "No tango, os pares ficam muito juntos e param de repente."
         },
         "da": {
           "prompt": "Hvilket land kommer tangoen fra?",
@@ -2294,16 +2294,16 @@
           "fact": "Un pulsante sbagliato e il protagonista resta al buio."
         },
         "pt": {
-          "prompt": "O que faz o técnico de luz num espetáculo?",
-          "answer": "Comandar os focos",
+          "prompt": "O que faz o técnico de luz em um espetáculo?",
+          "answer": "Comandar os refletores",
           "wrong": [
-            "Coser os fatos",
+            "Costurar os figurinos",
             "Escrever a peça",
-            "Vender gelados"
+            "Vender sorvete"
           ],
-          "hint": "Fica ao fundo da sala.",
-          "explanation": "Com centenas de focos cria a manhã, a noite ou uma trovoada no palco.",
-          "fact": "Um botão errado e o protagonista fica às escuras."
+          "hint": "Fica no fundo da sala.",
+          "explanation": "Com centenas de refletores, ele cria a manhã, a noite ou uma tempestade no palco.",
+          "fact": "Um botão errado e o protagonista fica no escuro."
         },
         "da": {
           "prompt": "Hvad laver lysteknikeren ved en forestilling?",
@@ -2431,9 +2431,9 @@
             "Dançar sobre as mãos",
             "Pintar sem tinta"
           ],
-          "hint": "Está tudo na cara e nas mãos.",
-          "explanation": "Um mimo conta a história com o gesto; vês a parede que não existe.",
-          "fact": "O mais famoso, Marcel Marceau, ficou calado em palco a vida toda."
+          "hint": "Está tudo no rosto e nas mãos.",
+          "explanation": "Um mímico conta a história com gestos; você vê a parede que não existe.",
+          "fact": "O mais famoso, Marcel Marceau, ficou calado no palco a vida toda."
         },
         "da": {
           "prompt": "Hvad er mime?",
@@ -2562,7 +2562,7 @@
             "O sótão"
           ],
           "hint": "Tem um espelho com lâmpadas.",
-          "explanation": "No camarim põem-se fato, peruca e maquilhagem antes de entrar.",
+          "explanation": "No camarim, os atores colocam figurino, peruca e maquiagem antes de entrar.",
           "fact": "Costuma haver uma lista com a hora certa de cada um estar pronto."
         },
         "da": {
@@ -2692,8 +2692,8 @@
             "Na Noruega"
           ],
           "hint": "Os teatros eram de pedra e ao ar livre.",
-          "explanation": "Na Grécia antiga representavam-se peças nas grandes festas.",
-          "fact": "Todos os papéis eram feitos por homens, também os de mulher."
+          "explanation": "Na Grécia antiga, peças eram encenadas nas grandes festas.",
+          "fact": "Todos os papéis eram feitos por homens, até os de mulher."
         },
         "da": {
           "prompt": "I hvilket land opstod teatret for over to tusind år siden?",
@@ -2818,11 +2818,11 @@
           "answer": "Uma alegre e uma triste",
           "wrong": [
             "Duas zangadas",
-            "Duas a dormir",
+            "Duas dormindo",
             "Duas de animais"
           ],
           "hint": "Rir e chorar.",
-          "explanation": "As máscaras representam os dois géneros antigos: a comédia e a tragédia.",
+          "explanation": "As máscaras representam os dois gêneros antigos: a comédia e a tragédia.",
           "fact": "As máscaras gregas tinham a boca larga, que levava a voz mais longe."
         },
         "da": {
@@ -2952,8 +2952,8 @@
             "Hans Christian Andersen"
           ],
           "hint": "Escrevia em inglês há mais de quatrocentos anos.",
-          "explanation": "Shakespeare escreveu quase quarenta peças, ainda hoje representadas em todo o lado.",
-          "fact": "Inventou ele próprio centenas de palavras que continuamos a usar."
+          "explanation": "Shakespeare escreveu quase quarenta peças, encenadas até hoje em todo lugar.",
+          "fact": "Ele mesmo inventou centenas de palavras que continuamos usando."
         },
         "da": {
           "prompt": "Hvem skrev stykket Romeo og Julie?",
@@ -3082,8 +3082,8 @@
             "Um limbo"
           ],
           "hint": "Tudo gira sobre um ponto.",
-          "explanation": "Na pirueta o bailarino gira sobre a ponta do pé, com os braços junto ao corpo.",
-          "fact": "Há quem encadeie mais de dez seguidas."
+          "explanation": "Na pirueta, o bailarino gira na ponta do pé, com os braços junto ao corpo.",
+          "fact": "Tem gente que faz mais de dez seguidas."
         },
         "da": {
           "prompt": "Hvad hedder det, når en danser drejer på ét ben?",
@@ -3204,16 +3204,16 @@
           "fact": "La regola è: dire sempre sì e costruire sull'idea dell'altro."
         },
         "pt": {
-          "prompt": "O que significa improvisar em palco?",
+          "prompt": "O que significa improvisar no palco?",
           "answer": "Inventar no momento",
           "wrong": [
             "Decorar o texto",
             "Comandar a luz",
-            "Fechar o pano"
+            "Fechar a cortina"
           ],
           "hint": "Não há nada escrito.",
           "explanation": "Ao improvisar, os atores inventam texto e ação no próprio instante.",
-          "fact": "A regra é: dizer sempre sim e continuar a ideia do outro."
+          "fact": "A regra é: sempre dizer sim e continuar a ideia do outro."
         },
         "da": {
           "prompt": "Hvad betyder det at improvisere på scenen?",
@@ -3342,8 +3342,8 @@
             "Um poema longo"
           ],
           "hint": "Toca uma orquestra inteira.",
-          "explanation": "Na ópera todo o texto é cantado, com a orquestra no fosso.",
-          "fact": "Uma ópera dura por vezes mais de quatro horas, com intervalos."
+          "explanation": "Na ópera, todo o texto é cantado, com a orquestra no fosso.",
+          "fact": "Uma ópera às vezes dura mais de quatro horas, com intervalos."
         },
         "da": {
           "prompt": "Hvad er en opera?",
@@ -3467,7 +3467,7 @@
           "prompt": "Que teatro japonês tem os rostos pintados de branco?",
           "answer": "O kabuki",
           "wrong": [
-            "O ballet",
+            "O balé",
             "A ópera",
             "O circo"
           ],
@@ -3601,9 +3601,9 @@
             "A valsa",
             "A salsa"
           ],
-          "hint": "Mãos nos ombros de quem vai à frente.",
-          "explanation": "A polonesa vem da Polónia e dançava-se na corte há séculos.",
-          "fact": "Hoje entra meia festa, quase sempre depois da terceira canção."
+          "hint": "Mãos nos ombros de quem vai na frente.",
+          "explanation": "A polonesa vem da Polônia e era dançada na corte há séculos.",
+          "fact": "Hoje, metade da festa entra na fila, quase sempre depois da terceira música."
         },
         "da": {
           "prompt": "Hvad hedder dansen, hvor alle går i én lang række?",
@@ -3724,16 +3724,16 @@
           "fact": "La pista misura esattamente tredici metri quasi ovunque nel mondo."
         },
         "pt": {
-          "prompt": "Em que espetáculo vês acrobatas e palhaços?",
+          "prompt": "Em que espetáculo você vê acrobatas e palhaços?",
           "answer": "No circo",
           "wrong": [
             "Na ópera",
             "No concerto",
             "Na exposição"
           ],
-          "hint": "Quase sempre numa pista redonda.",
-          "explanation": "No circo acrobatas, malabaristas e palhaços mostram o que o corpo consegue.",
-          "fact": "A pista mede exatamente treze metros quase em todo o mundo."
+          "hint": "Quase sempre em um picadeiro redondo.",
+          "explanation": "No circo, acrobatas, malabaristas e palhaços mostram o que o corpo consegue fazer.",
+          "fact": "O picadeiro mede exatamente treze metros em quase todo o mundo."
         },
         "da": {
           "prompt": "Ved hvilken forestilling ser du akrobater og klovne?",
@@ -3858,12 +3858,12 @@
           "answer": "Inventa os passos de dança",
           "wrong": [
             "Comanda a luz",
-            "Vende bilhetes",
+            "Vende ingressos",
             "Escreve a música"
           ],
-          "hint": "Mostra primeiro os passos ele mesmo.",
+          "hint": "Ele mesmo mostra os passos primeiro.",
           "explanation": "O coreógrafo decide que passos se dançam e onde fica cada um.",
-          "fact": "Uma dança de cinco minutos pode levar semanas a criar."
+          "fact": "Uma dança de cinco minutos pode levar semanas para ser criada."
         },
         "da": {
           "prompt": "Hvad laver en koreograf?",
@@ -3984,16 +3984,16 @@
           "fact": "In certi teatri antichi dall'ultima fila si sente cadere una moneta sul palco."
         },
         "pt": {
-          "prompt": "Porque construíam os gregos os teatros numa encosta?",
+          "prompt": "Por que os gregos construíam os teatros em uma encosta?",
           "answer": "Assim todos ouvem bem",
           "wrong": [
             "Assim é mais barato",
             "Assim fica seco",
             "Assim cabe na cidade"
           ],
-          "hint": "As filas vão subindo.",
-          "explanation": "Numa encosta cada um vê e ouve por cima das filas da frente.",
-          "fact": "Em alguns teatros antigos ouve-se da última fila cair uma moeda no palco."
+          "hint": "As fileiras vão subindo.",
+          "explanation": "Em uma encosta, cada um vê e ouve por cima das fileiras da frente.",
+          "fact": "Em alguns teatros antigos, dá para ouvir da última fila uma moeda caindo no palco."
         },
         "da": {
           "prompt": "Hvorfor byggede grækerne deres teatre på en skråning?",
@@ -4114,15 +4114,15 @@
           "fact": "Non c'erano microfoni: faceva tutto la forma della conca."
         },
         "pt": {
-          "prompt": "Quantos espectadores cabiam num grande teatro grego?",
+          "prompt": "Quantos espectadores cabiam em um grande teatro grego?",
           "answer": "Até quinze mil",
           "wrong": [
             "Uns vinte",
             "Uns cem",
             "Dez milhões"
           ],
-          "hint": "Tantos como num estádio pequeno.",
-          "explanation": "O teatro de Epidauro acolhia cerca de catorze mil pessoas.",
+          "hint": "Tantos quanto em um estádio pequeno.",
+          "explanation": "O teatro de Epidauro recebia cerca de quatorze mil pessoas.",
           "fact": "Não havia microfones: a forma do recinto fazia todo o trabalho."
         },
         "da": {
@@ -4251,9 +4251,9 @@
             "O aplauso",
             "O intervalo"
           ],
-          "hint": "Já corre como a récita a sério.",
-          "explanation": "No geral representa-se com guarda-roupa e luzes, como se houvesse público.",
-          "fact": "A superstição diz: geral mau, estreia boa."
+          "hint": "Já corre como a apresentação de verdade.",
+          "explanation": "No ensaio geral, tudo é encenado com figurinos e luzes, como se houvesse público.",
+          "fact": "A superstição diz: ensaio geral ruim, estreia boa."
         },
         "da": {
           "prompt": "Hvad er en generalprøve?",
@@ -4382,8 +4382,8 @@
             "Anna Pavlova"
           ],
           "hint": "Parece que desliza para trás.",
-          "explanation": "Em 1983 mostrou o passo na televisão e o mundo inteiro quis tentar.",
-          "fact": "O passo já existia e chamava-se então backslide."
+          "explanation": "Em 1983, ele mostrou o passo na televisão, e o mundo inteiro quis tentar.",
+          "fact": "O passo já existia e, na época, se chamava backslide."
         },
         "da": {
           "prompt": "Hvilken sanger gjorde moonwalken verdensberømt?",
@@ -4507,13 +4507,13 @@
           "prompt": "Que bailarino russo saltava tão alto que diziam que flutuava?",
           "answer": "Vaslav Nijinsky",
           "wrong": [
-            "Piotr Tchaikovski",
-            "Leão Tolstói",
-            "Iuri Gagarin"
+            "Piotr Tchaikovsky",
+            "Liev Tolstói",
+            "Yuri Gagarin"
           ],
           "hint": "Dançava há mais de cem anos.",
           "explanation": "Nijinsky ficou famoso por saltos em que parecia parar no ar.",
-          "fact": "O público perguntava-se se usava truques; não usava nenhum."
+          "fact": "O público se perguntava se ele usava truques; não usava nenhum."
         },
         "da": {
           "prompt": "Hvilken russisk danser sprang så højt, at man sagde han svævede?",
@@ -4634,16 +4634,16 @@
           "fact": "Si chiama spotting ed è la prima cosa che si impara prima di girare."
         },
         "pt": {
-          "prompt": "Porque roda o bailarino a cabeça de repente na pirueta?",
+          "prompt": "Por que o bailarino vira a cabeça de repente na pirueta?",
           "answer": "Para não ficar tonto",
           "wrong": [
             "Para ver o público",
             "Para o cabelo voar",
             "Para ouvir a música"
           ],
-          "hint": "A cabeça pára um instante em cada volta.",
-          "explanation": "Fixa um ponto e traz a cabeça por último, e assim o mundo não roda com ele.",
-          "fact": "Chama-se marcar o ponto e é a primeira coisa que se aprende."
+          "hint": "A cabeça para um instante a cada volta.",
+          "explanation": "Ele fixa um ponto e vira a cabeça por último, e assim o mundo não gira com ele.",
+          "fact": "Isso se chama marcar o ponto e é a primeira coisa que se aprende."
         },
         "da": {
           "prompt": "Hvorfor kaster en danser hovedet rundt i en piruet?",
@@ -4767,13 +4767,13 @@
           "prompt": "O que são os bastidores de um teatro?",
           "answer": "Os lados do palco",
           "wrong": [
-            "O pano da frente",
+            "A cortina da frente",
             "As cadeiras",
-            "O bilhete"
+            "O ingresso"
           ],
           "hint": "É ali que os atores esperam.",
-          "explanation": "Nos bastidores ficas invisível para o público, mesmo ao lado da ação.",
-          "fact": "Ali está também a lista de quem entra e quando."
+          "explanation": "Nos bastidores, você fica invisível para o público, bem ao lado da ação.",
+          "fact": "Ali também fica a lista de quem entra e quando."
         },
         "da": {
           "prompt": "Hvad er kulisserne i et teater?",
@@ -4902,7 +4902,7 @@
             "A polca"
           ],
           "hint": "Muitos tambores e pés rápidos.",
-          "explanation": "O samba veio com pessoas de África e tornou-se o coração do carnaval do Rio.",
+          "explanation": "O samba nasceu de ritmos trazidos por africanos e se tornou o coração do carnaval do Rio.",
           "fact": "O desfile dura noites inteiras, com escolas de milhares de dançarinos."
         },
         "da": {
@@ -5024,12 +5024,12 @@
           "fact": "Un tempo la sala restava accesa e il pubblico guardava soprattutto se stesso."
         },
         "pt": {
-          "prompt": "Porque está a sala escura durante o espetáculo?",
-          "answer": "Assim olhas para o palco",
+          "prompt": "Por que a sala fica escura durante o espetáculo?",
+          "answer": "Assim você olha para o palco",
           "wrong": [
-            "Para poupar eletricidade",
-            "As lâmpadas estão partidas",
-            "Para poderes dormir"
+            "Para economizar eletricidade",
+            "As lâmpadas estão quebradas",
+            "Para você poder dormir"
           ],
           "hint": "Só o palco está iluminado.",
           "explanation": "Os olhos vão sozinhos para a luz, por isso o escuro ajuda a olhar.",
@@ -5158,7 +5158,7 @@
           "answer": "Aplaudir de pé",
           "wrong": [
             "Aplaudir com os pés",
-            "Uma dança ao meio",
+            "Uma dança no meio",
             "Uma canção no fim"
           ],
           "hint": "O maior elogio.",

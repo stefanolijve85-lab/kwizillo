@@ -84,15 +84,15 @@
           "fact": "I pennelli più fini hanno solo pochi peli."
         },
         "pt": {
-          "prompt": "Com que pinta um artista sobre uma tela?",
+          "prompt": "Com que um artista pinta sobre uma tela?",
           "answer": "Com um pincel",
           "wrong": [
             "Com uma colher",
             "Com uma tesoura",
             "Com um martelo"
           ],
-          "hint": "Tem pelos numa ponta.",
-          "explanation": "O pincel apanha a tinta e deixa-a na tela como uma pincelada.",
+          "hint": "Tem pelos em uma ponta.",
+          "explanation": "O pincel pega a tinta e a deixa na tela como uma pincelada.",
           "fact": "Os pincéis mais finos têm apenas alguns pelos."
         },
         "da": {
@@ -221,9 +221,9 @@
             "O preto e o branco",
             "O vermelho e o azul"
           ],
-          "hint": "Pensa na relva e no céu.",
+          "hint": "Pense na grama e no céu.",
           "explanation": "O azul e o amarelo misturados dão verde.",
-          "fact": "Num ecrã é diferente: ali mistura-se luz, não tinta."
+          "fact": "Na tela do celular é diferente: ali se mistura luz, não tinta."
         },
         "da": {
           "prompt": "Hvilke to farver giver tilsammen grøn?",
@@ -344,16 +344,16 @@
           "fact": "Un tempo si dipingeva spesso su tavole di legno."
         },
         "pt": {
-          "prompt": "Sobre o que pinta normalmente um artista?",
+          "prompt": "Sobre o que um artista normalmente pinta?",
           "answer": "Sobre uma tela",
           "wrong": [
             "Sobre a água",
-            "Sobre o fumo",
+            "Sobre a fumaça",
             "Sobre o vento"
           ],
-          "hint": "Vai esticada num cavalete.",
+          "hint": "Fica esticada em um cavalete.",
           "explanation": "Uma tela é linho forte esticado sobre uma armação de madeira.",
-          "fact": "Antigamente pintava-se muitas vezes sobre tábuas de madeira."
+          "fact": "Antigamente se pintava muitas vezes sobre tábuas de madeira."
         },
         "da": {
           "prompt": "Hvad maler en kunstner oftest på?",
@@ -478,12 +478,12 @@
           "answer": "Um quadro de uma pessoa",
           "wrong": [
             "Um mapa de um país",
-            "Um quadro de fumo",
+            "Um quadro de fumaça",
             "Uma moldura vazia"
           ],
-          "hint": "Vê-se sobretudo um rosto.",
+          "hint": "Você vê sobretudo um rosto.",
           "explanation": "Um retrato mostra como alguém é, quase sempre de perto.",
-          "fact": "Antes mandava-se pintar um retrato como hoje se tira uma foto."
+          "fact": "Antigamente se mandava pintar um retrato como hoje se tira uma foto."
         },
         "da": {
           "prompt": "Hvad er et portræt?",
@@ -613,7 +613,7 @@
           ],
           "hint": "Tem sempre tinta nas mãos.",
           "explanation": "Um pintor cria imagens com tinta.",
-          "fact": "A palavra artista serve também para escultores e desenhadores."
+          "fact": "A palavra artista também serve para escultores e desenhistas."
         },
         "da": {
           "prompt": "Hvad hedder en, der laver malerier?",
@@ -741,7 +741,7 @@
             "O preto e o branco",
             "O verde e o roxo"
           ],
-          "hint": "Pensa num pôr do sol.",
+          "hint": "Pense em um pôr do sol.",
           "explanation": "O vermelho e o amarelo misturados dão laranja.",
           "fact": "A cor recebeu o nome do fruto, e não ao contrário."
         },
@@ -864,15 +864,15 @@
           "fact": "Il museo più antico del mondo è aperto da oltre trecento anni."
         },
         "pt": {
-          "prompt": "Onde podes ver quadros famosos?",
-          "answer": "Num museu",
+          "prompt": "Onde você pode ver quadros famosos?",
+          "answer": "Em um museu",
           "wrong": [
-            "No frigorífico",
+            "Na geladeira",
             "Na máquina de lavar",
-            "Debaixo da terra"
+            "Embaixo da terra"
           ],
-          "hint": "Compra-se um bilhete.",
-          "explanation": "Num museu as obras ficam expostas para todos as poderem ver.",
+          "hint": "Você compra um ingresso.",
+          "explanation": "Em um museu, as obras ficam expostas para todos poderem ver.",
           "fact": "O museu mais antigo do mundo está aberto há mais de trezentos anos."
         },
         "da": {
@@ -994,15 +994,15 @@
           "fact": "Molti tengono la tavolozza a sinistra e dipingono con la destra."
         },
         "pt": {
-          "prompt": "Onde mistura um pintor as suas cores?",
-          "answer": "Numa paleta",
+          "prompt": "Onde um pintor mistura suas cores?",
+          "answer": "Em uma paleta",
           "wrong": [
-            "Num guarda-chuva",
-            "Num sapato",
-            "Num pente"
+            "Em um guarda-chuva",
+            "Em um sapato",
+            "Em um pente"
           ],
-          "hint": "Segura-se pelo polegar.",
-          "explanation": "Na paleta o pintor mistura as cores até ao tom exato.",
+          "hint": "Você segura pelo polegar.",
+          "explanation": "Na paleta, o pintor mistura as cores até chegar ao tom exato.",
           "fact": "Muitos seguram a paleta com a esquerda e pintam com a direita."
         },
         "da": {
@@ -1125,14 +1125,14 @@
         },
         "pt": {
           "prompt": "O que é um autorretrato?",
-          "answer": "Um quadro de si próprio",
+          "answer": "Um quadro de si mesmo",
           "wrong": [
-            "Um quadro da tua casa",
-            "Uma foto do teu cão",
+            "Um quadro da sua casa",
+            "Uma foto do seu cachorro",
             "Um desenho do sol"
           ],
           "hint": "É preciso um espelho.",
-          "explanation": "No autorretrato o artista pinta o próprio rosto.",
+          "explanation": "No autorretrato, o artista pinta o próprio rosto.",
           "fact": "Van Gogh fez mais de trinta."
         },
         "da": {
@@ -1259,7 +1259,7 @@
           "wrong": [
             "O verde",
             "O laranja",
-            "O castanho"
+            "O marrom"
           ],
           "hint": "A cor de uma ameixa.",
           "explanation": "O vermelho e o azul misturados dão roxo.",
@@ -1392,8 +1392,8 @@
             "Uma peça de música"
           ],
           "hint": "Muito céu e distância.",
-          "explanation": "Uma paisagem mostra campos, montanhas, bosques ou água.",
-          "fact": "Os pintores holandeses amavam o céu: enche muitas vezes dois terços."
+          "explanation": "Uma paisagem mostra campos, montanhas, florestas ou água.",
+          "fact": "Os pintores holandeses amavam o céu: muitas vezes ele ocupa dois terços do quadro."
         },
         "da": {
           "prompt": "Hvad er et landskab i kunsten?",
@@ -1652,7 +1652,7 @@
             "Uma foto de uma cidade"
           ],
           "hint": "Nada ali se mexe.",
-          "explanation": "Numa natureza-morta há coisas paradas: fruta, flores, um jarro.",
+          "explanation": "Em uma natureza-morta há coisas paradas: frutas, flores, um jarro.",
           "fact": "Os pintores escondiam ali uma mensagem, como um copo tombado."
         },
         "da": {
@@ -1774,15 +1774,15 @@
           "fact": "I raggi X svelano schizzi nascosti sotto molti quadri famosi."
         },
         "pt": {
-          "prompt": "Para que faz um artista primeiro um esboço?",
+          "prompt": "Para que um artista faz primeiro um esboço?",
           "answer": "Para experimentar a ideia",
           "wrong": [
             "Para vender a obra",
             "Para fazer a moldura",
             "Para secar a tinta"
           ],
-          "hint": "Depressa e a lápis.",
-          "explanation": "Com um esboço o artista procura a composição antes da tinta.",
+          "hint": "Rápido e a lápis.",
+          "explanation": "Com um esboço, o artista procura a composição antes da tinta.",
           "fact": "Os raios X revelam esboços escondidos sob muitos quadros famosos."
         },
         "da": {
@@ -1907,12 +1907,12 @@
           "prompt": "Que tinta seca muito devagar?",
           "answer": "A tinta de óleo",
           "wrong": [
-            "A aguarela",
+            "A aquarela",
             "O giz",
-            "A tinta de dedos"
+            "A tinta de dedo"
           ],
           "hint": "Às vezes leva meses.",
-          "explanation": "O óleo seca devagar, por isso as cores podem fundir-se durante dias.",
+          "explanation": "O óleo seca devagar, por isso as cores podem se fundir durante dias.",
           "fact": "Uma camada grossa pode continuar mole por dentro cem anos depois."
         },
         "da": {
@@ -2035,15 +2035,15 @@
         },
         "pt": {
           "prompt": "O que é um mural?",
-          "answer": "Uma pintura numa parede",
+          "answer": "Uma pintura em uma parede",
           "wrong": [
             "Uma moldura da parede",
             "Uma foto de uma parede",
             "Uma janela na parede"
           ],
-          "hint": "Não o podes levar.",
+          "hint": "Você não pode levá-lo.",
           "explanation": "Um mural é pintado diretamente na parede, muitas vezes enorme.",
-          "fact": "Os mais antigos estão em grutas e têm mais de trinta mil anos."
+          "fact": "Os mais antigos estão em cavernas e têm mais de trinta mil anos."
         },
         "da": {
           "prompt": "Hvad er et vægmaleri?",
@@ -2164,15 +2164,15 @@
           "fact": "Per questo si stendeva solo la calce di una giornata di lavoro."
         },
         "pt": {
-          "prompt": "O que é um fresco?",
-          "answer": "Pintar sobre cal húmida",
+          "prompt": "O que é um afresco?",
+          "answer": "Pintar sobre cal úmida",
           "wrong": [
             "Pintar sobre vidro",
             "Pintar sobre água",
             "Pintar com areia"
           ],
-          "hint": "É preciso trabalhar depressa.",
-          "explanation": "No fresco a tinta entra na cal húmida e passa a ser a própria parede.",
+          "hint": "É preciso trabalhar rápido.",
+          "explanation": "No afresco, a tinta entra na cal úmida e passa a ser a própria parede.",
           "fact": "Por isso só se aplicava a cal de um dia de trabalho."
         },
         "da": {
@@ -2294,16 +2294,16 @@
           "fact": "Certe cornici sono così preziose da essere esposte da sole."
         },
         "pt": {
-          "prompt": "O que fica à volta de um quadro na parede?",
+          "prompt": "O que fica ao redor de um quadro na parede?",
           "answer": "Uma moldura",
           "wrong": [
             "Uma roda",
             "Um puxador",
-            "Uma mola da roupa"
+            "Um prendedor de roupa"
           ],
           "hint": "Muitas vezes de madeira ou dourada.",
-          "explanation": "A moldura protege as bordas e remata a obra.",
-          "fact": "Algumas molduras são tão valiosas que se expõem sozinhas."
+          "explanation": "A moldura protege as bordas e dá acabamento à obra.",
+          "fact": "Algumas molduras são tão valiosas que são expostas sozinhas."
         },
         "da": {
           "prompt": "Hvad hører der om et maleri på væggen?",
@@ -2428,12 +2428,12 @@
           "answer": "Vermelho, amarelo e azul",
           "wrong": [
             "Verde, laranja e roxo",
-            "Preto, branco e cinzento",
-            "Rosa, castanho e ouro"
+            "Preto, branco e cinza",
+            "Rosa, marrom e dourado"
           ],
-          "hint": "Com elas fazes as outras.",
-          "explanation": "Com vermelho, amarelo e azul mistura-se quase qualquer outra cor.",
-          "fact": "O preto e o branco puros são justamente os que não se misturam."
+          "hint": "Com elas você faz as outras.",
+          "explanation": "Com vermelho, amarelo e azul, dá para misturar quase qualquer outra cor.",
+          "fact": "O preto e o branco puros são justamente os que não dá para obter misturando."
         },
         "da": {
           "prompt": "Hvilke tre farver kaldes grundfarver?",
@@ -2554,16 +2554,16 @@
           "fact": "Un errore si toglie a fatica: il colore entra subito nella carta."
         },
         "pt": {
-          "prompt": "O que é uma aguarela?",
+          "prompt": "O que é uma aquarela?",
           "answer": "Um quadro pintado com água",
           "wrong": [
             "Um quadro a óleo",
             "Uma estátua de mármore",
             "Um desenho a carvão"
           ],
-          "hint": "O papel transparece.",
+          "hint": "O papel aparece por baixo.",
           "explanation": "É tinta transparente: o branco do papel conta como cor.",
-          "fact": "Um erro sai com dificuldade: a tinta entra logo no papel."
+          "fact": "É difícil apagar um erro: a tinta entra logo no papel."
         },
         "da": {
           "prompt": "Hvad er en akvarel?",
@@ -2692,8 +2692,8 @@
             "Rembrandt"
           ],
           "hint": "Também era inventor.",
-          "explanation": "Leonardo pintou-a por volta de 1503 e trabalhou nela durante anos.",
-          "fact": "Levava a tábua consigo para todo o lado e nunca a vendeu."
+          "explanation": "Leonardo a pintou por volta de 1503 e trabalhou nela durante anos.",
+          "fact": "Ele levava a tábua consigo para todo lado e nunca a vendeu."
         },
         "da": {
           "prompt": "Hvem malede Mona Lisa?",
@@ -2814,16 +2814,16 @@
           "fact": "Si chiama di notte per lo sporco che l'aveva scurito: la scena è di giorno."
         },
         "pt": {
-          "prompt": "Que pintor neerlandês fez A ronda da noite?",
+          "prompt": "Que pintor holandês fez A Ronda Noturna?",
           "answer": "Rembrandt",
           "wrong": [
             "Vincent van Gogh",
             "Johannes Vermeer",
-            "Piet Mondriaan"
+            "Piet Mondrian"
           ],
-          "hint": "Jogava com a luz e a sombra.",
+          "hint": "Brincava com a luz e a sombra.",
           "explanation": "Rembrandt pintou o enorme retrato de grupo em 1642.",
-          "fact": "Chama-se da noite por causa da sujidade; a cena passa-se de dia."
+          "fact": "Ela se chama noturna por causa da sujeira; a cena se passa de dia."
         },
         "da": {
           "prompt": "Hvilken hollandsk maler lavede Nattevagten?",
@@ -2944,7 +2944,7 @@
           "fact": "La dipinse di giorno, a memoria."
         },
         "pt": {
-          "prompt": "Quem pintou A noite estrelada?",
+          "prompt": "Quem pintou A Noite Estrelada?",
           "answer": "Vincent van Gogh",
           "wrong": [
             "Claude Monet",
@@ -2952,8 +2952,8 @@
             "Frida Kahlo"
           ],
           "hint": "Pintava com traços grossos e rodopiantes.",
-          "explanation": "Van Gogh pintou-a em 1889, da janela do seu quarto.",
-          "fact": "Pintou-a de dia, de memória."
+          "explanation": "Van Gogh a pintou em 1889, da janela do seu quarto.",
+          "fact": "Ele a pintou de dia, de memória."
         },
         "da": {
           "prompt": "Hvem malede Stjernenat?",
@@ -3074,16 +3074,16 @@
           "fact": "Il nome nacque come beffa su un giornale; i pittori lo tennero."
         },
         "pt": {
-          "prompt": "O que queriam sobretudo pintar os impressionistas?",
+          "prompt": "O que os impressionistas queriam pintar acima de tudo?",
           "answer": "A luz e o ambiente",
           "wrong": [
             "Só linhas pretas",
             "O detalhe exato",
             "Só retratos"
           ],
-          "hint": "Depressa, lá fora.",
-          "explanation": "Pintavam como algo se via num instante, sob aquela luz.",
-          "fact": "O nome nasceu como troça num jornal; os pintores adotaram-no."
+          "hint": "Rápido, ao ar livre.",
+          "explanation": "Eles pintavam como algo parecia em um instante, sob aquela luz.",
+          "fact": "O nome nasceu como gozação em um jornal; os pintores o adotaram."
         },
         "da": {
           "prompt": "Hvad ville impressionisterne helst male?",
@@ -3205,15 +3205,15 @@
         },
         "pt": {
           "prompt": "Que pintor fez planos de vermelho, amarelo e azul?",
-          "answer": "Piet Mondriaan",
+          "answer": "Piet Mondrian",
           "wrong": [
             "Rembrandt",
             "Johannes Vermeer",
             "Pablo Picasso"
           ],
-          "hint": "Só linhas pretas direitas.",
-          "explanation": "Mondriaan procurava calma em linhas retas e três cores.",
-          "fact": "A sua obra foi parar a vestidos, cadeiras e até a um automóvel."
+          "hint": "Só linhas pretas retas.",
+          "explanation": "Mondrian procurava calma em linhas retas e três cores.",
+          "fact": "Sua obra foi parar em vestidos, cadeiras e até em um carro."
         },
         "da": {
           "prompt": "Hvilken maler lavede flader i rød, gul og blå?",
@@ -3334,7 +3334,7 @@
           "fact": "Nessuno sa chi fosse la ragazza: forse non è un vero ritratto."
         },
         "pt": {
-          "prompt": "Quem pintou A rapariga com brinco de pérola?",
+          "prompt": "Quem pintou Moça com Brinco de Pérola?",
           "answer": "Johannes Vermeer",
           "wrong": [
             "Rembrandt",
@@ -3342,8 +3342,8 @@
             "Frans Hals"
           ],
           "hint": "Era de Delft.",
-          "explanation": "Vermeer pintou-a por volta de 1665, com uma luz muito suave.",
-          "fact": "Ninguém sabe quem era a rapariga; talvez nem seja um retrato."
+          "explanation": "Vermeer a pintou por volta de 1665, com uma luz muito suave.",
+          "fact": "Ninguém sabe quem era a moça; talvez nem seja um retrato."
         },
         "da": {
           "prompt": "Hvem malede Pigen med perleøreringen?",
@@ -3469,11 +3469,11 @@
           "wrong": [
             "Arte só com animais",
             "Arte de madeira",
-            "Arte feita às escuras"
+            "Arte feita no escuro"
           ],
-          "hint": "Não tens de reconhecer nada.",
+          "hint": "Você não precisa reconhecer nada.",
           "explanation": "A arte abstrata fala de cor, forma e emoção em vez de copiar algo.",
-          "fact": "As primeiras telas abstratas são de cerca de 1910 e deixaram muitos confusos."
+          "fact": "As primeiras telas abstratas são de cerca de 1910 e deixaram muita gente confusa."
         },
         "da": {
           "prompt": "Hvad er abstrakt kunst?",
@@ -3601,9 +3601,9 @@
             "Berthe Morisot",
             "Georgia O’Keeffe"
           ],
-          "hint": "Pintava-se com flores no cabelo.",
-          "explanation": "Frida Kahlo pintou sobretudo a si mesma, após um acidente grave.",
-          "fact": "Das suas quase duzentas obras, mais de cinquenta são autorretratos."
+          "hint": "Ela se pintava com flores no cabelo.",
+          "explanation": "Frida Kahlo pintou sobretudo a si mesma, depois de um acidente grave.",
+          "fact": "De suas quase duzentas obras, mais de cinquenta são autorretratos."
         },
         "da": {
           "prompt": "Hvilken mexicansk maler lavede mange selvportrætter?",
@@ -3729,11 +3729,11 @@
           "wrong": [
             "Vende tinta nova",
             "Faz molduras",
-            "Rasga bilhetes"
+            "Rasga ingressos"
           ],
           "hint": "Com muito cuidado e uma lupa.",
-          "explanation": "Limpa, fixa a tinta solta e preenche as zonas danificadas.",
-          "fact": "Tudo o que acrescenta tem de poder ser retirado mais tarde."
+          "explanation": "Ele limpa, fixa a tinta solta e preenche as áreas danificadas.",
+          "fact": "Tudo que ele acrescenta precisa poder ser retirado mais tarde."
         },
         "da": {
           "prompt": "Hvad laver en konservator?",
@@ -3854,7 +3854,7 @@
           "fact": "Dopo la pulitura i colori risultano spesso molto più vivi."
         },
         "pt": {
-          "prompt": "Porque escureceram muitos quadros antigos?",
+          "prompt": "Por que muitos quadros antigos escureceram?",
           "answer": "O verniz ficou amarelo",
           "wrong": [
             "Estão ao sol",
@@ -3862,8 +3862,8 @@
             "Foram pintados de preto"
           ],
           "hint": "Por cima há uma camada.",
-          "explanation": "O verniz protege a tinta, mas ao longo dos séculos amarelece e turva.",
-          "fact": "Depois de limpo, as cores surgem muito mais vivas do que se pensava."
+          "explanation": "O verniz protege a tinta, mas ao longo dos séculos amarelece e fica turvo.",
+          "fact": "Depois da limpeza, as cores surgem muito mais vivas do que se pensava."
         },
         "da": {
           "prompt": "Hvorfor er mange gamle malerier blevet mørkere?",
@@ -3993,7 +3993,7 @@
           ],
           "hint": "Fica em Paris.",
           "explanation": "A Mona Lisa está no Louvre, atrás de um vidro grosso.",
-          "fact": "Foi roubada em 1911, e foi isso que a tornou mesmo famosa."
+          "fact": "Ela foi roubada em 1911, e foi isso que a deixou realmente famosa."
         },
         "da": {
           "prompt": "Hvilket museum har Mona Lisa?",
@@ -4122,8 +4122,8 @@
             "O romantismo"
           ],
           "hint": "Um rosto visto de vários lados ao mesmo tempo.",
-          "explanation": "O cubismo parte a forma em planos e mostra-a de vários lados.",
-          "fact": "Picasso e Braque inventaram-no juntos, por volta de 1908."
+          "explanation": "O cubismo divide a forma em planos e a mostra de vários lados.",
+          "fact": "Picasso e Braque o inventaram juntos, por volta de 1908."
         },
         "da": {
           "prompt": "Hvad hedder Picassos stil med kantede flader?",
@@ -4244,16 +4244,16 @@
           "fact": "Le sue regole furono messe a punto a Firenze verso il 1420."
         },
         "pt": {
-          "prompt": "O que é a perspetiva num quadro?",
+          "prompt": "O que é a perspectiva em um quadro?",
           "answer": "Profundidade no plano",
           "wrong": [
             "Misturar cores",
             "Pintar sem tinta",
-            "A moldura à volta"
+            "A moldura ao redor"
           ],
-          "hint": "As linhas juntam-se ao longe.",
-          "explanation": "A perspetiva faz o que está longe parecer menor, e vê-se profundidade.",
-          "fact": "As suas regras foram fixadas em Florença por volta de 1420."
+          "hint": "As linhas se juntam ao longe.",
+          "explanation": "A perspectiva faz o que está longe parecer menor, e assim se vê profundidade.",
+          "fact": "Suas regras foram definidas em Florença por volta de 1420."
         },
         "da": {
           "prompt": "Hvad er perspektiv i et maleri?",
@@ -4381,9 +4381,9 @@
             "Os barrocos",
             "Os impressionistas"
           ],
-          "hint": "De perto só se veem pontos.",
-          "explanation": "No pontilhismo as cores misturam-se no olho, não na paleta.",
-          "fact": "Seurat levou dois anos a pontilhar uma só tela grande."
+          "hint": "De perto, só se veem pontos.",
+          "explanation": "No pontilhismo, as cores se misturam no olho, não na paleta.",
+          "fact": "Seurat levou dois anos para pontilhar uma só tela grande."
         },
         "da": {
           "prompt": "Hvilke malere arbejdede med tusindvis af små prikker?",
@@ -4511,8 +4511,8 @@
             "Uma estátua de três cabeças",
             "Uma moldura de três janelas"
           ],
-          "hint": "Os lados podem fechar-se.",
-          "explanation": "Um tríptico tem um painel central e duas portadas que fecham sobre ele.",
+          "hint": "Os lados podem se fechar.",
+          "explanation": "Um tríptico tem um painel central e duas portinholas que se fecham sobre ele.",
           "fact": "Assim o quadro ficava protegido fora das celebrações."
         },
         "da": {
@@ -4635,15 +4635,15 @@
         },
         "pt": {
           "prompt": "Quem pintou o teto da Capela Sistina?",
-          "answer": "Miguel Ângelo",
+          "answer": "Michelangelo",
           "wrong": [
             "Leonardo da Vinci",
             "Rafael",
             "Donatello"
           ],
-          "hint": "Ele considerava-se escultor.",
-          "explanation": "Miguel Ângelo pintou a abóbada entre 1508 e 1512, sobre um andaime.",
-          "fact": "Num poema queixou-se de que a tinta lhe escorria para a cara."
+          "hint": "Ele se considerava escultor.",
+          "explanation": "Michelangelo pintou a abóbada entre 1508 e 1512, sobre um andaime.",
+          "fact": "Em um poema, ele reclamou que a tinta escorria no seu rosto."
         },
         "da": {
           "prompt": "Hvem malede loftet i Det Sixtinske Kapel?",
@@ -4764,16 +4764,16 @@
           "fact": "Oggi le sue tele sono fra le più costose del mondo."
         },
         "pt": {
-          "prompt": "Quantos quadros vendeu Van Gogh em vida?",
+          "prompt": "Quantos quadros Van Gogh vendeu em vida?",
           "answer": "Muito poucos",
           "wrong": [
             "Mais de mil",
             "Cerca de cem",
             "Todos"
           ],
-          "hint": "O irmão ajudava-o com dinheiro.",
-          "explanation": "Em vida quase não vendeu nenhum, apesar de ter pintado mais de oitocentos.",
-          "fact": "Hoje as suas telas estão entre as mais caras do mundo."
+          "hint": "O irmão o ajudava com dinheiro.",
+          "explanation": "Em vida, ele quase não vendeu nenhum, apesar de ter pintado mais de oitocentos.",
+          "fact": "Hoje suas telas estão entre as mais caras do mundo."
         },
         "da": {
           "prompt": "Hvor mange malerier solgte Van Gogh, mens han levede?",
@@ -4902,8 +4902,8 @@
             "Tinta misturada com leite"
           ],
           "hint": "Vem da cozinha.",
-          "explanation": "A gema liga o pigmento: seca depressa e dura séculos.",
-          "fact": "Antes do óleo, quase tudo se pintava a têmpera."
+          "explanation": "A gema une o pigmento: seca rápido e dura séculos.",
+          "fact": "Antes do óleo, quase tudo era pintado a têmpera."
         },
         "da": {
           "prompt": "Hvad er tempera?",
@@ -5024,15 +5024,15 @@
           "fact": "Ne esistono quattro versioni e due sono state rubate."
         },
         "pt": {
-          "prompt": "Que quadro famoso mostra uma figura a gritar?",
-          "answer": "O grito",
+          "prompt": "Que quadro famoso mostra uma figura gritando?",
+          "answer": "O Grito",
           "wrong": [
-            "A ronda da noite",
-            "Os girassóis",
-            "A rapariga com brinco"
+            "A Ronda Noturna",
+            "Os Girassóis",
+            "Moça com Brinco de Pérola"
           ],
           "hint": "O céu é vermelho alaranjado e ondulado.",
-          "explanation": "Edvard Munch pintou O grito em 1893, após um fim de tarde de céu vermelho.",
+          "explanation": "Edvard Munch pintou O Grito em 1893, depois de um fim de tarde de céu vermelho.",
           "fact": "Existem quatro versões e duas foram roubadas."
         },
         "da": {
@@ -5161,9 +5161,9 @@
             "O pincel",
             "A moldura"
           ],
-          "hint": "Sem ligante é pó seco.",
-          "explanation": "A tinta é pigmento mais um ligante como óleo, ovo ou água.",
-          "fact": "Uma só cor pode vir de uma pedra preciosa, de uma planta ou de um bolor."
+          "hint": "Sem aglutinante, é pó seco.",
+          "explanation": "A tinta é pigmento mais um aglutinante, como óleo, ovo ou água.",
+          "fact": "Uma só cor pode vir de uma pedra preciosa, de uma planta ou de um mofo."
         },
         "da": {
           "prompt": "Hvad er pigment?",

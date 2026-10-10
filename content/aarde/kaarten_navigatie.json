@@ -84,16 +84,16 @@
           "fact": "Le mappe più antiche conservate hanno migliaia di anni."
         },
         "pt": {
-          "prompt": "O que usas para te orientares numa cidade desconhecida?",
+          "prompt": "O que você usa para se orientar em uma cidade desconhecida?",
           "answer": "Um mapa",
           "wrong": [
             "Uma panela",
             "Uma vassoura",
             "Um despertador"
           ],
-          "hint": "Abre-se ou abre-se uma aplicação.",
-          "explanation": "Com um mapa vês num relance onde fica tudo.",
-          "fact": "Os mapas mais antigos que se conservam têm milhares de anos."
+          "hint": "Você abre um de papel ou um aplicativo.",
+          "explanation": "Com um mapa, você vê de relance onde fica tudo.",
+          "fact": "Os mapas mais antigos que ainda existem têm milhares de anos."
         },
         "da": {
           "prompt": "Hvad bruger du for at finde vej i en fremmed by?",
@@ -214,16 +214,16 @@
           "fact": "Le montagne spesso sono marroni e i boschi verdi."
         },
         "pt": {
-          "prompt": "De que cor costuma ser a água num mapa?",
+          "prompt": "De que cor costuma ser a água em um mapa?",
           "answer": "Azul",
           "wrong": [
             "Vermelha",
-            "Castanha",
+            "Marrom",
             "Preta"
           ],
           "hint": "A cor que o mar parece ter.",
-          "explanation": "A água é desenhada a azul em quase todos os mapas.",
-          "fact": "As montanhas ficam muitas vezes castanhas e as florestas verdes."
+          "explanation": "A água é desenhada em azul em quase todos os mapas.",
+          "fact": "As montanhas muitas vezes ficam marrons e as florestas, verdes."
         },
         "da": {
           "prompt": "Hvilken farve har vand som regel på et kort?",
@@ -351,9 +351,9 @@
             "Seis",
             "Dez"
           ],
-          "hint": "Norte, este, sul e mais uma.",
-          "explanation": "Uma bússola tem quatro direções principais: norte, este, sul e oeste.",
-          "fact": "Entre elas há outras, como nordeste."
+          "hint": "Norte, leste, sul e mais uma.",
+          "explanation": "Uma bússola tem quatro direções principais: norte, leste, sul e oeste.",
+          "fact": "Entre elas há outras, como o nordeste."
         },
         "da": {
           "prompt": "Hvor mange hovedretninger har et kompas?",
@@ -474,7 +474,7 @@
           "fact": "Le linee spesse sono autostrade, quelle sottili stradine."
         },
         "pt": {
-          "prompt": "O que vês num mapa de estradas?",
+          "prompt": "O que você vê em um mapa rodoviário?",
           "answer": "Estradas e localidades",
           "wrong": [
             "Estrelas",
@@ -482,8 +482,8 @@
             "Animais"
           ],
           "hint": "Prático para uma viagem de carro.",
-          "explanation": "Um mapa de estradas mostra como ir de um sítio para outro.",
-          "fact": "As linhas grossas são autoestradas e as finas estradinhas."
+          "explanation": "Um mapa rodoviário mostra como ir de um lugar para outro.",
+          "fact": "As linhas grossas são rodovias e as finas, estradinhas."
         },
         "da": {
           "prompt": "Hvad ser du på et vejkort?",
@@ -604,7 +604,7 @@
           "fact": "Anche sulle bussole inglesi c'è una N, per north."
         },
         "pt": {
-          "prompt": "O que quer dizer o N numa bússola?",
+          "prompt": "O que quer dizer o N em uma bússola?",
           "answer": "O norte",
           "wrong": [
             "A noite",
@@ -734,16 +734,16 @@
           "fact": "Molto distanziate indicano terreno piatto."
         },
         "pt": {
-          "prompt": "O que querem dizer linhas muito juntas num mapa?",
+          "prompt": "O que querem dizer linhas muito juntas em um mapa?",
           "answer": "Ali é íngreme",
           "wrong": [
             "Ali é plano",
             "Ali há água",
             "Ali faz calor"
           ],
-          "hint": "Pensa na encosta de uma montanha.",
+          "hint": "Pense na encosta de uma montanha.",
           "explanation": "Quanto mais juntas as curvas de nível, mais íngreme é a encosta.",
-          "fact": "Muito afastadas indicam terreno plano."
+          "fact": "Linhas bem afastadas indicam terreno plano."
         },
         "da": {
           "prompt": "Hvad betyder linjer tæt på hinanden på et kort?",
@@ -873,7 +873,7 @@
           ],
           "hint": "É feito a partir do espaço.",
           "explanation": "Um mapa de satélite é feito de fotos tiradas do espaço.",
-          "fact": "Nele até se reconhece o telhado da tua casa."
+          "fact": "Nele dá até para reconhecer o telhado da sua casa."
         },
         "da": {
           "prompt": "Hvad er et satellitkort?",
@@ -994,16 +994,16 @@
           "fact": "Con il GPS sa esattamente dov'è l'auto."
         },
         "pt": {
-          "prompt": "O que faz um navegador no carro?",
-          "answer": "Indica o caminho",
+          "prompt": "O que faz o GPS do carro?",
+          "answer": "Mostra o caminho",
           "wrong": [
-            "Conduz sozinho",
-            "Mete combustível",
+            "Dirige sozinho",
+            "Põe gasolina",
             "Limpa os vidros"
           ],
-          "hint": "Às vezes fala contigo.",
-          "explanation": "Um navegador calcula o caminho e avisa quando virar.",
-          "fact": "Com o GPS sabe exatamente onde está o carro."
+          "hint": "Às vezes ele fala com você.",
+          "explanation": "O GPS calcula o caminho e avisa quando virar.",
+          "fact": "Com sinais de satélite, ele sabe exatamente onde o carro está."
         },
         "da": {
           "prompt": "Hvad gør en gps i en bil?",
@@ -1124,7 +1124,7 @@
           "fact": "Senza di essa una nave si incaglia in fretta."
         },
         "pt": {
-          "prompt": "Para que serve uma carta náutica a um comandante?",
+          "prompt": "Para que serve uma carta náutica para um comandante?",
           "answer": "Para navegar em segurança",
           "wrong": [
             "Para pescar",
@@ -1133,7 +1133,7 @@
           ],
           "hint": "Diz a profundidade da água.",
           "explanation": "Uma carta náutica mostra profundidades, bancos de areia e canais.",
-          "fact": "Sem ela um navio encalha depressa."
+          "fact": "Sem ela, um navio encalha rapidinho."
         },
         "da": {
           "prompt": "Hvad bruger en skipper et søkort til?",
@@ -1257,9 +1257,9 @@
           "prompt": "Como encontram o caminho as aves migratórias?",
           "answer": "Com o campo magnético",
           "wrong": [
-            "Com sinais de trânsito",
+            "Com placas de trânsito",
             "Com um mapa",
-            "Perguntam"
+            "Perguntando o caminho"
           ],
           "hint": "Sentem algo que nós não sentimos.",
           "explanation": "As aves migratórias sentem o campo magnético como uma bússola.",
@@ -1392,8 +1392,8 @@
             "A largura de uma rua"
           ],
           "hint": "Vai de zero a noventa.",
-          "explanation": "A latitude diz a que distância a norte ou a sul estás.",
-          "fact": "No equador é zero e nos polos noventa."
+          "explanation": "A latitude diz a que distância ao norte ou ao sul você está.",
+          "fact": "No equador ela é zero e nos polos, noventa."
         },
         "da": {
           "prompt": "Hvad angiver breddegraden?",
@@ -1521,9 +1521,9 @@
             "Pelos peixes",
             "Pelo som"
           ],
-          "hint": "Uma estrela fica sempre no mesmo sítio.",
+          "hint": "Uma estrela fica sempre no mesmo lugar.",
           "explanation": "Pela posição das estrelas sabiam para onde iam.",
-          "fact": "A estrela polar mostrava-lhes sempre o norte."
+          "fact": "A estrela polar sempre mostrava o norte para eles."
         },
         "da": {
           "prompt": "Hvordan navigerede søfolk før i tiden om natten?",
@@ -1644,7 +1644,7 @@
           "fact": "Esattamente a est sono novanta gradi."
         },
         "pt": {
-          "prompt": "Quantos graus tem um círculo completo numa bússola?",
+          "prompt": "Quantos graus tem um círculo completo em uma bússola?",
           "answer": "360",
           "wrong": [
             "90",
@@ -1653,7 +1653,7 @@
           ],
           "hint": "Um quarto são noventa.",
           "explanation": "Um círculo completo tem trezentos e sessenta graus.",
-          "fact": "Mesmo a este são noventa graus."
+          "fact": "O leste fica exatamente nos noventa graus."
         },
         "da": {
           "prompt": "Hvor mange grader har en hel cirkel på et kompas?",
@@ -1774,7 +1774,7 @@
           "fact": "Prima si dovette inventare un orologio esatto anche in mare."
         },
         "pt": {
-          "prompt": "Como sabiam os navios de antes quanto tinham ido para leste?",
+          "prompt": "Como os navios de antigamente sabiam quanto tinham ido para o leste?",
           "answer": "Com um relógio preciso",
           "wrong": [
             "Com as estrelas",
@@ -1782,8 +1782,8 @@
             "Com uma corda"
           ],
           "hint": "Uma diferença de horas é uma distância.",
-          "explanation": "Comparar a hora de bordo com a de casa dava a longitude.",
-          "fact": "Primeiro teve de se inventar um relógio certo no mar."
+          "explanation": "Comparar a hora a bordo com a hora de casa dava a longitude.",
+          "fact": "Primeiro foi preciso inventar um relógio que funcionasse certo no mar."
         },
         "da": {
           "prompt": "Hvordan vidste skibe før, hvor langt mod øst de var?",
@@ -1911,7 +1911,7 @@
             "Uma montanha alta",
             "Uma carta náutica"
           ],
-          "hint": "Abre-se na escola.",
+          "hint": "Você abre um na escola.",
           "explanation": "Um atlas é um livro com mapas do mundo inteiro.",
           "fact": "O nome vem de um gigante das histórias gregas."
         },
@@ -2042,7 +2042,7 @@
             "A rede de pesca"
           ],
           "hint": "É feita de meridianos e paralelos.",
-          "explanation": "Com essa rede consegue-se apontar qualquer lugar.",
+          "explanation": "Com essa rede, dá para apontar qualquer lugar.",
           "fact": "Bastam dois números para encontrar qualquer ponto da Terra."
         },
         "da": {
@@ -2164,16 +2164,16 @@
           "fact": "Orientarsi voleva dire letteralmente volgersi a oriente."
         },
         "pt": {
-          "prompt": "Porque está o este em cima nalguns mapas antigos?",
-          "answer": "É por onde nasce o sol",
+          "prompt": "Por que o leste fica em cima em alguns mapas antigos?",
+          "answer": "É por onde o sol nasce",
           "wrong": [
             "Ficava mais bonito",
             "Era obrigatório",
             "Para poupar espaço"
           ],
           "hint": "Daí vem a palavra orientar.",
-          "explanation": "Os cartógrafos antigos punham o este em cima, o lado do nascer do sol.",
-          "fact": "Orientar-se queria dizer literalmente virar-se para oriente."
+          "explanation": "Os cartógrafos antigos punham o leste em cima, o lado onde o sol nasce.",
+          "fact": "Orientar-se queria dizer literalmente virar-se para o oriente."
         },
         "da": {
           "prompt": "Hvorfor er øst øverst på nogle gamle kort?",
@@ -2294,16 +2294,16 @@
           "fact": "Fra palazzi alti diventa molto meno preciso."
         },
         "pt": {
-          "prompt": "Com que precisão funciona o GPS de um telemóvel?",
-          "answer": "Com uns poucos metros",
+          "prompt": "Com que precisão funciona o GPS de um celular?",
+          "answer": "Com poucos metros de erro",
           "wrong": [
-            "Com um quilómetro",
-            "Com um centímetro",
-            "Com cem metros"
+            "Com um quilômetro de erro",
+            "Com um centímetro de erro",
+            "Com cem metros de erro"
           ],
-          "hint": "Chega para encontrar a tua casa.",
-          "explanation": "Um telemóvel sabe onde estás normalmente com poucos metros de erro.",
-          "fact": "Entre prédios altos fica bastante menos preciso."
+          "hint": "Dá para encontrar a sua casa.",
+          "explanation": "Um celular normalmente sabe onde você está com poucos metros de erro.",
+          "fact": "Entre prédios altos, ele fica bem menos preciso."
         },
         "da": {
           "prompt": "Hvor præcis er gps på en telefon cirka?",
@@ -2431,9 +2431,9 @@
             "Pinta um mapa",
             "Dobra um mapa"
           ],
-          "hint": "Pensa na casca de uma laranja.",
+          "hint": "Pense na casca de uma laranja.",
           "explanation": "Uma projeção passa a superfície curva da Terra para uma folha plana.",
-          "fact": "Isso nunca sai sem esticar ou encolher alguma coisa."
+          "fact": "Isso nunca dá certo sem esticar ou encolher alguma coisa."
         },
         "da": {
           "prompt": "Hvad gør en kortprojektion?",
@@ -2554,16 +2554,16 @@
           "fact": "Più si va a nord, più la stella polare è alta."
         },
         "pt": {
-          "prompt": "Como se determinava antes a latitude no mar?",
+          "prompt": "Como se descobria a latitude no mar antigamente?",
           "answer": "Pela altura do sol",
           "wrong": [
             "Pela profundidade da água",
             "Pela cor do céu",
             "Pela velocidade do navio"
           ],
-          "hint": "Mede-se um ângulo com um instrumento.",
+          "hint": "Você mede um ângulo com um instrumento.",
           "explanation": "Com um sextante mediam a altura do sol ou da estrela polar.",
-          "fact": "Quanto mais a norte, mais alta está a estrela polar."
+          "fact": "Quanto mais ao norte, mais alta fica a estrela polar."
         },
         "da": {
           "prompt": "Hvordan fandt man før i tiden breddegraden til søs?",

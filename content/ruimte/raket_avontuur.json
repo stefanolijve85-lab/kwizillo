@@ -84,7 +84,7 @@
           "fact": "Si chiama azione e reazione."
         },
         "pt": {
-          "prompt": "O que sai por baixo de um foguetão ao descolar?",
+          "prompt": "O que sai por baixo de um foguete na decolagem?",
           "answer": "Gases muito quentes",
           "wrong": [
             "Água fria",
@@ -92,8 +92,8 @@
             "Areia"
           ],
           "hint": "São empurrados para baixo com força.",
-          "explanation": "O motor empurra gases quentes para baixo e o foguetão sobe.",
-          "fact": "Chama-se ação e reação."
+          "explanation": "O motor empurra gases quentes para baixo, e o foguete sobe.",
+          "fact": "Isso se chama ação e reação."
         },
         "da": {
           "prompt": "Hvad kommer der ud forneden på en raket ved opsendelsen?",
@@ -214,7 +214,7 @@
           "fact": "A zero si accendono i motori."
         },
         "pt": {
-          "prompt": "O que fazem as pessoas mesmo antes do lançamento?",
+          "prompt": "O que as pessoas fazem logo antes do lançamento?",
           "answer": "A contagem decrescente",
           "wrong": [
             "Dormem",
@@ -222,8 +222,8 @@
             "Arrumam"
           ],
           "hint": "Dez, nove, oito...",
-          "explanation": "Mesmo antes da partida o controlo conta em voz alta.",
-          "fact": "No zero acendem-se os motores."
+          "explanation": "Logo antes da partida, o controle conta em voz alta.",
+          "fact": "No zero, os motores se acendem."
         },
         "da": {
           "prompt": "Hvad gør folk lige før en opsendelse?",
@@ -344,7 +344,7 @@
           "fact": "Sdraiato viene solo trasportato a terra."
         },
         "pt": {
-          "prompt": "Como está um foguetão mesmo antes de partir?",
+          "prompt": "Como fica um foguete logo antes de partir?",
           "answer": "De pé",
           "wrong": [
             "De lado",
@@ -352,8 +352,8 @@
             "Inclinado para baixo"
           ],
           "hint": "Tem de subir logo.",
-          "explanation": "Um foguetão fica de pé para ir direito ao céu.",
-          "fact": "Deitado só é transportado no chão."
+          "explanation": "Um foguete fica de pé para ir direto ao céu.",
+          "fact": "Deitado, ele só é transportado no chão."
         },
         "da": {
           "prompt": "Hvordan står en raket lige før afgang?",
@@ -474,16 +474,16 @@
           "fact": "I motori invece stanno proprio in fondo."
         },
         "pt": {
-          "prompt": "O que vai no topo de um foguetão?",
+          "prompt": "O que vai no topo de um foguete?",
           "answer": "A carga",
           "wrong": [
             "O motor grande",
-            "O depósito",
+            "O tanque",
             "As asas"
           ],
           "hint": "É o motivo da viagem.",
-          "explanation": "No topo vai a carga: um satélite, mercadoria ou pessoas.",
-          "fact": "Os motores ficam lá em baixo."
+          "explanation": "No topo vai a carga: um satélite, mercadorias ou pessoas.",
+          "fact": "Os motores ficam lá embaixo."
         },
         "da": {
           "prompt": "Hvad sidder øverst i en raket?",
@@ -604,16 +604,16 @@
           "fact": "Al decollo nove decimi del peso sono carburante."
         },
         "pt": {
-          "prompt": "Porque é tão grande um foguetão?",
+          "prompt": "Por que um foguete é tão grande?",
           "answer": "Vai cheio de combustível",
           "wrong": [
             "Para dar nas vistas",
             "Para ter janelas",
             "Para ser pesado"
           ],
-          "hint": "Quase tudo lá dentro é depósito.",
-          "explanation": "A maior parte de um foguetão é depósito de combustível.",
-          "fact": "Ao descolar, nove décimos do peso são combustível."
+          "hint": "Quase tudo lá dentro é tanque.",
+          "explanation": "A maior parte de um foguete é tanque de combustível.",
+          "fact": "Na decolagem, nove décimos do peso são combustível."
         },
         "da": {
           "prompt": "Hvorfor er en raket så stor?",
@@ -734,16 +734,16 @@
           "fact": "Dopo viene sganciata per risparmiare peso."
         },
         "pt": {
-          "prompt": "Para que serve a ponta afiada de um foguetão?",
+          "prompt": "Para que serve a ponta afiada de um foguete?",
           "answer": "Para proteger a carga",
           "wrong": [
             "Para enfeitar",
             "Para travar",
             "Para guiar"
           ],
-          "hint": "Abre-se mais tarde.",
-          "explanation": "A ponta protege a carga do vento e do calor e depois abre-se.",
-          "fact": "A seguir é largada para poupar peso."
+          "hint": "Ela se abre mais tarde.",
+          "explanation": "A ponta protege a carga do vento e do calor e depois se abre.",
+          "fact": "Em seguida, ela é solta para economizar peso."
         },
         "da": {
           "prompt": "Hvad er den spidse næse på en raket til?",
@@ -864,15 +864,15 @@
           "fact": "Per questo funziona anche dove non c'è aria."
         },
         "pt": {
-          "prompt": "Porque arde um motor de foguetão sem ar?",
-          "answer": "Leva o seu oxigénio",
+          "prompt": "Por que um motor de foguete queima sem ar?",
+          "answer": "Leva o próprio oxigênio",
           "wrong": [
             "No espaço há ar",
-            "Arde com água",
+            "Queima com água",
             "Não faz fogo"
           ],
           "hint": "O fogo precisa de duas coisas.",
-          "explanation": "Um foguetão leva o seu próprio depósito de oxigénio.",
+          "explanation": "Um foguete leva seu próprio tanque de oxigênio.",
           "fact": "Por isso funciona onde não há ar nenhum."
         },
         "da": {
@@ -1001,8 +1001,8 @@
             "De nevoeiro do mar",
             "De neve"
           ],
-          "hint": "Espalha-se água na plataforma.",
-          "explanation": "É sobretudo vapor da água que arrefece a plataforma.",
+          "hint": "Jogam água na plataforma.",
+          "explanation": "É principalmente vapor da água que resfria a plataforma.",
           "fact": "Essa água também abafa o barulho ensurdecedor."
         },
         "da": {
@@ -1124,11 +1124,11 @@
           "fact": "A volte la piattaforma è una nave in mezzo al mare."
         },
         "pt": {
-          "prompt": "Como volta um foguetão reutilizável?",
-          "answer": "De pé sobre as patas",
+          "prompt": "Como volta um foguete reutilizável?",
+          "answer": "De pé, sobre pernas",
           "wrong": [
-            "De paraquedas ao mar",
-            "Numa pista",
+            "De paraquedas no mar",
+            "Em uma pista",
             "Nunca volta"
           ],
           "hint": "Trava com o próprio motor.",
@@ -1254,14 +1254,14 @@
           "fact": "Per questo le basi stanno volentieri vicino all'equatore."
         },
         "pt": {
-          "prompt": "Porque partem os foguetões muitas vezes para leste?",
-          "answer": "A Terra roda para lá",
+          "prompt": "Por que os foguetes muitas vezes partem para o leste?",
+          "answer": "A Terra gira para lá",
           "wrong": [
             "Faz mais calor",
             "O Sol está lá",
             "O caminho é mais curto"
           ],
-          "hint": "Ganha-se velocidade de graça.",
+          "hint": "A gente ganha velocidade de graça.",
           "explanation": "Voar no sentido da rotação da Terra poupa muito combustível.",
           "fact": "Por isso as bases gostam de ficar perto do equador."
         },
@@ -1384,7 +1384,7 @@
           "fact": "Il Saturn V era un po' più basso, 110 metri."
         },
         "pt": {
-          "prompt": "Como se chama o maior foguetão de agora?",
+          "prompt": "Como se chama o maior foguete de hoje?",
           "answer": "Starship",
           "wrong": [
             "Saturno V",
@@ -1392,8 +1392,8 @@
             "Soyuz"
           ],
           "hint": "Mais alto do que um prédio de quarenta andares.",
-          "explanation": "Com mais de 120 metros, o Starship é o foguetão mais alto de sempre.",
-          "fact": "O Saturno V era um pouco menor, 110 metros."
+          "explanation": "Com mais de 120 metros, o Starship é o foguete mais alto de todos os tempos.",
+          "fact": "O Saturno V era um pouco menor: 110 metros."
         },
         "da": {
           "prompt": "Hvad hedder den største raket lige nu?",
@@ -1514,15 +1514,15 @@
           "fact": "Un timone nel vuoto non serve a niente."
         },
         "pt": {
-          "prompt": "Com o que roda uma nave no espaço?",
+          "prompt": "Com o que uma nave gira no espaço?",
           "answer": "Com pequenos propulsores",
           "wrong": [
             "Com um leme",
             "Com asas",
             "Com uma hélice"
           ],
-          "hint": "Não há ar contra o qual empurrar.",
-          "explanation": "Pequenos jatos de gás nos lados fazem a nave rodar.",
+          "hint": "Não há ar para empurrar.",
+          "explanation": "Pequenos jatos de gás nas laterais fazem a nave girar.",
           "fact": "Um leme não serve de nada no vácuo."
         },
         "da": {
@@ -1644,15 +1644,15 @@
           "fact": "Per questo una parabola sul tetto non si muove mai."
         },
         "pt": {
-          "prompt": "O que faz um satélite em órbita geostacionária?",
-          "answer": "Roda junto com a Terra",
+          "prompt": "O que faz um satélite em órbita geoestacionária?",
+          "answer": "Gira junto com a Terra",
           "wrong": [
-            "Anda à volta da Lua",
-            "Vai a direito",
+            "Gira ao redor da Lua",
+            "Vai em linha reta",
             "Fica sobre o polo"
           ],
-          "hint": "Fica sempre sobre o mesmo sítio.",
-          "explanation": "Roda exatamente à velocidade da Terra e fica sobre um só ponto.",
+          "hint": "Fica sempre sobre o mesmo lugar.",
+          "explanation": "Gira exatamente na velocidade da Terra e fica sobre um só ponto.",
           "fact": "Por isso uma antena no telhado nunca precisa de se mexer."
         },
         "da": {
@@ -1774,7 +1774,7 @@
           "fact": "Parte da Kourou, nella Guyana francese."
         },
         "pt": {
-          "prompt": "Que foguetão europeu veio depois do Ariane 5?",
+          "prompt": "Que foguete europeu veio depois do Ariane 5?",
           "answer": "Ariane 6",
           "wrong": [
             "Vega",
@@ -1904,7 +1904,7 @@
           "fact": "Salire dritti farebbe solo ricadere."
         },
         "pt": {
-          "prompt": "Porque se inclina um foguetão pouco depois de partir?",
+          "prompt": "Por que um foguete se inclina pouco depois de partir?",
           "answer": "Para ganhar velocidade",
           "wrong": [
             "Para fugir do Sol",
@@ -1912,8 +1912,8 @@
             "Para ser filmado"
           ],
           "hint": "Entrar em órbita é sobretudo ir de lado.",
-          "explanation": "Para ficar em órbita é preciso ir muito depressa de lado.",
-          "fact": "Subir a direito só faria voltar a cair."
+          "explanation": "Para ficar em órbita, é preciso ir muito rápido de lado.",
+          "fact": "Subir em linha reta só faria voltar a cair."
         },
         "da": {
           "prompt": "Hvorfor hælder en raket langsomt til siden efter start?",
@@ -2041,9 +2041,9 @@
             "1.000 km por hora",
             "300.000 km por hora"
           ],
-          "hint": "Ainda mais depressa do que para uma órbita.",
-          "explanation": "A cerca de 40.000 quilómetros por hora soltamo-nos da Terra.",
-          "fact": "Chama-se velocidade de escape."
+          "hint": "Ainda mais rápido do que para uma órbita.",
+          "explanation": "A cerca de 40.000 quilômetros por hora, a gente se solta da Terra.",
+          "fact": "Isso se chama velocidade de escape."
         },
         "da": {
           "prompt": "Hvor hurtigt skal man for at forlade Jorden helt?",
@@ -2164,15 +2164,15 @@
           "fact": "Il viaggio verso Marte è durato quasi sette mesi."
         },
         "pt": {
-          "prompt": "Com que foguetão partiu o rover Perseverance?",
+          "prompt": "Com que foguete partiu o rover Perseverance?",
           "answer": "Com um Atlas V",
           "wrong": [
             "Com um Saturno V",
             "Com um Falcon Heavy",
             "Com um Ariane 5"
           ],
-          "hint": "Um foguetão americano de trabalho.",
-          "explanation": "O Perseverance partiu num Atlas V em 2020.",
+          "hint": "Um foguete americano muito usado.",
+          "explanation": "O Perseverance partiu em um Atlas V em 2020.",
           "fact": "A viagem até Marte demorou quase sete meses."
         },
         "da": {
@@ -2294,14 +2294,14 @@
           "fact": "Così Voyager 2 ha raggiunto quattro pianeti di fila."
         },
         "pt": {
-          "prompt": "Como ganha velocidade de graça uma sonda pelo caminho?",
-          "answer": "A roçar um planeta",
+          "prompt": "Como uma sonda ganha velocidade de graça pelo caminho?",
+          "answer": "Passando rente a um planeta",
           "wrong": [
             "Com painéis solares",
-            "A travar",
-            "A ficar mais leve"
+            "Freando",
+            "Ficando mais leve"
           ],
-          "hint": "A gravidade dá-lhe um empurrão.",
+          "hint": "A gravidade lhe dá um empurrão.",
           "explanation": "Passar muito perto de um planeta dá um empurrão à sonda.",
           "fact": "Foi assim que a Voyager 2 chegou a quatro planetas seguidos."
         },
@@ -2424,11 +2424,11 @@
           "fact": "Per questo accelera sempre di più con lo stesso motore."
         },
         "pt": {
-          "prompt": "Porque fica um foguetão mais leve durante o voo?",
+          "prompt": "Por que um foguete fica mais leve durante o voo?",
           "answer": "O combustível acaba",
           "wrong": [
             "Perde janelas",
-            "O ar esvazia-o",
+            "O ar o esvazia",
             "Encolhe com o frio"
           ],
           "hint": "O que arde deixa de lá estar.",
@@ -2554,7 +2554,7 @@
           "fact": "Mandava un bip che i radioamatori potevano sentire."
         },
         "pt": {
-          "prompt": "Como se chamou o primeiro satélite à volta da Terra?",
+          "prompt": "Como se chamou o primeiro satélite ao redor da Terra?",
           "answer": "Sputnik 1",
           "wrong": [
             "Apollo 1",
@@ -2562,7 +2562,7 @@
             "Hubble"
           ],
           "hint": "Partiu em 1957.",
-          "explanation": "O Sputnik 1 foi em 1957 a primeira lua artificial em órbita.",
+          "explanation": "Em 1957, o Sputnik 1 foi a primeira lua artificial em órbita.",
           "fact": "Emitia um apito que os radioamadores ouviam."
         },
         "da": {

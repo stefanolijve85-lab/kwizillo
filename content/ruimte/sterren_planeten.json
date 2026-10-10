@@ -91,8 +91,8 @@
             "Um cometa",
             "Uma lua"
           ],
-          "hint": "Pensa na Ursa Maior.",
-          "explanation": "As estrelas que parecem formar uma figura chamam-se constelação.",
+          "hint": "Pense na Ursa Maior.",
+          "explanation": "As estrelas que parecem formar uma figura se chamam constelação.",
           "fact": "A Ursa Maior parece uma panela."
         },
         "da": {
@@ -214,7 +214,7 @@
           "fact": "I primi telescopi furono costruiti nei Paesi Bassi."
         },
         "pt": {
-          "prompt": "Com o que podes ver as estrelas de perto?",
+          "prompt": "Com o que você pode ver as estrelas de perto?",
           "answer": "Com um telescópio",
           "wrong": [
             "Com um microscópio",
@@ -344,7 +344,7 @@
           "fact": "La Luna sembra brillare, ma riflette la luce del Sole."
         },
         "pt": {
-          "prompt": "Que astro faz a sua própria luz?",
+          "prompt": "Que astro faz sua própria luz?",
           "answer": "Uma estrela",
           "wrong": [
             "Um planeta",
@@ -352,7 +352,7 @@
             "Um asteroide"
           ],
           "hint": "O Sol é um deles.",
-          "explanation": "As estrelas fazem a sua luz; planetas e luas só a refletem.",
+          "explanation": "As estrelas fazem sua própria luz; planetas e luas só a refletem.",
           "fact": "A Lua parece brilhar, mas reflete a luz do Sol."
         },
         "da": {
@@ -474,16 +474,16 @@
           "fact": "In un posto davvero buio la Via Lattea appare come una fascia."
         },
         "pt": {
-          "prompt": "Onde consegues ver mais estrelas?",
+          "prompt": "Onde você consegue ver mais estrelas?",
           "answer": "Longe das luzes da cidade",
           "wrong": [
             "No centro da cidade",
-            "Debaixo de um candeeiro",
+            "Embaixo de um poste",
             "Com lua cheia"
           ],
-          "hint": "Quanto mais escuro, mais vês.",
-          "explanation": "Longe das lâmpadas o céu fica escuro e vêem-se milhares de estrelas.",
-          "fact": "Num sítio mesmo escuro a Via Láctea aparece como uma faixa."
+          "hint": "Quanto mais escuro, mais você vê.",
+          "explanation": "Longe das lâmpadas, o céu fica escuro e se veem milhares de estrelas.",
+          "fact": "Em um lugar bem escuro, a Via Láctea aparece como uma faixa."
         },
         "da": {
           "prompt": "Hvor kan du se flest stjerner?",
@@ -605,15 +605,15 @@
         },
         "pt": {
           "prompt": "Que planeta brilha muitas vezes como estrela da tarde?",
-          "answer": "Vénus",
+          "answer": "Vênus",
           "wrong": [
             "Marte",
             "Saturno",
             "Júpiter"
           ],
-          "hint": "É a nossa vizinha do lado do Sol.",
-          "explanation": "Vénus brilha tanto que lhe chamam estrela da tarde.",
-          "fact": "Vénus também aparece muitas vezes de manhã."
+          "hint": "É nossa vizinha do lado do Sol.",
+          "explanation": "Vênus brilha tanto que a chamam de estrela da tarde.",
+          "fact": "Vênus também aparece muitas vezes de manhã."
         },
         "da": {
           "prompt": "Hvilken planet lyser ofte som aftenstjerne?",
@@ -743,7 +743,7 @@
           ],
           "hint": "É ali que nascem estrelas novas.",
           "explanation": "Uma nebulosa é uma nuvem enorme de gás e poeira no espaço.",
-          "fact": "A nebulosa de Orion já se vê com binóculos."
+          "fact": "A nebulosa de Órion já dá para ver com binóculos."
         },
         "da": {
           "prompt": "Hvad er en tåge i rummet?",
@@ -865,15 +865,15 @@
         },
         "pt": {
           "prompt": "Que constelação tem um cinturão de três estrelas?",
-          "answer": "Orion",
+          "answer": "Órion",
           "wrong": [
             "A Ursa Maior",
             "Leão",
             "Touro"
           ],
-          "hint": "Também lhe chamam o caçador.",
-          "explanation": "Orion reconhece-se pelas três estrelas em fila.",
-          "fact": "Essas três estrelas formam o Cinturão de Orion."
+          "hint": "Também é chamada de o Caçador.",
+          "explanation": "Dá para reconhecer Órion pelas três estrelas em fila.",
+          "fact": "Essas três estrelas formam o Cinturão de Órion, as Três Marias."
         },
         "da": {
           "prompt": "Hvilket stjernebillede har et bælte af tre stjerner?",
@@ -994,16 +994,16 @@
           "fact": "Poi resterà solo una piccola nana bianca."
         },
         "pt": {
-          "prompt": "O que vai acontecer ao Sol daqui a milhares de milhões de anos?",
-          "answer": "Fica uma gigante vermelha",
+          "prompt": "O que vai acontecer com o Sol daqui a bilhões de anos?",
+          "answer": "Vira uma gigante vermelha",
           "wrong": [
             "Fica azul",
-            "Fica um planeta",
-            "Fica na mesma"
+            "Vira um planeta",
+            "Continua igual"
           ],
-          "hint": "Primeiro incha imenso.",
-          "explanation": "Daqui a cerca de cinco mil milhões de anos o Sol vai inchar.",
-          "fact": "Depois fica só uma pequena anã branca."
+          "hint": "Primeiro ele incha muito.",
+          "explanation": "Daqui a cerca de cinco bilhões de anos, o Sol vai inchar.",
+          "fact": "Depois sobra só uma pequena anã branca."
         },
         "da": {
           "prompt": "Hvad sker der med Solen om milliarder af år?",
@@ -1124,16 +1124,16 @@
           "fact": "Con un telescopio diventano subito milioni."
         },
         "pt": {
-          "prompt": "Quantas estrelas vês a olho nu?",
-          "answer": "Uns poucos milhares",
+          "prompt": "Quantas estrelas você vê a olho nu?",
+          "answer": "Alguns poucos milhares",
           "wrong": [
             "Umas dez",
             "Um milhão",
             "Todas elas"
           ],
           "hint": "Mais de cem e menos de dez mil.",
-          "explanation": "Num sítio escuro o olho nu vê uns poucos milhares de estrelas.",
-          "fact": "Com um telescópio passam logo a milhões."
+          "explanation": "Em um lugar escuro, a olho nu dá para ver alguns milhares de estrelas.",
+          "fact": "Com um telescópio, logo passam a milhões."
         },
         "da": {
           "prompt": "Hvor mange stjerner ser du med det blotte øje?",
@@ -1254,16 +1254,16 @@
           "fact": "Dallo spazio si vedono stelle anche di giorno."
         },
         "pt": {
-          "prompt": "Porque não vês estrelas de dia?",
-          "answer": "O Sol ofusca-as",
+          "prompt": "Por que você não vê estrelas de dia?",
+          "answer": "O Sol as ofusca",
           "wrong": [
-            "De dia apagam-se",
+            "De dia elas se apagam",
             "Não estão lá",
-            "Escondem-se"
+            "Elas se escondem"
           ],
           "hint": "Continuam lá em cima.",
           "explanation": "A luz do Sol é tão forte que as estrelas desaparecem nela.",
-          "fact": "Do espaço vêem-se estrelas também de dia."
+          "fact": "Do espaço, dá para ver estrelas também de dia."
         },
         "da": {
           "prompt": "Hvorfor ser du ikke stjerner om dagen?",
@@ -1393,7 +1393,7 @@
           ],
           "hint": "Pequena, quente e muito pesada.",
           "explanation": "Uma estrela pequena gasta encolhe até ficar uma anã branca.",
-          "fact": "Uma colher de anã branca já pesa umas toneladas."
+          "fact": "Uma colher de anã branca já pesa algumas toneladas."
         },
         "da": {
           "prompt": "Hvad bliver tilbage, når en lille stjerne brænder ud?",
@@ -1518,12 +1518,12 @@
           "answer": "A Ursa Menor",
           "wrong": [
             "A Ursa Maior",
-            "Orion",
+            "Órion",
             "Cassiopeia"
           ],
-          "hint": "A sua grande homónima aponta-lhe.",
+          "hint": "Sua grande xará aponta para ela.",
           "explanation": "A estrela polar fica na constelação da Ursa Menor.",
-          "fact": "Por isso todo o céu parece girar à volta desse ponto."
+          "fact": "Por isso todo o céu parece girar ao redor desse ponto."
         },
         "da": {
           "prompt": "I hvilket stjernebillede står Nordstjernen?",
@@ -1652,7 +1652,7 @@
             "Um sistema planetário"
           ],
           "hint": "Duas em vez de uma.",
-          "explanation": "Duas estrelas que giram uma à volta da outra são uma estrela dupla.",
+          "explanation": "Duas estrelas que giram uma ao redor da outra são uma estrela dupla.",
           "fact": "Mais de metade das estrelas tem companheira."
         },
         "da": {
@@ -1774,7 +1774,7 @@
           "fact": "È così grande che arriverebbe fino a Giove."
         },
         "pt": {
-          "prompt": "Como se chama a grande estrela vermelha de Orion?",
+          "prompt": "Como se chama a grande estrela vermelha de Órion?",
           "answer": "Betelgeuse",
           "wrong": [
             "Sírio",
@@ -1782,7 +1782,7 @@
             "Polaris"
           ],
           "hint": "Fica no ombro do caçador.",
-          "explanation": "Betelgeuse é a gigante vermelha no ombro de Orion.",
+          "explanation": "Betelgeuse é a gigante vermelha no ombro de Órion.",
           "fact": "É tão grande que chegaria a Júpiter."
         },
         "da": {
@@ -1904,16 +1904,16 @@
           "fact": "Orione è d'inverno, il Triangolo Estivo è d'estate."
         },
         "pt": {
-          "prompt": "Porque vês outras constelações no inverno?",
-          "answer": "A Terra muda de sítio",
+          "prompt": "Por que você vê outras constelações no inverno?",
+          "answer": "A Terra muda de lugar",
           "wrong": [
-            "As estrelas mudam-se",
-            "A Lua afasta-as",
-            "Está frio de mais"
+            "As estrelas se mudam",
+            "A Lua as afasta",
+            "Está frio demais"
           ],
-          "hint": "Em cada estação olhas para outro lado.",
-          "explanation": "Como a Terra gira à volta do Sol, em cada estação olhas para outro lado.",
-          "fact": "Orion é do inverno e o Triângulo de Verão é do verão."
+          "hint": "Em cada estação você olha para outro lado.",
+          "explanation": "Como a Terra gira ao redor do Sol, em cada estação você olha para outro lado.",
+          "fact": "Órion é do inverno, e o Triângulo de Verão é do verão."
         },
         "da": {
           "prompt": "Hvorfor ser du andre stjernebilleder om vinteren?",
@@ -2035,7 +2035,7 @@
         },
         "pt": {
           "prompt": "O que fica depois de uma supernova?",
-          "answer": "Uma estrela de neutrões",
+          "answer": "Uma estrela de nêutrons",
           "wrong": [
             "Uma anã branca",
             "Uma gigante vermelha",
@@ -2165,15 +2165,15 @@
         },
         "pt": {
           "prompt": "Quantas estrelas há mais ou menos na Via Láctea?",
-          "answer": "Centenas de mil milhões",
+          "answer": "Centenas de bilhões",
           "wrong": [
             "Cerca de mil",
             "Cerca de um milhão",
             "Exatamente oito"
           ],
           "hint": "Mais do que pessoas na Terra.",
-          "explanation": "Calcula-se que a Via Láctea tenha centenas de milhares de milhões.",
-          "fact": "E há mais milhares de milhões de galáxias."
+          "explanation": "Os cientistas calculam que a Via Láctea tenha centenas de bilhões.",
+          "fact": "E existem bilhões de outras galáxias."
         },
         "da": {
           "prompt": "Hvor mange stjerner er der cirka i Mælkevejen?",
@@ -2299,11 +2299,11 @@
           "wrong": [
             "Fica mais azul",
             "Desaparece",
-            "Vai mais depressa"
+            "Vai mais rápido"
           ],
-          "hint": "O universo estica-se pelo caminho.",
+          "hint": "O universo se estica pelo caminho.",
           "explanation": "Como o universo se expande, a luz estica e fica mais vermelha.",
-          "fact": "Foi assim que os astrónomos viram que o universo cresce."
+          "fact": "Foi assim que os astrônomos viram que o universo está crescendo."
         },
         "da": {
           "prompt": "Hvad sker der med lyset fra en fjern galakse?",
@@ -2433,7 +2433,7 @@
           ],
           "hint": "Pertence à constelação do Centauro.",
           "explanation": "Próxima Centauri é a estrela mais próxima depois do Sol.",
-          "fact": "A sua luz leva mais de quatro anos a chegar aqui."
+          "fact": "Sua luz leva mais de quatro anos para chegar aqui."
         },
         "da": {
           "prompt": "Hvilken stjerne er vores nærmeste nabo efter Solen?",
@@ -2558,10 +2558,10 @@
           "answer": "Uma zona mais fria",
           "wrong": [
             "Um buraco no Sol",
-            "Uma nuvem à frente",
+            "Uma nuvem na frente",
             "Um planeta escuro"
           ],
-          "hint": "Parece escura mas continua a arder.",
+          "hint": "Parece escura, mas continua ardendo.",
           "explanation": "Uma mancha solar é uma zona mais fria do que o resto do Sol.",
           "fact": "Algumas manchas são maiores do que a Terra."
         },

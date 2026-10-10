@@ -84,15 +84,15 @@
           "fact": "Un record conta solo se ci sono cronometri e misure ufficiali."
         },
         "pt": {
-          "prompt": "O que é um recorde do mundo?",
-          "answer": "A melhor marca de sempre",
+          "prompt": "O que é um recorde mundial?",
+          "answer": "A melhor marca de todas",
           "wrong": [
             "Uma taça grande",
-            "Uma camisola bonita",
+            "Uma camiseta bonita",
             "Um jogo comprido"
           ],
           "hint": "Ninguém no mundo fez melhor.",
-          "explanation": "Um recorde do mundo é a melhor marca que alguém já alcançou.",
+          "explanation": "Um recorde mundial é a melhor marca que alguém já alcançou.",
           "fact": "Um recorde só conta se houver relógios e medidas oficiais."
         },
         "da": {
@@ -214,14 +214,14 @@
           "fact": "La parola viene da un vecchio termine per chi scendeva nel campo di battaglia."
         },
         "pt": {
-          "prompt": "Como se chama quem ganha um desporto e é o melhor?",
+          "prompt": "Como se chama quem ganha em um esporte e é o melhor?",
           "answer": "Um campeão",
           "wrong": [
-            "Um adepto",
+            "Um torcedor",
             "Um árbitro",
             "Um jornalista"
           ],
-          "hint": "Acaba no lugar mais alto.",
+          "hint": "Termina no lugar mais alto.",
           "explanation": "Um campeão é quem ganha o jogo ou a temporada inteira.",
           "fact": "A palavra vem de um termo antigo para quem descia ao campo de batalha."
         },
@@ -352,8 +352,8 @@
             "O Egito"
           ],
           "hint": "Um país grande da América do Sul.",
-          "explanation": "Messi é da Argentina e com esse país tornou-se campeão do mundo.",
-          "fact": "Começou num clube pequeno da cidade de Rosário."
+          "explanation": "Messi é da Argentina e, com a seleção do país, foi campeão do mundo.",
+          "fact": "Ele começou em um clube pequeno da cidade de Rosário."
         },
         "da": {
           "prompt": "Hvilket land kommer Lionel Messi fra?",
@@ -474,16 +474,16 @@
           "fact": "Restava in aria così a lungo che lo chiamavano Air Jordan."
         },
         "pt": {
-          "prompt": "Que desporto jogava Michael Jordan?",
-          "answer": "O basquetebol",
+          "prompt": "Que esporte Michael Jordan jogava?",
+          "answer": "O basquete",
           "wrong": [
             "O futebol",
             "A natação",
-            "A patinagem"
+            "A patinação"
           ],
-          "hint": "Saltava muito alto para o cesto.",
-          "explanation": "Michael Jordan foi campeão seis vezes e para muitos é o maior de sempre.",
-          "fact": "Ficava tanto tempo no ar que lhe chamavam Air Jordan."
+          "hint": "Ele pulava muito alto até a cesta.",
+          "explanation": "Michael Jordan foi campeão seis vezes e, para muitos, é o maior de todos os tempos.",
+          "fact": "Ele ficava tanto tempo no ar que o chamavam de Air Jordan."
         },
         "da": {
           "prompt": "Hvilken sport spillede Michael Jordan?",
@@ -604,16 +604,16 @@
           "fact": "Un'auto così arriva senza sforzo a trecento chilometri orari."
         },
         "pt": {
-          "prompt": "Em que desporto é campeão do mundo Max Verstappen?",
+          "prompt": "Em que esporte Max Verstappen é campeão do mundo?",
           "answer": "A Fórmula 1",
           "wrong": [
             "O ciclismo",
-            "O ténis",
-            "O judo"
+            "O tênis",
+            "O judô"
           ],
-          "hint": "Conduz muito rápido num carro veloz.",
-          "explanation": "Verstappen é campeão do mundo de Fórmula 1, o desporto motorizado mais rápido.",
-          "fact": "Um carro assim chega sem esforço aos trezentos quilómetros por hora."
+          "hint": "Ele pilota muito rápido em um carro veloz.",
+          "explanation": "Verstappen é campeão do mundo de Fórmula 1, o esporte a motor mais rápido.",
+          "fact": "Um carro assim chega fácil aos trezentos quilômetros por hora."
         },
         "da": {
           "prompt": "I hvilken sport er Max Verstappen verdensmester?",
@@ -739,11 +739,11 @@
           "wrong": [
             "Nada muito longe",
             "Dá uma volta de bicicleta",
-            "Salta muito alto"
+            "Pula muito alto"
           ],
-          "hint": "Mais de quarenta quilómetros seguidos.",
-          "explanation": "Um maratonista corre mais de quarenta e dois quilómetros sem parar.",
-          "fact": "Os melhores fazem-no em pouco mais de duas horas."
+          "hint": "Mais de quarenta quilômetros seguidos.",
+          "explanation": "Um maratonista corre mais de quarenta e dois quilômetros sem parar.",
+          "fact": "Os melhores fazem isso em pouco mais de duas horas."
         },
         "da": {
           "prompt": "Hvad gør en maratonløber?",
@@ -864,8 +864,8 @@
           "fact": "Giocava spesso in doppio con la sorella Venus, e insieme vincevano anche."
         },
         "pt": {
-          "prompt": "Que desporto pratica Serena Williams?",
-          "answer": "O ténis",
+          "prompt": "Que esporte Serena Williams pratica?",
+          "answer": "O tênis",
           "wrong": [
             "A ginástica",
             "O remo",
@@ -873,7 +873,7 @@
           ],
           "hint": "Com uma raquete e uma bola amarela.",
           "explanation": "Serena Williams ganhou vinte e três grandes torneios, mais do que quase todos.",
-          "fact": "Jogava muitas vezes duplas com a irmã Venus, e juntas também ganhavam."
+          "fact": "Ela jogava muitas vezes em dupla com a irmã Venus, e juntas também ganhavam."
         },
         "da": {
           "prompt": "Hvilken sport spiller Serena Williams?",
@@ -994,15 +994,15 @@
           "fact": "Molti atleti dicono di aver avuto un idolo sul muro della loro camera."
         },
         "pt": {
-          "prompt": "O que é um herói do desporto?",
+          "prompt": "O que é um herói do esporte?",
           "answer": "Um grande exemplo",
           "wrong": [
             "Quem perde sempre",
             "Quem fica em casa",
-            "Quem está na bancada"
+            "Quem está na arquibancada"
           ],
           "hint": "As crianças querem ser como ele ou ela.",
-          "explanation": "Um herói do desporto é alguém que admiras, pelo que joga e por como se porta.",
+          "explanation": "Um herói do esporte é alguém que você admira, pelo que joga e pelo jeito como se comporta.",
           "fact": "Muitos atletas contam que tinham um ídolo na parede do quarto."
         },
         "da": {
@@ -1124,16 +1124,16 @@
           "fact": "Ci sono anche maglie per il miglior velocista e il miglior scalatore."
         },
         "pt": {
-          "prompt": "Que camisola usa o líder da Volta a França?",
-          "answer": "A camisola amarela",
+          "prompt": "Que camisa usa o líder da Volta da França?",
+          "answer": "A camisa amarela",
           "wrong": [
-            "A camisola azul",
-            "A camisola preta",
-            "A camisola vermelha"
+            "A camisa azul",
+            "A camisa preta",
+            "A camisa vermelha"
           ],
           "hint": "A cor do sol.",
-          "explanation": "Quem tem o melhor tempo total veste a camisola amarela.",
-          "fact": "Há também camisolas para o melhor sprinter e o melhor trepador."
+          "explanation": "Quem tem o melhor tempo total veste a camisa amarela.",
+          "fact": "Também há camisas para o melhor velocista e o melhor escalador."
         },
         "da": {
           "prompt": "Hvilken trøje bærer føreren af Tour de France?",
@@ -1257,12 +1257,12 @@
           "prompt": "Onde fica o vencedor depois da prova?",
           "answer": "No pódio",
           "wrong": [
-            "Numa cadeira",
+            "Em uma cadeira",
             "No banco",
-            "Na bancada"
+            "Na arquibancada"
           ],
           "hint": "Três degraus: ouro, prata, bronze.",
-          "explanation": "Depois da prova os três primeiros sobem ao pódio e ouvem o hino.",
+          "explanation": "Depois da prova, os três primeiros sobem ao pódio e ouvem o hino.",
           "fact": "Quem ganhou fica no degrau mais alto."
         },
         "da": {
@@ -1384,16 +1384,16 @@
           "fact": "La finta di Cruyff si prova ancora su tutti i campi del mondo."
         },
         "pt": {
-          "prompt": "Que futebolista neerlandês jogou com o famoso número catorze?",
+          "prompt": "Que jogador holandês jogava com o famoso número quatorze?",
           "answer": "Johan Cruyff",
           "wrong": [
             "Ruud Gullit",
             "Dennis Bergkamp",
             "Virgil van Dijk"
           ],
-          "hint": "Inventou uma finta famosa.",
-          "explanation": "Johan Cruyff jogava com o número catorze e foi três vezes melhor futebolista da Europa.",
-          "fact": "A finta de Cruyff ainda se tenta em todos os campos do mundo."
+          "hint": "Ele inventou um drible famoso.",
+          "explanation": "Johan Cruyff jogava com o número quatorze e foi eleito três vezes o melhor jogador da Europa.",
+          "fact": "O drible de Cruyff ainda é tentado em todos os campos do mundo."
         },
         "da": {
           "prompt": "Hvilken hollandsk fodboldspiller spillede berømt med nummer fjorten?",
@@ -1514,7 +1514,7 @@
           "fact": "Migliora il proprio record un centimetro alla volta."
         },
         "pt": {
-          "prompt": "A que altura salta o recordista mundial do salto com vara?",
+          "prompt": "Que altura alcança o recordista mundial do salto com vara?",
           "answer": "Mais de seis metros",
           "wrong": [
             "Mais de dois metros",
@@ -1523,7 +1523,7 @@
           ],
           "hint": "Mais alto do que uma casa de dois andares.",
           "explanation": "Armand Duplantis passou seis metros e vinte e oito centímetros com a vara.",
-          "fact": "Bate o próprio recorde um centímetro de cada vez."
+          "fact": "Ele bate o próprio recorde um centímetro de cada vez."
         },
         "da": {
           "prompt": "Hvor højt springer verdensrekordholderen i stangspring?",
@@ -1651,9 +1651,9 @@
             "Sanne Wevers",
             "Fanny Blankers-Koen"
           ],
-          "hint": "Tinha catorze anos.",
-          "explanation": "Nadia Comaneci fez um exercício tão perfeito que o júri lhe deu o primeiro dez.",
-          "fact": "O marcador não conseguia mostrar um dez e por isso apareceu um um com dois zeros."
+          "hint": "Ela tinha quatorze anos.",
+          "explanation": "Nadia Comaneci fez uma série tão perfeita que os juízes lhe deram o primeiro dez.",
+          "fact": "O placar não conseguia mostrar um dez, por isso apareceu um número um com dois zeros."
         },
         "da": {
           "prompt": "Hvem fik i 1976 det første perfekte tital i gymnastik?",
@@ -1774,7 +1774,7 @@
           "fact": "In una giornata così un corridore mangia a volte seimila calorie."
         },
         "pt": {
-          "prompt": "Quanto dura a Volta a França?",
+          "prompt": "Quanto dura a Volta da França?",
           "answer": "Mais de três semanas",
           "wrong": [
             "Um dia",
@@ -1782,8 +1782,8 @@
             "Meio ano"
           ],
           "hint": "Mais de vinte etapas seguidas.",
-          "explanation": "Em pouco mais de três semanas os ciclistas fazem mais de três mil quilómetros.",
-          "fact": "Num dia assim um ciclista come às vezes seis mil calorias."
+          "explanation": "Em pouco mais de três semanas, os ciclistas percorrem mais de três mil quilômetros.",
+          "fact": "Em um dia desses, um ciclista às vezes come seis mil calorias."
         },
         "da": {
           "prompt": "Hvor længe varer Tour de France?",
@@ -1905,13 +1905,13 @@
         },
         "pt": {
           "prompt": "Quem foi Muhammad Ali?",
-          "answer": "Um pugilista famoso",
+          "answer": "Um boxeador famoso",
           "wrong": [
             "Um nadador",
-            "Um xadrezista",
+            "Um enxadrista",
             "Um ginasta"
           ],
-          "hint": "Dizia: voar como uma borboleta.",
+          "hint": "Ele dizia: voar como uma borboleta.",
           "explanation": "Ali foi três vezes campeão do mundo de boxe e famoso muito além do ringue.",
           "fact": "A frase mais conhecida dele: voar como uma borboleta, picar como uma abelha."
         },
@@ -2034,7 +2034,7 @@
           "fact": "L’ultimo lo ha vinto mentre era incinta."
         },
         "pt": {
-          "prompt": "Quantos torneios do Grand Slam ganhou Serena Williams?",
+          "prompt": "Quantos torneios do Grand Slam Serena Williams ganhou?",
           "answer": "Vinte e três",
           "wrong": [
             "Dois",
@@ -2043,7 +2043,7 @@
           ],
           "hint": "Mais de vinte.",
           "explanation": "Serena Williams ganhou vinte e três títulos do Grand Slam, mais do que qualquer outra neste século.",
-          "fact": "O último ganhou-o estando grávida."
+          "fact": "Ela ganhou o último quando estava grávida."
         },
         "da": {
           "prompt": "Hvor mange Grand Slam-turneringer vandt Serena Williams?",
@@ -2171,9 +2171,9 @@
             "Uma ciclista",
             "Uma patinadora"
           ],
-          "hint": "Roda saltos que mais ninguém ousa.",
+          "hint": "Ela faz saltos que ninguém mais tem coragem de fazer.",
           "explanation": "Biles ganhou mais títulos mundiais do que qualquer ginasta, e quatro elementos têm o nome dela.",
-          "fact": "Também disse em voz alta que descansar a cabeça às vezes importa mais que ganhar."
+          "fact": "Ela também disse em voz alta que descansar a cabeça às vezes importa mais do que ganhar."
         },
         "da": {
           "prompt": "Hvem er Simone Biles?",
@@ -2294,7 +2294,7 @@
           "fact": "Passano l'asticella di schiena, un trucco che esiste solo dal 1968."
         },
         "pt": {
-          "prompt": "Até que altura saltam os melhores saltadores?",
+          "prompt": "Até que altura os melhores saltadores pulam?",
           "answer": "Mais de dois metros",
           "wrong": [
             "Mais de um metro",
@@ -2302,8 +2302,8 @@
             "Mais de dez metros"
           ],
           "hint": "Mais alto do que uma porta.",
-          "explanation": "O recorde do mundo do salto em altura é de dois metros e quarenta e cinco.",
-          "fact": "Passam a fasquia de costas, um truque que só existe desde 1968."
+          "explanation": "O recorde mundial do salto em altura é de dois metros e quarenta e cinco.",
+          "fact": "Eles passam o sarrafo de costas, um truque que só existe desde 1968."
         },
         "da": {
           "prompt": "Hvor højt springer de bedste højdespringere?",
@@ -2425,14 +2425,14 @@
         },
         "pt": {
           "prompt": "O que é um recorde pessoal?",
-          "answer": "A tua melhor marca",
+          "answer": "A sua melhor marca",
           "wrong": [
             "O tempo mais rápido",
-            "Um prémio para o vencedor",
-            "O recorde do teu país"
+            "Um prêmio para o vencedor",
+            "O recorde do seu país"
           ],
-          "hint": "Só tu tens de o bater.",
-          "explanation": "O teu recorde pessoal é o teu melhor tempo ou distância, e podes sempre melhorá-lo.",
+          "hint": "Só você tem que batê-lo.",
+          "explanation": "O seu recorde pessoal é o seu melhor tempo ou distância, e você sempre pode melhorá-lo.",
           "fact": "Muitos treinadores valorizam um recorde pessoal mais do que uma medalha."
         },
         "da": {
@@ -2554,16 +2554,16 @@
           "fact": "Si notava anche per le unghie lunghissime e colorate."
         },
         "pt": {
-          "prompt": "Que atleta é chamada a mulher mais rápida de sempre?",
+          "prompt": "Que atleta é chamada de mulher mais rápida de todos os tempos?",
           "answer": "Florence Griffith-Joyner",
           "wrong": [
             "Dafne Schippers",
             "Sifan Hassan",
             "Ireen Wüst"
           ],
-          "hint": "O recorde dela de 1988 ainda se mantém.",
-          "explanation": "Griffith-Joyner correu os cem metros em 10,49 em 1988, e ninguém se aproximou desde então.",
-          "fact": "Destacava-se também pelas unhas compridas e muito coloridas."
+          "hint": "O recorde dela, de 1988, ainda está de pé.",
+          "explanation": "Griffith-Joyner correu os cem metros em 10,49 em 1988, e ninguém chegou perto desde então.",
+          "fact": "Ela também chamava atenção pelas unhas compridas e muito coloridas."
         },
         "da": {
           "prompt": "Hvilken atlet kaldes den hurtigste kvinde nogensinde?",
@@ -2684,16 +2684,16 @@
           "fact": "Sei settimane dopo ci riuscì anche un altro: era soprattutto una questione di testa."
         },
         "pt": {
-          "prompt": "Quem correu a milha abaixo de quatro minutos primeiro, em 1954?",
+          "prompt": "Quem foi o primeiro a correr uma milha em menos de quatro minutos, em 1954?",
           "answer": "Roger Bannister",
           "wrong": [
             "Eliud Kipchoge",
             "Mo Farah",
             "Jesse Owens"
           ],
-          "hint": "Um estudante de medicina inglês numa pista de saibro.",
-          "explanation": "Bannister correu a milha em três minutos e cinquenta e nove, algo que se julgava impossível.",
-          "fact": "Seis semanas depois outro também conseguiu: estava sobretudo na cabeça."
+          "hint": "Um estudante de medicina inglês, em uma pista de saibro.",
+          "explanation": "Bannister correu a milha em três minutos e cinquenta e nove, algo que se achava impossível.",
+          "fact": "Seis semanas depois, outro também conseguiu: a barreira estava principalmente na cabeça."
         },
         "da": {
           "prompt": "Hvem løb i 1954 som den første milen under fire minutter?",
@@ -2814,7 +2814,7 @@
           "fact": "Dopo disse: nessun uomo ha limiti."
         },
         "pt": {
-          "prompt": "Quem correu primeiro uma maratona abaixo de duas horas?",
+          "prompt": "Quem foi o primeiro a correr uma maratona em menos de duas horas?",
           "answer": "Eliud Kipchoge",
           "wrong": [
             "Usain Bolt",
@@ -2822,7 +2822,7 @@
             "Roger Bannister"
           ],
           "hint": "Um queniano, em Viena.",
-          "explanation": "Em 2019 Kipchoge correu uma hora e cinquenta e nove, mas com lebres, por isso não conta como recorde.",
+          "explanation": "Em 2019, Kipchoge correu em uma hora e cinquenta e nove, mas com coelhos, por isso não conta como recorde.",
           "fact": "Depois disse: nenhum ser humano tem limites."
         },
         "da": {
@@ -2944,16 +2944,16 @@
           "fact": "Per questo accanto alla pista c'è sempre un anemometro."
         },
         "pt": {
-          "prompt": "Porque um recorde de velocidade com muito vento às vezes não conta?",
+          "prompt": "Por que um recorde de velocidade com muito vento às vezes não vale?",
           "answer": "O vento empurrou demais",
           "wrong": [
             "A pista era comprida",
-            "O cronómetro falhou",
+            "O cronômetro falhou",
             "Havia pouco público"
           ],
           "hint": "Acima de dois metros de vento por segundo não vale.",
-          "explanation": "Com mais de dois metros de vento a favor por segundo um recorde de velocidade não é validado.",
-          "fact": "Por isso há sempre um anemómetro ao lado da pista."
+          "explanation": "Com mais de dois metros por segundo de vento a favor, um recorde de velocidade não é validado.",
+          "fact": "Por isso sempre há um anemômetro ao lado da pista."
         },
         "da": {
           "prompt": "Hvorfor tæller en sprintrekord med meget vind nogle gange ikke?",
@@ -3075,14 +3075,14 @@
         },
         "pt": {
           "prompt": "O que é o salto Fosbury?",
-          "answer": "De costas sobre a fasquia",
+          "answer": "De costas sobre o sarrafo",
           "wrong": [
-            "Um salto para a água",
+            "Um salto na água",
             "Uma curva de bicicleta",
-            "Um lançamento a duas mãos"
+            "Um arremesso com duas mãos"
           ],
           "hint": "Inventado no salto em altura em 1968.",
-          "explanation": "Dick Fosbury foi o primeiro a passar a fasquia de costas, e hoje todos saltam assim.",
+          "explanation": "Dick Fosbury foi o primeiro a passar o sarrafo de costas, e hoje todos saltam assim.",
           "fact": "Só foi possível quando colchões grossos de espuma substituíram a caixa de areia."
         },
         "da": {
@@ -3204,16 +3204,16 @@
           "fact": "Così qualche record di quell'anno resta quasi intoccato."
         },
         "pt": {
-          "prompt": "Porque resistem ainda alguns recordes de natação de 2008?",
-          "answer": "Pelos fatos rápidos",
+          "prompt": "Por que alguns recordes de natação de 2008 ainda resistem?",
+          "answer": "Pelos trajes rápidos",
           "wrong": [
             "Pela água fria",
             "Pelas piscinas longas",
-            "Pelo muito público"
+            "Pelo público grande"
           ],
           "hint": "Pouco depois algo foi proibido.",
-          "explanation": "Fatos brilhantes tornavam os nadadores tão rápidos que foram proibidos em 2010.",
-          "fact": "Por isso ficam alguns recordes desse ano quase intocados."
+          "explanation": "Trajes brilhantes deixavam os nadadores tão rápidos que foram proibidos em 2010.",
+          "fact": "Por isso, alguns recordes desse ano continuam quase intocados."
         },
         "da": {
           "prompt": "Hvorfor står nogle svømmerekorder fra 2008 stadig?",
@@ -3337,13 +3337,13 @@
           "prompt": "O que fez Kathrine Switzer em 1967?",
           "answer": "Correu a maratona",
           "wrong": [
-            "Atravessou o Canal a nado",
+            "Cruzou o Canal da Mancha",
             "Ganhou a Volta",
-            "Saltou mais alto"
+            "Pulou mais alto"
           ],
-          "hint": "As mulheres então não podiam.",
-          "explanation": "Switzer correu a maratona de Boston quando era proibido às mulheres; um juiz puxou-lhe a camisola.",
-          "fact": "Cinco anos depois as mulheres puderam correr oficialmente em Boston."
+          "hint": "Na época, as mulheres não podiam.",
+          "explanation": "Switzer correu a maratona de Boston quando isso era proibido para mulheres; um fiscal puxou a camiseta dela.",
+          "fact": "Cinco anos depois, as mulheres puderam correr oficialmente em Boston."
         },
         "da": {
           "prompt": "Hvad gjorde Kathrine Switzer i 1967?",
@@ -3465,15 +3465,15 @@
         },
         "pt": {
           "prompt": "O que é o recorde da hora no ciclismo?",
-          "answer": "O mais longe numa hora",
+          "answer": "O mais longe em uma hora",
           "wrong": [
             "A volta mais rápida",
             "A subida mais longa",
             "O selim mais pesado"
           ],
-          "hint": "Sozinho contra o relógio, numa pista.",
-          "explanation": "No recorde da hora um ciclista sozinho na pista faz os quilómetros que conseguir numa hora.",
-          "fact": "O recorde passa dos cinquenta e cinco quilómetros."
+          "hint": "Sozinho contra o relógio, em uma pista.",
+          "explanation": "No recorde da hora, um ciclista sozinho na pista faz quantos quilômetros conseguir em uma hora.",
+          "fact": "O recorde passa dos cinquenta e cinco quilômetros."
         },
         "da": {
           "prompt": "Hvad er timerekorden i cykling?",
@@ -3594,16 +3594,16 @@
           "fact": "Per questo oggi si possono prendere quindici o sedici punti."
         },
         "pt": {
-          "prompt": "Porque já não existe o dez perfeito na ginástica?",
+          "prompt": "Por que o dez perfeito não existe mais na ginástica?",
           "answer": "Há um sistema novo",
           "wrong": [
             "A ginástica acabou",
-            "O júri já não conta",
+            "Os juízes não contam mais",
             "O dez é fácil demais"
           ],
-          "hint": "Agora somam-se dificuldade e execução.",
-          "explanation": "Desde 2006 a ginástica soma dificuldade e execução, por isso as notas passam de dez.",
-          "fact": "Por isso hoje se podem obter quinze ou dezesseis pontos."
+          "hint": "Agora se somam dificuldade e execução.",
+          "explanation": "Desde 2006, a ginástica soma dificuldade e execução, por isso as notas passam de dez.",
+          "fact": "Por isso, hoje dá para tirar quinze ou dezesseis pontos."
         },
         "da": {
           "prompt": "Hvorfor findes det perfekte tital ikke længere i gymnastik?",
@@ -3724,16 +3724,16 @@
           "fact": "Una pista moderna restituisce energia e la regala a chi corre."
         },
         "pt": {
-          "prompt": "Porque continuam a cair os recordes?",
+          "prompt": "Por que os recordes continuam caindo?",
           "answer": "Treino e material",
           "wrong": [
             "O relógio anda devagar",
             "As pistas são mais curtas",
             "As regras são mais fáceis"
           ],
-          "hint": "Pensa em sapatilhas, pistas e comida.",
-          "explanation": "Melhor treino, comida, sapatilhas e pistas mais rápidas fazem os recordes continuar a cair.",
-          "fact": "Uma pista moderna devolve energia e oferece-a a quem corre."
+          "hint": "Pense em tênis de corrida, pistas e comida.",
+          "explanation": "Treinos melhores, comida, tênis e pistas mais rápidas fazem os recordes continuarem caindo.",
+          "fact": "Uma pista moderna devolve energia a quem corre."
         },
         "da": {
           "prompt": "Hvorfor bliver rekorder hele tiden bedre?",
@@ -3854,16 +3854,16 @@
           "fact": "Tra i ragazzi il campione più giovane aveva quattordici anni."
         },
         "pt": {
-          "prompt": "Que idade tinha a campeã olímpica mais nova de sempre?",
+          "prompt": "Quantos anos tinha a campeã olímpica mais nova de todos os tempos?",
           "answer": "Treze anos",
           "wrong": [
             "Três anos",
             "Vinte anos",
             "Quarenta anos"
           ],
-          "hint": "Saltava da prancha para a água.",
-          "explanation": "Marjorie Gestring ganhou o ouro nos saltos em 1936 quando tinha treze anos.",
-          "fact": "Entre os rapazes o campeão mais novo tinha catorze."
+          "hint": "Ela saltava do trampolim para a água.",
+          "explanation": "Marjorie Gestring ganhou o ouro nos saltos ornamentais em 1936, quando tinha treze anos.",
+          "fact": "Entre os meninos, o campeão mais novo tinha quatorze."
         },
         "da": {
           "prompt": "Hvor gammel var den yngste olympiske mester nogensinde?",
@@ -3984,16 +3984,16 @@
           "fact": "In quella stessa sfida anche Carl Lewis superò gli otto metri e mezzo, e perse comunque."
         },
         "pt": {
-          "prompt": "Quem tem o recorde do mundo do salto em comprimento masculino?",
+          "prompt": "Quem tem o recorde mundial do salto em distância masculino?",
           "answer": "Mike Powell",
           "wrong": [
             "Carl Lewis",
             "Usain Bolt",
             "Jesse Owens"
           ],
-          "hint": "Saltou quase nove metros, em 1991.",
-          "explanation": "Mike Powell saltou oito metros e noventa e cinco, e esse recorde dura há mais de trinta anos.",
-          "fact": "Nesse mesmo duelo Carl Lewis também passou os oito metros e meio, e ainda assim perdeu."
+          "hint": "Ele saltou quase nove metros, em 1991.",
+          "explanation": "Mike Powell saltou oito metros e noventa e cinco, e esse recorde já dura mais de trinta anos.",
+          "fact": "Nesse mesmo duelo, Carl Lewis também passou dos oito metros e meio, e mesmo assim perdeu."
         },
         "da": {
           "prompt": "Hvem har verdensrekorden i længdespring for mænd?",
@@ -4114,16 +4114,16 @@
           "fact": "Quattro corridori sono a cinque vittorie; a sei non è mai arrivato nessuno."
         },
         "pt": {
-          "prompt": "Quantas vezes ganhou Eddy Merckx a Volta a França?",
+          "prompt": "Quantas vezes Eddy Merckx ganhou a Volta da França?",
           "answer": "Cinco vezes",
           "wrong": [
             "Uma vez",
             "Dez vezes",
             "Vinte vezes"
           ],
-          "hint": "Chamavam-lhe o Canibal.",
-          "explanation": "Merckx ganhou a Volta cinco vezes e queria ganhar tudo, daí a alcunha.",
-          "fact": "Quatro ciclistas estão nas cinco vitórias; ninguém chegou nunca a seis."
+          "hint": "Ele era chamado de Canibal.",
+          "explanation": "Merckx ganhou a Volta cinco vezes e queria ganhar tudo, daí o apelido.",
+          "fact": "Quatro ciclistas têm cinco vitórias; ninguém nunca chegou a seis."
         },
         "da": {
           "prompt": "Hvor mange gange vandt Eddy Merckx Tour de France?",
@@ -4244,16 +4244,16 @@
           "fact": "Vecchi campioni di sangue vengono a volte riesaminati anni dopo, e un risultato cambia ancora."
         },
         "pt": {
-          "prompt": "O que acontece a um recorde se o atleta se dopou?",
+          "prompt": "O que acontece com um recorde se o atleta usou doping?",
           "answer": "É retirado",
           "wrong": [
             "É duplicado",
             "Fica para sempre",
-            "É partilhado"
+            "É dividido"
           ],
-          "hint": "A doping engana todos os outros.",
-          "explanation": "Quem se dopa desaparece do resultado e perde medalhas e recordes.",
-          "fact": "Amostras antigas de sangue são às vezes testadas anos depois, e um resultado ainda muda."
+          "hint": "O doping engana todos os outros.",
+          "explanation": "Quem usa doping sai do resultado e perde medalhas e recordes.",
+          "fact": "Às vezes, amostras antigas de sangue são testadas anos depois, e um resultado ainda muda."
         },
         "da": {
           "prompt": "Hvad sker der med en rekord, hvis idrætsmanden tog doping?",
@@ -4374,16 +4374,16 @@
           "fact": "In un tentativo di record a volte cinque lepri corrono a freccia contro il vento."
         },
         "pt": {
-          "prompt": "O que faz uma lebre numa corrida?",
+          "prompt": "O que faz um coelho em uma corrida?",
           "answer": "Marca o ritmo",
           "wrong": [
             "Ganha sempre",
             "Distribui água",
-            "Apoia da beira"
+            "Torce da beira da pista"
           ],
-          "hint": "Muitas vezes desiste antes da meta.",
-          "explanation": "A lebre vai depressa à frente nos primeiros quilómetros para os outros fazerem um bom tempo.",
-          "fact": "Numa tentativa de recorde correm às vezes cinco lebres em seta para cortar o vento."
+          "hint": "Muitas vezes ele desiste antes da chegada.",
+          "explanation": "O coelho corre rápido na frente nos primeiros quilômetros para os outros fazerem um bom tempo.",
+          "fact": "Em uma tentativa de recorde, às vezes cinco coelhos correm em formato de flecha para cortar o vento."
         },
         "da": {
           "prompt": "Hvad gør en hare i et løb?",
@@ -4512,7 +4512,7 @@
             "É para crianças"
           ],
           "hint": "Duas listas lado a lado.",
-          "explanation": "Um recorde olímpico é a melhor marca de sempre nos Jogos; fora deles alguém pode ser mais rápido.",
+          "explanation": "Um recorde olímpico é a melhor marca de todos os tempos nos Jogos; fora deles, alguém pode ser mais rápido.",
           "fact": "Por isso às vezes o recorde olímpico é mais lento do que o mundial."
         },
         "da": {
@@ -4634,7 +4634,7 @@
           "fact": "Otto anni dopo, a settantadue anni, vinse ancora una medaglia d'argento."
         },
         "pt": {
-          "prompt": "Que idade tinha o campeão olímpico mais velho de sempre?",
+          "prompt": "Quantos anos tinha o campeão olímpico mais velho de todos os tempos?",
           "answer": "Sessenta e quatro anos",
           "wrong": [
             "Dezoito anos",
@@ -4764,16 +4764,16 @@
           "fact": "Molti degli ultimi record del mondo maschili sono stati corsi lì."
         },
         "pt": {
-          "prompt": "Porque caem tantos recordes da maratona em Berlim?",
+          "prompt": "Por que tantos recordes da maratona caem em Berlim?",
           "answer": "O percurso é plano",
           "wrong": [
-            "Há sempre vento a favor",
+            "Sempre há vento a favor",
             "A distância é mais curta",
-            "Há mais adeptos"
+            "Há mais torcedores"
           ],
-          "hint": "Uma cidade plana com outono fresco.",
+          "hint": "Uma cidade plana, com outono fresco.",
           "explanation": "Berlim tem um percurso plano com poucas curvas e tempo fresco, ideal para um recorde.",
-          "fact": "Muitos dos últimos recordes mundiais masculinos foram corridos ali."
+          "fact": "Muitos dos últimos recordes mundiais masculinos foram feitos lá."
         },
         "da": {
           "prompt": "Hvorfor falder maratonverdensrekorder ofte i Berlin?",
@@ -4894,16 +4894,16 @@
           "fact": "Sui cento metri si gioca da anni su centesimi di secondo."
         },
         "pt": {
-          "prompt": "Porque é cada vez mais difícil bater um recorde?",
-          "answer": "Chegamos ao limite",
+          "prompt": "Por que é cada vez mais difícil bater um recorde?",
+          "answer": "Estamos chegando ao limite",
           "wrong": [
-            "Já ninguém treina",
+            "Ninguém treina mais",
             "As regras proíbem",
-            "Os relógios estão avariados"
+            "Os relógios estão quebrados"
           ],
           "hint": "Cada décimo de segundo custa mais trabalho do que o anterior.",
-          "explanation": "Quanto mais um recorde já avançou, mais pequenos são os passos ainda possíveis.",
-          "fact": "Nos cem metros luta-se há anos por centésimos de segundo."
+          "explanation": "Quanto mais um recorde já avançou, menores são os passos ainda possíveis.",
+          "fact": "Nos cem metros, há anos a luta é por centésimos de segundo."
         },
         "da": {
           "prompt": "Hvorfor bliver rekorder sværere og sværere at slå?",
@@ -5024,16 +5024,16 @@
           "fact": "Durante la fuga spinse per ore una barca che affondava verso la costa."
         },
         "pt": {
-          "prompt": "Por que equipa nadou Yusra Mardini nos Jogos?",
-          "answer": "A equipa de refugiados",
+          "prompt": "Por qual equipe Yusra Mardini nadou nos Jogos?",
+          "answer": "A equipe de refugiados",
           "wrong": [
-            "A equipa do país anfitrião",
-            "A equipa da escola",
-            "A equipa de inverno"
+            "A equipe do país-sede",
+            "A equipe da escola",
+            "A equipe de inverno"
           ],
-          "hint": "Uma equipa sem país próprio.",
-          "explanation": "Mardini fugiu da Síria e em 2016 nadou na equipa de refugiados, sob a bandeira olímpica.",
-          "fact": "Na fuga ajudou durante horas a empurrar um barco que afundava para a costa."
+          "hint": "Uma equipe sem país próprio.",
+          "explanation": "Mardini fugiu da Síria e, em 2016, nadou pela equipe de refugiados, sob a bandeira olímpica.",
+          "fact": "Na fuga, ela ajudou durante horas a empurrar até a costa um barco que estava afundando."
         },
         "da": {
           "prompt": "Hvilket hold svømmede Yusra Mardini for ved legene?",
@@ -5154,16 +5154,16 @@
           "fact": "La maglia gialla esiste dal 1919, sedici anni dopo il primo Tour."
         },
         "pt": {
-          "prompt": "Porque é amarela a camisola do líder da Volta a França?",
+          "prompt": "Por que a camisa do líder da Volta da França é amarela?",
           "answer": "O jornal era amarelo",
           "wrong": [
             "É a cor da França",
             "É a cor do ouro",
-            "O vencedor escolheu-a"
+            "O vencedor a escolheu"
           ],
-          "hint": "Pensa no jornal que inventou a corrida.",
+          "hint": "Pense no jornal que inventou a corrida.",
           "explanation": "A Volta foi inventada pelo jornal L'Auto, que era impresso em papel amarelo.",
-          "fact": "A camisola amarela existe desde 1919, dezesseis anos depois da primeira Volta."
+          "fact": "A camisa amarela existe desde 1919, dezesseis anos depois da primeira Volta."
         },
         "da": {
           "prompt": "Hvorfor er førertrøjen i Tour de France gul?",

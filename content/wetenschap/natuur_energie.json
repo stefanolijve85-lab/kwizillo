@@ -92,8 +92,8 @@
             "A neve"
           ],
           "hint": "Vem de muito longe.",
-          "explanation": "Num painel, as partículas de luz arrancam eletricidade a uma camada de silício.",
-          "fact": "Mesmo num dia frio os painéis funcionam, desde que haja luz."
+          "explanation": "Em um painel, as partículas de luz arrancam eletricidade de uma camada de silício.",
+          "fact": "Mesmo em um dia frio, os painéis funcionam, desde que haja luz."
         },
         "da": {
           "prompt": "Hvad laver solceller om til strøm?",
@@ -214,16 +214,16 @@
           "fact": "Gli apparecchi in stand-by insieme consumano parecchio."
         },
         "pt": {
-          "prompt": "O que podes fazer em casa para poupar energia?",
+          "prompt": "O que você pode fazer em casa para economizar energia?",
           "answer": "Apagar a luz",
           "wrong": [
             "Acender todas as lâmpadas",
             "Deixar a porta aberta",
-            "Deixar a torneira a correr"
+            "Deixar a torneira aberta"
           ],
-          "hint": "Pensa numa sala vazia.",
+          "hint": "Pense em uma sala vazia.",
           "explanation": "O que está desligado não gasta nada de eletricidade.",
-          "fact": "Os aparelhos em espera juntos gastam bastante."
+          "fact": "Os aparelhos em modo de espera, juntos, gastam bastante."
         },
         "da": {
           "prompt": "Hvad kan du gøre derhjemme for at spare energi?",
@@ -344,16 +344,16 @@
           "fact": "Di un pieno solo un terzo diventa davvero movimento."
         },
         "pt": {
-          "prompt": "Que combustível vai num carro normal?",
+          "prompt": "Que combustível vai em um carro normal?",
           "answer": "Gasolina",
           "wrong": [
             "Leite",
             "Água",
             "Areia"
           ],
-          "hint": "Enche-se na bomba.",
-          "explanation": "A gasolina e o gasóleo vêm do petróleo e ardem no motor.",
-          "fact": "De um depósito cheio só um terço vira mesmo movimento."
+          "hint": "Você enche o tanque no posto.",
+          "explanation": "A gasolina e o diesel vêm do petróleo e queimam no motor.",
+          "fact": "De um tanque cheio, só um terço vira movimento de verdade."
         },
         "da": {
           "prompt": "Hvilket brændstof kommer i en almindelig bil?",
@@ -483,7 +483,7 @@
           ],
           "hint": "Não se vê, mas funciona.",
           "explanation": "Da tomada sai corrente elétrica, trazida por cabos.",
-          "fact": "Nunca metas lá nada a não ser uma ficha."
+          "fact": "Nunca coloque nada lá, a não ser um plugue."
         },
         "da": {
           "prompt": "Hvad kommer der ud af en stikkontakt?",
@@ -604,16 +604,16 @@
           "fact": "Quanto è pulita dipende da come è stata prodotta quella corrente."
         },
         "pt": {
-          "prompt": "Que carro anda sem gases de escape?",
+          "prompt": "Que carro anda sem soltar gases pelo escapamento?",
           "answer": "Um carro elétrico",
           "wrong": [
-            "Um carro a gasóleo",
-            "Uma motorizada",
-            "Um caça"
+            "Um carro a diesel",
+            "Uma moto",
+            "Um avião de caça"
           ],
-          "hint": "Carrega-se com um cabo.",
-          "explanation": "Um carro elétrico não tem escape; a energia vem de uma bateria.",
-          "fact": "Quão limpo é depende de como se fez essa eletricidade."
+          "hint": "Ele é carregado com um cabo.",
+          "explanation": "Um carro elétrico não tem escapamento; a energia vem de uma bateria.",
+          "fact": "O quanto ele é limpo depende de como essa eletricidade foi produzida."
         },
         "da": {
           "prompt": "Hvilken bil kører uden udstødning?",
@@ -734,16 +734,16 @@
           "fact": "Una grande pala in mare dà corrente a migliaia di case."
         },
         "pt": {
-          "prompt": "Porque se põem os aerogeradores no mar?",
+          "prompt": "Por que os aerogeradores são colocados no mar?",
           "answer": "Lá o vento é mais forte",
           "wrong": [
             "Lá é mais quente",
             "Lá chove menos",
-            "Lá é mais sossegado"
+            "Lá é mais tranquilo"
           ],
-          "hint": "Nem casas nem árvores à frente.",
-          "explanation": "No mar há vento quase sempre e nada o trava.",
-          "fact": "Um grande aerogerador no mar dá luz a milhares de casas."
+          "hint": "Nem casas nem árvores na frente.",
+          "explanation": "No mar, venta quase sempre e nada segura o vento.",
+          "fact": "Um grande aerogerador no mar fornece luz para milhares de casas."
         },
         "da": {
           "prompt": "Hvorfor sætter man vindmøller på havet?",
@@ -864,14 +864,14 @@
           "fact": "Per questo un led consuma molto meno: resta quasi freddo."
         },
         "pt": {
-          "prompt": "O que acontece a uma lâmpada acesa?",
+          "prompt": "O que acontece com uma lâmpada acesa?",
           "answer": "Fica muito quente",
           "wrong": [
             "Fica fria",
             "Fica pesada",
             "Fica molhada"
           ],
-          "hint": "É melhor não lhe tocares.",
+          "hint": "É melhor não tocar nela.",
           "explanation": "A maior parte da energia vira calor em vez de luz.",
           "fact": "Por isso um led gasta muito menos: fica quase frio."
         },
@@ -994,16 +994,16 @@
           "fact": "D'inverno il vetro interno resta tiepido e non si appanna."
         },
         "pt": {
-          "prompt": "Para que serve o vidro duplo numa janela?",
+          "prompt": "Para que serve o vidro duplo em uma janela?",
           "answer": "Segura o calor dentro",
           "wrong": [
-            "Torna a luz mais viva",
+            "Deixa a luz mais viva",
             "Colore a luz",
-            "Torna o vidro mais fino"
+            "Deixa o vidro mais fino"
           ],
           "hint": "Há ar entre dois vidros.",
           "explanation": "A camada de ar ou gás entre os vidros deixa passar muito menos calor.",
-          "fact": "No inverno o vidro de dentro fica morno e não embacia."
+          "fact": "No inverno, o vidro de dentro fica morno e não embaça."
         },
         "da": {
           "prompt": "Hvad gør termoruder i et vindue?",
@@ -1131,9 +1131,9 @@
             "Da água do mar",
             "Das árvores"
           ],
-          "hint": "É preciso furar para o tirar.",
-          "explanation": "O gás está nos poros da rocha, a quilómetros de profundidade.",
-          "fact": "Formou-se de restos de plantas e bichinhos de há milhões de anos."
+          "hint": "É preciso perfurar para tirá-lo.",
+          "explanation": "O gás está nos poros da rocha, a quilômetros de profundidade.",
+          "fact": "Ele se formou de restos de plantas e bichinhos de milhões de anos atrás."
         },
         "da": {
           "prompt": "Hvor kommer naturgas fra?",
@@ -1254,16 +1254,16 @@
           "fact": "Per questo una bici con dinamo è un po' più dura da pedalare."
         },
         "pt": {
-          "prompt": "O que faz um dínamo numa bicicleta?",
+          "prompt": "O que faz um dínamo em uma bicicleta?",
           "answer": "Produz corrente",
           "wrong": [
-            "Trava a roda",
+            "Freia a roda",
             "Enche o pneu",
             "Mede a velocidade"
           ],
-          "hint": "Tens de pedalar para isso.",
-          "explanation": "A roda a girar faz girar um íman, e isso gera corrente.",
-          "fact": "Por isso uma bicicleta com dínamo pedala um pouco mais duro."
+          "hint": "Você tem que pedalar para isso.",
+          "explanation": "A roda girando faz girar um ímã, e isso gera corrente.",
+          "fact": "Por isso, uma bicicleta com dínamo fica um pouco mais pesada de pedalar."
         },
         "da": {
           "prompt": "Hvad gør en dynamo på en cykel?",
@@ -1384,16 +1384,16 @@
           "fact": "Così proteggono le proprie pale."
         },
         "pt": {
-          "prompt": "Porque estão às vezes os aerogeradores parados?",
-          "answer": "Vento a menos ou a mais",
+          "prompt": "Por que os aerogeradores às vezes ficam parados?",
+          "answer": "Vento de menos ou demais",
           "wrong": [
-            "Estão a carregar",
-            "Descansam de noite",
+            "Estão carregando",
+            "Descansam à noite",
             "Estão cheios"
           ],
           "hint": "A tempestade também é um problema.",
-          "explanation": "Com pouco vento não arrancam; com tempestade viram-nos para fora do vento.",
-          "fact": "Assim protegem as próprias pás."
+          "explanation": "Com pouco vento, eles não começam a girar; com tempestade, são virados para fora do vento.",
+          "fact": "Assim eles protegem as próprias pás."
         },
         "da": {
           "prompt": "Hvorfor står vindmøller nogle gange stille?",
@@ -1515,15 +1515,15 @@
         },
         "pt": {
           "prompt": "O que mede um quilowatt-hora?",
-          "answer": "A eletricidade que gastas",
+          "answer": "A energia que você gasta",
           "wrong": [
             "O calor lá fora",
             "A força do vento",
-            "A água que gastas"
+            "A água que você gasta"
           ],
-          "hint": "Está na fatura da energia.",
+          "hint": "Está na conta de luz.",
           "explanation": "Um quilowatt-hora é usar mil watts durante uma hora.",
-          "fact": "Uma lâmpada led fica acesa mais de cem horas com isso."
+          "fact": "Uma lâmpada de led fica acesa mais de cem horas com isso."
         },
         "da": {
           "prompt": "Hvad måler en kilowatt-time?",
@@ -1644,16 +1644,16 @@
           "fact": "Vale solo se si ripianta quanto si taglia."
         },
         "pt": {
-          "prompt": "Porque é a lenha um combustível renovável?",
-          "answer": "Nascem árvores novas",
+          "prompt": "Por que a lenha é um combustível renovável?",
+          "answer": "Árvores novas nascem",
           "wrong": [
-            "Não arde",
+            "Não queima",
             "É muito antiga",
             "Vem de uma mina"
           ],
           "hint": "Pode voltar a crescer.",
-          "explanation": "As árvores novas voltam a absorver dióxido de carbono, por isso o combustível cresce de novo.",
-          "fact": "Só é verdade se se replantar tanto como se corta."
+          "explanation": "As árvores novas voltam a absorver gás carbônico, por isso o combustível cresce de novo.",
+          "fact": "Isso só é verdade se for replantado tanto quanto é cortado."
         },
         "da": {
           "prompt": "Hvorfor kaldes træ et vedvarende brændsel?",
@@ -1774,16 +1774,16 @@
           "fact": "Quel vapore fa girare una turbina, come in ogni centrale."
         },
         "pt": {
-          "prompt": "O que acontece numa central nuclear?",
-          "answer": "Partem-se átomos",
+          "prompt": "O que acontece em uma usina nuclear?",
+          "answer": "Átomos são quebrados",
           "wrong": [
-            "Queima-se carvão",
-            "Parte-se a água",
-            "Guarda-se o vento"
+            "Carvão é queimado",
+            "A água é quebrada",
+            "O vento é guardado"
           ],
-          "hint": "Liberta-se imenso calor.",
-          "explanation": "Ao partir urânio liberta-se calor, que transforma a água em vapor.",
-          "fact": "Esse vapor move uma turbina, como em qualquer central."
+          "hint": "Ela libera muito calor.",
+          "explanation": "Quando o urânio se quebra, ele libera calor, que transforma a água em vapor.",
+          "fact": "Esse vapor move uma turbina, como em qualquer usina."
         },
         "da": {
           "prompt": "Hvad sker der i et atomkraftværk?",
@@ -1904,16 +1904,16 @@
           "fact": "A est e a ovest si produce meno al giorno, ma in modo più costante."
         },
         "pt": {
-          "prompt": "Porque olham os painéis solares para sul?",
-          "answer": "Lá o sol dura mais tempo",
+          "prompt": "Por que, no hemisfério norte, os painéis solares ficam virados para o sul?",
+          "answer": "Lá o sol fica mais tempo",
           "wrong": [
             "Lá o ar é mais limpo",
-            "Lá há menos vento",
+            "Lá venta menos",
             "Lá o telhado aguenta mais"
           ],
-          "hint": "Segue o percurso do sol.",
-          "explanation": "A norte do equador o sol está a sul quase todo o dia.",
-          "fact": "Virados a este e a oeste produzem menos por dia, mas de forma mais regular."
+          "hint": "Siga o caminho do sol.",
+          "explanation": "Ao norte do equador, o sol fica ao sul quase o dia todo.",
+          "fact": "Virados para leste e oeste, eles produzem menos por dia, mas de forma mais regular."
         },
         "da": {
           "prompt": "Hvorfor vender solceller ofte mod syd?",
@@ -2034,16 +2034,16 @@
           "fact": "Un led ricava dalla stessa corrente dieci volte più luce."
         },
         "pt": {
-          "prompt": "Quanta energia de uma lâmpada vira luz?",
+          "prompt": "Quanto da energia de uma lâmpada vira luz?",
           "answer": "Cerca de cinco por cento",
           "wrong": [
-            "Cerca de metade",
+            "Cerca da metade",
             "Quase toda",
             "Cerca de um terço"
           ],
-          "hint": "O resto sentes como calor.",
-          "explanation": "Numa lâmpada de filamento só uma pequena parte vira luz; o resto aquece.",
-          "fact": "Um led tira da mesma corrente dez vezes mais luz."
+          "hint": "O resto você sente como calor.",
+          "explanation": "Em uma lâmpada incandescente, só uma pequena parte vira luz; o resto esquenta.",
+          "fact": "Um led tira dez vezes mais luz da mesma corrente."
         },
         "da": {
           "prompt": "Hvor meget af en glødepæres energi bliver til lys?",
@@ -2169,11 +2169,11 @@
           "wrong": [
             "Faz calor com carvão",
             "Bombeia água quente",
-            "Queima gás sem fumo"
+            "Queima gás sem fumaça"
           ],
-          "hint": "Como um frigorífico ao contrário.",
-          "explanation": "Uma bomba de calor leva o calor de fora para dentro em vez de o criar.",
-          "fact": "Mesmo a gelar ainda há calor suficiente no ar lá fora."
+          "hint": "Como uma geladeira ao contrário.",
+          "explanation": "Uma bomba de calor leva o calor de fora para dentro, em vez de criá-lo.",
+          "fact": "Mesmo com frio abaixo de zero, ainda há calor suficiente no ar lá fora."
         },
         "da": {
           "prompt": "Hvad gør en varmepumpe?",
@@ -2294,16 +2294,16 @@
           "fact": "In una giornata grigia un pannello arriva spesso a un quarto della potenza."
         },
         "pt": {
-          "prompt": "Porque funciona um painel solar com nuvens?",
+          "prompt": "Por que um painel solar funciona com nuvens?",
           "answer": "Ainda passa alguma luz",
           "wrong": [
             "Funciona com chuva",
             "Guarda as nuvens",
-            "Gira mais depressa"
+            "Gira mais rápido"
           ],
           "hint": "Lá fora ainda é de dia.",
-          "explanation": "As nuvens travam muita luz mas não toda, por isso o painel rende menos.",
-          "fact": "Num dia cinzento um painel chega muitas vezes a um quarto da potência."
+          "explanation": "As nuvens bloqueiam muita luz, mas não toda, por isso o painel rende menos.",
+          "fact": "Em um dia cinzento, um painel muitas vezes chega a um quarto da potência."
         },
         "da": {
           "prompt": "Hvorfor virker en solcelle også i skyet vejr?",
@@ -2424,16 +2424,16 @@
           "fact": "Vicino a casa tua la tensione viene riabbassata."
         },
         "pt": {
-          "prompt": "Porque viaja a eletricidade em alta tensão?",
-          "answer": "Assim perde-se menos",
+          "prompt": "Por que a eletricidade viaja em alta tensão?",
+          "answer": "Assim se perde menos",
           "wrong": [
-            "Assim vai mais depressa",
+            "Assim vai mais rápido",
             "Assim é mais barata",
             "Assim o cabo fica fino"
           ],
-          "hint": "Senão o cabo aquece.",
-          "explanation": "Com alta tensão passa menos corrente no cabo, por isso perde-se menos calor.",
-          "fact": "Perto da tua casa a tensão volta a baixar."
+          "hint": "Senão o cabo esquenta.",
+          "explanation": "Com alta tensão, passa menos corrente no cabo, por isso se perde menos calor.",
+          "fact": "Perto da sua casa, a tensão volta a baixar."
         },
         "da": {
           "prompt": "Hvorfor sendes strøm ud i landet med høj spænding?",
@@ -2554,16 +2554,16 @@
           "fact": "Per questo conviene far partire la lavatrice in un'ora tranquilla."
         },
         "pt": {
-          "prompt": "O que acontece se todos gastarem muito ao mesmo tempo?",
+          "prompt": "O que acontece se todo mundo gastar muito ao mesmo tempo?",
           "answer": "A rede fica sobrecarregada",
           "wrong": [
             "A corrente aquece",
             "O sol brilha mais",
             "Os cabos esticam"
           ],
-          "hint": "Pensa numa estrada cheia.",
-          "explanation": "A rede só aguenta certa quantidade de cada vez; depois é preciso ligar mais fontes.",
-          "fact": "Por isso ajuda pôr a máquina a lavar numa hora calma."
+          "hint": "Pense em uma estrada cheia.",
+          "explanation": "A rede só aguenta uma certa quantidade de cada vez; depois é preciso ligar mais fontes.",
+          "fact": "Por isso ajuda ligar a máquina de lavar em um horário tranquilo."
         },
         "da": {
           "prompt": "Hvad sker der, hvis alle bruger meget strøm på én gang?",

@@ -93,7 +93,7 @@
           ],
           "hint": "Brilha muito.",
           "explanation": "Nas histórias um tesouro é quase sempre ouro, moedas e pedras preciosas.",
-          "fact": "Os arqueólogos a sério muitas vezes preferem um caco a ouro."
+          "fact": "Os arqueólogos de verdade muitas vezes preferem um caco a ouro."
         },
         "da": {
           "prompt": "Hvad består en skat af i gamle fortællinger?",
@@ -215,15 +215,15 @@
         },
         "pt": {
           "prompt": "Onde guardam o tesouro os piratas das histórias?",
-          "answer": "Numa arca",
+          "answer": "Em uma arca",
           "wrong": [
-            "Num balão",
-            "Num sapato",
-            "Numa frigideira"
+            "Em um balão",
+            "Em um sapato",
+            "Em uma frigideira"
           ],
           "hint": "Com um cadeado pesado.",
           "explanation": "A arca de madeira com bandas de ferro aparece em todas as histórias de piratas.",
-          "fact": "Os piratas verdadeiros quase nunca enterravam o saque: gastavam-no logo."
+          "fact": "Os piratas de verdade quase nunca enterravam o saque: gastavam logo."
         },
         "da": {
           "prompt": "Hvad gemmer pirater i fortællinger deres skat i?",
@@ -351,8 +351,8 @@
             "Com uma vassoura",
             "Com um garfo"
           ],
-          "hint": "Pisas-lhe em cima.",
-          "explanation": "Com uma pá tiras a terra até chegares ao achado.",
+          "hint": "Você pisa em cima dela.",
+          "explanation": "Com uma pá, você tira a terra até chegar ao achado.",
           "fact": "Perto do achado o arqueólogo troca a pá pela colher de pedreiro."
         },
         "da": {
@@ -475,15 +475,15 @@
         },
         "pt": {
           "prompt": "Que aparelho apita quando há metal no chão?",
-          "answer": "Um detetor de metais",
+          "answer": "Um detector de metais",
           "wrong": [
             "Um secador",
             "Um despertador",
             "Uma flauta"
           ],
-          "hint": "Passa-se por cima do chão.",
-          "explanation": "O detetor cria um campo magnético e nota o metal por baixo.",
-          "fact": "Muitos grandes tesouros de moedas foram achados por amadores com um deles."
+          "hint": "Você passa com ele por cima do chão.",
+          "explanation": "O detector cria um campo magnético e percebe o metal embaixo.",
+          "fact": "Muitos grandes tesouros de moedas foram achados por amadores com um desses."
         },
         "da": {
           "prompt": "Hvilket apparat bipper ved metal i jorden?",
@@ -612,8 +612,8 @@
             "Na neve"
           ],
           "hint": "Bem lá no fundo.",
-          "explanation": "Num destroço podem ainda estar a carga e os pertences da tripulação.",
-          "fact": "A água salgada conserva mal a madeira, mas a lama conserva-a muito bem."
+          "explanation": "Em um navio naufragado, ainda podem estar a carga e os pertences da tripulação.",
+          "fact": "A água salgada conserva mal a madeira, mas a lama a conserva muito bem."
         },
         "da": {
           "prompt": "Hvor leder dykkere efter skjulte skatte?",
@@ -734,7 +734,7 @@
           "fact": "Scavare alla cieca distrugge gli strati che gli archeologi leggono."
         },
         "pt": {
-          "prompt": "Porque não se pode escavar em qualquer sítio?",
+          "prompt": "Por que não se pode escavar em qualquer lugar?",
           "answer": "Os achados são protegidos",
           "wrong": [
             "Escavar cansa demais",
@@ -864,16 +864,16 @@
           "fact": "A volte un vecchio bottone si rivela una moneta romana."
         },
         "pt": {
-          "prompt": "O que fazes se encontrares algo muito antigo no jardim?",
+          "prompt": "O que você faz se encontrar algo muito antigo no jardim?",
           "answer": "Avisar um museu",
           "wrong": [
             "Vender logo",
-            "Deitar fora",
+            "Jogar fora",
             "Esconder bem"
           ],
           "hint": "Os outros também querem saber.",
           "explanation": "Os especialistas podem dizer o que é e de que época vem.",
-          "fact": "Às vezes um botão velho é afinal uma moeda romana."
+          "fact": "Às vezes um botão velho é, na verdade, uma moeda romana."
         },
         "da": {
           "prompt": "Hvad gør du, hvis du finder noget meget gammelt i haven?",
@@ -1003,7 +1003,7 @@
           ],
           "hint": "Com pincel e colher.",
           "explanation": "Um arqueólogo escava camada a camada e anota exatamente o que estava onde.",
-          "fact": "Onde estava algo importa-lhe mais do que o seu valor."
+          "fact": "Onde algo estava importa mais para ele do que o valor."
         },
         "da": {
           "prompt": "Hvad laver en arkæolog?",
@@ -1124,15 +1124,15 @@
           "fact": "Certe città antiche stanno dieci metri sotto il livello della strada."
         },
         "pt": {
-          "prompt": "Porque estão as cidades antigas debaixo de terra?",
+          "prompt": "Por que as cidades antigas estão embaixo da terra?",
           "answer": "A terra foi acumulando",
           "wrong": [
             "Afundaram com o peso",
             "Alguém as enterrou",
-            "Sempre estiveram por baixo"
+            "Sempre estiveram embaixo"
           ],
           "hint": "Entulho, pó e obra nova.",
-          "explanation": "Construía-se sobre os escombros da cidade anterior e assim o solo subia.",
+          "explanation": "Construíam sobre os escombros da cidade anterior, e assim o chão subia.",
           "fact": "Algumas cidades antigas ficam dez metros abaixo da rua de hoje."
         },
         "da": {
@@ -1259,9 +1259,9 @@
           "wrong": [
             "É muito leve",
             "Derrete ao sol",
-            "Dissolve-se na água"
+            "Se dissolve na água"
           ],
-          "hint": "Ainda brilha ao fim de mil anos.",
+          "hint": "Ainda brilha depois de mil anos.",
           "explanation": "O ouro quase não reage com nada, por isso fica bonito durante séculos.",
           "fact": "Uma máscara de ouro de um túmulo parece nova."
         },
@@ -1384,16 +1384,16 @@
           "fact": "Nelle brughiere ce ne sono centinaia, spesso lungo un sentiero."
         },
         "pt": {
-          "prompt": "O que é uma mamoa ou túmulo de terra?",
-          "answer": "Um outeiro com uma sepultura",
+          "prompt": "O que é um túmulo de terra?",
+          "answer": "Um morro com um túmulo",
           "wrong": [
             "Um monte cheio de ouro",
             "Um monte de areia",
             "Um vulcão antigo"
           ],
-          "hint": "Vê-se de longe.",
-          "explanation": "Há milénios cobria-se uma sepultura com um outeiro de areia e torrões.",
-          "fact": "Nas charnecas há centenas, muitas vezes ao lado de um trilho."
+          "hint": "Dá para ver de longe.",
+          "explanation": "Há milênios, as pessoas cobriam uma sepultura com um morrinho de areia e torrões.",
+          "fact": "Nas charnecas há centenas, muitas vezes ao lado de uma trilha."
         },
         "da": {
           "prompt": "Hvad er en gravhøj?",
@@ -1514,12 +1514,12 @@
           "fact": "Una sola moneta può datare uno scavo intero."
         },
         "pt": {
-          "prompt": "Porque são as moedas tão úteis aos arqueólogos?",
-          "answer": "Denunciam a época",
+          "prompt": "Por que as moedas são tão úteis para os arqueólogos?",
+          "answer": "Revelam a época",
           "wrong": [
             "São de ouro",
             "São pesadas",
-            "Enferrujam depressa"
+            "Enferrujam rápido"
           ],
           "hint": "Têm um rosto gravado.",
           "explanation": "O governante retratado diz de que período é a camada.",
@@ -1651,9 +1651,9 @@
             "A pedra de Roseta",
             "Um diário de bordo"
           ],
-          "hint": "Estavam dentro de bilhas.",
-          "explanation": "Em 1947 um pastor achou bilhas com manuscritos de mais de dois mil anos.",
-          "fact": "O sítio era tão seco que o pergaminho aguentou todo esse tempo."
+          "hint": "Estavam dentro de jarros.",
+          "explanation": "Em 1947, um pastor achou jarros com manuscritos de mais de dois mil anos.",
+          "fact": "O lugar era tão seco que o pergaminho aguentou todo esse tempo."
         },
         "da": {
           "prompt": "Hvilke gamle skriftruller blev fundet ved Det Døde Hav?",
@@ -1782,8 +1782,8 @@
             "Uma lápide"
           ],
           "hint": "O mesmo texto em três escritas.",
-          "explanation": "Como o mesmo texto lá estava em grego, os sábios puderam ler os hieróglifos.",
-          "fact": "Antes disso ninguém os lia há quase quinze séculos."
+          "explanation": "Como o mesmo texto estava lá em grego, os sábios conseguiram ler os hieróglifos.",
+          "fact": "Antes disso, ninguém os lia havia quase quinze séculos."
         },
         "da": {
           "prompt": "Hvad er Rosettestenen?",
@@ -1904,16 +1904,16 @@
           "fact": "In certe vetrine c'è un'aria speciale senza ossigeno."
         },
         "pt": {
-          "prompt": "Porque estão os tesouros do museu atrás de vidro?",
+          "prompt": "Por que os tesouros do museu ficam atrás de vidro?",
           "answer": "O ar e as mãos estragam",
           "wrong": [
-            "Senão não agradavam",
+            "Senão não agradariam",
             "Fica mais arrumado",
             "O vidro dá brilho ao ouro"
           ],
           "hint": "Por isso não se toca.",
-          "explanation": "A humidade, a gordura dos dedos e o oxigénio atacam devagar o que é antigo.",
-          "fact": "Algumas vitrinas têm um ar especial sem oxigénio."
+          "explanation": "A umidade, a gordura dos dedos e o oxigênio atacam devagar o que é antigo.",
+          "fact": "Algumas vitrines têm um ar especial, sem oxigênio."
         },
         "da": {
           "prompt": "Hvorfor står museers skatte bag glas?",
@@ -2042,7 +2042,7 @@
             "Um submarino"
           ],
           "hint": "Afundou na primeira viagem.",
-          "explanation": "O navio de guerra tombou ao fim de umas centenas de metros e ficou três séculos no fundo.",
+          "explanation": "O navio de guerra tombou depois de algumas centenas de metros e ficou três séculos no fundo.",
           "fact": "A água fria e salgada manteve a madeira quase inteira."
         },
         "da": {
@@ -2164,16 +2164,16 @@
           "fact": "Così sono emersi scarpe, vestiti e perfino pani di millenni fa."
         },
         "pt": {
-          "prompt": "Porque se conservam tão bem as coisas na turfa?",
-          "answer": "Não lhes chega oxigénio",
+          "prompt": "Por que as coisas se conservam tão bem na turfa?",
+          "answer": "Não chega oxigênio a elas",
           "wrong": [
             "A turfa é muito fria",
             "A turfa é de sal",
             "A turfa é muito dura"
           ],
           "hint": "Sem ar nada apodrece.",
-          "explanation": "A turfa húmida quase não tem oxigénio, por isso as bactérias não trabalham.",
-          "fact": "Assim apareceram sapatos, roupas e até pães de há milhares de anos."
+          "explanation": "A turfa úmida quase não tem oxigênio, por isso as bactérias não trabalham.",
+          "fact": "Assim apareceram sapatos, roupas e até pães de milhares de anos atrás."
         },
         "da": {
           "prompt": "Hvorfor bevares ting så godt i tørvemose?",
@@ -2427,13 +2427,13 @@
           "prompt": "O que é um tesouro de moedas enterrado?",
           "answer": "Dinheiro que alguém escondeu",
           "wrong": [
-            "Um mealheiro velho",
+            "Um cofrinho velho",
             "Um museu de moedas",
             "Uma casa da moeda"
           ],
-          "hint": "Muitas vezes num pote ou num pano.",
-          "explanation": "Em tempo de perigo escondia-se o dinheiro na terra e às vezes ninguém voltava.",
-          "fact": "São esses potes esquecidos que nos dizem quando havia guerra à porta."
+          "hint": "Muitas vezes em um pote ou em um pano.",
+          "explanation": "Em tempos de perigo, as pessoas escondiam o dinheiro na terra, e às vezes ninguém voltava.",
+          "fact": "São esses potes esquecidos que nos contam quando havia guerra por perto."
         },
         "da": {
           "prompt": "Hvad er en nedgravet møntskat?",
@@ -2555,15 +2555,15 @@
         },
         "pt": {
           "prompt": "O que se deve fazer com um achado antigo na maioria dos países?",
-          "answer": "Comunicá-lo",
+          "answer": "Comunicar o achado",
           "wrong": [
             "Ficar com ele",
-            "Voltar a enterrá-lo",
+            "Enterrar de novo",
             "Pagar uma multa"
           ],
           "hint": "Em poucos dias.",
-          "explanation": "Um achado arqueológico comunica-se para poder ser estudado e guardado.",
-          "fact": "Quem o acha e o dono do terreno repartem depois muitas vezes o valor."
+          "explanation": "Um achado arqueológico deve ser comunicado para poder ser estudado e guardado.",
+          "fact": "Depois, quem acha e o dono do terreno muitas vezes dividem o valor."
         },
         "da": {
           "prompt": "Hvad skal man gøre med et gammelt fund i de fleste lande?",

@@ -84,16 +84,16 @@
           "fact": "Il calcio è lo sport più praticato al mondo."
         },
         "pt": {
-          "prompt": "Com que parte do corpo se joga sobretudo futebol?",
+          "prompt": "Com que parte do corpo se joga futebol, principalmente?",
           "answer": "Com os pés",
           "wrong": [
             "Com as mãos",
             "Com as orelhas",
             "Com o nariz"
           ],
-          "hint": "Só o guarda-redes faz diferente.",
-          "explanation": "No futebol tocas a bola com o pé, a cabeça ou o peito, mas não com as mãos.",
-          "fact": "O futebol é o desporto mais praticado do mundo."
+          "hint": "Só o goleiro faz diferente.",
+          "explanation": "No futebol, você toca a bola com o pé, a cabeça ou o peito, mas não com as mãos.",
+          "fact": "O futebol é o esporte mais praticado do mundo."
         },
         "da": {
           "prompt": "Hvilken kropsdel spiller man mest fodbold med?",
@@ -214,16 +214,16 @@
           "fact": "In panchina aspettano altri pronti a entrare."
         },
         "pt": {
-          "prompt": "Quantos jogadores por equipa estão no campo de futebol?",
+          "prompt": "Quantos jogadores de cada time ficam em campo no futebol?",
           "answer": "Onze",
           "wrong": [
             "Três",
             "Vinte",
             "Cem"
           ],
-          "hint": "Um deles é o guarda-redes.",
-          "explanation": "Cada equipa joga com onze jogadores, incluindo o guarda-redes.",
-          "fact": "No banco esperam mais jogadores para entrar."
+          "hint": "Um deles é o goleiro.",
+          "explanation": "Cada time joga com onze jogadores, incluindo o goleiro.",
+          "fact": "No banco, mais jogadores esperam para entrar."
         },
         "da": {
           "prompt": "Hvor mange spillere per hold er på banen i fodbold?",
@@ -344,15 +344,15 @@
           "fact": "L'anello è largo esattamente il doppio della palla."
         },
         "pt": {
-          "prompt": "Onde tem de entrar a bola no basquetebol?",
-          "answer": "No cesto",
+          "prompt": "Onde a bola tem que entrar no basquete?",
+          "answer": "Na cesta",
           "wrong": [
-            "Numa baliza",
-            "Numa rede no chão",
-            "Num armário"
+            "Em um gol",
+            "Em uma rede no chão",
+            "Em um armário"
           ],
-          "hint": "Está preso alto num tabela.",
-          "explanation": "Fazes a bola passar pelo aro, a pouco mais de três metros do chão.",
+          "hint": "Fica presa no alto de uma tabela.",
+          "explanation": "Você faz a bola passar pelo aro, a pouco mais de três metros do chão.",
           "fact": "O aro tem exatamente o dobro da largura da bola."
         },
         "da": {
@@ -474,16 +474,16 @@
           "fact": "Può volare sul tavolo a più di cento chilometri orari."
         },
         "pt": {
-          "prompt": "Qual destas quatro bolas é a mais pequena?",
-          "answer": "A de ténis de mesa",
+          "prompt": "Qual destas quatro bolas é a menor?",
+          "answer": "A de tênis de mesa",
           "wrong": [
             "A de futebol",
-            "A de basquetebol",
+            "A de basquete",
             "A de praia"
           ],
           "hint": "É oca e muito leve.",
           "explanation": "Pesa poucos gramas e é do tamanho de uma noz.",
-          "fact": "Pode atravessar a mesa a mais de cem quilómetros por hora."
+          "fact": "Ela pode atravessar a mesa a mais de cem quilômetros por hora."
         },
         "da": {
           "prompt": "Hvilken af disse fire bolde er den mindste?",
@@ -604,7 +604,7 @@
           "fact": "Un professionista fa rincordare la racchetta ogni poche partite."
         },
         "pt": {
-          "prompt": "Com que se bate na bola no ténis?",
+          "prompt": "Com o que se bate na bola no tênis?",
           "answer": "Com uma raquete",
           "wrong": [
             "Com um martelo",
@@ -612,8 +612,8 @@
             "Com um pau"
           ],
           "hint": "Tem cordas.",
-          "explanation": "A raquete tem uma rede de cordas que devolve a bola.",
-          "fact": "Um profissional manda encordoar a raquete a cada poucos jogos."
+          "explanation": "A raquete tem uma rede de cordas que rebate a bola.",
+          "fact": "Um profissional troca as cordas da raquete a cada poucos jogos."
         },
         "da": {
           "prompt": "Hvad slår man til bolden med i tennis?",
@@ -734,16 +734,16 @@
           "fact": "Per questo nei palloni dei professionisti c'è un chip o una telecamera sulla linea."
         },
         "pt": {
-          "prompt": "O que acontece quando a bola passa toda a linha de golo?",
-          "answer": "Então é golo",
+          "prompt": "O que acontece quando a bola passa inteira pela linha do gol?",
+          "answer": "Aí é gol",
           "wrong": [
             "O jogo para",
-            "A bola rebenta",
-            "Trocam-se todos"
+            "A bola estoura",
+            "Todos trocam de lugar"
           ],
-          "hint": "A rede enche.",
-          "explanation": "O golo só conta se a bola passou inteira a linha.",
-          "fact": "Por isso a bola profissional tem um chip ou há uma câmara na linha."
+          "hint": "A rede balança.",
+          "explanation": "O gol só vale se a bola passou inteira pela linha.",
+          "fact": "Por isso a bola profissional tem um chip ou há uma câmera na linha."
         },
         "da": {
           "prompt": "Hvad sker der, når bolden helt passerer mållinjen?",
@@ -864,16 +864,16 @@
           "fact": "Nelle grandi partite lo aiutano assistenti a bordo campo e dietro uno schermo."
         },
         "pt": {
-          "prompt": "Quem vigia as regras durante um jogo?",
+          "prompt": "Quem cuida das regras durante um jogo?",
           "answer": "O árbitro",
           "wrong": [
             "O cozinheiro",
             "O vizinho",
             "O fotógrafo"
           ],
-          "hint": "Traz um apito.",
-          "explanation": "O árbitro decide sobre faltas, golos e tempo.",
-          "fact": "Em jogos grandes ajudam assistentes na linha e atrás de um ecrã."
+          "hint": "Ele leva um apito.",
+          "explanation": "O árbitro decide sobre faltas, gols e tempo.",
+          "fact": "Em jogos grandes, assistentes ajudam na linha e atrás de uma tela."
         },
         "da": {
           "prompt": "Hvem holder øje med reglerne under en kamp?",
@@ -1001,8 +1001,8 @@
             "Um cartão verde",
             "Um cartão branco"
           ],
-          "hint": "Aí tens de sair do campo.",
-          "explanation": "Com vermelho o jogador sai e a equipa continua com menos um.",
+          "hint": "Aí você tem que sair do campo.",
+          "explanation": "Com o vermelho, o jogador sai e o time continua com um a menos.",
           "fact": "Amarelo e vermelho foram criados em 1970, inspirados nos semáforos."
         },
         "da": {
@@ -1124,16 +1124,16 @@
           "fact": "Una schiacciata forte supera a volte i cento chilometri orari."
         },
         "pt": {
-          "prompt": "O que se faz com a bola por cima da rede no voleibol?",
-          "answer": "Bate-se nela",
+          "prompt": "O que se faz com a bola por cima da rede no vôlei?",
+          "answer": "Bater nela",
           "wrong": [
-            "Leva-se",
-            "Come-se",
-            "Esconde-se"
+            "Carregar",
+            "Comer",
+            "Esconder"
           ],
-          "hint": "Agarrar é proibido.",
+          "hint": "Segurar é proibido.",
           "explanation": "A bola só pode ser batida ou tocada, nunca segurada.",
-          "fact": "Um remate forte passa por vezes dos cem quilómetros por hora."
+          "fact": "Uma cortada forte às vezes passa dos cem quilômetros por hora."
         },
         "da": {
           "prompt": "Hvad gør man med bolden over nettet i volleyball?",
@@ -1254,16 +1254,16 @@
           "fact": "Anche i mancini usano un bastone da destri."
         },
         "pt": {
-          "prompt": "Com que se joga hóquei?",
-          "answer": "Com um stick",
+          "prompt": "Com o que se joga hóquei?",
+          "answer": "Com um taco",
           "wrong": [
             "Com uma raquete",
             "Com a cabeça",
             "Com uma corda"
           ],
-          "hint": "É plano de um lado.",
-          "explanation": "Joga-se com a face plana; a face redonda não é permitida.",
-          "fact": "Também os canhotos usam um stick de destro."
+          "hint": "Ele é reto de um lado.",
+          "explanation": "Só se joga com o lado reto; o lado arredondado não vale.",
+          "fact": "Até os canhotos usam um taco de destro."
         },
         "da": {
           "prompt": "Hvad spiller man hockey med?",
@@ -1384,16 +1384,16 @@
           "fact": "L'orologio continua a correre anche quando la palla è fuori."
         },
         "pt": {
-          "prompt": "Quanto dura um jogo de futebol sem prolongamento?",
+          "prompt": "Quanto dura um jogo de futebol sem prorrogação?",
           "answer": "Noventa minutos",
           "wrong": [
             "Dez minutos",
             "Cinco horas",
             "Um dia inteiro"
           ],
-          "hint": "Duas partes com intervalo.",
-          "explanation": "Duas vezes quarenta e cinco minutos, mais o tempo perdido.",
-          "fact": "O relógio continua a correr mesmo com a bola fora."
+          "hint": "Dois tempos com intervalo.",
+          "explanation": "Dois tempos de quarenta e cinco minutos, mais os acréscimos.",
+          "fact": "O relógio continua correndo mesmo com a bola fora."
         },
         "da": {
           "prompt": "Hvor længe varer en fodboldkamp uden forlænget spilletid?",
@@ -1514,7 +1514,7 @@
           "fact": "Si cambia solo a gioco fermo."
         },
         "pt": {
-          "prompt": "Quantos jogadores de uma equipa estão no campo de basquetebol?",
+          "prompt": "Quantos jogadores de cada time ficam na quadra de basquete?",
           "answer": "Cinco",
           "wrong": [
             "Dois",
@@ -1522,7 +1522,7 @@
             "Quinze"
           ],
           "hint": "Menos do que no futebol.",
-          "explanation": "Cada equipa tem cinco em campo e pode trocar as vezes que quiser.",
+          "explanation": "Cada time tem cinco em quadra e pode trocar quantas vezes quiser.",
           "fact": "Só se troca com o jogo parado."
         },
         "da": {
@@ -1644,16 +1644,16 @@
           "fact": "Oggi il video decide a volte per pochi centimetri."
         },
         "pt": {
-          "prompt": "O que é o fora de jogo no futebol, mais ou menos?",
-          "answer": "Estar demasiado à frente",
+          "prompt": "O que é, mais ou menos, o impedimento no futebol?",
+          "answer": "Estar adiantado demais",
           "wrong": [
             "Estar fora do estádio",
-            "Rematar com muita força",
+            "Chutar com muita força",
             "Jogar sem chuteiras"
           ],
-          "hint": "Estás atrás dos últimos defesas.",
-          "explanation": "O fora de jogo impede que um avançado espere a bola junto à baliza.",
-          "fact": "O vídeo decide hoje por vezes por poucos centímetros."
+          "hint": "Você está atrás dos últimos zagueiros.",
+          "explanation": "A regra do impedimento não deixa um atacante ficar esperando a bola perto do gol.",
+          "fact": "Hoje o vídeo às vezes decide por poucos centímetros."
         },
         "da": {
           "prompt": "Hvad er offside i fodbold, sådan cirka?",
@@ -1774,16 +1774,16 @@
           "fact": "Dopo ogni canestro qualcuno doveva recuperare la palla con una scala."
         },
         "pt": {
-          "prompt": "De onde vem o nome basquetebol?",
-          "answer": "Jogava-se para um cesto",
+          "prompt": "De onde vem o nome basquete?",
+          "answer": "O alvo era uma cesta",
           "wrong": [
-            "A bola era um cesto",
-            "Os jogadores tinham o nome",
-            "O campo era um cesto"
+            "A bola era uma cesta",
+            "Era o nome dos jogadores",
+            "A quadra era uma cesta"
           ],
-          "hint": "Pensa em fruta.",
-          "explanation": "Em 1891 o inventor pendurou dois cestos de pêssegos como balizas.",
-          "fact": "Depois de cada cesto alguém tinha de ir buscar a bola com uma escada."
+          "hint": "Pense em fruta.",
+          "explanation": "Em 1891, o inventor pendurou duas cestas de pêssegos como alvos.",
+          "fact": "Depois de cada cesta, alguém tinha que subir em uma escada para pegar a bola."
         },
         "da": {
           "prompt": "Hvor kommer navnet basketball fra?",
@@ -1904,15 +1904,15 @@
           "fact": "La linea da tre esiste nelle grandi leghe solo dal 1979."
         },
         "pt": {
-          "prompt": "Quantos pontos vale um lançamento de longe no basquetebol?",
+          "prompt": "Quantos pontos vale um arremesso de longe no basquete?",
           "answer": "Três pontos",
           "wrong": [
             "Um ponto",
             "Dez pontos",
             "Cem pontos"
           ],
-          "hint": "Há um arco pintado no chão.",
-          "explanation": "Um lançamento atrás da linha vale três; à frente vale dois.",
+          "hint": "Há um arco pintado na quadra.",
+          "explanation": "Um arremesso de trás da linha vale três; de dentro dela vale dois.",
           "fact": "A linha de três só existe nas grandes ligas desde 1979."
         },
         "da": {
@@ -2034,16 +2034,16 @@
           "fact": "La sua maglia è sempre di un colore diverso dalle altre."
         },
         "pt": {
-          "prompt": "O que faz o guarda-redes no futebol?",
-          "answer": "Defende a baliza",
+          "prompt": "O que faz o goleiro no futebol?",
+          "answer": "Defende o gol",
           "wrong": [
-            "Marca golos",
+            "Marca gols",
             "Enche a bola",
             "Apita"
           ],
           "hint": "Pode usar as mãos.",
-          "explanation": "Só o guarda-redes pode agarrar a bola, e apenas na sua área.",
-          "fact": "A camisola dele é sempre de outra cor."
+          "explanation": "Só o goleiro pode segurar a bola com as mãos, e só dentro da área dele.",
+          "fact": "A camisa dele é sempre de outra cor."
         },
         "da": {
           "prompt": "Hvad laver målmanden i fodbold?",
@@ -2164,16 +2164,16 @@
           "fact": "Un campo da golf può essere lungo diversi chilometri."
         },
         "pt": {
-          "prompt": "Que desporto se joga com tacos e uma bola pequena e dura?",
+          "prompt": "Que esporte se joga com tacos e uma bola pequena e dura?",
           "answer": "O golfe",
           "wrong": [
-            "O ténis",
-            "O râguebi",
-            "O andebol"
+            "O tênis",
+            "O rúgbi",
+            "O handebol"
           ],
-          "hint": "O alvo é um buraco na relva.",
-          "explanation": "No golfe metes a bola no buraco com o menor número de tacadas.",
-          "fact": "Um campo de golfe pode ter vários quilómetros."
+          "hint": "O alvo é um buraco na grama.",
+          "explanation": "No golfe, você põe a bola no buraco com o menor número de tacadas.",
+          "fact": "Um campo de golfe pode ter vários quilômetros."
         },
         "da": {
           "prompt": "Hvilken sport spilles med køller og en lille hård bold?",
@@ -2294,15 +2294,15 @@
           "fact": "Lo stesso giocatore non può toccare due volte di fila."
         },
         "pt": {
-          "prompt": "Quantas vezes seguidas pode uma equipa de voleibol tocar a bola?",
+          "prompt": "Quantas vezes seguidas um time de vôlei pode tocar na bola?",
           "answer": "Três vezes",
           "wrong": [
             "Uma vez",
             "Dez vezes",
             "As que quiser"
           ],
-          "hint": "Receção, passe, remate.",
-          "explanation": "Após três toques a bola tem de passar a rede; o bloco não conta.",
+          "hint": "Recepção, levantamento, ataque.",
+          "explanation": "Depois de três toques, a bola tem que passar a rede; o bloqueio não conta.",
           "fact": "O mesmo jogador não pode tocar duas vezes seguidas."
         },
         "da": {
@@ -2425,15 +2425,15 @@
         },
         "pt": {
           "prompt": "O que é um hat-trick no futebol?",
-          "answer": "Três golos de um jogador",
+          "answer": "Três gols de um jogador",
           "wrong": [
             "Ganhar três jogos",
             "Receber três cartões",
             "Três bolas ao mesmo tempo"
           ],
           "hint": "No mesmo jogo.",
-          "explanation": "Quando um jogador marca três vezes no mesmo jogo, isso é um hat-trick.",
-          "fact": "O nome vem do críquete: antes davam um chapéu ao jogador."
+          "explanation": "Quando um jogador marca três gols no mesmo jogo, isso é um hat-trick.",
+          "fact": "O nome vem do críquete: antigamente davam um chapéu ao jogador."
         },
         "da": {
           "prompt": "Hvad er et hattrick i fodbold?",
@@ -2554,16 +2554,16 @@
           "fact": "Dal rugby è nato anche il football americano."
         },
         "pt": {
-          "prompt": "Em que desporto levas uma bola oval nas mãos?",
-          "answer": "O râguebi",
+          "prompt": "Em que esporte você leva uma bola oval nas mãos?",
+          "answer": "O rúgbi",
           "wrong": [
             "O futebol",
-            "O ténis",
-            "O basquetebol"
+            "O tênis",
+            "O basquete"
           ],
-          "hint": "Só podes atirá-la para trás.",
-          "explanation": "No râguebi corres para a frente com a bola e passas só para trás.",
-          "fact": "O futebol americano nasceu do râguebi."
+          "hint": "Você só pode passá-la para trás.",
+          "explanation": "No rúgbi, você corre para a frente com a bola e só passa para trás.",
+          "fact": "O futebol americano nasceu do rúgbi."
         },
         "da": {
           "prompt": "I hvilken sport bærer man en oval bold i hænderne?",
@@ -2684,16 +2684,16 @@
           "fact": "Solo la seconda guerra mondiale ne fece saltare due."
         },
         "pt": {
-          "prompt": "De quantos em quantos anos há um Mundial de futebol?",
+          "prompt": "De quantos em quantos anos acontece a Copa do Mundo de futebol?",
           "answer": "De quatro em quatro anos",
           "wrong": [
             "Todos os anos",
             "De dez em dez anos",
             "De vinte em vinte anos"
           ],
-          "hint": "Tal como os Jogos Olímpicos.",
-          "explanation": "Desde 1930 o Mundial joga-se de quatro em quatro anos.",
-          "fact": "Só a Segunda Guerra Mundial fez falhar duas edições."
+          "hint": "Igual aos Jogos Olímpicos.",
+          "explanation": "Desde 1930, a Copa do Mundo acontece de quatro em quatro anos.",
+          "fact": "Só a Segunda Guerra Mundial fez duas edições serem canceladas."
         },
         "da": {
           "prompt": "Hvor tit er der VM i fodbold?",
@@ -2814,16 +2814,16 @@
           "fact": "Alcune squadre europee rinunciarono: il viaggio in nave durava due settimane."
         },
         "pt": {
-          "prompt": "Que país ganhou o primeiro Mundial em 1930?",
+          "prompt": "Que país ganhou a primeira Copa do Mundo, em 1930?",
           "answer": "O Uruguai",
           "wrong": [
             "O Brasil",
             "A Alemanha",
             "Os Países Baixos"
           ],
-          "hint": "O torneio jogou-se lá.",
-          "explanation": "O Uruguai foi anfitrião e vencedor do primeiro Mundial de todos.",
-          "fact": "Algumas equipas europeias faltaram: a viagem de barco levava duas semanas."
+          "hint": "O torneio foi disputado lá.",
+          "explanation": "O Uruguai foi sede e campeão da primeira Copa do Mundo de todas.",
+          "fact": "Algumas seleções europeias não foram: a viagem de navio levava duas semanas."
         },
         "da": {
           "prompt": "Hvilket land vandt det første VM i 1930?",
@@ -2944,7 +2944,7 @@
           "fact": "È l'unico paese presente a tutti i Mondiali."
         },
         "pt": {
-          "prompt": "Quantas vezes ganhou o Brasil o Mundial?",
+          "prompt": "Quantas vezes o Brasil ganhou a Copa do Mundo?",
           "answer": "Cinco vezes",
           "wrong": [
             "Uma vez",
@@ -2953,7 +2953,7 @@
           ],
           "hint": "Mais do que qualquer outro país.",
           "explanation": "O Brasil ganhou em 1958, 1962, 1970, 1994 e 2002.",
-          "fact": "É o único país que esteve em todos os Mundiais."
+          "fact": "É o único país que jogou todas as Copas do Mundo."
         },
         "da": {
           "prompt": "Hvor mange gange har Brasilien vundet VM i fodbold?",
@@ -3074,16 +3074,16 @@
           "fact": "Scrisse tredici regole e alcune valgono ancora."
         },
         "pt": {
-          "prompt": "Em que país se inventou o basquetebol?",
+          "prompt": "Em que país o basquete foi inventado?",
           "answer": "Nos Estados Unidos",
           "wrong": [
             "Na China",
             "No Egito",
             "Na Austrália"
           ],
-          "hint": "Num ginásio, no inverno.",
-          "explanation": "Um professor inventou o jogo em 1891 para a turma se mexer dentro de casa.",
-          "fact": "Escreveu treze regras e algumas ainda valem."
+          "hint": "Em um ginásio, no inverno.",
+          "explanation": "Um professor inventou o jogo em 1891 para a turma se mexer em um lugar fechado.",
+          "fact": "Ele escreveu treze regras, e algumas ainda valem."
         },
         "da": {
           "prompt": "I hvilket land blev basketball opfundet?",
@@ -3208,12 +3208,12 @@
           "answer": "A de golfe",
           "wrong": [
             "A de futebol",
-            "A de ténis",
-            "A de basquetebol"
+            "A de tênis",
+            "A de basquete"
           ],
           "hint": "São centenas delas.",
-          "explanation": "As covinhas fazem o ar correr melhor e a bola voa mais longe.",
-          "fact": "Uma bola lisa percorre menos de metade da distância."
+          "explanation": "As covinhas ajudam o ar a passar, e a bola voa mais longe.",
+          "fact": "Uma bola lisa percorre menos da metade da distância."
         },
         "da": {
           "prompt": "Hvilken bold har fordybninger i overfladen?",
@@ -3334,16 +3334,16 @@
           "fact": "In un grande torneo le palline si cambiano ogni nove giochi."
         },
         "pt": {
-          "prompt": "Porque tem feltro uma bola de ténis?",
-          "answer": "Assim vai mais devagar",
+          "prompt": "Por que a bola de tênis tem feltro?",
+          "answer": "Para ir mais devagar",
           "wrong": [
-            "Assim é mais bonita",
-            "Assim fica quente",
-            "Assim flutua"
+            "Para ficar mais bonita",
+            "Para ficar quente",
+            "Para flutuar"
           ],
-          "hint": "Trava no ar.",
-          "explanation": "O feltro agarra o ar: a bola abranda e fica mais jogável.",
-          "fact": "Num grande torneio as bolas mudam a cada nove jogos."
+          "hint": "Ela freia no ar.",
+          "explanation": "O feltro segura o ar: a bola fica mais lenta e mais fácil de jogar.",
+          "fact": "Em um grande torneio, as bolas são trocadas a cada nove games."
         },
         "da": {
           "prompt": "Hvorfor er en tennisbold dækket af filt?",
@@ -3464,16 +3464,16 @@
           "fact": "Circa tre rigori su quattro finiscono in rete."
         },
         "pt": {
-          "prompt": "O que é um penálti no futebol?",
-          "answer": "Um remate de onze metros",
+          "prompt": "O que é um pênalti no futebol?",
+          "answer": "Uma cobrança de onze metros",
           "wrong": [
-            "Um livre no meio-campo",
+            "Uma falta no meio-campo",
             "Um segundo árbitro",
             "Uma pausa curta"
           ],
-          "hint": "Só tu e o guarda-redes.",
-          "explanation": "Após uma falta dentro da área remata-se da marca.",
-          "fact": "Cerca de três em cada quatro penáltis acabam em golo."
+          "hint": "Só você e o goleiro.",
+          "explanation": "Depois de uma falta dentro da área, a cobrança é feita da marca do pênalti.",
+          "fact": "Mais ou menos três em cada quatro pênaltis viram gol."
         },
         "da": {
           "prompt": "Hvad er et straffespark i fodbold?",
@@ -3594,7 +3594,7 @@
           "fact": "Nel beach volley sono solo due per squadra."
         },
         "pt": {
-          "prompt": "Quantos jogadores de voleibol de uma equipa estão em campo?",
+          "prompt": "Quantos jogadores de cada time de vôlei ficam em quadra?",
           "answer": "Seis",
           "wrong": [
             "Três",
@@ -3602,8 +3602,8 @@
             "Onze"
           ],
           "hint": "Três à frente e três atrás.",
-          "explanation": "Seis jogadores dividem o campo e rodam sempre que ganham o serviço.",
-          "fact": "No vólei de praia são só dois por equipa."
+          "explanation": "Seis jogadores dividem a quadra e fazem rodízio sempre que ganham o saque.",
+          "fact": "No vôlei de praia são só dois por time."
         },
         "da": {
           "prompt": "Hvor mange volleyballspillere fra ét hold er på banen?",
@@ -3724,16 +3724,16 @@
           "fact": "La parola soccer viene in origine dall'Inghilterra."
         },
         "pt": {
-          "prompt": "Que desporto se chama soccer na América?",
+          "prompt": "Que esporte se chama soccer nos Estados Unidos?",
           "answer": "O futebol",
           "wrong": [
-            "O basebol",
+            "O beisebol",
             "O hóquei no gelo",
             "O golfe"
           ],
           "hint": "Lá já existe outro football.",
-          "explanation": "Os americanos dizem soccer porque football lá é outro desporto.",
-          "fact": "A palavra soccer veio na verdade de Inglaterra."
+          "explanation": "Os americanos dizem soccer porque lá football é outro esporte.",
+          "fact": "Na verdade, a palavra soccer veio da Inglaterra."
         },
         "da": {
           "prompt": "Hvilken sport hedder soccer i Amerika?",
@@ -3854,16 +3854,16 @@
           "fact": "Nella stessa partita segnò il gol più discusso e il più bello di sempre."
         },
         "pt": {
-          "prompt": "Que argentino com o número dez ganhou o Mundial de 1986?",
+          "prompt": "Que argentino com a camisa dez ganhou a Copa do Mundo de 1986?",
           "answer": "Diego Maradona",
           "wrong": [
             "Pelé",
             "Johan Cruyff",
             "Zinedine Zidane"
           ],
-          "hint": "Baixo e rapidíssimo a girar.",
+          "hint": "Baixinho e rapidíssimo nos giros.",
           "explanation": "Maradona decidiu quase sozinho o torneio de 1986.",
-          "fact": "No mesmo jogo marcou o golo mais polémico e o mais bonito de sempre."
+          "fact": "No mesmo jogo, ele fez o gol mais polêmico e o mais bonito de todos os tempos."
         },
         "da": {
           "prompt": "Hvilken argentiner med nummer ti vandt VM i 1986?",
@@ -3984,16 +3984,16 @@
           "fact": "Giocò il suo primo Mondiale a diciassette anni."
         },
         "pt": {
-          "prompt": "Que brasileiro é chamado o rei do futebol?",
+          "prompt": "Que brasileiro é chamado de rei do futebol?",
           "answer": "Pelé",
           "wrong": [
             "Diego Maradona",
             "Lionel Messi",
             "Franz Beckenbauer"
           ],
-          "hint": "Ganhou três títulos mundiais.",
-          "explanation": "Pelé foi campeão do mundo em 1958, 1962 e 1970, o único jogador a consegui-lo.",
-          "fact": "Jogou o primeiro Mundial aos dezassete anos."
+          "hint": "Ele ganhou três Copas do Mundo.",
+          "explanation": "Pelé foi campeão do mundo em 1958, 1962 e 1970, o único jogador a conseguir isso.",
+          "fact": "Ele jogou a primeira Copa do Mundo aos dezessete anos."
         },
         "da": {
           "prompt": "Hvilken brasilianer kaldes fodboldens konge?",
@@ -4122,8 +4122,8 @@
             "Uns vinte quilos"
           ],
           "hint": "Menos do que um pacote de açúcar.",
-          "explanation": "Uma bola de jogo pesa entre 410 e 450 gramas em seco.",
-          "fact": "À chuva, uma bola antiga de couro podia pesar o dobro."
+          "explanation": "Uma bola oficial pesa entre 410 e 450 gramas, seca.",
+          "fact": "Na chuva, uma bola antiga de couro podia pesar o dobro."
         },
         "da": {
           "prompt": "Hvor tung er en fodbold cirka?",
@@ -4244,15 +4244,15 @@
           "fact": "Un pallone mezzo sgonfio arriva solo al ginocchio."
         },
         "pt": {
-          "prompt": "Porque ressalta tão bem uma bola de basquetebol?",
+          "prompt": "Por que a bola de basquete quica tão bem?",
           "answer": "Tem ar sob pressão",
           "wrong": [
             "É de borracha maciça",
             "É muito leve",
             "Está quente"
           ],
-          "hint": "Enche-se com uma bomba.",
-          "explanation": "O ar comprimido volta a expandir-se e empurra a bola para cima.",
+          "hint": "Ela é enchida com uma bomba.",
+          "explanation": "O ar comprimido volta a se expandir e empurra a bola para cima.",
           "fact": "Uma bola meio vazia só chega ao joelho."
         },
         "da": {
@@ -4374,7 +4374,7 @@
           "fact": "Quelle misure strane vengono da otto iarde e otto piedi inglesi."
         },
         "pt": {
-          "prompt": "Que largura tem uma baliza de futebol?",
+          "prompt": "Qual é a largura de um gol de futebol?",
           "answer": "Pouco mais de sete metros",
           "wrong": [
             "Dois metros",
@@ -4382,7 +4382,7 @@
             "Cem metros"
           ],
           "hint": "Como quatro portas lado a lado.",
-          "explanation": "Uma baliza tem 7,32 metros de largura e 2,44 de altura em todo o mundo.",
+          "explanation": "Um gol tem 7,32 metros de largura e 2,44 de altura no mundo todo.",
           "fact": "Essas medidas estranhas vêm de oito jardas e oito pés ingleses."
         },
         "da": {
@@ -4504,16 +4504,16 @@
           "fact": "Da allora il gesto si chiama semplicemente Cruyff turn."
         },
         "pt": {
-          "prompt": "Que neerlandês inventou um drible famoso?",
+          "prompt": "Que holandês inventou um drible famoso?",
           "answer": "Johan Cruyff",
           "wrong": [
             "Marco van Basten",
             "Ruud Gullit",
             "Dennis Bergkamp"
           ],
-          "hint": "Mostrou-o no Mundial de 1974.",
+          "hint": "Ele o mostrou na Copa do Mundo de 1974.",
           "explanation": "Cruyff passava a bola por trás da perna de apoio e deixava o adversário parado.",
-          "fact": "Desde então o gesto chama-se simplesmente Cruyff turn."
+          "fact": "Desde então, o lance se chama simplesmente Cruyff turn."
         },
         "da": {
           "prompt": "Hvilken hollænder opfandt en berømt finte?",
@@ -4634,16 +4634,16 @@
           "fact": "Nei campionati universitari americani fu vietata per anni."
         },
         "pt": {
-          "prompt": "O que é um afundanço no basquetebol?",
-          "answer": "Enfiar a bola de cima",
+          "prompt": "O que é uma enterrada no basquete?",
+          "answer": "Enfiar a bola por cima",
           "wrong": [
-            "Um lançamento de longe",
-            "Uma falta do treinador",
-            "Um desconto de tempo"
+            "Um arremesso de longe",
+            "Uma falta do técnico",
+            "Um pedido de tempo"
           ],
-          "hint": "Ficas um instante pendurado no aro.",
-          "explanation": "No afundanço o jogador salta tanto que empurra a bola para dentro de cima.",
-          "fact": "No basquetebol universitário americano foi proibido durante anos."
+          "hint": "Você fica um instante pendurado no aro.",
+          "explanation": "Na enterrada, o jogador pula tão alto que empurra a bola para dentro, por cima.",
+          "fact": "No basquete universitário americano, ela foi proibida durante anos."
         },
         "da": {
           "prompt": "Hvad er en slam dunk i basketball?",
@@ -4764,16 +4764,16 @@
           "fact": "Probabilmente dal francese l'œuf, l'uovo, che somiglia a uno zero."
         },
         "pt": {
-          "prompt": "O que significa love no ténis?",
+          "prompt": "O que significa love no tênis?",
           "answer": "Zero pontos",
           "wrong": [
             "Estar apaixonado",
             "Um ponto",
             "A vitória"
           ],
-          "hint": "Aparece no marcador.",
-          "explanation": "Love quer dizer zero no ténis; ninguém sabe ao certo de onde vem a palavra.",
-          "fact": "Vem provavelmente do francês l'œuf, o ovo, que parece um zero."
+          "hint": "Aparece no placar.",
+          "explanation": "Love quer dizer zero no tênis; ninguém sabe ao certo de onde vem a palavra.",
+          "fact": "Provavelmente vem do francês l'œuf, o ovo, que parece um zero."
         },
         "da": {
           "prompt": "Hvad betyder love i tennis?",
@@ -4894,7 +4894,7 @@
           "fact": "Quella forma si rivelò comoda da portare sotto il braccio."
         },
         "pt": {
-          "prompt": "Porque é oval a bola de râguebi?",
+          "prompt": "Por que a bola de rúgbi é oval?",
           "answer": "Antigamente era uma bexiga",
           "wrong": [
             "Para rolar melhor",
@@ -4903,7 +4903,7 @@
           ],
           "hint": "De um animal, cheia de ar.",
           "explanation": "As primeiras bolas eram bexigas de porco cheias, naturalmente ovais.",
-          "fact": "Essa forma revelou-se prática para levar debaixo do braço."
+          "fact": "Esse formato se mostrou prático para carregar debaixo do braço."
         },
         "da": {
           "prompt": "Hvorfor er en rugbybold oval?",
@@ -5024,16 +5024,16 @@
           "fact": "Un tiro forte supera i cento chilometri orari."
         },
         "pt": {
-          "prompt": "Quantos jogadores de andebol de uma equipa estão em campo?",
+          "prompt": "Quantos jogadores de cada time de handebol ficam em quadra?",
           "answer": "Sete",
           "wrong": [
             "Cinco",
             "Onze",
             "Dois"
           ],
-          "hint": "Um deles é o guarda-redes.",
-          "explanation": "Seis jogadores de campo e um guarda-redes jogam em pavilhão numa baliza pequena.",
-          "fact": "Um remate forte passa dos cem quilómetros por hora."
+          "hint": "Um deles é o goleiro.",
+          "explanation": "Seis jogadores de linha e um goleiro jogam em um ginásio, com um gol pequeno.",
+          "fact": "Um arremesso forte passa dos cem quilômetros por hora."
         },
         "da": {
           "prompt": "Hvor mange håndboldspillere fra ét hold er på banen?",
@@ -5154,7 +5154,7 @@
           "fact": "Il loro gioco si svolgeva su campi di pietra con un anello alto nel muro."
         },
         "pt": {
-          "prompt": "De que faziam os maias as suas bolas?",
+          "prompt": "Do que os maias faziam suas bolas?",
           "answer": "De borracha das árvores",
           "wrong": [
             "De pedra",
@@ -5162,8 +5162,8 @@
             "De penas"
           ],
           "hint": "A seiva fica elástica sozinha.",
-          "explanation": "Tiravam seiva das seringueiras e faziam bolas que saltavam.",
-          "fact": "O seu jogo disputava-se em campos de pedra com um aro alto na parede."
+          "explanation": "Tiravam seiva das seringueiras e faziam bolas que quicavam.",
+          "fact": "O jogo deles era disputado em campos de pedra, com um aro alto na parede."
         },
         "da": {
           "prompt": "Hvad lavede mayaerne deres bolde af?",

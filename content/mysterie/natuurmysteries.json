@@ -92,8 +92,8 @@
             "O caracol"
           ],
           "hint": "Oito patas.",
-          "explanation": "A aranha produz seda no abdómen e tece com ela uma rede.",
-          "fact": "Para a sua espessura, a seda de aranha é mais forte do que o aço."
+          "explanation": "A aranha produz seda no abdômen e com ela tece uma rede.",
+          "fact": "Para sua espessura, a seda de aranha é mais forte do que o aço."
         },
         "da": {
           "prompt": "Hvilket dyr laver et spind af tråde?",
@@ -222,8 +222,8 @@
             "Constroem uma casa"
           ],
           "hint": "Dormem o inverno inteiro.",
-          "explanation": "Na hibernação a temperatura e o coração descem, por isso quase não precisam de comer.",
-          "fact": "O coração de um ouriço a dormir bate às vezes poucas vezes por minuto."
+          "explanation": "Na hibernação, a temperatura do corpo e os batimentos do coração caem, por isso quase não precisam comer.",
+          "fact": "O coração de um ouriço dormindo às vezes bate poucas vezes por minuto."
         },
         "da": {
           "prompt": "Hvad gør pindsvin og murmeldyr, når det bliver koldt?",
@@ -344,15 +344,15 @@
           "fact": "Quel verde, la clorofilla, è l'unica cosa che l'albero conserva per la primavera."
         },
         "pt": {
-          "prompt": "O que acontece às folhas no outono?",
+          "prompt": "O que acontece com as folhas no outono?",
           "answer": "Ficam amarelas e caem",
           "wrong": [
             "Ficam azuis",
-            "Crescem mais depressa",
+            "Crescem mais rápido",
             "Viram pedra"
           ],
-          "hint": "A árvore recupera o verde.",
-          "explanation": "A árvore recolhe o verde útil e ficam o amarelo e o vermelho.",
+          "hint": "A árvore puxa o verde de volta.",
+          "explanation": "A árvore guarda o verde útil, e sobram o amarelo e o vermelho.",
           "fact": "Esse verde, a clorofila, é a única coisa que a árvore guarda para a primavera."
         },
         "da": {
@@ -475,15 +475,15 @@
         },
         "pt": {
           "prompt": "O que deixa um caracol no chão?",
-          "answer": "Um rasto brilhante de baba",
+          "answer": "Um rastro brilhante de baba",
           "wrong": [
             "Pegadas",
             "Penas",
             "Escamas"
           ],
           "hint": "Brilha à luz.",
-          "explanation": "Sobre essa camada de baba o caracol desliza sem se magoar.",
-          "fact": "Um caracol consegue mesmo rastejar sobre o gume de uma faca."
+          "explanation": "Sobre essa camada de baba, o caracol desliza sem se machucar.",
+          "fact": "Um caracol consegue até rastejar sobre o fio de uma faca."
         },
         "da": {
           "prompt": "Hvad efterlader en snegl på jorden?",
@@ -604,15 +604,15 @@
           "fact": "Ne ha circa cinquemila, e in realtà sono peli induriti."
         },
         "pt": {
-          "prompt": "Porque tem o ouriço espinhos?",
+          "prompt": "Por que o ouriço tem espinhos?",
           "answer": "Para se proteger",
           "wrong": [
             "Para voar",
             "Para nadar",
             "Para escavar"
           ],
-          "hint": "Enrola-se em bola.",
-          "explanation": "Em perigo enrola-se numa bola em que nenhum predador consegue tocar.",
+          "hint": "Ele se enrola como uma bola.",
+          "explanation": "Em perigo, ele se enrola em uma bola que nenhum predador consegue tocar.",
           "fact": "Tem cerca de cinco mil espinhos, que na verdade são pelos duros."
         },
         "da": {
@@ -734,16 +734,16 @@
           "fact": "Metti una tazza vuota all'orecchio e senti la stessa cosa."
         },
         "pt": {
-          "prompt": "Porque se ouve o mar dentro de um búzio?",
+          "prompt": "Por que dá para ouvir o mar dentro de uma concha?",
           "answer": "O som ecoa lá dentro",
           "wrong": [
             "O mar está lá dentro",
             "É o vento",
-            "O búzio assobia"
+            "A concha assobia"
           ],
-          "hint": "Uma chávena vazia faz o mesmo.",
-          "explanation": "Os sons à tua volta ressaltam na cavidade e somam-se num sussurro.",
-          "fact": "Põe uma caneca vazia ao ouvido e ouves exatamente o mesmo."
+          "hint": "Uma xícara vazia faz o mesmo.",
+          "explanation": "Os sons ao seu redor batem na cavidade e se somam em um sussurro.",
+          "fact": "Coloque uma caneca vazia no ouvido e você vai ouvir exatamente o mesmo."
         },
         "da": {
           "prompt": "Hvorfor hører man havet i en konkylie?",
@@ -864,16 +864,16 @@
           "fact": "Se ci riuscissi tu, solleveresti un'auto sopra la testa."
         },
         "pt": {
-          "prompt": "Quantas vezes o seu peso carrega uma formiga?",
+          "prompt": "Quantas vezes o próprio peso uma formiga consegue carregar?",
           "answer": "Até cinquenta vezes",
           "wrong": [
             "Duas vezes",
             "Meia vez",
             "Mil vezes"
           ],
-          "hint": "Muito mais do que tu.",
+          "hint": "Muito mais do que você.",
           "explanation": "Os animais pequenos têm músculos muito mais fortes em proporção.",
-          "fact": "Se conseguisses, erguias um carro acima da cabeça."
+          "fact": "Se você conseguisse, levantaria um carro acima da cabeça."
         },
         "da": {
           "prompt": "Hvor mange gange sin egen vægt bærer en myre?",
@@ -994,7 +994,7 @@
           "fact": "I merli di città a volte cantano di notte, perché di giorno c'è troppo rumore."
         },
         "pt": {
-          "prompt": "Porque cantam as aves de manhã cedo?",
+          "prompt": "Por que as aves cantam de manhã cedo?",
           "answer": "Para marcar o território",
           "wrong": [
             "Para acordar o sol",
@@ -1002,8 +1002,8 @@
             "Para chamar a chuva"
           ],
           "hint": "Lá fora ainda há silêncio.",
-          "explanation": "No ar calmo da manhã o canto chega mais longe e diz a todos onde é o seu espaço.",
-          "fact": "Os melros da cidade às vezes cantam de noite, porque de dia há muito barulho."
+          "explanation": "No ar calmo da manhã, o canto chega mais longe e diz a todos onde fica o seu espaço.",
+          "fact": "Os melros da cidade às vezes cantam à noite, porque de dia há muito barulho."
         },
         "da": {
           "prompt": "Hvorfor synger fugle tidligt om morgenen?",
@@ -1124,16 +1124,16 @@
           "fact": "Anelli larghi o stretti raccontano gli anni umidi o secchi."
         },
         "pt": {
-          "prompt": "Porque tem um tronco anéis?",
+          "prompt": "Por que um tronco tem anéis?",
           "answer": "Cada ano cresce um anel",
           "wrong": [
             "São pintados",
-            "Fá-los o vento",
-            "Roem-nos insetos"
+            "O vento faz",
+            "Insetos roem"
           ],
-          "hint": "Conta-os e ficas a saber algo.",
-          "explanation": "No verão a árvore cresce rápido e claro, no inverno devagar e escuro; juntos dão um anel.",
-          "fact": "Anéis largos ou estreitos contam que anos foram húmidos ou secos."
+          "hint": "Conte os anéis e você descobre algo.",
+          "explanation": "No verão, a árvore cresce rápido e clara; no inverno, devagar e escura. Juntos, dão um anel.",
+          "fact": "Anéis largos ou estreitos contam quais anos foram úmidos ou secos."
         },
         "da": {
           "prompt": "Hvorfor har en træstamme ringe?",
@@ -1254,7 +1254,7 @@
           "fact": "Di un iceberg sporge solo un decimo circa."
         },
         "pt": {
-          "prompt": "Porque flutua um pedaço de gelo na água?",
+          "prompt": "Por que um pedaço de gelo flutua na água?",
           "answer": "O gelo é mais leve",
           "wrong": [
             "O gelo é mais pesado",
@@ -1262,8 +1262,8 @@
             "O gelo é de sal"
           ],
           "hint": "E é a mesma matéria.",
-          "explanation": "A água gelada ocupa mais espaço, por isso pesa menos do que o mesmo volume de água.",
-          "fact": "De um icebergue só sobressai cerca de um décimo."
+          "explanation": "A água congelada ocupa mais espaço, por isso pesa menos do que o mesmo volume de água.",
+          "fact": "De um iceberg, só aparece cerca de um décimo."
         },
         "da": {
           "prompt": "Hvorfor flyder et stykke is på vand?",
@@ -1384,15 +1384,15 @@
           "fact": "Un tempo quell'alone annunciava maltempo, e spesso ci azzeccava."
         },
         "pt": {
-          "prompt": "Porque há às vezes um grande halo à volta da lua?",
+          "prompt": "Por que às vezes aparece um grande halo ao redor da lua?",
           "answer": "Cristais de gelo",
           "wrong": [
             "Nuvens de pó",
             "A lua brilha mais",
-            "Fazem-nos os aviões"
+            "São os aviões"
           ],
-          "hint": "Lá em cima faz um frio gelado.",
-          "explanation": "Os véus de nuvens altas têm cristais de gelo que dobram a luz num anel.",
+          "hint": "Lá em cima faz um frio de congelar.",
+          "explanation": "Os véus de nuvens altas têm cristais de gelo que curvam a luz em um anel.",
           "fact": "Antigamente esse halo anunciava mau tempo, e muitas vezes acertava."
         },
         "da": {
@@ -1514,16 +1514,16 @@
           "fact": "Tutti i maschi di una zona cantano lo stesso canto, che cambia ogni anno."
         },
         "pt": {
-          "prompt": "Porque cantam as baleias-de-bossa cantos longos?",
+          "prompt": "Por que as baleias-jubarte cantam cantos longos?",
           "answer": "Para se encontrarem",
           "wrong": [
             "Para atrair peixes",
             "Para aquecer a água",
             "Para respirar"
           ],
-          "hint": "O som viaja longe debaixo de água.",
-          "explanation": "As notas graves chegam a centenas de quilómetros pelo oceano.",
-          "fact": "Todos os machos de uma zona cantam o mesmo canto, que muda todos os anos."
+          "hint": "O som viaja longe embaixo d'água.",
+          "explanation": "As notas graves chegam a centenas de quilômetros pelo oceano.",
+          "fact": "Todos os machos de uma região cantam o mesmo canto, que muda todo ano."
         },
         "da": {
           "prompt": "Hvorfor synger pukkelhvaler lange sange?",
@@ -1644,16 +1644,16 @@
           "fact": "I fenicotteri diventano rosa mangiando proprio quel pigmento."
         },
         "pt": {
-          "prompt": "Porque é a água de certos lagos cor-de-rosa forte?",
+          "prompt": "Por que a água de certos lagos é cor-de-rosa forte?",
           "answer": "Algas que adoram sal",
           "wrong": [
             "Pedras vermelhas",
             "O pôr do sol",
             "Tinta"
           ],
-          "hint": "Ali a água é saladíssima.",
+          "hint": "Ali a água é salgadíssima.",
           "explanation": "Em água muito salgada vivem algas e bactérias que fazem um pigmento vermelho.",
-          "fact": "Os flamingos ficam cor-de-rosa comendo exatamente esse pigmento."
+          "fact": "Os flamingos ficam cor-de-rosa justamente comendo esse pigmento."
         },
         "da": {
           "prompt": "Hvorfor er vandet i nogle søer knaldlyserødt?",
@@ -1774,16 +1774,16 @@
           "fact": "I piloti ne parlarono per anni prima della prima foto nel 1989."
         },
         "pt": {
-          "prompt": "O que são os sprites acima de uma trovoada?",
+          "prompt": "O que são os sprites acima de uma tempestade?",
           "answer": "Clarões vermelhos no alto",
           "wrong": [
             "Estrelas cadentes",
             "Aves com luz",
             "Balões com lâmpadas"
           ],
-          "hint": "Duram menos do que um piscar.",
-          "explanation": "Sobre uma trovoada forte saltam às vezes clarões vermelhos a dezenas de quilómetros.",
-          "fact": "Os pilotos falaram deles anos antes da primeira foto em 1989."
+          "hint": "Duram menos do que uma piscada.",
+          "explanation": "Sobre uma tempestade forte, às vezes surgem clarões vermelhos a dezenas de quilômetros de altura.",
+          "fact": "Os pilotos falavam deles anos antes da primeira foto, em 1989."
         },
         "da": {
           "prompt": "Hvad er sprites over en tordensky?",
@@ -1909,10 +1909,10 @@
           "wrong": [
             "Nunca dormem",
             "Dormem na praia",
-            "Respiram debaixo de água"
+            "Respiram embaixo d'água"
           ],
           "hint": "Metade fica acordada.",
-          "explanation": "Metade do cérebro dorme enquanto a outra continua a respirar e a nadar.",
+          "explanation": "Metade do cérebro dorme enquanto a outra continua respirando e nadando.",
           "fact": "Um olho também fica aberto, do lado que está acordado."
         },
         "da": {
@@ -2041,8 +2041,8 @@
             "Uma ilha",
             "Um tipo de tempestade"
           ],
-          "hint": "Entre a Florida, Porto Rico e as Bermudas.",
-          "explanation": "Ali desapareceram navios e aviões, mas não mais vezes do que noutros sítios.",
+          "hint": "Entre a Flórida, Porto Rico e as Bermudas.",
+          "explanation": "Ali sumiram navios e aviões, mas não mais vezes do que em outros lugares.",
           "fact": "Os estudos apontam mau tempo e erro humano, nada de misterioso."
         },
         "da": {
@@ -2173,7 +2173,7 @@
           ],
           "hint": "Mais velha do que as pirâmides de Gizé.",
           "explanation": "Nas montanhas da Califórnia crescem pinheiros com milhares de anos.",
-          "fact": "À mais antiga chamaram Matusalém e o local é mantido em segredo."
+          "fact": "A mais antiga foi chamada de Matusalém, e o local é mantido em segredo."
         },
         "da": {
           "prompt": "Hvor gammelt kan verdens ældste træ være?",
@@ -2294,16 +2294,16 @@
           "fact": "Volano fino a quattromila chilometri verso gli stessi boschi di montagna."
         },
         "pt": {
-          "prompt": "Como acham as borboletas-monarca um bosque nunca visto?",
-          "answer": "Está no seu instinto",
+          "prompt": "Como as borboletas-monarca acham uma floresta que nunca viram?",
+          "answer": "Está no instinto delas",
           "wrong": [
             "Seguem os pais",
             "Seguem os navios",
             "Perguntam o caminho"
           ],
           "hint": "Os bisavós estiveram lá.",
-          "explanation": "As que chegam nasceram gerações depois e guiam-se pelo sol e pelo magnetismo.",
-          "fact": "Voam até quatro mil quilómetros para os mesmos bosques de montanha."
+          "explanation": "As que chegam nasceram gerações depois e se guiam pelo sol e pelo magnetismo.",
+          "fact": "Voam até quatro mil quilômetros para as mesmas florestas de montanha."
         },
         "da": {
           "prompt": "Hvordan finder monarksommerfugle en skov, de aldrig har set?",
@@ -2425,15 +2425,15 @@
         },
         "pt": {
           "prompt": "Como se formam colunas de rocha com seis lados?",
-          "answer": "A lava arrefece e encolhe",
+          "answer": "A lava esfria e encolhe",
           "wrong": [
             "Foram talhadas por pessoas",
-            "Foi o mar que as poliu",
-            "Foi o gelo que as prensou"
+            "O mar as poliu",
+            "O gelo as prensou"
           ],
-          "hint": "Pensa nas gretas da lama seca.",
-          "explanation": "Ao arrefecer devagar a lava encolhe e racha num padrão de hexágonos.",
-          "fact": "As mais conhecidas ficam na Irlanda do Norte: a Calçada do Gigante."
+          "hint": "Pense nas rachaduras da lama seca.",
+          "explanation": "Ao esfriar devagar, a lava encolhe e racha em um padrão de hexágonos.",
+          "fact": "As mais conhecidas ficam na Irlanda do Norte: a Calçada dos Gigantes."
         },
         "da": {
           "prompt": "Hvordan opstår helt sekskantede klippesøjler?",
@@ -2554,16 +2554,16 @@
           "fact": "Quell'acqua è rimasta chiusa milioni di anni ed è comunque piena di vita."
         },
         "pt": {
-          "prompt": "Porque corre uma cascata vermelha do gelo na Antártida?",
+          "prompt": "Por que uma cascata vermelha escorre do gelo na Antártida?",
           "answer": "O ferro da água enferruja",
           "wrong": [
             "Algas vermelhas",
-            "Tinta dos investigadores",
+            "Tinta dos pesquisadores",
             "Rocha vermelha"
           ],
           "hint": "Parece sangue, mas não é.",
-          "explanation": "Sob o glaciar há água salgada cheia de ferro; ao ar enferruja logo de vermelho.",
-          "fact": "Essa água esteve fechada milhões de anos e mesmo assim está cheia de vida."
+          "explanation": "Embaixo da geleira há água salgada cheia de ferro; no ar, ela enferruja logo e fica vermelha.",
+          "fact": "Essa água ficou presa por milhões de anos e mesmo assim está cheia de vida."
         },
         "da": {
           "prompt": "Hvorfor løber der et rødt vandfald ud af isen i Antarktis?",

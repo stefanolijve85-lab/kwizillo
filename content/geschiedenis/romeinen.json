@@ -89,9 +89,9 @@
           "wrong": [
             "Atenas",
             "Paris",
-            "O Cairo"
+            "Cairo"
           ],
-          "hint": "Todos os caminhos lá iam dar.",
+          "hint": "Todos os caminhos levavam até lá.",
           "explanation": "Roma era o centro do império, com o imperador e o senado.",
           "fact": "Cada marco das estradas contava a distância até Roma."
         },
@@ -214,16 +214,16 @@
           "fact": "La statua della lupa è ancora il simbolo di Roma."
         },
         "pt": {
-          "prompt": "Que animal amamentou Rómulo e Remo na lenda?",
+          "prompt": "Que animal amamentou Rômulo e Remo na lenda?",
           "answer": "Uma loba",
           "wrong": [
             "Um urso",
             "Uma águia",
             "Uma cabra"
           ],
-          "hint": "Encontrou os bebés junto ao rio.",
-          "explanation": "A lenda diz que uma loba amamentou os gémeos que fundaram Roma.",
-          "fact": "A estátua da loba continua a ser o símbolo de Roma."
+          "hint": "Encontrou os bebês perto do rio.",
+          "explanation": "A lenda diz que uma loba amamentou os gêmeos que fundaram Roma.",
+          "fact": "A estátua da loba continua sendo o símbolo de Roma."
         },
         "da": {
           "prompt": "Hvilket dyr diede Romulus og Remus i sagnet?",
@@ -351,9 +351,9 @@
             "Um sapato",
             "Um navio"
           ],
-          "hint": "Põe-se sobre o ombro.",
-          "explanation": "A toga era um pano de lã enrolado à volta do corpo.",
-          "fact": "Só os cidadãos romanos a podiam usar."
+          "hint": "Vai por cima do ombro.",
+          "explanation": "A toga era um pano de lã enrolado ao redor do corpo.",
+          "fact": "Só os cidadãos romanos podiam usá-la."
         },
         "da": {
           "prompt": "Hvad er en toga?",
@@ -474,15 +474,15 @@
           "fact": "Nel Circo Massimo entravano più di centomila persone."
         },
         "pt": {
-          "prompt": "O que puxavam os cavalos na arena romana?",
+          "prompt": "O que os cavalos puxavam na arena romana?",
           "answer": "Uma biga de corrida",
           "wrong": [
             "Um carro",
-            "Um comboio",
+            "Um trem",
             "Uma bicicleta"
           ],
-          "hint": "Duas rodas e muito pó.",
-          "explanation": "As corridas de bigas eram o desporto favorito, com quatro equipas e cores.",
+          "hint": "Duas rodas e muita poeira.",
+          "explanation": "As corridas de bigas eram o esporte favorito, com quatro equipes e cores.",
           "fact": "No Circo Máximo cabiam mais de cem mil pessoas."
         },
         "da": {
@@ -605,15 +605,15 @@
         },
         "pt": {
           "prompt": "Em que país fica Roma?",
-          "answer": "Em Itália",
+          "answer": "Na Itália",
           "wrong": [
-            "Em Espanha",
+            "Na Espanha",
             "No Egito",
             "Na Grécia"
           ],
           "hint": "O país tem forma de bota.",
-          "explanation": "Roma fica junto ao rio Tibre, no meio da Itália.",
-          "fact": "Dentro de Roma há um país minúsculo: o Vaticano."
+          "explanation": "Roma fica às margens do rio Tibre, no centro da Itália.",
+          "fact": "Dentro de Roma existe um país minúsculo: o Vaticano."
         },
         "da": {
           "prompt": "I hvilket land ligger Rom?",
@@ -994,7 +994,7 @@
           "fact": "Una suola così si consumava dopo circa cinquecento chilometri."
         },
         "pt": {
-          "prompt": "O que usavam os romanos nos pés?",
+          "prompt": "O que os romanos usavam nos pés?",
           "answer": "Sandálias de couro",
           "wrong": [
             "Tamancos de madeira",
@@ -1003,7 +1003,7 @@
           ],
           "hint": "Tiras e pregos.",
           "explanation": "Os soldados usavam sandálias com pregos na sola, para não escorregar.",
-          "fact": "Uma sola dessas gastava-se ao fim de uns quinhentos quilómetros."
+          "fact": "Uma sola dessas se gastava depois de uns quinhentos quilômetros."
         },
         "da": {
           "prompt": "Hvad gik romerne med på fødderne?",
@@ -1124,7 +1124,7 @@
           "fact": "Alcuni venivano liberati e aprivano una bottega propria."
         },
         "pt": {
-          "prompt": "Quem fazia o trabalho mais duro numa casa romana?",
+          "prompt": "Quem fazia o trabalho mais duro em uma casa romana?",
           "answer": "Os escravos",
           "wrong": [
             "Os imperadores",
@@ -1132,8 +1132,8 @@
             "Os soldados"
           ],
           "hint": "Não podiam escolher.",
-          "explanation": "Os escravos faziam a casa, os campos e as minas, sem salário nem liberdade.",
-          "fact": "Alguns eram libertados e chegavam a ter loja própria."
+          "explanation": "Os escravos trabalhavam na casa, nos campos e nas minas, sem salário nem liberdade.",
+          "fact": "Alguns eram libertados e chegavam a ter sua própria loja."
         },
         "da": {
           "prompt": "Hvem udførte det hårdeste arbejde i et romersk hjem?",
@@ -1263,7 +1263,7 @@
           ],
           "hint": "Acabava em bico.",
           "explanation": "Os romanos transportavam azeite, grãos e molho de peixe pelo mar em ânforas.",
-          "fact": "O bico encaixava na areia ou num suporte a bordo."
+          "fact": "O bico se encaixava na areia ou em um suporte a bordo."
         },
         "da": {
           "prompt": "Hvad var en amfora?",
@@ -1392,8 +1392,8 @@
             "Trajano"
           ],
           "hint": "Era o filho adotivo de César.",
-          "explanation": "Augusto tornou-se o primeiro imperador em 27 antes de Cristo.",
-          "fact": "Dizia ter encontrado Roma de tijolo e deixá-la de mármore."
+          "explanation": "Augusto se tornou o primeiro imperador em 27 antes de Cristo.",
+          "fact": "Dizia ter encontrado Roma feita de tijolo e tê-la deixado de mármore."
         },
         "da": {
           "prompt": "Hvem var Roms første kejser?",
@@ -1515,15 +1515,15 @@
         },
         "pt": {
           "prompt": "Que invenção permitiu as enormes cúpulas romanas?",
-          "answer": "O betão",
+          "answer": "O concreto",
           "wrong": [
             "O papel",
             "O vidro",
             "A pólvora"
           ],
-          "hint": "Deita-se líquido e fica duro.",
-          "explanation": "O betão de cinza vulcânica permitiu erguer cúpulas e portos.",
-          "fact": "O Panteão sustenta a sua cúpula de betão há dois mil anos."
+          "hint": "Você despeja líquido e ele endurece.",
+          "explanation": "O concreto de cinza vulcânica permitiu erguer cúpulas e portos.",
+          "fact": "O Panteão sustenta sua cúpula de concreto há dois mil anos."
         },
         "da": {
           "prompt": "Hvilken opfindelse gav romerne kæmpe kupler?",
@@ -1644,16 +1644,16 @@
           "fact": "Per un giorno gli schiavi sedevano e i padroni servivano."
         },
         "pt": {
-          "prompt": "Que festa romana caía a meio do inverno?",
+          "prompt": "Que festa romana caía no meio do inverno?",
           "answer": "As Saturnais",
           "wrong": [
             "As Lupercais",
             "As Olimpíadas",
             "As Vestais"
           ],
-          "hint": "Trocavam-se pequenos presentes.",
-          "explanation": "Nas Saturnais havia banquetes e as pessoas ofereciam prendas.",
-          "fact": "Por um dia os escravos sentavam-se e os donos serviam."
+          "hint": "As pessoas trocavam pequenos presentes.",
+          "explanation": "Nas Saturnais havia banquetes e as pessoas davam presentes.",
+          "fact": "Por um dia, os escravos se sentavam e os donos serviam."
         },
         "da": {
           "prompt": "Hvilken romersk fest lå midt om vinteren?",
@@ -1774,16 +1774,16 @@
           "fact": "Se si spegneva, si temeva per tutta la città."
         },
         "pt": {
-          "prompt": "Que deusa guardava um fogo que nunca podia apagar-se?",
+          "prompt": "Que deusa guardava um fogo que nunca podia se apagar?",
           "answer": "Vesta",
           "wrong": [
-            "Vénus",
+            "Vênus",
             "Juno",
             "Diana"
           ],
-          "hint": "O seu templo era redondo.",
+          "hint": "Seu templo era redondo.",
           "explanation": "As vestais mantinham o fogo sagrado de Roma aceso dia e noite.",
-          "fact": "Se se apagasse, temia-se pela cidade inteira."
+          "fact": "Se ele se apagasse, temiam pela cidade inteira."
         },
         "da": {
           "prompt": "Hvilken gudinde vogtede en ild, der aldrig måtte gå ud?",
@@ -1913,7 +1913,7 @@
           ],
           "hint": "O oitavo dia era de mercado.",
           "explanation": "A semana romana ia de mercado a mercado, durante oito dias.",
-          "fact": "Só séculos depois adotaram a semana de sete dias."
+          "fact": "Só séculos depois eles adotaram a semana de sete dias."
         },
         "da": {
           "prompt": "Hvor mange dage havde den gamle romerske uge?",
@@ -2043,7 +2043,7 @@
           ],
           "hint": "Há mais de quinze séculos.",
           "explanation": "Em 476 o último imperador do Ocidente foi deposto.",
-          "fact": "A parte oriental continuou quase mais mil anos."
+          "fact": "A parte oriental durou ainda quase mil anos."
         },
         "da": {
           "prompt": "I hvilket år faldt Vestromerriget?",
@@ -2168,12 +2168,12 @@
           "answer": "A Via Ápia",
           "wrong": [
             "A Via Maris",
-            "A rota da seda",
+            "A Rota da Seda",
             "O limes"
           ],
-          "hint": "Sai de Roma para sul.",
-          "explanation": "A Via Ápia foi traçada já em 312 antes de Cristo, de Roma para sul.",
-          "fact": "Há troços que lá continuam após mais de dois mil anos."
+          "hint": "Sai de Roma rumo ao sul.",
+          "explanation": "A Via Ápia foi traçada já em 312 antes de Cristo, de Roma rumo ao sul.",
+          "fact": "Alguns trechos continuam lá depois de mais de dois mil anos."
         },
         "da": {
           "prompt": "Hvad hed den mest berømte romerske hovedvej?",
@@ -2302,8 +2302,8 @@
             "Augusto"
           ],
           "hint": "Vinha de Cartago.",
-          "explanation": "Aníbal surpreendeu Roma passando as montanhas com um exército e elefantes.",
-          "fact": "Quase nenhum dos seus elefantes sobreviveu à travessia."
+          "explanation": "Aníbal surpreendeu Roma atravessando as montanhas com um exército e elefantes.",
+          "fact": "Quase nenhum de seus elefantes sobreviveu à travessia."
         },
         "da": {
           "prompt": "Hvilken hærfører krydsede Alperne med elefanter?",
@@ -2424,16 +2424,16 @@
           "fact": "Si chiamava ipocausto, e il pavimento a volte scottava."
         },
         "pt": {
-          "prompt": "Como aqueciam a casa os romanos ricos?",
+          "prompt": "Como os romanos ricos aqueciam a casa?",
           "answer": "Ar quente sob o chão",
           "wrong": [
             "Com um fogão a carvão",
             "Com peles de animais",
             "Com água quente na cama"
           ],
-          "hint": "Em baixo ardia um fogo.",
-          "explanation": "Um fogo aquecia o vão sob o chão e o calor subia por ele.",
-          "fact": "Chamava-se hipocausto, e o chão às vezes queimava os pés."
+          "hint": "Embaixo ardia um fogo.",
+          "explanation": "Um fogo aquecia o vão embaixo do chão, e o calor subia por ele.",
+          "fact": "Isso se chamava hipocausto, e o chão às vezes queimava os pés."
         },
         "da": {
           "prompt": "Hvordan varmede rige romere deres hus op?",
@@ -2554,7 +2554,7 @@
           "fact": "Nessuna città europea tornò a quel numero prima del 1800."
         },
         "pt": {
-          "prompt": "Quanta gente vivia em Roma por volta do ano 100?",
+          "prompt": "Quantas pessoas viviam em Roma por volta do ano 100?",
           "answer": "Cerca de um milhão",
           "wrong": [
             "Cerca de mil",

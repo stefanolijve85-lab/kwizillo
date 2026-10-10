@@ -91,9 +91,9 @@
             "Sete faixas",
             "Uma coroa"
           ],
-          "hint": "Estão entrelaçados.",
+          "hint": "Eles estão entrelaçados.",
           "explanation": "Os cinco anéis coloridos em fundo branco são o símbolo dos Jogos.",
-          "fact": "Nessas cinco cores e no branco cabiam antes todas as bandeiras do mundo."
+          "fact": "Com essas cinco cores e o branco, antes dava para fazer todas as bandeiras do mundo."
         },
         "da": {
           "prompt": "Hvad er der på det olympiske flag?",
@@ -221,7 +221,7 @@
             "Um livro",
             "Uma bicicleta"
           ],
-          "hint": "Pende de uma fita.",
+          "hint": "Fica pendurada em uma fita.",
           "explanation": "O primeiro, o segundo e o terceiro recebem ouro, prata e bronze.",
           "fact": "Nos primeiros Jogos modernos o vencedor recebia prata, não ouro."
         },
@@ -351,9 +351,9 @@
             "Uma lanterna",
             "Uma fogueira"
           ],
-          "hint": "Arde numa grande pira.",
+          "hint": "Arde em uma grande pira.",
           "explanation": "A chama arde no estádio enquanto durarem os Jogos.",
-          "fact": "O fogo vem da Grécia, levado por uma tocha."
+          "fact": "O fogo vem da Grécia, levado em uma tocha."
         },
         "da": {
           "prompt": "Hvad bliver tændt ved legenes åbning?",
@@ -474,16 +474,16 @@
           "fact": "Nel mezzo ci sono anche i Giochi invernali, sempre ogni quattro anni."
         },
         "pt": {
-          "prompt": "De quantos em quantos anos são os Jogos de verão?",
+          "prompt": "De quantos em quantos anos acontecem os Jogos de verão?",
           "answer": "De quatro em quatro anos",
           "wrong": [
             "Todos os anos",
             "De dez em dez anos",
             "De cem em cem anos"
           ],
-          "hint": "Tal como o Mundial de futebol.",
-          "explanation": "De quatro em quatro anos os atletas juntam-se noutra cidade.",
-          "fact": "Pelo meio há também Jogos de inverno de quatro em quatro anos."
+          "hint": "Igual à Copa do Mundo de futebol.",
+          "explanation": "De quatro em quatro anos, os atletas se reúnem em outra cidade.",
+          "fact": "No meio, também há Jogos de inverno, de quatro em quatro anos."
         },
         "da": {
           "prompt": "Hvor tit afholdes de olympiske sommerlege?",
@@ -612,7 +612,7 @@
             "No Brasil"
           ],
           "hint": "Foi na Antiguidade.",
-          "explanation": "Os primeiros Jogos realizaram-se há quase três mil anos em Olímpia.",
+          "explanation": "Os primeiros Jogos foram realizados há quase três mil anos, em Olímpia.",
           "fact": "Durante os Jogos as cidades gregas suspendiam as guerras."
         },
         "da": {
@@ -864,7 +864,7 @@
           "fact": "La Grecia apre sempre il corteo, perché lì nacquero i Giochi."
         },
         "pt": {
-          "prompt": "O que fazem os atletas na cerimónia de abertura?",
+          "prompt": "O que os atletas fazem na cerimônia de abertura?",
           "answer": "Desfilam",
           "wrong": [
             "Vão dormir",
@@ -873,7 +873,7 @@
           ],
           "hint": "Cada país atrás da sua bandeira.",
           "explanation": "País a país, os atletas entram no estádio atrás da bandeira.",
-          "fact": "A Grécia vai sempre à frente, porque os Jogos nasceram lá."
+          "fact": "A Grécia sempre vai na frente, porque os Jogos nasceram lá."
         },
         "da": {
           "prompt": "Hvad gør idrætsfolkene ved åbningsceremonien?",
@@ -994,15 +994,15 @@
           "fact": "I primi Giochi invernali furono nel 1924, sulle Alpi francesi."
         },
         "pt": {
-          "prompt": "Que desporto pertence aos Jogos de inverno?",
-          "answer": "A patinagem de velocidade",
+          "prompt": "Que esporte faz parte dos Jogos de inverno?",
+          "answer": "A patinação de velocidade",
           "wrong": [
             "A natação",
             "A ginástica",
-            "O ténis"
+            "O tênis"
           ],
-          "hint": "É preciso gelo.",
-          "explanation": "Nos Jogos de inverno tudo gira à volta da neve e do gelo.",
+          "hint": "Precisa de gelo.",
+          "explanation": "Nos Jogos de inverno, tudo gira em torno da neve e do gelo.",
           "fact": "Os primeiros Jogos de inverno foram em 1924, nos Alpes franceses."
         },
         "da": {
@@ -1131,7 +1131,7 @@
             "Sete",
             "Dez"
           ],
-          "hint": "Estão em duas filas.",
+          "hint": "Eles ficam em duas fileiras.",
           "explanation": "São cinco anéis: azul, amarelo, preto, verde e vermelho.",
           "fact": "Foram desenhados em 1913 pelo fundador dos Jogos modernos."
         },
@@ -1254,16 +1254,16 @@
           "fact": "Se il testimone cade, la gara è persa, per quanto veloce tu sia stato."
         },
         "pt": {
-          "prompt": "O que é uma corrida de estafetas?",
-          "answer": "Uma corrida com testemunho",
+          "prompt": "O que é uma corrida de revezamento?",
+          "answer": "Uma corrida com bastão",
           "wrong": [
             "Uma corrida sem correr",
             "Um jogo com bola",
             "Uma dança com música"
           ],
-          "hint": "Quatro corredores seguidos.",
-          "explanation": "Cada corredor faz um troço e passa o testemunho ao seguinte.",
-          "fact": "Deixar cair o testemunho custa a corrida toda, por mais rápido que sejas."
+          "hint": "Quatro corredores, um depois do outro.",
+          "explanation": "Cada corredor faz um trecho e passa o bastão para o próximo.",
+          "fact": "Deixar o bastão cair custa a corrida toda, por mais rápido que você seja."
         },
         "da": {
           "prompt": "Hvad er et stafetløb?",
@@ -1387,13 +1387,13 @@
           "prompt": "O que representam os cinco anéis olímpicos?",
           "answer": "Os cinco continentes",
           "wrong": [
-            "Cinco desportos",
+            "Cinco esportes",
             "Cinco vencedores",
             "Cinco cidades"
           ],
-          "hint": "Estão ligados entre si.",
-          "explanation": "Os anéis mostram que se juntam atletas do mundo inteiro.",
-          "fact": "Entrelaçam-se como sinal de encontro e amizade."
+          "hint": "Eles estão ligados entre si.",
+          "explanation": "Os anéis mostram que atletas do mundo inteiro se reúnem.",
+          "fact": "Eles se entrelaçam como sinal de encontro e amizade."
         },
         "da": {
           "prompt": "Hvad står de fem olympiske ringe for?",
@@ -1514,16 +1514,16 @@
           "fact": "Se piove si usa fuoco acceso prima dal sole."
         },
         "pt": {
-          "prompt": "Onde se acende a tocha olímpica?",
+          "prompt": "Onde a tocha olímpica é acesa?",
           "answer": "Em Olímpia, na Grécia",
           "wrong": [
-            "No país anfitrião",
+            "No país-sede",
             "Em Paris",
             "No mar"
           ],
           "hint": "Onde os Jogos nasceram.",
-          "explanation": "Ali o fogo acende-se com um espelho e a luz do sol.",
-          "fact": "Se chover usa-se fogo aceso antes pelo sol."
+          "explanation": "Ali, o fogo é aceso com um espelho e a luz do sol.",
+          "fact": "Se chover, eles usam um fogo que já foi aceso antes pelo sol."
         },
         "da": {
           "prompt": "Hvor bliver den olympiske fakkel tændt?",
@@ -1653,7 +1653,7 @@
           ],
           "hint": "Três palavras, em latim.",
           "explanation": "O lema pede aos atletas que se superem, não apenas que ganhem.",
-          "fact": "Em 2021 juntou-se uma palavra: juntos."
+          "fact": "Em 2021, entrou mais uma palavra: juntos."
         },
         "da": {
           "prompt": "Hvad hedder sætningen hurtigere, højere, stærkere?",
@@ -1774,16 +1774,16 @@
           "fact": "Dal 1900 partecipano anche le donne; oggi sono la metà."
         },
         "pt": {
-          "prompt": "Quem podia participar na Grécia antiga?",
+          "prompt": "Quem podia participar dos Jogos na Grécia antiga?",
           "answer": "Só os homens",
           "wrong": [
             "Só as crianças",
             "Só os reis",
-            "Toda a gente"
+            "Todo mundo"
           ],
           "hint": "As mulheres ficavam de fora.",
           "explanation": "Na Antiguidade competiam só homens livres, e as mulheres nem podiam assistir.",
-          "fact": "Desde 1900 há mulheres; hoje são metade dos atletas."
+          "fact": "Desde 1900 há mulheres; hoje elas são metade dos atletas."
         },
         "da": {
           "prompt": "Hvem måtte være med i det gamle Grækenland?",
@@ -1904,16 +1904,16 @@
           "fact": "Quei metri strani furono aggiunti per arrivare davanti al re."
         },
         "pt": {
-          "prompt": "Que distância tem mais ou menos uma maratona?",
-          "answer": "Pouco mais de 40 quilómetros",
+          "prompt": "Mais ou menos qual é a distância de uma maratona?",
+          "answer": "Pouco mais de 40 quilômetros",
           "wrong": [
-            "Uns quatro quilómetros",
-            "Uns cem quilómetros",
-            "Um quilómetro"
+            "Uns quatro quilômetros",
+            "Uns cem quilômetros",
+            "Um quilômetro"
           ],
-          "hint": "Corre-se durante horas.",
-          "explanation": "A maratona tem 42,195 quilómetros, uma distância vinda de uma velha história.",
-          "fact": "Aqueles metros estranhos foram acrescentados para acabar diante do rei."
+          "hint": "A corrida dura horas.",
+          "explanation": "A maratona tem 42,195 quilômetros, uma distância que vem de uma história antiga.",
+          "fact": "Aqueles metros a mais foram acrescentados para a chegada ser em frente ao rei."
         },
         "da": {
           "prompt": "Hvor langt er et maratonløb cirka?",
@@ -2034,16 +2034,16 @@
           "fact": "La vasca è lunga esattamente cinquanta metri e ha dieci corsie."
         },
         "pt": {
-          "prompt": "Que atletas disputam medalhas numa piscina?",
+          "prompt": "Que atletas disputam medalhas em uma piscina?",
           "answer": "Os nadadores",
           "wrong": [
             "Os ginastas",
-            "Os pugilistas",
+            "Os boxeadores",
             "Os cavaleiros"
           ],
-          "hint": "Nadam em pistas.",
-          "explanation": "Na piscina olímpica nada-se em distâncias de cinquenta metros ou mais.",
-          "fact": "A piscina tem exatamente cinquenta metros e dez pistas."
+          "hint": "Eles nadam em raias.",
+          "explanation": "Na piscina olímpica, as provas são de cinquenta metros ou mais.",
+          "fact": "A piscina tem exatamente cinquenta metros e dez raias."
         },
         "da": {
           "prompt": "Hvilke idrætsfolk kæmper om medaljer i en svømmehal?",
@@ -2172,8 +2172,8 @@
             "No ano 2000"
           ],
           "hint": "Há pouco mais de um século.",
-          "explanation": "Em 1896 juntaram-se em Atenas atletas de catorze países.",
-          "fact": "Eram menos de trezentos e todos homens."
+          "explanation": "Em 1896, atletas de quatorze países se reuniram em Atenas.",
+          "fact": "Eram menos de trezentos, e todos homens."
         },
         "da": {
           "prompt": "Hvornår var de første moderne olympiske lege?",
@@ -2301,9 +2301,9 @@
             "A de ouro",
             "A preta"
           ],
-          "hint": "O metal é castanho avermelhado.",
-          "explanation": "O bronze é do terceiro e faz-se de cobre com um pouco de estanho.",
-          "fact": "Em alguns desportos dão-se dois bronzes, porque não há disputa do terceiro lugar."
+          "hint": "O metal é marrom-avermelhado.",
+          "explanation": "O bronze é do terceiro e é feito de cobre com um pouco de estanho.",
+          "fact": "Em alguns esportes são dados dois bronzes, porque não há disputa de terceiro lugar."
         },
         "da": {
           "prompt": "Hvilken medalje hører til tredjepladsen?",
@@ -2425,15 +2425,15 @@
         },
         "pt": {
           "prompt": "Para quem são os Jogos Paralímpicos?",
-          "answer": "Atletas com deficiência",
+          "answer": "Para atletas com deficiência",
           "wrong": [
             "Para os treinadores",
             "Para crianças pequenas",
             "Para os espectadores"
           ],
-          "hint": "Vêm logo a seguir aos Jogos.",
+          "hint": "Eles vêm logo depois dos Jogos.",
           "explanation": "Nos Paralímpicos competem atletas de alto nível com deficiência física ou visual.",
-          "fact": "Realizam-se na mesma cidade e nos mesmos estádios."
+          "fact": "Eles acontecem na mesma cidade e nos mesmos estádios."
         },
         "da": {
           "prompt": "Hvem er de paralympiske lege for?",
@@ -2554,7 +2554,7 @@
           "fact": "La staffetta della fiaccola esiste solo dal 1936."
         },
         "pt": {
-          "prompt": "O que acontece à tocha antes de os Jogos começarem?",
+          "prompt": "O que acontece com a tocha antes de os Jogos começarem?",
           "answer": "É levada de mão em mão",
           "wrong": [
             "É escondida",
@@ -2562,7 +2562,7 @@
             "Vai para o mar"
           ],
           "hint": "Passa de corredor em corredor.",
-          "explanation": "Milhares de corredores levam a chama da Grécia até ao país anfitrião.",
+          "explanation": "Milhares de corredores levam a chama da Grécia até o país-sede.",
           "fact": "O revezamento da tocha só existe desde 1936."
         },
         "da": {
@@ -2692,8 +2692,8 @@
             "Em Tóquio"
           ],
           "hint": "A capital da Grécia.",
-          "explanation": "Os Jogos de 1896 realizaram-se num estádio de mármore em Atenas.",
-          "fact": "Esse estádio tinha sido reconstruído sobre as ruínas de um antigo."
+          "explanation": "Os Jogos de 1896 foram realizados em um estádio de mármore em Atenas.",
+          "fact": "Esse estádio tinha sido reconstruído sobre as ruínas de um estádio antigo."
         },
         "da": {
           "prompt": "I hvilken by blev de første moderne lege holdt?",
@@ -2821,9 +2821,9 @@
             "Carl Lewis",
             "Michael Phelps"
           ],
-          "hint": "Ganhou-os em Berlim.",
-          "explanation": "Owens venceu os cem metros, os duzentos, o comprimento e a estafeta.",
-          "fact": "Fê-lo numa época em que, no seu país, não era bem-vindo em toda a parte."
+          "hint": "Ele os ganhou em Berlim.",
+          "explanation": "Owens venceu os cem metros, os duzentos, o salto em distância e o revezamento.",
+          "fact": "Ele fez isso em uma época em que, no próprio país, não era bem-vindo em todo lugar."
         },
         "da": {
           "prompt": "Hvilken amerikansk sprinter vandt fire guldmedaljer i 1936?",
@@ -2944,16 +2944,16 @@
           "fact": "In tutto ha vinto ventitré ori, più di chiunque altro."
         },
         "pt": {
-          "prompt": "Quem ganhou oito medalhas de ouro nuns mesmos Jogos?",
+          "prompt": "Quem ganhou oito medalhas de ouro em uma mesma edição dos Jogos?",
           "answer": "Michael Phelps",
           "wrong": [
             "Usain Bolt",
             "Jesse Owens",
             "Mark Spitz"
           ],
-          "hint": "Fê-lo dentro de água.",
-          "explanation": "Em 2008 o nadador Phelps ganhou oito ouros em Pequim, um recorde.",
-          "fact": "Ao todo conquistou vinte e três ouros, mais do que ninguém."
+          "hint": "Ele fez isso dentro da água.",
+          "explanation": "Em 2008, o nadador Phelps ganhou oito ouros em Pequim, um recorde.",
+          "fact": "Ao todo, ele conquistou vinte e três ouros, mais do que qualquer outro atleta."
         },
         "da": {
           "prompt": "Hvem vandt otte guldmedaljer ved én olympiade?",
@@ -3074,7 +3074,7 @@
           "fact": "Durante la corsa sfiorò i cinquanta chilometri orari."
         },
         "pt": {
-          "prompt": "Que jamaicano é o velocista mais rápido de sempre?",
+          "prompt": "Que jamaicano é o velocista mais rápido de todos os tempos?",
           "answer": "Usain Bolt",
           "wrong": [
             "Carl Lewis",
@@ -3083,7 +3083,7 @@
           ],
           "hint": "Correu os cem metros em 9,58.",
           "explanation": "Bolt ganhou os cem e os duzentos metros em três Jogos seguidos.",
-          "fact": "A meio da corrida chegou quase aos cinquenta quilómetros por hora."
+          "fact": "No meio da corrida, ele chegou a quase cinquenta quilômetros por hora."
         },
         "da": {
           "prompt": "Hvilken jamaicaner er den hurtigste sprinter nogensinde?",
@@ -3339,11 +3339,11 @@
           "wrong": [
             "Os Países Baixos",
             "A Islândia",
-            "O Quénia"
+            "O Quênia"
           ],
           "hint": "Participam desde 1896.",
           "explanation": "Os Estados Unidos ganharam mais de duas mil, mais do que qualquer outro país.",
-          "fact": "Países pequenos ganham por vezes mais medalhas por habitante."
+          "fact": "Às vezes, países pequenos ganham mais medalhas por habitante."
         },
         "da": {
           "prompt": "Hvilket land har vundet flest olympiske medaljer?",
@@ -3465,15 +3465,15 @@
         },
         "pt": {
           "prompt": "O que é o juramento olímpico?",
-          "answer": "Prometer jogar com lealdade",
+          "answer": "Prometer jogar limpo",
           "wrong": [
             "Um canto diante da bandeira",
             "Uma saudação ao rei",
-            "Uma dança após vencer"
+            "Uma dança depois de vencer"
           ],
-          "hint": "Um atleta di-lo por todos.",
-          "explanation": "Na abertura um atleta promete em nome de todos respeitar as regras.",
-          "fact": "Diz-se desde 1920, com a mão na bandeira."
+          "hint": "Um atleta fala em nome de todos.",
+          "explanation": "Na abertura, um atleta promete, em nome de todos, respeitar as regras.",
+          "fact": "Ele é feito desde 1920, com a mão na bandeira."
         },
         "da": {
           "prompt": "Hvad er den olympiske ed?",
@@ -3594,7 +3594,7 @@
           "fact": "La più giovane medagliata dello skate aveva tredici anni."
         },
         "pt": {
-          "prompt": "Que desporto entrou nos Jogos em 2021?",
+          "prompt": "Que esporte entrou nos Jogos em 2021?",
           "answer": "O skate",
           "wrong": [
             "O futebol",
@@ -3602,8 +3602,8 @@
             "A ginástica"
           ],
           "hint": "Vem da rua.",
-          "explanation": "Em Tóquio o skate, o surf e a escalada entraram pela primeira vez no programa.",
-          "fact": "A medalhada mais nova do skate tinha treze anos."
+          "explanation": "Em Tóquio, o skate, o surfe e a escalada entraram pela primeira vez no programa.",
+          "fact": "A medalhista mais nova do skate tinha treze anos."
         },
         "da": {
           "prompt": "Hvilken sport kom nyt med til legene i 2021?",
@@ -3732,7 +3732,7 @@
             "Dois anos"
           ],
           "hint": "Da abertura ao encerramento.",
-          "explanation": "Em dezasseis dias decidem-se mais de trezentas provas.",
+          "explanation": "Em dezesseis dias, são decididas mais de trezentas provas.",
           "fact": "Poucas semanas depois chegam os Jogos Paralímpicos."
         },
         "da": {
@@ -3857,12 +3857,12 @@
           "prompt": "O que quer dizer bater um recorde?",
           "answer": "Alguém fez ainda melhor",
           "wrong": [
-            "A medalha parte-se",
+            "A medalha se quebra",
             "O estádio fecha",
             "A corrida para"
           ],
           "hint": "A marca antiga deixou de ser a melhor.",
-          "explanation": "Quem vai mais depressa, mais alto ou mais longe do que todos antes estabelece um recorde.",
+          "explanation": "Quem vai mais rápido, mais alto ou mais longe do que todos antes bate um recorde.",
           "fact": "Há recordes que resistem há décadas."
         },
         "da": {
@@ -3984,16 +3984,16 @@
           "fact": "I Giochi del 1940 dovevano essere a Tokyo, che li ebbe solo nel 1964."
         },
         "pt": {
-          "prompt": "Porque não houve Jogos em 1916, 1940 e 1944?",
+          "prompt": "Por que não houve Jogos em 1916, 1940 e 1944?",
           "answer": "Pelas guerras mundiais",
           "wrong": [
-            "Por mau tempo",
+            "Por causa do mau tempo",
             "Por falta de atletas",
             "Por causa de uma greve"
           ],
           "hint": "O mundo tinha outras preocupações.",
-          "explanation": "As duas guerras mundiais anularam três edições.",
-          "fact": "Os Jogos de 1940 seriam em Tóquio, que só os teve em 1964."
+          "explanation": "As duas guerras mundiais cancelaram três edições.",
+          "fact": "Os Jogos de 1940 seriam em Tóquio, que só os recebeu em 1964."
         },
         "da": {
           "prompt": "Hvorfor var der ingen lege i 1916, 1940 og 1944?",
@@ -4114,7 +4114,7 @@
           "fact": "I giornali la chiamavano la casalinga volante."
         },
         "pt": {
-          "prompt": "Que atleta neerlandesa ganhou quatro ouros em 1948?",
+          "prompt": "Que atleta holandesa ganhou quatro ouros em 1948?",
           "answer": "Fanny Blankers-Koen",
           "wrong": [
             "Ellen van Langen",
@@ -4122,8 +4122,8 @@
             "Dafne Schippers"
           ],
           "hint": "Tinha trinta anos e dois filhos.",
-          "explanation": "Em Londres ganhou os cem metros, os oitenta barreiras, os duzentos e a estafeta.",
-          "fact": "Os jornais chamavam-lhe a dona de casa voadora."
+          "explanation": "Em Londres, ela ganhou os cem metros, os oitenta com barreiras, os duzentos e o revezamento.",
+          "fact": "Os jornais a chamavam de dona de casa voadora."
         },
         "da": {
           "prompt": "Hvilken hollandsk atlet vandt fire guldmedaljer i 1948?",
@@ -4252,7 +4252,7 @@
             "Mais de mil"
           ],
           "hint": "Quase o mundo inteiro.",
-          "explanation": "Mais de duzentos países e territórios mandam atletas aos Jogos.",
+          "explanation": "Mais de duzentos países e territórios mandam atletas para os Jogos.",
           "fact": "Alguns chegam com apenas um ou dois participantes."
         },
         "da": {
@@ -4375,14 +4375,14 @@
         },
         "pt": {
           "prompt": "Qual é a grande diferença nos Jogos de inverno?",
-          "answer": "Desportos na neve e no gelo",
+          "answer": "Esportes na neve e no gelo",
           "wrong": [
             "Só o tempo",
             "A cor da bandeira",
             "O número de anéis"
           ],
-          "hint": "Pensa na patinagem e no esqui.",
-          "explanation": "Nos Jogos de inverno só há desportos que precisam de neve ou gelo.",
+          "hint": "Pense na patinação e no esqui.",
+          "explanation": "Nos Jogos de inverno, só há esportes que precisam de neve ou gelo.",
           "fact": "Por isso os países sem inverno quase não participam."
         },
         "da": {
@@ -4512,8 +4512,8 @@
             "Johan Cruyff"
           ],
           "hint": "Um barão francês, por volta de 1890.",
-          "explanation": "Coubertin queria juntar pelo desporto jovens de todos os países.",
-          "fact": "Desenhou também a bandeira dos cinco anéis."
+          "explanation": "Coubertin queria reunir, pelo esporte, jovens de todos os países.",
+          "fact": "Ele também desenhou a bandeira dos cinco anéis."
         },
         "da": {
           "prompt": "Hvem fandt på de moderne olympiske lege?",
@@ -4634,16 +4634,16 @@
           "fact": "Un atleta ci si è perfino rotto un dente."
         },
         "pt": {
-          "prompt": "Porque mordem os vencedores a medalha?",
-          "answer": "Pela foto, por hábito",
+          "prompt": "Por que os vencedores mordem a medalha?",
+          "answer": "Pela foto, por costume",
           "wrong": [
             "Para ver se é doce",
-            "Porque têm fome",
-            "Para a abrir"
+            "Porque estão com fome",
+            "Para abri-la"
           ],
           "hint": "São os fotógrafos que pedem.",
-          "explanation": "Antigamente mordia-se o ouro para sentir se era verdadeiro; hoje é só pose.",
-          "fact": "Um atleta chegou a partir um dente a fazê-lo."
+          "explanation": "Antigamente se mordia o ouro para sentir se era verdadeiro; hoje é só pose.",
+          "fact": "Um atleta chegou a quebrar um dente fazendo isso."
         },
         "da": {
           "prompt": "Hvorfor bider vindere tit i deres medalje?",
@@ -4765,15 +4765,15 @@
         },
         "pt": {
           "prompt": "As medalhas de ouro são todas de ouro?",
-          "answer": "Não, são sobretudo de prata",
+          "answer": "Não, são mais de prata",
           "wrong": [
             "Sim, todas de ouro",
             "Não, de plástico",
             "Não, de madeira"
           ],
-          "hint": "Levam uma camada fina por fora.",
+          "hint": "Elas têm uma camada fina por fora.",
           "explanation": "Uma medalha de ouro é de prata com pelo menos seis gramas de ouro por cima.",
-          "fact": "Em ouro maciço custaria dezenas de milhares."
+          "fact": "Se fosse de ouro maciço, custaria dezenas de milhares."
         },
         "da": {
           "prompt": "Er guldmedaljer helt af guld?",
@@ -4894,16 +4894,16 @@
           "fact": "Alcuni dormono apposta in una tenda con aria povera di ossigeno."
         },
         "pt": {
-          "prompt": "Porque treinam os atletas por vezes em alta montanha?",
+          "prompt": "Por que os atletas às vezes treinam no alto das montanhas?",
           "answer": "O corpo faz mais sangue",
           "wrong": [
-            "Lá é mais sossegado",
+            "Lá é mais tranquilo",
             "O ar é mais quente",
-            "Vê-se melhor"
+            "Dá para ver melhor"
           ],
-          "hint": "Lá em cima há menos oxigénio.",
-          "explanation": "No ar rarefeito o corpo produz glóbulos vermelhos a mais, úteis cá em baixo.",
-          "fact": "Há quem durma por isso numa tenda com ar pobre em oxigénio."
+          "hint": "Lá em cima há menos oxigênio.",
+          "explanation": "No ar rarefeito, o corpo produz mais glóbulos vermelhos, que ajudam aqui embaixo.",
+          "fact": "Por isso, tem atleta que dorme em uma barraca com ar pobre em oxigênio."
         },
         "da": {
           "prompt": "Hvorfor træner atleter nogle gange højt oppe i bjergene?",
@@ -5024,7 +5024,7 @@
           "fact": "Oggi sono più di diecimila."
         },
         "pt": {
-          "prompt": "Quantos atletas participaram mais ou menos em 1896?",
+          "prompt": "Mais ou menos quantos atletas participaram em 1896?",
           "answer": "Cerca de duzentos",
           "wrong": [
             "Uns dez",
@@ -5032,7 +5032,7 @@
             "Cerca de um milhão"
           ],
           "hint": "Um grupo pequenino.",
-          "explanation": "Em Atenas competiram menos de trezentos atletas de catorze países.",
+          "explanation": "Em Atenas, competiram menos de trezentos atletas de quatorze países.",
           "fact": "Hoje participam mais de dez mil."
         },
         "da": {
@@ -5154,8 +5154,8 @@
           "fact": "Lì resta appesa quattro anni in municipio."
         },
         "pt": {
-          "prompt": "O que acontece à bandeira olímpica no encerramento?",
-          "answer": "Passa à cidade seguinte",
+          "prompt": "O que acontece com a bandeira olímpica no encerramento?",
+          "answer": "Vai para a próxima cidade",
           "wrong": [
             "É queimada",
             "Fica pendurada",
@@ -5163,7 +5163,7 @@
           ],
           "hint": "De presidente para presidente.",
           "explanation": "A bandeira é entregue à cidade que vai organizar os próximos Jogos.",
-          "fact": "Lá fica quatro anos na câmara municipal."
+          "fact": "Lá ela fica por quatro anos, na prefeitura."
         },
         "da": {
           "prompt": "Hvad sker der med det olympiske flag ved afslutningen?",

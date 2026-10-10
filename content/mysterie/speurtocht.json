@@ -84,7 +84,7 @@
           "fact": "I veri investigatori segnano anche l'ora, al minuto."
         },
         "pt": {
-          "prompt": "O que levas para apontar as pistas?",
+          "prompt": "O que você leva para anotar as pistas?",
           "answer": "Um caderno",
           "wrong": [
             "Um disco voador",
@@ -92,8 +92,8 @@
             "Um balde"
           ],
           "hint": "Com um lápis ao lado.",
-          "explanation": "Quem aponta tudo logo não esquece depois nenhum pormenor.",
-          "fact": "Os investigadores a sério apontam também a hora, ao minuto."
+          "explanation": "Quem anota tudo na hora não esquece nenhum detalhe depois.",
+          "fact": "Os investigadores de verdade também anotam a hora, minuto a minuto."
         },
         "da": {
           "prompt": "Hvad tager du med for at skrive spor ned?",
@@ -214,7 +214,7 @@
           "fact": "Illumina rasente il pavimento e polvere e impronte saltano fuori."
         },
         "pt": {
-          "prompt": "O que usas para procurar no escuro?",
+          "prompt": "O que você usa para procurar no escuro?",
           "answer": "Uma lanterna",
           "wrong": [
             "Um prato",
@@ -222,8 +222,8 @@
             "Um balde"
           ],
           "hint": "Lança um feixe de luz.",
-          "explanation": "Com uma lanterna vês debaixo dos móveis e nos cantos escuros.",
-          "fact": "Ilumina rente ao chão e o pó e as pegadas saltam à vista."
+          "explanation": "Com uma lanterna, você vê embaixo dos móveis e nos cantos escuros.",
+          "fact": "Ilumine rente ao chão, e a poeira e as pegadas saltam aos olhos."
         },
         "da": {
           "prompt": "Hvad bruger du til at lede i mørke?",
@@ -344,15 +344,15 @@
           "fact": "La distanza fra i passi dice se qualcuno camminava o correva."
         },
         "pt": {
-          "prompt": "Em que reparas num rasto na neve?",
+          "prompt": "Em que você presta atenção em um rastro na neve?",
           "answer": "Na forma da pegada",
           "wrong": [
             "Na cor do céu",
             "No som do vento",
             "No sabor da neve"
           ],
-          "hint": "Grande ou pequena, funda ou leve.",
-          "explanation": "A forma e a fundura dizem quem ou o que passou por ali.",
+          "hint": "Grande ou pequena, funda ou rasa.",
+          "explanation": "A forma e a profundidade dizem quem ou o que passou por ali.",
           "fact": "A distância entre passos mostra se alguém andava ou corria."
         },
         "da": {
@@ -474,16 +474,16 @@
           "fact": "Per questo si posano numeri prima di spostare qualsiasi cosa."
         },
         "pt": {
-          "prompt": "O que fazes se encontras algo importante?",
+          "prompt": "O que você faz se encontrar algo importante?",
           "answer": "Não tocar e avisar",
           "wrong": [
-            "Apanhar logo",
-            "Meter ao bolso",
-            "Deitar fora"
+            "Pegar logo",
+            "Pôr no bolso",
+            "Jogar fora"
           ],
-          "hint": "Deixa ficar onde está.",
-          "explanation": "O sítio onde algo está conta muitas vezes tanto como o objeto.",
-          "fact": "Por isso põem-se números antes de mexer seja no que for."
+          "hint": "Deixe onde está.",
+          "explanation": "O lugar onde algo está muitas vezes conta tanto quanto o objeto.",
+          "fact": "Por isso se colocam números antes de mexer em qualquer coisa."
         },
         "da": {
           "prompt": "Hvad gør du, hvis du finder noget vigtigt?",
@@ -612,7 +612,7 @@
             "Alguém que corre"
           ],
           "hint": "Essa pessoa pode contar.",
-          "explanation": "Uma testemunha conta o que percebeu por si própria.",
+          "explanation": "Uma testemunha conta o que percebeu por conta própria.",
           "fact": "O que alguém ouviu ou cheirou também conta."
         },
         "da": {
@@ -734,16 +734,16 @@
           "fact": "Persino un capello dell'investigatore può confondere un'indagine."
         },
         "pt": {
-          "prompt": "Porque usa luvas um investigador?",
+          "prompt": "Por que um investigador usa luvas?",
           "answer": "Para não deixar rastos",
           "wrong": [
             "Para ter mãos quentes",
-            "Porque fica bem",
+            "Porque fica bonito",
             "Para correr mais"
           ],
-          "hint": "Senão encontras os teus dedos.",
-          "explanation": "Sem luvas deixas as tuas próprias impressões por todo o lado.",
-          "fact": "Até um cabelo do investigador pode baralhar uma investigação."
+          "hint": "Senão você encontra seus próprios dedos.",
+          "explanation": "Sem luvas, você deixa suas próprias impressões por todo lado.",
+          "fact": "Até um fio de cabelo do investigador pode confundir uma investigação."
         },
         "da": {
           "prompt": "Hvorfor bruger en efterforsker handsker?",
@@ -864,15 +864,15 @@
           "fact": "Molti casi sono stati risolti da un indizio rimasto lì per anni."
         },
         "pt": {
-          "prompt": "O que fazes a uma pista que ainda não percebes?",
+          "prompt": "O que você faz com uma pista que ainda não entende?",
           "answer": "Guardar e ver depois",
           "wrong": [
-            "Deitar fora logo",
+            "Jogar fora logo",
             "Não contar a ninguém",
-            "Esquecer depressa"
+            "Esquecer rapidinho"
           ],
           "hint": "Talvez encaixe mais tarde.",
-          "explanation": "Uma peça solta só faz sentido quando encontras o resto.",
+          "explanation": "Uma peça solta só faz sentido quando você encontra o resto.",
           "fact": "Muitos casos foram resolvidos por uma pista parada durante anos."
         },
         "da": {
@@ -994,7 +994,7 @@
           "fact": "Così si vede subito dove il racconto di qualcuno non torna."
         },
         "pt": {
-          "prompt": "O que é uma linha do tempo numa investigação?",
+          "prompt": "O que é uma linha do tempo em uma investigação?",
           "answer": "A ordem de tudo",
           "wrong": [
             "Uma espécie de relógio",
@@ -1002,8 +1002,8 @@
             "Uma régua"
           ],
           "hint": "O que aconteceu primeiro?",
-          "explanation": "Numa linha do tempo pões todos os factos uns a seguir aos outros.",
-          "fact": "Assim vê-se logo onde a história de alguém não bate certo."
+          "explanation": "Em uma linha do tempo, você coloca todos os fatos um depois do outro.",
+          "fact": "Assim se vê logo onde a história de alguém não bate."
         },
         "da": {
           "prompt": "Hvad er en tidslinje i en efterforskning?",
@@ -1124,16 +1124,16 @@
           "fact": "Sulla targhetta ci sono luogo, data e chi l'ha trovato."
         },
         "pt": {
-          "prompt": "Como se guarda melhor um objeto encontrado?",
-          "answer": "Num saco com etiqueta",
+          "prompt": "Qual é a melhor forma de guardar um objeto encontrado?",
+          "answer": "Em um saco com etiqueta",
           "wrong": [
             "No bolso",
-            "Debaixo da almofada",
-            "Numa poça"
+            "Embaixo do travesseiro",
+            "Em uma poça"
           ],
           "hint": "Para que não mude.",
-          "explanation": "Num saco fechado o objeto fica limpo e nada se lhe junta.",
-          "fact": "Na etiqueta ficam o local, a data e quem o encontrou."
+          "explanation": "Em um saco fechado, o objeto fica limpo e nada gruda nele.",
+          "fact": "Na etiqueta vão o local, a data e quem o encontrou."
         },
         "da": {
           "prompt": "Hvordan gemmer man bedst en fundet ting?",
@@ -1254,16 +1254,16 @@
           "fact": "Per questo si mette un righello accanto, per la misura."
         },
         "pt": {
-          "prompt": "Porque se fotografa logo um rasto?",
-          "answer": "Desaparece depressa",
+          "prompt": "Por que se fotografa um rastro na hora?",
+          "answer": "Desaparece rápido",
           "wrong": [
             "Para o álbum",
             "Porque fica bonito",
             "Para testar a câmara"
           ],
-          "hint": "A chuva ou o vento apaga-o.",
-          "explanation": "Uma pegada na lama ou na neve pode sumir numa hora.",
-          "fact": "Por isso põe-se uma régua ao lado, para a medida."
+          "hint": "A chuva ou o vento o apagam.",
+          "explanation": "Uma pegada na lama ou na neve pode sumir em uma hora.",
+          "fact": "Por isso se coloca uma régua ao lado, para dar a medida."
         },
         "da": {
           "prompt": "Hvorfor fotograferer man et spor med det samme?",
@@ -1391,8 +1391,8 @@
             "Palavra só de vogais",
             "Palavra em código"
           ],
-          "hint": "Baralha as letras.",
-          "explanation": "Num anagrama formas uma palavra nova com exatamente as mesmas letras.",
+          "hint": "Embaralhe as letras.",
+          "explanation": "Em um anagrama, você forma uma palavra nova com exatamente as mesmas letras.",
           "fact": "De 'roma' sai assim 'amor'."
         },
         "da": {
@@ -1644,7 +1644,7 @@
           "fact": "Per questo si chiedono dettagli e non conclusioni."
         },
         "pt": {
-          "prompt": "Porque contam duas testemunhas às vezes coisas diferentes?",
+          "prompt": "Por que duas testemunhas às vezes contam coisas diferentes?",
           "answer": "A memória engana",
           "wrong": [
             "Um deles mente sempre",
@@ -1652,8 +1652,8 @@
             "Inventam tudo"
           ],
           "hint": "Cada um olha para outra coisa.",
-          "explanation": "O teu cérebro preenche sozinho as falhas da memória, sem dares por isso.",
-          "fact": "Por isso perguntam pormenores e não conclusões."
+          "explanation": "O seu cérebro preenche sozinho as falhas da memória, sem você perceber.",
+          "fact": "Por isso perguntam detalhes, e não conclusões."
         },
         "da": {
           "prompt": "Hvorfor fortæller to vidner nogle gange noget forskelligt?",
@@ -1774,7 +1774,7 @@
           "fact": "Le fibre piccole restano spesso attaccate a bordi ruvidi e chiodi."
         },
         "pt": {
-          "prompt": "Com que se apanha um fio minúsculo?",
+          "prompt": "Com o que se pega um fio minúsculo?",
           "answer": "Com uma pinça",
           "wrong": [
             "Com um martelo",
@@ -1782,8 +1782,8 @@
             "Com uma vassoura"
           ],
           "hint": "Duas pontas finas.",
-          "explanation": "Com uma pinça levantas sem estragar nem tocar.",
-          "fact": "As fibras pequenas prendem-se muitas vezes a bordos ásperos e pregos."
+          "explanation": "Com uma pinça, você levanta sem estragar nem tocar.",
+          "fact": "As fibras pequenas muitas vezes ficam presas em bordas ásperas e pregos."
         },
         "da": {
           "prompt": "Hvad samler en efterforsker en bitte lille tråd op med?",
@@ -1911,8 +1911,8 @@
             "Um palíndromo",
             "Uma rima"
           ],
-          "hint": "Lê só as primeiras letras.",
-          "explanation": "Num acróstico as primeiras letras das linhas formam uma palavra.",
+          "hint": "Leia só as primeiras letras.",
+          "explanation": "Em um acróstico, as primeiras letras das linhas formam uma palavra.",
           "fact": "Os poetas escondiam ali o nome da amada."
         },
         "da": {
@@ -2041,8 +2041,8 @@
             "Palavra só de vogais",
             "Palavra em código"
           ],
-          "hint": "Lê da direita para a esquerda.",
-          "explanation": "Um palíndromo lê-se igual nos dois sentidos.",
+          "hint": "Leia da direita para a esquerda.",
+          "explanation": "Um palíndromo se lê igual nos dois sentidos.",
           "fact": "A palavra 'ovo' é um, e 'reviver' também."
         },
         "da": {
@@ -2164,16 +2164,16 @@
           "fact": "Ognuno perde facilmente cento capelli al giorno."
         },
         "pt": {
-          "prompt": "Porque se guardam fibras e cabelos?",
-          "answer": "Dizem onde estiveste",
+          "prompt": "Por que se guardam fibras e cabelos?",
+          "answer": "Mostram onde você esteve",
           "wrong": [
             "São bonitos",
             "Cheiram bem",
             "Valem dinheiro"
           ],
           "hint": "A roupa deixa sempre algo.",
-          "explanation": "Uma fibra de camisola num sítio prova que essa camisola lá esteve.",
-          "fact": "Cada pessoa perde com facilidade cem cabelos por dia."
+          "explanation": "Uma fibra de blusa em um lugar prova que essa blusa esteve lá.",
+          "fact": "Cada pessoa perde facilmente cem fios de cabelo por dia."
         },
         "da": {
           "prompt": "Hvorfor gemmer efterforskere fibre og hår?",
@@ -2294,16 +2294,16 @@
           "fact": "I gemelli identici hanno quasi lo stesso codice ma impronte diverse."
         },
         "pt": {
-          "prompt": "Graças a que se reconhece alguém por um só cabelo?",
-          "answer": "Ao material hereditário",
+          "prompt": "Como se reconhece alguém por um único fio de cabelo?",
+          "answer": "Pelo material genético",
           "wrong": [
-            "Só à cor",
-            "Ao comprimento",
-            "Ao cheiro"
+            "Só pela cor",
+            "Pelo comprimento",
+            "Pelo cheiro"
           ],
           "hint": "Está em cada célula.",
           "explanation": "Nas células da raiz está o código herdado que pertence a uma pessoa.",
-          "fact": "Gémeos idênticos têm quase o mesmo código, mas impressões diferentes."
+          "fact": "Gêmeos idênticos têm quase o mesmo código, mas impressões digitais diferentes."
         },
         "da": {
           "prompt": "Hvad kan kende en person på ét enkelt hår?",
@@ -2424,7 +2424,7 @@
           "fact": "Le nuove tecniche a volte li risolvono dopo trent'anni."
         },
         "pt": {
-          "prompt": "O que é um caso antigo por resolver que se reabre?",
+          "prompt": "O que é um caso antigo não resolvido que é reaberto?",
           "answer": "Um caso parado há anos",
           "wrong": [
             "Um caso de inverno",
@@ -2432,8 +2432,8 @@
             "Um caso resolvido"
           ],
           "hint": "A pasta dorme no arquivo.",
-          "explanation": "É uma investigação que encalhou e é retomada muito mais tarde.",
-          "fact": "As técnicas novas resolvem-nos por vezes ao fim de trinta anos."
+          "explanation": "É uma investigação que empacou e é retomada muito mais tarde.",
+          "fact": "As técnicas novas às vezes os resolvem depois de trinta anos."
         },
         "da": {
           "prompt": "Hvad er en gammel uopklaret sag, der tages op igen?",
@@ -2557,12 +2557,12 @@
           "prompt": "Que máquina de cifra foi decifrada na guerra?",
           "answer": "A Enigma",
           "wrong": [
-            "O manipulador morse",
+            "O transmissor de morse",
             "O telégrafo",
             "A régua de cálculo"
           ],
           "hint": "Tinha teclas e luzinhas.",
-          "explanation": "Matemáticos em Inglaterra decifraram as mensagens da máquina Enigma.",
+          "explanation": "Matemáticos na Inglaterra decifraram as mensagens da máquina Enigma.",
           "fact": "Para isso construíram uma das primeiras máquinas de calcular do mundo."
         },
         "da": {

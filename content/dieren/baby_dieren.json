@@ -89,11 +89,11 @@
           "wrong": [
             "Um cordeiro",
             "Um potro",
-            "Um pinto"
+            "Um pintinho"
           ],
           "hint": "É cor-de-rosa e grunhe baixinho.",
-          "explanation": "Um porco pequeno chama-se leitão.",
-          "fact": "Uma porca tem às vezes doze de uma vez."
+          "explanation": "Um porco pequeno se chama leitão.",
+          "fact": "Uma porca às vezes tem doze de uma vez."
         },
         "da": {
           "prompt": "Hvad hedder en unge af en gris?",
@@ -217,13 +217,13 @@
           "prompt": "De onde sai um girino?",
           "answer": "De um ovo",
           "wrong": [
-            "De um ninho de erva",
+            "De um ninho de grama",
             "De uma bolsa",
             "De um casulo"
           ],
-          "hint": "Flutuam às centenas na água.",
+          "hint": "Eles boiam às centenas na água.",
           "explanation": "As rãs põem ovos na água e daí saem os girinos.",
-          "fact": "No início o girino respira por guelras, como um peixe."
+          "fact": "No início, o girino respira por brânquias, como um peixe."
         },
         "da": {
           "prompt": "Hvad kommer en haletudse ud af?",
@@ -344,16 +344,16 @@
           "fact": "Dentro la crisalide viene quasi del tutto ricostruito."
         },
         "pt": {
-          "prompt": "Em que se transforma uma lagarta?",
-          "answer": "Numa borboleta",
+          "prompt": "Em que uma lagarta se transforma?",
+          "answer": "Em uma borboleta",
           "wrong": [
-            "Num escaravelho",
-            "Numa abelha",
-            "Num caracol"
+            "Em um besouro",
+            "Em uma abelha",
+            "Em um caracol"
           ],
-          "hint": "Primeiro passa a crisálida.",
-          "explanation": "Uma lagarta torna-se borboleta passando pela crisálida.",
-          "fact": "Dentro da crisálida é quase toda reconstruída."
+          "hint": "Primeiro ela vira crisálida.",
+          "explanation": "Uma lagarta vira borboleta passando pela fase de crisálida.",
+          "fact": "Dentro da crisálida, ela é quase toda reconstruída."
         },
         "da": {
           "prompt": "Hvad bliver en kålorm til?",
@@ -474,16 +474,16 @@
           "fact": "Certi nidi vengono riusati ogni anno."
         },
         "pt": {
-          "prompt": "Onde dorme um passarinho novo?",
-          "answer": "Num ninho",
+          "prompt": "Onde dorme um filhote de passarinho?",
+          "answer": "Em um ninho",
           "wrong": [
             "Na água",
             "Debaixo da terra",
-            "Numa concha"
+            "Em uma concha"
           ],
-          "hint": "Os pais fazem-no de raminhos.",
-          "explanation": "As crias ficam no ninho até saberem voar.",
-          "fact": "Alguns ninhos voltam a ser usados todos os anos."
+          "hint": "Os pais o fazem com raminhos.",
+          "explanation": "Os filhotes ficam no ninho até saberem voar.",
+          "fact": "Alguns ninhos são usados de novo todos os anos."
         },
         "da": {
           "prompt": "Hvor sover en fugleunge?",
@@ -608,10 +608,10 @@
           "answer": "Os pais",
           "wrong": [
             "Os vizinhos",
-            "As próprias crias",
+            "Os próprios filhotes",
             "Ninguém"
           ],
-          "hint": "Andam de um lado para o outro o dia todo.",
+          "hint": "Eles vão de um lado para o outro o dia todo.",
           "explanation": "Os pais levam comida ao ninho o dia inteiro.",
           "fact": "Um casal de chapins traz centenas de lagartas por dia."
         },
@@ -734,16 +734,16 @@
           "fact": "Per questo una fila di ochette seguì una volta un ricercatore."
         },
         "pt": {
-          "prompt": "Porque anda um patinho atrás da mãe?",
-          "answer": "Vê-a como sua mãe",
+          "prompt": "Por que um patinho anda atrás da mãe?",
+          "answer": "Ele a vê como mãe",
           "wrong": [
             "Tem medo da água",
             "Quer brincar",
             "Segue qualquer barulho"
           ],
-          "hint": "Lembra-se de quem vê primeiro.",
-          "explanation": "Segue a primeira coisa que vê mexer-se depois de nascer.",
-          "fact": "Por isso uma fila de gansinhos seguiu um investigador."
+          "hint": "Ele se lembra de quem vê primeiro.",
+          "explanation": "Ele segue a primeira coisa que vê se mexer depois de nascer.",
+          "fact": "Por isso uma fila de filhotes de ganso seguiu um pesquisador."
         },
         "da": {
           "prompt": "Hvorfor går en ælling efter sin mor?",
@@ -864,7 +864,7 @@
           "fact": "Il pulcino si apre la strada con un dentino sull'uovo."
         },
         "pt": {
-          "prompt": "Quanto tempo está um pinto dentro do ovo?",
+          "prompt": "Quanto tempo um pintinho fica dentro do ovo?",
           "answer": "Cerca de três semanas",
           "wrong": [
             "Cerca de um dia",
@@ -873,7 +873,7 @@
           ],
           "hint": "Pouco menos de um mês.",
           "explanation": "Um ovo de galinha precisa de cerca de vinte e um dias.",
-          "fact": "O pinto abre caminho com um dentinho no bico."
+          "fact": "O pintinho abre caminho com um dentinho no bico."
         },
         "da": {
           "prompt": "Hvor længe sidder en kylling i ægget?",
@@ -994,16 +994,16 @@
           "fact": "A volte sorveglia il nido per mesi."
         },
         "pt": {
-          "prompt": "O que faz a mãe crocodilo às crias recém-nascidas?",
-          "answer": "Leva-as na boca",
+          "prompt": "O que a mãe crocodilo faz com os filhotes recém-nascidos?",
+          "answer": "Leva os filhotes na boca",
           "wrong": [
-            "Deixa-as logo sozinhas",
-            "Esconde-as numa árvore",
-            "Empurra-as para a água"
+            "Abandona os filhotes logo",
+            "Esconde em uma árvore",
+            "Empurra para a água"
           ],
           "hint": "Mais suave do que parece.",
-          "explanation": "Levanta as crias com cuidado na boca e leva-as para a água.",
-          "fact": "Às vezes guarda o ninho durante meses."
+          "explanation": "Ela levanta os filhotes com cuidado na boca e os leva para a água.",
+          "fact": "Às vezes ela vigia o ninho durante meses."
         },
         "da": {
           "prompt": "Hvad gør en krokodillemor med sine nyfødte?",
@@ -1124,16 +1124,16 @@
           "fact": "Entro un'ora è già in piedi."
         },
         "pt": {
-          "prompt": "Como vem ao mundo uma cria de girafa?",
+          "prompt": "Como um filhote de girafa vem ao mundo?",
           "answer": "Cai dois metros",
           "wrong": [
-            "Sentada na erva",
+            "Sentado na grama",
             "Na água",
-            "Num ninho"
+            "Em um ninho"
           ],
-          "hint": "A mãe está de pé.",
-          "explanation": "A girafa pare de pé, por isso a cria cai cerca de dois metros.",
-          "fact": "Numa hora já está em pé."
+          "hint": "A mãe fica em pé.",
+          "explanation": "A girafa dá à luz em pé, por isso o filhote cai cerca de dois metros.",
+          "fact": "Em uma hora, ele já está de pé."
         },
         "da": {
           "prompt": "Hvordan kommer en girafunge til verden?",
@@ -1254,16 +1254,16 @@
           "fact": "Chi gioca molto se la cava spesso meglio da adulto."
         },
         "pt": {
-          "prompt": "Porque brincam tanto à luta os animais novos?",
-          "answer": "Estão a treinar",
+          "prompt": "Por que os filhotes brincam tanto de lutinha?",
+          "answer": "Estão treinando",
           "wrong": [
-            "Estão zangados",
-            "Estão aborrecidos",
-            "Procuram comida"
+            "Estão bravos",
+            "Estão entediados",
+            "Estão procurando comida"
           ],
           "hint": "Parece brincadeira, mas é aprender.",
-          "explanation": "A brincar aprendem a caçar, a fugir e a viver juntos.",
-          "fact": "Os que brincam muito costumam safar-se melhor mais tarde."
+          "explanation": "Brincando, eles aprendem a caçar, a fugir e a viver juntos.",
+          "fact": "Os que brincam muito costumam se dar melhor mais tarde."
         },
         "da": {
           "prompt": "Hvorfor tumler unge dyr så meget rundt?",
@@ -1384,7 +1384,7 @@
           "fact": "Poi entra ed esce ancora per mesi."
         },
         "pt": {
-          "prompt": "Quanto tempo fica uma cria de canguru na bolsa?",
+          "prompt": "Quanto tempo um filhote de canguru fica na bolsa?",
           "answer": "Cerca de seis meses",
           "wrong": [
             "Cerca de uma semana",
@@ -1392,8 +1392,8 @@
             "Cerca de dez anos"
           ],
           "hint": "Meio ano.",
-          "explanation": "Ao fim de uns seis meses sai pela primeira vez.",
-          "fact": "Depois ainda entra e sai durante meses."
+          "explanation": "Depois de uns seis meses, ele sai pela primeira vez.",
+          "fact": "Depois, ainda entra e sai durante meses."
         },
         "da": {
           "prompt": "Hvor længe bliver en kænguruunge i posen?",
@@ -1514,15 +1514,15 @@
           "fact": "Il piccolo cuculo diventa spesso più grande dei genitori adottivi."
         },
         "pt": {
-          "prompt": "Que ave põe o ovo no ninho de outra?",
+          "prompt": "Qual ave põe o ovo no ninho de outra?",
           "answer": "O cuco",
           "wrong": [
             "O melro",
             "O pica-pau",
             "A andorinha"
           ],
-          "hint": "Ouve-se cantar na primavera.",
-          "explanation": "O cuco deixa que outras aves criem o seu filhote.",
+          "hint": "Dá para ouvi-lo cantar na primavera.",
+          "explanation": "O cuco deixa que outras aves criem o filhote dele.",
           "fact": "O filhote do cuco fica muitas vezes maior do que os pais adotivos."
         },
         "da": {
@@ -1644,14 +1644,14 @@
           "fact": "Gli uccelli di zone diverse cantano con un accento proprio."
         },
         "pt": {
-          "prompt": "Como aprende o seu canto uma ave jovem?",
+          "prompt": "Como uma ave jovem aprende o seu canto?",
           "answer": "Imitando o pai",
           "wrong": [
-            "Sabe logo",
-            "Num livro",
+            "Já nasce sabendo",
+            "Em um livro",
             "Com o vento"
           ],
-          "hint": "Tal como as crianças aprendem a falar.",
+          "hint": "Assim como as crianças aprendem a falar.",
           "explanation": "Os jovens ouvem os mais velhos e treinam até acertar.",
           "fact": "As aves de regiões diferentes cantam com sotaque próprio."
         },
@@ -1774,7 +1774,7 @@
           "fact": "Di solito sta in piedi un'ora dopo la nascita."
         },
         "pt": {
-          "prompt": "Porque se levanta tão depressa um potro acabado de nascer?",
+          "prompt": "Por que um potro recém-nascido se levanta tão rápido?",
           "answer": "Para poder fugir",
           "wrong": [
             "Para comer",
@@ -1783,7 +1783,7 @@
           ],
           "hint": "Na natureza os predadores não esperam.",
           "explanation": "Um potro que não consegue correr é presa fácil.",
-          "fact": "Costuma estar de pé uma hora depois de nascer."
+          "fact": "Ele costuma ficar de pé uma hora depois de nascer."
         },
         "da": {
           "prompt": "Hvorfor rejser et nyfødt føl sig så hurtigt?",
@@ -1904,16 +1904,16 @@
           "fact": "Un gruppo così si chiama asilo."
         },
         "pt": {
-          "prompt": "O que fazem as crias de pinguim numa tempestade?",
-          "answer": "Juntam-se bem apertadas",
+          "prompt": "O que os filhotes de pinguim fazem em uma tempestade?",
+          "answer": "Ficam bem juntinhos",
           "wrong": [
             "Mergulham no mar",
             "Cavam uma toca",
-            "Vão-se embora a voar"
+            "Vão embora voando"
           ],
-          "hint": "Em grupo está-se mais quente.",
-          "explanation": "As crias formam um grupo apertado e aquecem-se umas às outras.",
-          "fact": "A esse grupo chama-se creche."
+          "hint": "Em grupo fica mais quente.",
+          "explanation": "Os filhotes formam um grupo apertado e se aquecem uns aos outros.",
+          "fact": "Esse grupo se chama creche."
         },
         "da": {
           "prompt": "Hvad gør kejserpingvinunger i en storm?",
@@ -2041,9 +2041,9 @@
             "Cerca de mil",
             "Exatamente um"
           ],
-          "hint": "Muitos mais do que uma ave.",
-          "explanation": "Uma tartaruga marinha põe cerca de cem ovos num buraco na areia.",
-          "fact": "De cem, normalmente só uma chega a adulta."
+          "hint": "Muito mais do que uma ave.",
+          "explanation": "Uma tartaruga marinha põe cerca de cem ovos em um buraco na areia.",
+          "fact": "De cada cem filhotes, normalmente só um chega à idade adulta."
         },
         "da": {
           "prompt": "Hvor mange æg lægger en havskildpadde ad gangen?",
@@ -2164,16 +2164,16 @@
           "fact": "Le luci sulla spiaggia a volte le mandano dalla parte sbagliata."
         },
         "pt": {
-          "prompt": "Como encontram o mar as tartaruguinhas recém-nascidas?",
+          "prompt": "Como as tartaruguinhas recém-nascidas encontram o mar?",
           "answer": "Vão para a luz",
           "wrong": [
-            "A mãe leva-as",
+            "A mãe as leva",
             "Cheiram o sal",
             "Seguem o vento"
           ],
           "hint": "Sobre o mar o horizonte é mais claro.",
-          "explanation": "As crias correm para o sítio mais claro, que é o mar.",
-          "fact": "As luzes da praia às vezes mandam-nas para o lado errado."
+          "explanation": "Os filhotes correm para o lugar mais claro, que é o mar.",
+          "fact": "As luzes da praia às vezes as mandam para o lado errado."
         },
         "da": {
           "prompt": "Hvordan finder nyklækkede skildpadder havet?",
@@ -2294,7 +2294,7 @@
           "fact": "Beve centinaia di litri di latte al giorno."
         },
         "pt": {
-          "prompt": "Quanto pesa uma baleia-azul acabada de nascer?",
+          "prompt": "Quanto pesa uma baleia-azul recém-nascida?",
           "answer": "Cerca de 2.500 quilos",
           "wrong": [
             "Cerca de 25 quilos",
@@ -2302,8 +2302,8 @@
             "Cerca de 25.000 quilos"
           ],
           "hint": "Mais do que um carro.",
-          "explanation": "Uma cria de baleia-azul pesa logo uns 2.500 quilos ao nascer.",
-          "fact": "Bebe centenas de litros de leite por dia."
+          "explanation": "Um filhote de baleia-azul já pesa uns 2.500 quilos ao nascer.",
+          "fact": "Ele bebe centenas de litros de leite por dia."
         },
         "da": {
           "prompt": "Hvor meget vejer en nyfødt blåhval?",
@@ -2424,16 +2424,16 @@
           "fact": "Per questo peluche e personaggi dei cartoni sono così."
         },
         "pt": {
-          "prompt": "Porque têm os bebés animais olhos grandes e cabeça redonda?",
+          "prompt": "Por que os filhotes de animais têm olhos grandes e cabeça redonda?",
           "answer": "Assim recebem mais cuidados",
           "wrong": [
             "Para ver melhor",
             "Para parecerem maiores",
             "Para saberem nadar"
           ],
-          "hint": "Com as pessoas funciona igual.",
+          "hint": "Com as pessoas funciona do mesmo jeito.",
           "explanation": "Uma cabeça redonda com olhos grandes dá vontade de cuidar.",
-          "fact": "Por isso os peluches e os bonecos são muitas vezes assim."
+          "fact": "Por isso os bichos de pelúcia e os bonecos muitas vezes são assim."
         },
         "da": {
           "prompt": "Hvorfor har dyreunger store øjne og runde hoveder?",
@@ -2554,16 +2554,16 @@
           "fact": "Con quello il piccolo mette su chili al giorno."
         },
         "pt": {
-          "prompt": "Que animal faz o leite mais gordo para a cria?",
+          "prompt": "Qual animal faz o leite mais gordo para o filhote?",
           "answer": "A foca",
           "wrong": [
             "A vaca",
             "O rato",
             "O canguru"
           ],
-          "hint": "A cria precisa de gordura depressa.",
+          "hint": "O filhote precisa de gordura rápido.",
           "explanation": "O leite de foca é quase metade gordura.",
-          "fact": "Com ele a cria engorda quilos por dia."
+          "fact": "Com ele, o filhote engorda quilos por dia."
         },
         "da": {
           "prompt": "Hvilket dyr laver den fedeste mælk til sin unge?",

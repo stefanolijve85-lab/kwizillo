@@ -90,9 +90,9 @@
             "Sírio",
             "A Lua"
           ],
-          "hint": "Vês-la todos os dias quando fica claro.",
-          "explanation": "O Sol é a estrela à volta da qual giram os planetas.",
-          "fact": "O Sol é tão grande que caberiam mais de um milhão de Terras."
+          "hint": "Você o vê todos os dias quando clareia.",
+          "explanation": "O Sol é a estrela ao redor da qual giram os planetas.",
+          "fact": "O Sol é tão grande que caberiam nele mais de um milhão de Terras."
         },
         "da": {
           "prompt": "Hvilken stjerne står midt i vores solsystem?",
@@ -213,7 +213,7 @@
           "fact": "Anche comete e asteroidi girano, ma su giri molto più lunghi."
         },
         "pt": {
-          "prompt": "O que gira à volta do Sol?",
+          "prompt": "O que gira ao redor do Sol?",
           "answer": "Os planetas",
           "wrong": [
             "Só a Lua",
@@ -221,7 +221,7 @@
             "Nada"
           ],
           "hint": "A nossa Terra é um deles.",
-          "explanation": "Os oito planetas giram numa órbita à volta do Sol.",
+          "explanation": "Os oito planetas giram em uma órbita ao redor do Sol.",
           "fact": "Cometas e asteroides também giram, em voltas muito mais longas."
         },
         "da": {
@@ -346,7 +346,7 @@
           "prompt": "Que planeta vem depois da Terra, mais longe do Sol?",
           "answer": "Marte",
           "wrong": [
-            "Vénus",
+            "Vênus",
             "Mercúrio",
             "A Lua"
           ],
@@ -473,15 +473,15 @@
           "fact": "La Terra fa un giro completo in ventiquattro ore."
         },
         "pt": {
-          "prompt": "Porque fica escuro à noite?",
-          "answer": "Porque a Terra roda",
+          "prompt": "Por que fica escuro à noite?",
+          "answer": "Porque a Terra gira",
           "wrong": [
             "Porque o Sol se apaga",
             "Porque a Lua o come",
             "Porque passa uma nuvem"
           ],
-          "hint": "O Sol continua a brilhar.",
-          "explanation": "A Terra roda e o teu lugar deixa de olhar para o Sol por um tempo.",
+          "hint": "O Sol continua brilhando.",
+          "explanation": "A Terra gira, e o seu lugar deixa de ficar voltado para o Sol por um tempo.",
           "fact": "A Terra dá uma volta completa em vinte e quatro horas."
         },
         "da": {
@@ -603,15 +603,15 @@
           "fact": "Lì di notte si gela e di giorno si brucia."
         },
         "pt": {
-          "prompt": "Qual dos oito planetas é o mais pequeno?",
+          "prompt": "Qual dos oito planetas é o menor?",
           "answer": "Mercúrio",
           "wrong": [
             "Marte",
-            "Vénus",
+            "Vênus",
             "A Terra"
           ],
           "hint": "É também o mais perto do Sol.",
-          "explanation": "Mercúrio é o planeta mais pequeno do sistema solar.",
+          "explanation": "Mercúrio é o menor planeta do sistema solar.",
           "fact": "Ali faz um frio gelado de noite e um calor abrasador de dia."
         },
         "da": {
@@ -733,7 +733,7 @@
           "fact": "Ogni quattro anni aggiungiamo un giorno: è l'anno bisestile."
         },
         "pt": {
-          "prompt": "Quanto tempo leva a Terra a dar uma volta ao Sol?",
+          "prompt": "Quanto tempo a Terra leva para dar uma volta ao redor do Sol?",
           "answer": "Cerca de um ano",
           "wrong": [
             "Um mês",
@@ -741,8 +741,8 @@
             "Um dia"
           ],
           "hint": "Tanto como entre dois aniversários.",
-          "explanation": "A Terra leva cerca de 365 dias a dar uma volta ao Sol.",
-          "fact": "De quatro em quatro anos juntamos um dia: é um ano bissexto."
+          "explanation": "A Terra leva cerca de 365 dias para dar uma volta ao redor do Sol.",
+          "fact": "A cada quatro anos, acrescentamos um dia: é o ano bissexto."
         },
         "da": {
           "prompt": "Hvor lang tid bruger Jorden på en tur om Solen?",
@@ -870,8 +870,8 @@
             "Um cometa",
             "Uma estrela"
           ],
-          "hint": "É pequeno de mais para um planeta normal.",
-          "explanation": "Desde 2006 Plutão chama-se planeta anão.",
+          "hint": "É pequeno demais para um planeta comum.",
+          "explanation": "Desde 2006, Plutão é chamado de planeta anão.",
           "fact": "Há mais: Ceres, Éris e Makemake também são."
         },
         "da": {
@@ -997,12 +997,12 @@
           "answer": "Júpiter e Saturno",
           "wrong": [
             "Terra e Marte",
-            "Mercúrio e Vénus",
-            "Marte e Vénus"
+            "Mercúrio e Vênus",
+            "Marte e Vênus"
           ],
           "hint": "São os dois maiores.",
-          "explanation": "Júpiter e Saturno são gigantes gasosos: não darias um passo neles.",
-          "fact": "Lá no fundo o gás é apertado até parecer líquido."
+          "explanation": "Júpiter e Saturno são gigantes gasosos: você não daria um passo neles.",
+          "fact": "Lá no fundo, o gás é tão apertado que parece líquido."
         },
         "da": {
           "prompt": "Hvilke to planeter består mest af gas?",
@@ -1123,16 +1123,16 @@
           "fact": "Non guardare mai il Sole senza occhiali speciali, neanche in eclissi."
         },
         "pt": {
-          "prompt": "Porque escurece às vezes a meio do dia?",
+          "prompt": "Por que às vezes escurece no meio do dia?",
           "answer": "A Lua tapa o Sol",
           "wrong": [
-            "O Sol apaga-se um pouco",
-            "A Terra pára de rodar",
-            "O Sol cai atrás dos montes"
+            "O Sol se apaga um pouco",
+            "A Terra para de girar",
+            "O Sol cai atrás dos morros"
           ],
-          "hint": "Algo se mete entre ti e o Sol.",
-          "explanation": "A Lua passa mesmo entre o Sol e a Terra e a luz baixa.",
-          "fact": "Nunca olhes para o Sol sem óculos especiais, nem num eclipse."
+          "hint": "Algo se mete entre você e o Sol.",
+          "explanation": "A Lua passa bem entre o Sol e a Terra, e a luz diminui.",
+          "fact": "Nunca olhe para o Sol sem óculos especiais, nem durante um eclipse."
         },
         "da": {
           "prompt": "Hvorfor bliver det nogle gange mørkt midt på dagen?",
@@ -1253,16 +1253,16 @@
           "fact": "Gli astronauti dell'Apollo saltellavano perché camminare non andava."
         },
         "pt": {
-          "prompt": "Onde consegues saltar mais alto?",
+          "prompt": "Onde você consegue pular mais alto?",
           "answer": "Na Lua",
           "wrong": [
             "Na Terra",
             "No fundo do mar",
-            "Num avião"
+            "Em um avião"
           ],
-          "hint": "Ali a gravidade puxa muito mais devagar.",
-          "explanation": "A Lua puxa-te muito menos, por isso saltas seis vezes mais alto.",
-          "fact": "Os astronautas da Apollo andavam aos saltinhos porque andar não dava."
+          "hint": "Ali a gravidade puxa com muito menos força.",
+          "explanation": "A Lua puxa você muito menos, por isso você pula seis vezes mais alto.",
+          "fact": "Os astronautas da Apollo andavam aos pulinhos porque andar normal não dava."
         },
         "da": {
           "prompt": "Hvor kan du springe højest?",
@@ -1384,11 +1384,11 @@
         },
         "pt": {
           "prompt": "Que idade tem o nosso sistema solar?",
-          "answer": "4,6 mil milhões de anos",
+          "answer": "4,6 bilhões de anos",
           "wrong": [
             "1 milhão de anos",
             "100 milhões de anos",
-            "500 mil milhões de anos"
+            "500 bilhões de anos"
           ],
           "hint": "Muito mais velho do que os dinossauros, que já são antiquíssimos.",
           "explanation": "O Sol e os planetas nasceram de uma nuvem de gás e poeira.",
@@ -1520,9 +1520,9 @@
             "Ganimedes",
             "Calisto"
           ],
-          "hint": "É a mais perto de Júpiter, que a amassa.",
-          "explanation": "Io tem mais vulcões do que qualquer outro sítio do sistema solar.",
-          "fact": "Júpiter amassa-a tanto que a lua derrete por dentro."
+          "hint": "É a mais perto de Júpiter, que a espreme.",
+          "explanation": "Io tem mais vulcões do que qualquer outro lugar do sistema solar.",
+          "fact": "Júpiter a espreme tanto que a lua derrete por dentro."
         },
         "da": {
           "prompt": "Hvilken af Jupiters måner er fuld af vulkaner?",
@@ -1650,9 +1650,9 @@
             "De poeira e nuvens",
             "De água líquida"
           ],
-          "hint": "Pensa em milhares de milhões de bolas de neve.",
-          "explanation": "Os anéis são milhares de milhões de pedaços de gelo e rocha.",
-          "fact": "Têm milhares de quilómetros de largura e dez metros de espessura."
+          "hint": "Pense em bilhões de bolas de neve.",
+          "explanation": "Os anéis são bilhões de pedaços de gelo e rocha.",
+          "fact": "Têm milhares de quilômetros de largura e dez metros de espessura."
         },
         "da": {
           "prompt": "Hvad består Saturns ringe af?",
@@ -1774,14 +1774,14 @@
         },
         "pt": {
           "prompt": "Que planeta tem o vento mais forte?",
-          "answer": "Neptuno",
+          "answer": "Netuno",
           "wrong": [
             "A Terra",
             "Marte",
             "Mercúrio"
           ],
-          "hint": "Quanto mais longe do Sol, mais frio e doido é o tempo.",
-          "explanation": "Em Neptuno o vento sopra a quase 2000 quilómetros por hora.",
+          "hint": "Quanto mais longe do Sol, mais frio e maluco é o tempo.",
+          "explanation": "Em Netuno, o vento sopra a quase 2000 quilômetros por hora.",
           "fact": "A tempestade mais rápida da Terra não chega a um quarto disso."
         },
         "da": {
@@ -1906,13 +1906,13 @@
           "prompt": "Como se chama o maior vulcão do sistema solar?",
           "answer": "Olympus Mons",
           "wrong": [
-            "O Evereste",
+            "O Everest",
             "O Vesúvio",
             "O Mauna Kea"
           ],
           "hint": "Não fica na Terra, mas no planeta vermelho.",
-          "explanation": "O Olympus Mons em Marte é quase três vezes mais alto que o Evereste.",
-          "fact": "É largo como a França: lá em cima nem verias a subida."
+          "explanation": "O Olympus Mons, em Marte, é quase três vezes mais alto que o Everest.",
+          "fact": "É largo como a França: lá em cima você nem veria a subida."
         },
         "da": {
           "prompt": "Hvad hedder den største vulkan i solsystemet?",
@@ -2034,15 +2034,15 @@
         },
         "pt": {
           "prompt": "Em que planeta um dia dura mais do que um ano?",
-          "answer": "Vénus",
+          "answer": "Vênus",
           "wrong": [
             "Mercúrio",
             "Marte",
             "Urano"
           ],
-          "hint": "Este planeta roda devagarinho sobre si mesmo.",
-          "explanation": "Vénus roda uma vez em 243 dias e dá a volta ao Sol em 225.",
-          "fact": "Vénus também roda ao contrário: ali o Sol nasce a oeste."
+          "hint": "Este planeta gira devagarinho em torno de si mesmo.",
+          "explanation": "Vênus gira uma vez em 243 dias e dá a volta ao Sol em 225.",
+          "fact": "Vênus também gira ao contrário: lá o Sol nasce no oeste."
         },
         "da": {
           "prompt": "På hvilken planet varer en dag længere end et år?",
@@ -2171,7 +2171,7 @@
             "Apollo 11"
           ],
           "hint": "Partiu em 1977 e ainda voa.",
-          "explanation": "Em 2012 a Voyager 1 chegou primeiro ao espaço entre as estrelas.",
+          "explanation": "Em 2012, a Voyager 1 foi a primeira a chegar ao espaço entre as estrelas.",
           "fact": "Leva um disco de ouro com música e saudações da Terra."
         },
         "da": {
@@ -2302,7 +2302,7 @@
           ],
           "hint": "Quase tudo, e os planetas são o resto.",
           "explanation": "O Sol pesa tanto que todos os planetas juntos não chegam a um por cento.",
-          "fact": "É mesmo por isso que os planetas continuam a girar à volta dele."
+          "fact": "É justamente por isso que os planetas continuam girando ao redor dele."
         },
         "da": {
           "prompt": "Hvor meget af solsystemets vægt sidder i Solen?",
@@ -2424,14 +2424,14 @@
         },
         "pt": {
           "prompt": "Que planeta foi calculado antes de ser visto?",
-          "answer": "Neptuno",
+          "answer": "Netuno",
           "wrong": [
             "Urano",
             "Saturno",
             "Plutão"
           ],
-          "hint": "Os astrónomos viam algo a puxar Urano.",
-          "explanation": "Em 1846 calcularam onde devia estar, e estava lá mesmo.",
+          "hint": "Os astrônomos viam algo puxando Urano.",
+          "explanation": "Em 1846, calcularam onde ele devia estar, e estava lá mesmo.",
           "fact": "O telescópio encontrou-o nessa mesma noite, quase no ponto previsto."
         },
         "da": {
@@ -2553,15 +2553,15 @@
           "fact": "Da lì arrivano le comete che passano una volta ogni mille anni."
         },
         "pt": {
-          "prompt": "Como se chama a casca de gelos à volta do sistema?",
+          "prompt": "Como se chama a casca de gelo ao redor do sistema solar?",
           "answer": "A nuvem de Oort",
           "wrong": [
-            "A cintura de Kuiper",
-            "A cintura de asteroides",
+            "O cinturão de Kuiper",
+            "O cinturão de asteroides",
             "A Via Láctea"
           ],
-          "hint": "Tem o nome de um astrónomo neerlandês.",
-          "explanation": "A nuvem de Oort é uma esfera de pedaços de gelo, para lá de tudo.",
+          "hint": "Tem o nome de um astrônomo holandês.",
+          "explanation": "A nuvem de Oort é uma esfera de pedaços de gelo, bem além de todo o resto.",
           "fact": "É de lá que vêm os cometas que passam uma vez em mil anos."
         },
         "da": {

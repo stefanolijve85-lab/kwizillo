@@ -84,16 +84,16 @@
           "fact": "Aprono sentieri che usano anche altri animali."
         },
         "pt": {
-          "prompt": "Que animal grande com tromba vive na selva da Ásia?",
+          "prompt": "Qual animal grande com tromba vive na selva da Ásia?",
           "answer": "O elefante",
           "wrong": [
             "A girafa",
             "O urso polar",
             "O hipopótamo"
           ],
-          "hint": "Puxa os ramos com a tromba.",
-          "explanation": "Nas florestas da Ásia vivem elefantes com orelhas mais pequenas.",
-          "fact": "Abrem trilhos que outros animais também usam."
+          "hint": "Ele puxa os galhos com a tromba.",
+          "explanation": "Nas florestas da Ásia vivem elefantes com orelhas menores.",
+          "fact": "Eles abrem trilhas que outros animais também usam."
         },
         "da": {
           "prompt": "Hvilket stort dyr med snabel lever i Asiens jungle?",
@@ -214,16 +214,16 @@
           "fact": "Non esistono due tigri con lo stesso disegno."
         },
         "pt": {
-          "prompt": "Que felino grande e riscado vive na selva da Ásia?",
+          "prompt": "Qual felino grande e listrado vive na selva da Ásia?",
           "answer": "O tigre",
           "wrong": [
             "O leão",
             "A chita",
             "O lince"
           ],
-          "hint": "As riscas desaparecem na erva alta.",
+          "hint": "As listras somem no capim alto.",
           "explanation": "O tigre é o maior felino e vive nas florestas da Ásia.",
-          "fact": "Não há dois tigres com o mesmo padrão de riscas."
+          "fact": "Não existem dois tigres com o mesmo padrão de listras."
         },
         "da": {
           "prompt": "Hvilken stor stribet kat lever i Asiens jungle?",
@@ -344,16 +344,16 @@
           "fact": "Per questo lì è sempre caldo e umido."
         },
         "pt": {
-          "prompt": "O que cai quase todos os dias numa floresta tropical?",
+          "prompt": "O que cai quase todos os dias em uma floresta tropical?",
           "answer": "Chuva",
           "wrong": [
             "Neve",
             "Granizo",
             "Areia"
           ],
-          "hint": "É daí que vem o nome da floresta.",
-          "explanation": "Numa floresta tropical cai um aguaceiro quase todos os dias.",
-          "fact": "Por isso está lá sempre calor e humidade."
+          "hint": "Por isso ela também se chama floresta pluvial.",
+          "explanation": "Em uma floresta tropical cai um aguaceiro quase todos os dias.",
+          "fact": "Por isso lá está sempre quente e úmido."
         },
         "da": {
           "prompt": "Hvad falder der næsten hver dag ned fra himlen i junglen?",
@@ -474,7 +474,7 @@
           "fact": "Ogni sera costruiscono un nido nuovo su un albero."
         },
         "pt": {
-          "prompt": "Que grande símio de pelo cor de laranja vive na selva?",
+          "prompt": "Qual grande símio de pelo alaranjado vive na selva?",
           "answer": "O orangotango",
           "wrong": [
             "O gorila",
@@ -482,8 +482,8 @@
             "O babuíno"
           ],
           "hint": "O nome dele significa homem da floresta.",
-          "explanation": "Os orangotangos vivem nas florestas do Bornéu e de Samatra.",
-          "fact": "Todas as noites constroem um ninho novo numa árvore."
+          "explanation": "Os orangotangos vivem nas florestas de Bornéu e de Sumatra.",
+          "fact": "Toda noite eles constroem um ninho novo em uma árvore."
         },
         "da": {
           "prompt": "Hvilken menneskeabe med orange pels lever i junglen?",
@@ -611,9 +611,9 @@
             "Nadam",
             "Cavam túneis"
           ],
-          "hint": "De cabeça para baixo num ramo.",
+          "hint": "De cabeça para baixo em um galho.",
           "explanation": "Os morcegos dormem de cabeça para baixo de dia e caçam à noite.",
-          "fact": "Alguns comem sobretudo fruta e espalham sementes."
+          "fact": "Alguns comem principalmente frutas e espalham sementes."
         },
         "da": {
           "prompt": "Hvad laver flagermus om dagen i junglen?",
@@ -734,16 +734,16 @@
           "fact": "In Italia sono circa ottanta centimetri."
         },
         "pt": {
-          "prompt": "Quanta chuva cai por ano numa floresta tropical?",
+          "prompt": "Quanta chuva cai por ano em uma floresta tropical?",
           "answer": "Mais de dois metros",
           "wrong": [
             "Cerca de dez centímetros",
             "Cerca de meio metro",
             "Mais de cem metros"
           ],
-          "hint": "Muito mais do que aqui.",
-          "explanation": "Numa floresta tropical caem mais de dois metros de chuva por ano.",
-          "fact": "Em Portugal são muito menos."
+          "hint": "Muito mais do que na maioria dos lugares.",
+          "explanation": "Em uma floresta tropical caem mais de dois metros de chuva por ano.",
+          "fact": "Na maioria das cidades do mundo cai bem menos."
         },
         "da": {
           "prompt": "Hvor meget regn falder der om året i en regnskov?",
@@ -864,16 +864,16 @@
           "fact": "Al suolo arriva meno di un centesimo della luce."
         },
         "pt": {
-          "prompt": "Porque está escuro no chão da floresta tropical?",
-          "answer": "As árvores levam a luz",
+          "prompt": "Por que é escuro no chão da floresta tropical?",
+          "answer": "As árvores tapam a luz",
           "wrong": [
-            "Ali é sempre noite",
+            "Lá é sempre noite",
             "A terra é preta",
-            "Há fumo"
+            "Tem fumaça"
           ],
-          "hint": "Olha para cima.",
-          "explanation": "A copa densa de folhas apanha quase toda a luz do sol.",
-          "fact": "Ao chão chega menos de uma centésima parte."
+          "hint": "Olhe para cima.",
+          "explanation": "A copa densa de folhas pega quase toda a luz do sol.",
+          "fact": "Menos de um centésimo dessa luz chega ao chão."
         },
         "da": {
           "prompt": "Hvorfor er der mørkt på regnskovens bund?",
@@ -994,7 +994,7 @@
           "fact": "La femmina si mura dentro una cavità dell'albero."
         },
         "pt": {
-          "prompt": "Que ave tem um bico enorme com uma bossa em cima?",
+          "prompt": "Qual ave tem um bico enorme com uma saliência em cima?",
           "answer": "O calau",
           "wrong": [
             "O tucano",
@@ -1002,8 +1002,8 @@
             "A águia"
           ],
           "hint": "O outro nome lembra um grande animal cinzento.",
-          "explanation": "O calau tem um bico grande com uma bossa córnea.",
-          "fact": "A fêmea fecha-se dentro do buraco de uma árvore."
+          "explanation": "O calau tem um bico grande com uma saliência dura em cima.",
+          "fact": "A fêmea se fecha dentro do buraco de uma árvore."
         },
         "da": {
           "prompt": "Hvilken fugl har et kæmpe næb med en pukkel på?",
@@ -1254,7 +1254,7 @@
           "fact": "La maggior parte mangia pesce, semi e frutta."
         },
         "pt": {
-          "prompt": "Que peixe de dentes afiados vive na Amazónia?",
+          "prompt": "Qual peixe de dentes afiados vive na Amazônia?",
           "answer": "A piranha",
           "wrong": [
             "O tubarão",
@@ -1263,7 +1263,7 @@
           ],
           "hint": "Nada em grandes cardumes.",
           "explanation": "As piranhas são peixes pequenos com dentes muito afiados.",
-          "fact": "A maioria come sobretudo peixe, sementes e fruta."
+          "fact": "A maioria come principalmente peixe, sementes e frutas."
         },
         "da": {
           "prompt": "Hvilken fisk med skarpe tænder lever i Amazonas?",
@@ -1384,16 +1384,16 @@
           "fact": "Ogni anno se ne scoprono ancora di nuove."
         },
         "pt": {
-          "prompt": "Quantas espécies vivem na floresta amazónica?",
+          "prompt": "Quantas espécies vivem na floresta amazônica?",
           "answer": "Milhões",
           "wrong": [
             "Cerca de cem",
             "Cerca de mil",
             "Exatamente dez mil"
           ],
-          "hint": "Mais do que alguém alguma vez contou.",
-          "explanation": "Calcula-se que a Amazónia tenha milhões de espécies.",
-          "fact": "Todos os anos ainda se descobrem novas."
+          "hint": "Mais do que alguém já conseguiu contar.",
+          "explanation": "Os cientistas calculam que a Amazônia tenha milhões de espécies.",
+          "fact": "Todo ano ainda são descobertas espécies novas."
         },
         "da": {
           "prompt": "Hvor mange arter lever der i Amazonas-skoven?",
@@ -1514,7 +1514,7 @@
           "fact": "Gli scienziati lo hanno descritto solo nel 1901."
         },
         "pt": {
-          "prompt": "Que animal parece um cavalo com patas às riscas?",
+          "prompt": "Qual animal parece um cavalo com patas listradas?",
           "answer": "O okapi",
           "wrong": [
             "A zebra",
@@ -1653,7 +1653,7 @@
           ],
           "hint": "Verde e vivo.",
           "explanation": "Muitos medicamentos vêm de substâncias de plantas tropicais.",
-          "fact": "Por isso cada espécie perdida é também uma hipótese perdida."
+          "fact": "Por isso cada espécie perdida é também uma chance perdida."
         },
         "da": {
           "prompt": "Hvor kommer en stor del af vores medicin fra?",
@@ -1774,7 +1774,7 @@
           "fact": "Con un solo slancio copre dieci metri."
         },
         "pt": {
-          "prompt": "Que símio se balança mais depressa pelas árvores?",
+          "prompt": "Qual símio se balança mais rápido pelas árvores?",
           "answer": "O gibão",
           "wrong": [
             "O gorila",
@@ -1782,8 +1782,8 @@
             "O orangotango"
           ],
           "hint": "Tem braços compridíssimos.",
-          "explanation": "Um gibão atravessa as copas a cinquenta quilómetros por hora.",
-          "fact": "Num só impulso vence dez metros."
+          "explanation": "Um gibão atravessa as copas a cinquenta quilômetros por hora.",
+          "fact": "Em um só impulso, ele vence dez metros."
         },
         "da": {
           "prompt": "Hvilken abe svinger sig hurtigst gennem træerne?",
@@ -1904,14 +1904,14 @@
           "fact": "Per questo il suolo stesso è sottile e povero."
         },
         "pt": {
-          "prompt": "O que acontece a uma folha que cai no chão da floresta?",
-          "answer": "Apodrece muito depressa",
+          "prompt": "O que acontece com uma folha que cai no chão da floresta?",
+          "answer": "Apodrece muito rápido",
           "wrong": [
-            "Fica lá anos",
+            "Fica lá por anos",
             "Congela",
             "Vira pedra"
           ],
-          "hint": "Lá em baixo é quente e húmido.",
+          "hint": "Lá embaixo é quente e úmido.",
           "explanation": "Fungos e insetos desfazem uma folha em poucas semanas.",
           "fact": "Por isso o próprio solo é fino e pobre."
         },
@@ -2034,16 +2034,16 @@
           "fact": "Le sue ali non sono dipinte di blu: piegano la luce."
         },
         "pt": {
-          "prompt": "Que borboleta tem asas de um azul brilhante?",
+          "prompt": "Qual borboleta tem asas de um azul brilhante?",
           "answer": "A morfo azul",
           "wrong": [
             "A monarca",
             "A borboleta-limão",
             "A vanessa"
           ],
-          "hint": "Vê-la brilhar sobre um trilho.",
+          "hint": "Ela brilha voando sobre as trilhas.",
           "explanation": "A morfo azul vive nas florestas da América Central e do Sul.",
-          "fact": "As asas não são pintadas de azul: dobram a luz."
+          "fact": "As asas não são pintadas de azul: elas desviam a luz."
         },
         "da": {
           "prompt": "Hvilken sommerfugl har skinnende blå vinger?",
@@ -2165,14 +2165,14 @@
         },
         "pt": {
           "prompt": "Que parte dos animais terrestres vive em florestas tropicais?",
-          "answer": "Mais de metade",
+          "answer": "Mais da metade",
           "wrong": [
             "Cerca de um décimo",
             "Cerca de um quarto",
-            "Quase nenhuns"
+            "Quase nenhum"
           ],
           "hint": "Muitos, para tão pouca área.",
-          "explanation": "As florestas tropicais ocupam pouco espaço mas têm a maioria das espécies.",
+          "explanation": "As florestas tropicais ocupam pouco espaço, mas têm a maioria das espécies.",
           "fact": "Cobrem apenas uns poucos por cento das terras."
         },
         "da": {
@@ -2294,7 +2294,7 @@
           "fact": "Sui suoi rami vivono uccelli, scimmie e perfino rane."
         },
         "pt": {
-          "prompt": "Que árvore da floresta tropical chega aos setenta metros?",
+          "prompt": "Qual árvore da floresta tropical chega aos setenta metros?",
           "answer": "A sumaúma",
           "wrong": [
             "A bétula",
@@ -2302,8 +2302,8 @@
             "O pinheiro"
           ],
           "hint": "As raízes formam paredes junto ao tronco.",
-          "explanation": "A sumaúma ergue-se setenta metros acima das copas.",
-          "fact": "Nos seus ramos vivem aves, macacos e até rãs."
+          "explanation": "A sumaúma se ergue setenta metros, acima das outras copas.",
+          "fact": "Nos galhos dela vivem aves, macacos e até rãs."
         },
         "da": {
           "prompt": "Hvilket regnskovstræ bliver halvfjerds meter højt?",
@@ -2424,16 +2424,16 @@
           "fact": "Gli elefanti quasi non riescono a sudare."
         },
         "pt": {
-          "prompt": "Como se refresca um elefante?",
-          "answer": "A abanar as orelhas",
+          "prompt": "Como um elefante se refresca?",
+          "answer": "Abanando as orelhas",
           "wrong": [
-            "A transpirar",
-            "A arfar",
-            "A ficar quieto"
+            "Suando",
+            "Ofegando",
+            "Ficando parado"
           ],
-          "hint": "Olha para a maior parte do corpo dele.",
-          "explanation": "Ao abanar as orelhas finas arrefece o sangue que passa nelas.",
-          "fact": "Os elefantes quase não conseguem transpirar."
+          "hint": "Olhe para a maior parte do corpo dele.",
+          "explanation": "Ao abanar as orelhas finas, ele esfria o sangue que passa por elas.",
+          "fact": "Os elefantes quase não conseguem suar."
         },
         "da": {
           "prompt": "Hvordan køler en elefant sig ned?",
@@ -2554,16 +2554,16 @@
           "fact": "Probabilmente ci arrivarono alla deriva milioni di anni fa."
         },
         "pt": {
-          "prompt": "Que animais vivem só em Madagáscar?",
-          "answer": "Os lémures",
+          "prompt": "Quais animais vivem só em Madagascar?",
+          "answer": "Os lêmures",
           "wrong": [
             "Os chimpanzés",
             "Os gibões",
             "Os babuínos"
           ],
-          "hint": "Têm caudas compridas às riscas.",
-          "explanation": "Os lémures não vivem em liberdade em mais nenhum sítio do mundo.",
-          "fact": "Chegaram lá provavelmente à deriva há milhões de anos."
+          "hint": "Eles têm caudas compridas listradas.",
+          "explanation": "Os lêmures não vivem soltos na natureza em nenhum outro lugar do mundo.",
+          "fact": "Provavelmente chegaram lá à deriva há milhões de anos."
         },
         "da": {
           "prompt": "Hvilke dyr lever kun på Madagaskar?",

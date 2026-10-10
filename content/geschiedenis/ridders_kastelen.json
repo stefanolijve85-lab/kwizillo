@@ -351,9 +351,9 @@
             "Uma antena",
             "Um moinho"
           ],
-          "hint": "Nela vês as cores do senhor.",
+          "hint": "Nela você vê as cores do senhor.",
           "explanation": "A bandeira mostrava quem era o senhor do castelo.",
-          "fact": "Se não estava içada, o senhor costumava estar fora."
+          "fact": "Se não estava hasteada, o senhor costumava estar fora."
         },
         "da": {
           "prompt": "Hvad vajer der ofte øverst på et borgtårn?",
@@ -474,15 +474,15 @@
           "fact": "La carne compariva quasi solo nei giorni di festa."
         },
         "pt": {
-          "prompt": "O que comia a gente simples na Idade Média?",
-          "answer": "Pão e papas",
+          "prompt": "O que as pessoas simples comiam na Idade Média?",
+          "answer": "Pão e mingau",
           "wrong": [
             "Pizza",
             "Hambúrgueres",
             "Batatas fritas"
           ],
-          "hint": "Feito de cereais.",
-          "explanation": "A comida diária era pão escuro, papas e às vezes legumes.",
+          "hint": "Feitos de cereais.",
+          "explanation": "A comida do dia a dia era pão escuro, mingau e às vezes legumes.",
           "fact": "A carne quase só aparecia nos dias de festa."
         },
         "da": {
@@ -604,7 +604,7 @@
           "fact": "Solo il signore e la sua famiglia avevano una stanza propria."
         },
         "pt": {
-          "prompt": "Onde dormiam os criados num castelo?",
+          "prompt": "Onde dormiam os criados em um castelo?",
           "answer": "No grande salão",
           "wrong": [
             "No fosso",
@@ -612,7 +612,7 @@
             "No poço"
           ],
           "hint": "Perto do fogo.",
-          "explanation": "Os criados dormiam sobre palha no salão, onde ardia a lareira.",
+          "explanation": "Os criados dormiam sobre palha no salão, onde a lareira ficava acesa.",
           "fact": "Só o senhor e a família tinham quarto próprio."
         },
         "da": {
@@ -741,9 +741,9 @@
             "Cerca de 100 quilos",
             "Cerca de 500 quilos"
           ],
-          "hint": "Quase como um cão grande.",
-          "explanation": "Uma boa armadura pesava vinte a trinta quilos, repartidos pelo corpo.",
-          "fact": "Com ela um cavaleiro treinado corria e até se levantava do chão."
+          "hint": "Quase como um cachorro grande.",
+          "explanation": "Uma boa armadura pesava de vinte a trinta quilos, distribuídos pelo corpo.",
+          "fact": "Com ela, um cavaleiro treinado corria e até se levantava do chão."
         },
         "da": {
           "prompt": "Hvor tung var en hel rustning omtrent?",
@@ -994,7 +994,7 @@
           "fact": "La grata era appesa a catene che scorrevano su una grande ruota di legno sopra la porta."
         },
         "pt": {
-          "prompt": "O que é um rastilho de porta, a grade pesada?",
+          "prompt": "O que é uma grade levadiça?",
           "answer": "Uma grade que cai",
           "wrong": [
             "Uma ponte sobre o fosso",
@@ -1125,7 +1125,7 @@
         },
         "pt": {
           "prompt": "O que fazia um bobo da corte?",
-          "answer": "Fazer as pessoas rir",
+          "answer": "Fazer as pessoas rirem",
           "wrong": [
             "Cuidar dos cavalos",
             "Cozinhar a comida",
@@ -1133,7 +1133,7 @@
           ],
           "hint": "Usava um gorro com sinos.",
           "explanation": "O bobo divertia a corte com piadas, canções e truques.",
-          "fact": "Era o único que podia gozar com o senhor sem castigo."
+          "fact": "Era o único que podia zombar do senhor sem levar castigo."
         },
         "da": {
           "prompt": "Hvad gjorde en hofnar?",
@@ -1254,16 +1254,16 @@
           "fact": "Alcuni pozzi superavano i quaranta metri di profondità."
         },
         "pt": {
-          "prompt": "Porque cada castelo tinha um poço dentro das muralhas?",
-          "answer": "Para ter água num cerco",
+          "prompt": "Por que cada castelo tinha um poço dentro das muralhas?",
+          "answer": "Para ter água em um cerco",
           "wrong": [
             "Para criar peixes",
-            "Para deitar o lixo",
+            "Para jogar o lixo",
             "Para tomar banho"
           ],
           "hint": "Sair já não era possível.",
-          "explanation": "Sem poço próprio, um castelo cercado cedia em poucos dias.",
-          "fact": "Alguns poços passavam dos quarenta metros de fundo."
+          "explanation": "Sem poço próprio, um castelo cercado se rendia em poucos dias.",
+          "fact": "Alguns poços tinham mais de quarenta metros de profundidade."
         },
         "da": {
           "prompt": "Hvorfor havde hver borg en brønd inden for murene?",
@@ -1385,15 +1385,15 @@
         },
         "pt": {
           "prompt": "Quanto durava a formação de um cavaleiro?",
-          "answer": "Cerca de catorze anos",
+          "answer": "Cerca de quatorze anos",
           "wrong": [
             "Cerca de uma semana",
             "Cerca de um ano",
             "Cerca de cinquenta anos"
           ],
-          "hint": "Começava-se aos sete anos.",
-          "explanation": "Desde os sete anos um rapaz servia primeiro de pajem e depois de escudeiro.",
-          "fact": "Por volta dos vinte e um era armado cavaleiro."
+          "hint": "Começava aos sete anos.",
+          "explanation": "A partir dos sete anos, um menino servia primeiro como pajem e depois como escudeiro.",
+          "fact": "Por volta dos vinte e um anos, ele era armado cavaleiro."
         },
         "da": {
           "prompt": "Hvor længe varede det at blive ridder?",
@@ -1522,7 +1522,7 @@
             "Uma viagem ao oriente"
           ],
           "hint": "Esperar que a comida acabe.",
-          "explanation": "Num cerco um exército fechava um castelo até ele se render.",
+          "explanation": "Em um cerco, um exército fechava um castelo até ele se render.",
           "fact": "Muitas vezes, tudo dependia de quem tinha comida suficiente por mais tempo."
         },
         "da": {
@@ -1904,16 +1904,16 @@
           "fact": "Copiare un solo libro poteva costare a un monaco un anno."
         },
         "pt": {
-          "prompt": "Quem sabia ler normalmente na Idade Média?",
+          "prompt": "Quem normalmente sabia ler na Idade Média?",
           "answer": "Monges e ricos",
           "wrong": [
             "Quase todos",
             "Só as crianças",
-            "Ninguém mesmo"
+            "Ninguém"
           ],
           "hint": "Os livros custavam uma fortuna.",
-          "explanation": "Ler e escrever aprendia-se sobretudo em mosteiros e cortes ricas.",
-          "fact": "Copiar um só livro podia levar um ano a um monge."
+          "explanation": "Ler e escrever se aprendia sobretudo em mosteiros e cortes ricas.",
+          "fact": "Um monge podia levar um ano para copiar um só livro."
         },
         "da": {
           "prompt": "Hvem kunne som regel læse i middelalderen?",
@@ -2039,11 +2039,11 @@
           "wrong": [
             "O código de cavalaria",
             "O Domesday Book",
-            "A paz de Utrecht"
+            "A Paz de Utrecht"
           ],
-          "hint": "Os nobres ingleses impuseram-na.",
-          "explanation": "Com a Magna Carta também o rei tinha de obedecer à lei.",
-          "fact": "A ideia continua em muitas constituições."
+          "hint": "Os nobres ingleses a impuseram.",
+          "explanation": "Com a Magna Carta, até o rei tinha de obedecer à lei.",
+          "fact": "A ideia continua viva em muitas constituições."
         },
         "da": {
           "prompt": "Hvilket dokument begrænsede kongens magt i 1215?",
@@ -2169,9 +2169,9 @@
           "wrong": [
             "Um castelo de pedra",
             "Um palácio com jardins",
-            "Uma gruta na rocha"
+            "Uma caverna na rocha"
           ],
-          "hint": "Rápido de erguer em terra e madeira.",
+          "hint": "Rápida de erguer com terra e madeira.",
           "explanation": "Os primeiros castelos eram torres de madeira sobre um monte de terra.",
           "fact": "Só mais tarde foram refeitos em pedra."
         },
@@ -2432,8 +2432,8 @@
             "Nunca mais de uma semana"
           ],
           "hint": "Os dois lados tinham de comer.",
-          "explanation": "Alguns cercos arrastavam-se meses e até anos.",
-          "fact": "Os sitiantes construíam cabanas e mesmo uma aldeia."
+          "explanation": "Alguns cercos se arrastavam por meses e até anos.",
+          "fact": "Os sitiantes construíam cabanas e até uma aldeia."
         },
         "da": {
           "prompt": "Hvor længe kunne en belejring vare?",

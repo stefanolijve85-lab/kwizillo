@@ -85,14 +85,14 @@
         },
         "pt": {
           "prompt": "Em que viajavam os exploradores pelo mar?",
-          "answer": "Num veleiro",
+          "answer": "Em um veleiro",
           "wrong": [
-            "De comboio",
+            "De trem",
             "De avião",
             "De bicicleta"
           ],
           "hint": "Dependia do vento.",
-          "explanation": "Durante séculos um veleiro foi a única forma de atravessar um oceano.",
+          "explanation": "Durante séculos, um veleiro foi a única forma de atravessar um oceano.",
           "fact": "Sem vento, esse navio ficava parado durante dias."
         },
         "da": {
@@ -215,15 +215,15 @@
         },
         "pt": {
           "prompt": "O que fazia um marinheiro no cesto da gávea?",
-          "answer": "Vigiar à procura de terra",
+          "answer": "Vigiar procurando terra",
           "wrong": [
             "Medir o fundo",
             "Pescar",
-            "Coser velas"
+            "Costurar velas"
           ],
           "hint": "Estava lá no alto do mastro.",
-          "explanation": "Do cesto da gávea via-se primeiro a terra e outros navios.",
-          "fact": "Quem gritasse terra primeiro costumava ganhar um prémio."
+          "explanation": "Do cesto da gávea se viam primeiro a terra e outros navios.",
+          "fact": "Quem gritasse \"terra!\" primeiro costumava ganhar um prêmio."
         },
         "da": {
           "prompt": "Hvad lavede en sømand i udkigstønden?",
@@ -348,12 +348,12 @@
           "answer": "Comida seca",
           "wrong": [
             "Alface fresca",
-            "Gelados",
+            "Sorvete",
             "Sopa quente"
           ],
           "hint": "Tinha de durar meses.",
-          "explanation": "A bordo iam carne seca, peixe salgado e bolacha de mar durríssima.",
-          "fact": "Ao fim de semanas essa bolacha tinha muitas vezes gorgulhos."
+          "explanation": "A bordo iam carne seca, peixe salgado e biscoito de bordo duríssimo.",
+          "fact": "Depois de semanas, esse biscoito muitas vezes tinha carunchos."
         },
         "da": {
           "prompt": "Hvad tog et skib med at spise?",
@@ -474,14 +474,14 @@
           "fact": "Teneva anche il giornale di bordo, giorno per giorno."
         },
         "pt": {
-          "prompt": "Como se chama quem manda num navio?",
+          "prompt": "Como se chama quem manda em um navio?",
           "answer": "O capitão",
           "wrong": [
             "O padeiro",
             "O jardineiro",
             "O pintor"
           ],
-          "hint": "Vê-se muitas vezes ao leme.",
+          "hint": "Muitas vezes fica no leme.",
           "explanation": "O capitão decide o rumo e tudo o que acontece a bordo.",
           "fact": "Também escrevia o diário de bordo, dia após dia."
         },
@@ -604,7 +604,7 @@
           "fact": "Una grande nave poteva portare trenta vele."
         },
         "pt": {
-          "prompt": "O que içam os marinheiros no mastro?",
+          "prompt": "O que os marinheiros içam no mastro?",
           "answer": "Uma vela",
           "wrong": [
             "Uma rede",
@@ -612,7 +612,7 @@
             "Uma cama"
           ],
           "hint": "O vento tem de soprar lá dentro.",
-          "explanation": "Com as velas içadas, o navio apanha o vento e anda.",
+          "explanation": "Com as velas içadas, o navio pega o vento e anda.",
           "fact": "Um navio grande podia levar até trinta velas."
         },
         "da": {
@@ -734,16 +734,16 @@
           "fact": "Quando si seppe, morirono molti meno marinai."
         },
         "pt": {
-          "prompt": "Porque passaram os navios a levar limões?",
+          "prompt": "Por que os navios passaram a levar limões?",
           "answer": "Contra o escorbuto",
           "wrong": [
             "Pelo sabor",
             "Para trocar",
             "Para limpar"
           ],
-          "hint": "Têm dentro algo saudável.",
-          "explanation": "Os citrinos evitam o escorbuto, a temida doença dos marinheiros.",
-          "fact": "Quando isso se soube, morreram muitos menos marinheiros."
+          "hint": "Eles têm algo saudável dentro.",
+          "explanation": "As frutas cítricas evitam o escorbuto, a temida doença dos marinheiros.",
+          "fact": "Quando se descobriu isso, morreram muito menos marinheiros."
         },
         "da": {
           "prompt": "Hvorfor tog skibe senere citroner med?",
@@ -873,7 +873,7 @@
           ],
           "hint": "Passavam por ela caravanas de camelos.",
           "explanation": "Pela Rota da Seda viajavam seda, especiarias e ideias entre a Ásia e a Europa.",
-          "fact": "Uma caravana demorava às vezes anos."
+          "fact": "Uma caravana às vezes levava anos."
         },
         "da": {
           "prompt": "Hvad var Silkevejen?",
@@ -994,7 +994,7 @@
           "fact": "Aveva navi, forti e soldati propri."
         },
         "pt": {
-          "prompt": "O que era a Companhia Neerlandesa das Índias?",
+          "prompt": "O que era a Companhia Holandesa das Índias?",
           "answer": "Uma companhia de comércio",
           "wrong": [
             "Um tipo de navio",
@@ -1002,7 +1002,7 @@
             "Uma carta náutica"
           ],
           "hint": "Ia à Ásia buscar especiarias.",
-          "explanation": "Era uma empresa comercial neerlandesa fundada em 1602.",
+          "explanation": "Era uma empresa comercial holandesa fundada em 1602.",
           "fact": "Tinha navios, fortes e soldados próprios."
         },
         "da": {
@@ -1132,8 +1132,8 @@
             "Cerca de dez anos"
           ],
           "hint": "Quase um ano letivo inteiro.",
-          "explanation": "A contornar a África, um navio levava cerca de oito meses na ida.",
-          "fact": "Hoje voa-se a mesma distância em meio dia."
+          "explanation": "Contornando a África, um navio levava cerca de oito meses só na ida.",
+          "fact": "Hoje se voa a mesma distância em meio dia."
         },
         "da": {
           "prompt": "Hvor længe varede en rejse til Indien?",
@@ -1258,11 +1258,11 @@
           "answer": "O navio ficava parado",
           "wrong": [
             "Andava mais depressa",
-            "Afundava-se",
-            "Dava meia volta"
+            "Afundava",
+            "Dava meia-volta"
           ],
           "hint": "Sem vento não há viagem.",
-          "explanation": "Em calmaria um veleiro podia ficar parado dias ou semanas.",
+          "explanation": "Em calmaria, um veleiro podia ficar parado por dias ou semanas.",
           "fact": "A comida e a água doce escasseavam perigosamente."
         },
         "da": {
@@ -1393,7 +1393,7 @@
           ],
           "hint": "Era um viking.",
           "explanation": "Por volta do ano mil, vikings desembarcaram no norte da América.",
-          "fact": "Encontraram-se restos do seu povoado no Canadá."
+          "fact": "Foram encontrados restos do povoado deles no Canadá."
         },
         "da": {
           "prompt": "Hvem nåede Amerika længe før Columbus?",
@@ -1514,7 +1514,7 @@
           "fact": "Lungo la strada raccolse migliaia di piante."
         },
         "pt": {
-          "prompt": "Quem foi numa expedição disfarçada de homem?",
+          "prompt": "Quem foi em uma expedição disfarçada de homem?",
           "answer": "Jeanne Baret",
           "wrong": [
             "Cleópatra",
@@ -1651,7 +1651,7 @@
             "Vacas e cavalos",
             "Lã e ferro"
           ],
-          "hint": "Sem esses dois não há batatas fritas nem piza.",
+          "hint": "Sem esses dois não tem batata frita nem pizza.",
           "explanation": "Batata, tomate, milho e cacau vieram todos das Américas.",
           "fact": "No sentido contrário foram cavalos, vacas e trigo."
         },
@@ -1779,11 +1779,11 @@
           "wrong": [
             "O escorbuto",
             "O enjoo",
-            "Uma constipação"
+            "Um resfriado"
           ],
           "hint": "Ali não havia defesas contra ela.",
-          "explanation": "A varíola e o sarampo atingiram gente que nunca os tinha tido.",
-          "fact": "Em pouco tempo morreram imensos habitantes."
+          "explanation": "A varíola e o sarampo atingiram pessoas que nunca tinham tido essas doenças.",
+          "fact": "Em pouco tempo, morreram muitíssimos habitantes."
         },
         "da": {
           "prompt": "Hvilken sygdom bragte europæerne til Amerika?",
@@ -1904,16 +1904,16 @@
           "fact": "Ciò che vide lo portò alle sue idee sulle specie."
         },
         "pt": {
-          "prompt": "Em que navio deu Darwin a volta ao mundo?",
+          "prompt": "Em que navio Darwin deu a volta ao mundo?",
           "answer": "No Beagle",
           "wrong": [
             "No Victoria",
             "No Mayflower",
             "No Endeavour"
           ],
-          "hint": "Também é uma raça de cão.",
+          "hint": "Também é uma raça de cachorro.",
           "explanation": "Darwin navegou no Beagle entre 1831 e 1836.",
-          "fact": "O que viu pelo caminho levou-o às suas ideias sobre as espécies."
+          "fact": "O que ele viu pelo caminho o levou às suas ideias sobre as espécies."
         },
         "da": {
           "prompt": "Hvilket skib sejlede Darwin jorden rundt på?",
@@ -2041,8 +2041,8 @@
             "Três",
             "Nenhum"
           ],
-          "hint": "Perdeu-se quase toda a frota.",
-          "explanation": "Dos cinco navios só o Victoria regressou a Espanha.",
+          "hint": "Quase toda a frota se perdeu.",
+          "explanation": "Dos cinco navios, só o Victoria voltou para a Espanha.",
           "fact": "De mais de duzentos tripulantes, dezoito chegaram ao fim."
         },
         "da": {
@@ -2164,7 +2164,7 @@
           "fact": "Le sue navi più grandi superavano di molto quelle di Colombo."
         },
         "pt": {
-          "prompt": "Que frota chinesa chegou a África já em 1405?",
+          "prompt": "Que frota chinesa chegou à África já em 1405?",
           "answer": "A de Zheng He",
           "wrong": [
             "A de Marco Polo",
@@ -2173,7 +2173,7 @@
           ],
           "hint": "Quase um século antes de Colombo.",
           "explanation": "Zheng He chegou à Índia e à África oriental com frotas enormes.",
-          "fact": "Os seus maiores navios eram muito maiores do que os de Colombo."
+          "fact": "Seus maiores navios eram muito maiores que os de Colombo."
         },
         "da": {
           "prompt": "Hvilken kinesisk flåde nåede Afrika allerede i 1405?",
@@ -2294,7 +2294,7 @@
           "fact": "Per questo la velocità in mare si conta ancora in nodi."
         },
         "pt": {
-          "prompt": "Como mediam os marinheiros a sua velocidade?",
+          "prompt": "Como os marinheiros mediam sua velocidade?",
           "answer": "Com uma corda com nós",
           "wrong": [
             "Com um relógio",
@@ -2302,8 +2302,8 @@
             "Com o vento"
           ],
           "hint": "Daí vem a palavra nós.",
-          "explanation": "Lançava-se ao mar uma linha com nós e contava-se com uma ampulheta.",
-          "fact": "Por isso a velocidade no mar ainda se conta em nós."
+          "explanation": "Jogavam ao mar uma linha com nós e contavam o tempo com uma ampulheta.",
+          "fact": "Por isso a velocidade no mar ainda é medida em nós."
         },
         "da": {
           "prompt": "Hvordan målte søfolk før i tiden farten?",
@@ -2427,13 +2427,13 @@
           "prompt": "O que era a passagem do Noroeste?",
           "answer": "Uma rota pelo norte",
           "wrong": [
-            "Uma rota por baixo de África",
+            "Uma rota pelo sul da África",
             "Um canal na Europa",
             "Uma ponte sobre o mar"
           ],
-          "hint": "Por entre o gelo até à Ásia.",
-          "explanation": "Durante séculos os navios procuraram um caminho a norte da América.",
-          "fact": "Com o degelo, essa rota às vezes abre mesmo."
+          "hint": "Por entre o gelo até a Ásia.",
+          "explanation": "Durante séculos, os navios procuraram um caminho ao norte da América.",
+          "fact": "Com o degelo, essa rota às vezes chega mesmo a abrir."
         },
         "da": {
           "prompt": "Hvad var Nordvestpassagen?",
@@ -2561,8 +2561,8 @@
             "Ernest Shackleton",
             "Marco Polo"
           ],
-          "hint": "Tentava dar a volta ao mundo a voar.",
-          "explanation": "Amelia Earhart desapareceu sem deixar rasto na volta ao mundo.",
+          "hint": "Tentava dar a volta ao mundo voando.",
+          "explanation": "Amelia Earhart desapareceu sem deixar rastro durante a volta ao mundo.",
           "fact": "O avião dela nunca foi encontrado."
         },
         "da": {

@@ -85,14 +85,14 @@
         },
         "pt": {
           "prompt": "Que instrumento tem seis cordas e um braço?",
-          "answer": "A guitarra",
+          "answer": "O violão",
           "wrong": [
             "O tambor",
             "A flauta",
             "O sino"
           ],
-          "hint": "Toca-se dedilhando.",
-          "explanation": "Na guitarra as cordas vibram e a caixa oca torna o som maior.",
+          "hint": "Você toca dedilhando.",
+          "explanation": "No violão, as cordas vibram e a caixa oca deixa o som maior.",
           "fact": "Os instrumentos parecidos mais antigos têm mais de três mil anos."
         },
         "da": {
@@ -214,7 +214,7 @@
           "fact": "La batteria si suona con mani e piedi insieme."
         },
         "pt": {
-          "prompt": "Com que se bate normalmente num tambor?",
+          "prompt": "Com que normalmente se bate em um tambor?",
           "answer": "Com baquetas",
           "wrong": [
             "Com um pincel",
@@ -222,8 +222,8 @@
             "Com um guarda-chuva"
           ],
           "hint": "Duas, de madeira.",
-          "explanation": "Bates na pele esticada, que vibra e produz o som.",
-          "fact": "Uma bateria toca-se com as mãos e os pés ao mesmo tempo."
+          "explanation": "Você bate na pele esticada, que vibra e produz o som.",
+          "fact": "Uma bateria se toca com as mãos e os pés ao mesmo tempo."
         },
         "da": {
           "prompt": "Hvad slår man som regel på en tromme med?",
@@ -351,8 +351,8 @@
             "O trompete",
             "A harpa"
           ],
-          "hint": "Toca-se sentado.",
-          "explanation": "Ao carregares numa tecla, lá dentro um martelinho bate numa corda.",
+          "hint": "Você toca sentado.",
+          "explanation": "Quando você aperta uma tecla, lá dentro um martelinho bate em uma corda.",
           "fact": "Sob a tampa de um piano de cauda há mais de duzentas cordas."
         },
         "da": {
@@ -474,16 +474,16 @@
           "fact": "La voce è l'unico strumento che hai sempre con te."
         },
         "pt": {
-          "prompt": "O que fazes com a tua voz para fazer música?",
+          "prompt": "O que você faz com sua voz para fazer música?",
           "answer": "Cantar",
           "wrong": [
             "Dormir",
             "Comer",
             "Correr"
           ],
-          "hint": "Não precisas de levar nada.",
-          "explanation": "Ao cantar vibram as cordas vocais e a boca dá forma ao som.",
-          "fact": "A voz é o único instrumento que levas sempre contigo."
+          "hint": "Você não precisa levar nada.",
+          "explanation": "Ao cantar, as cordas vocais vibram e a boca dá forma ao som.",
+          "fact": "A voz é o único instrumento que está sempre com você."
         },
         "da": {
           "prompt": "Hvad gør du med din stemme, når du laver musik?",
@@ -604,16 +604,16 @@
           "fact": "Esistono anche chitarre a sette o perfino dodici corde."
         },
         "pt": {
-          "prompt": "Quantas cordas costuma ter uma guitarra?",
+          "prompt": "Quantas cordas um violão costuma ter?",
           "answer": "Seis",
           "wrong": [
             "Duas",
             "Dez",
             "Cem"
           ],
-          "hint": "Conta-as no braço.",
-          "explanation": "Uma guitarra normal tem seis cordas, da grossa e grave à fina e aguda.",
-          "fact": "Também há guitarras de sete ou até doze cordas."
+          "hint": "Conte no braço.",
+          "explanation": "Um violão normal tem seis cordas, da grossa e grave à fina e aguda.",
+          "fact": "Também existem violões de sete ou até doze cordas."
         },
         "da": {
           "prompt": "Hvor mange strenge har en guitar som regel?",
@@ -734,15 +734,15 @@
           "fact": "Un flauto antichissimo di osso di uccello ha oltre quarantamila anni."
         },
         "pt": {
-          "prompt": "Que instrumento se toca a soprar?",
+          "prompt": "Que instrumento se toca soprando?",
           "answer": "A flauta",
           "wrong": [
             "O tambor",
-            "A guitarra",
+            "O violão",
             "O piano"
           ],
-          "hint": "São os teus lábios que trabalham.",
-          "explanation": "Sopras sobre um furo, o ar lá dentro vibra e ouves uma nota.",
+          "hint": "São seus lábios que trabalham.",
+          "explanation": "Você sopra sobre um furo, o ar lá dentro vibra e você ouve uma nota.",
           "fact": "Uma flauta antiquíssima de osso de ave tem mais de quarenta mil anos."
         },
         "da": {
@@ -864,7 +864,7 @@
           "fact": "La marcia va su due tempi, proprio come i tuoi passi."
         },
         "pt": {
-          "prompt": "O que marca muitas vezes um músico com o pé?",
+          "prompt": "O que um músico muitas vezes marca com o pé?",
           "answer": "O compasso",
           "wrong": [
             "As estrelas",
@@ -872,8 +872,8 @@
             "A chuva"
           ],
           "hint": "Um, dois, três, quatro.",
-          "explanation": "O compasso é a contagem certa sobre a qual anda a música.",
-          "fact": "A música de marcha anda a dois tempos, tal como os teus passos."
+          "explanation": "O compasso é a contagem certa sobre a qual a música anda.",
+          "fact": "A música de marcha anda em dois tempos, assim como seus passos."
         },
         "da": {
           "prompt": "Hvad tapper en musiker tit med foden?",
@@ -1001,9 +1001,9 @@
             "O piano",
             "A flauta"
           ],
-          "hint": "Encosta-se ao queixo.",
+          "hint": "Fica encostado no queixo.",
           "explanation": "O arco roça a corda, que vibra e soa.",
-          "fact": "Um arco leva centenas de crinas de cauda de cavalo."
+          "fact": "Um arco tem centenas de crinas de cauda de cavalo."
         },
         "da": {
           "prompt": "Hvilket instrument spiller du med en bue?",
@@ -1131,8 +1131,8 @@
             "Um livro grosso",
             "Uma dança sem música"
           ],
-          "hint": "Podes cantá-la contigo.",
-          "explanation": "Uma canção tem uma melodia e uma letra que lhe pertence.",
+          "hint": "Você pode cantá-la junto.",
+          "explanation": "Uma canção tem uma melodia e uma letra que é dela.",
           "fact": "Há canções tão antigas que ninguém sabe quem as escreveu."
         },
         "da": {
@@ -1261,9 +1261,9 @@
             "O motorista",
             "O jardineiro"
           ],
-          "hint": "Está à frente, de costas para a sala.",
+          "hint": "Fica na frente, de costas para a plateia.",
           "explanation": "O maestro dá o compasso e decide quem entra em cada momento.",
-          "fact": "Antes marcava-se o compasso com um bastão pesado no chão."
+          "fact": "Antigamente, o compasso era marcado com um bastão pesado no chão."
         },
         "da": {
           "prompt": "Hvad hedder den, der leder et orkester?",
@@ -1392,8 +1392,8 @@
             "Uma sala vazia"
           ],
           "hint": "Tocam juntos a mesma obra.",
-          "explanation": "Numa orquestra juntam-se cordas, sopros e percussão.",
-          "fact": "Uma grande orquestra sinfónica chega a ter cem músicos."
+          "explanation": "Em uma orquestra se juntam cordas, sopros e percussão.",
+          "fact": "Uma grande orquestra sinfônica chega a ter cem músicos."
         },
         "da": {
           "prompt": "Hvad er et orkester?",
@@ -1514,16 +1514,16 @@
           "fact": "Con un cursore lo rendi più veloce o più lento."
         },
         "pt": {
-          "prompt": "Com que se treina para ficar mesmo a tempo?",
-          "answer": "Com um metrónomo",
+          "prompt": "Com que se treina para tocar bem no tempo?",
+          "answer": "Com um metrônomo",
           "wrong": [
-            "Com um termómetro",
+            "Com um termômetro",
             "Com uma bússola",
             "Com uma balança"
           ],
           "hint": "Bate de forma regular.",
-          "explanation": "O metrónomo bate sempre à mesma velocidade e ensina a tocar a tempo.",
-          "fact": "Com uma peça deslizante fica mais rápido ou mais lento."
+          "explanation": "O metrônomo bate sempre na mesma velocidade e ensina a tocar no tempo.",
+          "fact": "Com um peso deslizante, ele fica mais rápido ou mais lento."
         },
         "da": {
           "prompt": "Hvad øver man med for at holde takten præcist?",
@@ -1777,12 +1777,12 @@
           "prompt": "O que são as notas na música?",
           "answer": "Sinais para os sons",
           "wrong": [
-            "Sementes castanhas",
+            "Sementes marrons",
             "Sinais para palavras",
             "Números para as horas"
           ],
           "hint": "Estão sobre cinco linhas.",
-          "explanation": "As notas dizem que som tocar e quanto tempo o segurar.",
+          "explanation": "As notas dizem que som tocar e por quanto tempo segurá-lo.",
           "fact": "A escrita musical que usamos tem mais de mil anos."
         },
         "da": {
@@ -1913,7 +1913,7 @@
           ],
           "hint": "Vem do italiano.",
           "explanation": "Piano quer dizer suave; forte quer dizer forte.",
-          "fact": "O instrumento chama-se assim por ser o primeiro a fazer as duas coisas."
+          "fact": "O instrumento se chama assim por ser o primeiro a fazer as duas coisas."
         },
         "da": {
           "prompt": "Hvad betyder ordet piano i musik?",
@@ -2034,7 +2034,7 @@
           "fact": "La chitarra elettrica non ce l'ha e serve un amplificatore."
         },
         "pt": {
-          "prompt": "Para que serve a caixa oca de uma guitarra?",
+          "prompt": "Para que serve a caixa oca de um violão?",
           "answer": "Para o som ser mais forte",
           "wrong": [
             "Para guardar cordas",
@@ -2043,7 +2043,7 @@
           ],
           "hint": "É por isso que é oca.",
           "explanation": "A corda faz vibrar o ar da caixa, e isso soa muito mais alto.",
-          "fact": "Uma guitarra elétrica não a tem e por isso precisa de amplificador."
+          "fact": "Uma guitarra elétrica não tem essa caixa e por isso precisa de amplificador."
         },
         "da": {
           "prompt": "Hvad skal den hule krop på en guitar bruges til?",
@@ -2171,9 +2171,9 @@
             "À percussão",
             "Às madeiras"
           ],
-          "hint": "Brilham de amarelo.",
-          "explanation": "Os metais fazem o som com os lábios a vibrar no bocal.",
-          "fact": "A vara do trombone estica-se para mudar a nota."
+          "hint": "Têm um brilho amarelo.",
+          "explanation": "Os metais fazem o som com os lábios vibrando no bocal.",
+          "fact": "A vara do trombone se estica para mudar a nota."
         },
         "da": {
           "prompt": "Hvilken familie hører trompet og basun til?",
@@ -2295,15 +2295,15 @@
         },
         "pt": {
           "prompt": "O que é a melodia de uma canção?",
-          "answer": "Os sons que repetes",
+          "answer": "Os sons que você repete",
           "wrong": [
             "O som da sala",
             "O nome do cantor",
-            "A marca da guitarra"
+            "A marca do violão"
           ],
-          "hint": "Fica-te na cabeça.",
+          "hint": "Fica na sua cabeça.",
           "explanation": "A melodia é a linha de sons que torna a canção reconhecível.",
-          "fact": "Podes cantarolá-la mesmo sem te lembrares da letra."
+          "fact": "Você pode cantarolá-la mesmo sem lembrar a letra."
         },
         "da": {
           "prompt": "Hvad er melodien i en sang?",
@@ -2424,16 +2424,16 @@
           "fact": "Il flauto dolce è da secoli il primo strumento di molti bambini."
         },
         "pt": {
-          "prompt": "O que fazes quando tocas flauta de bisel?",
-          "answer": "Sopras e tapas os furos",
+          "prompt": "O que você faz quando toca flauta doce?",
+          "answer": "Sopra e tapa os furos",
           "wrong": [
-            "Bates e agitas",
-            "Roças com um arco",
-            "Rodas um botão"
+            "Bate e sacode",
+            "Esfrega com um arco",
+            "Gira um botão"
           ],
           "hint": "Os dedos sobem e descem.",
-          "explanation": "Quantos mais furos tapares, mais grave fica a nota.",
-          "fact": "A flauta de bisel é há séculos o primeiro instrumento das crianças."
+          "explanation": "Quanto mais furos você tapa, mais grave fica a nota.",
+          "fact": "Há séculos, a flauta doce é o primeiro instrumento das crianças."
         },
         "da": {
           "prompt": "Hvad gør du, når du spiller blokfløjte?",
@@ -2561,9 +2561,9 @@
             "Um público",
             "Uma banda"
           ],
-          "hint": "Costumam pôr-se em filas.",
-          "explanation": "Num coro as vozes agudas e graves cantam partes diferentes ao mesmo tempo.",
-          "fact": "O maior coro de sempre passou os cem mil cantores."
+          "hint": "Costumam ficar em fileiras.",
+          "explanation": "Em um coro, as vozes agudas e graves cantam partes diferentes ao mesmo tempo.",
+          "fact": "O maior coro da história passou de cem mil cantores."
         },
         "da": {
           "prompt": "Hvad hedder en gruppe mennesker, der synger sammen?",
@@ -2684,16 +2684,16 @@
           "fact": "Lui stesso non riteneva l'opera molto riuscita."
         },
         "pt": {
-          "prompt": "Quem compôs o bailado O Quebra-Nozes?",
-          "answer": "Piotr Tchaikovski",
+          "prompt": "Quem compôs o balé O Quebra-Nozes?",
+          "answer": "Piotr Tchaikovsky",
           "wrong": [
             "Ludwig van Beethoven",
             "Johann Sebastian Bach",
             "Frédéric Chopin"
           ],
-          "hint": "Passa-se pelo Natal.",
-          "explanation": "Tchaikovski escreveu a música em 1892 para um bailado com um brinquedo.",
-          "fact": "Ele próprio não achava a obra grande coisa."
+          "hint": "A história se passa no Natal.",
+          "explanation": "Tchaikovsky escreveu a música em 1892 para um balé sobre um brinquedo.",
+          "fact": "Ele mesmo não achava a obra grande coisa."
         },
         "da": {
           "prompt": "Hvem komponerede balletten Nøddeknækkeren?",
@@ -2821,9 +2821,9 @@
             "Johann Sebastian Bach",
             "Giuseppe Verdi"
           ],
-          "hint": "Em criança percorreu toda a Europa.",
-          "explanation": "Mozart tocava e compunha ainda muito pequeno e atuava perante imperadores.",
-          "fact": "Escreveu mais de seiscentas obras na vida."
+          "hint": "Quando criança, ele percorreu toda a Europa.",
+          "explanation": "Mozart tocava e compunha ainda muito pequeno e se apresentava para imperadores.",
+          "fact": "Ele escreveu mais de seiscentas obras na vida."
         },
         "da": {
           "prompt": "Hvilken komponist skrev musik allerede som femårig?",
@@ -3074,16 +3074,16 @@
           "fact": "In orchestra ognuno ha davanti soltanto la propria parte."
         },
         "pt": {
-          "prompt": "De onde leem os músicos enquanto tocam?",
+          "prompt": "De onde os músicos leem enquanto tocam?",
           "answer": "Da partitura",
           "wrong": [
             "Do dicionário",
             "De um mapa",
             "Do jornal"
           ],
-          "hint": "Está numa estante.",
+          "hint": "Fica em uma estante.",
           "explanation": "A partitura diz a cada músico o que tocar e em que momento.",
-          "fact": "Numa orquestra cada um tem à frente apenas a sua própria parte."
+          "fact": "Em uma orquestra, cada um tem à frente apenas sua própria parte."
         },
         "da": {
           "prompt": "Hvad læser musikere efter, mens de spiller?",
@@ -3212,8 +3212,8 @@
             "O baixo"
           ],
           "hint": "Canta a linha mais alta.",
-          "explanation": "Num coro soprano, contralto, tenor e baixo cantam quatro camadas.",
-          "fact": "Um soprano chega mais alto do que a nota mais aguda da flauta."
+          "explanation": "Em um coro, soprano, contralto, tenor e baixo cantam quatro camadas.",
+          "fact": "Um soprano chega mais alto que a nota mais aguda da flauta."
         },
         "da": {
           "prompt": "Hvad hedder den højeste kvindestemme i et kor?",
@@ -3334,7 +3334,7 @@
           "fact": "Per questo anche una corda spessa è più grave di una sottile."
         },
         "pt": {
-          "prompt": "Porque soa mais grave um tambor grande?",
+          "prompt": "Por que um tambor grande soa mais grave?",
           "answer": "O grande vibra devagar",
           "wrong": [
             "O grande pesa mais",
@@ -3343,7 +3343,7 @@
           ],
           "hint": "É a velocidade da vibração.",
           "explanation": "Uma pele grande vibra menos vezes por segundo, e mais lento soa mais grave.",
-          "fact": "Por isso também uma corda grossa é mais grave do que uma fina."
+          "fact": "Por isso também uma corda grossa é mais grave que uma fina."
         },
         "da": {
           "prompt": "Hvorfor lyder en stor tromme dybere end en lille?",
@@ -3471,9 +3471,9 @@
             "A viola",
             "O violoncelo"
           ],
-          "hint": "Toca-se de pé ou num banco.",
-          "explanation": "O contrabaixo é o mais grave e sustenta o chão da orquestra.",
-          "fact": "Muitas vezes é mais alto do que o músico que o toca."
+          "hint": "É tocado de pé ou em um banquinho.",
+          "explanation": "O contrabaixo é o mais grave e sustenta a base da orquestra.",
+          "fact": "Muitas vezes é mais alto que o músico que o toca."
         },
         "da": {
           "prompt": "Hvilket strygeinstrument er det største i orkestret?",
@@ -3602,7 +3602,7 @@
             "Joseph Haydn"
           ],
           "hint": "São quatro concertos para violino.",
-          "explanation": "Vivaldi pintava com música: ouvem-se pássaros, trovoada e gelo a estalar.",
+          "explanation": "Vivaldi pintava com música: dá para ouvir pássaros, trovoada e gelo estalando.",
           "fact": "Cada parte tem um poema que conta o que se ouve."
         },
         "da": {
@@ -3732,7 +3732,7 @@
             "Oito cordas"
           ],
           "hint": "A nota soa igual, mas mais aguda.",
-          "explanation": "Depois de oito teclas brancas voltas à mesma nota, uma oitava acima.",
+          "explanation": "Depois de oito teclas brancas, você volta à mesma nota, uma oitava acima.",
           "fact": "A nota aguda vibra exatamente o dobro."
         },
         "da": {
@@ -3854,7 +3854,7 @@
           "fact": "Per questo lo stesso brano suona diverso ogni sera."
         },
         "pt": {
-          "prompt": "Que género musical nasceu em Nova Orleães?",
+          "prompt": "Que gênero musical nasceu em Nova Orleans?",
           "answer": "O jazz",
           "wrong": [
             "A valsa",
@@ -3862,7 +3862,7 @@
             "A marcha"
           ],
           "hint": "Improvisar faz parte.",
-          "explanation": "No jazz os músicos inventam na hora a sua versão de uma melodia.",
+          "explanation": "No jazz, os músicos inventam na hora sua versão de uma melodia.",
           "fact": "Por isso a mesma peça soa diferente todas as noites."
         },
         "da": {
@@ -3984,16 +3984,16 @@
           "fact": "Alla prima della Nona dovettero girarlo per fargli vedere gli applausi."
         },
         "pt": {
-          "prompt": "Que compositor continuou a escrever depois de ficar surdo?",
+          "prompt": "Que compositor continuou escrevendo depois de ficar surdo?",
           "answer": "Ludwig van Beethoven",
           "wrong": [
             "Wolfgang Amadeus Mozart",
             "Antonio Vivaldi",
             "Frédéric Chopin"
           ],
-          "hint": "Nunca ouviu as suas últimas obras.",
-          "explanation": "Beethoven foi ficando surdo a partir dos vinte anos e continuou a compor.",
-          "fact": "Na estreia da Nona tiveram de o virar para ver os aplausos."
+          "hint": "Nunca ouviu suas últimas obras.",
+          "explanation": "Beethoven foi ficando surdo a partir dos vinte anos e continuou compondo.",
+          "fact": "Na estreia da Nona, tiveram de virá-lo para ele ver os aplausos."
         },
         "da": {
           "prompt": "Hvilken komponist skrev videre, da han blev døv?",
@@ -4114,7 +4114,7 @@
           "fact": "Haydn ne scrisse più di sessanta ed è detto il loro padre."
         },
         "pt": {
-          "prompt": "Quantos músicos tocam num quarteto de cordas?",
+          "prompt": "Quantos músicos tocam em um quarteto de cordas?",
           "answer": "Quatro",
           "wrong": [
             "Dois",
@@ -4123,7 +4123,7 @@
           ],
           "hint": "Dois violinos, uma viola e um violoncelo.",
           "explanation": "Um quarteto de cordas são quatro músicos que soam como um só instrumento.",
-          "fact": "Haydn escreveu mais de sessenta e é chamado o pai deles."
+          "fact": "Haydn escreveu mais de sessenta e é chamado de pai deles."
         },
         "da": {
           "prompt": "Hvor mange musikere spiller i en strygekvartet?",
@@ -4247,12 +4247,12 @@
           "prompt": "O que significa cantar a capela?",
           "answer": "Cantar sem instrumentos",
           "wrong": [
-            "Cantar numa igreja",
+            "Cantar em uma igreja",
             "Cantar com orquestra",
             "Cantar em italiano"
           ],
           "hint": "Só vozes.",
-          "explanation": "A capela tudo o que ouves sai de gargantas, acompanhamento incluído.",
+          "explanation": "A capela, tudo o que você ouve sai de gargantas, acompanhamento incluído.",
           "fact": "Alguns grupos imitam até a bateria com a boca."
         },
         "da": {
@@ -4374,7 +4374,7 @@
           "fact": "Nessuno sa bene perché suonino così: anche il legno conta."
         },
         "pt": {
-          "prompt": "Em que cidade construiu Stradivari os seus violinos?",
+          "prompt": "Em que cidade Stradivari construiu seus violinos?",
           "answer": "Em Cremona",
           "wrong": [
             "Em Paris",
@@ -4382,8 +4382,8 @@
             "Em Londres"
           ],
           "hint": "Fica na Itália.",
-          "explanation": "Antonio Stradivari fez lá, por volta de 1700, violinos ainda hoje tidos como os melhores.",
-          "fact": "Ninguém sabe bem porque soam tão bem; a madeira conta."
+          "explanation": "Antonio Stradivari fez lá, por volta de 1700, violinos que até hoje são considerados os melhores.",
+          "fact": "Ninguém sabe bem por que soam tão bem; a madeira conta."
         },
         "da": {
           "prompt": "I hvilken by byggede Stradivari sine berømte violiner?",
@@ -4504,7 +4504,7 @@
           "fact": "Le canne più grandi sono più lunghe di un autobus."
         },
         "pt": {
-          "prompt": "Como produz o som um órgão de igreja?",
+          "prompt": "Como um órgão de igreja produz o som?",
           "answer": "Soprando ar por tubos",
           "wrong": [
             "Batendo em cordas",
@@ -4513,7 +4513,7 @@
           ],
           "hint": "São centenas de tubos.",
           "explanation": "Cada tecla abre um tubo e o ar lá dentro começa a vibrar.",
-          "fact": "Os tubos maiores são mais compridos do que um autocarro."
+          "fact": "Os tubos maiores são mais compridos que um ônibus."
         },
         "da": {
           "prompt": "Hvordan laver et kirkeorgel lyd?",
@@ -4772,8 +4772,8 @@
             "Um texto sem música"
           ],
           "hint": "Três dedos ao mesmo tempo.",
-          "explanation": "Num acorde soam três ou mais notas juntas, e isso dá a cor.",
-          "fact": "Com três acordes já acompanhas centenas de canções."
+          "explanation": "Em um acorde, soam três ou mais notas juntas, e isso dá a cor.",
+          "fact": "Com três acordes, você já acompanha centenas de canções."
         },
         "da": {
           "prompt": "Hvad er en akkord?",
@@ -4894,16 +4894,16 @@
           "fact": "Così riconosci una voce subito, senza guardare."
         },
         "pt": {
-          "prompt": "Porque soam diferentes a flauta e o violino na mesma nota?",
+          "prompt": "Por que a flauta e o violino soam diferentes na mesma nota?",
           "answer": "Por causa do timbre",
           "wrong": [
             "Por causa da velocidade",
             "Por causa do compasso",
             "Por causa da letra"
           ],
-          "hint": "Cada nota traz harmónicos.",
-          "explanation": "Ao lado da nota principal soam harmónicos mais fracos, diferentes em cada instrumento.",
-          "fact": "É assim que reconheces uma voz num instante, sem olhar."
+          "hint": "Cada nota traz harmônicos.",
+          "explanation": "Junto com a nota principal soam harmônicos mais fracos, diferentes em cada instrumento.",
+          "fact": "É assim que você reconhece uma voz em um instante, sem olhar."
         },
         "da": {
           "prompt": "Hvorfor lyder en fløjte anderledes end en violin på samme tone?",
@@ -5027,13 +5027,13 @@
           "prompt": "Que invenção de 1877 conseguia gravar som?",
           "answer": "O fonógrafo",
           "wrong": [
-            "A rádio",
-            "O disco compacto",
+            "O rádio",
+            "O CD",
             "O piano"
           ],
-          "hint": "O som ficava num cilindro de cera.",
-          "explanation": "Com o fonógrafo foi possível guardar música e voltar a ouvi-la pela primeira vez.",
-          "fact": "Antes a música só existia enquanto alguém tocava."
+          "hint": "O som ficava em um cilindro de cera.",
+          "explanation": "Com o fonógrafo, pela primeira vez foi possível guardar música e ouvi-la de novo.",
+          "fact": "Antes, a música só existia enquanto alguém tocava."
         },
         "da": {
           "prompt": "Hvilken opfindelse fra 1877 kunne optage lyd?",
