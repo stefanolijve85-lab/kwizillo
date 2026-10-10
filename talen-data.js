@@ -153,7 +153,7 @@
         {id:'mountain',img:img('mountain'),text:{nl:'berg',en:'mountain',de:'Berg',fr:'montagne',es:'montaña',it:'montagna',pt:'montanha',da:'bjerg',ru:'гора',ar:'جبل'}},
         {id:'sea',img:img('sea'),text:{nl:'zee',en:'sea',de:'Meer',fr:'mer',es:'mar',it:'mare',pt:'mar',da:'hav',ru:'море',ar:'بحر'}}
       ]},
-      {id:'familie',icon:'👨‍👩‍👧',words:[
+      {id:'familie',icon:'👨‍👩‍👧',cover:img('cover-familie'),words:[
         {id:'mom',img:img('mom'),text:{nl:'mama',en:'mom',de:'Mama',fr:'maman',es:'mamá',it:'mamma',pt:'mamãe',da:'mor',ru:'мама',ar:'ماما'}},
         {id:'dad',img:img('dad'),text:{nl:'papa',en:'dad',de:'Papa',fr:'papa',es:'papá',it:'papà',pt:'papai',da:'far',ru:'папа',ar:'بابا'}},
         {id:'brother',img:img('brother'),text:{nl:'broer',en:'brother',de:'Bruder',fr:'frère',es:'hermano',it:'fratello',pt:'irmão',da:'bror',ru:'брат',ar:'أخ'}},
@@ -189,7 +189,19 @@
         {id:'blackboard',img:img('blackboard'),text:{nl:'schoolbord',en:'blackboard',de:'Tafel',fr:'tableau',es:'pizarra',it:'lavagna',pt:'lousa',da:'tavle',ru:'доска',ar:'سبورة'}},
         {id:'computer',img:img('computer'),text:{nl:'computer',en:'computer',de:'Computer',fr:'ordinateur',es:'ordenador',it:'computer',pt:'computador',da:'computer',ru:'компьютер',ar:'حاسوب'}}
       ]},
-      {id:'mij',icon:'🙋',kind:'zin',words:[
+      {id:'vakantie',icon:'🏖️',words:[
+        {id:'suitcase',img:img('suitcase'),text:{nl:'koffer',en:'suitcase',de:'Koffer',fr:'valise',es:'maleta',it:'valigia',pt:'mala',da:'kuffert',ru:'чемодан',ar:'حقيبة سفر'}},
+        {id:'tent',img:img('tent'),text:{nl:'tent',en:'tent',de:'Zelt',fr:'tente',es:'tienda',it:'tenda',pt:'barraca',da:'telt',ru:'палатка',ar:'خيمة'}},
+        {id:'sandcastle',img:img('sandcastle'),text:{nl:'zandkasteel',en:'sandcastle',de:'Sandburg',fr:'château de sable',es:'castillo de arena',it:'castello di sabbia',pt:'castelo de areia',da:'sandslot',ru:'замок из песка',ar:'قلعة رملية'}},
+        {id:'sunglasses',img:img('sunglasses'),text:{nl:'zonnebril',en:'sunglasses',de:'Sonnenbrille',fr:'lunettes de soleil',es:'gafas de sol',it:'occhiali da sole',pt:'óculos de sol',da:'solbriller',ru:'солнечные очки',ar:'نظارة شمسية'}},
+        {id:'seashell',img:img('seashell'),text:{nl:'schelp',en:'seashell',de:'Muschel',fr:'coquillage',es:'concha',it:'conchiglia',pt:'concha',da:'muslingeskal',ru:'ракушка',ar:'صدفة'}},
+        {id:'swimsuit',img:img('swimsuit'),text:{nl:'zwempak',en:'swimsuit',de:'Badeanzug',fr:'maillot de bain',es:'bañador',it:'costume da bagno',pt:'maiô',da:'badedragt',ru:'купальник',ar:'ملابس سباحة'}},
+        {id:'passport',img:img('passport'),text:{nl:'paspoort',en:'passport',de:'Reisepass',fr:'passeport',es:'pasaporte',it:'passaporto',pt:'passaporte',da:'pas',ru:'паспорт',ar:'جواز سفر'}},
+        {id:'map',img:img('map'),text:{nl:'landkaart',en:'map',de:'Landkarte',fr:'carte',es:'mapa',it:'mappa',pt:'mapa',da:'landkort',ru:'карта',ar:'خريطة'}},
+        {id:'camera',img:img('camera'),text:{nl:'fototoestel',en:'camera',de:'Kamera',fr:'appareil photo',es:'cámara',it:'macchina fotografica',pt:'câmera',da:'kamera',ru:'фотоаппарат',ar:'كاميرا'}},
+        {id:'flipflops',img:img('flipflops'),text:{nl:'slippers',en:'flip-flops',de:'Flip-Flops',fr:'tongs',es:'chanclas',it:'infradito',pt:'chinelos',da:'klipklappere',ru:'шлёпанцы',ar:'شبشب'}}
+      ]},
+      {id:'mij',icon:'🙋',cover:img('cover-mij'),kind:'zin',words:[
         {id:'zin_hungry',emoji:'🍽️',text:{nl:'Ik heb honger',en:'I’m hungry',de:'Ich habe Hunger',fr:'J’ai faim',es:'Tengo hambre',it:'Ho fame',pt:'Estou com fome',da:'Jeg er sulten',ru:'Я хочу есть',ar:'أشعر بالجوع'}},
         {id:'zin_thirsty',emoji:'🥤',text:{nl:'Ik heb dorst',en:'I’m thirsty',de:'Ich habe Durst',fr:'J’ai soif',es:'Tengo sed',it:'Ho sete',pt:'Estou com sede',da:'Jeg er tørstig',ru:'Я хочу пить',ar:'أشعر بالعطش'}},
         {id:'zin_sleepy',emoji:'😴',text:{nl:'Ik wil slapen',en:'I want to sleep',de:'Ich will schlafen',fr:'Je veux dormir',es:'Quiero dormir',it:'Voglio dormire',pt:'Quero dormir',da:'Jeg vil sove',ru:'Я хочу спать',ar:'أريد أن أنام'}},
@@ -201,7 +213,7 @@
         {id:'zin_seven',emoji:'🎂',text:{nl:'Ik ben zeven jaar',en:'I’m seven years old',de:'Ich bin sieben Jahre alt',fr:'J’ai sept ans',es:'Tengo siete años',it:'Ho sette anni',pt:'Eu tenho sete anos',da:'Jeg er syv år',ru:'Мне семь лет',ar:'عمري سبع سنوات'}},
         {id:'zin_toschool',emoji:'🏫',text:{nl:'Ik ga naar school',en:'I go to school',de:'Ich gehe zur Schule',fr:'Je vais à l’école',es:'Voy al colegio',it:'Vado a scuola',pt:'Eu vou para a escola',da:'Jeg går i skole',ru:'Я хожу в школу',ar:'أذهب إلى المدرسة'}}
       ]},
-      {id:'vragen',icon:'❓',kind:'zin',words:[
+      {id:'vragen',icon:'❓',cover:img('cover-vragen'),kind:'zin',words:[
         {id:'zin_yourname',emoji:'📛',text:{nl:'Hoe heet jij?',en:'What’s your name?',de:'Wie heißt du?',fr:'Comment tu t’appelles ?',es:'¿Cómo te llamas?',it:'Come ti chiami?',pt:'Qual é o seu nome?',da:'Hvad hedder du?',ru:'Как тебя зовут?',ar:'ما اسمك؟'}},
         {id:'zin_howold',emoji:'🔢',text:{nl:'Hoe oud ben jij?',en:'How old are you?',de:'Wie alt bist du?',fr:'Quel âge as-tu ?',es:'¿Cuántos años tienes?',it:'Quanti anni hai?',pt:'Quantos anos você tem?',da:'Hvor gammel er du?',ru:'Сколько тебе лет?',ar:'كم عمرك؟'}},
         {id:'zin_wherelive',emoji:'🗺️',text:{nl:'Waar woon jij?',en:'Where do you live?',de:'Wo wohnst du?',fr:'Où habites-tu ?',es:'¿Dónde vives?',it:'Dove abiti?',pt:'Onde você mora?',da:'Hvor bor du?',ru:'Где ты живёшь?',ar:'أين تسكن؟'}},
@@ -213,7 +225,7 @@
         {id:'zin_youlike',emoji:'💭',text:{nl:'Wat vind jij leuk?',en:'What do you like?',de:'Was magst du?',fr:'Qu’est-ce que tu aimes ?',es:'¿Qué te gusta?',it:'Cosa ti piace?',pt:'Do que você gosta?',da:'Hvad kan du lide?',ru:'Что тебе нравится?',ar:'ماذا تحب؟'}},
         {id:'zin_howmuch',emoji:'💰',text:{nl:'Hoeveel kost het?',en:'How much is it?',de:'Wie viel kostet das?',fr:'Combien ça coûte ?',es:'¿Cuánto cuesta?',it:'Quanto costa?',pt:'Quanto custa?',da:'Hvad koster det?',ru:'Сколько это стоит?',ar:'بكم هذا؟'}}
       ]},
-      {id:'gevoel',icon:'💛',kind:'zin',words:[
+      {id:'gevoel',icon:'💛',cover:img('cover-gevoel'),kind:'zin',words:[
         {id:'zin_happy',emoji:'😄',text:{nl:'Ik ben blij',en:'I’m happy',de:'Ich bin froh',fr:'Je suis content',es:'Estoy contento',it:'Sono felice',pt:'Estou feliz',da:'Jeg er glad',ru:'Мне весело',ar:'أنا سعيد'}},
         {id:'zin_sad',emoji:'😢',text:{nl:'Ik ben verdrietig',en:'I’m sad',de:'Ich bin traurig',fr:'Je suis triste',es:'Estoy triste',it:'Sono triste',pt:'Estou triste',da:'Jeg er ked af det',ru:'Мне грустно',ar:'أنا حزين'}},
         {id:'zin_scared',emoji:'😨',text:{nl:'Ik ben bang',en:'I’m scared',de:'Ich habe Angst',fr:'J’ai peur',es:'Tengo miedo',it:'Ho paura',pt:'Estou com medo',da:'Jeg er bange',ru:'Мне страшно',ar:'أنا خائف'}},
@@ -225,7 +237,7 @@
         {id:'zin_loveyou',emoji:'❤️',text:{nl:'Ik hou van jou',en:'I love you',de:'Ich hab dich lieb',fr:'Je t’aime',es:'Te quiero',it:'Ti voglio bene',pt:'Eu te amo',da:'Jeg elsker dig',ru:'Я тебя люблю',ar:'أحبك'}},
         {id:'zin_fun',emoji:'🤩',text:{nl:'Wat leuk!',en:'How fun!',de:'Wie toll!',fr:'Trop bien !',es:'¡Qué divertido!',it:'Che bello!',pt:'Que legal!',da:'Hvor sjovt!',ru:'Как здорово!',ar:'هذا ممتع!'}}
       ]},
-      {id:'samen',icon:'🤝',kind:'zin',words:[
+      {id:'samen',icon:'🤝',cover:img('cover-samen'),kind:'zin',words:[
         {id:'zin_letsplay',emoji:'🧸',text:{nl:'Zullen we spelen?',en:'Shall we play?',de:'Wollen wir spielen?',fr:'On joue ?',es:'¿Jugamos?',it:'Giochiamo?',pt:'Vamos brincar?',da:'Skal vi lege?',ru:'Давай играть!',ar:'هيا نلعب!'}},
         {id:'zin_myturn',emoji:'☝️',text:{nl:'Ik ben aan de beurt',en:'It’s my turn',de:'Ich bin dran',fr:'C’est mon tour',es:'Me toca a mí',it:'Tocca a me',pt:'É a minha vez',da:'Det er min tur',ru:'Моя очередь',ar:'إنه دوري'}},
         {id:'zin_yourturn',emoji:'👉',text:{nl:'Jij bent aan de beurt',en:'It’s your turn',de:'Du bist dran',fr:'C’est ton tour',es:'Te toca a ti',it:'Tocca a te',pt:'É a sua vez',da:'Det er din tur',ru:'Твоя очередь',ar:'إنه دورك'}},

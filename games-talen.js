@@ -127,11 +127,11 @@
     // omslag hebben (`cover`).
     const starsOf=id=>Number(themeRec(id)?.stars||0);
     const badge=n=>`<span class="talen-stars" aria-label="${n}/3">${[1,2,3].map(i=>`<i class="${i<=n?'on':''}">★</i>`).join('')}</span>`;
-    const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
+    const tile=(id,img,label,{locked=false,cls=''}={})=>{const n=starsOf(id);return `<button class="memo-pick talen-pick fit ${cls} ${n?'done':''} ${locked?'locked':''}" data-theme="${id}" style="--art:url('${img}')"><img class="talen-pick-art" src="${img}" alt="" decoding="async"><span class="home-game-veil"></span>${locked?K.premiumBadge():''}${badge(n)}<b>${esc(label)}</b></button>`};
     const stampOf=th=>{
       if(!ready(th))return `<div class="memo-pick talen-pick soon"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><b>${esc(t(`talen.theme.${th.id}`))}</b></div>`;
       if(th.kind==='zin'&&!th.cover)return `<button class="memo-pick talen-pick zin ${starsOf(th.id)?'done':''} ${open(th)?'':'locked'}" data-theme="${th.id}"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><span class="home-game-veil"></span>${open(th)?'':K.premiumBadge()}${badge(starsOf(th.id))}<b>${esc(t(`talen.theme.${th.id}`))}</b></button>`;
-      return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th)});
+      return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th),cls:th.kind==='zin'?'zin':''});   // a sentence theme with its own cover picture (2026-10-10)
     };
     // Since 17 themes (2026-10-10) the passport scrolls, in two parts: words, then sentences.
     const words=T().themes.filter(th=>th.kind!=='zin'),zinnen=T().themes.filter(th=>th.kind==='zin');
@@ -207,7 +207,7 @@
           <div class="whoami-grid">${opts.map(o=>zin
             // a sentence: its meaning is on the card from the start, the sentence itself appears once it is found
             ?`<button class="whoami-tile talen-tile zin" data-pick="${o.id}" aria-label="${esc(o.text[app()])}">${pic(o)}<b class="talen-meaning">${esc(o.text[app()])}</b><b class="talen-label"><span>${esc(o.text[l])}</span></b></button>`
-            :`<button class="whoami-tile talen-tile" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[app()]}))}</small></b></button>`).join('')}</div>
+            :`<button class="whoami-tile talen-tile fit" data-pick="${o.id}" aria-label="${esc(t('talen.picture'))}" style="--art:url('${o.img}')"><img src="${o.img}" alt="" decoding="async"><b class="talen-label"><span>${esc(o.text[l])}</span><small>${esc(t('talen.means',{word:o.text[app()]}))}</small></b></button>`).join('')}</div>
           <div class="quiz-actions whoami-actions talen-actions"><button class="action repeat" id="talenReplay">${K.icon('repeat')} ${esc(t('talen.replay'))}</button><button class="action hint" id="talenHint">${K.icon('bulb')} ${esc(t('quiz.hint'))}</button></div>
         </main>
       </div>

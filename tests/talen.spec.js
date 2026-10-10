@@ -92,7 +92,7 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   await expect.poll(() => clips).toContain('nl/milo/_klaar_dieren.mp3');
   // stamp on the Home tile
   await page.evaluate(() => window.KWIZILLO_M1.showHome());
-  await expect(page.locator('#homeTalen .home-world-level')).toHaveText('★ 1/17');
+  await expect(page.locator('#homeTalen .home-world-level')).toHaveText('★ 1/18');
 });
 
 test('progress is per player: Sara does not get Mike\'s stars', async ({ page }) => {
@@ -112,19 +112,19 @@ test('progress is per player: Sara does not get Mike\'s stars', async ({ page })
   expect(await page.evaluate(() => [window.KWIZILLO_M1.state.name, window.KWIZILLO_M1.talenSummary().themes[0].stars])).toEqual(['Sara', 1]);
 });
 
-test('seventeen themes and a mix, all playable: animals free, the rest and the mix with a Premium lock that opens the teaser; the passport scrolls in two parts', async ({ page }) => {
+test('eighteen themes and a mix, all playable: animals free, the rest and the mix with a Premium lock that opens the teaser; the passport scrolls in two parts', async ({ page }) => {
   await boot(page);
   await page.locator('#homeTalen').click();
   await expect(page.locator('.talen-pass .panel-head h1.game-name')).toHaveText('Talen');
-  // The mix as the wide tile on top, then thirteen word themes and four sentence themes, each under its heading.
+  // The mix as the wide tile on top, then fourteen word themes and four sentence themes, each under its heading.
   await expect(page.locator('.talen-pass .panel-scroll > .memo-pick.mix[data-theme="mix"]')).toHaveCount(1);
-  await expect(page.locator('.talen-picks .talen-pick')).toHaveCount(17);
+  await expect(page.locator('.talen-picks .talen-pick')).toHaveCount(18);
   await expect(page.locator('.talen-picks.zinnen .talen-pick.zin')).toHaveCount(4);
   await expect(page.locator('.talen-section')).toHaveText(['Woordjes', 'Zinnetjes']);
   await expect(page.locator('.talen-pick.soon')).toHaveCount(0);
   // Getallen shows its own cover (1 2 3), not the "one" word picture with its star.
   await expect(page.locator('[data-theme="getallen"] .talen-pick-art')).toHaveAttribute('src', /cover-getallen\.jpg/);
-  await expect(page.locator('[data-theme].locked')).toHaveCount(17);
+  await expect(page.locator('[data-theme].locked')).toHaveCount(18);
   await expect(page.locator('[data-theme="mix"]')).toHaveText(/Mix/);
   // the last tile is reachable by scrolling and keeps its shape (not squeezed into the screen)
   await page.locator('[data-theme="samen"]').scrollIntoViewIfNeeded();
@@ -148,7 +148,7 @@ test('with Premium the other themes open', async ({ page }) => {
   await page.evaluate(() => { window.KWIZILLO_M1.stopSpeech(); window.KWIZILLO_M1.startTalen('mix'); });
   await expect(page.locator('.talen-tile')).toHaveCount(4);
   const g = await page.evaluate(() => ({ theme: window.KWIZILLO_M1.talen.theme, pool: window.KWIZILLO_M1.talen.pool.length, words: window.KWIZILLO_M1.talen.words.length }));
-  expect(g).toEqual({ theme: 'mix', pool: 130, words: 8 });   // thirteen word themes; sentences stay out of the mix
+  expect(g).toEqual({ theme: 'mix', pool: 140, words: 8 });   // fourteen word themes; sentences stay out of the mix
 });
 
 test('every app language learns: English for a Dutch child and Dutch for an English one by default, English for the rest; the child picks any of the other nine in Talen', async ({ page }) => {
@@ -183,13 +183,13 @@ test('every app language learns: English for a Dutch child and Dutch for an Engl
   await expect.poll(() => clips.slice(0, 2)).toEqual(['nl/_intro.mp3', `de/${await current(page)}.mp3`]);
 });
 
-test('seventeen themes of ten: every word or sentence, picture or emoji, line and closing line exists in all ten languages', async () => {
+test('eighteen themes of ten: every word or sentence, picture or emoji, line and closing line exists in all ten languages', async () => {
   const fs = require('fs'), path = require('path'), vm = require('vm');
   const ctx = { window: {} }; vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'talen-data.js'), 'utf8'), ctx);
   const T = ctx.window.KWIZILLO_M1.TALEN, dir = path.join(__dirname, '..', 'assets', 'talen', 'audio');
   expect(T.langs).toHaveLength(10);
-  expect(T.themes.map(t => t.words.length)).toEqual(Array(17).fill(10));
+  expect(T.themes.map(t => t.words.length)).toEqual(Array(18).fill(10));
   // Milo's clips in <lang>/, Luna's in <lang>/luna/: a child who chose Luna hears only Luna.
   for (const l of T.langs) for (const g of ['', 'luna']) {
     for (const th of T.themes) for (const w of th.words) { expect(w.text[l], `${w.id} in ${l}`).toBeTruthy(); expect(fs.existsSync(path.join(dir, l, g, `${w.id}.mp3`)), `${l}/${g}/${w.id}`).toBe(true); if (w.emoji) expect(w.img).toBeUndefined(); else expect(fs.existsSync(path.join(__dirname, '..', w.img)), w.img).toBe(true); }
@@ -226,7 +226,7 @@ test('Talen in the overviews: a Woordjes tab in the collection, a line in the st
   await expect.poll(() => clips).toEqual(['en/shark.mp3', 'nl/_betekent.mp3', 'nl/shark.mp3']);
   await page.evaluate(() => window.KWIZILLO_M1.showStats());
   await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('10 woordjes geleerd · 3 lessen');
-  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/17');
+  await expect(page.locator('.game-stat', { hasText: 'Talen' })).toContainText('1/18');
   await page.evaluate(() => window.KWIZILLO_M1.showAchievements());
   await expect(page.getByText('Eerste les in Talen')).toBeVisible();
   await expect(page.getByText('10 woordjes geleerd', { exact: true })).toBeVisible();

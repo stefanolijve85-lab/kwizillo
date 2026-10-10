@@ -1764,14 +1764,14 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .math-pick .math-pick-tile{aspect-ratio:16/9;height:auto}
 .math-pick .math-pick-tile b{font-size:20px;line-height:1.1}
 .math-pick .math-pick-tile b small{display:block;margin-top:3px;font-size:12px;font-weight:800;opacity:.9}
-.math-pick-tile.money{background:radial-gradient(circle at 50% 38%,#3f8f5a,#1d5a3a 70%)}
+.math-pick-tile.money{background:radial-gradient(circle at 50% 30%,#6fb2ff,#2a62d6 62%,#1a3f9c)}
 .money-pick-coins{position:absolute;inset:0;display:block}
 .money-pick-coins img{position:absolute;top:calc(14% + var(--i) * 7%);left:calc(18% + var(--i) * 22%);width:34%;aspect-ratio:1;object-fit:contain;transform:rotate(calc(-14deg + var(--i) * 14deg))}
-/* the game: a green felt mat with the coins, the amount, the keypad */
+/* the game: a light blue mat with the coins (Stefan: blue like the rest, 2026-10-10), the amount, the keypad */
 .money-card{display:flex;flex-direction:column;gap:8px;min-height:0}
-.money-tray{position:relative;flex:1 1 auto;min-height:170px;border-radius:20px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#3f8f5a,#1d5a3a 75%);box-shadow:inset 0 3px 12px rgba(0,0,0,.35),0 4px 0 rgba(10,48,116,.25)}
+.money-tray{position:relative;flex:1 1 auto;min-height:170px;border-radius:20px;overflow:hidden;background:radial-gradient(circle at 50% 35%,#e8f4ff,#bcdcff 60%,#93c2f7);border:2px solid #fff;box-shadow:inset 0 2px 10px rgba(20,70,150,.18),0 4px 0 #a8d9f4}
 .money-coin{position:absolute;width:var(--d);height:var(--d);transform:rotate(var(--r));transition:left .5s cubic-bezier(.3,.8,.3,1),top .5s cubic-bezier(.3,.8,.3,1),transform .5s ease}
-.money-coin::before{content:"";position:absolute;left:6%;right:6%;top:12%;bottom:-6%;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(0,20,10,.45),rgba(0,20,10,0) 70%)}
+.money-coin::before{content:"";position:absolute;left:6%;right:6%;top:12%;bottom:-6%;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(10,40,110,.35),rgba(10,40,110,0) 70%)}
 .money-coin img{position:relative;width:100%;height:100%;object-fit:contain;display:block}
 .money-display{display:flex;align-items:baseline;justify-content:center;gap:6px;min-height:52px;padding:6px 14px;border-radius:16px;background:#fff;border:3px solid #cfe4f8;color:#10175b;font-weight:1000}
 .money-display b{font-size:clamp(28px,8vw,36px);letter-spacing:.02em;font-variant-numeric:tabular-nums}
@@ -1794,3 +1794,13 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 /* digits stay 1 2 3 left to right in Arabic too, as on every keypad */
 .money-keypad,.money-display b{direction:ltr}
 .money-actions>*{width:100%;min-width:0;margin:0}
+/* The language choice as wide as the mix tile under it (Stefan, 2026-10-10): the flag
+   and language on the left, "Andere taal" on the right. */
+.talen-pass .talen-lang-switch{display:flex;width:100%;box-sizing:border-box;justify-content:flex-start;min-height:52px;padding:6px 16px 6px 10px;font-size:17px}
+.talen-pass .talen-lang-switch .talen-flag-icon{font-size:28px}
+.talen-pass .talen-lang-switch small{margin-inline-start:auto;font-size:13px}
+/* Talen pictures whole, not zoomed in (Stefan, 2026-10-10: "te ver ingezoomd, te vol"):
+   the square picture is shown complete, a blurred copy of it fills the rest of the tile. */
+.talen-pick.fit::before,.talen-tile.fit::before{content:"";position:absolute;inset:-12%;background:var(--art) center/cover;filter:blur(14px) saturate(1.1) brightness(.92)}
+.talen-pick.fit .talen-pick-art,.talen-tile.fit img{object-fit:contain;object-position:center}
+.talen-tile.fit img{z-index:0}
