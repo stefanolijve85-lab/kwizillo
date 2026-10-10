@@ -124,6 +124,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     viewW = W / scale; viewH = H / scale;
     // the floor line: low on the screen, but on a tall screen not so low that the play is squeezed to the top
     groundY = Math.min(H - Math.max(96, H * .18), 90 + 700 * scale);
+    pic.bg = (H > W && pic.bgTall) ? pic.bgTall : pic.bgWide;
     sky = g.createLinearGradient(0, 0, 0, H * dpr); sky.addColorStop(0, C.skyTop); sky.addColorStop(1, C.skyBottom);
     paintTiles(); cam.init = false;
   }
@@ -147,7 +148,8 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
   // ---------- the art pack (tools/jump-art.cjs): a skin over the collision boxes ----------
   const A = n => art && art.images[n] ? { img: art.images[n], m: art.ART[n] } : null;
   const P = { underwater: 'uw', candy: 'cd', space: 'sp' }[world.id];
-  const pic = { bg: A(P + '-bg'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: A('star'), shield: A('shield'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
+  const pic = { bgWide: A(P + '-bg'), bgTall: A(P + '-bg-tall'), urchin: A('uw-urchin'), crystals: A('sp-crystals'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: A('star'), shield: A('shield'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
+  pic.bg = pic.bgWide;
   // the band of a platform, its caps kept, its middle repeated to any width
   function slice(a, x, y, w, h) {
     const m = a.m, sl = m.slice, k = h / m.h;
@@ -208,6 +210,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     g.drawImage(a.img, b.x - 12, b.y + 8 - h, w, h);
   }
   function artFinish(x, y) { const a = pic.finish, h = 236, w = h * a.m.w / a.m.h; g.drawImage(a.img, x - w / 2, y - h + 4, w, h) }
+  // the far layer: a portrait painting on a tall screen when the world has one, else the wide one
   function artBackground(lift) {
     const a = pic.bg, dh = canvas.height * 1.15, dw = a.m.w * dh / a.m.h, f = .15;
     const y = canvas.height - dh + Math.max(0, Math.min(dh - canvas.height, lift * scale * dpr * .15));
@@ -320,7 +323,17 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     g.globalAlpha = .35 + .15 * Math.sin(time * 5); g.fillRect(b.x + 4, bottom - 2, b.w - 8, 6); g.globalAlpha = 1;
     g.fillStyle = 'rgba(0,0,0,.25)'; for (let x = b.x + 20; x < b.x + b.w - 20; x += 34) { g.beginPath(); g.arc(x, bottom - 26, 4, 0, 7); g.fill() }
   }
+  // the urchin and the crystals as painted: bigger than their hitbox (the spikes are decoration), standing on the floor
+  function artHazard(h) {
+    const a = h.kind === 'urchin' ? pic.urchin : h.kind === 'crystal' ? pic.crystals : null;
+    if (!a) return false;
+    const w = h.kind === 'urchin' ? 70 : 82, ht = w * a.m.h / a.m.w, cx = h.x + h.w / 2, bottom = h.y + h.h + (h.kind === 'urchin' ? 6 : 3);
+    const wob = reducedMotion || h.kind !== 'urchin' ? 0 : Math.sin(time * 2 + h.x) * .04;
+    g.save(); g.translate(cx, bottom); g.scale(1 + wob, 1 - wob); g.drawImage(a.img, -w / 2, -ht, w, ht); g.restore();
+    return true;
+  }
   function drawHazard(h) {
+    if (artHazard(h)) return;
     const cx = h.x + h.w / 2, cy = h.y + h.h / 2;
     if (h.kind === 'crystal') {
       g.fillStyle = 'rgba(209,76,255,.25)'; g.beginPath(); g.arc(cx, cy + 6, 34 + 3 * Math.sin(time * 4), 0, 7); g.fill();

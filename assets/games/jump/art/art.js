@@ -2,6 +2,8 @@
 // Per picture: file, size in px; platforms: slice points (px); gates: the row where the opening starts.
 export const ART = {
   'uw-bg': {"src":"art/uw-bg.webp","w":1800,"h":720},
+  'uw-bg-tall': {"src":"art/uw-bg-tall.webp","w":619,"h":1100},
+  'uw-urchin': {"src":"art/uw-urchin.webp","w":192,"h":150},
   'uw-windows': {"src":"art/uw-windows.webp","w":1299,"h":640},
   'uw-plat': {"src":"art/uw-plat.webp","w":827,"h":110,"slice":{"capL":37,"capR":37,"midX":98,"midW":232}},
   'uw-crate': {"src":"art/uw-crate.webp","w":193,"h":170},
@@ -17,6 +19,7 @@ export const ART = {
   'sp-bg': {"src":"art/sp-bg.webp","w":1920,"h":720},
   'sp-plat': {"src":"art/sp-plat.webp","w":889,"h":110,"slice":{"capL":53,"capR":53,"midX":267,"midW":231}},
   'sp-rock': {"src":"art/sp-rock.webp","w":332,"h":180},
+  'sp-crystals': {"src":"art/sp-crystals.webp","w":250,"h":150},
   'sp-gate': {"src":"art/sp-gate.webp","w":924,"h":250,"open":94},
   'star': {"src":"art/star.webp","w":162,"h":150},
   'shield': {"src":"art/shield.webp","w":144,"h":150},

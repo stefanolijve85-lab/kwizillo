@@ -25,6 +25,7 @@ const fs = require('fs'); const path = require('path');
 const { chromium } = require('playwright');
 const ROOT = path.join(__dirname, '..');
 const PACK = path.join(ROOT, 'art-source', 'jump', 'pack', 'Runner');
+// sources outside Runner/ are given relative to the pack folder with a leading '../'
 const OUT = path.join(ROOT, 'assets', 'games', 'jump', 'art');
 
 // name → source, crop [x0, y0, x1, y1] (source px; omitted = whole picture), target height in px,
@@ -33,6 +34,8 @@ const OUT = path.join(ROOT, 'assets', 'games', 'jump', 'art');
 const CUTS = {
   // ---- Onderwater
   'uw-bg': { src: '02_Onderwater/Achtergrond.png', h: 720, opaque: true, q: .78 },
+  'uw-bg-tall': { src: '../extra/onderwater-portret.png', h: 1100, opaque: true, q: .78 },   // portrait screens
+  'uw-urchin': { src: '../extra/zee-egel.png', h: 150, fringe: true },
   'uw-windows': { src: '02_Onderwater/Tunnelramen.png', h: 640, q: .8 },
   'uw-plat': { src: '02_Onderwater/Platforms_obstakels_bronblad_v2.png', crop: [30, 120, 970, 265], h: 110, slice: { capL: .045, capR: .045, midX: .118, midW: .28 } },
   'uw-crate': { src: '02_Onderwater/Platforms_obstakels_bronblad_v2.png', crop: [276, 324, 566, 580], h: 170 },
@@ -50,6 +53,7 @@ const CUTS = {
   'sp-bg': { src: '04_Ruimte/Achtergrond.png', h: 720, opaque: true, q: .78 },
   'sp-plat': { src: '04_Ruimte/Zwevend_platform.png', h: 110, slice: { capL: .06, capR: .06, midX: .3, midW: .26 } },
   'sp-rock': { src: '04_Ruimte/Maansteen.png', h: 180 },
+  'sp-crystals': { src: '../extra/kristallen.png', h: 150, fringe: true },
   'sp-gate': { src: '04_Ruimte/Slidepoort.png', h: 250, gate: true },
   // ---- shared
   star: { src: '05_Verzamelitems/Bonusster.png', h: 150 },
@@ -80,6 +84,17 @@ const CUTS = {
       if (!cut.opaque) {
         const id = g.getImageData(0, 0, w, h), d = id.data;
         for (let i = 3; i < d.length; i += 4) if (d[i] < 12) d[i] = 0;
+        // fringe: a see-through edge pixel takes the colour of the solid pixels just inside it,
+        // so no pink or red rim of the old background shows on a dark or light level
+        if (cut.fringe) {
+          const src = new Uint8ClampedArray(d);
+          for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+            const i = (y * w + x) * 4; if (src[i + 3] === 0 || src[i + 3] >= 235) continue;
+            let r = 0, gg = 0, b = 0, n = 0;
+            for (let dy = -4; dy <= 4; dy++) for (let dx = -4; dx <= 4; dx++) { const xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= w || yy >= h) continue; const j = (yy * w + xx) * 4; if (src[j + 3] >= 245) { r += src[j]; gg += src[j + 1]; b += src[j + 2]; n++ } }
+            if (n) { d[i] = r / n; d[i + 1] = gg / n; d[i + 2] = b / n } else d[i + 3] = src[i + 3] * .5;
+          }
+        }
         g.putImageData(id, 0, 0);
         tx0 = w; ty0 = h; tx1 = 0; ty1 = 0;
         for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (d[(y * w + x) * 4 + 3] > 24) { if (x < tx0) tx0 = x; if (x > tx1) tx1 = x; if (y < ty0) ty0 = y; if (y > ty1) ty1 = y }
