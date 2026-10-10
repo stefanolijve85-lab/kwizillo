@@ -19,6 +19,7 @@ const VOICES = {
   es: { Milo: 'tGjegxe7yxhGMzd3SOmH', Luna: 'dNjJKg63Fr5AXwIdkATa' },   // Eric · Cristina
   it: { Milo: 'GOAZNavLupajyL3YafaD', Luna: 'uV2Bhcm1HwmAqPqkbjfl' },   // Francesco · Sara
   pt: { Milo: '4dlXQwYXFHlCAUmQAu9j', Luna: 'ORgG8rwdAiMYRug8RJwR' },   // Zozo · Ana Alice
+  ptpt: { Milo: 'Fij0Q07RV232HQv4oaiV', Luna: 'Fcg9ByV62Oba8WIA7k11' },   // Lourenço · Clara (European Portuguese, chosen by Stefan 2026-10-10)
   da: { Milo: 'V34B5u5UbLdNJVEkcgXp', Luna: 'h5TGSgjuArqhPBRRe0mM' },   // Noam · Freja
   ru: { Milo: 'iLf2ADS3z6hSHT4AgzER', Luna: 'NhY0kyTmsKuEpHvDMngm' },   // Mikhail · Nataly
   ar: { Milo: 'JoySr0ZYKEotnyhsN3Fi', Luna: 'w4LX7bK479eHGM1k15Em' },   // Jawad · Habibah
