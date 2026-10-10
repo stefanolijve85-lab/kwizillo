@@ -60,7 +60,7 @@
         {e:'🧽',text:{en:'an eraser',nl:'een gum',de:'einen Radiergummi',fr:'une gomme',es:'una goma',it:'una gomma',pt:'uma borracha',da:'et viskelæder',ru:'ластик',ar:'ممحاة'}}]},
       {id:'school2',lines:[
         {who:'a',text:{en:'What\'s your favorite subject?',nl:'Wat is jouw lievelingsvak?',de:'Was ist dein Lieblingsfach?',fr:'C\'est quoi ta matière préférée ?',es:'¿Cuál es tu asignatura favorita?',it:'Qual è la tua materia preferita?',pt:'Qual é a sua matéria favorita?',da:'Hvad er dit yndlingsfag?',ru:'Какой твой любимый урок?',ar:'ما مادتك المفضلة؟'}},
-        {who:'b',text:{en:'Gym!',nl:'Gym!',de:'Sport!',fr:'Le sport !',es:'¡Educación física!',it:'Ginnastica!',pt:'Educação física!',da:'Idræt!',ru:'Физкультура!',ar:'الرياضة!'}}],
+        {who:'b',text:{en:'Gym!',nl:'Gym!',de:'Sport natürlich!',fr:'Le sport !',es:'¡Educación física!',it:'Ginnastica!',pt:'Educação física!',da:'Idræt!',ru:'Физкультура!',ar:'الرياضة!'}}],
        q:{en:'What does the girl like best?',nl:'Wat vindt het meisje het leukst?',de:'Was mag das Mädchen am liebsten?',fr:'Que préfère la fille ?',es:'¿Qué le gusta más a la niña?',it:'Cosa piace di più alla bambina?',pt:'Do que a menina mais gosta?',da:'Hvad kan pigen bedst lide?',ru:'Что девочка любит больше всего?',ar:'ماذا تحب البنت أكثر؟'},
        opts:[
         {e:'⚽',text:{en:'gym',nl:'gym',de:'Sport',fr:'le sport',es:'educación física',it:'ginnastica',pt:'educação física',da:'idræt',ru:'физкультура',ar:'الرياضة'}},
@@ -99,7 +99,7 @@
         {e:'🍇',text:{en:'grapes',nl:'druiven',de:'Trauben',fr:'du raisin',es:'uvas',it:'l\'uva',pt:'uvas',da:'vindruer',ru:'виноград',ar:'عنب'}}]},
       {id:'food2',lines:[
         {who:'a',text:{en:'What would you like to drink?',nl:'Wat wil jij drinken?',de:'Was möchtest du trinken?',fr:'Tu veux boire quoi ?',es:'¿Qué quieres beber?',it:'Cosa vuoi bere?',pt:'O que você quer beber?',da:'Hvad vil du have at drikke?',ru:'Что ты будешь пить?',ar:'ماذا تريدين أن تشربي؟'}},
-        {who:'b',text:{en:'Water, please.',nl:'Water, alsjeblieft.',de:'Wasser, bitte.',fr:'De l\'eau, s\'il te plaît.',es:'Agua, por favor.',it:'Acqua, per favore.',pt:'Água, por favor.',da:'Vand, tak.',ru:'Воду, пожалуйста.',ar:'ماء، من فضلك.'}}],
+        {who:'b',text:{en:'Water, please.',nl:'Water, alsjeblieft.',de:'Wasser, bitte.',fr:'De l\'eau, s\'il te plaît.',es:'Agua, por favor.',it:'Acqua, per favore.',pt:'Água, por favor.',da:'Vand, tak.',ru:'Воду, пожалуйста.',ar:'أريد ماء، من فضلك.'}}],
        q:{en:'What does the girl want to drink?',nl:'Wat wil het meisje drinken?',de:'Was möchte das Mädchen trinken?',fr:'Que veut boire la fille ?',es:'¿Qué quiere beber la niña?',it:'Cosa vuole bere la bambina?',pt:'O que a menina quer beber?',da:'Hvad vil pigen drikke?',ru:'Что хочет пить девочка?',ar:'ماذا تريد البنت أن تشرب؟'},
        opts:[
         {e:'💧',text:{en:'water',nl:'water',de:'Wasser',fr:'de l\'eau',es:'agua',it:'acqua',pt:'água',da:'vand',ru:'воду',ar:'ماء'}},
@@ -120,7 +120,7 @@
         {who:'a',text:{en:'Can I have an ice cream?',nl:'Mag ik een ijsje?',de:'Darf ich ein Eis?',fr:'Je peux avoir une glace ?',es:'¿Me das un helado?',it:'Posso avere un gelato?',pt:'Me dá um sorvete?',da:'Må jeg få en is?',ru:'Можно мне мороженое?',ar:'هل يمكنني أن آخذ آيس كريم؟'}},
         {who:'b',text:{en:'Which flavor?',nl:'Welke smaak?',de:'Welche Sorte?',fr:'Quel parfum ?',es:'¿De qué sabor?',it:'Che gusto?',pt:'De que sabor?',da:'Hvilken smag?',ru:'С каким вкусом?',ar:'أي نكهة؟'}},
         {who:'a',text:{en:'Chocolate, please.',nl:'Chocolade, graag.',de:'Schoko, bitte.',fr:'Au chocolat, s\'il te plaît.',es:'De chocolate, por favor.',it:'Al cioccolato, per favore.',pt:'De chocolate, por favor.',da:'Chokolade, tak.',ru:'Шоколадное, пожалуйста.',ar:'شوكولاتة، من فضلك.'}},
-        {who:'b',text:{en:'Here you go!',nl:'Alsjeblieft!',de:'Bitte schön!',fr:'Tiens !',es:'¡Toma!',it:'Ecco!',pt:'Aqui está!',da:'Værsgo!',ru:'Держи!',ar:'تفضل!'}}],
+        {who:'b',text:{en:'Here you go!',nl:'Alsjeblieft!',de:'Hier, bitte!',fr:'Tiens !',es:'¡Toma!',it:'Ecco!',pt:'Aqui está!',da:'Værsgo!',ru:'Держи!',ar:'تفضل!'}}],
        q:{en:'Which flavor does the boy choose?',nl:'Welke smaak kiest de jongen?',de:'Welche Sorte nimmt der Junge?',fr:'Quel parfum choisit le garçon ?',es:'¿Qué sabor elige el niño?',it:'Che gusto sceglie il bambino?',pt:'Qual sabor o menino escolhe?',da:'Hvilken smag vælger drengen?',ru:'Какое мороженое выбрал мальчик?',ar:'أي نكهة يختار الولد؟'},
        opts:[
         {e:'🍫',text:{en:'chocolate',nl:'chocolade',de:'Schoko',fr:'chocolat',es:'chocolate',it:'cioccolato',pt:'chocolate',da:'chokolade',ru:'шоколадное',ar:'شوكولاتة'}},
@@ -179,7 +179,7 @@
         '5']},
       {id:'shop2',lines:[
         {who:'a',text:{en:'I\'d like some bread, please.',nl:'Ik wil graag brood.',de:'Ich hätte gern ein Brot.',fr:'Je voudrais du pain, s\'il vous plaît.',es:'Quería pan, por favor.',it:'Vorrei del pane, per favore.',pt:'Eu queria um pão, por favor.',da:'Jeg vil gerne have et brød.',ru:'Мне хлеб, пожалуйста.',ar:'أريد خبزا، من فضلك.'}},
-        {who:'b',text:{en:'Here you go.',nl:'Alsjeblieft.',de:'Bitte schön.',fr:'Voilà.',es:'Aquí tienes.',it:'Ecco a te.',pt:'Aqui está.',da:'Værsgo.',ru:'Пожалуйста.',ar:'تفضل.'}}],
+        {who:'b',text:{en:'Here you go.',nl:'Alsjeblieft.',de:'Bitte sehr.',fr:'Voilà.',es:'Aquí tienes.',it:'Ecco a te.',pt:'Aqui está.',da:'Værsgo.',ru:'Пожалуйста.',ar:'تفضل.'}}],
        q:{en:'What does the boy buy?',nl:'Wat koopt de jongen?',de:'Was kauft der Junge?',fr:'Qu\'achète le garçon ?',es:'¿Qué compra el niño?',it:'Cosa compra il bambino?',pt:'O que o menino compra?',da:'Hvad køber drengen?',ru:'Что покупает мальчик?',ar:'ماذا يشتري الولد؟'},
        opts:[
         {e:'🍞',text:{en:'bread',nl:'brood',de:'Brot',fr:'du pain',es:'pan',it:'il pane',pt:'pão',da:'brød',ru:'хлеб',ar:'خبز'}},
@@ -229,7 +229,7 @@
         {e:'✈️',text:{en:'by plane',nl:'met het vliegtuig',de:'mit dem Flugzeug',fr:'en avion',es:'en avión',it:'in aereo',pt:'de avião',da:'med fly',ru:'на самолёте',ar:'بالطائرة'}}]},
       {id:'travel3',lines:[
         {who:'a',text:{en:'Where are we going?',nl:'Waar gaan we heen?',de:'Wo fahren wir hin?',fr:'On va où ?',es:'¿Adónde vamos?',it:'Dove andiamo?',pt:'Aonde a gente vai?',da:'Hvor skal vi hen?',ru:'Куда мы едем?',ar:'إلى أين نذهب؟'}},
-        {who:'b',text:{en:'To the zoo!',nl:'Naar de dierentuin!',de:'In den Zoo!',fr:'Au zoo !',es:'¡Al zoo!',it:'Allo zoo!',pt:'Ao zoológico!',da:'I zoologisk have!',ru:'В зоопарк!',ar:'إلى حديقة الحيوانات!'}},
+        {who:'b',text:{en:'To the zoo!',nl:'Naar de dierentuin!',de:'In den Zoo!',fr:'Au zoo !',es:'¡Al zoológico!',it:'Andiamo allo zoo!',pt:'Ao zoológico!',da:'I zoologisk have!',ru:'В зоопарк!',ar:'إلى حديقة الحيوانات!'}},
         {who:'a',text:{en:'Yay!',nl:'Joepie!',de:'Juhu!',fr:'Youpi !',es:'¡Bien!',it:'Evviva!',pt:'Oba!',da:'Juhu!',ru:'Ура!',ar:'يا سلام!'}}],
        q:{en:'Where are they going?',nl:'Waar gaan ze heen?',de:'Wohin fahren sie?',fr:'Où vont-ils ?',es:'¿Adónde van?',it:'Dove vanno?',pt:'Aonde eles vão?',da:'Hvor skal de hen?',ru:'Куда они едут?',ar:'إلى أين يذهبون؟'},
        opts:[
