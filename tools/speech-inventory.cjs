@@ -149,7 +149,9 @@ for (const lang of langs) {
     for (const k of ['whoami.speech.yes', 'whoami.speech.almost']) for (const s of core.answerSegments(T(k), q.answer)) add(lang, BOTH, s.text, 'whoami: verdict pieces');
     add(lang, BOTH, q.explanation, 'whoami/fotozoom: explanation');
   }
-  for (const k of ['whoami.speech.ask', 'whoami.speech.great', 'whoami.speech.done']) add(lang, BOTH, T(k), 'whoami: fixed');
+  for (const k of ['whoami.speech.great', 'whoami.speech.done']) add(lang, BOTH, T(k), 'whoami: fixed');
+  add(lang, ['Milo'], T('whoami.speech.ask'), 'whoami: fixed');
+  add(lang, ['Luna'], T('whoami.speech.askLuna'), 'whoami: fixed');   // Luna has her own take (games-whoami.js askLine)
 
   // Fotozoom (games-fotozoom.js).
   for (const q of fotozoomCandidates(qs)) {

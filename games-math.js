@@ -224,7 +224,7 @@
       let opened=false;const open=()=>{if(opened)return;opened=true;stage.classList.add('open');K.sfx('gift');setTimeout(()=>K.sfx('reward'),350);K.celebrate?.('quiz',gift)};
       gift.onclick=open;setTimeout(open,1000);K.speak(t('math.speech.done'));
     }else{K.sfx('bad');K.speak(t('math.speech.fail'))}
-    f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');K.startMath(m.world)};
+    f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');m.mode==='money'?K.startMoney():K.startMath(m.world)};   // Geld tellen (games-money.js) shares this result
     f.querySelector('#worldBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');K.showHome()};
     f.querySelector('#shareBtn').onclick=()=>{K.sfx('tap');K.shareScore()};
   }

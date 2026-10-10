@@ -21,6 +21,7 @@ test('Maths opens from Home and a world; level 1 shows small sums with four opti
   const errors = []; page.on('pageerror', e => errors.push(String(e)));
   await boot(page);
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   await expect(page.locator('.math-card')).toBeVisible();
   await expect(page.locator('.math-answers .answer')).toHaveCount(4);
   await expect(page.locator('.math-visual')).toHaveCount(0);   // no dots under the sum, at any level
@@ -38,6 +39,7 @@ test('Maths opens from Home and a world; level 1 shows small sums with four opti
 test('a right answer rewards and moves on; a wrong one shows the answer; the round is passed or failed by the level rule', async ({ page }) => {
   await boot(page);
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   const a = await currentAnswer(page);
   await page.locator(`.answer[data-a="${a}"]`).click();
   // The highlight and the feedback appear together and the round moves on by
@@ -69,6 +71,7 @@ test('a right answer rewards and moves on; a wrong one shows the answer; the rou
 test('Back revisits an answered sum with its verdict; the operator sits on the centre line', async ({ page }) => {
   await boot(page);
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   await expect(page.locator('#mathPrev')).toBeDisabled();
   const [centre, screen] = await page.evaluate(() => { const r = document.querySelector('.math-sum em').getBoundingClientRect(); return [Math.round(r.left + r.width / 2), Math.round(innerWidth / 2)]; });
   expect(Math.abs(centre - screen)).toBeLessThanOrEqual(2);
@@ -89,6 +92,7 @@ test('Back revisits an answered sum with its verdict; the operator sits on the c
 test('levels change the kind of sums: tables at level 4, halves and percentages at level 6; level 6 allows no mistakes', async ({ page }) => {
   await boot(page, SAVED({ niveau: 4 }));
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   let sums = await page.evaluate(() => window.KWIZILLO_M1.math.sums);
   expect(sums.some(s => s.op === '×' || s.op === '÷')).toBe(true);
   await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.niveau = 6; K.save(); K.startMath('aarde'); });
@@ -109,6 +113,7 @@ test('after an answer the voice names the chosen number, then the feedback line'
   const spoken = [];
   await boot(page, SAVED({ voice: 'Milo' }), route => { spoken.push(ttsPayload(route.request()).text); route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(32) }); });
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   await expect(page.locator('.math-sum')).toBeVisible();
   const btn = page.locator('.answer[data-a]').first();
   const chosen = await btn.getAttribute('data-a');
@@ -143,6 +148,7 @@ test('a round never repeats a sum, and the next rounds do not bring the previous
 test('leaving right after an answer and opening another game does not pull Rekenen back', async ({ page }) => {
   await boot(page);
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   await expect(page.locator('.math-card')).toBeVisible();
   const answer = await currentAnswer(page);
   await page.locator(`.math-answers .answer[data-a="${answer}"]`).click();
@@ -154,4 +160,73 @@ test('leaving right after an answer and opening another game does not pull Reken
   await page.waitForTimeout(4000);   // past the 3.4 s the next sum used to wait for
   await expect(page.locator('.math-card')).toHaveCount(0);
   await expect(page.locator('.math')).toHaveCount(0);
+});
+
+// Geld tellen (games-money.js): the coins of the child's own country, typed in on a keypad.
+const typeAmount = async (page, minor, sep) => {
+  const s = (minor / 100).toFixed(2).replace('.', sep);
+  for (const ch of s) await page.locator(`.money-key[data-key="${ch}"]`).click();
+};
+test('Rekenen offers sums or money; money shows real coins and a keypad, a typed amount with a comma is checked in cents', async ({ page }) => {
+  const errors = []; page.on('pageerror', e => errors.push(String(e)));
+  await boot(page, SAVED({ niveau: 3 }));
+  await page.locator('#homeMath').click();
+  await expect(page.locator('.math-pick [data-pick]')).toHaveCount(2);
+  await page.locator('[data-pick="money"]').click();
+  await expect(page.locator('.money-card')).toBeVisible();
+  const pile = await page.evaluate(() => window.KWIZILLO_M1.math.sums[0]);
+  await expect(page.locator('.money-coin')).toHaveCount(pile.coins.length);
+  // every coin is a real picture of the euro in its Dutch design
+  const srcs = await page.locator('.money-coin img').evaluateAll(els => els.map(e => [e.getAttribute('src'), e.naturalWidth]));
+  for (const [src, w] of srcs) { expect(src).toMatch(/^assets\/geld\/eur-nl\/\d+\.webp$/); expect(w).toBeGreaterThan(0); }
+  expect(pile.total).toBe(pile.coins.reduce((a, b) => a + b, 0));
+  await expect(page.locator('#moneyOk')).toBeDisabled();
+  await typeAmount(page, pile.total, ',');
+  await page.locator('#moneyOk').click();
+  await expect(page.locator('#moneyDisplay')).toHaveClass(/is-good/);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.math.score)).toBe(1);
+  // the next pile; a wrong amount shows the right one
+  await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.math.index), { timeout: 8000 }).toBe(1);
+  const next = await page.evaluate(() => window.KWIZILLO_M1.math.sums[1].total);
+  await typeAmount(page, next + 1, ',');
+  await page.locator('#moneyOk').click();
+  await expect(page.locator('#moneyDisplay')).toHaveClass(/is-try/);
+  await expect(page.locator('.money-feedback span')).toContainText(new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(next / 100));
+  expect(errors).toEqual([]);
+});
+
+test('money: ten piles end on the Rekenen result, "again" starts money again; each level keeps its rules', async ({ page }) => {
+  await boot(page, SAVED({ niveau: 1 }));
+  await page.evaluate(() => window.KWIZILLO_M1.startMoney());
+  const piles = await page.evaluate(() => window.KWIZILLO_M1.math.sums);
+  expect(piles).toHaveLength(10);
+  for (const p of piles) { expect(p.coins.every(v => v >= 100)).toBe(true); expect(p.total).toBeLessThanOrEqual(1000); }   // level 1: whole euros
+  const lvl2 = await page.evaluate(() => Array.from({ length: 30 }, () => window.KWIZILLO_M1.moneyForTest.makePile(window.KWIZILLO_M1.moneyForTest.money(), 2)));
+  for (const p of lvl2) { expect(p.coins.every(v => v < 100)).toBe(true); expect(p.total).toBeLessThan(100); }   // level 2: cents under one euro
+  for (let i = 0; i < 10; i++) {
+    await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.math.index), { timeout: 8000 }).toBe(i);
+    const total = await page.evaluate(() => { const m = window.KWIZILLO_M1.math; return m.sums[m.index].total; });
+    await typeAmount(page, total, ',');
+    await page.locator('#moneyOk').click();
+    await page.locator('#moneyFeedback').click();
+  }
+  await expect(page.locator('.result-v2')).toBeVisible();
+  await expect(page.locator('.result-v2 h1')).toContainText('10');
+  await page.locator('#againBtn').click();
+  await expect(page.locator('.money-card')).toBeVisible();
+});
+
+test('money follows the app language: dollars with a point in English, roubles in Russian, dirhams in Arabic; every word it says is recorded', async ({ page }) => {
+  await boot(page, SAVED({ language: 'en', niveau: 3 }));
+  await page.evaluate(() => window.KWIZILLO_M1.startMoney());
+  await expect(page.locator('.money-key.sep')).toHaveText('.');
+  expect(await page.locator('.money-coin img').first().getAttribute('src')).toMatch(/geld\/usd\//);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.moneyForTest.amountParts(345))).toEqual(['three', 'dollars', 'and', 'forty-five', 'cents']);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.moneyForTest.amountParts(101))).toEqual(['one', 'dollar', 'and', 'one', 'cent']);
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.setLanguage('ru'); K.useBank(); K.startMoney(); });
+  expect(await page.locator('.money-coin img').first().getAttribute('src')).toMatch(/geld\/rub\//);
+  const ru = await page.evaluate(() => [1, 2, 5].map(n => window.KWIZILLO_M1.moneyForTest.amountParts(n * 100).slice(-1)[0]));
+  expect(ru).toEqual(['рубль', 'рубля', 'рублей']);
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.setLanguage('ar'); K.useBank(); K.startMoney(); });
+  expect(await page.locator('.money-coin img').first().getAttribute('src')).toMatch(/geld\/aed\//);
 });

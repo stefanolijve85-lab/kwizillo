@@ -67,13 +67,13 @@ test('a lesson of 8 rounds with one wrong tap: 7 right first time = 3 stars, kep
   const first = await current(page);
   clips.length = 0;
   await page.locator(`.talen-tile[data-pick="${first}"]`).click();
-  await expect.poll(() => clips.slice(0, 4), { timeout: 8000 }).toEqual([expect.stringMatching(/^nl\/_goed([1-9]|10)\.mp3$/), `en/${first}.mp3`, 'nl/_betekent.mp3', `nl/${first}.mp3`]);
+  await expect.poll(() => clips.slice(0, 4), { timeout: 8000 }).toEqual([expect.stringMatching(/^nl\/_goed([1-9]|1[0-6])\.mp3$/), `en/${first}.mp3`, 'nl/_betekent.mp3', `nl/${first}.mp3`]);
   await expect(page.locator('.talen-tile.correct .talen-label')).toContainText('betekent');
   await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.talen.round), { timeout: 15000 }).toBe(1);
   // the rest, with one wrong tap in round 4
   for (let round = 1; round < 8; round++) {
     const id = await current(page);
-    if (round === 3) { clips.length = 0; await page.locator(`.talen-tile:not([data-pick="${id}"])`).first().click(); await expect.poll(() => clips.slice(0, 2)).toEqual([expect.stringMatching(/^nl\/_bijna[1-4]\.mp3$/), `en/${id}.mp3`]); }
+    if (round === 3) { clips.length = 0; await page.locator(`.talen-tile:not([data-pick="${id}"])`).first().click(); await expect.poll(() => clips.slice(0, 2)).toEqual([expect.stringMatching(/^nl\/_bijna[1-6]\.mp3$/), `en/${id}.mp3`]); }
     await page.locator(`.talen-tile[data-pick="${id}"]`).click();
     if (round < 7) await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.talen.round), { timeout: 15000 }).toBe(round + 1);
   }

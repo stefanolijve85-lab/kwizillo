@@ -76,6 +76,7 @@
     // ¿Qué soy?
     'whoami.title':'¿Qué soy?','whoami.round':'Ronda {n} de {total}','whoami.points':'Ya {n} puntos','whoami.ask':'¿Qué soy?','whoami.more':'Una pista','whoami.next':'Siguiente','whoami.timeUp':'¡Se acabó el tiempo! Era {answer}.',
     'whoami.speech.ask':'[playful] '+'¿Qué soy?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Mmm... ¿qué soy?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'¡Sí, {answer}! +{points}','whoami.almost':'¡Casi! Era {answer}.',
     'whoami.speech.yes':'Es {answer}','whoami.speech.almost':'¡Casi! Era {answer}.',
     'whoami.doneKicker':'¿QUÉ SOY?','whoami.doneTitle':'¡{n} de {total} adivinados!','whoami.summary':'{score} de {max} puntos. Cuanto antes adivines, más puntos ganas.',
@@ -500,6 +501,11 @@
     'math.speech.quarter':'Un cuarto de {n}',
     'math.speech.percent':'{p} por ciento de {n}',
     'math.money.title':'Contar dinero',
+    'math.pick.sub':'¿Qué quieres practicar?',
+    'math.pick.sums':'Cuentas',
+    'math.money.sub':'Cuenta las monedas',
+    'math.money.ok':'¡Listo!',
+    'math.money.delete':'Borrar',
     'math.money.ask':'¿Cuánto dinero hay?',
     'math.money.main.one':'{n} euro',
     'math.money.main.few':'{n} euros',

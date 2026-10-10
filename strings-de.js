@@ -75,6 +75,7 @@
     // Was bin ich?
     'whoami.title':'Was bin ich?','whoami.round':'Runde {n} von {total}','whoami.points':'Jetzt {n} Punkte','whoami.ask':'Was bin ich?','whoami.more':'Ein Hinweis','whoami.next':'Weiter','whoami.timeUp':'Die Zeit ist um! Es war {answer}.',
     'whoami.speech.ask':'[playful] '+'Was bin ich?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Hmm... was bin ich?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Fast! Es war {answer}.',
     'whoami.speech.yes':'Das ist {answer}','whoami.speech.almost':'Fast! Es war {answer}.',
     'whoami.doneKicker':'WAS BIN ICH?','whoami.doneTitle':'{n} von {total} erraten!','whoami.summary':'{score} von {max} Punkten. Je früher du rätst, desto mehr Punkte.',
@@ -499,6 +500,11 @@
     'math.speech.quarter':'Ein Viertel von {n}',
     'math.speech.percent':'{p} Prozent von {n}',
     'math.money.title':'Geld zählen',
+    'math.pick.sub':'Was möchtest du üben?',
+    'math.pick.sums':'Rechnen',
+    'math.money.sub':'Zähl die Münzen',
+    'math.money.ok':'Fertig!',
+    'math.money.delete':'Löschen',
     'math.money.ask':'Wie viel Geld ist das?',
     'math.money.main.one':'{n} Euro',
     'math.money.main.few':'{n} Euro',

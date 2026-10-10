@@ -261,7 +261,7 @@
     f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');K.showGamePicker('whoami')};
     f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
     f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');K.showGamePicker('fotozoom')};
-    f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.startMath(last)};
+    f.querySelector('#homeMath').onclick=()=>{K.sfx('world');K.showMathPick(last)};   // sums or money (games-money.js)
     f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');K.showGamePicker('facts')};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);

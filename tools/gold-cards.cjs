@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// The six golden world cards, made ready to ship.
+// The golden world cards, made ready to ship.
 //
 // The paintings arrive as PNGs of two to three megabytes each — fifteen
 // megabytes for six cards that are shown at about 300 px wide. This redraws
@@ -19,7 +19,7 @@ const { chromium } = require('playwright');
 const ROOT = path.join(__dirname, '..');
 const DIR = path.join(ROOT, 'assets', 'cards', 'gold');
 const KEEP = path.join(ROOT, 'art-source', 'cards-gold');
-const WORLDS = ['ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie'];
+const WORLDS = ['ruimte', 'dieren', 'aarde', 'geschiedenis', 'wetenschap', 'mysterie', 'kunst', 'sport'];   // kunst and sport since 2026-10-10
 const W = 900, H = 1200;         // 3:4, the shape of the card in the collection
 const check = process.argv.includes('--check');
 const move = process.argv.includes('--move');

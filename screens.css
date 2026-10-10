@@ -1759,3 +1759,38 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 [dir="rtl"] .talen-pass .talen-pick .premium-badge{right:auto;left:6px}
 .talen-pick.zin{background:linear-gradient(180deg,#5b8def,#2f5bc4)}
 .talen-pick.zin .talen-stamp-icon{display:grid;place-items:center;padding-bottom:22%;font-size:clamp(40px,12vw,58px);background:none}
+/* Rekenen: sums or money (games-money.js, 2026-10-10) */
+.math-pick .panel-scroll{display:flex;flex-direction:column;gap:14px;overflow-y:auto}
+.math-pick .math-pick-tile{aspect-ratio:16/9;height:auto}
+.math-pick .math-pick-tile b{font-size:20px;line-height:1.1}
+.math-pick .math-pick-tile b small{display:block;margin-top:3px;font-size:12px;font-weight:800;opacity:.9}
+.math-pick-tile.money{background:radial-gradient(circle at 50% 38%,#3f8f5a,#1d5a3a 70%)}
+.money-pick-coins{position:absolute;inset:0;display:block}
+.money-pick-coins img{position:absolute;top:calc(14% + var(--i) * 7%);left:calc(18% + var(--i) * 22%);width:34%;aspect-ratio:1;object-fit:contain;transform:rotate(calc(-14deg + var(--i) * 14deg))}
+/* the game: a green felt mat with the coins, the amount, the keypad */
+.money-card{display:flex;flex-direction:column;gap:8px;min-height:0}
+.money-tray{position:relative;flex:1 1 auto;min-height:170px;border-radius:20px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#3f8f5a,#1d5a3a 75%);box-shadow:inset 0 3px 12px rgba(0,0,0,.35),0 4px 0 rgba(10,48,116,.25)}
+.money-coin{position:absolute;width:var(--d);height:var(--d);transform:rotate(var(--r));transition:left .5s cubic-bezier(.3,.8,.3,1),top .5s cubic-bezier(.3,.8,.3,1),transform .5s ease}
+.money-coin::before{content:"";position:absolute;left:6%;right:6%;top:12%;bottom:-6%;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(0,20,10,.45),rgba(0,20,10,0) 70%)}
+.money-coin img{position:relative;width:100%;height:100%;object-fit:contain;display:block}
+.money-display{display:flex;align-items:baseline;justify-content:center;gap:6px;min-height:52px;padding:6px 14px;border-radius:16px;background:#fff;border:3px solid #cfe4f8;color:#10175b;font-weight:1000}
+.money-display b{font-size:clamp(28px,8vw,36px);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.money-display b.empty{color:#9fb4d4}
+.money-display .money-sign{font-size:clamp(20px,5.5vw,26px)}
+.money-display.is-good{border-color:#55d36b;background:#effcf1}
+.money-display.is-try{border-color:#ffb36b;background:#fff6ec}
+.money-feedback{display:flex;justify-content:center;gap:8px;align-items:baseline;font-weight:1000;color:#10175b;cursor:pointer}
+.money-feedback span{font-size:18px}
+.money-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.money-key{min-height:46px;border-radius:14px;border:2px solid #cfe4f8;background:#fff;color:#10175b;font:inherit;font-size:24px;font-weight:1000;box-shadow:0 4px 0 #a8d9f4;cursor:pointer;touch-action:manipulation}
+.money-key:active{transform:translateY(3px);box-shadow:0 1px 0 #a8d9f4}
+.money-key.sep,.money-key.del{background:#eef6ff}
+.money-key:disabled{opacity:.5}
+.money-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:8px}
+.money-ok{min-height:50px;border-radius:16px;border:0;background:linear-gradient(180deg,#5fd36f,#2ea64a);color:#fff;font:inherit;font-size:20px;font-weight:1000;box-shadow:0 5px 0 #23853a;cursor:pointer}
+.money-ok:disabled{background:#b9c7da;box-shadow:0 5px 0 #98a8bf;cursor:default}
+@media (prefers-reduced-motion:reduce){.money-coin{transition:none}}
+.money-actions .hint{min-height:50px;box-shadow:0 5px 0 #4a22b7}
+/* digits stay 1 2 3 left to right in Arabic too, as on every keypad */
+.money-keypad,.money-display b{direction:ltr}
+.money-actions>*{width:100%;min-width:0;margin:0}

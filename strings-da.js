@@ -75,6 +75,7 @@
     // Hvad er jeg?
     'whoami.title':'Hvad er jeg?','whoami.round':'Runde {n} af {total}','whoami.points':'Nu {n} point','whoami.ask':'Hvad er jeg?','whoami.more':'Et spor','whoami.next':'Videre','whoami.timeUp':'Tiden er gået! Det var {answer}.',
     'whoami.speech.ask':'[playful] '+'Hvad er jeg?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Hmm... hvad er jeg?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Næsten! Det var {answer}.',
     'whoami.speech.yes':'Det er {answer}','whoami.speech.almost':'Næsten! Det var {answer}.',
     'whoami.doneKicker':'HVAD ER JEG?','whoami.doneTitle':'{n} af {total} gættet!','whoami.summary':'{score} af {max} point. Jo hurtigere du gætter, jo flere point.',
@@ -499,6 +500,11 @@
     'math.speech.quarter':'En fjerdedel af {n}',
     'math.speech.percent':'{p} procent af {n}',
     'math.money.title':'Tæl pengene',
+    'math.pick.sub':'Hvad vil du øve?',
+    'math.pick.sums':'Regnestykker',
+    'math.money.sub':'Tæl mønterne',
+    'math.money.ok':'Færdig!',
+    'math.money.delete':'Slet',
     'math.money.ask':'Hvor mange penge er det?',
     'math.money.main.one':'{n} krone',
     'math.money.main.few':'{n} kroner',

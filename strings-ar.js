@@ -81,6 +81,7 @@
     'whoami.points':'الآن {n} نقطة',
     'whoami.ask':'من أنا؟',
     'whoami.speech.ask':'[playful] '+'من أنا؟',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'همم... من أنا؟',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.more':'دليل آخر',
     'whoami.next':'التالي',
     'whoami.timeUp':'انتهى الوقت! كان الجواب {answer}.',
@@ -662,6 +663,11 @@
     'math.speech.quarter':'ربع {n}',
     'math.speech.percent':'{p} بالمئة من {n}',
     'math.money.title':'عُدّ النقود',
+    'math.pick.sub':'ماذا تريد أن تتمرن؟',
+    'math.pick.sums':'حسابات',
+    'math.money.sub':'عُدّ العملات',
+    'math.money.ok':'تم!',
+    'math.money.delete':'حذف',
     'math.money.ask':'كم من المال هنا؟',
     'math.money.main.one':'{n} درهم',
     'math.money.main.few':'{n} دراهم',

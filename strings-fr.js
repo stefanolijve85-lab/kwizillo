@@ -76,6 +76,7 @@
     // Qui suis-je ?
     'whoami.title':'Qui suis-je ?','whoami.round':'Manche {n} sur {total}','whoami.points':'Déjà {n} points','whoami.ask':'Qui suis-je ?','whoami.more':'Un indice','whoami.next':'Suivant','whoami.timeUp':'Le temps est écoulé ! C’était {answer}.',
     'whoami.speech.ask':'[playful] '+'Qui suis-je ?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Hmm... qui suis-je ?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Oui, {answer} ! +{points}','whoami.almost':'Presque ! C’était {answer}.',
     'whoami.speech.yes':'C’est {answer}','whoami.speech.almost':'Presque ! C’était {answer}.',
     'whoami.doneKicker':'QUI SUIS-JE ?','whoami.doneTitle':'{n} sur {total} devinés !','whoami.summary':'{score} points sur {max}. Plus tu devines tôt, plus tu gagnes de points.',
@@ -500,6 +501,11 @@
     'math.speech.quarter':'Un quart de {n}',
     'math.speech.percent':'{p} pour cent de {n}',
     'math.money.title':'Compter l’argent',
+    'math.pick.sub':'Que veux-tu t’entraîner à faire ?',
+    'math.pick.sums':'Calculs',
+    'math.money.sub':'Compte les pièces',
+    'math.money.ok':'Fini !',
+    'math.money.delete':'Effacer',
     'math.money.ask':'Combien d’argent y a-t-il ?',
     'math.money.main.one':'{n} euro',
     'math.money.main.few':'{n} euros',

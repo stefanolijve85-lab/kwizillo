@@ -75,6 +75,7 @@
     // Кто я?
     'whoami.title':'Кто я?','whoami.round':'Раунд {n} из {total}','whoami.points':'Уже {n} очков','whoami.ask':'Кто я?','whoami.more':'Подсказка','whoami.next':'Дальше','whoami.timeUp':'Время вышло! Это был {answer}.',
     'whoami.speech.ask':'[playful] '+'Кто я?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Хм... кто я?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Да, {answer}! +{points}','whoami.almost':'Почти! Это был {answer}.',
     'whoami.speech.yes':'Это {answer}','whoami.speech.almost':'Почти! Это был {answer}.',
     'whoami.doneKicker':'КТО Я?','whoami.doneTitle':'Угадано {n} из {total}!','whoami.summary':'{score} очков из {max}. Чем раньше угадаешь, тем больше очков.',
@@ -499,6 +500,11 @@
     'math.speech.quarter':'Четверть от {n}',
     'math.speech.percent':'{p} процентов от {n}',
     'math.money.title':'Считаем деньги',
+    'math.pick.sub':'Что будем тренировать?',
+    'math.pick.sums':'Примеры',
+    'math.money.sub':'Посчитай монеты',
+    'math.money.ok':'Готово!',
+    'math.money.delete':'Стереть',
     'math.money.ask':'Сколько здесь денег?',
     'math.money.main.one':'{n} рубль',
     'math.money.main.few':'{n} рубля',

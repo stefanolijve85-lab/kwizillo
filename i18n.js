@@ -77,6 +77,7 @@
     // Wat ben ik?
     'whoami.title':'Wat ben ik?','whoami.round':'Ronde {n} van {total}','whoami.points':'Nu {n} punten','whoami.ask':'Wat ben ik?','whoami.more':'Een tip','whoami.next':'Volgende','whoami.timeUp':'De tijd is om! Het was {answer}.',
     'whoami.speech.ask':'[playful] '+'Wat ben ik?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Hmm... wat ben ik?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Ja, {answer}! +{points}','whoami.almost':'Bijna! Het was {answer}.',
     'whoami.speech.yes':'Dit is {answer}','whoami.speech.almost':'Bijna! Het was {answer}.',
     'whoami.doneKicker':'WAT BEN IK?','whoami.doneTitle':'{n} van {total} geraden!','whoami.summary':'{score} van {max} punten. Hoe eerder je raadt, hoe meer punten.',
@@ -501,6 +502,11 @@
     'math.speech.quarter':'Een kwart van {n}',
     'math.speech.percent':'{p} procent van {n}',
     'math.money.title':'Geld tellen',
+    'math.pick.sub':'Wat ga je oefenen?',
+    'math.pick.sums':'Sommen',
+    'math.money.sub':'Tel de munten',
+    'math.money.ok':'Klaar!',
+    'math.money.delete':'Wissen',
     'math.money.ask':'Hoeveel geld is dit?',
     'math.money.main.one':'{n} euro',
     'math.money.main.few':'{n} euro',
@@ -801,6 +807,7 @@
     // What am I?
     'whoami.title':'What am I?','whoami.round':'Round {n} of {total}','whoami.points':'Now {n} points','whoami.ask':'What am I?','whoami.more':'A clue','whoami.next':'Next','whoami.timeUp':'Time is up! It was {answer}.',
     'whoami.speech.ask':'[playful] '+'What am I?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Hmm... what am I?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Yes, {answer}! +{points}','whoami.almost':'Almost! It was {answer}.',
     'whoami.speech.yes':'This is {answer}','whoami.speech.almost':'Almost! It was {answer}.',
     'whoami.doneKicker':'WHAT AM I?','whoami.doneTitle':'{n} of {total} guessed!','whoami.summary':'{score} of {max} points. The sooner you guess, the more points.',
@@ -1225,6 +1232,11 @@
     'math.speech.quarter':'A quarter of {n}',
     'math.speech.percent':'{p} percent of {n}',
     'math.money.title':'Count the money',
+    'math.pick.sub':'What do you want to practise?',
+    'math.pick.sums':'Sums',
+    'math.money.sub':'Count the coins',
+    'math.money.ok':'Done!',
+    'math.money.delete':'Delete',
     'math.money.ask':'How much money is this?',
     'math.money.main.one':'{n} dollar',
     'math.money.main.few':'{n} dollars',
@@ -1525,6 +1537,7 @@
     // O que sou eu?
     'whoami.title':'O que sou eu?','whoami.round':'Rodada {n} de {total}','whoami.points':'Agora {n} pontos','whoami.ask':'O que sou eu?','whoami.more':'Uma dica','whoami.next':'Próxima','whoami.timeUp':'Acabou o tempo! Era {answer}.',
     'whoami.speech.ask':'[playful] '+'O que sou eu?',   // spoken only: the voice asks it playfully, the tag is not read out
+    'whoami.speech.askLuna':'[warmly] '+'Hmm... o que sou eu?',   // Luna's own: the playful take sounded shrill in her voice (Stefan, 2026-10-10, take 3 of 3)
     'whoami.yes':'Isso, {answer}! +{points}','whoami.almost':'Quase! Era {answer}.',
     'whoami.speech.yes':'É {answer}','whoami.speech.almost':'Quase! Era {answer}.',
     'whoami.doneKicker':'O QUE SOU EU?','whoami.doneTitle':'{n} de {total} acertos!','whoami.summary':'{score} de {max} pontos. Quanto antes você adivinha, mais pontos ganha.',
@@ -1949,6 +1962,11 @@
     'math.speech.quarter':'Um quarto de {n}',
     'math.speech.percent':'{p} por cento de {n}',
     'math.money.title':'Contar dinheiro',
+    'math.pick.sub':'O que você quer praticar?',
+    'math.pick.sums':'Contas',
+    'math.money.sub':'Conte as moedas',
+    'math.money.ok':'Pronto!',
+    'math.money.delete':'Apagar',
     'math.money.ask':'Quanto dinheiro tem aqui?',
     'math.money.main.one':'{n} real',
     'math.money.main.few':'{n} reais',

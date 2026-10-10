@@ -149,6 +149,7 @@ test('Premium keeps progress, an expired subscription only locks content again, 
 test('Free math plays at level 3 at most while the parent setting is kept; memo and facts follow the free rules', async ({ page }) => {
   await boot(page, SAVED({ niveau: 6 }));
   await page.locator('#homeMath').click();
+  await page.locator('[data-pick="sums"]').click();   // Rekenen opens on the choice: sums or money
   await expect(page.locator('.math')).toBeVisible();
   expect(await page.evaluate(() => [window.KWIZILLO_M1.math.niveau, window.KWIZILLO_M1.state.niveau])).toEqual([3, 6]);
   await page.evaluate(() => window.KWIZILLO_M1.showMemoPicker());
