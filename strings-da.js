@@ -80,6 +80,7 @@
     'whoami.speech.yes':'Det er {answer}','whoami.speech.almost':'Næsten! Det var {answer}.',
     'whoami.doneKicker':'HVAD ER JEG?','whoami.doneTitle':'{n} af {total} gættet!','whoami.summary':'{score} af {max} point. Jo hurtigere du gætter, jo flere point.',
     'whoami.speech.great':'Wow, du gætter hurtigt! Godt gået.','whoami.speech.done':'Flot spillet! Næste gang gætter du endnu flere.',
+    'jump.title':'Mike & Mia: Hop & Glid','jump.loading':'Dit eventyr gøres klar…','jump.loadError':'Mike & Mia kunne ikke indlæses. Prøv igen senere.','jump.loadErrorTitle':'Prøv igen','jump.retry':'Prøv igen','jump.back':'Tilbage','jump.pickTitle':'Hvem skal løbe?','jump.pickWorld':'Vælg en verden','jump.hero.mike':'Mike','jump.hero.mia':'Mia','jump.world.underwater':'Undervandsverden','jump.world.candy':'Slik & legetøj','jump.world.space':'Rummet','jump.start':'Start!','jump.best':'Rekord: {n}','jump.bestLabel':'Rekord','jump.jump':'Hop','jump.slide':'Glid','jump.pause':'Pause','jump.paused':'Lille pause','jump.resume':'Fortsæt','jump.restart':'Start forfra','jump.exit':'Stop','jump.controls':'Hop og glid','jump.progress':'Så langt er du','jump.hearts':'{n} hjerter tilbage','jump.canvas':'Spillebane: {world}','jump.go':'Nu!','jump.done':'Du klarede det!','jump.tryAgain':'Tæt på! Prøv igen','jump.stars':'Stjerner','jump.score':'Point','jump.newBest':'Ny rekord!','jump.again':'En gang til','jump.next':'Næste verden','jump.toChest':'Til spillekisten','jump.coins':'+{n} mønter','jump.xp':'+{n} XP','jump.hint.jump':'Tryk på Hop!','jump.hint.double':'Tryk igen i luften: dobbelthop!','jump.hint.slide':'Tryk på Glid for at glide under bjælken!','jump.hint.pad':'En hoppepude! Den kaster dig op helt af sig selv.','jump.hint.keys':'Mellemrum eller ↑ = hop · ↓ = glid',
     'jungle.title':'Runner','jungle.tileSub':'Løb, hop og flyv gennem tre baner','jungle.loadError':'Junglen kunne ikke indlæses. Prøv igen senere.',
     'fotozoom.title':'Foto Zoom','fotozoom.round':'Runde {n} af {total}','fotozoom.points':'Nu {n} point','fotozoom.ask':'Hvad er det?','fotozoom.out':'Zoom ud','fotozoom.next':'Videre','fotozoom.timeUp':'Tiden er gået! Det var {answer}.',
     'fotozoom.speech.ask':'[playful] '+'Hvad er det?',   // spoken only: the voice asks it playfully, the tag is not read out
@@ -546,6 +547,7 @@
     'math.money.title':'Tæl pengene',
     'chest.title':'Spillekiste',
     'chest.sub':'Vælg et spil',
+    'runner.pickTitle':'Løbespil',
     'measure.title':'Mål & Vej',
     'measure.sub':'Mål og sammenlign',
     'measure.tip':'Mål godt! Se, hvor den starter, og hvor den slutter.',

@@ -27,7 +27,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   await expect(page.locator('#homeJungle')).toBeVisible();
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(runner(page)).toBeVisible({ timeout: 10000 });
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Op avontuur →', { timeout: 10000 });
   await expect(inRunner(page, '.arcade-title')).toHaveText(/Kwizillo\s*Runner/);
@@ -73,7 +73,7 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
   expect(await page.evaluate(() => window.KWIZILLO_M1.jungleReward({ game: 'jungle-runner', coins: 999 }))).toBeNull();
 
   await inRunner(page, '[data-act=exit]').click();
-  await expect(page.locator('.home')).toBeVisible();
+  await expect(page.locator('.runner-pick')).toBeVisible();   // back to the choice of runners (2026-10-10)
   await expect(runner(page)).toHaveCount(0);
   expect(await page.evaluate(() => window.KWIZILLO_M1.state.coins)).toBe(booked.coins);   // Home has no coin button any more; the coins are in the statistics
   expect(errors).toEqual([]);
@@ -81,13 +81,13 @@ test('the Home tile opens the runner in Dutch; a run ends at the finish, coins a
 
 test('the runner speaks the app language (English), and leaving from the start panel returns Home without a reward', async ({ page }) => {
   await boot(page, SAVED({ language: 'en' }));
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Go adventure →', { timeout: 10000 });
   await expect(inRunner(page, '.levels button span').first()).toHaveText('Jungle');
   await expect(inRunner(page, '[data-act=hero-boy] span')).toHaveText('Boy');
   await expect(inRunner(page, '.pick-label').first()).toHaveText('PICK YOUR LEVEL');
   await inRunner(page, '[data-act=exit]').click();
-  await expect(page.locator('.home')).toBeVisible();
+  await expect(page.locator('.runner-pick')).toBeVisible();   // back to the choice of runners (2026-10-10)
   await expect(runner(page)).toHaveCount(0);
   expect(await page.evaluate(() => [window.KWIZILLO_M1.state.coins, window.KWIZILLO_M1.progress().games.jungle?.played || 0])).toEqual([0, 0]);
 });
@@ -109,7 +109,7 @@ test('every jungle string exists in nl, en and pt (no silent Dutch fallback)', a
 
 test('the sky level lets go of the cloud path twice: the hero glides, then lands again', async ({ page }) => {
   await boot(page, SAVED({ runnerLevel: 'lucht' }));
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=level-lucht]')).toHaveAttribute('aria-pressed', 'true', { timeout: 10000 });
   await inRunner(page, '[data-act=start]').click();
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
@@ -127,7 +127,7 @@ test('the sky level lets go of the cloud path twice: the hero glides, then lands
 
 test('the turbo speeds the music up and the end of the turbo settles it back', async ({ page }) => {
   await boot(page, SAVED({ musicOn: true }));
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
   await inRunner(page, '[data-act=start]').click();
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
@@ -143,7 +143,7 @@ test('the turbo speeds the music up and the end of the turbo settles it back', a
 
 test('a second jump press in the air makes a double somersault that pays a small bonus on landing', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
   await inRunner(page, '[data-act=start]').click();
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
@@ -167,7 +167,7 @@ test('a second jump press in the air makes a double somersault that pays a small
 
 test('running into something really stops you, and it costs coins', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
   await inRunner(page, '[data-act=start]').click();
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; });
@@ -235,7 +235,7 @@ test('a card from the runner is in the collection the moment the run is booked, 
 
 test('in the normal ride you clear every obstacle yourself; the easy ride jumps for you', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
   await inRunner(page, '[data-act=start]').click();
   await page.evaluate(() => { const el = window.KWIZILLO_M1.jungle.game.element; el.count = 0.001; el.run.easy = false; });
@@ -324,7 +324,7 @@ test('the coins from a run land in the purse, and the day ceiling says so out lo
     const orig = window.KWIZILLO_M1.toast;
     window.KWIZILLO_M1.toast = t => { window.__toasts.push(t); return orig(t) };
   });
-  await page.locator('#homeJungle').click();
+  await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toBeVisible({ timeout: 10000 });
   await page.evaluate(() => {
     const el = window.KWIZILLO_M1.jungle.game.element;

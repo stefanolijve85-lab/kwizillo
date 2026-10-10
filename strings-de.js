@@ -80,6 +80,7 @@
     'whoami.speech.yes':'Das ist {answer}','whoami.speech.almost':'Fast! Es war {answer}.',
     'whoami.doneKicker':'WAS BIN ICH?','whoami.doneTitle':'{n} von {total} erraten!','whoami.summary':'{score} von {max} Punkten. Je früher du rätst, desto mehr Punkte.',
     'whoami.speech.great':'Wow, du rätst schnell! Gut gemacht.','whoami.speech.done':'Schön gespielt! Nächstes Mal errätst du noch mehr.',
+    'jump.title':'Mike & Mia: Spring & Rutsch','jump.loading':'Dein Abenteuer wird vorbereitet…','jump.loadError':'Mike & Mia konnten nicht laden. Versuche es später noch einmal.','jump.loadErrorTitle':'Noch einmal','jump.retry':'Nochmal versuchen','jump.back':'Zurück','jump.pickTitle':'Wer rennt los?','jump.pickWorld':'Wähle eine Welt','jump.hero.mike':'Mike','jump.hero.mia':'Mia','jump.world.underwater':'Unterwasserwelt','jump.world.candy':'Süßes & Spielzeug','jump.world.space':'Weltraum','jump.start':'Los!','jump.best':'Rekord: {n}','jump.bestLabel':'Rekord','jump.jump':'Springen','jump.slide':'Rutschen','jump.pause':'Pause','jump.paused':'Kurze Pause','jump.resume':'Weiter','jump.restart':'Neu starten','jump.exit':'Beenden','jump.controls':'Springen und Rutschen','jump.progress':'So weit bist du','jump.hearts':'Noch {n} Herzen','jump.canvas':'Spielfeld: {world}','jump.go':'Los!','jump.done':'Geschafft!','jump.tryAgain':'Fast! Versuch es noch einmal','jump.stars':'Sterne','jump.score':'Punkte','jump.newBest':'Neuer Rekord!','jump.again':'Nochmal','jump.next':'Nächste Welt','jump.toChest':'Zur Spielekiste','jump.coins':'+{n} Münzen','jump.xp':'+{n} XP','jump.hint.jump':'Tippe auf Springen!','jump.hint.double':'In der Luft nochmal drücken: Doppelsprung!','jump.hint.slide':'Tippe auf Rutschen, um unter dem Balken durchzurutschen!','jump.hint.pad':'Ein Sprungkissen! Es wirft dich von selbst hoch.','jump.hint.keys':'Leertaste oder ↑ = springen · ↓ = rutschen',
     'jungle.title':'Runner','jungle.tileSub':'Renne, springe und fliege durch drei Level','jungle.loadError':'Der Dschungel konnte nicht laden. Versuche es später noch einmal.',
     'fotozoom.title':'Fotozoom','fotozoom.round':'Runde {n} von {total}','fotozoom.points':'Jetzt {n} Punkte','fotozoom.ask':'Was ist das?','fotozoom.out':'Herauszoomen','fotozoom.next':'Weiter','fotozoom.timeUp':'Die Zeit ist um! Es war {answer}.',
     'fotozoom.speech.ask':'[playful] '+'Was ist das?',   // spoken only: the voice asks it playfully, the tag is not read out
@@ -546,6 +547,7 @@
     'math.money.title':'Geld zählen',
     'chest.title':'Spielekiste',
     'chest.sub':'Wähle ein Spiel',
+    'runner.pickTitle':'Runner',
     'measure.title':'Messen & Wiegen',
     'measure.sub':'Messen und vergleichen',
     'measure.tip':'Miss genau! Schau, wo es anfängt und wo es aufhört.',

@@ -157,7 +157,7 @@ test.describe('Blokkenpret', () => {
     const again = await page.evaluate(id => window.KWIZILLO_M1.blokkenReward({ level: 1, attemptId: id, completed: true }), st.booked[0]);
     expect(again.duplicate).toBe(true);
     await page.reload();
-    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
+    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
     await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
     expect(await page.evaluate(() => window.KWIZILLO_M1.state.xp)).toBe(after.xp);
     await openLevels(page);
@@ -361,7 +361,7 @@ test.describe('Blokkenpret', () => {
     expect(Object.keys((await S(page)).placements).sort()).toEqual([a.id, b.id, c.id].sort());
     // reload: still one boost, not two
     await page.reload();
-    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
+    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
     await openLevels(page);
     await startLevel(page, 4);
     expect((await S(page)).boost).toMatchObject({ earned: true, available: true, used: false });
@@ -380,7 +380,7 @@ test.describe('Blokkenpret', () => {
     await expect(page.locator('#bkBoost')).toBeHidden();
     // reload keeps the hint and does not give the boost back
     await page.reload();
-    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
+    await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {}); await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});
     await openLevels(page);
     await startLevel(page, 4);
     expect((await S(page)).boost).toMatchObject({ available: false, used: true });

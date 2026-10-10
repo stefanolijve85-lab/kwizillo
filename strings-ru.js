@@ -80,6 +80,7 @@
     'whoami.speech.yes':'Это {answer}','whoami.speech.almost':'Почти! Это был {answer}.',
     'whoami.doneKicker':'КТО Я?','whoami.doneTitle':'Угадано {n} из {total}!','whoami.summary':'{score} очков из {max}. Чем раньше угадаешь, тем больше очков.',
     'whoami.speech.great':'Ух ты, как быстро ты угадываешь! Молодец.','whoami.speech.done':'Хорошая игра! В следующий раз угадаешь ещё больше.',
+    'jump.title':'Майк и Мия: Прыгай и скользи','jump.loading':'Готовим твоё приключение…','jump.loadError':'Майк и Мия не загрузились. Попробуй позже.','jump.loadErrorTitle':'Попробуем ещё раз','jump.retry':'Попробовать снова','jump.back':'Назад','jump.pickTitle':'Кто побежит?','jump.pickWorld':'Выбери мир','jump.hero.mike':'Майк','jump.hero.mia':'Мия','jump.world.underwater':'Подводный мир','jump.world.candy':'Сладости и игрушки','jump.world.space':'Космос','jump.start':'Старт!','jump.best':'Рекорд: {n}','jump.bestLabel':'Рекорд','jump.jump':'Прыгай','jump.slide':'Скользи','jump.pause':'Пауза','jump.paused':'Небольшая пауза','jump.resume':'Дальше','jump.restart':'Заново','jump.exit':'Выйти','jump.controls':'Прыжок и скольжение','jump.progress':'Сколько пройдено','jump.hearts':'Осталось сердец: {n}','jump.canvas':'Игровое поле: {world}','jump.go':'Вперёд!','jump.done':'Получилось!','jump.tryAgain':'Почти! Попробуй ещё раз','jump.stars':'Звёзды','jump.score':'Очки','jump.newBest':'Новый рекорд!','jump.again':'Ещё раз','jump.next':'Следующий мир','jump.toChest':'К сундуку с играми','jump.coins':'+{n} монет','jump.xp':'+{n} XP','jump.hint.jump':'Нажми «Прыгай»!','jump.hint.double':'Нажми ещё раз в воздухе: двойной прыжок!','jump.hint.slide':'Нажми «Скользи», чтобы проскользнуть под балкой!','jump.hint.pad':'Батут! Он сам подбросит тебя вверх.','jump.hint.keys':'Пробел или ↑ = прыжок · ↓ = скольжение',
     'jungle.title':'Раннер','jungle.tileSub':'Беги, прыгай и лети через три уровня','jungle.loadError':'Джунгли не загрузились. Попробуй позже.',
     'fotozoom.title':'Фотозум','fotozoom.round':'Раунд {n} из {total}','fotozoom.points':'Уже {n} очков','fotozoom.ask':'Что это?','fotozoom.out':'Отдалить','fotozoom.next':'Дальше','fotozoom.timeUp':'Время вышло! Это был {answer}.',
     'fotozoom.speech.ask':'[playful] '+'Что это?',   // spoken only: the voice asks it playfully, the tag is not read out
@@ -546,6 +547,7 @@
     'math.money.title':'Считаем деньги',
     'chest.title':'Сундук с играми',
     'chest.sub':'Выбери игру',
+    'runner.pickTitle':'Бегалки',
     'measure.title':'Измеряй и взвешивай',
     'measure.sub':'Измеряй и сравнивай',
     'measure.tip':'Измеряй внимательно! Смотри, где начало и где конец.',

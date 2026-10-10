@@ -96,7 +96,7 @@
         else if(booked.coins)K.toast(t('score.coinsAdded',{n:booked.coins}));
         if(booked.card)setTimeout(()=>K.toast(t('collection.cardAdded',{title:t('card.'+booked.card)})),2400);
       },
-      onExit:()=>{K.audio.setTempo?.(1);leave();K.showHome()}
+      onExit:()=>{K.audio.setTempo?.(1);leave();K.backFromGame?K.backFromGame():K.showHome()}
     });
     active={destroy:()=>game.destroy()};
     K.jungle={game,progress:j};

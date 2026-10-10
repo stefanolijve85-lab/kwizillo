@@ -95,6 +95,7 @@
     'whoami.speech.great':'رائع، أنت تخمّن بسرعة! أحسنت.',
     'whoami.speech.done':'لعب جميل! في المرة القادمة ستخمّن أكثر.',
 
+    'jump.title':'مايك وميا: اقفز وانزلق','jump.loading':'نجهّز مغامرتك…','jump.loadError':'تعذّر تحميل مايك وميا. حاول مرة أخرى لاحقًا.','jump.loadErrorTitle':'لنحاول مجددًا','jump.retry':'حاول مجددًا','jump.back':'رجوع','jump.pickTitle':'من سيركض؟','jump.pickWorld':'اختر عالمًا','jump.hero.mike':'مايك','jump.hero.mia':'ميا','jump.world.underwater':'عالم تحت الماء','jump.world.candy':'حلوى وألعاب','jump.world.space':'الفضاء','jump.start':'ابدأ!','jump.best':'الرقم القياسي: {n}','jump.bestLabel':'الرقم القياسي','jump.jump':'اقفز','jump.slide':'انزلق','jump.pause':'إيقاف مؤقت','jump.paused':'استراحة قصيرة','jump.resume':'تابع','jump.restart':'من جديد','jump.exit':'خروج','jump.controls':'القفز والانزلاق','jump.progress':'كم قطعت','jump.hearts':'بقي {n} قلوب','jump.canvas':'ساحة اللعب: {world}','jump.go':'انطلق!','jump.done':'نجحت!','jump.tryAgain':'اقتربت! حاول مرة أخرى','jump.stars':'النجوم','jump.score':'النقاط','jump.newBest':'رقم قياسي جديد!','jump.again':'مرة أخرى','jump.next':'العالم التالي','jump.toChest':'إلى صندوق الألعاب','jump.coins':'+{n} عملة','jump.xp':'+{n} XP','jump.hint.jump':'اضغط على اقفز!','jump.hint.double':'اضغط مرة أخرى في الهواء: قفزة مزدوجة!','jump.hint.slide':'اضغط على انزلق لتمرّ تحت العارضة!','jump.hint.pad':'وسادة قفز! ترميك إلى الأعلى وحدها.','jump.hint.keys':'المسافة أو ↑ = قفز · ↓ = انزلاق',
     'jungle.title':'العدّاء',
     'jungle.tileSub':'اركض واقفز وطِر عبر ثلاث مراحل',
     'jungle.loadError':'تعذّر تحميل الغابة. حاول مرة أخرى لاحقًا.',
@@ -709,6 +710,7 @@
     'math.money.title':'عُدّ النقود',
     'chest.title':'صندوق الألعاب',
     'chest.sub':'اختر لعبة',
+    'runner.pickTitle':'ألعاب الجري',
     'measure.title':'القياس والوزن',
     'measure.sub':'قِس وقارِن',
     'measure.tip':'قِس جيدًا! انظر أين يبدأ وأين ينتهي.',

@@ -188,7 +188,7 @@
 
   /* ---------------- Home ---------------- */
 
-  K.showHome=()=>{K.fromChest=false;
+  K.showHome=()=>{K.fromRunners=false;K.fromChest=false;
     K.stopSpeech();K.lastView='home';
     K.audio.setTrack('home').catch(()=>{});
     const name=String(K.state.name||'').trim();
@@ -262,7 +262,7 @@
     f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
     f.querySelector('#homeTalen').onclick=()=>{K.sfx('tap');openGame('talen.title',K.showTalen)};
-    f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
+    f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');openGame('runner.pickTitle',K.showRunnerPick)};   // the Kwizillo Runner and Mike & Mia
     f.querySelector('#homeMath').onclick=()=>{K.sfx('world');openGame('math.title',()=>K.showMathPick(last))};   // sums, money or measuring (games-money.js)
     f.querySelector('#homeChest').onclick=()=>{K.sfx('tap');openGame('chest.title',K.showGameChest)};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
@@ -295,12 +295,12 @@
   ];
   K.showGameChest=()=>{
     K.audio.setTrack('play').catch(()=>{});
-    K.stopSpeech();K.lastView='home';K.fromChest=true;
+    K.stopSpeech();K.lastView='home';K.fromChest=true;K.fromRunners=false;
     const f=K.frame(`<section class="native-panel-screen memo-picker game-picker math-pick chest-pick fade-in">
       <div class="native-panel-glow"></div>
       <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('chest.title'))}</h1><p>${esc(t('chest.sub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">
-        ${CHEST.map(g=>`<button class="memo-pick math-pick-tile" id="${g.id}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t(g.title))}</b></button>`).join('')}
+        <div class="chest-grid">${CHEST.map((g,i)=>`<button class="memo-pick math-pick-tile ${i===4?'wide':''}" id="${g.id}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t(g.title))}</b></button>`).join('')}</div>
       </div>
       ${bottomNav('home')}
     </section>`);
@@ -308,8 +308,28 @@
     for(const g of CHEST)f.querySelector('#'+g.id).onclick=()=>{K.sfx('tap');openGame(g.title,g.open)};
     bindNav(f);
   };
-  // Back from Memo, Weetjes, Fotozoom or Wat ben ik?: to the Spellenkist when it was opened from there.
-  K.backFromGame=()=>K.fromChest?K.showGameChest():K.showHome();
+  // The Runner tile (2026-10-10): the two runners, the Kwizillo Runner and Mike & Mia: Jump & Slide.
+  const RUNNERS=[
+    {id:'homeRunnerJungle',art:'jungle',title:'jungle.title',open:()=>K.startJungle(),badge:()=>Number(K.progress().games?.jungle?.best||0)},
+    {id:'homeJump',art:'jump',title:'jump.title',open:()=>K.startJump(),badge:()=>Math.max(0,...Object.values(K.progress().games?.jump?.best||{}).map(Number).filter(Number.isFinite))}
+  ];
+  K.showRunnerPick=()=>{
+    K.audio.setTrack('play').catch(()=>{});
+    K.stopSpeech();K.lastView='home';K.fromChest=false;K.fromRunners=true;
+    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker math-pick chest-pick runner-pick fade-in">
+      <div class="native-panel-glow"></div>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('runner.pickTitle'))}</h1><p>${esc(t('chest.sub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <div class="panel-scroll">
+        ${RUNNERS.map(g=>{const b=g.badge();return `<button class="memo-pick math-pick-tile" id="${g.id}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span>${b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:''}<b>${esc(t(g.title))}</b></button>`}).join('')}
+      </div>
+      ${bottomNav('home')}
+    </section>`);
+    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
+    for(const g of RUNNERS)f.querySelector('#'+g.id).onclick=()=>{K.sfx('tap');openGame(g.title,g.open)};
+    bindNav(f);
+  };
+  // Back from a game: to the Spellenkist or the runner choice when it was opened from there.
+  K.backFromGame=()=>K.fromRunners?K.showRunnerPick():K.fromChest?K.showGameChest():K.showHome();
 
   // A game opened from Home: the guide calls out its name, as for a world
   // (Stefan, 2026-10-10). Only while that screen is still there.
