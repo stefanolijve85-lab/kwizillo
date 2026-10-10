@@ -25,8 +25,11 @@
   const store=()=>{const p=K.progress();p.talen||={themes:{},words:{}};p.talen.themes||={};p.talen.words||={};return p.talen};
   // "Alles door elkaar": a lesson with words from every theme, like the mix of
   // all worlds in the other games. Premium (premium.js: only the animals are free).
-  const MIX={id:'mix',icon:'🌍'};
-  const theme=id=>id==='mix'?MIX:T().themes.find(x=>x.id===id);
+  const MIX={id:'mix',icon:'🌍'},MIXZIN={id:'mixzin',icon:'💬'};   // mixzin: every sentence theme (2026-10-10)
+  const theme=id=>id==='mix'?MIX:id==='mixzin'?MIXZIN:T().themes.find(x=>x.id===id);
+  const isMix=id=>id==='mix'||id==='mixzin';
+  // A mix shows and says the words' mix name and closing line.
+  const themeLabel=id=>t(`talen.theme.${isMix(id)?'mix':id}`);
   // Stars per theme are kept per learning language ("en:dieren"): a child who
   // switches from English to German starts German with an empty stamp. Phase 1
   // kept them per theme only; such a record belongs to the language learned then.
@@ -69,6 +72,8 @@
     return {learn:l,stamps:K.talenStamps(),words,lessons,themes:T().themes.map(th=>({id:th.id,icon:th.icon,ready:ready(th),stars:Number(themeRec(th.id)?.stars||0),img:th.words[0]?.img||null}))};
   };
   K.talenWord=word;
+  // The wide "Mix" bar on top of every section's tiles (Woordjes, Zinnetjes, Gesprekjes, Spreken): Premium.
+  K.talenMixTile=(id,stars,attr)=>{const ok=K.premium.can('talen','mix');return `<button class="memo-pick mix talen-pick ${stars?'done':''} ${ok?'':'locked'}" ${attr}="${id}"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${ok?'':K.premiumBadge()}${stars==null?'':badge(stars)}<b>${esc(t('talen.theme.mix'))}</b></button>`};
   K.talenHear=id=>hear(id);
   const hear=id=>{const l=learn(),w=word(id);if(!l||!w)return;K.playClips([audio(l,id),audio(own(),'_betekent'),audio(own(),id)],{gap:0})};
   const back=()=>{K.stopSpeech();K.sfx('tap');toThemes()};
@@ -199,9 +204,10 @@
       if(th.kind==='zin'&&!th.cover)return `<button class="memo-pick talen-pick zin ${starsOf(th.id)?'done':''} ${open(th)?'':'locked'}" data-theme="${th.id}"><span class="talen-stamp-icon" aria-hidden="true">${th.icon}</span><span class="home-game-veil"></span>${open(th)?'':K.premiumBadge()}${badge(starsOf(th.id))}<b>${esc(t(`talen.theme.${th.id}`))}</b></button>`;
       return tile(th.id,th.cover||th.words[0].img,t(`talen.theme.${th.id}`),{locked:!open(th),cls:th.kind==='zin'?'zin':''});
     };
-    const mixTile=c.mix?`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`:'';
+    const mixId=c.kind==='zin'?'mixzin':'mix';
+    const mixTile=K.talenMixTile(mixId,starsOf(mixId),'data-theme');
     const list=catThemes(c);
-    passport(passSub(l),`${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()},{title:t(`talen.section.${c.id}`)});
+    passport(passSub(l),`${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()},{title:t(`talen.section.${c.id}`),cls:c.kind==='zin'?'talen-fill':''});
   };
   // Back from a lesson: to the themes it came from.
   const toThemes=()=>K.talenCat?K.showTalenCat(K.talenCat):K.showTalen();
@@ -213,9 +219,10 @@
     let pool,words;
     if(review){pool=learnedIds().map(word);words=shuffle(K.talenDue().map(word)).slice(0,T().rounds)}
     else{
-      if(themeId==='mix'){
-        if(!K.premium.can('talen','mix')){K.premiumLocked({kind:'talen',retry:()=>K.startTalen('mix')});return}
-        pool=T().themes.filter(x=>ready(x)&&x.kind!=='zin').flatMap(x=>x.words);   // words only: a sentence among pictures would give itself away
+      if(isMix(themeId)){
+        if(!K.premium.can('talen','mix')){K.premiumLocked({kind:'talen',retry:()=>K.startTalen(themeId)});return}
+        const zin=themeId==='mixzin';
+        pool=T().themes.filter(x=>ready(x)&&(x.kind==='zin')===zin).flatMap(x=>x.words);   // words with words, sentences with sentences: one among the other would give itself away
       }else{
         const th=theme(themeId);if(!th||!ready(th))return K.showTalen();
         if(!open(th)){K.premiumLocked({kind:'talen',retry:()=>K.startTalen(themeId)});return}
@@ -244,7 +251,7 @@
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="talenBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
-          <div class="quiz-brand"><span>${esc(t('talen.title'))}</span><small>${esc(g.review?t('talen.review'):t(`talen.theme.${g.theme}`))}</small></div>
+          <div class="quiz-brand"><span>${esc(t('talen.title'))}</span><small>${esc(g.review?t('talen.review'):themeLabel(g.theme))}</small></div>
           <div class="quiz-meta"><b>${esc(t('talen.round',{n:g.round+1,total:g.words.length}))}</b><b>⭐ ${g.firstTry}</b></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('talen.round',{n:g.round+1,total:g.words.length}))}</strong><div><i style="width:${pct}%"></i></div><span>🔊</span></div>
@@ -330,20 +337,20 @@
       <div class="result-v2-card">
         <div class="result-stage open"><div class="result-mascot"><img class="mascot-face large" src="${K.guideArt(K.state.voice)}" alt=""></div><span class="talen-stamp-fly" aria-hidden="true">${g.theme?theme(g.theme).icon:'🔁'}</span></div>
         <div class="result-kicker">${esc(t('talen.title'))}</div>
-        <h1>${esc(g.theme?t(`talen.done.${g.theme}`):t('talen.reviewDone'))}</h1>
+        <h1>${esc(g.theme?t(`talen.done.${isMix(g.theme)?'mix':g.theme}`):t('talen.reviewDone'))}</h1>
         <div class="result-stars">${[1,2,3].map(k=>`<i class="${k<=stars?'on':''}">★</i>`).join('')}</div>
         <div class="result-stats"><span><b>${g.firstTry}/${n}</b><small>${esc(t('talen.firstTry'))}</small></span><span><b>+${xp}</b><small>${esc(t('result.xp'))}</small></span><span><b>${Number(K.state.coins||0)}</b><small>${esc(t('result.coins'))}</small></span></div>
         <p class="result-rule">${esc(t('talen.learned'))}</p>
         <div class="talen-learned">${g.words.map(w=>`<button class="talen-chip" data-hear="${w.id}" aria-label="${esc(w.text[l])}, ${esc(t('talen.means',{word:w.text[own()]}))}">${pic(w)}<span><b>${esc(w.text[l])}</b><small>${esc(w.text[own()])} 🔊</small></span></button>`).join('')}</div>
         <div class="result-native">
-          <button id="againBtn">${esc(g.theme?t('talen.again',{theme:t(`talen.theme.${g.theme}`)}):t('talen.review'))}</button>
+          <button id="againBtn">${esc(g.theme?t('talen.again',{theme:themeLabel(g.theme)}):t('talen.review'))}</button>
           <button id="passBtn" class="secondary">${esc(t('talen.passport'))}</button>
         </div>
       </div>
     </section>`);
     K.sfx('reward');setTimeout(()=>K.celebrate?.('quiz',f.querySelector('.result-stage')),250);
     // the closing line in the chosen guide's voice; a silent guide stays silent
-    if(g.theme&&K.state.voice!=='Stil')setTimeout(()=>{if(f.isConnected)K.playClips([g.theme==='mix'?vary('goed',T().praise):audio(own(),`_klaar_${g.theme}`,K.state.voice==='Luna'?'Luna':'Milo')])},700);
+    if(g.theme&&K.state.voice!=='Stil')setTimeout(()=>{if(f.isConnected)K.playClips([isMix(g.theme)?vary('goed',T().praise):audio(own(),`_klaar_${g.theme}`,K.state.voice==='Luna'?'Luna':'Milo')])},700);
     f.querySelectorAll('[data-hear]').forEach(b=>b.onclick=()=>{K.sfx('tap');hear(b.dataset.hear)});
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');g.theme?K.startTalen(g.theme):K.startTalen(null,{review:true})};
     f.querySelector('#passBtn').onclick=back;

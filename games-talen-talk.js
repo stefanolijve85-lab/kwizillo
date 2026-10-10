@@ -29,6 +29,8 @@
   K.talenTalkSummary=()=>({conversations:convRec,speaking:speakRec});
 
   const cats=()=>T().conversations||[];
+  const catLabel=id=>id==='mix'?t('talen.theme.mix'):t(`talen.conv.cat.${id}`);
+  const setLabel=id=>id==='mix'?t('talen.theme.mix'):t(`talen.speaking.set.${id}`);
   const CAT_ICON={intro:'👋',school:'🏫',food:'🍎',family:'👨‍👩‍👧',shop:'🛒',travel:'🧳'};
   // The tiles carry a Talen picture (the same painted style as the word themes).
   const CAT_ART={intro:'hello',school:'schoolbag',food:'icecream',family:'mom',shop:'bread',travel:'suitcase'};
@@ -41,18 +43,20 @@
   /* ---------------- Gesprekjes: the six situations ---------------- */
   K.showTalenConv=()=>{
     const l=learn();if(!l)return K.showTalen();
-    const body=`<div class="talen-fill-grid conv">${cats().map(c=>{const open=K.premium.can('talen',`conv:${c.id}`),n=Number(convRec(c.id)?.stars||0);
+    const body=`${K.talenMixTile('mix',Number(convRec('mix')?.stars||0),'data-conv')}<div class="talen-fill-grid conv">${cats().map(c=>{const open=K.premium.can('talen',`conv:${c.id}`),n=Number(convRec(c.id)?.stars||0);
         return `<button class="memo-pick talen-pick fit conv ${n?'done':''} ${open?'':'locked'}" data-conv="${c.id}"><img class="talen-pick-art" src="${art(CAT_ART[c.id]||'hello')}" alt="" decoding="async"><span class="home-game-veil"></span>${lockedTile(open)}${starsHtml(n)}<b>${esc(t(`talen.conv.cat.${c.id}`))}</b></button>`}).join('')}</div>`;
     const f=kit().passport(kit().passSub(l),body,()=>K.showTalen(),{title:t('talen.section.conversations'),cls:'talen-fill'});
     f.querySelectorAll('[data-conv]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalenConv(b.dataset.conv)});
   };
 
   K.startTalenConv=id=>{
-    const l=learn(),c=cats().find(x=>x.id===id);
-    if(!l||!c)return K.showTalenConv();
-    if(!K.premium.can('talen',`conv:${id}`)){K.premiumLocked({kind:'talen',retry:()=>K.startTalenConv(id)});return}
+    const l=learn(),mix=id==='mix',c=mix?null:cats().find(x=>x.id===id);
+    if(!l||(!mix&&!c))return K.showTalenConv();
+    if(!K.premium.can('talen',mix?'mix':`conv:${id}`)){K.premiumLocked({kind:'talen',retry:()=>K.startTalenConv(id)});return}
     K.audio.setTrack('play').catch(()=>{});
-    K.talenConv={cat:id,convs:c.convs,i:0,firstTry:0,missed:false,locked:false,learn:l};
+    // the mix: six conversations from every situation
+    const convs=mix?shuffle(cats().flatMap(x=>x.convs)).slice(0,6):c.convs;
+    K.talenConv={cat:id,convs,i:0,firstTry:0,missed:false,locked:false,learn:l};
     convRound();
   };
   K.talenConvForTest=()=>K.talenConv;
@@ -68,7 +72,7 @@
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="convBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
-          <div class="quiz-brand"><span>${esc(t('talen.section.conversations'))}</span><small>${esc(t(`talen.conv.cat.${g.cat}`))}</small></div>
+          <div class="quiz-brand"><span>${esc(t('talen.section.conversations'))}</span><small>${esc(catLabel(g.cat))}</small></div>
           <div class="quiz-meta"><b>⭐ ${g.firstTry}</b></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('talen.conv.round',{n:g.i+1,total:n}))}</strong><div><i style="width:${pct}%"></i></div><span>🔊</span></div>
@@ -143,7 +147,7 @@
     const xp=stars*6+n*2,coins=stars*3;
     K.awardPoints(xp);K.awardCoins(coins);K.touchStreak();K.save();
     resultScreen({icon:CAT_ICON[g.cat]||'💬',title:t('talen.conv.done'),stars,stat:`${g.firstTry}/${n}`,statLabel:t('talen.firstTry'),xp,
-      again:()=>K.startTalenConv(g.cat),back:()=>K.showTalenConv(),againLabel:t('talen.again',{theme:t(`talen.conv.cat.${g.cat}`)})});
+      again:()=>K.startTalenConv(g.cat),back:()=>K.showTalenConv(),againLabel:t('talen.again',{theme:catLabel(g.cat)})});
   }
 
   // One result card for both: the same frame, stars, XP and coins as a word lesson.
@@ -238,7 +242,7 @@
     const l=learn();if(!l)return K.showTalen();
     const rec=speakRec();
     // Three wide tiles under each other, like the choice in Rekenen; a few of the set's words in the language learned.
-    const body=`<div class="talen-fill-list speak">${sets().map(s=>{const open=K.premium.can('talen',`speak:${s.id}`),sample=s.words.slice(0,3).map(w=>kit().word(w)?.text[l]).filter(Boolean).join(' · ');
+    const body=`${K.talenMixTile('mix',null,'data-speak-set')}<div class="talen-fill-list speak">${sets().map(s=>{const open=K.premium.can('talen',`speak:${s.id}`),sample=s.words.slice(0,3).map(w=>kit().word(w)?.text[l]).filter(Boolean).join(' · ');
         return `<button class="memo-pick math-pick-tile talen-speak-tile ${open?'':'locked'}" data-speak-set="${s.id}"><img class="home-game-art" src="${art(SET_ART[s.id]||'hello')}" alt="" decoding="async"><span class="home-game-veil"></span>${lockedTile(open)}<b>${esc(t(`talen.speaking.set.${s.id}`))}<small lang="${l}" dir="auto">${esc(sample)}</small></b></button>`}).join('')}</div>
       ${rec?.practised?`<p class="talen-speak-count">🎤 ${rec.practised}</p>`:''}`;
     const f=kit().passport(kit().passSub(l),body,()=>K.showTalen(),{title:t('talen.section.speaking'),cls:'talen-fill'});
@@ -246,10 +250,11 @@
   };
 
   K.startTalenSpeak=id=>{
-    const l=learn(),s=sets().find(x=>x.id===id);
-    if(!l||!s)return K.showTalenSpeak();
-    if(!K.premium.can('talen',`speak:${id}`)){K.premiumLocked({kind:'talen',retry:()=>K.startTalenSpeak(id)});return}
-    const words=s.words.map(w=>kit().word(w)).filter(w=>w&&w.text[l]);
+    const l=learn(),mix=id==='mix',s=mix?null:sets().find(x=>x.id===id);
+    if(!l||(!mix&&!s))return K.showTalenSpeak();
+    if(!K.premium.can('talen',mix?'mix':`speak:${id}`)){K.premiumLocked({kind:'talen',retry:()=>K.startTalenSpeak(id)});return}
+    const ids=mix?shuffle(sets().flatMap(x=>x.words)).slice(0,8):s.words;   // the mix: eight from every set
+    const words=ids.map(w=>kit().word(w)).filter(w=>w&&w.text[l]);
     if(!words.length)return K.showTalenSpeak();
     K.audio.setTrack('play').catch(()=>{});
     K.talenSpeak={set:id,words,i:0,done:0,mic:speechPractice.isSupported()&&K.state.talenMicOk?'on':null};
@@ -298,7 +303,7 @@
       <div class="quiz-v2-ui">
         <header class="quiz-v2-head">
           <button class="quiz-back" id="speakBack" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button>
-          <div class="quiz-brand"><span>${esc(t('talen.section.speaking'))}</span><small>${esc(t(`talen.speaking.set.${g.set}`))}</small></div>
+          <div class="quiz-brand"><span>${esc(t('talen.section.speaking'))}</span><small>${esc(setLabel(g.set))}</small></div>
           <div class="quiz-meta"><b>🎤 ${g.done}</b></div>
         </header>
         <div class="quiz-progress"><strong>${esc(t('talen.speaking.round',{n:Math.min(g.i+1,n),total:n}))}</strong><div><i style="width:${pct}%"></i></div><span>🎤</span></div>

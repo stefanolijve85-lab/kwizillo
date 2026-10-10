@@ -142,13 +142,13 @@ test('eighteen themes and a mix, all playable: animals free, the rest and the mi
   await expect(page.locator('[data-theme].locked')).toHaveCount(14);
   await expect(page.locator('[data-theme="mix"]')).toHaveText(/Mix/);
   await expect(page.locator('[data-theme="dieren"]')).not.toHaveClass(/locked/);
-  // back to the wide tiles, then Zinnetjes: four themes, no mix
+  // back to the wide tiles, then Zinnetjes: four themes and their own sentence mix (mixzin)
   await page.locator('.panel-back').click();
   await expect(page.locator('.talen-cat')).toHaveCount(4);
   await page.locator('[data-cat="sentences"]').click();
   await expect(page.locator('.talen-picks.zinnen .talen-pick.zin')).toHaveCount(4);
   await expect(page.locator('[data-theme="mix"]')).toHaveCount(0);
-  await expect(page.locator('[data-theme].locked')).toHaveCount(4);
+  await expect(page.locator('[data-theme].locked')).toHaveCount(5);   // the four themes and, since 2026-10-10, the sentence mix bar
   // the last tile is reachable and keeps its shape (not squeezed into the screen)
   await page.locator('[data-theme="samen"]').scrollIntoViewIfNeeded();
   await expect(page.locator('[data-theme="samen"]')).toBeInViewport({ ratio: 1 });
@@ -502,7 +502,8 @@ test('Gesprekjes: the lines are in the language learned, the question and answer
   const clips = [];
   await boot(page, { state: ES, clips });
   await page.evaluate(() => window.KWIZILLO_M1.showTalenConv());
-  await expect(page.locator('[data-conv]')).toHaveCount(6);
+  await expect(page.locator('[data-conv]')).toHaveCount(7);   // the Mix bar and six situations
+  await expect(page.locator('[data-conv="mix"]')).toHaveClass(/locked/);
   await expect(page.locator('[data-conv="intro"]')).not.toHaveClass(/locked/);    // Kennismaken is free
   await expect(page.locator('[data-conv="school"]')).toHaveClass(/locked/);
   await page.locator('[data-conv="intro"]').click();

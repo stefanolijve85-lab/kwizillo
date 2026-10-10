@@ -2055,3 +2055,12 @@ html[data-shape="wide"] .conv-card .conv-chat,html[data-shape="wide"] .conv-card
 html[lang="ru"] .quiz-brand>span,html[lang="ru"] .panel-head h1.game-name,html[lang="ru"] .feedback-modal h2.ideas-title{
   -webkit-text-stroke:0;
   filter:drop-shadow(1.5px 0 0 #2842ae) drop-shadow(-1.5px 0 0 #2842ae) drop-shadow(0 1.5px 0 #2842ae) drop-shadow(0 -1.5px 0 #2842ae) drop-shadow(0 4px 0 #512fa8) drop-shadow(0 7px 8px rgba(0,20,70,.33))}
+/* Every section of Talen opens with the wide Mix bar, the tiles below (Stefan, 2026-10-10). */
+.talen-fill .memo-pick.mix{flex:none}
+/* Talen pictures: the subject in view. Square paintings in wider tiles lost the top (faces) and
+   the name band covers the bottom: the picture is cut a little above its middle. */
+.talen-pick.fit .talen-pick-art,.talen-fill-grid .talen-pick-art{object-position:center 28%}
+.talen-speak-tile .home-game-art{object-position:center 30%}
+/* Zinnetjes: its four themes fill the screen under the Mix bar (2x2). */
+.talen-fill .talen-picks.zinnen{display:grid;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;flex:1 1 auto;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);margin:0}
+.talen-fill .talen-picks.zinnen .memo-pick{aspect-ratio:auto;height:100%;min-height:0}
