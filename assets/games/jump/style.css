@@ -116,3 +116,38 @@
 @media (orientation:landscape) and (max-height:520px){.kj-pick-right{display:flex}}
 @media (prefers-reduced-motion:reduce){.kj *{animation:none!important;transition:none!important}}
 .kj .kj-hero{color:#1b2a6b}
+
+/* The welcome menu, like the Kwizillo Runner's (2026-10-11): the world picked behind it,
+   blurred; one dark teal card with a gold title, the worlds, the children and a big start. */
+.kj-panel.kj-pick{background:#0b3b66;justify-content:center;gap:0}
+.kj-pick-bg{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(10px) saturate(1.15) brightness(.85);transform:scale(1.04);z-index:0}
+.kj-pick-bg.in{animation:kjBgIn .45s ease both}
+@keyframes kjBgIn{from{opacity:0}to{opacity:1}}
+.kj-pick .kj-top{position:absolute;z-index:2}
+.kj-menu{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.6vh,14px);width:min(560px,100%);max-height:100%;overflow-y:auto;padding:clamp(14px,2.4vh,24px) clamp(12px,3vw,22px);border-radius:30px;
+  background:linear-gradient(180deg,rgba(14,62,74,.94),rgba(9,44,58,.95));border:2px solid rgba(120,220,230,.28);box-shadow:0 18px 40px rgba(0,10,30,.45),inset 0 1px 0 rgba(255,255,255,.12)}
+.kj-brand{display:flex;flex-direction:column;align-items:center;margin:0;line-height:1.02;text-transform:uppercase;font-size:clamp(30px,8.4vmin,52px);color:#ffd23f;
+  background:linear-gradient(180deg,#fff4a8 0%,#ffd23f 45%,#ffa21a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 3px 0 #8a4a00) drop-shadow(0 6px 10px rgba(0,0,0,.35));text-align:center}
+.kj-brand span+span{font-size:.92em}
+.kj-label{display:flex;align-items:center;gap:12px;width:100%;margin:0 0 8px;color:#ffd23f;font-size:clamp(15px,3.6vmin,20px);text-transform:uppercase;letter-spacing:.02em}
+.kj-label::before,.kj-label::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,210,63,.6))}
+.kj-label::after{background:linear-gradient(90deg,rgba(255,210,63,.6),transparent)}
+.kj-menu-worlds,.kj-menu-heroes{width:100%}
+.kj-menu .kj-worlds,.kj-menu .kj-heroes{width:100%}
+.kj-menu .kj-world{aspect-ratio:4/5;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.3),inset 0 0 0 2px rgba(255,255,255,.35)}
+.kj-menu .kj-world span{font-size:clamp(12px,3vmin,16px);text-transform:uppercase;text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.kj-menu .kj-world[aria-pressed=true]{box-shadow:0 4px 0 #c27c00,inset 0 0 0 4px #ffd23f,0 0 18px rgba(255,210,63,.6)}
+.kj-menu .kj-hero .kj-face{height:clamp(110px,22vh,200px)}
+.kj-menu .kj-hero b{display:block;margin:4px 6px 0;padding:4px 0;border-radius:999px;background:rgba(255,255,255,.7);text-transform:uppercase}
+.kj-menu .kj-hero[aria-pressed=true] b{background:#ffd23f}
+.kj-start{width:100%;min-height:clamp(58px,8vh,76px);font-size:clamp(26px,6.4vmin,40px)!important;text-transform:uppercase}
+.kj-menu-back{min-height:44px;padding:0 26px;border-radius:999px;border:2px solid rgba(160,230,240,.35);background:rgba(255,255,255,.06);color:#e9fbff;font:inherit;font-size:17px;cursor:pointer}
+@media (orientation:landscape) and (max-height:520px){
+  .kj-pick .kj-menu{width:min(860px,100%);display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"brand brand" "worlds heroes" "start back";align-items:end;gap:6px 18px;padding:10px 16px}
+  .kj-pick .kj-brand{grid-area:brand;flex-direction:row;justify-content:center;justify-self:center;gap:.35em;font-size:26px}
+  .kj-pick .kj-menu-worlds{grid-area:worlds}.kj-pick .kj-menu-heroes{grid-area:heroes}
+  .kj-pick .kj-start{grid-area:start;min-height:50px;font-size:24px!important}.kj-pick .kj-menu-back{grid-area:back;justify-self:end}
+  .kj-pick .kj-menu .kj-hero .kj-face{height:clamp(80px,26vh,130px)}
+  .kj-pick .kj-menu .kj-world{aspect-ratio:1/1}
+  .kj-pick .kj-label{margin-bottom:4px;font-size:14px}
+}

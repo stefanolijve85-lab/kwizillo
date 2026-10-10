@@ -148,19 +148,29 @@ export function mountJump(host, opts = {}) {
       <h1>${esc(T('loadErrorTitle'))}</h1><h2>${esc(T('loadError'))}</h2>
       <div class="kj-row"><button class="kj-go" data-act="retry">${esc(T('retry'))}</button></div>`);
   }
+  // The welcome menu, like the Kwizillo Runner's (Stefan, 2026-10-11): one dark card on the
+  // world picked (its picture behind, blurred, changing with the choice), the title in gold,
+  // the three worlds, the two children, one big start button.
   function showPick() {
     screen = 'pick'; setPlayUI(false); stopLoop(); hideHint();
-    show(`<div class="kj-top"><button class="kj-icon-btn" data-act="exit" aria-label="${esc(T('back'))}">${SVG.back}</button></div>
-      <h1>${esc(T('pickTitle'))}</h1>
-      <div class="kj-heroes" role="group" aria-label="${esc(T('pickTitle'))}">
-        ${HEROES.map(h => `<button class="kj-hero" data-act="hero" data-hero="${h}" aria-pressed="${h === hero}"><span class="kj-check">${SVG.check}</span><canvas class="kj-face" data-face="${h}"></canvas><b>${esc(T('hero.' + h))}</b></button>`).join('')}
-      </div>
-      <div class="kj-pick-right">
-        <h2>${esc(T('pickWorld'))}</h2>
-        <div class="kj-worlds" role="group" aria-label="${esc(T('pickWorld'))}">
-          ${WORLD_ORDER.map(w => { const b = opts.best?.(w) || 0; return `<button class="kj-world" data-act="world" data-world="${w}" aria-pressed="${w === worldId}"><img src="${BASE}world-${w}.jpg" alt=""><span>${esc(T('world.' + w))}${b ? `<small>${esc(T('best', { n: b }))}</small>` : ''}</span></button>` }).join('')}
+    const [ta, tb] = String(T('title')).split(/\s*:\s*/);
+    const label = txt => `<p class="kj-label"><span>${esc(txt)}</span></p>`;
+    show(`<img class="kj-pick-bg" src="${BASE}world-${worldId}.jpg" alt="">
+      <div class="kj-top"><button class="kj-icon-btn" data-act="exit" aria-label="${esc(T('back'))}">${SVG.back}</button></div>
+      <div class="kj-menu">
+        <h1 class="kj-brand"><span>${esc(ta)}</span>${tb ? `<span>${esc(tb)}</span>` : ''}</h1>
+        <div class="kj-menu-worlds">${label(T('pickWorld'))}
+          <div class="kj-worlds" role="group" aria-label="${esc(T('pickWorld'))}">
+            ${WORLD_ORDER.map(w => { const b = opts.best?.(w) || 0; return `<button class="kj-world" data-act="world" data-world="${w}" aria-pressed="${w === worldId}"><img src="${BASE}world-${w}.jpg" alt=""><span>${esc(T('world.' + w))}${b ? `<small>${esc(T('best', { n: b }))}</small>` : ''}</span></button>` }).join('')}
+          </div>
         </div>
-        <button class="kj-go" data-act="start">${esc(T('start'))}</button>
+        <div class="kj-menu-heroes">${label(T('pickTitle'))}
+          <div class="kj-heroes" role="group" aria-label="${esc(T('pickTitle'))}">
+            ${HEROES.map(h => `<button class="kj-hero" data-act="hero" data-hero="${h}" aria-pressed="${h === hero}"><span class="kj-check">${SVG.check}</span><canvas class="kj-face" data-face="${h}"></canvas><b>${esc(T('hero.' + h))}</b></button>`).join('')}
+          </div>
+        </div>
+        <button class="kj-go kj-start" data-act="start">${esc(T('start'))} →</button>
+        <button class="kj-menu-back" data-act="exit">${esc(T('back'))}</button>
       </div>`, 'kj-pick');
     requestAnimationFrame(() => root.querySelectorAll('[data-face]').forEach(c => face(c, c.dataset.face, 150)));
   }
@@ -239,7 +249,12 @@ export function mountJump(host, opts = {}) {
     exit: () => { sfx('tap'); destroy(); opts.onExit?.() },
     retry: () => boot(),
     hero: b => { hero = b.dataset.hero; sfx('tap'); opts.onHero?.(hero); root.querySelectorAll('[data-act=hero]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.hero === hero))) },
-    world: b => { worldId = b.dataset.world; sfx('tap'); opts.onWorld?.(worldId); root.querySelectorAll('[data-act=world]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.world === worldId))) },
+    world: b => {
+      worldId = b.dataset.world; sfx('tap'); opts.onWorld?.(worldId); root.querySelectorAll('[data-act=world]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.world === worldId)));
+      // the picture behind the menu goes along with the world picked
+      const bg = root.querySelector('.kj-pick-bg');
+      if (bg) { const next = bg.cloneNode(); next.src = `${BASE}world-${worldId}.jpg`; next.classList.add('in'); bg.after(next); setTimeout(() => bg.remove(), 450) }
+    },
     start: () => { sfx('tap'); startRun() },
     pause: () => pause(),
     resume: () => { sfx('tap'); resume() },

@@ -35,7 +35,7 @@ test('the tile is under the Runner tile, next to the Kwizillo Runner; back retur
   expect(await page.locator('.runner-pick .math-pick-tile').evaluateAll(els => els.map(e => e.id))).toEqual(['homeRunnerJungle', 'homeJump']);
   await expect(page.locator('#homeJump')).toContainText('Mike & Mia');
   await page.locator('#homeJump').click();
-  await expect(page.locator('.kj-pick h1')).toHaveText('Wie gaat er rennen?');
+  await expect(page.locator('.kj-menu-heroes .kj-label')).toHaveText('Wie gaat er rennen?');
   await expect(page.locator('.kj-hero')).toHaveCount(2);
   await expect(page.locator('.kj-world')).toHaveCount(3);
   await page.locator('[data-hero=mia]').click();
@@ -290,7 +290,7 @@ test('Arabic: the menus read right to left, the play field stays left to right',
   await boot(page, SAVED({ language: 'ar' }));
   await openJump(page);
   await expect(page.locator('kwizillo-jump')).toHaveAttribute('dir', 'rtl');
-  await expect(page.locator('.kj-pick h1')).toHaveText('من سيركض؟');
+  await expect(page.locator('.kj-menu-heroes .kj-label')).toHaveText('من سيركض؟');
   await startRun(page);
   expect(await page.locator('.kj-controls').evaluate(el => getComputedStyle(el).direction)).toBe('ltr');
   const [slide, jump] = [await page.locator('#kjSlide').boundingBox(), await page.locator('#kjJump').boundingBox()];
