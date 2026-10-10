@@ -8,6 +8,7 @@
 // the same distance to the next obstacle as a wide screen.
 import { PLAYER, pose } from './engine.js';
 
+const LAYERS = [['far', .2], ['mid', .5]];   // background layers and how fast they move
 const DESIGN_H = 540, MIN_VIEW = 760, LOOK = 0.25;   // the child stands at 25% from the left
 const VISUAL_H = 112;                                // the drawn child, standing (hair included), in world units
 const POOL = 96;
@@ -46,10 +47,10 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
   const TILE = 1600;   // world units per background tile
   let seedN = 1; const rnd = () => (seedN = (seedN * 16807) % 2147483647) / 2147483647;
   function paintTiles() {
-    const k = scale * dpr, tw = Math.ceil(TILE * k * .5), th = Math.ceil(H * dpr);   // the far layers are soft: half resolution is plenty
+    const k = scale * dpr, tw = Math.ceil(TILE * k * .5), th = Math.ceil(H * dpr * .75);   // half resolution, and half a screen of extra sky on top   // the far layers are soft: half resolution is plenty
     for (const name of ['far', 'mid']) {
       const t = tiles[name]; t.width = tw; t.height = th; const c = t.getContext('2d'); c.clearRect(0, 0, tw, th);
-      c.setTransform(tw / TILE, 0, 0, th / (H / scale), 0, 0);   // world units across, view height down
+      c.setTransform(tw / TILE, 0, 0, th / (1.5 * H / scale), 0, th / 3);   // world units across, 1.5 view heights down, the view starting a third in
       seedN = name === 'far' ? 11 : 29;
       (BG[world.id] || BG.underwater)[name](c, TILE, H / scale, groundY / scale);
     }
@@ -98,7 +99,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     space: {
       far(c, w, h, gy) {
         // stars, a ringed planet and a moon
-        for (let i = 0; i < 220; i++) { const x = rnd() * w, y = rnd() * (gy + 200), r = rnd() < .9 ? .8 + rnd() * 1.2 : 2 + rnd() * 1.5; c.fillStyle = `rgba(255,255,255,${.35 + rnd() * .6})`; c.beginPath(); c.arc(x, y, r, 0, 7); c.fill() }
+        for (let i = 0; i < 300; i++) { const x = rnd() * w, y = rnd() * (gy + 200 + h * .5) - h * .5, r = rnd() < .9 ? .8 + rnd() * 1.2 : 2 + rnd() * 1.5; c.fillStyle = `rgba(255,255,255,${.35 + rnd() * .6})`; c.beginPath(); c.arc(x, y, r, 0, 7); c.fill() }
         const neb = c.createRadialGradient(w * .3, gy - 300, 10, w * .3, gy - 300, 360); neb.addColorStop(0, 'rgba(200,90,255,.35)'); neb.addColorStop(1, 'rgba(200,90,255,0)'); c.fillStyle = neb; c.fillRect(0, 0, w, h);
         const px = w * .7, py = gy - 330, pr = 110, pg = c.createLinearGradient(px - pr, py - pr, px + pr, py + pr); pg.addColorStop(0, '#9b7bff'); pg.addColorStop(1, '#3b2a8f');
         c.fillStyle = pg; c.beginPath(); c.arc(px, py, pr, 0, 7); c.fill();
@@ -134,7 +135,8 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     const target = p.ground ? p.y : Math.min(cam.ref + 140, Math.max(p.y, Math.min(cam.ref, p.y + 260)));
     cam.ref += (target - cam.ref) * Math.min(1, a * (p.ground ? 6 : 3));
     cam.x = px - viewW * LOOK;
-    cam.y = cam.ref - groundY / scale;
+    // and never let the child rise under the HUD: the view lifts with a high jump
+    cam.y = Math.min(cam.ref - groundY / scale, py - VISUAL_H - 78 / scale);
   }
 
   const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), r = n >> 16, gg = (n >> 8) & 255, b = n & 255, m = v => Math.max(0, Math.min(255, Math.round(f > 0 ? v + (255 - v) * f : v * (1 + f)))); return `rgb(${m(r)},${m(gg)},${m(b)})` };
@@ -295,7 +297,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     g.translate(ax, ay); g.scale(sxk, syk);
     g.drawImage(img, sx, sy, cw, ch, -S.anchor[0] * k, -S.anchor[1] * k, cw * k, ch * k);
     g.restore();
-    if (hurtRing > 0) { g.strokeStyle = `rgba(255,255,255,${hurtRing * 1.6})`; g.lineWidth = 4; g.beginPath(); g.arc(ax, ay - 50, 70 - hurtRing * 60, 0, 7); g.stroke() }
+    if (hurtRing > 0) { g.globalAlpha = Math.min(1, hurtRing * 1.6); g.strokeStyle = '#ffffff'; g.lineWidth = 4; g.beginPath(); g.arc(ax, ay - 50, 70 - hurtRing * 60, 0, 7); g.stroke(); g.globalAlpha = 1 }
   }
 
   function drawParts(dt) {
@@ -304,9 +306,9 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
       p.life -= dt; if (p.life <= 0) { p.on = false; continue }
       const a = p.life / p.max;
       p.x += p.vx * dt; p.y += p.vy * dt;
-      if (p.kind === DUST) { p.vy -= 30 * dt; g.fillStyle = `rgba(255,255,255,${a * .7})`; g.beginPath(); g.arc(p.x, p.y, p.size * (1.6 - a * .6), 0, 7); g.fill() }
-      else if (p.kind === RING) { g.strokeStyle = `rgba(70,170,255,${a * .9})`; g.lineWidth = 5 * a + 1; g.beginPath(); g.arc(p.x, p.y, p.size + (1 - a) * 70, 0, 7); g.stroke(); g.strokeStyle = `rgba(190,235,255,${a * .7})`; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, p.size + (1 - a) * 70 - 7, 0, 7); g.stroke() }
-      else if (p.kind === SPARK) { p.vy += 240 * dt; g.fillStyle = `rgba(255,236,140,${a})`; g.beginPath(); g.arc(p.x, p.y, p.size * a + 1, 0, 7); g.fill() }
+      if (p.kind === DUST) { p.vy -= 30 * dt; g.globalAlpha = a * .7; g.fillStyle = '#ffffff'; g.beginPath(); g.arc(p.x, p.y, p.size * (1.6 - a * .6), 0, 7); g.fill(); g.globalAlpha = 1 }
+      else if (p.kind === RING) { g.globalAlpha = a * .9; g.strokeStyle = '#46aaff'; g.lineWidth = 5 * a + 1; g.beginPath(); g.arc(p.x, p.y, p.size + (1 - a) * 70, 0, 7); g.stroke(); g.globalAlpha = a * .7; g.strokeStyle = '#beebff'; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, Math.max(1, p.size + (1 - a) * 70 - 7), 0, 7); g.stroke(); g.globalAlpha = 1 }
+      else if (p.kind === SPARK) { p.vy += 240 * dt; g.globalAlpha = a; g.fillStyle = '#ffec8c'; g.beginPath(); g.arc(p.x, p.y, p.size * a + 1, 0, 7); g.fill(); g.globalAlpha = 1 }
       else if (p.kind === MINISTAR) { p.vy += 160 * dt; p.rot += dt * 5; g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.globalAlpha = a; g.fillStyle = p.color; drawStarShape(g, 0, 0, p.size, p.size * .45); g.fill(); g.restore() }
       else if (p.kind === CONFETTI) { p.vy += 300 * dt; p.vx *= .99; p.rot += dt * 8; g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.globalAlpha = Math.min(1, a * 2); g.fillStyle = p.color; g.fillRect(-5, -3, 10, 6); g.restore() }
       else if (p.kind === POP) { g.globalAlpha = a; g.drawImage(starSprite, p.x - p.size * (2 - a), p.y - p.size * (2 - a), p.size * 2 * (2 - a), p.size * 2 * (2 - a)); g.globalAlpha = 1 }
@@ -321,8 +323,10 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
       if (ev.type === 'jump' || ev.type === 'land') for (let j = 0; j < 5 * many; j++) spawn(DUST, ev.x + (j - 2) * 8, ev.y - 4, (j - 2) * 30, -20 - j * 6, .35, 6, '');
       if (ev.type === 'land') squash = .14;
       if (ev.type === 'double') {
-        if (hero === 'mike') { spawn(RING, ev.x, ev.y, 0, 0, .45, 16, ''); if (!reducedMotion) spawn(RING, ev.x, ev.y, 0, 0, .6, 4, '') }
-        else for (let j = 0; j < 9 * many; j++) { const a = j / 9 * Math.PI * 2; spawn(MINISTAR, ev.x, ev.y, Math.cos(a) * 160, Math.sin(a) * 160, .55, 7, j % 2 ? '#ffd23f' : '#7ff5d2') }
+        // the ring and the stars travel along with the child
+        const v = s.world.speed;
+        if (hero === 'mike') { spawn(RING, ev.x, ev.y, v, 0, .45, 16, ''); if (!reducedMotion) spawn(RING, ev.x, ev.y, v, 0, .6, 4, '') }
+        else for (let j = 0; j < 9 * many; j++) { const a = j / 9 * Math.PI * 2; spawn(MINISTAR, ev.x, ev.y, v + Math.cos(a) * 170, Math.sin(a) * 170, .55, 10, j % 2 ? '#ffd23f' : '#7ff5d2') }
       }
       if (ev.type === 'star') { spawn(POP, ev.x, ev.y, 0, 0, .3, 22, ''); for (let j = 0; j < 6 * many; j++) { const a = j / 6 * Math.PI * 2; spawn(SPARK, ev.x, ev.y, Math.cos(a) * 140, Math.sin(a) * 140 - 60, .45, 3.5, '') } }
       if (ev.type === 'bounce') { padHit.x = -1; for (const b of level.bounces) if (Math.abs(b.x + b.w / 2 - ev.x) < b.w) padHit.x = b.x; padHit.t = .5 }
@@ -332,6 +336,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     }
   }
 
+  let visL = 0, visR = 0; const vis = o => o.x + (o.w || 0) > visL && o.x < visR;
   function frame(s, a, dt, interp) {
     time += dt; squash = Math.max(0, squash - dt); padHit.t = Math.max(0, padHit.t - dt); hurtRing = Math.max(0, hurtRing - dt);
     const px = interp ? interp.x : s.p.x, py = interp ? interp.y : s.p.y;
@@ -346,16 +351,16 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     }
     // the two background layers (far moves slowest)
     const k = scale * dpr;
-    for (const [name, f] of [['far', .2], ['mid', .5]]) {
+    for (const [name, f] of LAYERS) {
       const t = tiles[name], tw = TILE * k, off = -((cam.x * f * k) % tw), yoff = -(cam.y - (cam.ref - groundY / scale)) * k;
-      for (let x = off; x < canvas.width; x += tw) g.drawImage(t, x, yoff, tw, canvas.height);
+      for (let x = off; x < canvas.width; x += tw) g.drawImage(t, x, Math.min(canvas.height * .5, yoff * f) - canvas.height * .5, tw, canvas.height * 1.5);
     }
     // swimmers / drifters, drawn in screen space with their own parallax
     ambient(dt);
     // the world
     g.setTransform(k, 0, 0, k, -cam.x * k, -cam.y * k);
     const x0 = cam.x, x1 = cam.x + viewW;
-    const L = level, vis = o => o.x + (o.w || 0) > x0 - 60 && o.x < x1 + 60;
+    const L = level; visL = x0 - 60; visR = x1 + 60;
     for (const d of L.deco) if (d.kind === 'finish' && d.x > x0 - 200 && d.x < x1 + 200) drawFinish(d.x, d.y);
     for (const b of L.lows) if (vis(b)) drawLow(b);
     for (const b of L.solids) if (vis(b)) { if (b.h > 400) drawFloor(b, x0, x1); else drawBlock(b) }
@@ -365,7 +370,6 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     for (const c of L.cps) if (c.x > x0 - 40 && c.x < x1 + 40) { const lit = s.cp.x >= c.x; g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(c.x - 2, c.y - 46, 4, 46); g.fillStyle = lit ? C.accent : 'rgba(255,255,255,.6)'; g.beginPath(); g.arc(c.x, c.y - 50, 7, 0, 7); g.fill() }
     const bob = reducedMotion ? 0 : Math.sin(time * 4) * 3;
     for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; g.drawImage(starSprite, st.x - 24, st.y - 24 + bob, 48, 48) }
-    effects(s, s.events);
     drawPlayer(s, px, py);
     drawParts(dt);
   }
@@ -402,7 +406,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
   function reset() { for (const p of parts) p.on = false; cam.init = false; squash = 0; hurtRing = 0; padHit.x = -1 }
 
   return {
-    resize, frame, reset,
+    resize, frame, reset, effects: s => effects(s, s.events),
     get scale() { return scale }, get view() { return { w: viewW, h: viewH, groundY, scale } }, get camera() { return { ...cam } },
     activeParticles: () => parts.reduce((n, p) => n + (p.on ? 1 : 0), 0)
   };

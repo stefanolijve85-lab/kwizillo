@@ -50,7 +50,7 @@ test('Home: "Speel ook" is four tiles like the worlds — Talen, Rekenen, Runner
   expect(Math.abs(w.width - p.width)).toBeLessThan(2); expect(Math.abs(w.height - p.height)).toBeLessThan(2); expect(p.y).toBeGreaterThan(w.y);
   await page.locator('#homeChest').click();
   await expect(page.locator('.chest-pick h1.game-name')).toHaveText('Spellenkist');
-  expect(await page.locator('.chest-pick .math-pick-tile').evaluateAll(els => els.map(e => e.id))).toEqual(['homeMemo', 'homeFacts', 'homeFotozoom', 'homeWhoAmI']);
+  expect(await page.locator('.chest-pick .math-pick-tile').evaluateAll(els => els.map(e => e.id))).toEqual(['homeMemo', 'homeFacts', 'homeFotozoom', 'homeWhoAmI', 'homeJump']);
   await page.locator('#homeFotozoom').click();
   await page.locator('.panel-back').click();                       // back to the Spellenkist, not to Home
   await expect(page.locator('.chest-pick')).toBeVisible();

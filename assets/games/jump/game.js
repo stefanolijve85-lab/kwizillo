@@ -293,7 +293,7 @@ export function mountJump(host, opts = {}) {
         if (hintT > 0) { hintT -= dt; if (hintT <= 0) hideHint() }
         for (const h of L.hints) if (!seen[h.kind] && run.p.x >= h.x && run.p.x < h.x + 400) showHint(h.kind);
       }
-      if (run.phase !== 'run' && screen === 'play') { screen = 'ending'; setPlayUI(false) }
+      if (run.phase !== 'run' && screen === 'play') { screen = 'ending'; setPlayUI(false); hideHint(); jumpBtn.classList.remove('nudge') }
       if (screen === 'ending' && run.after > (run.endedBy === 'finish' ? 1.6 : 1.1)) finishRun();
     }
   }
@@ -302,6 +302,7 @@ export function mountJump(host, opts = {}) {
   function planPress() { const sc = Math.round(run.t / STEP); if (sc % 6) return; const a = autoPlan.get(sc / 6); if (a === 'jump') pressJump(run); else if (a === 'slide') pressSlide(run) }
   function handleEvents() {
     const e = run.events;
+    renderer?.effects(run);   // every step's events become effects (a frame holds about two steps)
     for (let i = 0; i < e.n; i++) {
       const t = e.list[i].type;
       if (t === 'jump' || t === 'double' || t === 'land' || t === 'star' || t === 'hit' || t === 'bounce' || t === 'slide') sfx(t);
@@ -349,7 +350,7 @@ export function mountJump(host, opts = {}) {
         if (at && sc % 6 === 0) { const a = at.get(sc / 6); if (a === 'jump') pressJump(run); else if (a === 'slide') pressSlide(run) }
         prev.x = run.p.x; prev.y = run.p.y; step(run); handleEvents();
       }
-      if (run.phase !== 'run' && screen === 'play') { screen = 'ending'; setPlayUI(false) }
+      if (run.phase !== 'run' && screen === 'play') { screen = 'ending'; setPlayUI(false); hideHint(); jumpBtn.classList.remove('nudge') }
       return { phase: run.phase, t: run.t, x: run.p.x };
     },
     autoplay(plan) { autoPlan = plan ? new Map(plan.map(a => [a.k, a.a])) : null },
