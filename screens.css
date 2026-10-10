@@ -2088,3 +2088,39 @@ html[lang="ru"] .quiz-brand>span,html[lang="ru"] .panel-head h1.game-name,html[l
 .chest-pick .math-pick-tile[data-art="runnerTile"] .home-game-art{object-position:center 40%}
 .chest-pick .math-pick-tile[data-art="jump"] .home-game-art{object-position:center 45%}
 .home-play-tile#homeJungle .home-world-art{object-position:center 45%;filter:none}
+/* Spreken, hear yourself back (2026-10-10): after recording, "listen again" and the two choices take the microphone's place. */
+.speak-compare{display:grid;gap:12px;width:100%}
+.speak-compare[hidden],.speak-mic[hidden],.speak-tip[hidden]{display:none}
+.speak-replay{justify-self:center;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px;border:2px solid #cfe4f8;border-radius:999px;background:#fff;color:#2e5f9c;font:inherit;font-weight:1000;font-size:16px;box-shadow:0 4px 0 #cfe4f8;cursor:pointer}
+.speak-after2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.speak-after2 .talen-start{min-height:58px;font-size:clamp(15px,4.2vw,19px)}
+.speak-status.play{color:#2e5f9c}
+/* Rekenen (sommen, Meten & Wegen): the answers no longer stretch over the whole card, so the
+   feedback balloon sits right under them instead of at the very bottom where the iPhone's home
+   bar cut it off (Stefan, 2026-10-10: "alles moet omhoog"). The buttons stay at the bottom. */
+.math-card .math-answers,.measure-card .math-answers{flex:0 0 auto;align-content:start}
+.math-card .math-answers .answer{min-height:clamp(84px,13vh,128px)}
+.math-card .quiz-actions{margin-top:auto}
+.measure-card .math-feedback,.math-card .math-feedback{margin-top:6px}
+.measure-card .measure-stage{flex:1 1 auto;max-height:46vh}
+.measure-card .measure-stage .m-svg{max-height:calc(46vh - 20px)}
+.measure-card[data-kind="length"] .measure-stage,.measure-card[data-kind="compare"] .measure-stage{flex:1 1 auto}
+/* Collectie, Mascottes: per mascot a little higher (above the name band) or smaller (Stefan, 2026-10-10). */
+.mascot-card .mascot-fill{transform-origin:50% 100%;transform:translateY(var(--my,0)) scale(var(--ms,1))}
+.mascot-card:active .mascot-fill{transform:translateY(var(--my,0)) scale(var(--ms,1))}
+.mascot-card:is([data-mascot="ember"],[data-mascot="olli"],[data-mascot="leo"],[data-mascot="sparky"],[data-mascot="pip"],[data-mascot="kiko"]) .mascot-fill{--my:-16px}
+.mascot-card:is([data-mascot="ravi"],[data-mascot="flora"],[data-mascot="draco"]) .mascot-fill{--my:-14px;--ms:.84}
+.mascot-card[data-mascot="flora"] .mascot-fill{--my:-8px}
+.mascot-card[data-mascot="finn"] .mascot-fill{--ms:.84}
+/* Rekenen: the picture a little lower in its tile, so the numbers on the island are not cut off on a phone (Stefan, 2026-10-10) */
+#homeMath .home-world-art{object-position:50% 0%}
+.math-pick [data-pick="sums"] .home-game-art{object-position:50% 18%}
+/* Bottom bar: Home in the middle, just a little lifted (Stefan, 2026-10-10) */
+.native-bottom-nav button[data-nav="home"]{position:relative;transform:translateY(-3px)}
+.native-bottom-nav button[data-nav="home"] .ki{width:28px;height:28px}
+.native-bottom-nav button[data-nav="home"]:not(.active){color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));box-shadow:inset 0 0 0 1.5px rgba(255,214,90,.65),0 4px 10px rgba(0,10,50,.3)}
+.native-bottom-nav button[data-nav="home"].active{box-shadow:0 4px 0 #d98b12,0 8px 18px rgba(255,190,40,.35)}
+/* Spellenkist tile on Home: the four islands zoomed out (whole island in its quarter) and set a little higher, above the name (Stefan, 2026-10-10) */
+.home-chest-mosaic{background:linear-gradient(180deg,#7cc4f6,#bfe5ff)}
+.home-chest-mosaic img{object-fit:contain;object-position:center 20%;transform:scale(1.12) translateY(-6%);transform-origin:50% 0}
+.home-chest-mosaic{overflow:hidden}

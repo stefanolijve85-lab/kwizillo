@@ -107,7 +107,7 @@ test('the tour visits the Mega Quiz, worlds, games, HUD and nav with a spotlight
   // "Straks": during the tour a tap does nothing, so no line tells the child to tap now.
   await expect(bubble).toContainText('Straks tik je');
   await expect(tour.locator('.milo-host')).not.toHaveClass(/hopping/);
-  await expect(bubble).toContainText('de Runner, Talen', { timeout: 25000 });
+  await expect(bubble).toContainText('Jack en Jose', { timeout: 25000 });   // the games line names the runners and the chest (2026-10-10)
   const games = await spot.boundingBox(), play = await page.locator('.home-play').boundingBox();
   expect(Math.abs(games.y - play.y)).toBeLessThan(12);   // the four "Speel ook" tiles, at once
   expect(games.y + games.height).toBeGreaterThan(play.y + play.height - 8);

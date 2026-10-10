@@ -142,7 +142,7 @@ test.describe('Blokkenpret', () => {
     await expect(page.locator('.bk-hint-cell')).toHaveCount(0);
     await piecesIntact(page);
     await solveBy(page, mouseDrag, lv.solution.slice(1));
-    await expect(page.locator('.bk-mega-text img.bk-emblem')).toHaveAttribute('alt', 'MEGA ZET!');   // Dutch: the drawn emblem
+    await expect(page.locator('.bk-mega-text .bk-emblem b')).toHaveText('MEGA ZET!');   // one picture, the words live (every language)
     await expect(page.locator('.bk-result-card')).toContainText('Level gehaald!', { timeout: 4000 });
     await expect(page.locator('#bkNext')).toBeVisible();
     await expect(page.locator('#bkAgain')).toContainText('Opnieuw spelen');
@@ -581,6 +581,6 @@ test.describe('Blokkenpret', () => {
     await expect(page.locator('.bk-count')).toContainText('وضعت');
     const lv = await level(page, 1);
     await solveBy(page, mouseDrag);
-    await expect(page.locator('.bk-result-card')).toContainText('MEGA ZET!', { timeout: 10000 });
+    await expect(page.locator('.bk-result-card')).toContainText('حركة رائعة!', { timeout: 10000 });
   });
 });

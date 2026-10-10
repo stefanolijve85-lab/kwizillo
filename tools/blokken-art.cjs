@@ -26,8 +26,8 @@ jobs.push({ src: V2('Voltooid level met witte vink-7.png'), out: 'medal-done.web
 jobs.push({ src: V2('Vergrendeld niveau met ivoorkleurig hangslot-8.png'), out: 'medal-locked.webp', region: SQ, size: [200, 200], clean: true });
 jobs.push({ src: V2('Vrolijk BLOKKENPRET-puzzelspel-logo-1.png'), out: 'logo-nl.webp', region: [0, 0, 2048, 768], w: 760, logo: true });
 jobs.push({ src: V2('Kleurrijk blokkenpuzzelembleem-2.png'), out: 'emblem.webp', region: SQ, w: 320, clean: true });
-jobs.push({ src: 'mega-zet-emblem.png', out: 'mega-nl.webp', region: [0, 0, 1254, 1254], w: 640, clean: true });
-jobs.push({ src: 'mega-zet-emblem.png', out: 'mega-star.webp', region: [0, 90, 1254, 632], w: 640, clean: true, fadeBottom: 40 });
+// MEGA ZET!: since 2026-10-10 one picture without lettering (assets/games/blokken/mega.jpg, from
+// 'Glinsterende puzzelblokken met ster.png', cropped inside its rounded frame); the words are live text.
 jobs.push({ src: 'bonus-boost-banner.png', out: 'boost-banner.webp', region: [0, 0, 2135, 737], w: 720, clean: true });
 (async () => {
   const browser = await chromium.launch(); const page = await browser.newPage();

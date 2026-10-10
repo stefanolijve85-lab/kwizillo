@@ -84,7 +84,7 @@ test('the runner speaks the app language (English), and leaving from the start p
   await page.locator('#homeJungle').click(); await page.locator('#homeRunnerJungle').click();   // the Runner tile opens the choice of runners
   await expect(inRunner(page, '[data-act=start]')).toHaveText('Go adventure →', { timeout: 10000 });
   await expect(inRunner(page, '.levels button span').first()).toHaveText('Jungle');
-  await expect(inRunner(page, '[data-act=hero-boy] span')).toHaveText('Boy');
+  await expect(inRunner(page, '[data-act=hero-boy] span')).toHaveText('Jack');   // the heroes are Jack and Jose (2026-10-10)
   await expect(inRunner(page, '.pick-label').first()).toHaveText('PICK YOUR LEVEL');
   await inRunner(page, '[data-act=exit]').click();
   await expect(page.locator('.runner-pick')).toBeVisible();   // back to the choice of runners (2026-10-10)
@@ -96,8 +96,8 @@ test('every jungle string exists in nl, en and pt (no silent Dutch fallback)', a
   await boot(page);
   const result = await page.evaluate(() => {
     const K = window.KWIZILLO_M1; const out = [];
-    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle', 'powerSpeed', 'popSpeed', 'labelSpeed', 'labelHit']);
-    const keys = Object.keys(K.jungleText()).filter(k => k !== 'savedNoHost' && k !== 'loadError').map(k => 'jungle.' + k).concat(['jungle.title', 'jungle.tileSub', 'jungle.loadError', 'jungle.loadErrorBody']);
+    const SAME = new Set(['brand', 'eyebrow', 'title', 'titleA', 'titleB', 'powerDouble', 'powerMagnet', 'labelCombo', 'finish', 'jump', 'levelJungle', 'powerSpeed', 'popSpeed', 'labelSpeed', 'labelHit', 'heroBoy', 'heroGirl', 'name']);   // names: Jack & Jose in every language
+    const keys = Object.keys(K.jungleText()).filter(k => k !== 'savedNoHost' && k !== 'loadError').map(k => 'jungle.' + k).concat(['jungle.title', 'jungle.name', 'jungle.tileSub', 'jungle.loadError', 'jungle.loadErrorBody']);
     const nl = {}; K.state.language = 'nl'; for (const k of keys) { nl[k] = K.t(k); if (nl[k] === k) out.push('nl:' + k); }
     for (const lang of ['en', 'pt']) { K.state.language = lang; for (const k of keys) { if (SAME.has(k.slice(7))) continue; if (K.t(k) === nl[k]) out.push(lang + ':' + k); } }
     K.state.language = 'nl';

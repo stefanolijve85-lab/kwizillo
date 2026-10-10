@@ -82,8 +82,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Kwizillo uses the microphone only while your child practises speaking in Talen. Nothing is recorded, stored or sent.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Kwizillo checks on this device whether your child said the word right while practising speaking in Talen. Nothing is recorded, stored or sent.</string>
+	<string>Kwizillo uses the microphone only while your child practises speaking in Talen: the child hears its own voice back right away. Nothing is stored or sent.</string>
 </dict>
 </plist>

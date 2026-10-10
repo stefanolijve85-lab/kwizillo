@@ -10,13 +10,17 @@ import { PLAYER, pose } from './engine.js';
 
 const LAYERS = [['far', .2], ['mid', .5]];   // background layers and how fast they move
 const DESIGN_H = 540, MIN_VIEW = 760, LOOK = 0.25;   // the child stands at 25% from the left
+// portrait (a phone held upright): a closer view so the children and the world are bigger
+// (Stefan, 2026-10-10: "too small"); the child stands further left so about 1.2 s of the
+// track still shows ahead (about 400 world units instead of 570)
+const MIN_VIEW_TALL = 470, LOOK_TALL = 0.14;
 const VISUAL_H = 112;                                // the drawn child, standing (hair included), in world units
 const POOL = 96;
 
 export function createRenderer(canvas, { level, world, sprites, hero, art = null, reducedMotion = false }) {
   const g = canvas.getContext('2d', { alpha: false });
   const C = world.colors;
-  let W = 1, H = 1, dpr = 1, scale = 1, viewW = MIN_VIEW, viewH = DESIGN_H, groundY = 400;
+  let W = 1, H = 1, dpr = 1, scale = 1, look = LOOK, viewW = MIN_VIEW, viewH = DESIGN_H, groundY = 400;
   const cam = { x: 0, y: 0, ref: 0, init: false };
   let time = 0;
   // effects: one fixed pool, nothing allocated while playing
@@ -121,12 +125,13 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
   function resize(cssW, cssH, ratio, reserve = 110) {
     W = Math.max(1, cssW); H = Math.max(1, cssH); dpr = Math.min(2, ratio || 1);
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-    scale = Math.min(H / DESIGN_H, W / MIN_VIEW);
+    scale = Math.min(H / DESIGN_H, W / (H > W ? MIN_VIEW_TALL : MIN_VIEW));
+    look = H > W ? LOOK_TALL : LOOK;
     viewW = W / scale; viewH = H / scale;
     // the floor line: low on the screen, but on a tall screen not so low that the play is squeezed to the top
     // the floor line: on a tall (portrait) screen just above the buttons, so the ground under
     // the feet is a thin band and the rest of the screen shows air and scenery; on a wide
-    // screen as before. Only the framing changes: the look-ahead in world units is the same.
+    // screen as before.
     groundY = H > W ? H - Math.max(reserve, H * .12) : Math.min(H - Math.max(96, H * .18), 90 + 700 * scale);
     pic.bg = (H > W && pic.bgTall) ? pic.bgTall : pic.bgWide;
     sky = g.createLinearGradient(0, 0, 0, H * dpr); sky.addColorStop(0, C.skyTop); sky.addColorStop(1, C.skyBottom);
@@ -139,7 +144,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     // follow the floor the child stands on; in the air only when climbing high or falling far
     const target = p.ground ? p.y : Math.min(cam.ref + 140, Math.max(p.y, Math.min(cam.ref, p.y + 260)));
     cam.ref += (target - cam.ref) * Math.min(1, a * (p.ground ? 6 : 3));
-    cam.x = px - viewW * LOOK;
+    cam.x = px - viewW * look;
     // and never let the child rise under the HUD: the view lifts with a high jump
     cam.y = Math.min(cam.ref - groundY / scale, py - VISUAL_H - 78 / scale);
   }

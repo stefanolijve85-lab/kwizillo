@@ -168,7 +168,8 @@
   };
 
   function bottomNav(active=''){
-    const defs=[['home',K.icon('home'),'nav.home'],['achievements',K.icon('trophy'),'nav.achievements'],['collection',K.icon('cards'),'nav.collection'],['stats',K.icon('stats'),'nav.stats'],['parent',K.icon('gear'),'nav.more']];
+    // Home in the middle, a little lifted (Stefan, 2026-10-10)
+    const defs=[['achievements',K.icon('trophy'),'nav.achievements'],['collection',K.icon('cards'),'nav.collection'],['home',K.icon('home'),'nav.home'],['stats',K.icon('stats'),'nav.stats'],['parent',K.icon('gear'),'nav.more']];
     return `<nav class="native-bottom-nav" aria-label="${esc(t('nav.aria'))}">${defs.map(([id,icon,key])=>`<button data-nav="${id}" class="${active===id?'active':''}">${icon}<small>${esc(t(key))}</small></button>`).join('')}</nav>`;
   }
   function bindNav(f){
@@ -310,7 +311,7 @@
   };
   // The Runner tile (2026-10-10): the two runners, the Kwizillo Runner and Mike & Mia: Jump & Slide.
   const RUNNERS=[
-    {id:'homeRunnerJungle',art:'runnerTile',title:'jungle.title',open:()=>K.startJungle(),badge:()=>Number(K.progress().games?.jungle?.best||0)},
+    {id:'homeRunnerJungle',art:'runnerTile',title:'jungle.name',open:()=>K.startJungle(),badge:()=>Number(K.progress().games?.jungle?.best||0)},
     {id:'homeJump',art:'jump',title:'jump.title',open:()=>K.startJump(),badge:()=>Math.max(0,...Object.values(K.progress().games?.jump?.best||{}).map(Number).filter(Number.isFinite))}
   ];
   K.showRunnerPick=()=>{
@@ -602,7 +603,7 @@
           <span class="kcard-tint"></span>
           <span class="kcard-top"><b>${esc(t('card.'+c.id))}</b><i>★★★</i></span>
           <span class="kcard-art"><img src="${art}" alt="" loading="lazy" decoding="async"></span>
-          <span class="kcard-type">🏃 ${esc(t('jungle.title'))} · ${esc(level)}</span>
+          <span class="kcard-type">🏃 ${esc(t('jungle.name'))} · ${esc(level)}</span>
           <span class="kcard-text">${esc(t('jungle.cardSub'))}</span>
           <span class="kcard-foot"><span>${esc(t('jungle.cardEyebrow'))}</span><span>${esc(t('collection.discovered'))}</span></span>
         </span>
@@ -760,7 +761,7 @@
       ${(r=>game('🌍',t('mega.title'),t('mega.collectionLine',{played:Number(r.played||0),best:Number(r.best||0),total:Number(r.total||K.MEGA_SIZE||80)}),r.best?`${r.best}/${r.total||K.MEGA_SIZE||80}`:''))(megaRun())}
       ${game('🧠',t('memo.title'),t('stats.memoLine',{played:Number(G.memo?.played||0),won:Number(G.memo?.won||0)}),memoBest.length?t('stats.memoBest',{n:Math.min(...memoBest)}):'')}
       ${game('🔢',t('math.title'),t('stats.mathLine',{played:Number(G.math?.played||0),won:Number(G.math?.won||0)}),mathBest.length?`${Math.max(...mathBest)}/10`:'')}
-      ${game('🏃',t('jungle.title'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}
+      ${game('🏃',t('jungle.name'),t('stats.runnerLine',{played:Number(G.jungle?.played||0),coins:Number(G.jungle?.coins||0)}),G.jungle?.best?`${G.jungle.best} 🪙`:'')}
       ${game('❓',t('whoami.title'),t('stats.playedLine',{played:Number(G.whoami?.played||0)}),G.whoami?.best?`${G.whoami.best} ⭐`:'')}
       ${game('🔍',t('fotozoom.title'),t('stats.playedLine',{played:Number(G.fotozoom?.played||0)}),G.fotozoom?.best?`${G.fotozoom.best} ⭐`:'')}
       ${(T=>T?game('🗣️',t('talen.title'),t('stats.talenLine',{words:T.words.length,lessons:T.lessons}),T.stamps.done?`★ ${T.stamps.done}/${T.stamps.total}`:''):'')(K.talenSummary?.())}

@@ -344,3 +344,8 @@ html[data-shape="wide"] .blokken-root .bk-coach{left:auto;right:18px;top:18px;wi
 /* tall frame: "undo" shows only its icon (the name stays for screen readers), so the three actions fit one row */
 html:not([data-shape="wide"]) .blokken-root #bkUndo{padding-inline:0}
 html:not([data-shape="wide"]) .blokken-root #bkUndo span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* MEGA ZET!: the picture card with the words over its lower part, in every language */
+.blokken-root .bk-emblem.live.pic{position:relative;display:block}
+.blokken-root .bk-emblem.live.pic img{width:100%;border-radius:22px;border:4px solid #ffe27a;box-shadow:0 0 24px rgba(255,200,40,.75),0 8px 18px rgba(30,0,80,.45)}
+.blokken-root .bk-emblem.live.pic b{position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);margin:0}
+html[lang="ru"] .blokken-root .bk-emblem.live b,html[lang="ar"] .blokken-root .bk-emblem.live b{font-family:system-ui,-apple-system,sans-serif;font-weight:900}

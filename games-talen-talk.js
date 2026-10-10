@@ -174,101 +174,103 @@
     f.querySelector('#passBtn').onclick=()=>{K.stopSpeech();K.sfx('tap');back()};
   }
 
-  /* ---------------- the microphone: voice activity only, nothing kept ---------------- */
-  // A small abstraction so a real on-device recogniser can take its place later
-  // (start() would then also return what was understood). Cloud speech-to-text and
-  // the Web Speech API are not used: on several platforms they send the audio away.
+  /* ---------------- the microphone: say it, hear yourself back ---------------- */
+  // Spreken (Stefan, 2026-10-10, after trying recognition on the iPad: too many questions,
+  // not reliable enough): no checking at all. The child hears the guide, says it, and then
+  // hears the guide and itself one after the other, and decides itself whether it sounded
+  // the same. The voice is kept only in memory (raw samples in this function), played once
+  // or twice, and dropped when the next word comes, the screen changes or the app goes to
+  // the background. Nothing is written to storage or sent anywhere; no recogniser, so only
+  // the microphone permission is asked.
   const speechPractice=(()=>{
-    let run=null;
+    let run=null,take=null,player=null;
     const AC=()=>window.AudioContext||window.webkitAudioContext;
     const cleanup=()=>{
       if(!run)return;
       clearInterval(run.timer);
+      try{run.node?.disconnect();run.src?.disconnect()}catch(e){}
       try{run.stream?.getTracks().forEach(tr=>tr.stop())}catch(e){}
       try{run.ctx?.close()}catch(e){}
       const r=run;run=null;return r;
     };
+    const stopPlay=()=>{try{player?.src?.stop()}catch(e){}try{player?.ctx?.close()}catch(e){}player=null};
+    // The take: the chunks from the first speech (with a little lead-in) to the end of it.
+    const finish=r=>{
+      const sr=r.ctx.sampleRate,lead=Math.round(.15*sr),tail=Math.round(.25*sr);
+      let from=Math.max(0,r.firstVoice-lead),to=Math.min(r.len,(r.lastVoice||r.len)+tail);
+      if(!r.voiced||to<=from){take=null;return {heard:false,voicedMs:0}}
+      const out=new Float32Array(to-from);let o=0,pos=0;
+      for(const c of r.chunks){const s0=Math.max(from-pos,0),s1=Math.min(to-pos,c.length);if(s1>s0){out.set(c.subarray(s0,s1),o);o+=s1-s0}pos+=c.length}
+      // even out the loudness a little so a soft voice is heard as well as the guide
+      let peak=0;for(let i=0;i<out.length;i++)peak=Math.max(peak,Math.abs(out[i]));
+      const gain=peak>0?Math.min(4,.85/peak):1;if(gain!==1)for(let i=0;i<out.length;i++)out[i]*=gain;
+      take={samples:out,rate:sr};
+      return {heard:r.voiced>=300,voicedMs:r.voiced};
+    };
     return {
       isSupported:()=>!!(navigator.mediaDevices?.getUserMedia&&AC()),
-      // Asks once (the system dialog); the stream is closed again at once.
       async requestPermission(){
         const s=await navigator.mediaDevices.getUserMedia({audio:true});
         s.getTracks().forEach(tr=>tr.stop());
         return true;
       },
-      // Listens until something was said and a short silence followed, or after maxMs.
+      // Records until something was said and a short silence followed, or after maxMs.
       // Resolves {heard, voicedMs}; null when cancelled. onLevel(0..1) drives the waveform.
       start({onLevel=()=>{},maxMs=6000}={}){
-        cleanup();
+        cleanup();stopPlay();take=null;
         return new Promise(async(resolve,reject)=>{
           let stream;
           try{stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}})}catch(e){reject(e);return}
-          const ctx=new (AC())(),src=ctx.createMediaStreamSource(stream),an=ctx.createAnalyser();
-          an.fftSize=1024;src.connect(an);
-          const buf=new Float32Array(an.fftSize);
-          // The room's own level is the quietest moment heard so far (rising slowly, so a
-          // fan or traffic is followed); speech is well above it. A child who starts
-          // talking at once is still heard: no fixed "measure the silence first".
-          let floor=Infinity,voiced=0,silence=0,elapsed=0;
-          const STEP=50;
-          run={stream,ctx,resolve,timer:setInterval(()=>{
-            an.getFloatTimeDomainData(buf);
-            let sum=0;for(let i=0;i<buf.length;i++)sum+=buf[i]*buf[i];
-            const rms=Math.sqrt(sum/buf.length);elapsed+=STEP;
-            floor=Math.min(floor===Infinity?rms:floor*1.01+1e-5,rms);
-            const thr=Math.max(.015,floor*3);
+          const ctx=new (AC())(),src=ctx.createMediaStreamSource(stream);
+          // the samples, in memory only (a ScriptProcessor works in every WebView, also iOS 14)
+          const node=ctx.createScriptProcessor(2048,1,1),sink=ctx.createGain();sink.gain.value=0;
+          const r={stream,ctx,src,node,resolve,chunks:[],len:0,voiced:0,silence:0,elapsed:0,floor:Infinity,firstVoice:-1,lastVoice:0};
+          node.onaudioprocess=e=>{
+            if(run!==r)return;
+            const d=e.inputBuffer.getChannelData(0),c=new Float32Array(d);
+            let sum=0;for(let i=0;i<c.length;i++)sum+=c[i]*c[i];
+            const rms=Math.sqrt(sum/c.length),ms=c.length/ctx.sampleRate*1000;
+            r.elapsed+=ms;
+            r.floor=Math.min(r.floor===Infinity?rms:r.floor*1.01+1e-5,rms);
+            const thr=Math.max(.015,r.floor*3);
             onLevel(Math.min(1,rms/(thr*4)));
-            if(rms>thr){voiced+=STEP;silence=0}else if(voiced)silence+=STEP;
-            if(run)run.voiced=voiced;
-            if((voiced>=300&&silence>=700)||elapsed>=maxMs){const r=cleanup();r?.resolve({heard:voiced>=300,voicedMs:voiced})}
-          },STEP)};
+            if(rms>thr){if(r.firstVoice<0)r.firstVoice=r.len;r.voiced+=ms;r.silence=0;r.lastVoice=r.len+c.length}else if(r.voiced)r.silence+=ms;
+            r.chunks.push(c);r.len+=c.length;
+            if((r.voiced>=300&&r.silence>=700)||r.elapsed>=maxMs){const x=cleanup();x?.resolve(finish(x))}
+          };
+          src.connect(node);node.connect(sink);sink.connect(ctx.destination);
+          run=r;
+          if(ctx.state==='suspended')ctx.resume().catch(()=>{});
+          r.timer=setInterval(()=>{if(run===r&&(r.elapsed>=maxMs+500)){const x=cleanup();x?.resolve(finish(x))}},250);
         });
       },
-      // A second tap ends listening early: what was said so far counts.
-      stop(){const r=cleanup();r?.resolve({heard:(r.voiced||0)>=300,voicedMs:r.voiced||0})},
-      cancel(){const r=cleanup();r?.resolve(null)},
-      active:()=>!!run
+      // A second tap ends recording early: what was said so far is the take.
+      stop(){const r=cleanup();r?.resolve(finish(r))},
+      cancel(){const r=cleanup();r?.resolve(null);stopPlay();take=null},
+      active:()=>!!run,
+      hasTake:()=>!!take,
+      // Plays the child's own take once; resolves when it is over.
+      playTake(){
+        stopPlay();if(!take)return Promise.resolve(false);
+        return new Promise(res=>{
+          try{
+            const ctx=new (AC())(),buf=ctx.createBuffer(1,take.samples.length,take.rate);
+            buf.copyToChannel?buf.copyToChannel(take.samples,0):buf.getChannelData(0).set(take.samples);
+            const s=ctx.createBufferSource();s.buffer=buf;s.connect(ctx.destination);
+            player={ctx,src:s};s.onended=()=>{if(player?.src===s){try{ctx.close()}catch(e){}player=null}res(true)};
+            if(ctx.state==='suspended')ctx.resume().catch(()=>{});
+            s.start();
+          }catch(e){res(false)}
+        });
+      },
+      drop(){stopPlay();take=null}
     };
   })();
   K.speechPractice=speechPractice;
-
-  // Real checking, on the device only (2026-10-10, Stefan: "it says good whatever you say"):
-  // the iOS and Android apps carry a recogniser that never sends the voice anywhere
-  // (KwizilloSpeechPlugin.swift / .java: requiresOnDeviceRecognition, createOnDeviceSpeechRecognizer).
-  // Where it is missing (web, Chromebook, older Android, a language without an on-device
-  // model) Spreken stays "say it out loud" and says so honestly, never "right".
-  const nativeSpeech=()=>(window.Capacitor?.isNativePlatform?.()&&window.Capacitor.Plugins?.KwizilloSpeech)||K.speechNativeForTest||null;
-  const recognizer={
-    async available(lang){const p=nativeSpeech();if(!p)return false;try{return !!(await p.available({lang})).available}catch(e){return false}},
-    async requestPermission(){const p=nativeSpeech();const r=await p.requestPermission();if(!r?.granted)throw new Error('denied');return true},
-    // {heard, transcript} — or null when cancelled
-    async start({lang,onLevel=()=>{},maxMs=6000}){
-      const p=nativeSpeech();let h=null;
-      try{h=await p.addListener?.('level',e=>onLevel(Number(e?.value)||0))}catch(e){}
-      try{const r=await p.start({lang,maxMs});return r?.cancelled?null:{heard:!!r?.heard,transcript:String(r?.transcript||'')}}
-      finally{try{h?.remove?.()}catch(e){}}
-    },
-    stop(){nativeSpeech()?.stop?.().catch?.(()=>{})},
-    cancel(){nativeSpeech()?.cancel?.().catch?.(()=>{})}
-  };
-  // Is what the child said the word? Spelling, accents, capitals and punctuation do not
-  // count; a near miss in sound does (a recogniser writes "ola" for "hola").
-  const norm=s=>String(s||'').toLowerCase().replace(/ё/g,'е').normalize('NFKD').replace(/[\u0300-\u036f\u064b-\u065f\u0670]/g,'')
-    .replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
-  const lev=(a,b)=>{const d=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const q=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=q}}return d[b.length]};
-  const sim=(a,b)=>{const m=Math.max(a.length,b.length);return m?1-lev(a,b)/m:1};
-  K.talenSaidRight=(heard,want)=>{
-    const h=norm(heard),w=norm(want);if(!h||!w)return false;
-    if(h===w||(' '+h+' ').includes(' '+w+' '))return true;
-    if(sim(h.replace(/ /g,''),w.replace(/ /g,''))>=.72)return true;
-    // a longer sentence: most of its words heard, each close enough
-    const ws=w.split(' '),hs=h.split(' ');
-    return ws.length>1&&ws.filter(x=>hs.some(y=>sim(x,y)>=.75)).length/ws.length>=.75;
-  };
-  // Leaving the screen, the app or the voice: the microphone goes off at once.
+  // Leaving the screen, the app or the voice: the microphone goes off and the take is gone.
   const stopSpeech=K.stopSpeech;
-  K.stopSpeech=(...a)=>{speechPractice.cancel();if(K.talenSpeak?.check&&K.talenSpeak.listening)recognizer.cancel();return stopSpeech?.(...a)};
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){speechPractice.cancel();if(K.talenSpeak?.listening)recognizer.cancel()}});
+  K.stopSpeech=(...a)=>{speechPractice.cancel();return stopSpeech?.(...a)};
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)speechPractice.cancel()});
 
   /* ---------------- Spreken: three sets ---------------- */
   const sets=()=>T().speaking||[];
@@ -284,7 +286,7 @@
     f.querySelectorAll('[data-speak-set]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalenSpeak(b.dataset.speakSet)});
   };
 
-  K.startTalenSpeak=async id=>{
+  K.startTalenSpeak=id=>{
     const l=learn(),mix=id==='mix',s=mix?null:sets().find(x=>x.id===id);
     if(!l||(!mix&&!s))return K.showTalenSpeak();
     if(!K.premium.can('talen',mix?'mix':`speak:${id}`)){K.premiumLocked({kind:'talen',retry:()=>K.startTalenSpeak(id)});return}
@@ -292,11 +294,8 @@
     const words=ids.map(w=>kit().word(w)).filter(w=>w&&w.text[l]);
     if(!words.length)return K.showTalenSpeak();
     K.audio.setTrack('play').catch(()=>{});
-    const g=K.talenSpeak={set:id,words,i:0,done:0,right:0,mic:null,check:false};
-    // On the device the recogniser can check the word: then it, not the web microphone, listens.
-    g.check=await recognizer.available(l);
-    if(K.talenSpeak!==g)return;
-    const can=g.check||speechPractice.isSupported();
+    const g=K.talenSpeak={set:id,words,i:0,done:0,mic:null};
+    const can=speechPractice.isSupported();
     g.mic=can&&K.state.talenMicOk?'on':null;
     if(!can)return micOff();
     if(!K.state.talenMicOk)return micAsk();   // asked here, the first time Spreken is opened — never at app start
@@ -304,7 +303,7 @@
   };
   K.talenSpeakForTest=()=>K.talenSpeak;
 
-  const askMic=()=>K.talenSpeak?.check?recognizer.requestPermission():speechPractice.requestPermission();
+  const askMic=()=>speechPractice.requestPermission();
   // Before the system asks: why Kwizillo wants the microphone.
   function micAsk(){
     const f=speakFrame(`<div class="speak-panel speak-ask">
@@ -328,8 +327,8 @@
         <span class="speak-mic-icon off" aria-hidden="true">🎙️</span>
         <h2>${esc(t('talen.speaking.micOff'))}</h2>
         <p>${esc(t('talen.speaking.micOffBody'))}</p>
-        ${K.talenSpeak?.check||speechPractice.isSupported()?`<button class="talen-start" id="micRetry">${esc(t('talen.speaking.retry'))}</button>`:''}
-        <button class="talen-start ${K.talenSpeak?.check||speechPractice.isSupported()?'secondary':''}" id="micSkip">${esc(t('talen.speaking.withoutMic'))}</button>
+        ${speechPractice.isSupported()?`<button class="talen-start" id="micRetry">${esc(t('talen.speaking.retry'))}</button>`:''}
+        <button class="talen-start ${speechPractice.isSupported()?'secondary':''}" id="micSkip">${esc(t('talen.speaking.withoutMic'))}</button>
         <button class="talen-start secondary" id="micBack">${esc(t('common.back'))}</button>
       </div>`);
     f.querySelector('#micRetry')?.addEventListener('click',async()=>{K.sfx('tap');try{await askMic();K.state.talenMicOk=true;K.save();K.talenSpeak.mic='on';speakItem()}catch(e){micOff()}});
@@ -358,50 +357,49 @@
   function speakItem(){
     const g=K.talenSpeak,w=g.words[g.i],l=learn(),o=own();
     const micOn=g.mic==='on';
+    speechPractice.drop();
     const f=speakFrame(`<div class="speak-panel">
         <div class="talen-ask"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><b class="talen-ask-bubble">${esc(t('talen.speaking.sayIt'))}</b></div>
         <button class="speak-word" id="speakHear" aria-label="${esc(t('talen.listen'))}">${kit().pic(w,'speak-pic')}<b lang="${l}" dir="auto">${esc(w.text[l])}</b><small dir="auto">${esc(w.text[o]||'')} · 🔊</small></button>
         <div class="speak-act">
         <div class="speak-status" id="speakStatus" aria-live="polite"></div>
-        ${micOn?`<button class="speak-mic" id="speakMic" aria-label="${esc(t('talen.speaking.tapMic'))}"><span class="speak-mic-glyph" aria-hidden="true">🎤</span><span class="speak-wave" aria-hidden="true">${'<i></i>'.repeat(7)}</span></button><p class="speak-tip">${esc(t('talen.speaking.tapMic'))}</p>`
+        ${micOn?`<button class="speak-mic" id="speakMic" aria-label="${esc(t('talen.speaking.tapMic'))}"><span class="speak-mic-glyph" aria-hidden="true">🎤</span><span class="speak-wave" aria-hidden="true">${'<i></i>'.repeat(7)}</span></button><p class="speak-tip">${esc(t('talen.speaking.tapMic'))}</p>
+          <div class="speak-compare" hidden>
+            <button class="speak-replay" id="speakCompare">${K.icon('repeat')} ${esc(t('talen.speaking.compare'))}</button>
+            <div class="speak-after2"><button class="talen-start secondary" id="speakRedo">🔁 ${esc(t('talen.speaking.tryAgain'))}</button><button class="talen-start" id="speakSame">😀 ${esc(t('talen.speaking.sameSound'))}</button></div>
+          </div>`
           :`<button class="talen-start" id="speakSaid">✅ ${esc(t('talen.speaking.iSaidIt'))}</button>`}
-        <div class="speak-after" hidden><button class="talen-start secondary" id="speakAgain">${K.icon('repeat')} ${esc(t('talen.speaking.tryAgain'))}</button><button class="talen-start" id="speakNext">${esc(t('talen.speaking.next'))} ›</button></div>
+        <div class="speak-after" hidden><button class="talen-start" id="speakNext">${esc(t('talen.speaking.next'))} ›</button></div>
         </div>
       </div>`);
-    const status=f.querySelector('#speakStatus'),after=f.querySelector('.speak-after'),mic=f.querySelector('#speakMic');
-    const hear=()=>{K.stopSpeech();K.playClips([audio(l,w.id)])};
+    const status=f.querySelector('#speakStatus'),after=f.querySelector('.speak-after'),mic=f.querySelector('#speakMic'),compare=f.querySelector('.speak-compare');
+    const model=()=>K.playClips([audio(l,w.id)]);
+    const hear=()=>{K.stopSpeech();model()};
     f.querySelector('#speakHear').onclick=()=>{K.sfx('tap');hear()};
-    // right: checked on the device and it was the word; null: not checked (no recogniser) — then
-    // only "you said it out loud", never "good".
-    const success=(right=null)=>{
-      g.done++;if(right)g.right++;const rec=speakRec(true);rec.practised++;if(right)rec.correct=(rec.correct||0)+1;rec.lastPlayed=Date.now();K.save();
-      status.className='speak-status good';status.textContent=`🌟 ${t(right?'talen.speaking.correct':g.mic==='on'?'talen.speaking.saidAloud':'talen.speaking.goodPractice')}`;
-      after.hidden=false;mic&&(mic.disabled=true);f.querySelector('#speakSaid')?.setAttribute('hidden','');
+    // practised: counted once per word, when the child says it sounded the same or (no microphone) that it said it
+    const practised=()=>{
+      g.done++;const rec=speakRec(true);rec.practised++;rec.lastPlayed=Date.now();K.save();
+      status.className='speak-status good';status.textContent=`🌟 ${t('talen.speaking.goodPractice')}`;
+      after.hidden=false;compare&&(compare.hidden=true);mic&&(mic.hidden=true);f.querySelector('.speak-tip')?.setAttribute('hidden','');f.querySelector('#speakSaid')?.setAttribute('hidden','');
+      speechPractice.drop();
       K.sfx('good');K.playClips([kit().vary('goed',T().praise)]);
     };
-    f.querySelector('#speakSaid')?.addEventListener('click',()=>{K.sfx('tap');success()});
+    f.querySelector('#speakSaid')?.addEventListener('click',()=>{K.sfx('tap');practised()});
+    // the guide, a short pause, then the child: the two after each other
+    const playBoth=async()=>{
+      if(!f.isConnected)return;
+      status.className='speak-status play';status.textContent=`🔊 ${t('talen.speaking.listenBoth',{guide:K.state.voice==='Luna'?'Luna':'Milo'})}`;
+      await model();
+      if(!f.isConnected)return;
+      await new Promise(r=>setTimeout(r,350));
+      if(!f.isConnected)return;
+      await speechPractice.playTake();
+      if(!f.isConnected)return;
+      status.className='speak-status';status.textContent=t('talen.speaking.didItSound');
+    };
     mic?.addEventListener('click',async()=>{
-      if(g.check){
-        if(g.listening){recognizer.stop();return}
-        K.stopSpeech();g.listening=true;
-        mic.classList.add('live');mic.setAttribute('aria-pressed','true');
-        status.className='speak-status live';status.innerHTML=`<span class="speak-dot" aria-hidden="true"></span>${esc(t('talen.speaking.listening'))} <span class="sr-only">${esc(t('talen.speaking.micActive'))}</span>`;
-        const bars=[...mic.querySelectorAll('.speak-wave i')];
-        let res;
-        try{res=await recognizer.start({lang:l,onLevel:v=>bars.forEach((b,k)=>b.style.setProperty('--h',String(.15+v*(.6+.4*Math.sin((Date.now()/90)+k)))))})}
-        catch(e){g.listening=false;micOff();return}
-        g.listening=false;
-        if(!f.isConnected||res===null)return;
-        mic.classList.remove('live');mic.removeAttribute('aria-pressed');bars.forEach(b=>b.style.removeProperty('--h'));
-        if(K.talenSaidRight(res.transcript,w.text[l])){success(true);return}
-        // not the word: what was heard, and once more (nothing of it is kept)
-        status.className='speak-status try';
-        status.textContent=res.transcript?`${t('talen.speaking.almost')} ${t('talen.speaking.heardAs',{text:res.transcript})}`:t('talen.speaking.notHeard');
-        K.playClips([kit().vary('bijna',T().almost)]);
-        return;
-      }
       if(speechPractice.active()){speechPractice.stop();return}
-      K.stopSpeech();
+      K.stopSpeech();compare.hidden=true;
       mic.classList.add('live');mic.setAttribute('aria-pressed','true');
       status.className='speak-status live';status.innerHTML=`<span class="speak-dot" aria-hidden="true"></span>${esc(t('talen.speaking.listening'))} <span class="sr-only">${esc(t('talen.speaking.micActive'))}</span>`;
       const bars=[...mic.querySelectorAll('.speak-wave i')];
@@ -412,21 +410,23 @@
       mic.classList.remove('live');mic.removeAttribute('aria-pressed');
       bars.forEach(b=>b.style.removeProperty('--h'));
       if(res===null)return;   // cancelled: the screen changed
-      if(res.heard)success();
-      else{status.className='speak-status try';status.textContent=t('talen.speaking.notHeard');}
+      if(!res.heard){status.className='speak-status try';status.textContent=t('talen.speaking.notHeard');return}
+      compare.hidden=false;mic.hidden=true;f.querySelector('.speak-tip').hidden=true;   // the two buttons take its place
+      playBoth();
     });
-    f.querySelector('#speakAgain').onclick=()=>{K.sfx('tap');speakItem()};
-    f.querySelector('#speakNext').onclick=()=>{K.sfx('tap');g.i++;g.i<g.words.length?speakItem():speakFinish()};
+    f.querySelector('#speakCompare')?.addEventListener('click',()=>{K.sfx('tap');if(!speechPractice.active())playBoth()});
+    f.querySelector('#speakRedo')?.addEventListener('click',()=>{K.sfx('tap');speechPractice.drop();compare.hidden=true;mic.hidden=false;f.querySelector('.speak-tip').hidden=false;status.textContent='';hear()});
+    f.querySelector('#speakSame')?.addEventListener('click',()=>{K.sfx('tap');practised()});
+    f.querySelector('#speakNext').onclick=()=>{K.sfx('tap');speechPractice.drop();g.i++;g.i<g.words.length?speakItem():speakFinish()};
     hear();
   }
 
   function speakFinish(){
     const g=K.talenSpeak,n=g.words.length;
     const rec=speakRec(true);rec.completed++;rec.lastPlayed=Date.now();
-    // checked on the device: stars for the words said right; otherwise for the words practised
-    const count=g.check?g.right:g.done,stars=count>=n?3:count>=n/2?2:1,xp=count*2+5,coins=3;
+    const count=g.done,stars=count>=n?3:count>=n/2?2:1,xp=count*2+5,coins=3;
     K.awardPoints(xp);K.awardCoins(coins);K.touchStreak();K.save();
-    resultScreen({icon:SET_ICON[g.set]||'🎤',title:t('talen.speaking.done'),stars,stat:`${g.check?g.right:g.done}/${n}`,statLabel:t('talen.section.speaking'),xp,
+    resultScreen({icon:SET_ICON[g.set]||'🎤',title:t('talen.speaking.done'),stars,stat:`${g.done}/${n}`,statLabel:t('talen.section.speaking'),xp,
       again:()=>K.startTalenSpeak(g.set),back:()=>K.showTalenSpeak(),againLabel:t('talen.speaking.tryAgain')});
   }
 })();

@@ -170,12 +170,11 @@
   }
   const ART='assets/games/blokken/';
   const CELL_ART=c=>`${ART}cell-${c}.webp`;
-  const preloadArt=()=>{for(const src of [...Object.keys(D.COLORS).map(CELL_ART),`${ART}mega-nl.webp`,`${ART}mega-star.webp`,`${ART}boost-banner.webp`]){const i=new Image();i.src=src}};
+  const preloadArt=()=>{for(const src of [...Object.keys(D.COLORS).map(CELL_ART),`${ART}mega.jpg`,`${ART}boost-banner.webp`]){const i=new Image();i.src=src}};
   // MEGA ZET!: the emblem as drawn (Dutch lettering) in Dutch; in every other
   // language its star and rays with the translated title as live text.
-  const megaEmblem=(cls='')=>K.state.language==='nl'
-    ?`<img class="bk-emblem ${cls}" src="${ART}mega-nl.webp" alt="${esc(t('blokken.mega'))}" draggable="false">`
-    :`<span class="bk-emblem live ${cls}"><img src="${ART}mega-star.webp" alt="" draggable="false"><b>${esc(t('blokken.mega'))}</b></span>`;
+  // MEGA ZET!: one picture without lettering for every language, the words live on it (Stefan, 2026-10-10)
+  const megaEmblem=(cls='')=>`<span class="bk-emblem live pic ${cls}"><img src="${ART}mega.jpg" alt="" draggable="false"><b>${esc(t('blokken.mega'))}</b></span>`;
 
   // The title. In Dutch the drawn logo (its lettering is Dutch); in every other
   // language live text in the logo's colours (turquoise, then yellow, cream

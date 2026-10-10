@@ -618,45 +618,40 @@ test('Spreken and Gesprekjes follow Premium: the first set and Kennismaken are f
   expect(await page.evaluate(() => { const P = window.KWIZILLO_M1.premium; return [P.can('talen', 'conv:food'), P.can('talen', 'speak:sentences')] })).toEqual([true, true]);
 });
 
-test('Spreken: a voice on the microphone is heard locally (voice activity, no score) and counts as practised', async ({ page }) => {
+test('Spreken: say it, then hear the guide and yourself one after the other; the child decides "sounds the same"; the take lives in memory only', async ({ page }) => {
   await page.addInitScript(MIC, 'loud');
+  const posts = [];
+  page.on('request', r => { if (r.method() !== 'GET' && !/\/api\/tts$/.test(r.url())) posts.push(r.url()) });
   await boot(page, { state: SAVED({ learnLang: 'es', talenMicOk: true }) });
-  await page.evaluate(() => window.KWIZILLO_M1.startTalenSpeak('basics'));
+  await page.evaluate(() => {
+    // count what is played back: the child's own take goes through a fresh AudioBufferSourceNode
+    window.__takes = 0; const st = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (...a) { if (this.buffer && this.buffer.numberOfChannels === 1 && this.buffer.duration > .3) window.__takes++; return st.apply(this, a) };
+    return window.KWIZILLO_M1.startTalenSpeak('basics');
+  });
   await page.locator('#speakMic').click();
   await expect(page.locator('#speakStatus')).toContainText('Ik luister…');
   await page.waitForTimeout(900);
   await page.locator('#speakMic').click();                                            // a second tap: done talking
-  await expect(page.locator('#speakStatus')).toContainText('Je zei het hardop!');     // not checked: never "right"
-  await expect(page.locator('#speakStatus')).not.toContainText('%');                  // no made-up pronunciation score
+  await expect(page.locator('.speak-compare')).toBeVisible();
+  await expect(page.locator('#speakStatus')).toContainText('Klonk het hetzelfde?', { timeout: 10000 });
+  expect(await page.evaluate(() => window.__takes)).toBeGreaterThan(0);              // the child's own voice was played back
+  await expect(page.locator('#speakStatus')).not.toContainText(/goed gezegd|%/i);      // no judgement by the app
+  expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking?.es?.practised || 0)).toBe(0);   // not before the child says so
+  await page.locator('#speakSame').click();
+  await expect(page.locator('#speakStatus')).toContainText('Goed geoefend!');
   expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking.es.practised)).toBe(1);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.speechPractice.hasTake())).toBe(false);   // dropped at once
   expect(await page.evaluate(() => window.__gum.streams.every(s => s.getTracks().every(t => t.readyState === 'ended')))).toBe(true);
+  const stored = await page.evaluate(() => Object.keys(localStorage).map(k => localStorage.getItem(k)).join(''));
+  expect(stored).not.toMatch(/blob:|data:audio|base64/);
+  expect(posts).toEqual([]);
+  // "Nog een keer": the take is gone, the guide speaks again, record anew
+  await page.locator('#speakNext').click();
+  await page.locator('#speakMic').click(); await page.waitForTimeout(900); await page.locator('#speakMic').click();
+  await expect(page.locator('.speak-compare')).toBeVisible();
+  await page.locator('#speakRedo').click();
+  await expect(page.locator('.speak-compare')).toBeHidden();
+  expect(await page.evaluate(() => window.KWIZILLO_M1.speechPractice.hasTake())).toBe(false);
 });
 
-test('Spreken in the app with on-device recognition: the word said right counts, another word does not; nothing of what was heard is kept', async ({ page }) => {
-  // the native plugin as the iOS/Android app has it, answering with a scripted transcript
-  await page.addInitScript(() => {
-    window.__said = [];
-    window.KWIZILLO_M1 = window.KWIZILLO_M1 || {};
-    const fake = { lang: null,
-      available: async ({ lang }) => ({ available: lang === 'es', onDevice: true, authorized: true }),
-      requestPermission: async () => ({ granted: true }),
-      addListener: async () => ({ remove() {} }),
-      start: async ({ lang }) => { fake.lang = lang; return { heard: true, transcript: window.__said.shift() || '' } },
-      stop: async () => {}, cancel: async () => {} };
-    Object.defineProperty(window.KWIZILLO_M1, 'speechNativeForTest', { value: fake, configurable: true });
-  });
-  await boot(page, { state: SAVED({ learnLang: 'es', talenMicOk: true }) });
-  await page.evaluate(() => { window.__said.push('adiós', 'Ola'); return window.KWIZILLO_M1.startTalenSpeak('basics'); });
-  await expect(page.locator('.speak-word b')).toHaveText('hola');
-  await page.locator('#speakMic').click();
-  await expect(page.locator('#speakStatus')).toContainText('Bijna!');
-  await expect(page.locator('#speakStatus')).toContainText('adiós');
-  await expect(page.locator('.speak-after')).toBeHidden();                            // not right: no "next" yet
-  await page.locator('#speakMic').click();
-  await expect(page.locator('#speakStatus')).toContainText('Goed gezegd!');
-  const rec = await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking.es);
-  expect(rec).toMatchObject({ practised: 1, correct: 1 });
-  expect(Object.keys(rec).sort()).toEqual(['completed', 'correct', 'lastPlayed', 'practised']);
-  const stored = await page.evaluate(() => Object.keys(localStorage).map(k => localStorage.getItem(k)).join(''));
-  expect(stored).not.toContain('adiós');                                               // what was heard is shown, never kept
-});
