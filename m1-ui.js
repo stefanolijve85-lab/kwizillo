@@ -490,7 +490,8 @@
   // app lays its own band over it, in the same gold, with the name the child
   // reads everywhere else. (The lasting fix is a set of cards without text; the
   // band can then simply be shown in every language.)
-  const goldBand=w=>K.state.language==='nl'?'':`<span class="gold-band">${esc(worldTitle(w))}</span>`;
+  // Kunst and Sport carry a two-line painted title ("Gouden Kunstwereld"): a taller band covers it.
+  const goldBand=w=>K.state.language==='nl'?'':`<span class="gold-band ${w==='kunst'||w==='sport'?'tall':''}">${esc(worldTitle(w))}</span>`;
   K.goldBand=goldBand;
   // An <img> may not carry an inline onerror (the page's CSP forbids inline
   // script), so the fallback is wired here, once per screen.

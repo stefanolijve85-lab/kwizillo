@@ -1893,3 +1893,7 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .measure-card[data-kind="length"] .measure-stage,.measure-card[data-kind="compare"] .measure-stage{flex:0 1 auto}
 /* Rekenen and Memo have no Home button beside "Deel je score": there it is as wide as the two above (Stefan, 2026-10-10). */
 .result-native #shareBtn.wide{grid-column:1/-1;padding-inline:14px}
+/* The golden cards are cut alike since 2026-10-10 (tools/gold-cards.cjs): the painted title
+   sits at 72-80% of the card, on Kunst and Sport in two lines at 65-81%. */
+.gold-band{top:71.5%;height:9.5%}
+.gold-band.tall{top:65%;height:16.5%}
