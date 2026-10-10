@@ -38,7 +38,7 @@ async function playLesson(page, { wrongAt = -1 } = {}) {
   await expect(page.locator('.talen-result')).toBeVisible({ timeout: 15000 });
 }
 
-test('Home: "Speel ook" is four tiles like the worlds — Talen, Rekenen, Runner, Spellenkist — and the Spellenkist holds Memo, Weetjes, Fotozoom and Wat ben ik?', async ({ page }) => {
+test('Home: "Speel ook" is four tiles like the worlds — Talen, Rekenen, Runner, Spellenkist — and the Spellenkist holds Memo, Weetjes, Fotozoom, Wat ben ik? and Blokkenpret', async ({ page }) => {
   await boot(page, { state: SAVED({ progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], games: { jungle: { best: 42 } } } }) });
   const tiles = await page.locator('.home-play > button').evaluateAll(els => els.map(e => e.id));
   expect(tiles).toEqual(['homeTalen', 'homeMath', 'homeJungle', 'homeChest']);
@@ -50,7 +50,7 @@ test('Home: "Speel ook" is four tiles like the worlds — Talen, Rekenen, Runner
   expect(Math.abs(w.width - p.width)).toBeLessThan(2); expect(Math.abs(w.height - p.height)).toBeLessThan(2); expect(p.y).toBeGreaterThan(w.y);
   await page.locator('#homeChest').click();
   await expect(page.locator('.chest-pick h1.game-name')).toHaveText('Spellenkist');
-  expect(await page.locator('.chest-pick .math-pick-tile').evaluateAll(els => els.map(e => e.id))).toEqual(['homeMemo', 'homeFacts', 'homeFotozoom', 'homeWhoAmI']);
+  expect(await page.locator('.chest-pick .math-pick-tile').evaluateAll(els => els.map(e => e.id))).toEqual(['homeMemo', 'homeFacts', 'homeFotozoom', 'homeWhoAmI', 'homeBlokken']);
   await page.locator('#homeFotozoom').click();
   await page.locator('.panel-back').click();                       // back to the Spellenkist, not to Home
   await expect(page.locator('.chest-pick')).toBeVisible();

@@ -469,9 +469,12 @@
     const L=localRect(el);const R=localRect(el.closest('.bk-tray,.bk-board-panel')||g.root);
     btn.hidden=false;
     const bw=btn.offsetWidth||52,bh=btn.offsetHeight||52;
-    // at the piece's top right corner, kept inside the tray or the board panel
-    let x=L.right-bw*.45,y=L.top-bh*.55;
-    x=Math.max(R.left+2,Math.min(R.right-bw-2,x));y=Math.max(R.top+2,Math.min(R.bottom-bh-2,y));
+    // next to the piece (never on top of it, so the piece stays grabbable),
+    // inside the tray or the board panel when there is room
+    const tries=[[L.right+4,L.top+L.height/2-bh/2],[L.left-bw-4,L.top+L.height/2-bh/2],[L.left+L.width/2-bw/2,L.top-bh-4],[L.left+L.width/2-bw/2,L.bottom+4]];
+    const inside=([x,y])=>x>=R.left&&y>=R.top&&x+bw<=R.right&&y+bh<=R.bottom;
+    let [x,y]=tries.find(inside)||tries.find(([x,y])=>x>=0&&y>=0&&x+bw<=localRect(g.root).width&&y+bh<=localRect(g.root).height)||tries[0];
+    x=Math.max(2,x);y=Math.max(2,y);
     btn.style.left=x+'px';btn.style.top=y+'px';
   }
 
@@ -867,6 +870,7 @@
     g.root.classList.remove('dragging');
     // a rotation made while dragging is kept for a tray piece
     if(d.active&&d.from==='tray'&&g.lv.rotate)g.trayRot[d.id]=d.rot;
+    if(d.active)g.selected=null;        // a drag ends without a selection (the turn button is for a tapped piece)
     g.drag=null;
   }
   // pointercancel, blur, resize, turning the screen: the piece stays where it
@@ -909,7 +913,11 @@
     if(e.target&&/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))return;
     const k=e.key;
     if((k==='r'||k==='R')&&!e.metaKey&&!e.ctrlKey){if(g.lv.rotate){rotateSelected();e.preventDefault()}return}
-    if(k==='Escape'){if(g.drag){cancelDrag('escape');e.preventDefault();return}if(g.carry){cancelCarry();Snd.play('back');e.preventDefault();return}if(g.selected){g.selected=null;render()}return}
+    // Escape cancels what is going on here first; only with nothing to cancel does it reach the app (Home).
+    if(k==='Escape'){
+      if(g.drag){cancelDrag('escape')}else if(g.carry){cancelCarry();Snd.play('back')}else if(g.selected||g.hint){g.selected=null;if(g.hint&&g.hint.source!=='boost'){g.hint=null;save()}render()}else return;
+      e.preventDefault();e.stopPropagation();return;
+    }
     if(!g.carry)return;
     const c=g.carry;const mv={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[k];
     if(mv){

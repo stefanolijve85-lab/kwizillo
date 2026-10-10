@@ -282,7 +282,7 @@ html[data-shape="wide"] .blokken-root .bk-coach{left:auto;right:18px;top:18px;wi
 @keyframes bkRun{to{stroke-dashoffset:-100}}
 @keyframes bkMega{from{opacity:0;transform:translate(-50%,-50%) scale(.4)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes bkStar{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(4deg) scale(1.05)}}
-@keyframes bkBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes bkBob{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
 
 @media (prefers-reduced-motion:reduce){
   .blokken-root *,.blokken-root *::before{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
