@@ -12,6 +12,7 @@ import { WORLDS, WORLD_ORDER, level as getLevel } from './levels.js';
 import { SPRITES } from './sprites.js';
 import { createRenderer } from './render.js';
 import { createInput, live } from './input.js';
+import { ART } from './art/art.js';
 
 const HEROES = ['mike', 'mia'];
 const BASE = new URL('./', import.meta.url).href;
@@ -51,13 +52,13 @@ export function mountJump(host, opts = {}) {
     <div class="kj-field" role="img"></div>
     <div class="kj-hud" hidden>
       <button class="kj-icon-btn kj-pause" data-act="pause" aria-label="${esc(T('pause'))}">${SVG.pause}</button>
-      <span class="kj-pill kj-hearts" role="img"></span>
+      <span class="kj-pill kj-hearts" role="img"></span><img class="kj-shield-on" src="${BASE}art/shield.webp" alt="" hidden>
       <span class="kj-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(T('progress'))}"><i></i><b></b></span>
-      <span class="kj-pill kj-stars" role="status">${SVG.star}<span class="kj-star-n">0</span></span>
+      <span class="kj-pill kj-stars" role="status"><img src="${BASE}art/star.webp" alt=""><span class="kj-star-n">0</span></span>
     </div>
     <div class="kj-controls" hidden aria-label="${esc(T('controls'))}">
-      <button class="kj-btn kj-slide" id="kjSlide" data-act="slide" aria-label="${esc(T('slide'))}">${SVG.down}<small>${esc(T('slide'))}</small></button>
-      <button class="kj-btn kj-jump" id="kjJump" data-act="jump" aria-label="${esc(T('jump'))}">${SVG.up}<small>${esc(T('jump'))}</small></button>
+      <button class="kj-btn kj-slide" id="kjSlide" data-act="slide" aria-label="${esc(T('slide'))}"><small>${esc(T('slide'))}</small></button>
+      <button class="kj-btn kj-jump" id="kjJump" data-act="jump" aria-label="${esc(T('jump'))}"><small>${esc(T('jump'))}</small></button>
     </div>
     <div class="kj-hint" aria-live="polite"></div>
     <div class="kj-count" aria-live="assertive"></div>
@@ -69,15 +70,17 @@ export function mountJump(host, opts = {}) {
   const $ = sel => root.querySelector(sel);
   const canvas = $('.kj-canvas'), field = $('.kj-field'), hud = $('.kj-hud'), controls = $('.kj-controls'), hint = $('.kj-hint'), count = $('.kj-count'), layer = $('.kj-layer');
   const jumpBtn = $('#kjJump'), slideBtn = $('#kjSlide');
-  const heartsEl = $('.kj-hearts'), starN = $('.kj-star-n'), bar = $('.kj-progress i'), progress = $('.kj-progress');
+  const shieldOn = $('.kj-shield-on'), heartsEl = $('.kj-hearts'), starN = $('.kj-star-n'), bar = $('.kj-progress i'), progress = $('.kj-progress');
 
   // ---------- assets ----------
   const images = {};
   const loadImg = src => new Promise((ok, no) => { const i = new Image(); i.decoding = 'async'; i.onload = () => ok(i); i.onerror = () => no(new Error(src)); i.src = BASE + src });
   const preload = () => Promise.all([
     ...HEROES.map(h => loadImg(SPRITES[h].src).then(i => { images[h] = i })),
-    ...WORLD_ORDER.map(w => loadImg(`world-${w}.jpg`))
+    ...WORLD_ORDER.map(w => loadImg(`world-${w}.jpg`)),
+    ...Object.entries(ART).map(([n, a]) => loadImg(a.src).then(i => { artImages[n] = i }))
   ]);
+  const artImages = {};
 
   // ---------- run state ----------
   let screen = 'loading', run = null, renderer = null, L = null, W = null, runId = '', booked = null, resultShown = false;
@@ -149,10 +152,10 @@ export function mountJump(host, opts = {}) {
   }
 
   function newRun() {
-    W = WORLDS[worldId]; L = getLevel(worldId); autoPlan = null;
+    W = WORLDS[worldId]; L = getLevel(worldId); autoPlan = null; hideHint();
     run = createRun(L, W); runId = `jump-${worldId}-${Date.now().toString(36)}-${++runSeq}`; booked = null; resultShown = false;
     prev.x = run.p.x; prev.y = run.p.y; acc = 0; blockedT = 0;
-    renderer = createRenderer(canvas, { level: L, world: W, sprites: { ...SPRITES, images }, hero, reducedMotion: reduced });
+    renderer = createRenderer(canvas, { level: L, world: W, sprites: { ...SPRITES, images }, hero, art: { ART, images: artImages }, reducedMotion: reduced });
     fit();
     canvas.setAttribute('aria-label', T('canvas', { world: T('world.' + worldId) }));
     field.setAttribute('aria-label', T('canvas', { world: T('world.' + worldId) }));
@@ -197,7 +200,7 @@ export function mountJump(host, opts = {}) {
     const best = opts.best?.(worldId) || reward.score;
     const earned = [booked.coins ? T('coins', { n: booked.coins }) : '', booked.xp ? T('xp', { n: booked.xp }) : ''].filter(Boolean).join(' · ');
     show(`<div class="kj-card" role="dialog" aria-live="polite">
-        <canvas class="kj-face" data-face="${hero}"></canvas>
+        <div class="kj-row kj-medal-row"><canvas class="kj-face" data-face="${hero}"></canvas>${completed ? `<img class="kj-medal" src="${BASE}art/medal.webp" alt="">` : ''}</div>
         <h1>${esc(completed ? T('done') : T('tryAgain'))}</h1>
         <h2>${esc(T('world.' + worldId))}</h2>
         <div class="kj-stats">
@@ -230,7 +233,7 @@ export function mountJump(host, opts = {}) {
   };
 
   // ---------- HUD ----------
-  let hudHearts = -1, hudStars = -1, hudPct = -1;
+  let hudHearts = -1, hudStars = -1, hudPct = -1, hudShield = null;
   function renderHud(force) {
     if (!run) return;
     if (force || run.hearts !== hudHearts) {
@@ -239,6 +242,7 @@ export function mountJump(host, opts = {}) {
       heartsEl.setAttribute('aria-label', T('hearts', { n: run.hearts }));
     }
     if (force || run.stars !== hudStars) { hudStars = run.stars; starN.textContent = run.stars }
+    if (force || run.shield !== hudShield) { hudShield = run.shield; shieldOn.hidden = !run.shield }
     const pct = Math.max(0, Math.min(100, Math.round((run.p.x - L.start.x) / (L.finish - L.start.x) * 100)));
     if (force || pct !== hudPct) { hudPct = pct; bar.style.width = pct + '%'; progress.setAttribute('aria-valuenow', pct) }
   }
@@ -305,7 +309,7 @@ export function mountJump(host, opts = {}) {
     renderer?.effects(run);   // every step's events become effects (a frame holds about two steps)
     for (let i = 0; i < e.n; i++) {
       const t = e.list[i].type;
-      if (t === 'jump' || t === 'double' || t === 'land' || t === 'star' || t === 'hit' || t === 'bounce' || t === 'slide') sfx(t);
+      if (t === 'jump' || t === 'double' || t === 'land' || t === 'star' || t === 'hit' || t === 'bounce' || t === 'slide' || t === 'shield' || t === 'shieldHit') sfx(t);
       else if (t === 'fall') sfx('fall');
       else if (t === 'finish') sfx('finish');
       else if (t === 'over') sfx('over');

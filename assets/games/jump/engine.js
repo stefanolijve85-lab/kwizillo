@@ -12,15 +12,15 @@ export const HEARTS = 3;
 const EPS = 0.01;
 // The level split into 256-wide columns, so a step only looks at what is near
 // the child (built once per level; an object is in every column it reaches, plus a margin).
-const CELL = 256, KINDS = ['solids', 'oneway', 'lows', 'hazards', 'bounces', 'stars'];
+const CELL = 256, KINDS = ['solids', 'oneway', 'lows', 'hazards', 'bounces', 'stars', 'shields'];
 function grid(L) {
   if (L._grid) return L._grid;
   const g = {};
   for (const k of KINDS) {
     const cols = [];
-    L[k].forEach((o, i) => {
+    (L[k] || []).forEach((o, i) => {
       const w = o.w || 0, a = Math.max(0, Math.floor((o.x - 64) / CELL)), b = Math.max(0, Math.floor((o.x + w + 64) / CELL));
-      for (let c = a; c <= b; c++) (cols[c] ||= []).push(k === 'stars' ? i : o);
+      for (let c = a; c <= b; c++) (cols[c] ||= []).push(k === 'stars' || k === 'shields' ? i : o);
     });
     g[k] = cols;
   }
@@ -41,6 +41,8 @@ export function createRun(level, world) {
     t: 0,                  // active play time (only while running)
     after: 0,              // time since the finish or the game over
     hearts: HEARTS, stars: 0, got: new Uint8Array(level.stars.length),
+    // a shield picked up takes the next hit instead of a heart (not a fall)
+    shield: false, gotShield: new Uint8Array((level.shields || []).length), absorbed: 0,
     hits: 0, falls: 0, jumpsMade: 0, doublesMade: 0, slidesMade: 0, bounces: 0,
     cp: { x: level.start.x, y: level.start.y },
     endedBy: null
@@ -71,6 +73,7 @@ function setSlide(s, on) {
 function hurt(s, x, y) {
   const p = s.p;
   if (p.inv > 0 || s.phase !== 'run') return false;
+  if (s.shield) { s.shield = false; s.absorbed++; p.inv = TIMING.invulnerable; emit(s, 'shieldHit', x, y); return true }
   s.hearts--; s.hits++; p.inv = TIMING.invulnerable; p.hurtT = TIMING.hurt;
   emit(s, 'hit', x, y);
   if (s.hearts <= 0) end(s, 'over');
@@ -180,6 +183,10 @@ export function step(s, dt = STEP) {
       if (s.got[i]) continue; const st = L.stars[i];
       if (Math.abs(st.x - cx) < p.w / 2 + 22 && Math.abs(st.y - cy) < p.h / 2 + 22) { s.got[i] = 1; s.stars++; emit(s, 'star', st.x, st.y) }
     }
+    for (const i of near(s, 'shields', cx)) {
+      if (s.gotShield[i]) continue; const sh = L.shields[i];
+      if (Math.abs(sh.x - cx) < p.w / 2 + 26 && Math.abs(sh.y - cy) < p.h / 2 + 26) { s.gotShield[i] = 1; s.shield = true; emit(s, 'shield', sh.x, sh.y) }
+    }
     // --- checkpoints: the last one passed is where a fall starts again ---
     for (const c of L.cps) if (c.x <= p.x && c.x > s.cp.x) { s.cp.x = c.x; s.cp.y = c.y }
     // --- falling out of the world ---
@@ -222,5 +229,5 @@ export function pose(s) {
 }
 
 // A plain copy of the moving parts, for the solver's backtracking.
-export function snapshot(s) { return { p: { ...s.p }, phase: s.phase, t: s.t, after: s.after, hearts: s.hearts, stars: s.stars, got: s.got.slice(), hits: s.hits, falls: s.falls, cp: { ...s.cp }, endedBy: s.endedBy, jumpsMade: s.jumpsMade, doublesMade: s.doublesMade, slidesMade: s.slidesMade, bounces: s.bounces } }
-export function restore(s, snap) { Object.assign(s.p, snap.p); s.phase = snap.phase; s.t = snap.t; s.after = snap.after; s.hearts = snap.hearts; s.stars = snap.stars; s.got.set(snap.got); s.hits = snap.hits; s.falls = snap.falls; s.cp = { ...snap.cp }; s.endedBy = snap.endedBy; s.jumpsMade = snap.jumpsMade; s.doublesMade = snap.doublesMade; s.slidesMade = snap.slidesMade; s.bounces = snap.bounces }
+export function snapshot(s) { return { p: { ...s.p }, phase: s.phase, t: s.t, after: s.after, hearts: s.hearts, stars: s.stars, got: s.got.slice(), shield: s.shield, gotShield: s.gotShield.slice(), absorbed: s.absorbed, hits: s.hits, falls: s.falls, cp: { ...s.cp }, endedBy: s.endedBy, jumpsMade: s.jumpsMade, doublesMade: s.doublesMade, slidesMade: s.slidesMade, bounces: s.bounces } }
+export function restore(s, snap) { Object.assign(s.p, snap.p); s.phase = snap.phase; s.t = snap.t; s.after = snap.after; s.hearts = snap.hearts; s.stars = snap.stars; s.got.set(snap.got); s.shield = snap.shield; s.gotShield.set(snap.gotShield); s.absorbed = snap.absorbed; s.hits = snap.hits; s.falls = snap.falls; s.cp = { ...snap.cp }; s.endedBy = snap.endedBy; s.jumpsMade = snap.jumpsMade; s.doublesMade = snap.doublesMade; s.slidesMade = snap.slidesMade; s.bounces = snap.bounces }

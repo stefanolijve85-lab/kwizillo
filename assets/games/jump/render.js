@@ -13,7 +13,7 @@ const DESIGN_H = 540, MIN_VIEW = 760, LOOK = 0.25;   // the child stands at 25% 
 const VISUAL_H = 112;                                // the drawn child, standing (hair included), in world units
 const POOL = 96;
 
-export function createRenderer(canvas, { level, world, sprites, hero, reducedMotion = false }) {
+export function createRenderer(canvas, { level, world, sprites, hero, art = null, reducedMotion = false }) {
   const g = canvas.getContext('2d', { alpha: false });
   const C = world.colors;
   let W = 1, H = 1, dpr = 1, scale = 1, viewW = MIN_VIEW, viewH = DESIGN_H, groundY = 400;
@@ -143,6 +143,89 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
   const dark = { floor: shade(C.floor, -.25), floorTop: shade(C.floorTop, .2), crate: shade(C.crate, -.3), low: shade(C.low, -.3) };
 
   function roundRect(x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath() }
+
+  // ---------- the art pack (tools/jump-art.cjs): a skin over the collision boxes ----------
+  const A = n => art && art.images[n] ? { img: art.images[n], m: art.ART[n] } : null;
+  const P = { underwater: 'uw', candy: 'cd', space: 'sp' }[world.id];
+  const pic = { bg: A(P + '-bg'), plat: A(P + '-plat'), gate: A(P + '-gate'), crate: A('uw-crate'), crate2: A('uw-crate2'), rock: A('sp-rock'), pad: A('cd-pad'), windows: A('uw-windows'), star: A('star'), shield: A('shield'), finish: A('finish'), blocks: ['cd-block-y', 'cd-block-c', 'cd-block-r'].map(A) };
+  // the band of a platform, its caps kept, its middle repeated to any width
+  function slice(a, x, y, w, h) {
+    const m = a.m, sl = m.slice, k = h / m.h;
+    let cl = sl.capL * k, cr = sl.capR * k;
+    if (cl + cr > w) { const q = w / (cl + cr); cl *= q; cr *= q }
+    g.drawImage(a.img, 0, 0, sl.capL, m.h, x, y, cl, h);
+    g.drawImage(a.img, m.w - sl.capR, 0, sl.capR, m.h, x + w - cr, y, cr, h);
+    const tw = sl.midW * k; let xx = x + cl; const end = x + w - cr;
+    // only the visible part is drawn: a long floor is thousands of units wide
+    const from = Math.max(xx, visL - tw), to = Math.min(end, visR + tw);
+    if (from > xx) xx += Math.floor((from - xx) / tw) * tw;
+    for (; xx < to; xx += tw) { const part = Math.min(tw, end - xx); if (part <= 0) break; g.drawImage(a.img, sl.midX, 0, sl.midW * part / tw, m.h, xx, y, part + .5, h) }
+  }
+  const VEIL = { underwater: 'rgba(8,58,96,.2)', candy: 'rgba(255,244,250,.18)', space: 'rgba(12,8,44,.32)' };
+  const BAND = { underwater: 40, candy: 48, space: 36 };
+  const BODY = { underwater: ['#1d4f63', '#143a4b'], candy: ['#e8b06d', '#d99a5b'], space: ['#2e3048', '#23253a'] };
+  function artFloor(b, x0, x1) {
+    const left = Math.max(b.x, x0 - 10), right = Math.min(b.x + b.w, x1 + 10), bottom = Math.min(b.y + b.h, cam.y + viewH + 20), band = BAND[world.id];
+    if (right <= left) return;
+    // the body under the band, plain and darker, so the walking line stays the brightest thing
+    const [c1, c2] = BODY[world.id], top = b.y + band * .7;
+    g.fillStyle = c1; g.fillRect(left, top, right - left, bottom - top);
+    g.fillStyle = c2;
+    if (world.id === 'candy') for (let y = top + 34; y < bottom; y += 46) g.fillRect(left, y, right - left, 6);
+    else if (world.id === 'space') for (let x = Math.ceil(left / 90) * 90; x < right; x += 90) { g.beginPath(); g.arc(x + 30, top + 50 + (x % 50), 12 + (x % 9), 0, 7); g.fill() }
+    else for (let x = Math.ceil(left / 96) * 96; x < right; x += 96) g.fillRect(x, top, 4, bottom - top);
+    // a soft edge where the floor ends at a gap
+    g.fillStyle = 'rgba(0,0,0,.18)'; if (b.x >= left) g.fillRect(b.x, top, 6, bottom - top); if (b.x + b.w <= right) g.fillRect(b.x + b.w - 6, top, 6, bottom - top);
+    slice(pic.plat, b.x - 4, b.y - 3, b.w + 8, band);
+  }
+  function artBlock(b) {
+    if (b.kind === 'toy') {
+      const n = Math.max(1, Math.round(b.w / 56)), w = b.w / n;
+      for (let i = 0; i < n; i++) { const a = pic.blocks[(i + Math.round(b.x / 7)) % 3]; g.drawImage(a.img, b.x + i * w - 1, b.y - 2, w + 2, b.h + 2) }
+      return;
+    }
+    if (b.kind === 'module') { g.drawImage(pic.rock.img, b.x - 10, b.y - 6, b.w + 20, b.h + 7); return }
+    const a = b.w > 72 ? pic.crate2 : pic.crate; g.drawImage(a.img, b.x - 2, b.y - 2, b.w + 4, b.h + 3);
+  }
+  function artOneway(b) { slice(pic.plat, b.x - 3, b.y - 3, b.w + 6, world.id === 'candy' ? 32 : 28) }
+  function artLow(b) {
+    const a = pic.gate, m = a.m, under = b.y + b.h, floor = b.floor ?? b.y + 520, gap = floor - under;
+    const k = gap / (m.h - m.open), dh = m.h * k, dw = b.w + 56, top = floor - dh;
+    // the part above the bar reaches up out of view: it is a wall, not something to jump over
+    const colTop = Math.max(b.y, cam.y - 20), cx = b.x + 20, cw = b.w - 40;
+    if (world.id === 'candy') {
+      for (let y = top + m.open * k * .2 - 56, i = 0; y > colTop - 56; y -= 56, i++) { const blk = pic.blocks[i % 3]; g.drawImage(blk.img, cx + (i % 2) * 6, y, cw - 6, 58) }
+    } else {
+      g.fillStyle = world.id === 'space' ? '#3a3f63' : '#1f5a6e'; g.fillRect(cx, colTop, cw, top + 10 - colTop);
+      g.fillStyle = world.id === 'space' ? '#33e1ff' : '#7ff0ff'; g.globalAlpha = .55; g.fillRect(cx + cw / 2 - 3, colTop, 6, top + 10 - colTop); g.globalAlpha = 1;
+      g.fillStyle = 'rgba(0,0,0,.22)'; g.fillRect(cx, colTop, 6, top + 10 - colTop); g.fillRect(cx + cw - 6, colTop, 6, top + 10 - colTop);
+    }
+    g.drawImage(a.img, b.x - 28, top, dw, dh);
+  }
+  function artPad(b) {
+    const a = pic.pad, hit = padHit.x === b.x ? Math.max(0, padHit.t) : 0, sq = reducedMotion ? 0 : hit * Math.sin(hit * 30) * .22;
+    const w = b.w + 24, h = w * a.m.h / a.m.w * (1 - sq);
+    g.drawImage(a.img, b.x - 12, b.y + 8 - h, w, h);
+  }
+  function artFinish(x, y) { const a = pic.finish, h = 236, w = h * a.m.w / a.m.h; g.drawImage(a.img, x - w / 2, y - h + 4, w, h) }
+  function artBackground(lift) {
+    const a = pic.bg, dh = canvas.height * 1.15, dw = a.m.w * dh / a.m.h, f = .15;
+    const y = canvas.height - dh + Math.max(0, Math.min(dh - canvas.height, lift * scale * dpr * .15));
+    let x = -((cam.x * f * scale * dpr) % (dw * 2));
+    // mirror-tiled: every second copy is flipped, so each join meets the same edge
+    for (let i = 0; x < canvas.width; i++, x += dw) {
+      if (i % 2 === 0) g.drawImage(a.img, x, y, dw + 1, dh);
+      else { g.save(); g.translate(x + dw, y); g.scale(-1, 1); g.drawImage(a.img, 0, 0, dw + 1, dh); g.restore() }
+    }
+    // a veil in the world's colour pushes the painting back, so platforms, stars and the child stand out
+    g.fillStyle = VEIL[world.id]; g.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  function artWindows(lift) {
+    const a = pic.windows, gy = groundY * dpr, dh = gy * .96, dw = a.m.w * dh / a.m.h, f = .55;
+    const y = gy - dh + 6 * dpr + lift * scale * dpr * .3;
+    let x = -((cam.x * f * scale * dpr) % dw);
+    for (; x < canvas.width; x += dw - 2) g.drawImage(a.img, x, y, dw, dh);
+  }
 
   function drawFloor(b, x0, x1) {
     const left = Math.max(b.x, x0 - 10), right = Math.min(b.x + b.w, x1 + 10), bottom = Math.min(b.y + b.h, cam.y + viewH + 20);
@@ -331,11 +414,13 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
       if (ev.type === 'star') { spawn(POP, ev.x, ev.y, 0, 0, .3, 22, ''); for (let j = 0; j < 6 * many; j++) { const a = j / 6 * Math.PI * 2; spawn(SPARK, ev.x, ev.y, Math.cos(a) * 140, Math.sin(a) * 140 - 60, .45, 3.5, '') } }
       if (ev.type === 'bounce') { padHit.x = -1; for (const b of level.bounces) if (Math.abs(b.x + b.w / 2 - ev.x) < b.w) padHit.x = b.x; padHit.t = .5 }
       if (ev.type === 'hit') hurtRing = .5;
+      if (ev.type === 'shield' || ev.type === 'shieldHit') { spawn(RING, ev.x, ev.y, s.world.speed, 0, .5, 20, ''); for (let j = 0; j < 8 * many; j++) { const a = j / 8 * Math.PI * 2; spawn(SPARK, ev.x, ev.y, s.world.speed + Math.cos(a) * 150, Math.sin(a) * 150, .4, 3.5, '') } }
       if (ev.type === 'respawn') cam.init = false;
       if (ev.type === 'finish') { const n = reducedMotion ? 14 : 40, pal = ['#ffd23f', '#ff5fa2', '#33e1ff', '#7ee08a', '#ffffff']; for (let j = 0; j < n; j++) spawn(CONFETTI, s.p.x + 60 + (j % 10) * 22, cam.y + 30, ((j * 37) % 200) - 100, 60 + (j * 13) % 140, 2.2, 1, pal[j % 5]) }
     }
   }
 
+  function drawTile(name, f, k) { const t = tiles[name], tw = TILE * k, off = -((cam.x * f * k) % tw), yoff = -(cam.y - (cam.ref - groundY / scale)) * k; for (let x = off; x < canvas.width; x += tw) g.drawImage(t, x, Math.min(canvas.height * .5, yoff * f) - canvas.height * .5, tw, canvas.height * 1.5) }
   let visL = 0, visR = 0; const vis = o => o.x + (o.w || 0) > visL && o.x < visR;
   function frame(s, a, dt, interp) {
     time += dt; squash = Math.max(0, squash - dt); padHit.t = Math.max(0, padHit.t - dt); hurtRing = Math.max(0, hurtRing - dt);
@@ -343,34 +428,40 @@ export function createRenderer(canvas, { level, world, sprites, hero, reducedMot
     camera(s, dt, px, py);
     // sky
     g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = sky; g.fillRect(0, 0, canvas.width, canvas.height);
-    if (world.id === 'underwater' && !reducedMotion) {
+    if (world.id === 'underwater' && !reducedMotion && !pic.bg) {
       // light rays from the surface
       g.globalAlpha = .1; g.fillStyle = '#ffffff';
       for (let i = 0; i < 5; i++) { const x = ((i * 380 - cam.x * .05 + Math.sin(time * .3 + i) * 30) % (W * dpr + 400)) - 200; g.beginPath(); g.moveTo(x, 0); g.lineTo(x + 120 * dpr, 0); g.lineTo(x + 260 * dpr, canvas.height); g.lineTo(x + 160 * dpr, canvas.height); g.fill() }
       g.globalAlpha = 1;
     }
-    // the two background layers (far moves slowest)
-    const k = scale * dpr;
-    for (const [name, f] of LAYERS) {
+    // the two background layers (far moves slowest); with the art pack: the painted far layer
+    const k = scale * dpr, lift = (cam.ref - groundY / scale) - cam.y;
+    if (pic.bg) { artBackground(lift); if (!reducedMotion || world.id !== 'underwater') ambient(dt); if (pic.windows && world.id === 'underwater') artWindows(lift) }
+    else for (const [name, f] of LAYERS) {
       const t = tiles[name], tw = TILE * k, off = -((cam.x * f * k) % tw), yoff = -(cam.y - (cam.ref - groundY / scale)) * k;
       for (let x = off; x < canvas.width; x += tw) g.drawImage(t, x, Math.min(canvas.height * .5, yoff * f) - canvas.height * .5, tw, canvas.height * 1.5);
     }
-    // swimmers / drifters, drawn in screen space with their own parallax
-    ambient(dt);
+    // swimmers / drifters, drawn in screen space with their own parallax (with the art: behind the tunnel windows)
+    if (!pic.bg) ambient(dt);
     // the world
     g.setTransform(k, 0, 0, k, -cam.x * k, -cam.y * k);
     const x0 = cam.x, x1 = cam.x + viewW;
     const L = level; visL = x0 - 60; visR = x1 + 60;
-    for (const d of L.deco) if (d.kind === 'finish' && d.x > x0 - 200 && d.x < x1 + 200) drawFinish(d.x, d.y);
-    for (const b of L.lows) if (vis(b)) drawLow(b);
-    for (const b of L.solids) if (vis(b)) { if (b.h > 400) drawFloor(b, x0, x1); else drawBlock(b) }
-    for (const b of L.oneway) if (vis(b)) drawOneway(b);
-    for (const b of L.bounces) if (vis(b)) drawPad(b);
+    const useArt = !!pic.plat;
+    for (const d of L.deco) if (d.kind === 'finish' && d.x > x0 - 240 && d.x < x1 + 240) (pic.finish ? artFinish : drawFinish)(d.x, d.y);
+    for (const b of L.lows) if (vis(b)) (useArt && pic.gate ? artLow : drawLow)(b);
+    for (const b of L.solids) if (vis(b)) { if (b.h > 400) (useArt ? artFloor : drawFloor)(b, x0, x1); else (useArt ? artBlock : drawBlock)(b) }
+    for (const b of L.oneway) if (vis(b)) (useArt ? artOneway : drawOneway)(b);
+    for (const b of L.bounces) if (vis(b)) (pic.pad ? artPad : drawPad)(b);
     for (const h of L.hazards) if (vis(h)) drawHazard(h);
     for (const c of L.cps) if (c.x > x0 - 40 && c.x < x1 + 40) { const lit = s.cp.x >= c.x; g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(c.x - 2, c.y - 46, 4, 46); g.fillStyle = lit ? C.accent : 'rgba(255,255,255,.6)'; g.beginPath(); g.arc(c.x, c.y - 50, 7, 0, 7); g.fill() }
     const bob = reducedMotion ? 0 : Math.sin(time * 4) * 3;
-    for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; g.drawImage(starSprite, st.x - 24, st.y - 24 + bob, 48, 48) }
+    const sw = pic.star ? 46 : 48, sh = pic.star ? 46 * pic.star.m.h / pic.star.m.w : 48, simg = pic.star ? pic.star.img : starSprite;
+    for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; g.drawImage(simg, st.x - sw / 2, st.y - sh / 2 + bob, sw, sh) }
+    if (pic.shield) for (let i = 0; i < (L.shields || []).length; i++) { const it = L.shields[i]; if (s.gotShield[i] || it.x < x0 - 60 || it.x > x1 + 60) continue; const h2 = 52, w2 = h2 * pic.shield.m.w / pic.shield.m.h; g.globalAlpha = .35; g.fillStyle = '#7ff0ff'; g.beginPath(); g.arc(it.x, it.y + bob, 34, 0, 7); g.fill(); g.globalAlpha = 1; g.drawImage(pic.shield.img, it.x - w2 / 2, it.y - h2 / 2 + bob, w2, h2) }
     drawPlayer(s, px, py);
+    // the shield while it lasts: a soft blue bubble round the child
+    if (s.shield) { const cx = px + PLAYER.w / 2, cy = py - 56, rr = 66 + (reducedMotion ? 0 : Math.sin(time * 5) * 3); g.globalAlpha = .22; g.fillStyle = '#7fd8ff'; g.beginPath(); g.arc(cx, cy, rr, 0, 7); g.fill(); g.globalAlpha = .8; g.strokeStyle = '#bff0ff'; g.lineWidth = 3; g.stroke(); g.globalAlpha = 1 }
     drawParts(dt);
   }
 

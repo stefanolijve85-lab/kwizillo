@@ -111,6 +111,15 @@ const fresh = extra => createRun(flat(extra), W);
   o.p.x = 5000; run(.5, o); assert.strictEqual(o.endedBy, 'over', 'a finish after the game over is not processed');
   assert.strictEqual(score(o), 0);
 }
+/* ---- shield: picked up once, takes the next hit instead of a heart; a fall still costs one ---- */
+{
+  const s = fresh({ shields: [{ x: 300, y: -44 }], hazards: [{ x: 600, y: -38, w: 44, h: 38 }, { x: 1400, y: -38, w: 44, h: 38 }] });
+  run(1, s); assert.ok(s.shield, 'picked up');
+  run(1.5, s); assert.strictEqual(s.hearts, 3); assert.strictEqual(s.absorbed, 1); assert.ok(!s.shield, 'used up');
+  run(3, s); assert.strictEqual(s.hearts, 2, 'the next hit costs a heart again');
+  const f = createRun(flat({ shields: [{ x: 200, y: -44 }], solids: [{ x: 0, y: 0, w: 600, h: 900 }, { x: 1400, y: 0, w: 1000, h: 900 }], cps: [{ x: 120, y: 0 }] }), W);
+  run(3, f); assert.ok(f.falls >= 1 && f.hearts < 3, 'a shield does not catch a fall');
+}
 /* ---- no tunnelling: a fall at full speed onto a thin platform lands ---- */
 {
   const s = createRun(flat({ start: { x: 100, y: -1500 }, solids: [], oneway: [{ x: 0, y: 0, w: 1e5, h: 24 }] }), W);
@@ -127,6 +136,7 @@ for (const id of WORLD_ORDER) {
   const again = play(id, r.plan);
   assert.strictEqual(again.phase, 'finish', `${id}: the plan replays to the finish`);
   assert.strictEqual(again.hits + again.falls, 0);
+  assert.strictEqual(L.shields.length, 1, `${id}: one shield`); assert.ok(again.s.gotShield[0], `${id}: the shield lies on the way and is picked up`);
   // rhythm: a safe start, no double jump or slide needed before 15 s, a clear run-up
   const t = a => a.k * 6 * STEP;
   assert.ok(t(r.plan[0]) > 4.4, `${id}: nothing to do in the first seconds`);

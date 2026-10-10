@@ -14,9 +14,9 @@
   // The game's sounds, through the app's own sound manager (so the FX switch
   // and slider apply). Reused from the Runner's recorded effects.
   const SFX_DIR='assets/games/jungle/sfx/';
-  const addSfx=()=>K.audio.addSfx?.({jumpJump:SFX_DIR+'jump.mp3',jumpDouble:SFX_DIR+'double.mp3',jumpLand:SFX_DIR+'land.mp3',jumpStar:SFX_DIR+'coin.mp3',jumpHit:SFX_DIR+'hit.mp3',jumpBounce:SFX_DIR+'swing.mp3',jumpFinish:SFX_DIR+'finish.mp3',jumpCount:SFX_DIR+'count.mp3',jumpSlide:SFX_DIR+'glide.mp3'},
-    {jumpJump:.45,jumpDouble:.5,jumpLand:.35,jumpStar:.4,jumpHit:.55,jumpBounce:.5,jumpFinish:.7,jumpCount:.4,jumpSlide:.35});
-  const SFX={jump:'jumpJump',double:'jumpDouble',land:'jumpLand',star:'jumpStar',hit:'jumpHit',fall:'jumpHit',bounce:'jumpBounce',finish:'jumpFinish',count:'jumpCount',go:'jumpCount',slide:'jumpSlide',over:'bad'};
+  const addSfx=()=>K.audio.addSfx?.({jumpJump:SFX_DIR+'jump.mp3',jumpDouble:SFX_DIR+'double.mp3',jumpLand:SFX_DIR+'land.mp3',jumpStar:SFX_DIR+'coin.mp3',jumpHit:SFX_DIR+'hit.mp3',jumpBounce:SFX_DIR+'swing.mp3',jumpFinish:SFX_DIR+'finish.mp3',jumpCount:SFX_DIR+'count.mp3',jumpSlide:SFX_DIR+'glide.mp3',jumpShield:SFX_DIR+'shield.mp3',jumpBlock:SFX_DIR+'block.mp3'},
+    {jumpJump:.45,jumpDouble:.5,jumpLand:.35,jumpStar:.4,jumpHit:.55,jumpBounce:.5,jumpFinish:.7,jumpCount:.4,jumpSlide:.35,jumpShield:.5,jumpBlock:.55});
+  const SFX={jump:'jumpJump',double:'jumpDouble',land:'jumpLand',star:'jumpStar',hit:'jumpHit',fall:'jumpHit',bounce:'jumpBounce',finish:'jumpFinish',count:'jumpCount',go:'jumpCount',slide:'jumpSlide',shield:'jumpShield',shieldHit:'jumpBlock',over:'bad'};
 
   const jumpProgress=()=>{
     const G=K.progress().games||={};
