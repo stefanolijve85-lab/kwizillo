@@ -45,6 +45,7 @@
     correct:0,
     quizzesPlayed:0,
     lastWorld:'ruimte',
+    lastStop:null,   // the last world or game opened (m1-ui.js K.noteStop), for the welcome-back screen
     selectedMascot:'milo',
     soundOn:true,
     musicOn:true,
