@@ -117,13 +117,17 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
   };
 
   let sky = null;
-  function resize(cssW, cssH, ratio) {
+  // reserve: CSS px at the bottom kept for the buttons (and the safe area)
+  function resize(cssW, cssH, ratio, reserve = 110) {
     W = Math.max(1, cssW); H = Math.max(1, cssH); dpr = Math.min(2, ratio || 1);
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     scale = Math.min(H / DESIGN_H, W / MIN_VIEW);
     viewW = W / scale; viewH = H / scale;
     // the floor line: low on the screen, but on a tall screen not so low that the play is squeezed to the top
-    groundY = Math.min(H - Math.max(96, H * .18), 90 + 700 * scale);
+    // the floor line: on a tall (portrait) screen just above the buttons, so the ground under
+    // the feet is a thin band and the rest of the screen shows air and scenery; on a wide
+    // screen as before. Only the framing changes: the look-ahead in world units is the same.
+    groundY = H > W ? H - Math.max(reserve, H * .12) : Math.min(H - Math.max(96, H * .18), 90 + 700 * scale);
     pic.bg = (H > W && pic.bgTall) ? pic.bgTall : pic.bgWide;
     sky = g.createLinearGradient(0, 0, 0, H * dpr); sky.addColorStop(0, C.skyTop); sky.addColorStop(1, C.skyBottom);
     paintTiles(); cam.init = false;
@@ -213,7 +217,13 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     const w = b.w + 24, h = w * a.m.h / a.m.w * (1 - sq);
     g.drawImage(a.img, b.x - 12, b.y + 8 - h, w, h);
   }
-  function artFinish(x, y) { const a = pic.finish, h = 236, w = h * a.m.w / a.m.h; g.drawImage(a.img, x - w / 2, y - h + 4, w, h) }
+  // The finish gate in two layers: all of it behind the child, then its left pillar again in
+  // front, so the child runs in behind the near pillar and comes out under the arch. Its feet
+  // stand on the ground line; the opening (about 150 units) is well above the child (112).
+  // the finish line is under the near pillar; the child slows down and stops under the middle of the arch
+  const GATE_H = 236, GATE_FRONT = .27, GATE_SHIFT = 110;
+  function artFinish(x, y) { const a = pic.finish, w = GATE_H * a.m.w / a.m.h; g.drawImage(a.img, x + GATE_SHIFT - w / 2, y - GATE_H + 2, w, GATE_H) }
+  function artFinishFront(x, y) { const a = pic.finish, w = GATE_H * a.m.w / a.m.h, sw = a.m.w * GATE_FRONT; g.drawImage(a.img, 0, 0, sw, a.m.h, x + GATE_SHIFT - w / 2, y - GATE_H + 2, w * GATE_FRONT, GATE_H) }
   // the far layer: a portrait painting on a tall screen when the world has one, else the wide one
   function artBackground(lift) {
     const a = pic.bg, dh = canvas.height * 1.15, dw = a.m.w * dh / a.m.h, f = .15;
@@ -480,6 +490,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
     for (let i = 0; i < L.stars.length; i++) { const st = L.stars[i]; if (s.got[i] || st.x < x0 - 40 || st.x > x1 + 40) continue; if (glow) g.drawImage(glow, st.x - 40, st.y - 40 + bob, 80, 80); g.drawImage(simg, st.x - sw / 2, st.y - sh / 2 + bob, sw, sh) }
     if (pic.shield) for (let i = 0; i < (L.shields || []).length; i++) { const it = L.shields[i]; if (s.gotShield[i] || it.x < x0 - 60 || it.x > x1 + 60) continue; const h2 = 52, w2 = h2 * pic.shield.m.w / pic.shield.m.h; g.globalAlpha = .35; g.fillStyle = '#7ff0ff'; g.beginPath(); g.arc(it.x, it.y + bob, 34, 0, 7); g.fill(); g.globalAlpha = 1; g.drawImage(pic.shield.img, it.x - w2 / 2, it.y - h2 / 2 + bob, w2, h2) }
     drawPlayer(s, px, py);
+    if (pic.finish) for (const d of L.deco) if (d.kind === 'finish' && d.x > x0 - 240 && d.x < x1 + 240) artFinishFront(d.x, d.y);
     // the shield while it lasts: a soft blue bubble round the child
     if (s.shield) { const cx = px + PLAYER.w / 2, cy = py - 56, rr = 66 + (reducedMotion ? 0 : Math.sin(time * 5) * 3); g.globalAlpha = .22; g.fillStyle = '#7fd8ff'; g.beginPath(); g.arc(cx, cy, rr, 0, 7); g.fill(); g.globalAlpha = .8; g.strokeStyle = '#bff0ff'; g.lineWidth = 3; g.stroke(); g.globalAlpha = 1 }
     drawParts(dt);

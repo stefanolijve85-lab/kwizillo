@@ -25,8 +25,32 @@ export function createInput({ root, jumpBtn, slideBtn, field }, { jump, slide, p
     for (const t of ['pointerup', 'pointercancel', 'lostpointercapture']) on(btn, t, lift(btn));
     on(btn, 'contextmenu', e => e.preventDefault());
   }
-  // a tap anywhere on the play field is a jump too (the biggest target there is)
-  on(field, 'pointerdown', e => { if (!enabled() || e.button > 0) return; e.preventDefault(); jump('touch') });
+  // Gestures on the play field, each finger tracked on its own:
+  //   a tap (let go without swiping down) = jump — a second tap in the air is the double jump
+  //   a swipe up = jump, as soon as the finger has moved SWIPE px up
+  //   a swipe down = slide, as soon as the finger has moved SWIPE px down (within SWIPE_MS)
+  // Nothing fires on touching down, so a swipe down is never also a jump.
+  const SWIPE = 30, SWIPE_MS = 250, touches = new Map();
+  on(field, 'pointerdown', e => {
+    if (!enabled() || e.button > 0) return; e.preventDefault();
+    try { field.setPointerCapture?.(e.pointerId) } catch { }
+    touches.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), done: false });
+  });
+  on(field, 'pointermove', e => {
+    const p = touches.get(e.pointerId); if (!p || p.done || !enabled()) return;
+    const dx = e.clientX - p.x, dy = e.clientY - p.y;
+    if (Math.abs(dy) < SWIPE || Math.abs(dy) < Math.abs(dx)) return;
+    if (dy > 0 && performance.now() - p.t <= SWIPE_MS) { p.done = true; slide('swipe') }
+    else if (dy < 0) { p.done = true; jump('swipe') }
+  });
+  on(field, 'pointerup', e => {
+    const p = touches.get(e.pointerId); touches.delete(e.pointerId);
+    if (!p || p.done || !enabled()) return;
+    // let go: a jump, unless the finger went clearly down (a slow swipe down is no jump either)
+    if (e.clientY - p.y >= SWIPE) return;
+    jump('touch');
+  });
+  for (const t of ['pointercancel', 'lostpointercapture']) on(field, t, e => { if (t === 'pointercancel') touches.delete(e.pointerId) });
   // no scrolling, zooming or callouts inside the game
   const stop = e => e.preventDefault();
   on(root, 'touchmove', stop, { passive: false });
@@ -48,5 +72,5 @@ export function createInput({ root, jumpBtn, slideBtn, field }, { jump, slide, p
   });
   on(window, 'keyup', e => { if (JUMP.has(e.code)) jumpBtn.classList.remove('down'); if (SLIDE.has(e.code)) slideBtn.classList.remove('down') });
 
-  return { on, destroy() { while (offs.length) offs.pop()(); down.clear() } };
+  return { on, destroy() { while (offs.length) offs.pop()(); down.clear(); touches.clear() } };
 }

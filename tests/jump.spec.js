@@ -114,6 +114,48 @@ for (const world of ['underwater', 'candy', 'space']) {
   });
 }
 
+test('touch gestures on the play field: tap = jump (again in the air = double), swipe down = slide (no jump), swipe up = jump; the buttons fire once', async ({ page }) => {
+  await boot(page);
+  await openJump(page);
+  await startRun(page, 'underwater');
+  const field = page.locator('.kj-field');
+  const ev = (type, id, x, y) => field.dispatchEvent(type, { pointerId: id, isPrimary: true, pointerType: 'touch', clientX: x, clientY: y, button: 0 });
+  const counts = () => G(page, g => [g.run.jumpsMade, g.run.doublesMade, g.run.slidesMade]);
+  // the game takes a press on its next step (1/120 s): look a few frames later
+  const is = async v => { await page.waitForTimeout(90); expect(await counts()).toEqual(v) };
+  const ground = () => expect.poll(() => G(page, g => g.run.p.ground && !g.run.p.sliding), { timeout: 4000 }).toBe(true);
+  // nothing happens on touching down; letting go is the jump
+  await ev('pointerdown', 1, 200, 300);
+  await is([0, 0, 0]);
+  await ev('pointerup', 1, 201, 302);
+  await is([1, 0, 0]);
+  await ev('pointerdown', 2, 200, 300); await ev('pointerup', 2, 200, 300);
+  await is([1, 1, 0]);   // a second tap in the air: the double jump
+  await ground();
+  // swipe down: a slide the moment the threshold is passed, and letting go is not a jump
+  await ev('pointerdown', 3, 200, 300); await ev('pointermove', 3, 202, 320);
+  await is([1, 1, 0]);
+  await ev('pointermove', 3, 203, 340);
+  await is([1, 1, 1]);
+  await ev('pointerup', 3, 203, 360);
+  await is([1, 1, 1]);
+  await ground();
+  // swipe up: a jump as soon as the finger has gone up, and only one
+  await ev('pointerdown', 4, 200, 400); await ev('pointermove', 4, 200, 360);
+  await is([2, 1, 1]);
+  await ev('pointerup', 4, 200, 330);
+  await is([2, 1, 1]);
+  await ground();
+  // the buttons: one press, one action (they are not also a tap on the field)
+  await page.locator('#kjSlide').dispatchEvent('pointerdown', { pointerId: 5, isPrimary: true, pointerType: 'touch' });
+  await page.locator('#kjSlide').dispatchEvent('pointerup', { pointerId: 5, pointerType: 'touch' });
+  await is([2, 1, 2]);
+  await ground();
+  await page.locator('#kjJump').dispatchEvent('pointerdown', { pointerId: 6, isPrimary: true, pointerType: 'touch' });
+  await page.locator('#kjJump').dispatchEvent('pointerup', { pointerId: 6, pointerType: 'touch' });
+  await is([3, 1, 2]);
+});
+
 test('nobody runs before Go: during the countdown and while paused the child stands idle and nothing scrolls', async ({ page }) => {
   await boot(page);
   await openJump(page);

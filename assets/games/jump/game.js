@@ -108,10 +108,17 @@ export function mountJump(host, opts = {}) {
     e.preventDefault(); actions[act]?.(b);
   });
 
+  // the bottom safe area in px (the CSS variable holds env(), which only a laid-out box resolves)
+  const sabProbe = document.createElement('div'); sabProbe.style.cssText = 'position:absolute;left:0;bottom:0;width:0;height:var(--sab,0px);visibility:hidden;pointer-events:none'; root.appendChild(sabProbe);
   const ro = new ResizeObserver(() => fit()); ro.observe(root); live.observers++;
   function fit() {
     const r = root.getBoundingClientRect();
-    if (renderer && r.width && r.height) { renderer.resize(r.width, r.height, window.devicePixelRatio || 1); if (run) draw(0) }
+    if (renderer && r.width && r.height) {
+      // what the buttons take at the bottom: their size (as in style.css) + margin + the safe area
+      const sab = sabProbe.offsetHeight || 0, btn = Math.min(116, Math.max(88, .135 * Math.min(r.width, r.height)));
+      renderer.resize(r.width, r.height, window.devicePixelRatio || 1, btn + 14 + sab + 14);
+      if (run) draw(0);
+    }
   }
 
   // ---------- screens ----------
