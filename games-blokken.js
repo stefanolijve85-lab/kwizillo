@@ -108,7 +108,7 @@
     const LEVEL={pick:.5,rotate:.5,place:.6,invalid:.45,undo:.5,back:.45,boostEarned:.6,boostUsed:.6,mega:.7,finale:.7};
     function play(k){
       const now=performance.now();if(lastAt[k]&&now-lastAt[k]<70)return;lastAt[k]=now;
-      if(vol()<=0||!SOUNDS[k])return;const c=ctx();if(!c)return;
+      if(vol()<=0||!SOUNDS[k]||!document.querySelector('.blokken-root'))return;const c=ctx();if(!c)return;
       if(live.size>48)return;
       try{SOUNDS[k](c,out(c,LEVEL[k]||.5))}catch(e){}
     }
@@ -159,14 +159,23 @@
   function pieceSVG(piece,rot,cls=''){
     const cells=D.rotate(piece.cells,rot);const {w,h}=D.dims(cells);const C=D.COLORS[piece.color];
     const body=outlinePath(cells);const [sx,sy]=symbolCell(cells);
-    const blocks=cells.map(([x,y])=>`<rect x="${x+.06}" y="${y+.06}" width=".88" height=".88" rx=".17" fill="url(#bkg-${piece.color})"/><rect x="${x+.16}" y="${y+.12}" width=".68" height=".2" rx=".1" fill="#fff" opacity=".42"/>`).join('');
+    // each cell wears the glossy block of the piece's colour (art-source/blokken/cells.png, cut by
+    // tools/blokken-art.cjs); the dark body behind it is the piece's shared outline and its seams
+    const blocks=cells.map(([x,y])=>`<image href="${CELL_ART(piece.color)}" x="${x+.03}" y="${y+.03}" width=".94" height=".94" preserveAspectRatio="none"/>`).join('');
     return `<svg class="bk-svg ${cls}" viewBox="0 0 ${w} ${h}" width="100%" height="100%" aria-hidden="true" focusable="false">
       <path d="${body}" fill="${C.dark}" stroke="${C.dark}" stroke-width=".07" stroke-linejoin="round"/>
       ${blocks}
       <g transform="translate(${sx} ${sy})"><path d="${SYM[piece.symbol]}" fill="${C.dark}" opacity=".5" transform="translate(.02 .03)"/><path d="${SYM[piece.symbol]}" fill="#fff" opacity=".92"/></g>
     </svg>`;
   }
-  const gradients=()=>`<svg class="bk-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>${Object.entries(D.COLORS).map(([k,c])=>`<linearGradient id="bkg-${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c.light}"/><stop offset=".45" stop-color="${c.base}"/><stop offset="1" stop-color="${c.dark}"/></linearGradient>`).join('')}</defs></svg>`;
+  const ART='assets/games/blokken/';
+  const CELL_ART=c=>`${ART}cell-${c}.webp`;
+  const preloadArt=()=>{for(const c of Object.keys(D.COLORS)){const i=new Image();i.src=CELL_ART(c)}};
+  // MEGA ZET!: the emblem as drawn (Dutch lettering) in Dutch; in every other
+  // language its star and rays with the translated title as live text.
+  const megaEmblem=(cls='')=>K.state.language==='nl'
+    ?`<img class="bk-emblem ${cls}" src="${ART}mega-nl.webp" alt="${esc(t('blokken.mega'))}" draggable="false">`
+    :`<span class="bk-emblem live ${cls}"><img src="${ART}mega-star.webp" alt="" draggable="false"><b>${esc(t('blokken.mega'))}</b></span>`;
 
   // The game's own rainbow title: one colour per letter, built as text. Arabic
   // letters join, so a split word would fall apart there: it gets one gradient.
@@ -238,7 +247,6 @@
     }).join('');
     const deco=['red','yellow','blue','green'].map((c,i)=>pieceSVG({cells:[[[0,0],[1,0],[1,1]],[[0,0],[1,0],[0,1],[1,1]],[[0,0],[0,1],[0,2],[1,2]],[[1,0],[0,1],[1,1],[2,1]]][i],color:c,symbol:['star','heart','moon','dot'][i]},0)).map((s,i)=>`<span style="width:${[2,2,2,3][i]*22}px;height:${[2,2,3,2][i]*22}px">${s}</span>`).join('');
     const f=K.frame(`<section class="blokken-root bk-levels fade-in">
-      ${gradients()}
       <div class="bk-bg" aria-hidden="true"></div>
       <header class="bk-head">
         ${rainbowTitle(t('blokken.title'))}
@@ -270,15 +278,17 @@
     const b=f.querySelector('.bk-sound');if(!b)return;
     b.onclick=async()=>{
       const on=K.state.soundOn!==false||K.state.musicOn!==false;
-      K.audio.setSfx(!on);await K.audio.setMusic(!on).catch(()=>{});
+      K.audio.setSfx(!on);
       const now=K.state.soundOn!==false;b.innerHTML=now?ICON.soundOn:ICON.soundOff;b.setAttribute('aria-pressed',String(now));
       if(now)Snd.play('pick');
+      await K.audio.setMusic(!on).catch(()=>{});
     };
   }
   function wiggle(el){if(!el||reduced())return;el.classList.remove('bk-wiggle');void el.offsetWidth;el.classList.add('bk-wiggle');setTimeout(()=>el.classList.remove('bk-wiggle'),420)}
 
   /* ---------------- start a level ---------------- */
   K.startBlokken=(n,{fresh=false}={})=>{
+    preloadArt();
     n=Math.max(1,Math.min(TOTAL,Math.floor(Number(n)||1)));
     if(!unlocked(n))return K.showBlokkenLevels();
     destroy();
@@ -289,7 +299,6 @@
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech?.();
     const f=K.frame(`<section class="blokken-root bk-play fade-in" data-level="${n}" style="--cols:${lv.cols};--rows:${lv.rows}">
-      ${gradients()}
       <div class="bk-bg" aria-hidden="true"></div>
       <header class="bk-head">
         ${rainbowTitle(t('blokken.title'))}
@@ -363,9 +372,9 @@
       // width it has (never more than 60% of the room), the tray gets the rest.
       const cs=getComputedStyle(root);const head=root.querySelector('.bk-head'),foot=root.querySelector('.bk-foot');
       const room=root.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-head.offsetHeight-foot.offsetHeight-3*8;
-      const panel=root.querySelector('.bk-board-panel');const inner=panel.clientWidth-24-20;
+      const panel=root.querySelector('.bk-board-panel');const inner=wrap.clientWidth;
       const cw=Math.min(inner/lv.cols,max);
-      const want=Math.ceil(cw*lv.rows+24+20);
+      const want=Math.ceil(cw*lv.rows+(panel.offsetHeight-wrap.clientHeight));
       root.style.setProperty('--board-h',Math.max(140,Math.min(want,Math.round(room*.6)))+'px');
     }else root.style.removeProperty('--board-h');
     const W=wrap.clientWidth,H=wrap.clientHeight;
@@ -607,7 +616,8 @@
   function boostToast(){
     const g=G;Snd.play('boostEarned');
     const el=document.createElement('div');el.className='bk-boost-toast';el.setAttribute('role','status');
-    el.innerHTML=`<span class="bk-boost-toast-row"><span class="bk-star">★</span><b>${esc(t('blokken.boost'))}</b><span class="bk-star">★</span></span><small>${esc(t('blokken.boostEarned'))}</small>`;
+    // the banner art carries only the feature's fixed name, so it is the same in every language
+    el.innerHTML=`<img class="bk-boost-art" src="${ART}boost-banner.webp" alt="${esc(t('blokken.boost'))}" draggable="false"><small>${esc(t('blokken.boostEarned'))}</small>`;
     g.root.appendChild(el);later(()=>el.remove(),TIME.toast+300);
     const btn=g.root.querySelector('#bkBoost');if(btn&&!reduced()){btn.classList.add('bk-glow');later(()=>btn.classList.remove('bk-glow'),1600)}
   }
@@ -637,7 +647,7 @@
       root.classList.add('bk-mega');
       Snd.play(g.lv.n===TOTAL?'finale':'mega');
       const m=document.createElement('div');m.className='bk-mega-text';m.setAttribute('role','status');
-      m.innerHTML=`<b>${esc(t('blokken.mega'))}</b>`;root.querySelector('.bk-board-panel').appendChild(m);
+      m.innerHTML=megaEmblem();root.querySelector('.bk-board-panel').appendChild(m);
       if(!reduced())K.celebrateAt?.(K.app.querySelector('.game-frame'),{...center(root.querySelector('.bk-board')),count:g.lv.n===TOTAL?60:30});
       say(t('blokken.mega'));
     },TIME.snap+80);
@@ -652,8 +662,7 @@
     const side=root.querySelector('.bk-tray-panel');
     const chips=[bk.xp?`<span class="bk-chip">+${bk.xp} XP</span>`:'',bk.coins?`<span class="bk-chip coin">${K.icon?K.icon('coin'):''}+${bk.coins}</span>`:''].join('');
     side.innerHTML=`<div class="bk-result-card ${last?'final':''}" role="dialog" aria-label="${esc(last?t('blokken.allDone'):t('blokken.done'))}">
-      <div class="bk-result-star">${ICON.star}</div>
-      <b class="bk-mega-word">${esc(t('blokken.mega'))}</b>
+      <div class="bk-result-star">${megaEmblem()}</div>
       <h2>${esc(last?t('blokken.allDone'):t('blokken.done'))}</h2>
       ${last?`<p class="bk-badge-line">${esc(t('blokken.badge'))}</p>`:''}
       <div class="bk-chips">${chips}</div>
@@ -665,8 +674,8 @@
       :`<div class="bk-actions result">
         <button class="bk-btn yellow" id="bkNext">${ICON.play}<span>${esc(t('blokken.next'))}</span></button>
         <button class="bk-btn blue" id="bkAgain">${ICON.restart}<span>${esc(t('blokken.replay'))}</span></button>
-        <button class="bk-btn small blue ghost" id="bkToLevels">${ICON.grid}<span>${esc(t('blokken.toLevels'))}</span></button>
-        <button class="bk-btn small blue ghost" id="bkGames">${ICON.back}<span>${esc(t('blokken.toGames'))}</span></button></div>`;
+        <button class="bk-btn small ghost" id="bkToLevels">${ICON.grid}<span>${esc(t('blokken.toLevels'))}</span></button>
+        <button class="bk-btn small ghost" id="bkGames">${ICON.back}<span>${esc(t('blokken.toGames'))}</span></button></div>`;
     foot.querySelector('#bkAgain').onclick=()=>{K.sfx('tap');K.startBlokken(lv.n,{fresh:true})};
     foot.querySelector('#bkGames').onclick=()=>{K.sfx('tap');leaveToGames()};
     foot.querySelector('#bkNext')?.addEventListener('click',()=>{K.sfx('tap');K.startBlokken(lv.n+1)});

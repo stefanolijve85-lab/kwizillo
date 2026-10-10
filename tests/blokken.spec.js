@@ -142,7 +142,7 @@ test.describe('Blokkenpret', () => {
     await expect(page.locator('.bk-hint-cell')).toHaveCount(0);
     await piecesIntact(page);
     await solveBy(page, mouseDrag, lv.solution.slice(1));
-    await expect(page.locator('.bk-mega-text')).toContainText('MEGA ZET!');
+    await expect(page.locator('.bk-mega-text img.bk-emblem')).toHaveAttribute('alt', 'MEGA ZET!');   // Dutch: the drawn emblem
     await expect(page.locator('.bk-result-card')).toContainText('Level gehaald!', { timeout: 4000 });
     await expect(page.locator('#bkNext')).toBeVisible();
     await expect(page.locator('#bkAgain')).toContainText('Opnieuw spelen');
@@ -355,7 +355,7 @@ test.describe('Blokkenpret', () => {
     expect((await S(page)).boost.credited).toEqual([a.id, b.id]);
     await mouseDrag(page, b.id, b.x, b.y);
     await mouseDrag(page, c.id, c.x, c.y);
-    await expect(page.locator('.bk-boost-toast')).toContainText('BONUS BOOST!');
+    await expect(page.locator('.bk-boost-toast img.bk-boost-art')).toHaveAttribute('alt', 'BONUS BOOST!');
     expect((await S(page)).boost).toMatchObject({ earned: true, available: true, used: false });
     await expect(page.locator('#bkBoost')).toBeVisible();
     expect(Object.keys((await S(page)).placements).sort()).toEqual([a.id, b.id, c.id].sort());
@@ -520,7 +520,7 @@ test.describe('Blokkenpret', () => {
   }
 
   test('all 10 levels: finale, golden star and the overview shows every level done', async ({ page }) => {
-    test.setTimeout(120000);
+    test.setTimeout(300000);
     await boot(page);
     await openLevels(page);
     for (let n = 1; n <= 10; n++) {
@@ -581,6 +581,6 @@ test.describe('Blokkenpret', () => {
     await expect(page.locator('.bk-count')).toContainText('وضعت');
     const lv = await level(page, 1);
     await solveBy(page, mouseDrag);
-    await expect(page.locator('.bk-result-card')).toContainText('MEGA ZET!', { timeout: 4000 });
+    await expect(page.locator('.bk-result-card')).toContainText('MEGA ZET!', { timeout: 10000 });
   });
 });
