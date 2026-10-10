@@ -315,10 +315,12 @@
     const f=speakFrame(`<div class="speak-panel">
         <div class="talen-ask"><img class="mascot-face" src="${K.guideArt(K.state.voice)}" alt=""><b class="talen-ask-bubble">${esc(t('talen.speaking.sayIt'))}</b></div>
         <button class="speak-word" id="speakHear" aria-label="${esc(t('talen.listen'))}">${kit().pic(w,'speak-pic')}<b lang="${l}" dir="auto">${esc(w.text[l])}</b><small dir="auto">${esc(w.text[o]||'')} · 🔊</small></button>
+        <div class="speak-act">
         <div class="speak-status" id="speakStatus" aria-live="polite"></div>
         ${micOn?`<button class="speak-mic" id="speakMic" aria-label="${esc(t('talen.speaking.tapMic'))}"><span class="speak-mic-glyph" aria-hidden="true">🎤</span><span class="speak-wave" aria-hidden="true">${'<i></i>'.repeat(7)}</span></button><p class="speak-tip">${esc(t('talen.speaking.tapMic'))}</p>`
           :`<button class="talen-start" id="speakSaid">✅ ${esc(t('talen.speaking.iSaidIt'))}</button>`}
         <div class="speak-after" hidden><button class="talen-start secondary" id="speakAgain">${K.icon('repeat')} ${esc(t('talen.speaking.tryAgain'))}</button><button class="talen-start" id="speakNext">${esc(t('talen.speaking.next'))} ›</button></div>
+        </div>
       </div>`);
     const status=f.querySelector('#speakStatus'),after=f.querySelector('.speak-after'),mic=f.querySelector('#speakMic');
     const hear=()=>{K.stopSpeech();K.playClips([audio(l,w.id)])};
