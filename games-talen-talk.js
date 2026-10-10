@@ -230,10 +230,44 @@
     };
   })();
   K.speechPractice=speechPractice;
+
+  // Real checking, on the device only (2026-10-10, Stefan: "it says good whatever you say"):
+  // the iOS and Android apps carry a recogniser that never sends the voice anywhere
+  // (KwizilloSpeechPlugin.swift / .java: requiresOnDeviceRecognition, createOnDeviceSpeechRecognizer).
+  // Where it is missing (web, Chromebook, older Android, a language without an on-device
+  // model) Spreken stays "say it out loud" and says so honestly, never "right".
+  const nativeSpeech=()=>(window.Capacitor?.isNativePlatform?.()&&window.Capacitor.Plugins?.KwizilloSpeech)||K.speechNativeForTest||null;
+  const recognizer={
+    async available(lang){const p=nativeSpeech();if(!p)return false;try{return !!(await p.available({lang})).available}catch(e){return false}},
+    async requestPermission(){const p=nativeSpeech();const r=await p.requestPermission();if(!r?.granted)throw new Error('denied');return true},
+    // {heard, transcript} — or null when cancelled
+    async start({lang,onLevel=()=>{},maxMs=6000}){
+      const p=nativeSpeech();let h=null;
+      try{h=await p.addListener?.('level',e=>onLevel(Number(e?.value)||0))}catch(e){}
+      try{const r=await p.start({lang,maxMs});return r?.cancelled?null:{heard:!!r?.heard,transcript:String(r?.transcript||'')}}
+      finally{try{h?.remove?.()}catch(e){}}
+    },
+    stop(){nativeSpeech()?.stop?.().catch?.(()=>{})},
+    cancel(){nativeSpeech()?.cancel?.().catch?.(()=>{})}
+  };
+  // Is what the child said the word? Spelling, accents, capitals and punctuation do not
+  // count; a near miss in sound does (a recogniser writes "ola" for "hola").
+  const norm=s=>String(s||'').toLowerCase().replace(/ё/g,'е').normalize('NFKD').replace(/[\u0300-\u036f\u064b-\u065f\u0670]/g,'')
+    .replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
+  const lev=(a,b)=>{const d=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const q=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=q}}return d[b.length]};
+  const sim=(a,b)=>{const m=Math.max(a.length,b.length);return m?1-lev(a,b)/m:1};
+  K.talenSaidRight=(heard,want)=>{
+    const h=norm(heard),w=norm(want);if(!h||!w)return false;
+    if(h===w||(' '+h+' ').includes(' '+w+' '))return true;
+    if(sim(h.replace(/ /g,''),w.replace(/ /g,''))>=.72)return true;
+    // a longer sentence: most of its words heard, each close enough
+    const ws=w.split(' '),hs=h.split(' ');
+    return ws.length>1&&ws.filter(x=>hs.some(y=>sim(x,y)>=.75)).length/ws.length>=.75;
+  };
   // Leaving the screen, the app or the voice: the microphone goes off at once.
   const stopSpeech=K.stopSpeech;
-  K.stopSpeech=(...a)=>{speechPractice.cancel();return stopSpeech?.(...a)};
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)speechPractice.cancel()});
+  K.stopSpeech=(...a)=>{speechPractice.cancel();if(K.talenSpeak?.check&&K.talenSpeak.listening)recognizer.cancel();return stopSpeech?.(...a)};
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){speechPractice.cancel();if(K.talenSpeak?.listening)recognizer.cancel()}});
 
   /* ---------------- Spreken: three sets ---------------- */
   const sets=()=>T().speaking||[];
@@ -249,7 +283,7 @@
     f.querySelectorAll('[data-speak-set]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalenSpeak(b.dataset.speakSet)});
   };
 
-  K.startTalenSpeak=id=>{
+  K.startTalenSpeak=async id=>{
     const l=learn(),mix=id==='mix',s=mix?null:sets().find(x=>x.id===id);
     if(!l||(!mix&&!s))return K.showTalenSpeak();
     if(!K.premium.can('talen',mix?'mix':`speak:${id}`)){K.premiumLocked({kind:'talen',retry:()=>K.startTalenSpeak(id)});return}
@@ -257,13 +291,19 @@
     const words=ids.map(w=>kit().word(w)).filter(w=>w&&w.text[l]);
     if(!words.length)return K.showTalenSpeak();
     K.audio.setTrack('play').catch(()=>{});
-    K.talenSpeak={set:id,words,i:0,done:0,mic:speechPractice.isSupported()&&K.state.talenMicOk?'on':null};
-    if(!speechPractice.isSupported())return micOff();
+    const g=K.talenSpeak={set:id,words,i:0,done:0,right:0,mic:null,check:false};
+    // On the device the recogniser can check the word: then it, not the web microphone, listens.
+    g.check=await recognizer.available(l);
+    if(K.talenSpeak!==g)return;
+    const can=g.check||speechPractice.isSupported();
+    g.mic=can&&K.state.talenMicOk?'on':null;
+    if(!can)return micOff();
     if(!K.state.talenMicOk)return micAsk();   // asked here, the first time Spreken is opened — never at app start
     speakItem();
   };
   K.talenSpeakForTest=()=>K.talenSpeak;
 
+  const askMic=()=>K.talenSpeak?.check?recognizer.requestPermission():speechPractice.requestPermission();
   // Before the system asks: why Kwizillo wants the microphone.
   function micAsk(){
     const f=speakFrame(`<div class="speak-panel speak-ask">
@@ -275,7 +315,7 @@
       </div>`);
     f.querySelector('#micEnable').onclick=async()=>{
       K.sfx('tap');
-      try{await speechPractice.requestPermission();K.state.talenMicOk=true;K.save();K.talenSpeak.mic='on';speakItem()}
+      try{await askMic();K.state.talenMicOk=true;K.save();K.talenSpeak.mic='on';speakItem()}
       catch(e){micOff()}
     };
     f.querySelector('#micSkip').onclick=()=>{K.sfx('tap');K.talenSpeak.mic='off';speakItem()};
@@ -287,11 +327,11 @@
         <span class="speak-mic-icon off" aria-hidden="true">🎙️</span>
         <h2>${esc(t('talen.speaking.micOff'))}</h2>
         <p>${esc(t('talen.speaking.micOffBody'))}</p>
-        ${speechPractice.isSupported()?`<button class="talen-start" id="micRetry">${esc(t('talen.speaking.retry'))}</button>`:''}
-        <button class="talen-start ${speechPractice.isSupported()?'secondary':''}" id="micSkip">${esc(t('talen.speaking.withoutMic'))}</button>
+        ${K.talenSpeak?.check||speechPractice.isSupported()?`<button class="talen-start" id="micRetry">${esc(t('talen.speaking.retry'))}</button>`:''}
+        <button class="talen-start ${K.talenSpeak?.check||speechPractice.isSupported()?'secondary':''}" id="micSkip">${esc(t('talen.speaking.withoutMic'))}</button>
         <button class="talen-start secondary" id="micBack">${esc(t('common.back'))}</button>
       </div>`);
-    f.querySelector('#micRetry')?.addEventListener('click',async()=>{K.sfx('tap');try{await speechPractice.requestPermission();K.state.talenMicOk=true;K.save();K.talenSpeak.mic='on';speakItem()}catch(e){micOff()}});
+    f.querySelector('#micRetry')?.addEventListener('click',async()=>{K.sfx('tap');try{await askMic();K.state.talenMicOk=true;K.save();K.talenSpeak.mic='on';speakItem()}catch(e){micOff()}});
     f.querySelector('#micSkip').onclick=()=>{K.sfx('tap');K.talenSpeak.mic='off';speakItem()};
     f.querySelector('#micBack').onclick=()=>{K.sfx('tap');K.showTalenSpeak()};
   }
@@ -330,14 +370,35 @@
     const status=f.querySelector('#speakStatus'),after=f.querySelector('.speak-after'),mic=f.querySelector('#speakMic');
     const hear=()=>{K.stopSpeech();K.playClips([audio(l,w.id)])};
     f.querySelector('#speakHear').onclick=()=>{K.sfx('tap');hear()};
-    const success=()=>{
-      g.done++;const rec=speakRec(true);rec.practised++;rec.lastPlayed=Date.now();K.save();
-      status.className='speak-status good';status.textContent=`🌟 ${t('talen.speaking.goodPractice')}`;
+    // right: checked on the device and it was the word; null: not checked (no recogniser) — then
+    // only "you said it out loud", never "good".
+    const success=(right=null)=>{
+      g.done++;if(right)g.right++;const rec=speakRec(true);rec.practised++;if(right)rec.correct=(rec.correct||0)+1;rec.lastPlayed=Date.now();K.save();
+      status.className='speak-status good';status.textContent=`🌟 ${t(right?'talen.speaking.correct':g.mic==='on'?'talen.speaking.saidAloud':'talen.speaking.goodPractice')}`;
       after.hidden=false;mic&&(mic.disabled=true);f.querySelector('#speakSaid')?.setAttribute('hidden','');
       K.sfx('good');K.playClips([kit().vary('goed',T().praise)]);
     };
     f.querySelector('#speakSaid')?.addEventListener('click',()=>{K.sfx('tap');success()});
     mic?.addEventListener('click',async()=>{
+      if(g.check){
+        if(g.listening){recognizer.stop();return}
+        K.stopSpeech();g.listening=true;
+        mic.classList.add('live');mic.setAttribute('aria-pressed','true');
+        status.className='speak-status live';status.innerHTML=`<span class="speak-dot" aria-hidden="true"></span>${esc(t('talen.speaking.listening'))} <span class="sr-only">${esc(t('talen.speaking.micActive'))}</span>`;
+        const bars=[...mic.querySelectorAll('.speak-wave i')];
+        let res;
+        try{res=await recognizer.start({lang:l,onLevel:v=>bars.forEach((b,k)=>b.style.setProperty('--h',String(.15+v*(.6+.4*Math.sin((Date.now()/90)+k)))))})}
+        catch(e){g.listening=false;micOff();return}
+        g.listening=false;
+        if(!f.isConnected||res===null)return;
+        mic.classList.remove('live');mic.removeAttribute('aria-pressed');bars.forEach(b=>b.style.removeProperty('--h'));
+        if(K.talenSaidRight(res.transcript,w.text[l])){success(true);return}
+        // not the word: what was heard, and once more (nothing of it is kept)
+        status.className='speak-status try';
+        status.textContent=res.transcript?`${t('talen.speaking.almost')} ${t('talen.speaking.heardAs',{text:res.transcript})}`:t('talen.speaking.notHeard');
+        K.playClips([kit().vary('bijna',T().almost)]);
+        return;
+      }
       if(speechPractice.active()){speechPractice.stop();return}
       K.stopSpeech();
       mic.classList.add('live');mic.setAttribute('aria-pressed','true');
@@ -361,9 +422,10 @@
   function speakFinish(){
     const g=K.talenSpeak,n=g.words.length;
     const rec=speakRec(true);rec.completed++;rec.lastPlayed=Date.now();
-    const stars=g.done>=n?3:g.done>=n/2?2:1,xp=g.done*2+5,coins=3;
+    // checked on the device: stars for the words said right; otherwise for the words practised
+    const count=g.check?g.right:g.done,stars=count>=n?3:count>=n/2?2:1,xp=count*2+5,coins=3;
     K.awardPoints(xp);K.awardCoins(coins);K.touchStreak();K.save();
-    resultScreen({icon:SET_ICON[g.set]||'🎤',title:t('talen.speaking.done'),stars,stat:`${g.done}/${n}`,statLabel:t('talen.section.speaking'),xp,
+    resultScreen({icon:SET_ICON[g.set]||'🎤',title:t('talen.speaking.done'),stars,stat:`${g.check?g.right:g.done}/${n}`,statLabel:t('talen.section.speaking'),xp,
       again:()=>K.startTalenSpeak(g.set),back:()=>K.showTalenSpeak(),againLabel:t('talen.speaking.tryAgain')});
   }
 })();

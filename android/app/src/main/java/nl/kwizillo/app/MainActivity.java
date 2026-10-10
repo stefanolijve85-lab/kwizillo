@@ -8,6 +8,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(KwizilloBillingPlugin.class);   // before super: the bridge is built there
+        registerPlugin(KwizilloSpeechPlugin.class);    // Talen, Spreken: on-device recognition
         super.onCreate(savedInstanceState);
         // Same as the iOS app: a phone plays upright, a tablet turns freely (the
         // web layer has a wide frame for landscape). 600 dp is Android's own

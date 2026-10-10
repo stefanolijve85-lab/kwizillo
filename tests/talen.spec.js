@@ -626,8 +626,37 @@ test('Spreken: a voice on the microphone is heard locally (voice activity, no sc
   await expect(page.locator('#speakStatus')).toContainText('Ik luister…');
   await page.waitForTimeout(900);
   await page.locator('#speakMic').click();                                            // a second tap: done talking
-  await expect(page.locator('#speakStatus')).toContainText('Goed geoefend!');
+  await expect(page.locator('#speakStatus')).toContainText('Je zei het hardop!');     // not checked: never "right"
   await expect(page.locator('#speakStatus')).not.toContainText('%');                  // no made-up pronunciation score
   expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking.es.practised)).toBe(1);
   expect(await page.evaluate(() => window.__gum.streams.every(s => s.getTracks().every(t => t.readyState === 'ended')))).toBe(true);
+});
+
+test('Spreken in the app with on-device recognition: the word said right counts, another word does not; nothing of what was heard is kept', async ({ page }) => {
+  // the native plugin as the iOS/Android app has it, answering with a scripted transcript
+  await page.addInitScript(() => {
+    window.__said = [];
+    window.KWIZILLO_M1 = window.KWIZILLO_M1 || {};
+    const fake = { lang: null,
+      available: async ({ lang }) => ({ available: lang === 'es', onDevice: true, authorized: true }),
+      requestPermission: async () => ({ granted: true }),
+      addListener: async () => ({ remove() {} }),
+      start: async ({ lang }) => { fake.lang = lang; return { heard: true, transcript: window.__said.shift() || '' } },
+      stop: async () => {}, cancel: async () => {} };
+    Object.defineProperty(window.KWIZILLO_M1, 'speechNativeForTest', { value: fake, configurable: true });
+  });
+  await boot(page, { state: SAVED({ learnLang: 'es', talenMicOk: true }) });
+  await page.evaluate(() => { window.__said.push('adiós', 'Ola'); return window.KWIZILLO_M1.startTalenSpeak('basics'); });
+  await expect(page.locator('.speak-word b')).toHaveText('hola');
+  await page.locator('#speakMic').click();
+  await expect(page.locator('#speakStatus')).toContainText('Bijna!');
+  await expect(page.locator('#speakStatus')).toContainText('adiós');
+  await expect(page.locator('.speak-after')).toBeHidden();                            // not right: no "next" yet
+  await page.locator('#speakMic').click();
+  await expect(page.locator('#speakStatus')).toContainText('Goed gezegd!');
+  const rec = await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking.es);
+  expect(rec).toMatchObject({ practised: 1, correct: 1 });
+  expect(Object.keys(rec).sort()).toEqual(['completed', 'correct', 'lastPlayed', 'practised']);
+  const stored = await page.evaluate(() => Object.keys(localStorage).map(k => localStorage.getItem(k)).join(''));
+  expect(stored).not.toContain('adiós');                                               // what was heard is shown, never kept
 });

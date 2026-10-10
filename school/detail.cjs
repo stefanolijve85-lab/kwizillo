@@ -57,7 +57,7 @@ function detail(s) {
     x.conv.played += n(rec?.played); x.conv.answered += n(rec?.answered); x.conv.correct += n(rec?.correct);
   }
   for (const [lang, rec] of Object.entries(talen.speaking || {})) {
-    (learnt[lang] ||= { themes: {}, words: 0 }).speaking = { practised: n(rec?.practised), completed: n(rec?.completed), lastPlayed: n(rec?.lastPlayed) };
+    (learnt[lang] ||= { themes: {}, words: 0 }).speaking = { practised: n(rec?.practised), correct: n(rec?.correct), completed: n(rec?.completed), lastPlayed: n(rec?.lastPlayed) };
   }
   const math = p.games?.math || {};
   return {
@@ -67,7 +67,7 @@ function detail(s) {
     talen: Object.entries(learnt).map(([lang, x]) => ({
       lang, name: LANGS[lang] || 'Onbekende taal', words: x.words,
       conversations: x.conv || { played: 0, answered: 0, correct: 0 },
-      speaking: x.speaking || { practised: 0, completed: 0, lastPlayed: 0 },
+      speaking: x.speaking || { practised: 0, correct: 0, completed: 0, lastPlayed: 0 },
       themes: G.talen.filter(t => x.themes[t.id]).map(t => ({ id: t.id, label: t.label, ...x.themes[t.id] })),
     })),
   };

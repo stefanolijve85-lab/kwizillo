@@ -7,6 +7,7 @@ import Capacitor
 class KwizilloViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(KwizilloStoreKitPlugin())
+        bridge?.registerPluginInstance(KwizilloSpeechPlugin())   // Talen, Spreken: on-device recognition
     }
 
     // The opening film and its theme start the moment the app opens, with sound.

@@ -126,20 +126,20 @@ const net = require('net');
   await ok('Talen Gesprekjes and Spreken reach the teacher as counts only; an older state without them still opens', async () => {
     // the state saved above has neither key: the detail shows zeros, nothing breaks
     let r = await call('GET', `/api/school/pupils/${pupils[0].id}`, { cookie });
-    assert.deepStrictEqual(r.json.talen.map(l => [l.lang, l.conversations, l.speaking]), [['en', { played: 0, answered: 0, correct: 0 }, { practised: 0, completed: 0, lastPlayed: 0 }], ['de', { played: 0, answered: 0, correct: 0 }, { practised: 0, completed: 0, lastPlayed: 0 }]]);
+    assert.deepStrictEqual(r.json.talen.map(l => [l.lang, l.conversations, l.speaking]), [['en', { played: 0, answered: 0, correct: 0 }, { practised: 0, correct: 0, completed: 0, lastPlayed: 0 }], ['de', { played: 0, answered: 0, correct: 0 }, { practised: 0, correct: 0, completed: 0, lastPlayed: 0 }]]);
     const state = { answered: 20, correct: 15, xp: 250, progress: { talen: {
       words: { 'es:hello': {} },
       conversations: { 'es:intro': { played: 2, answered: 8, correct: 6, stars: 2, lastPlayed: 1760000000000 }, 'es:food': { played: 1, answered: 4, correct: 4, stars: 3 } },
-      speaking: { es: { practised: 8, completed: 1, lastPlayed: 1760000000000 } } } } };
+      speaking: { es: { practised: 8, correct: 5, completed: 1, lastPlayed: 1760000000000 } } } } };
     r = await call('PUT', '/api/school/pupil/state', { token, body: { state, version } });
     assert.strictEqual(r.status, 200); version = r.json.version;
     r = await call('GET', `/api/school/pupils/${pupils[0].id}`, { cookie });
     const es = r.json.talen.find(l => l.lang === 'es');
     assert.strictEqual(es.name, 'Spaans');
     assert.deepStrictEqual(es.conversations, { played: 3, answered: 12, correct: 10 });
-    assert.deepStrictEqual(es.speaking, { practised: 8, completed: 1, lastPlayed: 1760000000000 });
-    // Spreken carries nothing of the voice: only these three numbers
-    assert.deepStrictEqual(Object.keys(es.speaking).sort(), ['completed', 'lastPlayed', 'practised']);
+    assert.deepStrictEqual(es.speaking, { practised: 8, correct: 5, completed: 1, lastPlayed: 1760000000000 });
+    // Spreken carries nothing of the voice: only these four numbers (no transcript, no sound)
+    assert.deepStrictEqual(Object.keys(es.speaking).sort(), ['completed', 'correct', 'lastPlayed', 'practised']);
   });
 
   await ok('five wrong picture codes lock the pupil for a while', async () => {
