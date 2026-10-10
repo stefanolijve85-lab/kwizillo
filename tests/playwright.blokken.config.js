@@ -2,6 +2,7 @@
 // checkouts' servers (8080, 8097, 8099).
 //   npx playwright test -c tests/playwright.blokken.config.js
 //   npx playwright test -c tests/playwright.blokken.config.js --project=webkit
+//   BLOKKEN_FIREFOX=1 npx playwright test -c tests/playwright.blokken.config.js --project=firefox
 const { defineConfig, devices } = require('@playwright/test');
 const base = require('../playwright.config.js');
 const PORT = Number(process.env.BLOKKEN_PORT || 8096);
@@ -14,6 +15,7 @@ module.exports = defineConfig({
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
     { name: 'webkit', use: { browserName: 'webkit' } },
-    { name: 'firefox', use: { browserName: 'firefox' } }
+    // Firefox only when its Playwright build is installed (npx playwright install firefox).
+    ...(process.env.BLOKKEN_FIREFOX ? [{ name: 'firefox', use: { browserName: 'firefox' } }] : [])
   ]
 });

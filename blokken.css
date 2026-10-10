@@ -40,6 +40,7 @@
 .blokken-root .bk-round{width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;color:#6a3df0;
   background:linear-gradient(180deg,#ffffff,#ece6ff);box-shadow:0 4px 0 #cfc2f4,0 8px 14px rgba(90,60,180,.18);transition:transform .1s}
 .blokken-root .bk-round svg{width:24px;height:24px}
+[dir="rtl"] .blokken-root #bkBack svg{transform:scaleX(-1)}
 .blokken-root .bk-round:active{transform:translateY(3px);box-shadow:0 1px 0 #cfc2f4}
 .blokken-root .bk-prog{grid-area:prog;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
 .blokken-root .bk-dots{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;position:relative}
@@ -79,6 +80,7 @@
 .blokken-root .bk-board.kb{box-shadow:0 0 0 3px rgba(50,121,255,.45);border-radius:10px}
 .blokken-root .bk-cells,.blokken-root .bk-on,.blokken-root .bk-preview,.blokken-root .bk-hint-layer{position:absolute;inset:0}
 .blokken-root .bk-plate,.blokken-root .bk-outline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.blokken-root .bk-outline{z-index:4}
 .blokken-root .bk-plate path{fill:#d5caf2;stroke:#c3b3ee;stroke-width:.2;stroke-linejoin:round}
 .blokken-root .bk-cell,.blokken-root .bk-pv,.blokken-root .bk-hint-cell{position:absolute;left:calc(var(--x) * var(--cell));top:calc(var(--y) * var(--cell));width:var(--cell);height:var(--cell)}
 .blokken-root .bk-cell::before{content:"";position:absolute;inset:7%;border-radius:22%;background:linear-gradient(180deg,#d6cdf0,#e6dffa);
@@ -183,13 +185,14 @@
 .blokken-root .bk-spin .bk-svg{animation:bkSpin .2s ease-out}
 
 /* MEGA ZET!: a golden light runs along the figure's outline */
-.blokken-root .bk-outline path{fill:none;stroke:none;vector-effect:non-scaling-stroke}
-.blokken-root.bk-mega .bk-outline path{stroke:#ffd54a;stroke-width:5;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:22 78;filter:drop-shadow(0 0 6px #ffcf2a) drop-shadow(0 0 12px rgba(255,190,40,.8));animation:bkRun 1.2s linear infinite}
+.blokken-root .bk-outline path{fill:none;stroke:none}
+.blokken-root.bk-mega .bk-outline path{stroke:#ffd54a;stroke-width:.13;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:22 78;filter:drop-shadow(0 0 6px #ffcf2a) drop-shadow(0 0 12px rgba(255,190,40,.8));animation:bkRun 1.2s linear infinite}
 .blokken-root.bk-mega .bk-board-panel{box-shadow:inset 0 0 0 3px #ffe58a,0 5px 0 #e7c25a,0 0 30px rgba(255,200,40,.45)}
 .blokken-root .bk-mega-text{position:absolute;left:50%;top:50%;z-index:12;transform:translate(-50%,-50%);pointer-events:none;animation:bkMega .5s cubic-bezier(.2,1.4,.4,1) both}
 .blokken-root .bk-mega-text b,.blokken-root .bk-mega-word{display:block;font-family:var(--bk-font);font-weight:400;font-size:clamp(40px,12vw,64px);line-height:1;white-space:nowrap;
   color:#ffd23a;-webkit-text-stroke:3px #6b2fd8;paint-order:stroke fill;text-shadow:0 4px 0 #4b1fa8,0 10px 20px rgba(60,20,140,.35)}
 .blokken-root.bk-result .bk-mega-text{display:none}
+.blokken-root.bk-done .bk-tray-head .bk-btn,.blokken-root.bk-done .bk-banner,.blokken-root.bk-done .bk-rotate{display:none}
 .blokken-root.bk-done .bk-piece{cursor:default}
 
 /* result: replaces the tray, the board stays in view */
@@ -203,7 +206,12 @@
 .blokken-root .bk-chips{display:flex;gap:8px;justify-content:center;min-height:6px}
 .blokken-root .bk-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:999px;background:#fff;font-weight:900;color:#4a22c4;box-shadow:0 2px 0 #ddd3f7}
 .blokken-root .bk-chip .ki{width:16px;height:16px}
+.blokken-root .bk-actions.result{max-width:560px}
 .blokken-root .bk-actions.result .bk-btn:not(.small){min-width:150px}
+html:not([data-shape="wide"]) .blokken-root .bk-actions.result .bk-btn:not(.small){height:48px;font-size:15px;padding:0 16px;min-width:0;flex:1 1 40%}
+html:not([data-shape="wide"]) .blokken-root .bk-actions.result .bk-btn.small{height:42px;font-size:13px;flex:1 1 40%}
+html:not([data-shape="wide"]) .blokken-root .bk-result-card{gap:2px;padding:6px}
+html:not([data-shape="wide"]) .blokken-root .bk-result-star{width:clamp(44px,16%,84px)}
 
 /* ---------------- level overview ---------------- */
 .blokken-root.bk-levels{display:flex;flex-direction:column;gap:14px}
@@ -213,8 +221,7 @@
 .blokken-root .bk-levels-card h2{margin:4px 0 2px;font-family:var(--bk-font);font-weight:400;font-size:24px;color:#6b35e8}
 .blokken-root .bk-levels-card>p{margin:0 0 14px;font-weight:900;color:var(--bk-ink-soft)}
 .blokken-root .bk-deco{display:flex;justify-content:center;align-items:flex-end;gap:12px;margin:2px 0 8px}
-.blokken-root .bk-deco span{display:block;height:44px}
-.blokken-root .bk-deco span:nth-child(1){width:44px}.blokken-root .bk-deco span:nth-child(2){width:44px}.blokken-root .bk-deco span:nth-child(3){width:30px;height:66px}.blokken-root .bk-deco span:nth-child(4){width:66px}
+.blokken-root .bk-deco span{display:block}
 .blokken-root .bk-deco .bk-svg{filter:drop-shadow(0 3px 2px rgba(60,30,120,.25))}
 .blokken-root .bk-go{margin-top:18px}
 .blokken-root .bk-level-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:560px;margin:0 auto}

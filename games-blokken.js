@@ -236,7 +236,7 @@
         <b>${n}</b>${done?`<i class="bk-tile-check">${ICON.check}</i>`:''}${open?'':`<i class="bk-tile-lock">${ICON.lock}</i>`}
       </button>`;
     }).join('');
-    const deco=['red','yellow','blue','green'].map((c,i)=>pieceSVG({cells:[[[0,0],[1,0],[1,1]],[[0,0],[1,0],[0,1],[1,1]],[[0,0],[0,1],[0,2],[1,2]],[[1,0],[0,1],[1,1],[2,1]]][i],color:c,symbol:['star','heart','moon','dot'][i]},0)).map(s=>`<span>${s}</span>`).join('');
+    const deco=['red','yellow','blue','green'].map((c,i)=>pieceSVG({cells:[[[0,0],[1,0],[1,1]],[[0,0],[1,0],[0,1],[1,1]],[[0,0],[0,1],[0,2],[1,2]],[[1,0],[0,1],[1,1],[2,1]]][i],color:c,symbol:['star','heart','moon','dot'][i]},0)).map((s,i)=>`<span style="width:${[2,2,2,3][i]*22}px;height:${[2,2,3,2][i]*22}px">${s}</span>`).join('');
     const f=K.frame(`<section class="blokken-root bk-levels fade-in">
       ${gradients()}
       <div class="bk-bg" aria-hidden="true"></div>
@@ -374,6 +374,7 @@
     board.style.width=cell*lv.cols+'px';board.style.height=cell*lv.rows+'px';
     // Tray: the biggest piece size at which every slot fits; below the minimum the tray scrolls.
     const tray=root.querySelector('.bk-tray');
+    if(!tray)return;                       // the result card is up
     const tcs=getComputedStyle(tray);
     const tw=tray.clientWidth-parseFloat(tcs.paddingLeft)-parseFloat(tcs.paddingRight),th=tray.clientHeight-parseFloat(tcs.paddingTop)-parseFloat(tcs.paddingBottom);
     const slots=lv.pieces.filter(p=>!g.placements[p.id]).map(p=>{const {w,h}=D.dims(p.cells);return lv.rotate?{w:Math.max(w,h),h:Math.max(w,h)}:{w,h}});
@@ -662,8 +663,8 @@
         <button class="bk-btn blue" id="bkAgain">${ICON.restart}<span>${esc(t('blokken.playAgain'))}</span></button>
         <button class="bk-btn yellow" id="bkGames">${ICON.play}<span>${esc(t('blokken.backToGames'))}</span></button></div>`
       :`<div class="bk-actions result">
-        <button class="bk-btn blue" id="bkAgain">${ICON.restart}<span>${esc(t('blokken.replay'))}</span></button>
         <button class="bk-btn yellow" id="bkNext">${ICON.play}<span>${esc(t('blokken.next'))}</span></button>
+        <button class="bk-btn blue" id="bkAgain">${ICON.restart}<span>${esc(t('blokken.replay'))}</span></button>
         <button class="bk-btn small blue ghost" id="bkToLevels">${ICON.grid}<span>${esc(t('blokken.toLevels'))}</span></button>
         <button class="bk-btn small blue ghost" id="bkGames">${ICON.back}<span>${esc(t('blokken.toGames'))}</span></button></div>`;
     foot.querySelector('#bkAgain').onclick=()=>{K.sfx('tap');K.startBlokken(lv.n,{fresh:true})};
@@ -672,6 +673,7 @@
     foot.querySelector('#bkToLevels')?.addEventListener('click',()=>{K.sfx('tap');K.showBlokkenLevels()});
     if(!reduced())K.celebrate?.(last?'gold':'quiz',last?K.app.querySelector('.game-frame'):side.querySelector('.bk-result-star'));
     if(last)later(()=>{if(!reduced())K.celebrate?.('quiz',side.querySelector('.bk-result-star'))},900);
+    layout();
     (foot.querySelector('#bkNext')||foot.querySelector('#bkAgain')).focus({preventScroll:true});
     if(bk.coins)later(()=>K.sfx('reward'),300);
   }

@@ -541,6 +541,37 @@ test.describe('Blokkenpret', () => {
     await expect(page.locator('.chest-pick')).toBeVisible();
   });
 
+  test('sound: synthesised through the app audio context, silent when sound is off, stopped when the tab hides or the game closes', async ({ page }) => {
+    await boot(page, { state: SAVED({ soundOn: true, musicOn: false }) });
+    await openLevels(page);
+    await startLevel(page, 1);
+    await expect.poll(() => page.evaluate(() => window.KWIZILLO_M1.audio.ctx?.state)).toBe('running');
+    const lv = await level(page, 1);
+    await mouseDrag(page, lv.solution[0].id, lv.solution[0].x, lv.solution[0].y);
+    expect(await page.evaluate(() => window.KWIZILLO_M1.blokken.sounds)).toBeGreaterThan(0);
+    await page.evaluate(() => { Object.defineProperty(document, 'hidden', { value: true, configurable: true }); document.dispatchEvent(new Event('visibilitychange')); delete document.hidden; });
+    expect(await page.evaluate(() => window.KWIZILLO_M1.blokken.sounds)).toBe(0);
+    await page.locator('.bk-sound').click();                                        // speaker: everything off
+    expect(await page.evaluate(() => [window.KWIZILLO_M1.state.soundOn, window.KWIZILLO_M1.state.musicOn])).toEqual([false, false]);
+    await mouseDrag(page, lv.solution[1].id, lv.solution[1].x, lv.solution[1].y);
+    expect(await page.evaluate(() => window.KWIZILLO_M1.blokken.sounds)).toBe(0);
+    await page.locator('.bk-sound').click();
+    await page.locator('#bkUndo').click();
+    expect(await page.evaluate(() => window.KWIZILLO_M1.blokken.sounds)).toBeGreaterThan(0);
+    await page.locator('#bkBack').click();
+    expect(await page.evaluate(() => window.KWIZILLO_M1.blokken.sounds)).toBe(0);
+  });
+
+  test('reduced motion: no animations needed, the level still completes and pays once', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await boot(page);
+    await openLevels(page);
+    await startLevel(page, 1);
+    await solveBy(page, mouseDrag);
+    await expect(page.locator('.bk-result-card')).toBeVisible({ timeout: 4000 });
+    expect((await store(page)).booked).toHaveLength(1);
+  });
+
   test('Arabic: the board stays left to right, the texts are translated', async ({ page }) => {
     await boot(page, { state: SAVED({ language: 'ar' }) });
     await openLevels(page);
