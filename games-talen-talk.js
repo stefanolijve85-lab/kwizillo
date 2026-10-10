@@ -32,10 +32,11 @@
   const catLabel=id=>id==='mix'?t('talen.theme.mix'):t(`talen.conv.cat.${id}`);
   const setLabel=id=>id==='mix'?t('talen.theme.mix'):t(`talen.speaking.set.${id}`);
   const CAT_ICON={intro:'👋',school:'🏫',food:'🍎',family:'👨‍👩‍👧',shop:'🛒',travel:'🧳'};
-  // The tiles carry a Talen picture (the same painted style as the word themes).
-  const CAT_ART={intro:'hello',school:'schoolbag',food:'icecream',family:'mom',shop:'bread',travel:'suitcase'};
-  const SET_ART={basics:'thanks',greetings:'goodmorning',sentences:'friend'};
-  const art=id=>`assets/talen/img/${id}.jpg`;
+  // Their own wide paintings (Higgsfield, 2026-10-10): the scene in the middle with room around
+  // it, so a square tile and a wide one both show it whole (the word pictures were cut too close).
+  const CAT_ART={intro:'intro',school:'school',food:'food',family:'family',shop:'shop',travel:'travel'};
+  const SET_ART={basics:'speak-basics',greetings:'speak-greetings',sentences:'speak-sentences',questions:'speak-questions'};
+  const art=id=>`assets/talen/img/tile-${id}.jpg`;
   const optText=o=>typeof o==='string'?o:(o.text?.[own()]||o.text?.en||'');
   const starsHtml=n=>kit().badge(n);
   const lockedTile=free=>free?'':K.premiumBadge();
@@ -271,13 +272,13 @@
 
   /* ---------------- Spreken: three sets ---------------- */
   const sets=()=>T().speaking||[];
-  const SET_ICON={basics:'👋',greetings:'🙋',sentences:'💬'};
+  const SET_ICON={basics:'👋',greetings:'🙋',sentences:'💬',questions:'❓'};
   K.showTalenSpeak=()=>{
     const l=learn();if(!l)return K.showTalen();
     const rec=speakRec();
-    // Three wide tiles under each other, like the choice in Rekenen; a few of the set's words in the language learned.
-    const body=`${K.talenMixTile('mix',null,'data-speak-set')}<div class="talen-fill-list speak">${sets().map(s=>{const open=K.premium.can('talen',`speak:${s.id}`),sample=s.words.slice(0,3).map(w=>kit().word(w)?.text[l]).filter(Boolean).join(' · ');
-        return `<button class="memo-pick math-pick-tile talen-speak-tile ${open?'':'locked'}" data-speak-set="${s.id}"><img class="home-game-art" src="${art(SET_ART[s.id]||'hello')}" alt="" decoding="async"><span class="home-game-veil"></span>${lockedTile(open)}<b>${esc(t(`talen.speaking.set.${s.id}`))}<small lang="${l}" dir="auto">${esc(sample)}</small></b></button>`}).join('')}</div>
+    // The Mix bar, then the four sets 2x2 like Zinnetjes; a few of the set's words in the language learned.
+    const body=`${K.talenMixTile('mix',null,'data-speak-set')}<div class="talen-fill-grid speak">${sets().map(s=>{const open=K.premium.can('talen',`speak:${s.id}`),sample=s.words.slice(0,2).map(w=>kit().word(w)?.text[l]).filter(Boolean).join(' · ');
+        return `<button class="memo-pick talen-pick fit talen-speak-tile ${open?'':'locked'}" data-speak-set="${s.id}"><img class="talen-pick-art" src="${art(SET_ART[s.id]||'speak-basics')}" alt="" decoding="async"><span class="home-game-veil"></span>${lockedTile(open)}<b>${esc(t(`talen.speaking.set.${s.id}`))}<small lang="${l}" dir="auto">${esc(sample)}</small></b></button>`}).join('')}</div>
       ${rec?.practised?`<p class="talen-speak-count">🎤 ${rec.practised}</p>`:''}`;
     const f=kit().passport(kit().passSub(l),body,()=>K.showTalen(),{title:t('talen.section.speaking'),cls:'talen-fill'});
     f.querySelectorAll('[data-speak-set]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalenSpeak(b.dataset.speakSet)});

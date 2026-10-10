@@ -310,6 +310,7 @@
     'talen.speaking.set.basics':'Premiers mots',
     'talen.speaking.set.greetings':'Salutations',
     'talen.speaking.set.sentences':'Phrases',
+    'talen.speaking.set.questions':'Poser des questions',
     'talen.speaking.permissionTitle':'Parler avec le micro',
     'talen.speaking.permissionBody':'Pour Parler, Kwizillo utilise ton micro. On écoute seulement pendant que tu t’entraînes. Ta voix n’est pas enregistrée.',
     'talen.speaking.enableMic':'Activer le micro',

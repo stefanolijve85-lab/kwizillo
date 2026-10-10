@@ -459,6 +459,7 @@
     'talen.speaking.set.basics':'الكلمات الأولى',
     'talen.speaking.set.greetings':'التحيات',
     'talen.speaking.set.sentences':'جمل',
+    'talen.speaking.set.questions':'طرح الأسئلة',
     'talen.speaking.permissionTitle':'التحدث بالميكروفون',
     'talen.speaking.permissionBody':'من أجل التحدث يستخدم Kwizillo الميكروفون. نستمع فقط أثناء تدربك. لا يتم حفظ صوتك.',
     'talen.speaking.enableMic':'تشغيل الميكروفون',

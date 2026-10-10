@@ -309,6 +309,7 @@
     'talen.speaking.set.basics':'Erste Wörter',
     'talen.speaking.set.greetings':'Begrüßungen',
     'talen.speaking.set.sentences':'Sätze',
+    'talen.speaking.set.questions':'Fragen stellen',
     'talen.speaking.permissionTitle':'Sprechen mit dem Mikrofon',
     'talen.speaking.permissionBody':'Für Sprechen nutzt Kwizillo dein Mikrofon. Wir hören nur zu, während du übst. Deine Stimme wird nicht gespeichert.',
     'talen.speaking.enableMic':'Mikrofon einschalten',

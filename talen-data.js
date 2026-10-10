@@ -36,7 +36,8 @@
     // Spreken: three sets of words and sentences that are already recorded; the first is free.
     speaking:[{id:'basics',free:true,words:['hello','yes','no','thanks','please','goodbye']},
       {id:'greetings',words:['goodmorning','howareyou','goodnight','sorry','zin_yourname','zin_tomorrow']},
-      {id:'sentences',words:['zin_hungry','zin_happy','zin_letsplay','zin_seven','zin_wantplay','zin_lovepizza']}],
+      {id:'sentences',words:['zin_hungry','zin_happy','zin_letsplay','zin_seven','zin_wantplay','zin_lovepizza']},
+      {id:'questions',words:['zin_howold','zin_wherelive','zin_time','zin_help','zin_toilet','zin_howmuch']}],
     themes:[
       {id:'dieren',icon:'🐬',free:true,words:[
         {id:'dolphin',img:img('dolphin'),text:{nl:'dolfijn',en:'dolphin',de:'Delfin',fr:'dauphin',es:'delfín',it:'delfino',pt:'golfinho',da:'delfin',ru:'дельфин',ar:'دلفين'}},

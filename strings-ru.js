@@ -309,6 +309,7 @@
     'talen.speaking.set.basics':'Первые слова',
     'talen.speaking.set.greetings':'Приветствия',
     'talen.speaking.set.sentences':'Фразы',
+    'talen.speaking.set.questions':'Задаём вопросы',
     'talen.speaking.permissionTitle':'Говорим в микрофон',
     'talen.speaking.permissionBody':'Для говорения Kwizillo использует твой микрофон. Мы слушаем только пока ты тренируешься. Твой голос не сохраняется.',
     'talen.speaking.enableMic':'Включить микрофон',

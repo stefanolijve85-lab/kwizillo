@@ -309,6 +309,7 @@
     'talen.speaking.set.basics':'Primeiras palavras',
     'talen.speaking.set.greetings':'Cumprimentos',
     'talen.speaking.set.sentences':'Frases',
+    'talen.speaking.set.questions':'Fazer perguntas',
     'talen.speaking.permissionTitle':'Falar com o microfone',
     'talen.speaking.permissionBody':'Para Falar, o Kwizillo usa o teu microfone. Só ouvimos enquanto praticas. A tua voz não é guardada.',
     'talen.speaking.enableMic':'Ligar o microfone',

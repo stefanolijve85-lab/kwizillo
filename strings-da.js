@@ -309,6 +309,7 @@
     'talen.speaking.set.basics':'Første ord',
     'talen.speaking.set.greetings':'Hilsner',
     'talen.speaking.set.sentences':'Sætninger',
+    'talen.speaking.set.questions':'Stille spørgsmål',
     'talen.speaking.permissionTitle':'Tale med mikrofonen',
     'talen.speaking.permissionBody':'Til Tale bruger Kwizillo din mikrofon. Vi lytter kun, mens du øver. Din stemme bliver ikke gemt.',
     'talen.speaking.enableMic':'Slå mikrofonen til',
