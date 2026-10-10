@@ -69,10 +69,15 @@ const MAP = {
 };
 // The grid of each source (rows × columns) per child.
 const SOURCES = { anim: { mike: [8, 4], mia: [9, 4] }, run8: { mike: [2, 4], mia: [2, 4] }, stand: { mike: [1, 1], mia: [1, 1] } };
-const TEAL_EYES = { mike: true };
+// Which file each source is, per child (Mike's run cycle was redrawn with his blue-green eyes and a thin white outline).
+const FILES = { mike: { run8: 'run8-v2' } };
+// Sources drawn with a white outline that has to go (not elsewhere: the white of an eye at the edge of a face must stay).
+const WHITE_OUTLINE = { mike: ['run8'] };
+// Mike's eyes are recoloured on these sources only (the redrawn run cycle has them already).
+const TEAL_EYES = { mike: ['stand'] };
 // Frames that stand in for a pose the sheet does not have.
 const TEMPORARY = {
-  mike: { slide: 'Mike has no slide pose on his sheet: his "leaning back, legs forward" air pose (row 5, column 2) is turned 42° backwards as a stand-in. Replace with a real slide frame when it is drawn.', eyes: 'Mike\'s eyes are recoloured to blue-green on the run cycle (near eye) and the stand pose (both eyes); the jump, double jump, fall, land, slide, hurt and celebrate poses from mike-anim.png keep the brown eyes as drawn (their irises are a few near-black pixels; the recolour came out as brown eyes with a teal rim, so it is not applied). The far eye on the run cycle is a sliver against the hair and also stays brown.' }
+  mike: { slide: 'Mike has no slide pose on his sheet: his "leaning back, legs forward" air pose (row 5, column 2) is turned 42° backwards as a stand-in. Replace with a real slide frame when it is drawn.', eyes: 'Mike\'s run cycle (mike-run8-v2.png) is drawn with his blue-green eyes; the stand pose is recoloured to blue-green in this tool; the jump, double jump, fall, land, slide, hurt and celebrate poses from mike-anim.png still have the brown eyes as drawn (too small to recolour cleanly) until those poses are redrawn.' }
 };
 const TARGET = 200;   // standing height of both children in the atlas, px
 
@@ -87,8 +92,8 @@ const TARGET = 200;   // standing height of both children in the atlas, px
    await page.evaluate(() => { window.__F = {} });
    for (const [srcName, grids] of Object.entries(SOURCES)) {
     const [rows, cols] = grids[hero];
-    const data = 'data:image/png;base64,' + fs.readFileSync(path.join(SRC, `${hero}-${srcName}.png`)).toString('base64');
-    const rep = await page.evaluate(async ({ data, rows, cols, srcName, teal, sheet }) => {
+    const data = 'data:image/png;base64,' + fs.readFileSync(path.join(SRC, `${hero}-${FILES[hero]?.[srcName] || srcName}.png`)).toString('base64');
+    const rep = await page.evaluate(async ({ data, rows, cols, srcName, teal, sheet, cleanWhite }) => {
       const img = new Image();
       await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = data });
       const W = img.width, H = img.height;
@@ -102,15 +107,15 @@ const TARGET = 200;   // standing height of both children in the atlas, px
       const stack = new Int32Array(W * H);
       for (let p = 0; p < W * H; p++) {
         if (lab[p] !== -1 || d[p * 4 + 3] <= 90) continue;
-        const k = comps.length; let n = 0, sp = 0, x0 = W, y0 = H, x1 = 0, y1 = 0, sx = 0, sy = 0;
+        const k = comps.length; let n = 0, sp = 0, x0 = W, y0 = H, x1 = 0, y1 = 0, sx = 0, sy = 0, lo = 0;
         stack[sp++] = p; lab[p] = k;
         while (sp) {
-          const q = stack[--sp], x = q % W, y = (q / W) | 0; n++; sx += x; sy += y;
+          const q = stack[--sp], x = q % W, y = (q / W) | 0; n++; sx += x; sy += y; lo += Math.min(d[q * 4], d[q * 4 + 1], d[q * 4 + 2]);
           if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
           const nb = [x > 0 ? q - 1 : -1, x < W - 1 ? q + 1 : -1, y > 0 ? q - W : -1, y < H - 1 ? q + W : -1];
           for (const r of nb) if (r >= 0 && lab[r] === -1 && d[r * 4 + 3] > 90) { lab[r] = k; stack[sp++] = r }
         }
-        comps.push({ k, n, x0, y0, x1, y1, cx: sx / n, cy: sy / n });
+        comps.push({ k, n, x0, y0, x1, y1, cx: sx / n, cy: sy / n, whiteBit: n < 1500 && lo / n > 185 });
       }
       const big = comps.filter(o => o.n > 1500);
       const cellW = W / cols, cellH = H / rows;
@@ -133,7 +138,8 @@ const TARGET = 200;   // standing height of both children in the atlas, px
       cells.forEach((list, ci) => { const main = list.filter(o => o.n > 1500); if (!main.length) return;
         // a small bit only counts when it touches the main shape's box (hair strands), never stray sparkles
         const bx0 = Math.min(...main.map(o => o.x0)) - 6, by0 = Math.min(...main.map(o => o.y0)) - 6, bx1 = Math.max(...main.map(o => o.x1)) + 6, by1 = Math.max(...main.map(o => o.y1)) + 6;
-        for (const o of list) if (o.n > 1500 || (o.x0 >= bx0 && o.x1 <= bx1 && o.y0 >= by0 && o.y1 <= by1)) owner[o.k] = ci });
+        // a loose white speck (paint left from an outline) never counts
+        for (const o of list) if (o.n > 1500 || (!o.whiteBit && o.x0 >= bx0 && o.x1 <= bx1 && o.y0 >= by0 && o.y1 <= by1)) owner[o.k] = ci });
       const report = { shapes: big.length, split: split.size, cells: cells.map(l => l.filter(o => o.n > 1500).length) };
       // 3. per figure: its own pixels only, the fringe cleaned
       const frame = ci => {
@@ -150,6 +156,17 @@ const TARGET = 200;   // standing height of both children in the atlas, px
           if (!mine) continue;
           px[t] = d[s]; px[t + 1] = d[s + 1]; px[t + 2] = d[s + 2]; px[t + 3] = d[s + 3];
         }
+        // A drawn white outline (and the white it fills into the hollows between curls) goes:
+        // from the outside inwards, up to 12 px deep, every pixel that is white or light grey
+        // with next to no colour. A white surface of the figure itself (the hoodie, a sole) has
+        // a little warmth in it and is separated from the outline by a darker line, so it stays.
+        if (cleanWhite) {
+          const grey = t => { const mx = Math.max(px[t], px[t + 1], px[t + 2]), mn = Math.min(px[t], px[t + 1], px[t + 2]); return px[t + 3] > 0 && mn > 110 && (mx - mn) / mx < .06 };
+          const depth = new Uint8Array(w * h).fill(255), q = [];
+          for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = y * w + x; if (px[i * 4 + 3] < 40) { depth[i] = 0; q.push(i) } }
+          for (let k = 0; k < q.length; k++) { const u = q[k], ux = u % w; if (depth[u] >= 12) continue;
+            for (const v of [u - 1, u + 1, u - w, u + w]) { if (v < 0 || v >= w * h || Math.abs(v % w - ux) > 1 || depth[v] !== 255) continue; if (!grey(v * 4)) continue; depth[v] = depth[u] + 1; px[v * 4 + 3] = 0; q.push(v) } }
+        }
         // distance (in px, up to 4) from the outside
         const dist = new Uint8Array(w * h).fill(9);
         for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { if (px[(y * w + x) * 4 + 3] < 200) dist[y * w + x] = 0 }
@@ -164,14 +181,18 @@ const TARGET = 200;   // standing height of both children in the atlas, px
           // the colour just inside: solid pixels 4–7 px in
           let r = 0, g2 = 0, b = 0, n = 0;
           for (let dy = -6; dy <= 6; dy += 2) for (let dx = -6; dx <= 6; dx += 2) { const xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= w || yy >= h) continue; const j = yy * w + xx; if (dist[j] >= 4) { const u = j * 4; r += px[u]; g2 += px[u + 1]; b += px[u + 2]; n++ } }
-          let k = 0;
-          if (n) { r /= n; g2 /= n; b /= n; const ex = redness(px[t], px[t + 1], px[t + 2]) - redness(r, g2, b); if (ex > 12) k = Math.min(1, (ex - 12) / 60) }
+          let k = 0, whiteRim = false;
+          if (n) { r /= n; g2 /= n; b /= n; const ex = redness(px[t], px[t + 1], px[t + 2]) - redness(r, g2, b); if (ex > 12) k = Math.min(1, (ex - 12) / 60);
+            // a white outline: much lighter than the inside, and the inside is not white itself (a white hoodie keeps its edge)
+            const lo1 = Math.min(px[t], px[t + 1], px[t + 2]), lo2 = Math.min(r, g2, b), wx = lo1 - lo2;
+            if (cleanWhite && lo1 > 170 && lo2 < 175 && wx > 40) { k = Math.max(k, Math.min(1, (wx - 40) / 50)); if (dist[i] <= 1) whiteRim = true } }
           // a red rim with nothing solid behind it (thin bits) is simply turned down
           else if (redness(px[t], px[t + 1], px[t + 2]) > 70) { out[t + 3] = px[t + 3] * .35; continue }
           // any coloured glow in a half-transparent edge pixel: take the inside colour as far as the pixel is see-through
           if (n && px[t + 3] < 250 && dist[i] <= 2) k = Math.max(k, Math.min(1, (1 - px[t + 3] / 255) * 1.6));
           if (k) { out[t] = px[t] + (r - px[t]) * k; out[t + 1] = px[t + 1] + (g2 - px[t + 1]) * k; out[t + 2] = px[t + 2] + (b - px[t + 2]) * k }
-          if (dist[i] === 0) out[t + 3] = px[t + 3] * (k > .3 ? .45 : .8);
+          if (whiteRim && k > .5) out[t + 3] = px[t + 3] * (dist[i] === 0 ? .15 : .55);
+          else if (dist[i] === 0) out[t + 3] = px[t + 3] * (k > .3 ? .45 : .8);
           else if (dist[i] === 1 && k > .3) out[t + 3] = px[t + 3] * .85;
         }
         // measures: the lowest pixel (feet) and the middle of the torso
@@ -189,7 +210,7 @@ const TARGET = 200;   // standing height of both children in the atlas, px
       // only the run cycle and the stand pose: on the small poses of the anim sheet the
       // irises are a few pixels of near-black, and recolouring left brown eyes with a teal
       // rim (checked at 2.4x on every frame, 2026-10-10) — those keep the drawn eyes
-      if (teal && srcName !== 'anim') for (const [ci, f] of Object.entries(frames)) { if (f) eyeLog.push([ci, recolourEyes(f)]) }
+      if (teal) for (const [ci, f] of Object.entries(frames)) { if (f) eyeLog.push([ci, recolourEyes(f)]) }
       function recolourEyes(f) {
         const g2 = f.c.getContext('2d'), im = g2.getImageData(0, 0, f.w, f.h), p = im.data, w = f.w, h = f.h;
         const top = f.top, bottom = Math.round(f.top + (f.foot - f.top) * .45), R = Math.max(3, Math.round((f.foot - f.top) / 55));
@@ -267,9 +288,10 @@ const TARGET = 200;   // standing height of both children in the atlas, px
         contact = s.toDataURL('image/png');
       }
       const heights = Object.values(frames).map(f => f ? f.foot - f.top : 0);
-      return { report, eyeLog, contact, heights };
-    }, { data, rows, cols, srcName, teal: !!TEAL_EYES[hero], sheet });
+      return { report, eyeLog, contact, heights, first: sheet && frames[0] ? frames[0].c.toDataURL('image/png') : null };
+    }, { data, rows, cols, srcName, teal: !!TEAL_EYES[hero]?.includes(srcName), sheet, cleanWhite: !!WHITE_OUTLINE[hero]?.includes(srcName) });
     console.log(`${hero}/${srcName}: ${rep.report.shapes} figures (${rep.report.split} split), per cell ${rep.report.cells.join('')}${rep.eyeLog.length ? ', eyes ' + rep.eyeLog.map(([ci, e]) => `${ci}:${e.irises}/${e.changed}/${e.rejected}`).join(' ') : ''}`);
+    if (sheet && rep.first) fs.writeFileSync(path.join(SRC, `${hero}-${srcName}-first.png`), Buffer.from(rep.first.split(',')[1], 'base64'));
     if (sheet && rep.contact) fs.writeFileSync(path.join(SRC, `${hero}-${srcName}-cleaned.png`), Buffer.from(rep.contact.split(',')[1], 'base64'));
    }
     // compose: one scale for all sources, one foot line, one body line
