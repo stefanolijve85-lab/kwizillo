@@ -22,7 +22,7 @@ async function boot(page, state = SAVED(), spoken) {
 test('Home opens the Weetjes screen: one fact at a time, read by the chosen guide, counted as discovered', async ({ page }) => {
   const spoken = [];
   await boot(page, SAVED(), spoken);
-  await page.locator('#homeFacts').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeFacts').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="all"]').click();
   const screen = page.locator('.facts-screen');
@@ -80,7 +80,7 @@ test('the next facts are chosen ahead and their lines warmed, so a fact talks th
   const distinct = () => [...new Set(spoken.filter(isFact).map(r => r.text.replace(/^Wist je dat… /, '')))];
   await expect.poll(() => distinct().length, { timeout: 20000 }).toBeGreaterThanOrEqual(2);
   const warmed = distinct();
-  await page.locator('#homeFacts').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeFacts').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="all"]').click();
   const first = await page.locator('.facts-screen .fact-text').textContent();

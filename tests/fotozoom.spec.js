@@ -23,7 +23,7 @@ const scale = page => page.evaluate(() => { const m = getComputedStyle(document.
 test('five rounds: zoomed-in picture, four names, fewer zoom-outs earn more, a miss zooms out and explains, the result pays XP', async ({ page }) => {
   await boot(page);
   const errors = []; page.on('pageerror', e => errors.push(e.message));
-  await page.locator('#homeFotozoom').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeFotozoom').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.fotozoom')).toBeVisible();
@@ -82,7 +82,7 @@ test('five rounds: zoomed-in picture, four names, fewer zoom-outs earn more, a m
 
 test('the timer follows the level; running out counts as a miss', async ({ page }) => {
   await boot(page, SAVED({ niveau: 6 }));
-  await page.locator('#homeFotozoom').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeFotozoom').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('#fzTimer')).toBeVisible();

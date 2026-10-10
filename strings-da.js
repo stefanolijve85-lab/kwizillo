@@ -504,6 +504,8 @@
     'math.speech.quarter':'En fjerdedel af {n}',
     'math.speech.percent':'{p} procent af {n}',
     'math.money.title':'Tæl pengene',
+    'chest.title':'Spillekiste',
+    'chest.sub':'Vælg et spil',
     'measure.title':'Mål & Vej',
     'measure.sub':'Mål og sammenlign',
     'measure.tip':'Mål godt! Se, hvor den starter, og hvor den slutter.',

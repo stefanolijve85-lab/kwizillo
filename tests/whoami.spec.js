@@ -21,7 +21,7 @@ const answer = page => page.evaluate(() => { const g = window.KWIZILLO_M1.whoami
 
 test('five rounds of clues and pictures; earlier guesses earn more; a wrong pick shows the answer and explanation; the result rewards XP and coins', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeWhoAmI').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeWhoAmI').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.whoami')).toBeVisible();
@@ -72,7 +72,7 @@ test('the clue, the question and the four tile names are read out (tiles light u
   await page.locator('.motion').click({ timeout: 5000 }).catch(() => {}); await page.locator('.motion').click({ timeout: 1500 }).catch(() => {});   // the intro may already have gone on by itself
   await page.locator('#wbGo').click({ timeout: 2500 }).catch(() => {});   // "Verder spelen" op het terugkeerscherm
   await expect(page.locator('.home')).toBeVisible({ timeout: 8000 });
-  await page.locator('#homeWhoAmI').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeWhoAmI').click();
   // The game asks which world first; these tests play them all mixed.
   await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.whoami')).toBeVisible();
@@ -108,7 +108,7 @@ test('Wat ben ik? plays in every world, Sport too', async ({ page }) => {
 
 test('a right guess opens with one of thirty praise lines before "Dit is …", and the next round does not repeat it', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeWhoAmI').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeWhoAmI').click();
   await page.locator('.game-picker [data-pick="mix"]').click();
   await expect(page.locator('.whoami')).toBeVisible();
   const said = [];

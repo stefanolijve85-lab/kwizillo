@@ -349,7 +349,7 @@
     const stops=[
       {sel:'#homeMega',key:'tour.mega'},
       {sel:'.home-worlds',key:'tour.worlds'},
-      {sel:'#homeJungle,.home-games',key:'tour.games'},
+      {sel:'.home-play',key:'tour.games'},   // Talen, Rekenen, Runner, Spellenkist (2026-10-10)
       {sel:'.home-hud',key:'tour.hud'},
       {sel:'.native-bottom-nav',key:'tour.nav'},
       {sel:null,key:'tour.done',pose:'cheer'}

@@ -33,7 +33,7 @@ test('Home plays the island theme; a world switches to its own loop; Memo and Re
   await expect.poll(() => current(page), { timeout: 8000 }).toBe('mystery');
 
   await page.evaluate(() => window.KWIZILLO_M1.showHome());
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await expect.poll(() => current(page), { timeout: 8000 }).toBe('play');
   await page.evaluate(() => window.KWIZILLO_M1.startMath('ruimte'));
   await expect.poll(() => current(page), { timeout: 8000 }).toBe('play');

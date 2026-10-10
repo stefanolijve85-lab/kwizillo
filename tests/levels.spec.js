@@ -56,7 +56,7 @@ async function playPerfectQuiz(page) {
 test('a new player starts at level 1 in every world, and the tile says so', async ({ page }) => {
   await boot(page);
   expect(await levels(page)).toEqual({ ruimte: 1, dieren: 1, aarde: 1, geschiedenis: 1, wetenschap: 1, mysterie: 1, kunst: 1, sport: 1 });
-  await expect(page.locator('.home-world .home-world-level')).toHaveCount(8);   // the Mega Quiz tile carries one too
+  await expect(page.locator('.home-world[data-world] .home-world-level')).toHaveCount(8);   // the Mega Quiz tile carries one too
   await expect(page.locator('[data-world="ruimte"] .home-world-level')).toHaveText('Niveau 1');
   // The quiz really runs at level 1: thirty seconds and every hint free.
   await page.locator('[data-world="ruimte"]').click();

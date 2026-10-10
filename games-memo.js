@@ -67,7 +67,7 @@
         <div class="memo-pick-grid">${worlds.map(w=>`<button class="memo-pick ${K.premium.can('memo',w)?'':'locked'}" data-memo="${w}"><img class="home-game-art" src="${K.tileArt(w)}" alt="" decoding="async" style="${K.tileStyle(w)}"><span class="home-game-veil"></span>${K.premium.can('memo',w)?'':K.premiumBadge()}<b>${esc(t(`world.${w}.title`))}</b></button>`).join('')}</div>
       </div>
     </section>`);
-    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
+    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.backFromGame?K.backFromGame():K.showHome()};
     f.querySelector('.panel-settings').onclick=()=>{K.sfx('tap');K.showParent()};
     f.querySelectorAll('[data-memo]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startMemo(b.dataset.memo)});
     f.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{

@@ -504,6 +504,8 @@
     'math.speech.quarter':'Четверть от {n}',
     'math.speech.percent':'{p} процентов от {n}',
     'math.money.title':'Считаем деньги',
+    'chest.title':'Сундук с играми',
+    'chest.sub':'Выбери игру',
     'measure.title':'Измеряй и взвешивай',
     'measure.sub':'Измеряй и сравнивай',
     'measure.tip':'Измеряй внимательно! Смотри, где начало и где конец.',

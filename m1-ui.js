@@ -188,7 +188,7 @@
 
   /* ---------------- Home ---------------- */
 
-  K.showHome=()=>{
+  K.showHome=()=>{K.fromChest=false;
     K.stopSpeech();K.lastView='home';
     K.audio.setTrack('home').catch(()=>{});
     const name=String(K.state.name||'').trim();
@@ -241,20 +241,17 @@
         <div class="home-worlds">${worldCards}</div>
 
         <h2 class="home-section">${esc(t('home.playMore'))}</h2>
-        <!-- The Runner as a wide banner: the Mega Quiz banner's component and styles, first under "Speel ook", so the worlds stand apart from the games -->
-        <button class="home-mega home-runner" id="homeJungle" aria-label="${esc(t('jungle.title'))} · ${esc(t('jungle.bannerSub'))}">
-          <img class="home-game-art" src="${K.GAME_ART.jungle}" alt="" decoding="async"><span class="home-mega-veil"></span>
-          <img class="home-runner-kid boy" src="assets/games/jungle/img/hero-boy-portrait.png" alt="" decoding="async"><img class="home-runner-kid girl" src="assets/games/jungle/img/hero-girl-portrait.png" alt="" decoding="async">
-          ${(b=>b?`<span class="home-world-level">${K.icon('trophy')} ${b}</span>`:'')(Number(K.progress().games?.jungle?.best||0))}
-          <span class="home-mega-copy"><b>${esc(t('jungle.title'))}</b><small>${esc(t('jungle.bannerSub'))}</small></span>
-        </button>
-        <div class="home-games">
-          <button class="home-game art talen" id="homeTalen"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${(s=>s.done?`<span class="home-world-level">★ ${s.done}/${s.total}</span>`:'')(K.talenStamps?.()||{done:0})}<b>${esc(t('talen.title'))}</b></button>
-          <button class="home-game art math" id="homeMath"><img class="home-game-art" src="${K.GAME_ART.math}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('math.title'))}</b></button>
-          <button class="home-game art whoami" id="homeWhoAmI"><img class="home-game-art" src="${K.GAME_ART.whoami}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('whoami.title'))}</b></button>
-          <button class="home-game art fotozoom" id="homeFotozoom"><img class="home-game-art" src="${K.GAME_ART.fotozoom}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('fotozoom.title'))}</b></button>
-          <button class="home-game art facts" id="homeFacts"><img class="home-game-art" src="${K.GAME_ART.facts}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('facts.title'))}</b></button>
-          <button class="home-game art" id="homeMemo"><img class="home-game-art" src="${K.GAME_ART.memo}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t('memo.title'))}</b></button>
+        <!-- Speel ook (Stefan, 2026-10-10): four tiles like the worlds — Talen and Rekenen, the
+             Runner and the Spellenkist, which holds Memo, Weetjes, Fotozoom and Wat ben ik? -->
+        <div class="home-worlds home-play">
+          ${playTile('homeTalen',K.GAME_ART.talen,t('talen.title'),(s=>s.done?`★ ${s.done}/${s.total}`:'')(K.talenStamps?.()||{done:0}))}
+          ${playTile('homeMath',K.GAME_ART.math,t('math.title'))}
+          ${playTile('homeJungle',K.GAME_ART.jungle,t('jungle.title'),(b=>b?`${K.icon('trophy')} ${b}`:'')(Number(K.progress().games?.jungle?.best||0)),true)}
+          <button class="home-world home-play-tile chest" id="homeChest" aria-label="${esc(t('chest.title'))}">
+            <span class="home-chest-mosaic" aria-hidden="true">${CHEST.map(g=>`<img src="${K.GAME_ART[g.art]}" alt="" decoding="async">`).join('')}</span>
+            <span class="home-world-veil"></span>
+            <span class="home-world-copy"><b>${esc(t('chest.title'))}</b></span>
+          </button>
         </div>
 
         ${bottomNav('home')}
@@ -264,13 +261,10 @@
     f.querySelectorAll('[data-world]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.enterWorld(b.dataset.world)});
     f.querySelector('#homeMega').onclick=()=>{K.sfx('world');K.startMega()};
     f.querySelector('#homeProfile').onclick=()=>{K.sfx('tap');K.showProfile()};
-    f.querySelector('#homeMemo').onclick=()=>{K.sfx('tap');openGame('memo.title',K.showMemoPicker)};
     f.querySelector('#homeTalen').onclick=()=>{K.sfx('tap');openGame('talen.title',K.showTalen)};
-    f.querySelector('#homeWhoAmI').onclick=()=>{K.sfx('tap');openGame('whoami.title',()=>K.showGamePicker('whoami'))};
     f.querySelector('#homeJungle').onclick=()=>{K.sfx('tap');K.startJungle()};
-    f.querySelector('#homeFotozoom').onclick=()=>{K.sfx('tap');openGame('fotozoom.title',()=>K.showGamePicker('fotozoom'))};
-    f.querySelector('#homeMath').onclick=()=>{K.sfx('world');openGame('math.title',()=>K.showMathPick(last))};   // sums or money (games-money.js)
-    f.querySelector('#homeFacts').onclick=()=>{K.sfx('tap');openGame('facts.title',()=>K.showGamePicker('facts'))};
+    f.querySelector('#homeMath').onclick=()=>{K.sfx('world');openGame('math.title',()=>K.showMathPick(last))};   // sums, money or measuring (games-money.js)
+    f.querySelector('#homeChest').onclick=()=>{K.sfx('tap');openGame('chest.title',K.showGameChest)};
     f.querySelectorAll('[data-stats]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showStats()});
     bindNav(f);
     // The six world names are warmed on Home so the guide calls one out the
@@ -282,6 +276,38 @@
     K.prefetchSpeech([t('voice.milo.hello')],{voice:'Milo'});
     K.prefetchSpeech([t('voice.luna.hello')],{voice:'Luna'});
   };
+
+  // Speel ook: a tile in the style of a world tile (same frame, veil, badge and name).
+  const playTile=(id,art,title,badge='',runner=false)=>`<button class="home-world home-play-tile ${runner?'runner':''}" id="${id}" aria-label="${esc(title)}">
+      <img class="home-world-art" src="${art}" alt="" decoding="async">
+      <span class="home-world-veil"></span>
+      ${badge?`<span class="home-world-level">${badge}</span>`:''}
+      <span class="home-world-copy"><b>${esc(title)}</b></span>
+    </button>`;
+  // The Spellenkist: the four smaller games behind one tile (Stefan, 2026-10-10).
+  const CHEST=[
+    {id:'homeMemo',art:'memo',title:'memo.title',open:()=>K.showMemoPicker()},
+    {id:'homeFacts',art:'facts',title:'facts.title',open:()=>K.showGamePicker('facts')},
+    {id:'homeFotozoom',art:'fotozoom',title:'fotozoom.title',open:()=>K.showGamePicker('fotozoom')},
+    {id:'homeWhoAmI',art:'whoami',title:'whoami.title',open:()=>K.showGamePicker('whoami')}
+  ];
+  K.showGameChest=()=>{
+    K.audio.setTrack('play').catch(()=>{});
+    K.stopSpeech();K.lastView='home';K.fromChest=true;
+    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker math-pick chest-pick fade-in">
+      <div class="native-panel-glow"></div>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('chest.title'))}</h1><p>${esc(t('chest.sub'))}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <div class="panel-scroll">
+        ${CHEST.map(g=>`<button class="memo-pick math-pick-tile" id="${g.id}"><img class="home-game-art" src="${K.GAME_ART[g.art]}" alt="" decoding="async"><span class="home-game-veil"></span><b>${esc(t(g.title))}</b></button>`).join('')}
+      </div>
+      ${bottomNav('home')}
+    </section>`);
+    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
+    for(const g of CHEST)f.querySelector('#'+g.id).onclick=()=>{K.sfx('tap');openGame(g.title,g.open)};
+    bindNav(f);
+  };
+  // Back from Memo, Weetjes, Fotozoom or Wat ben ik?: to the Spellenkist when it was opened from there.
+  K.backFromGame=()=>K.fromChest?K.showGameChest():K.showHome();
 
   // A game opened from Home: the guide calls out its name, as for a world
   // (Stefan, 2026-10-10). Only while that screen is still there.
@@ -475,7 +501,7 @@
       </div>
       ${K.bottomNav('home')}
     </section>`);
-    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.showHome()};
+    f.querySelector('.panel-back').onclick=()=>{K.sfx('tap');K.backFromGame()};
     f.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{K.sfx('world');P.start(b.dataset.pick)});
     K.bindNav(f);
   };

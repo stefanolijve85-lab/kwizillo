@@ -787,7 +787,7 @@ for (const [label, width, height] of [['iPhone SE', 375, 667], ['iPhone 14', 390
     const overflow = async () => page.evaluate(() =>
       document.documentElement.scrollWidth > document.documentElement.clientWidth);
 
-    await expect(page.locator('.home-world')).toHaveCount(8);
+    await expect(page.locator('.home-world[data-world]')).toHaveCount(8);
     expect(await overflow(), 'home overflows horizontally').toBe(false);
 
     // The longest world title ("Geschiedeniswereld") used to push the settings
@@ -1071,11 +1071,11 @@ test('the quiz shows the picture chosen for each question by eye', async ({ page
   expect(shown.astronaut).toContain('assets/questions/s/ruimte-astronauten-01');
 });
 
-test('Home: the worlds stand apart (the Runner opens "Speel ook"); the game pickers carry the game name as their title', async ({ page }) => {
+test('Home: the worlds stand apart, "Speel ook" has its own four tiles; the game pickers carry the game name as their title', async ({ page }) => {
   await boot(page);
   await expect(page.locator('.home')).toBeVisible();
-  const order = await page.evaluate(() => [...document.querySelectorAll('.home-section, .home-worlds, #homeJungle, .home-games')].map(e => e.id || e.className.split(' ')[0]));
-  expect(order).toEqual(['home-section', 'home-worlds', 'home-section', 'homeJungle', 'home-games']);
+  const order = await page.evaluate(() => [...document.querySelectorAll('.home-section, .home-worlds')].map(e => e.classList.contains('home-play') ? 'home-play' : e.className.split(' ')[0]));
+  expect(order).toEqual(['home-section', 'home-worlds', 'home-section', 'home-play']);
   for (const [game, name] of [['whoami', 'Wat ben ik?'], ['fotozoom', 'Fotozoom'], ['facts', 'Weetjes']]) {
     await page.evaluate(g => window.KWIZILLO_M1.showGamePicker(g), game);
     await expect(page.locator('.panel-head h1.game-name')).toHaveText(name);

@@ -504,6 +504,8 @@
     'math.speech.quarter':'Ein Viertel von {n}',
     'math.speech.percent':'{p} Prozent von {n}',
     'math.money.title':'Geld zählen',
+    'chest.title':'Spielekiste',
+    'chest.sub':'Wähle ein Spiel',
     'measure.title':'Messen & Wiegen',
     'measure.sub':'Messen und vergleichen',
     'measure.tip':'Miss genau! Schau, wo es anfängt und wo es aufhört.',

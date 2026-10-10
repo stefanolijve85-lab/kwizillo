@@ -38,17 +38,24 @@ async function playLesson(page, { wrongAt = -1 } = {}) {
   await expect(page.locator('.talen-result')).toBeVisible({ timeout: 15000 });
 }
 
-test('Home: the Runner is a banner under the worlds, Talen is first in "Speel ook" and Memo last', async ({ page }) => {
+test('Home: "Speel ook" is four tiles like the worlds — Talen, Rekenen, Runner, Spellenkist — and the Spellenkist holds Memo, Weetjes, Fotozoom and Wat ben ik?', async ({ page }) => {
   await boot(page, { state: SAVED({ progress: { worlds: {}, topics: {}, runs: {}, correctQuestionIds: [], games: { jungle: { best: 42 } } } }) });
-  const runner = page.locator('#homeJungle.home-mega');
-  await expect(runner).toContainText('Runner');
-  await expect(runner).toContainText('Ren, spring en pak munten');
-  await expect(runner.locator('.home-world-level')).toContainText('42');
-  const [r, w, s] = [await runner.boundingBox(), await page.locator('.home-world').last().boundingBox(), await page.locator('.home-games').boundingBox()];
-  expect(r.y).toBeGreaterThan(w.y); expect(r.y).toBeLessThan(s.y);
-  const games = await page.locator('.home-games > button').evaluateAll(els => els.map(e => e.id));
-  expect(games[0]).toBe('homeTalen');
-  expect(games[games.length - 1]).toBe('homeMemo');
+  const tiles = await page.locator('.home-play > button').evaluateAll(els => els.map(e => e.id));
+  expect(tiles).toEqual(['homeTalen', 'homeMath', 'homeJungle', 'homeChest']);
+  await expect(page.locator('#homeJungle')).toContainText('Runner');
+  await expect(page.locator('#homeJungle .home-world-level')).toContainText('42');
+  await expect(page.locator('#homeChest')).toContainText('Spellenkist');
+  // the same size as a world tile, under the worlds
+  const [w, p] = [await page.locator('.home-world[data-world]').last().boundingBox(), await page.locator('#homeChest').boundingBox()];
+  expect(Math.abs(w.width - p.width)).toBeLessThan(2); expect(Math.abs(w.height - p.height)).toBeLessThan(2); expect(p.y).toBeGreaterThan(w.y);
+  await page.locator('#homeChest').click();
+  await expect(page.locator('.chest-pick h1.game-name')).toHaveText('Spellenkist');
+  expect(await page.locator('.chest-pick .math-pick-tile').evaluateAll(els => els.map(e => e.id))).toEqual(['homeMemo', 'homeFacts', 'homeFotozoom', 'homeWhoAmI']);
+  await page.locator('#homeFotozoom').click();
+  await page.locator('.panel-back').click();                       // back to the Spellenkist, not to Home
+  await expect(page.locator('.chest-pick')).toBeVisible();
+  await page.locator('.panel-back').click();
+  await expect(page.locator('.home')).toBeVisible();
   await expect(page.locator('#homeTalen')).toContainText('Talen');
   await expect(page.locator('#homeTalen .home-world-level')).toHaveCount(0);   // no badge before the first lesson
   await page.locator('#homeTalen').click();

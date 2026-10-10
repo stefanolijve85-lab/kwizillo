@@ -73,7 +73,7 @@ test('an iPad in Split View falls back to the phone layout, full bleed', async (
   expect(Math.round(box.width)).toBe(507);
   expect(Math.round(box.height)).toBe(1194);
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--fit').trim())).toBe('1');
-  await expect(page.locator('.home-world')).toHaveCount(8);
+  await expect(page.locator('.home-world[data-world]')).toHaveCount(8);
 });
 
 test('the phone layout is untouched: the frame is the screen, unscaled', async ({ page }) => {

@@ -97,7 +97,7 @@ test('the tour visits the Mega Quiz, worlds, games, HUD and nav with a spotlight
   await expect(tour.locator('.milo-host video.milo-clip')).toHaveCount(0);
   await expect(tour.locator('.milo-figure')).toBeVisible();
   const spot = tour.locator('.milo-tour-spot');
-  const worlds = await page.locator('.home-worlds').boundingBox();
+  const worlds = await page.locator('.home-worlds:not(.home-play)').boundingBox();
   const s1 = await spot.boundingBox();
   expect(Math.abs(s1.y - worlds.y)).toBeLessThan(12);
   // A tap on the screen does nothing: only Skip ends the tour, the guide moves on by itself.
@@ -108,9 +108,9 @@ test('the tour visits the Mega Quiz, worlds, games, HUD and nav with a spotlight
   await expect(bubble).toContainText('Straks tik je');
   await expect(tour.locator('.milo-host')).not.toHaveClass(/hopping/);
   await expect(bubble).toContainText('de Runner, Talen', { timeout: 25000 });
-  const games = await spot.boundingBox(), runner = await page.locator('#homeJungle').boundingBox(), first = await page.locator('.home-games .home-game').first().boundingBox(), last = await page.locator('.home-games .home-game').last().boundingBox();
-  expect(Math.abs(games.y - runner.y)).toBeLessThan(12);   // the Runner banner and…
-  expect(games.x).toBeLessThan(first.x + 8); expect(games.y + games.height).toBeGreaterThan(last.y + last.height - 8);   // …every game tile, at once
+  const games = await spot.boundingBox(), play = await page.locator('.home-play').boundingBox();
+  expect(Math.abs(games.y - play.y)).toBeLessThan(12);   // the four "Speel ook" tiles, at once
+  expect(games.y + games.height).toBeGreaterThan(play.y + play.height - 8);
   // every bubble of the tour stays inside the frame
   { const bb = await bubble.boundingBox(), fb = await page.locator('.game-frame').boundingBox(); expect(bb.y).toBeGreaterThanOrEqual(fb.y); expect(bb.y + bb.height).toBeLessThanOrEqual(fb.y + fb.height); }
   // No lonely last word: the last two words are tied together.
@@ -249,7 +249,7 @@ test('while it explains, the guide points at what it is explaining and hops on t
   // Wait until the spotlight has arrived on the worlds.
   await expect.poll(async () => {
     const spot = await page.locator('.milo-tour-spot').boundingBox();
-    const games = await page.locator('.home-worlds').boundingBox();
+    const games = await page.locator('.home-worlds:not(.home-play)').boundingBox();
     return Math.abs(spot.y - games.y);
   }, { timeout: 20000 }).toBeLessThan(14);
   await expect.poll(() => page.evaluate(() => window.__poses.filter(p => /point|cheer/.test(p)).length), { timeout: 15000 }).toBeGreaterThan(0);

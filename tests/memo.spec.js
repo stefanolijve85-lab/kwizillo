@@ -26,7 +26,7 @@ async function solve(page) {
 
 test('Memo opens from Home and from a world, lays out a level-1 board of 8 picture pairs', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   // A picker first: all worlds or one of the eight, two per row.
   await expect(page.locator('.memo-picker')).toBeVisible();
   await expect(page.locator('[data-memo]')).toHaveCount(9);   // gemengd + acht werelden
@@ -50,7 +50,7 @@ test('Memo opens from Home and from a world, lays out a level-1 board of 8 pictu
 
 test('a mismatch flips back, a match stays; solving the board rewards XP, coins and a gift', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await page.locator('[data-memo="dieren"]').click();
   const pairs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(c.id); return Object.values(by); });
   // Mismatch: one card of pair 0 and one of pair 1.
@@ -79,7 +79,7 @@ test('a mismatch flips back, a match stays; solving the board rewards XP, coins 
 
 test('every level pairs identical pictures; a level-6 board has 14 pairs and 9 s per pair', async ({ page }) => {
   await boot(page, SAVED({ niveau: 3 }));
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await page.locator('[data-memo="aarde"]').click();
   await expect(page.locator('.memo-card')).toHaveCount(20);
   await expect(page.locator('.memo-front.word')).toHaveCount(0);
@@ -94,7 +94,7 @@ test('every level pairs identical pictures; a level-6 board has 14 pairs and 9 s
 
 test('running out of time ends the game without reward and offers a retry', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await page.locator('[data-memo="ruimte"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   await page.evaluate(() => window.KWIZILLO_M1.memoFinishForTest(false));   // the interval calls this at zero
@@ -118,7 +118,7 @@ test('a tile whose picture fails to load retries it, and shows the word when it 
     return route.continue();
   });
   await boot(page);
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await page.locator('[data-memo="mix"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   // The retried pictures come back (each URL was asked for at least twice)…
@@ -134,7 +134,7 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
   // A voice, so the end of the duel is announced; every spoken line is captured (a 503 would switch speech off for the session).
   const spoken = [];
   await boot(page, SAVED({ voice: 'Milo' }), route => { try { spoken.push(ttsPayload(route.request()).text || ''); } catch {} route.fulfill({ status: 200, contentType: 'audio/mpeg', body: Buffer.alloc(0) }); });
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await expect(page.locator('[data-mode="solo"]')).toHaveClass(/active/);
   // Player 2's name field only shows for a duel; the name is remembered.
   await expect(page.locator('.memo-p2')).toBeHidden();
@@ -183,7 +183,7 @@ test('head-to-head: two players alternate every two cards, scores are kept, the 
 test('on a small phone the "all worlds" tile keeps its full height; the world grid never overlaps it', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 667 });
   await boot(page);
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await expect(page.locator('.memo-pick.mix')).toBeVisible();
   const [mixBottom, gridTop, mixHeight] = await page.evaluate(() => { const a = document.querySelector('.memo-pick.mix').getBoundingClientRect(), g = document.querySelector('.memo-pick-grid').getBoundingClientRect(); return [a.bottom, g.top, a.height]; });
   expect(gridTop).toBeGreaterThanOrEqual(mixBottom);
@@ -196,7 +196,7 @@ test('on a small phone the "all worlds" tile keeps its full height; the world gr
 // bonus at the end; a miss in between starts the count again.
 test('three pairs in a row give a golden boost; a miss resets the run', async ({ page }) => {
   await boot(page);
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await page.locator('[data-memo="mix"]').click();
   await expect(page.locator('.memo-board')).toBeVisible();
   const pairs = await page.evaluate(() => { const m = window.KWIZILLO_M1.memo; const by = {}; for (const c of m.cards) (by[c.pair] ||= []).push(c.id); return Object.values(by); });

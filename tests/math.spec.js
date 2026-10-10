@@ -155,7 +155,7 @@ test('leaving right after an answer and opening another game does not pull Reken
   // Straight back, while the verdict is still showing, then another game.
   await page.locator('#mathBack').click();
   await expect(page.locator('.home')).toBeVisible();
-  await page.locator('#homeMemo').click();
+  await page.locator('#homeChest').click(); await page.locator('#homeMemo').click();
   await expect(page.locator('.math-card')).toHaveCount(0);
   await page.waitForTimeout(4000);   // past the 3.4 s the next sum used to wait for
   await expect(page.locator('.math-card')).toHaveCount(0);

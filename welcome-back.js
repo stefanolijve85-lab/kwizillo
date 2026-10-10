@@ -20,11 +20,11 @@
 
   // Waar het kind gebleven was: de laatste wereld of het laatste spel dat het
   // opende (K.noteStop, m1-ui.js); een wereld met het niveau dat die inmiddels heeft.
-  const GAME_TITLE={talen:'talen.title',math:'math.title',whoami:'whoami.title',fotozoom:'fotozoom.title',facts:'facts.title',memo:'memo.title',jungle:'jungle.title',mega:'mega.title'};
+  const GAME_TITLE={talen:'talen.title',math:'math.title',whoami:'whoami.title',fotozoom:'fotozoom.title',facts:'facts.title',memo:'memo.title',jungle:'jungle.title',mega:'mega.title',chest:'chest.title'};
   function lastStop(){
     const s=K.state.lastStop;
     if(s?.kind==='game'&&GAME_TITLE[s.id]){
-      const art=K.GAME_ART?.[s.id==='mega'?'memoAll':s.id]||K.MASTER.ruimte;
+      const art=K.GAME_ART?.[s.id==='mega'?'memoAll':s.id==='chest'?'memo':s.id]||K.MASTER.ruimte;
       return {game:s.id,title:t(GAME_TITLE[s.id]),art};
     }
     const w=K.state.lastWorld&&K.MASTER?.[K.state.lastWorld]?K.state.lastWorld:null;

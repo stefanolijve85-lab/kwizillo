@@ -667,6 +667,8 @@
     'math.speech.quarter':'ربع {n}',
     'math.speech.percent':'{p} بالمئة من {n}',
     'math.money.title':'عُدّ النقود',
+    'chest.title':'صندوق الألعاب',
+    'chest.sub':'اختر لعبة',
     'measure.title':'القياس والوزن',
     'measure.sub':'قِس وقارِن',
     'measure.tip':'قِس جيدًا! انظر أين يبدأ وأين ينتهي.',
