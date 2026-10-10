@@ -11,12 +11,20 @@
   // its own progress (progress.games.jump) and leaves the Runner's alone.
   const WORLDS=['underwater','candy','space'];
   const MUSIC={underwater:'earth',candy:'play',space:'space'};
-  // The game's sounds, through the app's own sound manager (so the FX switch
-  // and slider apply). Reused from the Runner's recorded effects.
-  const SFX_DIR='assets/games/jungle/sfx/';
-  const addSfx=()=>K.audio.addSfx?.({jumpJump:SFX_DIR+'jump.mp3',jumpDouble:SFX_DIR+'double.mp3',jumpLand:SFX_DIR+'land.mp3',jumpStar:SFX_DIR+'coin.mp3',jumpHit:SFX_DIR+'hit.mp3',jumpBounce:SFX_DIR+'swing.mp3',jumpFinish:SFX_DIR+'finish.mp3',jumpCount:SFX_DIR+'count.mp3',jumpSlide:SFX_DIR+'glide.mp3',jumpShield:SFX_DIR+'shield.mp3',jumpBlock:SFX_DIR+'block.mp3'},
-    {jumpJump:.45,jumpDouble:.5,jumpLand:.35,jumpStar:.4,jumpHit:.55,jumpBounce:.5,jumpFinish:.7,jumpCount:.4,jumpSlide:.35,jumpShield:.5,jumpBlock:.55});
-  const SFX={jump:'jumpJump',double:'jumpDouble',land:'jumpLand',star:'jumpStar',hit:'jumpHit',fall:'jumpHit',bounce:'jumpBounce',finish:'jumpFinish',count:'jumpCount',go:'jumpCount',slide:'jumpSlide',shield:'jumpShield',shieldHit:'jumpBlock',over:'bad'};
+  // The game's own sounds (tools/jump-sfx.cjs: synthesised, no voices), through
+  // the app's sound manager so the FX switch and slider apply. Mike and Mia each
+  // have their own jump, double jump, land, slide, hurt and celebrate; the rest is shared.
+  const SFX_DIR='assets/games/jump/sfx/';
+  const HERO_SFX=['jump','double','land','slide','hurt','celebrate'],SHARED_SFX=['star','bounce','shield','shieldhit','tick','go','finish','over'];
+  const sfxKey=(name,hero)=>'jmm_'+(hero?hero+'_':'')+name;
+  const addSfx=()=>{const files={},levels={};
+    for(const h of ['mike','mia'])for(const n of HERO_SFX){files[sfxKey(n,h)]=SFX_DIR+h+'-'+n+'.mp3';levels[sfxKey(n,h)]=.6}
+    for(const n of SHARED_SFX){files[sfxKey(n)]=SFX_DIR+n+'.mp3';levels[sfxKey(n)]=.6}
+    K.audio.addSfx?.(files,levels)};
+  // game event → sound (hero sounds follow the child chosen for the run)
+  const SFX={jump:'jump',double:'double',land:'land',slide:'slide',hit:'hurt',fall:'hurt',celebrate:'celebrate',star:'star',bounce:'bounce',shield:'shield',shieldHit:'shieldhit',count:'tick',go:'go',finish:'finish',over:'over'};
+  const playSfx=(ev,hero)=>{const n=SFX[ev];if(!n)return;K.sfx(sfxKey(n,HERO_SFX.includes(n)?(hero==='mia'?'mia':'mike'):''))};
+  K.jumpSfxKey=sfxKey;
 
   const jumpProgress=()=>{
     const G=K.progress().games||={};
@@ -78,7 +86,7 @@
       onWorld:w=>{K.state.jumpWorld=w;K.save();K.audio.setTrack(MUSIC[w]).catch(()=>{})},
       best:w=>Number(jumpProgress().best[w]||0),
       reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
-      sfx:k=>{const key=SFX[k];if(key)K.sfx(key)},
+      sfx:(k,hero)=>playSfx(k,hero),
       onReady:()=>{const poster=f.querySelector('.jungle-poster');if(poster){poster.style.opacity='0';setTimeout(()=>poster.remove(),300)}},
       onStart:w=>{K.audio.unlock().catch(()=>{});K.audio.setTrack(MUSIC[w]).catch(()=>{});K.startScoreRun()},
       onComplete:reward=>{

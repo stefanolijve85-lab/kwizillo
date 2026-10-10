@@ -114,6 +114,30 @@ for (const world of ['underwater', 'candy', 'space']) {
   });
 }
 
+test('nobody runs before Go: during the countdown and while paused the child stands idle and nothing scrolls', async ({ page }) => {
+  await boot(page);
+  await openJump(page);
+  expect(await page.locator('.kj-hero canvas').count()).toBe(2);   // the cards show the idle pose (drawn once, not animated)
+  await page.locator('[data-act=start]').click();
+  await expect.poll(() => G(page, g => g.screen)).toBe('count');
+  await page.waitForTimeout(250);
+  const a = await G(page, g => ({ x: g.run.p.x, cam: g.debug().camera.x, pose: g.debug().pose, t: g.run.t }));
+  await page.waitForTimeout(700);
+  const b = await G(page, g => ({ x: g.run.p.x, cam: g.debug().camera.x, pose: g.debug().pose, t: g.run.t, screen: g.screen }));
+  expect(b.screen).toBe('count');
+  expect([a.pose, b.pose]).toEqual(['idle', 'idle']);
+  expect(b.x).toBe(a.x); expect(b.cam).toBe(a.cam); expect(b.t).toBe(0);
+  await expect.poll(() => G(page, g => g.screen), { timeout: 4000 }).toBe('play');
+  await expect.poll(() => G(page, g => g.debug().pose)).toBe('run');
+  await expect.poll(() => G(page, g => g.run.p.x)).toBeGreaterThan(a.x);
+  // paused: idle, frozen
+  await page.locator('.kj-pause').click();
+  const p1 = await G(page, g => ({ x: g.run.p.x, cam: g.debug().camera.x }));
+  await page.waitForTimeout(400);
+  expect(await G(page, g => ({ x: g.run.p.x, cam: g.debug().camera.x }))).toEqual(p1);
+  expect(await G(page, g => g.debug().pose)).toBe('idle');
+});
+
 test('a hit costs one heart; restart resets the child, time, stars and camera; game over shows "try again" and pays nothing', async ({ page }) => {
   await boot(page);
   await openJump(page);
@@ -165,6 +189,23 @@ test('leaving cleans up: no loop, no listeners, no observers — by the back but
   await expect(page.locator('.home')).toBeVisible();
   await expect(page.locator('kwizillo-jump')).toHaveCount(0);
   expect(await G(page, g => g.debug().live)).toEqual({ raf: 0, listeners: 0, observers: 0 });
+});
+
+test('own sounds: a set per child, none from the Runner; the hero set follows the chosen child', async ({ page }) => {
+  const asked = []; page.on('request', r => { if (r.url().includes('/sfx/')) asked.push(new URL(r.url()).pathname) });
+  await boot(page, SAVED({ soundOn: true }));
+  await openJump(page);
+  const played = await page.evaluate(() => { const K = window.KWIZILLO_M1, out = [], play = K.sfx; K.sfx = k => { out.push(k); return play(k) }; window.__played = out; return true });
+  await startRun(page, 'underwater', 'mia');
+  await G(page, g => { g.press('jump'); g.tick(.25); g.press('jump'); g.tick(.1) });
+  await startRun(page, 'underwater', 'mike');
+  await G(page, g => { g.press('jump'); g.tick(.1) });
+  const keys = await page.evaluate(() => window.__played);
+  expect(keys).toEqual(expect.arrayContaining(['jmm_mia_jump', 'jmm_mia_double', 'jmm_mike_jump']));
+  expect(keys.filter(k => k === 'jmm_mike_jump').length).toBe(1);
+  expect(asked.filter(u => u.includes('/jungle/'))).toEqual([]);
+  const status = await page.evaluate(async () => (await Promise.all(['mike-jump', 'mia-double', 'star', 'go'].map(n => fetch('/assets/games/jump/sfx/' + n + '.mp3').then(r => r.status)))));
+  expect(status).toEqual([200, 200, 200, 200]);
 });
 
 test('the Runner tile still opens the Runner', async ({ page }) => {

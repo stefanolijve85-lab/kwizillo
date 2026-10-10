@@ -35,7 +35,10 @@ if (!customElements.get('kwizillo-jump')) customElements.define('kwizillo-jump',
 
 export function mountJump(host, opts = {}) {
   const T = (k, p) => (opts.text ? opts.text(k, p) : k);
-  const sfx = k => { try { opts.sfx?.(k) } catch { } };
+  // sounds: the hero's own set for the character sounds; the same sound never
+  // stacks (rapid stars, a bounce and its landing) — at most one per 70 ms
+  const lastSfx = new Map();
+  const sfx = k => { const now = performance.now(); const id = hero + k; if (now - (lastSfx.get(id) || -1e9) < 70) return; lastSfx.set(id, now); try { opts.sfx?.(k, hero) } catch { } };
   const reduced = !!opts.reducedMotion;
   let hero = HEROES.includes(opts.hero) ? opts.hero : 'mike';
   let worldId = WORLD_ORDER.includes(opts.world) ? opts.world : 'underwater';
@@ -311,13 +314,14 @@ export function mountJump(host, opts = {}) {
       const t = e.list[i].type;
       if (t === 'jump' || t === 'double' || t === 'land' || t === 'star' || t === 'hit' || t === 'bounce' || t === 'slide' || t === 'shield' || t === 'shieldHit') sfx(t);
       else if (t === 'fall') sfx('fall');
-      else if (t === 'finish') sfx('finish');
+      else if (t === 'finish') { sfx('finish'); setTimeout(() => { if (!destroyed) sfx('celebrate') }, 650) }
       else if (t === 'over') sfx('over');
     }
   }
   function draw(dt) {
     if (!renderer || !run) return;
-    renderer.frame(run, 0, dt, screen === 'count' || screen === 'loading' ? null : interp);
+    const still = screen === 'count' || screen === 'loading' || screen === 'pause' || screen === 'pick';
+    renderer.frame(run, 0, dt, screen === 'count' || screen === 'loading' ? null : interp, still);
   }
 
   // ---------- life cycle ----------
@@ -361,7 +365,7 @@ export function mountJump(host, opts = {}) {
     press(kind) { if (!run) return; if (kind === 'jump') pressJump(run); else pressSlide(run) },
     tick(sec) { const n = Math.round(sec / STEP); for (let i = 0; i < n; i++) { step(run); handleEvents() } },
     showResults() { finishRun() },
-    debug() { return { screen, live: { ...live }, raf: !!raf, particles: renderer?.activeParticles() ?? 0, player: run ? { x: run.p.x, y: run.p.y, h: run.p.h, sliding: run.p.sliding, jumps: run.p.jumps, ground: run.p.ground } : null } }
+    debug() { return { screen, pose: renderer?.pose, camera: renderer?.camera, live: { ...live }, raf: !!raf, particles: renderer?.activeParticles() ?? 0, player: run ? { x: run.p.x, y: run.p.y, h: run.p.h, sliding: run.p.sliding, jumps: run.p.jumps, ground: run.p.ground } : null } }
   };
 }
 export { live };

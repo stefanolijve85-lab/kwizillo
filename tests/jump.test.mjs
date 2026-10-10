@@ -3,7 +3,7 @@
 // pads, hits, falls, the two ends of a run) on small test levels, and proof
 // that each of the three real levels can be finished with the real physics.
 import assert from 'assert';
-import { createRun, step, pressJump, pressSlide, STEP, PLAYER, TIMING, score } from '../assets/games/jump/engine.js';
+import { createRun, step, pressJump, pressSlide, STEP, PLAYER, TIMING, score, pose } from '../assets/games/jump/engine.js';
 import { WORLDS, WORLD_ORDER, level, reach } from '../assets/games/jump/levels.js';
 import { solve, play, windows } from '../assets/games/jump/solver.js';
 
@@ -99,6 +99,17 @@ const fresh = extra => createRun(flat(extra), W);
   run(3, s);
   assert.strictEqual(s.falls, 1); assert.strictEqual(s.hearts, 2);
   assert.ok(s.p.x < 1400 && s.p.inv > 0, 'back at the checkpoint, safe for a moment');
+}
+/* ---- standing still: before the first step, and for a moment after a respawn ---- */
+{
+  const s = fresh(); assert.strictEqual(pose(s), 'idle', 'idle before the run starts'); assert.strictEqual(s.p.vx, 0);
+  step(s); assert.strictEqual(pose(s), 'run');
+  const f = createRun(flat({ solids: [{ x: 0, y: 0, w: 800, h: 900 }, { x: 1400, y: 0, w: 1000, h: 900 }], cps: [{ x: 300, y: 0 }] }), W);
+  while (!f.falls) step(f);
+  const x = f.p.x; assert.strictEqual(pose(f), 'idle');
+  pressJump(f); run(TIMING.respawnFreeze - .05, f);
+  assert.strictEqual(f.p.x, x, 'stands still at the checkpoint'); assert.strictEqual(f.jumpsMade, 0, 'a press during the pause is not kept');
+  run(.2, f); assert.ok(f.p.x > x && pose(f) === 'run', 'and runs on');
 }
 /* ---- the two ends of a run: whichever comes first, never both ---- */
 {

@@ -7,7 +7,7 @@
 // at a fixed 120 Hz (STEP); input arrives as presses between steps.
 export const STEP = 1 / 120;
 export const PLAYER = { w: 40, h: 88, slideH: 40 };   // one hitbox for both children, whatever the pose, hair or backpack
-export const TIMING = { coyote: 0.09, jumpBuffer: 0.1, slideBuffer: 0.12, slide: 0.62, invulnerable: 1.3, respawnInvulnerable: 1.6, hurt: 0.35, land: 0.12 };
+export const TIMING = { respawnFreeze: 0.6, coyote: 0.09, jumpBuffer: 0.1, slideBuffer: 0.12, slide: 0.62, invulnerable: 1.3, respawnInvulnerable: 1.6, hurt: 0.35, land: 0.12 };
 export const HEARTS = 3;
 const EPS = 0.01;
 // The level split into 256-wide columns, so a step only looks at what is near
@@ -33,7 +33,7 @@ const near = (s, k, x) => s.grid[k][Math.max(0, Math.floor(x / CELL))] || NONE;
 
 // One run on one level. `world` holds the physics of that world (levels.js).
 export function createRun(level, world) {
-  const p = { x: level.start.x, y: level.start.y, vx: world.speed, vy: 0, w: PLAYER.w, h: PLAYER.h, ground: true, jumps: 0, coyote: 0, jumpBuf: 0, slideBuf: 0, sliding: false, slideT: 0, inv: 0, hurtT: 0, landT: 0, airT: 0, blocked: false, doubleT: 0, bounceT: 0 };
+  const p = { freeze: 0, x: level.start.x, y: level.start.y, vx: 0, vy: 0, w: PLAYER.w, h: PLAYER.h, ground: true, jumps: 0, coyote: 0, jumpBuf: 0, slideBuf: 0, sliding: false, slideT: 0, inv: 0, hurtT: 0, landT: 0, airT: 0, blocked: false, doubleT: 0, bounceT: 0 };
   const events = { n: 0, list: Array.from({ length: 48 }, () => ({ type: '', x: 0, y: 0 })) };
   return {
     level, world, p, events, grid: grid(level),
@@ -99,6 +99,8 @@ export function step(s, dt = STEP) {
   p.inv = Math.max(0, p.inv - dt); p.hurtT = Math.max(0, p.hurtT - dt); p.landT = Math.max(0, p.landT - dt);
   p.doubleT = Math.max(0, p.doubleT - dt); p.bounceT = Math.max(0, p.bounceT - dt);
   const ended = s.phase !== 'run';
+  // back at a checkpoint after a fall: a short moment standing still, presses wait
+  const frozen = p.freeze > 0; if (frozen) { p.freeze = Math.max(0, p.freeze - dt); p.jumpBuf = 0; p.slideBuf = 0 }
   if (ended) { p.jumpBuf = 0; p.slideBuf = 0 }
 
   // --- jump: on the ground (or just off it) a jump, in the air one more ---
@@ -123,7 +125,7 @@ export function step(s, dt = STEP) {
   }
 
   // --- horizontal: run forward; a wall stops the child (no damage), a low beam bumps ---
-  const speed = ended ? Math.max(0, p.vx - 520 * dt) : W.speed;
+  const speed = ended ? Math.max(0, p.vx - 520 * dt) : frozen ? 0 : W.speed;
   p.vx = speed;
   const prevX = p.x;
   p.x += p.vx * dt; p.blocked = false;
@@ -209,7 +211,7 @@ function supported(s) {
 function respawn(s) {
   const p = s.p;
   p.x = s.cp.x; p.y = s.cp.y; p.vy = 0; p.ground = true; p.jumps = 0; p.coyote = 0; p.jumpBuf = 0; p.slideBuf = 0;
-  setSlide(s, false); p.inv = TIMING.respawnInvulnerable; p.hurtT = 0;
+  setSlide(s, false); p.inv = TIMING.respawnInvulnerable; p.hurtT = 0; p.freeze = TIMING.respawnFreeze; p.vx = 0;
   emit(s, 'respawn', p.x, p.y);
 }
 

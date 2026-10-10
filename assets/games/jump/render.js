@@ -371,7 +371,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
 
   function drawPlayer(s, px, py) {
     const p = s.p, S = sprites[hero], img = sprites.images[hero];
-    const state = pose(s), list = S.states[state];
+    const state = still ? 'idle' : pose(s), list = S.states[state]; lastPose = state;
     let i = 0;
     if (state === 'run') i = Math.floor(time * 14) % list.length;   // 8 poses: about two strides a second at 14 per second
     else if (state === 'idle') i = (time % 3) > 2.85 ? 1 : 0;
@@ -435,7 +435,10 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
 
   function drawTile(name, f, k) { const t = tiles[name], tw = TILE * k, off = -((cam.x * f * k) % tw), yoff = -(cam.y - (cam.ref - groundY / scale)) * k; for (let x = off; x < canvas.width; x += tw) g.drawImage(t, x, Math.min(canvas.height * .5, yoff * f) - canvas.height * .5, tw, canvas.height * 1.5) }
   let visL = 0, visR = 0; const vis = o => o.x + (o.w || 0) > visL && o.x < visR;
-  function frame(s, a, dt, interp) {
+  // still: before "Go", while paused — the child stands in the idle pose and nothing in the scene moves
+  let still = false, lastPose = 'idle';
+  function frame(s, a, dt, interp, isStill = false) {
+    still = isStill; if (still) dt = 0;
     time += dt; squash = Math.max(0, squash - dt); padHit.t = Math.max(0, padHit.t - dt); hurtRing = Math.max(0, hurtRing - dt);
     const px = interp ? interp.x : s.p.x, py = interp ? interp.y : s.p.y;
     camera(s, dt, px, py);
@@ -510,7 +513,7 @@ export function createRenderer(canvas, { level, world, sprites, hero, art = null
   function reset() { for (const p of parts) p.on = false; cam.init = false; squash = 0; hurtRing = 0; padHit.x = -1 }
 
   return {
-    resize, frame, reset, effects: s => effects(s, s.events),
+    resize, frame, reset, get pose() { return lastPose }, effects: s => effects(s, s.events),
     get scale() { return scale }, get view() { return { w: viewW, h: viewH, groundY, scale } }, get camera() { return { ...cam } },
     activeParticles: () => parts.reduce((n, p) => n + (p.on ? 1 : 0), 0)
   };
