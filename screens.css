@@ -1965,3 +1965,43 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .speak-mic-icon.off{filter:grayscale(1);opacity:.7}
 .speak-panel .talen-start{width:100%}
 .talen-speak-count{margin:10px 4px 0;font-weight:1000;color:#3566a8}
+/* Talen on one screen (Stefan, 2026-10-10, iPad): the passport never scrolls — the language
+   switch, the four tiles sharing the height, a compact "Even herhalen" bar; Gesprekjes and
+   Spreken fill the screen with their tiles (2x3 and three wide ones, like Rekenen). */
+.talen-home .panel-scroll,.talen-fill .panel-scroll{display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.talen-home .panel-scroll>*+*,.talen-fill .panel-scroll>*+*{margin-top:0}
+.talen-home .talen-lang-switch{flex:none}
+.talen-home .talen-cats{flex:1 1 auto;min-height:0;grid-auto-rows:1fr;margin-top:max(0px,calc(24cqh - 160px - var(--sat)))}
+.talen-home .talen-cat{min-height:0;height:100%}
+.talen-cat{container-type:inline-size}
+.talen-cat-fan{width:min(190px,44cqi);height:min(110px,78%)}
+.talen-cat-copy{flex:1 1 0;min-width:0}
+.talen-cat-copy b{font-size:clamp(20px,9cqi,30px);overflow-wrap:anywhere}
+.talen-home .talen-review{flex:none;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px 10px}
+.talen-review-copy b{display:block;font-size:15px;line-height:1.1}.talen-review-copy small{font-size:12px}
+.talen-home .talen-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:2px}
+.talen-home .talen-chips::-webkit-scrollbar{display:none}
+.talen-home .talen-chip{flex:none;padding:3px 10px 3px 3px}
+.talen-home .talen-chip img,.talen-home .talen-chip .talen-emoji{width:30px;height:30px}
+.talen-home #talenReview{min-height:46px;width:auto;padding:0 16px;white-space:nowrap}
+@media(max-width:560px){.talen-home .talen-review{grid-template-columns:minmax(0,1fr) auto}.talen-home .talen-chips{grid-column:1/-1;grid-row:2}.talen-home #talenReview span{display:none}.talen-home #talenReview{padding:0 12px}}
+.talen-fill-grid{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:10px}
+.talen-fill-grid .talen-pick{aspect-ratio:auto;height:100%;min-height:0}
+.talen-fill-list{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:12px}
+.talen-fill-list .math-pick-tile{flex:1 1 0;height:auto;min-height:0;aspect-ratio:auto}
+.talen-speak-tile .home-game-art{object-fit:cover;object-position:center 40%}
+.talen-speak-tile b small{display:block;margin-top:4px;font-size:14px;font-weight:900;opacity:.95}
+.talen-fill .talen-speak-count{flex:none;margin:0 4px}
+/* The Spellenkist: its tiles share the screen; on Home the four paintings sit centred in the mosaic. */
+.chest-pick .panel-scroll{overflow:hidden}
+.chest-pick .math-pick-tile{flex:1 1 0;height:auto;min-height:0}
+.home-chest-mosaic img{object-position:center 45%}
+/* The passport: four wide tiles under each other on every screen (two columns made the names break on iPad);
+   "Even herhalen" in two rows: the line and the button, the words below. */
+.talen-home .talen-cats{grid-template-columns:1fr}
+.talen-home .talen-review{grid-template-columns:minmax(0,1fr) auto}
+.talen-home .talen-chips{grid-column:1/-1;grid-row:2}
+@media (min-width:1000px) and (orientation:landscape){.talen-home .talen-cats{grid-template-columns:1fr 1fr}}
+/* The Spellenkist mosaic: four equal quarters (the pictures' own height made the top row swallow the bottom one), each centred. */
+.home-chest-mosaic{grid-template-rows:repeat(2,minmax(0,1fr));grid-template-columns:repeat(2,minmax(0,1fr))}
+.home-chest-mosaic img{min-height:0;min-width:0;object-position:center 32%}

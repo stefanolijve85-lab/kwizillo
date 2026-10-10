@@ -30,6 +30,10 @@
 
   const cats=()=>T().conversations||[];
   const CAT_ICON={intro:'👋',school:'🏫',food:'🍎',family:'👨‍👩‍👧',shop:'🛒',travel:'🧳'};
+  // The tiles carry a Talen picture (the same painted style as the word themes).
+  const CAT_ART={intro:'hello',school:'schoolbag',food:'icecream',family:'mom',shop:'bread',travel:'suitcase'};
+  const SET_ART={basics:'thanks',greetings:'goodmorning',sentences:'friend'};
+  const art=id=>`assets/talen/img/${id}.jpg`;
   const optText=o=>typeof o==='string'?o:(o.text?.[own()]||o.text?.en||'');
   const starsHtml=n=>kit().badge(n);
   const lockedTile=free=>free?'':K.premiumBadge();
@@ -37,9 +41,9 @@
   /* ---------------- Gesprekjes: the six situations ---------------- */
   K.showTalenConv=()=>{
     const l=learn();if(!l)return K.showTalen();
-    const body=`<div class="memo-pick-grid talen-picks zinnen">${cats().map(c=>{const open=K.premium.can('talen',`conv:${c.id}`),n=Number(convRec(c.id)?.stars||0);
-        return `<button class="memo-pick talen-pick zin conv ${n?'done':''} ${open?'':'locked'}" data-conv="${c.id}"><span class="talen-stamp-icon" aria-hidden="true">${CAT_ICON[c.id]||'💬'}</span><span class="home-game-veil"></span>${lockedTile(open)}${starsHtml(n)}<b>${esc(t(`talen.conv.cat.${c.id}`))}</b></button>`}).join('')}</div>`;
-    const f=kit().passport(kit().passSub(l),body,()=>K.showTalen());
+    const body=`<div class="talen-fill-grid conv">${cats().map(c=>{const open=K.premium.can('talen',`conv:${c.id}`),n=Number(convRec(c.id)?.stars||0);
+        return `<button class="memo-pick talen-pick fit conv ${n?'done':''} ${open?'':'locked'}" data-conv="${c.id}"><img class="talen-pick-art" src="${art(CAT_ART[c.id]||'hello')}" alt="" decoding="async"><span class="home-game-veil"></span>${lockedTile(open)}${starsHtml(n)}<b>${esc(t(`talen.conv.cat.${c.id}`))}</b></button>`}).join('')}</div>`;
+    const f=kit().passport(kit().passSub(l),body,()=>K.showTalen(),{title:t('talen.section.conversations'),cls:'talen-fill'});
     f.querySelectorAll('[data-conv]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalenConv(b.dataset.conv)});
   };
 
@@ -233,10 +237,11 @@
   K.showTalenSpeak=()=>{
     const l=learn();if(!l)return K.showTalen();
     const rec=speakRec();
-    const body=`<div class="memo-pick-grid talen-picks zinnen">${sets().map(s=>{const open=K.premium.can('talen',`speak:${s.id}`);
-        return `<button class="memo-pick talen-pick zin speak ${open?'':'locked'}" data-speak-set="${s.id}"><span class="talen-stamp-icon" aria-hidden="true">${SET_ICON[s.id]||'🎤'}</span><span class="home-game-veil"></span>${lockedTile(open)}<b>${esc(t(`talen.speaking.set.${s.id}`))}</b></button>`}).join('')}</div>
+    // Three wide tiles under each other, like the choice in Rekenen; a few of the set's words in the language learned.
+    const body=`<div class="talen-fill-list speak">${sets().map(s=>{const open=K.premium.can('talen',`speak:${s.id}`),sample=s.words.slice(0,3).map(w=>kit().word(w)?.text[l]).filter(Boolean).join(' · ');
+        return `<button class="memo-pick math-pick-tile talen-speak-tile ${open?'':'locked'}" data-speak-set="${s.id}"><img class="home-game-art" src="${art(SET_ART[s.id]||'hello')}" alt="" decoding="async"><span class="home-game-veil"></span>${lockedTile(open)}<b>${esc(t(`talen.speaking.set.${s.id}`))}<small lang="${l}" dir="auto">${esc(sample)}</small></b></button>`}).join('')}</div>
       ${rec?.practised?`<p class="talen-speak-count">🎤 ${rec.practised}</p>`:''}`;
-    const f=kit().passport(kit().passSub(l),body,()=>K.showTalen());
+    const f=kit().passport(kit().passSub(l),body,()=>K.showTalen(),{title:t('talen.section.speaking'),cls:'talen-fill'});
     f.querySelectorAll('[data-speak-set]').forEach(b=>b.onclick=()=>{K.sfx('world');K.startTalenSpeak(b.dataset.speakSet)});
   };
 

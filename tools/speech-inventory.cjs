@@ -138,6 +138,8 @@ for (const lang of langs) {
   // Meten & Wegen (games-measure.js): the question per object, Milo's tip and "bijna";
   // the praise is the quiz's. Amounts are on screen only.
   for (const k of Object.keys(K.strings.nl).filter(k => /^measure\.(tip|try|len\.|wt\.|vol\.|cmp\.|est\.|convert$|story$)/.test(k))) add(lang, BOTH, T(k), 'measure: questions');
+  // Talen: a section opened from the passport says its name (games-talen.js saySection).
+  for (const k of ['words', 'sentences', 'conversations', 'speaking']) add(lang, BOTH, T('world.speech.enter', { title: T(`talen.section.${k}`) }), 'talen: section');
   // Game opened from Home (m1-ui.js openGame).
   for (const k of ['talen.title', 'math.title', 'whoami.title', 'fotozoom.title', 'facts.title', 'memo.title', 'chest.title']) add(lang, BOTH, T('world.speech.enter', { title: T(k) }), 'game: open');
 
@@ -193,7 +195,7 @@ for (const lang of langs) {
 // file and update the inventory above.
 const CALL_RE = /\bK\.(speak|speakSequence|prefetchSpeech|guideSay|guidePrefetch|miloSay|miloPrefetch|warmTour)\b\??\.?\s*\(|\bhost\.say\(/g;
 const EXPECTED = {
-  'facts-ui.js': 2, 'games-fotozoom.js': 4, 'games-money.js': 1, 'games-measure.js': 3, 'games-memo.js': 5, 'games-whoami.js': 4,
+  'facts-ui.js': 2, 'games-fotozoom.js': 4, 'games-money.js': 1, 'games-measure.js': 3, 'games-memo.js': 5, 'games-talen.js': 1, 'games-whoami.js': 4,
   'm1-ui.js': 12, 'milo.js': 9, 'onboarding.js': 8, 'quiz-visual-v2.js': 7,
 };
 const SKIP = new Set(['server.js', 'games-math.js', 'm1-runtime.js', 'playwright.config.js']);

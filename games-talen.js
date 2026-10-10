@@ -145,12 +145,12 @@
     }
     return false;
   };
-  const passport=(sub,body,onBack)=>{
+  const passport=(sub,body,onBack,{title=t('talen.title'),cls=''}={})=>{
     K.audio.setTrack('play').catch(()=>{});
     K.stopSpeech();K.lastView='home';
-    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass fade-in">
+    const f=K.frame(`<section class="native-panel-screen memo-picker game-picker talen-pass ${cls} fade-in">
       <div class="native-panel-glow"></div>
-      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(t('talen.title'))}</h1><p>${esc(sub)}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
+      <header class="panel-head"><button class="panel-back" aria-label="${esc(t('common.back'))}">${K.icon('back')}</button><div><h1 class="game-name">${esc(title)}</h1><p>${esc(sub)}</p></div><span class="panel-settings panel-spacer" aria-hidden="true"></span></header>
       <div class="panel-scroll">${body}</div>
       ${K.bottomNav('home')}
     </section>`);
@@ -177,13 +177,15 @@
     const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
       :`<button class="talen-lang-switch" id="talenLang"><span class="talen-flag-icon" aria-hidden="true">${flagOf(own())}</span><span class="talen-lang-arrow" aria-hidden="true">→</span><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small>${esc(t('talen.switchLang'))}</small></button>
         <div class="talen-cats">${T().categories.filter(c=>c.open?K[c.open]:catThemes(c).length).map(catTile).join('')}</div>
-        ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
+        ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div class="talen-review-copy"><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
           <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}">${pic(word(id))}${esc(word(id).text[l])}</button>`).join('')}</div>
-          <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
-    const f=passport(passSub(l),body,()=>K.showHome());
+          <button class="talen-start secondary" id="talenReview" aria-label="${esc(t('talen.review'))}">${K.icon('repeat')}<span>${esc(t('talen.review'))}</span></button></section>`:''}`;
+    const f=passport(passSub(l),body,()=>K.showHome(),{cls:'talen-home'});
     f.querySelector('#talenReview')?.addEventListener('click',()=>{K.sfx('world');K.startTalen(null,{review:true})});
-    f.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{K.sfx('tap');b.dataset.open?K[b.dataset.open]():K.showTalenCat(b.dataset.cat)});
+    f.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{K.sfx('tap');b.dataset.open?K[b.dataset.open]():K.showTalenCat(b.dataset.cat);saySection(b.dataset.cat)});
   };
+  // Opening Woordjes, Zinnetjes, Gesprekjes or Spreken: the guide calls out its name (like a world).
+  const saySection=id=>{const f=K.app.firstElementChild;setTimeout(()=>{if(f?.isConnected)K.speak(t('world.speech.enter',{title:t(`talen.section.${id}`)}))},420)};
   // One kind of lesson: its themes, the words with "Alles door elkaar" on top.
   K.showTalenCat=id=>{
     if(firstVisit())return;
@@ -199,7 +201,7 @@
     };
     const mixTile=c.mix?`<button class="memo-pick mix talen-pick ${starsOf('mix')?'done':''} ${K.premium.can('talen','mix')?'':'locked'}" data-theme="mix"><img class="home-game-art" src="${K.GAME_ART.talen}" alt="" decoding="async"><span class="home-game-veil"></span>${K.premium.can('talen','mix')?'':K.premiumBadge()}${badge(starsOf('mix'))}<b>${esc(t('talen.theme.mix'))}</b></button>`:'';
     const list=catThemes(c);
-    passport(passSub(l),`${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()});
+    passport(passSub(l),`${mixTile}<div class="memo-pick-grid talen-picks ${c.kind==='zin'?'zinnen':''}">${list.map(stampOf).join('')}</div>`,()=>{K.talenCat=null;K.showTalen()},{title:t(`talen.section.${c.id}`)});
   };
   // Back from a lesson: to the themes it came from.
   const toThemes=()=>K.talenCat?K.showTalenCat(K.talenCat):K.showTalen();
