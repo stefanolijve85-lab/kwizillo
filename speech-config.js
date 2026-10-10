@@ -58,7 +58,20 @@ const SPOKEN = {
   da: { nitten: 'Nitten!', 'og tretten': 'og tretten!' },
   ar: { 'خمسة': 'خمسة!', 'وتسعة': 'وتسعة!', 'مئة': 'مئة!' },
 };
-const spoken = (text, lang) => SPOKEN[lang]?.[String(text).trim()] ?? text;
+// Names inside a line: Jose (Jack & Jose, the Runner) is said "Josie", not "Hose" (Stefan,
+// 2026-10-11). Portuguese voices already say it that way.
+const NAMES = {
+  latin: [[/\bJose\b/g, 'Josie']],
+  ru: [[/Хосе/g, 'Джози']],
+  ar: [[/جاك وخوسيه/g, 'جاك، وجوزي'], [/خوسيه/g, 'جوزي']],   // a short pause after Jack, or one voice swallows 'and Josie'
+};
+const names = (text, lang) => {
+  if (lang === 'pt' || lang === 'ptpt') return text;
+  let out = text;
+  for (const [re, to] of NAMES[lang] || NAMES.latin) out = out.replace(re, to);
+  return out;
+};
+const spoken = (text, lang) => names(SPOKEN[lang]?.[String(text).trim()] ?? text, lang);
 const LETTERS = ['A', 'B', 'C', 'D'];
 function letterContext(text, lang) {
   const i = LETTERS.indexOf(String(text).replace(/\.$/, ''));

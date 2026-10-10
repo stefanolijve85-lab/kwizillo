@@ -247,7 +247,7 @@
         <div class="home-worlds home-play">
           ${playTile('homeTalen',K.GAME_ART.talen,t('talen.title'),(s=>s.done?`★ ${s.done}/${s.total}`:'')(K.talenStamps?.()||{done:0}))}
           ${playTile('homeMath',K.GAME_ART.math,t('math.title'))}
-          ${playTile('homeJungle',K.GAME_ART.runnerTile,t('jungle.title'),(b=>b?`${K.icon('trophy')} ${b}`:'')(Number(K.progress().games?.jungle?.best||0)),true)}
+          ${playTile('homeJungle',K.GAME_ART.runnerTile,t('runner.pickTitle'),(b=>b?`${K.icon('trophy')} ${b}`:'')(Number(K.progress().games?.jungle?.best||0)),true)}
           <button class="home-world home-play-tile chest" id="homeChest" aria-label="${esc(t('chest.title'))}">
             <span class="home-chest-mosaic" aria-hidden="true">${CHEST.slice(0,4).map(g=>`<img src="${K.GAME_ART[g.art]}" alt="" decoding="async">`).join('')}</span>
             <span class="home-world-veil"></span>
