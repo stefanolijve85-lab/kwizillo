@@ -2049,3 +2049,9 @@ html[data-shape="wide"] .conv-card .quiz-actions{grid-area:2/1/3/2}
 html[data-shape="wide"] .conv-card .conv-chat,html[data-shape="wide"] .conv-card .quiz-actions{margin-top:0}
 .talen-game .quiz-brand{container-type:inline-size}
 .talen-game .quiz-brand>span{font-size:min(44px,14.5cqi)!important}
+/* Russian titles: the dark outline (-webkit-text-stroke) also traced the seams between the
+   overlapping parts of Cyrillic letters (stripes in е and и of "Говорение", "Диалоги").
+   In Russian the outline is drawn with tight shadows instead, which have no seams. */
+html[lang="ru"] .quiz-brand>span,html[lang="ru"] .panel-head h1.game-name,html[lang="ru"] .feedback-modal h2.ideas-title{
+  -webkit-text-stroke:0;
+  filter:drop-shadow(1.5px 0 0 #2842ae) drop-shadow(-1.5px 0 0 #2842ae) drop-shadow(0 1.5px 0 #2842ae) drop-shadow(0 -1.5px 0 #2842ae) drop-shadow(0 4px 0 #512fa8) drop-shadow(0 7px 8px rgba(0,20,70,.33))}

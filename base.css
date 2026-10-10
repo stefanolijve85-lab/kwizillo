@@ -73,3 +73,7 @@ button{font:inherit}
 
 /* Arcade display face for the mini-games (Luckiest Guy, Apache 2.0, bundled). Declared here: @font-face inside a shadow root is not honoured by every browser. */
 @font-face{font-family:'Kwizillo Arcade';src:url('assets/fonts/LuckiestGuy.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+/* Russian (Cyrillic): "Arial Rounded MT Bold" has no Cyrillic letters, so a browser that reaches it
+   (Chrome on a Mac) mixed fonts letter by letter — the е of "Говорение" came out odd. Russian skips it
+   and goes from the rounded system face straight to system faces that carry Cyrillic. */
+html[lang="ru"] body{font-family:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif}
