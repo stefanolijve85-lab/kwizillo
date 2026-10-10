@@ -31,6 +31,7 @@ const SPEECH = speechConfig(process.env);
 
 const ctx = { window: {} }; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'talen-data.js'), 'utf8'), ctx);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'talen-gesprekjes.js'), 'utf8'), ctx);   // Gesprekjes (2026-10-10)
 const T = ctx.window.KWIZILLO_M1.TALEN;
 
 // What Milo says around the words, in the child's own language. Praise and
@@ -119,6 +120,12 @@ for (const lang of T.langs) {
     for (const th of [...T.themes, ...(T.next || [])]) for (const w of th.words) clips.push({ file: `${dir}${w.id}.mp3`, text: w.text[lang], lang, guide: g, word: true });
     for (const [k, text] of Object.entries(LINES[lang]))
       clips.push({ file: k.startsWith('klaar_') ? `${lang}/${g.toLowerCase()}/_${k}.mp3` : `${dir}_${k}.mp3`, text, lang, guide: g });
+    // Gesprekjes: every line in the language learned, every question in the child's own
+    // language; the same guide says both people's lines (one voice per guide, as above).
+    for (const cat of T.conversations || []) for (const c of cat.convs) {
+      c.lines.forEach((line, k) => clips.push({ file: `${dir}c_${c.id}_${k + 1}.mp3`, text: line.text[lang], lang, guide: g }));
+      clips.push({ file: `${dir}_q_${c.id}.mp3`, text: c.q[lang], lang, guide: g });
+    }
   }
 }
 

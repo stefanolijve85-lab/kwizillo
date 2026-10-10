@@ -211,7 +211,12 @@
     memo:world=>FREE.memoWorlds.includes(world||'mix'),
     fact:(world,index)=>world===FREE.starterWorld||Number(index)<FREE.factsPerWorld,
     mega:()=>false,               // the Mega Quiz asks questions from every world: Premium only
-    talen:id=>!!K.TALEN?.themes?.find(x=>x.id===id)?.free   // Talen: the animals are free, the other themes Premium
+    // Talen: the animals are free, the other themes Premium; of Gesprekjes "Kennismaken"
+    // ('conv:intro') and of Spreken the first words ('speak:basics') are free.
+    talen:id=>{const T=K.TALEN||{},[kind,rest]=String(id).split(':');
+      if(rest===undefined)return !!T.themes?.find(x=>x.id===id)?.free;
+      const list=kind==='conv'?T.conversations:kind==='speak'?T.speaking:null;
+      return !!list?.find(x=>x.id===rest)?.free}
   };
   // can('quiz', world, topicKey, quizNumber) — true when free or Premium.
   const can=(kind,...args)=>isPremium()||!!rules[kind]?.(...args);

@@ -609,7 +609,7 @@ test('Brazilian Portuguese: onboarding offers it, the whole UI and the question 
   // The picker shows every language the app offers; the count comes from the app itself.
   const offered = await page.evaluate(() => window.KWIZILLO_M1.LANGUAGES.length);
   await expect(page.locator('[data-lang]')).toHaveCount(offered);
-  await page.getByRole('button', { name: /Português/ }).click();
+  await page.getByRole('button', { name: /Português \(Brasil\)/ }).click();
   await expect(page.getByRole('heading', { name: 'Qual é o seu nome?' })).toBeVisible();
   await page.locator('#obName').fill('Ana');
   await page.locator('#obNext').click();

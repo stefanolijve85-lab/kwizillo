@@ -18,10 +18,11 @@
   // The app language decides the money: the euro in the design of its own country,
   // the dollar for English (the app's English is American), the real for Brazilian
   // Portuguese, and so on.
+  // European Portuguese (ptpt) uses the Spanish euro set: every euro coin circulates in Portugal, no Portuguese set is drawn yet.
   const MONEY={
     nl:{set:'eur-nl',code:'EUR',locale:'nl-NL'},de:{set:'eur-de',code:'EUR',locale:'de-DE'},fr:{set:'eur-fr',code:'EUR',locale:'fr-FR'},
     es:{set:'eur-es',code:'EUR',locale:'es-ES'},it:{set:'eur-it',code:'EUR',locale:'it-IT'},en:{set:'usd',code:'USD',locale:'en-US'},
-    pt:{set:'brl',code:'BRL',locale:'pt-BR'},ptpt:{set:'eur-es',code:'EUR',locale:'pt-PT'},   // every euro coin circulates in Portugal; no Portuguese set drawn yetda:{set:'dkk',code:'DKK',locale:'da-DK'},ru:{set:'rub',code:'RUB',locale:'ru-RU'},
+    pt:{set:'brl',code:'BRL',locale:'pt-BR'},ptpt:{set:'eur-es',code:'EUR',locale:'pt-PT'},da:{set:'dkk',code:'DKK',locale:'da-DK'},ru:{set:'rub',code:'RUB',locale:'ru-RU'},
     ar:{set:'aed',code:'AED',locale:'ar-AE-u-nu-latn'}
   };
   // Real diameters in millimetres, so a 2-euro coin is bigger than a 1-cent coin

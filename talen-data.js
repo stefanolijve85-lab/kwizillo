@@ -28,7 +28,15 @@
     // The passport's wide tiles: a kind of lesson each (a theme's `kind`, 'woord'
     // when it has none). A new kind (2026-10-10: more will follow) only needs a line here
     // and talen.section.<id> in the strings.
-    categories:[{id:'words',kind:'woord',mix:true},{id:'sentences',kind:'zin'}],
+    // Gesprekjes and Spreken (2026-10-10) have no themes of their own: they open their
+    // own screen (games-talen-talk.js) and carry their own painting.
+    categories:[{id:'words',kind:'woord',mix:true},{id:'sentences',kind:'zin'},
+      {id:'conversations',open:'showTalenConv',art:'assets/talen/img/cat-conversations.jpg'},
+      {id:'speaking',open:'showTalenSpeak',art:'assets/talen/img/cat-speaking.jpg'}],
+    // Spreken: three sets of words and sentences that are already recorded; the first is free.
+    speaking:[{id:'basics',free:true,words:['hello','yes','no','thanks','please','goodbye']},
+      {id:'greetings',words:['goodmorning','howareyou','goodnight','sorry','zin_yourname','zin_tomorrow']},
+      {id:'sentences',words:['zin_hungry','zin_happy','zin_letsplay','zin_seven','zin_wantplay','zin_lovepizza']}],
     themes:[
       {id:'dieren',icon:'🐬',free:true,words:[
         {id:'dolphin',img:img('dolphin'),text:{nl:'dolfijn',en:'dolphin',de:'Delfin',fr:'dauphin',es:'delfín',it:'delfino',pt:'golfinho',da:'delfin',ru:'дельфин',ar:'دلفين'}},

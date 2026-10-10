@@ -126,7 +126,8 @@ test('eighteen themes and a mix, all playable: animals free, the rest and the mi
   await page.locator('#homeTalen').click();
   await expect(page.locator('.talen-pass .panel-head h1.game-name')).toHaveText('Talen');
   // Wide tiles: Woordjes and Zinnetjes, each with three of its pictures
-  await expect(page.locator('.talen-cat')).toHaveText([/Woordjes.*14 thema's/, /Zinnetjes.*4 thema's/]);
+  // since 2026-10-10 also Gesprekjes and Spreken (tested further down)
+  await expect(page.locator('.talen-cat')).toHaveText([/Woordjes.*14 thema's/, /Zinnetjes.*4 thema's/, /Gesprekjes/, /Spreken/]);
   await expect(page.locator('.talen-cat .talen-cat-fan img')).toHaveCount(6);
   const cat = await page.locator('.talen-cat').first().boundingBox();
   expect(cat.width / cat.height).toBeGreaterThan(2);
@@ -143,7 +144,7 @@ test('eighteen themes and a mix, all playable: animals free, the rest and the mi
   await expect(page.locator('[data-theme="dieren"]')).not.toHaveClass(/locked/);
   // back to the wide tiles, then Zinnetjes: four themes, no mix
   await page.locator('.panel-back').click();
-  await expect(page.locator('.talen-cat')).toHaveCount(2);
+  await expect(page.locator('.talen-cat')).toHaveCount(4);
   await page.locator('[data-cat="sentences"]').click();
   await expect(page.locator('.talen-picks.zinnen .talen-pick.zin')).toHaveCount(4);
   await expect(page.locator('[data-theme="mix"]')).toHaveCount(0);
@@ -449,4 +450,183 @@ test('a sentence theme: four cards with an emoji and the meaning, the sentence a
   await card.click();
   await expect(card.locator('.talen-label')).toHaveText(w.text.en);
   await expect(card.locator('.talen-meaning')).toBeHidden();
+});
+
+/* ---------------- Gesprekjes and Spreken (2026-10-10) ---------------- */
+// A fake microphone: a real MediaStream (an oscillator, silent unless asked), counted,
+// so a test can see when it was asked for and that every track was stopped.
+const MIC = mode => {
+  window.__gum = { calls: 0, streams: [] };
+  if (mode === 'none') { try { Object.defineProperty(navigator, 'mediaDevices', { value: undefined, configurable: true }) } catch (e) {} return }
+  navigator.mediaDevices.getUserMedia = async () => {
+    window.__gum.calls++;
+    if (mode === 'deny') throw new DOMException('Permission denied', 'NotAllowedError');
+    const ctx = new AudioContext(), osc = ctx.createOscillator(), gain = ctx.createGain(), dest = ctx.createMediaStreamDestination();
+    gain.gain.value = 0; osc.connect(gain);
+    if (mode === 'loud') { let on = false; setInterval(() => { on = !on; gain.gain.value = on ? 0.6 : 0 }, 160) }   // syllables: sound, a pause, sound
+    gain.connect(dest); osc.start();
+    window.__gum.streams.push(dest.stream);
+    return dest.stream;
+  };
+};
+const ES = SAVED({ learnLang: 'es' });
+
+test('the passport has four parts — Woordjes, Zinnetjes, Gesprekjes, Spreken — in the app language, the painted words never shown', async ({ page }) => {
+  await boot(page, { state: ES });
+  await page.locator('#homeTalen').click();
+  await expect(page.locator('.talen-cat')).toHaveCount(4);
+  expect(await page.locator('.talen-cat').evaluateAll(els => els.map(e => e.dataset.cat))).toEqual(['words', 'sentences', 'conversations', 'speaking']);
+  await expect(page.locator('[data-cat="conversations"]')).toContainText('Gesprekjes');
+  await expect(page.locator('[data-cat="conversations"]')).toContainText('Luister en begrijp');
+  await expect(page.locator('[data-cat="speaking"]')).toContainText('Spreken');
+  await expect(page.locator('[data-cat="speaking"] .talen-cat-art')).toHaveAttribute('src', /cat-speaking\.jpg/);   // the art only: the title is text
+  // the same tiles as the others
+  const [w, c] = [await page.locator('[data-cat="words"]').boundingBox(), await page.locator('[data-cat="conversations"]').boundingBox()];
+  expect(Math.abs(w.width - c.width)).toBeLessThan(2); expect(Math.abs(w.height - c.height)).toBeLessThan(2);
+  // Woordjes and Zinnetjes still open
+  await page.locator('[data-cat="words"]').click();
+  await expect(page.locator('.talen-picks .talen-pick')).toHaveCount(14);
+  await page.locator('.panel-back').click();
+  await page.locator('[data-cat="sentences"]').click();
+  await expect(page.locator('.talen-picks.zinnen .talen-pick.zin')).toHaveCount(4);
+  // English app: the English names; Arabic app: no key left untranslated
+  for (const [lang, name] of [['en', 'Conversations'], ['ar', 'حوارات']]) {
+    await page.evaluate(l => { const K = window.KWIZILLO_M1; K.setLanguage(l); K.state.learnLang = 'es'; K.showTalen(); }, lang);
+    await expect(page.locator('[data-cat="conversations"]')).toContainText(name);
+    expect(await page.locator('.talen-pass').innerText()).not.toMatch(/talen\.|measure\./);
+  }
+});
+
+test('Gesprekjes: the lines are in the language learned, the question and answers in the child’s own; a right answer goes on, progress is kept per learning language', async ({ page }) => {
+  test.setTimeout(90000);
+  const clips = [];
+  await boot(page, { state: ES, clips });
+  await page.evaluate(() => window.KWIZILLO_M1.showTalenConv());
+  await expect(page.locator('[data-conv]')).toHaveCount(6);
+  await expect(page.locator('[data-conv="intro"]')).not.toHaveClass(/locked/);    // Kennismaken is free
+  await expect(page.locator('[data-conv="school"]')).toHaveClass(/locked/);
+  await page.locator('[data-conv="intro"]').click();
+  await expect(page.locator('.conv-line')).toHaveCount(2);
+  await expect(page.locator('.conv-chat')).toHaveAttribute('lang', 'es');
+  await expect(page.locator('.conv-line.a .conv-text')).toHaveText('¡Hola! ¿Cómo te llamas?');
+  await expect(page.locator('.conv-ask')).toBeVisible({ timeout: 15000 });           // after the conversation
+  await expect(page.locator('.conv-q')).toHaveText('Hoe heet het meisje?');
+  await expect.poll(() => clips.filter(c => /^es\/c_intro1_/.test(c))).toEqual(['es/c_intro1_1.mp3', 'es/c_intro1_2.mp3']);
+  expect(clips).toContain('nl/_q_intro1.mp3');
+  // a wrong answer first: marked, not the end; then the right one
+  await page.locator('.conv-opt[data-right="0"]').first().click();
+  await expect(page.locator('.conv-opt.wrong')).toHaveCount(1);
+  await page.locator('.conv-opt[data-right="1"]').click();
+  await expect(page.locator('.conv-opt.correct')).toHaveCount(1);
+  await expect(page.locator('.quiz-progress strong')).toHaveText('Gesprekje 2 van 4', { timeout: 15000 });
+  const rec = await page.evaluate(() => window.KWIZILLO_M1.progress().talen.conversations);
+  expect(rec['es:intro']).toMatchObject({ answered: 1, correct: 0 });                 // the wrong tap first: answered, not right first time
+  // another learning language starts empty and leaves Spanish alone
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.learnLang = 'de'; K.showTalenConv(); });
+  await expect(page.locator('[data-conv="intro"] .talen-stars i.on')).toHaveCount(0);
+  expect(await page.evaluate(() => Object.keys(window.KWIZILLO_M1.progress().talen.conversations))).toEqual(['es:intro']);
+});
+
+test('Gesprekjes in Luna’s voice plays only Luna’s clips, in Milo’s only Milo’s; a whole round ends on the result with stars', async ({ page }) => {
+  test.setTimeout(120000);
+  const clips = [];
+  await boot(page, { state: SAVED({ learnLang: 'es', voice: 'Luna' }), clips });
+  await page.evaluate(() => window.KWIZILLO_M1.startTalenConv('intro'));
+  await expect(page.locator('.conv-ask')).toBeVisible({ timeout: 15000 });
+  expect(clips.length).toBeGreaterThan(0);
+  expect(clips.filter(c => !/^[a-z]{2}\/luna\//.test(c)), 'clips outside luna/').toEqual([]);
+  for (let i = 0; i < 4; i++) {
+    await page.locator('.conv-opt[data-right="1"]').click();
+    if (i < 3) await expect(page.locator('.quiz-progress strong')).toHaveText(`Gesprekje ${i + 2} van 4`, { timeout: 15000 });
+  }
+  await expect(page.locator('.talen-result h1')).toHaveText('Jij begrijpt het al!', { timeout: 15000 });
+  await expect(page.locator('.result-stars i.on')).toHaveCount(3);
+  expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.conversations['es:intro'])).toMatchObject({ played: 1, answered: 4, correct: 4, stars: 3 });
+  // Milo
+  clips.length = 0;
+  await page.evaluate(() => { const K = window.KWIZILLO_M1; K.state.voice = 'Milo'; K.startTalenConv('intro'); });
+  await expect(page.locator('.conv-ask')).toBeVisible({ timeout: 15000 });
+  expect(clips.filter(c => /\/luna\//.test(c))).toEqual([]);
+});
+
+test('Spreken: the microphone is not asked for before Spreken is opened; the reason comes first; while listening it says so; leaving stops every track', async ({ page }) => {
+  await page.addInitScript(MIC, 'ok');
+  await boot(page, { state: ES });
+  await page.locator('#homeTalen').click();
+  await page.locator('[data-cat="speaking"]').click();
+  expect(await page.evaluate(() => window.__gum.calls)).toBe(0);
+  await page.locator('[data-speak-set="basics"]').click();
+  await expect(page.locator('.speak-ask h2')).toHaveText('Spreken met de microfoon');
+  await expect(page.locator('.speak-ask')).toContainText('Je stem wordt niet opgeslagen.');
+  expect(await page.evaluate(() => window.__gum.calls)).toBe(0);                     // still nothing: the child decides
+  await page.locator('#micEnable').click();
+  await expect(page.locator('#speakMic')).toBeVisible();
+  expect(await page.evaluate(() => window.__gum.calls)).toBe(1);
+  expect(await page.evaluate(() => window.__gum.streams.every(s => s.getTracks().every(t => t.readyState === 'ended')))).toBe(true);   // the permission stream is closed at once
+  await expect(page.locator('.speak-word b')).toHaveText('hola');
+  await page.locator('#speakMic').click();
+  await expect(page.locator('#speakStatus')).toContainText('Ik luister…');
+  await expect(page.locator('#speakMic')).toHaveAttribute('aria-pressed', 'true');
+  expect(await page.evaluate(() => window.KWIZILLO_M1.speechPractice.active())).toBe(true);
+  await page.locator('#speakBack').click();                                           // leave while listening
+  expect(await page.evaluate(() => window.KWIZILLO_M1.speechPractice.active())).toBe(false);
+  expect(await page.evaluate(() => window.__gum.streams.length >= 2 && window.__gum.streams.every(s => s.getTracks().every(t => t.readyState === 'ended')))).toBe(true);
+});
+
+test('Spreken: a refused microphone and a browser without one both lead to practising without it; nothing of the voice is sent or stored', async ({ page }) => {
+  test.setTimeout(90000);
+  await page.addInitScript(MIC, 'deny');
+  const posts = [];
+  // Anything but a GET, and anything that is not the speech server's text-in request, would be a leak.
+  page.on('request', r => { if (r.method() === 'GET') return; const body = r.postData() || ''; let ok = false; try { const j = JSON.parse(body); ok = /\/api\/tts$/.test(r.url()) && Object.keys(j).sort().join() === 'lang,text,voice' && typeof j.text === 'string' } catch (e) {} if (!ok) posts.push(`${r.method()} ${r.url()} ${body.slice(0, 60)}`) });
+  await boot(page, { state: ES });
+  await page.evaluate(() => window.KWIZILLO_M1.startTalenSpeak('basics'));
+  await page.locator('#micEnable').click();
+  await expect(page.locator('.speak-off h2')).toHaveText('De microfoon staat uit.');
+  await expect(page.locator('#micRetry')).toBeVisible();
+  await expect(page.locator('#micBack')).toBeVisible();
+  await page.locator('#micSkip').click();
+  for (let i = 0; i < 6; i++) {
+    await page.locator('#speakSaid').click();
+    await expect(page.locator('#speakStatus')).toContainText('Goed geoefend!');
+    await page.locator('#speakNext').click();
+  }
+  await expect(page.locator('.talen-result h1')).toHaveText('Goed geoefend, knap gedaan!');
+  const rec = await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking);
+  expect(Object.keys(rec)).toEqual(['es']);
+  expect(Object.keys(rec.es).sort()).toEqual(['completed', 'lastPlayed', 'practised']);
+  expect(rec.es).toMatchObject({ practised: 6, completed: 1 });
+  const stored = await page.evaluate(() => Object.keys(localStorage).map(k => localStorage.getItem(k)).join(''));
+  expect(stored).not.toMatch(/blob:|data:audio|base64/);
+  expect(posts).toEqual([]);                                                          // no sound, no upload: at most a line of text to the speech server
+  // no getUserMedia at all: straight to practising without it, no retry offered
+  await page.addInitScript(MIC, 'none');
+  await page.reload();
+  await page.waitForFunction(() => window.KWIZILLO_M1 && window.KWIZILLO_M1.startTalenSpeak);
+  await page.evaluate(() => window.KWIZILLO_M1.startTalenSpeak('basics'));
+  await expect(page.locator('.speak-off h2')).toHaveText('De microfoon staat uit.');
+  await expect(page.locator('#micRetry')).toHaveCount(0);
+  await page.locator('#micSkip').click();
+  await expect(page.locator('#speakSaid')).toBeVisible();
+});
+
+test('Spreken and Gesprekjes follow Premium: the first set and Kennismaken are free, the rest opens with Premium (a school licence included)', async ({ page }) => {
+  await boot(page, { state: ES });
+  expect(await page.evaluate(() => { const P = window.KWIZILLO_M1.premium; return [P.can('talen', 'conv:intro'), P.can('talen', 'conv:food'), P.can('talen', 'speak:basics'), P.can('talen', 'speak:sentences'), P.can('talen', 'dieren'), P.can('talen', 'kleuren')] })).toEqual([true, false, true, false, true, false]);
+  await boot(page, { state: ES, premium: true });
+  expect(await page.evaluate(() => { const P = window.KWIZILLO_M1.premium; return [P.can('talen', 'conv:food'), P.can('talen', 'speak:sentences')] })).toEqual([true, true]);
+});
+
+test('Spreken: a voice on the microphone is heard locally (voice activity, no score) and counts as practised', async ({ page }) => {
+  await page.addInitScript(MIC, 'loud');
+  await boot(page, { state: SAVED({ learnLang: 'es', talenMicOk: true }) });
+  await page.evaluate(() => window.KWIZILLO_M1.startTalenSpeak('basics'));
+  await page.locator('#speakMic').click();
+  await expect(page.locator('#speakStatus')).toContainText('Ik luister…');
+  await page.waitForTimeout(900);
+  await page.locator('#speakMic').click();                                            // a second tap: done talking
+  await expect(page.locator('#speakStatus')).toContainText('Goed geoefend!');
+  await expect(page.locator('#speakStatus')).not.toContainText('%');                  // no made-up pronunciation score
+  expect(await page.evaluate(() => window.KWIZILLO_M1.progress().talen.speaking.es.practised)).toBe(1);
+  expect(await page.evaluate(() => window.__gum.streams.every(s => s.getTracks().every(t => t.readyState === 'ended')))).toBe(true);
 });

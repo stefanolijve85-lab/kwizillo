@@ -1906,3 +1906,62 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .home-chest-mosaic{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;background:rgba(255,255,255,.6)}
 .home-chest-mosaic img{width:100%;height:100%;object-fit:cover;display:block}
 .chest-pick .panel-scroll{display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+/* Talen: Gesprekjes and Spreken (games-talen-talk.js, 2026-10-10). Their tiles are the
+   Woordjes/Zinnetjes tile with the painting behind the text (never the text painted in it). */
+.talen-cat.art{background:linear-gradient(90deg,#ff8f6b 0%,#f46d7d 46%,rgba(244,109,125,0) 70%);box-shadow:0 6px 0 #c5455a,0 12px 22px rgba(200,70,90,.28)}
+.talen-cat.art[data-cat="speaking"]{background:linear-gradient(90deg,#18b7c6 0%,#159fd2 46%,rgba(21,159,210,0) 70%);box-shadow:0 6px 0 #0f7aa3,0 12px 22px rgba(20,130,170,.28)}
+.talen-cat-art{position:absolute;top:0;bottom:0;inset-inline-end:0;width:68%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%);mask-image:linear-gradient(90deg,transparent 0,#000 28%)}
+[dir="rtl"] .talen-cat-art{-webkit-mask-image:linear-gradient(270deg,transparent 0,#000 28%);mask-image:linear-gradient(270deg,transparent 0,#000 28%)}
+.talen-cat.art .talen-cat-copy{max-width:58%}
+.talen-cat.art .talen-cat-go{margin-inline-start:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Gesprekjes: a chat, the boy on the left in blue, the girl on the right in pink */
+.conv-card{display:flex;flex-direction:column;gap:10px}
+.conv-chat{display:flex;flex-direction:column;gap:8px;padding:6px 2px}
+.conv-line{display:flex;align-items:flex-end;gap:8px;opacity:.35;transition:opacity .25s ease,transform .25s ease}
+.conv-line.shown{opacity:1}
+.conv-line.b{flex-direction:row-reverse}
+.conv-face{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:28px;background:#e3f1ff;box-shadow:0 3px 0 #b9d9f5}
+.conv-line.b .conv-face{background:#ffe3f1;box-shadow:0 3px 0 #f4bcd8}
+.conv-bubble{position:relative;max-width:78%;padding:10px 14px;border-radius:20px;background:linear-gradient(180deg,#5aa8ff,#3c84f0);color:#fff;font-size:clamp(17px,4.8vw,22px);font-weight:900;line-height:1.25;box-shadow:0 4px 0 #2d64c0}
+.conv-line.b .conv-bubble{background:linear-gradient(180deg,#ff8cc8,#f062a8);box-shadow:0 4px 0 #c2407f}
+.conv-line.on .conv-bubble{transform:scale(1.04);box-shadow:0 0 0 4px #fff,0 4px 0 #2d64c0,0 0 22px rgba(90,168,255,.65)}
+.conv-line.b.on .conv-bubble{box-shadow:0 0 0 4px #fff,0 4px 0 #c2407f,0 0 22px rgba(240,98,168,.6)}
+.conv-dots{display:none;letter-spacing:3px}
+.conv-line:not(.shown) .conv-text{visibility:hidden}.conv-line:not(.shown) .conv-dots{display:inline;position:absolute;inset:0;display:grid;place-items:center}
+.conv-ask[hidden]{display:none}
+.conv-q{margin:4px 0 8px;text-align:center;font-size:clamp(18px,5vw,23px);font-weight:1000;color:#10175c}
+.conv-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.conv-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:72px!important;font-size:clamp(15px,4.4vw,20px)!important}
+.conv-emoji{font-size:28px;line-height:1}
+.conv-opt.hinted{opacity:.3}
+/* Spreken: the word, a big microphone, what the microphone is doing in words and in a wave */
+.speak-card{display:flex;flex-direction:column}
+.speak-panel{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.speak-word{display:grid;justify-items:center;gap:4px;width:100%;padding:12px;border:0;border-radius:22px;background:#fff;box-shadow:0 5px 0 #cfe4f8;cursor:pointer;color:#10175c;font:inherit}
+.speak-word b{font-size:clamp(26px,8vw,40px);font-weight:1000;line-height:1.1}
+.speak-word small{font-size:15px;font-weight:900;color:#5a7aa3}
+.speak-word .speak-pic{width:96px;height:96px;border-radius:18px;object-fit:cover}
+.speak-word .talen-emoji.speak-pic{font-size:64px;display:grid;place-items:center}
+.speak-mic{position:relative;width:118px;height:118px;border-radius:50%;border:0;cursor:pointer;background:radial-gradient(circle at 35% 30%,#7ff0f0,#16b8c8 60%,#0e8ea8);box-shadow:0 8px 0 #0b6f86,0 14px 26px rgba(10,120,150,.35);display:grid;place-items:center;transition:transform .15s ease}
+.speak-mic:active{transform:translateY(4px)}
+.speak-mic-glyph{font-size:52px;line-height:1}
+.speak-mic.live{background:radial-gradient(circle at 35% 30%,#ffb3c7,#ff5d8a 60%,#d93a6a);box-shadow:0 8px 0 #a92452,0 0 0 8px rgba(255,93,138,.25),0 14px 26px rgba(200,40,90,.35)}
+.speak-wave{position:absolute;bottom:-26px;display:flex;gap:4px;height:22px;align-items:flex-end}
+.speak-wave i{display:block;width:6px;height:calc(var(--h,0) * 22px);min-height:3px;border-radius:3px;background:#16b8c8;transition:height .08s linear}
+.speak-mic.live .speak-wave i{background:#ff5d8a}
+.speak-tip{margin:22px 0 0;font-weight:900;color:#3566a8;font-size:14px}
+.speak-status{min-height:1.4em;font-weight:1000;font-size:clamp(17px,4.8vw,21px);color:#10175c;display:flex;align-items:center;gap:8px}
+.speak-status.good{color:#0f7a35}.speak-status.try{color:#9a5a00}
+.speak-dot{width:12px;height:12px;border-radius:50%;background:#ff3d6e;animation:speakBlink 1s ease-in-out infinite}
+@keyframes speakBlink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.speak-dot{animation:none}}
+.speak-after{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.speak-after[hidden]{display:none}
+.speak-ask h2,.speak-off h2{margin:0;font-size:clamp(20px,5.6vw,26px);color:#10175c}
+.speak-ask p,.speak-off p{margin:0;font-weight:800;color:#3566a8;line-height:1.35}
+.speak-mic-icon{font-size:64px;line-height:1}
+.speak-mic-icon.off{filter:grayscale(1);opacity:.7}
+.speak-panel .talen-start{width:100%}
+.talen-speak-count{margin:10px 4px 0;font-weight:1000;color:#3566a8}

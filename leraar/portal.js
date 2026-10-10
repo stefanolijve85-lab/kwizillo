@@ -179,7 +179,7 @@
       <h2>Rekenen</h2>
       <div class="card">${p.math.played ? `${p.math.played} keer gespeeld, ${p.math.won} keer gehaald.${best ? ` Beste score: ${best}.` : ''}` : '<span class="note">Nog niet gespeeld.</span>'}</div>
       <h2>Talen</h2>
-      ${p.talen.length ? p.talen.map(l => `<div class="card"><b>${esc(l.name)}</b> · ${l.words} woordjes geleerd
+      ${p.talen.length ? p.talen.map(l => `<div class="card"><b>${esc(l.name)}</b> · ${l.words} woordjes geleerd${l.conversations?.played ? ` · ${l.conversations.played}× gesprekjes, ${pct(l.conversations.correct, l.conversations.answered)} goed` : ''}${l.speaking?.practised ? ` · ${l.speaking.practised}× gesproken${l.speaking.lastPlayed ? ` (laatst ${esc(date(l.speaking.lastPlayed))})` : ''}` : ''}
         ${l.themes.length ? `<div class="chips">${l.themes.map(t => `<span class="chip">${esc(t.label)} <small>${'★'.repeat(t.stars)}${'☆'.repeat(Math.max(0, 3 - t.stars))} · ${t.played}× gespeeld</small></span>`).join('')}</div>` : ''}</div>`).join('') : '<div class="card"><span class="note">Nog niet gespeeld.</span></div>'}`);
     app.querySelector('#back').addEventListener('click', () => go(`klas=${p.class.id}`));
   }

@@ -167,6 +167,8 @@
     K.talenCat=null;
     const l=learn();
     const catTile=c=>{
+      // Gesprekjes and Spreken: their painting fills the tile, the name and the line on top (never the text painted in it)
+      if(c.art)return `<button class="talen-cat art" data-cat="${c.id}" data-open="${c.open}"><img class="talen-cat-art" src="${c.art}" alt="" decoding="async"><span class="talen-cat-copy"><b>${esc(t(`talen.section.${c.id}`))}</b><small>${esc(t(`talen.section.${c.id}Sub`))}</small></span><span class="talen-cat-go" aria-hidden="true">›</span></button>`;
       const list=catThemes(c),done=list.filter(th=>starsOf(th.id)>0).length;
       const arts=list.slice(0,3).map(th=>th.cover||th.words[0].img);
       return `<button class="talen-cat" data-cat="${c.id}"><span class="talen-cat-copy"><b>${esc(t(`talen.section.${c.id}`))}</b><small>${esc(t('talen.catThemes',{n:list.length}))}${done?` · ★ ${done}/${list.length}`:''}</small></span><span class="talen-cat-fan" aria-hidden="true">${arts.map(a=>`<img src="${a}" alt="" decoding="async">`).join('')}</span><span class="talen-cat-go" aria-hidden="true">›</span></button>`;
@@ -174,13 +176,13 @@
     const due=l?K.talenDue():[];
     const body=!l?`<div class="talen-soon-lang"><span aria-hidden="true">🌍</span><b>${esc(t('talen.soonLang'))}</b></div>`
       :`<button class="talen-lang-switch" id="talenLang"><span class="talen-flag-icon" aria-hidden="true">${flagOf(own())}</span><span class="talen-lang-arrow" aria-hidden="true">→</span><span class="talen-flag-icon" aria-hidden="true">${flagOf(l)}</span><b>${esc(langName(l))}</b><small>${esc(t('talen.switchLang'))}</small></button>
-        <div class="talen-cats">${T().categories.filter(c=>catThemes(c).length).map(catTile).join('')}</div>
+        <div class="talen-cats">${T().categories.filter(c=>c.open?K[c.open]:catThemes(c).length).map(catTile).join('')}</div>
         ${due.length&&learnedIds().length>=4?`<section class="talen-review"><div><b>${esc(t('talen.review'))}</b><small>${esc(t('talen.reviewSub',{n:due.length}))}</small></div>
           <div class="talen-chips">${due.map(id=>`<button class="talen-chip" data-hear="${id}">${pic(word(id))}${esc(word(id).text[l])}</button>`).join('')}</div>
           <button class="talen-start secondary" id="talenReview">${K.icon('repeat')} ${esc(t('talen.review'))}</button></section>`:''}`;
     const f=passport(passSub(l),body,()=>K.showHome());
     f.querySelector('#talenReview')?.addEventListener('click',()=>{K.sfx('world');K.startTalen(null,{review:true})});
-    f.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{K.sfx('tap');K.showTalenCat(b.dataset.cat)});
+    f.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{K.sfx('tap');b.dataset.open?K[b.dataset.open]():K.showTalenCat(b.dataset.cat)});
   };
   // One kind of lesson: its themes, the words with "Alles door elkaar" on top.
   K.showTalenCat=id=>{
@@ -344,4 +346,7 @@
     f.querySelector('#againBtn').onclick=()=>{K.sfx('tap');g.theme?K.startTalen(g.theme):K.startTalen(null,{review:true})};
     f.querySelector('#passBtn').onclick=back;
   }
+  // What Gesprekjes and Spreken (games-talen-talk.js) share with the words: the two
+  // languages, the clips in the chosen guide's voice, praise, the passport frame.
+  K.talenKit={learn,own,audio,vary,store,esc,shuffle,passport,passSub,badge,word,pic,langName,flagOf,toTalen:()=>K.showTalen()};
 })();

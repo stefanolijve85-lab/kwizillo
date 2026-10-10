@@ -49,6 +49,16 @@ function detail(s) {
     (learnt[lang] ||= { themes: {}, words: 0 }).themes[id] = { stars: n(rec?.stars), played: n(rec?.played) };
   }
   for (const k of Object.keys(talen.words || {})) { const lang = k.includes(':') ? k.split(':')[0] : ''; (learnt[lang] ||= { themes: {}, words: 0 }).words++ }
+  // Gesprekjes per situation ("es:intro") and Spreken per language: counts and dates only.
+  // Spreken never holds sound, a transcript or anything of the voice (games-talen-talk.js).
+  for (const [k, rec] of Object.entries(talen.conversations || {})) {
+    const [lang] = k.split(':'), x = (learnt[lang] ||= { themes: {}, words: 0 });
+    x.conv ||= { played: 0, answered: 0, correct: 0 };
+    x.conv.played += n(rec?.played); x.conv.answered += n(rec?.answered); x.conv.correct += n(rec?.correct);
+  }
+  for (const [lang, rec] of Object.entries(talen.speaking || {})) {
+    (learnt[lang] ||= { themes: {}, words: 0 }).speaking = { practised: n(rec?.practised), completed: n(rec?.completed), lastPlayed: n(rec?.lastPlayed) };
+  }
   const math = p.games?.math || {};
   return {
     answered: n(s?.answered), correct: n(s?.correct), quizzes: n(s?.quizzesPlayed), level: 1 + Math.floor(n(s?.xp) / 100),
@@ -56,6 +66,8 @@ function detail(s) {
     math: { played: n(math.played), won: n(math.won), best: Object.fromEntries(Object.entries(math.best || {}).map(([k, v]) => [k, n(v)])) },
     talen: Object.entries(learnt).map(([lang, x]) => ({
       lang, name: LANGS[lang] || 'Onbekende taal', words: x.words,
+      conversations: x.conv || { played: 0, answered: 0, correct: 0 },
+      speaking: x.speaking || { practised: 0, completed: 0, lastPlayed: 0 },
       themes: G.talen.filter(t => x.themes[t.id]).map(t => ({ id: t.id, label: t.label, ...x.themes[t.id] })),
     })),
   };
