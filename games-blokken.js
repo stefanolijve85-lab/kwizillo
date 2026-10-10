@@ -170,21 +170,24 @@
   }
   const ART='assets/games/blokken/';
   const CELL_ART=c=>`${ART}cell-${c}.webp`;
-  const preloadArt=()=>{for(const c of Object.keys(D.COLORS)){const i=new Image();i.src=CELL_ART(c)}};
+  const preloadArt=()=>{for(const src of [...Object.keys(D.COLORS).map(CELL_ART),`${ART}mega-nl.webp`,`${ART}mega-star.webp`,`${ART}boost-banner.webp`]){const i=new Image();i.src=src}};
   // MEGA ZET!: the emblem as drawn (Dutch lettering) in Dutch; in every other
   // language its star and rays with the translated title as live text.
   const megaEmblem=(cls='')=>K.state.language==='nl'
     ?`<img class="bk-emblem ${cls}" src="${ART}mega-nl.webp" alt="${esc(t('blokken.mega'))}" draggable="false">`
     :`<span class="bk-emblem live ${cls}"><img src="${ART}mega-star.webp" alt="" draggable="false"><b>${esc(t('blokken.mega'))}</b></span>`;
 
-  // The game's own rainbow title: one colour per letter, built as text. Arabic
-  // letters join, so a split word would fall apart there: it gets one gradient.
-  const RAINBOW=['#ff4d4d','#ff9a1f','#ffcf24','#2fcf62','#25c4ee','#3474ff','#9b5cf6','#ff5fae'];
+  // The title. In Dutch the drawn logo (its lettering is Dutch); in every other
+  // language live text in the logo's colours (turquoise, then yellow, cream
+  // outline, purple depth) next to the blocks emblem. Arabic letters join, so a
+  // split word would fall apart there: it gets one gradient instead.
   function rainbowTitle(text,tag='h1',cls=''){
-    if(K.isRTL?.())return `<${tag} class="bk-title rtl ${cls}"><span>${esc(text)}</span></${tag}>`;
-    let i=0;
-    const letters=[...text].map(ch=>ch===' '?'<span class="bk-sp"> </span>':`<span style="--c:${RAINBOW[(i++)%RAINBOW.length]};--r:${(i%2?-1:1)*(2+(i%3))}deg">${esc(ch)}</span>`).join('');
-    return `<${tag} class="bk-title ${cls}" aria-label="${esc(text)}"><span aria-hidden="true">${letters}</span></${tag}>`;
+    if(K.state.language==='nl')return `<${tag} class="bk-title logo ${cls}"><img src="${ART}logo-nl.webp" alt="${esc(text)}" draggable="false"></${tag}>`;
+    const emblem=`<img class="bk-title-emblem" src="${ART}emblem.webp" alt="" draggable="false">`;
+    if(K.isRTL?.())return `<${tag} class="bk-title rtl ${cls}">${emblem}<span class="bk-title-text">${esc(text)}</span></${tag}>`;
+    const chars=[...text],split=Math.ceil(chars.filter(c=>c!==' ').length*.6);let i=0;
+    const letters=chars.map(ch=>ch===' '?'<span class="bk-sp"> </span>':`<span style="--c:${(i++)<split?'#2fd6f2':'#ffd23a'}">${esc(ch)}</span>`).join('');
+    return `<${tag} class="bk-title ${cls}" aria-label="${esc(text)}">${emblem}<span class="bk-title-text" aria-hidden="true">${letters}</span></${tag}>`;
   }
 
   const ICON={
@@ -198,7 +201,6 @@
     bolt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 2 5 13.4h5.6L9.4 22 19 9.8h-5.7z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>',
     rotate:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M6.4 2.6 6.8 7.4l4.7-.6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     check:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.4 4.3L19 7.4" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    lock:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10.5" rx="3" fill="currentColor"/><path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.6 0v2.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg>',
     play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.9l10.6-6.8a1 1 0 0 0 0-1.7L9.5 4.3A1 1 0 0 0 8 5.2z" fill="currentColor"/></svg>',
     close:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11m0-11-11 11" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
     star:'<svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="bkStarG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3a1"/><stop offset=".5" stop-color="#ffc928"/><stop offset="1" stop-color="#f08c00"/></linearGradient></defs><path d="M32 4.5l8.3 17 18.7 2.7-13.5 13.2 3.2 18.6L32 47.2l-16.7 8.8 3.2-18.6L5 24.2l18.7-2.7z" fill="url(#bkStarG)" stroke="#d27800" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 20.5c3-1.6 6.5-2 9.8-1.1" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".75"/></svg>'
@@ -242,10 +244,9 @@
       const n=i+1,done=b.done.includes(n),open=unlocked(n),cur=n===next&&!done;
       const label=done?t('blokken.tileDone',{n}):open?t('blokken.tileOpen',{n}):t('blokken.tileLocked',{n,prev:n-1});
       return `<button class="bk-level-tile ${done?'done':''} ${open?'':'locked'} ${n===b.last&&open?'last':''} ${cur?'current':''}" data-level="${n}" ${open?'':'aria-disabled="true"'} aria-label="${esc(label)}">
-        <b>${n}</b>${done?`<i class="bk-tile-check">${ICON.check}</i>`:''}${open?'':`<i class="bk-tile-lock">${ICON.lock}</i>`}
+        <b>${n}</b>
       </button>`;
     }).join('');
-    const deco=['red','yellow','blue','green'].map((c,i)=>pieceSVG({cells:[[[0,0],[1,0],[1,1]],[[0,0],[1,0],[0,1],[1,1]],[[0,0],[0,1],[0,2],[1,2]],[[1,0],[0,1],[1,1],[2,1]]][i],color:c,symbol:['star','heart','moon','dot'][i]},0)).map((s,i)=>`<span style="width:${[2,2,2,3][i]*22}px;height:${[2,2,3,2][i]*22}px">${s}</span>`).join('');
     const f=K.frame(`<section class="blokken-root bk-levels fade-in">
       <div class="bk-bg" aria-hidden="true"></div>
       <header class="bk-head">
@@ -256,7 +257,7 @@
         </div>
       </header>
       <div class="bk-levels-card">
-        <div class="bk-deco" aria-hidden="true">${deco}</div>
+        <img class="bk-deco" src="${ART}emblem.webp" alt="" draggable="false">
         <h2>${esc(t('blokken.pickLevel'))}</h2>
         <p>${esc(t('blokken.levelsDone',{n:b.done.length,total:TOTAL}))}</p>
         <div class="bk-level-grid">${tiles}</div>

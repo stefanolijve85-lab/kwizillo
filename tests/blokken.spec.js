@@ -113,7 +113,7 @@ test.describe('Blokkenpret', () => {
     await page.locator('#homeBlokken').click();
     await expect(page.locator('.bk-level-tile')).toHaveCount(10);
     await expect(page.locator('.bk-level-tile.locked')).toHaveCount(9);
-    await expect(page.locator('.bk-title')).toHaveAttribute('aria-label', 'Blokkenpret');
+    await expect(page.locator('.bk-title img')).toHaveAttribute('alt', 'Blokkenpret');   // Dutch: the drawn logo
     await page.locator('.bk-level-tile[data-level="2"]').click({ force: true });          // locked: stays on the overview
     await expect(page.locator('.bk-levels')).toBeVisible();
     await page.locator('#bkBack').click();

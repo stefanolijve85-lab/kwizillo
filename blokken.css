@@ -5,7 +5,7 @@
 
 .blokken-root{
   --bk-ink:#3d1f8f;--bk-ink-soft:#6a55b8;--bk-lilac:#efe9fe;--bk-lilac-2:#e2d8fb;--bk-lilac-edge:#cdbff2;
-  --bk-cream:#fff6e8;--bk-cell:#dcd3f4;--bk-blue-1:#5aaeff;--bk-blue-2:#2468e6;--bk-blue-edge:#1a4cb0;
+  --bk-cream:#2a0b7a;--bk-cell:#dcd3f4;--bk-blue-1:#5aaeff;--bk-blue-2:#2468e6;--bk-blue-edge:#1a4cb0;
   --bk-yellow-1:#ffe25a;--bk-yellow-2:#ffb21c;--bk-yellow-edge:#d98400;--bk-gold:#ffc928;
   --bk-font:'Kwizillo Arcade',ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",system-ui,sans-serif;
   position:absolute;inset:0;overflow:hidden;isolation:isolate;color:var(--bk-ink);
@@ -20,28 +20,30 @@
 .blokken-root .bk-defs{position:absolute;width:0;height:0;overflow:hidden}
 .blokken-root .bk-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
 
-/* warm light background with soft pastel shapes, and a lilac rim */
+/* dark violet arcade background with floating blocks: the upright picture in the
+   tall frame, the wide one in the wide frame (html[data-shape], updated on resize) */
 .blokken-root .bk-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'><g opacity='.5'><path d='M30 40l16 28H14z' fill='%23ffc9de'/><circle cx='196' cy='48' r='13' fill='%23ffe7a3'/><path d='M120 120l18 6-6 18-18-6z' fill='%23bfe9ff'/><path d='M222 168l14 24h-28z' fill='%23c8f0c9'/><circle cx='60' cy='200' r='10' fill='%23d9ccff'/><path d='M150 222l12 20h-24z' fill='%23ffd8b0'/><circle cx='100' cy='30' r='6' fill='%23bfe9ff'/></g></svg>"),
-    radial-gradient(120% 80% at 50% 0%,#fffaf1 0%,#fff3e1 60%,#fdeedd 100%);
-  box-shadow:inset 0 0 0 6px #ebe3fd,inset 0 0 0 9px #fff;}
+  background:#2a0b7a url("assets/games/blokken/bg-tall.webp") center/cover no-repeat}
+html[data-shape="wide"] .blokken-root .bk-bg{background-image:url("assets/games/blokken/bg-wide.webp")}
 
 /* ---------------- header ---------------- */
 .blokken-root .bk-head{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title tools" "prog prog";align-items:center;gap:6px 8px}
 .blokken-root .bk-levels .bk-head,.blokken-root.bk-levels .bk-head{grid-template-areas:"title tools"}
 .blokken-root .bk-title{grid-area:title;margin:0;font-family:var(--bk-font);font-weight:400;font-size:30px;line-height:1;letter-spacing:.01em;white-space:nowrap;min-width:0;overflow:visible}
-.blokken-root .bk-title>span>span{display:inline-block;color:var(--c);transform:rotate(var(--r));
-  -webkit-text-stroke:1.2px rgba(255,255,255,.9);paint-order:stroke fill;
-  text-shadow:0 2px 0 rgba(0,0,0,.16),0 3px 0 rgba(61,31,143,.22),0 6px 10px rgba(61,31,143,.18)}
-.blokken-root .bk-title .bk-sp{width:.25em}
-.blokken-root .bk-title.rtl>span{background:linear-gradient(90deg,#ff4d4d,#ffcf24,#2fcf62,#25c4ee,#3474ff,#9b5cf6,#ff5fae);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:ui-rounded,system-ui,sans-serif;font-weight:900}
+.blokken-root .bk-title{display:flex;align-items:center;gap:6px}
+.blokken-root .bk-title.logo img{display:block;height:46px;width:auto;max-width:100%;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+.blokken-root .bk-title-emblem{height:1.25em;width:auto;flex:none;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
+.blokken-root .bk-title-text>span{display:inline-block;color:var(--c);
+  -webkit-text-stroke:3px #fff3d6;paint-order:stroke fill;
+  text-shadow:0 3px 0 #6a34d6,0 5px 0 #4a1fa8,0 8px 12px rgba(0,0,0,.35)}
+.blokken-root .bk-title .bk-sp{width:.25em;-webkit-text-stroke:0}
+.blokken-root .bk-title.rtl .bk-title-text{background:linear-gradient(90deg,#2fd6f2,#2fd6f2 55%,#ffd23a 56%);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:ui-rounded,system-ui,sans-serif;font-weight:900}
 .blokken-root .bk-tools{grid-area:tools;display:flex;gap:8px;align-items:center}
-.blokken-root .bk-round{width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;color:#6a3df0;
-  background:linear-gradient(180deg,#ffffff,#ece6ff);box-shadow:0 4px 0 #cfc2f4,0 8px 14px rgba(90,60,180,.18);transition:transform .1s}
+.blokken-root .bk-round{width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;color:#5726c9;
+  background:url("assets/games/blokken/round.webp") center/100% 100% no-repeat;box-shadow:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35));transition:transform .1s}
 .blokken-root .bk-round svg{width:24px;height:24px}
-[dir="rtl"] .blokken-root #bkBack svg{transform:scaleX(-1)}
-.blokken-root .bk-round:active{transform:translateY(3px);box-shadow:0 1px 0 #cfc2f4}
+[dir="rtl"] .blokken-root #bkBack svg,[dir="rtl"] .blokken-root #bkNext svg,[dir="rtl"] .blokken-root #bkGames svg,[dir="rtl"] .blokken-root .bk-go svg{transform:scaleX(-1)}
+.blokken-root .bk-round:active{transform:translateY(2px) scale(.97)}
 .blokken-root .bk-prog{grid-area:prog;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
 .blokken-root .bk-dots{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;position:relative}
 .blokken-root .bk-dots::before{content:"";position:absolute;left:10px;right:10px;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:#ded6f6;z-index:-1}
@@ -116,7 +118,7 @@
 
 /* rotate button at the selected piece */
 .blokken-root .bk-rotate{position:absolute;z-index:25;width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;align-content:center;gap:0;padding:0;
-  color:#6a3df0;background:linear-gradient(180deg,#fff,#eee8ff);box-shadow:0 3px 0 #cfc2f4,0 8px 16px rgba(90,60,180,.28)}
+  color:#5726c9;background:url("assets/games/blokken/round.webp") center/100% 100% no-repeat;filter:drop-shadow(0 4px 8px rgba(40,10,120,.45))}
 .blokken-root .bk-rotate svg{width:22px;height:22px}
 .blokken-root .bk-rotate small{font-family:var(--bk-font);font-size:8.5px;line-height:1;margin-top:1px;text-transform:uppercase}
 .blokken-root .bk-rotate[hidden]{display:none}
@@ -176,17 +178,21 @@
 .blokken-root .bk-modal-actions .bk-btn{height:50px;font-size:16px;padding:0 18px}
 
 /* ---------------- art skins (assets/games/blokken, cut from art-source/blokken) ---------------- */
-/* panels: the lavender frame, 9-sliced so the rounded corners never stretch */
+/* panels, 9-sliced so the rounded corners never stretch: the board panel (purple,
+   turquoise line), the tray, and the violet-and-gold panel for results and dialogs */
 .blokken-root .bk-board-panel,.blokken-root .bk-tray-panel,.blokken-root .bk-levels-card,.blokken-root .bk-modal-card{
   background:none;box-shadow:none;border-radius:0;border:22px solid transparent;
-  border-image-source:url("assets/games/blokken/frame.webp");border-image-slice:72 fill;border-image-width:22px;border-image-repeat:stretch;
-  filter:drop-shadow(0 8px 12px rgba(110,80,190,.16))}
+  border-image-slice:52 fill;border-image-width:22px;border-image-repeat:stretch;
+  filter:drop-shadow(0 10px 18px rgba(10,0,40,.45))}
+.blokken-root .bk-board-panel{border-image-source:url("assets/games/blokken/panel-board.webp")}
+.blokken-root .bk-tray-panel{border-image-source:url("assets/games/blokken/panel-tray.webp");border-image-slice:44 fill}
+.blokken-root .bk-levels-card,.blokken-root .bk-modal-card,.blokken-root.bk-result .bk-tray-panel{border-image-source:url("assets/games/blokken/panel-result.webp");border-image-slice:52 fill}
 .blokken-root .bk-board-panel{padding:0}
 .blokken-root .bk-board-wrap{inset:6px}
 .blokken-root .bk-tray-panel{padding:0 2px 2px}
 .blokken-root .bk-levels-card{padding:6px}
 .blokken-root .bk-modal-card{padding:8px}
-.blokken-root.bk-mega .bk-board-panel{box-shadow:none;filter:drop-shadow(0 0 14px rgba(255,200,40,.75))}
+.blokken-root.bk-mega .bk-board-panel{box-shadow:none;filter:drop-shadow(0 0 16px rgba(255,200,40,.8))}
 html[data-shape="wide"] .blokken-root .bk-board-panel,html[data-shape="wide"] .blokken-root .bk-tray-panel,html[data-shape="wide"] .blokken-root .bk-levels-card{border-width:30px;border-image-width:30px;padding:0}
 html[data-shape="wide"] .blokken-root .bk-board-wrap{inset:10px}
 /* buttons: the glossy pills, 9-sliced so only the middle stretches; the label is live text */
@@ -197,16 +203,17 @@ html[data-shape="wide"] .blokken-root .bk-board-wrap{inset:10px}
 html[data-shape="wide"] .blokken-root .bk-btn.small{--bh:58px}
 html:not([data-shape="wide"]) .blokken-root .bk-actions.result .bk-btn:not(.small){--bh:48px}
 html:not([data-shape="wide"]) .blokken-root .bk-actions.result .bk-btn.small{--bh:42px}
-.blokken-root .bk-btn.blue,.blokken-root .bk-btn.yellow{background:none;box-shadow:none;border-style:solid;border-color:transparent;border-width:0 calc(var(--bh) / 2);
-  padding-inline:2px;border-image-slice:0 75 fill;border-image-repeat:stretch;filter:drop-shadow(0 5px 6px rgba(70,40,150,.22))}
-.blokken-root .bk-btn.blue{border-image-source:url("assets/games/blokken/btn-blue.webp")}
-.blokken-root .bk-btn.yellow{border-image-source:url("assets/games/blokken/btn-yellow.webp");text-shadow:0 2px 0 rgba(200,110,0,.7),0 0 6px rgba(200,110,0,.35)}
-.blokken-root .bk-btn.blue:active,.blokken-root .bk-btn.yellow:active{filter:drop-shadow(0 2px 3px rgba(70,40,150,.22))}
+.blokken-root .bk-btn.blue,.blokken-root .bk-btn.yellow,.blokken-root .bk-btn.ghost{background:none;box-shadow:none;border-style:solid;border-color:transparent;border-width:0 calc(var(--bh) / 2);
+  padding-inline:2px;border-image-slice:0 75 fill;border-image-repeat:stretch;filter:drop-shadow(0 5px 7px rgba(10,0,40,.4))}
+.blokken-root .bk-btn.blue{border-image-source:url("assets/games/blokken/btn-blue2.webp")}
+.blokken-root .bk-btn.ghost{border-image-source:url("assets/games/blokken/btn-violet.webp");color:#fff;text-shadow:0 2px 0 rgba(40,10,120,.55)}
+.blokken-root .bk-btn.yellow{border-image-source:url("assets/games/blokken/btn-gold.webp");color:#4a128f;text-shadow:0 1px 0 rgba(255,255,255,.55)}
+.blokken-root .bk-btn.blue:active,.blokken-root .bk-btn.yellow:active,.blokken-root .bk-btn.ghost:active{filter:drop-shadow(0 2px 3px rgba(70,40,150,.22))}
 /* MEGA ZET!: the emblem (Dutch lettering only in Dutch; elsewhere its star and rays plus live text) */
 .blokken-root .bk-emblem{display:block;width:100%;height:auto;-webkit-user-drag:none}
 .blokken-root .bk-emblem.live{display:flex;flex-direction:column;align-items:center}
 .blokken-root .bk-emblem.live img{width:88%;height:auto;display:block}
-.blokken-root .bk-emblem.live b{margin-top:-6%;font-family:var(--bk-font);font-weight:400;font-size:clamp(28px,9vw,54px);line-height:1;white-space:nowrap;
+.blokken-root .bk-emblem.live b{direction:ltr;unicode-bidi:isolate;margin-top:-6%;font-family:var(--bk-font);font-weight:400;font-size:clamp(28px,9vw,54px);line-height:1;white-space:nowrap;
   color:#ffd23a;-webkit-text-stroke:4px #6b2fd8;paint-order:stroke fill;text-shadow:0 4px 0 #4b1fa8,0 8px 16px rgba(60,20,140,.35)}
 .blokken-root .bk-mega-text{width:min(78%,380px)}
 .blokken-root .bk-mega-text .bk-emblem.live b{font-size:clamp(30px,10vw,58px)}
@@ -243,6 +250,7 @@ html:not([data-shape="wide"]) .blokken-root .bk-result-star{width:clamp(110px,46
 .blokken-root .bk-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:999px;background:#fff;font-weight:900;color:#4a22c4;box-shadow:0 2px 0 #ddd3f7}
 .blokken-root .bk-chip .ki{width:16px;height:16px}
 .blokken-root .bk-actions.result{max-width:560px}
+html[data-shape="wide"] .blokken-root .bk-actions.result{max-width:none;flex-wrap:nowrap}
 .blokken-root .bk-actions.result .bk-btn:not(.small){min-width:150px}
 html:not([data-shape="wide"]) .blokken-root .bk-actions.result .bk-btn:not(.small){height:48px;font-size:15px;padding:0 16px;min-width:0;flex:1 1 40%}
 html:not([data-shape="wide"]) .blokken-root .bk-actions.result .bk-btn.small{height:42px;font-size:13px;flex:1 1 40%}
@@ -255,21 +263,22 @@ html:not([data-shape="wide"]) .blokken-root .bk-result-card{gap:2px;padding:6px}
   background:linear-gradient(180deg,#f6f2ff,#e9e1fc);box-shadow:inset 0 0 0 3px #fff,0 5px 0 var(--bk-lilac-edge),0 12px 24px rgba(110,80,190,.16)}
 .blokken-root .bk-levels-card h2{margin:4px 0 2px;font-family:var(--bk-font);font-weight:400;font-size:24px;color:#6b35e8}
 .blokken-root .bk-levels-card>p{margin:0 0 14px;font-weight:900;color:var(--bk-ink-soft)}
-.blokken-root .bk-deco{display:flex;justify-content:center;align-items:flex-end;gap:12px;margin:2px 0 8px}
-.blokken-root .bk-deco span{display:block}
-.blokken-root .bk-deco .bk-svg{filter:drop-shadow(0 3px 2px rgba(60,30,120,.25))}
+.blokken-root .bk-deco{display:block;width:min(150px,40%);height:auto;margin:-4px auto 6px;filter:drop-shadow(0 6px 10px rgba(40,10,120,.3))}
 .blokken-root .bk-go{margin-top:18px}
 .blokken-root .bk-level-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:560px;margin:0 auto}
-.blokken-root .bk-level-tile{position:relative;aspect-ratio:1;border:0;border-radius:22px;cursor:pointer;display:grid;place-items:center;
-  background:linear-gradient(180deg,#a77bff,#6b35e8);color:#fff;box-shadow:inset 0 3px 0 rgba(255,255,255,.3),0 5px 0 #4a20b8,0 10px 16px rgba(90,50,200,.25)}
-.blokken-root .bk-level-tile b{font-family:var(--bk-font);font-weight:400;font-size:clamp(22px,7vw,34px);text-shadow:0 3px 0 rgba(40,10,120,.4)}
-.blokken-root .bk-level-tile.done{background:linear-gradient(180deg,#5fe07e,#22b04b);box-shadow:inset 0 3px 0 rgba(255,255,255,.3),0 5px 0 #178a39,0 10px 16px rgba(30,150,70,.25)}
-.blokken-root .bk-level-tile.locked{background:linear-gradient(180deg,#e9e3fa,#d8cff3);color:#a597d6;box-shadow:0 4px 0 #c9bcef;cursor:default}
-.blokken-root .bk-level-tile.locked b{text-shadow:none}
-.blokken-root .bk-level-tile.current{box-shadow:0 0 0 4px #ffd34a,inset 0 3px 0 rgba(255,255,255,.3),0 5px 0 #4a20b8,0 10px 18px rgba(240,170,0,.35);animation:bkBob 1.6s ease-in-out infinite}
-.blokken-root .bk-tile-check,.blokken-root .bk-tile-lock{position:absolute;right:-4px;top:-4px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#22b04b;box-shadow:0 2px 0 rgba(0,0,0,.12)}
-.blokken-root .bk-tile-lock{color:#a597d6;right:50%;top:auto;bottom:10%;transform:translateX(50%);background:none;box-shadow:none}
-.blokken-root .bk-tile-check svg,.blokken-root .bk-tile-lock svg{width:15px;height:15px}
+/* level medals: violet (open), gold (the next one to play), green check (done), padlock (locked) */
+.blokken-root .bk-level-tile{position:relative;aspect-ratio:1;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;padding:0;
+  background:url("assets/games/blokken/medal.webp") center/100% 100% no-repeat;color:#4a1fb0;filter:drop-shadow(0 5px 7px rgba(10,0,40,.4));transition:transform .12s}
+.blokken-root .bk-level-tile:active{transform:scale(.95)}
+.blokken-root .bk-level-tile b{font-family:var(--bk-font);font-weight:400;font-size:clamp(22px,7vw,34px);line-height:1;transform:translateY(2px)}
+.blokken-root .bk-level-tile.current{background-image:url("assets/games/blokken/medal-current.webp");color:#fff}
+.blokken-root .bk-level-tile.current b{text-shadow:0 3px 0 rgba(30,0,90,.55)}
+.blokken-root .bk-level-tile.done{background-image:url("assets/games/blokken/medal-done.webp")}
+.blokken-root .bk-level-tile.locked{background-image:url("assets/games/blokken/medal-locked.webp");cursor:default}
+/* done and locked: the picture says it, the number stays readable on a small tag */
+.blokken-root .bk-level-tile.done b,.blokken-root .bk-level-tile.locked b{position:absolute;right:-2px;bottom:-2px;min-width:24px;padding:4px 6px 2px;border-radius:999px;font-size:14px;
+  background:#fff;color:#4a1fb0;box-shadow:0 2px 4px rgba(0,0,0,.3);transform:none}
+.blokken-root .bk-level-tile:focus-visible{outline:3px solid #2fd6f2;outline-offset:3px}
 .blokken-root .bk-badge-row{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:6px 14px;border-radius:999px;background:#fff;font-weight:900;color:#c07a00}
 .blokken-root .bk-badge-mini{width:30px;height:30px}
 .blokken-root .bk-badge-mini svg{width:100%;height:100%}
@@ -278,7 +287,8 @@ html:not([data-shape="wide"]) .blokken-root .bk-result-card{gap:2px;padding:6px}
 html[data-shape="wide"] .blokken-root{padding:18px 24px 16px}
 html[data-shape="wide"] .blokken-root .bk-head{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"title prog tools";gap:16px}
 html[data-shape="wide"] .blokken-root.bk-levels .bk-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title tools"}
-html[data-shape="wide"] .blokken-root .bk-title{font-size:54px}
+html[data-shape="wide"] .blokken-root .bk-title{font-size:50px}
+html[data-shape="wide"] .blokken-root .bk-title.logo img{height:76px}
 html[data-shape="wide"] .blokken-root .bk-round{width:58px;height:58px}
 html[data-shape="wide"] .blokken-root .bk-round svg{width:28px;height:28px}
 html[data-shape="wide"] .blokken-root .bk-dots{gap:8px}
@@ -324,7 +334,6 @@ html[data-shape="wide"] .blokken-root .bk-coach{left:auto;right:18px;top:18px;wi
 @keyframes bkRun{to{stroke-dashoffset:-100}}
 @keyframes bkMega{from{opacity:0;transform:translate(-50%,-50%) scale(.4)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes bkStar{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-@keyframes bkBob{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
 
 @media (prefers-reduced-motion:reduce){
   .blokken-root *,.blokken-root *::before{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
