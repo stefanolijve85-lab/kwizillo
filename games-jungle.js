@@ -49,7 +49,7 @@
   const leave=()=>{try{active?.destroy()}catch(e){}active=null;K.audio.setTempo?.(1)};
 
   K.startJungle=async()=>{
-    leave();
+    leave();K.noteStop?.('game','jungle');
     K.startScoreRun();
     K.stopSpeech();
     // While the game's module and its artwork load, the screen shows the

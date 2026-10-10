@@ -18,9 +18,15 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const t=(k,p)=>K.t(k,p);
 
-  // Waar het kind gebleven was: de laatste wereld die het speelde, met het
-  // niveau dat die wereld inmiddels heeft.
+  // Waar het kind gebleven was: de laatste wereld of het laatste spel dat het
+  // opende (K.noteStop, m1-ui.js); een wereld met het niveau dat die inmiddels heeft.
+  const GAME_TITLE={talen:'talen.title',math:'math.title',whoami:'whoami.title',fotozoom:'fotozoom.title',facts:'facts.title',memo:'memo.title',jungle:'jungle.title',mega:'mega.title'};
   function lastStop(){
+    const s=K.state.lastStop;
+    if(s?.kind==='game'&&GAME_TITLE[s.id]){
+      const art=K.GAME_ART?.[s.id==='mega'?'memoAll':s.id]||K.MASTER.ruimte;
+      return {game:s.id,title:t(GAME_TITLE[s.id]),art};
+    }
     const w=K.state.lastWorld&&K.MASTER?.[K.state.lastWorld]?K.state.lastWorld:null;
     if(!w) return null;
     return {world:w,title:t(`world.${w}.title`),level:K.worldLevel?.(w)||1,art:K.MASTER[w]};
@@ -50,7 +56,7 @@
           ${tile('🪙',String(K.state.coins||0),t('stats.coins'))}
           ${tile('🔥',String(K.state.streak||0),t('stats.streak'))}
         </div>
-        ${stop?`<div class="wb-where"><img src="${stop.art}" alt="" style="object-position:${K.WORLD_FOCUS?.[stop.world]||'center 40%'}" decoding="async"><span><small>${esc(t('welcome.back.where'))}</small><b>${esc(stop.title)}</b><i>${esc(t('settings.level'))} ${stop.level}</i></span></div>`:''}
+        ${stop?`<div class="wb-where"><img src="${stop.art}" alt="" style="object-position:${stop.world?K.WORLD_FOCUS?.[stop.world]||'center 40%':'center'}" decoding="async"><span><small>${esc(t('welcome.back.where'))}</small><b>${esc(stop.title)}</b>${stop.game?'':`<i>${esc(t('settings.level'))} ${stop.level}</i>`}</span></div>`:''}
         <button class="wb-go primary" id="wbGo">${esc(t('welcome.back.continue'))}</button>
         <button class="wb-other" id="wbOther">${esc(t('welcome.back.other'))}${others.length?` · ${others.length}`:''}</button>
       </div>

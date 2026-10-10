@@ -26,6 +26,8 @@ function mathLines(lang, t) {
   for (const k of OPS) out.add(t(k));
   for (const k of TEMPLATES) for (const p of core.speechParts(t(k), {}, lang)) out.add(p);
   for (const k of FIXED) out.add(t(k));
+  // Geld tellen: every amount up to the highest pile (20 euro, 2000 cents), as games-money.js says it.
+  for (let c = 1; c <= MAX; c++) for (const p of core.moneyParts(c, lang, t)) out.add(p);
   return [...out].map(s => s.trim()).filter(Boolean);
 }
 

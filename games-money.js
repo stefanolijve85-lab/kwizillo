@@ -60,17 +60,8 @@
     return out;
   }
 
-  // The amount in recorded pieces: "3", "euro", "en", "45", "cent". The plural form
-  // the number needs comes from the language's own rules (рубль/рубля/рублей).
-  function amountParts(m,minor){
-    const lang=K.state.language,rules=new Intl.PluralRules(m.locale);
-    const form=n=>{const c=rules.select(n);return c==='one'?'one':(c==='few'||c==='two')?'few':'many'};
-    const units=Math.floor(minor/100),cents=minor%100,out=[];
-    if(units)out.push(...K.core.speechParts(t(`math.money.main.${form(units)}`),{n:units},lang));
-    if(units&&cents)out.push(t('math.money.and'));
-    if(cents)out.push(...K.core.speechParts(t(`math.money.sub.${form(cents)}`),{n:cents},lang));
-    return out;
-  }
+  // The amount in recorded pieces, the way the language says it (quiz-core-v2.js moneyParts).
+  const amountParts=(m,minor)=>K.core.moneyParts(minor,K.state.language,k=>K.t(k));
   const say=parts=>K.speakSequence(parts.map(text=>({kind:'part',text})));
 
   /* ---------------- Rekenen: sums, money or measuring ---------------- */

@@ -396,3 +396,24 @@ console.log('Kwizillo core gameplay tests: OK');
   assert.strictEqual(spoken('minus', 'en'), 'minus');
   console.log('speech: "min" and "een" said as minus and one ✔');
 }
+
+// Money is said the way people say it (quiz-core-v2.js moneyParts, Stefan 2026-10-10).
+{
+  const { t } = require('../tools/warm-speech.cjs');
+  const say = (lang, minor) => core.moneyParts(minor, lang, k => t(lang, k)).join(' ');
+  assert.strictEqual(say('nl', 60), 'zestig cent');
+  assert.strictEqual(say('nl', 462), 'vier euro tweeënzestig');
+  assert.strictEqual(say('nl', 201), 'twee euro en een cent');
+  assert.strictEqual(say('de', 462), 'vier Euro zweiundsechzig');
+  assert.strictEqual(say('de', 100), 'ein Euro');
+  assert.strictEqual(say('fr', 462), 'quatre euros soixante-deux');
+  assert.strictEqual(say('es', 2162), 'veintiún euros con sesenta y dos');
+  assert.strictEqual(say('it', 162), 'un euro e sessantadue');
+  assert.strictEqual(say('en', 462), 'four dollars and sixty-two cents');
+  assert.strictEqual(say('pt', 462), 'quatro reais e sessenta e dois centavos');
+  assert.strictEqual(say('ru', 462), 'четыре рубля шестьдесят две копейки');
+  assert.strictEqual(say('ru', 121), 'один рубль двадцать одна копейка');
+  assert.strictEqual(say('ar', 200), 'درهمان');
+  assert.strictEqual(say('ar', 100), 'درهم واحد');
+  console.log('money: said as people say it in ten languages ✔');
+}

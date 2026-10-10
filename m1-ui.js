@@ -286,15 +286,21 @@
   // A game opened from Home: the guide calls out its name, as for a world
   // (Stefan, 2026-10-10). Only while that screen is still there.
   const openGame=(key,open)=>{
+    K.noteStop('game',key.split('.')[0]);
     open();const f=K.app.firstElementChild;
     setTimeout(()=>{if(f?.isConnected)K.speak(t('world.speech.enter',{title:t(key)}))},420);
   };
+
+  // Where the child was, for the welcome-back screen (welcome-back.js): the last
+  // world or game it opened. Before 2026-10-10 only the world was kept, so after a
+  // round of Rekenen the app still said "you were in the Animal world".
+  K.noteStop=(kind,id)=>{K.state.lastStop={kind,id};K.save()};
 
   /* ---------------- World ---------------- */
 
   K.enterWorld=world=>{
     if(!shown().includes(world)) return K.showHome();
-    K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.save();K.sfx('fanfare');
+    K.stopSpeech();K.currentWorld=world;K.state.lastWorld=world;K.noteStop('world',world);K.sfx('fanfare');
     K.audio.setTrack(WORLD_MUSIC[world]||'home').catch(()=>{});
     K.showWorld(world);
     // The guide calls out the world's name, cheering, once the fanfare peaks.

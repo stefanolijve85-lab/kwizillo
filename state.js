@@ -257,7 +257,7 @@
     }
   };
   // What "Op 0 zetten" clears: the earned things, never who the child is or how the app is set up.
-  const PROGRESS_KEYS=['xp','coins','streak','lastPlayedDate','answered','correct','quizzesPlayed','lastWorld','bestScores','shop','progress','selectedMascot'];
+  const PROGRESS_KEYS=['xp','coins','streak','lastPlayedDate','answered','correct','quizzesPlayed','lastWorld','lastStop','bestScores','shop','progress','selectedMascot'];
 
   // "Erase all data" in the parent zone: every key this app ever writes goes,
   // including the fresh-start choice and the cached App Store entitlement, so

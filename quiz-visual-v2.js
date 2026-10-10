@@ -63,7 +63,7 @@
   // play level a parent may have raised in the parent zone.
   K.megaEarnedLevel=()=>{const ws=K.playableWorlds();return Math.round(ws.reduce((n,w)=>n+K.worldLevel(w),0)/Math.max(1,ws.length))||1};
   K.startMega=()=>{
-    K.stopSpeech();
+    K.stopSpeech();K.noteStop?.('game','mega');
     if(!K.premium.can('mega')){K.premiumLocked({kind:'mega',retry:()=>K.startMega()});return}
     const worlds=K.playableWorlds();
     const run=K.runFor('mega',null);

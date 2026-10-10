@@ -392,6 +392,51 @@
     head=head.trim();
     return head?[head,tail]:[whole];
   }
+  // An amount of money the way people say it (Stefan, 2026-10-10): "vier euro
+  // tweeënzestig", "vier Euro zweiundsechzig", "quatre euros soixante-deux",
+  // "cuatro euros con sesenta y dos", "quattro euro e sessantadue": the cents
+  // without their word once there are whole units (from ten cents; "twee euro en
+  // één cent" stays whole). English, Brazilian Portuguese, Danish and Arabic keep
+  // "and ... cents". German, Italian and Spanish say "ein" / "un" / "veintiún"
+  // before a noun; the Russian kopeck is feminine (одна, две копейки), and Russian
+  // needs no "и"; Arabic says one after the noun and two as a dual. t(key) gives the raw template ('{n} euro'); the pieces are the
+  // recorded ones (tools/math-speech.cjs lists them).
+  const MONEY_STYLE={nl:{short:true},de:{short:true,one:'ein'},fr:{short:true},es:{short:true,join:'con',apocope:true},it:{short:true,keepAnd:true,one:'un'},ru:{noAnd:true,femSub:true}};
+  const MONEY_LOCALE={nl:'nl-NL',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT',pt:'pt-BR',da:'da-DK',ru:'ru-RU',ar:'ar'};
+  function moneyParts(minor,lang,t){
+    const st=MONEY_STYLE[lang]||{},rules=new Intl.PluralRules(MONEY_LOCALE[lang]||lang);
+    const form=n=>{const c=rules.select(n);return c==='one'?'one':(c==='few'||c==='two')?'few':'many'};
+    const units=Math.floor(minor/100),cents=minor%100;
+    const num=(n,beforeNoun,fem)=>{
+      const p=numberParts(n,lang),last=p.length-1;
+      if(beforeNoun&&n===1&&st.one)return [st.one];
+      if(beforeNoun&&st.apocope&&n%10===1&&n%100!==11)p[last]=p[last].replace(/veintiuno$/,'veintiún').replace(/(^|\s)uno$/,'$1un');
+      if(fem)p[last]=p[last].replace(/(^|\s)один$/,'$1одна').replace(/(^|\s)два$/,'$1две');
+      return p;
+    };
+    // Arabic puts one after the noun (درهم واحد) and has a dual for two (درهمان).
+    const AR={main:['درهم','درهمان'],sub:['فلس','فلسان']};
+    const unit=(key,n,fem)=>{
+      if(lang==='ar'&&(n===1||n===2)){const [one,two]=AR[key.split('.')[2]];return n===1?[one,'واحد']:[two]}
+      const [pre='',post='']=String(t(key)).split('{n}'),out=[];
+      if(pre.trim())out.push(...speechParts(pre,{},lang));
+      out.push(...num(n,!!post.trim(),fem));
+      if(post.trim())out.push(...speechParts(post,{},lang));
+      return out;
+    };
+    const out=[];
+    if(units)out.push(...unit(`math.money.main.${form(units)}`,units,false));
+    if(units&&cents){
+      if(st.short&&cents>=10){
+        if(st.keepAnd)out.push(t('math.money.and'));else if(st.join)out.push(st.join);
+        out.push(...num(cents,false,false));
+        return out;
+      }
+      if(!st.noAnd)out.push(t('math.money.and'));
+    }
+    if(cents)out.push(...unit(`math.money.sub.${form(cents)}`,cents,!!st.femSub));
+    return out;
+  }
   // A template such as "Bijna. Het is {answer}." becomes its fixed words and its
   // numbers as separate recordings: ["Bijna. Het is", "zeventien"]. Punctuation
   // left on its own between two slots is dropped; it has nothing to say.
@@ -414,5 +459,5 @@
 
   function createCancellationGate(){let version=0;return{begin(){return ++version},cancel(){return ++version},isCurrent(token){return token===version},get version(){return version}}}
   function topicCounts(questions){const counts={};for(const q of questions||[]){counts[q.world]||={};counts[q.world][q.topic]=(counts[q.world][q.topic]||0)+1}return counts}
-  return{FEEDBACK_VARIANTS,buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,selectMegaBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,answerSegments,answerText,spokenLetters,answerLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
+  return{FEEDBACK_VARIANTS,buildFeedbackSegments,shuffle,prepareQuestion,selectQuestions,poolFor,selectQuizBatch,selectMegaBatch,difficultyCap,difficultyBand,hintsAllowed,readsAnswers,questionSeconds,maxWrong,quizPassed,LEVELS,questionArtKind,spellNumbers,numberParts,speechParts,moneyParts,answerSegments,answerText,spokenLetters,answerLetters,buildQuestionSpeechSegments,buildQuestionSpeech,buildFeedbackSpeech,evaluateAnswer,createSession,recordAnswer,createCancellationGate,topicCounts};
 });

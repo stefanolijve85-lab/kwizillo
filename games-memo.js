@@ -271,7 +271,7 @@
         <div class="result-native">
           <button id="againBtn">${esc(t(won?'memo.again':'memo.retry'))}</button>
           <button id="worldBtn" class="secondary">${esc(t('memo.otherWorld'))}</button>
-          <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
+          <button id="shareBtn" class="secondary wide">${esc(t('result.share'))}</button>
         </div>
       </div>
     </section>`);
@@ -316,7 +316,7 @@
         <div class="result-native">
           <button id="againBtn">${esc(t('memo.rematch'))}</button>
           <button id="worldBtn" class="secondary">${esc(t('memo.otherWorld'))}</button>
-          <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
+          <button id="shareBtn" class="secondary wide">${esc(t('result.share'))}</button>
         </div>
       </div>
     </section>`);

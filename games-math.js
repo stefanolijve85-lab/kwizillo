@@ -215,7 +215,7 @@
         <div class="result-native">
           <button id="againBtn">${esc(t(passed?'math.again':'result.retryNow'))}</button>
           <button id="worldBtn" class="secondary">${esc(t('world.backHome'))}</button>
-          <button id="shareBtn" class="secondary">${esc(t('result.share'))}</button>
+          <button id="shareBtn" class="secondary wide">${esc(t('result.share'))}</button>
         </div>
       </div>
     </section>`);

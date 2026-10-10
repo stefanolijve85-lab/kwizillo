@@ -1891,3 +1891,5 @@ html:not([data-shape="wide"]) .quiz-v2-ui:has(.whoami-timer) .fotozoom-row{paddi
 .measure-answers.two{grid-template-columns:1fr 1fr}
 .measure-answers .answer-copy{overflow-wrap:anywhere}
 .measure-card[data-kind="length"] .measure-stage,.measure-card[data-kind="compare"] .measure-stage{flex:0 1 auto}
+/* Rekenen and Memo have no Home button beside "Deel je score": there it is as wide as the two above (Stefan, 2026-10-10). */
+.result-native #shareBtn.wide{grid-column:1/-1;padding-inline:14px}
